@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 827a2d6dc8a3622c17cdbcdfb179a3ea0f434f6f
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 01ed6d836e5d6bfe139e4a21a0ff6a9708c261d3
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006461"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84977925"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>¿El usuario necesita disponer de una topología radial con los dispositivos SD-WAN/VPN para usar Azure Virtual WAN?
 
@@ -212,9 +212,14 @@ Un centro de conectividad virtual puede propagar una ruta predeterminada aprendi
 ### <a name="how-does-the-virtual-hub-in-a-virtual-wan-select-the-best-path-for-a-route-from-multiple-hubs"></a>Cómo selecciona el centro virtual de una instancia de Virtual WAN la mejor ruta de varios centros
 
 Si un centro virtual aprende la misma ruta de varios centros remotos, el orden en el que decide es el siguiente:
-1) Origen de la ruta: a) rutas de red (prefijos de red virtual aprendidos directamente por las puertas de enlace del centro virtual; b) RouteTable del centro (rutas configuradas estáticamente); c) BGP; d) rutas de InterHub.
-2)  Métrica de ruta: Virtual WAN prefiere ExpressRoute a VPN. El emparejamiento de ExpressRoute tiene una ponderación mayor en comparación con el emparejamiento de VPN
-3)  Longitud de la ruta de acceso del sistema autónomo
+1. Coincidencia de prefijo más larga
+2. Rutas locales en vez de rutas de Interhub
+3. Rutas estáticas en vez de BGP
+4. ExpressRoute en lugar de VPN
+5. Longitud de la ruta de acceso del sistema autónomo
+
+El tránsito entre ExpressRoute y ExpressRoute siempre se realiza mediante Global Reach debido a lo cual, si la solicitud llega a través de ExpressRoute en un centro y hay una VPN y una instancia de ExpressRoute en un centro remoto, se preferirá la VPN en lugar de ExpressRoute desde un centro remoto para llegar a un punto de conexión conectado mediante VPN o ExpressRoute en el centro remoto.
+
 
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>¿Hay compatibilidad con IPv6 en un Virtual WAN?
 

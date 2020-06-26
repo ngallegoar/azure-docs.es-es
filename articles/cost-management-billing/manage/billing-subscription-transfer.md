@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8f259ba9c7da3d7c37ed3eb63c63d17b74f7fbdd
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 633f406d042ce5b8ddde5b28022bdb33fdd70377
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745853"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052149"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferencia de la propiedad de facturación de una suscripción de Azure a otra cuenta
 
@@ -100,7 +100,7 @@ Si ha aceptado la propiedad de facturación de una suscripción de Azure, se rec
 
 ## <a name="supported-subscription-types"></a>Tipos de suscripciones admitidos
 
-La transferencia de suscripciones en Azure Portal está disponible para los tipos de suscripción que se enumeran a continuación. Actualmente no se admite transferencia de suscripciones de [Evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p/) o [Azure bajo licencia Open](https://azure.microsoft.com/offers/ms-azr-0111p/). Para ver una solución alternativa, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../../azure-resource-manager/management/move-resource-group-and-subscription.md). Para transferir otras suscripciones, como [Patrocinio](https://azure.microsoft.com/offers/ms-azr-0036p/) o planes de soporte técnico, [póngase en contacto con el soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+La transferencia de suscripciones en Azure Portal está disponible para los tipos de suscripción que se enumeran a continuación. Actualmente no se admite transferencia de suscripciones de [Evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p/) o [Azure bajo licencia Open](https://azure.microsoft.com/offers/ms-azr-0111p/). Para ver una solución alternativa, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../../azure-resource-manager/management/move-resource-group-and-subscription.md). Para transferir otras suscripciones, como planes de soporte técnico, [póngase en contacto con el soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 - [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*
 - [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)  

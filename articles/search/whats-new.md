@@ -7,19 +7,23 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 05/19/2020
-ms.openlocfilehash: f8ddc3ef56aefc6ea613af19d91cd0122435efd7
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 06/08/2020
+ms.openlocfilehash: 97defe2af5b82cccbaf289ccbd805b608b978a43
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344210"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736091"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novedades de Azure Cognitive Search
 
 Conozca las novedades del servicio. Marque esta página para mantenerse actualizado con el servicio.
 
 ## <a name="feature-announcements"></a>Anuncios de características
+
+### <a name="june-2020"></a>Junio de 2020
+
+La aptitud de Azure Machine Learning es nueva e integra un punto de conexión de inferencia de Azure Machine Learning. La experiencia del portal admite la detección y la integración de un punto de conexión de Azure Machine Learning en un conjunto de aptitudes de Cognitive Search. La detección requiere que los servicios Cognitive Search y Azure Machine Learning se implementen en la misma suscripción. Para suscribirse a la versión preliminar de la aptitud de Azure Machine Learning, [rellene el formulario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0jK7x7HQYdDm__YfEsbtcZUMTFGTFVTOE5XMkVUMFlDVFBTTlYzSlpLTi4u). Para empezar, realice [este tutorial](cognitive-search-tutorial-aml-custom-skill.md).
 
 ### <a name="may-2020-microsoft-build"></a>Mayo de 2020 (Microsoft Build)
 

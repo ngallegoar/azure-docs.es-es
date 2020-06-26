@@ -2,19 +2,33 @@
 title: Novedades de Language Understanding (LUIS)
 description: Este artículo se actualiza periódicamente con noticias sobre la API de Language Understanding de Azure Cognitive Services.
 ms.topic: overview
-ms.date: 05/19/2020
-ms.openlocfilehash: b4d287c8d1ddbeeee63390fb397718de1234c93e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 06/15/2020
+ms.openlocfilehash: d178ee2f5db74949f4a8ad68df93bf3c4407c58a
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83675957"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84789215"
 ---
 # <a name="whats-new-in-language-understanding"></a>Novedades de Language Understanding
 
 Conozca las novedades del servicio. Estos elementos incluyen notas de la versión, vídeos, entradas de blogs y otros tipos de información. Marque esta página para mantenerse actualizado con el servicio.
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="june-2020"></a>Junio de 2020
+
+* SDK de [creación de la versión preliminar 3.0](luis-migration-authoring-entities.md)
+    * Versión 3.2.0-Preview. 3-[.NET-NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)
+    * Versión 4.0.0-preview.3 - [JS - NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)
+* Aplicación de prácticas de DevOps con LUIS
+    * Conceptos
+        * [Prácticas de DevOps para LUIS](luis-concept-devops-sourcecontrol.md)
+        * [Flujos de trabajo de integración continua y entrega continua para LUIS DevOps](luis-concept-devops-automation.md)
+        * [Prueba de LUIS DevOps](luis-concept-devops-testing.md)
+    * Instrucciones
+        * [Aplicación de DevOps al desarrollo de aplicaciones de LUIS mediante Acciones de GitHub](luis-how-to-devops-with-github.md)
+    * [Repositorio de GitHub de código completo](https://github.com/Azure-Samples/LUIS-DevOps-Template)
 
 ### <a name="may-2020---build"></a>Mayo de 2020 -//Build
 

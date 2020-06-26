@@ -8,20 +8,24 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 04/23/2020
+ms.date: 06/10/2020
 ms.author: diberry
-ms.openlocfilehash: 55153cc7fc125c97a5b73084f83dd320240ca256
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 973a8b7eb8dad66568a5beb45adea9740dd0402a
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342123"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84700641"
 ---
 # <a name="whats-new-in-personalizer"></a>Novedades en Personalizer
 
 Conozca las novedades del servicio. Estos elementos pueden incluir notas de la versión, vídeos, entradas de blogs y otros tipos de información. Marque esta página para mantenerse actualizado con el servicio.
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="june-2020"></a>Junio de 2020
+
+* Nuevo tutorial: [uso de Personalizer en una aplicación web](tutorial-use-personalizer-web-app.md)
 
 ### <a name="may-2020---build-conference"></a>Mayo de 2020: //Conferencia Build
 

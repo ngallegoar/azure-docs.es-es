@@ -5,12 +5,12 @@ ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 03/04/2020
 ms.custom: mvc, devcenter, seodec18
-ms.openlocfilehash: df1e0809c0122eae593543cd193a6477b03d0938
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 4f08068e0920eb8a9e93fbbf91cb352bb8860fe3
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "82690789"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905925"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Creación de una aplicación web de Node.js en Azure 
 
@@ -155,7 +155,13 @@ Puede ver la salida del registro (llamadas a `console.log`) desde la aplicación
 
 Ha completado correctamente este inicio rápido.
 
-A continuación, vea otras extensiones de Azure.
+> [!div class="nextstepaction"]
+> [Tutorial: Aplicación Node.js con MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md)
+
+> [!div class="nextstepaction"]
+> [Configuración de la aplicación Node.js](configure-language-nodejs.md)
+
+Compruebe las demás extensiones de Azure.
 
 * [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 * [Funciones de Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
@@ -164,3 +170,4 @@ A continuación, vea otras extensiones de Azure.
 * [Herramientas de Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
 También puede conseguirlas todas si instala el paquete de extensiones [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack).
+

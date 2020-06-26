@@ -6,14 +6,14 @@ ms.author: banders
 tags: azure-resource-manager
 ms.service: cost-management-billing
 ms.topic: quickstart
-ms.date: 04/22/2020
+ms.date: 06/10/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 88dd1dc99f32d0539718c0f71206176cbfc16eec
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: dc37039d6777a77f9de247808329930f1621ee82
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830317"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686416"
 ---
 # <a name="quickstart-create-a-budget-with-an-azure-resource-manager-template"></a>Inicio rápido: Crear un presupuesto con una plantilla de Azure Resource Manager
 
@@ -21,7 +21,7 @@ Los presupuestos en Cost Management le ayudan a planear y dirigir la presentaci�
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 La plantilla de Azure Resource Manager solo admite suscripciones de Azure para Contratos Enterprise (EA). La plantilla no admite otros tipos de suscripción.
 
@@ -74,7 +74,7 @@ En la plantilla, se define un recurso de Azure:
     * **Threshold** (Umbral): escriba un valor de umbral para la notificación. Se envía una notificación cuando el costo supera el umbral. Es siempre un porcentaje y debe estar entre 0 y 1000.
     * **Contact Emails** (Correos electrónicos de contacto): escriba una lista de direcciones de correo electrónico a las que enviar la notificación de presupuesto cuando se supere el umbral. El formato esperado es `["user1@domain.com","user2@domain.com"]`.
     * **Contact Roles** (Roles de contacto): escriba la lista de roles de contacto a los que se enviará la notificación de presupuesto cuando se supere el umbral. Los valores predeterminados son Owner (Propietario), Contributor (Colaborador) y Reader (Lector). El formato esperado es `["Owner","Contributor","Reader"]`.
-    * **Contact Groups** (Grupos de contactos): escriba una lista de grupos de acciones a los que enviar la notificación del presupuesto cuando se supere el umbral. Acepta una matriz de cadenas. El formato esperado es `["Action Group Name1","Action Group Name2"]`. Si no desea usar grupos de acciones, escriba `[]`.
+    * **Contact Groups** (Grupos de contactos): escriba una lista de identificadores de recursos de los grupos de acciones, en forma de identificador URI completo de los recursos, a los que enviar la notificación del presupuesto cuando se supere el umbral. Acepta una matriz de cadenas. El formato esperado es `["action group resource ID1","action group resource ID2"]`. Si no desea usar grupos de acciones, escriba `[]`.
     * **Resources Filter** (Filtro de recursos): escriba una lista de filtros para los recursos. El formato esperado es `["Resource Filter Name1","Resource Filter Name2"]`. Si no desea aplicar un filtro, escriba `[]`. Si escribe un filtro de recursos, también debe escribir los valores de los **filtros de medidores**.
     * **Meters Filter** (Filtro de medidores): escriba una lista de filtros en los medidores, obligatorios para los presupuestos con la categoría de presupuesto **Usage** (Uso). El formato esperado es `["Meter Filter Name1","Meter Filter Name2"]`. Si no ha especificado un **filtro de recursos**, escriba `[]`.
     * **Acepto los términos y condiciones anteriores**: Seleccionar.
@@ -107,7 +107,7 @@ Get-AzConsumptionBudget
 
 Cuando ya no necesite un presupuesto, utilice cualquiera de los siguientes métodos para eliminarlo:
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Vaya a **Administración de costos + facturación** > seleccione un ámbito de facturación > **Presupuestos** > seleccione un presupuesto > seleccione **Eliminar presupuesto**.
 

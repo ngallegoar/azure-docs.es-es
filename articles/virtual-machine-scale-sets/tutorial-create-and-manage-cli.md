@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 252b3b3ecf2de24410d046473ee2cfd2215254a9
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ff4a2b9cb66013900b5b9969a4281d1a20d9c122
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198222"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736448"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Creación y administración de un conjunto de escalado de máquinas virtuales con la CLI de Azure
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Durante el ciclo de vida de la máquina virtual, es posible que deba ejecutar una o varias tareas de administración. En este tutorial, aprenderá a:
@@ -166,6 +166,9 @@ CentOS   OpenLogic   7.3   OpenLogic:CentOS:7.3:7.3.20170925   7.3.20170925
 ```
 
 Para implementar un conjunto de escalado que usa una imagen específica, utilice el valor de la columna *Urn*. Al especificar la imagen, se puede reemplazar el número de versión de la imagen por *latest*, que selecciona la versión más reciente de la distribución. En el ejemplo siguiente, se emplea el argumento `--image` para especificar la versión más reciente de una imagen de CentOS 7.3.
+
+> [!IMPORTANT]
+> Se recomienda usar la versión *más reciente* de la imagen. Especifique "más reciente" para usar la versión más reciente de una imagen disponible en el momento de la implementación. Tenga en cuenta que, aunque use "más reciente", la imagen de la máquina virtual no se actualizará automáticamente después de la implementación, incluso si hay disponible una nueva versión.
 
 Como se tarda unos minutos en crear y configurar todos los recursos del conjunto de escalado y las instancias de máquina virtual, no tiene que implementar el siguiente conjunto de escalado:
 

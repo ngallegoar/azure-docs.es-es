@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
-ms.openlocfilehash: c45d2fc34ccbab6d813f12563678d036f9f35753
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: 831f09ecf7550a847c483fbe1678f1e4c3cecb61
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80891499"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052284"
 ---
 # <a name="example-powershell-scripts"></a>Scripts de PowerShell de ejemplo
 
@@ -21,7 +21,7 @@ Azure Remote Rendering proporciona las dos API REST siguientes:
 
 El [repositorio de ejemplos de ARR](https://github.com/Azure/azure-remote-rendering) contiene scripts de ejemplo en la carpeta *Scripts* para interactuar con las API REST del servicio. En este artículo se describe su uso.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para ejecutar los scripts de ejemplo, necesita una configuración funcional de [Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 
@@ -75,6 +75,9 @@ Junto a los archivos `.ps1` hay un `arrconfig.json` que tiene que rellenar:
 
 > [!CAUTION]
 > Asegúrese de realizar correctamente el escape de las barras diagonales inversas en la ruta de acceso LocalAssetDirectoryPath mediante el uso de barras diagonales inversas dobles: "\\\\" y use barras diagonales "/" en todas las demás rutas de acceso como inputFolderPath y inputAssetPath.
+
+> [!CAUTION]
+> Se deben rellenar los valores opcionales o deberá quitar la clave y el valor por completo. Por ejemplo, si no usa el parámetro `"outputAssetFileName"`, debe eliminar toda la línea dentro de `arrconfig.json`.
 
 ### <a name="accountsettings"></a>accountSettings
 

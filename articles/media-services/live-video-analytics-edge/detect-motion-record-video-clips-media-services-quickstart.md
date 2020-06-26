@@ -3,12 +3,12 @@ title: Detección de movimiento y grabación de vídeo en Azure Media Services
 description: En este inicio rápido se muestra cómo usar Live Video Analytics en IoT Edge para detectar movimiento en una secuencia de vídeo en directo y grabar clips de vídeo en Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: f0045f7fddfe6c544f10d280450cdafe8dca9e2d
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 0a81bebe7333266e1b70f97f8c712fccf392a464
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261625"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84817317"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Inicio rápido: Detección de movimiento y grabación de vídeo en Media Services
 
@@ -21,9 +21,9 @@ Este artículo está basado en el [inicio rápido Introducción](get-started-det
 * Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Visual Studio Code](https://code.visualstudio.com/) en la máquina con la [extensión de Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Si no ha completado anteriormente el [inicio rápido Introducción](get-started-detect-motion-emit-events-quickstart.md), siga los pasos siguientes:
-    * Complete el tutorial sobre [configuración de recursos de Azure](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources)
+    * [Configuración de los recursos de Azure](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources)
     * [Implementación de módulos](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
-    * [Configuración de Visual Studio Code](get-started-detect-motion-emit-events-quickstart.md#configure-azure-iot-tools-extension-in-visual-studio-code)
+    * [Configuración de Visual Studio Code](get-started-detect-motion-emit-events-quickstart.md#configure-the-azure-iot-tools-extension)
 
 ## <a name="review-the-sample-video"></a>Revisión del vídeo de ejemplo
 

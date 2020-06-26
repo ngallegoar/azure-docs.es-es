@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 05/12/2020
 ms.custom: designer
-ms.openlocfilehash: f6d684829092d8be97785c46058186f3ca5542b2
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 2fab23e9f765d9ab4908cc4be69d8b747c6856b9
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119032"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84790541"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Predicción del precio de un automóvil con el diseñador (versión preliminar)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -77,7 +77,7 @@ Puede establecer un **destino de proceso predeterminado** para toda la canalizac
     Si ya tiene un destino de proceso disponible, puede seleccionarlo para ejecutar esta canalización.
 
     > [!NOTE]
-    > El diseñador solo puede ejecutar experimentos de entrenamiento en Azure Machine Learning Compute y destinos de instancias de proceso de Azure Machine Learning. Otros destinos de proceso no aparecerán.
+    > El diseñador solo puede ejecutar experimentos de entrenamiento en Azure Machine Learning Compute e instancias de proceso de Azure Machine Learning, pero no se mostrarán otros destinos de proceso.
 
 1. Escriba un nombre para el recurso de proceso.
 

@@ -3,16 +3,16 @@ title: Análisis de los costos de Azure con la aplicación para Power BI
 description: En este artículo se explica cómo instalar y usar la aplicación Azure Cost Management para Power BI.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/15/2020
+ms.date: 06/16/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: 050df590827b94888c44826ac6391ff79ada1cfc
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 53340c72a6456b24b52cff6d7eda9d4a34db6564
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81461606"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888202"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Análisis del costo con la aplicación Azure Cost Management para Power BI para Contrato Enterprise (EA)
 
@@ -22,7 +22,7 @@ La aplicación se descarga en Power BI Desktop. Puede usar la aplicación tal c
 
 Actualmente, la aplicación Azure Cost Management para Power BI solo admite clientes con un [Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una [licencia de Power BI Pro](/power-bi/service-self-service-signup-for-power-bi) para instalar y usar la aplicación.
 - Para conectarse a los datos, debe usar una cuenta de [administrador de empresa](../manage/understand-ea-roles.md).
@@ -127,6 +127,27 @@ Para más información sobre cómo usar el informe, consulte la sección sobre l
 ## <a name="troubleshoot-problems"></a>Solucionar problemas
 
 Si tiene problemas con la aplicación Power BI, es posible que la siguiente información sea útil para solucionar problemas.
+
+### <a name="error-processing-the-data-in-the-dataset"></a>Error al procesar los datos del conjunto de datos
+
+Puede que reciba el siguiente error:
+
+```
+There was an error when processing the data in the dataset.
+Data source error: {"error":{"code":"ModelRefresh_ShortMessage_ProcessingError","pbi.error":{"code":"ModelRefresh_ShortMessage_ProcessingError","parameters":{},"details":[{"code":"Message","detail":{"type":1,"value":"We cannot convert the value \"Required Field: 'Enr...\" to type List."}}],"exceptionCulprit":1}}} Table: <TableName>.
+```
+
+En lugar de `<TableName>` aparecería el nombre de una tabla.
+
+#### <a name="cause"></a>Causa
+
+El valor predeterminado de **Scope** (Ámbito) de `Enrollment Number` cambió en la conexión a Cost Management.
+
+#### <a name="solution"></a>Solución
+
+Vuelva a conectarse a Cost Management y establezca el valor de **Scope** (Ámbito) en `Enrollment Number`. No escriba el número de inscripción de su organización. En su lugar, escriba `Enrollment Number` exactamente como aparece en la siguiente imagen.
+
+![Especificación de la información de inscripción de EA](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
 
 ### <a name="budgetamount-error"></a>Error de BudgetAmount
 

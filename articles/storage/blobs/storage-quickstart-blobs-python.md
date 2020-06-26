@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: tracking-python
-ms.openlocfilehash: c5ab718fdccfebe852c1522a0cb07303a541a3dd
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c24b934af17dab4f263de504da81d5ccd22d7fb9
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554261"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84975320"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>Inicio rápido: Administración de blobs con el SDK de Python v12
 
@@ -21,7 +21,7 @@ En este inicio rápido, se aprende a administrar blobs mediante Python. Los blob
 
 [Documentación de referencia de API](/python/api/azure-storage-blob) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [Paquete (índice de paquetes de Python)](https://pypi.org/project/azure-storage-blob/) | [Ejemplos](https://docs.microsoft.com/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Una cuenta de Azure Storage. [Crear una cuenta de almacenamiento](../common/storage-account-create.md).
@@ -290,5 +290,5 @@ Para ver las aplicaciones de ejemplo de Blob Storage, siga estos pasos:
 > [!div class="nextstepaction"]
 > [Ejemplos de Azure Blob Storage v12 para Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
-* Para más información, consulte el [SDK de Azure para Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/README.md).
+* Para más información, consulte el artículo sobre las [bibliotecas cliente de Azure Storage para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v12).
 * Para ver tutoriales, ejemplos, artículos de inicio rápido y otra documentación, visite [Azure para desarrolladores de Python](/azure/python/).

@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 298228eedb73298f00654f4f72c201d9ed671090
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 44e5823ed3989dc092104d75d415524dac2c9622
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72177059"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983463"
 ---
 # <a name="call-the-computer-vision-api"></a>Llamada a Computer Vision API
 
@@ -25,14 +25,6 @@ En este artículo se muestra cómo llamar a la API Computer Vision mediante la A
 - Obtención de etiquetas, descripciones y categorías
 - Obtención de información específica de dominio o "celebridades"
 
-## <a name="prerequisites"></a>Prerrequisitos
-
-- Una dirección URL de la imagen o ruta de acceso a la imagen almacenada localmente
-- Métodos de entrada admitidos: archivos binarios de imagen raw en forma de application/octet-stream o URL de imagen
-- Formatos de archivos de imagen admitidos: JPEG, PNG, GIF y BMP
-- Tamaño del archivo de imagen: 4 MB o menos
-- Dimensiones de la imagen: 50 &times; 50 píxeles o superior
-  
 En los ejemplos de este artículo se muestran las características siguientes:
 
 * Análisis de una imagen para devolver una matriz de etiquetas y una descripción
@@ -42,14 +34,22 @@ Las características ofrecen las siguientes opciones:
 
 - **Opción 1**: Análisis con ámbito. Análisis de solo un modelo determinado
 - **Opción 2**: Análisis mejorado. Análisis para ofrecer detalles adicionales con una [taxonomía de 86 categorías](../Category-Taxonomy.md)
+
+## <a name="prerequisites"></a>Requisitos previos
+
+* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/).
+* Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Creación de un recurso de Computer Vision"  target="_blank">cree un recurso de Computer Vision <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
+    * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación al servicio Computer Vision. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
+    * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
+* Una dirección URL de la imagen o ruta de acceso a la imagen almacenada localmente
+* Métodos de entrada admitidos: archivos binarios de imagen raw en forma de application/octet-stream o URL de imagen
+* Formatos de archivos de imagen admitidos: JPEG, PNG, GIF y BMP
+* Tamaño del archivo de imagen: 4 MB o menos
+* Dimensiones de la imagen: 50 &times; 50 píxeles o superior
   
 ## <a name="authorize-the-api-call"></a>Autorización de la llamada a la API
 
 Cada llamada a Computer Vision API requiere una clave de suscripción. Esta clave debe pasarse a través de un parámetro de cadena de consulta o especificarse en la cabecera de la solicitud.
-
-Para obtener una clave de evaluación gratuita, realice una de las siguientes acciones:
-* Vaya a la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). 
-* Vaya a la página de [creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse a Computer Vision.
 
 Para pasar la clave de suscripción, realice una de las acciones siguientes:
 
@@ -180,12 +180,12 @@ Este es un ejemplo:
 Campo | Tipo | Contenido
 ------|------|------|
 Etiquetas  | `object` | Objeto de nivel superior de una matriz de etiquetas
-tags[].Name | `string`  | Palabra clave del clasificador de etiquetas
-tags[].Score    | `number`  | Puntuación de confianza, entre 0 y 1
-description  | `object` | Objeto de nivel superior de la descripción
+tags[].Name | `string`    | Palabra clave del clasificador de etiquetas
+tags[].Score    | `number`    | Puntuación de confianza, entre 0 y 1
+description     | `object`    | Objeto de nivel superior de la descripción
 description.tags[] |    `string`    | Lista de etiquetas.  Si la confianza es insuficiente para poder producir un título, las etiquetas pueden ser la única información disponible para el llamador.
-description.captions[].text | `string`  | Una frase que describe la imagen
-description.captions[].confidence   | `number`  | Puntuación de confianza para la frase
+description.captions[].text    | `string`    | Una frase que describe la imagen
+description.captions[].confidence    | `number`    | Puntuación de confianza para la frase
 
 ## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>Recuperar y describir la salida JSON de modelos específicos del dominio
 
@@ -239,12 +239,12 @@ Para modelos específicos del dominio con la opción 2 (Análisis mejorado), el 
 
 El campo de categorías es una lista de una o varias de las [86 categorías](../Category-Taxonomy.md) de la taxonomía original. Las categorías que terminan con un guión bajo coincidirán con esa categoría y sus elementos secundarios (por ejemplo, "people_" o "people_group", para el modelo de celebridades).
 
-Campo   | Tipo  | Contenido
+Campo    | Tipo    | Contenido
 ------|------|------|
-categories | `object`   | Objeto de nivel superior
-categories[].name    | `string` | Nombre de la lista de taxonomía de 86 categorías
-categories[].score  | `number`  | Puntuación de confianza, entre 0 y 1
-categories[].detail  | `object?`      | (Opcional) Objeto de detalle.
+categories | `object`    | Objeto de nivel superior
+categories[].name     | `string`    | Nombre de la lista de taxonomía de 86 categorías
+categories[].score    | `number`    | Puntuación de confianza, entre 0 y 1
+categories[].detail     | `object?`      | (Opcional) Objeto de detalle.
 
 Si varias categorías coinciden (por ejemplo, el clasificador "86-category" devuelve una puntuación para "people_" y "people_young" si model=celebrities), los detalles se asocian a la coincidencia de nivel más general ("people_" en dicho ejemplo).
 

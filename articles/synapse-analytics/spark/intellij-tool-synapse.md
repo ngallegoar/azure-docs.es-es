@@ -2,20 +2,20 @@
 title: 'Tutorial: Azure Toolkit for IntelliJ (aplicación Spark)'
 description: 'Tutorial: Uso de Azure Toolkit for IntelliJ para desarrollar aplicaciones Spark escritas en Scala y enviarlas a un grupo de Apache Spark (versión preliminar)'
 services: synapse-analytics
-author: v-jiche
-ms.author: v-jiche
+author: hrasheed-msft
+ms.author: jejiang
 ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: b344ae50d921c33a5e8ddd344e08ec86179668e9
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 6f71b9ecc5dc0279d2053f6212f685968309284e
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608764"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976802"
 ---
-# <a name="tutorial-create-apache-spark-applications-with-intellij-using-synapse-synapse-analytics-workspaces-preview"></a>Tutorial: Creación de aplicaciones Apache Spark con IntelliJ mediante Synapse Analytics (vista previa de áreas de trabajo)
+# <a name="tutorial-create-an-apache-spark-applications-with-intellij-using-a-synapse-workspace"></a>Tutorial: Creación de una aplicación de Apache Spark con IntelliJ mediante un área de trabajo de Synapse
 
 Este tutorial demuestra cómo usar el complemento de Azure Toolkit for IntelliJ para desarrollar aplicaciones Apache Spark escritas en [Scala](https://www.scala-lang.org/) y enviarlas a continuación a un grupo de Spark (versión preliminar) directamente desde el entorno de desarrollo integrado (IDE) de IntelliJ. Puede usar el complemento de varias maneras:
 
@@ -146,7 +146,7 @@ Después de crear una aplicación en Scala, puede ejecutarla de forma remota.
     |Argumentos de la línea de comandos|Puede especificar los argumentos divididos por un espacio para la clase principal, si es necesario.|
     |Archivos jar a los que se hace referencia y archivos a los que se hace referencia|puede escribir las rutas de acceso de los archivos y los Jar a los que se hace referencia, si los hubiera. También puede examinar archivos en el sistema de archivos virtual de Azure, que actualmente solo admite el clúster de ADLS Gen2. Para obtener más información: [Configuración de Apache Spark](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) y [Cómo cargar recursos en el clúster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
     |Almacenamiento de carga del trabajo|Expanda para mostrar opciones adicionales.|
-    |Tipo de almacenamiento|Seleccione la opción para **usar Azure Blob para cargar** en la lista desplegable.|
+    |Tipo de almacenamiento|Seleccione **Use Azure Blob to upload** (Usar Azure Blob para cargar) o **Use cluster default storage account to upload** (Usar la cuenta de almacenamiento predeterminada del clúster para cargar).|
     |Cuenta de almacenamiento|Escriba su cuenta de Storage.|
     |Clave de almacenamiento|Escriba su clave de almacenamiento.|
     |Contenedor de almacenamiento|Seleccione su contenedor de almacenamiento en la lista desplegable una vez que se hayan escrito **Cuenta de Storage** y **Clave de almacenamiento**.|
@@ -250,6 +250,7 @@ Solo se admite en IntelliJ 2018.2 y 2018.3.
 
     |Propiedad |Value |
     |----|----|
+    |Nombre de clase principal| Seleccione el nombre de clase Main.| 
     |Grupos de Spark|Seleccione los grupos de Spark en los que quiere ejecutar la aplicación.|
     ||
 

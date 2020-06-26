@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: ''
-ms.openlocfilehash: 2c9287e6f4bda429309dd0041215b271678d03d3
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: e71cd5f3989a175f883f3a08b4f55d36a154dcee
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860705"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753489"
 ---
 # <a name="resource-manager-template-samples-for-azure-monitor"></a>Ejemplos de plantillas de Resource Manager para Azure Monitor
 
@@ -25,7 +25,7 @@ A continuación, se incluyen los pasos básicos para utilizar las plantillas de 
 2. Modifique los parámetros de su entorno y guárdelos como un archivo JSON.
 4. Implemente la plantilla mediante [cualquier método de implementación de plantillas de Resource Manager](../../azure-resource-manager/templates/deploy-powershell.md). 
 
-Por ejemplo, use los siguientes comandos para implementar el archivo de plantilla y parámetros en su suscripción mediante PowerShell o la CLI de Azure.
+Por ejemplo, use los siguientes comandos para implementar el archivo de plantilla y parámetros en un grupo de recursos mediante PowerShell o la CLI de Azure.
 
 
 ```powershell
@@ -36,7 +36,7 @@ New-AzResourceGroupDeployment -Name AzureMonitorDeployment -ResourceGroupName my
 
 ```azurecli
 az login
-az group deployment create \
+az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file azure-monitor-deploy.json \

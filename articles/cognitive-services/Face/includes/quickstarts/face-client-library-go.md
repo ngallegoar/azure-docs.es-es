@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 4a96f0e887bb04aea6d451e08bd5d26d1cc6edca
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 887b9fa62b89c500ef3b2b0164ba0281f911621e
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82587886"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85073309"
 ---
 Introducción a la biblioteca cliente de Face para Go. Siga estos pasos para instalar la biblioteca y probar los ejemplos para realizar tareas básicas. El servicio Face le proporciona acceso a algoritmos avanzados para detectar y reconocer rostros humanas en imágenes.
 
@@ -28,68 +28,16 @@ Use la biblioteca cliente del servicio Face para Go para la:
 
 [Documentación de referencia](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face) | [Descarga de SDK](https://github.com/Azure/azure-sdk-for-go)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/).
 * La versión más reciente de [Go](https://golang.org/dl/).
+* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/)
+* Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Creación de un recurso de Face"  target="_blank">cree un recurso de Face <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
+    * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a Face API. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
+    * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
+* Después de obtener una clave y un punto de conexión, [crear variables de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para la clave y el punto de conexión, denominados `FACE_SUBSCRIPTION_KEY` y `FACE_ENDPOINT`, respectivamente.
 
-## <a name="set-up"></a>Configurar
-
-### <a name="create-a-face-azure-resource"></a>Creación de un recurso de Azure para Face 
-
-Comience a usar el servicio Face mediante la creación de un recurso de Azure. Elija el tipo de recurso que le resulte más adecuado:
-
-* Un [recurso de prueba](https://azure.microsoft.com/try/cognitive-services/#decision) (no se necesita ninguna suscripción de Azure): 
-    * Válido durante siete días de forma gratuita. Después de suscribirse, tendrá una clave de prueba y un punto de conexión disponible en el [sitio web de Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/). 
-    * Esta es una buena opción si desea probar el servicio Face pero no tiene una suscripción de Azure.
-* Un [ recurso del servicio Face](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace):
-    * Disponible en Azure Portal hasta que lo elimine.
-    * Use el plan de tarifa gratuito para probar el servicio y actualícelo más adelante a un nivel de pago para producción.
-* Un [recurso de varios servicios](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne):
-    * Disponible en Azure Portal hasta que lo elimine.  
-    * Use la misma clave y el mismo punto de conexión para las aplicaciones en varios servicios de Cognitive Services.
-
-### <a name="create-an-environment-variable"></a>Creación de una variable de entorno
-
->[!NOTE]
-> Los puntos de conexión de los recursos creados que no son de prueba usan desde el 1 de julio de 2019 el formato de subdominio personalizado que se muestra a continuación. Para más información y para obtener una lista completa de los puntos de conexión regionales, consulte [Nombres de subdominios personalizados para Cognitive Services.](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) 
-
-Con la clave y el punto de conexión del recurso que ha creado, cree dos variables de entorno para la autenticación:
-* `FACE_SUBSCRIPTION_KEY`: la clave de recurso para autenticar las solicitudes.
-* `FACE_ENDPOINT`: el punto de conexión del recurso para enviar solicitudes de API. Tendrá el siguiente aspecto: 
-  * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
-
-Siga las instrucciones adecuadas para su sistema operativo.
-<!-- replace the below endpoint and key examples -->
-#### <a name="windows"></a>[Windows](#tab/windows)
-
-```console
-setx FACE_SUBSCRIPTION_KEY <replace-with-your-product-name-key>
-setx FACE_ENDPOINT <replace-with-your-product-name-endpoint>
-```
-
-Después de agregar la variable de entorno, reinicie la ventana de la consola.
-
-#### <a name="linux"></a>[Linux](#tab/linux)
-
-```bash
-export FACE_SUBSCRIPTION_KEY=<replace-with-your-product-name-key>
-export FACE_ENDPOINT=<replace-with-your-product-name-endpoint>
-```
-
-Después de agregar la variable de entorno, ejecute `source ~/.bashrc` desde la ventana de consola para que los cambios surtan efecto.
-
-#### <a name="macos"></a>[macOS](#tab/unix)
-
-Edite `.bash_profile` y agregue la variable de entorno:
-
-```bash
-export FACE_SUBSCRIPTION_KEY=<replace-with-your-product-name-key>
-export FACE_ENDPOINT=<replace-with-your-product-name-endpoint>
-```
-
-Después de agregar la variable de entorno, ejecute `source .bash_profile` desde la ventana de consola para que los cambios surtan efecto.
-***
+## <a name="setting-up"></a>Instalación
 
 ### <a name="create-a-go-project-directory"></a>Creación de un directorio del proyecto de Go
 
@@ -301,13 +249,13 @@ El código siguiente compara cada una de las imágenes de origen con la imagen d
 
 ## <a name="take-a-snapshot-for-data-migration"></a>Tomar una instantánea para la migración de datos
 
-La característica de instantáneas permite trasladar los datos de la cara guardados, como un objeto **PersonGroup** entrenado, a otra suscripción de Face de Azure Cognitive Services. Podría usar esta característica si, por ejemplo, ha creado un objeto **PersonGroup** mediante una suscripción de evaluación gratuita y ahora desea migrarlo a una de pago. Consulte el artículo de [Migración de los datos de las caras](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) para información general de la característica de instantáneas.
+La característica de instantáneas permite trasladar los datos de la cara guardados, como un objeto **PersonGroup** entrenado, a otra suscripción de Face de Azure Cognitive Services. Podría usar esta característica si, por ejemplo, ha creado un objeto **PersonGroup** mediante una suscripción gratuita y ahora desea migrarlo a una de pago. Consulte el artículo de [Migración de los datos de las caras](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) para información general de la característica de instantáneas.
 
 En este ejemplo migrará el objeto **PersonGroup** que ha creado en [Crear y entrenar un grupo de personas](#create-and-train-a-person-group). Puede completar esa sección primero o usar sus propias construcciones de Face.
 
 ### <a name="set-up-target-subscription"></a>Configuración de la suscripción de destino
 
-En primer lugar, debe tener una segunda suscripción de Azure con un recurso de Face. Para poder hacerlo, siga los pasos descritos en la sección [Instalación](#set-up). 
+En primer lugar, debe tener una segunda suscripción de Azure con un recurso de Face. Para poder hacerlo, siga los pasos descritos en la sección [Instalación](#setting-up). 
 
 A continuación, cree las siguientes variables cerca de la parte superior del método **main**. También necesitará crear nuevas variables de entorno para el identificador de suscripción de la cuenta de Azure, así como la clave, punto de conexión y el identificador de suscripción de la cuenta nueva (de destino).
 

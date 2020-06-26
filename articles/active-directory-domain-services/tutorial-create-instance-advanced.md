@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Creación de una instancia de Azure Active Directory Domain Services | Microsoft Docs'
-description: En este tutorial aprenderá a crear y configurar una instancia de Azure Active Directory Domain Services y a especificar opciones de configuración avanzada mediante Azure Portal.
+title: 'Tutorial: Creación de un dominio administrado de Azure Active Directory Domain Services | Microsoft Docs'
+description: En este tutorial aprenderá a crear y configurar un dominio administrado de Azure Active Directory Domain Services y a especificar opciones de configuración avanzada mediante Azure Portal.
 author: iainfoulds
 manager: daveba
 ms.service: active-directory
@@ -9,30 +9,30 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: f2d7f1725623dcc031f3c2b36bacd6dbc9ad339d
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 355a1c36ea810dc569f0ad2847244c398e0a2d6d
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81639948"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733694"
 ---
-# <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>Tutorial: Creación y configuración de una instancia de Azure Active Directory Domain Services con opciones de configuración avanzada
+# <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain-with-advanced-configuration-options"></a>Tutorial: Creación y configuración de un dominio administrado de Azure Active Directory Domain Services con opciones de configuración avanzada
 
 Azure Active Directory Domain Services (Azure AD DS) proporciona servicios de dominio administrados como, por ejemplo, unión a un dominio, directiva de grupo, LDAP o autenticación Kerberos/NTLM, que son totalmente compatibles con Windows Server Active Directory. Estos servicios de dominio se usan sin necesidad de implementar, administrar ni aplicar revisiones a los controladores de dominio. Azure AD DS se integra con el inquilino de Azure AD existente. Esta integración permite a los usuarios iniciar sesión con sus credenciales corporativas y, además, le permite usar grupos y cuentas de usuario existentes para proteger el acceso a los recursos.
 
-Puede [crear un dominio administrado con las opciones de configuración predeterminada][tutorial-create-instance] de sincronización y redes o definir manualmente estos valores. En este tutorial se muestra cómo definir esas opciones de configuración avanzada para crear y configurar una instancia de Azure AD DS mediante Azure Portal.
+Puede [crear un dominio administrado con las opciones de configuración predeterminada][tutorial-create-instance] de sincronización y redes o definir manualmente estos valores. En este tutorial se muestra cómo definir esas opciones de configuración avanzada para crear y configurar un dominio administrado de Azure AD DS mediante Azure Portal.
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Configuración de DNS y los parámetros de red virtual para un dominio administrado
-> * Creación de una instancia de Azure AD DS
+> * Creación de un dominio administrado
 > * Incorporación de usuarios administrativos a la administración de dominios
 > * Habilitación de la sincronización de hash de contraseñas
 
 Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 
@@ -46,13 +46,13 @@ Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 Aunque no es necesario para Azure AD DS, se recomienda [configurar el autoservicio de restablecimiento de contraseña (SSPR) ][configure-sspr] para el inquilino de Azure AD. Los usuarios pueden cambiar su contraseña sin SSPR, pero este les ayuda si olvidan la contraseña y necesitan restablecerla.
 
 > [!IMPORTANT]
-> Después de crear un dominio administrado de Azure AD DS, no puede trasladar la instancia a otro grupo de recursos, red virtual, suscripción, etc. Tenga cuidado a la hora de seleccionar la suscripción, el grupo de recursos, la región y la red virtual más adecuados al implementar la instancia de Azure AD DS.
+> Después de crear un dominio administrado, no puede trasladarlo a otro grupo de recursos, red virtual, suscripción, etc. Tenga cuidado a la hora de seleccionar la suscripción, el grupo de recursos, la región y la red virtual más adecuados al implementar el dominio administrado.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-En este tutorial creará y configurará la instancia de Azure AD DS mediante Azure Portal. Para empezar a trabajar, primero inicie sesión en [Azure Portal](https://portal.azure.com).
+En este tutorial creará y configurará el dominio administrado mediante Azure Portal. Para empezar a trabajar, primero inicie sesión en [Azure Portal](https://portal.azure.com).
 
-## <a name="create-an-instance-and-configure-basic-settings"></a>Creación de una instancia y configuración de las opciones básicas
+## <a name="create-a-managed-domain-and-configure-basic-settings"></a>Creación de un dominio administrado y configuración de las opciones básicas
 
 Para iniciar el Asistente para **habilitar Azure AD Domain Services**, complete los pasos siguientes:
 
@@ -62,7 +62,7 @@ Para iniciar el Asistente para **habilitar Azure AD Domain Services**, complete 
 1. Seleccione la **suscripción** de Azure en la que desea crear el dominio administrado.
 1. Seleccione el **grupo de recursos** al que debería pertenecer el dominio administrado. Elija **Crear nuevo** o seleccione un grupo de recursos existente.
 
-Cuando se crea una instancia de Azure AD DS, se especifica un nombre DNS. Hay algunas consideraciones que se deben tener en cuenta al elegir este nombre DNS:
+Cuando se crea un dominio administrado, se especifica un nombre DNS. Hay algunas consideraciones que se deben tener en cuenta al elegir este nombre DNS:
 
 * **Nombre de dominio integrado:** de forma predeterminada, se usa el nombre de dominio integrado del directorio (un sufijo *.onmicrosoft.com*). Si se quiere habilitar el acceso LDAP seguro al dominio administrado a través de Internet, no se puede crear un certificado digital para proteger la conexión con este dominio predeterminado. Microsoft es el propietario del dominio *.onmicrosoft.com*, por lo que una entidad de certificación no emitirá un certificado.
 * **Nombres de dominio personalizados:** el enfoque más común consiste en especificar un nombre de dominio personalizado, normalmente uno que ya se posee y es enrutable. Cuando se usa un dominio personalizado enrutable, el tráfico puede fluir correctamente según sea necesario para admitir las aplicaciones.
@@ -71,7 +71,7 @@ Cuando se crea una instancia de Azure AD DS, se especifica un nombre DNS. Hay 
 > [!TIP]
 > Si crea un nombre de dominio personalizado, tenga cuidado con los espacios de nombres DNS existentes. Se recomienda usar un nombre de dominio independiente de cualquier espacio de nombres de DNS local o de Azure existentes.
 >
-> Por ejemplo, si tiene un espacio de nombres de DNS existente para *contoso.com*, cree un dominio administrado de Azure AD DS con el nombre de dominio personalizado *aaddscontoso.com*. Si necesita usar LDAP seguro, debe registrar y poseer este nombre de dominio personalizado para generar los certificados necesarios.
+> Por ejemplo, si tiene un espacio de nombres de DNS existente para *contoso.com*, cree un dominio administrado con el nombre de dominio personalizado *aaddscontoso.com*. Si necesita usar LDAP seguro, debe registrar y poseer este nombre de dominio personalizado para generar los certificados necesarios.
 >
 > Es posible que tenga que crear algunos registros DNS adicionales para otros servicios del entorno o reenviadores DNS condicionales entre los espacios de nombres de DNS existentes en el entorno. Por ejemplo, si ejecuta un servidor web que hospeda un sitio mediante el nombre DNS raíz, puede haber conflictos de nomenclatura que requieran más entradas DNS.
 >
@@ -85,7 +85,7 @@ También se aplican las siguientes restricciones de nombre DNS:
     * La red virtual en la que planea habilitar el dominio administrado tiene una conexión VPN con la red local. En este escenario, asegúrese de que no tiene un dominio con el mismo nombre de dominio DNS de la red local.
     * Ya dispone de un servicio en la nube de Azure con ese nombre en la red virtual de Azure.
 
-Complete los campos de la ventana *Datos básicos* de Azure Portal para crear una instancia de Azure AD DS:
+Complete los campos de la ventana *Datos básicos* de Azure Portal para crear un dominio administrado:
 
 1. Escriba un **nombre de dominio DNS** para el dominio administrado, teniendo en cuenta los puntos anteriores.
 1. Elija la **ubicación** de Azure en que se debe crear el dominio administrado. Si elige una región que admite zonas de disponibilidad, los recursos de Azure AD DS se distribuyen entre las zonas para conseguir redundancia adicional.
@@ -97,17 +97,17 @@ Complete los campos de la ventana *Datos básicos* de Azure Portal para crear un
 1. La **SKU** determina el rendimiento, la frecuencia de la copia de seguridad y el número máximo de confianzas de bosque que se pueden crear. Puede cambiar la SKU una vez creado el dominio administrado si cambian sus necesidades o requisitos empresariales. Para más información, consulte [Conceptos de las SKU de Azure AD DS][concepts-sku].
 
     Para este tutorial, seleccione la SKU *Estándar*.
-1. Un *bosque* es una construcción lógica que Active Directory Domain Services utiliza para agrupar uno o más dominios. De forma predeterminada, un dominio administrado de Azure AD DS se crea como un bosque de *Usuario*. Este tipo de bosque sincroniza todos los objetos de Azure AD, incluidas las cuentas de usuario creadas en un entorno de AD DS local. Un bosque de *Recursos* solo sincroniza los usuarios y grupos creados directamente en Azure AD. Los bosques de recursos están actualmente en versión preliminar. Para más información sobre los bosques de *Recursos*, incluido el motivo por el que puede usar uno y cómo crear confianzas de bosque con dominios de AD DS locales, consulte [Introducción a los bosques de recursos de Azure AD DS][resource-forests].
+1. Un *bosque* es una construcción lógica que Active Directory Domain Services utiliza para agrupar uno o más dominios. De forma predeterminada, un dominio administrado se crea como un bosque de *usuarios*. Este tipo de bosque sincroniza todos los objetos de Azure AD, incluidas las cuentas de usuario creadas en un entorno de AD DS local. Un bosque de *Recursos* solo sincroniza los usuarios y grupos creados directamente en Azure AD. Los bosques de recursos están actualmente en versión preliminar. Para más información sobre los bosques de *Recursos*, incluido el motivo por el que puede usar uno y cómo crear confianzas de bosque con dominios de AD DS locales, consulte [Introducción a los bosques de recursos de Azure AD DS][resource-forests].
 
     En este tutorial, elija crear un bosque de *Usuario*.
 
-    ![Configuración de las opciones básicas de una instancia de Azure AD Domain Services](./media/tutorial-create-instance-advanced/basics-window.png)
+    ![Configuración de las opciones básicas de un dominio administrado de Azure AD Domain Services](./media/tutorial-create-instance-advanced/basics-window.png)
 
 1. Para configurar manualmente opciones adicionales, elija **Siguiente - Redes**. En caso contrario, seleccione **Revisión y creación** para aceptar las opciones de configuración predeterminadas y, luego, vaya a la sección [Deploy your managed domain](#deploy-the-managed-domain) (Implementar un dominio administrado). Los siguientes valores predeterminados se configuran al elegir esta opción de creación:
 
     * Crea una red virtual llamada *aadds-vnet* que usa el intervalo de direcciones IP *10.0.1.0/24*.
     * Crea una subred denominada *aadds-subnet* mediante el intervalo de direcciones IP *10.0.1.0/24*.
-    * Sincroniza *Todos* los usuarios de Azure AD con el dominio administrado de Azure AD DS.
+    * Sincroniza *Todos* los usuarios de Azure AD con el dominio administrado.
 
 ## <a name="create-and-configure-the-virtual-network"></a>Creación y configuración de la red virtual
 
@@ -148,7 +148,7 @@ El asistente crea automáticamente el grupo *Administradores de DC de AAD* en el
     ![Configuración de la pertenencia al grupo Administradores de DC de AAD](./media/tutorial-create-instance-advanced/admin-group.png)
 
 1. Seleccione el botón **Agregar miembros** y, después, busque y seleccione usuarios en el directorio de Azure AD. Por ejemplo, busque su propia cuenta y agréguela al grupo *Administradores de DC de AAD*.
-1. Si lo prefiere, cambie o agregue destinatarios adicionales de las notificaciones cuando haya alertas en el dominio administrado de Azure AD DS que requieran atención.
+1. Si lo prefiere, cambie o agregue destinatarios adicionales de las notificaciones cuando haya alertas en el dominio administrado que requieran atención.
 1. Cuando esté listo, elija **Siguiente - Sincronización**.
 
 ## <a name="configure-synchronization"></a>Configuración de la sincronización
@@ -163,14 +163,14 @@ Azure AD DS permite sincronizar *todos* los usuarios y grupos disponibles en A
 
 ## <a name="deploy-the-managed-domain"></a>Eliminación del dominio administrado
 
-En la página **Resumen** del asistente, revise la configuración del dominio administrado. Puede volver a cualquier paso del asistente para realizar cambios. Para volver a implementar un dominio administrado de Azure AD DS en un inquilino de Azure AD diferente de una manera coherente con estas opciones de configuración, también puede **descargar una plantilla para automatizar el procedimiento**.
+En la página **Resumen** del asistente, revise la configuración del dominio administrado. Puede volver a cualquier paso del asistente para realizar cambios. Para volver a implementar un dominio administrado en un inquilino de Azure AD diferente de una manera coherente con estas opciones de configuración, también puede **descargar una plantilla para automatizar el procedimiento**.
 
 1. Para crear el dominio administrado, seleccione **Crear**. Aparece una nota que indica que determinadas opciones de configuración, como el nombre de DNS o la red virtual, no se pueden cambiar después de que se ha creado la instancia administrada de Azure AD DS. Para continuar, seleccione **Aceptar**.
 1. El proceso de aprovisionamiento del dominio administrado puede tardar hasta una hora. En el portal se muestra una notificación que señala el progreso de la implementación de Azure AD DS. Seleccione la notificación para ver el progreso detallado de la implementación.
 
     ![Notificación en Azure Portal de la implementación en curso](./media/tutorial-create-instance-advanced/deployment-in-progress.png)
 
-1. Seleccione el grupo de recursos, como *myResourceGroup* y, a continuación, elija la instancia de Azure AD DS en la lista de recursos de Azure, por ejemplo *aaddscontoso.com*. La pestaña **Información general** muestra que el dominio administrado se está *Implementando*. No se puede configurar el dominio administrado hasta que está totalmente aprovisionado.
+1. Seleccione el grupo de recursos, como *myResourceGroup* y, a continuación, elija el dominio administrado en la lista de recursos de Azure, como *aaddscontoso.com*. La pestaña **Información general** muestra que el dominio administrado se está *Implementando*. No se puede configurar el dominio administrado hasta que está totalmente aprovisionado.
 
     ![Estado de Domain Services durante el estado de aprovisionamiento](./media/tutorial-create-instance-advanced/provisioning-in-progress.png)
 
@@ -200,7 +200,7 @@ Ahora que Azure AD DS se ha implementado correctamente, es el momento de confi
 Para autenticar a los usuarios en el dominio administrado, Azure AD DS necesita los hash de las contraseñas en un formato adecuado para la autenticación de NT LAN Manager (NTLM) y Kerberos. A menos que habilite Azure AD DS para el inquilino, Azure AD no genera ni almacena los hash de las contraseñas en el formato necesario para la autenticación NTLM o Kerberos. Por motivos de seguridad, Azure AD tampoco almacena las credenciales de contraseñas en forma de texto sin cifrar. Por consiguiente, Azure AD no tiene forma de generar automáticamente estos hash de las contraseñas de NTLM o Kerberos basándose en las credenciales existentes de los usuarios.
 
 > [!NOTE]
-> Una vez configurados correctamente, los hash de las contraseñas que se pueden usar se almacenan en el dominio administrado de Azure AD DS. Si elimina el dominio administrado de Azure AD DS, también se eliminarán los hash de las contraseñas que haya almacenados en ese momento. La información de credenciales sincronizada en Azure AD no se puede volver a usar si posteriormente crea un dominio administrado de Azure AD DS: debe volver a configurar la sincronización de los hash de contraseña para almacenarlos de nuevo. Los usuarios o las máquinas virtuales anteriormente unidos a un dominio no podrán autenticarse de inmediato, ya que Azure AD debe generar y almacenar los hash de contraseña en el nuevo dominio administrado de Azure AD DS. Para más información, consulte [Proceso de sincronización de hash de contraseña para Azure AD DS y Azure AD Connect][password-hash-sync-process].
+> Una vez configurados correctamente, los hash de las contraseñas que se pueden usar se almacenan en el dominio administrado. Si elimina el dominio administrado, también se eliminarán los hash de las contraseñas que haya almacenados en ese momento. La información de credenciales sincronizada en Azure AD no se puede volver a usar si posteriormente crea un dominio administrado: debe volver a configurar la sincronización de los hash de contraseña para almacenarlos de nuevo. Los usuarios o las máquinas virtuales anteriormente unidos a un dominio no podrán autenticarse de inmediato, ya que Azure AD debe generar y almacenar los hash de contraseña en el nuevo dominio administrado. Para más información, consulte [Proceso de sincronización de hash de contraseña para Azure AD DS y Azure AD Connect][password-hash-sync-process].
 
 Los pasos necesarios para generar y almacenar estos hash de contraseña son diferentes según se trate de cuentas de usuario solo de nube creadas en Azure AD o de las cuentas de usuarios que se sincronizan desde el directorio local mediante Azure AD Connect. Una cuenta de usuario solo de nube es una cuenta creada en su directorio de Azure AD mediante Azure Portal, o bien mediante cmdlets de PowerShell de Azure AD. Estas cuentas de usuario no se sincronizan desde un directorio local. En este tutorial, vamos a trabajar con una cuenta de usuario básica solo de nube. Para más información sobre los pasos adicionales necesarios para usar Azure AD Connect, consulte [Sincronización de los hash de contraseña para las cuentas de usuario sincronizadas desde la instancia local de AD con el dominio administrado][on-prem-sync].
 
@@ -230,7 +230,7 @@ En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Configuración de DNS y los parámetros de red virtual para un dominio administrado
-> * Creación de una instancia de Azure AD DS
+> * Creación de un dominio administrado
 > * Incorporación de usuarios administrativos a la administración de dominios
 > * Habilitación de cuentas de usuario para Azure AD DS y generación de hash de contraseña
 

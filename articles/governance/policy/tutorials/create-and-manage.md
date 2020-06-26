@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Creación de directivas para aplicar el cumplimiento'
 description: En este tutorial, utilizará directivas para aplicar estándares, controlar los costos, mantener la seguridad e imponer principios de diseño para toda la empresa.
-ms.date: 03/24/2020
+ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: dcebbbfcc2f86ace7ea4400a2fdb6f1392f4efe6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 90ac6d1c4121b8672e561ff633263775bbad5357
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82190833"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84781134"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutorial: Creación y administración de directivas para aplicar el cumplimiento
 
@@ -22,7 +22,7 @@ Comprender cómo se crean y administran las directivas en Azure es importante pa
 
 Si desea asignar una directiva para identificar el estado de cumplimiento actual de los recursos existentes, en los artículos de inicio rápido se examina cómo hacerlo.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -78,7 +78,7 @@ El primer paso para aplicar cumplimientos con Azure Policy es asignar una defini
 
 ## <a name="implement-a-new-custom-policy"></a>Implementación de una nueva directiva personalizada
 
-Ahora que ha asignado una definición de directiva integrada, puede hacer más cosas con Azure Policy. A continuación, creará una directiva personalizada para ahorrar costos asegurándose de que las máquinas virtuales creadas en el entorno no puedan estar en la serie G. De este modo, cada vez que un usuario de su organización intente crear una máquina virtual de la serie G, la solicitud le será denegada.
+Ahora que ha asignado una definición de directiva integrada, puede hacer más cosas con Azure Policy. A continuación, creará una directiva personalizada para ahorrar costos y se asegurará de que las máquinas virtuales creadas en el entorno no puedan estar en la serie G. De este modo, cada vez que un usuario de su organización intente crear una máquina virtual de la serie G, la solicitud le será denegada.
 
 1. Seleccione **Definiciones** en **Creación** en el lado izquierdo de la página de Azure Policy.
 
@@ -93,8 +93,8 @@ Ahora que ha asignado una definición de directiva integrada, puede hacer más c
      > [!NOTE]
      > Si planea aplicar esta definición de directiva a varias suscripciones, la ubicación debe ser un grupo de administración que contenga las suscripciones a las que se asigne la directiva. Lo mismo puede aplicarse a una definición de iniciativa.
 
-   - El nombre de la definición de directiva: _*_Require VM SKUs smaller than the G series_ (Requerir SKU de máquina virtual inferiores a la serie G)
-   - La descripción de la finalidad de la definición de directiva: _esta definición de directiva exige que todas las máquinas virtuales creadas en este ámbito tengan SKU inferiores a la serie G para reducir el costo._
+   - El nombre de la definición de directiva: _Require VM SKUs not in the G series_ (Requerir SKU de máquina virtual que no sean de la serie G)
+   - La descripción de la finalidad de la definición de directiva: _esta definición de directiva exige que todas las máquinas virtuales creadas en este ámbito tengan SKU que no sean de la serie G para reducir el costo._
    - Elija entre las opciones existentes o cree una nueva categoría (como _Proceso_) para esta definición de directiva.
    - Copie el siguiente código JSON y actualícelo según sus necesidades con:
       - Los parámetros de directiva.

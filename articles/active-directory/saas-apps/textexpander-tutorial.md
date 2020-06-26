@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 581c3a035ab5b9e573f153361b41eedcd759baa1
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 77bd880bbbc1d600ca21e058993102d69b417f41
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83853088"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764104"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-textexpander"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con TextExpander
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a integrar TextExpander con Azure Active Director
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -43,7 +43,7 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* TextExpander admite el SSO iniciado por **SP e IDP**.
+* TextExpander admite el SSO iniciado por **IDP**.
 * TextExpander admite el aprovisionamiento de usuarios **Just-in-time**.
 * Una vez que haya configurado TextExpander, puede aplicar el control de sesión, que protege en tiempo real su organización frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
@@ -87,10 +87,6 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://app.textexpander.com/acs/<ORGID>`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://app.textexpander.com/acs/<ORGID>`
-
-1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
-
-    En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://app.textexpander.com/ssoSignin`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de atención al cliente de TextExpander](mailto:support@smilesoftware.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.

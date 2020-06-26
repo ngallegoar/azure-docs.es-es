@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ab1d0318464f6b44e1f46bd30dc76272584fde64
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 61162a0e2e95a08547848f286f2db489f4b9d963
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929832"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737026"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>¿Qué es Windows Virtual Desktop? 
 
@@ -22,7 +22,7 @@ Windows Virtual Desktop es un servicio de virtualización de escritorio y de ap
 A continuación se indica lo que se puede hacer al ejecutar Windows Virtual Desktop en Azure:
 
 * Configurar una implementación de Windows 10 de sesión múltiple que ofrezca toda la funcionalidad de Windows 10 con escalabilidad
-* Virtualizar Office 365 ProPlus y optimizarlo para ejecutarse en escenarios virtuales multiusuario
+* Virtualizar las aplicaciones de Microsoft 365 para la empresa y optimizarlo para ejecutarse en escenarios virtuales multiusuario
 * Proporcionar escritorios virtuales de Windows 7 con actualizaciones gratuitas de seguridad ampliada
 * Llevar sus aplicaciones y escritorios existentes de Servicios de Escritorio remoto (RDS) y Windows Server a cualquier equipo
 * Virtualizar escritorios y aplicaciones
@@ -109,11 +109,11 @@ En la tabla siguiente se enumeran las direcciones URL opcionales a las que puede
 
 |Dirección|Puerto TCP de salida|Propósito|Etiqueta de servicio|
 |---|---|---|---|
-|*.microsoftonline.com|443|Autenticación en MS Online Services|None|
+|*.microsoftonline.com|443|Autenticación en Microsoft Online Services|None|
 |*.events.data.microsoft.com|443|Servicio de telemetría|None|
 |www.msftconnecttest.com|443|Detecta si el sistema operativo está conectado a Internet.|None|
 |*.prod.do.dsp.mp.microsoft.com|443|Windows Update|None|
-|login.windows.net|443|Inicio de sesión en MS Online Services, Office 365|None|
+|login.windows.net|443|Inicio de sesión en Microsoft Online Services, Office 365|None|
 |*.sfx.ms|443|Actualizaciones del software cliente de OneDrive|None|
 |*.digicert.com|443|Comprobación de revocación de certificados|None|
 

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 4bf85a8e38a3cfc46fe4dbaf86639899e7267178
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: ee0c6e67dcf0cf5f85734be3ac53a0417e398654
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80676605"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733711"
 ---
 # <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Tutorial: Habilitación de la sincronización de contraseñas en Azure Active Directory Domain Services para entornos híbridos
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá:
 
 Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, necesitará los siguientes recursos:
 
@@ -42,7 +42,7 @@ Para completar este tutorial, necesitará los siguientes recursos:
     * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
     * Si es necesario, [habilite en Azure AD Connect la sincronización de hash de contraseñas][enable-azure-ad-connect].
 * Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
-    * Si es necesario, [cree y configure una instancia de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Si es necesario, [cree y configure un dominio administrado de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 
 ## <a name="password-hash-synchronization-using-azure-ad-connect"></a>Sincronización de los valores hash de contraseñas con Azure AD Connect
 
@@ -97,7 +97,7 @@ Con Azure AD Connect instalado y configurado para sincronizarse con Azure AD, 
     Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $true
     ```
 
-    En función del tamaño de su directorio en cuanto al número de cuentas y grupos, la sincronización de los valores hash de contraseñas heredados en Azure AD puede tardar algún tiempo. Las contraseñas se sincronizan después con el dominio administrado de Azure AD DS una vez que se han sincronizado con Azure AD.
+    En función del tamaño de su directorio en cuanto al número de cuentas y grupos, la sincronización de los valores hash de contraseñas heredados en Azure AD puede tardar algún tiempo. Las contraseñas se sincronizan después con el dominio administrado una vez que se han sincronizado con Azure AD.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,25 +3,25 @@ title: Configuración del inicio de sesión único (SSO) mediante un solo clic d
 description: Pasos para la configuración del inicio de sesión único mediante un solo clic para una aplicación de Azure Marketplace.
 services: active-directory
 documentationCenter: na
-author: jeevansd
-manager: mtillman
-ms.reviewer: celested
+author: kenwith
+manager: celestedg
+ms.reviewer: kenwith
 ms.assetid: e0416991-4b5d-4b18-89bb-91b6070ed3ba
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 06/11/2019
-ms.author: jeedes
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a83d27af4fd783b95c53ef3a9169cb72bfc29d34
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3c7e72718e13106b9d895921a2335f1525a7b88c
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67872424"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763132"
 ---
 # <a name="one-click-app-configuration-of-single-sign-on"></a>Configuración del inicio de sesión único mediante un solo clic de una aplicación
 
@@ -37,7 +37,7 @@ La característica de SSO con un clic se ha diseñado para configurar el inicio 
 - Una configuración del inicio de sesión único más eficaz y precisa.
 - No se necesitan comunicación con el asociado ni soporte técnico para la instalación. La aplicación proporciona la interfaz de usuario para la configuración de SAML.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una suscripción activa de la aplicación en la que se va a configurar el inicio de sesión único. También se necesitan credenciales de administrador.
 - La **extensión de inicio de sesión seguro de Mis aplicaciones** de Microsoft instalada en el explorador. Para más información, consulte [Acceso y uso del aplicaciones en el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
@@ -59,7 +59,7 @@ La característica de SSO con un clic se ha diseñado para configurar el inicio 
 
    ![Instalar la extensión de inicio de sesión seguro de Mis aplicaciones para el explorador](./media/one-click-sso-tutorial/install-myappssecure-extension.png)
 
-6. Después de agregar la extensión al explorador seleccione **Instalar \<nombre de aplicación\>** . Una vez que se le redirija al portal de administración de aplicaciones, inicie sesión como administrador.
+6. Después de agregar la extensión al explorador seleccione **Setup\<Application Name\>** (Instalar). Una vez que se le redirija al portal de administración de aplicaciones, inicie sesión como administrador.
 
    ![Configurar nombre de la aplicación](./media/one-click-sso-tutorial/setup-sso.png)
 

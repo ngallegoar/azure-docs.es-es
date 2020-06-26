@@ -6,12 +6,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: c08b99b0449608309b42e51c0ffb8d4b71a0621f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8ee1d9747c048a7a7669cb31a389ed9093af7a6d
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085349"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906452"
 ---
 # <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>Compilación de una aplicación Node.js y MongoDB en Azure App Service en Linux
 
@@ -122,7 +122,7 @@ En este paso, va a crear una cuenta de base de datos con la API de Azure Cosmos 
 
 En Cloud Shell, cree una cuenta de Cosmos DB con el comando [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create).
 
-En el siguiente comando, sustituya un nombre único de Cosmos DB por el marcador de posición *\<cosmosdb-name>* . Este nombre se usa como parte del punto de conexión de Cosmos DB, `https://<cosmosdb-name>.documents.azure.com/`, por lo que el nombre debe ser único en todas las cuentas de Cosmos DB de Azure. El nombre debe contener solo letras minúsculas, números y el carácter de guion (-), y debe tener una longitud de entre 3 y 50 caracteres.
+En el siguiente comando, sustituya el marcador de posición *\<cosmosdb-name>* por un nombre único de base de datos de Cosmos DB. Este nombre se usa como parte del punto de conexión de Cosmos DB, `https://<cosmosdb-name>.documents.azure.com/`, por lo que el nombre debe ser único en todas las cuentas de Cosmos DB de Azure. El nombre debe contener solo letras minúsculas, números y el carácter de guion (-), y debe tener una longitud de entre 3 y 50 caracteres.
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
@@ -179,7 +179,7 @@ Copie el valor de `primaryMasterKey`. Esta información la necesitará en el sig
 
 En la carpeta _config/env/_ del repositorio MEAN.js local, cree un archivo llamado _local-production.js_. _.gitignore_ está configurado para mantener este archivo fuera del repositorio.
 
-Copie en él el código siguiente. Asegúrese de reemplazar los dos marcadores de posición *\<cosmosdb-name>* por el nombre de la base de datos Cosmos DB y de reemplazar el marcador de posición *\<primary-master-key>* por la clave que copió en el paso anterior.
+Copie en él el código siguiente. Asegúrese de reemplazar los dos marcadores de posición *\<cosmosdb-name>* por el nombre de la base de datos de Cosmos DB y el marcador de posición *\<primary-master-key>* por la clave que copió en el paso anterior.
 
 ```javascript
 module.exports = {
@@ -250,7 +250,7 @@ De forma predeterminada, el proyecto MEAN.js mantiene _config/env/local-producti
 
 Para establecer la configuración de la aplicación, utilice el comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) en Cloud Shell.
 
-En el ejemplo siguiente se realiza una configuración de aplicación `MONGODB_URI` en la aplicación de Azure. Reemplace los marcadores de posición *\<app-name >* , *\<cosmosdb-name >* y *\<primary-master-key >* .
+En el ejemplo siguiente se realiza una configuración de aplicación `MONGODB_URI` en la aplicación de Azure. De nuevo, reemplace los marcadores *\<app-name>* , *\<cosmosdb-name>* y *\<primary-master-key>* .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb-name>:<primary-master-key>@<cosmosdb-name>.documents.azure.com:10250/mean?ssl=true"
@@ -444,7 +444,7 @@ Si agregó anteriormente artículos, aún puede verlos. Los datos existentes en 
 
 ## <a name="stream-diagnostic-logs"></a>Transmisión de registros de diagnóstico
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="manage-your-azure-app"></a>Administración de la aplicación de Azure
 

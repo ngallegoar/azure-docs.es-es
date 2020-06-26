@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: milismsft
 ms.author: adrianmi
 ms.date: 06/20/2019
-ms.openlocfilehash: 6dad625bbbcb8279e83ac42e1492c251d5b0299c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ab31daafe496f1aaad2bbc8075b2514d9e57e997
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747003"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84687181"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Emulador de Azure Cosmos: notas de la versión e información de descarga.
 
@@ -25,6 +25,10 @@ En este artículo se muestran las notas de la versión del emulador de Azure Cos
 |**Introducción**|[Uso del emulador de Azure Cosmos para desarrollo y pruebas locales](local-emulator.md)|
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="2111"></a>2.11.1
+
+- En esta versión se corrigen errores relacionados con el Explorador de datos del emulador. En ciertos casos, cuando se usa el Explorador de datos del emulador mediante un explorador web, no se puede conectar al punto de conexión del emulador Cosmos y todas las acciones relacionadas, como la creación de una base de datos o un contenedor, generarán un error. El segundo problema corregido está relacionado con la creación de un elemento a partir de un archivo JSON mediante la acción de carga del Explorador de datos.
 
 ### <a name="2110"></a>2.11.0
 

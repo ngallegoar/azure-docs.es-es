@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
-ms.openlocfilehash: f08a3b5d0a03b0e898457bbb783dd5031c4b0f27
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 93cefd0c71e2d51187e68c6f5f02777d158e95a4
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76277471"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84792071"
 ---
 # <a name="scale-an-application-in-azure-spring-cloud"></a>Escalado de una aplicación en Azure Spring Cloud
 
@@ -21,7 +21,7 @@ Escale y reduzca verticalmente la aplicación mediante la modificación de su n�
 
 Cuando termine, sabrá cómo realizar cambios manuales rápidos en cada aplicación del servicio. El escalado surte efecto en segundos y no requiere cambios en el código o nuevas implementaciones.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, necesita:
 
@@ -58,6 +58,9 @@ Asegúrese de seleccionar **Save** (Guardar) para aplicar la configuración de e
 ![El servicio Scale en Azure Portal](media/spring-cloud-tutorial-scale-manual/scale-up-out.png)
 
 Tras unos segundos, se muestran los cambios realizados en la página **Overview** (Información general), y puede encontrar más detalles en la pestaña **Application instances** (Instancias de la aplicación). El escalado no requiere cambios en el código ni nuevas implementaciones.
+
+## <a name="upgrade-to-the-standard-tier"></a>Actualización al nivel Estándar
+Si está en el nivel Básico y se le imponen una o varias de estas [limitaciones](spring-cloud-quotas.md), puede actualizar al nivel Estándar. Para hacerlo, seleccione primero la columna de nivel Estándar y haga clic en el botón **Actualizar** para ir al menú Plan de tarifa.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

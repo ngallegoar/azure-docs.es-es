@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 1d771d1e13d1ffd92a18658d08bb948d97e55999
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3efa8da87ac15495900dd264a9c37143f5e08181
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82209016"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84699726"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Traslado de máquinas virtuales de Azure a zonas de disponibilidad
 En Azure, Availability Zones ayuda a proteger las aplicaciones y los datos de errores del centro de datos. Cada zona de disponibilidad consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. Para garantizar la resistencia, hay tres zonas independientes como mínimo en todas las regiones habilitadas. La separación física de Availability Zones dentro de una región ayuda a proteger las aplicaciones y los datos frente a los errores del centro de datos. Con la incorporación de Availability Zones, Azure ofrece un acuerdo de nivel de servicio (SLA) que garantiza un tiempo de actividad de las máquinas virtuales (VM) del 99,99 %. Availability Zones se admite en determinadas regiones, tal como se indica en [Regiones que admiten Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-region).
@@ -23,7 +23,7 @@ En un escenario en el que se implementan las máquinas virtuales como de *instan
 - Trasladar máquinas virtuales de un conjunto de disponibilidad a Availability Zones en una región de destino
 
 > [!IMPORTANT]
-> Actualmente Azure Site Recovery permite trasladar máquinas virtuales de una región a otra, pero no admite el traslado dentro de una misma región.
+> Actualmente, Azure Site Recovery permite trasladar máquinas virtuales de una región a otra. Sin embargo, en algunas regiones, solo se admite el movimiento entre zonas dentro de una región. [Más información](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery).
 
 ## <a name="check-prerequisites"></a>Comprobación de los requisitos previos
 

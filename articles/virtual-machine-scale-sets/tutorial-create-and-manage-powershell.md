@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 05/18/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 2e9c027a927d4aba9c174db8dfc5a72f0cc4f214
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 43816c815c206da7e3fec197e54e9e7889c6de47
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195188"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735360"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Creación y administración de un conjunto de escalado de máquinas virtuales con Azure PowerShell
 
@@ -191,6 +191,8 @@ New-AzVmss `
   -Credential $cred
 ```
 
+> [!IMPORTANT]
+> Se recomienda usar la versión *más reciente* de la imagen. Especifique "más reciente" para usar la versión más reciente de una imagen disponible en el momento de la implementación. Tenga en cuenta que, aunque use "más reciente", la imagen de la máquina virtual no se actualizará automáticamente después de la implementación, incluso si hay disponible una nueva versión.
 
 ## <a name="understand-vm-instance-sizes"></a>Tamaños de instancia de máquina virtual
 El tamaño de instancia de la máquina virtual, o *SKU*, determina la cantidad de recursos de proceso, como memoria, CPU y GPU, que están disponibles para la instancia de máquina virtual. Las instancias de máquina virtual de un conjunto de escalado deben tener el tamaño adecuado para la carga de trabajo esperada.

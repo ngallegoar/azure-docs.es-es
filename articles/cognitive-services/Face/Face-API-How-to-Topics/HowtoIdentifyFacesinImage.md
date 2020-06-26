@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 0b1cf99fe6e2aa4d7fcb12c3fb96b10b42c7c0b7
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 248bae81db1bc8cb69bac4618bd7593658336636
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76169913"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84986703"
 ---
 # <a name="example-identify-faces-in-images"></a>Ejemplo: Identificación de caras en imágenes
 
@@ -50,7 +50,11 @@ private readonly IFaceClient faceClient = new FaceClient(
             new System.Net.Http.DelegatingHandler[] { });
 ```
  
-Para obtener la clave de suscripción, vaya a Azure Marketplace desde Azure Portal. Para más información, consulte [Suscripciones](https://azure.microsoft.com/try/cognitive-services/).
+Siga estas instrucciones para obtener una clave.
+
+1. Cree una [cuenta de Azure](https://azure.microsoft.com/free/cognitive-services/). Si ya tiene una, puede pasar a la siguiente sección.
+2. Cree un [recurso de Face ](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) en Azure Portal para obtener la clave. Asegúrese de seleccionar el nivel gratis (F0) durante la instalación. 
+3. Una vez implementados los recursos, haga clic en **Ir al recurso** para recopilar la clave. 
 
 ## <a name="step-2-create-the-persongroup"></a>Paso 2: Creación del elemento PersonGroup
 

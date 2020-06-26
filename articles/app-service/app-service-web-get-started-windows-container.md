@@ -4,12 +4,12 @@ description: Implemente su primer contenedor de Windows personalizado en Azure A
 ms.topic: quickstart
 ms.date: 08/30/2019
 ms.custom: mvc, seodec18
-ms.openlocfilehash: cd6b78e5fd824cc013cc946d23677237923f485e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 44ade8b0b218f028cf6f211e37824ffc43a191ac
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80047118"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764084"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Ejecución de un contenedor de Windows personalizado en Azure (versión preliminar)
 
@@ -17,7 +17,7 @@ ms.locfileid: "80047118"
 
 En este inicio rápido se muestra cómo implementar una aplicación ASP.NET, que está en una imagen de Windows, en [Docker Hub](https://hub.docker.com/) desde Visual Studio. La aplicación se ejecuta en un contenedor personalizado en Azure App Service.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 
@@ -37,7 +37,7 @@ Cree una aplicación web ASP.NET siguiendo estos pasos:
 
 1. En **Crear un proyecto**, busque y elija **Aplicación web ASP.NET Core (.NET Framework)** para C# y, a continuación, seleccione **Siguiente**.
 
-1. En **Configurar el nuevo proyecto**, asigne al proyecto el nombre _myFirstAzureWebApp_ y luego seleccione **Crear**.
+1. En **Configurar el nuevo proyecto**, asigne al proyecto el nombre _myfirstazurewebapp_ y luego seleccione **Crear**.
 
    ![Configuración del proyecto de aplicación web](./media/app-service-web-get-started-windows-container/configure-web-app-project-container.png)
 
@@ -61,7 +61,7 @@ Cree una aplicación web ASP.NET siguiendo estos pasos:
 
 ## <a name="publish-to-docker-hub"></a>Publicación en Docker Hub
 
-1. En **Explorador de soluciones**, haga clic con el botón derecho en el proyecto **myFirstAzureWebApp** y seleccione **Publicar**.
+1. En **Explorador de soluciones**, haga clic con el botón derecho en el proyecto **myfirstazurewebapp** y seleccione **Publicar**.
 
 1. Elija **App Service** y seleccione **Publicar**.
 
@@ -121,7 +121,7 @@ Espere unos minutos e inténtelo de nuevo, hasta que llegue a la página princip
 
 ## <a name="see-container-start-up-logs"></a>Consulta de los registros de inicio del contenedor
 
-El contenedor de Windows puede tardar un tiempo en cargarse. Para ver el progreso, vaya a la siguiente dirección URL sustituyendo *\<app_name >* por el nombre de la aplicación.
+El contenedor de Windows puede tardar un tiempo en cargarse. Para ver el progreso, vaya a la siguiente dirección URL sustituyendo *\<app_name>* por el nombre de la aplicación.
 ```
 https://<app_name>.scm.azurewebsites.net/api/logstream
 ```
@@ -149,7 +149,7 @@ Los registros transmitidos tienen este aspecto:
    </div>
    ```
 
-1. Para volver a realizar la implementación en Azure, haga clic con el botón derecho en el proyecto **myFirstAzureWebApp**, en el **Explorador de soluciones** y elija **Publicar**.
+1. Para volver a realizar la implementación en Azure, haga clic con el botón derecho en el proyecto **myfirstazurewebapp**, en el **Explorador de soluciones** y elija **Publicar**.
 
 1. En la página de publicación, seleccione **Publicar** y espere hasta que la publicación se complete.
 

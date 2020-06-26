@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 0962afb360df0ec6a414f676a2c280b3837c687d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2bd17e10e6123c48087116e947dc21f4cf788ef3
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81403664"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987864"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Reconocimiento de logotipos de servicios de Azure imágenes de cámara
 
@@ -28,9 +28,9 @@ Este tutorial le mostrará cómo:
 > - Conectar una aplicación a Azure Computer Vision y Custom Vision.
 > - Crear una cuenta de entidad de servicio de Azure para implementar servicios de Azure desde la aplicación.
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar. 
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - [Visual Studio 2017 o cualquier versión posterior](https://www.visualstudio.com/downloads/)
 - Carga de trabajo Xamarin para Visual Studio (consulte [Instalación de Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))
@@ -175,7 +175,7 @@ Para ejecutar la aplicación, siga estos pasos:
 
 Si ha seguido todos los pasos de este escenario y ha usado la aplicación para implementar los servicios de Azure en su cuenta, vaya a [Azure Portal](https://ms.portal.azure.com/). Allí, cancele los servicios que no desee utilizar.
 
-Además, si planea crear un proyecto de detección de objetos propio con Custom Vision, es posible que desee eliminar el proyecto de detección de logotipos que ha creado en este tutorial. La versión de evaluación gratuita de Custom Vision permite los dos proyectos. Para eliminar el proyecto de detección de logotipo, en el [sitio Web de Custom Vision](https://customvision.ai), abra **Proyectos** y, a continuación, seleccione el icono de Papelera en **Mi nuevo proyecto**.
+Además, si planea crear un proyecto de detección de objetos propio con Custom Vision, es posible que desee eliminar el proyecto de detección de logotipos que ha creado en este tutorial. Una suscripción gratuita de Custom Vision sirve solo para dos proyectos. Para eliminar el proyecto de detección de logotipo, en el [sitio Web de Custom Vision](https://customvision.ai), abra **Proyectos** y, a continuación, seleccione el icono de Papelera en **Mi nuevo proyecto**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 05/28/2020
-ms.openlocfilehash: a59fafccecaf2fc266a6c7864174c477e1831186
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 06/08/2020
+ms.openlocfilehash: 4e39d4e106a399f0105ee4ec3f3606354f113165
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561149"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84661072"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copia masiva de varias tablas mediante Azure Data Factory en Azure Portal
 
@@ -108,13 +108,16 @@ En este tutorial se vinculan sus almacenes de datos de Azure SQL Database, Azure
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>Creación del servicio vinculado de Azure SQL Database de origen
 En este paso, creará un servicio vinculado para vincular su base de datos de Azure SQL con la factoría de datos. 
 
-1. Seleccione **Conexiones** en la parte inferior de la ventana y haga clic en **+ Nuevo** en la barra de herramientas. El botón **Conexiones** se encuentra en la parte inferior de la columna izquierda debajo de **Factory Resources** (Recursos de fábrica). 
+1. Abra la [pestaña Administrar](https://docs.microsoft.com/azure/data-factory/author-management-hub) en el panel izquierdo.
 
+1. En la página Servicios vinculados, seleccione **+Nuevo** para crear un nuevo servicio vinculado.
+
+   ![Nuevo servicio vinculado](./media/doc-common-process/new-linked-service.png)
 1. En la ventana **New Linked Service** (Nuevo servicio vinculado), seleccione **Azure SQL Database** y haga clic en **Continue** (Continuar). 
 1. En la ventana **New Linked Service (Azure SQL Database)** [Nuevo servicio vinculado (Azure SQL Database)], realice los siguientes pasos: 
 
     a. Escriba **AzureSqlDatabaseLinkedService** en **Name** (Nombre).
-    
+
     b. Seleccione el servidor **nombre de servidor**
     
     c. Seleccione su base de datos de Azure SQL en **Database name** (Nombre de la base de datos). 
@@ -159,7 +162,6 @@ En este tutorial, debe usar Azure Blob Storage como un área de almacenamiento p
     b. Seleccione la **cuenta de Azure Storage** de **Storage account name** (Nombre de la cuenta de Storage).
     
     c. Haga clic en **Crear**.
-
 
 ## <a name="create-datasets"></a>Creación de conjuntos de datos
 En este tutorial creará los conjuntos de datos de origen y recepción, que especifican la ubicación de almacenamiento de los datos. 

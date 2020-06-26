@@ -1,9 +1,9 @@
 ---
 title: 'Inicio rápido: Restauración de una copia de seguridad (SSMS)'
-titleSuffix: Azure SQL SQL Managed Instance
-description: En este inicio rápido, aprenderá a restaurar una copia de seguridad de una base de datos en una instancia administrada de Azure SQL mediante SQL Server Management Studio (SSMS).
+titleSuffix: Azure SQL Managed Instance
+description: En este inicio rápido, aprenderá a restaurar una copia de seguridad de una base de datos en SQL Managed Instance mediante SQL Server Management Studio (SSMS).
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
@@ -12,45 +12,45 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: c750912e942d5dadeb97e6675427f1730912704a
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 0d10105648f434eb1d02a821e972e789bd39d66f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267586"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708451"
 ---
-# <a name="quickstart-restore-a-database-to-an-azure-sql-managed-instance-with-ssms"></a>Inicio rápido: Restauración de una copia de seguridad de datos a una instancia administrada de Azure SQL con SSMS
+# <a name="quickstart-restore-a-database-to-azure-sql-managed-instance-with-ssms"></a>Inicio rápido: Restauración de una copia de seguridad de datos en SQL Managed Instance con SSMS
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-En este inicio rápido, usará SQL Server Management Studio (SSMS) para restaurar una base de datos (el archivo de copia de seguridad de Wide World Importers - Standard) de Azure Blob Storage en una [instancia administrada de Azure SQL](sql-managed-instance-paas-overview.md).
+En este inicio rápido, usará SQL Server Management Studio (SSMS) para restaurar una base de datos (el archivo de copia de seguridad de Wide World Importers - Standard) de Azure Blob Storage en [SQL Managed Instance](sql-managed-instance-paas-overview.md).
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 > [!NOTE]
-> Para más información sobre la migración mediante Azure Database Migration Service (DMS), consulte [Migración a una instancia administrada de SQL mediante DMS](../../dms/tutorial-sql-server-to-managed-instance.md).
+> Para más información sobre la migración mediante Azure Database Migration Service (DMS), consulte [Migración a SQL Managed Instance mediante Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md).
 > Para más información sobre los diversos métodos de migración, consulte [Migración de SQL Server a Instancia administrada de Azure SQL](migrate-to-instance-from-sql-server.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Este inicio rápido:
+En esta guía de inicio rápido:
 
-- Usa recursos del inicio rápido [Creación de una instancia administrada de SQL](instance-create-quickstart.md).
-- Requiere que esté instalada la versión más reciente de [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms).
-- Requiere que se use SSMS para conectar a su instancia administrada de SQL. Consulte estos inicios rápidos sobre procedimientos de conexión:
-  - [Habilitación del punto de conexión público](public-endpoint-configure.md) en Instancia administrada de SQL: es el método que se recomienda para este tutorial.
-  - [Conexión a una Instancia administrada de SQL desde una máquina virtual de Azure](connect-vm-instance-configure.md).
-  - [Configuración de una conexión de punto a sitio a una instancia administrada de SQL desde un entorno local](point-to-site-p2s-configure.md).
+- Se usan los recursos del inicio rápido [Creación de una instancia administrada](instance-create-quickstart.md).
+- Requiere la instalación de la versión más reciente de [SSMS](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms).
+- Requiere que se use SSMS para conectarse a SQL Managed Instance. Consulte estos inicios rápidos sobre procedimientos de conexión:
+  - [Habilitación de un punto de conexión público](public-endpoint-configure.md) en SQL Managed Instance: este es el método que se recomienda para este tutorial.
+  - [Conexión a SQL Managed Instance desde una máquina virtual de Azure](connect-vm-instance-configure.md).
+  - [Configuración de una conexión de punto a sitio a SQL Managed Instance desde el entorno local](point-to-site-p2s-configure.md).
 
 > [!NOTE]
 > Para más información sobre cómo realizar una copia de seguridad de una base de datos de SQL Server y restaurarla mediante Azure Blob Storage y una clave de [Firma de acceso compartido (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), consulte [Copia de seguridad de SQL Server en una dirección URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
 
 ## <a name="restore-from-a-backup-file"></a>Restauración a partir de un archivo de copia de seguridad
 
-En SQL Server Management Studio, siga estos pasos para restaurar la base de datos de Wide World Importers en su instancia administrada de SQL. El archivo de copia de seguridad de base de datos se almacena en una cuenta de Azure Blob Storage configurada previamente.
+En SQL Server Management Studio, siga estos pasos para restaurar la base de datos de Wide World Importers en SQL Managed Instance. El archivo de copia de seguridad de base de datos se almacena en una cuenta de Azure Blob Storage configurada previamente.
 
-1. Abra SSMS y conéctese a su instancia administrada de SQL.
-2. En el **Explorador de objetos**, haga clic con el botón derecho en su instancia administrada de SQL y seleccione **Nueva consulta** para abrir una nueva ventana de consulta.
-3. Ejecute el siguiente script de SQL, que usa una cuenta de almacenamiento configurada previamente y una clave SAS para [crear una credencial](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) en su instancia administrada de SQL.
+1. Abra SSMS y conéctese a la instancia administrada.
+2. En el **Explorador de objetos**, haga clic con el botón derecho en su instancia administrada y seleccione **Nueva consulta** para abrir una nueva ventana de consulta.
+3. Ejecute el siguiente script de SQL, que usa una cuenta de almacenamiento configurada previamente y la clave SAS para [crear una credencial](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) en la instancia administrada.
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]
@@ -91,7 +91,7 @@ En SQL Server Management Studio, siga estos pasos para restaurar la base de dato
 7. Cuando se complete la restauración, consulte la base de datos en el Explorador de objetos. Puede comprobar si se ha completado la restauración de bases de datos mediante la vista [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).
 
 > [!NOTE]
-> La operación de restauración de bases de datos es asincrónica y admite reintentos. Es posible que se produzca algún error en SQL Server Management Studio si se interrumpe la conexión o se agota el tiempo de espera. Azure SQL Database seguirá intentando restaurar la base de datos en segundo plano y puede realizar un seguimiento del progreso de la restauración mediante las vistas [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) y [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).
+> La operación de restauración de una base de datos es asincrónica y admite reintentos. Es posible que se produzca un error en SQL Server Management Studio si se interrumpe la conexión o se agota el tiempo de espera. Azure SQL Database seguirá intentando restaurar la base de datos en segundo plano y puede realizar un seguimiento del progreso de la restauración mediante las vistas [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) y [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).
 > En algunas fases del proceso de restauración verá un identificador único en lugar del nombre de base de datos real de las vistas del sistema. Obtenga información sobre las diferencias de comportamiento de la instrucción `RESTORE`[aquí](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#restore-statement).
 
 ## <a name="next-steps"></a>Pasos siguientes

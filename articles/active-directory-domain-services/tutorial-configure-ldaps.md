@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 636f2e6139ad081d1e2fc67462a74cb7e18e3ff0
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: f532976e80c4284addcf09d81d8a32fd5f6f8827
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475898"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733949"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configuración de LDAP seguro para un dominio administrado de Azure Active Directory Domain Services
 
@@ -28,11 +28,11 @@ En este tutorial, aprenderá a:
 > * Crear un certificado digital para su uso con Azure AD DS
 > * Habilitar LDAP seguro para Azure AD DS
 > * Configurar LDAP seguro para su uso a través de la red pública de Internet
-> * Enlazar y probar LDAP seguro para un dominio administrado de Azure AD DS
+> * Enlazar y probar LDAP seguro para un dominio administrado
 
 Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 
@@ -41,21 +41,21 @@ Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 * Un inquilino de Azure Active Directory asociado a su suscripción, ya sea sincronizado con un directorio en el entorno local o con un directorio solo en la nube.
     * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
 * Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
-    * Si es necesario, [cree y configure una instancia de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Si es necesario, [cree y configure un dominio administrado de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * La herramienta *LDP.exe* instalada en el equipo.
     * Si es necesario, [instale las Herramientas de administración remota del servidor (RSAT)][rsat] para *Active Directory Domain Services y LDAP*.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-En este tutorial configurará LDAP seguro para el dominio administrado de Azure AD DS mediante Azure Portal. Para empezar a trabajar, primero inicie sesión en [Azure Portal](https://portal.azure.com).
+En este tutorial configurará LDAP seguro para el dominio administrado mediante Azure Portal. Para empezar a trabajar, primero inicie sesión en [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-certificate-for-secure-ldap"></a>Creación de un certificado para LDAP seguro
 
-Cuando se usa LDAP seguro, se utiliza un certificado digital para cifrar la comunicación. Este certificado digital se aplica al dominio administrado de Azure AD DS y permite que herramientas como *LDP.exe* utilicen una comunicación cifrada segura al consultar los datos. Hay dos maneras de crear un certificado para el acceso de LDAP seguro al dominio administrado:
+Cuando se usa LDAP seguro, se utiliza un certificado digital para cifrar la comunicación. Este certificado digital se aplica al dominio administrado y permite que herramientas como *LDP.exe* utilicen una comunicación cifrada segura al consultar los datos. Hay dos maneras de crear un certificado para el acceso de LDAP seguro al dominio administrado:
 
 * Un certificado de una entidad de certificación (CA) pública o de una entidad de certificación empresarial.
     * Si la organización obtiene los certificados de una entidad de certificación pública, obtenga de ella el certificado de LDAP seguro. Si usa una entidad de certificación empresarial, obténgalo de esta.
-    * Una entidad de certificación pública solo funciona cuando se usa un nombre DNS personalizado con el dominio administrado de Azure AD DS. Si el nombre de dominio DNS del dominio administrado termina en *.onmicrosoft.com*, no se puede crear un certificado digital para proteger la conexión con este dominio predeterminado. Microsoft es el propietario del dominio *.onmicrosoft.com*, por lo que una entidad de certificación pública no emitirá un certificado. En este escenario, cree un certificado autofirmado y úselo para configurar LDAP seguro.
+    * Una entidad de certificación pública solo funciona cuando se usa un nombre DNS personalizado con el dominio administrado. Si el nombre de dominio DNS del dominio administrado termina en *.onmicrosoft.com*, no se puede crear un certificado digital para proteger la conexión con este dominio predeterminado. Microsoft es el propietario del dominio *.onmicrosoft.com*, por lo que una entidad de certificación pública no emitirá un certificado. En este escenario, cree un certificado autofirmado y úselo para configurar LDAP seguro.
 * Un certificado autofirmado que haya creado usted mismo.
     * Este enfoque es adecuado para realizar pruebas y es el que se muestra en este tutorial.
 
@@ -63,7 +63,7 @@ El certificado que solicite o cree debe cumplir los siguientes requisitos. Si se
 
 * **Emisor de confianza**: el certificado debe ser emitido por una autoridad de confianza para los equipos que se conectan al dominio administrado mediante LDAP seguro. Esta entidad puede ser una entidad de certificación pública o empresarial de confianza para estos equipos.
 * **Duración** : el certificado debe ser válido al menos para los próximos 3-6 meses. El acceso LDAP seguro a su dominio administrado se interrumpe cuando expira el certificado.
-* **Nombre del firmante**: el nombre del firmante del certificado debe ser el dominio administrado. Por ejemplo, si el dominio se denomina *aaddscontoso.com*, el nombre del firmante del certificado debe ser **aaddscontoso.com*.
+* **Nombre del firmante**: el nombre del firmante del certificado debe ser el dominio administrado. Por ejemplo, si el dominio se denomina *aaddscontoso.com*, el nombre del firmante del certificado debe ser * *.aaddscontoso.com*.
     * El nombre DNS o el nombre alternativo del firmante del certificado debe ser un certificado comodín, para asegurarse de que LDAP seguro funcione correctamente con Azure AD Domain Services. Los controladores de dominio usan nombres aleatorios y se pueden quitar o agregar para asegurarse de que el servicio sigue estando disponible.
 * **Uso de claves**: el certificado debe configurarse para las *firmas digitales* y el *cifrado de claves*.
 * **Propósito del certificado**: el certificado debe ser válido para la autenticación del servidor TLS.
@@ -71,7 +71,7 @@ El certificado que solicite o cree debe cumplir los siguientes requisitos. Si se
 Hay varias herramientas disponibles para crear un certificado autofirmado como OpenSSL, Keytool, MakeCert, el cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate], etc. En este tutorial crearemos un certificado autofirmado para LDAP seguro mediante el cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate]. Abra una ventana de PowerShell como **Administrador** y ejecute los siguientes comandos. Reemplace la variable *$dnsName* por el nombre DNS que usa su propio dominio administrado, como *aaddscontoso.com*:
 
 ```powershell
-# Define your own DNS name used by your Azure AD DS managed domain
+# Define your own DNS name used by your managed domain
 $dnsName="aaddscontoso.com"
 
 # Get the current date to set a one-year expiration
@@ -101,18 +101,18 @@ Thumbprint                                Subject
 
 Para usar LDAP seguro, el tráfico de red se cifra mediante la infraestructura de clave pública (PKI).
 
-* En el dominio administrado de Azure AD DS se aplica una **clave privada**.
-    * Esta clave privada se usa para *descifrar* el tráfico LDAP seguro. La clave privada solo debe aplicarse al dominio administrado de Azure AD DS y no debe distribuirse por los equipos cliente.
+* En el dominio administrado se aplica una **clave privada**.
+    * Esta clave privada se usa para *descifrar* el tráfico LDAP seguro. La clave privada solo debe aplicarse al dominio administrado y no debe distribuirse por los equipos cliente.
     * Un certificado que incluye la clave privada utiliza el formato de archivo *.PFX*.
 * En los equipos cliente se aplica una **clave pública**.
     * Esta clave pública se utiliza para *cifrar* el tráfico LDAP seguro. La clave pública se puede distribuir a los equipos cliente.
     * Los certificados sin la clave privada usan el formato de archivo *.CER*.
 
-Estas dos claves, *privada* y *pública*, garantizan que solo los equipos adecuados pueden comunicarse correctamente entre sí. Si se usa una entidad de certificación pública o empresarial, se emite un certificado que incluye la clave privada y se puede aplicar a un dominio administrado de Azure AD DS. Los equipos cliente ya deben conocer la clave pública y confiar en ella. En este tutorial ha creado un certificado autofirmado con la clave privada, por lo que debe exportar los componentes públicos y privados correspondientes.
+Estas dos claves, *privada* y *pública*, garantizan que solo los equipos adecuados pueden comunicarse correctamente entre sí. Si se usa una entidad de certificación pública o empresarial, se emite un certificado que incluye la clave privada y se puede aplicar a un dominio administrado. Los equipos cliente ya deben conocer la clave pública y confiar en ella. En este tutorial ha creado un certificado autofirmado con la clave privada, por lo que debe exportar los componentes públicos y privados correspondientes.
 
 ### <a name="export-a-certificate-for-azure-ad-ds"></a>Exportación de un certificado para Azure AD DS
 
-Antes de poder usar el certificado digital creado en el paso anterior con el dominio administrado de Azure AD DS, exporte el certificado a un archivo de certificado *.PFX* que incluye la clave privada.
+Antes de poder usar el certificado digital creado en el paso anterior con el dominio administrado, exporte el certificado a un archivo de certificado *.PFX*, que incluye la clave privada.
 
 1. Para abrir el cuadro de diálogo *Ejecutar*, presione las teclas **Windows** + **R**.
 1. Escriba **mmc** en el cuadro de diálogo *Ejecutar* y, después, seleccione **Aceptar** para abrir Microsoft Management Console (MMC).
@@ -133,7 +133,7 @@ Antes de poder usar el certificado digital creado en el paso anterior con el dom
 1. Se debe exportar la clave privada del certificado. Si el certificado exportado no incluye la clave privada, se produce un error en la acción para habilitar LDAP seguro para el dominio administrado.
 
     En la página **Exportar la clave privada**, elija **Exportar la clave privada** y, después, seleccione **Siguiente**.
-1. Los dominios administrados de Azure AD DS solo admiten el formato de archivo de certificado *.PFX*, que incluye la clave privada. No exporte el certificado con el formato de archivo de certificado *.CER*, que no la incluye.
+1. Los dominios administrados solo admiten el formato de archivo de certificado *.PFX*, que incluye la clave privada. No exporte el certificado con el formato de archivo de certificado *.CER*, que no la incluye.
 
     En la página **Formato de archivo de exportación**, seleccione **Intercambio de información personal: PKCS #12 (.PFX)** como formato de archivo para el certificado exportado. Active la casilla *Incluir todos los certificados en la ruta de certificación (si es posible)* :
 
@@ -141,7 +141,7 @@ Antes de poder usar el certificado digital creado en el paso anterior con el dom
 
 1. Como este certificado se utiliza para descifrar datos, debe controlar cuidadosamente el acceso. Se puede usar una contraseña para proteger su uso. Sin la contraseña correcta, el certificado no se puede aplicar a un servicio.
 
-    En la página **Seguridad**, elija la opción de **Contraseña** para proteger el archivo de certificado *.PFX*. Escriba y confirme una contraseña y, después, seleccione **Siguiente**. Esta contraseña se usará en la sección siguiente para habilitar LDAP seguro para el dominio administrado de Azure AD DS.
+    En la página **Seguridad**, elija la opción de **Contraseña** para proteger el archivo de certificado *.PFX*. Escriba y confirme una contraseña y, después, seleccione **Siguiente**. Esta contraseña se usará en la sección siguiente para habilitar LDAP seguro para el dominio administrado.
 1. En la página **Archivo que se va a exportar**, especifique el nombre de archivo y la ubicación donde desea exportar el certificado como, por ejemplo, *C:\Users\nombreDeCuenta\azure-ad-ds.pfx*. Anote la contraseña y la ubicación del archivo *.PFX*, ya que necesitará esta información en los pasos siguientes.
 1. En la página de revisión, seleccione **Finalizar** para exportar el certificado a un archivo de certificado *.PFX*. Se muestra un cuadro de diálogo de confirmación cuando el certificado se ha exportado correctamente.
 1. Mantenga MMC abierto para usarlo en la sección siguiente.
@@ -160,7 +160,7 @@ Los equipos cliente deben confiar en el emisor del certificado de LDAP seguro pa
 1. En la página **Archivo que se va a exportar**, especifique el nombre de archivo y la ubicación donde desea exportar el certificado como, por ejemplo, *C:\Users\nombreDeCuenta\azure-ad-ds-client.cer*.
 1. En la página de revisión, seleccione **Finalizar** para exportar el certificado a un archivo de certificado *.CER*. Se muestra un cuadro de diálogo de confirmación cuando el certificado se ha exportado correctamente.
 
-Ahora el archivo de certificado *.CER* se puede distribuir a los equipos cliente que necesitan confiar en la conexión LDAP segura con el dominio administrado de Azure AD DS. Instalemos el certificado en el equipo local.
+Ahora el archivo de certificado *.CER* se puede distribuir a los equipos cliente que necesitan confiar en la conexión LDAP segura con el dominio administrado. Instalemos el certificado en el equipo local.
 
 1. Abra el Explorador de archivos y vaya a la ubicación donde guardó el archivo de certificado *.CER* como, por ejemplo, *C:\Users\nombreDeCuenta\azure-ad-ds-client.cer*.
 1. Seleccione con el botón derecho el archivo de certificado *.CER* y, después, elija **Instalar certificado**.
@@ -174,7 +174,7 @@ Ahora el archivo de certificado *.CER* se puede distribuir a los equipos cliente
 
 ## <a name="enable-secure-ldap-for-azure-ad-ds"></a>Habilitar LDAP seguro para Azure AD DS
 
-Ahora que ya contamos con un certificado digital creado y exportado que incluye la clave privada y con el equipo cliente configurado para confiar en la conexión, es necesario habilitar LDAP seguro en el dominio administrado de Azure AD DS. Para habilitar LDAP seguro en un dominio administrado de Azure AD DS, lleve a cabo los siguientes pasos de configuración:
+Ahora que ya contamos con un certificado digital creado y exportado que incluye la clave privada y con el equipo cliente configurado para confiar en la conexión, es necesario habilitar LDAP seguro en el dominio administrado. Para habilitar LDAP seguro en un dominio administrado, lleve a cabo los siguientes pasos de configuración:
 
 1. En [Azure Portal](https://portal.azure.com), escriba *domain services* en el cuadro **Buscar recursos**. En el resultado de la búsqueda, seleccione **Azure AD Domain Services**.
 1. Elija el dominio administrado como, por ejemplo, *aaddscontoso.com*.
@@ -191,7 +191,7 @@ Ahora que ya contamos con un certificado digital creado y exportado que incluye 
 1. Escriba la **Contraseña para descifrar el archivo .PFX** establecida en un paso anterior, cuando se exportó el certificado a un archivo *.PFX*.
 1. Seleccione **Guardar** para habilitar LDAP seguro.
 
-    ![Habilitación de LDAP seguro para un dominio administrado de Azure AD DS en Azure Portal](./media/tutorial-configure-ldaps/enable-ldaps.png)
+    ![Habilitación de LDAP seguro para un dominio administrado en Azure Portal](./media/tutorial-configure-ldaps/enable-ldaps.png)
 
 Se muestra una notificación que indica que se está configurando LDAP seguro para el dominio administrado. Hasta que se complete la operación, no podrá modificar ninguna otra configuración para este dominio.
 
@@ -199,9 +199,9 @@ La habilitación de LDAP seguro para el dominio administrado tarda unos minutos.
 
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Bloqueo del acceso LDAP seguro a través de Internet
 
-Cuando se habilita el acceso LDAP seguro a través de Internet al dominio administrado de Azure AD DS, se crea una amenaza de seguridad. El dominio administrado es accesible desde Internet en el puerto TCP 636. Se recomienda restringir el acceso al dominio administrado a aquellas direcciones IP conocidas específicas del entorno. Se puede usar una regla de grupo de seguridad de red de Azure para limitar el acceso a LDAP seguro.
+Cuando se habilita el acceso LDAP seguro a través de Internet al dominio administrado, se crea una amenaza de seguridad. El dominio administrado es accesible desde Internet en el puerto TCP 636. Se recomienda restringir el acceso al dominio administrado a aquellas direcciones IP conocidas específicas del entorno. Se puede usar una regla de grupo de seguridad de red de Azure para limitar el acceso a LDAP seguro.
 
-Crearemos una regla para permitir el acceso LDAP seguro de entrada a través del puerto TCP 636 desde un conjunto especificado de direcciones IP. En el resto de tráfico entrante de Internet se aplica una regla *DenyAll* predeterminada con una prioridad más baja, por lo que solo las direcciones especificadas pueden llegar al dominio administrado de Azure AD DS mediante LDAP seguro.
+Crearemos una regla para permitir el acceso LDAP seguro de entrada a través del puerto TCP 636 desde un conjunto especificado de direcciones IP. En el resto de tráfico entrante de Internet se aplica una regla *DenyAll* predeterminada con una prioridad más baja, por lo que solo las direcciones especificadas pueden llegar al dominio administrado mediante LDAP seguro.
 
 1. En Azure Portal, seleccione *Grupos de recursos* en la navegación lateral izquierda.
 1. Elija el grupo de recursos, por ejemplo *miGrupoDeRecursos*, y luego seleccione el grupo de seguridad de red, por ejemplo *aaads-nsg*.
@@ -226,9 +226,9 @@ Crearemos una regla para permitir el acceso LDAP seguro de entrada a través del
 
 ## <a name="configure-dns-zone-for-external-access"></a>Configuración de la zona DNS para el acceso externo
 
-Ahora que ya ha habilitado el acceso LDAP seguro a través de Internet, debe actualizar la zona DNS para que los equipos cliente puedan encontrar este dominio administrado. En la pestaña **Propiedades** del dominio administrado de Azure AD DS se muestra la *Dirección IP externa de LDAP seguro*:
+Ahora que ya ha habilitado el acceso LDAP seguro a través de Internet, debe actualizar la zona DNS para que los equipos cliente puedan encontrar este dominio administrado. En la pestaña **Propiedades** del dominio administrado se muestra el valor de *Dirección IP externa de LDAP seguro*:
 
-![Consulta de la dirección IP externa de LDAP seguro para el dominio administrado de Azure AD DS en Azure Portal](./media/tutorial-configure-ldaps/ldaps-external-ip-address.png)
+![Consulta de la dirección IP externa de LDAP seguro para el dominio administrado en Azure Portal](./media/tutorial-configure-ldaps/ldaps-external-ip-address.png)
 
 Configure el proveedor DNS externo para crear un registro de host, por ejemplo *ldaps*, para resolver en esta dirección IP externa. Para hacer antes una prueba local en el equipo, puede crear una entrada en el archivo de hosts de Windows. Para editar correctamente el archivo de hosts en el equipo local, abra el *Bloc de notas* como administrador y en él el archivo *C:\Windows\System32\drivers\etc*.
 
@@ -240,27 +240,27 @@ La siguiente entrada de DNS de ejemplo, ya sea con el proveedor DNS externo o en
 
 ## <a name="test-queries-to-the-managed-domain"></a>Prueba de consultas en el dominio administrado
 
-Para conectar y enlazar con el dominio administrado de Azure AD DS y buscar en LDAP, puede usar la herramienta *LDP.exe*. Esta herramienta se incluye en el paquete de Herramientas de administración remota del servidor (RSAT). Para más información, consulte la sección sobre [instalación de las Herramientas de administración remota del servidor][rsat].
+Para conectar y enlazar con el dominio administrado y buscar en LDAP, puede usar la herramienta *LDP.exe*. Esta herramienta se incluye en el paquete de Herramientas de administración remota del servidor (RSAT). Para más información, consulte la sección sobre [instalación de las Herramientas de administración remota del servidor][rsat].
 
 1. Abra *LDP.exe* y conéctese al dominio administrado. Seleccione **Conexión** y elija **Conectar**.
 1. Escriba el nombre de dominio DNS de LDAP seguro del dominio administrado creado en el paso anterior, por ejemplo *ldaps.aaddscontoso.com*. Para usar LDAP seguro, establezca **Puerto** en *636* y, después, active la casilla para **SSL**.
 1. Seleccione **Aceptar** para conectarse al dominio administrado.
 
-A continuación, enlace con el dominio administrado de Azure AD DS. Los usuarios (y las cuentas de servicio) no pueden realizar enlaces LDAP simples si se ha desactivado la sincronización de hash de contraseñas NTLM en la instancia de Azure AD DS. Para más información acerca de cómo deshabilitar la sincronización de hash de contraseñas NTLM, consulte [Protección de un dominio administrado con Azure AD Domain Services][secure-domain].
+Después, enlace al dominio administrado. Los usuarios (y las cuentas de servicio) no pueden realizar enlaces LDAP simples si se ha desactivado la sincronización de hash de contraseñas NTLM en el dominio administrado. Para más información acerca de cómo deshabilitar la sincronización de hash de contraseñas NTLM, consulte el artículo sobre [protección de un dominio administrado][secure-domain].
 
 1. Seleccione la opción de menú **Conexión** y, después, elija **Enlazar**.
 1. Proporcione las credenciales de una cuenta de usuario que pertenezca al grupo *Administradores de DC de AAD* como, por ejemplo, *contosoadmin*. Escriba la contraseña de la cuenta de usuario y, a continuación, escriba el dominio, como *aaddscontoso.com*.
 1. En **Tipo de enlace**, elija la opción *Enlazar con credenciales*.
-1. Seleccione **Aceptar** para enlazar con el dominio administrado de Azure AD DS.
+1. Seleccione **Aceptar** para enlazar con el dominio administrado.
 
-Para ver los objetos almacenados en el dominio administrado de Azure AD DS:
+Para ver los objetos almacenados en el dominio administrado:
 
 1. Seleccione la opción de menú **Ver** y, a continuación, elija **Árbol**.
 1. Deje en blanco el campo *DN base* y, después, seleccione **Aceptar**.
 1. Elija un contenedor, como *AADDC Users*, seleccione con el botón derecho el contenedor y elija **Buscar**.
 1. Deje los campos rellenados previamente con los valores establecidos y, a continuación, seleccione **Ejecutar**. Los resultados de la consulta aparecen en la ventana de la derecha, tal como se muestra en la siguiente salida de ejemplo:
 
-    ![Búsqueda de objetos en el dominio administrado de Azure AD DS con LDP.exe](./media/tutorial-configure-ldaps/ldp-query.png)
+    ![Búsqueda de objetos en el dominio administrado con LDP.exe](./media/tutorial-configure-ldaps/ldp-query.png)
 
 Para consultar directamente un contenedor específico, en el menú **Ver > Árbol**, puede especificar un **DN base** como *OU=AADDC Users,DC=AADDSCONTOSO,DC=COM* o bien *OU=AADDC Computers,DC=AADDSCONTOSO,DC=COM*. Para más información sobre el formato y la creación de consultas, lea sobre los [conceptos básicos de las consultas LDAP][ldap-query-basics].
 
@@ -280,7 +280,7 @@ En este tutorial, ha aprendido a:
 > * Crear un certificado digital para su uso con Azure AD DS
 > * Habilitar LDAP seguro para Azure AD DS
 > * Configurar LDAP seguro para su uso a través de la red pública de Internet
-> * Enlazar y probar LDAP seguro para un dominio administrado de Azure AD DS
+> * Enlazar y probar LDAP seguro para un dominio administrado
 
 > [!div class="nextstepaction"]
 > [Configuración de la sincronización de hash de contraseñas para un entorno de Azure AD híbrido](tutorial-configure-password-hash-sync.md)

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: 0e9ce74d62bb45c84f8bca2d71579b05c0ba656a
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 7fc7e4d5d402bfb21a30798f64e31cbbef8ccdd0
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485715"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677957"
 ---
 # <a name="quickstart-create-an-ubuntu-linux-virtual-machine-using-a-resource-manager-template"></a>Inicio rápido: Creación de una máquina virtual de Ubuntu Linux mediante una plantilla de Resource Manager
 
@@ -23,8 +23,13 @@ En esta guía de inicio rápido se muestra como usar una plantilla de Resource M
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
+## <a name="prerequisites"></a>Requisitos previos
 
-## <a name="review-the-template"></a>Revisión de la plantilla
+Ninguno.
+
+## <a name="create-an-ubuntu-linux-virtual-machine"></a>Creación de una máquina virtual Ubuntu Linux
+
+### <a name="review-the-template"></a>Revisión de la plantilla
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/).
 
@@ -35,19 +40,17 @@ En la plantilla se definen varios recursos:
 
 - [**Microsoft.Network/virtualNetworks/subnets**](/azure/templates/Microsoft.Network/virtualNetworks/subnets): cree una subred.
 - [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts): cree una cuenta de almacenamiento.
-- [**Microsoft.Network/publicIPAddresses**](/azure/templates/Microsoft.Network/publicIPAddresses): cree una dirección IP pública.
+- [**Microsoft.Network/networkInterfaces**](/azure/templates/Microsoft.Network/networkInterfaces): cree una NIC.
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/Microsoft.Network/networkSecurityGroups): cree un grupo de seguridad de red.
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/Microsoft.Network/virtualNetworks): cree una red virtual.
-- [**Microsoft.Network/networkInterfaces**](/azure/templates/Microsoft.Network/networkInterfaces): cree una NIC.
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/Microsoft.Network/publicIPAddresses): cree una dirección IP pública.
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/Microsoft.Compute/virtualMachines): cree una máquina virtual.
 
-
-
-## <a name="deploy-the-template"></a>Implementación de la plantilla
+### <a name="deploy-the-template"></a>Implementación de la plantilla
 
 1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla. La plantilla crea un almacén de claves y un secreto.
 
-    [![Implementación en Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-linux%2fazuredeploy.json)
+    [![Implementación en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-linux%2fazuredeploy.json)
 
 1. Seleccione o escriba los siguientes valores. Utilice los valores predeterminados, si están disponibles.
 

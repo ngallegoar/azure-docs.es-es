@@ -2,23 +2,22 @@
 title: Publicación de aplicaciones locales con Azure AD Application Proxy
 description: Entienda el uso de Application Proxy para publicar aplicaciones web locales de forma externa para usuarios remotos. Obtenga información sobre la arquitectura, los conectores, los métodos de autenticación y las ventajas de seguridad de Application Proxy.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
 ms.date: 05/31/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
-ms.openlocfilehash: d38cf25bb3b7622a0d444e4a71a4d62aafc053b6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a5c9ba026819a542ccd0a7ae41316c0f1d325004
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196462"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976513"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Uso de Azure AD Application Proxy para publicar aplicaciones locales para usuarios remotos
 
@@ -89,7 +88,7 @@ Existen varias formas de configurar una aplicación para el inicio de sesión ú
 * Aplicaciones web
 * API web que desea exponer a aplicaciones sofisticadas de diferentes dispositivos
 * Aplicaciones que se encuentran detrás de una puerta de enlace de escritorio remoto
-* Aplicaciones cliente enriquecidas que se integran con la biblioteca de autenticación de Active Directory (ADAL).
+* Aplicaciones cliente enriquecidas que se integran con la [biblioteca de autenticación de Microsoft (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
 
 Application Proxy funciona con aplicaciones que utilizan el siguiente protocolo de autenticación nativo:
 

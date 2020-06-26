@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: bfac12c6ef278072c6bb44d55dc12926fe906e6f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 07c86ca016d3e38359cbe8ba61d67f109c42edb0
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747678"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944974"
 ---
 ::: zone target="docs"
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a:
 > * Envío de Data Box Disk a Microsoft
 > * Recogida de Data Box Disk en distintas regiones
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, asegúrese de que ha completado [Tutorial: Copia de datos a Azure Data Box Disk y comprobación de los mismos](data-box-disk-deploy-copy-data.md).
 
@@ -159,7 +159,7 @@ Si es necesario, puede ponerse en contacto con el soporte técnico de Quantium S
 
 ### <a name="in-self-managed"></a>[En entorno autoadministrado](#tab/in-selfmanaged)
 
-Si usa Data Box Disk en Japón, Singapur, Corea y Europa Occidental, y ha seleccionado la opción de envío autoadministrada durante la creación del pedido, siga estas instrucciones. 
+Si usa Data Box Disk en Japón, Singapur, Corea, Oeste de Europa o India, y ha seleccionado la opción de envío autoadministrada durante la creación del pedido, siga estas instrucciones. 
 
 1. Vaya a la hoja **Información general** del pedido en Azure Portal. Siga las instrucciones que se muestran al seleccionar **Programar recogida**. Debería ver un código de autorización que se utiliza en el momento de dejar el pedido.
 

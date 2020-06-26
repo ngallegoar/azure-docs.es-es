@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 79d8cb4b09ef547bf1c0b01f48872ddcb4f964ee
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: f883b8527fff97ea3e16e7ffa7637c432dc33c2f
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81616543"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783374"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Uso de la eliminación temporal de Key Vault con PowerShell
 
@@ -23,7 +23,7 @@ La característica de eliminación temporal de Azure Key Vault permite recuperar
 - Compatibilidad con la eliminación recuperable de una instancia de Key Vault
 - Compatibilidad con la eliminación recuperable de objetos de Key Vault: claves, secretos y certificados
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -265,7 +265,7 @@ La lista de objetos del almacén de claves eliminado también muestra cuándo se
 
 ## <a name="enabling-purge-protection"></a>Habilitación de la protección de purgas
 
-Cuando la protección de purgas está activada, un almacén o un objeto en estado eliminado no se puede purgar hasta que ha transcurrido el período de retención de 90 días. El almacén u objeto todavía se puede recuperar. Esta característica ofrece mayor seguridad de que un almacén u objeto nunca se va a eliminar de forma permanente hasta que haya transcurrido el período de retención.
+Cuando la protección de purgas está activada, un almacén o un objeto en estado eliminado no se puede purgar hasta que ha transcurrido el período de retención. El almacén u objeto todavía se puede recuperar. Esta característica ofrece mayor seguridad de que un almacén u objeto nunca se va a eliminar de forma permanente hasta que haya transcurrido el período de retención. El período de retención predeterminado es de 90 días pero, durante la creación del almacén de claves, es posible establecer el intervalo de la directiva de retención en un valor de 7 a 90 días. La directiva de retención de protección de purgas usa el mismo intervalo. Una vez establecido, el intervalo de la directiva de retención no se puede cambiar.
 
 Puede habilitar la protección de purgas solo si también está habilitada la eliminación temporal. 
 

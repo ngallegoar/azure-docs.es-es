@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: b424fe315737b84479283eed2d77398c8ce4f148
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 99a2de4cd8a19d3f05b9dc37f3bcd08cd84b2e68
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78898827"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052756"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Inicio rápido: Creación de una instancia de Load Balancer para equilibrar la carga de máquinas virtuales mediante Azure Portal
 
@@ -41,7 +41,7 @@ En esta sección, va a crear una instancia de Load Balancer que ayuda a equilibr
 
     | Configuración                 | Value                                              |
     | ---                     | ---                                                |
-    | Subscription               | Seleccione su suscripción.    |    
+    | Suscripción               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **Crear nuevo** y escriba *MyResourceGroupSLB* en el cuadro de texto.|
     | Nombre                   | *myLoadBalancer*                                   |
     | Region         | Seleccione **Oeste de Europa**.                                        |
@@ -162,7 +162,7 @@ Las SKU de IP públicas y las SKU de Load Balancer deben coincidir. Para la inst
     | Zona de disponibilidad | 2 |3|
     |Dirección IP pública| SKU **estándar**|SKU **estándar**|
     | IP pública: zona de disponibilidad| **Con redundancia de zona** |**Con redundancia de zona**|
-    | Grupo de seguridad de red | Seleccionar el *grupo myNetworkSecurity* existente| Seleccionar el *grupo myNetworkSecurity* existente|
+    | Grupo de seguridad de red | Seleccionar el grupo *myNetworkSecurityGroup* existente| Seleccionar el grupo *myNetworkSecurityGroup* existente|
 
  ### <a name="create-nsg-rule"></a>Creación de la regla de grupo de seguridad de red
 

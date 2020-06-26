@@ -2,14 +2,14 @@
 title: 'Inicio rápido: Creación de un registro en el portal'
 description: Aprenda rápidamente a crear un registro de Docker privado en Azure Container Registry con el Azure Portal.
 ms.topic: quickstart
-ms.date: 03/03/2020
+ms.date: 06/11/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 0875e5be628ddfe47696a9d4fc537a8a07122804
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 82f9a6b02832b718d5b4e7b662c590f1992af595
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682801"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84752858"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Inicio rápido: Creación de un registro de contenedor privado con Azure Portal
 
@@ -27,28 +27,28 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 Seleccione **Crear un recurso** > **Contenedores** > **Registro de contenedor**.
 
-![Creación de un registro de contenedor en Azure Portal][qs-portal-01]
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-01.png" alt-text="Ir al registro de contenedor en el portal":::
 
-En la pestaña **Aspectos básicos**, escriba valores para **Grupo de recursos** y **Nombre del Registro**. El nombre del registro debe ser único dentro de Azure y contener entre 5 y 50 caracteres alfanuméricos. Para esta guía de inicio rápido, cree un grupo de recursos en la ubicación `West US` denominado `myResourceGroup`y en **SKU**, seleccione "Básico". 
+En la pestaña **Aspectos básicos**, escriba valores para **Grupo de recursos** y **Nombre del Registro**. El nombre del registro debe ser único dentro de Azure y contener entre 5 y 50 caracteres alfanuméricos. Para esta guía de inicio rápido, cree un grupo de recursos en la ubicación `West US` denominado `myResourceGroup`y en **SKU**, seleccione "Básico".
 
-![Creación de un registro de contenedor en Azure Portal][qs-portal-03]
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-03.png" alt-text="Creación de un registro de contenedor en el portal":::
 
 Acepte los valores predeterminados para la configuración restante. Después, seleccione **Revisar y crear**. Después de revisar la configuración, seleccione **Crear**.
 
-En este inicio rápido se crea un registro *Básico*, que es una opción rentable para los desarrolladores que aprenden sobre Azure Container Registry. Para más información sobre los niveles de servicio disponibles, consulte [SKU de Azure Container Registry][container-registry-skus].
+En este inicio rápido se crea un registro *Básico*, que es una opción rentable para los desarrolladores que aprenden sobre Azure Container Registry. Para más información sobre los niveles de servicio disponibles (SKU), consulte [SKU de Azure Container Registry][container-registry-skus].
 
 Cuando aparezca el mensaje **Implementación correcta**, seleccione el registro de contenedor en el portal. 
 
-![Información general de los registros de contenedor en Azure Portal][qs-portal-05]
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Información general del registro de contenedor en el portal":::
 
 Tome nota del valor del **servidor de inicio de sesión**. Este valor se usará en los pasos siguientes cuando inserte y extraiga imágenes con Docker.
 
 ## <a name="log-in-to-registry"></a>Iniciar sesión en el registro
 
-Antes de insertar y extraer imágenes de contenedor, debe iniciar sesión en la instancia de ACR. Abra un shell de comandos en el sistema operativo y utilice el comando [az acr login][az-acr-login] en la CLI de Azure. (Especifique solo el nombre del Registro al iniciar sesión. No incluya el sufijo "azurecr.io").
+Antes de insertar y extraer imágenes de contenedor, debe iniciar sesión en la instancia del registro. [Inicie sesión en la CLI de Azure][get-started-with-azure-cli] en la máquina local y, a continuación, ejecute el comando [az acr login][az-acr-login]. (Especifique solo el nombre del registro al iniciar sesión con la CLI de Azure. No incluya el sufijo "azurecr.io").
 
 ```azurecli
-az acr login --name <acrName>
+az acr login --name <registry-name>
 ```
 
 El comando devolverá `Login Succeeded` una vez completado. 
@@ -57,11 +57,11 @@ El comando devolverá `Login Succeeded` una vez completado.
 
 ## <a name="list-container-images"></a>Lista de imágenes de contenedor
 
-Para mostrar las imágenes en el registro, vaya al registro en el portal, seleccione **Repositorios** y después seleccione el repositorio que creó con `docker push`.
+Para mostrar las imágenes en el registro, vaya al registro en el portal, seleccione **Repositorios** y después seleccione el repositorio **hello-world** que creó con `docker push`.
 
-En este ejemplo, se selecciona el repositorio **hello-world** y se puede ver la imagen etiquetada con `v1` en **Etiquetas**.
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-09.png" alt-text="Lista de imágenes de contenedor en el portal":::
 
-![Lista de imágenes de contenedor en Azure Portal][qs-portal-09]
+Al seleccionar el repositorio **hello-world**, verá la imagen `v1`-tagged en **Etiquetas**.
 
 [!INCLUDE [container-registry-quickstart-docker-pull](../../includes/container-registry-quickstart-docker-pull.md)]
 
@@ -69,22 +69,18 @@ En este ejemplo, se selecciona el repositorio **hello-world** y se puede ver la 
 
 Para limpiar los recursos, vaya al grupo de recursos **myResourceGroup** en el portal. Una vez cargado el grupo de recursos, haga clic en **Eliminar grupo de recursos** para eliminar el grupo de recursos, el registro de contenedor y las imágenes de contenedor almacenadas allí.
 
-![Eliminación de un grupo de recursos en Azure Portal][qs-portal-08]
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-08.png" alt-text="Eliminación de un grupo de recursos en el portal":::
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este inicio rápido, ha creado una instancia de Azure Container Registry con Azure Portal, ha insertado una imagen de contenedor y ha extraído y ejecutado la imagen del registro. Siga los tutoriales de Azure Container Registry para información más detallada de ACR.
 
 > [!div class="nextstepaction"]
-> [Tutoriales de Azure Container Registry][container-registry-tutorial-quick-task]
+> [Tutoriales de Azure Container Registry][container-registry-tutorial-prepare-registry]
 
-<!-- IMAGES -->
-[qs-portal-01]: ./media/container-registry-get-started-portal/qs-portal-01.png
-[qs-portal-02]: ./media/container-registry-get-started-portal/qs-portal-02.png
-[qs-portal-03]: ./media/container-registry-get-started-portal/qs-portal-03.png
-[qs-portal-05]: ./media/container-registry-get-started-portal/qs-portal-05.png
-[qs-portal-08]: ./media/container-registry-get-started-portal/qs-portal-08.png
-[qs-portal-09]: ./media/container-registry-get-started-portal/qs-portal-09.png
+> [!div class="nextstepaction"]
+> [Tutoriales de Azure Container Registry Tasks][container-registry-tutorial-quick-task]
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
@@ -97,7 +93,9 @@ En este inicio rápido, ha creado una instancia de Azure Container Registry con 
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
-[container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
+[container-registry-tutorial-prepare-registry]: container-registry-tutorial-prepare-registry.md
 [container-registry-skus]: container-registry-skus.md
 [azure-cli]: /cli/azure/install-azure-cli
+[get-started-with-azure-cli]: /cli/azure/get-started-with-azure-cli
 [az-acr-login]: /cli/azure/acr#az-acr-login
+[container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md

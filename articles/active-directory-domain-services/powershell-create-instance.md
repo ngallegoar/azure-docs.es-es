@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: sample
 ms.date: 09/05/2019
 ms.author: iainfou
-ms.openlocfilehash: e99ad2d53bc26b4e13a34097baaec929058a61a0
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 9dbb8a6011b4f2aebc73df7d37e6f43e7f27b747
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654799"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84734527"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Habilitación de Azure Active Directory Domain Services mediante PowerShell
 
@@ -26,7 +26,7 @@ En este artículo se muestra cómo habilitar Azure AD DS con PowerShell.
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este artículo, necesita los siguientes recursos:
 
@@ -51,7 +51,7 @@ Cree una entidad de servicio de Azure AD con el cmdlet [New-AzureADServicePrinc
 New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 ```
 
-Ahora, cree un grupo de Azure AD denominado *Administradores de controlador de dominio de AAD*. A los usuarios agregados a este grupo se les conceden permisos para realizar tareas de administración en el dominio administrado de Azure AD DS.
+Ahora, cree un grupo de Azure AD denominado *Administradores de controlador de dominio de AAD*. A los usuarios agregados a este grupo se les conceden permisos para realizar tareas de administración en el dominio administrado.
 
 Cree el grupo *Administradores de controlador de dominio de AAD* mediante el cmdlet [New-AzureADGroup][New-AzureADGroup]:
 
@@ -126,9 +126,9 @@ $Vnet= New-AzVirtualNetwork `
   -Subnet $AaddsSubnet,$WorkloadSubnet
 ```
 
-## <a name="create-an-azure-ad-ds-managed-domain"></a>Creación de un dominio administrado de Azure AD DS
+## <a name="create-a-managed-domain"></a>Creación de un dominio administrado
 
-Ahora vamos a crear un dominio administrado de Azure AD DS. Establezca el identificador de la suscripción de Azure y luego proporcione un nombre para el dominio administrado, como *aaddscontoso.com*. Puede obtener el identificador de la suscripción con el cmdlet [Get-AzSubscription][Get-AzSubscription].
+Ahora vamos a crear un dominio administrado. Establezca el identificador de la suscripción de Azure y luego proporcione un nombre para el dominio administrado, como *aaddscontoso.com*. Puede obtener el identificador de la suscripción con el cmdlet [Get-AzSubscription][Get-AzSubscription].
 
 Si elige una región que admite zonas de disponibilidad, los recursos de Azure AD DS se distribuyen entre las zonas para conseguir redundancia adicional.
 
@@ -148,14 +148,14 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
   -Force -Verbose
 ```
 
-Tarda unos minutos hasta que se crea el recurso y se devuelve el control al símbolo del sistema de PowerShell. El dominio administrado de Azure AD DS se sigue aprovisionando en segundo plano y puede tardar hasta una hora en finalizar la implementación. En Azure Portal, la página **Información general** del dominio administrado de Azure AD DS muestra el estado actual durante esta fase de implementación.
+Tarda unos minutos hasta que se crea el recurso y se devuelve el control al símbolo del sistema de PowerShell. El dominio administrado se sigue aprovisionando en segundo plano y puede tardar hasta una hora en finalizar la implementación. En Azure Portal, la página **Información general** del dominio administrado muestra el estado actual durante esta fase de implementación.
 
-Cuando en Azure Portal se muestra que el dominio administrado de Azure AD DS ha terminado de aprovisionarse, es necesario realizar las siguientes tareas:
+Cuando en Azure Portal se muestra que el dominio administrado ha terminado de aprovisionarse, es necesario realizar las siguientes tareas:
 
 * Actualice la configuración de DNS para la red virtual de manera que las máquinas virtuales puedan encontrar el dominio administrado para la unión o autenticación de dominios.
-    * Para configurar DNS, seleccione el dominio administrado de Azure AD DS en el portal. En la ventana **Información general**, se le pedirá que configure automáticamente estos valores de DNS.
-* Si ha creado un dominio administrado de Azure AD DS en una región que admite Availability Zones, cree un grupo de seguridad de red para restringir el tráfico de la red virtual de ese dominio. Se crea un equilibrador de carga estándar de Azure que exige la presencia de estas reglas. Este grupo de seguridad de red protege Azure AD DS y es necesario para que el dominio administrado funcione correctamente.
-    * Para crear el grupo de seguridad de red y las reglas necesarias, seleccione el dominio administrado de Azure AD DS en el portal. En la ventana **Información general**, se le pedirá que cree y configure automáticamente el grupo de seguridad de red.
+    * Para configurar DNS, seleccione el dominio administrado en el portal. En la ventana **Información general**, se le pedirá que configure automáticamente estos valores de DNS.
+* Si ha creado un dominio administrado en una región que admite Availability Zones, cree un grupo de seguridad de red para restringir el tráfico de la red virtual de ese dominio. Se crea un equilibrador de carga estándar de Azure que exige la presencia de estas reglas. Este grupo de seguridad de red protege Azure AD DS y es necesario para que el dominio administrado funcione correctamente.
+    * Para crear el grupo de seguridad de red y las reglas necesarias, seleccione el dominio administrado en el portal. En la ventana **Información general**, se le pedirá que cree y configure automáticamente el grupo de seguridad de red.
 * [Habilite la sincronización de contraseñas en Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) de manera que los usuarios finales puedan iniciar sesión en el dominio administrado mediante sus credenciales corporativas.
 
 ## <a name="complete-powershell-script"></a>Script completo de PowerShell
@@ -235,19 +235,19 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
   -Force -Verbose
 ```
 
-Tarda unos minutos hasta que se crea el recurso y se devuelve el control al símbolo del sistema de PowerShell. El dominio administrado de Azure AD DS se sigue aprovisionando en segundo plano y puede tardar hasta una hora en finalizar la implementación. En Azure Portal, la página **Información general** del dominio administrado de Azure AD DS muestra el estado actual durante esta fase de implementación.
+Tarda unos minutos hasta que se crea el recurso y se devuelve el control al símbolo del sistema de PowerShell. El dominio administrado se sigue aprovisionando en segundo plano y puede tardar hasta una hora en finalizar la implementación. En Azure Portal, la página **Información general** del dominio administrado muestra el estado actual durante esta fase de implementación.
 
-Cuando en Azure Portal se muestra que el dominio administrado de Azure AD DS ha terminado de aprovisionarse, es necesario realizar las siguientes tareas:
+Cuando en Azure Portal se muestra que el dominio administrado ha terminado de aprovisionarse, es necesario realizar las siguientes tareas:
 
 * Actualice la configuración de DNS para la red virtual de manera que las máquinas virtuales puedan encontrar el dominio administrado para la unión o autenticación de dominios.
-    * Para configurar DNS, seleccione el dominio administrado de Azure AD DS en el portal. En la ventana **Información general**, se le pedirá que configure automáticamente estos valores de DNS.
-* Si ha creado un dominio administrado de Azure AD DS en una región que admite Availability Zones, cree un grupo de seguridad de red para restringir el tráfico de la red virtual de ese dominio. Se crea un equilibrador de carga estándar de Azure que exige la presencia de estas reglas. Este grupo de seguridad de red protege Azure AD DS y es necesario para que el dominio administrado funcione correctamente.
-    * Para crear el grupo de seguridad de red y las reglas necesarias, seleccione el dominio administrado de Azure AD DS en el portal. En la ventana **Información general**, se le pedirá que cree y configure automáticamente el grupo de seguridad de red.
+    * Para configurar DNS, seleccione el dominio administrado en el portal. En la ventana **Información general**, se le pedirá que configure automáticamente estos valores de DNS.
+* Si ha creado un dominio administrado en una región que admite Availability Zones, cree un grupo de seguridad de red para restringir el tráfico de la red virtual de ese dominio. Se crea un equilibrador de carga estándar de Azure que exige la presencia de estas reglas. Este grupo de seguridad de red protege Azure AD DS y es necesario para que el dominio administrado funcione correctamente.
+    * Para crear el grupo de seguridad de red y las reglas necesarias, seleccione el dominio administrado en el portal. En la ventana **Información general**, se le pedirá que cree y configure automáticamente el grupo de seguridad de red.
 * [Habilite la sincronización de contraseñas en Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) de manera que los usuarios finales puedan iniciar sesión en el dominio administrado mediante sus credenciales corporativas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver el dominio administrado de Azure AD DS en acción, puede [unir a un dominio una máquina virtual Windows][windows-join], [configurar LDAP seguro][tutorial-ldaps] y [configurar la sincronización de hash de contraseñas][tutorial-phs].
+Para ver el dominio administrado en acción, puede [unir a un dominio una máquina virtual Windows][windows-join], [configurar LDAP seguro][tutorial-ldaps] y [configurar la sincronización de hash de contraseñas][tutorial-phs].
 
 <!-- INTERNAL LINKS -->
 [windows-join]: join-windows-vm.md

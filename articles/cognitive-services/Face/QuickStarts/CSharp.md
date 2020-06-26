@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Detección de caras en una imagen con la API REST de Azure y C#'
+title: 'Inicio rápido: Detección de caras en una imagen con la API REST de Azure y C#'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, usará la API REST de Azure Face con C# para detectar caras en una imagen.
 services: cognitive-services
@@ -10,23 +10,26 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 69d3f1a7f0c455275a212401110459abb1b8d8d0
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ed64ae799dab570b168a91b236b1c4be8be8bee1
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81403406"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84986646"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Guía de inicio rápido: Detección de caras en una imagen mediante la API REST de Face y C#
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Inicio rápido: Detección de caras en una imagen mediante Face REST API y C#
 
 En este inicio rápido, usará la API REST de Azure Face con C# para detectar caras humanas en una imagen.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
-- Una clave de suscripción de Face. Puede obtener una clave de la suscripción de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones para la [creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para poder suscribirse al servicio Face y obtener la clave.
-- Cualquier edición de [Visual Studio 2015 o 2017](https://www.visualstudio.com/downloads/).
+* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/)
+* Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Creación de un recurso de Face"  target="_blank">cree un recurso de Face <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
+    * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a Face API. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
+    * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
+- Cualquier edición de [Visual Studio](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-the-visual-studio-project"></a>Creación del proyecto de Visual Studio
 

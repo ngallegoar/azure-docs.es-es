@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 3bd9489adaf46e604393fc7059d37443bdd5ec3e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 105ab0c71d9e7e935842550ecdc4c8d2ff2a2d8c
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73489027"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84977906"
 ---
 1. Ubique la red WAN virtual que ha creado. En la página de Virtual WAN, en la sección **Conectividad**, seleccione **Centros**.
 2. En la página Centros, haga clic en **+ Nuevo centro de conectividad** para abrir la página **Crear centro de conectividad virtual**.
@@ -25,7 +25,7 @@ ms.locfileid: "73489027"
 
    * Región (anteriormente se conocía como ubicación)
    * Nombre
-   * Espacio de direcciones privadas del centro de conectividad. El espacio de direcciones mínimo es/24 para crear un centro de conectividad, lo que implica que cualquier intervalo de/25 a/32 generará un error durante la creación.
+   * Espacio de direcciones privadas del centro de conectividad. El espacio de direcciones mínimo es/24 para crear un centro de conectividad, lo que implica que cualquier intervalo de/25 a/32 generará un error durante la creación. Azure Virtual WAN, un servicio administrado por Microsoft, crea las subredes adecuadas en el centro de conectividad virtual para las diferentes puertas de enlace y servicios (por ejemplo, puertas de enlace de VPN, puertas de enlace de ExpressRoute, puertas de enlace de VPN o de punto a sitio, firewall, enrutamiento, etc.). No es necesario que el usuario planee explícitamente el espacio de direcciones de subred para los servicios del centro de conectividad virtual, ya que Microsoft lo hace como parte del servicio.
 4. Seleccione **Siguiente: De sitio a sitio**.
 
     ![De sitio a sitio](./media/virtual-wan-tutorial-hub-include/site-to-site.png "De sitio a sitio")

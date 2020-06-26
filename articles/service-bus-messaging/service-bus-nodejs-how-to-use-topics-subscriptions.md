@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/16/2020
 ms.author: aschhab
-ms.openlocfilehash: c85b63b4a56e74b0fef9a122ec995b4106496cbe
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 91fae982f53af8da359baaff685996c0d1cb57c2
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78330453"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976564"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Inicio rápido: Uso de los temas y las suscripciones de Service Bus con Node.js y el paquete azure-sb
 En este tutorial, obtendrá información sobre cómo crear aplicaciones de Node.js para enviar mensajes a un tema de Service Bus y recibir mensajes de una suscripción de Service Bus mediante el paquete [azure-sb](https://www.npmjs.com/package/azure-sb). Los ejemplos están escritos en JavaScript y usan el [módulo Node.js de Azure](https://www.npmjs.com/package/azure), que internamente usa el paquete `azure-sb`.
@@ -39,7 +39,7 @@ Los escenarios que se explican aquí incluyen:
 
 Para más información sobre los temas y las suscripciones, consulte la sección [Pasos siguientes](#next-steps).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 - Suscripción a Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [beneficios de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Siga los pasos de [Inicio rápido: Uso de Azure Portal para crear un tema de Service Bus y suscripciones a dicho tema](service-bus-quickstart-topics-subscriptions-portal.md) para crear un **espacio de nombres** de Service Bus y obtener la **cadena de conexión**.
 
@@ -80,7 +80,7 @@ var azure = require('azure');
 ```
 
 ### <a name="set-up-a-service-bus-connection"></a>Configuración de una conexión de Service Bus
-El módulo de Azure lee la variable de entorno `AZURE_SERVICEBUS_CONNECTION_STRING` para la cadena de conexión que ha obtenido en el paso anterior, "Obtención de las credenciales". Si no se configura esta variable de entorno, debe especificar la información de la cuenta al llamar a `createServiceBusService`.
+El módulo de Azure lee la variable de entorno `AZURE_SERVICEBUS_CONNECTION_STRING` de la cadena de conexión que ha obtenido como parte de los [requisitos previos](#prerequisites). Si necesita instrucciones para volver a obtener la cadena de conexión, consulte [Obtención de la cadena de conexión](service-bus-quickstart-topics-subscriptions-portal.md#get-the-connection-string). Si no se configura esta variable de entorno, debe especificar la información de la cuenta al llamar a `createServiceBusService`.
 
 Para ver un ejemplo de configuración de las variables de entorno para un servicio en la nube de Azure, consulte [Establecimiento de variables de entorno](../container-instances/container-instances-environment-variables.md#azure-cli-example).
 

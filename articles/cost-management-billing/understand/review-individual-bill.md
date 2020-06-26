@@ -6,14 +6,14 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.topic: tutorial
-ms.date: 05/28/2020
+ms.date: 06/16/2020
 ms.author: banders
-ms.openlocfilehash: 5a9e21cacb17743cbb8324a06c083c52aa261eb9
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 5b0d30d31fbe65360c246282eb2dc2109a541a3f
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194140"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888321"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>Tutorial: Revisión de la factura de Azure
 
@@ -100,7 +100,7 @@ La sección de **cargos de uso** de la factura muestra el valor total (costo) de
 
 ![Cargos de uso de la factura](./media/review-individual-bill/invoice-usage-charges.png)
 
-En el archivo de uso de CSV, filtre por *MeterName* para el recurso correspondiente que se muestra en la factura. A continuación, sume el valor de *Costo* de los elementos de la columna. Este es un ejemplo.
+En el archivo de uso de CSV, filtre por *MeterName* para el recurso correspondiente que se muestra en la factura. A continuación, sume el valor de *Costo* de los elementos de la columna. Este es un ejemplo que se centra en el nombre del medidor (discos P10) que corresponde al mismo elemento de línea de la factura.
 
 ![Suma de los valores del archivo de uso para MeterName](./media/review-individual-bill/usage-file-usage-charge-resource.png)
 

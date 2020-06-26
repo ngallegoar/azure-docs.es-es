@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 6341754078c77225511523431a56618a4866c418
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7dbd8783b62d9a6f573b8f0eb25e8dadabaac56b
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82148405"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85073262"
 ---
 Introducción a la biblioteca cliente de Face para .NET. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas. El servicio Face le proporciona acceso a algoritmos avanzados para detectar y reconocer rostros humanas en imágenes.
 
@@ -28,18 +28,16 @@ Use la biblioteca cliente de Face para .NET para:
 
 [Documentación de referencia](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Paquete (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.5.0-preview.1) | [Ejemplos](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 * La versión actual de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
+* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/)
+* Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Creación de un recurso de Face"  target="_blank">cree un recurso de Face <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
+    * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a Face API. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
+    * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
+* Después de obtener una clave y un punto de conexión, [cree las variables de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) `FACE_SUBSCRIPTION_KEY` y `FACE_ENDPOINT` para la clave y la dirección URL del punto de conexión, respectivamente.
 
 ## <a name="setting-up"></a>Instalación
-
-### <a name="create-a-face-azure-resource"></a>Creación de un recurso de Azure para Face
-
-Los servicios de Azure Cognitive Services se representan por medio de recursos de Azure a los que se suscribe. Cree un recurso para Face mediante [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o la [CLI de Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) en la máquina local. También puede obtener una [clave de prueba](https://azure.microsoft.com/try/cognitive-services/#decision) válida durante siete días de forma gratuita. Después de registrarse, estará disponible en el [sitio web de Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
-
-Después de obtener una clave de la suscripción de evaluación o el recurso, [cree una variable de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para la clave y la dirección URL del punto de conexión, denominadas `FACE_SUBSCRIPTION_KEY` y `FACE_ENDPOINT`, respectivamente.
 
 ### <a name="create-a-new-c-application"></a>Creación de una aplicación de C#
 
@@ -220,7 +218,7 @@ El siguiente fragmento de código llama a la operación **IdentifyAsync** e impr
 
 ## <a name="take-a-snapshot-for-data-migration"></a>Tomar una instantánea para la migración de datos
 
-La característica de instantáneas permite trasladar los datos de Face guardados, como un objeto **PersonGroup** entrenado, a otra suscripción de Face de Azure Cognitive Services. Puede ser conveniente usar esta característica si, por ejemplo, ha creado un objeto **PersonGroup** mediante una suscripción de evaluación gratuita y desea migrarlo a una de pago. Consulte el artículo de [Migración de los datos de las caras](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) para información general de la característica de instantáneas.
+La característica de instantáneas permite trasladar los datos de Face guardados, como un objeto **PersonGroup** entrenado, a otra suscripción de Face de Azure Cognitive Services. Podría usar esta característica si, por ejemplo, ha creado un objeto **PersonGroup** mediante una suscripción gratuita y quiere migrarlo a una de pago. Consulte el artículo de [Migración de los datos de las caras](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) para información general de la característica de instantáneas.
 
 En este ejemplo migrará el objeto **PersonGroup** que ha creado en [Creación y entrenamiento de un grupo de personas](#create-and-train-a-person-group). Puede completar esa sección primero o crear sus propias construcciones de Face que migrar.
 

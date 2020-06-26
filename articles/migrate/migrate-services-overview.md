@@ -4,23 +4,21 @@ description: Más información sobre el servicio de Azure Migrate
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: c0fe4293b4e07152ff41ae946faf703aacc42d89
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: d90c40447dc4928a34332685aea728b13c3775b1
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193593"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771264"
 ---
 # <a name="about-azure-migrate"></a>Acerca de Azure Migrate
 
 En este artículo se proporciona una rápida descripción general del servicio Azure Migrate.
 
-Azure Migrate proporciona un centro centralizado para evaluar y migrar a Azure servidores, infraestructuras, aplicaciones y datos locales.
-
-Azure Migrate proporciona las características siguientes:
+Azure Migrate proporciona un centro centralizado para evaluar y migrar a Azure servidores, infraestructuras, aplicaciones y datos locales. Ofrece lo siguiente:
 
 - **Plataforma de migración unificada**: un único portal para iniciar, ejecutar y realizar un seguimiento de la migración a Azure.
-- **Rango de herramientas**: Rango de herramientas para la evaluación y migración Entre las herramientas se incluyen Azure Migrate: Server Assessment y Azure Migrate: Server Migration. Azure Migrate se integra con otros servicios de Azure y con otras herramientas y ofertas de proveedores de software independientes (ISV).
+- **Rango de herramientas**: Rango de herramientas para la evaluación y migración Las herramientas de Azure Migrate incluyen Server Assessment y Azure Migrate: Server Migration. Azure Migrate también se integra con otros servicios y herramientas de Azure, así como con ofertas de proveedores de software independientes (ISV).
 - **Evaluación y migración** En el centro de Azure Migrate, puede evaluar y migrar:
     - **Servidores**: evalúe servidores locales y mígrelos a máquinas virtuales de Azure.
     - **Bases de datos**: Evalúe bases de datos locales y mígrelas a Azure SQL Database o a una instancia administrada de SQL.
@@ -82,15 +80,12 @@ Server Assessment usa un [dispositivo de Azure Migrate](migrate-appliance.md) li
 
 Azure Migrate: La herramienta Server Migration le ayuda a migrar a Azure:
 
-- Máquinas virtuales de VMware locales
-- Máquinas virtuales de Hyper-V
-- Servidores físicos
-- Otras máquinas virtualizadas
-- Máquinas virtuales de nube pública
+**Migrar** | **Detalles**
+--- | ---
+Máquinas virtuales de VMware locales | Migre máquinas virtuales a Azure mediante la migración basada en agente o sin agente.<br/><br/> Para la migración sin agente, Server Migration usa un dispositivo de Azure Migrate que se implementa en el entorno local. Es el mismo tipo de dispositivo que se usa para Server Assessment.<br/><br/> En el caso de la migración basada en agente, Server Assessment usa un dispositivo de replicación.
+VM de Hyper-V locales | Migre máquinas virtuales a Azure.<br/><br/> Server Assessment usa agentes de proveedor instalados en el host de Hyper-V para la migración.
+Servidores físicos locales | Es posible migrar máquinas físicas a Azure. También se pueden migrar otras máquinas1 virtualizadas y máquinas virtuales de otras nubes públicas, si se tratan como máquinas virtuales con el fin de realizar la migración. | Server Assessment usa un dispositivo de replicación para la migración.
 
-Puede migrar máquinas después de evaluarlas, o bien hacerlo sin realizar ninguna valoración.
-
-Para la migración sin agente de máquinas virtuales de VMware y la migración de máquinas virtuales de Hyper-V, Server Migration usa un dispositivo de Azure Migrate que se implementa en el entorno local. También se usa el dispositivo si se configura la valoración del servidor. Este proceso se describe en la sección anterior.
 
 ## <a name="selecting-assessment-and-migration-tools"></a>Selección de herramientas de valoración y migración
 

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 05/29/2020
-ms.openlocfilehash: 680f8518e5d005aebeffd54fe6d05ae1124c595a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 06/10/2020
+ms.openlocfilehash: 2578d1b6fa07545e7205b8a8c86447ef2e54176a
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559716"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730108"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database-using-the-azure-portal"></a>Carga incremental de datos de varias tablas de SQL Server en una base de datos de Azure SQL mediante Azure Portal
 
@@ -260,9 +260,13 @@ END
 ## <a name="create-self-hosted-integration-runtime"></a>Creación de un entorno de ejecución de integración autohospedado
 Cuando mueva datos de un almacén de datos de una privada red (local) a un almacén de datos de Azure, instale un entorno de ejecución de integración (IR) autohospedado en su entorno local. El entorno de ejecución de integración autohospedado mueve los datos entre la red privada y Azure. 
 
-1. Haga clic en **Connections** (Conexiones) en la parte inferior del panel izquierdo y cambie a **Integration Runtimes** (Runtimes de integración) en la ventana **Connections** (Conexiones). 
+1. En la página **Comencemos** de la interfaz de usuario de Azure Data Factory, seleccione la [pestaña Administrar](https://docs.microsoft.com/azure/data-factory/author-management-hub) en el panel izquierdo.
 
-1. En la pestaña **Integration Runtimes** (Runtimes de integración), haga clic en **+ New** (+Nuevo). 
+   ![Botón Administrar de la página principal](media/doc-common-process/get-started-page-manage-button.png)
+
+1. Seleccione **Entornos de ejecución de integración** en el panel izquierdo y, a continuación, seleccione **+ Nuevo**.
+
+   ![Creación de una instancia de Integration Runtime](media/doc-common-process/manage-new-integration-runtime.png)
 
 1. En la ventana **Integration Runtime Setup** (Configuración de Integration Runtime), seleccione la opción **Perform data movement and dispatch activities to external computes** (Realizar movimientos de datos y enviar actividades a procesos externos) y haga clic en **Continue** (Continuar). 
 
@@ -288,6 +292,7 @@ En este paso, vinculará la base de datos de SQL Server a la factoría de datos
 
 1. En la ventana **Connections** ventana, cambie de la pestaña **Integration Runtimes** (Entornos de ejecución de integración) a la pestaña **Linked Services** (Servicios vinculados) y haga clic en **+ New** (Nuevo).
 
+   ![Nuevo servicio vinculado](./media/doc-common-process/new-linked-service.png)
 1. En la ventana **New Linked Service** (Nuevo servicio vinculado), seleccione **SQL Server** y haga clic en **Continue** (Continuar). 
 
 1. En la ventana **New Linked Service** (Nuevo servicio vinculado), realice los pasos siguientes:
@@ -349,7 +354,7 @@ En este paso, creará conjuntos de datos para representar el origen de datos, el
     1. Haga clic en **+ New** (+ Nuevo) en la sección **Create/update parameters** (Crear o actualizar parámetros). 
     1. Escriba **SinkTableName** en **Name** (Nombre) and **String** en **Type** (Tipo). Este conjunto de datos toma **SinkTableName** como parámetro. El parámetro SinkTableName lo establece la canalización dinámicamente en el runtime. La actividad ForEach de la canalización recorre en iteración una lista de nombres de tabla y pasa el nombre de tabla a este conjunto de datos en cada iteración.
    
-    ![Conjunto de datos receptor: propiedades](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
+        ![Conjunto de datos receptor: propiedades](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
 1. Cambie a la pestaña **Connection** (Conexión) de la ventana de propiedades y seleccione **AzureSqlDatabaseLinkedService** en **Linked service** (Servicio vinculado). En la propiedad **Table**, haga clic en **Agregar contenido dinámico**.   
     
 1. En la ventana **Add Dynamic Content** (Agregar contenido dinámico), seleccione **SinkTableName** en la sección **Parameters** (Parámetros). 
@@ -371,7 +376,7 @@ En este paso, creará un conjunto de datos para almacenar un valor de límite m�
     1. Seleccione **AzureSqlDatabaseLinkedService** como **Linked service** (Servicio vinculado).
     1. Seleccione **[dbo].[watermarktable]** para **Table** (Tabla).
 
-    ![Conjunto de datos de marca de agua: conexión](./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png)
+        ![Conjunto de datos de marca de agua: conexión](./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png)
 
 ## <a name="create-a-pipeline"></a>Crear una canalización
 La canalización toma una lista de tablas como un parámetro. La actividad ForEach recorre en iteración la lista de nombres de tabla y realiza las siguientes operaciones: 
@@ -455,7 +460,7 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
     1. En la propiedad **Table Type** (Tipo de tabla), escriba `@{item().TableType}`.
     1. En **Table type parameter name** (Nombre del parámetro de tipo de tabla), escriba `@{item().TABLE_NAME}`.
 
-    ![Actividad de copia: parámetros](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
+        ![Actividad de copia: parámetros](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. Arrastre la actividad **Stored Procedure** (procedimiento almacenado) del cuadro de herramientas **Activities** (Actividades) y colóquela en la superficie del diseñador de canalizaciones. Conecte la actividad **Copy** (Copia) a la actividad **Stored Procedure** (Procedimiento almacenado). 
 
 1. Seleccione el **Stored Procedure** actividad en la canalización y escriba **StoredProceduretoWriteWatermarkActivity** para **nombre** en la **General** pestaña de la **propiedades** ventana. 
@@ -507,10 +512,12 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
 
 ## <a name="monitor-the-pipeline"></a>Supervisar la canalización
 
-1. Cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Verá la ejecución de canalización que ha desencadenado el **desencadenador manual**. Haga clic en el botón **Refresh** (Actualizar) para actualizar la lista. Los vínculos de la columna **Action** (Acción) permiten ver las ejecuciones de actividad asociadas a la ejecución de la canalización y volver a ejecutar la canalización. 
+1. Cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Verá la ejecución de canalización que ha desencadenado el **desencadenador manual**. Puede usar los vínculos de la columna **PIPELINE NAME** (Nombre de la canalización) para ver los detalles de la actividad y volver a ejecutar la canalización.
 
-    ![Ejecuciones de la canalización](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-runs.png)
-1. Haga clic en el vínculo **View Activity Runs** (Ver ejecuciones de actividad) de la columna **Actions** (Acciones). Verá todas las ejecuciones de actividad asociadas con la ejecución de la canalización seleccionada. 
+1. Para ver las ejecuciones de actividad asociadas a la ejecución de la canalización, seleccione el vínculo en la columna **NOMBRE DE CANALIZACIÓN**. Para más información sobre las ejecuciones de actividad, seleccione el vínculo **Detalles** (icono de gafas) en la columna **NOMBRE DE ACTIVIDAD**. 
+
+1. Para volver a la vista Ejecuciones de canalización, seleccione **All pipeline runs** (Todas las ejecuciones de canalización) en la parte superior. Para actualizar la vista, seleccione **Refresh** (Actualizar).
+
 
 ## <a name="review-the-results"></a>Revisión del resultado
 En SQL Server Management Studio, ejecute las consultas siguientes contra la base de datos SQL de Azure de destino para comprobar que los datos se copiaron de las tablas de origen a las tablas de destino: 
@@ -605,9 +612,11 @@ VALUES
 
 ## <a name="monitor-the-pipeline-again"></a>Nueva supervisión de la canalización
 
-1. Cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Verá la ejecución de canalización que ha desencadenado el **desencadenador manual**. Haga clic en el botón **Refresh** (Actualizar) para actualizar la lista. Los vínculos de la columna **Action** (Acción) permiten ver las ejecuciones de actividad asociadas a la ejecución de la canalización y volver a ejecutar la canalización. 
+1. Cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Verá la ejecución de canalización que ha desencadenado el **desencadenador manual**. Puede usar los vínculos de la columna **PIPELINE NAME** (Nombre de la canalización) para ver los detalles de la actividad y volver a ejecutar la canalización.
 
-1. Haga clic en el vínculo **View Activity Runs** (Ver ejecuciones de actividad) de la columna **Actions** (Acciones). Verá todas las ejecuciones de actividad asociadas con la ejecución de la canalización seleccionada. 
+1. Para ver las ejecuciones de actividad asociadas a la ejecución de la canalización, seleccione el vínculo en la columna **NOMBRE DE CANALIZACIÓN**. Para más información sobre las ejecuciones de actividad, seleccione el vínculo **Detalles** (icono de gafas) en la columna **NOMBRE DE ACTIVIDAD**. 
+
+1. Para volver a la vista Ejecuciones de canalización, seleccione **All pipeline runs** (Todas las ejecuciones de canalización) en la parte superior. Para actualizar la vista, seleccione **Refresh** (Actualizar).
 
 ## <a name="review-the-final-results"></a>Revisión de los resultados finales
 En SQL Server Management Studio, ejecute las siguientes consultas en la base de datos SQL de destino para comprobar que los datos nuevos o actualizados se han copiado de las tablas de origen a las tablas de destino. 

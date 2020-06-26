@@ -11,12 +11,12 @@ ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
 ms.custom: tracking-python
-ms.openlocfilehash: ec0ff6c5e53d33cf5c07171c2b678fe6857836e0
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: e82ed66240144f94e18c3343dc0559f47722a2c4
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558362"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667115"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Entrenamiento del primer modelo de Machine Learning
 
@@ -32,7 +32,7 @@ En este tutorial, ha aprendido las tareas siguientes:
 > * Visualización de los resultados del entrenamiento en Studio
 > * Recuperación del mejor modelo
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 El único requisito previo es ejecutar la parte primera de este tutorial, [Configuración del entorno y el área de trabajo](tutorial-1st-experiment-sdk-setup.md).
 
@@ -138,7 +138,7 @@ experiment
 
 ## <a name="view-training-results-in-studio"></a>Visualización de los resultados del entrenamiento en Estudio
 
-El **vínculo de Azure Machine Learning Studio** le llevará a la página principal del experimento. Aquí verá todas las ejecuciones individuales del experimento. Cualquier valor de registro personalizado (`alpha_value` y `rmse`, en este caso) se convierten en campos para cada ejecución, y también están disponibles para los gráficos y los iconos en la parte superior de la página del experimento. Para agregar una métrica registrada a un gráfico o un icono, mantenga el mouse sobre ella, haga clic en el botón Editar y busque la métrica de registro personalizado.
+El **vínculo de Azure Machine Learning Studio** le llevará a la página principal del experimento. Aquí verá todas las ejecuciones individuales del experimento. Los valores de registro personalizados (`alpha_value` y `rmse`, en este caso) se convierten en campos para cada ejecución y también están disponibles para los gráficos. Para trazar un nuevo gráfico con una métrica registrada, haga clic en "Agregar gráfico" y seleccione la métrica que desea trazar.
 
 Al entrenar modelos a escala sobre cientos y miles de ejecuciones independientes, esta página facilita la consulta de todos los modelos que haya entrenado, la forma específica en la que se entrenó cada uno y cómo han cambiado las métricas únicas a lo largo del tiempo.
 

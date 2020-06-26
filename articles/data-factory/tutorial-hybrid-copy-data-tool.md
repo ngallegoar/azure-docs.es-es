@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/09/2018
-ms.openlocfilehash: badf6ed4e4a330aae288cd6a2b102941901a0461
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 06/09/2020
+ms.openlocfilehash: 0e3c2d4fe4d9377b6f9a563825a14e10eb724637
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194590"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660928"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copia de datos de una base de datos de SQL Server en Azure Blob Storage con la herramienta Copiar datos
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -146,18 +146,15 @@ En esta sección se crea un contenedor de blobs denominado **adftutorial** en la
 
 1. En la página **Almacén de datos de origen**, haga clic en **Crear nueva conexión**.
 
-
 1. En **New Linked Service** (Nuevo servicio vinculado), busque **SQL Server**y, a continuación, seleccione **Continuar**.
 
 1. Enel cuadro de diálogo **New Linked Service (SQL Server)**  (Nuevo servicio vinculado), en **Nombre**, escriba **SqlServerLinkedService**. Seleccione **+Nuevo** en la opción **Connect via integration runtime** (Conectar mediante IR). Tiene que crear un entorno de ejecución de integración, descargarlo en la máquina y registrarlo en Data Factory. El entorno de ejecución de integración autohospedado copia datos entre el entorno local y la nube.
 
+1. En el cuadro de diálogo **Integration Runtime Setup** (Configuración de Integration Runtime), seleccione **Autohospedado**. Después, seleccione **Continuar**.
 
-1. En el cuadro de diálogo **Integration Runtime Setup** (Configuración de Integration Runtime), seleccione **Autohospedado**. Luego, seleccione **Siguiente**.
+   ![Creación de tiempo de ejecución de integración](./media/tutorial-hybrid-copy-data-tool/create-self-hosted-integration-runtime.png)
 
-   ![Creación de tiempo de ejecución de integración](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-dialog0.png)
-
-1. En el cuadro de diálogo **Integration Runtime Setup** (Configuración de Integration Runtime), en **Name** (Nombre) escriba **TutorialIntegrationRuntime**. Luego, seleccione **Siguiente**.
-
+1. En el cuadro de diálogo **Integration Runtime Setup** (Configuración de Integration Runtime), en **Name** (Nombre) escriba **TutorialIntegrationRuntime**. Seleccione **Crear**.
 
 1. En el cuadro de diálogo **Integration Runtime Setup** (Configuración de Integration Runtime), seleccione **Click here to launch the express setup for this computer** (Haga clic aquí para iniciar la configuración rápida en este equipo). Esta acción instala el entorno de ejecución de integración en la máquina y la registra en Data Factory. Como alternativa, puede usar la instalación manual para descargar el archivo de instalación, ejecutarlo y registrar la instancia de Integration Runtime con la clave.
 
@@ -216,20 +213,17 @@ En esta sección se crea un contenedor de blobs denominado **adftutorial** en la
 
 1. En el cuadro de diálogo **Summary** (Resumen), revise los valores de configuración y seleccione **Next** (Siguiente).
 
-1. En la página **Deployment** (Implementación), seleccione **Monitor** (Supervisión) para supervisar la canalización o la tarea que ha creado.
+1. En la página **Deployment** (Implementación), seleccione **Monitor** (Supervisión) para supervisar la canalización (tarea). 
 
-   ![Página Deployment (Implementación)](./media/tutorial-hybrid-copy-data-tool/deployment-page.png)
+1. Cuando la ejecución de la canalización se complete, podrá ver el estado de la canalización que ha creado. 
 
-1. En la pestaña **Monitor** (Supervisión), puede ver el estado de la canalización que ha creado. Puede usar los vínculos de la columna **Action** (Acción) para ver las ejecuciones de actividad asociadas a la de la canalización y volver a ejecutar la canalización.
+1. En la página Pipeline runs (Ejecuciones de canalización), seleccione **Refresh** (Actualizar) para actualizar la lista. Haga clic en el vínculo en **PIPELINE NAME** (NOMBRE DE CANALIZACIÓN) para ver los detalles de la ejecución de actividad o volver a ejecutar la canalización. 
 
-1. Seleccione el vínculo **View Activity Runs** (Ver ejecuciones de actividad) de la columna **Actions** (Acciones) para ver las ejecuciones de actividad asociadas a las de la canalización. Para ver detalles acerca de la operación de copia, seleccione el vínculo **Details** (Detalles) (icono de gafas) en la columna **Actions** (Acciones). Para volver a la vista **Pipeline Runs** (Ejecuciones de canalización) seleccione **Pipelines Runs** (Ejecuciones de canalizaciones) en la parte superior.
+1. En la página Activity runs (Ejecuciones de actividad), seleccione el vínculo **Details** (Detalles) (icono de gafas) en la columna **ACTIVITY NAME** (NOMBRE DE ACTIVIDAD) para obtener más detalles sobre la operación de copia. Para volver a la vista Pipeline Runs (Ejecuciones de canalización), seleccione el vínculo **ALL pipeline runs** (Todas las ejecuciones de canalizaciones) en el menú de la ruta de navegación. Para actualizar la vista, seleccione **Refresh** (Actualizar).
 
 1. Confirme que ve un archivo de salida en la carpeta **fromonprem** del contenedor **adftutorial**.
 
-
 1. Seleccione la pestaña **Edit** (Editar) de la izquierda para cambiar al modo de edición. Con el editor puede actualizar los servicios vinculados, los conjuntos de datos y las canalizaciones creados mediante la herramienta. Seleccione **Code** (Código) para ver el código JSON asociado con la entrada abierta en el editor. Para más información sobre cómo editar estas entidades en la interfaz de usuario de Data Factory, consulte [la versión de Azure Portal de este tutorial](tutorial-copy-data-portal.md).
-
-   ![Pestaña Edit (Editar)](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

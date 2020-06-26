@@ -2,15 +2,15 @@
 title: 'Tutorial: Creación e implementación de una plantilla'
 description: Creación de la primera plantilla de Azure Resource Manager En este tutorial, aprenderá sobre la sintaxis del archivo de plantilla y cómo implementar una cuenta de almacenamiento.
 author: mumian
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: dff1dd15f7f161f25ef7de54e36fa83e3e0036d2
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: e2419e8ee9f8648ae8f929638ac2c85ea8b67a0f
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235211"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676155"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutorial: Creación e implementación de su primera plantilla de Resource Manager
 
@@ -37,6 +37,7 @@ También necesita Azure PowerShell o la CLI de Azure para implementar la plantil
 - [Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalación de la CLI de Azure en Windows](/cli/azure/install-azure-cli-windows)
 - [Instalación de la CLI de Azure en Linux](/cli/azure/install-azure-cli-linux)
+- [Instalación de la CLI de Azure en macOS](/cli/azure/install-azure-cli-macos)
 
 Después de instalar Azure PowerShell o la CLI de Azure, asegúrese de iniciar sesión por primera vez. Para obtener ayuda, consulte [Inicio de sesión: PowerShell](/powershell/azure/install-az-ps#sign-in) o [ CLI de Azure](/cli/azure/get-started-with-azure-cli#sign-in).
 

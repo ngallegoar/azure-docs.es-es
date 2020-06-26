@@ -5,12 +5,12 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 2bc30786ccd0bccfba438fa6e553fdcbbf7fdde1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 92432966808583c28f31e47173dd4c62b5a0e8bb
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085795"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906214"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Compilación de una aplicación Ruby y Postgres en Azure App Service en Linux
 
@@ -30,7 +30,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 
@@ -148,7 +148,7 @@ Cuando se crea la base de datos de Azure para el servidor de PostgreSQL, la CLI 
 
 ### <a name="configure-server-firewall"></a>Configuración del firewall del servidor
 
-En Cloud Shell, cree una regla de firewall para que el servidor Postgres permita conexiones de cliente con el comando [`az postgres server firewall-rule create`](/cli/azure/postgres/server/firewall-rule?view=azure-cli-latest#az-postgres-server-firewall-rule-create). Cuando tanto la dirección IP de inicio como final están establecidas en 0.0.0.0., el firewall solo se abre para otros recursos de Azure. Sustituya con un nombre de servidor único el marcador de posición *\<postgres-server-name>* .
+En Cloud Shell, cree una regla de firewall para que el servidor Postgres permita conexiones de cliente con el comando [`az postgres server firewall-rule create`](/cli/azure/postgres/server/firewall-rule?view=azure-cli-latest#az-postgres-server-firewall-rule-create). Cuando tanto la dirección IP de inicio como final están establecidas en 0.0.0.0., el firewall solo se abre para otros recursos de Azure. Sustituya el marcador de posición *\<postgres-server-name>* por un nombre de servidor único.
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server <postgres-server-name> --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -471,7 +471,7 @@ Si ha agregado tareas, estas se conservarán en la base de datos. Las actualizac
 
 ## <a name="stream-diagnostic-logs"></a>Transmisión de registros de diagnóstico
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="manage-the-azure-app"></a>Administración de la aplicación de Azure
 

@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: b492d8e3bdcf6d9a41df3eb79ef159985cc715cf
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 4445fd893027f21adfcf6a273d1ba6360087ec49
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76168876"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983618"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Sample: Exploración de una aplicación de procesamiento de imágenes con C#
 
@@ -28,12 +28,15 @@ Explore una aplicación Windows básica que utiliza Computer Vision para realiza
 > * Ejecutar la aplicación de ejemplo e interactuar con ella para desarrollar diversos escenarios
 > * Explorar los distintos escenarios incluidos con la aplicación de ejemplo
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de explorar la aplicación de ejemplo, asegúrese de haber cumplido los requisitos previos siguientes:
 
 * Debe tener [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) o posterior.
-* Debe tener una clave de suscripción para Computer Vision. Puede obtener una clave de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). O bien, siga las instrucciones que se indican en [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse a Computer Vision y obtener su clave. Tome nota también de la dirección URL del punto de conexión del servicio.
+* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/).
+* Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Creación de un recurso de Computer Vision"  target="_blank">cree un recurso de Computer Vision <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
+    * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación al servicio Computer Vision. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
+    * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
 
 ## <a name="get-the-sample-app"></a>Obtención de la aplicación de ejemplo
 
@@ -80,7 +83,6 @@ Puede ejecutar la aplicación de ejemplo para ver cómo interactúa con usted y 
    ![Página Subscription Key Management](../Images/Vision_UI_Subscription.PNG) (Administración de claves de suscripción)  
 1. Escriba la clave de suscripción en **Clave de suscripción**.
 1. Escriba la dirección URL del punto de conexión en **Punto de conexión**.  
-   Por ejemplo, si va a usar la clave de suscripción de la evaluación gratuita de Computer Vision, escriba la siguiente dirección URL del punto de conexión: `https://westcentralus.api.cognitive.microsoft.com`.  
    [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. Si no quiere escribir la clave de suscripción y la URL del punto de conexión la próxima vez que ejecute la aplicación de ejemplo, elija **Guardar configuración** para guardar la clave de suscripción y la URL del punto de conexión en el equipo. Si quiere eliminar la dirección URL del punto de conexión y la clave de suscripción que guardó previamente, elija **Eliminar configuración**.
 

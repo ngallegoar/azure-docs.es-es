@@ -1,11 +1,11 @@
 ---
-title: 'Inicio rápido: Creación de una puerta de enlace de NAT: CLI de Azure'
+title: 'Tutorial: Creación de una puerta de enlace de NAT: CLI de Azure'
 titlesuffix: Azure Virtual Network NAT
 description: En este inicio rápido se muestra cómo crear una puerta de enlace de NAT mediante la CLI de Azure
 services: virtual-network
 documentationcenter: na
 author: asudbring
-manager: KumundD
+manager: KumudD
 Customer intent: I want to create a NAT gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
 ms.subservice: nat
@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: dcc3eda4c19e8d15040feb31d2a45922035c6cb0
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 016e187c2ae41958b9527b88b06517b5f5544c7b
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84341548"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707913"
 ---
-# <a name="quickstart-create-a-nat-gateway-using-azure-cli"></a>Inicio rápido: Creación de una puerta de enlace de NAT con la CLI de Azure
+# <a name="tutorial-create-a-nat-gateway-using-azure-cli"></a>Tutorial: Creación de una puerta de enlace de NAT con la CLI de Azure
 
-En este inicio rápido se muestra cómo usar el servicio NAT de Azure Virtual Network. Creará una puerta de enlace de NAT para proporcionar conectividad saliente para una máquina virtual en Azure. 
+En este tutorial se muestra cómo usar el servicio Azure Virtual Network NAT. Creará una puerta de enlace de NAT para proporcionar conectividad saliente para una máquina virtual en Azure. 
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]

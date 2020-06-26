@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: cf4550bae1433f1e751555cd35f8a1ba78747295
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4fdf862b3d87b3afcef9c40296d1e21c82de1902
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085846"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906197"
 ---
 # <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>Compilación de una aplicación PHP y MySQL en Azure App Service en Linux
 
@@ -34,7 +34,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 
@@ -155,7 +155,7 @@ En este paso, creará una base de datos MySQL en [Azure Database for MySQL](/azu
 
 Cree un servidor en Azure Database for MySQL con el comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create).
 
-En el siguiente comando, sustituya un nombre de servidor único por el marcador de posición *\<mysql-server-name>* , un nombre de usuario por el marcador de posición *\<admin-user>* y una contraseña por el marcador de posición *\<admin-password>* . El nombre del servidor se usa como parte del punto de conexión de MySQL (`https://<mysql-server-name>.mysql.database.azure.com`), por lo que debe ser único en todos los servidores de Azure. Para más información sobre cómo seleccionar la SKU de MySQL DB, consulte [Creación de un servidor de Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server).
+En el siguiente comando, sustituya el marcador de posición *\<mysql-server-name>* por un nombre de servidor único, el marcador de posición *\<admin-user>* por un nombre de usuario y el marcador de posición *\<admin-password>* por una contraseña. El nombre del servidor se usa como parte del punto de conexión de MySQL (`https://<mysql-server-name>.mysql.database.azure.com`), por lo que debe ser único en todos los servidores de Azure. Para más información sobre cómo seleccionar la SKU de MySQL DB, consulte [Creación de un servidor de Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server).
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql-server-name> --location "West Europe" --admin-user <admin-user> --admin-password <admin-password> --sku-name B_Gen5_1
@@ -188,7 +188,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql-server-n
 > Puede ser incluso más restrictivo con su regla de firewall [usando solo las direcciones IP de salida que utiliza su aplicación](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 >
 
-En Cloud Shell, ejecute de nuevo el comando para permitir el acceso desde el equipo local y reemplace *\<your-ip-address>* por [la dirección IP IPv4 local](https://www.whatsmyip.org/).
+En Cloud Shell, ejecute de nuevo el comando para permitir el acceso desde el equipo local y reemplace *\<your-ip-address>* por su [dirección IP IPv4 local](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name AllowLocalClient --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
@@ -565,7 +565,7 @@ Si ha agregado tareas, estas se conservarán en la base de datos. Las actualizac
 
 ## <a name="stream-diagnostic-logs"></a>Transmisión de registros de diagnóstico
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="manage-the-azure-app"></a>Administración de la aplicación de Azure
 

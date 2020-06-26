@@ -4,12 +4,12 @@ description: Aprenda a prepararse para la evaluación y migración de servidores
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: b7bde5df943a35bfcf08ace3b454a26dae8c1d89
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: ed648458416bacb091212bb569a27ecdf13fe8ee
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901426"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771281"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Preparación de la evaluación y migración de servidores físicos a Azure
 
@@ -138,7 +138,7 @@ Antes de configurar el dispositivo de Azure Migrate y comenzar la evaluación en
 
 Azure Migrate necesita permisos para detectar los servidores en el entorno local.
 
-- **Windows:** Configure una cuenta de usuario local en todos los servidores de Windows que quiera incluir en la detección. Es necesario agregar la cuenta de usuario a estos grupos: Usuarios de escritorio remoto, Usuarios de Monitor de rendimiento y Usuarios del registro de rendimiento.
+- **Windows:** debe ser administrador de dominio o administrador local en todos los servidores de Windows que quiera detectar. Debe agregar la cuenta de usuario a estos grupos: Usuarios de administración remota, Usuarios de Monitor de rendimiento y Usuarios del registro de rendimiento.
 - **Linux:** Necesita una cuenta raíz en los servidores Linux que desee detectar.
 
 ## <a name="prepare-for-physical-server-migration"></a>Preparación para la migración de servidores físicos
@@ -148,12 +148,14 @@ Revise los requisitos para la migración de servidores físicos.
 > [!NOTE]
 > Al migrar máquinas físicas, Azure Migrate:Server Migration emplea la misma arquitectura de replicación que la recuperación ante desastres basada en agente del servicio Azure Site Recovery, y algunos componentes comparten el mismo código base. Puede que algún contenido se vincule a la documentación de Site Recovery.
 
-- [Revise](migrate-support-matrix-physical-migration.md#physical-server-requirements) requisitos del servidor físico para la migración.
-- Azure Migrate:Server Migration emplea un servidor de replicación para la migración del servidor físico:
+1. [Revise](migrate-support-matrix-physical-migration.md#physical-server-requirements) requisitos del servidor físico para la migración.
+2. Azure Migrate:Server Migration emplea un servidor de replicación para la migración del servidor físico:
     - [Revise](migrate-replication-appliance.md#appliance-requirements) los requisitos de implementación para el dispositivo de replicación y las [opciones](migrate-replication-appliance.md#mysql-installation) para instalar MySQL en el dispositivo.
     - Revise las [direcciones URL de Azure](migrate-appliance.md#url-access) necesarias para que el dispositivo de replicación acceda a las nubes públicas y gubernamentales.
     - Revise los requisitos de acceso [port] (migrate-replication-appliance.md#port-access) del dispositivo de replicación.
-
+3. Hay algunos cambios necesarios en las máquinas virtuales antes de migrarlas a Azure.
+    - Es importante realizar estos cambios antes de comenzar la migración. Si migra la máquina virtual antes de realizar el cambio, es posible que la máquina virtual no arranque en Azure.
+    - Revise los cambios en [Windows](prepare-for-migration.md#windows-machines) y [Linux](prepare-for-migration.md#linux-machines) que debe realizar.
 
 
 

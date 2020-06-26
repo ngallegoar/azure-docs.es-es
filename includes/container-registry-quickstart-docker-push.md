@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 09eaf9465ec3912dea6e1f3ee1693f6bfed50abc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b10bf18fde850223bda80a597f448747558113f1
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "67186871"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84752203"
 ---
 ## <a name="push-image-to-registry"></a>Insertar la imagen en el registro
 
@@ -23,24 +23,24 @@ Para insertar una imagen en Azure Container Registry, primero debe tener una ima
 docker pull hello-world
 ```
 
-Para poder insertar una imagen en el registro, debe etiquetarla con el nombre completo del servidor de inicio de sesión de ACR. El nombre del servidor de inicio de sesión tiene el formato *\<nombre-registro\>.azurecr.io* (todo en minúscula), por ejemplo, *mycontainerregistry007.azurecr.io*.
+Para poder insertar una imagen en el registro, debe etiquetarla con el nombre completo del servidor de inicio de sesión del registro. El nombre del servidor de inicio de sesión tiene el formato *\<registry-name\>.azurecr.io* (todo en minúscula); por ejemplo, *mycontainerregistry007.azurecr.io*.
 
-Etiquete la imagen mediante el comando [docker tag][docker-tag]. Reemplace `<acrLoginServer>` por el nombre del servidor de inicio de sesión de la instancia de ACR.
-
-```
-docker tag hello-world <acrLoginServer>/hello-world:v1
-```
-
-Por último, use el comando [docker push][docker-push] para insertar la imagen en la instancia de ACR. Reemplace `<acrLoginServer>` por el nombre del servidor de inicio de sesión de la instancia de ACR. Este ejemplo crea el repositorio **hello-world**, que contiene la imagen `hello-world:v1`.
+Etiquete la imagen mediante el comando [docker tag][docker-tag]. Reemplace `<login-server>` por el nombre del servidor de inicio de sesión de la instancia de ACR.
 
 ```
-docker push <acrLoginServer>/hello-world:v1
+docker tag hello-world <login-server>/hello-world:v1
+```
+
+Por último, use el comando [docker push][docker-push] para insertar la imagen en la instancia del registro. Reemplace `<login-server>` por el nombre del servidor de inicio de sesión de la instancia del registro. Este ejemplo crea el repositorio **hello-world**, que contiene la imagen `hello-world:v1`.
+
+```
+docker push <login-server>/hello-world:v1
 ```
 
 Después de insertar la imagen en el registro de contenedor, quite la imagen `hello-world:v1` de su entorno de Docker local. (Tenga en cuenta que el comando [docker rmi][docker-rmi] no quita la imagen del repositorio **hello-world** del registro de contenedor de Azure).
 
 ```
-docker rmi <acrLoginServer>/hello-world:v1
+docker rmi <login-server>/hello-world:v1
 ```
 
 <!-- LINKS - External -->

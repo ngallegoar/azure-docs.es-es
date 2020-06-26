@@ -4,12 +4,12 @@ description: En este artículo se describe cómo migrar máquinas físicas a Azu
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: 1824fc6c7cbc0fd0390770027f4a15d9130139de
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 38f1c67bdd3b280640e9be54fd677e2b403eb78b
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535390"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771400"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migración de máquinas como servidores físicos a Azure
 
@@ -40,14 +40,11 @@ Este tutorial es el tercero de una serie que muestra cómo evaluar y migrar serv
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar este tutorial, debe:
 
 [Revisar](migrate-architecture.md) la arquitectura de migración.
-
-
-
 
 ## <a name="prepare-azure"></a>Preparación de Azure
 
@@ -93,7 +90,9 @@ Asegúrese de que las máquinas cumplen los requisitos para la migración a Azur
 
 1. [Compruebe](migrate-support-matrix-physical-migration.md#physical-server-requirements) los requisitos del servidor físico.
 2. Compruebe que las máquinas locales que replique en Azure cumplan los [requisitos de máquina virtual de Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
-
+3. Hay algunos cambios necesarios en las máquinas virtuales antes de migrarlas a Azure.
+    - En algunos sistemas operativos, Azure Migrate realiza estos cambios automáticamente. 
+    - Es importante realizar estos cambios antes de comenzar la migración. Si migra la máquina virtual antes de realizar el cambio, es posible que la máquina virtual no arranque en Azure. Revise los cambios en [Windows](prepare-for-migration.md#windows-machines) y [Linux](prepare-for-migration.md#linux-machines) que debe realizar.
 
 ### <a name="prepare-a-machine-for-the-replication-appliance"></a>Preparación de un equipo para el dispositivo de replicación
 

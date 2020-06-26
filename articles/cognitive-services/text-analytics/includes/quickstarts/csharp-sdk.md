@@ -6,15 +6,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 03/17/2020
+ms.date: 06/11/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: e27719f7a639a97a0cde04848a51ba6135c3199e
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: f8f65d5f5fe9ec2345279d9f680cb77354834715
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84346315"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735587"
 ---
 <a name="HOLTop"></a>
 
@@ -44,7 +44,8 @@ Utilice el IDE de Visual Studio para crear una aplicación de consola de .NET 
 
 #### <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
-Instale la biblioteca cliente, para lo que debe hacer clic con el botón derecho en la solución en el **Explorador de soluciones** y seleccionar **Administrar paquetes NuGet**. En el administrador de paquetes que se abre, seleccione **Examinar** **Incluir versión preliminar** y busque `Azure.AI.TextAnalytics`. Seleccione la versión `1.0.0-preview.5` e **Instalar**. También puede usar la [Consola del Administrador de paquetes](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+Instale la biblioteca cliente, para lo que debe hacer clic con el botón derecho en la solución en el **Explorador de soluciones** y seleccionar **Administrar paquetes NuGet**. En el administrador de paquetes que se abre, seleccione **Examinar** y busque `Azure.AI.TextAnalytics`. Seleccione la versión `1.0.0` e **Instalar**. También puede usar la [Consola del Administrador de paquetes](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+
 
 > [!TIP]
 > ¿Desea ver todo el archivo de código de inicio rápido de una vez? Puede encontrarlo [en GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/TextAnalytics/program.cs), que contiene los ejemplos de código de este inicio rápido. 

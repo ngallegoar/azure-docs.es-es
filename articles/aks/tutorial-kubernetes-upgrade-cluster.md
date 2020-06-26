@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 22aad0e601c600e582cbea0cea82dd67a20a2c06
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: a89e8bb42bec4323d2189ca93dfe73171c4a128c
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392674"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887999"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Tutorial: Actualización de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -34,15 +34,30 @@ Para realizar este tutorial es necesario disponer de la versión 2.0.53, o super
 Antes de actualizar un clúster, use el comando [az aks get-upgrades][] para comprobar qué versiones de Kubernetes están disponibles para la actualización:
 
 ```azurecli
-az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
+az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-En el siguiente ejemplo, la versión actual es la *1.14.8* y las versiones disponibles se muestran en la columna *Upgrades* (Actualizaciones).
+En el siguiente ejemplo, la versión actual es la *1.15.11* y las versiones disponibles se muestran bajo *upgrades* (actualizaciones).
 
-```
-Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
--------  ---------------  ---------------  -----------------  --------------
-default  myResourceGroup  1.14.8           1.14.8             1.15.5, 1.15.7
+```json
+{
+  "agentPoolProfiles": null,
+  "controlPlaneProfile": {
+    "kubernetesVersion": "1.15.11",
+    ...
+    "upgrades": [
+      {
+        "isPreview": null,
+        "kubernetesVersion": "1.16.8"
+      },
+      {
+        "isPreview": null,
+        "kubernetesVersion": "1.16.9"
+      }
+    ]
+  },
+  ...
+}
 ```
 
 ## <a name="upgrade-a-cluster"></a>Actualizar un clúster
@@ -55,16 +70,19 @@ Para minimizar las interrupciones en las aplicaciones en ejecución, los nodos d
 1. Cuando el nuevo nodo está listo y se ha unido al clúster, el programador de Kubernetes comienza a ejecutar pods en él.
 1. El nodo antiguo se elimina y el siguiente nodo del clúster comienza el proceso de acordonamiento y purga.
 
-Use el comando [az aks upgrade][] para actualizar el clúster de AKS. En el ejemplo siguiente se actualiza el clúster a la versión *1.14.6* de Kubernetes.
+Use el comando [az aks upgrade][] para actualizar el clúster de AKS.
+
+```azurecli
+az aks upgrade \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --kubernetes-version KUBERNETES_VERSION
+```
 
 > [!NOTE]
 > No se pueden actualizar varias versiones secundarias al mismo tiempo. Por ejemplo, puede realizar la actualización de la versión *1.14.x* a la *1.15.x*, pero no de la *1.14.x* a la *1.16.x* directamente. Para actualizar de la versión *1.14.x* a la *1.16.x*, primero actualice de la *1.14.x* a la *1.15.x* y, después, realice otra actualización de la versión *1.15.x* a la *1.16.x*.
 
-```azurecli
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.15.5
-```
-
-La siguiente salida de ejemplo condensada muestra que *kubernetesVersion* es ahora *1.15.5*:
+La siguiente salida de ejemplo condensada muestra el resultado de la actualización a la versión *1.16.8*. Observe que ahora en *kubernetesVersion* se puede ver *1.16.8*:
 
 ```json
 {
@@ -82,7 +100,7 @@ La siguiente salida de ejemplo condensada muestra que *kubernetesVersion* es aho
   "enableRbac": false,
   "fqdn": "myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io",
   "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
-  "kubernetesVersion": "1.15.5",
+  "kubernetesVersion": "1.16.8",
   "location": "eastus",
   "name": "myAKSCluster",
   "type": "Microsoft.ContainerService/ManagedClusters"
@@ -97,12 +115,12 @@ Confirme que la actualización se realizó correctamente con el comando [az aks 
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-La salida del ejemplo siguiente muestra que el clúster de AKS ejecuta *KubernetesVersion 1.15.5*:
+La salida del ejemplo siguiente muestra que el clúster de AKS ejecuta *KubernetesVersion 1.16.8*:
 
 ```
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.15.5               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
+myAKSCluster  eastus      myResourceGroup  1.16.8               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
 ```
 
 ## <a name="delete-the-cluster"></a>Eliminación del clúster

@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 59b235a32ae9363cc5fc804385867e140be502e2
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 4e9ddeddf616c581b116d48738e110dd8cdac2d3
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759003"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659933"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>Inicio rápido: Implementación de un ejemplo de Unity en el escritorio
 
@@ -24,7 +24,7 @@ Aprenderá lo siguiente:
 >* Implementación del ejemplo en un equipo
 >* Ejecución del ejemplo en un equipo
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este inicio rápido, se va a implementar el proyecto de ejemplo de [Inicio rápido: Representación de un modelo con Unity](render-model.md).
 
@@ -46,7 +46,7 @@ Actualmente solo se admiten aplicaciones de escritorio planas en el escritorio, 
 ## <a name="build-the-sample-project"></a>Compilación del proyecto de ejemplo
 
 1. Abra *File -> Build Settings* (Archivo -> Configuración de la compilación).
-1. Cambie el valor de *Plataforma* a **Plataforma universal de Windows** (**Equipo independiente** también se admite, pero no se usa aquí).
+1. Cambie el valor de *Plataforma* a **Plataforma universal de Windows** (**Equipo independiente** también se admite, pero no se usa aquí, consulte las [limitaciones de la plataforma](../reference/limits.md#platform-limitations)).
 1. Establezca *Target Device* (Dispositivo de destino) en **PC**.
 1. Establezca *Architecture* (Arquitectura) en **x86**.
 1. Establezca *Build Type* (Tipo de compilación) en **D3D Project** (Proyecto de D3D).
@@ -60,7 +60,7 @@ Actualmente solo se admiten aplicaciones de escritorio planas en el escritorio, 
 1. Compile la solución (F7).
 
 > [!WARNING]
-> Asegúrese de seleccionar **x86**. En la actualidad no se admite**x64**, consulte [limitaciones de la plataforma](../reference/limits.md#platform-limitations).
+> Asegúrese de seleccionar **x86**. En la actualidad no se admite**UWP/x64**, consulte las [limitaciones de la plataforma](../reference/limits.md#platform-limitations).
 
 ## <a name="launch-the-sample-project"></a>Inicio del proyecto de ejemplo
 

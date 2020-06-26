@@ -3,12 +3,12 @@ title: Evaluación de servidores físicos para la migración a Azure con Azure M
 description: Describe cómo evaluar los servidores físicos en el entorno local para la migración a Azure con Azure Migrate Server Assessment.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 5cbd1b85bdb9017a96dc863b83223c31c716cf77
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: ee88f9058abc89a671fa846a67c22a752f0d05e4
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331804"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052198"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Evaluación de los servidores físicos con Azure Migrate:Server Assessment
 
@@ -101,7 +101,7 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 2. Ejecute el siguiente comando para generar el código hash para el archivo ZIP:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Ejemplo de uso para la nube pública: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-    - Ejemplo de uso para la nube gubernamental: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
+    - Ejemplo de uso para la nube gubernamental: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip SHA256 ```
 3.  Compruebe las versiones más recientes del dispositivo y los valores hash:
     - Para la nube pública:
 
@@ -180,7 +180,7 @@ Ahora, conecte desde el dispositivo a los servidores físicos que se van a detec
 
 1. Haga clic en **Agregar credenciales** para especificar las credenciales de la cuenta que el dispositivo utilizará para detectar los servidores.  
 2. Especifique el **sistema operativo**, el nombre descriptivo de las credenciales, el nombre de usuario y la contraseña. A continuación, haga clic en **Agregar**.
-Puede agregar un conjunto de credenciales para los servidores Windows y Linux.
+Puede agregar varias credenciales para los servidores Windows y Linux.
 4. Haga clic en **Agregar servidor** y especifique los detalles del servidor: FQDN/dirección IP y nombre descriptivo de las credenciales (una entrada por fila) para conectarse al servidor.
 3. Haga clic en **Validar**. Después de la validación, se muestra la lista de servidores que se pueden detectar.
     - Si se produce un error de validación para un servidor, mantenga el puntero del mouse sobre el icono en la columna **Estado** para revisar el error. Corrija los problemas y vuelva a validar.

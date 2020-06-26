@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0effb6bb6e3d3f80775a3cee1ad8a63013a78805
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 89e1868d8e9a346d5a791c9fa8ae7682ca2b6807
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585845"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905143"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>¿Qué es el acceso de usuarios invitados en Azure Active Directory B2B?
 
@@ -98,9 +98,12 @@ Azure AD admite proveedores de identidades externos (como Facebook), cuentas de
 
 ## <a name="create-a-self-service-sign-up-user-flow-preview"></a>Creación de un flujo de usuario de registro de autoservicio (versión preliminar)
 
-Con un flujo de usuario de registro de autoservicio, puede crear una experiencia de registro para los usuarios externos que quieran tener acceso a sus aplicaciones. Como parte del flujo de registro, puede proporcionar opciones para diferentes proveedores de identidades sociales o empresariales y recopilar información sobre el usuario. Obtenga información sobre el registro de autoservicio y cómo configurarlo.
+Con un flujo de usuario de registro de autoservicio, puede crear una experiencia de registro para los usuarios externos que quieran tener acceso a sus aplicaciones. Como parte del flujo de registro, puede proporcionar opciones para diferentes proveedores de identidades sociales o empresariales y recopilar información sobre el usuario. Obtenga información sobre el [registro de autoservicio y cómo configurarlo](self-service-sign-up-overview.md).
 
-![Captura de pantalla que muestra la página Flujos de usuario](media/what-is-b2b/self-service-sign-up-user-flow-overview.png)
+También puede usar [conectores de API](api-connectors-overview.md) para integrar los flujos de usuarios de registro de autoservicio con sistemas en la nube externos. Puede conectarse con flujos de trabajo de aprobación personalizados, realizar la comprobación de identidades, validar la información proporcionada por el usuario, etc.
+
+![Captura de pantalla que muestra la página de flujos de usuario](media/what-is-b2b/self-service-sign-up-user-flow-overview.png)
+<!--TODO: Add screenshot with API connectors -->
 
 ## <a name="next-steps"></a>Pasos siguientes
 

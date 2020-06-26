@@ -7,14 +7,17 @@ ms.author: cschorm
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 7e057d6d973eedd3ac53fd7b2ea228470e9123d7
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: f36a41a1151255e792281ae959d40ce183040cb5
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84611489"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737145"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Programación con las API de Azure Digital Twins
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Es habitual que los desarrolladores que trabajan con Azure Digital Twins escriban una aplicación que interactúe con su instancia del servicio Azure Digital Twins. Este tutorial centrado en el desarrollado proporciona una introducción a la programación para el servicio Azure Digital Twins, mediante la [biblioteca de cliente de gemelos digitales de Azure IoT para .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Le guía a través de la escritura de una aplicación cliente de consola paso a paso en C#, empezando desde cero.
 
@@ -99,8 +102,8 @@ Lo primero que tendrá que hacer la aplicación es autenticarse en el servicio A
 
 Para autenticarse, necesita tres tipos de información:
 * El *identificador de directorio (inquilino)* de la suscripción.
-* El *identificador de la aplicación (cliente)* creado al configurar la instancia de servicio anteriormente.
-* El *hostName* de la instancia de servicio.
+* El *identificador de la aplicación (cliente)* creado al configurar la instancia de Azure Digital Twins anteriormente.
+* El *nombre de host* de la instancia de Azure Digital Twins.
 
 >[!TIP]
 > Si no conoce el *identificador de directorio (inquilino)* , lo puede obtener con la ejecución de este comando en [Azure Cloud Shell](https://shell.azure.com):

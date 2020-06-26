@@ -7,12 +7,12 @@ ms.author: banders
 ms.date: 05/04/2020
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.openlocfilehash: f0d45c9dd8dc33226ca75fe34467a8695c8aae4d
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 77abfcf300decb3a19da4268d7feb7de1f41f3b5
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82778828"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743922"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Vinculación de un Id. de partner a cuentas de Azure
 
@@ -160,4 +160,17 @@ Sí, puede vincular su identificador de asociado para Azure Stack.
 **¿Cómo se vincula el identificador de asociado si la empresa usa [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) para acceder a los recursos del cliente?**
 
 Si incorpora clientes a la administración de recursos delegados de Azure mediante la [publicación de una oferta de servicios administrados en Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers), el identificador de MPN se asociará automáticamente. Si [incorpora clientes mediante la implementación de plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer), deberá asociar el identificador de Microsoft Partner Network (MPN) con al menos una cuenta de usuario que tenga acceso a cada una de las suscripciones incorporadas. Tenga en cuenta que esto lo deberá realizar en el inquilino del proveedor de servicios. Para simplificar, se recomienda crear una cuenta de entidad de servicio en el inquilino que esté asociada a su identificador de MPN y concederle acceso de lectura a todos los clientes que incorpore. En este ejemplo, se usa el rol Lector de RBAC y es uno de los roles que no es válido para créditos ganados por el asociado. Para más información sobre los roles, consulte el documento acerca de los [roles y permisos de los créditos obtenidos por el asociado](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3QuW2).
+
+
+**¿Cómo se explica Vínculo de administración de asociados (PAL) a los clientes?**
+
+Vínculo de administración de asociados (PAL) permite a Microsoft identificar y reconocer a los asociados que ayudan a los clientes a lograr objetivos empresariales y a obtener valor en la nube. En primer lugar, los clientes deben proporcionar un acceso de asociado a su recurso de Azure. Una vez que se concede el acceso, se asocia el identificador de Microsoft Partner Network (MPN ID) del asociado. Esta asociación ayuda a Microsoft no solo a conocer el ecosistema de proveedores de servicios de TI, sino también a perfeccionar las herramientas y los programas necesarios para proporcionar mejor soporte técnico a nuestros clientes comunes.
+
+**¿Qué datos recopila PAL?**
+
+La asociación de PAL con las credenciales existentes no proporciona nuevos datos de los clientes a Microsoft. Solo proporciona a Microsoft una telemetría en la que un asociado está implicado activamente en el entorno de Azure de un cliente. Microsoft puede atribuir la influencia y los ingresos consumidos por Azure del entorno del cliente a una organización de asociados en función de los permisos de la cuenta (rol RBAC) y el ámbito (grupo de administración, suscripción, grupo de recursos, recurso) que el cliente proporciona al asociado. 
+
+**¿Afecta esto a la seguridad del entorno de Azure de los clientes?**
+
+La asociación de PAL solo agrega el identificador de MPN del asociado a la credencial ya aprovisionada, no modifica ningún permiso (rol RBAC) ni proporciona datos adicionales del servicio de Azure a ningún asociado ni a Microsoft. 
 

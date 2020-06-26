@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 68f575164487f726c2f6c7477ceacd731bb52b0f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b88a855f1f486a94bb591e3d2a72b49a9a8500db
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79290453"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709222"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Inicio rápido: Diagnóstico de problemas al filtrar el tráfico de red de las máquinas virtuales con Azure Portal
 
@@ -44,8 +44,8 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
     |---|---|
     |Nombre|myVm|
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
-    |Contraseña| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Subscription| Seleccione su suscripción.|
+    |Contraseña| Escriba una contraseña de su elección. La contraseña debe tener un mínimo de 12 caracteres y cumplir los requisitos de complejidad definidos.|
+    |Suscripción| Seleccione su suscripción.|
     |Resource group| Haga clic en **Crear nuevo** y escriba **myResourceGroup**.|
     |Location| Seleccione **Este de EE. UU**.|
 
@@ -98,19 +98,19 @@ Ahora que sabe qué reglas de seguridad están permitiendo o denegando el tráfi
 
 ## <a name="view-details-of-a-security-rule"></a>Ver detalles de una regla de seguridad
 
-1. Para determinar por qué las reglas de los pasos 3 a 5 de [Uso de la funcionalidad Comprobación del flujo de IP](#use-ip-flow-verify) permiten o deniegan la comunicación, revise las reglas de seguridad eficaces de la interfaz de red en la máquina virtual. En el cuadro de búsqueda que aparece en la parte superior del portal, escriba *myvm*. Cuando la interfaz de red **myvm** (o cualquiera que sea el nombre de la interfaz de red) aparezca en los resultados de la búsqueda, selecciónela.
+1. Para determinar por qué las reglas de los pasos 3 a 5 de **Uso de la funcionalidad Comprobación del flujo de IP** permiten o deniegan la comunicación, revise las reglas de seguridad eficaces de la interfaz de red en la máquina virtual. En el cuadro de búsqueda que aparece en la parte superior del portal, escriba *myvm*. Cuando la interfaz de red **myvm** (o cualquiera que sea el nombre de la interfaz de red) aparezca en los resultados de la búsqueda, selecciónela.
 2. Seleccione **Reglas de seguridad eficaces** en **SUPPORT + TROUBLESHOOTING** (Soporte técnico y solución de problemas), como se muestra en la siguiente imagen:
 
     ![Reglas de seguridad eficaces](./media/diagnose-vm-network-traffic-filtering-problem/effective-security-rules.png)
 
-    En el paso 3 de [Uso de la funcionalidad Comprobación del flujo de IP](#use-ip-flow-verify) ha aprendido que el motivo por el se permitió la comunicación era la regla **AllowInternetOutbound**. En la imagen anterior puede ver que el **DESTINO** de la regla es **Internet**. Sin embargo, no queda claro el modo en que 13.107.21.200, la dirección que probó en el paso 3 de [Uso de la funcionalidad Comprobación del flujo de IP](#use-ip-flow-verify) está relacionada con **Internet**.
+    En el paso 3 de **Uso de la funcionalidad Comprobación del flujo de IP** ha aprendido que el motivo por el se permitió la comunicación era la regla **AllowInternetOutbound**. En la imagen anterior puede ver que el **DESTINO** de la regla es **Internet**. Sin embargo, no queda claro el modo en que 13.107.21.200, la dirección que probó en el paso 3 de **Uso de la funcionalidad Comprobación del flujo de IP** está relacionada con **Internet**.
 3. Seleccione la regla **AllowInternetOutBound** y **Destino**, tal y como se muestra en la siguiente imagen:
 
     ![Prefijos de regla de seguridad](./media/diagnose-vm-network-traffic-filtering-problem/security-rule-prefixes.png)
 
     Uno de los prefijos de la lista es **12.0.0.0/6**, que comprende el intervalo de direcciones IP de 12.0.0.1 a 15.255.255.254. Como 13.107.21.200 está dentro de ese intervalo, la regla **AllowInternetOutBound** permite el tráfico de salida. Asimismo, no aparece ninguna regla con prioridad mayor (número menor) en la imagen del paso 2 que anule esta regla. Cierre el cuadro **Prefijos de direcciones**. Para denegar la comunicación de salida con 13.107.21.200, podría agregar una regla de seguridad con una prioridad mayor que denegara la salida del puerto 80 hacia la dirección IP.
-4. Al ejecutar la comprobación de salida para 172.131.0.100 en el paso 4 de [Uso de la funcionalidad Comprobación del flujo de IP](#use-ip-flow-verify), ha aprendido que la regla **DefaultOutboundDenyAll** denegaba la comunicación. Esta regla equivale a la regla **DenyAllOutBound** que se muestra en la imagen del paso 2 que especifica **0.0.0.0/0** como **DESTINO**. La regla deniega la comunicación de salida hacia 172.131.0.100 porque la dirección no está incluida como **DESTINO** en las **Reglas de salida** que aparecen en la imagen. Para permitir la comunicación de salida, podría agregar una regla de seguridad con prioridad mayor que permitiera el tráfico de salida hacia el puerto 80 para la dirección 172.131.0.100.
-5. Al ejecutar la comprobación de entrada para 172.131.0.100 en el paso 5 de [Uso de la funcionalidad Comprobación del flujo de IP](#use-ip-flow-verify), ha aprendido que la regla **DefaultInboundDenyAll** denegaba la comunicación. Esta regla equivale a la regla **DenyAllInBound** que se muestra en la imagen del paso 2. La regla **DenyAllInBound** se aplicaba porque no existía ninguna otra regla de prioridad mayor que permitiera el puerto 80 de entrada a la máquina virtual desde 172.31.0.100. Para permitir la comunicación de entrada, podría agregar una regla de seguridad con una prioridad mayor que permitiera el tráfico de entrada en el puerto 80 del tráfico procedente de 172.31.0.100.
+4. Al ejecutar la comprobación de salida para 172.131.0.100 en el paso 4 de **Uso de la funcionalidad Comprobación del flujo de IP**, ha aprendido que la regla **DefaultOutboundDenyAll** denegaba la comunicación. Esta regla equivale a la regla **DenyAllOutBound** que se muestra en la imagen del paso 2 que especifica **0.0.0.0/0** como **DESTINO**. La regla deniega la comunicación de salida hacia 172.131.0.100 porque la dirección no está incluida como **DESTINO** en las **Reglas de salida** que aparecen en la imagen. Para permitir la comunicación de salida, podría agregar una regla de seguridad con prioridad mayor que permitiera el tráfico de salida hacia el puerto 80 para la dirección 172.131.0.100.
+5. Al ejecutar la comprobación de entrada para 172.131.0.100 en el paso 5 de **Uso de la funcionalidad Comprobación del flujo de IP**, ha aprendido que la regla **DefaultInboundDenyAll** denegaba la comunicación. Esta regla equivale a la regla **DenyAllInBound** que se muestra en la imagen del paso 2. La regla **DenyAllInBound** se aplicaba porque no existía ninguna otra regla de prioridad mayor que permitiera el puerto 80 de entrada a la máquina virtual desde 172.31.0.100. Para permitir la comunicación de entrada, podría agregar una regla de seguridad con una prioridad mayor que permitiera el tráfico de entrada en el puerto 80 del tráfico procedente de 172.31.0.100.
 
 Las pruebas de esta guía de inicio rápido permiten comprobar la configuración de Azure. Si estas pruebas devuelven resultados esperados pero sigue teniendo problemas de red, asegúrese de que no hay un firewall entre la máquina virtual y el punto de conexión con el que se está comunicando y que el sistema operativo de la máquina virtual no tiene un firewall que permita o deniegue la comunicación.
 

@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.author: banders
-ms.openlocfilehash: 15c686e0d33d7341d16097f32e1c69077c319a12
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: e38271b3a56894380ca5456146a7ab36fb09e08c
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295310"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678025"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Administración de roles de Azure Enterprise
 
@@ -27,6 +27,10 @@ Para ayudar a administrar el uso y el gasto de su organización, los clientes de
 <sup>1</sup> El contacto de facturación del Contrato Enterprise estará bajo este rol.
 
 <sup>2</sup> No se puede agregar ni cambiar el contacto de destinatario de la factura en el portal de EA de Azure y se agregará a la inscripción de EA según el usuario que esté configurado como tal en el nivel de contrato. Para cambiar el contacto de destinatario de la factura, es necesario realizar una solicitud a través de un asesor de software o asociado al centro de operaciones regional (ROC).
+
+El primer administrador de inscripciones que se configure durante el aprovisionamiento de la inscripción determina el tipo de autenticación de la cuenta de contacto de facturación. Cuando el contacto de facturación se agrega a Enterprise Portal como administrador de solo lectura, se le proporciona la autenticación de la cuenta Microsoft. 
+
+Por ejemplo, si el tipo de autenticación inicial se establece en Mixto, EA se agregará como un cuenta Microsoft y el contacto de facturación tendrá privilegios de administrador de EA de solo lectura. Si el administrador de EA no aprueba la autorización de un cuenta Microsoft para un contacto de facturación existente, puede eliminar el usuario en cuestión y pedir al cliente que vuelva a agregarlo como administrador de solo lectura con una cuenta profesional o educativa establecida únicamente en el nivel de inscripción en el portal de EA.
 
 Estos roles son específicos de la administración de Contratos Enterprise de Azure y son adicionales a los roles integrados que tiene Azure para controlar el acceso a los recursos. Para más información, consulte [Roles integrados en los recursos de Azure](../../role-based-access-control/built-in-roles.md).
 

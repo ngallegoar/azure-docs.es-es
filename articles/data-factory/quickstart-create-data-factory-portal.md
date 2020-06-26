@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 05/28/2020
+ms.date: 06/04/2020
 ms.author: jingwang
-ms.openlocfilehash: d6191a5f4dcfc3d25072e0cfa00418fb64311773
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 39f2dad088f3f3eb4a99aa17c1bdde5fe2a2f79c
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248539"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84655833"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Inicio rápido: Creación de una factoría de datos con la interfaz de usuario de Azure Data Factory
 
@@ -42,8 +42,6 @@ Ver este vídeo le ayudará a conocer la interfaz de usuario de Data Factory:
 1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
 1. Vaya a [Azure Portal](https://portal.azure.com). 
 1. En el menú de Azure Portal, seleccione **Crear un recurso**.
-   
-   ![En el menú de Azure Portal, seleccione Crear un recurso.](./media/doc-common-process/create-a-resource.png)
 1. Seleccione **Analytics** y, a continuación, seleccione **Data Factory**. 
    
    ![Selección de la factoría de datos en el panel Nuevo](./media/doc-common-process/new-azure-data-factory-menu.png)
@@ -80,8 +78,12 @@ Ver este vídeo le ayudará a conocer la interfaz de usuario de Data Factory:
 ## <a name="create-a-linked-service"></a>Creación de un servicio vinculado
 En este procedimiento, creará un servicio vinculado para vincular la cuenta de Azure Storage con la factoría de datos. El servicio vinculado tiene la información de conexión que usa el servicio Data Factory en el entorno de tiempo de ejecución para conectarse a él.
 
-1. Seleccione **Conexiones** y después el botón **Nuevo** en la barra de herramientas (el botón **Conexiones** se encuentra en la parte inferior de la columna izquierda debajo de **Factory Resources**). 
+1. Abra la [pestaña Administrar](https://docs.microsoft.com/azure/data-factory/author-management-hub) en el panel izquierdo.
 
+1. En la página Servicios vinculados, seleccione **+Nuevo** para crear un nuevo servicio vinculado.
+
+   ![Nuevo servicio vinculado](./media/doc-common-process/new-linked-service.png)
+   
 1. En la página **New Linked Service** (Nuevo servicio vinculado), seleccione **Azure Blob Storage** y después **Continue** (Continuar). 
 
 1. En la página Nuevo servicio vinculado (Azure Blob Storage), realice los siguientes pasos: 

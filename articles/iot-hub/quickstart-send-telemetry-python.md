@@ -12,21 +12,21 @@ ms.custom:
 - mvc
 - mqtt
 - tracking-python
-ms.date: 10/17/2019
-ms.openlocfilehash: 53acb49e5e2be5b8ccf0c131a9219fdcf2baca47
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.date: 06/16/2020
+ms.openlocfilehash: f49f2156a6d0e1b5563145c00007746ef4a1bf51
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84607557"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84904969"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT y su lectura con una aplicación de back-end (Python)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
-En este inicio rápido, se envían a través de Azure IoT Hub datos de telemetría desde una aplicación de dispositivo simulado a una aplicación de back-end para su procesamiento. IoT Hub es un servicio de Azure que le permite ingerir grandes volúmenes de datos de telemetría desde los dispositivos IoT en la nube para su almacenamiento o procesamiento. En este inicio rápido se usa una aplicación de Python escrita previamente para enviar los datos de telemetría y una utilidad CLI para leer los datos de telemetría procedentes del centro. Antes de ejecutar estas dos aplicaciones, creará un centro de IoT Hub y registrará un dispositivo con el centro.
+En este inicio rápido, se envían a través de Azure IoT Hub datos de telemetría desde una aplicación de dispositivo simulado a una aplicación de back-end para su procesamiento. IoT Hub es un servicio de Azure que le permite ingerir grandes volúmenes de datos de telemetría desde los dispositivos IoT en la nube para su almacenamiento o procesamiento. En este inicio rápido se usan dos aplicaciones de Python escritas previamente: una para enviar datos de telemetría y la otra para leer datos de telemetría desde el centro. Antes de ejecutar estas dos aplicaciones, creará un centro de IoT Hub y registrará un dispositivo con el centro.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -80,6 +80,20 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
     Este valor lo usará más adelante en este inicio rápido.
 
+1. También necesitará el _punto de conexión compatible con Event Hubs_, la _ruta de acceso compatible con Event Hubs_ y la _clave principal de servicio_ de IoT Hub para permitir que la aplicación back-end se conecte a IoT Hub y recupere los mensajes. Los siguientes comandos recuperan estos valores para IoT Hub:
+
+   **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
+
+    ```azurecli-interactive
+    az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {YourIoTHubName}
+
+    az iot hub show --query properties.eventHubEndpoints.events.path --name {YourIoTHubName}
+
+    az iot hub policy show --name service --query primaryKey --hub-name {YourIoTHubName}
+    ```
+
+    Anote estos tres valores, ya que los usará más adelante en el inicio rápido.
+
 ## <a name="send-simulated-telemetry"></a>Envío de datos de telemetría simulados
 
 La aplicación de dispositivo simulado se conecta a un punto de conexión específico del dispositivo en IoT Hub y envía datos de telemetría simulados sobre temperatura y humedad.
@@ -104,22 +118,40 @@ La aplicación de dispositivo simulado se conecta a un punto de conexión espec�
 
     La siguiente captura de pantalla muestra la salida en la que la aplicación de dispositivo simulado envía datos de telemetría a IoT Hub:
 
-    ![Ejecutar el dispositivo simulado](media/quickstart-send-telemetry-python/SimulatedDevice.png)
-
+    ![Ejecutar el dispositivo simulado](media/quickstart-send-telemetry-python/simulated-device.png)
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Lectura de los datos de telemetría procedentes de su instancia de IoT Hub
 
-La extensión de la CLI de IoT Hub se puede conectar al punto de conexión **Eventos** del lado servicio en su instancia de IoT Hub. La extensión recibe los mensajes del dispositivo a la nube enviados desde el dispositivo simulado. Normalmente, una aplicación back-end de IoT Hub se ejecuta en la nube para recibir y procesar los mensajes del dispositivo a la nube.
+La aplicación back-end se conecta a un punto de conexión de **Eventos** de servicio en IoT Hub. La aplicación recibe los mensajes del dispositivo a la nube enviados desde el dispositivo simulado. Normalmente, una aplicación back-end de IoT Hub se ejecuta en la nube para recibir y procesar los mensajes del dispositivo a la nube.
 
-Ejecute los siguientes comandos en Azure Cloud Shell y reemplace `YourIoTHubName` por el nombre del centro de IoT:
+> [!NOTE]
+> En los pasos siguientes se usa el ejemplo sincrónico **read_device_to_cloud_messages_sync.py**. Puede realizar los mismos pasos con el ejemplo asincrónico **read_device_to_cloud_messages_async.py**.
 
-```azurecli-interactive
-az iot hub monitor-events --hub-name {YourIoTHubName} --device-id MyPythonDevice 
-```
+1. En otra ventana de terminal local, vaya a la carpeta raíz del proyecto de Python de muestra. A continuación, vaya a la carpeta **iot-hub\Quickstarts\read-d2c-messages**.
 
-En la siguiente captura de pantalla se muestra la salida en la que la extensión recibe los datos de telemetría que el dispositivo simulado ha enviado al centro:
+2. Abra el archivo **read_device_to_cloud_messages_sync.py** en un editor de texto de su elección. Actualice las siguientes variables y guarde los cambios en el archivo.
 
-![Ejecutar la aplicación back-end](media/quickstart-send-telemetry-python/ReadDeviceToCloud.png)
+    | Variable | Value |
+    | -------- | ----------- |
+    | `EVENTHUB_COMPATIBLE_ENDPOINT` | Reemplace el valor de la variable por el punto de conexión compatible con Event Hubs que anotó anteriormente. |
+    | `EVENTHUB_COMPATIBLE_PATH`     | Reemplace el valor de la variable por la ruta de acceso compatible con Event Hubs que ha anotó anteriormente. |
+    | `IOTHUB_SAS_KEY`                | Reemplace el valor de la variable por la clave principal del servicio que anotó anteriormente. |
+
+3. En la ventana de terminal local, ejecute los comandos siguientes para instalar las bibliotecas necesarias para la aplicación back-end:
+
+    ```cmd/sh
+    pip install azure-eventhub
+    ```
+
+4. En la ventana de terminal local, ejecute los comandos siguientes para compilar la aplicación back-end y ejecutarla:
+
+    ```cmd/sh
+    python read_device_to_cloud_messages_sync.py
+    ```
+
+    La siguiente captura de pantalla muestra la salida en la que la aplicación back-end recibe los datos de telemetría que el dispositivo simulado ha enviado al centro:
+
+    ![Ejecutar la aplicación back-end](media/quickstart-send-telemetry-python/read-device-to-cloud.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

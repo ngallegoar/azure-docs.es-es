@@ -6,12 +6,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 05/04/2017
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 5dd99d9aa7e63066ac4801282e548f2995e57e67
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 36d6e9ce2ab180c49737230de1f8b528f8da8b40
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085612"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905970"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Tutorial: Compilación de una aplicación Node.js y MongoDB en Azure
 
@@ -127,7 +127,7 @@ Para MongoDB, en este tutorial se usa [Azure Cosmos DB](/azure/documentdb/). Cos
 
 En Cloud Shell, cree una cuenta de Cosmos DB con el comando [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create).
 
-En el siguiente comando, sustituya un nombre único de Cosmos DB por el marcador de posición *\<cosmosdb_name>* . Este nombre se usa como parte del punto de conexión de Cosmos DB, `https://<cosmosdb_name>.documents.azure.com/`, por lo que el nombre debe ser único en todas las cuentas de Cosmos DB de Azure. El nombre debe contener solo letras minúsculas, números y el carácter de guion (-), y debe tener una longitud de entre 3 y 50 caracteres.
+En el siguiente comando, sustituya el marcador de posición *\<cosmosdb_name>* por un nombre único de base de datos de Cosmos DB. Este nombre se usa como parte del punto de conexión de Cosmos DB, `https://<cosmosdb_name>.documents.azure.com/`, por lo que el nombre debe ser único en todas las cuentas de Cosmos DB de Azure. El nombre debe contener solo letras minúsculas, números y el carácter de guion (-), y debe tener una longitud de entre 3 y 50 caracteres.
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kind MongoDB
@@ -183,7 +183,7 @@ Copie el valor de `primaryMasterKey`. Esta información la necesitará en el sig
 
 En la carpeta _config/env/_ del repositorio MEAN.js local, cree un archivo llamado _local-production.js_. De forma predeterminada, _.gitignore_ está configurado para mantener este archivo fuera del repositorio. 
 
-Copie en él el código siguiente. Asegúrese de reemplazar los dos marcadores de posición *\<cosmosdb_name>* por el nombre de la base de datos Cosmos DB y de reemplazar el marcador de posición *\<primary_master_key>* por la clave que copió en el paso anterior.
+Copie en él el código siguiente. Asegúrese de reemplazar los dos marcadores de posición *\<cosmosdb_name>* por el nombre de la base de datos de Cosmos DB y el marcador de posición *\<primary_master_key>* por la clave que copió en el paso anterior.
 
 ```javascript
 module.exports = {
@@ -254,7 +254,7 @@ De forma predeterminada, el proyecto MEAN.js mantiene _config/env/local-producti
 
 Para establecer la configuración de la aplicación, utilice el comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) en Cloud Shell. 
 
-En el ejemplo siguiente se realiza una configuración de aplicación `MONGODB_URI` en la aplicación de Azure. Reemplace los marcadores de posición *\<app_name >* , *\<cosmosdb_name >* y *\<primary_master_key >* .
+En el ejemplo siguiente se realiza una configuración de aplicación `MONGODB_URI` en la aplicación de Azure. De nuevo, reemplace los marcadores *\<app_name>* , *\<cosmosdb_name>* y *\<primary_master_key>* .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
@@ -497,3 +497,8 @@ Pase al siguiente tutorial para aprender cómo asignar un nombre DNS personaliza
 
 > [!div class="nextstepaction"] 
 > [Asignación de un nombre DNS personalizado existente a Azure App Service](app-service-web-tutorial-custom-domain.md)
+
+Más recursos:
+
+> [!div class="nextstepaction"]
+> [Configuración de la aplicación Node.js](configure-language-nodejs.md)

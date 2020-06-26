@@ -7,16 +7,16 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 03/06/2020
+ms.date: 06/10/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.custom: mvc
-ms.openlocfilehash: 13a2a0bcc362a13b0c42650509d356f613527cfc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ac9bf7edf6e3973dd2f1f917d26ac280be4648e3
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80061321"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945654"
 ---
 # <a name="secure-access-to-application-data"></a>Protección del acceso a los datos de la aplicación
 
@@ -31,7 +31,7 @@ En la tercera parte de la serie, se aprende a:
 
 [Azure Blob Storage](../common/storage-introduction.md#blob-storage) proporciona un servicio sólido para almacenar archivos de aplicaciones. Este tutorial amplía [el tema anterior][previous-tutorial] para mostrar cómo proteger el acceso a la cuenta de almacenamiento desde una aplicación web. Al terminar, las imágenes están cifradas y la aplicación web usa tokens de SAS seguros para acceder a las imágenes en miniatura.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, debe haber completado el tutorial anterior sobre el almacenamiento: [Automatización del cambio de tamaño de imágenes cargadas mediante Event Grid][previous-tutorial].
 
@@ -43,7 +43,7 @@ En esta parte de la serie de tutoriales, se usan tokens de SAS para acceder a la
 blobStorageAccount="<blob_storage_account>"
 
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
-    --name $blobStorageAccount --query [0].value --output tsv) 
+    --account-name $blobStorageAccount --query [0].value --output tsv) 
 
 az storage container set-permission \
     --account-name $blobStorageAccount \
@@ -135,11 +135,13 @@ En la tarea anterior se usan las clases, las propiedades y los métodos siguient
 |[UriBuilder](/dotnet/api/system.uribuilder) | [Consultar](/dotnet/api/system.uribuilder.query) |  |
 |[Lista](/dotnet/api/system.collections.generic.list-1) | | [Add (Agregar)](/dotnet/api/system.collections.generic.list-1.add) |
 
-## <a name="server-side-encryption"></a>Cifrado del servidor
+## <a name="azure-storage-encryption"></a>Cifrado de Azure Storage
 
-[Cifrado del servicio de Azure Storage (SSE)](../common/storage-service-encryption.md) ayuda a proteger y salvaguardar los datos. SSE cifra los datos en reposo y así controla el cifrado, el descifrado y la administración de claves. A todos los datos se les aplica el [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits, uno de los cifrados de bloques más seguros disponibles.
+El [cifrado de Azure Storage](../common/storage-service-encryption.md) ayuda a proteger los datos mediante el cifrado de los datos en reposo y la administración del cifrado y el descifrado. A todos los datos se les aplica el [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits, uno de los cifrados de bloques más seguros disponibles.
 
-SSE cifra automáticamente los datos de todos los niveles de rendimiento (Estándar y Premium), todos los modelos de implementación (Azure Resource Manager y clásico) y todos los servicios de Azure Storage (Blob, Queue, Table y File). 
+Puede elegir que Microsoft administre las claves de cifrado, o puede traer sus propias claves con las claves administradas por el cliente con Azure Key Vault. Para más información, consulte [Uso de claves administradas por el cliente con Azure Key Vault para administrar el cifrado de Azure Storage](../common/encryption-customer-managed-keys.md).
+
+El cifrado de Azure Storage cifra automáticamente los datos de todos los niveles de rendimiento (Estándar y Premium), todos los modelos de implementación (Azure Resource Manager y clásico) y todos los servicios de Azure Storage (Blob, Queue, Table y File).
 
 ## <a name="enable-https-only"></a>Habilitación de solo HTTPS
 

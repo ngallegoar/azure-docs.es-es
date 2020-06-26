@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-ms.date: 05/29/2020
-ms.openlocfilehash: 5b7c7219c15f6c9b687aecd2e9d9f46ea4a71efa
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.date: 06/10/2020
+ms.openlocfilehash: 71fca8f7dd808058e88d5a5ffe9a64e1136ceefc
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84249100"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736529"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Carga de datos incremental de una base de datos de Azure SQL en Azure Blob Storage mediante Azure Portal
 
@@ -277,7 +277,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
-    ![Actividad de procedimiento almacenado: configuración del procedimiento almacenado](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
+        ![Actividad de procedimiento almacenado: configuración del procedimiento almacenado](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. Para comprobar la configuración de canalización, haga clic en **Validate** (Comprobar) en la barra de herramientas. Confirme que no haya errores de comprobación. Para cerrar la ventana **Pipeline Validation Report** (Informe de comprobación de la canalización), haga clic en >>.   
 
 28. Para publicar entidades (servicios vinculados, conjuntos de datos y canalizaciones) en el servicio Azure Data Factory, seleccione el botón **Publish All** (Publicar todo). Espere hasta que vea un mensaje de que la publicación se completó correctamente.
@@ -290,9 +290,9 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
 
 ## <a name="monitor-the-pipeline-run"></a>Supervisión de la ejecución de la canalización
 
-1. Cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Puede ver el estado de ejecución de la canalización activado por el desencadenador manual. Haga clic en el botón **Refresh** (Actualizar) para actualizar la lista.
+1. Cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Verá el estado de ejecución de la canalización desencadenada por un desencadenador manual. Puede usar los vínculos de la columna **NOMBRE DE CANALIZACIÓN** para ver los detalles de la ejecución y volver a ejecutar la canalización.
 
-2. Para ver las ejecuciones de actividad asociadas con la de esta canalización, haga clic en el primer vínculo (**View Activity Runs** [Ver ejecuciones de actividad]) de la columna **Actions** (Acciones). Para volver a la vista anterior, haga clic en **Pipelines** (Canalizaciones) de la parte superior. Haga clic en el botón **Refresh** (Actualizar) para actualizar la lista.
+2. Para ver las ejecuciones de actividad asociadas a la ejecución de la canalización, seleccione el vínculo en la columna **NOMBRE DE CANALIZACIÓN**. Para más información sobre las ejecuciones de actividad, seleccione el vínculo **Detalles** (icono de gafas) en la columna **NOMBRE DE ACTIVIDAD**. Para volver a la vista Ejecuciones de canalización, seleccione **All pipeline runs** (Todas las ejecuciones de canalización) en la parte superior. Para actualizar la vista, seleccione **Refresh** (Actualizar).
 
 
 ## <a name="review-the-results"></a>Revisión del resultado
@@ -355,9 +355,9 @@ PersonID | Name | LastModifytime
 
 ## <a name="monitor-the-second-pipeline-run"></a>Supervisión de la segunda ejecución de la canalización
 
-1. Cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Puede ver el estado de ejecución de la canalización activado por el desencadenador manual. Haga clic en el botón **Refresh** (Actualizar) para actualizar la lista.
+1. Cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Verá el estado de ejecución de la canalización desencadenada por un desencadenador manual. Puede usar los vínculos de la columna **PIPELINE NAME** (Nombre de la canalización) para ver los detalles de la actividad y volver a ejecutar la canalización.
 
-2. Para ver las ejecuciones de actividad asociadas con la de esta canalización, haga clic en el primer vínculo (**View Activity Runs** [Ver ejecuciones de actividad]) de la columna **Actions** (Acciones). Para volver a la vista anterior, haga clic en **Pipelines** (Canalizaciones) de la parte superior. Haga clic en el botón **Refresh** (Actualizar) para actualizar la lista.
+2. Para ver las ejecuciones de actividad asociadas a la ejecución de la canalización, seleccione el vínculo en la columna **NOMBRE DE CANALIZACIÓN**. Para más información sobre las ejecuciones de actividad, seleccione el vínculo **Detalles** (icono de gafas) en la columna **NOMBRE DE ACTIVIDAD**. Para volver a la vista Ejecuciones de canalización, seleccione **All pipeline runs** (Todas las ejecuciones de canalización) en la parte superior. Para actualizar la vista, seleccione **Refresh** (Actualizar).
 
 
 ## <a name="verify-the-second-output"></a>Comprobación de la segunda salida

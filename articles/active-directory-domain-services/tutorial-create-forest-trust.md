@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 9a76f72d3f01ab9253c452e49dde171280fe481d
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 37f1f129122a64dc27227bee8a267702c7f9d903
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654412"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733677"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Tutorial: creación de una confianza de bosque de salida en un dominio local en Azure Active Directory Domain Services (versión preliminar)
 
-En entornos en los que no se pueden sincronizar los hash de contraseña, o en los que los usuarios inician sesión de forma exclusiva con tarjetas inteligentes y no saben su contraseña, puede usar un bosque de recursos en Azure Active Directory Domain Services (AD DS). Un bosque de recursos usa una confianza de salida unidireccional desde Azure AD DS a uno o varios entornos locales de AD DS. Esta relación de confianza permite que los usuarios, las aplicaciones y los equipos se autentiquen en un dominio local desde el dominio administrado de Azure AD DS. Los bosques de recursos de Azure AD DS están actualmente en versión preliminar.
+En entornos en los que no se pueden sincronizar los hash de contraseña, o en los que los usuarios inician sesión de forma exclusiva con tarjetas inteligentes y no saben su contraseña, puede usar un bosque de recursos en Azure Active Directory Domain Services (Azure AD DS). Un bosque de recursos usa una confianza de salida unidireccional desde Azure AD DS a uno o varios entornos locales de AD DS. Esta relación de confianza permite que los usuarios, las aplicaciones y los equipos se autentiquen en un dominio local desde el dominio administrado de Azure AD DS. Los bosques de recursos de Azure AD DS están actualmente en versión preliminar.
 
 ![Diagrama de la confianza de bosque desde Azure AD DS a un entorno local de AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 
@@ -42,10 +42,10 @@ Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 * Un inquilino de Azure Active Directory asociado a su suscripción, ya sea sincronizado con un directorio en el entorno local o con un directorio solo en la nube.
     * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
 * Un dominio administrado de Azure Active Directory Domain Services creado mediante un bosque de recursos y configurado en su inquilino de Azure AD.
-    * Si es necesario, [cree y configure una instancia de Azure Active Directory Domain Services][create-azure-ad-ds-instance-advanced].
+    * Si es necesario, [cree y configure un dominio administrado de Azure Active Directory Domain Services][create-azure-ad-ds-instance-advanced].
     
     > [!IMPORTANT]
-    > Asegúrese de crear un dominio administrado de Azure AD DS con un bosque de *recursos*. La opción predeterminada crea un bosque de *usuarios*. Solo los bosques de recursos pueden crear confianzas con entornos de AD DS locales. También debe usar como mínimo la SKU *Enterprise* para el dominio administrado. Si es necesario, [cambie la SKU de un dominio administrado de Azure AD DS][howto-change-sku].
+    > Asegúrese de crear un dominio administrado con un bosque de *recursos*. La opción predeterminada crea un bosque de *usuarios*. Solo los bosques de recursos pueden crear confianzas con entornos de AD DS locales. También debe usar como mínimo la SKU *Enterprise* para el dominio administrado. Si es necesario, [cambie la SKU de un dominio administrado][howto-change-sku].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -69,16 +69,16 @@ Antes de configurar una confianza de bosque en Azure AD DS, asegúrese de que la
 
 ## <a name="configure-dns-in-the-on-premises-domain"></a>Configuración de DNS en el dominio local
 
-Para resolver correctamente el dominio administrado de Azure AD DS desde el entorno local, quizá tenga que agregar reenviadores a los servidores DNS existentes. Si no ha configurado el entorno local para comunicarse con el dominio administrado de Azure AD DS, complete los pasos siguientes desde una estación de trabajo de administración para el dominio de AD DS local:
+Para resolver correctamente el dominio administrado desde el entorno local, quizá tenga que agregar reenviadores a los servidores DNS existentes. Si no ha configurado el entorno local para comunicarse con el dominio administrado, complete los pasos siguientes desde una estación de trabajo de administración para el dominio de AD DS local:
 
 1. Seleccione **Inicio | Herramientas administrativas | DNS**.
 1. Haga clic con el botón derecho en el servidor DNS, como *myAD01*, y seleccione **Propiedades**.
 1. Elija **Reenviadores** y, después, **Editar** para agregar reenviadores adicionales.
-1. Agregue las direcciones IP del dominio administrado de Azure AD DS, como *10.0.2.4* y *10.0.2.5*.
+1. Agregue las direcciones IP del dominio administrado, como *10.0.2.4* y *10.0.2.5*.
 
 ## <a name="create-inbound-forest-trust-in-the-on-premises-domain"></a>Creación de una confianza de bosque de entrada en el dominio local
 
-El dominio de AD DS local necesita una confianza de bosque de entrada para el dominio administrado de Azure AD DS. Esta confianza se debe crear manualmente en el dominio de AD DS local, no se puede crear a partir de Azure Portal.
+El dominio de AD DS local necesita una confianza de bosque de entrada para el dominio administrado. Esta confianza se debe crear manualmente en el dominio de AD DS local, no se puede crear a partir de Azure Portal.
 
 Para configurar la confianza de entrada en el dominio de AD DS local, complete los pasos siguientes desde una estación de trabajo de administración para el dominio de AD DS local:
 
@@ -87,22 +87,22 @@ Para configurar la confianza de entrada en el dominio de AD DS local, complete l
 1. Elija la pestaña **Confianzas** y, a continuación, **Nueva confianza**.
 1. Escriba el nombre en el nombre de dominio de Azure AD DS, por ejemplo, *aaddscontoso.com* y, después, seleccione **Siguiente**.
 1. Seleccione la opción para crear una **Confianza de bosque** y, a continuación, para crear una confianza **Unidireccional: de entrada**.
-1. Elija la opción para crear la confianza **Solo para este dominio**. En el paso siguiente, creará la confianza en Azure Portal para el dominio administrado de Azure AD DS.
+1. Elija la opción para crear la confianza **Solo para este dominio**. En el paso siguiente, creará la confianza en Azure Portal para el dominio administrado.
 1. Elija usar **Autenticación en todo el bosque** y después escriba y confirme una contraseña de confianza. Esta misma contraseña también se escribe en Azure Portal en la sección siguiente.
 1. Deje las opciones predeterminadas de las siguientes ventanas y después elija la opción **No, no confirmar la confianza saliente**.
 1. Seleccione **Finish** (Finalizar).
 
 ## <a name="create-outbound-forest-trust-in-azure-ad-ds"></a>Creación de una confianza de bosque de salida en Azure AD DS
 
-Con el dominio local de AD DS configurado para resolver el dominio administrado de Azure AD DS y una confianza de bosque de entrada creada, ahora puede crear la confianza de bosque de salida. Esta confianza de bosque de salida completa la relación de confianza entre el dominio local de AD DS y el dominio administrado de Azure AD DS.
+Con el dominio local de AD DS configurado para resolver el dominio administrado y una confianza de bosque de entrada creada, ahora puede crear la confianza de bosque de salida. Esta confianza de bosque de salida completa la relación de confianza entre el dominio local de AD DS y el dominio administrado.
 
-Para crear la confianza de salida para el dominio administrado de Azure AD DS en Azure Portal, realice los pasos siguientes:
+Para crear la confianza de salida para el dominio administrado en Azure Portal, realice los pasos siguientes:
 
 1. En Azure Portal, busque y seleccione **Azure AD Domain Services** y después seleccione el dominio administrado, como *aaddscontoso.com*.
-1. En el menú del lado izquierdo del dominio administrado de Azure AD DS, seleccione **Confianzas** y, a continuación, elija **+ Agregar** una confianza.
+1. En el menú del lado izquierdo del dominio administrado, seleccione **Confianzas** y, a continuación, elija **+ Agregar** una confianza.
 
    > [!NOTE]
-   > Si no ve la opción de menú **Confianzas**, compruebe bajo **Propiedades** el *Tipo de bosque*. Solo los bosques de *recursos* pueden crear confianzas. Si el bosque es de tipo *Usuario*, no se pueden crear confianzas. Actualmente no hay ninguna manera de cambiar el tipo de bosque de un dominio administrado de Azure AD DS. Debe eliminar y volver a crear el dominio administrado como un bosque de recursos.
+   > Si no ve la opción de menú **Confianzas**, compruebe bajo **Propiedades** el *Tipo de bosque*. Solo los bosques de *recursos* pueden crear confianzas. Si el bosque es de tipo *Usuario*, no se pueden crear confianzas. Actualmente no hay ninguna manera de cambiar el tipo de bosque de un dominio administrado. Debe eliminar y volver a crear el dominio administrado como un bosque de recursos.
 
 1. Escriba un nombre para mostrar que identifique la confianza y, después, el nombre DNS del bosque de confianza local, como *onprem.contoso.com*.
 1. Proporcione la misma contraseña de confianza que usó al configurar la confianza de bosque de entrada para el dominio local de AD DS en la sección anterior.

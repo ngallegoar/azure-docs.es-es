@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/30/2019
+ms.date: 06/16/2020
 ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1dd0bc589b8290172d18482b36baf30c24d099b4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0f712dbee6218ce8e012639b82a3a2ee7c177bb3
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83640572"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84904769"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Inicio de sesión de los usuarios y llamada a Microsoft Graph desde una aplicación para iOS o macOS
 
@@ -46,9 +46,9 @@ Este ejemplo utiliza la Biblioteca de autenticación de Microsoft (MSAL) para im
 
 Este tutorial es aplicable a las aplicaciones para iOS y macOS. Tenga en cuenta que algunos pasos son diferentes entre esas dos plataformas. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-- En esta guía se requiere la versión 11.x o posterior de XCode para compilar la aplicación. Puede descargar XCode desde el [sitio web de iTunes](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "URL de descarga de XCode").
+- En esta guía se requiere la versión 11.x o posterior de XCode para compilar la aplicación. Puede descargar XCode desde [Mac App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "URL de descarga de XCode").
 - Biblioteca de autenticación de Microsoft ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). Puede usar un administrador de dependencias o agregar la biblioteca manualmente. Las instrucciones siguientes muestran cómo hacerlo.
 
 En este tutorial, vamos a crear un nuevo proyecto. Si desea descargar el tutorial completado en su lugar, descargue el código:
@@ -626,7 +626,7 @@ Una vez que tenga un token, la aplicación puede usarlo este valor en el encabez
 
 | clave del encabezado    | value                 |
 | ------------- | --------------------- |
-| Authorization | Portador \<token_de_acceso> |
+| Authorization | Portador \<access-token> |
 
 Agregue el siguiente código a la clase `ViewController`:
 

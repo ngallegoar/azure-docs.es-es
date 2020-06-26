@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1d71f4c5616efb05efe2733c49507b085ca2dcf6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7bcf656b1fa0a73021a92113eb5879312d100823
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75426294"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84974507"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-job-preview"></a>Tutorial: Escritura de una función de C# definida por el usuario para un trabajo de Azure Stream Analytics (Versión preliminar)
 
@@ -26,13 +26,13 @@ En este tutorial, aprenderá a:
 > * Probar el trabajo de Stream Analytics localmente.
 > * Publicar un trabajo en Azure.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar, asegúrese de que cumple los siguientes requisitos previos:
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Instale las [herramientas de Stream Analytics para Visual Studio](stream-analytics-tools-for-visual-studio-install.md) y las cargas de trabajo de **desarrollo de Azure** o de **almacenamiento y procesamiento de datos**.
-* Eche un vistazo a la [Guía de desarrollo de Stream Analytics Edge] existente si va a crear un trabajo IoT Edge (stream-analytics-tools-for-visual-studio-edge-jobs.md).
+* Eche un vistazo a la [guía de desarrollo de Stream Analytics Edge](stream-analytics-tools-for-visual-studio-edge-jobs.md) existente si va a crear un trabajo de IoT Edge.
 
 ## <a name="create-a-container-in-your-azure-storage-account"></a>Creación de un contenedor en una cuenta de Azure Storage
 

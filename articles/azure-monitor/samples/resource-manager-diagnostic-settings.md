@@ -5,33 +5,35 @@ ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 05/18/2020
-ms.openlocfilehash: 4330f70328d00766c829478cebeb2cdbb9ad21c1
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 06/09/2020
+ms.openlocfilehash: 0a71d50945d5be489872e90a5a6d9989295e1fa9
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83853176"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753512"
 ---
 # <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Ejemplos de plantillas de Resource Manager para la configuración de diagnóstico en Azure Monitor
 Este artículo incluye [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) de ejemplos para crear una configuración de diagnóstico en Azure Monitor. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
 
-Para crear una configuración de diagnóstico, agregue a la plantilla un recurso de tipo <resource namespace>/providers/diagnosticSettings. Este artículo ofrece ejemplos de dos tipos diferentes de recursos, pero se puede utilizar el mismo patrón con otros tipos de recursos. La recopilación de registros y métricas que están permitidos variará en función de cada tipo de recurso.
+Para crear una configuración de diagnóstico para un recurso de Azure, agregue a la plantilla un recurso de tipo `<resource namespace>/providers/diagnosticSettings`. Este artículo ofrece ejemplos de algunos tipos de recursos, pero se puede utilizar el mismo patrón con otros tipos de recursos. La recopilación de registros y métricas que están permitidos variará en función de cada tipo de recurso.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
+## <a name="diagnostic-setting-for-activity-log"></a>Configuración de diagnóstico para el registro de actividad
+En el ejemplo siguiente se crea una configuración de diagnóstico para un registro de actividad mediante la adición de un recurso de tipo `Microsoft.Insights/diagnosticSettings` a la plantilla.
 
-## <a name="diagnostic-setting-for-azure-key-vault"></a>Configuración de diagnóstico para Azure Key Vault 
-En el ejemplo siguiente, se agregan dos consultas de registro a Azure Key Vault.
+> [!IMPORTANT]
+> La configuración de diagnóstico de los registros de actividad se crea para una suscripción, no para un grupo de recursos, como la configuración de los recursos de Azure. Para implementar la plantilla de administración de recursos, use `New-AzSubscriptionDeployment` para PowerShell o `az deployment sub create` para la CLI de Azure.
 
 ### <a name="template-file"></a>Archivo de plantilla
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "vaultName": {
+        "settingName": {
             "type": "String"
         },
         "workspaceId": {
@@ -52,10 +54,8 @@ En el ejemplo siguiente, se agregan dos consultas de registro a Azure Key Vaul
         {
           "type": "Microsoft.KeyVault/vaults/providers/diagnosticSettings",
           "apiVersion": "2017-05-01-preview",
-          "name": "[concat(parameters('vaultName'), '/Microsoft.Insights/Send to all destinations')]",
-          "dependsOn": [
-            
-          ],
+          "name": "[(parameters('settingName')]",
+          "dependsOn": [],
           "properties": {
             "workspaceId": "[parameters('workspaceId')]",
             "storageAccountId": "[parameters('storageAccountId')]",
@@ -86,6 +86,95 @@ En el ejemplo siguiente, se agregan dos consultas de registro a Azure Key Vaul
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+      "settingName": {
+          "value": "Send to all locations"
+      },
+      "workspaceId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/MyResourceGroup/providers/microsoft.operationalinsights/workspaces/MyWorkspace"
+      },
+      "storageAccountId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
+      },
+      "eventHubAuthorizationRuleId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.EventHub/namespaces/MyNameSpace/authorizationrules/RootManageSharedAccessKey"
+      },
+      "eventHubName": {
+        "value": "my-eventhub"
+      }
+  }
+}
+```
+
+
+## <a name="diagnostic-setting-for-azure-key-vault"></a>Configuración de diagnóstico para Azure Key Vault 
+En el ejemplo siguiente se crea una configuración de diagnóstico para Azure Key Vault mediante la adición de un recurso de tipo `Microsoft.KeyVault/vaults/providers/diagnosticSettings` a la plantilla.
+
+### <a name="template-file"></a>Archivo de plantilla
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "settingName": {
+            "type": "String"
+        },
+        "vaultName": {
+            "type": "String"
+        },
+        "workspaceId": {
+            "type": "String"
+        },
+        "storageAccountId": {
+            "type": "String"
+        },
+        "eventHubAuthorizationRuleId": {
+            "type": "String"
+        },
+        "eventHubName": {
+            "type": "String"
+        }
+
+    },
+    "resources": [
+        {
+          "type": "Microsoft.KeyVault/vaults/providers/diagnosticSettings",
+          "apiVersion": "2017-05-01-preview",
+          "name": "[concat(parameters('vaultName'), '/Microsoft.Insights/', parameters('settingName'))]",
+          "dependsOn": [],
+          "properties": {
+            "workspaceId": "[parameters('workspaceId')]",
+            "storageAccountId": "[parameters('storageAccountId')]",
+            "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+            "eventHubName": "[parameters('eventHubName')]",
+            "logs": [
+              {
+                "category": "AuditEvent",
+                "enabled": true
+              }
+            ],
+            "metrics": [
+              {
+                "category": "AllMetrics",
+                "enabled": true
+              }
+            ]
+          }
+        }
+    ]
+}
+```
+
+### <a name="parameter-file"></a>Archivo de parámetros
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "settingName": {
+          "value": "Send to all locations"
+      },
       "vaultName": {
         "value": "MyVault"
       },
@@ -99,21 +188,25 @@ En el ejemplo siguiente, se agregan dos consultas de registro a Azure Key Vaul
         "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.EventHub/namespaces/MyNameSpace/authorizationrules/RootManageSharedAccessKey"
       },
       "eventHubName": {
-        "value": "MyKeyVault"
+        "value": "my-eventhub"
       }
   }
 }
 ```
 
 ## <a name="diagnostic-setting-for-azure-sql-database"></a>Configuración de diagnóstico para Azure SQL Database
-En el ejemplo siguiente, se agregan dos consultas de registro a Azure SQL Database.
+En el ejemplo siguiente se crea una configuración de diagnóstico para una base de datos de Azure SQL mediante la adición de un recurso de tipo `microsoft.sql/servers/databases/providers/diagnosticSettings` a la plantilla.
+
 ### <a name="template-file"></a>Archivo de plantilla
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "settingName": {
+            "type": "String"
+        },        
         "serverName": {
             "type": "String"
         },
@@ -138,10 +231,8 @@ En el ejemplo siguiente, se agregan dos consultas de registro a Azure SQL Data
         {
           "type": "microsoft.sql/servers/databases/providers/diagnosticSettings",
           "apiVersion": "2017-05-01-preview",
-          "name": "[concat(parameters('serverName'),'/',parameters('dbName'),'/microsoft.insights/SQL diagnostic setting')]",
-          "dependsOn": [
-            
-          ],
+          "name": "[concat(parameters('serverName'),'/',parameters('dbName'),'/microsoft.insights', parameters('settingName'))]",
+          "dependsOn": [],
           "properties": {
             "workspaceId": "[parameters('workspaceId')]",
             "storageAccountId": "[parameters('storageAccountId')]",
@@ -209,9 +300,12 @@ En el ejemplo siguiente, se agregan dos consultas de registro a Azure SQL Data
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+      "settingName": {
+          "value": "Send to all locations"
+      },
       "serverName": {
         "value": "MySqlServer"
       },
@@ -228,7 +322,7 @@ En el ejemplo siguiente, se agregan dos consultas de registro a Azure SQL Data
         "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.EventHub/namespaces/MyNameSpace/authorizationrules/RootManageSharedAccessKey"
       },
       "eventHubName": {
-        "value": "MyKeyVault"
+        "value": "my-eventhub"
       }
   }
 }

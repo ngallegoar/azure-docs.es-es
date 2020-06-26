@@ -6,17 +6,17 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/16/2018
-ms.openlocfilehash: 3c55becb098c9d93688b59f1db4f702acbff3f72
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: bb61f6146e588673038fae9f41b770c4865cefb7
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837271"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945297"
 ---
 # <a name="azure-monitor-cli-samples"></a>Ejemplos de la CLI de Azure Monitor
 En este artículo se muestran comandos de la interfaz de la línea de comandos (CLI) de ejemplo que lo ayudarán a acceder a las características de supervisión de Azure Monitor. Azure Monitor permite escalar automáticamente Cloud Services, Virtual Machines y Web Apps para enviar notificaciones de alerta o llamar a direcciones URL web en función de los valores de datos de telemetría configurados.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si aún no ha instalado la CLI de Azure, siga las instrucciones para [instalar la CLI de Azure](/cli/azure/install-azure-cli). También puede usar [Azure Cloud Shell](/azure/cloud-shell) para ejecutar la CLI como una experiencia interactiva en el explorador. Consulte una referencia completa de todos los comandos disponibles en la [referencia de la CLI de Azure Monitor](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
 
@@ -29,51 +29,51 @@ az login
 
 Después de ejecutar este comando, tendrá que iniciar sesión siguiendo las instrucciones de la pantalla. Todos los comandos funcionan en el contexto de la suscripción predeterminada.
 
-Para mostrar los detalles de la suscripción actual, utilice el siguiente comando.
+Muestre los detalles de la suscripción actual.
 
 ```azurecli
 az account show
 ```
 
-Para cambiar el contexto de trabajo a una suscripción diferente, utilice el siguiente comando.
+Cambie el contexto de trabajo a una suscripción diferente.
 
 ```azurecli
 az account set -s <Subscription ID or name>
 ```
 
-Para ver una lista de todos los comandos de Azure Monitor admitidos, ejecute el siguiente comando.
+Vea una lista de todos los comandos de Azure Monitor admitidos.
 
 ```azurecli
 az monitor -h
 ```
 
-## <a name="view-activity-log-for-a-subscription"></a>Visualización del registro de actividades para una suscripción
+## <a name="view-activity-log"></a>Ver el registro de actividades
 
-Para ver una lista de los eventos del registro de actividad, ejecute el siguiente comando.
+Vea una lista de eventos del registro de actividad.
 
 ```azurecli
 az monitor activity-log list
 ```
 
-Pruebe el siguiente comando para ver todas las opciones disponibles.
+Vea todas las opciones disponibles.
 
 ```azurecli
 az monitor activity-log list -h
 ```
 
-Se trata de un ejemplo para mostrar los registros por grupo de recursos.
+Muestre los registros por grupo de recursos.
 
 ```azurecli
 az monitor activity-log list --resource-group <group name>
 ```
 
-Ejemplo para mostrar registros por autor de llamada
+Muestre los registros por autor de llamada.
 
 ```azurecli
 az monitor activity-log list --caller myname@company.com
 ```
 
-Ejemplo para mostrar registros por autor de llamada en un tipo de recurso, dentro de un intervalo de fechas
+Muestre los registros por autor de llamada en un tipo de recurso, dentro de un intervalo de fechas.
 
 ```azurecli
 az monitor activity-log list --resource-provider Microsoft.Web \

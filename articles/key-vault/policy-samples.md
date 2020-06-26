@@ -1,24 +1,24 @@
 ---
 title: Definiciones de directivas integradas para Key Vault
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Key Vault. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: sample
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: key-vault
 ms.custom: subject-policy-samples
-ms.openlocfilehash: b243ae0a99b8cadd621de1695b70919fcc4d694b
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 1ee441651e230132b2602f948ba49c5d81b8d402
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235994"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84885206"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-key-vault"></a>Definiciones de directivas integradas de Azure Policy para Key Vault
+# <a name="azure-policy-built-in-definitions-for-key-vault"></a>Definiciones integradas de Azure Policy para Key Vault
 
 Esta página es un índice de las definiciones de directivas integradas de [Azure Policy](../governance/policy/overview.md) para Key Vault. Puede encontrar elementos integrados adicionales de Azure Policy para otros servicios en [Definiciones de elementos integrados de Azure Policy](../governance/policy/samples/built-in-policies.md).
 
-El nombre de cada definición de directiva integrada se vincula a la definición de directiva en Azure Portal. Use el vínculo de la columna **GitHub** para ver el origen en el [repositorio de GitHub de Azure Policy](https://github.com/Azure/azure-policy).
+El nombre de cada definición de directiva integrada se vincula a la definición de directiva en Azure Portal. Use el vínculo de la columna **Versión** para ver el origen en el [repositorio de GitHub de Azure Policy](https://github.com/Azure/azure-policy).
 
 ## <a name="key-vault-service"></a>Key Vault (servicio)
 

@@ -3,16 +3,16 @@ title: Instancias reservadas de máquinas virtuales de Azure EA
 description: En este artículo se resume la forma en que las reservas de Azure para las instancias reservadas de máquinas virtuales pueden ayudarle a ahorrar dinero en la inscripción de su empresa.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 06/11/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 649766d5daedbf880a3c17a1cb8282b0a9e4f2fe
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: a06f416ed1d4df33cc6777eba878eee2b4f6b047
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299067"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735428"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Instancias reservadas de máquinas virtuales de Azure EA
 
@@ -28,7 +28,7 @@ Los clientes que tengan Contrato Enterprise pueden ver los datos de uso y costos
 
 - Obtener los datos de compra de la reserva.
 - Saber qué suscripción, grupo de recursos o recurso usó una reserva.
-- Anular la utilización de la reserva.
+- Anular el uso de la reserva.
 - Calcular el ahorro de la reserva.
 - Obtener los datos de infrautilización de la reserva.
 - Amortizar los costos de la reserva.
@@ -39,21 +39,30 @@ Para obtener información sobre los precios, consulte [Precios de máquinas virt
 
 ## <a name="reserved-instances-api-support"></a>Soporte técnico de la API de instancias reservadas
 
-Las API de Azure se pueden usar para obtener información mediante programación para su organización sobre el servicio de Azure o las reservas de software. Para más información, consulte [APIs for Azure reservation automation](../reservations/reservation-apis.md) (API de automatización de reservas de Azure).
+Use las API de Azure para obtener información mediante programación para su organización sobre el servicio de Azure o las reservas de software. Por ejemplo, use las API para:
+
+- Buscar las reservas que desee comprar
+- Adquisición de una reserva
+- Visualización de las reservas adquiridas
+- Ver y administrar el acceso a las reservas
+- Dividir o combinar reservas
+- Cambiar el ámbito de las reservas
+
+Para más información, consulte [APIs for Azure reservation automation](../reservations/reservation-apis.md) (API de automatización de reservas de Azure).
 
 ## <a name="azure-reserved-virtual-machine-instances"></a>Instancias reservadas de máquinas virtuales de Azure
 
-Las instancias reservadas pueden reducir los costos de las máquinas virtuales hasta un 72 % respecto a los precios de Pago por uso en todas las máquinas virtuales, o hasta el 82 % cuando se combinan con la ventaja híbrida de Azure. Es posible asignar mejor la prioridad a las cargas de trabajo, el presupuesto y la previsión con el pago por adelantado en períodos de un año o de tres años. También se pueden intercambiar o cancelar las reservas a medida que cambien las necesidades del negocio.
+Las instancias reservadas pueden reducir los costos de las máquinas virtuales hasta un 72 % respecto a los precios de Pago por uso en todas las máquinas virtuales. O bien, hasta el 82 % cuando se combinan con la Ventaja híbrida de Azure. Las instancias reservadas le ayudan a administrar mejor las cargas de trabajo, el presupuesto y la previsión, gracias al pago por adelantado en períodos de un año o de tres años. También se pueden intercambiar o cancelar las reservas a medida que cambien las necesidades del negocio.
 
 ### <a name="how-to-buy-reserved-virtual-machine-instances"></a>Compra de instancias reservadas de máquinas virtuales
 
-Para comprar una instancia reservada de máquina virtual de Azure, un administrador de inscripciones de Azure Enterprise debe habilitar la opción de compra _Reserve Instance_ (Reservar instancia) en la sección _Enrollment Detail_ (Detalles de inscripción) de la pestaña _Enrollment_ (Inscripción) en [Azure EA Portal](https://ea.azure.com/).
+Para comprar una instancia reservada de máquina virtual de Azure, un administrador de inscripciones de Azure Enterprise debe habilitar la opción de compra _Reserve Instance_ (Reservar instancia). La opción se encuentra en la sección _Enrollment Detail_ (Detalles de la inscripción) de la pestaña _Enrollment_ (Inscripción) de [Azure Enterprise Portal](https://ea.azure.com/).
 
 Una vez que la inscripción de Contrato Enterprise está habilitada para agregar instancias reservadas, cualquier propietario de la cuenta con una suscripción activa asociada a esta inscripción puede comprar una instancia reservada de máquina virtual en [Azure Portal](https://aka.ms/reservations). Para obtener más información, consulte [Pago por adelantado de máquinas virtuales para ahorrar dinero con instancias reservadas de máquina virtual](https://go.microsoft.com/fwlink/?linkid=861721).
 
 ### <a name="how-to-view-reserved-instance-purchase-details"></a>Visualización de los detalles de la compra de instancias reservadas
 
-Puede ver los detalles de la compra de instancias reservadas a través del menú _Reservas_ en el lado izquierdo de [Azure Portal](https://aka.ms/reservations) o desde [Azure EA Portal](https://ea.azure.com/). Seleccione **Reports** (Informes) en el menú de la izquierda y desplácese hacia abajo, hasta la sección _Charges by Services_ (Cargos por servicios) de la pestaña _Usage Summary_ (Resumen de uso). Desplácese hasta la parte inferior de la sección; las compras y el uso de las instancia reservadas se mostrarán al final, indicadas con la designación de "1 year" o "3 years" (1 año o 3 años) junto al nombre del servicio; por ejemplo, Standard_DS1_v2 eastus 1 year o Standard_D2s_v3 eastus2 3 years.
+Puede ver los detalles de la compra de instancias reservadas a través del menú _Reservas_ en el lado izquierdo de [Azure Portal](https://aka.ms/reservations) o desde [Azure EA Portal](https://ea.azure.com/). Seleccione **Reports** (Informes) en el menú de la izquierda y desplácese hacia abajo, hasta la sección _Charges by Services_ (Cargos por servicios) de la pestaña _Usage Summary_ (Resumen de uso). Desplácese hasta la parte inferior de la sección; las compras y el uso de las instancia reservadas se mostrarán al final, indicadas con la designación de `1 year` o `3 years` junto al nombre del servicio; por ejemplo, `Standard_DS1_v2 eastus 1 year` o `Standard_D2s_v3 eastus2 3 years`.
 
 ### <a name="how-can-i-change-the-subscription-associated-with-reserved-instance-or-transfer-my-reserved-instance-benefits-to-a-subscription-under-the-same-account"></a>¿Cómo puedo cambiar la suscripción asociada a la instancia reservada o transferir las ventajas de la instancia reservada a una suscripción incluida en la misma cuenta?
 
@@ -66,11 +75,11 @@ Para más información sobre cómo cambiar el ámbito de una reserva, consulte [
 
 ### <a name="how-to-view-reserved-instance-usage-details"></a>Visualización de los detalles de uso de las instancias reservadas
 
-Puede ver los detalles de uso de las instancias reservadas en [Azure Portal](https://aka.ms/reservations) o en [Azure EA Portal](https://ea.azure.com/) (para los clientes de Contrato Enterprise que tienen acceso para ver la información de facturación) en _Reports_ > _Usage Summary_ > _Charges by Services_ (Informes > Resumen de uso > Cargos por servicios). Las instancias reservadas se pueden identificar como nombres de servicio que contienen el término "Reservation"; por ejemplo, Reservation-Base VM o Virtual Machines Reservation-Windows Svr (1 Core).
+Puede ver los detalles de uso de las instancias reservadas en [Azure Portal](https://aka.ms/reservations) o en [Azure EA Portal](https://ea.azure.com/) (para los clientes de Contrato Enterprise que tienen acceso para ver la información de facturación) en _Reports_ > _Usage Summary_ > _Charges by Services_ (Informes > Resumen de uso > Cargos por servicios). Sus instancias reservadas se pueden identificar como nombres de servicio que contienen el término "Reservation"; por ejemplo, `Reservation-Base VM or Virtual Machines Reservation-Windows Svr (1 Core)`.
 
-Los archivos .csv de descarga del informe avanzado y de detalles de uso contienen información adicional sobre el uso de las instancias reservadas. El campo _Additional Info_ (Información adicional) le ayudará a identificar el uso de instancias reservadas.
+El archivo .csv de descarga del informe avanzado y de detalles de uso tiene información adicional sobre el uso de las instancias reservadas. El campo _Additional Info_ (Información adicional) le ayuda a identificar el uso de instancias reservadas.
 
-Si no usó la ventaja híbrida de Azure para comprar instancias reservadas de máquinas virtuales de Azure, las instancias reservadas emitirán dos medidores (hardware y software). Si usó la ventaja híbrida de Azure para comprar instancias reservadas, no verá el medidor de software en los detalles de uso de las instancias reservadas.
+Si no usó la ventaja híbrida de Azure para comprar instancias reservadas de máquinas virtuales de Azure, las instancias reservadas emitirán dos medidores (hardware y software). Cuando use la ventaja híbrida de Azure para comprar instancias reservadas, no verá el medidor de software en los detalles de uso de las instancias reservadas.
 
 ### <a name="reserved-instance-billing"></a>Facturación de instancias reservadas
 
@@ -83,6 +92,7 @@ En los casos en los que los clientes de Azure EA hayan usado todo su compromiso 
 Recibirá notificaciones por correo electrónico 30 días antes de la reserva y en la expiración. Una vez que expire la reserva, las máquinas virtuales implementadas seguirán ejecutándose y se facturarán mediante una tasa de pago por uso. Para más información, consulte las [ofertas de instancias reservadas de máquinas virtuales](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 - Para más información sobre las reservas de Azure, consulte [¿Qué es Azure Reservations?](../reservations/save-compute-costs-reservations.md).
 - Para más información sobre los costos y el uso de las reservas, consulte [Obtención del uso y los costos de reservas de Contrato Enterprise](../reservations/understand-reserved-instance-usage-ea.md).
 - Para obtener información sobre los precios, consulte [Precios de máquinas virtuales Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) o [Precios de máquinas virtuales Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).

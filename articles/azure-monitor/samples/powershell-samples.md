@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 2/14/2018
-ms.openlocfilehash: 6c00556bfbcd2108b3cb5bd2cfdf88a741f85a99
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 14fe27c28e2eb6a527dc6f026916002cfb5b0147
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837249"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945263"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Ejemplos de PowerShell de Azure Monitor
 En este artículo se muestran comandos de PowerShell de ejemplo para ayudarle a acceder a las características de Azure Monitor.
@@ -52,7 +52,7 @@ Set-AzContext -SubscriptionId <subscriptionid>
 ```
 
 
-## <a name="retrieve-activity-log-for-a-subscription"></a>Recuperación del registro de actividades para una suscripción
+## <a name="retrieve-activity-log"></a>Recuperación del registro de actividad
 Use el cmdlet [Get AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog).  A continuación se muestran algunos ejemplos comunes. El registro de actividad contiene los últimos 90 días de operaciones. El uso de las fechas anteriores a ese período provoca un mensaje de error.  
 
 Vea cuál es la fecha y hora actual para comprobar qué períodos se deben usar en el siguiente comando:

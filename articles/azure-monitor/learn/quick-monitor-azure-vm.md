@@ -7,12 +7,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: 12616fbc80468d35ebb8b0bc5cd12bfd5871e788
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 99e8afa0a92ba8bb53505e2519efec7baafbcf48
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79503196"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84805114"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Inicio rápido: Supervisión de máquinas virtuales de Azure con Azure Monitor
 [Azure Monitor](../overview.md) comienza a recopilar datos de las máquinas virtuales de Azure en el momento en que se crean. En este inicio rápido se proporciona un breve tutorial de los datos que se recopilan automáticamente para una máquina virtual de Azure y de cómo verlos en Azure Portal. A continuación, habilitará [Azure Monitor para VM](../insights/vminsights-overview.md) para la máquina virtual, lo que permitirá a los agentes de la máquina virtual recopilar y analizar los datos del sistema operativo invitado, incluidos los procesos y sus dependencias.
@@ -83,7 +83,7 @@ Al crear una nueva área de trabajo de Log Analytics, es necesario configurarla 
 
 ## <a name="view-data-collected"></a>Ver datos recopilados
 
-7. Haga clic en la máquina virtual y seleccione la pestaña **Rendimiento**. Esto muestra un grupo seleccionado de contadores de rendimiento recopilados del sistema operativo invitado de la máquina virtual. Desplácese hacia abajo para ver más contadores, y mueva el mouse sobre un gráfico para ver el promedio y los percentiles en momentos diferentes.
+7. Haga clic en la máquina virtual y seleccione la pestaña **Rendimiento** situada bajo el icono **Insights** del menú **Supervisión**. Esto muestra un grupo seleccionado de contadores de rendimiento recopilados del sistema operativo invitado de la máquina virtual. Desplácese hacia abajo para ver más contadores, y mueva el mouse sobre un gráfico para ver el promedio y los percentiles en momentos diferentes.
 
     ![Rendimiento](media/quick-monitor-azure-vm/performance.png)
 

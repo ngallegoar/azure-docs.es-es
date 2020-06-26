@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 94823445e4f8e3f8d40a219dc23b40f8a5c267c6
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 65df89aff0232d7bf9809cdffc4262d1a640a5a1
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996319"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771128"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Introducción a la seguridad de la empresa en Azure HDInsight
 
-Azure HDInsight ofrece una serie de métodos para abordar las necesidades de seguridad de la empresa. De forma predeterminada, la mayoría de estas soluciones no están activadas. Esta flexibilidad permite elegir las características de seguridad que son más importantes para usted, y ayuda a evitar el pago de aquellas que no desea. Esta flexibilidad también significa que es responsabilidad suya asegurarse de que las soluciones correctas estén habilitadas para su configuración y entorno.
+Azure HDInsight ofrece una serie de métodos para abordar las necesidades de seguridad de la empresa. De forma predeterminada, la mayoría de estas soluciones no están activadas. Esta flexibilidad le permite elegir las características de seguridad que considere más importantes y le ayuda a evitar pagar por características que no desea. Esta flexibilidad también significa que es responsabilidad suya asegurarse de que las soluciones correctas estén habilitadas para su configuración y entorno.
 
 En este artículo se analizan las soluciones de seguridad; para ello, se dividen en cuatro pilares de seguridad tradicionales: seguridad perimetral, autenticación, autorización y cifrado.
 
@@ -53,7 +53,7 @@ Es necesario auditar el acceso a los recursos del clúster para realizar un segu
 
 El administrador puede ver y notificar todos los accesos a los recursos y los datos del clúster de HDInsight. El administrador puede ver y notificar los cambios en las directivas de control de acceso.
 
-Para acceder a los registros de auditoría de Apache Ranger y Ambari y a los registros de acceso SSH, [habilite Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing). Asimismo, vea las tablas que proporcionan registros de auditoría.
+Para acceder a los registros de auditoría de Apache Ranger y Ambari, así como a los registros de acceso mediante SSH, [habilite Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing) y consulte las tablas que proporcionan registros de auditoría.
 
 ### <a name="encryption"></a>Cifrado
 

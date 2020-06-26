@@ -3,16 +3,16 @@ title: Introducción
 description: Obtenga información sobre las características y ventajas de Azure VMware Solution (AVS) para implementar y administrar las cargas de trabajo basadas en VMware en Azure.
 ms.topic: overview
 ms.date: 05/04/2020
-ms.openlocfilehash: e227b6c7c2f25fbf62f11c17dc62293e4fbd5267
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 9e3ab0abfdaa613a08675356bc5b01949e0381ae
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740996"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84749671"
 ---
 # <a name="what-is-azure-vmware-solution-avs-preview"></a>¿Qué es la versión preliminar de Azure VMware Solution (AVS)?
 
-Azure VMware Solution (AVS) le proporciona nubes privadas en Azure. Las nubes privadas contienen clústeres de vSphere, creados a partir de una infraestructura de Azure sin sistema operativo dedicada. Puede escalar los clústeres de nube privada de 3 a 16 hosts, con la funcionalidad para tener varios clústeres en una sola nube privada. Todas las nubes privadas se aprovisionan con vCenter Server, VSAN, vSphere y NSX-T. Puede migrar cargas de trabajo de sus entornos locales, crear o implementar nuevas máquinas virtuales y consumir servicios de Azure desde sus nubes privadas.
+Azure VMware Solution (AVS) le proporciona nubes privadas en Azure. Las nubes privadas contienen clústeres de vSphere, creados a partir de una infraestructura de Azure sin sistema operativo dedicada. Puede escalar los clústeres de nube privada de 3 a 16 hosts, con la funcionalidad para tener varios clústeres en una sola nube privada. Todas las nubes privadas se aprovisionan con vCenter Server, vSAN, vSphere y NSX-T. Puede migrar cargas de trabajo de sus entornos locales, crear o implementar nuevas máquinas virtuales y consumir servicios de Azure desde sus nubes privadas.
 
 AVS es una solución validada de VMware con validación y pruebas continuas de sus mejoras y actualizaciones. Microsoft administra y mantiene el software y la infraestructura de la nube privada, lo que le permite centrarse en desarrollar y ejecutar cargas de trabajo en sus nubes privadas.
 

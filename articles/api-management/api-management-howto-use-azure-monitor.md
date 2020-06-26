@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: bee93cf84f4beda0684127102942447630219881
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 989608b9a087599ab73864ae2605fbffcf3221d9
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82128837"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84982057"
 ---
 # <a name="monitor-published-apis"></a>Supervisión de las API publicadas
 
@@ -33,7 +33,7 @@ En el vídeo siguiente se muestra cómo supervisar API Management con Azure Moni
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 + Conocer la [terminología de API Management de Azure](api-management-terminology.md).
 + Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
@@ -43,14 +43,13 @@ En el vídeo siguiente se muestra cómo supervisar API Management con Azure Moni
 
 ## <a name="view-metrics-of-your-apis"></a>Visualización de las métricas de las API
 
-API Management emite métricas cada minuto, lo que le ofrece visibilidad casi en tiempo real sobre el estado y el mantenimiento de las API. El siguiente es un resumen de algunas de las métricas disponibles:
+API Management emite métricas cada minuto, lo que le ofrece visibilidad casi en tiempo real sobre el estado y el mantenimiento de las API. A continuación se muestran las dos métricas que se usan con más frecuencia. Para obtener una lista de todas las métricas disponibles, consulte las [métricas compatibles](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftapimanagementservice).
 
-* Capacidad: ayuda a tomar decisiones acerca de cómo actualizar o degradar los servicios de APIM. La métrica se emite por minuto y refleja la capacidad de la puerta de enlace en el momento del informe. La métrica oscila entre 0 y 100, y se calcula en función de los recursos de la puerta de enlace, como el uso de la CPU y de la memoria.
-* Solicitudes de puerta de enlace en total: el número de solicitudes API en el período. 
-* Solicitudes de puerta de enlace correctas: el número de solicitudes de API que recibieron códigos de respuesta HTTP correctos, como 304, 307 y los menores de 301 (por ejemplo, 200).
-* Solicitudes de puerta de enlace con error: el número de solicitudes de API que recibieron códigos de respuesta HTTP erróneos, como 400 y cualquiera mayor que 500.
-* Solicitudes de puerta de enlace no autorizadas: el número de solicitudes API que recibieron códigos de respuesta HTTP, incluidos 401, 403 y 429.
-* Otras solicitudes de puerta de enlace: el número de solicitudes API que recibieron códigos de respuesta HTTP que no pertenecen a ninguna de las categorías anteriores (por ejemplo, 418).
+* Capacity (Capacidad): ayuda a tomar decisiones acerca de cómo actualizar o degradar los servicios de APIM. La métrica se emite por minuto y refleja la capacidad de la puerta de enlace en el momento del informe. La métrica oscila entre 0 y 100, y se calcula en función de los recursos de la puerta de enlace, como el uso de la CPU y de la memoria.
+* Requests (Solicitudes): ayuda a analizar el tráfico de API que pasa por los servicios de APIM. La métrica se emite por minuto y notifica el número de solicitudes de puerta de enlace con dimensiones que incluyen los códigos de respuesta, la ubicación, el nombre de host y los errores. 
+
+> [!IMPORTANT]
+> Las siguientes métricas han quedado en desuso a partir de mayo de 2019 y se retirarán en agosto de 2023: Total Gateway Requests (Solicitudes totales de puerta de enlace), Successful Gateway Requests (Solicitudes de puerta de enlace correctas), Unauthorized Gateway Requests (Solicitudes de puerta de enlace no autorizadas), Failed Gateway Requests (Solicitudes de puerta de enlace con error), Other Gateway Requests (Otras solicitudes de puerta de enlace). Migre a la métrica Requests (Solicitudes), que proporciona una funcionalidad equivalente.
 
 ![gráfico de métricas](./media/api-management-azure-monitor/apim-monitor-metrics.png)
 
@@ -60,9 +59,9 @@ Para acceder a la métrica:
 
     ![Métricas](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-1. En la lista desplegable, seleccione las métricas que le interesen. Por ejemplo, **Requests**. 
-1. El gráfico muestra el número total de llamadas API.
-1. El gráfico se puede filtrar mediante las dimensiones de la métrica de **Solicitudes**. Por ejemplo, haga clic en **Agregar filtro**, elija **Backend Response Code** (Código de respuesta de back-end), escriba 500 como valor. Ahora el gráfico muestra el número de solicitudes erróneas en el back-end de la API.   
+2. En la lista desplegable, seleccione las métricas que le interesen. Por ejemplo, **Requests**. 
+3. El gráfico muestra el número total de llamadas API.
+4. El gráfico se puede filtrar mediante las dimensiones de la métrica de **Solicitudes**. Por ejemplo, haga clic en **Agregar filtro**, elija **Backend Response Code** (Código de respuesta de back-end), escriba 500 como valor. Ahora el gráfico muestra el número de solicitudes erróneas en el back-end de la API.   
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Configuración de una regla de alerta para solicitudes no autorizadas
 

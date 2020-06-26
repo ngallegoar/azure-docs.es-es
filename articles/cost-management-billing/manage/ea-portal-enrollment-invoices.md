@@ -7,12 +7,12 @@ ms.date: 06/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 16f89fa99c9619e3956a089763ece1b96aff4480
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 5c26af74a392e3e6d3bb5557960b81604de7cdf3
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298132"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807792"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Facturas de inscripciones de Azure Enterprise
 
@@ -220,11 +220,11 @@ En el caso de los servicios en los que la zona y la región afectan a los precio
 
 | Geoárea | Regiones de transferencia de datos | Regiones de CDN |
 | --- | --- | --- |
-| Zona 1 | Norte de Europa <br> Oeste de Europa <br> Oeste de EE. UU. <br> Este de EE. UU. <br> Centro y norte de EE. UU. <br> Centro y Sur de EE. UU. <br> Este de EE. UU. 2 <br> Centro de EE. UU. | Norteamérica <br> Europa |
+| Zona 1 | Norte de Europa <br> Oeste de Europa <br> Oeste de EE. UU. <br> Este de EE. UU. <br> Centro y norte de EE. UU. <br> Centro y Sur de EE. UU. <br> Este de EE. UU. 2 <br> Centro de EE. UU. | Norteamérica <br> Europa |
 | Zona 2 | Este de Asia Pacífico <br> Sudeste de Asia Pacífico <br> Japón Oriental <br> Japón Occidental <br> Este de Australia <br> Sudeste de Australia | Asia Pacífico <br> Japón <br> América Latina <br> Oriente Medio y África <br> Este de Australia <br> Sudeste de Australia |
 | Zona 3 | Sur de Brasil |   |
 
-No hay cargos por la salida de datos entre servicios hospedados en el mismo centro de datos. Por ejemplo, Office 365 y Azure.
+No hay cargos por la salida de datos entre servicios hospedados en el mismo centro de datos. Por ejemplo, Microsoft 365 y Azure.
 
 ### <a name="monetary-commitment-and-unbilled-usage"></a>Compromiso monetario y uso no facturado
 

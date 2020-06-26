@@ -1,48 +1,47 @@
 ---
 title: 'Análisis de vídeo en directo con su propio modelo: Azure'
-description: En este inicio rápido, va a aplicar Computer Vision para analizar la fuente de vídeo en directo desde una cámara IP (simulada).
+description: En este inicio rápido, aplicará Computer Vision para analizar la fuente de vídeo en directo desde una cámara IP (simulada).
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 0b502fb4bcfa3a11890167c5ef297463a3c51cdc
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 73b8f83b9e3c450612c742a831ac800343b3bbbc
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261493"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84816697"
 ---
-# <a name="quickstart-analyze-live-video-with-your-own-model"></a>Inicio rápido: Análisis de vídeo en directo con su propio modelo
+# <a name="quickstart-analyze-live-video-by-using-your-own-model"></a>Inicio rápido: Análisis de vídeo en directo con su propio modelo
 
-En este inicio rápido se muestra cómo usar Live Video Analytics en IoT Edge para analizar la fuente de vídeo en directo desde una cámara IP (simulada) mediante la aplicación de un modelo de Computer Vision para detectar objetos. Un subconjunto de los fotogramas de la fuente de vídeo en directo se envía a un servicio de inferencia y sus resultados se envían al centro de conectividad de IoT Edge. Usa una máquina virtual de Azure como un dispositivo IoT Edge y una secuencia de vídeo en directo simulada. Este artículo se basa en un ejemplo de código escrito en C#.
+En este inicio rápido se muestra cómo usar Live Video Analytics en IoT Edge para analizar una fuente de vídeo en directo desde una cámara IP (simulada). Verá cómo aplicar un modelo de Computer Vision para detectar objetos. Un subconjunto de los fotogramas de la fuente de vídeo en directo se envía a un servicio de inferencia. Los resultados se envían al centro de IoT Edge. 
 
-Este artículo se basa en [este](detect-motion-emit-events-quickstart.md) inicio rápido. 
+Este inicio rápido usa una máquina virtual de Azure como dispositivo IoT Edge y emplea una secuencia de vídeo en directo simulada. Se basa en el código de ejemplo escrito en C# y se basa en [Inicio rápido: Detección de movimiento y emisión de eventos](detect-motion-emit-events-quickstart.md). 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Visual Studio Code](https://code.visualstudio.com/) en la máquina con las siguientes extensiones:
+* Una cuenta de Azure que incluya una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), en caso de que aún no lo haya hecho.
+* [Visual Studio Code](https://code.visualstudio.com/) con las siguientes extensiones:
     * [Herramientas de Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-* [SDK de .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) instalado en el sistema
-* Si no ha completado previamente [este](detect-motion-emit-events-quickstart.md) inicio rápido, complete los pasos siguientes:
-     * [Configuración de los recursos de Azure](detect-motion-emit-events-quickstart.md#set-up-azure-resources)
+* [SDK de .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1).
+* Si no completó el inicio rápido [Detección de movimiento y emisión de eventos](detect-motion-emit-events-quickstart.md), asegúrese de [configurar los recursos de Azure](detect-motion-emit-events-quickstart.md#set-up-azure-resources).
 
 > [!TIP]
-> Al instalar Azure IoT Tools, es posible que se le pida que instale Docker. Si lo desea, puede ignorar este aviso.
+> Al instalar Azure IoT Tools, es posible que se le pida que instale Docker. Puede omitir el aviso.
 
 ## <a name="review-the-sample-video"></a>Revisión del vídeo de ejemplo
-Como parte de los pasos anteriores para configurar los recursos de Azure, se copiará un vídeo (corto) de tráfico de una autopista en la máquina virtual Linux en Azure que se usa como dispositivo IoT Edge. Este archivo de vídeo se usará para simular un streaming en vivo para este tutorial.
+Cuando configura los recursos de Azure, se copia un vídeo corto del tráfico en la autopista en la máquina virtual Linux en Azure que usa como dispositivo IoT Edge. En este inicio rápido se usa el archivo de vídeo para simular una secuencia en directo.
 
-Puede usar una aplicación como [VLC Player](https://www.videolan.org/vlc/), iniciarla, presionar Ctrl + N y pegar [este](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) vínculo al vídeo para iniciar la reproducción. Puede ver que la secuencia es de tráfico en una autopista, con muchos vehículos en movimiento.
+Abra una aplicación como [VLC Media Player](https://www.videolan.org/vlc/). Seleccione Ctrl + N y, después, pegue un vínculo al [vídeo](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) para iniciar la reproducción. Verá las imágenes de muchos vehículos moviéndose en el tráfico de una autopista.
 
-Cuando complete los pasos siguientes, habrá usado Live Video Analytics en IoT Edge para detectar objetos como vehículos, personas, etc., y publicar los eventos de inferencia asociados en el centro de conectividad de IoT Edge.
+En este inicio rápido, usará Live Video Analytics on IoT Edge para detectar objetos como vehículos y personas. Publicará eventos de inferencia asociados en IoT Edge Hub.
 
 ## <a name="overview"></a>Información general
 
 ![Información general](./media/quickstarts/overview-qs5.png)
 
-En el diagrama anterior se muestra cómo fluyen las señales en este inicio rápido. Un módulo IoT Edge (que se detalla [aquí](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)) simula una cámara IP que hospeda un servidor RTSP. Un nodo de [origen RTSP](media-graph-concept.md#rtsp-source) extrae la fuente de vídeo de este servidor y envía fotogramas de vídeo al nodo del [procesador de filtros de velocidad de fotogramas](media-graph-concept.md#frame-rate-filter-processor). Este procesador limita la velocidad de fotogramas de la secuencia de vídeo que llega al nodo del [procesador de extensiones HTTP](media-graph-concept.md#http-extension-processor). 
+En este diagrama se muestra cómo fluyen las señales en este inicio rápido. Un [módulo perimetral](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simula una cámara IP que hospeda un servidor de protocolo RTSP. Un nodo de [origen de RTSP](media-graph-concept.md#rtsp-source) extrae la fuente de vídeo de este servidor y envía fotogramas de vídeo al nodo del [procesador de filtros de velocidad de fotogramas](media-graph-concept.md#frame-rate-filter-processor), que limita la velocidad de los fotogramas de la secuencia de vídeo que llega al nodo del [procesador de extensión HTTP](media-graph-concept.md#http-extension-processor). 
 
-El nodo de extensión HTTP desempeña el papel de un servidor proxy, convirtiendo los fotogramas de vídeo en el tipo de imagen especificado y retransmitiendo la imagen a través de REST en otro módulo Edge que ejecuta un modelo de inteligencia artificial detrás de un punto de conexión HTTP. En este ejemplo, ese módulo Edge se crea con el modelo [YOLOv3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx), que es capaz de detectar muchos tipos de objetos. El nodo del procesador de extensiones HTTP recopila los resultados de la detección y publica los eventos en el nodo [receptor de IoT Hub](media-graph-concept.md#iot-hub-message-sink ), que después envía esos eventos al [centro de conectividad de IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
+El nodo de extensión HTTP desempeña el rol de un proxy. Convierte los fotogramas de vídeo en el tipo de imagen especificado. Luego, retransmite la imagen a través de REST a otro módulo perimetral que ejecuta un modelo de IA detrás de un punto de conexión HTTP. En este ejemplo, el módulo perimetral se crea mediante el modelo [YOLOv3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx), que puede detectar muchos tipos de objetos. El nodo del procesador de extensión HTTP recopila los resultados de la detección y publica los eventos en el nodo del [receptor de IoT Hub](media-graph-concept.md#iot-hub-message-sink), que posteriormente los envía a [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
 
 En este inicio rápido realizará lo siguiente:
 
@@ -56,59 +55,75 @@ En este inicio rápido realizará lo siguiente:
     
 ### <a name="examine-and-edit-the-sample-files"></a>Examen y edición de los archivos de ejemplo
 
-Como parte de los requisitos previos, debería haber descargado el código de ejemplo en una carpeta. Inicie Visual Studio Code y abra la carpeta.
+Como parte de los requisitos previos, ha descargado el código de ejemplo en una carpeta. Siga estos pasos para examinar y editar los archivos de ejemplo.
 
-1. En Visual Studio Code, vaya a "src/edge". Verá el archivo .env que ha creado junto con algunos archivos de plantilla de implementación.
+1. En Visual Studio Code, vaya a *src/edge*. Puede ver el archivo *.env* y algunos archivos de plantilla de implementación.
 
-    * La plantilla de implementación hace referencia al manifiesto de implementación del dispositivo perimetral con algunos valores de marcador de posición. El archivo .env contiene los valores de esas variables.
-1. A continuación, vaya a la carpeta "src/cloud-to-device-console-app". Aquí podrá ver el archivo appsettings.json que creó junto con algunos otros archivos:
+    La plantilla de implementación hace referencia al manifiesto de implementación del dispositivo perimetral. Incluye algunos valores de marcador de posición. El archivo *.env* incluye los valores de esas variables.
 
-    * c2d-console-app.csproj: este es el archivo de proyecto para Visual Studio Code.
-    * operations.json: este archivo muestra las distintas operaciones que desea que ejecute el programa.
-    * Program.cs: este es el código del programa de ejemplo, que hace lo siguiente:
+1. Vaya a la carpeta *src/cloud-to-device-console-app*. Aquí verá tanto su archivo *appsettings.json* como otros archivos:
+
+    * ***c2d-console-app.csproj***: el archivo de proyecto de Visual Studio Code.
+    * ***operations.json***: una lista de las operaciones que desea que ejecute el programa.
+    * ***Program.cs***: el código del programa de ejemplo. Este código:
 
         * Carga la configuración de la aplicación.
-        *  Invoca los métodos directos que expone el módulo Live Video Analytics en IoT Edge. Puede usar el módulo para analizar secuencias de vídeo en directo mediante la invocación de sus [métodos directos](direct-methods.md). 
-        * Se pone en pausa para que pueda examinar la salida del programa en la ventana de terminal y los eventos generados por el módulo en la ventana de salida.
-        * Invoca los métodos directos para la limpieza de los recursos.   
+        * Invoca los métodos directos que expone el módulo Live Video Analytics en IoT Edge. Puede usar el módulo para analizar secuencias de vídeo en directo mediante la invocación de sus [métodos directos](direct-methods.md).
+        * Se pone en pausa para que pueda examinar la salida del programa en la ventana **TERMINAL** y los eventos generados por el módulo en la ventana **SALIDA**.
+        * Invoca los métodos directos para limpiar los recursos.
 
 
-1. Realice los siguientes cambios en el archivo operations.json.
-    * Cambie el vínculo a la topología de grafo: `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/topology.json"`
-    * En GraphInstanceSet, edite el nombre de la topología del grafo para que coincida con el valor del vínculo anterior `"topologyName" : "InferencingWithHttpExtension"`.
-    * En GraphTopologyDelete, edite el nombre `"name": "InferencingWithHttpExtension"`.
+1. Edite el archivo *operations.json*:
+    * Cambie el vínculo a la topología del grafo:
+
+        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/topology.json"`
+
+    * En `GraphInstanceSet`, edite el nombre de la topología del grafo para que coincida con el valor del vínculo anterior:
+
+      `"topologyName" : "InferencingWithHttpExtension"`
+
+    * En `GraphTopologyDelete`, edite el nombre:
+
+      `"name": "InferencingWithHttpExtension"`
 
 ### <a name="generate-and-deploy-the-iot-edge-deployment-manifest"></a>Generación e implementación del manifiesto de implementación de IoT Edge
 
-1. Haga clic con el botón derecho en "src/edge/deployment.yolov3.template.json" y haga clic en "Generate IoT Edge Deployment Manifest" (Generar manifiesto de implementación de IoT Edge).
+1. Haga clic con el botón derecho en el archivo *src/edge/ deployment.yolov3.template.json* y seleccione **Generate IoT Edge Deployment Manifest** (Generar manifiesto de implementación de IoT Edge).
 
     ![Generación de un manifiesto de implementación de IoT Edge](./media/quickstarts/generate-iot-edge-deployment-manifest-yolov3.png)  
-1. Esto debe crear un archivo de manifiesto en la carpeta src/edge/config llamado "deployment.yolov3.amd64.json".
-1. Si ha completado anteriormente el [inicio rápido](detect-motion-emit-events-quickstart.md) puede ignorar este paso. En caso contrario, establezca la cadena de conexión de IoT Hub; para ello, haga clic en el icono "More actions" (Más acciones) situado junto al panel AZURE IOT HUB en la esquina inferior izquierda. Puede copiarla del archivo appsettings.json. Este es otro enfoque recomendado para asegurarse de que tiene la instancia de IoT Hub adecuada configurada en Visual Studio Code mediante el comando [Select IoT Hub](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub) (Seleccionar IoT Hub).
+
+    El archivo de manifiesto *deployment.yolov3.amd64.json* se crea en la carpeta *src/edge/config*.
+
+1. Si ha completado el inicio rápido [Detección de movimiento y emisión de eventos](detect-motion-emit-events-quickstart.md), omita este paso. 
+
+    Si no lo ha hecho, cerca del panel **AZURE IOT HUB**, en la esquina inferior izquierda, seleccione el icono **Más acciones** y, después, seleccione **Set IoT Hub Connection String** (Establecer cadena de conexión de IoT Hub). La cadena se puede copiar del archivo *appsettings.json*. O bien, para asegurarse de que ha configurado el centro de IoT adecuado en Visual Studio Code, use el [comando de selección de IoT Hub](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
     
-    ![Cadena de conexión de IoT Hub](./media/quickstarts/set-iotconnection-string.png)
-1. A continuación, haga clic con el botón derecho en "src/edge/config/deployment.yolov3.amd64.json" y haga clic en "Create Deployment for Single Device" (Crear una implementación para un dispositivo individual). 
+    ![Establecimiento de la cadena de conexión de IoT Hub](./media/quickstarts/set-iotconnection-string.png)
+
+1. Haga clic con el botón derecho en *src/edge/config/deployment.yolov3.amd64.json* y seleccione **Create Deployment for Single Device** (Crear una implementación para un dispositivo individual). 
 
     ![Crear una implementación para un dispositivo individual](./media/quickstarts/create-deployment-single-device.png)
-1. A continuación, aparecerá un mensaje para seleccionar un dispositivo IoT Hub. Seleccione lva-sample-device en la lista desplegable.
-1. En unos 30 segundos, actualice la instancia de Azure IoT Hub en la sección inferior izquierda y debería ver que el dispositivo IoT Edge tiene implementados los siguientes módulos:
 
-    1. El módulo de Live Video Analytics, denominado "lvaEdge".
-    1. Un módulo denominado "rtspsim", que simula un servidor RTSP, que actúa como el origen de una fuente de vídeo en directo.
-    1. Un módulo denominado "yolov3" que, como sugiere el nombre, es el modelo de detección de objetos YOLOv3 que aplica Computer Vision a las imágenes y devuelve varias clases de tipos de objeto.
+1. Cuando se le pida que seleccione un dispositivo IoT Hub, seleccione **lva-sample-device**.
+1. Tras aproximadamente 30 segundos, en la esquina inferior izquierda de la ventana, actualice Azure IoT Hub. El dispositivo perimetral ahora muestra los siguientes módulos implementados:
+
+    * El módulo de Live Video Analytics, denominado **lvaEdge**.
+    * El módulo **rtspsim**, que simula un servidor RTSP y actúa como el origen de una fuente de vídeo en directo.
+    * El módulo **yolov3**, que es el modelo de detección de objetos YOLOv3 que aplica Computer Vision a las imágenes y devuelve varias clases de tipos de objeto
  
-        ![Modelo de detección de objetos de YOLOv3](./media/quickstarts/yolov3.png)
+      ![Módulos que se implementan en el dispositivo perimetral](./media/quickstarts/yolov3.png)
 
-### <a name="prepare-for-monitoring-events"></a>Preparación de la supervisión de eventos
+### <a name="prepare-to-monitor-events"></a>Preparación para supervisar eventos
 
-Haga clic con el botón derecho en el dispositivo de Live Video Analytics y haga clic en "Iniciar la supervisión del punto de conexión de eventos integrado". Este paso es necesario para supervisar los eventos de IoT Hub y verlos en la ventana de salida de Visual Studio Code. 
+Haga clic con el botón derecho en el dispositivo de Live Video Analytics y seleccione **Start Monitoring Built-in Event Endpoint** (Iniciar supervisión del punto de conexión de eventos integrado). Este paso es necesario para supervisar los eventos de IoT Hub en la ventana **SALIDA** de Visual Studio Code. 
 
 ![Iniciar supervisión](./media/quickstarts/start-monitoring-iothub-events.png) 
 
 ### <a name="run-the-sample-program"></a>Ejecución del programa de ejemplo
 
-1. Inicie una sesión de depuración (presione F5). Empezará a ver algunos mensajes impresos en la ventana de terminal.
-1. El archivo operations.json comienza con llamadas a los métodos directos GraphTopologyList y GraphInstanceList. Si ha limpiado los recursos después de los inicios rápidos anteriores, devolverá listas vacías y, a continuación, entrará en pausa para que presione Entrar.
+1. Para iniciar una sesión de depuración, seleccione la tecla F5. Verá mensajes impresos en la ventana **TERMINAL**.
+1. El código de *operations.json* comienza con llamadas a los métodos directos `GraphTopologyList` y `GraphInstanceList`. Si ha limpiado los recursos tras haber completado los inicios rápidos anteriores, este proceso devolverá listas vacías y, después, se pausará. Para continuar, seleccione la tecla Entrar.
+
    ```
    --------------------------------------------------------------------------
    Executing operation GraphTopologyList
@@ -125,55 +140,57 @@ Haga clic con el botón derecho en el dispositivo de Live Video Analytics y haga
    Press Enter to continue
    ```
 
-1. Al presionar la tecla "Entrar" en la ventana de terminal, se realiza el siguiente conjunto de llamadas de método directo
-     * Una llamada a GraphTopologySet con el elemento topologyUrl anterior
-     * Una llamada a GraphInstanceSet con el siguiente cuerpo
-     ```
-     {
-       "@apiVersion": "1.0",
-       "name": "Sample-Graph-1",
-       "properties": {
-         "topologyName": "InferencingWithHttpExtension",
-         "description": "Sample graph description",
-         "parameters": [
-           {
-             "name": "rtspUrl",
-             "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
-           },
-           {
-             "name": "rtspUserName",
-             "value": "testuser"
-           },
-           {
-             "name": "rtspPassword",
-             "value": "testpassword"
+    La ventana **TERMINAL** muestra el siguiente conjunto de llamadas al método directo:
+
+     * Una llamada a `GraphTopologySet` que utiliza la instancia anterior de `topologyUrl`.
+     * Una llamada a `GraphInstanceSet` que usa el cuerpo siguiente:
+
+         ```
+         {
+           "@apiVersion": "1.0",
+           "name": "Sample-Graph-1",
+           "properties": {
+             "topologyName": "InferencingWithHttpExtension",
+             "description": "Sample graph description",
+             "parameters": [
+               {
+                 "name": "rtspUrl",
+                 "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
+               },
+               {
+                 "name": "rtspUserName",
+                 "value": "testuser"
+               },
+               {
+                 "name": "rtspPassword",
+                 "value": "testpassword"
+               }
+             ]
            }
-         ]
-       }
-     }
-     ```
-     * Una llamada a GraphInstanceActivate para iniciar la instancia del grafo e iniciar el flujo de vídeo
-     * Una segunda llamada a GraphInstanceList para mostrar que la instancia de grafo está ciertamente en ejecución
-1. La salida de la ventana de TERMINAL se pondrá en pausa ahora con el mensaje "Press Enter to continue" (Presione Entrar para continuar). No presione "Entrar" en este momento. Puede desplazarse hacia arriba para ver las cargas de la respuesta JSON para los métodos directos que ha invocado.
-1. Si ahora cambia a la ventana de salida de Visual Studio Code, verá los mensajes que se envían a IoT Hub mediante el módulo Live Video Analytics en IoT Edge.
-     * Estos mensajes se describen en la sección siguiente.
-1. El grafo de elementos multimedia seguirá en ejecución e imprimirá los resultados: el simulador RTSP mantendrá el bucle en el vídeo de origen. Para detener el grafo de elementos multimedia, vuelva a la ventana de terminal y presione "Entrar". Se realiza la siguiente serie de llamadas para la limpieza de recursos:
-     * Una llamada a GraphInstanceDeactivate para desactivar la instancia del grafo.
-     * Una llamada a GraphInstanceDelete para eliminar la instancia
-     * Una llamada a GraphTopologyDelete para eliminar la topología
-     * Una llamada final a GraphTopologyList para mostrar que ahora la lista está vacía
+         }
+         ```
+
+     * Una llamada a `GraphInstanceActivate` que inicia la instancia del grafo y el flujo de vídeo.
+     * Una segunda llamada a `GraphInstanceList` que muestra que la instancia del grafo está en ejecución.
+1. La salida de la ventana **TERMINAL** se pone en pausa tras el mensaje `Press Enter to continue`. No seleccione Entrar todavía. Desplácese hacia arriba para ver las cargas de la respuesta JSON para los métodos directos que ha invocado.
+1. Cambie a la ventana **SALIDA** de Visual Studio Code. Verá los mensajes que el módulo Live Video Analytics en IoT Edge envía al centro de IoT. En la siguiente sección de este inicio rápido se analizan estos mensajes.
+1. El grafo multimedia continúa ejecutándose e imprimiendo los resultados. El simulador RTSP sigue recorriendo el vídeo de origen. Para detener el grafo multimedia, vuelva a la ventana **TERMINAL** y seleccione Entrar. 
+
+    La siguiente serie de llamadas limpia los recursos:
+      * Una llamada a `GraphInstanceDeactivate` desactiva la instancia del grafo.
+      * Una llamada a `GraphInstanceDelete` elimina la instancia.
+      * Una llamada a `GraphTopologyDelete` elimina la topología.
+      * Una llamada final a `GraphTopologyList` muestra que la lista está vacía.
 
 ## <a name="interpret-results"></a>Interpretación de los resultados
 
-Cuando se ejecuta el grafo de elementos multimedia, los resultados del nodo del procesador de extensiones HTTP se envían mediante el nodo de receptor de IoT Hub a IoT Hub. Los mensajes que aparecen en la ventana de salida de Visual Studio Code contienen una sección "body" y una sección "applicationProperties". Para comprender lo que estas secciones representan, consulte [este artículo](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+Cuando se ejecuta el grafo multimedia, los resultados del nodo del procesador de extensión HTTP atraviesan el nodo de receptor de IoT Hub y llegan al centro de IoT. Los mensajes que aparecen en la ventana **SALIDA** contienen una sección `body` y una sección `applicationProperties`. Para más información, consulte [Creación y lectura de mensajes de IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
 
 En los mensajes siguientes, se definen las propiedades de la aplicación y el contenido del cuerpo mediante el módulo Live Video Analytics. 
 
+### <a name="mediasessionestablished-event"></a>Evento MediaSessionEstablished
 
-
-### <a name="mediasession-established-event"></a>Evento MediaSessionEstablished
-
-Cuando se crean instancias del grafo de elementos multimedia, el nodo de origen RTSP intenta conectarse al servidor RTSP que se ejecuta en el contenedor rtspsim-live55. Si se realiza correctamente, imprimirá este evento. El tipo de evento es Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished.
+Cuando se crean instancias del grafo multimedia, el nodo de origen RTSP intenta conectarse al servidor RTSP que se ejecuta en el contenedor rtspsim-live55. Si la conexión se realiza correctamente, se imprime el evento siguiente. El tipo de evento es `Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished`.
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:
@@ -191,16 +208,21 @@ Cuando se crean instancias del grafo de elementos multimedia, el nodo de origen 
 }
 ```
 
-Observe lo siguiente en el mensaje anterior:
-* El mensaje es un evento de diagnóstico, MediaSessionEstablished, que indica que el nodo de origen RTSP (sujeto) ha podido establecer la conexión con el simulador RTSP y comenzar a recibir una fuente en directo (simulada).
-* La sección "subject" de applicationProperties indica que el mensaje se generó desde el nodo de origen RTSP del grafo de elementos multimedia.
-* "eventType" en applicationProperties indica que se trata de un evento de diagnóstico.
-* "eventTime" indica la hora a la que se produjo el evento.
-* "body" contiene datos sobre el evento de diagnóstico que, en este caso, es el detalle de [SDP](https://en.wikipedia.org/wiki/Session_Description_Protocol).
+En este mensaje, tenga en cuenta estos detalles:
+
+* El mensaje es un evento de diagnóstico. `MediaSessionEstablished` indica que el nodo de origen RTSP (el sujeto) ha conectado con el simulador RTSP y ha comenzado a recibir una fuente en directo (simulada).
+* En `applicationProperties`, `subject` indica que el mensaje se generó desde el nodo de origen RTSP del grafo multimedia.
+* En `applicationProperties`, `eventType` indica que este evento es de diagnóstico.
+* `eventTime` indica la hora a la que se produjo el evento.
+* `body` contiene datos sobre el evento de diagnóstico. En este caso, los datos incluyen detalles sobre el [protocolo de descripción de sesiones (SDP)](https://en.wikipedia.org/wiki/Session_Description_Protocol).
 
 ### <a name="inference-event"></a>Evento de inferencia
 
-El nodo del procesador de extensiones HTTP recibe los resultados de inferencia del módulo yolov3 y los emite a través del nodo de receptor de IoT Hub como eventos de inferencia. En estos eventos, el tipo se establece en "entidad" para indicar que se trata de una entidad, como un coche o camión, y eventTime le indica en qué hora (UTC) se ha detectado el objeto. A continuación se muestra un ejemplo en el que se han detectado dos automóviles con distintos niveles de confianza en el mismo fotograma de vídeo.
+El nodo del procesador de extensión HTTP recibe los resultados de la inferencia del módulo yolov3. Luego, emite los resultados a través del nodo del receptor de IoT Hub como eventos de inferencia. 
+
+En estos eventos, el tipo se establece en `entity` para indicar que es una entidad, como un coche o un camión. El valor `eventTime` es la hora UTC en que se detectó el objeto. 
+
+En el siguiente ejemplo, se han detectado dos automóviles en el mismo fotograma de vídeo, con distintos niveles de confianza.
 
 ```
 [IoTHubMonitor] [11:37:17 PM] Message received from [lva-sample-device/lvaEdge]:
@@ -248,22 +270,22 @@ El nodo del procesador de extensiones HTTP recibe los resultados de inferencia d
 }
 ```
 
-Observe lo siguiente en los mensajes anteriores:
+En los mensajes, tenga en cuenta los siguientes detalles:
 
-* La sección "subject" de applicationProperties hace referencia al nodo de la topología de grafo desde la que se generó el mensaje. 
-* "eventType" en applicationProperties indica que se trata de un evento de análisis.
-* "eventTime" indica la hora a la que se produjo el evento.
-* "body" contiene datos sobre el evento de análisis. En este caso, el evento es un evento de inferencia y, por lo tanto, el cuerpo contiene datos de "inferencias".
-* La sección "inferences" indica que el "tipo" es "entidad" y contiene datos adicionales sobre la "entidad".
+* En `applicationProperties`, `subject` hace referencia al nodo de la topología del grafo multimedia desde el que se generó el mensaje. 
+* En `applicationProperties`, `eventType` indica que este es un evento de análisis.
+* El valor `eventTime` es la hora en que se produjo el evento.
+* La sección `body` contiene datos sobre el evento de análisis. En este caso, el evento es un evento de inferencia, por lo que el cuerpo contiene los datos `inferences`.
+* La sección `inferences` indica que el valor de `type` es `entity`. En esta sección se incluyen datos adicionales sobre la entidad.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si su intención es probar los demás inicios rápidos, debería conservar los recursos creados. En caso contrario, vaya a Azure Portal, vaya a los grupos de recursos, seleccione el grupo de recursos en el que ejecutó este inicio rápido y elimine todos los recursos.
+Si su intención es probar los demás inicios rápidos, conserve los recursos creados. En caso contrario, vaya a Azure Portal, luego a los grupos de recursos, seleccione el grupo de recursos en que ejecutó este inicio rápido y elimine todos los recursos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Revise los desafíos adicionales para los usuarios avanzados:
 
-* Use una [cámara IP](https://en.wikipedia.org/wiki/IP_camera) compatible con RTSP en lugar de utilizar el simulador RTSP. Puede buscar cámaras IP con compatibilidad con RTSP en la página de productos [compatibles con ONVIF](https://www.onvif.org/conformant-products/), buscando dispositivos que cumplan con los perfiles G, S o T.
-* Use un dispositivo Linux AMD64 o x64 (en lugar de usar una máquina virtual Linux de Azure). El dispositivo debe estar en la misma red que la cámara IP. Puede seguir las instrucciones de [Instalación del entorno de ejecución de Azure IoT Edge en sistemas Linux basados en Debian](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) y, a continuación, seguir las instrucciones de la guía de inicio rápido [Implementación del primer módulo IoT Edge en un dispositivo virtual Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) para registrar el dispositivo en Azure IoT Hub.
+* Use una [cámara IP](https://en.wikipedia.org/wiki/IP_camera) que sea compatible con RTSP, en lugar de utilizar el simulador RTSP. Puede buscar cámaras IP compatibles con RTSP en la página de [productos compatibles con ONVIF](https://www.onvif.org/conformant-products/). Busque dispositivos que se ajusten a los perfiles G, S o T.
+* Use un dispositivo Linux AMD64 o x64, en lugar de una máquina virtual Linux de Azure. El dispositivo debe estar en la misma red que la cámara IP. Puede seguir las instrucciones que aparecen en [Instalación del entorno de ejecución de Azure IoT Edge en Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). Luego, registre el dispositivo en Azure IoT Hub, para lo que debe seguir las instrucciones que se encuentran en [Implementación del primer módulo IoT Edge en un dispositivo virtual Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).
 

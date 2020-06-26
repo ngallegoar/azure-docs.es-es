@@ -5,14 +5,14 @@ ms.subservice: application-insights
 ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 08/13/2019
+ms.date: 06/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 98d7c1552a7b1f2b02ae4df1cad24e20f7ac76e1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6e344908fff54a06f1885774c88b509096c26e08
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223682"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783153"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Búsqueda y diagnóstico de problemas de rendimiento con Azure Application Insights
 
@@ -25,7 +25,7 @@ Azure Application Insights recopila datos de telemetría de cualquier aplicació
 > * Analizar los detalles de las vistas de página mediante el lenguaje de consulta
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 
@@ -61,7 +61,7 @@ Application Insights recopila datos de rendimiento de las distintas operaciones 
     ![Detalles de la operación de un extremo a otro](media/tutorial-performance/4-end-to-end.png)
     
 
-6.  **Profiler** ayuda a profundizar en los diagnósticos de nivel de código al mostrar el código real que se ejecutó para la operación y el tiempo necesario para cada paso. Es posible que no se pueda realizar un seguimiento de algunas operaciones, ya que el generador de perfiles se ejecuta periódicamente.  Con el tiempo, más operaciones deben tener seguimientos.  Para iniciar el generador de perfiles de la operación, haga clic en **Seguimientos de Profiler**.
+6.  [**Profiler**](../../azure-monitor/app/profiler-overview.md) ayuda a profundizar en los diagnósticos de nivel de código al mostrar el código real que se ejecutó para la operación y el tiempo necesario para cada paso. Es posible que no se pueda realizar un seguimiento de algunas operaciones, ya que el generador de perfiles se ejecuta periódicamente.  Con el tiempo, más operaciones deben tener seguimientos.  Para iniciar el generador de perfiles de la operación, haga clic en **Seguimientos de Profiler**.
 5.  El seguimiento muestra los eventos individuales de cada operación, por lo que puede diagnosticar la causa principal por la duración de la operación global.  Haga clic en uno de los ejemplos superiores, que son los que tienen una duración mayor.
 6.  Haga clic en **Ruta de acceso activa** para resaltar la ruta de acceso específica de los eventos que más contribuyen a la duración total de la operación.  En este ejemplo, puede ver que la llamada más lenta procede del método *FabrikamFiberAzureStorage.GetStorageTableData*. La parte que tiene la mayor parte del tiempo es el método *CloudTable.CreateIfNotExist*. Si esta línea de código se ejecuta cada vez que se llama a la función, se consumirán recursos de CPU y llamadas de red innecesarios. La mejor manera de corregir el código es poner esta línea en algún método de inicio que solo se ejecute una vez.
 

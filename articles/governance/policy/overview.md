@@ -1,14 +1,14 @@
 ---
 title: Introducción a Azure Policy
 description: Azure Policy es un servicio de Azure que se usa para crear, asignar y administrar las definiciones de directivas en el entorno de Azure.
-ms.date: 04/21/2020
+ms.date: 06/17/2020
 ms.topic: overview
-ms.openlocfilehash: 4ec09c8a38e22fc14980422bfe9a80a2bf3edda4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e204a4eeff547877a48789eba6f1b8cac017d08e
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82097377"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944668"
 ---
 # <a name="what-is-azure-policy"></a>¿Qué es Azure Policy?
 
@@ -158,6 +158,8 @@ En este escenario, tiene tres opciones en el momento de definir los parámetros 
 
 Al crear las opciones de valor en una definición de iniciativa, no se puede proporcionar un valor diferente durante la asignación de la iniciativa, porque no forma parte de la lista.
 
+Para más información sobre las estructuras de las definiciones de iniciativa, consulte [Estructura de definición de iniciativa](./concepts/initiative-definition-structure.md).
+
 ### <a name="assignments"></a>Assignments
 
 Una asignación es una definición o una iniciativa de directiva que se ha asignado para que ocurra dentro de un ámbito específico. Este ámbito puede ir desde un [grupo de administración](../management-groups/overview.md) a un recurso individual. El término _ámbito_ hace referencia a todos los recursos, grupos de recursos, suscripciones o grupos de administración a los que se asigna la definición. Todos los recursos secundarios heredan las asignaciones. Este diseño conlleva que una definición aplicada a un grupo de recursos también se aplique a los recursos de dicho grupo. Sin embargo, puede excluir un subámbito de la asignación.
@@ -166,7 +168,7 @@ Por ejemplo, en el ámbito de la suscripción, puede asignar una definición que
 
 En otro ejemplo, podría asignar una definición de lista de tipos de recursos permitidos en el nivel de grupo de administración. Luego, puede asignar una directiva más permisiva (que permita más tipos de recursos) en un grupo de administración secundario o incluso directamente en las suscripciones. Sin embargo, este ejemplo podría no funcionar porque Azure Policy es un sistema de denegación explícito. En su lugar, debe excluir el grupo de administración secundario o la suscripción de la asignación de nivel de grupo de administración. Después, puede asignar la definición más permisiva en el grupo de administración secundario o en el nivel de suscripción. Si alguna asignación tiene como resultado la denegación de un recurso, la única manera de permitir el recurso es modificar la directiva de denegación.
 
-Para más información sobre la configuración de asignaciones mediante el portal, consulte [Creación de una asignación de directiva para identificar recursos no compatibles en el entorno de Azure](assign-policy-portal.md). También hay pasos disponibles para [PowerShell](assign-policy-powershell.md) y la [CLI de Azure](assign-policy-azurecli.md).
+Para más información sobre la configuración de asignaciones mediante el portal, consulte [Creación de una asignación de directiva para identificar recursos no compatibles en el entorno de Azure](./assign-policy-portal.md). También hay pasos disponibles para [PowerShell](./assign-policy-powershell.md) y la [CLI de Azure](./assign-policy-azurecli.md). Para más información sobre la estructura de asignación, consulte la [estructura de asignaciones](./concepts/assignment-structure.md).
 
 ## <a name="maximum-count-of-azure-policy-objects"></a>Número máximo de objetos de Azure Policy
 

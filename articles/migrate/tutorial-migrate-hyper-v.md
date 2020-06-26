@@ -2,62 +2,52 @@
 title: Migración de máquinas virtuales de Hyper-V a Azure con la migración de servidores de Azure Migrate
 description: Aprenda a migrar máquinas virtuales de Hyper-V locales a Azure con la migración de servidores de Azure Migrate Server
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 3b50c11f43d29de354f04e1a4296818c5bd8cbab
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 820b9b7e67e873d23bed5a1f9c6aa1a0a2128015
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773531"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84770924"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migración de máquinas virtuales de Hyper-V a Azure 
 
-En este artículo se muestra cómo migrar máquinas virtuales de Hyper-V locales a Azure mediante la migración sin agente con Azure Migrate: Herramienta de migración del servidor.
+En este artículo se muestra cómo migrar máquinas virtuales Hyper-V locales a Azure mediante la herramienta [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
-[Azure Migrate](migrate-services-overview.md) proporciona un centro de conectividad para realizar el seguimiento de la detección, evaluación y migración a Azure de las aplicaciones y cargas de trabajo locales, así como de máquinas virtuales en la nube privadas o públicas. El centro proporciona herramientas de Azure Migrate para la evaluación y la migración, así como ofertas de proveedores de software independientes (ISV).
+Este tutorial es el tercero de una serie que muestra cómo evaluar máquinas y migrarlas a Azure. 
 
-Este tutorial es el tercero de una serie en la que se muestra cómo evaluar y migrar Hyper-V a Azure mediante Azure Migrate Server Assessment y Server Migration. En este tutorial, aprenderá a:
+> [!NOTE]
+> En los tutoriales se muestra la ruta de implementación más sencilla para un escenario, de modo que pueda configurar rápidamente una prueba de concepto. En ellos se usan las opciones predeterminadas siempre que es posible y no muestran todos los valores y rutas de acceso posibles. 
 
+ En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Preparar Azure y el entorno de Hyper-V local
-> * Configurar el entorno de origen.
-> * Configure el entorno de destino.
-> * Habilite la replicación.
+> * Agregar la herramienta Azure Migrate:Server Migration.
+> * Detectar las máquinas virtuales que desea migrar.
+> * Iniciar la replicación de las máquinas virtuales.
 > * Ejecute una migración de prueba para asegurarse de que todo funciona de la forma esperada.
-> * Ejecutar una migración completa a Azure.
+> * Ejecutar una migración completa de la máquina virtual.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
+
 
 Antes de comenzar este tutorial, debe:
 
 1. [Revisar](hyper-v-migration-architecture.md)la arquitectura de migración de Hyper-V.
-2. [Revisar](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) los requisitos del host de Hyper-V y las direcciones URL de Azure a las que los hosts de Hyper-V necesitan acceder.
-3. [Revisar](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) los requisitos de las máquinas virtuales de Hyper-V que desea migrar. Las máquinas virtuales de Hyper-V deben cumplir los [requisitos de las máquinas virtuales de Azure](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements).
-2. Se recomienda realizar los tutoriales anteriores de esta serie. El [primer tutorial](tutorial-prepare-hyper-v.md) muestra cómo configurar Azure e Hyper-V para la migración. En el segundo tutorial se muestra cómo [evaluar máquinas virtuales de Hyper-V](tutorial-assess-hyper-v.md) antes de la migración, mediante Azure Migrate: Server Assessment. 
-    > [!NOTE]
-    > Aunque se recomienda probar una evaluación, no es necesario ejecutarla antes de migrar las máquinas virtuales.
-    > Para migrar máquinas virtuales de Hyper-V, Azure Migrate:Server Migration ejecuta agentes de software (proveedor de Microsoft Azure Site Recovery y agente de Microsoft Azure Recovery Service) en hosts de Hyper-V o en nodos de clúster, para organizar y replicar los datos en Azure Migrate. No se utiliza el [dispositivo de Azure Migrate](migrate-appliance.md) para la migración de Hyper-V.
+2. [Revise](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements) los requisitos de los hosts de Hyper-V para la migración y las direcciones URL de Azure a las que los hosts y clústeres de Hyper-V necesitan acceder para la migración de las máquinas virtuales.
+3. [Consulte](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) los requisitos de las máquinas virtuales de Hyper-V que desea migrar a Azure.
+4. Se recomienda [evaluar las máquinas virtuales Hyper-V](tutorial-assess-hyper-v.md) antes de migrarlas a Azure, pero no es obligatorio.
 
-3. Asegurarse de que la cuenta de Azure tiene asignado el rol Colaborador de máquina virtual, con el fin de que tenga permisos para:
-
-    - Crear una máquina virtual en el grupo de recursos seleccionado.
-    - Crear una máquina virtual en la red virtual seleccionada.
-    - Escribir en un disco administrado de Azure.
-4. [Configure una red de Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Al realizar una migración a Azure, las máquinas virtuales de Azure creadas se unen a una red de Azure que se especifica al configurar la migración.
-
+   
 ## <a name="add-the-azure-migrateserver-migration-tool"></a>Incorporación de la herramienta Azure Migrate:Server Migration
 
-Agregue la herramienta Azure Migrate:Server Migration.
-
-- Si ha seguido el segundo tutorial para [evaluar máquinas virtuales de Hyper-V](tutorial-assess-hyper-v.md), ya ha configurado un proyecto de Azure Migrate y ahora puede continuar y agregar la herramienta.
-- Si no ha seguido el segundo tutorial[, siga estas instrucciones](how-to-add-tool-first-time.md) para configurar un proyecto de Azure Migrate. Al crear el proyecto, se agrega la herramienta Azure Migrate:Server Migration.
+Agregue la herramienta Azure Migrate:Server Migration. Si aún no tiene un proyecto de Azure Migrate, [créelo en primer lugar](how-to-add-tool-first-time.md) para configurar un proyecto de Azure Migrate. Al crear el proyecto, se agrega la herramienta Azure Migrate:Server Migration.
 
 Si tiene un proyecto configurado, agregue la herramienta de la siguiente manera:
 
@@ -71,8 +61,9 @@ Si tiene un proyecto configurado, agregue la herramienta de la siguiente manera:
 
     ![Herramienta Server Migration](./media/tutorial-migrate-hyper-v/server-migration-tool.png)
 
-## <a name="prepare-hyper-v-hosts"></a>Preparar los hosts de Hyper-V
+## <a name="download-and-install-the-provider"></a>Descarga e instalación del proveedor
 
+Para migrar máquinas virtuales Hyper-V, Azure Migrate:Server Migration instala proveedores de software (proveedor de Microsoft Azure Site Recovery y agente de Microsoft Azure Recovery Service) en los hosts de Hyper-V o en los nodos del clúster. Tenga en cuenta que no se utiliza el [dispositivo Azure Migrate](migrate-appliance.md) para la migración de Hyper-V.
 
 1. En el proyecto de Azure Migrate > **Servidores**, en **Azure Migrate: Migración del servidor**, haga clic en **Detectar**.
 2. En **Detectar máquinas** >  **¿Las máquinas están virtualizadas?** , seleccione **Sí, con Hyper-V**.
@@ -149,7 +140,7 @@ Una vez finalizada la detección, puede comenzar la replicación de máquinas vi
 > [!NOTE]
 > Puede actualizar la configuración de replicación en cualquier momento antes de que esta comience; para ello, vaya a **Administrar** > **Replicación de máquinas**. Una vez iniciada la replicación, su configuración no se puede cambiar.
 
-## <a name="provisioning-for-the-first-time"></a>Primer aprovisionamiento
+## <a name="provision-for-the-first-time"></a>Primer aprovisionamiento
 
 Si se trata de la primera máquina virtual que va a replicar en el proyecto de Azure Migrate, Azure Migrate: Server Migration aprovisiona automáticamente estos recursos en el mismo grupo de recursos que el proyecto.
 

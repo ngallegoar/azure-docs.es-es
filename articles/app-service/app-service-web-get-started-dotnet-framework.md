@@ -5,12 +5,12 @@ ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
 ms.date: 04/21/2020
 ms.custom: mvc, devcenter, seodec18
-ms.openlocfilehash: 056c96807fed7d5acca85635440c8fe4d989c933
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 0119128ea05a55ff752a6eb47b7fd9df4d719040
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82592405"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906350"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Creación de una aplicación web de ASP.NET Framework en Azure
 
@@ -20,7 +20,7 @@ En este inicio rápido se muestra cómo implementar su primera aplicación web A
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, instale <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> con la carga de trabajo de **ASP.NET y desarrollo web**.
 
@@ -145,3 +145,6 @@ El nombre de aplicación especificado en la página **App Service Create new** (
 
 > [!div class="nextstepaction"]
 > [ASP.NET con SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+
+> [!div class="nextstepaction"]
+> [Configuración de la aplicación ASP.NET](configure-language-dotnet-framework.md)

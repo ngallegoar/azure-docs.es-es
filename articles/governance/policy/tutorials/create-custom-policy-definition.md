@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Creación de una definición de directiva personalizada'
 description: En este tutorial, creará una definición de directiva personalizada para Azure Policy para aplicar reglas de negocio personalizadas a los recursos de Azure.
-ms.date: 05/20/2020
+ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: 4d91ae589adbadb7d03e318dc20d6b2b78a84a18
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f8702e84923762b2f417eee882a473228d6bafb8
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683242"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888153"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Creación de una definición de directiva personalizada
 
@@ -31,7 +31,7 @@ El enfoque para crear una directiva personalizada sigue estos pasos:
 > - Determinar qué efecto usar
 > - Elaborar la definición de directiva
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -171,6 +171,9 @@ Hay varias maneras de determinar los alias de un recurso de Azure. Se analizará
 ### <a name="get-aliases-in-vs-code-extension"></a>Obtención de alias en la extensión de VS Code
 
 La extensión de Azure Policy para la extensión de VS Code facilita el examen de los recursos y la [detección de alias](../how-to/extension-for-vscode.md#discover-aliases-for-resource-properties).
+
+> [!NOTE]
+> La extensión de VS Code solo expone las propiedades del modo Administrador de recursos y no muestra ninguna propiedad del modo [Proveedor de recursos](../concepts/definition-structure.md#mode).
 
 ### <a name="azure-cli"></a>Azure CLI
 

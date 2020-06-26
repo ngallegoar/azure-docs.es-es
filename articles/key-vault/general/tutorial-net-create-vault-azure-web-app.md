@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.openlocfilehash: dca7392c35c398ae3d9da62114c991ee4c0e57ca
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: f6e70caaedf906142b19ba45f0eb4d818e2955e7
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82997000"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85051898"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Tutorial: Uso de una identidad administrada para conectar Key Vault a una aplicación web de Azure con .NET
 
@@ -22,7 +22,7 @@ Azure Key Vault proporciona una manera de almacenar de forma segura credenciales
 
 En este tutorial, se usa una identidad administrada para autenticar una aplicación web de Azure mediante Azure Key Vault. Aunque en los pasos se usan las [bibliotecas de Azure Key Vault para .NET v4](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) y la [CLI de Azure](/cli/azure/get-started-with-azure-cli), se aplican los mismos principios básicos al usar el lenguaje de desarrollo que elija, Azure PowerShell o Azure Portal.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar esta guía de inicio rápido:
 
@@ -147,7 +147,7 @@ Cuando se crea el plan de App Service, la CLI de Azure muestra información simi
 Creación de una [aplicación web de Azure](../../app-service/containers/app-service-linux-intro.md) en el plan de App Service `myAppServicePlan`. 
 
 > [!Important]
-> Al igual que sucede con Key Vault, una aplicación web de Azure debe tener un nombre único. Reemplace \<your-webapp-name\> con el nombre de su aplicación web en los ejemplos siguientes.
+> Al igual que sucede con Key Vault, una aplicación web de Azure debe tener un nombre único. Reemplace \<your-webapp-name\> por el nombre de su aplicación web en los ejemplos a continuación.
 
 
 ```azurecli-interactive
@@ -186,7 +186,7 @@ Verá la página web predeterminada para la aplicación web de Azure recién cre
 
 ### <a name="deploy-your-local-app"></a>Implementación de la aplicación local
 
-De nuevo en la ventana del terminal local, agregue una versión remota de Azure al repositorio de Git local. Para ello, reemplace *\<deploymentLocalGitUrl-from-create-step >* por la dirección URL de Git remoto que guardó en el paso [Creación de una aplicación web remota](#create-a-remote-web-app).
+De nuevo en la ventana del terminal local, agregue una versión remota de Azure al repositorio de Git local. Para ello, reemplace *\<deploymentLocalGitUrl-from-create-step>* por la dirección URL de Git remoto que guardó en el paso [Creación de una aplicación web remota](#create-a-remote-web-app).
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>
@@ -279,6 +279,7 @@ Agregue estas dos líneas al encabezado:
 ```csharp
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
+using Azure.Core;
 ```
 
 Agregue estas líneas antes de la llamada `app.UseEndpoints`. De este modo, el URI se actualizará para mostrar el `vaultUri` de su almacén de claves. El código siguiente usa ['DefaultAzureCredential ()'](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) para la autenticación en el almacén de claves, que usa el token de la identidad administrada de la aplicación con fines de autenticación. También utiliza el retroceso exponencial para los reintentos en el caso de que se limite el almacén de claves.

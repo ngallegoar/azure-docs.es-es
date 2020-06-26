@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 05/25/2020
+ms.date: 06/11/2020
 ms.author: aahi
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: be9b82b411d8ba76f0b592cb25e7ff70917b934f
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: c475c17e5d196c0eedf38df83f782309143ad979
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84605483"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735589"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Inicio rápido: Uso de la biblioteca cliente de Text Analytics
 
@@ -33,7 +33,7 @@ La biblioteca cliente de Text Analytics se puede usar para realizar las siguient
 ::: zone pivot="programming-language-csharp"
 
 > [!IMPORTANT]
-> * La versión estable más reciente de la biblioteca cliente de Text Analytics es `3.0`.
+> * La versión estable más reciente de Text Analytics API es `3.0`.
 >    * Asegúrese de seguir únicamente las instrucciones de la versión que está usando.
 > * Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. En escenarios de producción, se recomienda usar los métodos asincrónicos por lotes para mayor rendimiento y escalabilidad. Para más información, consulte la siguiente documentación de referencia.
 
@@ -44,7 +44,7 @@ La biblioteca cliente de Text Analytics se puede usar para realizar las siguient
 ::: zone pivot="programming-language-java"
 
 > [!IMPORTANT]
-> * La versión estable más reciente de la biblioteca cliente de Text Analytics es `3.0`.
+> * La versión estable más reciente de Text Analytics API es `3.0`.
 > * Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. En escenarios de producción, se recomienda usar los métodos asincrónicos por lotes para mayor rendimiento y escalabilidad. Para más información, consulte la siguiente documentación de referencia.
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
@@ -54,7 +54,7 @@ La biblioteca cliente de Text Analytics se puede usar para realizar las siguient
 ::: zone pivot="programming-language-javascript"
 
 > [!IMPORTANT]
-> * La versión estable más reciente de la biblioteca cliente de Text Analytics es `3.0`.
+> * La versión estable más reciente de Text Analytics API es `3.0`.
 >    * Asegúrese de seguir únicamente las instrucciones de la versión que está usando.
 > * Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. En escenarios de producción, se recomienda usar los métodos asincrónicos por lotes para mayor rendimiento y escalabilidad. Para más información, consulte la siguiente documentación de referencia.
 > * Esta versión de la biblioteca cliente de Text Analytics también se puede ejecutar en el [explorador](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
@@ -66,7 +66,7 @@ La biblioteca cliente de Text Analytics se puede usar para realizar las siguient
 ::: zone pivot="programming-language-python"
 
 > [!IMPORTANT]
-> * La versión estable más reciente de la biblioteca cliente de Text Analytics es `3.0`.
+> * La versión estable más reciente de Text Analytics API es `3.0`.
 >    * Asegúrese de seguir únicamente las instrucciones de la versión que está usando.
 > * Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. En escenarios de producción, se recomienda usar los métodos asincrónicos por lotes para mayor rendimiento y escalabilidad. Para más información, consulte la siguiente documentación de referencia. 
 
