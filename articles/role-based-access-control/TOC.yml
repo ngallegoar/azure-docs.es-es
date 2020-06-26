@@ -92,6 +92,9 @@
           href: custom-roles-cli.md
         - name: API DE REST
           href: custom-roles-rest.md
+        - name: Plantilla ARM
+          displayName: Resource Manager
+          href: custom-roles-template.md
     - name: Visualización de registros de actividad
       href: change-history-report.md
     - name: Elevación de los privilegios de acceso
@@ -107,7 +110,7 @@
     - name: Operaciones del proveedor de recursos
       href: resource-provider-operations.md
     - name: Límites de Azure RBAC
-      href: '../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits'
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits
     - name: Azure PowerShell
       href: /powershell/module/az.resources
     - name: Azure CLI
