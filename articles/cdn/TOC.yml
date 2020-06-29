@@ -12,8 +12,8 @@
       href: cdn-create-a-storage-account-with-cdn.md
     - name: Creación de un perfil y un punto de conexión
       href: cdn-create-new-endpoint.md
-    - name: Creación de un perfil de ASE mediante el uso de una plantilla de Azure Resource Manager
-      href: create-profile-resource-manager-template.md
+    - name: 'Creación de un perfil y un punto de conexión: plantilla de ARM'
+      href: create-profile-endpoint-template.md
 - name: Tutoriales
   items:
     - name: Incorporación de Azure CDN a una aplicación web
