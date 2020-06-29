@@ -8,6 +8,12 @@
       href: azure-portal-quickstart-center.md
     - name: Exploradores y dispositivos compatibles
       href: azure-portal-supported-browsers-devices.md
+- name: Guías de inicio rápido
+  items:
+    - name: Crear una máquina virtual en el portal
+      href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+    - name: 'Creación de un panel: plantilla de Resource Manager'
+      href: quick-create-template.md
 - name: Conceptos
   items:
     - name: Uso compartido de paneles con el control de acceso basado en rol

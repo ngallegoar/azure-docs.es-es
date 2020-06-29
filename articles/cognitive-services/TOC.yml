@@ -36,6 +36,8 @@
       href: ./encryption/cognitive-services-encryption-keys-portal.md
     - name: Autenticación de solicitudes en Cognitive Services
       href: authentication.md
+    - name: Línea de base de seguridad
+      href: security-baseline.md
 - name: Compatibilidad con los contenedores
   items:
     - name: Compatibilidad con los contenedores
