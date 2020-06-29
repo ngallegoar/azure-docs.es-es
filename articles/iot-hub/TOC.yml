@@ -416,7 +416,7 @@
 - name: Referencia
   items:
     - name: Azure CLI
-      href: /cli/azure/iot
+      href: /cli/azure/azure-cli-reference-for-IoT
     - name: Azure PowerShell
       href: /powershell/module/az.iothub#iot
     - name: .NET (dispositivo)
@@ -431,7 +431,7 @@
       href: /java/api/com.microsoft.azure.sdk.iot.service
     - name: Node. js (dispositivo)
       href: 'https://docs.microsoft.com/javascript/api/azure-iot-device/'
-    - name: Node.js (servicio)
+    - name: Node.js (Servicio)
       href: 'https://docs.microsoft.com/javascript/api/azure-iothub/'
     - name: Node.js (administración)
       href: 'https://docs.microsoft.com/javascript/api/overview/azure/iothub/management'
