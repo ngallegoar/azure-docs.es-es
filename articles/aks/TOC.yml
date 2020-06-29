@@ -132,6 +132,8 @@
           href: upgrade-cluster.md
         - name: Uso del Acuerdo de Nivel de Servicio de tiempo de actividad
           href: uptime-sla.md
+        - name: Uso de grupos con ubicación por proximidad (versión preliminar)
+          href: reduce-latency-ppg.md
         - name: Actualización de la imagen de nodo (versión preliminar)
           href: node-image-upgrade.md
         - name: Procesamiento de actualizaciones de sistema operativo del nodo

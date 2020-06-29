@@ -29,13 +29,13 @@
               href: QuickStarts/python-analyze.md
         - name: Analizar una imagen local
           items:
-            - name: 'C#'
+            - name: C#
               href: QuickStarts/CSharp-analyze.md
             - name: Python
               href: QuickStarts/python-disk.md
         - name: Generar una miniatura
           items:
-            - name: 'C#'
+            - name: C#
               href: QuickStarts/CSharp-thumb.md
             - name: cURL
               href: QuickStarts/curl-thumb.md
@@ -51,7 +51,7 @@
               href: QuickStarts/python-thumb.md
         - name: 'Extracción de texto (Computer Vision: Read API)'
           items:
-            - name: 'C#'
+            - name: C#
               href: QuickStarts/CSharp-hand-text.md
             - name: Java
               href: QuickStarts/java-hand-text.md
@@ -61,7 +61,7 @@
               href: QuickStarts/python-hand-text.md
         - name: Extracción de texto impreso (OCR)
           items:
-            - name: 'C#'
+            - name: C#
               href: QuickStarts/CSharp-print-text.md
             - name: cURL
               href: QuickStarts/curl-print-text.md
@@ -105,7 +105,7 @@
       href: concept-detecting-color-schemes.md
     - name: Miniaturas de recorte inteligente
       href: concept-generating-thumbnails.md
-    - name: Reconocimiento de texto manuscrito e impreso
+    - name: Reconocimiento de texto
       href: concept-recognizing-text.md
     - name: Detección de contenido para adultos
       href: concept-detecting-adult-content.md

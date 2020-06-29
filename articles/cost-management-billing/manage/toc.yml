@@ -121,6 +121,8 @@
       href: troubleshoot-sign-in-issue.md
     - name: Se ha deshabilitado la vista de costos empresariales
       href: enterprise-mgmt-grp-troubleshoot-cost-view.md
+    - name: No se encuentra la cuenta de facturación
+      href: troubleshoot-account-not-found.md
     - name: Ponerse en contacto con soporte técnico
       href: ../../azure-portal/supportability/how-to-create-azure-support-request.md
 - name: Ejemplos

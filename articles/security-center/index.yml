@@ -11,12 +11,12 @@ metadata:
   author: memildin
   ms.author: memildin
   ms.date: 11/04/2019
-  ms.openlocfilehash: f564113f9a2bb92d1591ac0d3512ae460aa8f58d
-  ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+  ms.openlocfilehash: 13a7ca317630a5a1b0606fa0d2e2022f065fbd4d
+  ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/15/2020
-  ms.locfileid: "84783204"
+  ms.lasthandoff: 06/24/2020
+  ms.locfileid: "85317176"
 landingContent:
 - title: Acerca de Security Center
   linkLists:
@@ -30,18 +30,16 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
-    - text: Protección de los contenedores
-      url: container-security.md
-    - text: Valoración de vulnerabilidades integrada para máquinas virtuales
-      url: built-in-vulnerability-assessment.md
-    - text: Examine los esquemas de las alertas de seguridad
-      url: alerts-schemas.md
-    - text: Automatización de respuestas a alertas y recomendaciones
-      url: workflow-automation.md
-    - text: Exportación de alertas y recomendaciones de seguridad
-      url: continuous-export.md
-    - text: Configuración de la protección contra amenazas en Azure Key Vault
-      url: advanced-threat-protection-key-vault.md
+    - text: Notas de la versión de Security Center
+      url: release-notes.md
+    - text: Seguridad avanzada de datos para máquinas SQL
+      url: security-center-iaas-advanced-data.md
+    - text: Reglas de eliminación de alertas
+      url: alerts-suppression-rules.md
+    - text: Descripciones completas de los nuevos controles de seguridad
+      url: secure-score-security-controls.md#security-controls-and-their-recommendations
+    - text: Nueva API de puntuación segura
+      url: secure-score-security-controls.md#getting-your-secure-score-from-the-rest-api
 - title: Introducción
   linkLists:
   - linkListType: get-started
@@ -64,6 +62,8 @@ landingContent:
       url: tutorial-security-policy.md
     - text: Recomendaciones de uso para mejorar la seguridad
       url: security-center-using-recommendations.md
+    - text: Seguimiento con la API de puntuación segura
+      url: secure-score-security-controls.md#getting-your-secure-score-from-the-rest-api
 - title: Mitigar las amenazas
   linkLists:
   - linkListType: how-to-guide
