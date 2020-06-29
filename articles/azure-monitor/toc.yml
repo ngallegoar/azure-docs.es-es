@@ -12,6 +12,12 @@
   items:
     - name: Supervisión de un recurso de Azure
       href: learn/quick-monitor-azure-resource.md
+    - name: Envío del registro de actividad a un área de trabajo
+      items:
+        - name: Azure portal
+          href: learn/quick-collect-activity-log-portal.md
+        - name: Plantilla ARM
+          href: learn/quick-collect-activity-log-arm.md
     - name: Supervisión de máquinas virtuales
       items:
         - name: Máquinas virtuales de Azure
@@ -455,7 +461,7 @@
             - name: Acciones de webhook
               href: platform/alerts-log-webhook.md
             - name: Solución de problemas de alertas del registro
-              href: platform/alert-log-troubleshoot.md
+              href: platform/alerts-troubleshoot-log.md
         - name: Reglas de alertas de registro de actividad
           items:
             - name: Alerta de un evento del registro de actividades
@@ -506,6 +512,8 @@
           href: platform/api-alerts.md
         - name: Alertas de solución de problemas
           href: platform/alerts-troubleshoot.md
+        - name: Alertas y cambios de región
+          href: platform/alerts-resource-move.md
         - name: Administración de servicios de TI
           items:
             - name: IT Service Management Connector
@@ -555,12 +563,12 @@
             - name: ASP.NET
               displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
               href: app/asp-net.md
+            - name: Consola de ASP.NET
+              displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
+              href: app/console.md
             - name: Aplicaciones que no son de HTTP y aplicaciones en segundo plano
               displayname: 'console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host'
               href: app/worker-service.md
-            - name: Consola de .NET
-              displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
-              href: app/console.md
             - name: Java
               items:
                 - name: Aplicaciones web

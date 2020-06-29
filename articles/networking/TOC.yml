@@ -4,6 +4,8 @@
       href: networking-overview.md
     - name: Architecture
       items:
+        - name: Azure para ingenieros de red
+          href: azure-for-network-engineers.md
         - name: Centros de datos virtuales
           href: /azure/architecture/vdc/networking-virtual-datacenter
         - name: Enrutamiento asimétrico con varias rutas de acceso de red

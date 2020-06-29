@@ -133,8 +133,8 @@
       items:
         - name: Preguntas más frecuentes
           href: faq.md
-        - name: Obtención de soporte técnico para B2B
-          href: get-support.md
+        - name: Obtención de soporte técnico
+          href: 'https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto'
         - name: Foro de comentarios de Azure
           href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
         - name: Azure Roadmap
