@@ -441,9 +441,9 @@
     - name: Cosmos DB
       tocHref: /azure/cosmos-db/
       topicHref: /azure/cosmos-db/
-    - name: Familia de productos Data Box
-      tocHref: /azure/databox-family/
-      topicHref: /azure/databox-family/
+    - name: Storage
+      tocHref: /azure/storage/
+      topicHref: /azure/storage/
       items:
         - name: Transferencia sin conexión en Data Box
           tocHref: /azure/databox/

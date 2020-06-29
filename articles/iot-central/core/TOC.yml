@@ -151,6 +151,10 @@
               href: howto-manage-preferences.md
             - name: Alternancia de chat en directo
               href: howto-show-hide-chat.md
+- name: Referencia
+  items:
+    - name: Azure CLI
+      href: /cli/azure/azure-cli-reference-for-IoT
 - name: Recursos
   items:
     - name: Opciones de ayuda y soporte técnico
