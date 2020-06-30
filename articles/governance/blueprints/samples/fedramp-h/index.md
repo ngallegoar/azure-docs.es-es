@@ -3,12 +3,12 @@ title: Descripción general del ejemplo de plano técnico con un nivel de impact
 description: Introducción al ejemplo de plano técnico con un nivel de impacto alto de FedRAMP. Este ejemplo de plano técnico ayuda a los clientes a evaluar controles concretos del nivel impacto alto de FedRAMP.
 ms.date: 01/31/2020
 ms.topic: sample
-ms.openlocfilehash: dede255b73a2a052acf1e8b95ad5171a1ace6ae5
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 3a26c6f8e781a1bb2ff30ca9e2c179bcda8eadec
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "77087278"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517123"
 ---
 # <a name="overview-of-the-fedramp-high-blueprint-sample"></a>Introducción al ejemplo de plano técnico con un nivel de impacto alto de FedRAMP
 
