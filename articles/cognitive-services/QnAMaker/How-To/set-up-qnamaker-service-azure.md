@@ -3,12 +3,12 @@ title: 'Configuración de un servicio QnA Maker: QnA Maker'
 description: Antes de crear alguna base de conocimiento de QnA Maker, primero debe configurar un servicio QnA Maker en Azure. Cualquiera que tenga autorización para crear recursos en una suscripción puede configurar un servicio QnA Maker.
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 106796533f42250a2656735d97878ea04d6fa57f
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 0a1b79c91e4e1bd9a57d6dcbb38432125573b9e6
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235518"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214135"
 ---
 # <a name="manage-qna-maker-resources"></a>Administración de recursos de QnA Maker
 
@@ -60,9 +60,9 @@ En este procedimiento se crean los recursos de Azure necesarios para administrar
     El recurso con el tipo _Cognitive Services_ tiene las claves de la _suscripción_.
 
 
-## <a name="find-subscription-keys-in-the-azure-portal"></a>Búsqueda de claves de suscripción en Azure Portal
+## <a name="find-authoring-keys-in-the-azure-portal"></a>Búsqueda de claves de creación en Azure Portal
 
-Puede ver y restablecer las claves de suscripción desde Azure Portal, donde creó el recurso de QnA Maker.
+Puede ver y restablecer las claves de creación desde Azure Portal, donde creó el recurso de QnA Maker. Es posible que estas claves se mencionen como claves de suscripción. 
 
 1. Vaya al recurso de QnA Maker en Azure Portal y seleccione el recurso que tiene el tipo _Cognitive Services_:
 
@@ -72,7 +72,7 @@ Puede ver y restablecer las claves de suscripción desde Azure Portal, donde cre
 
     ![Subscription key](../media/qnamaker-how-to-key-management/subscription-key.PNG)
 
-## <a name="find-endpoint-keys-in-the-qna-maker-portal"></a>Búsqueda de claves de punto de conexión en el portal de QnA Maker
+## <a name="find-query-endpoint-keys-in-the-qna-maker-portal"></a>Búsqueda de claves de punto de conexión de consulta en el portal de QnA Maker
 
 El punto de conexión está en la misma región que el recurso porque las claves del punto de conexión se utilizan para efectuar una llamada a la base de conocimiento.
 

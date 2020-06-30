@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: trbye
-ms.openlocfilehash: 550579b40470d7a1ad02031b8140e7d0a7164f46
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: ca6bff4c1e99bb8e63db212ca57693870afc30e7
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310604"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080645"
 ---
 # <a name="long-audio-api-preview"></a>Long Audio API (versión preliminar)
 
@@ -66,7 +66,7 @@ Los **códigos de estado HTTP** indican errores comunes.
 |        | 400 | La síntesis de voz solo admite el archivo de texto en la codificación UTF-8 con el marcador de orden de bytes. | Asegúrese de que los archivos de entrada están en codificación UTF-8 con el marcador de orden de bytes. |
 |        | 400 | Solo se permiten entradas SSML válidas en la solicitud de síntesis de voz. | Asegúrese de que las expresiones SSML de entrada sean correctas. |
 |        | 400 | No se encuentra el nombre de voz {voiceName} en el archivo de entrada. | El nombre de voz SSML de entrada no está alineado con el id. de modelo. |
-|        | 400 | La cantidad de párrafo del archivo de entrada debe ser inferior a 10 000. | Asegúrese de que el párrafo del archivo es inferior a 10 000. |
+|        | 400 | El número de párrafos del archivo de entrada debe ser inferior a 10 000. | Asegúrese de que el número de párrafos del archivo sea inferior a 10 000. |
 |        | 400 | El archivo de entrada debe tener más de 400 caracteres. | Asegúrese de que el archivo de entrada supere los 400 caracteres. |
 |        | 404 | No se encuentra el modelo declarado en la definición de síntesis de voz: {modelID}. | Asegúrese de que {modelID} sea correcto. |
 |        | 429 | Se superó el límite de síntesis de voz activa. Espere hasta que finalicen algunas solicitudes. | El servidor puede ejecutar y poner en cola hasta 120 solicitudes para cada cuenta de Azure. Espere y evite enviar nuevas solicitudes hasta que se completen algunas solicitudes. |
@@ -86,7 +86,7 @@ Long Audio API está disponible en varias regiones con puntos de conexión únic
 | India central | `https://centralindia.customvoice.api.speech.microsoft.com` |
 | Centro-sur de EE. UU. | `https://southcentralus.customvoice.api.speech.microsoft.com` |
 | Sudeste de Asia | `https://southeastasia.customvoice.api.speech.microsoft.com` |
-| Sur de Reino Unido 2 | `https://uksouth.customvoice.api.speech.microsoft.com` |
+| Sur de Reino Unido | `https://uksouth.customvoice.api.speech.microsoft.com` |
 | Oeste de Europa | `https://westeurope.customvoice.api.speech.microsoft.com` |
 | Oeste de EE. UU. 2 | `https://westus2.customvoice.api.speech.microsoft.com` |
 

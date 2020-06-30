@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 855feaf9b5b47b7b725ee7927418a2b3a9e25393
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8772607c7f43f2a06f5c9f12ee5efd603a1e324f
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017781"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212656"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Mejora de la síntesis con el Lenguaje de marcado de síntesis de voz (SSML)
 
@@ -403,7 +403,7 @@ Para definir el modo en que se leen varias entidades, puede crear un lexicón pe
 
 El elemento `lexicon` contiene al menos un elemento `lexeme`. Cada elemento `lexeme` contiene al menos un elemento `grapheme` y uno o varios elementos `grapheme`, `alias` y `phoneme`. El elemento `grapheme` contiene texto que describe la <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">ortografía de <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Los elementos `alias` se usan para indicar la pronunciación de un acrónimo o un término abreviado. El elemento `phoneme` proporciona texto que describe cómo se pronuncia `lexeme`.
 
-Es importante destacar que no se puede establecer directamente la pronunciación de una palabra mediante el lexicón personalizado. Si tiene que establecer la pronunciación de una palabra, primero indique un `alias` y, a continuación, asocie el `phoneme` a ese `alias`. Por ejemplo:
+Es importante destacar que no se puede establecer directamente la pronunciación de una palabra mediante el lexicón personalizado. Si tiene que configurar la pronunciación de un acrónimo o un término abreviado, primero indique un `alias` y, a continuación, asocie el `phoneme` con dicho `alias`. Por ejemplo:
 
 ```xml
   <lexeme>

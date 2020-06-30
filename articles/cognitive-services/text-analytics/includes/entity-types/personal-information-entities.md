@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/30/2020
 ms.author: aahi
-ms.openlocfilehash: 637c2bb1bc37d26dcdf1a169b2f5d20766d0a27f
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: cd17bf6c97cb89984bf407552330fbe9bec36e3f
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84902775"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85292080"
 ---
 > [!NOTE]
 > Para detectar `PHI`, use el parámetro `domain=phi` y la versión del modelo `2020-04-01` o posterior.
@@ -51,7 +51,7 @@ Esta categoría de entidad incluye información de Azure identificable, incluida
 |---------------------------------------|-----------------------------------------------------------------------------|
 | Clave de autorización de Azure DocumentDB             | Clave de autorización para un servidor de Azure DocumentDB.                           |
 | Cadena de conexión de base de datos de IAAS de Azure y cadena de conexión de Azure SQL | Cadena de conexión de una base de datos de infraestructura como servicio (IaaS) de Azure y una cadena de conexión SQL. |
-| Cadena de conexión de Azure SQL           | Cadena de conexión de una instancia de Azure SQL Database.                                |
+| Cadena de conexión de Azure SQL           | Cadena de conexión de una base de datos en Azure SQL Database.                                |
 | Cadena de conexión de Azure IoT           | Cadena de conexión de Azure IoT (Internet de las cosas).                        |
 | Contraseña de configuración de publicación de Azure        | Contraseña para la configuración de publicación de Azure.                                        |
 | Cadena de conexión de Azure Redis Cache   | Cadena de conexión de una instancia de Azure Cache for Redis.                             |

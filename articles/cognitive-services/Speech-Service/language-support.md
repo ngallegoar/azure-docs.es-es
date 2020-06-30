@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 43476f3e3f125bc338ba25e8cce0e96baa76262b
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 89b2b7b993ef9613740dd777546cc15a12203e62
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636111"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85210735"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Compatibilidad con idiomas y voces en el servicio de voz
 
@@ -27,8 +27,6 @@ La compatibilidad con los idiomas varía según la funcionalidad del servicio de
 El SDK de Voz de Microsoft y la API REST admiten los siguientes idiomas (configuraciones regionales). 
 
 Para mejorar la precisión, se ofrece la posibilidad de personalizar un subconjunto de idiomas mediante la carga de **audio y transcripciones etiquetadas por humanos** o **texto relacionado: oraciones**. Para más información sobre la personalización, consulte [Introducción a Custom Speech](how-to-custom-speech.md).
-
-Para más información sobre cómo puede mejorar la pronunciación, consulte el artículo en el que se indica cómo [mejorar un modelo para Custom Speech](how-to-custom-speech-improve-accuracy.md#add-new-words-with-pronunciation).
 
 <!--
 To get the AM and ML bits:
@@ -314,6 +312,26 @@ La personalización de la voz está disponible para `de-DE`, `en-GB`, `en-IN`, `
 | Vietnamita              | `vi`          |
 | Galés                   | `cy`          |
 | Maya Yucateco            | `yua`         |
+
+## <a name="speaker-recognition"></a>Speaker Recognition
+
+Consulte la tabla siguiente para ver los idiomas compatibles con las distintas API de Speaker Recognition. Consulte la [introducción](speaker-recognition-overview.md) para obtener información adicional sobre Speaker Recognition.
+
+| Configuración regional | Idioma | Comprobación dependiente del texto | Comprobación independiente del texto | Identificación independiente del texto |
+|----|----|----|----|----|
+| es-ES | Inglés (EE. UU.) | sí | sí | sí |
+|zh-CN  |Chino (mandarín, simplificado)|    N/D|    sí|    sí|
+|de-DE  |Alemán (Alemania)   |N/D    |sí    |sí|
+|en-GB  |English (Reino Unido)   |N/D    |sí    |sí|
+|fr-FR  |Francés (Francia)    |N/D    |sí    |sí|
+|en-AU  |Inglés (Australia)    |N/D    |sí    |sí|
+|en-CA  |Inglés (Canadá)   |N/D|   sí|    sí|
+|fr-CA  |Francés (Canadá)    |N/D    |sí|   sí|
+|it-IT  |Italiano|   N/D |sí|   sí|
+|es-ES| Español (España) |N/D    |sí|   sí|
+|es-MX  |Español (México)   |N/D|   sí|    sí|
+|ja-JP| Japonés    |N/D    |sí    |sí|
+|pt-BR| Portugués (Brasil)|    N/D|    sí|    sí|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

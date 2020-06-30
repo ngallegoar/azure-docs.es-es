@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: e3bf279142383ccdb3e82ffee49bd593640bb937
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 7898fcf9b149f50f8478576d18cd3c3b984eb937
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996829"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85209103"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novedades en Form Recognizer
 
@@ -23,20 +23,31 @@ El servicio Form Recognizer se actualiza de forma continuada. Use este artículo
 > [!NOTE]
 > Los inicios rápidos y las guías de Form Recognizer usan siempre la versión más reciente de la API, a menos que se especifique lo contrario.
 
+## <a name="june-2020"></a>Junio de 2020
+
+### <a name="new-features"></a>Nuevas características
+* **Se ha agregado la CopyModel API a los SDK de cliente**: ahora puede usar los SDK de cliente para copiar modelos de una suscripción a otra. Consulte [Copia de seguridad y recuperación de modelos](./disaster-recovery.md) para obtener información general sobre esta característica.
+* **Integración de Azure Active Directory**: ahora puede usar sus credenciales de AAD para autenticar los objetos de cliente de Form Recognizer en los SDK.
+* **Cambios específicos de cada SDK**: esto incluye la adición de características secundarias y cambios importantes. Consulte el registro de cambios del SDK para obtener más información.
+  * [Registro de cambios del SDK para C# versión preliminar 3](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
+  * [Registro de cambios del SDK para Python versión preliminar 3](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+  * [Registro de cambios del SDK para Java versión preliminar 3](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+  * [Registro de cambios del SDK para JavaScript versión preliminar 3](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_1.0.0-preview.3/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
+
 ## <a name="april-2020"></a>Abril de 2020
 
 ### <a name="new-features"></a>Nuevas características
 * **Compatibilidad del SDK con la versión preliminar pública de la API de Form Recognizer v 2.0** Este mes hemos ampliado nuestro servicio de soporte técnico para incluir un SDK de versión preliminar para la versión v 2.0 (versión preliminar) de Form Recognizer. Use los vínculos siguientes para empezar a trabajar con el lenguaje que prefiera: 
-   * [SDK de .NET](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer?view=azure-dotnet-preview)
-   * [SDK de Java](https://docs.microsoft.com/java/api/overview/azure/formrecognizer?view=azure-java-preview)
-   * [SDK de Python](https://docs.microsoft.com/python/api/overview/azure/formrecognizer?view=azure-python-previewr)
-   * [SDK de JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer?view=azure-node-preview)
+   * [SDK de .NET](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer)
+   * [SDK de Java](https://docs.microsoft.com/java/api/overview/azure/formrecognizer)
+   * [SDK de Python](https://docs.microsoft.com/python/api/overview/azure/formrecognizer)
+   * [SDK de JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer)
 
   El nuevo SDK es compatible con todas las características de la API REST v 2.0 de Form Recognizer. Por ejemplo, puede entrenar un modelo con o sin etiquetas y extraer texto, pares clave-valor y tablas de los formularios; extraer datos de las confirmaciones con el servicio de confirmaciones pregeneradas; y extraer texto y tablas con el servicio de diseño de los documentos. Puede compartir sus comentarios sobre los SDK mediante el [formulario de comentarios de SDK](https://aka.ms/FR_SDK_v1_feedback).
  
 * **Copia del modelo personalizado** Ahora puede copiar modelos entre regiones y suscripciones mediante la nueva característica Copiar modelo personalizado. Antes de invocar la API Copy Custom Model, primero debe obtener la autorización para realizar copias en el recurso de destino mediante la llamada a la operación de autorización de copia en el punto de conexión del recurso de destino.
-   * API REST [Generate a copy authorization](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModelAuthorization)
-   * API REST [Copy a custom model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModel) 
+   * API REST [Generate a copy authorization](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/CopyCustomFormModelAuthorization)
+   * API REST [Copy a custom model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/CopyCustomFormModel) 
 
 ### <a name="security-improvements"></a>Mejoras de seguridad
 
@@ -126,4 +137,4 @@ Las respuestas JSON para todas las llamadas API tienen nuevos formatos. Algunas 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Realice un [inicio rápido](quickstarts/curl-train-extract.md) para empezar a usar las [API de Form Recognizer](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm).
+Realice un [inicio rápido](quickstarts/curl-train-extract.md) para empezar a usar las [API de Form Recognizer](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm).

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 9d48f09fe5d5c736f65b6a76211dd3fec85479ea
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: c7f03027abf7f3c5e330e5cd95075cce1152a7d9
+ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81402192"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85130422"
 ---
 # <a name="deploy-a-custom-model"></a>Implementación de un modelo personalizado
 
@@ -39,6 +39,8 @@ Una vez implementado el punto de conexión, su nombre aparece como un vínculo. 
 ## <a name="view-logging-data"></a>Visualización de datos de registro
 
 Los datos de registro están disponibles descargar en **Punto de conexión > Detalles**.
+> [!NOTE]
+>Los datos de registro están disponibles durante 30 días en el almacenamiento que pertenece a Microsoft y se quitarán después. En caso de que una cuenta de almacenamiento del cliente esté vinculada a la suscripción a Cognitive Services, los datos de registro no se eliminarán automáticamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,41 +10,42 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 9219c9a72ce9e1cfba3504b0b8e16ade77f8a5e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 18a9de8a2eaa2364e89e831db8dab5cbbb061c10
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79369903"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299252"
 ---
 # <a name="what-is-a-voice-assistant"></a>¿Qué es un asistente de voz?
 
 Los asistentes de voz que utilizan el servicio de voz permiten a los desarrolladores crear interfaces de conversación naturales, similares a la humana, para sus aplicaciones y experiencias.
 
-El servicio del asistente de voz proporciona una interacción rápida y confiable entre un dispositivo y una implementación de asistente que usa (1) el canal de voz de Direct Line Speech de Bot Framework o (2) el servicio integrado de comandos personalizados (versión preliminar) para la finalización de tareas.
-
-Las aplicaciones se conectan al servicio del asistente de voz con el kit de desarrollo de software (SDK) de Voz.
-
-   ![Diagrama conceptual del flujo de servicio de orquestación del asistente de voz](media/voice-assistants/overview.png "Flujo del asistente de voz")
+El servicio del asistente de voz proporciona una interacción rápida y confiable entre un dispositivo y una implementación de asistente que usa (1) [Direct Line Speech](direct-line-speech.md) (a través de Azure Bot Service) para agregar funcionalidades de voz a los bots, o bien (2) Comandos personalizados para los escenarios de control por voz.
 
 ## <a name="choosing-an-assistant-solution"></a>Elección de una solución de asistente
 
-El primer paso para crear un asistente de voz es decidir qué se debe hacer. El servicio de voz proporciona varias soluciones complementarias para diseñar las interacciones de los asistentes. Si desea la flexibilidad y la versatilidad que proporciona el canal [Direct Line Speech](direct-line-speech.md) de Bot Framework o la simplicidad de [Custom Commands (versión preliminar)](custom-commands.md) para escenarios sencillos, la selección de las herramientas adecuadas le ayudará a comenzar.
+El primer paso para crear un asistente de voz es decidir qué se debe hacer. El servicio de voz proporciona varias soluciones complementarias para diseñar las interacciones de los asistentes. Puede agregar funcionalidades de entrada y salida de voz a su bot flexible y versátil creado con Azure Bot Service a través del canal [Direct Line Speech](direct-line-speech.md), o bien puede aprovechar la simplicidad de crear una aplicación de [Comandos personalizados](custom-commands.md) para los escenarios de comandos de voz sencillos.
 
 | Si quiere... | Considere: | Por ejemplo... |
 |-------------------|------------------|----------------|
-|Conversación abierta con integración de sólidas aptitudes y control completo de la implementación | El canal [Direct Line Speech](direct-line-speech.md) de Bot Framework | <ul><li>"Tengo que ir a Seattle"</li><li>"¿Qué tipo de pizza puedo pedir?"</li></ul>
-|Conversación orientada a tareas o controles y comandos con la creación y el hospedaje simplificados | [Comandos personalizados (versión preliminar)](custom-commands.md) | <ul><li>"Encender la luz superior"</li><li>"Subir la temperatura 5 grados"</ul>
+|Conversación abierta con integración de sólidas aptitudes y control completo de la implementación | El bot de Azure Bot Service con el canal [Direct Line Speech](direct-line-speech.md) | <ul><li>"Tengo que ir a Seattle"</li><li>"¿Qué tipo de pizza puedo pedir?"</li></ul>
+|Comandos de voz o conversaciones sencillas orientadas a tareas con creación y hospedaje simplificados | [Comandos personalizados](custom-commands.md) | <ul><li>"Encender la luz superior"</li><li>"Subir la temperatura 5 grados"</li><li>Hay otros ejemplos [disponibles aquí](https://speech.microsoft.com/customcommands)</li></ul>
 
 Se recomienda [Direct Line Speech](direct-line-speech.md) como mejor opción predeterminada si aún no está seguro de lo que le gustaría que controlara el asistente. Ofrece integración con un completo conjunto de herramientas y ayudas de creación, como la [solución de asistente virtual y de plantilla de empresa](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) y el [servicio de QnA Maker](https://docs.microsoft.com/azure/cognitive-services/QnAMaker/Overview/overview) para crear patrones comunes y usar los orígenes de conocimiento existentes.
 
-[Custom Commands (versión preliminar)](custom-commands.md) proporciona una experiencia de creación y hospedaje simplificada específicamente adaptada a escenarios de control y comandos de lenguaje natural.
+[Comandos personalizados](custom-commands.md) facilita la creación de aplicaciones de comandos de voz enriquecidas y optimizadas para las experiencias de interacción que priorizan la voz. Proporcionan una experiencia de creación unificada, un modelo de hospedaje automático y una complejidad relativamente inferior, lo que ayuda a centrarse en la creación de la mejor solución para sus escenarios de comandos de voz.
 
    ![Comparación de soluciones de asistentes](media/voice-assistants/assistant-solution-comparison.png "Comparación de soluciones de asistentes")
 
+
+## <a name="reference-architecture-for-building-a-voice-assistant-using-the-speech-sdk"></a>Arquitectura de referencia para crear un asistente de voz con el SDK de Voz
+
+   ![Diagrama conceptual del flujo de servicio de orquestación del asistente de voz](media/voice-assistants/overview.png "Flujo del asistente de voz")
+
 ## <a name="core-features"></a>Características principales
 
-Tanto si elige [Direct Line Speech](direct-line-speech.md) o [Custom Commands (versión preliminar)](custom-commands.md) para crear sus interacciones con el asistente, puede usar un amplio conjunto de características de personalización para personalizar el asistente para la marca, el producto y la personalidad.
+Tanto si elige [Direct Line Speech](direct-line-speech.md) o [Comandos personalizados](custom-commands.md) para crear sus interacciones con el asistente, puede usar un amplio conjunto de características de personalización para personalizar el asistente según la marca, el producto y la personalidad.
 
 | Category | Características |
 |----------|----------|
@@ -56,38 +57,31 @@ Tanto si elige [Direct Line Speech](direct-line-speech.md) o [Custom Commands (v
 
 Le ofrecemos inicios rápidos diseñados para que ejecute el código en menos de 10 minutos. Esta tabla incluye una lista de inicios rápidos para asistente de voz ordenados por idioma.
 
-| Guía de inicio rápido | Plataforma | Referencia de API |
-|------------|----------|---------------|
-| C#, UWP | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| Java | Windows, macOS, Linux | [Browse](https://aka.ms/csspeech/javaref) |
-| Java | Android | [Browse](https://aka.ms/csspeech/javaref) |
+* [Inicio rápido: Creación de |un asistente de voz personalizado mediante Direct Line Speech](quickstarts/voice-assistants.md)
+* [Inicio rápido: Creación de una aplicación de comandos de voz mediante Comandos personalizados](quickstart-custom-commands-application.md)
 
-## <a name="sample-code"></a>Código de ejemplo
+## <a name="sample-code-and-tutorials"></a>Tutoriales y código de ejemplo
 
 El código de ejemplo para crear un asistente de voz está disponible en GitHub. Estos ejemplos abarcan la aplicación cliente para conectarse al asistente en varios lenguajes de programación conocidos.
 
-* [Ejemplos del asistente de voz (SDK)](https://aka.ms/csspeech/samples)
-* [Tutorial: Habilitación del asistente de voz mediante el SDK de Voz, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-
-## <a name="tutorial"></a>Tutorial
-
-Tutorial sobre cómo [habilitar la voz para el asistente mediante el SDK de Voz y el canal Direct Line Speech](tutorial-voice-enable-your-bot-speech-sdk.md).
+* [Ejemplos del asistente de voz en GitHub](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)
+* [Tutorial: Habilitación del asistente con voz creado mediante Azure Bot Service con el SDK de Voz para C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+* [Tutorial: Creación de una aplicación de Comandos personalizados con comandos de voz simples](how-to-custom-commands-create-application-with-simple-commands.md)
 
 ## <a name="customization"></a>Personalización
 
-Los asistentes de voz creados mediante el servicio de voz pueden usar la amplia variedad de opciones de personalización disponibles para la [conversión de voz en texto](speech-to-text.md), la [conversión de texto en voz](text-to-speech.md) y la [selección de palabras clave personalizadas](speech-devices-sdk-create-kws.md).
+Los asistentes de voz creados con los servicios de voz de Azure pueden usar toda la gama de opciones de personalización.
+
+* [Habla personalizada](how-to-custom-speech.md)
+* [Voz personalizada](how-to-custom-voice.md)
+* [Palabra clave personalizada](custom-keyword-overview.md)
 
 > [!NOTE]
-> Las opciones de personalización varían según el idioma o la configuración regional (consulte los [idiomas admitidos](supported-languages.md)).
-
-## <a name="reference-docs"></a>Documentos de referencia
-
-* [Acerca del SDK de Voz](speech-sdk-reference.md)
-* [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
+> Las opciones de personalización varían según el idioma o la configuración regional (consulte los [idiomas admitidos](language-support.md)).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Obtenga una clave de suscripción gratuita a los servicios de Voz](get-started.md)
-* [Obtención del SDK de voz](speech-sdk.md)
-* [Más información sobre los comandos personalizados (versión preliminar)](custom-commands.md)
+* [Más información sobre los Comandos personalizados](custom-commands.md)
 * [Más información sobre Direct Line Speech](direct-line-speech.md)
+* [Obtención del SDK de voz](speech-sdk.md)

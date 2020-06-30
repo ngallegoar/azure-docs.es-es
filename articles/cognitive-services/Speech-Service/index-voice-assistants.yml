@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: trbye
-  ms.openlocfilehash: c4b1c6348e834f83e20c612678075405a14f1a9d
-  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+  ms.openlocfilehash: 4fae88de9ad6c48e8079fc7d9ff2d7527d9e7208
+  ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/29/2020
-  ms.locfileid: "82106209"
+  ms.lasthandoff: 06/24/2020
+  ms.locfileid: "85299388"
 landingContent:
 - title: Acerca de los asistentes de voz
   linkLists:
@@ -42,24 +42,20 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Creación de una aplicación Comandos personalizados
-      url: quickstart-custom-speech-commands-create-new.md
-    - text: Creación de un comando personalizado con parámetros
-      url: quickstart-custom-speech-commands-create-parameters.md
-    - text: Uso de Comandos personalizados con Voz personalizada
-      url: quickstart-custom-speech-commands-select-custom-voice.md
-    - text: Uso de Comandos personalizados con Speech SDK
-      url: quickstart-custom-speech-commands-speech-sdk.md
+    - text: Creación de un asistente de voz mediante comandos personalizados
+      url: quickstart-custom-commands-application.md
   - linkListType: how-to-guide
     links:
-    - text: Realización de comandos desde un cliente
-      url: how-to-custom-speech-commands-fulfill-sdk.md
-    - text: Adición de validación de parámetros
-      url: how-to-custom-speech-commands-validations.md
-    - text: Adición de una confirmación
-      url: how-to-custom-speech-commands-confirmations.md
-    - text: Adición de una corrección en un paso
-      url: how-to-custom-speech-commands-one-step-correction.md
+    - text: Creación de una aplicación con comandos simples
+      url: how-to-custom-commands-create-application-with-simple-commands.md
+    - text: Adición de parámetros a los comandos
+      url: how-to-custom-commands-add-parameters-to-commands.md
+    - text: Adición de validaciones a los parámetros y solicitudes de corrección
+      url: how-to-custom-commands-add-parameter-configuration.md
+    - text: Integración mediante el SDK de Voz
+      url: how-to-custom-commands-setup-speech-sdk.md
+    - text: Configuración de la implementación continua para una aplicación de Comandos personalizados mediante Azure DevOps
+      url: how-to-custom-commands-deploy-cicd.md
 - title: Desarrollo con Direct Line Speech
   linkLists:
   - linkListType: quickstart
