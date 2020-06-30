@@ -7,12 +7,12 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: d21ec8d025070bd748550cdfbc2aca5ae1f55c08
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 21add865818d73937aec241f8f60e20158202348
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983149"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125300"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-nodejs-v4"></a>Inicio rápido: Biblioteca cliente de Azure Key Vault para Node.js (v4)
 
@@ -28,7 +28,7 @@ Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por se
 
 [Documentación de referencia de la API](/javascript/api/overview/azure/key-vault?view=azure-node-latest) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [Paquete (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org) actual del sistema operativo.
@@ -69,12 +69,12 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 La manera más sencilla de autenticar una aplicación basada en la nube es con una identidad administrada. Consulte [Uso de identidades administradas de App Service para acceder a Azure Key Vault](../general/managed-identity.md) para más información.
 
-Sin embargo, en aras de la simplicidad, en este inicio rápido se crea una aplicación de escritorio, que requiere el uso de una entidad de servicio y una directiva de control de acceso. La entidad de servicio requiere un nombre único con el formato "http://&lt;my-unique-service-principle-name&gt;".
+Sin embargo, en aras de la simplicidad, en este inicio rápido se crea una aplicación de escritorio, que requiere el uso de una entidad de servicio y una directiva de control de acceso. La entidad de servicio requiere un nombre único con el formato "http://&lt;my-unique-service-principal-name&gt;".
 
-Cree una entidad de servicio con el comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) de la CLI de Azure:
+Cree una entidad de servicio mediante el comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) de la CLI de Azure:
 
 ```azurecli
-az ad sp create-for-rbac -n "http://&lt;my-unique-service-principle-name&gt;" --sdk-auth
+az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --sdk-auth
 ```
 
 Esta operación devolverá una serie de pares clave-valor. 

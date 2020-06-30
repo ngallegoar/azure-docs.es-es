@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/06/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 96e79fdfeed5b56a4e0a33229f419f439b20b04c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4ae13dc51b4621dc3d8be39049dcade87c105cbc
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124540"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262623"
 ---
 # <a name="bulk-loading-with-synapse-sql"></a>Carga masiva con Synapse SQL
 
@@ -26,9 +26,9 @@ Ahora puede cargar datos de forma masiva fácilmente mediante grupos de SQL. Sol
 
 - Un archivo o una carpeta de una cuenta de Azure Storage asociada al área de trabajo ![Hacer clic con el botón derecho en un archivo o una carpeta de una cuenta de almacenamiento](./sql/media/bulk-load/bulk-load-entry-point-0.png)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-- Debe tener acceso al área de trabajo al menos con el rol de RBAC de Colaborador de datos de Storage Blob en la cuenta de Azure Data Lake Storage Gen2.
+- Este asistente genera una instrucción COPY que usa el paso a través de AAD para la autenticación. Su [usuario de AAD debe tener acceso](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples#d-azure-active-directory-authentication-aad) al área de trabajo al menos con el rol de RBAC de Colaborador de datos de Storage Blob en la cuenta de Azure Data Lake Storage Gen2.
 
 - Debe tener los permisos necesarios [para usar la instrucción COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#permissions) y tener permisos de creación de tablas si va a crear una tabla en la que cargar datos.
 

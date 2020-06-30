@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: c2e18919b287713f59ba8785006c952134994be0
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: bfea79fe232fbb6f1b39c03a5cc8e9fe06bee867
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84258375"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204946"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Consulta de archivos de almacenamiento mediante recursos de SQL a petición (versión preliminar) en Synapse SQL
 
@@ -90,7 +90,7 @@ Estos parámetros adicionales se introducen para trabajar con archivos .csv (tex
 ```
 
 - ESCAPE_CHAR = 'char' especifica el carácter del archivo que se usa como carácter de escape de sí mismo y de todos los valores de delimitador del archivo. Si el carácter de escape va seguido de un valor distinto de sí mismo o de cualquiera de los valores de delimitador, se quita al leer el valor.
-El parámetro ESCAPE_CHAR se aplicará, independientemente de que FIELDQUOTE esté habilitado o no. No se utilizará como carácter de escape el carácter de comillas. El carácter de escape de las comillas simples es el carácter de comillas dobles, igual que sucede en los archivos .csv de Excel.
+El parámetro ESCAPE_CHAR se aplicará, independientemente de que FIELDQUOTE esté habilitado o no. No se utilizará como carácter de escape el carácter de comillas. El carácter de comillas se debe escapar con otro carácter de comillas. El carácter de comillas solo puede aparecer dentro del valor de la columna si el valor se encapsula entre caracteres de comillas.
 - FIELDTERMINATOR='field_terminator' especifica el terminador de campo que se va a usar. El terminador de campo predeterminado es una coma (" **,** ")
 - ROWTERMINATOR ='row_terminator' especifica el terminador de fila que se va a usar. El terminador de fila predeterminado es un carácter de nueva línea:  **\r\n**.
 

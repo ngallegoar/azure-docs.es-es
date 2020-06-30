@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 06/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1da910cbf700845bdb6d5c07a6ee375a73579e75
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 1ade9e3200909c781dc00cf4e3713395f55f173d
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456868"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253756"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con GitHub
 
@@ -58,7 +58,6 @@ Para configurar la integración de GitHub en Azure AD, debe agregar GitHub desde
 1. En la sección **Agregar desde la galería**, escriba **GitHub** en el cuadro de búsqueda.
 1. Seleccione **GitHub** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-github"></a>Configuración y prueba del inicio de sesión único de Azure AD para GitHub
 
 Configure y pruebe el inicio de sesión único de Azure AD con GitHub mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de GitHub.
@@ -84,14 +83,17 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-   a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://github.com/orgs/<entity-id>/sso`
+   a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://github.com/orgs/<Organization ID>/sso`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://github.com/orgs/<entity-id>`
+    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://github.com/orgs/<Organization ID>`
+
+    c. En el cuadro de texto **Dirección URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://github.com/orgs/<Organization ID>/saml/consume`
+
 
     > [!NOTE]
-    > Tenga en cuenta que estos no son valores reales. Tendrá que actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Aquí le recomendamos que utilice el valor de cadena único en el identificador. Vaya a la sección de administración de GitHub para recuperar estos valores.
+    > Tenga en cuenta que estos no son valores reales. Tendrá que actualizar estos valores con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Aquí le recomendamos que utilice el valor de cadena único en el identificador. Vaya a la sección de administración de GitHub para recuperar estos valores.
 
-5. La aplicación GitHub espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de pantalla muestra la lista de atributos predeterminados, donde **nameidentifier** se asigna con **user.userprincipalname**. La aplicación GitHub espera que **nameidentifier** se asigne con **user.mail**, por lo que debe editar la asignación de atributos haciendo clic en el icono **Editar** y cambiar dicha asignación.
+5. La aplicación GitHub espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de pantalla muestra la lista de atributos predeterminados, donde a **Unique User Identifier (Name ID)** (Identificador de usuario único [Identificador de nombre]) se le ha asignado **user.userprincipalname**. La aplicación GitHub espera que al **identificador de usuario único (Identificador de nombre)** se le haya asignado **user.mail**, por lo que se debe editar la asignación de atributos. Para ello, haga clic en el icono **Editar** y cambie la asignación de atributos.
 
     ![imagen](common/edit-attribute.png)
 
@@ -141,15 +143,19 @@ En esta sección va a permitir que B.Simon acceda a GitHub mediante el inicio de
 
 ## <a name="configure-github-sso"></a>Configuración del inicio de sesión único de GitHub
 
-1. En otra ventana del navegador web, inicie sesión en el sitio de la organización de GitHub como administrador.
+1. En otra ventana del explorador web, inicie sesión en el sitio de la organización de GitHub como administrador.
 
 2. Vaya a **Configuración** y haga clic en **Seguridad**
 
     ![Configuración](./media/github-tutorial/tutorial_github_config_github_03.png)
 
-3. Active la casilla **Habilitar autenticación SAML** para ver los campos de configuración del inicio de sesión único. Luego, use el valor de URL de inicio de sesión único para actualizar la URL de inicio de sesión único en la configuración de Azure AD.
+3. Active la casilla **Habilitar autenticación SAML** para ver los campos de configuración del inicio de sesión único. Realice los siguientes pasos:
 
     ![Configuración](./media/github-tutorial/tutorial_github_config_github_13.png)
+
+    a. Copie el valor de **Single sign-on URL** (Dirección URL de inicio de sesión único) y pegue el valor en el cuadro de texto **URL de inicio de sesión** de la sección **Configuración básica de SAML** de Azure Portal.
+    
+    b. Copie el valor de **Assertion Consumer Service URL** (Dirección URL del Servicio de consumidor de aserciones) y péguelo en el cuadro de texto **Dirección URL de respuesta** de **Configuración básica de SAML** en Azure Portal.
 
 4. Configure los campos siguientes:
 

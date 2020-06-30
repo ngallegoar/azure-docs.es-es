@@ -4,15 +4,16 @@ description: En este artículo se explican los puntos de conexión privados admi
 author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
+ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: dc748260c6e71eaaa469defb227d5cc2748a1345
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ac62b1706749c4708d804dd2102ad3f2a7132a16
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83645323"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85193658"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Puntos de conexión privados administrados de Synapse (versión preliminar)
 
@@ -48,7 +49,7 @@ Cuando se crea un área de trabajo, Azure Synapse crea en ella dos puntos de con
 
 Estos dos puntos de conexión privados administrados aparecen en Azure Synapse Studio. Seleccione **Manage** (Administrar) en el panel de navegación izquierdo y, luego, elija **Managed Virtual Networks** (Redes virtuales administradas) para verlas en Studio.
 
-El punto de conexión privado administrado que se dirige al grupo de SQL se denomina *synapse-ws-sql--\<workspacename\>* y el que se dirige a SQL a petición se denomina *synapse-ws-sqlOnDemand--\<workspacename\>* .
+El punto de conexión privado administrado cuyo destino es un grupo de SQL se denomina *synapse-ws-sql--\<workspacename\>* y el que tiene como destino SQL a petición se denomina *synapse-ws-sqlOnDemand--\<workspacename\>* .
 ![Puntos de conexión privados administrados para el grupo de SQL y SQL a petición](./media/synapse-workspace-managed-private-endpoints/managed-pe-for-sql-1.png)
 
 Estos dos puntos de conexión privados administrados se crean automáticamente al crear el área de trabajo de Azure Synapse. No se le cobra por ellos.

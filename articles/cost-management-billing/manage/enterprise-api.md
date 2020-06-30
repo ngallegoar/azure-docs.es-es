@@ -5,16 +5,20 @@ author: mumami
 tags: billing
 ms.service: cost-management-billing
 ms.topic: reference
-ms.date: 04/14/2020
+ms.date: 06/22/2020
 ms.author: banders
-ms.openlocfilehash: aeca9aede4c1b2d8c27de749c7e07c0153000825
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: bf1acd8bce53801c7c241121db2079e9b8a01851
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383168"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253713"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Información general de API de informes para clientes de Enterprise
+
+> [!Note]
+> Microsoft ha dejado de actualizar las API de informes empresariales de facturación de Azure. En su lugar, debe usar las API de [Azure Consumption](/rest/api/consumption).
+
 Las API de informes permiten a los clientes de Azure Enterprise extraer datos de facturación y consumo mediante programación en las herramientas de análisis de datos preferidas. Los clientes de empresa han firmado un [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) con Azure para negociar compromisos monetarios y conseguir acceso a precios personalizados por los recursos de Azure.
 
 Todos los parámetros de fecha y hora necesarios para las API deben representarse como valores combinados de Hora universal coordinada (UTC). Los valores devueltos por las API se muestran en formato UTC.
@@ -27,7 +31,7 @@ Todos los parámetros de fecha y hora necesarios para las API deben representars
 |-|-|
 |Authorization| Especifique el valor con este formato: **bearer {API_KEY}** <br/> Ejemplo: bearer eyr....09|
 
-## <a name="consumption-apis"></a>API de consumo
+## <a name="consumption-based-apis"></a>API basados en consumo
 Hay disponible un punto de conexión de Swagger [aquí](https://consumption.azure.com/swagger/ui/index) para la API descrita a continuación que debe habilitar una introspección sencilla de la API y la capacidad de generar SDK de cliente con [AutoRest](https://github.com/Azure/AutoRest) o [Swagger CodeGen](https://swagger.io/swagger-codegen/). Los datos a partir del 1 de mayo de 2014 están disponibles a través de esta API.
 
 * **Saldos y resumen**: la [API de saldos y resumen](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) ofrece un resumen mensual de información sobre saldos, nuevas compras, gastos de servicios en Azure Marketplace, ajustes y gastos de uso por encima del límite.

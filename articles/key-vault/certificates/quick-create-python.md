@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: tracking-python
-ms.openlocfilehash: 6a25f3393a3c99273f12af0c5ff5047dfe373581
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 7c67bc77984af8a25c3514931ed0983df1751d5e
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554894"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85126134"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-python"></a>Inicio rápido: biblioteca cliente de Azure Key Vault para Python
 
@@ -27,9 +27,9 @@ Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por se
 - Simplificar y automatizar tareas para certificados TLS/SSL
 - Utilizar módulos HSM con certificación FIPS 140-2 nivel 2
 
-[Documentación de referencia de API](/python/api/overview/azure/key-vault?view=azure-python) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [Paquete (índice de paquetes de Python)](https://pypi.org/project/azure-keyvault/)
+[Documentación de referencia de API](/python/api/overview/azure/keyvault-certificates-readme?view=azure-python) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [Paquete (índice de paquetes de Python)](https://pypi.org/project/azure-keyvault/)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Python 2.7, 3.5.3 o versiones posteriores
@@ -70,12 +70,12 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 La manera más sencilla de autenticar una aplicación .NET basada en la nube es con una identidad administrada. Consulte [Uso de identidades administradas de App Service para acceder a Azure Key Vault](../general/managed-identity.md) para más información.
 
-Sin embargo, en aras de la simplicidad, en este inicio rápido se crea una aplicación de escritorio, que requiere el uso de una entidad de servicio y una directiva de control de acceso. La entidad de servicio requiere un nombre único con el formato "http://&lt;my-unique-service-principle-name&gt;".
+Sin embargo, en aras de la simplicidad, en este inicio rápido se crea una aplicación de escritorio, que requiere el uso de una entidad de servicio y una directiva de control de acceso. La entidad de servicio requiere un nombre único con el formato "http://&lt;my-unique-service-principal-name&gt;".
 
-Cree una entidad de servicio con el comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) de la CLI de Azure:
+Cree una entidad de servicio mediante el comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) de la CLI de Azure:
 
 ```azurecli
-az ad sp create-for-rbac -n "http://&lt;my-unique-service-principle-name&gt;" --sdk-auth
+az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --sdk-auth
 ```
 
 Esta operación devolverá una serie de pares clave-valor. 

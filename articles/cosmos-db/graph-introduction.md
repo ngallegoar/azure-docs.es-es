@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/18/2019
 ms.author: lbosq
-ms.openlocfilehash: 9151b54d7fa0b64a465aa8384cb4bfdb8e72c482
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0eb778d1fc2dca522bef675709b5241f214e2b86
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75500007"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118124"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Introducción a Azure Cosmos DB: API de Gremlin
 
 [Azure Cosmos DB](introduction.md)  es el servicio de base de datos con varios modelos y distribución global de Microsoft para aplicaciones críticas. Es una base de datos multimodelo que admite modelos de datos de documentos, pares clave-valor, grafos y familias de columnas. La API Gremlin de Azure Cosmos DB se usa para almacenar y operar con datos de grafo en un servicio de base de datos totalmente administrado diseñado para cualquier escala.  
 
-![Arquitectura de grafo de Azure Cosmos DB](./media/graph-introduction/cosmosdb-graph-architecture.png)
+:::image type="content" source="./media/graph-introduction/cosmosdb-graph-architecture.png" alt-text="Arquitectura de grafo de Azure Cosmos DB" border="false":::
 
 En este artículo se proporciona una introducción a Gremlin API de Azure Cosmos DB y se explica cómo se puede usar para almacenar grafos grandes con miles de millones de vértices y bordes. Puede consultar los grafos con una latencia de milisegundos y evolucionar la estructura de los grafos con facilidad. La API para Gremlin de Azure Cosmos DB se basa en el estándar de base de datos de grafos de [Apache TinkerPop](https://tinkerpop.apache.org)  y usa el lenguaje de consulta Gremlin. 
 
@@ -101,7 +101,7 @@ Las bases de datos de grafos suelen incluirse en la categoría de base de datos 
 ### <a name="gremlin-by-example"></a>Gremlin con ejemplos
 Vamos a usar un grafo de ejemplo para entender cómo se expresan las consultas en Gremlin. La siguiente ilustración muestra una aplicación empresarial que administra datos de usuarios, intereses y dispositivos en forma de grafo.  
 
-![Base de datos de ejemplo que muestra personas, dispositivos e intereses](./media/gremlin-support/sample-graph.png) 
+:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="Base de datos de ejemplo que muestra personas, dispositivos e intereses" border="false"::: 
 
 Este grafo tiene los siguientes tipos de *vértices* (llamados "etiquetas" en Gremlin):
 

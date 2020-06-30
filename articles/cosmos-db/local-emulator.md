@@ -2,16 +2,16 @@
 title: Desarrollo local con el emulador de Azure Cosmos
 description: Con el emulador de Azure Cosmos puede desarrollar y probar su aplicación localmente de forma gratuita, sin necesidad de crear una suscripción a Azure.
 ms.service: cosmos-db
-ms.topic: tutorial
+ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
-ms.openlocfilehash: cd7f1ba856cb2c58d14f7a2560a7716beff92076
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 0a6a1bd5e56f94a97779a85eafd0d46473cc2d0c
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849015"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262436"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Uso del emulador de Azure Cosmos para desarrollo y pruebas locales
 
@@ -76,7 +76,7 @@ El emulador de Azure Cosmos se instala de forma predeterminada en `C:\Program Fi
 
 Cuando se inicia el emulador de Azure Cosmos, el explorador de datos de Azure Cosmos se abre automáticamente en el explorador. La dirección aparece como `https://localhost:8081/_explorer/index.html`. Si cierra el explorador y desea volver a abrirlo más adelante, puede abrir la dirección URL en el explorador o iniciarlo desde el icono del emulador de Azure Cosmos de la bandeja de Windows, tal como se muestra a continuación.
 
-![Iniciador del explorador de datos del emulador local de Azure Cosmos](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
+:::image type="content" source="./media/local-emulator/database-local-emulator-data-explorer-launcher.png" alt-text="Iniciador del explorador de datos del emulador local de Azure Cosmos":::
 
 ## <a name="checking-for-updates"></a>Búsqueda de actualizaciones
 
@@ -270,7 +270,7 @@ Para ver la lista de opciones, escriba `Microsoft.Azure.Cosmos.Emulator.exe /?` 
 | NoUI | No muestra la interfaz de usuario del emulador. | Microsoft.Azure.Cosmos.Emulator.exe /NoUI | |
 | NoExplorer | No muestra el Explorador de datos en el inicio. |Microsoft.Azure.Cosmos.Emulator.exe /NoExplorer | | 
 | PartitionCount | Especifica el número máximo de los contenedores particionados. Consulte [Cambio del número de contenedores](#set-partitioncount) para más información. | Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=\<partitioncount\> | \<partitioncount\>: Número máximo de contenedores de una sola partición permitidos. El valor predeterminado es de 25. El máximo permitido es 250.|
-| DefaultPartitionCount| Especifica el número predeterminado de particiones para un contenedor. | Microsoft.Azure.Cosmos.Emulator.exe /DefaultPartitionCount=\<defaultpartitioncount\> | El valor predeterminado de \<defaultpartitioncount\> es 25.|
+| DefaultPartitionCount| Especifica el número predeterminado de particiones para un contenedor. | Microsoft.Azure.Cosmos.Emulator.exe /DefaultPartitionCount=\<defaultpartitioncount\> | \<defaultpartitioncount\> El valor predeterminado es 25.|
 | AllowNetworkAccess | Permite acceder al emulador a través de una red. También debe pasar /Key=\<key_string\> o /KeyFile=\<file_name\> para habilitar el acceso de red. | Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=\<key_string\> o Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /KeyFile=\<file_name\>| |
 | NoFirewall | No ajuste las reglas de firewall cuando se utilice la opción /AllowNetworkAccess. |Microsoft.Azure.Cosmos.Emulator.exe /NoFirewall | |
 | GenKeyFile | Genere una nueva clave de autorización y guárdela en el archivo especificado. La clave generada se puede utilizar con las opciones /Key o /KeyFile. | Microsoft.Azure.Cosmos.Emulator.exe /GenKeyFile=\<path to key file\> | |
@@ -482,7 +482,7 @@ Siga estos pasos si trabaja en Mac:
 
 1. Abra el menú contextual de ese elemento, seleccione *Get Item* (Obtener elemento) y en la opción *Trust* > *When using this certificate* (Confiar > Al usar este certificado), seleccione *Always Trust* (Confiar siempre). 
 
-   ![Abrir el menú contextual de ese elemento, seleccionar Get Item (Obtener elemento) y en la opción Trust > When using this certificate (Confiar > Al usar este certificado), seleccionar Always Trust (Confiar siempre)](./media/local-emulator/mac-trust-certificate.png)
+   :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="Abrir el menú contextual de ese elemento, seleccionar Get Item (Obtener elemento) y en la opción Trust > When using this certificate (Confiar > Al usar este certificado), seleccionar Always Trust (Confiar siempre)":::
 
 Después de seguir estos pasos, el entorno confiará en el certificado que usa el emulador al conectarse a la dirección IP que expone `/AllowNetworkAccess`.
 

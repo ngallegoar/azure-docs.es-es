@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 05/19/2020
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 9152bdfa9575738c853521814938cd0d7ec25efb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 53725e7d4c39405e7ba47f8915e7444ce6a2167a
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657360"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118456"
 ---
 # <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db-preview"></a>Compatibilidad integrada con cuadernos de Jupyter Notebook en Azure Cosmos DB (versión preliminar)
 
@@ -19,11 +19,11 @@ Jupyter Notebook es una aplicación web de código abierto que le permite crear 
 
 Los cuadernos de Jupyter integrados de Azure Cosmos DB se integran directamente en Azure Portal y en las cuentas de Azure Cosmos DB, lo que hace que sean cómodos y fáciles de usar. Los desarrolladores, científicos de datos, ingenieros y analistas pueden usar la conocida experiencia de Jupyter Notebooks para explorar, limpiar, visualizar y transformar los datos, así como para simulaciones numéricas, modelado estadístico y aprendizaje automático.
 
-![Visualizaciones de cuadernos de Jupyter Notebook en Azure Cosmos DB](./media/cosmosdb-jupyter-notebooks/cosmos-notebooks-overview.png)
+:::image type="content" source="./media/cosmosdb-jupyter-notebooks/cosmos-notebooks-overview.png" alt-text="Visualizaciones de cuadernos de Jupyter Notebook en Azure Cosmos DB":::
 
 Azure Cosmos DB admite cuadernos de C# y de Python para todas las API, lo que incluye Core (SQL), Cassandra, Gremlin, Table y API para MongoDB. Dentro del cuaderno, puede aprovechar las características y comandos integrados que facilitan la creación de recursos de Azure Cosmos DB, así como la carga, la consulta y la visualización de los datos en Azure Cosmos DB. 
 
-![Compatibilidad con cuadernos de Jupyter en Azure Cosmos DB](./media/cosmosdb-jupyter-notebooks/jupyter-notebooks-portal.png)
+:::image type="content" source="./media/cosmosdb-jupyter-notebooks/jupyter-notebooks-portal.png" alt-text="Compatibilidad con cuadernos de Jupyter en Azure Cosmos DB":::
 
 ## <a name="benefits-of-jupyter-notebooks"></a>Ventajas de los cuadernos de Jupyter Notebook
 

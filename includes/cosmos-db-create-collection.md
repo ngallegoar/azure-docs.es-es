@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 9bc5be37f3892186233fac197c08066dbfacb43f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 076afcfc8abf4e90d3ccedbb26653656032e59be
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77780345"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115401"
 ---
 Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear una base de datos y un contenedor. 
 
@@ -21,7 +21,7 @@ Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear u
     
     El área **Agregar contenedor** se muestra en el extremo derecho, pero es posible que haya que desplazarse hacia la derecha para verlo.
 
-    ![Explorador de datos de Azure Portal, panel Agregar contenedor](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
+    :::image type="content" source="./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png" alt-text="Explorador de datos de Azure Portal, panel Agregar contenedor":::
 
 2. En la página **Agregar contenedor**, especifique la configuración del nuevo contenedor.
 

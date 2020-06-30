@@ -5,20 +5,20 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 463fb7860eb35a7ff45d3794d200c69685825827
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 3a7c9f61af0124c656f98b64ba9295bc659c572a
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737210"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262364"
 ---
 ## <a name="configure-the-sample-project"></a>Configuración del proyecto de ejemplo
 
-A continuación, configure una aplicación cliente de ejemplo que interactuará con su instancia de Azure Digital Twins. Si aún no ha descargado el proyecto de ejemplo, obténgalo ahora [descargando el repositorio de ejemplos de Azure Digital Twins en forma de archivo ZIP](https://github.com/Azure-Samples/digital-twins-samples/archive/master.zip). 
+A continuación, configure una aplicación cliente de ejemplo que interactuará con su instancia de Azure Digital Twins. Si aún no ha descargado el proyecto de ejemplo, puede obtenerlo ahora en la página de aterrizaje de [Ejemplos de Azure Digital Twins](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples); para ello, seleccione el botón *Descargar ZIP* debajo del título.
 
 Vaya al archivo que ha descargado en la máquina y descomprímalo.
 
-Una vez que esté dentro de la carpeta descomprimida, vaya a_digital-twins-samples-master/AdtSampleApp/_ . Abra _**AdtE2ESample.sln**_ en Visual Studio 2019. 
+Una vez que esté dentro de la carpeta descomprimida, vaya a _AdtSampleApp/_ . Abra _**AdtE2ESample.sln**_ en Visual Studio 2019. 
 
 En Visual Studio, use el panel *Explorador de soluciones* para crear una copia del archivo _SampleClientApp > **serviceConfig.json.TEMPLATE**_ (puede usar los menús contextuales para copiar y pegar). Cambie el nombre a la copia de *serviceConfig.json*. Este servirá como archivo JSON predefinido con las variables de configuración necesarias para ejecutar el proyecto.
 

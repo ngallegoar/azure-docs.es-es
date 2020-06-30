@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9b6589d2045d9bb7bdfb38f9872acd8366481106
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: b62d69220a931bef8d91a85bcbbaedfbce86110a
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84790490"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85211400"
 ---
 # <a name="azure-key-vault-logging"></a>Registro de Azure Key Vault
 
@@ -95,7 +95,7 @@ En el [tutorial de introducción](../secrets/quick-create-cli.md), el nombre del
 $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 ```
 
-## <a name="enable-logging"></a><a id="enable"></a>Habilitación del registro
+## <a name="enable-logging-using-azure-powershell"></a><a id="enable"></a>Habilitación del registro con Azure PowerShell
 
 Para habilitar el registro de Key Vault, usaremos el cmdlet **Set-AzDiagnosticSetting**, junto con las variables que hemos creado para la nueva cuenta de almacenamiento y el almacén de claves. También estableceremos la marca **-Enabled** en **$true** y estableceremos la categoría en **AuditEvent** (la única categoría del registro de Key Vault):
 
@@ -131,6 +131,25 @@ Qué se registra:
   * Crear, modificar o eliminar estas claves o secretos.
   * Firmar, comprobar, cifrar, descifrar, encapsular y desencapsular claves, obtener secretos y elaborar listados de claves y secretos (y sus versiones).
 * Solicitudes no autenticadas que dan como resultado una respuesta 401. Por ejemplo, las solicitudes que no tienen un token de portador, cuyo formato es incorrecto o está caducado o que tienen un token no válido.  
+
+## <a name="enable-logging-using-azure-cli"></a>Habilitación del registro mediante la CLI de Azure
+
+```azurecli
+az login
+
+az account set --subscription {AZURE SUBSCRIPTION ID}
+
+az provider register -n Microsoft.KeyVault
+
+az monitor diagnostic-settings create  \
+--name KeyVault-Diagnostics \
+--resource /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault \
+--logs    '[{"category": "AuditEvent","enabled": true}]' \
+--metrics '[{"category": "AllMetrics","enabled": true}]' \
+--storage-account /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount \
+--workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/myworkspace \
+--event-hub-rule /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
+```
 
 ## <a name="access-your-logs"></a><a id="access"></a>Acceso a los registros
 
@@ -213,6 +232,7 @@ Ahora está listo para comenzar a ver lo que está en los registros. Pero antes 
 
 * Para consultar el estado de la configuración del diagnóstico del recurso del almacén de claves: `Get-AzDiagnosticSetting -ResourceId $kv.ResourceId`
 * Para deshabilitar el registro del recurso del almacén de claves: `Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Category AuditEvent`
+
 
 ## <a name="interpret-your-key-vault-logs"></a><a id="interpret"></a>Interpretación de los registros de Key Vault
 

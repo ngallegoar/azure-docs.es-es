@@ -4,12 +4,12 @@ description: Aprenda a migrar un contenedor de Windows personalizado en Azure Ap
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 74cb88bc1ace87155a35163ca8f9d3d6c4242ae0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8e755c5b9a57eb66fc47364fb2fcdcbe30c2d09e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80046618"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85205629"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Migración de una aplicación de ASP.NET a Azure App Service con un contenedor de Windows (versión preliminar)
 
@@ -17,7 +17,7 @@ ms.locfileid: "80046618"
 
 ![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 
@@ -69,13 +69,13 @@ Desde el Explorador de soluciones, abra **Dockerfile**.
 
 Tiene que usar una [imagen principal compatible](app-service-web-get-started-windows-container.md#use-a-different-parent-image). Reemplace la línea `FROM` por el código siguiente para cambiar la imagen primaria:
 
-```Dockerfile
+```dockerfile
 FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
 ```
 
 Agregue la siguiente línea al final del archivo y guárdelo:
 
-```Dockerfile
+```dockerfile
 RUN ${source:-obj/Docker/publish/InstallFont.ps1}
 ```
 
@@ -115,7 +115,7 @@ Configure el nuevo registro de contenedor en función de los valores sugeridos e
 | ----------------- | ------------ | ----|
 |**Prefijo de DNS**| Mantenga el nombre de registro generado o cámbielo por otro nombre único. |  |
 |**Grupo de recursos**| Haga clic en **Nuevo**, escriba **myResourceGroup** y haga clic en **Aceptar**. |  |
-|**SKU**| Básica | [Planes de tarifa](https://azure.microsoft.com/pricing/details/container-registry/)|
+|**SKU**| Básico | [Planes de tarifa](https://azure.microsoft.com/pricing/details/container-registry/)|
 |**Ubicación del registro**| Oeste de Europa | |
 
 ![Configuración del registro de contenedor de Azure](./media/app-service-web-tutorial-windows-containers-custom-fonts/configure-registry.png)
@@ -185,7 +185,7 @@ Espere unos minutos e inténtelo de nuevo hasta que llegue a la página principa
 
 ## <a name="see-container-start-up-logs"></a>Consulta de los registros de inicio del contenedor
 
-El contenedor de Windows puede tardar un tiempo en cargarse. Para ver el progreso, vaya a la siguiente dirección URL sustituyendo *\<app_name>* por el nombre de la aplicación.
+El contenedor de Windows puede tardar un tiempo en cargarse. Para ver el progreso, vaya a la siguiente dirección URL sustituyendo *\<app-name>* por el nombre de la aplicación.
 ```
 https://<app-name>.scm.azurewebsites.net/api/logstream
 ```
@@ -201,4 +201,3 @@ Los registros transmitidos tienen este aspecto:
 14/09/2018 23:18:03.823 INFO - Site: fonts-win-container - Container ready
 14/09/2018 23:18:03.823 INFO - Site: fonts-win-container - Container start-up and configuration completed successfully
 ```
-

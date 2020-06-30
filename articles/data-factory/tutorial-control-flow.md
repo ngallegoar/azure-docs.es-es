@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 7746726775cd5230f48842ad9a9260efe0e540b5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: fd006e836432ce775be8cbbefea6d9219e8b13b3
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022119"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253467"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Actividades de bifurcación y encadenamiento en una canalización de Data Factory
 
@@ -44,11 +44,11 @@ En este tutorial se usa SDK de .NET. Puede usar otros mecanismos para interactua
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Cuenta de Azure Storage. Usará el almacenamiento de blobs como almacén de datos de origen. Si no dispone de una, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md).
 * Explorador de Azure Storage Para instalar esta herramienta, consulte [Explorador de Azure Storage](https://storageexplorer.com/).
-* Azure SQL Database. Usará la base de datos como un almacén de datos receptor. Si aún no tiene ninguna instancia de Azure SQL Database, consulte [Creación de una base de datos en Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
+* Azure SQL Database. Usará la base de datos como un almacén de datos receptor. Si no tiene una base de datos en Azure SQL Database, consulte el artículo [Creación de una base de datos en Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 * Visual Studio. En este artículo se utiliza Visual Studio 2019.
 * SDK de Azure para .NET. Descargue e instale el [SDK de Azure para .NET](https://azure.microsoft.com/downloads/).
 

@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 9a9c6897937b73786367accc33e985a268907226
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 6b446fe83ad37dfe9edbe55fcb1b5b42aa578274
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81258752"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100364"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformación y protección de una API
 
@@ -37,7 +37,7 @@ En este tutorial, aprenderá a:
 
 ![Directivas](./media/transform-api/api-management-management-console.png)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 -   Conocer la [terminología de API Management de Azure](api-management-terminology.md).
 -   Comprender el [concepto de directivas en API Management de Azure](api-management-howto-policies.md).
@@ -80,7 +80,7 @@ La respuesta original debería tener este aspecto:
 
    ![Directivas](./media/transform-api/transform-api.png)
 
-7. Modifique el código **\<outbound>** para que se muestre lo siguiente:
+7. Modificar el código **\<outbound>** para que se parezca a esto:
 
        <set-header name="X-Powered-By" exists-action="delete" />
        <set-header name="X-AspNet-Version" exists-action="delete" />
@@ -112,11 +112,8 @@ Para ver la respuesta original, siga estos pasos:
 2.  Seleccione **Todas las operaciones**.
 3.  En la parte superior de la pantalla, seleccione la pestaña **Diseño**.
 4.  En la sección **Procesamiento de salida**, haga clic en el icono **</>** .
-5.  Coloque el cursor dentro del elemento **&lt;outbound&gt;** y haga clic en el botón **Insert policy** (Insertar directiva) situado en la esquina superior derecha.
-6.  En la ventana de la derecha, en **Transformation policies** (Directivas de transformación), haga clic en **+ Find and replace string in body** (+ Buscar y reemplazar cadena en el cuerpo).
-7.  Modifique el código **find-and-replace** (en el elemento **\<outbound\>** ) para reemplazar la URL con el fin de que coincida con la puerta de enlace de APIM. Por ejemplo:
-
-        <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
+5.  Coloque el cursor dentro del elemento **&lt;outbound&gt;** y haga clic en el botón **Show snippets** (Mostrar fragmentos de código) situado en la esquina superior derecha.
+6.  En la ventana de la derecha, en **Transformation policies** (Directivas de transformación), haga clic en **Mask URLs in content** (Enmascarar direcciones URL en contenido).
 
 ## <a name="protect-an-api-by-adding-rate-limit-policy-throttling"></a>Protección de una API agregando la directiva de límite de frecuencia (limitación)
 
@@ -130,7 +127,7 @@ En esta sección se explica cómo agregar protección para la API de back-end co
 4.  En la sección **Procesamiento de entrada**, haga clic en el icono **</>** .
 5.  Coloque el cursor dentro del elemento **&lt;inbound&gt;** .
 6.  En la ventana de la derecha, bajo **Access restriction policies** (Directivas de restricción de acceso), haga clic en **+ Limit call rate per key** (+ Limitar la tasa de llamadas por clave).
-7.  Modifique el código **rate-limit-by-key** (en el elemento **\<inbound\>** ) por el código siguiente:
+7.  Cambie el código **rate-limit-by-key** (en el elemento **\<inbound\>** ) por el código siguiente:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 

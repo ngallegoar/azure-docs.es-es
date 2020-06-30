@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lbosq
-ms.openlocfilehash: c3e6524f8e43036c4b4c28c679c281c143731471
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 25ad14ac8922a4284833cab28dc3e4aa8b478397
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81450214"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118345"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Inicio rápido: Creación, consulta y recorrido de una base de datos de grafos de Azure Cosmos DB en la consola de Gremlin
 
@@ -29,11 +29,11 @@ Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribu
 
 En este inicio rápido se muestra cómo crear una cuenta de [Gremlin API](graph-introduction.md), una base de datos y un grafo (contenedor) de Azure Cosmos DB mediante Azure Portal y cómo usar la [consola de Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) de [Apache TinkerPop](https://tinkerpop.apache.org) para trabajar con los datos de Gremlin API. En este tutorial, creará y consultará vértices y bordes, actualizará una propiedad de vértice, consultará vértices, recorrerá el grafo y quitará un vértice.
 
-![Azure Cosmos DB desde la consola de Apache Gremlin](./media/create-graph-gremlin-console/gremlin-console.png)
+:::image type="content" source="./media/create-graph-gremlin-console/gremlin-console.png" alt-text="Azure Cosmos DB desde la consola de Apache Gremlin":::
 
 La consola de Gremlin se basa en Groovy/Java y se ejecuta en Linux, Mac y Windows. Puede descargarla desde el [sitio de Apache TinkerPop](https://tinkerpop.apache.org/downloads.html).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Necesita tener una suscripción de Azure para crear una cuenta de Azure Cosmos DB para este inicio rápido.
 
@@ -63,26 +63,31 @@ También necesita instalar la [consola de Gremlin](https://tinkerpop.apache.org/
     connectionPool|{enableSsl: true}|La configuración del grupo de conexiones para TLS.
     serializer|{ className:org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV2d0,<br> config: { serializeResultToString: true }}|Establecer en este valor y eliminar los saltos de línea `\n` cuando se pegue el valor.
 
-    Para obtener el valor de los hosts, copie el valor de **URI de Gremlin** de la página **Introducción**: ![Copie del valor del URI de Gremlin en la página Introducción en Azure Portal ](./media/create-graph-gremlin-console/gremlin-uri.png)
+   Para obtener el valor de los hosts, copie el valor de **URI de Gremlin** de la página **Introducción**:
 
-    Para obtener el valor de la contraseña, copie la **Clave principal** de la página **Claves**: ![Visualización y copia de la clave principal en Azure Portal, página Claves](./media/create-graph-gremlin-console/keys.png)
+   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Copie del valor del URI de Gremlin en la página Introducción en Azure Portal ":::
 
-El archivo remote-secure.yaml debe tener este aspecto:
+   Para obtener el valor de la contraseña, copie la **Clave principal** de la página **Claves**:
 
-```
-hosts: [your_database_server.gremlin.cosmos.azure.com] 
-port: 443
-username: /dbs/your_database_account/colls/your_collection
-password: your_primary_key
-connectionPool: {
-  enableSsl: true
-}
-serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV2d0, config: { serializeResultToString: true }}
-```
+   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Visualización y copia de la clave principal en Azure Portal, página Claves":::
 
-asegúrese de que encapsular el valor del parámetro de hosts entre corchetes []. 
+   El archivo remote-secure.yaml debe tener este aspecto:
+
+   ```
+   hosts: [your_database_server.gremlin.cosmos.azure.com] 
+   port: 443
+   username: /dbs/your_database_account/colls/your_collection
+   password: your_primary_key
+   connectionPool: {
+     enableSsl: true
+   }
+   serializer: { className: org.apache.tinkerpop.gremlin.driver.   ser.GraphSONMessageSerializerV2d0, config: {    serializeResultToString: true }}
+   ```
+
+   asegúrese de que encapsular el valor del parámetro de hosts entre corchetes []. 
 
 1. En el terminal, ejecute `bin/gremlin.bat` o `bin/gremlin.sh` para iniciar la [Consola de Gremlin](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
+
 1. En el terminal, ejecute `:remote connect tinkerpop.server conf/remote-secure.yaml` para conectarse a App Service.
 
     > [!TIP]

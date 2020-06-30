@@ -5,14 +5,14 @@ author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/22/2020
 ms.author: banders
-ms.openlocfilehash: 6f571d323a06b64f79c3f97ae8717be7eb8968d3
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 75529d03435e92dfff26dac81f4f7e59585b6fe9
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434518"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255252"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Cuentas de facturación y ámbitos en Azure Portal
 
@@ -22,7 +22,7 @@ Azure Portal admite actualmente el tipo siguiente de cuentas de facturación:
 
 - **Microsoft Online Services Program**: Se crea una cuenta de facturación para Microsoft Online Services Programa cuando se registra en el sitio web de Azure. Por ejemplo, cuando se registra para obtener una [cuenta gratuita de Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), como una [cuenta con tarifas de pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) o como un [suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
-- **Contrato Enterprise**: Se crea una cuenta de facturación para un Contrato Enterprise cuando la organización firma este [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) para utilizar Azure. Puede tener un máximo de 500 suscripciones en un Contrato Enterprise.
+- **Contrato Enterprise**: Se crea una cuenta de facturación para un Contrato Enterprise cuando la organización firma este [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) para utilizar Azure. En un Contrato Enterprise no puede tener más de 2000 suscripciones.
 
 - **Contrato de cliente de Microsoft**: Se crea una cuenta de facturación para un contrato de cliente de Microsoft cuando una organización trabaja con un representante de Microsoft para firmar un contrato de cliente de Microsoft. Algunos clientes en regiones seleccionadas, que se registran en el sitio web de Azure para una [cuenta con tarifas de Pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) o una [cuenta gratuita de Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), también pueden tener una cuenta de facturación para un Contrato de cliente de Microsoft. Puede tener un máximo de 20 suscripciones en un Contrato de cliente de Microsoft. Para obtener más información, consulte [Empezar a trabajar con la cuenta de facturación para un contrato de cliente de Microsoft](../understand/mca-overview.md).
 

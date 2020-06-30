@@ -14,12 +14,12 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 764d0131b0b8074a210bd9eb7f806f5d1a32fa1f
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: b42dba59e061eee0472d39f324b7474d7d829310
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324239"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250730"
 ---
 # <a name="add-an-r-package-to-azure-sql-database-machine-learning-services-preview"></a>Incorporación de un paquete de R a Azure SQL Database Machine Learning Services (versión preliminar)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ En este artículo se explica cómo agregar un paquete de R que aún no se haya i
 
 ## <a name="list-r-packages"></a>Lista de paquetes de R
 
-Microsoft proporciona una serie de paquetes de R preinstalados con Machine Learning Services en la instancia de Azure SQL Database.
+Microsoft proporciona una serie de paquetes de R preinstalados con Machine Learning Services en Azure SQL Database.
 Ejecute el siguiente comando en Azure Data Studio o SSMS para ver una lista de los paquetes de R instalados.
 
 1. Abra Azure Data Studio o SSMS y conéctese a la instancia de Azure SQL Database.
@@ -166,7 +166,7 @@ sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLI
 ```
 
 > [!TIP]
-> Otra manera de instalar un paquete de R en la instancia de Azure SQL Database es cargarlo desde una secuencia de bytes con la instrucción de T-SQL **CREATE EXTERNAL LIBRARY**. Consulte la sección [Create a library from a byte stream](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream) (Creación de una biblioteca desde una secuencia de bytes) de la documentación de referencia [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) (CREAR BIBLIOTECA EXTERNA).
+> Otra manera de instalar un paquete de R en Azure SQL Database es cargarlo desde una secuencia de bytes con la instrucción de T-SQL **CREATE EXTERNAL LIBRARY**. Consulte la sección [Create a library from a byte stream](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream) (Creación de una biblioteca desde una secuencia de bytes) de la documentación de referencia [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) (CREAR BIBLIOTECA EXTERNA).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

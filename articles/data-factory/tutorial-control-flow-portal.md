@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 83e6498f47c36fa54890131922dc8d452a3d9220
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: edb6846d199470818e07a208feb778aca3021d9e
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560500"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253671"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Bifurcación y encadenamiento de actividades en una canalización de Azure Data Factory mediante Azure Portal
 
@@ -44,7 +44,7 @@ En este tutorial se usa Azure Portal. Puede usar otros mecanismos para interactu
 
 * **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 * **Cuenta de Azure Storage**. Blob Storage se puede usar como almacén de datos de **origen**. Si no tiene una cuenta de almacenamiento de Azure, consulte el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md) para ver los pasos para su creación.
-* **Azure SQL Database**. La base de datos se puede usar como almacén de datos **receptor**. Si no tiene ninguna base de datos de Azure SQL, consulte el artículo [Creación de una base de datos de Azure SQL](../azure-sql/database/single-database-create-quickstart.md).
+* **Azure SQL Database**. La base de datos se puede usar como almacén de datos **receptor**. Si no tiene ninguna base de datos en Azure SQL Database, consulte el artículo [Creación de una base de datos en Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) para ver los pasos y crear una.
 
 ### <a name="create-blob-table"></a>Creación de la tabla de blobs
 
@@ -206,6 +206,7 @@ En este paso se crea una canalización con una actividad de copia y dos activida
 13. Cambie a la pestaña **Pipeline** (Canalización) (o) haga clic en la canalización en la vista de árbol. Confirme que **SourceBlobDataset** está seleccionado en **Source Dataset** (Conjunto de datos de origen).
 
     ![Conjunto de datos de origen](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
+
 13. En la ventana de propiedades, cambie a la pestaña **Sink** (Receptor) y haga clic en **+ New** (+ Nuevo) en **Sink Dataset** (Conjunto de datos receptor). En este paso se crea un conjunto de datos receptor para la actividad de copia, de manera similar a la creación del conjunto de datos de origen.
 
     ![Botón New sink dataset (Nuevo conjunto de datos receptor)](./media/tutorial-control-flow-portal/new-sink-dataset-button.png)

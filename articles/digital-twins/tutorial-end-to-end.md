@@ -8,12 +8,12 @@ ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 0f9ddf2f4fba9e216ef0b5a5747fc32f4288cf67
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: f83eb6a0cab8bdf2f26888f895aeac8a8fa796bb
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737281"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296991"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Creación de soluciones de un extremo a otro
 
@@ -46,7 +46,7 @@ En primer lugar, creará la instancia de Azure Digital Twins (la **sección A** 
 Para recorrer el escenario, interactuará con los componentes de la aplicación escrita previamente que descargó antes.
 
 Estos son los complementos que implementa la aplicación de ejemplo *AdtSampleApp* del escenario del edificio:
-* Autenticación de dispositivos. 
+* Autenticación de dispositivos 
 * Ejemplos de uso del [SDK de .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) (se encuentran en *CommandLoop.cs*).
 * Interfaz de consola para llamar a la API de Azure Digital Twins.
 * *SampleClientApp*: una solución de Azure Digital Twins de ejemplo.
@@ -136,6 +136,8 @@ En el panel *Publish* (Publicar) que se abre en la ventana principal de Visual 
 > [!NOTE]
 > Puede ver un elemento desplegable como este: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Publicar una función de Azure en Visual Studio: publicar credenciales" border="false":::
 > En ese caso, seleccione **Attempt to retrieve credentials from Azure** (Intentar recuperar credenciales de Azure) y **Save** (Guardar).
+>
+> Si ve una advertencia en la que se indica que *la versión del entorno de ejecución de Functions no coincide con la versión que se ejecuta en Azure*, siga las indicaciones para actualizar a la última versión del entorno de ejecución de Azure Functions. Este problema puede producirse si usa una versión de Visual Studio anterior a la recomendada en la sección *Requisitos previos* al principio de este tutorial.
 
 ### <a name="assign-permissions-to-the-function-app"></a>Asignación de permisos a la aplicación de funciones
 

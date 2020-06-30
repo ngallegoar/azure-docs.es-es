@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 03/25/2020
-ms.openlocfilehash: 5577a9847ff405397c553028a6dfdf2df80d03fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 065fd166fb2ce82a3338322d55ef1ee5886ac56b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371837"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85210378"
 ---
 # <a name="azure-machine-learning-vs-machine-learning-studio-classic"></a>Azure Machine Learning frente a Machine Learning Studio (clásico)
 
@@ -29,7 +29,7 @@ En la tabla siguiente se resumen algunas de las diferencias principales entre Az
 
 | | Machine Learning Studio (clásico) | Azure Machine Learning |
 |---| --- | --- |
-| Interfaz que permite arrastrar y colocar | Compatible | Compatible: [diseñador de Azure Machine Learning (versión preliminar)](concept-designer.md) | 
+| Interfaz que permite arrastrar y colocar | Compatible | Compatible: [diseñador de Azure Machine Learning (versión preliminar)](concept-designer.md) <br/>(requiere el área de trabajo de Enterprise) | 
 | Experimento | Escalable (límite de datos de entrenamiento, 10 GB) | Escalar con destino de proceso |
 | Entrenamiento de destinos de proceso | Destino de proceso propietario, solo admite CPU | Amplia gama de [destinos de proceso de entrenamiento](concept-compute-target.md#train) personalizables. Incluye compatibilidad con GPU y CPU | 
 | Destinos de proceso de implementación | Formato del servicio web propietario, no personalizable | Amplia gama de [destinos de proceso de implementación](concept-compute-target.md#deploy) personalizables. Incluye compatibilidad con GPU y CPU |

@@ -5,12 +5,12 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 6544cd115dbae2268492a8775a780d2f045f4e4a
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 4ac33a01f574f537d64c706842c7d867f387c804
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82889663"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194474"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Creación de su primera función durable en JavaScript
 
@@ -20,7 +20,7 @@ En este artículo, aprenderá a usar la extensión de Azure Functions para Visua
 
 ![Ejecución de una función durable en Azure](./media/quickstart-js-vscode/functions-vs-code-complete.png)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 
@@ -58,25 +58,6 @@ En esta sección se usa Visual Studio Code para crear un proyecto local en Azur
 Visual Studio Code instala Azure Functions Core Tools, en caso de que sea necesario. También crea el proyecto de una aplicación de funciones en una carpeta. Este proyecto contiene los archivos de configuración [host.json](../functions-host-json.md) y [local.settings.json](../functions-run-local.md#local-settings-file).
 
 También se crea un archivo package.json en la carpeta raíz.
-
-### <a name="enable-compatibility-mode"></a>Habilitación del modo de compatibilidad
-
-Actualmente, JavaScript Durable Functions requiere que esté habilitado el modo de compatibilidad de Azure Functions V2.
-
-1. Abra *local.settings.json* para editar la configuración que se usa cuando se ejecuta la aplicación localmente.
-
-1. Agregue una configuración denominada `FUNCTIONS_V2_COMPATIBILITY_MODE` con el valor `true`.
-
-    ```json
-    {
-        "IsEncrypted": false,
-        "Values": {
-            "AzureWebJobsStorage": "",
-            "FUNCTIONS_WORKER_RUNTIME": "node",
-            "FUNCTIONS_V2_COMPATIBILITY_MODE": "true"
-        }
-    }
-    ```
 
 ## <a name="install-the-durable-functions-npm-package"></a>Instalación del paquete npm de Durable Functions
 
@@ -169,7 +150,7 @@ Azure Functions Core Tools le permite ejecutar un proyecto de Azure Functions en
 
     ![Salida local de Azure](media/quickstart-js-vscode/functions-f5.png)
 
-1. Mediante una herramienta como [Postman](https://www.getpostman.com/) o [cURL](https://curl.haxx.se/), envíe una solicitud HTTP POST al punto de conexión de la dirección URL. Reemplace el último segmento por el nombre de la función de orquestador (`HelloOrchestrator`). La dirección URL debe ser similar a `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
+1. Mediante el explorador web o una herramienta como [Postman](https://www.getpostman.com/) o [cURL](https://curl.haxx.se/), envíe una solicitud HTTP POST al punto de conexión de la dirección URL. Reemplace el último segmento por el nombre de la función de orquestador (`HelloOrchestrator`). La dirección URL debe ser similar a `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 
    La respuesta es el resultado inicial de la función HTTP que le informa de que la orquestación perdurable se ha iniciado correctamente. No es aún el resultado final de la orquestación. La respuesta incluye algunas direcciones URL útiles. De momento, vamos a consultar el estado de la orquestación.
 
@@ -201,20 +182,6 @@ Después de comprobar que la función se ejecuta correctamente en el equipo loca
 [!INCLUDE [functions-create-function-app-vs-code](../../../includes/functions-sign-in-vs-code.md)]
 
 [!INCLUDE [functions-publish-project-vscode](../../../includes/functions-publish-project-vscode.md)]
-
-### <a name="enable-compatibility-mode"></a>Habilitación del modo de compatibilidad
-
-La misma compatibilidad con Azure Functions V2 que se ha habilitado localmente debe estar habilitada en la aplicación de Azure.
-
-1. En la paleta de comandos, busque y seleccione `Azure Functions: Edit Setting...`.
-
-1. Siga las indicaciones para encontrar la aplicación de funciones en la suscripción de Azure.
-
-1. Seleccione `Create new App Setting...`.
-
-1. Escriba una nueva clave de configuración de `FUNCTIONS_V2_COMPATIBILITY_MODE`.
-
-1. Escriba el valor de configuración `true`.
 
 ## <a name="test-your-function-in-azure"></a>Prueba de una función en Azure
 

@@ -5,13 +5,13 @@ author: mcollier
 ms.author: mcollier
 ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 02/15/2020
-ms.openlocfilehash: ada08de182791c6ecb2b83ef3b924bf40975e1ee
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 06/17/2020
+ms.openlocfilehash: 930b691019d5cb56e487c58e3ca01c4f7ee4ef98
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78852020"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261169"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Tutorial: Establecimiento del acceso a un sitio privado de Azure Functions
 
@@ -39,7 +39,7 @@ El siguiente diagrama muestra la arquitectura de la solución que se va a crear:
 
 ![Diagrama de arquitectura de alto nivel de la solución de acceso a un sitio privado](./media/functions-create-private-site-access/topology.png)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este tutorial, es importante que comprenda el direccionamiento IP y las subredes. Puede empezar con [este artículo que trata los aspectos básicos del direccionamiento y las subredes](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics). Hay muchos más artículos y vídeos disponibles en línea.
 
@@ -53,106 +53,107 @@ El primer paso de este tutorial consiste en crear una nueva máquina virtual den
 
 1. Seleccione el botón **Crear un recurso**.
 
-2. En el campo de búsqueda, escriba `Windows Server` y seleccione **Windows Server** en los resultados de la búsqueda.
+1. En el campo de búsqueda, escriba **Windows Server** y seleccione **Windows Server** en los resultados de la búsqueda.
 
-3. Seleccione **Windows Server 2019 Datacenter** en la lista de opciones de Windows Server y presione el botón **Crear**.
+1. Seleccione **Windows Server 2019 Datacenter** en la lista de opciones de Windows Server y presione el botón **Crear**.
 
-4. En la pestaña **Básico**, utilice la configuración de máquina virtual que se especifica en la tabla debajo de la imagen:
+1. En la pestaña _Básico_, utilice la configuración de máquina virtual que se especifica en la tabla debajo de la imagen:
 
     >[!div class="mx-imgBorder"]
     >![Pestaña Básico de una nueva máquina virtual Windows](./media/functions-create-private-site-access/create-vm-3.png)
 
     | Configuración      | Valor sugerido  | Descripción      |
     | ------------ | ---------------- | ---------------- |
-    | **Suscripción** | Su suscripción | Suscripción en la que se han creado los recursos. |
-    | [**Grupo de recursos**](../azure-resource-manager/management/overview.md) | myResourceGroup | Elija el grupo de recursos que contendrá todos los recursos de este tutorial.  Usar el mismo grupo de recursos facilita la limpieza de los recursos cuando termine el tutorial. |
-    | **Nombre de la máquina virtual** | myVM | El nombre de la máquina virtual debe ser único en el grupo de recursos |
-    | [**Región**](https://azure.microsoft.com/regions/) | (EE. UU.) Centro-norte de EE. UU. | Elija una región cerca de usted o cerca de las funciones a las que se va a acceder. |
-    | **Puertos de entrada públicos** | None | Seleccione **Ninguno** para asegurarse de que no hay conectividad de entrada a la máquina virtual desde Internet. El acceso remoto a la máquina virtual se configurará mediante el servicio Azure Bastion. |
+    | _Suscripción_ | Su suscripción | Suscripción en la que se han creado los recursos. |
+    | [_Grupo de recursos_](../azure-resource-manager/management/overview.md) | myResourceGroup | Elija el grupo de recursos que contendrá todos los recursos de este tutorial.  Usar el mismo grupo de recursos facilita la limpieza de los recursos cuando termine el tutorial. |
+    | _Nombre de la máquina virtual_ | myVM | El nombre de la máquina virtual debe ser único en el grupo de recursos |
+    | [_Región_](https://azure.microsoft.com/regions/) | (EE. UU.) Centro-norte de EE. UU. | Elija una región cerca de usted o cerca de las funciones a las que se va a acceder. |
+    | _Puertos de entrada públicos_ | None | Seleccione **Ninguno** para asegurarse de que no hay conectividad de entrada a la máquina virtual desde Internet. El acceso remoto a la máquina virtual se configurará mediante el servicio Azure Bastion. |
 
-5. Elija la pestaña **Redes** y seleccione **Crear nueva** para configurar una nueva red virtual.
+1. Elija la pestaña _Redes_ y seleccione **Crear nueva** para configurar una nueva red virtual.
 
     >[!div class="mx-imgBorder"]
     >![Creación de una nueva red virtual para la nueva máquina virtual](./media/functions-create-private-site-access/create-vm-networking.png)
 
-6. En **Crear red virtual**, use la configuración de la tabla que aparece debajo de la imagen:
+1. En _Crear red virtual_, use la configuración de la tabla que aparece debajo de la imagen:
 
     >[!div class="mx-imgBorder"]
     >![Creación de una nueva red virtual para la nueva máquina virtual](./media/functions-create-private-site-access/create-vm-vnet-1.png)
 
     | Configuración      | Valor sugerido  | Descripción      |
     | ------------ | ---------------- | ---------------- |
-    | **Nombre** | myResourceGroup-vnet | Puede usar el nombre predeterminado generado para la red virtual. |
-    | **Intervalo de direcciones** | 10.10.0.0/16 | Use un rango de dirección único para la red virtual. |
-    | **Nombre de subred** | Tutorial | Nombre de la subred. |
-    | **Rango de dirección** (subred) | 10.10.1.0/24 | El tamaño de la subred define la cantidad de interfaces que se pueden agregar a la subred. La máquina virtual usa esta subred. Una subred de `/24` proporciona 254 direcciones de host. |
+    | _Nombre_ | myResourceGroup-vnet | Puede usar el nombre predeterminado generado para la red virtual. |
+    | _Intervalo de direcciones_ | 10.10.0.0/16 | Use un rango de dirección único para la red virtual. |
+    | _Nombre de subred_ | Tutorial | Nombre de la subred. |
+    | _Rango de dirección_ (subred) | 10.10.1.0/24 | El tamaño de la subred define la cantidad de interfaces que se pueden agregar a la subred. La máquina virtual usa esta subred. Una subred de /24 proporciona 254 direcciones de host. |
 
-7. Seleccione **Aceptar** para crear la red virtual.
-8. De vuelta en la pestaña **Redes**, asegúrese de que se ha seleccionado **Ninguna** para **Dirección IP pública**.
-9. Elija la pestaña **Administración** y, a continuación, en **Cuenta de almacenamiento de diagnóstico**, elija **Crear nueva** para crear una nueva cuenta de almacenamiento.
-10. Deje los valores predeterminados para las secciones **Identidad**, **Apagado automático** y **Copia de seguridad**.
-11. Seleccione **Revisar + crear**. Una vez completada la validación, seleccione **Crear**. El proceso de creación de la máquina virtual tarda unos minutos.
+1. Seleccione **Aceptar** para crear la red virtual.
+1. De vuelta en la pestaña _Redes_, asegúrese de que se ha seleccionado **Ninguna** para _Dirección IP pública_.
+1. Elija la pestaña _Administración_ y, a continuación, en _Cuenta de almacenamiento de diagnóstico_, elija **Crear nueva** para crear una nueva cuenta de almacenamiento.
+1. Deje los valores predeterminados para las secciones _Identidad_, _Apagado automático_ y _Copia de seguridad_.
+1. Seleccione _Revisar + crear_. Una vez completada la validación, seleccione **Crear**. El proceso de creación de la máquina virtual tarda unos minutos.
 
 ## <a name="configure-azure-bastion"></a>Configuración de Azure Bastion
 
 [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) es un servicio de Azure totalmente administrado que proporciona acceso seguro mediante RDP y SSH a las máquinas virtuales directamente desde Azure Portal. El uso del servicio Azure Bastion elimina la necesidad de establecer la configuración de red relacionada con el acceso mediante RDP.
 
 1. En el portal, elija **Agregar** en la parte superior de la vista de grupo de recursos.
-2. En el campo de búsqueda, escriba "Bastion".  Seleccione "Bastion".
-3. Seleccione **Crear** para iniciar el proceso de creación de un nuevo recurso de Azure Bastion. Observará un mensaje de error en la sección **Red virtual**, dado que todavía no existe una subred `AzureBastionSubnet`. La subred se crea en los pasos siguientes. Utilice la configuración de la tabla debajo de la imagen:
+1. En el campo de búsqueda, escriba **Bastion**.
+1. Seleccione **Bastion** en los resultados de la búsqueda.
+1. Seleccione **Crear** para iniciar el proceso de creación de un nuevo recurso de Azure Bastion. Verá un mensaje de error en la sección _Red virtual_, dado que todavía no existe una subred AzureBastionSubnet. La subred se crea en los pasos siguientes. Utilice la configuración de la tabla debajo de la imagen:
 
     >[!div class="mx-imgBorder"]
     >![Inicio de la creación del recurso de Azure Bastion](./media/functions-create-private-site-access/create-bastion-basics-1.png)
 
     | Configuración      | Valor sugerido  | Descripción      |
     | ------------ | ---------------- | ---------------- |
-    | **Nombre** | myBastion | nombre del nuevo recurso de Bastion. |
-    | **Región** | Centro-Norte de EE. UU | Elija una [región](https://azure.microsoft.com/regions/) cerca de usted o cerca de otros servicios a los que tendrán acceso las funciones. |
-    | **Red virtual** | myResourceGroup-vnet | Red virtual en la que se creará el recurso de Bastion. |
-    | **Subred** | AzureBastionSubnet | subred de la red virtual en la que se implementará el nuevo recurso de host de Bastion. Debe crear una subred con el valor `AzureBastionSubnet` para el nombre. Este valor permite a Azure saber en qué subred se deben implementar los recursos de Bastion. Debe usar una subred de al menos `/27` o mayor (`/27`, `/26`, etc.). |
+    | _Nombre_ | myBastion | nombre del nuevo recurso de Bastion. |
+    | _Región_ | Centro-Norte de EE. UU | Elija una [región](https://azure.microsoft.com/regions/) cerca de usted o cerca de otros servicios a los que tendrán acceso las funciones. |
+    | _Red virtual_ | myResourceGroup-vnet | Red virtual en la que se creará el recurso de Bastion. |
+    | _Subred_ | AzureBastionSubnet | subred de la red virtual en la que se implementará el nuevo recurso de host de Bastion. Debe crear una subred con el valor de nombre **AzureBastionSubnet**. Este valor permite a Azure saber en qué subred se deben implementar los recursos de Bastion. Debe usar una subred de al menos **/27** o mayor (/27,/26, etc.). |
 
     > [!NOTE]
     > Para obtener una guía paso a paso detallada sobre la creación de un recurso de Azure Bastion, consulte el tutorial [Creación de un host de Azure Bastion](../bastion/bastion-create-host-portal.md).
 
-4. Cree una subred en la que Azure pueda aprovisionar el host de Azure Bastion. Al elegir **Administrar la configuración de subred**, se abre un nuevo panel en el que puede definir una nueva subred.  Elija **+ Subred** para crear una nueva subred.
-5. La subred debe tener el nombre `AzureBastionSubnet` y el prefijo de subred debe ser al menos `/27`.  Seleccione **Aceptar** para crear la subred.
+1. Cree una subred en la que Azure pueda aprovisionar el host de Azure Bastion. Al elegir **Administrar la configuración de subred**, se abre un nuevo panel en el que puede definir una nueva subred.  Elija **+ Subred** para crear una nueva subred.
+1. La subred debe tener el nombre **AzureBastionSubnet** y el prefijo de subred debe ser al menos **/27**.  Seleccione **Aceptar** para crear la subred.
 
     >[!div class="mx-imgBorder"]
     >![Creación de una subred para el host de Azure Bastion](./media/functions-create-private-site-access/create-bastion-subnet-2.png)
 
-6. En la página **Crear un host bastión**, seleccione la recién creada `AzureBastionSubnet` en la lista de subredes disponibles.
+1. En la página _Crear una instancia de Bastion_, seleccione la que se acaba de crear, **AzureBastionSubnet**, en la lista de subredes disponibles.
 
     >[!div class="mx-imgBorder"]
     >![Creación de un host de Azure Bastion con una subred específica](./media/functions-create-private-site-access/create-bastion-basics-2.png)
 
-7. Seleccione **Revisar y crear**. Una vez finalice la validación, seleccione **Crear**. Se tardará unos minutos en crear el recurso de Azure Bastion.
+1. Seleccione **Revisar y crear**. Una vez finalice la validación, seleccione **Crear**. Se tardará unos minutos en crear el recurso de Azure Bastion.
 
 ## <a name="create-an-azure-functions-app"></a>Creación de una aplicación de Azure Functions
 
 El siguiente paso consiste en crear una aplicación de funciones en Azure con el [Plan de consumo](functions-scale.md#consumption-plan). El código de la función se implementará en este recurso más adelante en el tutorial.
 
 1. En el portal, elija **Agregar** en la parte superior de la vista de grupo de recursos.
-2. Seleccione **Proceso > Aplicación de funciones**.
-3. En la sección **Básico**, utilice la configuración de la aplicación de funciones que se especifica en la tabla siguiente.
+1. Seleccione **Proceso > Aplicación de funciones**.
+1. En la sección _Básico_, utilice la configuración de la aplicación de funciones que se especifica en la tabla siguiente.
 
     | Configuración      | Valor sugerido  | Descripción      |
     | ------------ | ---------------- | ---------------- |
-    | **Grupo de recursos** | myResourceGroup | Elija el grupo de recursos que contendrá todos los recursos de este tutorial.  Usar el mismo grupo de recursos para la aplicación de funciones y la máquina virtual facilita la limpieza de los recursos cuando termine el tutorial. |
-    | **Nombre de la aplicación de función** | Nombre único globalmente | Nombre que identifica la nueva Function App. Los caracteres válidos son a-z (no se distinguen mayúsculas de minúsculas), 0-9 y -. |
-    | **Publicar** | Código | Opción para publicar archivos de código o un contenedor de Docker. |
-    | **Pila en tiempo de ejecución** | Lenguaje preferido | Elija un tiempo de ejecución que admita su lenguaje de programación de funciones preferido. |
-    | **Región** | Centro-Norte de EE. UU | Elija una [región](https://azure.microsoft.com/regions/) cerca de usted o cerca de otros servicios a los que tendrán acceso las funciones. |
+    | _Grupo de recursos_ | myResourceGroup | Elija el grupo de recursos que contendrá todos los recursos de este tutorial.  Usar el mismo grupo de recursos para la aplicación de funciones y la máquina virtual facilita la limpieza de los recursos cuando termine el tutorial. |
+    | _Nombre de la aplicación de función_ | Nombre único globalmente | Nombre que identifica la nueva Function App. Los caracteres válidos son a-z (no se distinguen mayúsculas de minúsculas), 0-9 y -. |
+    | _Publicar_ | Código | Opción para publicar archivos de código o un contenedor de Docker. |
+    | _Pila en tiempo de ejecución_ | Lenguaje preferido | Elija un tiempo de ejecución que admita su lenguaje de programación de funciones preferido. |
+    | _Región_ | Centro-Norte de EE. UU | Elija una [región](https://azure.microsoft.com/regions/) cerca de usted o cerca de otros servicios a los que tendrán acceso las funciones. |
 
     Seleccione el botón **Siguiente: Hospedaje >** .
-4. En la sección **Hospedaje**, seleccione la **Cuenta de almacenamiento**, el **Sistema operativo** y el **Plan** adecuados según se describe en la tabla siguiente.
+1. En la sección _Hospedaje_, seleccione los valores adecuados de _Cuenta de almacenamiento_, _Sistema operativo_ y _Plan_, según se describe en la tabla siguiente.
 
     | Configuración      | Valor sugerido  | Descripción      |
     | ------------ | ---------------- | ---------------- |
-    | **Cuenta de almacenamiento** | Nombre único globalmente | Cree una cuenta de almacenamiento que use la aplicación de función. Los nombres de las cuentas de almacenamiento deben tener entre 3 y 24 caracteres y solo pueden incluir números y letras en minúscula. También puede usar una cuenta existente que debe cumplir los [requisitos de la cuenta de almacenamiento](./functions-scale.md#storage-account-requirements). |
-    | **Sistema operativo** | Sistema operativo preferido | Se preselecciona un sistema operativo en función de la selección de pila en tiempo de ejecución, pero puede cambiar esta configuración si es necesario. |
-    | **Plan** | Consumo | El [Plan de hospedaje](./functions-scale.md) determina cómo se escala la aplicación de funciones y los recursos disponibles para cada instancia. |
-5. Seleccione **Revisar y crear** para revisar las selecciones de configuración de la aplicación.
-6. Seleccione **Crear** para aprovisionar e implementar la aplicación de función.
+    | _Cuenta de almacenamiento_ | Nombre único globalmente | Cree una cuenta de almacenamiento que use la aplicación de función. Los nombres de las cuentas de almacenamiento deben tener entre 3 y 24 caracteres y solo pueden incluir números y letras en minúscula. También puede usar una cuenta existente que debe cumplir los [requisitos de la cuenta de almacenamiento](./functions-scale.md#storage-account-requirements). |
+    | _Sistema operativo_ | Sistema operativo preferido | Se preselecciona un sistema operativo en función de la selección de pila en tiempo de ejecución, pero puede cambiar esta configuración si es necesario. |
+    | _Plan_ | Consumo | El [Plan de hospedaje](./functions-scale.md) determina cómo se escala la aplicación de funciones y los recursos disponibles para cada instancia. |
+1. Seleccione **Revisar y crear** para revisar las selecciones de configuración de la aplicación.
+1. Seleccione **Crear** para aprovisionar e implementar la aplicación de función.
 
 ## <a name="configure-access-restrictions"></a>Configuración de las restricciones de acceso
 
@@ -160,26 +161,32 @@ El siguiente paso consiste en configurar [restricciones de acceso](../app-servic
 
 El acceso a un [sitio privado](functions-networking-options.md#private-site-access) se habilita mediante la creación de un [punto de conexión de servicio](../virtual-network/virtual-network-service-endpoints-overview.md) de red virtual de Azure entre la aplicación de funciones y la red virtual especificada. Las restricciones de acceso se implementan mediante puntos de conexión de servicio. Los puntos de conexión de servicio garantizan que solo el tráfico que se origina desde dentro de la red virtual especificada puede acceder al recurso designado. En este caso, el recurso designado es la función de Azure.
 
-1. Dentro de la aplicación de funciones, vaya a la pestaña **Características de la plataforma**. Seleccione el vínculo **Redes** en el encabezado de la sección *Redes* para abrir la sección Estado de la característica de red.
-2. La página **Estado de la característica de red** es el punto de partida para configurar Azure Front Door, Azure CDN y las restricciones de acceso. Seleccione **Configurar restricciones de acceso** para configurar el acceso al sitio privado.
-3. En la página **Restricciones de acceso**, solo verá la restricción predeterminada. El valor predeterminado no impone restricciones sobre el acceso a la aplicación de funciones.  Seleccione **Agregar regla** para crear una configuración de restricción de acceso al sitio privado.
-4. En el panel **Agregar restricción de acceso**, seleccione **Red virtual** en el cuadro desplegable **Tipo** y, a continuación, seleccione la red virtual y la subred que creó anteriormente.
-5. La página **Restricciones de acceso** ahora muestra que hay una nueva restricción. Es posible que **Estado del punto de conexión** tarde unos segundos en cambiar de `Disabled` a `Provisioning` y a `Enabled`.
+1. Dentro de la aplicación de funciones, seleccione el vínculo **Redes** en el encabezado de la sección _Configuración_.
+1. La página _Redes_ es el punto de partida para configurar Azure Front Door, Azure CDN y las restricciones de acceso.
+1. Seleccione **Configurar restricciones de acceso** para configurar el acceso al sitio privado.
+1. En la página _Restricciones de acceso_, solo verá la restricción predeterminada. El valor predeterminado no impone restricciones sobre el acceso a la aplicación de funciones.  Seleccione **Agregar regla** para crear una configuración de restricción de acceso al sitio privado.
+1. En el panel _Agregar restricción de acceso_, proporcione los valores para _Nombre_, _Prioridad_ y _Descripción_ de la nueva regla.
+1. Seleccione **Red virtual** en el cuadro desplegable _Tipo_ y, luego, elija la red virtual creada anteriormente y la subred **Tutorial**. 
+    > [!NOTE]
+    > La habilitación del punto de conexión de servicio puede tardar varios minutos.
+1. La página _Restricciones de acceso_ ahora muestra que hay una nueva restricción. Puede que transcurran algunos segundos antes de que el _estado del punto de conexión_ cambie a Habilitado, tras pasar por Deshabilitado y Aprovisionando.
 
     >[!IMPORTANT]
-    > Cada aplicación de funciones tiene un [sitio de Herramientas avanzadas (Kudu)](../app-service/app-service-ip-restrictions.md#scm-site) que se usa para administrar las implementaciones de la aplicación de funciones. Al sitio se accede mediante una dirección URL como: `<FUNCTION_APP_NAME>.scm.azurewebsites.net`. Como no se han habilitado restricciones de acceso en este sitio de implementación, puede implementar el código del proyecto desde una estación de trabajo de desarrollador local o un servicio de compilación sin necesidad de aprovisionar un agente en la red virtual.
+    > Cada aplicación de funciones tiene un [sitio de Herramientas avanzadas (Kudu)](../app-service/app-service-ip-restrictions.md#scm-site) que se usa para administrar las implementaciones de la aplicación de funciones. Al sitio se accede mediante una dirección URL como: `<FUNCTION_APP_NAME>.scm.azurewebsites.net`. Habilitar las restricciones de acceso en el sitio de Kudu impide la implementación del código de proyecto desde una estación de trabajo de desarrollador local, y se necesita entonces un agente dentro de la red virtual para realizar la implementación.
 
 ## <a name="access-the-functions-app"></a>Acceso a la aplicación de funciones
 
-1. Vuelva a la aplicación de funciones creada anteriormente.  En la sección **Información general**, copie la dirección URL.
+1. Vuelva a la aplicación de funciones creada anteriormente.  En la sección _Información general_, copie la dirección URL.
 
     >[!div class="mx-imgBorder"]
     >![Obtención de la dirección URL de la aplicación de funciones](./media/functions-create-private-site-access/access-function-overview.png)
 
-2. Si intenta acceder ahora a la aplicación de funciones desde el equipo que está fuera de la red virtual, recibirá una página HTTP 403 que indica que la aplicación está detenida.  La aplicación no está detenida. La respuesta es realmente un estado HTTP 403 Dirección IP prohibida.
-3. Ahora tendrá acceso a la función desde la máquina virtual creada anteriormente, que está conectada a la red virtual. Para acceder al sitio desde la máquina virtual, necesitará conectarse a la máquina virtual mediante el servicio Azure Bastion.  En primer lugar, seleccione **Conectar** y, a continuación, seleccione **Bastion**.
-4. Proporcione el nombre de usuario y la contraseña necesarios para iniciar sesión en la máquina virtual.  Seleccione **Conectar**. Aparecerá una nueva ventana del explorador para que pueda interactuar con la máquina virtual.
-5. Dado que esta máquina virtual tiene acceso a la función a través de la red virtual, es posible acceder al sitio desde el explorador web de la máquina virtual.  Es importante tener en cuenta que aunque la aplicación de función solo es accesible desde dentro de la red virtual designada, se mantiene una entrada DNS pública. Como se mostró anteriormente, si se intenta acceder al sitio, se producirá una respuesta HTTP 403.
+    Si intenta acceder ahora a la aplicación de funciones desde el equipo que está fuera de la red virtual, recibirá una página HTTP 403 que indica que se prohíbe el acceso.
+1. Vuelva al grupo de recursos y seleccione la máquina virtual creada anteriormente. Para acceder al sitio desde la máquina virtual, necesitará conectarse a esta mediante el servicio Azure Bastion.
+1. Seleccione **Conectar** y, luego, elija **Bastion**.
+1. Proporcione el nombre de usuario y la contraseña necesarios para iniciar sesión en la máquina virtual.
+1. Seleccione **Conectar**. Aparecerá una nueva ventana del explorador para que pueda interactuar con la máquina virtual.
+Dado que esta máquina virtual tiene acceso al sitio mediante una red virtual, es posible acceder al sitio desde el explorador web de la máquina virtual.  Aunque el sitio solo es accesible desde dentro de la red virtual designada, se mantiene una entrada de DNS pública.
 
 ## <a name="create-a-function"></a>Creación de una función
 
@@ -192,23 +199,20 @@ El siguiente paso de este tutorial consiste en crear una función de Azure desen
     * [Línea de comandos](./functions-create-first-azure-function-azure-cli.md)
     * [Maven (Java)](./functions-create-first-java-maven.md)
 
-2. Al publicar el proyecto de Azure Functions, elija el recurso de la aplicación de funciones que creó anteriormente en este tutorial.
-3. Compruebe que la función está implementada.
+1. Al publicar el proyecto de Azure Functions, elija el recurso de la aplicación de funciones que creó anteriormente en este tutorial.
+1. Compruebe que la función está implementada.
 
     >[!div class="mx-imgBorder"]
     >![Función implementada en la lista de funciones](./media/functions-create-private-site-access/verify-deployed-function.png)
 
 ## <a name="invoke-the-function-directly"></a>Invocación directa de la función
 
-1. Para probar el acceso a la función, debe copiar la dirección URL de la función. Seleccione la función implementada y, a continuación, seleccione **</> Obtener la dirección URL de la función**. A continuación, haga clic en el botón **Copiar** para copiar la dirección URL en el Portapapeles.
+1. Para probar el acceso a la función, debe copiar la dirección URL de la función. Seleccione la función implementada y, luego, elija **Obtener la dirección URL de la función**. A continuación, haga clic en el botón **Copiar** para copiar la dirección URL en el Portapapeles.
 
     >[!div class="mx-imgBorder"]
     >![Copia de la dirección URL de la función](./media/functions-create-private-site-access/get-function-url.png)
 
-    > [!NOTE]
-    > Cuando se ejecuta la función, verá un error en tiempo de ejecución en el portal que indica que no se puede iniciar el entorno de ejecución de la función. A pesar del texto del mensaje, la aplicación de funciones está en ejecución. El error se debe a las nuevas restricciones de acceso, que impiden que el portal consulte para comprobar el entorno de ejecución.
-
-2. Pegue la dirección URL en un explorador web. Si intenta acceder ahora a la aplicación de funciones desde un equipo que está fuera de la red virtual, recibirá una respuesta HTTP 403 que indica que la aplicación está detenida.
+1. Pegue la dirección URL en un explorador web. Si intenta acceder ahora a la aplicación de funciones desde un equipo que está fuera de la red virtual, recibirá una respuesta HTTP 403 que indica que el acceso a la aplicación está prohibido.
 
 ## <a name="invoke-the-function-from-the-virtual-network"></a>Invocación de la función desde la red virtual
 

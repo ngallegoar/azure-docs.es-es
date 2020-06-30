@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: bb2679d0f681ae82bbe1a50671bd2ff70a239dfb
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 3bd2744c651544fc7dfe41b350168a7f387c0928
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194504"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254470"
 ---
-# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Carga de datos incremental de una base de datos de Azure SQL en Azure Blob Storage mediante PowerShell
+# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Carga de datos incremental de Azure SQL Database a Azure Blob Storage mediante PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-En este tutorial, creará una instancia de Azure Data Factory con una canalización que carga los datos diferenciales de una tabla en una base de datos de Azure SQL en Azure Blob Storage.
+En este tutorial, creará una instancia de Azure Data Factory con una canalización que carga los datos diferenciales de una tabla de Azure SQL Database en Azure Blob Storage.
 
 En este tutorial, realizará los siguientes pasos:
 
@@ -63,7 +63,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Azure SQL Database**. La base de datos se usa como almacén de datos de origen. Si no tiene ninguna, consulte [Creación de una base de datos de Azure SQL](../azure-sql/database/single-database-create-quickstart.md) para ver los pasos para su creación.
+* **Azure SQL Database**. La base de datos se usa como almacén de datos de origen. Si no tiene ninguna base de datos en Azure SQL Database, consulte el artículo [Creación de una base de datos en Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) para ver los pasos y crear una.
 * **Azure Storage**. Blob Storage se usa como almacén de datos receptor. Si no tiene una cuenta de almacenamiento, consulte la sección [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md) para ver los pasos para su creación. Cree un contenedor denominado adftutorial. 
 * **Azure PowerShell**. Siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azure/install-Az-ps).
 
@@ -192,11 +192,11 @@ Tenga en cuenta los siguientes puntos:
     ```
 
 * Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe ser un miembro de los roles colaborador o propietario, o de administrador de la suscripción de Azure.
-* Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, SQL Database, etc.) y los procesos (Azure HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+* Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Storage, SQL Database, Instancia administrada de Azure SQL, etc.) y los procesos (Azure HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
 
 ## <a name="create-linked-services"></a>Crear servicios vinculados
-Los servicios vinculados se crean en una factoría de datos para vincular los almacenes de datos y los servicios de proceso con la factoría de datos. En esta sección, creará servicios vinculados para su cuenta de almacenamiento y base de datos SQL.
+Los servicios vinculados se crean en una factoría de datos para vincular los almacenes de datos y los servicios de proceso con la factoría de datos. En esta sección, creará servicios vinculados a la cuenta de almacenamiento y a SQL Database.
 
 ### <a name="create-a-storage-linked-service"></a>Creación de un servicio vinculado de Storage
 1. Cree un archivo JSON llamado AzureStorageLinkedService.json en la carpeta C:\ADF con el siguiente contenido. (Cree la carpeta ADF si no existe). Reemplace `<accountName>` y `<accountKey>` con el nombre y la clave de la cuenta de almacenamiento antes de guardar el archivo.
@@ -732,7 +732,7 @@ En este tutorial, realizó los pasos siguientes:
 > * Ejecución de la canalización
 > * Supervisión de la ejecución de la canalización
 
-En este tutorial, la canalización copió datos de una única tabla de una base de datos SQL a una instancia de Blob Storage. Avance al tutorial siguiente para aprender a copiar datos de varias tablas de una base de datos de SQL Server en SQL Database.
+En este tutorial, la canalización copió datos de una única tabla de Azure SQL Database a Blob Storage. Avance al tutorial siguiente para aprender a copiar datos de varias tablas de una base de datos de SQL Server en SQL Database.
 
 > [!div class="nextstepaction"]
 >[Carga incremental de datos de varias tablas de SQL Server a Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)

@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
-ms.openlocfilehash: 83ba361541949b1be8205361d968ec6614b97cc9
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: bbb6ac60c28635371760987b7a55ae7344dd73fb
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84217947"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115051"
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Inicio rápido: Compilación de una aplicación de Table API con Node.js y Azure Cosmos DB
 
@@ -138,7 +138,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
 1. En la cuenta de Azure Cosmos DB, en [Azure Portal](https://portal.azure.com/), seleccione **Cadena de conexión**. 
 
-    ![Visualización y copia de la información necesaria de la cadena de conexión desde el panel Cadena de conexión](./media/create-table-nodejs/connection-string.png)
+    :::image type="content" source="./media/create-table-nodejs/connection-string.png" alt-text="Visualizar y copiar la información necesaria de la cadena de conexión desde el panel Cadena de conexión":::
 
 2. Utilice los botones de copia en el lado derecho para copiar la cadena de conexión principal (PRIMARY CONNECTION STRING).
 

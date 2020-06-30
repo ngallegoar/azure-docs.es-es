@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: cc81784d4ad3613cf46176912625cf980c44f064
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 91bf2ba0957104b7ccba330f914734a362c3e309
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235049"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255439"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Tutorial: Sincronización de datos desde SQL Edge a Azure Blob Storage mediante Azure Data Factory
 
@@ -25,7 +25,7 @@ En este tutorial, usará Azure Data Factory para realizar sincronizaciones incre
 Si no ha creado una base de datos o una tabla en la implementación de Azure SQL Edge, use uno de estos métodos para hacerlo:
 
 * Use [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/) o [Azure Data Studio](/sql/azure-data-studio/download/) para conectarse a SQL Edge. Ejecute un script SQL para crear la base de datos y la tabla.
-* Cree una base de datos y una tabla SQL mediante [SQLCMD](/sql/tools/sqlcmd-utility/), para lo cual debe conectarse directamente al módulo de SQL Edge. Para más información, consulte el artículo en el que se explica cómo [conectarse al motor de base de datos mediante sqlcmd](/sql/ssms/scripting/sqlcmd-connect-to-the-database-engine/).
+* Cree una base de datos y una tabla mediante [SQLCMD](/sql/tools/sqlcmd-utility/), para lo cual debe conectarse directamente al módulo de SQL Edge. Para más información, consulte el artículo en el que se explica cómo [conectarse al motor de base de datos mediante sqlcmd](/sql/ssms/scripting/sqlcmd-connect-to-the-database-engine/).
 * Use SQLPackage.exe para implementar un archivo de paquete DAC en el contenedor de SQL Edge. Para automatizar este proceso es preciso especificar el identificador URI del archivo SqlPackage como parte de la configuración de las propiedades deseadas del módulo. También puede usar directamente la herramienta de cliente SqlPackage.exe para implementar un paquete DAC en SQL Edge.
 
     Para obtener información sobre cómo descargar Sqlpackage.exe, consulte [Descarga e instalación de sqlpackage](/sql/tools/sqlpackage-download/). A continuación, encontrará algunos comandos de ejemplo de SqlPackage.exe. Para más información, consulte la documentación de SqlPackage.exe.

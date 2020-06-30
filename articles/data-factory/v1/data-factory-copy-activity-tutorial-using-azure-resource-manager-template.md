@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: creación de una canalización mediante el uso de plantillas de Azure Resource Manager '
-description: En este tutorial, creará una canalización de Azure Data Factory mediante una plantilla de Azure Resource Manager. Esta canalización copia datos de una instancia de Azure Blob Storage a una base de datos de Azure SQL.
+description: En este tutorial, creará una canalización de Azure Data Factory mediante una plantilla de Azure Resource Manager. Esta canalización copia datos desde una instancia de Azure Blob Storage hasta Azure SQL Database.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3800460c7b17adf1a10c1efc3adc12d65bbeb670
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 549c85f92434504b931f0325959beb17ae92afba
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022000"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254895"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: Uso de plantillas de Azure Resource Manager para crear una canalización de Data Factory para copiar datos 
 > [!div class="op_single_selector"]
@@ -56,11 +56,11 @@ En este tutorial, va a crear una factoría de datos con las siguientes entidades
 
 | Entidad | Descripción |
 | --- | --- |
-| Servicio vinculado de Azure Storage |Vincula la cuenta de Azure Storage a la factoría de datos. Azure Storage es el almacén de datos de origen y Azure SQL Database es el almacén de datos del receptor para la actividad de copia en el tutorial. Especifica la cuenta de almacenamiento que contiene los datos de entrada para la actividad de copia. |
-| Servicio vinculado de Azure SQL Database |Vincula la base de datos de Azure SQL a la factoría de datos. Especifica la base de datos de Azure SQL que contiene los datos de salida para la actividad de copia. |
+| Servicio vinculado de Azure Storage |Vincula la cuenta de Azure Storage a la factoría de datos. Azure Storage es el almacén de datos de origen y Azure SQL Database es el almacén de datos receptor para la actividad de copia del tutorial. Especifica la cuenta de almacenamiento que contiene los datos de entrada para la actividad de copia. |
+| Servicio vinculado de Azure SQL Database |Vincula la base de datos de Azure SQL Database a la factoría de datos. Especifica la base de datos que contiene los datos de salida para la actividad de copia. |
 | Conjunto de datos de entrada de blob de Azure |Hace referencia al servicio vinculado de Azure Storage. El servicio vinculado hace referencia a una cuenta de Azure Storage y los conjuntos de datos del blob de Azure especifican el contenedor, la carpeta y el nombre de archivo del almacenamiento que contiene los datos de entrada. |
 | Conjunto de datos de salida SQL de Azure |Hace referencia al servicio vinculado de Azure SQL. El servicio vinculado de SQL Azure hace referencia a un servidor SQL lógico y el conjunto de datos de Azure SQL especifica el nombre de la tabla que contiene los datos de salida. |
-| Canalización de datos |La canalización tiene una actividad de tipo Copiar que toma el conjunto de datos del blob de Azure como entrada y el conjunto de datos de Azure SQL como salida. Esta actividad copia datos desde un blob de Azure a una tabla de la base de datos de Azure SQL. |
+| Canalización de datos |La canalización tiene una actividad de tipo Copiar que toma el conjunto de datos del blob de Azure como entrada y el conjunto de datos de Azure SQL como salida. Esta actividad copia datos desde un blob de Azure hasta una tabla de Azure SQL Database. |
 
 Una factoría de datos puede tener una o más canalizaciones. Una canalización puede tener una o más actividades. Hay dos tipos de actividades: [actividades de movimiento de datos](data-factory-data-movement-activities.md) y [actividades de transformación de datos](data-factory-data-transformation-activities.md). En este tutorial, va a crear una canalización con una actividad (actividad de copia).
 
@@ -302,8 +302,8 @@ Cree un archivo JSON denominado **ADFCopyTutorialARM Parameters.json** que conti
         "sourceBlobContainer": { "value": "adftutorial" },
         "sourceBlobName": { "value": "emp.txt" },
         "sqlServerName": { "value": "<Name of the logical SQL server>" },
-        "databaseName": { "value": "<Name of the Azure SQL database>" },
-        "sqlServerUserName": { "value": "<Name of the user who has access to the Azure SQL database>" },
+        "databaseName": { "value": "<Name of the database>" },
+        "sqlServerUserName": { "value": "<Name of the user who has access to the database>" },
         "sqlServerPassword": { "value": "<password for the user>" },
         "targetSQLTable": { "value": "emp" }
     }
@@ -351,7 +351,7 @@ Cree un archivo JSON denominado **ADFCopyTutorialARM Parameters.json** que conti
    
     ![Página principal de la factoría de datos](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
 6. Siga las instrucciones que se indican en [Supervisión de conjuntos de datos y canalizaciones](data-factory-monitor-manage-pipelines.md) para supervisar la canalización y los conjuntos de datos que ha creado en este tutorial. Actualmente, Visual Studio no permite supervisar canalizaciones de Data Factory.
-7. Cuando un segmento se encuentre en el estado **Listo**, compruebe que los datos se copian en la tabla **emp** de la base de datos de Azure SQL.
+7. Cuando un segmento se encuentre en el estado **Listo**, compruebe que los datos se copian en la tabla **emp** de la base de datos de Azure SQL Database.
 
 
 Para más información sobre cómo usar las hojas de Azure Portal para supervisar la canalización y los conjuntos de datos creados en este tutorial, consulte [Supervisión de conjuntos de datos y canalizaciones](data-factory-monitor-manage-pipelines.md).
@@ -413,7 +413,7 @@ AzureStorageLinkedService vincula una cuenta de Azure Storage a la factoría de 
 ConnectionString utiliza los parámetros storageAccountName y storageAccountKey. Los valores de estos parámetros se pasan mediante el uso de un archivo de configuración. La definición también usa las variables azureStroageLinkedService y dataFactoryName definidas en la plantilla. 
 
 #### <a name="azure-sql-database-linked-service"></a>Servicio vinculado de Azure SQL Database
-AzureSqlLinkedService vincula la base de datos de Azure SQL con la factoría de datos. Los datos que se copian desde Blob Storage se almacenan en esta base de datos. Como parte de los [requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), se creó la tabla emp en esta base de datos. Especifique el nombre del servidor SQL lógico, el nombre de la base de datos, el nombre de usuario y la contraseña del usuario en esta sección. Consulte [Servicio vinculado de Azure SQL](data-factory-azure-sql-connector.md#linked-service-properties) para obtener información sobre las propiedades JSON usadas para definir un servicio vinculado de Azure SQL.  
+AzureSqlLinkedService vincula la base de datos de Azure SQL Database con la factoría de datos. Los datos que se copian desde Blob Storage se almacenan en esta base de datos. Como parte de los [requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), se creó la tabla emp en esta base de datos. Especifique el nombre del servidor SQL lógico, el nombre de la base de datos, el nombre de usuario y la contraseña del usuario en esta sección. Consulte [Servicio vinculado de Azure SQL](data-factory-azure-sql-connector.md#linked-service-properties) para obtener información sobre las propiedades JSON usadas para definir un servicio vinculado de Azure SQL.  
 
 ```json
 {
@@ -478,7 +478,7 @@ El servicio vinculado Azure Storage especifica la cadena de conexión que el ser
 ```
 
 #### <a name="azure-sql-dataset"></a>Conjunto de datos de Azure SQL
-Especifique el nombre de la tabla de la base de datos de Azure SQL que contiene los datos copiados desde Azure Blob Storage. Consulte las [propiedades del conjunto de datos del blob de Azure](data-factory-azure-sql-connector.md#dataset-properties) para más información sobre las propiedades JSON usadas para definir un conjunto de datos de Azure SQL. 
+Especifique el nombre de la tabla de Azure SQL Database que contiene los datos copiados de Azure Blob Storage. Consulte las [propiedades del conjunto de datos del blob de Azure](data-factory-azure-sql-connector.md#dataset-properties) para más información sobre las propiedades JSON usadas para definir un conjunto de datos de Azure SQL. 
 
 ```json
 {
@@ -572,7 +572,7 @@ Va a definir una canalización que copia los datos del conjunto de datos de blob
 ```
 
 ## <a name="reuse-the-template"></a>Reutilización de la plantilla
-En el tutorial, ha creado una plantilla para definir las entidades de Data Factory y una plantilla para pasar valores de parámetros. La canalización copia los datos desde una cuenta de Azure Storage a una base de datos de Azure SQL especificada a través de parámetros. Para usar la misma plantilla para implementar las entidades de Data Factory en distintos entornos, cree un archivo de parámetros para cada entorno y utilícelo al implementarla en ese entorno.     
+En el tutorial, ha creado una plantilla para definir las entidades de Data Factory y una plantilla para pasar valores de parámetros. La canalización copia los datos desde una cuenta de Azure Storage hasta la base de datos de Azure SQL especificada a través de parámetros. Para usar la misma plantilla para implementar las entidades de Data Factory en distintos entornos, cree un archivo de parámetros para cada entorno y utilícelo al implementarla en ese entorno.     
 
 Ejemplo:  
 
@@ -591,7 +591,7 @@ Tenga en cuenta que el primer comando usa el archivo de parámetros para el ento
 También puede volver a usar la plantilla para llevar a cabo tareas repetidas. Por ejemplo, necesita crear muchas instancias de Data Factory con una o varias canalizaciones que implementen la misma lógica, pero cada instancia de Data Factory usa cuentas de Storage y SQL Database distintas. En este escenario, usa la misma plantilla en el mismo entorno (desarrollo, prueba o producción) con distintos archivos de parámetros para crear factorías de datos.   
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, ha usado Azure Blob Storage como almacén de datos de origen y una base de datos de Azure SQL como almacén de datos de destino en una operación de copia. En la tabla siguiente se proporciona una lista de almacenes de datos que se admiten como orígenes y destinos de la actividad de copia: 
+En este tutorial, ha usado Azure Blob Storage como almacén de datos de origen y Azure SQL Database como almacén de datos de destino en una operación de copia. En la tabla siguiente se proporciona una lista de almacenes de datos que se admiten como orígenes y destinos de la actividad de copia: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
 

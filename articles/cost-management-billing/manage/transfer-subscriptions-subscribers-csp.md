@@ -5,20 +5,20 @@ author: bandersmsft
 ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 06/19/2020
 ms.author: banders
-ms.openlocfilehash: b198a781da6e18c363e90d8bd5314dafc563dcca
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 91f11502a136ca08d62072808d270f8e840a8710
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791160"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106436"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transferencia de suscripciones de Azure entre suscriptores y CSP
 
-En este artículo se brindan los pasos generales que se siguen para transferir suscripciones de Azure entre los partners del Proveedor de soluciones en la nube (CSP) y sus clientes.
+En este artículo se proporcionan los pasos generales que se siguen para transferir suscripciones de Azure a asociados del Proveedor de soluciones en la nube (CSP) y sus clientes, y a recibirlos de ellos.
 
-## <a name="transfer-ea-subscriptions"></a>Transferencia de suscripciones de EA
+## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Transferencia de suscripciones EA a un asociado de CSP
 
 Los partners de facturación directa de CSP certificados como [Proveedor de servicios administrados (MSP) experto de Azure](https://partner.microsoft.com/membership/azure-expert-msp) pueden solicitar la transferencia de suscripciones de Azure a sus clientes que tengan un Contrato Enterprise (EA) directo. Solo se permiten las transferencias de suscripciones a los clientes que han aceptado un Contrato de cliente de Microsoft (MCA) y han adquirido un plan de Azure.
 
@@ -44,7 +44,7 @@ Para transferir cualquier otra suscripción de Azure a un partner de CSP, el sus
     > [!IMPORTANT]
     >  - El traslado de recursos de Azure entre suscripciones puede dar lugar a un tiempo de inactividad del servicio, según los recursos de las suscripciones.
 
-## <a name="all-subscription-transfers-from-a-csp-partner"></a>Todas las transferencias de suscripciones desde un partner de CSP
+## <a name="transfer-csp-subscription-to-other-offer"></a>Transferencia de una suscripción a CSP a otra oferta
 
 Para transferir cualquier otra suscripción de un partner de CSP a cualquier otra oferta de Azure, el suscriptor debe trasladar los recursos de las suscripciones de origen a las suscripciones de CSP.
 

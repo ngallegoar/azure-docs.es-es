@@ -13,12 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 5ecf180b71c43d5df25d7c3c948a59482dd06a1c
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 3b601fbbc448ef909b0700ac887375147c42ecdd
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267314"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253620"
 ---
 # <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>Inicio rápido: Use SSMS para conectarse a Azure SQL Database o Instancia administrada de Azure SQL y consultarlos
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -47,7 +47,7 @@ Para completar este inicio rápido son necesarios los siguientes elementos:
   > [!IMPORTANT]
   > Los scripts de este artículo se escriben para utilizar la base de datos Adventure Works. Con una instancia administrada, debe importar la base de datos Adventure Works en una base de datos de instancia o modificar los scripts de este artículo para utilizar la base de datos Wide World Importers.
 
-Si simplemente desea ejecutar algunas consultas ad hoc sin instalar SSMS, consulte [Inicio rápido: Uso del editor de consultas de Azure Portal para consultar una base de datos SQL](connect-query-portal.md).
+Si simplemente desea ejecutar algunas consultas ad hoc sin instalar SSMS, consulte [Inicio rápido: Uso del editor de consultas de Azure Portal para consultar una base de datos en Azure SQL Database](connect-query-portal.md).
 
 ## <a name="get-server-connection-information"></a>Obtención de información de conexión del servidor
 

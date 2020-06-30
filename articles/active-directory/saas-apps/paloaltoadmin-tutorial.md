@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9804a44a29f4540c28ec4e1eb6927e65af70218c
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: fbfa16223484928dda1004011d2e92295edd8b89
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682951"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297264"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Tutorial: Integración de Azure Active Directory con Palo Alto Networks - Admin UI
 
@@ -34,7 +34,7 @@ La integración de Palo Alto Networks: interfaz de usuario de administración co
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Palo Alto Networks: interfaz de usuario de administración, se necesitan los siguientes elementos:
 
@@ -106,14 +106,14 @@ Para configurar el inicio de sesión único de Azure AD con Palo Alto Networks 
 
     > El puerto 443 es necesario en los campos **Identificador** y **Dirección URL de respuesta**, ya que estos valores están codificados de forma rígida en el firewall de Palo Alto. Si se quita el número de puerto, se producirá un error durante el inicio de sesión.
 
-1. La aplicación PureCloud by Genesys espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de atributos de token SAML. La siguiente captura de muestra la lista de atributos predeterminados.
+1. La aplicación Palo Alto Networks - Admin UI espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
     ![imagen](common/default-attributes.png)
 
    > [!NOTE]
    > Como los valores de atributo son solo ejemplos, asigne los valores adecuados para *username* y *adminrole*. Hay otro atributo opcional, *accessdomain*, que se usa para restringir el acceso de administrador a sistemas virtuales específicos en el firewall.
 
-1. Además de lo anterior, la aplicación PureCloud by Genesys espera que se pasen algunos atributos más en la respuesta de SAML que se muestran a continuación. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
+1. Además de lo anterior, la aplicación Palo Alto Networks - Admin UI espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
 
     | Nombre |  Atributo de origen|
     | --- | --- |

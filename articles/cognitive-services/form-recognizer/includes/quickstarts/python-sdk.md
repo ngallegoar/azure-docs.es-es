@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 05/07/2020
+ms.date: 06/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 1a2c5bfb2866e2cc28c013be60dbe791edeb9ac1
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: c150d60b05ccd306f055c60d180ee9421b356feb
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997512"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85242220"
 ---
-[Documentación de referencia](https://docs.microsoft.com/python/api/overview/azure/formrecognizer?view=azure-python-preview) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [Paquete (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [Ejemplos](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
+[Documentación de referencia](https://docs.microsoft.com/python/api/overview/azure/formrecognizer) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [Paquete (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [Ejemplos](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -58,7 +58,7 @@ key = os.environ["FORM_RECOGNIZER_KEY"]
 Después de instalar Python, puede instalar la biblioteca cliente con:
 
 ```console
-pip install azure-ai-formrecognizer
+pip install azure_ai_formrecognizer
 ```
 
 <!-- 
@@ -90,7 +90,7 @@ form_training_client = FormTrainingClient(self.endpoint, AzureKeyCredential(self
 ## <a name="define-variables"></a>Definición de variables
 
 > [!NOTE]
-> Los fragmentos de código de esta guía usan formularios remotos con acceso mediante direcciones URL. En cambio, si quiere procesar documentos de formulario locales, consulte los métodos relacionados en la [documentación de referencia](https://docs.microsoft.com/python/api/overview/azure/formrecognizer?view=azure-python-preview) y los [ejemplos](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
+> Los fragmentos de código de esta guía usan formularios remotos con acceso mediante direcciones URL. En cambio, si quiere procesar documentos de formulario locales, consulte los métodos relacionados en la [documentación de referencia](https://docs.microsoft.com/python/api/overview/azure/formrecognizer) y los [ejemplos](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
 
 También tendrá que agregar referencias a las direcciones URL de los datos de entrenamiento y prueba.
 * Para recuperar la dirección URL de SAS de los datos de entrenamiento del modelo personalizado, abra el Explorador de Microsoft Azure Storage, haga clic con el botón derecho en el contenedor y seleccione **Obtener firma de acceso compartido**. Asegúrese de que los permisos de **lectura** y **enumeración** están marcados y haga clic en **Create** (Crear). A continuación, copie el valor en la sección **URL**. Debe tener el formato `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
@@ -161,14 +161,20 @@ poller = form_recognizer_client.begin_recognize_receipts_from_url(receiptUrl)
 receipts = poller.result()
 ```
 
-El valor devuelto es una colección de objetos **USReceipt**, uno para cada página del documento enviado. El siguiente bloque de código imprime información básica del recibo en la consola.
+El valor devuelto es una colección de objetos **RecognizedReceipt**, uno para cada página del documento enviado. El siguiente bloque de código imprime información básica del recibo en la consola.
 
 ```python
 for idx, receipt in enumerate(receipts):
     print("--------Recognizing receipt #{}--------".format(idx))
-    print("Receipt Type: {} has confidence: {}".format(receipt.receipt_type.type, receipt.receipt_type.confidence))
-    print("Merchant Name: {} has confidence: {}".format(receipt.merchant_name.value, receipt.merchant_name.confidence))
-    print("Transaction Date: {} has confidence: {}".format(receipt.transaction_date.value, receipt.transaction_date.confidence))
+    receipt_type = receipt.fields.get("ReceiptType")
+    if receipt_type:
+        print("Receipt Type: {} has confidence: {}".format(receipt_type.value, receipt_type.confidence))
+    merchant_name = receipt.fields.get("MerchantName")
+    if merchant_name:
+        print("Merchant Name: {} has confidence: {}".format(merchant_name.value, merchant_name.confidence))
+    transaction_date = receipt.fields.get("TransactionDate")
+    if transaction_date:
+        print("Transaction Date: {} has confidence: {}".format(transaction_date.value, transaction_date.confidence))
 ```
 
 El siguiente bloque de código recorre en iteración los elementos detectados en el recibo e imprime los detalles en la consola.
@@ -176,20 +182,37 @@ El siguiente bloque de código recorre en iteración los elementos detectados en
 
 ```python
     print("Receipt items:")
-    for item in receipt.receipt_items:
-        print("...Item Name: {} has confidence: {}".format(item.name.value, item.name.confidence))
-        print("...Item Quantity: {} has confidence: {}".format(item.quantity.value, item.quantity.confidence))
-        print("...Individual Item Price: {} has confidence: {}".format(item.price.value, item.price.confidence))
-        print("...Total Item Price: {} has confidence: {}".format(item.total_price.value, item.total_price.confidence))
+    for idx, item in enumerate(receipt.fields.get("Items").value):
+        print("...Item #{}".format(idx))
+        item_name = item.value.get("Name")
+        if item_name:
+            print("......Item Name: {} has confidence: {}".format(item_name.value, item_name.confidence))
+        item_quantity = item.value.get("Quantity")
+        if item_quantity:
+            print("......Item Quantity: {} has confidence: {}".format(item_quantity.value, item_quantity.confidence))
+        item_price = item.value.get("Price")
+        if item_price:
+            print("......Individual Item Price: {} has confidence: {}".format(item_price.value, item_price.confidence))
+        item_total_price = item.value.get("TotalPrice")
+        if item_total_price:
+            print("......Total Item Price: {} has confidence: {}".format(item_total_price.value, item_total_price.confidence))
 ```
 
 Por último, el último bloque de código imprime el resto de los detalles principales del recibo.
 
 ```python
-    print("Subtotal: {} has confidence: {}".format(receipt.subtotal.value, receipt.subtotal.confidence))
-    print("Tax: {} has confidence: {}".format(receipt.tax.value, receipt.tax.confidence))
-    print("Tip: {} has confidence: {}".format(receipt.tip.value, receipt.tip.confidence))
-    print("Total: {} has confidence: {}".format(receipt.total.value, receipt.total.confidence))
+    subtotal = receipt.fields.get("Subtotal")
+    if subtotal:
+        print("Subtotal: {} has confidence: {}".format(subtotal.value, subtotal.confidence))
+    tax = receipt.fields.get("Tax")
+    if tax:
+        print("Tax: {} has confidence: {}".format(tax.value, tax.confidence))
+    tip = receipt.fields.get("Tip")
+    if tip:
+        print("Tip: {} has confidence: {}".format(tip.value, tip.confidence))
+    total = receipt.fields.get("Total")
+    if total:
+        print("Total: {} has confidence: {}".format(total.value, total.confidence))
     print("--------------------------------------")
 ```
 
@@ -205,25 +228,25 @@ En esta sección se muestra cómo entrenar un modelo con sus propios datos. Un m
 
 Entrene modelos personalizados para reconocer todos los campos y valores que se encuentran en los formularios personalizados sin etiquetar manualmente los documentos de entrenamiento.
 
-El código siguiente usa el cliente de entrenamiento con la función **begin_train_model** para entrenar un modelo en un conjunto de documentos determinado.
+El código siguiente usa el cliente de entrenamiento con la función **begin_training** para entrenar un modelo en un conjunto de documentos determinado.
 
 ```python
-poller = form_training_client.begin_train_model(self.trainingDataUrl)
+poller = form_training_client.begin_training(self.trainingDataUrl, use_training_labels=False)
 model = poller.result()
 ```
 
-El objeto devuelto **CustomFormModel** contiene información sobre los tipos de formulario que el modelo puede reconocer y los campos que puede extraer de cada tipo de formulario. El siguiente bloque de código imprime esta información en la consola.
+El objeto devuelto **CustomFormSubmodel** contiene información sobre los tipos de formulario que el modelo puede reconocer y los campos que puede extraer de cada tipo de formulario. El siguiente bloque de código imprime esta información en la consola.
 
 ```python
 # Custom model information
 print("Model ID: {}".format(model.model_id))
 print("Status: {}".format(model.status))
-print("Created on: {}".format(model.created_on))
-print("Last modified: {}".format(model.last_modified))
+print("Created on: {}".format(model.requested_on))
+print("Last modified: {}".format(model.completed_on))
 
 print("Recognized fields:")
 # Looping through the submodels, which contains the fields they were trained on
-for submodel in model.models:
+for submodel in model.submodels:
     print("...The submodel has form type '{}'".format(submodel.form_type))
     for name, field in submodel.fields.items():
         print("...The model found field '{}' to have label '{}'".format(
@@ -236,14 +259,14 @@ for submodel in model.models:
 También puede entrenar modelos personalizados mediante el etiquetado manual de los documentos de entrenamiento. En algunos escenarios, el entrenamiento con etiquetas conduce a un mejor rendimiento. 
 
 > [!IMPORTANT]
-> Para realizar el entrenamiento con etiquetas, debe disponer de archivos de información de etiquetas especiales ( *\<filename\>.pdf.labels.json*) en el contenedor de almacenamiento de blobs junto con los documentos de entrenamiento. La [herramienta de etiquetado de ejemplo de Form Recognizer](../../quickstarts/label-tool.md) proporciona una interfaz de usuario para ayudarle a crear estos archivos de etiqueta. Cuando los tenga, puede llamar a la función **begin_train_model** con el parámetro *use_labels* establecido en `true`.
+> Para realizar el entrenamiento con etiquetas, debe disponer de archivos de información de etiquetas especiales ( *\<filename\>.pdf.labels.json*) en el contenedor de almacenamiento de blobs junto con los documentos de entrenamiento. La [herramienta de etiquetado de ejemplo de Form Recognizer](../../quickstarts/label-tool.md) proporciona una interfaz de usuario para ayudarle a crear estos archivos de etiqueta. Cuando los tenga, puede llamar a la función **begin_training** con el parámetro *use_training_labels* establecido en `true`.
 
 ```python
-poller = form_training_client.begin_train_model(self.trainingDataUrl, use_labels=True)
+poller = form_training_client.begin_training(self.trainingDataUrl, use_training_labels=True)
 model = poller.result()
 ```
 
-El valor de **CustomFormModel** devuelto indica los campos que el modelo puede extraer, junto con su precisión estimada en cada campo. El siguiente bloque de código imprime esta información en la consola.
+El valor de **CustomFormSubmodel** devuelto indica los campos que el modelo puede extraer, junto con su precisión estimada en cada campo. El siguiente bloque de código imprime esta información en la consola.
 
 ```python
 # Custom model information
@@ -255,7 +278,7 @@ print("Last modified: {}".format(model.last_modified))
 print("Recognized fields:")
 # looping through the submodels, which contains the fields they were trained on
 # The labels are based on the ones you gave the training document.
-for submodel in model.models:
+for submodel in model.submodels:
     print("...The submodel with form type {} has accuracy '{}'".format(submodel.form_type, submodel.accuracy))
     for name, field in submodel.fields.items():
         print("...The model found field '{}' to have name '{}' with an accuracy of {}".format(
@@ -275,7 +298,7 @@ Usará el método **begin_recognize_custom_forms_from_url**. El valor devuelto e
 ```python
 # Make sure your form's type is included in the list of form types the custom model can recognize
 poller = form_recognizer_client.begin_recognize_custom_forms_from_url(
-    model_id=model.model_id, url=formUrl)
+    model_id=model.model_id, form_url=formUrl)
 forms = poller.result()
 ```
 
@@ -325,7 +348,7 @@ El siguiente bloque de código enumera los modelos actuales de la cuenta e impri
 
 ```python
 # Next, we get a paged list of all of our custom models
-custom_models = form_training_client.list_model_infos()
+custom_models = form_training_client.list_custom_models()
 
 print("We have models with the following ids:")
 
@@ -345,8 +368,8 @@ El siguiente bloque de código usa el identificador de modelo guardado en la sec
 custom_model = form_training_client.get_custom_model(model_id=first_model.model_id)
 print("Model ID: {}".format(custom_model.model_id))
 print("Status: {}".format(custom_model.status))
-print("Created on: {}".format(custom_model.created_on))
-print("Last modified: {}".format(custom_model.last_modified))
+print("Created on: {}".format(custom_model.requested_on))
+print("Last modified: {}".format(custom_model.completed_on))
 ```
 
 ### <a name="delete-a-model-from-the-resource-account"></a>Eliminación de un modelo de la cuenta de recursos

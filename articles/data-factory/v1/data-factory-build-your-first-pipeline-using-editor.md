@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 340017a121d12c95c7c04bbfe67b336638209e9c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4b291dcc95e0beecb1fd9fbf038055d8a77c7b79
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75439013"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254980"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: Compilación de la primera instancia de Data Factory mediante Azure Portal
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ La canalización de este tutorial tiene una sola actividad: una actividad de Azu
 > 
 > pero cualquier canalización puede tener más de una actividad. También puede encadenar dos actividades (ejecutar una después de otra) haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Para más información, consulte [Programación y ejecución en Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Lea el [tutorial introductorio](data-factory-build-your-first-pipeline.md) y siga los pasos de la sección de requisitos previos.
 
 En este artículo no se ofrece información general conceptual sobre el servicio Data Factory. Para más información acerca del servicio, consulte [Introducción a Azure Data Factory](data-factory-introduction.md).  
@@ -432,7 +432,7 @@ En este tutorial, ha creado una factoría de datos para procesar datos mediante 
 * Crear una canalización con una actividad de Hive de HDInsight.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo, ha creado una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Para ver como usar una actividad de copia para copiar datos del almacenamiento de blobs a una base de datos SQL, consulte [Tutorial: Copia de datos de Blob Storage en SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+En este artículo, ha creado una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Para ver cómo usar una actividad de copia para copiar datos de Blob Storage a Azure Database SQL, consulte [Tutorial: Copia de datos de Blob Storage en SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Consulte también
 | Tema | Descripción |

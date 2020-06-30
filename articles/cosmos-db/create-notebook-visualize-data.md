@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 3de73156618b0f5234cc8049c4ea70385b790388
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: dfcde775780cdb42f9df1d677ff2f2475de92843
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743592"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115285"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Tutorial: Creación de un cuaderno en Azure Cosmos DB para analizar y visualizar los datos
 
 En este artículo se describe cómo usar cuadernos de Jupyter Notebook integrados para importar datos comerciales de ejemplo en Azure Cosmos DB. Verá cómo usar los comandos magic de SQL y Azure Cosmos DB para ejecutar consultas, analizar los datos y visualizar los resultados.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * [Habilitar la compatibilidad con cuadernos al crear la cuenta de Azure Cosmos](enable-notebooks.md)
 
@@ -30,7 +30,7 @@ En esta sección creará la base de datos y el contenedor de Azure Cosmos e impo
 
 1. Vaya a la pestaña **Notebooks** (Cuadernos), seleccione `…` junto a **My Notebooks** (Mis cuadernos) y elija **New Notebook** (Nuevo cuaderno). Seleccione **Python 3** como kernel predeterminado.
 
-   ![Creación un nuevo cuaderno](./media/create-notebook-visualize-data/create-new-notebook.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="Creación de un cuaderno":::
 
 1. Después de crear un nuevo cuaderno, puede cambiar su nombre a algo como **VisualizeRetailData.ipynb**.
 
@@ -49,7 +49,7 @@ En esta sección creará la base de datos y el contenedor de Azure Cosmos e impo
 
    Para ejecutar una celda, seleccione `Shift + Enter` o seleccione la celda y elija la opción **Run Active Cell** (Ejecutar celda activa) en la barra de navegación del explorador de datos.
 
-   ![Ejecución de la celda activa](./media/create-notebook-visualize-data/run-active-cell.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="Ejecución de la celda activa":::
 
    La base de datos y el contenedor se crean en la cuenta actual de Azure Cosmos. El contenedor se aprovisiona con 400 RU/s. Después de la creación de la base de datos y el contenedor, verá la siguiente salida. 
 
@@ -60,7 +60,7 @@ En esta sección creará la base de datos y el contenedor de Azure Cosmos e impo
 
    También puede actualizar la pestaña **Data** (Datos) y ver los recursos recién creados:
 
-   ![Actualización de la pestaña de datos para ver el nuevo contenedor](media/create-notebook-visualize-data/refresh-data-tab.png)
+   :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="Actualización de la pestaña de datos para ver el nuevo contenedor":::
 
 1. A continuación, importará los datos comerciales de ejemplo en el contenedor de Azure Cosmos. Este es el formato de un artículo de los datos comerciales:
 
@@ -135,7 +135,7 @@ En una nueva celda del cuaderno, ejecute el siguiente código para leer los diez
 df_cosmos.head(10)
 ```
 
-![Ejecución de una consulta para obtener los diez primeros artículos](./media/create-notebook-visualize-data/run-query-get-top10-items.png)
+:::image type="content" source="./media/create-notebook-visualize-data/run-query-get-top10-items.png" alt-text="Ejecución de una consulta para obtener los diez primeros artículos":::
 
 ## <a name="run-queries-and-analyze-your-data"></a>Ejecución de consultas y análisis de los datos
 
@@ -148,7 +148,7 @@ En esta sección ejecutará algunas consultas en los datos recuperados.
    display(df_revenue.head(5))
    ```
 
-   ![Salida de ingresos totales por ventas](./media/create-notebook-visualize-data/total-sales-revenue-output.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/total-sales-revenue-output.png" alt-text="Salida de ingresos totales por ventas":::
 
 * **Query2:** para obtener una lista de los cinco artículos más comprados, abra una nueva celda del cuaderno y ejecute el siguiente código:
 
@@ -159,7 +159,7 @@ En esta sección ejecutará algunas consultas en los datos recuperados.
    pd.DataFrame(df_cosmos[df_cosmos['Action']=='Purchased'].groupby('Item').size().sort_values(ascending=False).head(5), columns=['Count'])
    ```
 
-   ![Cinco artículos más comprados](./media/create-notebook-visualize-data/top5-purchased-items.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/top5-purchased-items.png" alt-text="Los cinco artículos más comprados":::
 
 ## <a name="visualize-your-data"></a>Visualización de los datos  
 
@@ -286,7 +286,7 @@ En esta sección ejecutará algunas consultas en los datos recuperados.
    show(p)
    ```
 
-   ![Visualización de la tasa de conversión de compra](./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png" alt-text="Visualización de la tarifa de conversión de compra":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

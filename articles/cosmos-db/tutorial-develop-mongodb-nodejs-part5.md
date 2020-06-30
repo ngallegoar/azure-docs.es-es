@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: fb0e08c9d85f4472a2fa13001e71edd12149d430
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 1bed17084af39fa75fe01d68fbdd33c586d48e67
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858739"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85114289"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Creación de una aplicación de Angular con API de Azure Cosmos DB para MongoDB: uso de Mongoose para conectarse a Cosmos DB
 
@@ -32,7 +32,7 @@ En esta parte del tutorial, va a realizar lo siguiente:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Antes de empezar este tutorial, complete los pasos de la [parte 4](tutorial-develop-mongodb-nodejs-part4.md).
 
@@ -118,7 +118,7 @@ Para conectar la aplicación a Azure Cosmos DB, tiene que actualizar las opcione
     az cosmosdb list-keys --name <cosmosdb-name> -g myResourceGroup
     ```    
     
-    \<cosmosdb-name > es el nombre de la cuenta de Azure Cosmos DB que creó en la [parte 4](tutorial-develop-mongodb-nodejs-part4.md) del tutorial.
+    \<cosmosdb-name> es el nombre de la cuenta de Azure Cosmos DB que creó en la [cuarta parte](tutorial-develop-mongodb-nodejs-part4.md) del tutorial.
 
 1. Copie la clave principal en el archivo **environment.js** como valor de `key`.
 
@@ -234,7 +234,7 @@ Siga luego estos pasos para ejecutar la aplicación:
 
 1. Ahora cambie al explorador. Abra las **Herramientas de desarrollo** y la **pestaña Red**. Vaya a `http://localhost:3000` y verá la aplicación.
 
-    ![La nueva cuenta de Azure Cosmos DB en Azure Portal](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png" alt-text="Nueva cuenta de Azure Cosmos DB en Azure Portal":::
 
 No hay ningún héroe almacenado aún en la aplicación. En la siguiente parte de este tutorial, vamos a agregar funcionalidad de colocación, inserción y eliminación. Luego se pueden agregar, actualizar y eliminar héroes desde la interfaz de usuario con conexiones de Mongoose a nuestra base de datos de Azure Cosmos. 
 

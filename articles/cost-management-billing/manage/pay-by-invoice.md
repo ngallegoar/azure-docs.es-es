@@ -6,14 +6,14 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 06/23/2020
 ms.author: banders
-ms.openlocfilehash: 12ad1f09c988171b0d6212d79ca61d93acf92d80
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8552b6732736d1d10711479639fa45114f8b039b
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199609"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298011"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Pago de las suscripciones de Azure con factura
 
@@ -113,10 +113,19 @@ Siga los pasos siguientes para cambiar un perfil de facturación para pagar medi
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Comprobación del acceso a un contrato de cliente de Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
+## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+
+*¿Por qué he recibido una solicitud de un documento legal?*
+
+En ocasiones, Microsoft necesita documentación legal si la información proporcionada está incompleta o no se puede comprobar. Algunos ejemplos pueden incluir:
+
+* Diferencia entre el nombre de cuenta y el nombre de la compañía
+* Cambio del nombre
+
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 
 Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si es necesario, actualice la información de contacto de facturación en el [Centro de cuentas de Azure](https://account.azure.com/Profile).
+* Si es necesario, actualice la información de contacto de facturación en el [Centro de cuentas de Azure](https://account.azure.com/Profile).

@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: tracking-python
-ms.openlocfilehash: dc8f00e5764cea856e028acb7adb5aebc070c625
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: dee07db85d8886ab44be096e405143ea0d881ba2
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559847"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118281"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>Inicio rápido: Creación de una aplicación de Cassandra con el SDK para Python y Azure Cosmos DB
 
@@ -137,31 +137,31 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
 1. En la cuenta de Azure Cosmos DB, en [Azure Portal](https://portal.azure.com/), seleccione **Cadena de conexión**. 
 
-    Use el ![botón Copiar](./media/create-cassandra-python/copy.png) del lado derecho de la pantalla para copiar el valor superior, CONTACT POINT (Punto de contacto).
+1. Use el ![botón Copiar](./media/create-cassandra-python/copy.png) del lado derecho de la pantalla para copiar el valor superior, CONTACT POINT (Punto de contacto).
 
-    ![Visualización y copia del punto de contacto, la contraseña y el nombre de usuario de acceso en la hoja de la cadena de conexión de Azure Portal](./media/create-cassandra-python/keys.png)
+    :::image type="content" source="./media/create-cassandra-python/keys.png" alt-text="Visualizar y copiar un punto de contacto, una contraseña y un nombre de usuario de acceso en la hoja de la cadena de conexión de Azure Portal":::
 
-2. Abra el archivo *config.py*. 
+1. Abra el archivo *config.py*. 
 
-3. Pegue el valor de CONTACT POINT (Punto de contacto) del portal en `<FILLME>` en la línea 10.
+1. Pegue el valor de CONTACT POINT (Punto de contacto) del portal en `<FILLME>` en la línea 10.
 
     La línea 10 ahora debe ser similar a 
 
     `'contactPoint': 'cosmos-db-quickstarts.cassandra.cosmosdb.azure.com:10350'`
 
-4. Copie el valor de NOMBRE DE USUARIO del portal y péguelo en `<FILLME>` en la línea 6.
+1. Copie el valor de NOMBRE DE USUARIO del portal y péguelo en `<FILLME>` en la línea 6.
 
     La línea 6 ahora debe ser similar a 
 
     `'username': 'cosmos-db-quickstart',`
     
-5. Copie el valor de CONTRASEÑA del portal y péguelo en `<FILLME>` en la línea 8.
+1. Copie el valor de CONTRASEÑA del portal y péguelo en `<FILLME>` en la línea 8.
 
     La línea 8 ahora debe ser similar a
 
     `'password' = '2Ggkr662ifxz2Mg==`';`
 
-6. Guarde el archivo *config.py*.
+1. Guarde el archivo *config.py*.
     
 ## <a name="use-the-x509-certificate"></a>Uso del certificado X509
 
@@ -196,11 +196,11 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
     Presione CTRL+C para detener la ejecución del programa y cerrar la ventana de la consola. 
 
-    ![Visualización y comprobación del resultado](./media/create-cassandra-python/output.png)
+    :::image type="content" source="./media/create-cassandra-python/output.png" alt-text="Visualizar y comprobar el resultado":::
     
 4. En Azure Portal abra **Explorador de datos** para consultar, modificar y trabajar con estos nuevos datos. 
 
-    ![Visualización de los datos en el Explorador de datos](./media/create-cassandra-python/data-explorer.png)
+    :::image type="content" source="./media/create-cassandra-python/data-explorer.png" alt-text="Visualizar los datos en el Explorador de datos":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Revisión de los SLA en Azure Portal
 

@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 18f004b88a2b79f057ce3bf2fcc4cbe73e2b46da
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: e7846ae0f52dfee4260838302d55213d2791eb07
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84736633"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250968"
 ---
-# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database-using-powershell"></a>Carga incremental de datos de varias tablas de SQL Server a una instancia de Azure SQL Database mediante PowerShell
+# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Carga incremental de datos de varias tablas de SQL Server en Azure SQL Database mediante PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales de varias tablas de una base de datos de SQL Server en una base de datos de Azure SQL Database.    
+En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales de varias tablas de una base de datos de SQL Server en Azure SQL Database.    
 
 En este tutorial, realizará los siguientes pasos:
 
@@ -70,7 +70,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 ## <a name="prerequisites"></a>Requisitos previos
 
 * **SQL Server**. En este tutorial, usará una base de datos de SQL Server como almacén de datos de origen. 
-* **Azure SQL Database**. Usará una base de datos SQL como almacén de datos receptor. Si no tiene ninguna, consulte [Creación de una base de datos de Azure SQL](../azure-sql/database/single-database-create-quickstart.md) para ver los pasos para su creación. 
+* **Azure SQL Database**. Se usa una base de datos de Azure SQL Database como almacén de datos receptor. Si no tiene ninguna, consulte [Creación de una base de datos en Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) para ver los pasos y crear una. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Creación de tablas de origen en la base de datos de SQL Server
 
@@ -117,7 +117,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 2. En **Explorador de servidores (SSMS)** o en el **Panel Conexiones (Azure Data Studio)** , haga clic con el botón derecho en la base de datos y elija **Nueva consulta**.
 
-3. Ejecute el siguiente comando SQL en la base de datos SQL para crear las tablas denominadas `customer_table` y `project_table`:  
+3. Ejecute el siguiente comando SQL en la base de datos para crear las tablas denominadas `customer_table` y `project_table`:  
 
     ```sql
     create table customer_table
@@ -134,7 +134,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
     );
     ```
 
-### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Creación de otra tabla en Azure SQL Database para almacenar el valor del límite máximo
+### <a name="create-another-table-in-azure-sql-database-to-store-the-high-watermark-value"></a>Creación de otra tabla en Azure SQL Database para almacenar el valor de límite máximo
 
 1. Ejecute el siguiente comando SQL en la base de datos SQL para crear una tabla denominada `watermarktable` y almacenar el valor de marca de agua: 
     
@@ -159,7 +159,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 ### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Creación de un procedimiento almacenado en Azure SQL Database 
 
-Ejecute el siguiente comando para crear un procedimiento almacenado en la base de datos SQL. Este procedimiento almacenado actualiza el valor de la marca de agua después de cada ejecución de canalización. 
+Ejecute el siguiente comando para crear un procedimiento almacenado en la base de datos. Este procedimiento almacenado actualiza el valor de la marca de agua después de cada ejecución de canalización. 
 
 ```sql
 CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
@@ -175,9 +175,9 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>Creación de tipos de datos y procedimientos almacenados adicionales en Azure SQL Database
+### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Creación de tipos de datos y procedimientos almacenados adicionales en Azure SQL Database
 
-Ejecute la consulta siguiente para crear dos procedimientos almacenados y dos tipos de datos en la base de datos SQL. Estos procedimientos se usan para combinar los datos de las tablas de origen en las tablas de destino. 
+Ejecute la consulta siguiente para crear dos procedimientos almacenados y dos tipos de datos en la base de datos. Estos procedimientos se usan para combinar los datos de las tablas de origen en las tablas de destino. 
 
 Para que sea más fácil comenzar el proceso, usamos directamente estos procedimientos almacenados, para lo cual pasamos los datos diferenciales a través de una variable de tabla y, luego, los combinamos en el almacén de destino. Tenga presente que no se espera que se almacene un "gran" número de filas diferenciales (más de 100) en la variable de tabla.  
 
@@ -283,13 +283,13 @@ Tenga en cuenta los siguientes puntos:
 
 * Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe ser un miembro de los roles colaborador o propietario, o de administrador de la suscripción de Azure.
 
-* Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, SQL Database, etc.) y los procesos (Azure HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+* Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, SQL Database, Instancia administrada de SQL, etc.) y los procesos (Azure HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
 ## <a name="create-linked-services"></a>Crear servicios vinculados
 
-Los servicios vinculados se crean en una factoría de datos para vincular los almacenes de datos y los servicios de proceso con la factoría de datos. En esta sección, creará servicios vinculados a la base de datos de SQL Server y Azure SQL Database. 
+Los servicios vinculados se crean en una factoría de datos para vincular los almacenes de datos y los servicios de proceso con la factoría de datos. En esta sección, creará servicios vinculados a la base de datos de SQL Server ya la base de datos de Azure SQL Database. 
 
 ### <a name="create-the-sql-server-linked-service"></a>Creación del servicio vinculado de SQL Server
 

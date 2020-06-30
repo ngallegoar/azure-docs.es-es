@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: 6292c3c2d928581d0564fe457342ea7b1e17111c
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: bfac783fcb8ce88977fc8d97f821a7350f57aab8
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983031"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118583"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenido a Azure Cosmos DB
 
@@ -24,7 +24,7 @@ Puede [probar Azure Cosmos DB de forma gratuita](https://azure.microsoft.com/tr
 > [!div class="nextstepaction"]
 > [Probar gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)
 
-![Azure Cosmos DB es el servicio de base de datos de distribución global de Microsoft con escalado elástico horizontal, baja latencia garantizada, cinco modelos de coherencia y los SLA más completos garantizados.](./media/introduction/azure-cosmos-db.png)
+:::image type="content" source="./media/introduction/azure-cosmos-db.png" alt-text="Azure Cosmos DB es el servicio de base de datos de distribución global de Microsoft con escalabilidad horizontal elástica, baja latencia garantizada, cinco modelos de coherencia y los contratos de nivel de servicio más completos garantizados" border="false":::
 
 ## <a name="key-benefits"></a>Ventajas principales
 

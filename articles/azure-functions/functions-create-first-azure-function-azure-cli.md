@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: quickstart
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 890dc2f7560faa6df302212aebb2fbe006894d3f
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 671404b952156ff6ad20eaf082d7af33058923a3
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559877"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100026"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Inicio rápido: Creación de una función en Azure que responda a solicitudes HTTP
 
@@ -393,6 +393,11 @@ Ejecute [`curl`](https://curl.haxx.se/) con la **dirección URL de invocación**
 
 > [!TIP]
 > Para ver los registros casi en tiempo real de una aplicación de funciones publicada, use [Live Metrics Stream de Application Insights](functions-monitoring.md#streaming-logs).
+>
+> Ejecute el siguiente comando para abrir la transmisión de métricas en directo en un explorador.
+>   ```
+>   func azure functionapp logstream <APP_NAME> --browser
+>   ```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

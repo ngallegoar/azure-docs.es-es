@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 06/08/2020
-ms.openlocfilehash: 4e39d4e106a399f0105ee4ec3f3606354f113165
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.date: 06/22/2020
+ms.openlocfilehash: d7f6da930f797912ef0e91666082aa5654b7f1ab
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84661072"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251784"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copia masiva de varias tablas mediante Azure Data Factory en Azure Portal
 
@@ -58,7 +58,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 **Preparación de la base de datos de Azure SQL de origen**:
 
-Siga el artículo [Creación de una base de datos de Azure SQL](../azure-sql/database/single-database-create-quickstart.md) para crear una base de datos de Azure SQL con los datos de ejemplo de Adventure Works LT. En este tutorial se copian todas las tablas de esta base de datos de ejemplo a una instancia de Azure Synapse Analytics (anteriormente SQL DW).
+Cree una base de datos en SQL Database con los datos de ejemplo de Adventure Works LT siguiendo el artículo [Creación de una base de datos en Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md). En este tutorial se copian todas las tablas de esta base de datos de ejemplo a una instancia de Azure Synapse Analytics (anteriormente SQL DW).
 
 **Prepare el receptor de Azure Synapse Analytics (anteriormente SQL DW)** :
 
@@ -106,7 +106,7 @@ Los servicios vinculados se crean para vincular los almacenes de datos y los pro
 En este tutorial se vinculan sus almacenes de datos de Azure SQL Database, Azure Synapse Analytics (anteriormente SQL DW) y Azure Blob Storage a la factoría de datos. El almacén de datos de origen es el de Azure SQL Database. Azure Synapse Analytics (anteriormente SQL DW) es el almacén de datos receptor o destino. Azure Blob Storage sirve para almacenar provisionalmente los datos antes de cargarlos en Azure Synapse Analytics (anteriormente SQL DW) mediante PolyBase. 
 
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>Creación del servicio vinculado de Azure SQL Database de origen
-En este paso, creará un servicio vinculado para vincular su base de datos de Azure SQL con la factoría de datos. 
+En este paso, creará un servicio vinculado para vincular la base de datos de Azure SQL Database con la factoría de datos. 
 
 1. Abra la [pestaña Administrar](https://docs.microsoft.com/azure/data-factory/author-management-hub) en el panel izquierdo.
 
@@ -120,13 +120,13 @@ En este paso, creará un servicio vinculado para vincular su base de datos de Az
 
     b. Seleccione el servidor **nombre de servidor**
     
-    c. Seleccione su base de datos de Azure SQL en **Database name** (Nombre de la base de datos). 
+    c. En **Database name** (Nombre de base de datos), seleccione su base de datos. 
     
-    d. Escriba el **nombre del usuario** para conectarse a Azure SQL Database. 
+    d. Escriba el **nombre del usuario** para conectarse a la base de datos. 
     
     e. Escriba la **contraseña** del usuario. 
 
-    f. Para probar la conexión a Azure SQL Database con la información indicada, haga clic en **Test connection** (Prueba de conexión).
+    f. Para probar la conexión a la base de datos con la información indicada, haga clic en **Test connection** (Prueba de conexión).
   
     g. Haga clic en **Create** (Crear) para guardar el servicio vinculado.
 
@@ -141,13 +141,13 @@ En este paso, creará un servicio vinculado para vincular su base de datos de Az
      
     b. Seleccione el servidor **nombre de servidor**
      
-    c. Seleccione su base de datos de Azure SQL en **Database name** (Nombre de la base de datos). 
+    c. En **Database name** (Nombre de base de datos), seleccione su base de datos. 
      
-    d. En **User name**, escriba un nombre de usuario para conectarse a Azure SQL Database. 
+    d. En **User name** (Nombre de usuario), escriba un nombre de usuario para conectarse a la base de datos. 
      
     e. En **Password**, escriba la contraseña del usuario. 
      
-    f. Para probar la conexión a Azure SQL Database con la información indicada, haga clic en **Test connection** (Prueba de conexión).
+    f. Para probar la conexión a la base de datos con la información indicada, haga clic en **Test connection** (Prueba de conexión).
      
     g. Haga clic en **Crear**.
 
@@ -181,7 +181,7 @@ En este tutorial, las tablas de origen y destino SQL no están codificadas en la
     
 1. En la ventana **Set properties** (Establecer propiedades), en **Name** (Nombre), escriba **AzureSqlDatabaseDataset**. En **Linked service** (Servicio vinculado), seleccione **AzureSqlDatabaseLinkedService**. A continuación, haga clic en **Aceptar**.
 
-1. Cambie a la pestaña **Connection** (Conexión) y seleccione cualquier tabla para **Table** (Tabla). Esta tabla es ficticia. Especifique una consulta en el conjunto de datos de origen al crear una canalización. La consulta se utilizará para extraer datos de Azure SQL Database. Como alternativa, puede hacer clic en la casilla **Edit** (Editar) y escribir **dbo.dummyName** como nombre de la tabla. 
+1. Cambie a la pestaña **Connection** (Conexión) y seleccione cualquier tabla para **Table** (Tabla). Esta tabla es ficticia. Especifique una consulta en el conjunto de datos de origen al crear una canalización. La consulta se utilizará para extraer datos de la base de datos. Como alternativa, puede hacer clic en la casilla **Edit** (Editar) y escribir **dbo.dummyName** como nombre de la tabla. 
  
 
 ### <a name="create-a-dataset-for-sink-azure-synapse-analytics-formerly-sql-dw"></a>Creación de un conjunto de datos para el receptor de Azure Synapse Analytics (anteriormente SQL DW)
@@ -189,17 +189,18 @@ En este tutorial, las tablas de origen y destino SQL no están codificadas en la
 1. Haga clic en el **signo + (más)** en el panel izquierdo y en **Dataset** (Conjunto de datos). 
 1. En la ventana **New Dataset** (Nuevo conjunto de datos), seleccione **Azure Synapse Analytics (formerly SQL DW)** (Azure Synapse Analytics [anteriormente SQL DW]) y haga clic en **Continue** (Continuar).
 1. En la ventana **Set properties** (Establecer propiedades), en **Name** (Nombre), escriba **AzureSqlDWDataset**. En **Linked service** (Servicio vinculado), seleccione **AzureSqlDWLinkedService**. A continuación, haga clic en **Aceptar**.
-1. Vaya a la pestaña **Parameters** (Parámetros), haga clic en **+ New** (+ Nuevo) y escriba **DWTableName** como nombre del parámetro. Si copia y pega este nombre desde la página, asegúrese de que no hay ningún **carácter de espacio final** al final de **DWTableName**.
+1. Vaya a la pestaña **Parameters** (Parámetros), haga clic en **+ New** (+ Nuevo) y escriba **DWTableName** como nombre del parámetro. Haga clic de nuevo en **+ New** (+ Nuevo) y escriba **DWSchema** como nombre del parámetro. Si copia y pega este nombre desde la página, asegúrese de que no haya ningún **carácter de espacio final** al final de *DWTableName* y *DWSchema*. 
 1. Cambie a la pestaña **Connection** (Conexión), 
 
-    a. En **Table** (Tabla), active la opción **Edit** (Editar). Escriba **dbo** en el cuadro de entrada del nombre de la primera tabla. A continuación, seleccione el segundo cuadro de entrada y haga clic en el vínculo **Add dynamic content** (Agregar contenido dinámico) debajo. 
+    1. En **Table** (Tabla), active la opción **Edit** (Editar). Seleccione el primer cuadro de entrada y haga clic en el vínculo **Add dynamic content** (Agregar contenido dinámico) debajo. En la página **Add Dynamic Content** (Agregar contenido dinámico), haga clic en **DWSchema** en **Parameters** (Parámetros), que rellena automáticamente el cuadro de texto de expresión superior `@dataset().DWSchema` y, luego, haga clic en **Finish** (Finalizar).  
+    
+        ![Nombre de tabla de la conexión de conjunto de datos](./media/tutorial-bulk-copy-portal/dataset-connection-tablename.png)
 
-    ![Nombre de tabla de la conexión de conjunto de datos](./media/tutorial-bulk-copy-portal/dataset-connection-tablename.png)
+    1. Seleccione el segundo cuadro de entrada y haga clic en el vínculo **Add dynamic content** (Agregar contenido dinámico). En la página **Add Dynamic Content** (Agregar contenido dinámico), haga clic en **DWTAbleName** en **Parameters** (Parámetros), que rellena automáticamente el cuadro de texto de expresión superior `@dataset().DWTableName` y, luego, haga clic en **Finish** (Finalizar). 
+    
+    1. La propiedad **tableName** del conjunto de datos se establece en los valores que se pasan como argumentos de los parámetros **DWTableName** y **DWTableName**. La actividad ForEach (Para cada uno) recorre en iteración una lista de tablas y las pasa una a una a la actividad de copia. 
+    
 
-    b. En la página **Agregar contenido dinámico**, haga clic en **DWTAbleName** en **Parameters** (Parámetros) y se rellenará automáticamente el cuadro de texto de expresiones de la parte superior `@dataset().DWTableName`, finalmente, haga clic en **Finalizar**. La propiedad **tableName** del conjunto de datos se establece en el valor que se pasa como argumento del parámetro **DWTableName**. La actividad ForEach (Para cada uno) recorre en iteración una lista de tablas y las pasa una a una a la actividad de copia. 
-
-    ![Generador de parámetros del conjunto de datos](./media/tutorial-bulk-copy-portal/dataset-parameter-builder.png)
- 
 ## <a name="create-pipelines"></a>Creación de canalizaciones
 En este tutorial, creará dos canalizaciones: **IterateAndCopySQLTables** y **GetTableListAndTriggerCopyData**. 
 
@@ -257,7 +258,8 @@ La canalización **IterateAndCopySQLTables** toma una lista de tablas como pará
 1. Cambie a la pestaña **Sink** (Receptor) y realice los pasos siguientes: 
 
     1. Seleccione **AzureSqlDWDataset** en **Sink Dataset** (Conjunto de datos receptor).
-    1. Haga clic en el cuadro de entrada VALUE del parámetro DWTableName -> seleccione **Add dynamic content** (Agregar contenido dinámico) que aparece a continuación, escriba la expresión `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` como script, -> seleccione **Finish** (Finalizar).
+    1. Haga clic en el cuadro de entrada VALUE del parámetro DWTableName -> seleccione **Add dynamic content** (Agregar contenido dinámico) que aparece a continuación, escriba la expresión `@item().TABLE_NAME` como script, -> seleccione **Finish** (Finalizar).
+    1. Haga clic en el cuadro de entrada de VALUE del parámetro DWSchema, seleccione **Add dynamic content** (Agregar contenido dinámico) a continuación, escriba la expresión `@item().TABLE_SCHEMA` como script y seleccione **Finish** (Finalizar).
     1. Como método de copia, seleccione **PolyBase**. 
     1. Desactive la opción **Use type default** (Usar tipo predeterminado). 
     1. Haga clic en el cuadro de entrada **Script previo a la copia** -> seleccione el vínculo **Agregar contenido dinámico** que aparece a continuación -> escriba la siguiente expresión como script -> seleccione **Finalizar**. 
@@ -282,12 +284,12 @@ Esta canalización realiza dos acciones:
 * Desencadena la canalización "IterateAndCopySQLTables" para realizar la copia de datos real.
 
 1. En el panel izquierdo, haga clic en el **signo + (más)** y en **Pipeline** (Canalización).
-1. En la pestaña **General**, cambie el nombre de la canalización a **GetTableListAndTriggerCopyData**. 
+1. En el panel General, en **Properties** (Propiedades), cambie el nombre de la canalización por **GetTableListAndTriggerCopyData**. 
 
 1. En el cuadro de herramientas **Activities** (Actividades), expanda **General** (General), arrastre la actividad **Lookup** (Búsqueda) a la superficie del diseñador de canalizaciones y realice los pasos siguientes:
 
     1. Escriba **LookupTableList** en **Name** (Nombre). 
-    1. Escriba **Retrieve the table list from Azure SQL Database** (Recuperar la lista de tablas de Azure SQL Database) en **Description** (Descripción).
+    1. En **Description** (Descripción), escriba **Retrieve the table list from my database** (Recuperar la lista de tablas de mi base de datos).
 
 1. Cambie a la pestaña **Settings** (Configuración) y realice los pasos siguientes:
 
@@ -310,10 +312,8 @@ Esta canalización realiza dos acciones:
 1. Cambie a la pestaña **Settings** (Configuración) de la actividad **Execute Pipeline** (Ejecutar canalización) y realice los pasos siguientes: 
 
     1. Seleccione **IterateAndCopySQLTables** en **Invoked pipeline** (Canalización invocada). 
-    1. Expanda la sección **Advanced** (Avanzado) y desactive la casilla **Wait on completion** (Esperar a que se complete).
-    1. Haga clic en **+ New** (+ Nuevo) en la sección **Parameters** (Parámetros). 
-    1. Escriba **tableList** en el parámetro **Name** (Nombre).
-    1. Haga clic en el cuadro de entrada VALOR -> seleccione el vínculo **Agregar contenido dinámico** que aparece a continuación -> escriba `@activity('LookupTableList').output.value` como valor del nombre de tabla -> seleccione **Finalizar**. Estamos configurando la lista de resultados de la actividad de búsqueda como entrada de la segunda canalización. La lista de resultados contiene la lista de tablas cuyos datos deben copiarse en el destino. 
+    1. Desactive la casilla **Wait on completion** (Esperar a que se complete).
+    1. En la sección **Parameters** (Parámetros), haga clic en el cuadro de entrada en VALUE, seleccione **Add dynamic content** (Agregar contenido dinámico) a continuación, escriba `@activity('LookupTableList').output.value` como valor del nombre de tabla y seleccione **Finish** (Finalizar). Estamos configurando la lista de resultados de la actividad de búsqueda como entrada de la segunda canalización. La lista de resultados contiene la lista de tablas cuyos datos deben copiarse en el destino. 
 
         ![Actividad de ejecución de canalización: página de configuración](./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png)
 

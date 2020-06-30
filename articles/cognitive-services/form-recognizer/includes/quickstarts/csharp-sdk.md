@@ -9,14 +9,14 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: pafarley
-ms.openlocfilehash: efb07605d692b4980c108d60cc8f57babae68082
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: fc5eb33c511b7312aca4e9a4678acbe65718f3a7
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997544"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85242161"
 ---
-[Documentación de referencia](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer?view=azure-dotnet-preview) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [Paquete (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [Ejemplos](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
+[Documentación de referencia](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [Paquete (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [Ejemplos](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -85,7 +85,7 @@ static void Main(string[] args)
 Dentro del directorio de aplicaciones, instale la biblioteca cliente de Form Recognizer para .NET con el siguiente comando:
 
 ```console
-dotnet add package Azure.AI.FormRecognizer --version 1.0.0-preview.1
+dotnet add package Azure.AI.FormRecognizer --version 1.0.0-preview.3
 ```
 
 Si usa el IDE de Visual Studio, la biblioteca cliente estará disponible como un paquete de NuGet descargable.
@@ -134,7 +134,7 @@ También tendrá que agregar referencias a las direcciones URL de los datos de e
 * Use el método anterior para obtener también la dirección URL de una imagen de recibo, o utilice la dirección URL de la imagen de ejemplo proporcionada.
 
 > [!NOTE]
-> Los fragmentos de código de esta guía usan formularios remotos con acceso mediante direcciones URL. Si quiere procesar en cambio documentos de formulario locales, consulte los métodos relacionados en la [documentación de referencia](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer?view=azure-dotnet-preview).
+> Los fragmentos de código de esta guía usan formularios remotos con acceso mediante direcciones URL. En cambio, si quiere procesar documentos de formulario locales, consulte los métodos relacionados en la [documentación de referencia](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer).
 
 ```csharp
     string trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
@@ -216,48 +216,89 @@ Para reconocer los recibos a partir de un URI, use el método **StartRecognizeRe
 private static async Task<Guid> AnalyzeReceipt(
     FormRecognizerClient recognizerClient, string receiptUri)
 {
-    Response<IReadOnlyList<RecognizedReceipt>> receipts = await recognizerClient
-        .StartRecognizeReceiptsFromUri(new Uri(receiptUri)).WaitForCompletionAsync();
-    foreach (var receipt in receipts.Value)
+    RecognizedReceiptCollection receipts = await recognizerClient.StartRecognizeReceiptsFromUri(new Uri(receiptUri))
+    .WaitForCompletionAsync();
+
+    foreach (RecognizedReceipt receipt in receipts)
     {
-        USReceipt usReceipt = receipt.AsUSReceipt();
-    
-        string merchantName = usReceipt.MerchantName?.Value ?? default;
-        DateTime transactionDate = usReceipt.TransactionDate?.Value ?? default;
-        IReadOnlyList<USReceiptItem> items = usReceipt.Items ?? default;
-    
-        Console.WriteLine($"Recognized USReceipt fields:");
-        Console.WriteLine($"    Merchant Name: '{merchantName}', with confidence " +
-            $"{usReceipt.MerchantName.Confidence}");
-        Console.WriteLine($"    Transaction Date: '{transactionDate}', with" +
-            $" confidence {usReceipt.TransactionDate.Confidence}");
+    FormField merchantNameField;
+    if (receipt.RecognizedForm.Fields.TryGetValue("MerchantName", out merchantNameField))
+    {
+        if (merchantNameField.Value.Type == FieldValueType.String)
+        {
+            string merchantName = merchantNameField.Value.AsString();
+
+            Console.WriteLine($"Merchant Name: '{merchantName}', with confidence {merchantNameField.Confidence}");
+        }
+    }
+
+    FormField transactionDateField;
+    if (receipt.RecognizedForm.Fields.TryGetValue("TransactionDate", out transactionDateField))
+    {
+        if (transactionDateField.Value.Type == FieldValueType.Date)
+        {
+            DateTime transactionDate = transactionDateField.Value.AsDate();
+
+            Console.WriteLine($"Transaction Date: '{transactionDate}', with confidence {transactionDateField.Confidence}");
+        }
+    }
 ```
 
 El siguiente bloque de código recorre en iteración los elementos detectados en el recibo e imprime los detalles en la consola.
 
 ```csharp
-        for (int i = 0; i < items.Count; i++)
+    FormField itemsField;
+    if (receipt.RecognizedForm.Fields.TryGetValue("Items", out itemsField))
+    {
+        if (itemsField.Value.Type == FieldValueType.List)
         {
-            USReceiptItem item = usReceipt.Items[i];
-            Console.WriteLine($"    Item {i}:  Name: '{item.Name.Value}'," +
-                $" Quantity: '{item.Quantity?.Value}', Price: '{item.Price?.Value}'");
-            Console.WriteLine($"    TotalPrice: '{item.TotalPrice.Value}'");
+            foreach (FormField itemField in itemsField.Value.AsList())
+            {
+                Console.WriteLine("Item:");
+
+                if (itemField.Value.Type == FieldValueType.Dictionary)
+                {
+                    IReadOnlyDictionary<string, FormField> itemFields = itemField.Value.AsDictionary();
+
+                    FormField itemNameField;
+                    if (itemFields.TryGetValue("Name", out itemNameField))
+                    {
+                        if (itemNameField.Value.Type == FieldValueType.String)
+                        {
+                            string itemName = itemNameField.Value.AsString();
+
+                            Console.WriteLine($"    Name: '{itemName}', with confidence {itemNameField.Confidence}");
+                        }
+                    }
+
+                    FormField itemTotalPriceField;
+                    if (itemFields.TryGetValue("TotalPrice", out itemTotalPriceField))
+                    {
+                        if (itemTotalPriceField.Value.Type == FieldValueType.Float)
+                        {
+                            float itemTotalPrice = itemTotalPriceField.Value.AsFloat();
+
+                            Console.WriteLine($"    Total Price: '{itemTotalPrice}', with confidence {itemTotalPriceField.Confidence}");
+                        }
+                    }
+                }
+            }
         }
+    }
 ```
 
-Por último, el último bloque de código imprime el resto de los detalles principales del recibo.
+Por último, el último bloque de código imprime el valor total del recibo.
 
 ```csharp
-        float subtotal = usReceipt.Subtotal?.Value ?? default;
-        float tax = usReceipt.Tax?.Value ?? default;
-        float tip = usReceipt.Tip?.Value ?? default;
-        float total = usReceipt.Total?.Value ?? default;
-    
-        Console.WriteLine($"    Subtotal: '{subtotal}', with confidence" +
-            $" '{usReceipt.Subtotal.Confidence}'");
-        Console.WriteLine($"    Tax: '{tax}', with confidence '{usReceipt.Tax.Confidence}'");
-        Console.WriteLine($"    Tip: '{tip}', with confidence '{usReceipt.Tip?.Confidence ?? 0.0f}'");
-        Console.WriteLine($"    Total: '{total}', with confidence '{usReceipt.Total.Confidence}'");
+    FormField totalField;
+    if (receipt.RecognizedForm.Fields.TryGetValue("Total", out totalField))
+    {
+        if (totalField.Value.Type == FieldValueType.Float)
+        {
+            float total = totalField.Value.AsFloat();
+
+            Console.WriteLine($"Total: '{total}', with confidence '{totalField.Confidence}'");
+        }
     }
 }
 ```
@@ -280,22 +321,22 @@ private static async Task<Guid> TrainModel(
     FormRecognizerClient trainingClient, string trainingDataUrl)
 {
     CustomFormModel model = await trainingClient
-        .StartTrainingAsync(new Uri(trainingDataUrl)).WaitForCompletionAsync();
+        .StartTrainingAsync(new Uri(trainingFileUrl), useTrainingLabels: false).WaitForCompletionAsync();
     
     Console.WriteLine($"Custom Model Info:");
     Console.WriteLine($"    Model Id: {model.ModelId}");
     Console.WriteLine($"    Model Status: {model.Status}");
-    Console.WriteLine($"    Created On: {model.CreatedOn}");
-    Console.WriteLine($"    Last Modified: {model.LastModified}");
+    Console.WriteLine($"    Requested on: {model.RequestedOn}");
+    Console.WriteLine($"    Completed on: {model.CompletedOn}");
 ```
 
 El objeto devuelto **CustomFormModel** contiene información sobre los tipos de formulario que el modelo puede reconocer y los campos que puede extraer de cada tipo de formulario. El siguiente bloque de código imprime esta información en la consola.
 
 ```csharp
-    foreach (CustomFormSubModel subModel in model.Models)
+    foreach (CustomFormSubmodel submodel in model.Submodels)
     {
-        Console.WriteLine($"SubModel Form Type: {subModel.FormType}");
-        foreach (CustomFormModelField field in subModel.Fields.Values)
+        Console.WriteLine($"Submodel Form Type: {submodel.FormType}");
+        foreach (CustomFormModelField field in submodel.Fields.Values)
         {
             Console.Write($"    FieldName: {field.Name}");
             if (field.Label != null)
@@ -322,23 +363,23 @@ También puede entrenar modelos personalizados mediante el etiquetado manual de 
 private static async Task<Guid> TrainModelWithLabelsAsync(
     FormRecognizerClient trainingClient, string trainingDataUrl)
 {
-    CustomFormModel model = await trainingClient.StartTrainingAsync(
-        new Uri(trainingDataUrl), useLabels: true).WaitForCompletionAsync();
+    CustomFormModel model = await trainingClient
+    .StartTrainingAsync(new Uri(trainingFileUrl), useTrainingLabels: true).WaitForCompletionAsync();
     
     Console.WriteLine($"Custom Model Info:");
     Console.WriteLine($"    Model Id: {model.ModelId}");
     Console.WriteLine($"    Model Status: {model.Status}");
-    Console.WriteLine($"    Created On: {model.CreatedOn}");
-    Console.WriteLine($"    Last Modified: {model.LastModified}");
+    Console.WriteLine($"    Requested on: {model.RequestedOn}");
+    Console.WriteLine($"    Completed on: {model.CompletedOn}");
 ```
 
 El valor de **CustomFormModel** devuelto indica los campos que el modelo puede extraer, junto con su precisión estimada en cada campo. El siguiente bloque de código imprime esta información en la consola.
 
 ```csharp
-    foreach (CustomFormSubModel subModel in model.Models)
+    foreach (CustomFormSubmodel submodel in model.Submodels)
     {
-        Console.WriteLine($"SubModel Form Type: {subModel.FormType}");
-        foreach (CustomFormModelField field in subModel.Fields.Values)
+        Console.WriteLine($"Submodel Form Type: {submodel.FormType}");
+        foreach (CustomFormModelField field in submodel.Fields.Values)
         {
             Console.Write($"    FieldName: {field.Name}");
             if (field.Accuracy != null)
@@ -354,7 +395,7 @@ El valor de **CustomFormModel** devuelto indica los campos que el modelo puede e
 
 ## <a name="analyze-forms-with-a-custom-model"></a>Analizar formularios con un modelo personalizado
 
-En esta sección se muestra cómo extraer información de clave-valor y otro contenido de los tipos de formulario personalizados, con los modelos que ha entrenado con sus propios formularios.
+En esta sección, se muestra cómo extraer información de clave-valor y otro contenido de los tipos de formulario personalizados, con los modelos que ha entrenado con sus propios formularios.
 
 > [!IMPORTANT]
 > Para implementar este escenario, debe haber entrenado ya un modelo para que pueda pasar su identificador al método siguiente. Consulte la sección [Entrenamiento de un modelo](#train-a-model-without-labels).
@@ -498,9 +539,8 @@ Por ejemplo, si envía la imagen de un recibo con un URI no válido, se devuelve
 ```csharp Snippet:FormRecognizerBadRequest
 try
 {
-    Response<IReadOnlyList<RecognizedReceipt>> receipts = await client
-    .StartRecognizeReceiptsFromUri(new Uri("http://invalid.uri"))
-    .WaitForCompletionAsync();
+    RecognizedReceiptCollection receipts = await client.StartRecognizeReceiptsFromUri(new Uri(receiptUri)).WaitForCompletionAsync();
+
 }
 catch (RequestFailedException e)
 {

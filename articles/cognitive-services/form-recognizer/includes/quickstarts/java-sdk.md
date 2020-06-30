@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 05/06/2020
+ms.date: 06/15/2020
 ms.author: pafarley
-ms.openlocfilehash: abc61b08770ca011c0f843dff3c2cda080ca7262
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 6ff56ca61304bdacb3512156babd637afd337c7e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997520"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85242065"
 ---
-[Documentación de referencia](https://docs.microsoft.com/java/api/overview/azure/formrecognizer?view=azure-java-preview) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [Paquete (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [Ejemplos](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
+[Documentación de referencia](https://docs.microsoft.com/java/api/overview/azure/formrecognizer) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [Paquete (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [Ejemplos](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -88,7 +88,7 @@ En el archivo *build.gradle.kts* del proyecto, asegúrese de incluir la bibliote
 
 ```kotlin
 dependencies {
-    implementation group: 'com.azure', name: 'azure-ai-formrecognizer', version: '1.0.0-beta.1'
+    implementation group: 'com.azure', name: 'azure-ai-formrecognizer', version: '1.0.0-beta.3'
 }
 ```
 
@@ -130,7 +130,7 @@ También tendrá que agregar referencias a las direcciones URL de los datos de e
 * Use el método anterior para obtener también la dirección URL de una imagen de recibo.
 
 > [!NOTE]
-> Los fragmentos de código de esta guía usan formularios remotos con acceso mediante direcciones URL. En cambio, si quiere procesar documentos de formulario locales, consulte los métodos relacionados en la [documentación de referencia](https://docs.microsoft.com/java/api/overview/azure/formrecognizer?view=azure-java-preview).
+> Los fragmentos de código de esta guía usan formularios remotos con acceso mediante direcciones URL. En cambio, si quiere procesar documentos de formulario locales, consulte los métodos relacionados en la [documentación de referencia](https://docs.microsoft.com/java/api/overview/azure/formrecognizer).
 
 ```java
     string trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
@@ -167,10 +167,10 @@ private static void GetContent(
     FormRecognizerClient recognizerClient, String invoiceUri)
 {
     String analyzeFilePath = invoiceUri;
-    SyncPoller<OperationResult, IterableStream<FormPage>> recognizeContentPoller =
+    SyncPoller<OperationResult, List<FormPage>> recognizeContentPoller =
         recognizerClient.beginRecognizeContentFromUrl(analyzeFilePath);
     
-    IterableStream<FormPage> contentResult = recognizeContentPoller.getFinalResult();
+    List<FormPage> contentResult = recognizeContentPoller.getFinalResult();
 ```
 
 El valor devuelto es una colección de objetos **FormPage**, uno para cada página del documento enviado. El código siguiente recorre en iteración estos objetos e imprime los pares clave-valor y los datos de tabla extraídos.
@@ -204,41 +204,87 @@ Para reconocer los recibos a partir de un URI, use el método **beginRecognizeRe
 private static void AnalyzeReceipt(
     FormRecognizerClient recognizerClient, string receiptUri)
 {
-    SyncPoller<OperationResult, IterableStream<RecognizedReceipt>> syncPoller =
+    SyncPoller<OperationResult, List<RecognizedReceipt>> syncPoller =
         formRecognizerClient.beginRecognizeReceiptsFromUrl(receiptUri);
-    IterableStream<RecognizedReceipt> receiptPageResults = syncPoller.getFinalResult();
+    List<RecognizedReceipt> receiptPageResults = syncPoller.getFinalResult();
 ```
 
 El siguiente bloque de código recorre en iteración los recibos e imprime los detalles en la consola.
 
 ```java
-    receiptPageResults.forEach(recognizedReceipt -> {
-        USReceipt usReceipt = ReceiptExtensions.asUSReceipt(recognizedReceipt);
-        System.out.printf("Page Number: %d%n", usReceipt.getMerchantName().getPageNumber());
-        System.out.printf("Merchant Name: %s, confidence: %.2f%n", usReceipt.getMerchantName().getFieldValue(), usReceipt.getMerchantName().getConfidence());
-        System.out.printf("Merchant Address: %s, confidence: %.2f%n", usReceipt.getMerchantAddress().getName(), usReceipt.getMerchantAddress().getConfidence());
-        System.out.printf("Merchant Phone Number %s, confidence: %.2f%n", usReceipt.getMerchantPhoneNumber().getFieldValue(), usReceipt.getMerchantPhoneNumber().getConfidence());
-        System.out.printf("Total: %s confidence: %.2f%n", usReceipt.getTotal().getName(), usReceipt.getTotal().getConfidence());
+    for (int i = 0; i < receiptPageResults.size(); i++) {
+        RecognizedReceipt recognizedReceipt = receiptPageResults.get(i);
+        Map<String, FormField> recognizedFields = recognizedReceipt.getRecognizedForm().getFields();
+        System.out.printf("----------- Recognized Receipt page %d -----------%n", i);
+        FormField merchantNameField = recognizedFields.get("MerchantName");
+        if (merchantNameField != null) {
+            if (merchantNameField.getFieldValue().getType() == FieldValueType.STRING) {
+                System.out.printf("Merchant Name: %s, confidence: %.2f%n",
+                    merchantNameField.getFieldValue().asString(),
+                    merchantNameField.getConfidence());
+            }
+        }
+        FormField merchantAddressField = recognizedFields.get("MerchantAddress");
+        if (merchantAddressField != null) {
+            if (merchantAddressField.getFieldValue().getType() == FieldValueType.STRING) {
+                System.out.printf("Merchant Address: %s, confidence: %.2f%n",
+                    merchantAddressField.getFieldValue().asString(),
+                    merchantAddressField.getConfidence());
+            }
+        }
+        FormField transactionDateField = recognizedFields.get("TransactionDate");
+        if (transactionDateField != null) {
+            if (transactionDateField.getFieldValue().getType() == FieldValueType.DATE) {
+                System.out.printf("Transaction Date: %s, confidence: %.2f%n",
+                    transactionDateField.getFieldValue().asDate(),
+                    transactionDateField.getConfidence());
+            }
+        }
 ```
 El siguiente bloque de código recorre en iteración los elementos detectados en el recibo e imprime los detalles en la consola.
 
 ```java
-        System.out.printf("Receipt Items: %n");
-        usReceipt.getReceiptItems().forEach(receiptItem -> {
-            if (receiptItem.getName() != null) {
-                System.out.printf("Name: %s, confidence: %.2f%n", receiptItem.getName().getFieldValue(), receiptItem.getName().getConfidence());
+        FormField receiptItemsField = recognizedFields.get("Items");
+        if (receiptItemsField != null) {
+            System.out.printf("Receipt Items: %n");
+            if (receiptItemsField.getFieldValue().getType() == FieldValueType.LIST) {
+                List<FormField> receiptItems = receiptItemsField.getFieldValue().asList();
+                receiptItems.forEach(receiptItem -> {
+                    if (receiptItem.getFieldValue().getType() == FieldValueType.MAP) {
+                        receiptItem.getFieldValue().asMap().forEach((key, formField) -> {
+                            if (key.equals("Name")) {
+                                if (formField.getFieldValue().getType() == FieldValueType.STRING) {
+                                    System.out.printf("Name: %s, confidence: %.2fs%n",
+                                        formField.getFieldValue().asString(),
+                                        formField.getConfidence());
+                                }
+                            }
+                            if (key.equals("Quantity")) {
+                                if (formField.getFieldValue().getType() == FieldValueType.INTEGER) {
+                                    System.out.printf("Quantity: %d, confidence: %.2f%n",
+                                        formField.getFieldValue().asInteger(), formField.getConfidence());
+                                }
+                            }
+                            if (key.equals("Price")) {
+                                if (formField.getFieldValue().getType() == FieldValueType.FLOAT) {
+                                    System.out.printf("Price: %f, confidence: %.2f%n",
+                                        formField.getFieldValue().asFloat(),
+                                        formField.getConfidence());
+                                }
+                            }
+                            if (key.equals("TotalPrice")) {
+                                if (formField.getFieldValue().getType() == FieldValueType.FLOAT) {
+                                    System.out.printf("Total Price: %f, confidence: %.2f%n",
+                                        formField.getFieldValue().asFloat(),
+                                        formField.getConfidence());
+                                }
+                            }
+                        });
+                    }
+                });
             }
-            if (receiptItem.getQuantity() != null) {
-                System.out.printf("Quantity: %s, confidence: %.2f%n", receiptItem.getQuantity().getFieldValue(), receiptItem.getQuantity().getConfidence());
-            }
-            if (receiptItem.getPrice() != null) {
-                System.out.printf("Price: %s, confidence: %.2f%n", receiptItem.getPrice().getFieldValue(), receiptItem.getPrice().getConfidence());
-            }
-            if (receiptItem.getTotalPrice() != null) {
-                System.out.printf("Total Price: %s, confidence: %.2f%n", receiptItem.getTotalPrice().getFieldValue(), receiptItem.getTotalPrice().getConfidence());
-            }
-        });
-    });
+        }
+    }
 }
 ```
 
@@ -269,7 +315,7 @@ private static String TrainModel(
     System.out.printf("Model Id: %s%n", customFormModel.getModelId());
     System.out.printf("Model Status: %s%n", customFormModel.getModelStatus());
     System.out.printf("Model created on: %s%n", customFormModel.getCreatedOn());
-    System.out.printf("Model last updated: %s%n%n", customFormModel.getLastUpdatedOn());
+    System.out.printf("Model last updated: %s%n%n", customFormModel.getCompletedOn());
 ```
 El objeto devuelto **CustomFormModel** contiene información sobre los tipos de formulario que el modelo puede reconocer y los campos que puede extraer de cada tipo de formulario. El siguiente bloque de código imprime esta información en la consola.
 
@@ -277,7 +323,7 @@ El objeto devuelto **CustomFormModel** contiene información sobre los tipos de 
     System.out.println("Recognized Fields:");
     // looping through the sub-models, which contains the fields they were trained on
     // Since the given training documents are unlabeled, we still group them but they do not have a label.
-    customFormModel.getSubModels().forEach(customFormSubModel -> {
+    customFormModel.getSubmodels().forEach(customFormSubModel -> {
         // Since the training data is unlabeled, we are unable to return the accuracy of this model
         customFormSubModel.getFieldMap().forEach((field, customFormModelField) ->
             System.out.printf("Field: %s Field Label: %s%n",
@@ -294,7 +340,7 @@ Por último, este método devuelve el identificador único del modelo.
 
 ### <a name="train-a-model-with-labels"></a>Entrenamiento de un modelo con etiquetas
 
-También puede entrenar modelos personalizados mediante el etiquetado manual de los documentos de entrenamiento. En algunos escenarios, el entrenamiento con etiquetas conduce a un mejor rendimiento. Para realizar el entrenamiento con etiquetas, debe disponer de archivos de información de etiquetas especiales ( *\<filename\>.pdf.labels.json*) en el contenedor de almacenamiento de blobs junto con los documentos de entrenamiento. La [herramienta de etiquetado de ejemplo de Form Recognizer](../../quickstarts/label-tool.md) proporciona una interfaz de usuario para ayudarle a crear estos archivos de etiqueta. Cuando los tenga, puede llamar al método **beginTraining** con el parámetro *uselabels* establecido en `true`.
+También puede entrenar modelos personalizados mediante el etiquetado manual de los documentos de entrenamiento. En algunos escenarios, el entrenamiento con etiquetas conduce a un mejor rendimiento. Para realizar el entrenamiento con etiquetas, debe disponer de archivos de información de etiquetas especiales ( *\<filename\>.pdf.labels.json*) en el contenedor de almacenamiento de blobs junto con los documentos de entrenamiento. La [herramienta de etiquetado de ejemplo de Form Recognizer](../../quickstarts/label-tool.md) proporciona una interfaz de usuario para ayudarle a crear estos archivos de etiqueta. Cuando los tenga, puede llamar al método **beginTraining** con el parámetro *useTrainingLabels* establecido en `true`.
 
 ```java
 private static String TrainModelWithLabels(
@@ -309,8 +355,8 @@ private static String TrainModelWithLabels(
     // Model Info
     System.out.printf("Model Id: %s%n", customFormModel.getModelId());
     System.out.printf("Model Status: %s%n", customFormModel.getModelStatus());
-    System.out.printf("Model created on: %s%n", customFormModel.getCreatedOn());
-    System.out.printf("Model last updated: %s%n%n", customFormModel.getLastUpdatedOn());
+    System.out.printf("Model created on: %s%n", customFormModel.getRequestedOn());
+    System.out.printf("Model last updated: %s%n%n", customFormModel.getCompletedOn());
 ```
 
 El valor de **CustomFormModel** devuelto indica los campos que el modelo puede extraer, junto con su precisión estimada en cada campo. El siguiente bloque de código imprime esta información en la consola.
@@ -320,7 +366,7 @@ El valor de **CustomFormModel** devuelto indica los campos que el modelo puede e
     // The labels are based on the ones you gave the training document.
     System.out.println("Recognized Fields:");
     // Since the data is labeled, we are able to return the accuracy of the model
-    customFormModel.getSubModels().forEach(customFormSubModel -> {
+    customFormModel.getSubmodels().forEach(customFormSubModel -> {
         System.out.printf("Sub-model accuracy: %.2f%n", customFormSubModel.getAccuracy());
         customFormSubModel.getFieldMap().forEach((label, customFormModelField) ->
             System.out.printf("Field: %s Field Name: %s Field Accuracy: %.2f%n",
@@ -345,10 +391,10 @@ private static void AnalyzePdfForm(
     FormRecognizerClient formClient, String modelId, String pdfFormUrl)
 {    
     String modelId = modelId;
-    SyncPoller<OperationResult, IterableStream<RecognizedForm>> recognizeFormPoller =
+    SyncPoller<OperationResult, List<RecognizedForm>> recognizeFormPoller =
         client.beginRecognizeCustomFormsFromUrl(pdfFormUrl, modelId);
 
-    IterableStream<RecognizedForm> recognizedForms = recognizeFormPoller.getFinalResult();
+    List<RecognizedForm> recognizedForms = recognizeFormPoller.getFinalResult();
 ```
 
 El código siguiente imprime los resultados del análisis en la consola. Imprime cada campo reconocido y el valor correspondiente, junto con una puntuación de confianza.
@@ -387,7 +433,7 @@ El siguiente bloque de código comprueba cuántos modelos se han guardado en la 
     // First, we see how many custom models we have, and what our limit is
     AccountProperties accountProperties = client.getAccountProperties();
     System.out.printf("The account has %s custom models, and we can have at most %s custom models",
-        accountProperties.getCount(), accountProperties.getLimit());
+        accountProperties.getCustomModelCount(), accountProperties.getCustomModelLimit());
 ```
 
 ### <a name="list-the-models-currently-stored-in-the-resource-account"></a>Enumeración de los modelos almacenados actualmente en la cuenta de recursos
@@ -405,9 +451,9 @@ El siguiente bloque de código enumera los modelos actuales de la cuenta e impri
         CustomFormModel customModel = client.getCustomModel(customFormModelInfo.getModelId());
         System.out.printf("Model Id: %s%n", customModel.getModelId());
         System.out.printf("Model Status: %s%n", customModel.getModelStatus());
-        System.out.printf("Created on: %s%n", customModel.getCreatedOn());
-        System.out.printf("Updated on: %s%n", customModel.getLastUpdatedOn());
-        customModel.getSubModels().forEach(customFormSubModel -> {
+        System.out.printf("Created on: %s%n", customModel.getRequestedOn());
+        System.out.printf("Updated on: %s%n", customModel.getCompletedOn());
+        customModel.getSubmodels().forEach(customFormSubModel -> {
             System.out.printf("Custom Model Form type: %s%n", customFormSubModel.getFormType());
             System.out.printf("Custom Model Accuracy: %.2f%n", customFormSubModel.getAccuracy());
             if (customFormSubModel.getFieldMap() != null) {

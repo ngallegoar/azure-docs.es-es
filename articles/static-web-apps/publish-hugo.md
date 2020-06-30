@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: 44472981e48a7018fcdf55f28d33d0dda9479d44
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 250be11f498e825c3e487abfac1c0acc585e5317
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669909"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297948"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicación de un sitio de Hugo en Azure Static Web Apps, versión preliminar
 
@@ -144,42 +144,6 @@ A continuación, agregue los valores de configuración que el proceso de compila
 1. Haga clic en el botón **Revisar y crear** para comprobar que todos los detalles sean correctos.
 
 1. Haga clic en **Crear** para comenzar la creación de la aplicación de Azure Static Web Apps y aprovisionar una Acción de GitHub para la implementación.
-
-1. Una vez que se complete la implementación, vaya a su terminal y extraiga la confirmación con la Acción de GitHub en la máquina.
-
-   ```bash
-   git pull
-   ```
-
-1. Abra la aplicación de Hugo en un editor de texto y abra el archivo _.github/workflows/azure-pages-<NOMBRE_DE_FLUJO_DE_TRABAJO>.yml_.
-
-1. Reemplace la línea `- uses: actions/checkout@v2` (línea 18) por lo siguiente para compilar la aplicación de Hugo. Si necesita Hugo Extended, quite la marca de comentario `extended: true`.
-
-   ```yml
-   - uses: actions/checkout@v2
-     with:
-       submodules: true  # Fetch Hugo themes (true OR recursive)
-       fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-
-   - name: Setup Hugo
-     uses: peaceiris/actions-hugo@v2.4.11
-     with:
-       hugo-version: "latest"  # Hugo version: latest OR x.y.z
-       # extended: true
-
-   - name: Build
-     run: hugo
-   ```
-   
-   Para más información sobre cómo instalar Hugo en el ejecutor de acciones de GitHub, consulte [peaceiris/actions-hugo](https://github.com/peaceiris/actions-hugo).
-
-1. Confirme el flujo de trabajo actualizado e inserte en GitHub.
-
-   ```bash
-   git add -A
-   git commit -m "Updating GitHub Actions workflow"
-   git push
-   ```
 
 1. Espere a que se complete la Acción de GitHub.
 

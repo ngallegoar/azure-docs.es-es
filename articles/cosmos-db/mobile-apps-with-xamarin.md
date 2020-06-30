@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: 8fbd2065ceae1aadf1dc57c78adb21b7c2848297
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fbcbf1be29031596201774ae5ebb40cb1a3b89a2
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80985565"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85113456"
 ---
 # <a name="tutorial-build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Tutorial: Creación de aplicaciones móviles con Xamarin y Azure Cosmos DB
 
@@ -31,7 +31,7 @@ En este artículo, se proporciona un tutorial para crear aplicaciones móviles c
 ## <a name="azure-cosmos-db-capabilities-for-mobile-apps"></a>Funcionalidades de Azure Cosmos DB para aplicaciones móviles
 Azure Cosmos DB proporciona las siguientes funcionalidades clave para los desarrolladores de aplicaciones móviles:
 
-![Funcionalidades de Azure Cosmos DB para aplicaciones móviles](media/mobile-apps-with-xamarin/documentdb-for-mobile.png)
+:::image type="content" source="media/mobile-apps-with-xamarin/documentdb-for-mobile.png" alt-text="Funcionalidades de Azure Cosmos DB para aplicaciones móviles":::
 
 * Consultas completas sobre datos sin esquema. Azure Cosmos DB almacena datos como documentos JSON sin esquema en colecciones heterogéneas. Ofrece [consultas completas y rápidas](how-to-sql-query.md) sin tener que preocuparse de esquemas o índices.
 * Rendimiento rápido. Solo se tardan unas milésimas de segundos en leer y escribir documentos con Azure Cosmos DB. Los desarrolladores pueden especificar el rendimiento que necesitan y Azure Cosmos DB lo aplica mediante un Acuerdo de Nivel de Servicio con disponibilidad del 99,99 % para todas las cuentas de región individual y todas las cuentas de varias regiones con coherencia menos estricta, y disponibilidad de lectura del 99,999 % para todas las cuentas de base de datos de varias regiones.
@@ -47,7 +47,7 @@ En el siguiente tutorial se muestra cómo crear una aplicación móvil con Xamar
 ### <a name="get-started"></a>Introducción
 Es fácil comenzar a usar Azure Cosmos DB. Vaya a Azure Portal y cree una nueva cuenta de Azure Cosmos DB. Haga clic en la pestaña **Inicio rápido**. Descargue el ejemplo de lista de tareas pendientes de Xamarin Forms que ya está conectado a su cuenta de Azure Cosmos DB. 
 
-![Inicio rápido de Azure Cosmos DB para aplicaciones móviles](media/mobile-apps-with-xamarin/cosmos-db-quickstart.png)
+:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-quickstart.png" alt-text="Inicio rápido de Azure Cosmos DB para aplicaciones móviles":::
 
 O bien, si ya tiene una aplicación de Xamarin, puede agregar el [paquete NuGet de Azure Cosmos DB](sql-api-sdk-dotnet-core.md). Azure Cosmos DB admite bibliotecas compartidas de Xamarin.IOS, Xamarin.Android y Xamarin Forms.
 
@@ -85,19 +85,19 @@ Siga estos pasos para modificar la aplicación de lista de tareas pendientes y c
 
 Puede encontrar un código de ejemplo completo de este patrón en [Resource Token Broker en Github](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems). Este diagrama ilustra la solución:
 
-![Agente de permisos y usuarios de Azure Cosmos DB](media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png)
+:::image type="content" source="media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png" alt-text="Agente de permisos y usuarios de Azure Cosmos DB" border="false":::
 
 Si quiere que dos usuarios accedan a la misma lista de tareas pendientes, puede agregar permisos adicionales al token de acceso en Resource Token Broker.
 
 ### <a name="scale-on-demand"></a>Escalado a petición
 Azure Cosmos DB es una base de datos como servicio administrada. A medida que crece su base de usuarios, no es necesario preocuparse de aprovisionar máquinas virtuales o de aumentar los núcleos. Todo lo que tiene que hacer es indicar a Azure Cosmos DB cuántas aplicaciones por segundo (rendimiento) necesita su aplicación. Puede especificar el rendimiento mediante la pestaña **Escala** usando una medida del rendimiento llamada Unidades de solicitud (RU) por segundo. Por ejemplo, una operación de lectura en un documento de 1 KB requiere 1 RU. Puede agregar también alertas para la métrica **Rendimiento** con el fin de supervisar el crecimiento del tráfico y cambiar mediante programación el rendimiento cuando se disparen las alertas.
 
-![Rendimiento a gran escala de Azure Cosmos DB a petición](media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png)
+:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png" alt-text="Rendimiento a gran escala de Azure Cosmos DB a petición":::
 
 ### <a name="go-planet-scale"></a>Escala a nivel mundial
 A medida que su aplicación gane popularidad, podría conseguir usuarios de todo el mundo. O bien, quizá desee estar preparado para imprevistos. Vaya a Azure Portal y abra su cuenta de Azure Cosmos DB. Haga clic en el mapa para hacer que los datos se replique continuamente en cualquier número de regiones en todo el mundo. Esta funcionalidad permite que los datos estén disponibles siempre que los usuarios lo estén. También puede agregar directivas de conmutación por error para estar preparado para contingencias.
 
-![Azure Cosmos DB escala en regiones geográficas](media/mobile-apps-with-xamarin/cosmos-db-xamarin-replicate.png)
+:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-replicate.png" alt-text="Escala de Azure Cosmos DB entre regiones geográficas" border="false":::
 
 ¡Enhorabuena! Ha finalizado la solución y tiene una aplicación móvil con Xamarin y Azure Cosmos DB. Siga pasos similares para crear aplicaciones de Cordova mediante el SDK de JavaScript para Azure Cosmos DB, y aplicaciones nativas de iOS o Android mediante las API de REST de Azure Cosmos DB.
 

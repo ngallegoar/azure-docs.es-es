@@ -5,16 +5,16 @@ services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: f70c14c424e8aaecbdc1138b52fdd6fb1e9fc265
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 2c5f65993909e142de6017b07591529cd7cb7b86
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85051805"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85200586"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Uso de OPENROWSET con SQL a petición (versión preliminar)
 
@@ -178,7 +178,7 @@ ESCAPE_CHAR = "char"
 
 Especifica el carácter del archivo que se usa como carácter de escape de sí mismo y de todos los valores de delimitador del archivo. Si el carácter de escape va seguido de un valor distinto de sí mismo o de cualquiera de los valores de delimitador, se quita al leer el valor. 
 
-El parámetro ESCAPE_CHAR se aplicará independientemente de que FIELDQUOTE esté habilitado o no. No se utilizará como carácter de escape el carácter de comillas. El carácter de escape de las comillas simples es el carácter de comillas dobles, igual que sucede en los archivos .csv de Excel.
+El parámetro ESCAPE_CHAR se aplicará independientemente de que FIELDQUOTE esté habilitado o no. No se utilizará como carácter de escape el carácter de comillas. El carácter de comillas se debe escapar con otro carácter de comillas. El carácter de comillas solo puede aparecer dentro del valor de la columna si el valor se encapsula entre caracteres de comillas.
 
 FIRSTROW = "first_row" 
 

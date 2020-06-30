@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: spelluru
-ms.openlocfilehash: e6733bdc91ba26d52366de09ed6bc255dcd4ff98
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 76d63b508705bf426b8fc86b3d27d75241d6f246
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610824"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212214"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutorial: Transmitir macrodatos a un almacenamiento de datos
 Azure [Event Grid](overview.md) es un servicio inteligente de enrutamiento de eventos que permite reaccionar ante las notificaciones (eventos) procedentes de aplicaciones y servicios. Por ejemplo, puede desencadenar una función de Azure que procese los datos de Event Hubs que se han capturado en una instancia de Azure Blob Storage o Azure Data Lake Store y migrar esos datos a otros repositorios. En este [ejemplo de integración de Event Hubs y Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) se indica cómo usar Event Hubs con Event Grid para migrar datos de Event Hubs capturados procedentes de Blob Storage a una instancia de SQL Data Warehouse sin ningún tipo de problema.
@@ -173,7 +173,7 @@ Para crear una tabla en el almacenamiento de datos, ejecute el script [CreateDat
 2. En la página de almacenamiento de datos de SQL, seleccione **Editor de consultas (versión preliminar)** en el menú de la izquierda. 
 
     ![Página de almacenamiento de datos de SQL](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
-2. Escriba el nombre de **usuario** y la **contraseña** del servidor SQL Server y seleccione **Aceptar**. Es posible que necesite la dirección IP del cliente al firewall para iniciar sesión correctamente en SQL Server. 
+2. Escriba el nombre de **usuario** y la **contraseña** del servidor SQL Server y seleccione **Aceptar**. Es posible que necesite agregar la dirección IP del cliente al firewall para iniciar sesión correctamente en SQL Server. 
 
     ![Autenticación de SQL Server](media/event-grid-event-hubs-integration/sql-server-authentication.png)
 4. En la ventana de consulta, copie y ejecute el script SQL siguiente: 

@@ -13,19 +13,19 @@ ms.topic: overview
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: fc7d4caecb2ca3d35d7b1b8d0cd5f9ff380d7674
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 80a215363a319b9ee082bd6c5e5f8004fc5b715b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310111"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85209579"
 ---
 # <a name="troubleshooting"></a>Solución de problemas
 
 El servicio Azure Dedicated HSM tiene dos aspectos distintos. En primer lugar, el registro y la implementación en Azure de los dispositivos HSM con sus componentes de red subyacentes. En segundo lugar, la configuración de los dispositivos HSM como preparación para su uso o integración con una carga de trabajo o aplicación determinados. Aunque los dispositivos HSM Thales Luna Network son los mismos en Azure que los que podría comprar directamente a Thales, el hecho de que se trate de un recurso de Azure aporta algunas consideraciones únicas. Aquí se documentan estas consideraciones, los procedimientos recomendados y la información de solución de problemas resultantes para garantizar la alta visibilidad y el acceso a la información crítica. Una vez que el servicio está en uso, la información definitiva está disponible mediante solicitudes de soporte técnico a Microsoft o a Thales directamente. 
 
 > [!NOTE]
-> Tenga en cuenta que, antes de realizar cualquier configuración en un dispositivo HSM recién implementado, se debe actualizar con cualquier revisión pertinente. Una revisión necesaria específica es la [KB0019789](https://supportportal.gemalto.com/csm?id=kb_article_view&sys_kb_id=19a81c8bdb9a1fc8d298728dae96197d&sysparm_article=KB0019789) del portal de soporte técnico de Thales, que soluciona un problema de bloqueo de reinicio.
+> Tenga en cuenta que, antes de realizar cualquier configuración en un dispositivo HSM recién implementado, se debe actualizar con cualquier revisión pertinente. Una revisión necesaria específica es la [KB0019789](https://supportportal.gemalto.com/csm?id=kb_article_view&sys_kb_id=19a81c8bdb9a1fc8d298728dae96197d&sysparm_article=KB0019789) del portal de soporte técnico de Thales, que soluciona un problema en el que el sistema deja de responder durante el reinicio.
 
 ## <a name="hsm-registration"></a>Registro del HSM
 
@@ -120,7 +120,7 @@ Tenga cuidado al configurar las redes en el HSM.  El HSM tiene una conexión med
 
 ### <a name="hsm-device-reboot"></a>Reinicio del dispositivo HSM
 
-Algunos cambios de configuración requieren que el HSM se apague y encienda o se reinicie. Las pruebas del HSM en Azure realizadas por Microsoft determinaron que, en algunas ocasiones, el reinicio podría dejar de responder. La implicación es que se debe crear una solicitud de soporte técnico en Azure Portal solicitando un reinicio completo, que podría tardar hasta 48 horas teniendo en cuenta que se trata de un proceso manual en un centro de datos de Azure.  Para evitar esta situación, asegúrese de que ha implementado la revisión de reinicio disponible directamente desde Thales. Consulte la [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) en el apartado de descargas de Thales Luna Network HSM 7.2 para obtener una revisión recomendada para un problema de bloqueo de reinicio (Nota: Debe haberse registrado en el portal de soporte técnico de Thales para descargarlo).
+Algunos cambios de configuración requieren que el HSM se apague y encienda o se reinicie. Las pruebas del HSM en Azure realizadas por Microsoft determinaron que, en algunas ocasiones, el reinicio podría dejar de responder. La implicación es que se debe crear una solicitud de soporte técnico en Azure Portal solicitando un reinicio completo, que podría tardar hasta 48 horas teniendo en cuenta que se trata de un proceso manual en un centro de datos de Azure.  Para evitar esta situación, asegúrese de que ha implementado la revisión de reinicio disponible directamente desde Thales. Consulte [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) en el apartado de descargas de Thales Luna Network HSM 7.2 para obtener una revisión recomendada para el problema de que el sistema deja de responder durante el reinicio (Nota: para poder realizar la descarga, es preciso estar registrado en el portal de soporte técnico de Thales).
 
 ### <a name="ntls-certificates-out-of-sync"></a>Certificados de NTLS fuera de sincronización
 Un cliente puede perder conectividad con un HSM cuando expira un certificado o se sobrescribe mediante actualizaciones de configuración. La configuración del cliente de intercambio de certificados se debe volver a aplicar en cada HSM.

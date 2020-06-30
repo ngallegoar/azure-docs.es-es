@@ -3,22 +3,26 @@ title: Creación de un proveedor de recursos
 description: Se describe cómo crear un proveedor de recursos e implementar sus tipos de recursos personalizados.
 author: MSEvanhi
 ms.topic: tutorial
-ms.date: 05/01/2019
+ms.date: 06/19/2020
 ms.author: evanhi
-ms.openlocfilehash: 393993a44c860525b9bd9a540ed7afff78e5b93c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ce547c010d3cc814d4e6f6182c19572248228fc3
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75648512"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125018"
 ---
 # <a name="quickstart-create-custom-provider-and-deploy-custom-resources"></a>Inicio rápido: Creación de un proveedor de recursos e implementación de recursos personalizados
 
 En este inicio rápido, creará su propio proveedor de recursos e implementará distintos tipos de recursos personalizados para dicho proveedor de recursos. Para más información sobre los proveedores personalizados, vea la [introducción a los proveedores personalizados de Azure en versión preliminar](overview.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-Para completar los pasos de este inicio rápido es preciso llamar a operaciones de REST. Hay [distintas formas de enviar solicitudes REST](/rest/api/azure/). Si no dispone de una herramienta para las operaciones de REST, instale [ARMClient](https://github.com/projectkudu/ARMClient). Se trata de una herramienta de línea de comandos de código abierto que simplifica la invocación de la API de Azure Resource Manager.
+Para completar los pasos de este inicio rápido, es preciso llamar a operaciones `REST`. Hay [distintas formas de enviar solicitudes REST](/rest/api/azure/).
+
+Para ejecutar comandos de la CLI de Azure, use [Bash en Azure Cloud Shell](/azure/cloud-shell/quickstart). Los comandos [custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) requieren una extensión. Para más información, consulte [Uso de extensiones con la CLI de Azure](/cli/azure/azure-cli-extensions-overview).
+
+Para ejecutar comandos de PowerShell de forma local, use PowerShell 7 o posterior y los módulos de Azure PowerShell. Para más información, vea [Instalar Azure PowerShell](/powershell/azure/install-az-ps). Si no dispone de una herramienta para las operaciones `REST`, instale [ARMClient](https://github.com/projectkudu/ARMClient). Se trata de una herramienta de línea de comandos de código abierto que simplifica la invocación de la API de Azure Resource Manager.
 
 ## <a name="deploy-custom-provider"></a>Implementación de un proveedor personalizado
 
@@ -31,37 +35,80 @@ Después de implementar la plantilla, la suscripción tiene los siguientes recur
 * Proveedor personalizado que define las acciones y los tipos de recursos personalizados. Usa el punto de conexión de la aplicación de función para enviar las solicitudes.
 * Recurso personalizado del proveedor personalizado.
 
-Para implementar el proveedor personalizado con PowerShell, use:
+Para implementar el proveedor personalizado, use la CLI de Azure o PowerShell:
 
-```azurepowershell-interactive
-$rgName = "<resource-group-name>"
-$funcName = "<function-app-name>"
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-New-AzResourceGroup -Name $rgName -Location eastus
-New-AzResourceGroupDeployment -ResourceGroupName $rgName `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/custom-providers/customprovider.json `
-  -funcname $funcName
+```azurecli-interactive
+read -p "Enter a resource group name:" rgName &&
+read -p "Enter the location (i.e. eastus):" location &&
+read -p "Enter the provider's function app name:" funcName &&
+templateUri="https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/custom-providers/customprovider.json" &&
+az group create --name $rgName --location "$location" &&
+az deployment group create --resource-group $rgName --template-uri $templateUri --parameters funcName=$funcName &&
+echo "Press [ENTER] to continue ..." &&
+read
 ```
 
-También puede implementar la solución con el siguiente botón:
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fcustom-providers%2Fcustomprovider.json" target="_blank">
-    <img src="https://azuredeploy.net/deploybutton.png"/>
-</a>
+```powershell
+$rgName = Read-Host -Prompt "Enter a resource group name"
+$location = Read-Host -Prompt "Enter the location (i.e. eastus)"
+$funcName = Read-Host -Prompt "Enter the provider's function app name"
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/custom-providers/customprovider.json"
+New-AzResourceGroup -Name $rgName -Location "$location"
+New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateUri $templateUri -funcName $funcName
+Read-Host -Prompt "Press [ENTER] to continue ..."
+```
+
+---
+
+También puede implementar la solución en Azure Portal con el siguiente botón:
+
+[![Implementación en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fcustom-providers%2Fcustomprovider.json)
 
 ## <a name="view-custom-provider-and-resource"></a>Ver recurso y proveedor personalizado
 
-En el portal, el proveedor personalizado es un tipo de recurso oculto. Para confirmar que se ha implementado el proveedor de recursos, navegue hasta el grupo de recursos. Seleccione la opción **Mostrar tipos ocultos**.
+En el portal, el proveedor personalizado es un tipo de recurso oculto. Para confirmar que se ha implementado el proveedor de recursos, vaya al grupo de recursos. Seleccione la opción **Mostrar tipos ocultos**.
 
 ![Mostrar tipos de recursos ocultos](./media/create-custom-provider/show-hidden.png)
 
-Para ver el tipo de recurso personalizado que ha implementado, use la operación GET en el tipo de recurso.
+Para ver el tipo de recurso personalizado que ha implementado, use la operación `GET` en el tipo de recurso.
 
-```
+```http
 GET https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/users?api-version=2018-09-01-preview
 ```
 
-Con ARMClient, use:
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+```azurecli-interactive
+subID=$(az account show --query id --output tsv)
+requestURI="https://management.azure.com/subscriptions/$subID/resourceGroups/$rgName/providers/Microsoft.CustomProviders/resourceProviders/$funcName/users?api-version=2018-09-01-preview"
+az rest --method get --uri $requestURI
+```
+
+Recibirá la respuesta:
+
+```json
+{
+  "value": [
+    {
+      "id": "/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/users/santa",
+      "name": "santa",
+      "properties": {
+        "FullName": "Santa Claus",
+        "Location": "NorthPole",
+        "provisioningState": "Succeeded"
+      },
+      "resourceGroup": "<rg-name>",
+      "type": "Microsoft.CustomProviders/resourceProviders/users"
+    }
+  ]
+}
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```powershell
 $subID = (Get-AzContext).Subscription.Id
@@ -89,17 +136,37 @@ Recibirá la respuesta:
 }
 ```
 
+---
+
 ## <a name="call-action"></a>Acción llamar
 
-El proveedor personalizado también tiene una acción denominada **ping**. El código que procesa la solicitud se implementa en la aplicación de función. La acción ping responde con un saludo.
+El proveedor personalizado también tiene una acción denominada `ping`. El código que procesa la solicitud se implementa en la aplicación de función. La acción `ping` responde con un saludo.
 
-Para enviar una solicitud ping, utilice la operación POST en su proveedor personalizado.
+Para enviar una solicitud `ping`, use la operación `POST` en su proveedor personalizado.
 
-```
+```http
 POST https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/ping?api-version=2018-09-01-preview
 ```
 
-Con ARMClient, use:
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+```azurecli-interactive
+pingURI="https://management.azure.com/subscriptions/$subID/resourceGroups/$rgName/providers/Microsoft.CustomProviders/resourceProviders/$funcName/ping?api-version=2018-09-01-preview"
+az rest --method post --uri $pingURI
+```
+
+Recibirá la respuesta:
+
+```json
+{
+  "message": "hello <function-name>.azurewebsites.net",
+  "pingcontent": {
+    "source": "<function-name>.azurewebsites.net"
+  }
+}
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```powershell
 $pingURI = "https://management.azure.com/subscriptions/$subID/resourceGroups/$rgName/providers/Microsoft.CustomProviders/resourceProviders/$funcName/ping?api-version=2018-09-01-preview"
@@ -118,17 +185,42 @@ Recibirá la respuesta:
 }
 ```
 
-## <a name="create-resource-type"></a>Creación de un tipo de recurso
+---
 
-Para crear el tipo de recurso personalizado, puede implementar el recurso en una plantilla. Este método se muestra en la plantilla que se ha implementado en este inicio rápido. También puede enviar una solicitud PUT para el tipo de recurso.
+## <a name="create-a-resource-type"></a>Creación de un tipo de recurso
 
-```
+Para crear el tipo de recurso personalizado, puede implementar el recurso en una plantilla. Este método se muestra en la plantilla que se ha implementado en este inicio rápido. También puede enviar una solicitud `PUT` para el tipo de recurso.
+
+```http
 PUT https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/users/<resource-name>?api-version=2018-09-01-preview
 
 {"properties":{"FullName": "Test User", "Location": "Earth"}}
 ```
 
-Con ARMClient, use:
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+```azurecli-interactive
+addURI="https://management.azure.com/subscriptions/$subID/resourceGroups/$rgName/providers/Microsoft.CustomProviders/resourceProviders/$funcName/users/testuser?api-version=2018-09-01-preview"
+az rest --method put --uri $addURI --body "{'properties':{'FullName': 'Test User', 'Location': 'Earth'}}"
+```
+
+Recibirá la respuesta:
+
+```json
+{
+  "id": "/subscriptions/<sub-ID>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/users/testuser",
+  "name": "testuser",
+  "properties": {
+    "FullName": "Test User",
+    "Location": "Earth",
+    "provisioningState": "Succeeded"
+  },
+  "resourceGroup": "<rg-name>",
+  "type": "Microsoft.CustomProviders/resourceProviders/users"
+}
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```powershell
 $addURI = "https://management.azure.com/subscriptions/$subID/resourceGroups/$rgName/providers/Microsoft.CustomProviders/resourceProviders/$funcName/users/testuser?api-version=2018-09-01-preview"
@@ -152,6 +244,110 @@ Recibirá la respuesta:
 }
 ```
 
+---
+
+## <a name="custom-resource-provider-commands"></a>Comandos del proveedor de recursos personalizado
+
+Use los comandos [custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) para trabajar con el proveedor de recursos personalizado.
+
+### <a name="list-custom-resource-providers"></a>Enumeración de los proveedores de recursos personalizados
+
+Enumere todos los proveedores de recursos personalizados de una suscripción. De forma predeterminada, se enumeran los proveedores de recursos personalizados de la suscripción actual, o puede especificar el parámetro `--subscription`. Para enumerar un grupo de recursos, use el parámetro `--resource-group`.
+
+```azurecli-interactive
+az custom-providers resource-provider list --subscription $subID
+```
+
+```json
+[
+  {
+    "actions": [
+      {
+        "endpoint": "https://<provider-name>.azurewebsites.net/api/{requestPath}",
+        "name": "ping",
+        "routingType": "Proxy"
+      }
+    ],
+    "id": "/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceproviders/<provider-name>",
+    "location": "eastus",
+    "name": "<provider-name>",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "<rg-name>",
+    "resourceTypes": [
+      {
+        "endpoint": "https://<provider-name>.azurewebsites.net/api/{requestPath}",
+        "name": "users",
+        "routingType": "Proxy, Cache"
+      }
+    ],
+    "tags": {},
+    "type": "Microsoft.CustomProviders/resourceproviders",
+    "validations": null
+  }
+]
+```
+
+### <a name="show-the-properties"></a>Presentación de las propiedades
+
+Muestre las propiedades de un proveedor de recursos personalizado. El formato de salida es similar a la salida de `list`.
+
+```azurecli-interactive
+az custom-providers resource-provider show --resource-group $rgName --name $funcName
+```
+
+### <a name="create-a-new-resource"></a>Crear un nuevo recurso
+
+Use el comando `create` para crear o actualizar un proveedor de recursos personalizado. En este ejemplo se actualizan `actions` y `resourceTypes`.
+
+```azurecli-interactive
+az custom-providers resource-provider create --resource-group $rgName --name $funcName \
+--action name=ping endpoint=https://myTestSite.azurewebsites.net/api/{requestPath} routing_type=Proxy \
+--resource-type name=users endpoint=https://myTestSite.azurewebsites.net/api{requestPath} routing_type="Proxy, Cache"
+```
+
+```json
+"actions": [
+  {
+    "endpoint": "https://myTestSite.azurewebsites.net/api/{requestPath}",
+    "name": "ping",
+    "routingType": "Proxy"
+  }
+],
+
+"resourceTypes": [
+  {
+    "endpoint": "https://myTestSite.azurewebsites.net/api{requestPath}",
+    "name": "users",
+    "routingType": "Proxy, Cache"
+  }
+],
+```
+
+### <a name="update-the-providers-tags"></a>Actualización de las etiquetas del proveedor
+
+El comando `update` solo actualiza las etiquetas de un proveedor de recursos personalizado. En Azure Portal, el servicio de aplicaciones del proveedor de recursos personalizado muestra la etiqueta.
+
+```azurecli-interactive
+az custom-providers resource-provider update --resource-group $rgName --name $funcName --tags new=tag
+```
+
+```json
+"tags": {
+  "new": "tag"
+},
+```
+
+### <a name="delete-a-custom-resource-provider"></a>Eliminación de un proveedor de recursos personalizado
+
+El comando `delete` le avisa y elimina solo el proveedor de recursos personalizado. No se eliminan la cuenta de almacenamiento, el servicio de aplicaciones y el plan del servicio de aplicaciones. Una vez eliminado el proveedor, regresa a un símbolo del sistema.
+
+```azurecli-interactive
+az custom-providers resource-provider delete --resource-group $rgName --name $funcName
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para consultar una introducción a los proveedores de recursos, vea la [introducción a los proveedores personalizados de Azure en versión preliminar](overview.md).
+En el siguiente artículo puede encontrar una introducción a los proveedores personalizados:
+
+> [!div class="nextstepaction"]
+> [Introducción a los proveedores personalizados de Azure en versión preliminar](overview.md)

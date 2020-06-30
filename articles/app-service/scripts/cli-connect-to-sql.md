@@ -1,6 +1,6 @@
 ---
 title: 'CLI: Conexión de una aplicación a SQL Database'
-description: Aprenda a usar la CLI de Azure para automatizar la implementación y administración de la aplicación App Service. En este ejemplo se indica cómo conectar una aplicación a una base de datos SQL.
+description: Aprenda a usar la CLI de Azure para automatizar la implementación y administración de la aplicación App Service. En este ejemplo se indica cómo conectar una aplicación a SQL Database.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 7c2efdd0-f553-4038-a77a-e953021b3f77
@@ -9,16 +9,16 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
-ms.openlocfilehash: aa922930314d630e1aece004bab0c74adaf8eb2f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 297ef15cbf2b8e261d38dabe3a91cb26f3b449d2
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015512"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250747"
 ---
-# <a name="connect-an-app-service-app-to-a-sql-database-using-cli"></a>Conexión de una aplicación de App Service a una base de datos SQL mediante la CLI
+# <a name="connect-an-app-service-app-to-sql-database-using-cli"></a>Conexión de una aplicación de App Service a SQL Database mediante la CLI
 
-Este script de ejemplo crea una base de datos de Azure SQL y una aplicación de App Service. Luego, vincula la base de datos SQL a la aplicación mediante la configuración de la aplicación.
+En este script de ejemplo se crea una base de datos de Azure SQL Database y una aplicación de App Service. Luego, se vincula la base de datos a la aplicación mediante la configuración de la aplicación.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

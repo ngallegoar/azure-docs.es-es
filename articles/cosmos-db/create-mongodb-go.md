@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 04/24/2020
-ms.openlocfilehash: ad7baea087cd6073659929cc41f626b597bbae63
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0c03c4f163ef36335dacdc3c28340164dcd23fba
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650345"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299201"
 ---
 # <a name="quickstart-connect-a-go-application-to-azure-cosmos-dbs-api-for-mongodb"></a>Inicio rápido: Conexión de una aplicación Go a la API de Azure Cosmos DB para MongoDB
 
@@ -30,7 +30,7 @@ Azure Cosmos DB es un servicio de base de datos multimodelo que permite crear y 
 
 La aplicación de ejemplo es una herramienta de administración `todo` de línea de comandos escrita en Go. La API de Azure Cosmos DB para MongoDB es [compatible con el protocolo de conexión de MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction#wire-protocol-compatibility), lo que permite que cualquier controlador cliente de MongoDB se conecte a ella. Esta aplicación usa el [controlador de Go para MongoDB](https://github.com/mongodb/mongo-go-driver) de una manera transparente, de forma que sabe que los datos se almacenan en una base de datos de Azure Cosmos DB.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 - Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free). O bien, [pruebe gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sin una suscripción de Azure. También puede usar el [emulador de Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) con la cadena de conexión `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true`.
 - Instalación de [Go](https://golang.org/) en el equipo y conocimientos de cómo funciona.
 - [Git](https://git-scm.com/downloads).
@@ -422,7 +422,7 @@ Para ver y consultar los datos de usuario creados en el paso anterior y trabajar
 
 En el cuadro de búsqueda superior, escriba **Azure Cosmos DB**. Cuando se abra la hoja de la cuenta de Cosmos, seleccione su cuenta de Cosmos. En el panel de navegación izquierdo, seleccione **Explorador de datos**. Expanda la colección en el panel Colecciones. Ahora puede ver los documentos de la colección, consultar los datos e incluso crear y ejecutar procedimientos almacenados, desencadenadores y UDF. 
 
-![El Explorador de datos muestra el documento recién creado](./media/create-mongodb-go/go-cosmos-db-data-explorer.jpg)
+:::image type="content" source="./media/create-mongodb-go/go-cosmos-db-data-explorer.png" alt-text="El Explorador de datos muestra el documento recién creado":::
 
 
 Eliminación de un elemento `todo` mediante su identificador:

@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0d2666e2b56e73b809a0480d45fa3a4a63f06490
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 28765d3a4a0812f6f3631427432105fdc4650808
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652208"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85126236"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Autenticación en Key Vault con una directiva de control de acceso
 
@@ -33,7 +33,7 @@ Para la información completa sobre el control de acceso a Key Vault, consulte [
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Un almacén de claves. Puede usar un almacén de claves existente o crear uno nuevo siguiendo los pasos de uno de estos artículos de inicio rápido:
    - [Creación de un almacén de claves con la CLI de Azure](../secrets/quick-create-cli.md)
@@ -60,10 +60,10 @@ El valor de objectId de una aplicación corresponde a su entidad de servicio aso
 
 Hay dos maneras de obtener el valor de objectId de una aplicación.  La primera es registrar la aplicación en Azure Active Directory. Para ello, siga los pasos de [Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft](../../active-directory/develop/quickstart-register-app.md). Una vez completado el registro, el valor de objectID se mostrará como "ID de aplicación (cliente)".
 
-La segunda manera consiste en crear una entidad de servicio en una ventana de terminal. Con la CLI de Azure, use el comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) y proporcione un nombre principal de servicio único para la marca -n en el formato "http://&lt;mi-nombre-principal-de-servicio-único&gt;".
+La segunda manera consiste en crear una entidad de servicio en una ventana de terminal. Con la CLI de Azure, use el comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) y proporcione un nombre de entidad de seguridad de servicio único en la marca -n con el formato "http://&lt;mi-nombre-de-entidad-de-seguridad-de-servicio-único&gt;".
 
 ```azurecli-interactive
-az ad sp create-for-rbac -n "http://<my-unique-service-principle-name"
+az ad sp create-for-rbac -n "http://<my-unique-service-principal-name"
 ```
 
 El valor de objectId se mostrará en la salida como `clientID`.
@@ -72,7 +72,7 @@ Con Azure PowerShell, use el cmdlet [New-AzADServicePrincipal](/powershell/modul
 
 
 ```azurepowershell-interactive
-New-AzADServicePrincipal -DisplayName <my-unique-service-principle-name>
+New-AzADServicePrincipal -DisplayName <my-unique-service-principal-name>
 ```
 
 El valor de objectId se mostrará en la salida como `Id` (no `ApplicationId`).

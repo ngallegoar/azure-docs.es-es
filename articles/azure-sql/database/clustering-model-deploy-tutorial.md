@@ -14,21 +14,21 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d5227fc89d99257f3390820d4930c3d57b63f03d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 2a90003c9de2cf0e942b518c6d4e9c3569039caf
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84024113"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251427"
 ---
 # <a name="tutorial-deploy-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Implementación de un modelo de agrupación en clústeres en R con Azure SQL Database Machine Learning Services (versión preliminar)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-En la tercera parte de esta serie de tres tutoriales implementará un modelo de agrupación en clústeres desarrollado en R en una base de datos SQL con Azure SQL Database Machine Learning Services (versión preliminar).
+En la tercera parte de esta serie de tres tutoriales, implementará un modelo de agrupación en clústeres desarrollado en R en una base de datos de Azure SQL Database con Azure SQL Database Machine Learning Services (versión preliminar).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
-Creará un procedimiento almacenado con un script de R insertado que realiza la agrupación en clústeres. Como el modelo se ejecuta en la base de datos de Azure SQL, se puede entrenar fácilmente con los datos almacenados en la base de datos.
+Creará un procedimiento almacenado con un script de R insertado que realiza la agrupación en clústeres. Como el modelo se ejecuta en la base de datos de Azure SQL Database, se puede entrenar fácilmente con los datos almacenados en la base de datos.
 
 En este artículo, aprenderá a:
 
@@ -38,7 +38,7 @@ En este artículo, aprenderá a:
 > * Agrupación en clústeres en una base de datos SQL
 > * Uso de la información de agrupación en clústeres
 
-En la [primera parte](clustering-model-prepare-data-tutorial.md) ha aprendido a preparar los datos de una base de datos de Azure SQL para realizar la agrupación en clústeres.
+En la [primera parte](clustering-model-prepare-data-tutorial.md), ha aprendido a preparar los datos de una base de datos para realizar la agrupación en clústeres.
 
 En la [segunda parte](clustering-model-build-tutorial.md) aprendió a crear y entrenar un modelo de agrupación en clústeres K-Means en R.
 

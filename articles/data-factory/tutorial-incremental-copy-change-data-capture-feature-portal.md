@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: 754fb27d03aebf6029d3ae2f22e748db87a89753
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: ca6b0ff197c21dd41521d2aa6106aa3b0df2d177
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84325230"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249503"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Carga incremental de datos de Instancia administrada de Azure SQL a Azure Blob Storage mediante la captura de datos modificados (CDC)
 
@@ -55,7 +55,8 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 * **Instancia administrada de Azure SQL Database**. La base de datos se usa como almacén de datos de **origen**. Si no tiene una instancia administrada de Azure SQL Database, consulte los pasos del artículo [Creación de una instancia administrada de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) para crear una.
 * **Cuenta de Azure Storage**. Blob Storage se usa como almacén de datos **receptor**. Si no tiene una cuenta de almacenamiento de Azure, consulte el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md) para ver los pasos para su creación. Cree un contenedor llamado **raw**. 
 
-### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Creación de una tabla de origen de datos en una base de datos de Azure SQL
+### <a name="create-a-data-source-table-in-azure-sql-database"></a>Creación de una tabla de origen de datos en Azure SQL Database
+
 1. Inicie **SQL Server Management Studio** y conéctese al servidor de Instancias administradas de Azure SQL.
 2. En el **Explorador de servidores**, haga clic con el botón derecho en la **base de datos** y elija la **Nueva consulta**.
 3. Ejecute el siguiente comando SQL en su base de datos de Instancias administradas de Azure SQL para crear una tabla llamada `customers` como almacén de origen de datos.  

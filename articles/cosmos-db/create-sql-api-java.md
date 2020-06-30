@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 236cff59ffbef835b5a57a3d5a0d223cfebf34ae
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: bb711dc67df51edc569f23bd1e6c54eef55012d2
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647684"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115402"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Inicio rápido: Creación de una aplicación Java para administrar los datos de SQL API de Azure Cosmos DB
 
@@ -33,7 +33,7 @@ En este inicio rápido se crea y administra una cuenta de Azure Cosmos DB para S
 > Este inicio rápido solo es para el SDK de Azure Cosmos DB para Java v4. Consulte las [notas de la versión](sql-api-sdk-java-v4.md) del SDK de Azure Cosmos DB para Java v4, el [repositorio de Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos), las [sugerencias de rendimiento](performance-tips-java-sdk-v4-sql.md) del SDK de Azure Cosmos DB para Java v4 y la [guía de solución de problemas](troubleshoot-java-sdk-v4-sql.md) del SDK de Azure Cosmos DB para Java v4 para más información. Si en la actualidad usa una versión anterior a v4, vea la guía [Migración al SDK de Azure Cosmos DB para Java v4](migrate-java-v4-sdk.md) a fin de obtener ayuda para actualizar a v4.
 >
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). O bien, [pruebe gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sin una suscripción de Azure. También puede usar el [emulador de Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) con el identificador URI `https://localhost:8081` y la clave `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
 - [Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Apunte su variable de entorno `JAVA_HOME` a la carpeta donde está instalado el JDK.
@@ -44,7 +44,7 @@ En este inicio rápido se crea y administra una cuenta de Azure Cosmos DB para S
 
 *Estructura de una cuenta de Cosmos DB*: independientemente de la API o el lenguaje de programación, una *cuenta* de Cosmos DB contiene de cero o varias *bases de datos*; una *base de datos* contiene de cero a varios *contenedores* y un *contenedor* contiene de cero a varios elementos, como se muestra en el diagrama siguiente:
 
-![Entidades de cuenta de Azure Cosmos](./media/databases-containers-items/cosmos-entities.png)
+:::image type="content" source="./media/databases-containers-items/cosmos-entities.png" alt-text="Entidades de cuenta de Azure Cosmos" border="false":::
 
 Puede leer más información sobre las bases de datos, los contenedores y los elementos [aquí](databases-containers-items.md). Algunas propiedades importantes se definen en el nivel del contenedor, entre ellas la *capacidad de proceso aprovisionada* y la *clave de partición*. 
 

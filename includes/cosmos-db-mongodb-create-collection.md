@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: lbosq
 ms.custom: include file
-ms.openlocfilehash: 0f471c5aefdb39396ea189984d32a9e8f5419182
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 8d12645bd302a7ea808f13c07e2a72f66846bad7
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84200373"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85121561"
 ---
 Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear una base de datos y un contenedor de API para MongoDB de Azure Cosmos DB. 
 
@@ -21,7 +21,7 @@ Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear u
     
     El área **Agregar contenedor** se muestra en el extremo derecho, pero es posible que haya que desplazarse hacia la derecha para verlo.
 
-    ![Explorador de datos de Azure Portal, panel Agregar contenedor](./media/cosmos-db-create-collection/azure-cosmosdb-mongodb-data-explorer.png)
+    :::image type="content" source="./media/cosmos-db-create-collection/azure-cosmosdb-mongodb-data-explorer.png" alt-text="Explorador de datos de Azure Portal, panel Agregar contenedor":::
 
 2. En la página **Agregar contenedor**, especifique la configuración del nuevo contenedor.
 

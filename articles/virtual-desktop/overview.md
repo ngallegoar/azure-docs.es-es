@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 61162a0e2e95a08547848f286f2db489f4b9d963
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 289cc463732ee6b612b67f6c408d9d7260016137
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737026"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125811"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>¿Qué es Windows Virtual Desktop? 
 
@@ -113,7 +113,7 @@ En la tabla siguiente se enumeran las direcciones URL opcionales a las que puede
 |*.events.data.microsoft.com|443|Servicio de telemetría|None|
 |www.msftconnecttest.com|443|Detecta si el sistema operativo está conectado a Internet.|None|
 |*.prod.do.dsp.mp.microsoft.com|443|Windows Update|None|
-|login.windows.net|443|Inicio de sesión en Microsoft Online Services, Office 365|None|
+|login.windows.net|443|Inicio de sesión en Microsoft Online Services, Microsoft 365|None|
 |*.sfx.ms|443|Actualizaciones del software cliente de OneDrive|None|
 |*.digicert.com|443|Comprobación de revocación de certificados|None|
 

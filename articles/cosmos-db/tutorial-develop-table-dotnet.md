@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 12/03/2019
-ms.openlocfilehash: f4d6e1bb0d5db0dbfc30e14abc58321bce8d0baf
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 6e1dc5f0016c27d987361aa52e59682806a31c95
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84693182"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118923"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introducción a Table API de Azure Cosmos DB y Azure Table Storage mediante el SDK de .NET
 
@@ -25,7 +25,7 @@ Table API de Azure Cosmos DB o Azure Table Storage se pueden usar para almacenar
 
 Este tutorial describe un ejemplo que muestra cómo usar [Microsoft Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) con escenarios de almacenamiento de Table API de Azure Cosmos DB y Azure Table Storage. Debe usar la conexión específica del servicio de Azure. Estos escenarios se describen mediante ejemplos de C# que ilustran cómo crear tablas, insertar y actualizar datos, consultar los datos y eliminar las tablas.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Necesitará lo siguiente para completar este ejemplo correctamente:
 
@@ -67,7 +67,7 @@ Para obtener el paquete NuGet, siga estos pasos:
 
 1. Abra el panel **Cadena de conexión** o **Claves de acceso**. Use el botón de copia en el lado derecho de la ventana para copiar la **CADENA DE CONEXIÓN PRINCIPAL**.
 
-   ![Visualización y copia de la cadena de conexión principal (PRIMARY CONNECTION STRING) en el panel Cadena de conexión](./media/create-table-dotnet/connection-string.png)
+   :::image type="content" source="./media/create-table-dotnet/connection-string.png" alt-text="Visualización y copia de la cadena de conexión principal (PRIMARY CONNECTION STRING) en el panel Cadena de conexión":::
    
 1. Para configurar la cadena de conexión, desde Visual Studio haga clic con el botón derecho en el proyecto **CosmosTableSamples**.
 
@@ -422,7 +422,7 @@ namespace CosmosTableSamples
 
 Ahora, compile la solución y presione F5 para ejecutar el proyecto. Cuando se ejecute el proyecto, verá la siguiente salida en el símbolo del sistema:
 
-![Salida del símbolo del sistema](./media/tutorial-develop-table-standard/output-from-sample.png)
+:::image type="content" source="./media/tutorial-develop-table-standard/output-from-sample.png" alt-text="Salida del símbolo del sistema":::
 
 Si recibe un error que indica que no se encuentra el archivo Settings.json al ejecutar el proyecto, puede resolverlo agregando la siguiente entrada XML a la configuración del proyecto. Haga clic con el botón derecho en CosmosTableSamples, seleccione Editar CosmosTableSamples.csproj y agregue el itemGroup siguiente: 
 
@@ -435,7 +435,7 @@ Si recibe un error que indica que no se encuentra el archivo Settings.json al ej
 ```
 Ahora puede iniciar sesión en Azure Portal y comprobar que los datos existen en la tabla. 
 
-![Resultados en el portal](./media/tutorial-develop-table-standard/results-in-portal.png)
+:::image type="content" source="./media/tutorial-develop-table-standard/results-in-portal.png" alt-text="Resultados en el portal":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

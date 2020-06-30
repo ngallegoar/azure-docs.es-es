@@ -6,16 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
-ms.openlocfilehash: 1c3987e4f2f31dd0c2395f9b40cc40780c40a518
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 10733dc59d7b143657c67e24d45d4a7c920cbd03
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021609"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255201"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Tutorial: Registro de recursos de datos en Azure Data Catalog
 
-En este tutorial, se usa la herramienta para registrar recursos de datos de la base de datos de Azure SQL en el catálogo. El registro es el proceso de extraer metadatos estructurales clave (como nombres, tipos y ubicaciones) del origen de datos y los recursos que contiene, y copiar dichos metadatos en el catálogo. El origen de datos y los recursos de datos permanecen donde están, pero el catálogo usa los metadatos para que se puedan detectar y comprender más fácilmente.
+En este tutorial, se usa la herramienta de registro para registrar recursos de datos de la base de datos de ejemplo con el catálogo. El registro es el proceso de extraer metadatos estructurales clave (como nombres, tipos y ubicaciones) del origen de datos y los recursos que contiene, y copiar dichos metadatos en el catálogo. El origen de datos y los recursos de datos permanecen donde están, pero el catálogo usa los metadatos para que se puedan detectar y comprender más fácilmente.
 
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a:
 > * Administración de recursos de datos
 > * Eliminar recursos de datos
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, debe completar el [inicio rápido](register-data-assets-tutorial.md).
 
@@ -39,11 +39,11 @@ Para configurar Data Catalog, debe ser propietario o copropietario de una suscri
 
 ### <a name="register-a-data-source"></a>Registro de un origen de datos
 
-Los recursos de datos (tablas) que se registran son de una [base de datos de Azure SQL de ejemplo](../azure-sql/database/single-database-create-quickstart.md), pero puede usar cualquier origen compatible si prefiere trabajar con datos que conozca y que sean relevantes para su rol. Para ver una lista de los orígenes de datos compatibles, consulte [Orígenes de datos compatibles con Azure Data Catalog](data-catalog-dsr.md).
+Los recursos de datos (tablas) que se registran son de una [base de datos de ejemplo](../azure-sql/database/single-database-create-quickstart.md) para Azure SQL Database, pero puede usar cualquier origen de datos compatible si prefiere trabajar con datos que conozca y que sean relevantes para su rol. Para ver una lista de los orígenes de datos compatibles, consulte [Orígenes de datos compatibles con Azure Data Catalog](data-catalog-dsr.md).
 
-El nombre de la base de datos de Azure SQL que se usa en este tutorial es *RLSTest*.
+El nombre de la base de datos que se usa en este tutorial es *RLSTest*.
 
-Ahora puede registrar recursos de datos de la base de datos de Azure SQL mediante Azure Data Catalog.
+Ahora puede registrar recursos de datos de la base de datos ejemplo mediante Azure Data Catalog.
 
 1. Vaya a la [página principal de Azure Data Catalog](http://azuredatacatalog.com) y seleccione **Publicar datos**.
 
@@ -61,13 +61,13 @@ Ahora puede registrar recursos de datos de la base de datos de Azure SQL mediant
 
     ![Azure Data Catalog: orígenes de datos](media/register-data-assets-tutorial/data-catalog-data-sources.png)
 
-5. Especifique las propiedades de la conexión de SQL Server de la base de datos de Azure SQL de ejemplo y seleccione **CONNECT**.
+5. Especifique las propiedades de la conexión de SQL Server de la base de datos de ejemplo de Azure SQL Database y seleccione **CONNECT**.
 
    ![Azure Data Catalog: configuración de conexión con SQL Server](media/register-data-assets-tutorial/data-catalog-sql-server-connection.png)
 
-6. Registre los metadatos del recurso de datos. En este ejemplo, se registran los objetos de **Product** desde el espacio de nombres de ejemplo de la base de datos de Azure SQL:
+6. Registre los metadatos del recurso de datos. En este ejemplo, se registran los objetos **Product** del espacio de nombres de ejemplo:
 
-    1. En el árbol **Jerarquía de servidor**, expanda la base de datos de Azure SQL de ejemplo y seleccione **SalesLT**.
+    1. En el árbol **Jerarquía de servidor**, expanda la base de datos de ejemplo y seleccione **SalesLT**.
 
     2. Seleccione **Product**, **ProductCategory**, **ProductDescription** y **ProductModel** mediante Ctrl + seleccionar.
 
@@ -85,7 +85,7 @@ Ahora puede registrar recursos de datos de la base de datos de Azure SQL mediant
 
           ![Azure Data Catalog: objetos que se registran](media/register-data-assets-tutorial/data-catalog-objects-register.png)
 
-    8. Seleccione **REGISTRAR**. Azure Data Catalog registra los objetos seleccionados. En este ejercicio, se registran los objetos seleccionados de la base de datos de Azure SQL de ejemplos. La herramienta de registro extrae metadatos del recurso de datos y los copia en el servicio Azure Data Catalog. Los datos permanecen donde están actualmente. Los datos permanecen bajo el control de los administradores y directivas del sistema de origen.
+    8. Seleccione **REGISTRAR**. Azure Data Catalog registra los objetos seleccionados. En este ejercicio, se registran los objetos seleccionados de la base de datos de ejemplo. La herramienta de registro extrae metadatos del recurso de datos y los copia en el servicio Azure Data Catalog. Los datos permanecen donde están actualmente. Los datos permanecen bajo el control de los administradores y directivas del sistema de origen.
 
           ![Azure Data Catalog: objetos registrados](media/register-data-assets-tutorial/data-catalog-registered-objects.png)
 
@@ -93,7 +93,7 @@ Ahora puede registrar recursos de datos de la base de datos de Azure SQL mediant
 
         ![Objetos del portal de Azure Data Catalog](media/register-data-assets-tutorial/data-catalog-view-portal.png)
 
-En este ejercicio ha registrado objetos de base de datos de Azure SQL de para que los usuarios de la organización puedan detectarlos fácilmente.
+En este ejercicio, ha registrado objetos de la base de datos de ejemplo para Azure SQL Database de forma que los usuarios de la organización puedan detectarlos fácilmente.
 
 En el siguiente ejercicio aprenderá a detectar recursos de datos registrados.
 
@@ -178,7 +178,7 @@ Con los operadores de comparación puede usar comparaciones diferentes de la igu
 
 3. Presione **ENTRAR**.
 
-4. Confirme que ve las tablas **Product**, **ProductCategory** y **ProductDescription**, y la base de datos de Azure SQL que registró en los resultados de la búsqueda.
+4. Confirme que ve las tablas **Product**, **ProductCategory** y **ProductDescription** y la base de datos de SQL que registró en los resultados de la búsqueda.
 
     ![Azure Data Catalog: resultados de búsqueda con comparación](media/register-data-assets-tutorial/data-catalog-comparison-operator-results.png)
 
@@ -251,7 +251,7 @@ En este ejercicio, se abren recursos de datos en una herramienta cliente integra
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 
-En este ejercicio se ha conectado a los recursos de datos detectados mediante Azure Data Catalog. Con el portal de Azure Data Catalog, puede conectarse directamente mediante las aplicaciones cliente integradas en el menú **Abrir en** . También puede conectarse con cualquier aplicación que elija mediante la información de la ubicación de la conexión incluida en los metadatos del recurso. Por ejemplo, puede utilizar SQL Server Management Studio para conectarse a la base de datos de Azure SQL para acceder a los datos de los recursos de datos registrados en este tutorial.
+En este ejercicio se ha conectado a los recursos de datos detectados mediante Azure Data Catalog. Con el portal de Azure Data Catalog, puede conectarse directamente mediante las aplicaciones cliente integradas en el menú **Abrir en** . También puede conectarse con cualquier aplicación que elija mediante la información de la ubicación de la conexión incluida en los metadatos del recurso. Por ejemplo, puede usar SQL Server Management Studio para conectarse a Azure SQL Database para acceder a los datos de los recursos de datos registrados en este tutorial.
 
 1. Abra **SQL Server Management Studio**.
 

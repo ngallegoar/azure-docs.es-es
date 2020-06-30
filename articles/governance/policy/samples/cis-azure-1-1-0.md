@@ -1,15 +1,15 @@
 ---
 title: Detalles del cumplimiento normativo de CIS Microsoft Azure Foundations Benchmark
 description: Detalles de la iniciativa integrada de cumplimiento normativo de CIS Microsoft Azure Foundations Benchmark. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 1e3c2baec1186e29da45c6395123e2f5aab9165a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 214d50c790f9976b96bf29906d4db64a111e859f
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84736839"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299031"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>Detalles de la iniciativa integrada de cumplimiento normativo de CIS Microsoft Azure Foundations Benchmark
 
@@ -18,6 +18,8 @@ Para más información sobre este estándar de cumplimiento, consulte [CIS Micro
 
 Las siguientes asignaciones son para los controles de **CIS Microsoft Azure Foundations Benchmark**. Use el panel de navegación de la derecha para ir directamente a un **dominio de cumplimiento** específico. Muchos de los controles se implementan con una definición de iniciativa de [Azure Policy](../overview.md). Para revisar la definición de iniciativa completa, abra **Policy** en Azure Portal y seleccione la página **Definiciones**.
 Busque y seleccione la definición de la iniciativa integrada de cumplimiento normativo de **CIS Microsoft Azure Foundations Benchmark 1.1.0**.
+
+Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark](../../blueprints/samples/cis-azure-1-1-0.md).
 
 > [!IMPORTANT]
 > Cada control que se muestra a continuación está asociado a una o varias definiciones de [Azure Policy](../overview.md).
@@ -606,7 +608,6 @@ Busque y seleccione la definición de la iniciativa integrada de cumplimiento no
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Es necesario seleccionar el plan de tarifa estándar de Security Center.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa1181c5f-672a-477a-979a-7d58aa086233) |El plan de tarifa estándar le permite detectar amenazas en redes y máquinas virtuales, lo que proporciona inteligencia sobre amenazas, detección de anomalías y análisis de comportamiento en Azure Security Center. |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Standard_pricing_tier.json) |
 
 ## <a name="storage-accounts"></a>Cuentas de almacenamiento
 

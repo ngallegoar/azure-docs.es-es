@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: ed46859184dd17141892373943ac43e407b21eb6
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: d8f03d714ab44dc01d9e138a63a89892ead60fe9
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817670"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249472"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Inicio rápido: Creación de una aplicación de Java en Azure App Service en Windows
 
@@ -38,7 +38,7 @@ ms.locfileid: "84817670"
 Ejecute el siguiente comando de Maven en el símbolo del sistema de Cloud Shell para crear una aplicación denominada `helloworld`:
 
 ```bash
-mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp -Dversion=1.0-SNAPSHOT
+mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" "-Dversion=1.0-SNAPSHOT"
 ```
 
 A continuación, cambie el directorio de trabajo a la carpeta del proyecto:
@@ -59,7 +59,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 
 Así es un proceso de ejemplo:
 
-```cmd
+```console
 ~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 [INFO] Scanning for projects...
 [INFO]
@@ -179,7 +179,7 @@ Una vez que se haya completado la implementación, vaya a la aplicación impleme
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
-> [Conexión a una base de datos de Azure SQL con Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+> [Conexión a Azure SQL Database con Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
 
 > [!div class="nextstepaction"]
 > [Conexión a Azure DB para MySQL con Java](/azure/mysql/connect-java)

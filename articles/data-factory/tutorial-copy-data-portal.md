@@ -1,6 +1,6 @@
 ---
 title: Uso de Azure Portal para crear una canalización de factoría de datos
-description: En este tutorial se proporcionan instrucciones paso a paso para usar Azure Portal para crear una factoría de datos con una canalización. La canalización usa la actividad de copia para copiar los datos desde Azure Blob Storage a una base de datos de Azure SQL.
+description: En este tutorial se proporcionan instrucciones paso a paso para usar Azure Portal para crear una factoría de datos con una canalización. La canalización usa la actividad de copia para copiar datos desde Azure Blob Storage hasta Azure SQL Database.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 05/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 8372683c1463fe3443730bd004c013666deb4100
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 16b5eeb33f8be07d6257d8d7957ea2526ab9d3f1
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248624"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253975"
 ---
-# <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copia de datos de Azure Blob Storage a SQL Database mediante Azure Data Factory
+# <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Copia de datos desde Azure Blob Storage hasta una base de datos de Azure SQL Database mediante Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-En este tutorial, creará una factoría de datos mediante la interfaz de usuario (UI) de Azure Data Factory. La canalización de esta factoría de datos copia los datos de Azure Blob Storage a Azure SQL Database. El patrón de configuración de este tutorial se aplica a la copia de un almacén de datos basado en archivos a un almacén de datos relacional. Para obtener una lista de los almacenes de datos que se admiten como orígenes y receptores, consulte la tabla de [almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).
+En este tutorial, creará una factoría de datos mediante la interfaz de usuario (UI) de Azure Data Factory. La canalización de esta factoría de datos copia los datos desde Azure Blob Storage hasta una base de datos de Azure SQL Database. El patrón de configuración de este tutorial se aplica a la copia de un almacén de datos basado en archivos a un almacén de datos relacional. Para obtener una lista de los almacenes de datos que se admiten como orígenes y receptores, consulte la tabla de [almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).
 
 > [!NOTE]
 > - Si no está familiarizado con Data Factory, consulte [Introducción a Azure Data Factory](introduction.md).
@@ -41,7 +41,7 @@ En este tutorial, realizará los siguientes pasos:
 ## <a name="prerequisites"></a>Requisitos previos
 * **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 * **Cuenta de Azure Storage**. Usará Blob Storage como almacén de datos de *origen*. Si no tiene una cuenta de almacenamiento, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md) para crear una.
-* **Azure SQL Database**. Usará la base de datos como un almacén de datos *receptor*. Si no tiene una base de datos de Azure SQL, consulte [Creación de una base de datos de Azure SQL](../azure-sql/database/single-database-create-quickstart.md) para ver los pasos para crear una.
+* **Azure SQL Database**. Usará la base de datos como un almacén de datos *receptor*. Si no tiene ninguna base de datos en Azure SQL Database, consulte el artículo [Creación de una base de datos en Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) para ver los pasos y crear una.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Creación de un blob y una tabla SQL
 
@@ -61,7 +61,7 @@ Ahora, prepare su almacenamiento de blobs y su base de datos SQL para el tutoria
 
 #### <a name="create-a-sink-sql-table"></a>Creación de una tabla SQL receptora
 
-1. Use el siguiente script de SQL para crear la tabla **dbo.emp** en la base de datos SQL:
+1. Use el siguiente script de SQL para crear la tabla **dbo.emp** en la base de datos:
 
     ```sql
     CREATE TABLE dbo.emp
@@ -154,7 +154,7 @@ En este tutorial, comenzará a crear la canalización. A continuación, creará 
 
 1. En el cuadro de diálogo **New Datase** (Nuevo conjunto de datos), escriba "SQL" en el cuadro de búsqueda para filtrar los conectores, seleccione **Azure SQL Database** y, después, seleccione **Continue** (Continuar). En este tutorial, copiará los datos en una base de datos SQL.
 
-1. En el cuadro de diálogo **Set Properties** (Establecer propiedades), escriba **OutputSqlDataset** como nombre. En la lista desplegable **Linked service** (Servicio vinculado), seleccione **+ New** (+ Nuevo). Un conjunto de datos debe estar asociado con un servicio vinculado. El servicio vinculado tiene la cadena de conexión que usa Data Factory para conectarse a la base de datos SQL en tiempo de ejecución. El conjunto de datos especifica el contenedor, la carpeta y el archivo (opcional) donde se copian los datos.
+1. En el cuadro de diálogo **Set Properties** (Establecer propiedades), escriba **OutputSqlDataset** como nombre. En la lista desplegable **Linked service** (Servicio vinculado), seleccione **+ New** (+ Nuevo). Un conjunto de datos debe estar asociado con un servicio vinculado. El servicio vinculado tiene la cadena de conexión que usa Data Factory para conectarse a SQL Database en tiempo de ejecución. El conjunto de datos especifica el contenedor, la carpeta y el archivo (opcional) donde se copian los datos.
 
 1. En el cuadro de diálogo **New Linked Service (Azure SQL Database)** [Nuevo servicio vinculado (Azure SQL Database)], realice los siguientes pasos:
 
@@ -162,7 +162,7 @@ En este tutorial, comenzará a crear la canalización. A continuación, creará 
 
     b. En **Server name** (Nombre del servidor), seleccione su instancia de SQL Server.
 
-    c. En **Database name** (Nombre de la base de datos), seleccione la base de datos SQL.
+    c. En **Database name** (Nombre de base de datos), seleccione la base de datos.
 
     d. En **User name** (Nombre de usuario), escriba el nombre del usuario.
 
@@ -209,7 +209,7 @@ En este paso, desencadenará manualmente la canalización que publicó en el pas
 
     [![Supervisión de las ejecuciones de actividad](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png#lightbox)
 
-1. Compruebe que se agregan dos filas más a la tabla **emp** de la base de datos SQL.
+1. Compruebe que se agregan dos filas más a la tabla **emp** de la base de datos.
 
 ## <a name="trigger-the-pipeline-on-a-schedule"></a>Desencadenamiento de la canalización de forma programada
 En esta programación, creará un desencadenador de programación para la canalización. El desencadenador ejecuta la canalización de acuerdo con la programación especificada, como diariamente o cada hora. Aquí establece el desencadenador para que se ejecute cada minuto hasta la fecha y hora de finalización especificadas.

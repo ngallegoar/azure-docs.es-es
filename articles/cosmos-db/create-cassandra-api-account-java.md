@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4122e575fc7823fd2e79a26f210f06e5c1b0a835
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: e114bf3a87f3018cc51c5752d57ce5911053542f
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857992"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118413"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>Tutorial: Creación de una cuenta de Cassandra API en Azure Cosmos DB mediante una aplicación de Java para almacenar datos de pares clave/valor
 
@@ -29,7 +29,7 @@ En este tutorial se describen las tareas siguientes:
 > * Adición de una base de datos y una tabla
 > * Ejecución la aplicación
 
-## <a name="prerequisites"></a>Prerrequisitos 
+## <a name="prerequisites"></a>Requisitos previos 
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar. 
 
@@ -48,13 +48,13 @@ En este tutorial se describen las tareas siguientes:
 
    |Configuración   |Valor sugerido  |Descripción  |
    |---------|---------|---------|
-   |id   |   Escriba un nombre único.    | Escriba un nombre único para identificar esta cuenta de Azure Cosmos. <br/><br/>Como cassandra.cosmosdb.azure.com se anexa al identificador que proporcione para crear el punto de contacto, debe usar un identificador único, pero reconocible.         |
+   |ID   |   Escriba un nombre único.    | Escriba un nombre único para identificar esta cuenta de Azure Cosmos. <br/><br/>Como cassandra.cosmosdb.azure.com se anexa al identificador que proporcione para crear el punto de contacto, debe usar un identificador único, pero reconocible.         |
    |API    |  Cassandra   |  La API determina el tipo de cuenta que se va a crear. <br/> Seleccione **Cassandra**, ya que en este artículo se creará una base de datos de columnas que se puede consultar mediante la sintaxis del lenguaje de consulta Cassandra (CQL).  |
-   |Subscription    |  Su suscripción        |  Seleccione la suscripción de Azure que desea usar para esta cuenta de Azure Cosmos.        |
+   |Suscripción    |  Su suscripción        |  Seleccione la suscripción de Azure que desea usar para esta cuenta de Azure Cosmos.        |
    |Grupo de recursos   | Escribir un nombre    |  Seleccione **Crear nuevo** y luego escriba un nombre nuevo de grupo de recursos para la cuenta. Para simplificar, puede usar el mismo nombre del identificador.    |
    |Location    |  Seleccionar la región más cercana a los usuarios    |  Seleccione la ubicación geográfica en la que se va a hospedar la cuenta de Azure Cosmos. Use la ubicación más cercana a los usuarios para proporcionarles el acceso más rápido a los datos.    |
 
-   ![Creación de la cuenta con el portal](./media/create-cassandra-api-account-java/create-account.png)
+   :::image type="content" source="./media/create-cassandra-api-account-java/create-account.png" alt-text="Creación de la cuenta con el portal":::
 
 4. Seleccione **Crear**. <br/>La cuenta tarda unos minutos en crearse. Una vez creado el recurso, puede ver la notificación **Implementación correcta** al costado derecho del portal.
 

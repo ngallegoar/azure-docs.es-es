@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Uso de API REST para crear una canalización de Azure Data Factory '
-description: En este tutorial, usará una API REST para crear una canalización de Azure Data Factory con una actividad de copia para copiar datos de Azure Blob Storage en Azure SQL Database.
+description: En este tutorial, usará una API REST para crear una canalización de Azure Data Factory con una actividad de copia para copiar datos de Azure Blob Storage a Azure SQL Database.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6344f2c69e7b6407152e752c61c1928ab651a88c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 3007aa1fab8797d77e1edde83f22e359196641cc
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119232"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248588"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutorial: Uso de API REST para crear una canalización de Azure Data Factory 
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.locfileid: "84119232"
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte el [tutorial de la actividad de copia](../quickstart-create-data-factory-rest-api.md). 
 
-En este artículo, aprenderá a usar una API REST para crear una factoría de datos con una canalización que copia datos desde Azure Blob Storage en Azure SQL Database. Si no está familiarizado con Azure Data Factory, lea el artículo [Introducción a Azure Data Factory](data-factory-introduction.md) antes de realizar este tutorial.   
+En este artículo, aprenderá a usar una API REST para crear una factoría de datos con una canalización que copia datos desde una instancia de Azure Blob Storage hasta Azure SQL Database. Si no está familiarizado con Azure Data Factory, lea el artículo [Introducción a Azure Data Factory](data-factory-introduction.md) antes de realizar este tutorial.   
 
 En este tutorial, creará una canalización con una actividad en ella: la actividad de copia. La actividad de copia realiza la copia de los datos de un almacén de datos admitido en un almacén de datos receptor. Para obtener una lista de almacenes de datos que se admiten como orígenes y receptores, consulte los [almacenes de datos admitidos](data-factory-data-movement-activities.md#supported-data-stores-and-formats). La actividad funciona con un servicio disponible de forma global que puede copiar datos entre varios almacenes de datos de forma segura, confiable y escalable. Para más información acerca de la actividad de copia, consulte las [actividades de movimiento de datos](data-factory-data-movement-activities.md).
 
@@ -222,7 +222,7 @@ En la siguiente tabla se ofrecen descripciones de las propiedades JSON que se us
 
 | Propiedad | Descripción |
 |:--- |:--- |
-| type | La propiedad type se establece en **AzureSqlTable** porque los datos se copian en una tabla de una base de datos de Azure SQL Database. |
+| type | La propiedad type se establece en **AzureSqlTable** porque los datos se copian en una tabla de una base de Azure SQL Database. |
 | linkedServiceName | Hace referencia al servicio **AzureSqlLinkedService** que creó anteriormente. |
 | tableName | Especifica la **tabla** en la que se copian los datos. | 
 | frequency/interval | La frecuencia se establece en **Hour** y el intervalo es **1**, lo que significa que los sectores de salida se producen **cada hora** entre las horas de inicio y finalización de la canalización, no antes ni después de esas horas.  |
@@ -241,7 +241,7 @@ Para más información acerca de estas propiedades JSON, consulte el artículo s
     "activities": [
       {
         "name": "CopyFromBlobToSQL",
-        "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
+        "description": "Push Regional Effectiveness Campaign data to Azure SQL Database",
         "type": "Copy",
         "inputs": [
           {
@@ -381,7 +381,7 @@ Los servicios vinculados se crean en una factoría de datos para vincular los al
 
 AzureStorageLinkedService vincula una cuenta de Azure Storage a la factoría de datos. Esta cuenta de almacenamiento es la que se usó para crear un contenedor y con la que se cargaron los datos como parte de los [requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
-AzureSqlLinkedService vincula la base de datos de Azure SQL con la factoría de datos. Los datos que se copian desde Blob Storage se almacenan en esta base de datos. Como parte de los [requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), se creó la tabla emp en esta base de datos.  
+AzureSqlLinkedService vincula Azure SQL Database con la factoría de datos. Los datos que se copian desde Blob Storage se almacenan en esta base de datos. Como parte de los [requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), se creó la tabla emp en esta base de datos.  
 
 ### <a name="create-azure-storage-linked-service"></a>Creación de un servicio vinculado de Azure Storage
 En este paso, vinculará su cuenta de Azure Storage con su factoría de datos. Especifique el nombre y la clave de la cuenta de almacenamiento de Azure en esta sección. Consulte [Servicio vinculado de Azure Storage](data-factory-azure-blob-connector.md#azure-storage-linked-service) para más información sobre las propiedades JSON usadas para definir un servicio vinculado de Azure Storage.  
@@ -403,7 +403,7 @@ En este paso, vinculará su cuenta de Azure Storage con su factoría de datos. E
     ```
 
 ### <a name="create-azure-sql-linked-service"></a>Creación de un servicio vinculado SQL de Azure
-En este paso, vinculará su base de datos de Azure SQL con su factoría de datos. Especifique el nombre del servidor SQL lógico, el nombre de la base de datos, el nombre de usuario y la contraseña del usuario en esta sección. Consulte [Servicio vinculado de Azure SQL](data-factory-azure-sql-connector.md#linked-service-properties) para obtener información sobre las propiedades JSON usadas para definir un servicio vinculado de Azure SQL.
+En este paso, vinculará Azure SQL Database con su factoría de datos. Especifique el nombre del servidor SQL lógico, el nombre de la base de datos, el nombre de usuario y la contraseña del usuario en esta sección. Consulte [Servicio vinculado de Azure SQL](data-factory-azure-sql-connector.md#linked-service-properties) para obtener información sobre las propiedades JSON usadas para definir un servicio vinculado de Azure SQL.
 
 1. Asigne el comando a la variable denominada **cmd**. 
    
@@ -422,11 +422,11 @@ En este paso, vinculará su base de datos de Azure SQL con su factoría de datos
     ```
 
 ## <a name="create-datasets"></a>Creación de conjuntos de datos
-En el paso anterior, creó servicios vinculados para vincular una cuenta de Azure Storage y una base de datos de Azure SQL con la factoría de datos. En este paso, se definen dos conjuntos de datos llamados AzureBlobInput y AzureSqlOutput, que representan los datos de entrada y salida que se almacenan en los almacenes de datos a los que hacen referencia AzureStorageLinkedService y AzureSqlLinkedService, respectivamente.
+En el paso anterior, creó servicios vinculados para vincular una cuenta de Azure Storage y Azure SQL Database con la factoría de datos. En este paso, se definen dos conjuntos de datos llamados AzureBlobInput y AzureSqlOutput, que representan los datos de entrada y salida que se almacenan en los almacenes de datos a los que hacen referencia AzureStorageLinkedService y AzureSqlLinkedService, respectivamente.
 
 El servicio vinculado Azure Storage especifica la cadena de conexión que el servicio Data Factory utiliza en tiempo de ejecución para conectarse a su cuenta de Azure Storage. Además, el conjunto de datos de blobs de entrada (AzureBlobInput) especifica el contenedor y la carpeta que contiene los datos de entrada.  
 
-De forma similar, el servicio vinculado de Azure SQL Database especifica la cadena de conexión que el servicio Data Factory utiliza en tiempo de ejecución para conectarse a su base de datos de Azure SQL. Además, el conjunto de datos de la tabla SQL de salida (OutputDataset) especifica la tabla de la base de datos en la que se copian los datos de Blob Storage. 
+De forma similar, el servicio vinculado de Azure SQL Database especifica la cadena de conexión que el servicio Data Factory utiliza en tiempo de ejecución para conectarse a Azure SQL Database. Además, el conjunto de datos de la tabla SQL de salida (OutputDataset) especifica la tabla de la base de datos en la que se copian los datos de Blob Storage. 
 
 ### <a name="create-input-dataset"></a>Creación de un conjunto de datos de entrada
 En este paso, se crea un conjunto de datos llamado AzureBlobInput, que apunta a un archivo de blobs (emp.txt) en la carpeta raíz de un contenedor de blobs (adftutorial), en la instancia de Azure Storage representada por el servicio vinculado AzureStorageLinkedService. Si no especifica un valor para fileName (o puede omitirlo), los datos de todos los blobs en la carpeta de entrada se copian en el destino. En este tutorial, especifique un valor para fileName. 
@@ -448,7 +448,7 @@ En este paso, se crea un conjunto de datos llamado AzureBlobInput, que apunta a 
     ```
 
 ### <a name="create-output-dataset"></a>Creación del conjunto de datos de salida
-El servicio vinculado de Azure SQL Database especifica la cadena de conexión que el servicio Data Factory usa en tiempo de ejecución para conectarse a su base de datos de Azure SQL. El conjunto de datos de la tabla SQL de salida (OutputDataset) que crea en este paso especifica la tabla de la base de datos en la que se copian los datos de Blob Storage.
+El servicio vinculado de Azure SQL Database especifica la cadena de conexión que el servicio Data Factory usa en tiempo de ejecución para conectarse a Azure SQL Database. El conjunto de datos de la tabla SQL de salida (OutputDataset) que crea en este paso especifica la tabla de la base de datos en la que se copian los datos de Blob Storage.
 
 1. Asigne el comando a la variable denominada **cmd**.
 
@@ -487,7 +487,7 @@ Actualmente, el conjunto de datos de salida es lo que impulsa la programación. 
     Write-Host $results
     ```
 
-**¡Enhorabuena!** Ha creado correctamente una factoría de datos de Azure, con una canalización que copia datos desde Azure Blob Storage a Azure SQL Database.
+**¡Enhorabuena!** Ha creado correctamente una factoría de datos de Azure, con una canalización que copia datos desde Azure Blob Storage hasta Azure SQL Database.
 
 ## <a name="monitor-pipeline"></a>Supervisión de la canalización
 En este paso, utilizará la API de REST de Data Factory para supervisar los segmentos que la canalización está produciendo.
@@ -515,22 +515,22 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 }
 ```
 
-Ejecute el comando Invoke y el siguiente hasta que vea el segmento en estado **Listo** o **Error**. Cuando el segmento esté en estado Listo, compruebe la tabla **emp** de su base de datos de Azure SQL para ver los datos de salida. 
+Ejecute el comando Invoke y el siguiente hasta que vea el segmento en estado **Listo** o **Error**. Cuando el segmento esté en estado Listo, compruebe la tabla **emp** de Azure SQL Database para ver los datos de salida. 
 
-Para cada segmento, se copian dos filas de datos del archivo de origen en la tabla emp de la base de datos de Azure SQL. Por tanto, podrá ver 24 nuevos registros en la tabla emp cuando todos los segmentos se procesan correctamente (en estado Listo). 
+Por cada segmento, se copian dos filas de datos del archivo de origen en la tabla emp de Azure SQL Database. Por tanto, podrá ver 24 nuevos registros en la tabla emp cuando todos los segmentos se procesan correctamente (en estado Listo). 
 
 ## <a name="summary"></a>Resumen
-En este tutorial, ha usado una API REST para crear una factoría de datos de Azure para copiar datos de un blob de Azure en una base de datos de Azure SQL. Estos son los pasos de alto nivel que realizó en este tutorial:  
+En este tutorial, ha usado una API REST para crear una factoría de datos de Azure y copiar datos desde una instancia de Azure Bob Storage hasta Azure SQL Database. Estos son los pasos de alto nivel que realizó en este tutorial:  
 
 1. Ha creado una **factoría de datos**de Azure.
 2. Ha creado **servicios vinculados**.
    1. Un servicio vinculado Azure Storage para vincular la cuenta de Azure Storage que contiene datos de entrada.     
-   2. Un servicio vinculado SQL Azure para vincular la base de datos de Azure SQL que contiene los datos de salida. 
+   2. Un servicio vinculado de Azure SQL para vincular la base de datos que contiene los datos de salida. 
 3. Ha creado **conjuntos de datos**que describen los datos de entrada y salida para las canalizaciones.
 4. Ha creado una **canalización** con una actividad de copia con un origen BlobSource y un receptor SqlSink. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, ha usado Azure Blob Storage como almacén de datos de origen y una base de datos de Azure SQL como almacén de datos de destino en una operación de copia. En la tabla siguiente se proporciona una lista de almacenes de datos que se admiten como orígenes y destinos de la actividad de copia: 
+En este tutorial, ha usado Azure Blob Storage como almacén de datos de origen y Azure SQL Database como almacén de datos de destino en una operación de copia. En la tabla siguiente se proporciona una lista de almacenes de datos que se admiten como orígenes y destinos de la actividad de copia: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
 

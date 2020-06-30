@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 61d47c2f308555265ccabad4d7456026ee9a639c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bf3f454296acafcff6fe775b07abeb7a253749b5
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78299319"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253535"
 ---
 # <a name="tutorial-review-your-microsoft-partner-agreement-invoice"></a>Tutorial: Revisión de la factura de Microsoft Partner Agreement
 
@@ -30,7 +30,7 @@ En este tutorial, aprenderá a:
 > * Revisión de los cargos pendientes para calcular la próxima factura
 > * Análisis de los cargos por uso de Azure
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Debe tener acceso a una cuenta de facturación para un contrato Microsoft Partner Agreement.
 
@@ -69,7 +69,7 @@ En la página Todas las transacciones se muestra la siguiente información:
 |Date     | La fecha de la transacción  |
 |El identificador de la factura     | El identificador de la factura en la se ha facturado la transacción. Si envía una solicitud de soporte técnico, comparta el identificador con el Soporte técnico de Azure para agilizar la solicitud de soporte técnico. |
 |Tipo de transacción     |  El tipo de transacción, como los cargos por compra, cancelación y uso  |
-|Familia de productos     | La categoría del producto, como proceso para máquinas virtuales o base de datos para la base de datos de Azure SQL|
+|Familia de productos     | La categoría del producto, como un proceso para máquinas virtuales o una base de datos para Azure SQL Database|
 |SDKU de producto     | Un código único que identifica la instancia del producto |
 |Importe     |  El importe de la transacción      |
 |Perfil de facturación     | La transacción se muestra en la factura de este perfil de facturación. |

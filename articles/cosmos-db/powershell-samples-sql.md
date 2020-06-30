@@ -4,14 +4,14 @@ description: Obtenga los ejemplos de Azure PowerShell para realizar varias tarea
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/13/2020
+ms.date: 06/12/2020
 ms.author: mjbrown
-ms.openlocfilehash: 7cd14151d8cb0fbef7593d62eee050be7987ab18
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 82d709567e75540a865758162ac87f55dfa84bea
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83713546"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85126100"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db---sql-core-api"></a>Ejemplos de Azure PowerShell para Azure Cosmos DB: SQL (Core) API
 
@@ -35,4 +35,5 @@ Para ver más ejemplos de PowerShell para Cosmos DB para SQL (Core) API y docum
 |[Cambio de la prioridad de la conmutación por error o desencadenamiento de la conmutación por error](scripts/powershell/common/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cambie la prioridad de la conmutación por error regional de una cuenta de Azure Cosmos o desencadene una conmutación por error manual. |
 |[Claves de cuenta o cadenas de conexión](scripts/powershell/common/ps-account-keys-connection-strings.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenga las claves principales y secundarias, las cadenas de conexión o vuelva a generar una clave de cuenta de una cuenta de Azure Cosmos DB. |
 |[Creación de una cuenta de Cosmos con firewall de IP](scripts/powershell/common/ps-account-firewall-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cree una cuenta de Azure Cosmos DB con firewall de IP habilitado. |
+|[Bloquear recursos contra la eliminación](scripts/powershell/sql/powershell-sql-lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Bloquee los recursos para evitar que se eliminen. |
 |||

@@ -3,12 +3,12 @@ title: Evaluación de servidores físicos para la migración a Azure con Azure M
 description: Describe cómo evaluar los servidores físicos en el entorno local para la migración a Azure con Azure Migrate Server Assessment.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: ee88f9058abc89a671fa846a67c22a752f0d05e4
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 2c0662c6ccf66f09413891c99da789c50847277e
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052198"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080760"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Evaluación de los servidores físicos con Azure Migrate:Server Assessment
 
@@ -80,7 +80,7 @@ Azure Migrate: Server Assessment ejecuta un dispositivo ligero.
     - Extraiga el contenido del archivo comprimido. Inicie la consola de PowerShell con privilegios administrativos.
     - Ejecute el script de PowerShell para iniciar la aplicación web del dispositivo.
     - Configurar el dispositivo por primera vez y registrarlo en el proyecto de Azure Migrate.
-- Se pueden configurar varias aplicaciones para un solo proyecto de Azure Migrate. En todos los dispositivos, puede detectar cualquier número de servidores físicos. Se puede detectar un máximo de 250 servidores por dispositivo.
+- Se pueden configurar varias aplicaciones para un solo proyecto de Azure Migrate. En todos los dispositivos, puede detectar cualquier número de servidores físicos. Se puede detectar un máximo de 1000 servidores por dispositivo.
 
 ### <a name="download-the-installer-script"></a>Descarga del script del instalador
 

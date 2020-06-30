@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 6c56dc32ff733aa9dbbba8102ff8d79a592ea957
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 0136dce793fea1672b68062480420e5a05c75253
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309754"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118379"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v3-driver"></a>Inicio rápido: Compilación de una aplicación Java para administrar los datos de Cassandra API de Azure Cosmos DB (controlador v3)
 
@@ -146,7 +146,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
 1. En la cuenta de Azure Cosmos DB, en [Azure Portal](https://portal.azure.com/), seleccione **Cadena de conexión**. 
 
-    ![Visualización y copia de un nombre de usuario de Azure Portal, página Cadena de conexión](./media/create-cassandra-java/copy-username-connection-string-azure-portal.png)
+    :::image type="content" source="./media/create-cassandra-java/copy-username-connection-string-azure-portal.png" alt-text="Visualizar y copiar un nombre de usuario de Azure Portal, página Cadena de conexión":::
 
 2. Use el ![botón Copiar](./media/create-cassandra-java/copy-button-azure-portal.png) del lado derecho de la pantalla para copiar el valor de CONTACT POINT (PUNTO DE CONTACTO).
 
@@ -202,7 +202,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
 4. En Azure Portal abra **Explorador de datos** para consultar, modificar y trabajar con estos nuevos datos. 
 
-    ![Visualización de los datos en el Explorador de datos: Azure Cosmos DB](./media/create-cassandra-java/view-data-explorer-java-app.png)
+    :::image type="content" source="./media/create-cassandra-java/view-data-explorer-java-app.png" alt-text="Visualizar los datos en el Explorador de datos: Azure Cosmos DB":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Revisión de los SLA en Azure Portal
 

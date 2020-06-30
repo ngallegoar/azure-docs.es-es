@@ -3,15 +3,15 @@ title: 'Ejemplos de Azure PowerShell para Azure Cosmos DB: Cassandra API'
 description: Obtenga los ejemplos de Azure PowerShell para realizar varias tareas comunes en cuentas de Cassandra API de Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 05/13/2020
+ms.topic: how-to
+ms.date: 06/12/2020
 ms.author: mjbrown
-ms.openlocfilehash: 860d3c5e9fda8bc2a5eb5b07939875ed46b6e7e1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2efc652c936e7949147bf77ccc1548308734a467
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649754"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85260685"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db---cassandra-api"></a>Ejemplos de Azure PowerShell para Azure Cosmos DB: Cassandra API
 
@@ -30,4 +30,5 @@ En la tabla siguiente se incluyen vínculos a scripts de Azure PowerShell de ej
 |[Cambio de la prioridad de la conmutación por error o desencadenamiento de la conmutación por error](scripts/powershell/common/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cambie la prioridad de la conmutación por error regional de una cuenta de Azure Cosmos o desencadene una conmutación por error manual. |
 |[Claves de cuenta o cadenas de conexión](scripts/powershell/common/ps-account-keys-connection-strings.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenga claves principales y secundarias, cadenas de conexión o vuelva a generar una clave de cuenta de una cuenta de Azure Cosmos. |
 |[Creación de una cuenta de Cosmos con firewall de IP](scripts/powershell/common/ps-account-firewall-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cree una cuenta de Azure Cosmos con firewall de IP habilitado. |
+|[Bloquear recursos contra la eliminación](scripts/powershell/cassandra/powershell-cassandra-lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Evite la eliminación de recursos con bloqueos de recursos. |
 |||

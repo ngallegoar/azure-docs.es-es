@@ -4,20 +4,19 @@ description: Aprenda a configurar Azure Notification Hubs en Azure Portal median
 services: notification-hubs
 author: sethmanheim
 manager: femila
-editor: dbradish-microsoft
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: quickstart
-ms.date: 02/14/2019
+ms.date: 06/22/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: 78afb124ee1d1ab9b212197fb7a7140f88de9940
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: af792ccfe8e00c26abc6aab2e4a96d7ef9ff5122
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349514"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252056"
 ---
 # <a name="quickstart-set-up-push-notifications-in-a-notification-hub"></a>Inicio rápido: Configuración de notificaciones push en un centro de notificaciones
 
@@ -49,7 +48,7 @@ Para configurar Apple Push Notification Service (APNS):
 
      ![Captura de pantalla de una configuración del token APNS en Azure Portal](./media/configure-notification-hub-portal-pns-settings/notification-hubs-apple-config-token.png)
 
-Para obtener más información, consulte [Envío de notificaciones push a aplicaciones iOS mediante Azure Notification Hubs](notification-hubs-ios-apple-push-notification-apns-get-started.md).
+Para más información, consulte [Envío de notificaciones push a aplicaciones iOS mediante Azure Notification Hubs](ios-sdk-get-started.md).
 
 ## <a name="google-firebase-cloud-messaging-fcm"></a>Google Firebase Cloud Messaging (FCM)
 
@@ -67,7 +66,7 @@ Cuando haya completado estos pasos, una alerta le indica que el centro de notifi
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar, debe disponer de lo siguiente:
 
@@ -150,7 +149,7 @@ Para más información, consulte [Notificaciones push a aplicaciones de Windows 
 Para configurar las notificaciones push para Baidu:
 
 1. En Azure Portal, en la página **Centro de notificaciones**, seleccione **Baidu (Android China)** en el menú izquierdo.
-2. Escriba la **clave de API** que ha obtenido en la consola de Baidu, en el proyecto Baidu Cloud Push.
+2. Escriba la **clave de API** que ha obtenido en la consola de Baidu en el proyecto Baidu Cloud Push.
 3. Escriba la **clave secreta** que ha obtenido en la consola de Baidu, en el proyecto Baidu Cloud Push.
 4. Seleccione **Guardar**.
 
@@ -166,8 +165,8 @@ En este inicio rápido, ha aprendido cómo configurar los valores para los siste
 
 Para más información acerca de cómo enviar notificaciones push a varias plataformas, consulte estos tutoriales:
 
--[Envío de notificaciones a dispositivos iOS mediante Notification Hubs y APNS](notification-hubs-ios-apple-push-notification-apns-get-started.md)
--[Envío de notificaciones a dispositivos Android mediante Notification Hubs y Google FCM](notification-hubs-android-push-notification-google-fcm-get-started.md)
--[Envío de notificaciones a una aplicación para UWP que se ejecuta en un dispositivo Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
--[Envío de notificaciones a una aplicación para Windows Phone 8 mediante MPNS](notification-hubs-windows-mobile-push-notifications-mpns.md)
--[Envío de notificaciones mediante Notification Hubs y Baidu Cloud Push](notification-hubs-baidu-china-android-notifications-get-started.md)
+* [Envío de notificaciones push a aplicaciones iOS mediante Azure Notification Hubs](ios-sdk-get-started.md)
+* [Envío de notificaciones a dispositivos Android mediante Notification Hubs y Google FCM](notification-hubs-android-push-notification-google-fcm-get-started.md)
+* [Envío de notificaciones a una aplicación de UWP que se ejecuta en un dispositivo Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
+* [Envío de notificaciones a una aplicación Windows Phone 8 mediante MPNS](notification-hubs-windows-mobile-push-notifications-mpns.md)
+* [Envío de notificaciones mediante Notification Hubs y Baidu Cloud Push](notification-hubs-baidu-china-android-notifications-get-started.md)

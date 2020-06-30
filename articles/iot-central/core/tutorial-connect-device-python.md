@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: tracking-python
-ms.openlocfilehash: 30ceed388412f08e31b9c9b0c7ea6fdf2fed143e
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 5555c176adfb5be78ea73f17bfa01ba87766acc1
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84607217"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100401"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-python"></a>Tutorial: Creación y conexión de un aplicación cliente a una aplicación de Azure IoT Central (Python)
 
@@ -306,7 +306,7 @@ Puede ver cómo responde el dispositivo a los comandos y las actualizaciones de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Como desarrollador de dispositivos, ahora que ha aprendido los aspectos básicos de cómo crear un dispositivo mediante Node.js, se recomiendan los siguientes pasos:
+Como desarrollador de dispositivos, ahora que ha aprendido los aspectos básicos de cómo crear un dispositivo mediante Python, se recomiendan los siguientes pasos:
 
 * Aprenda a conectar un dispositivo real a IoT Central en el artículo de procedimientos [Conexión de un dispositivo MXChip IoT DevKit a una aplicación de Microsoft IoT Central](./howto-connect-devkit.md).
 * Para más información sobre el rol de las plantillas de dispositivo cuando se está implementando el código del dispositivo, consulte [¿Qué son las plantillas de dispositivo?](./concepts-device-templates.md).

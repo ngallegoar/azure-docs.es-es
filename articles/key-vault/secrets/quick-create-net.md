@@ -7,12 +7,12 @@ ms.date: 03/12/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 8c0507f4c91c4394da0efc3d8567c52db85fdfe0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 57832060fee9010f21eeb77723cf6058f169a4ee
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652290"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125539"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v4"></a>Inicio rápido: Biblioteca cliente de Azure Key Vault para .NET (SDK v4)
 
@@ -28,7 +28,7 @@ Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por se
 
 [Documentación de referencia de la API](/dotnet/api/azure.security.keyvault.secrets?view=azure-dotnet) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Paquete (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [SDK de .NET Core 3.1 o posterior](https://dotnet.microsoft.com/download/dotnet-core/3.1).
@@ -97,12 +97,12 @@ New-AzKeyVault -Name <your-unique-keyvault-name> -ResourceGroupName myResourceGr
 
 La manera más sencilla de autenticar una aplicación .NET basada en la nube es con una identidad administrada. Consulte [Uso de identidades administradas de App Service para acceder a Azure Key Vault](../general/managed-identity.md) para más información. 
 
-Sin embargo, en aras de la simplicidad, en este inicio rápido se crea una aplicación de consola .NET, que requiere el uso de una entidad de servicio y una directiva de control de acceso. La entidad de servicio requiere un nombre único con el formato "http://&lt;my-unique-service-principle-name&gt;".
+Sin embargo, en aras de la simplicidad, en este inicio rápido se crea una aplicación de consola .NET, que requiere el uso de una entidad de servicio y una directiva de control de acceso. La entidad de servicio requiere un nombre único con el formato "http://&lt;my-unique-service-principal-name&gt;".
 
-Cree una entidad de servicio con el comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) de la CLI de Azure:
+Cree una entidad de servicio mediante el comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) de la CLI de Azure:
 
 ```azurecli
-az ad sp create-for-rbac -n "http://&lt;my-unique-service-principle-name&gt;" --sdk-auth
+az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --sdk-auth
 ```
 
 Esta operación devolverá una serie de pares clave-valor. 
@@ -125,7 +125,7 @@ Cree una entidad de servicio mediante Azure PowerShell con el comando [New-AzADS
 
 ```azurepowershell
 # Create a new service principal
-$spn = New-AzADServicePrincipal -DisplayName "http://&lt;my-unique-service-principle-name&gt;"
+$spn = New-AzADServicePrincipal -DisplayName "http://&lt;my-unique-service-principal-name&gt;"
 
 # Get the tenant ID and subscription ID of the service principal
 $tenantId = (Get-AzContext).Tenant.Id
@@ -200,7 +200,7 @@ Agregue las siguientes directivas al principio del código:
 
 ### <a name="authenticate-and-create-a-client"></a>Autenticación y creación de un cliente
 
-La autenticación en el almacén de claves y la creación de un cliente de almacén de claves depende de las variables de entorno en el paso [Establecimiento de variables de entorno](#set-environmental-variables) anterior. El nombre del almacén de claves se expande al URI del almacén de claves, con el formato "https://\<nombre-de-su-almacén-de-claves\>.vault.azure.net". El código siguiente usa ["DefaultAzureCredential()"](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) para la autenticación en el almacén de claves. Lo que hace es leer las variables de entorno para recuperar el token de acceso. 
+La autenticación en el almacén de claves y la creación de un cliente de almacén de claves depende de las variables de entorno en el paso [Establecimiento de variables de entorno](#set-environmental-variables) anterior. El nombre del almacén de claves se expande al URI del almacén de claves, con el formato "https://\<your-key-vault-name\>.vault.azure.net". El código siguiente usa ["DefaultAzureCredential()"](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) para la autenticación en el almacén de claves. Lo que hace es leer las variables de entorno para recuperar el token de acceso. 
 
 [!code-csharp[Directives](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=authenticate)]
 
@@ -247,6 +247,26 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Cuando ya no lo necesite, puede usar la CLI de Azure o Azure PowerShell para quitar el almacén de claves y el grupo de recursos correspondiente.
+
+### <a name="delete-a-key-vault"></a>Eliminación de un almacén de claves
+```azurecli
+az keyvault delete --name <your-unique-keyvault-name>
+```
+
+```powershell
+Remove-AzKeyVault -VaultName <your-unique-keyvault-name>
+```
+
+### <a name="purge-a-key-vault"></a>Purga de un almacén de claves
+```azurecli
+az keyvault purge --location eastus --name <your-unique-keyvault-name>
+```
+
+```powershell
+Remove-AzKeyVault -VaultName <your-unique-keyvault-name> -InRemovedState -Location eastus
+```
+
+### <a name="delete-a-resource-group"></a>Eliminación de un grupo de recursos
 
 ```azurecli
 az group delete -g "myResourceGroup"

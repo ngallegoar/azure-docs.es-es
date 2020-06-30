@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 01/04/2019
 ms.author: tomfitz
 ms.custom: mvc, fasttrack-edit
-ms.openlocfilehash: 2d77dcbd07a67e3ba50d70770515416b45fbc7a3
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 2caaadd0da9d62128d04962fa1f2ff7eade907b0
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637905"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254436"
 ---
 # <a name="azure-resource-manager-templates-for-app-service"></a>Plantillas de Azure Resource Manager para App Service
 
@@ -29,7 +29,6 @@ Para obtener información sobre la sintaxis de JSON y las propiedades para los r
 | [App with custom deployment slots](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-custom-deployment-slots) (Aplicación con ranuras de implementación personalizados)| Implementa una aplicación de App Service con ranuras o entornos de implementación personalizados. |
 |**Configuración de una aplicación**||
 | [App certificate from Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault) (Certificado de aplicación de Key Vault)| Implementa un certificado de aplicación de App Service a partir de un secreto de Azure Key Vault y lo utiliza para el enlace TLS/SSL. |
-| [App with a custom domain](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain) (Aplicación con un dominio personalizado)| Implementa una aplicación de App Service con un nombre de host personalizado. |
 | [App with a custom domain and SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain-and-ssl) (Aplicación con un dominio personalizado y SSL)| Implementa una aplicación de App Service con un nombre de host personalizado y obtiene un certificado de aplicación de Key Vault para el enlace TLS/SSL. |
 | [App with a GoLang extension](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-with-golang) (Aplicación con una extensión de GoLang)| Implementa una aplicación de App Service con la extensión de sitio de Golang. A partir de ese momento se pueden ejecutar en Azure aplicaciones web desarrolladas en Golang. |
 | [App with Java 8 and Tomcat 8](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat) (Aplicación con Java 8 y Tomcat 8)| Implementa una aplicación de App Service con Java 8 y Tomcat 8 habilitados. A continuación, puede ejecutar aplicaciones Java en Azure. |
@@ -42,7 +41,7 @@ Para obtener información sobre la sintaxis de JSON y las propiedades para los r
 |**App with connected resources** (Aplicación con recursos conectados)||
 | [App with MySQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-managed-mysql) (Aplicación con MySQL)| Implementa una aplicación de App Service en Windows con Azure Database for MySQL. |
 | [App with PostgreSQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-managed-postgresql) (Aplicación con PostgreSQL)| Implementa una aplicación de App Service en Windows con Azure Database for PostgreSQL. |
-| [App with a SQL database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database) (Aplicación con un base de datos SQL)| Implementa una aplicación de App Service y una base de datos SQL en el nivel de servicio Básico. |
+| [Creación de una base de datos de Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)| Implementa una aplicación de App Service y una base de datos de Azure SQL Database en el nivel de servicio Básico. |
 | [App with a Blob storage connection](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-blob-connection) (Aplicación con una conexión a Azure Blob Storage)| Implementa una aplicación de App Service con una cadena de conexión de Azure Blob Storage. Luego, puede usar Blob Storage desde la aplicación. |
 | [App with an Azure Cache for Redis](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-redis-cache) (Aplicación con una instancia de Azure Redis Cache)| Implementa una aplicación de App Service con una instancia de Azure Redis Cache. |
 |**entorno de App Service**||

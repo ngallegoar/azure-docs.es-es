@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/21/2020
 ms.author: lbosq
-ms.openlocfilehash: bf453587b354b5db3f3ef1a80f974bcb8f8f4e14
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a85df3e437f2c1ec93996cdaacfccadeaa47cc99
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81730017"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118260"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Inicio rápido: Compilación de una aplicación .NET Framework o Core mediante la cuenta de Gremlin API de Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribu
 
 En este inicio rápido se muestra cómo crear una cuenta de [Gremlin API](graph-introduction.md), una base de datos y un grafo (contenedor) de Azure Cosmos DB mediante Azure Portal. Después, compile y ejecute una aplicación de consola compilada con el controlador [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) de código abierto.  
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene Visual Studio 2019 instalado, puede descargar y usar la **versión gratuita** de [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio.
 
@@ -109,7 +109,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
    **Punto de conexión de Gremlin**: este valor se usa cuando se conecta a la cuenta de grafos mediante la biblioteca Gremlin.Net.
 
-    ![Copiar el punto de conexión](./media/create-graph-dotnet/endpoint.png)
+    :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="Copiar el punto de conexión":::
 
    Para ejecutar este ejemplo, copie el valor de **Punto de conexión de Gremlin** y elimine el número de puerto del final de manera que el identificador URI se convierta en `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. El valor del punto de conexión debe parecerse a `testgraphacct.gremlin.cosmosdb.azure.com`.
 
@@ -146,7 +146,7 @@ Ahora puede volver al Explorador de datos en Azure Portal para examinar y consul
 
     Puede acercar o alejar el grafo, expandir el espacio de visualización del grafo, agregar vértices adicionales y mover los vértices sobre la superficie de visualización.
 
-    ![Visualización del grafo en el Explorador de datos en Azure Portal](./media/create-graph-dotnet/graph-explorer.png)
+    :::image type="content" source="./media/create-graph-dotnet/graph-explorer.png" alt-text="Visualizar el grafo en el Explorador de datos en Azure Portal":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Revisión de los SLA en Azure Portal
 

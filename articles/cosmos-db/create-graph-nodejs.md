@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/05/2019
 ms.author: lbosq
-ms.openlocfilehash: e6456c79dbce1f8bb874ce4c88b932e592235a82
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 852c48d03b3cce785fa87a40afebe37818d91fa6
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80244433"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118243"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>Inicio rápido: Compilación de una aplicación de Node.js mediante una cuenta de Gremlin API con Azure Cosmos DB
 
@@ -28,7 +28,7 @@ ms.locfileid: "80244433"
 
 En este inicio rápido, se crea y administra una cuenta de Azure Cosmos DB para Gremlin (Graph) API desde Azure Portal y se agregan datos mediante una aplicación de Node.js clonada desde GitHub. Azure Cosmos DB es un servicio de base de datos multimodelo que permite crear y consultar rápidamente bases de datos de documentos, tablas, claves-valores y grafos con funcionalidades de distribución global y escala horizontal.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 - Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
 - [Node.js 0.10.29+](https://nodejs.org/).
 - [Git](https://git-scm.com/downloads).
@@ -154,7 +154,7 @@ Esta aplicación de consola usa el controlador de [Gremlin node.js](https://www.
 
     `config.endpoint = "https://<your_Gremlin_account_name>.gremlin.cosmosdb.azure.com:443/";`
 
-    ![Visualización y copia de una clave de acceso en la página de información general de Azure Portal](./media/create-graph-nodejs/gremlin-uri.png)
+    :::image type="content" source="./media/create-graph-nodejs/gremlin-uri.png" alt-text="Visualizar y copiar una clave de acceso en la página de información general de Azure Portal":::
 
 3. En *config.js*, rellene el valor de config.primaryKey con el valor de **Clave principal** de la página **Claves** de la cuenta de Cosmos DB en Azure Portal. 
 

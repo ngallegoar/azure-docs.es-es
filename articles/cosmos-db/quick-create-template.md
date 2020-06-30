@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 273305894e05b397d0f48acd7a483a9fdfc247ef
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: e626f6e5b65e369c3c77900cd46f2b86cd6f9d52
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324050"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118005"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-azure-resource-manager-template"></a>Inicio rápido: Creación de una instancia de Azure Cosmos DB y un contenedor mediante una plantilla de Resource Manager
 
@@ -53,11 +53,11 @@ Encontrará más ejemplos de plantillas de Azure Cosmos DB en la [galería de p
 
 1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla. La plantilla crea una cuenta, una base de datos y un contenedor de Azure Cosmos.
 
-   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
+   [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implementación en Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
 2. Seleccione o escriba los siguientes valores.
 
-   ![Plantilla de Resource Manager, integración de Azure Cosmos DB, portal de implementación](./media/quick-create-template/create-cosmosdb-using-template-portal.png)
+   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Plantilla de Resource Manager, integración de Azure Cosmos DB, portal de implementación":::
 
     A menos que se especifique, utilice el valor predeterminado para crear los recursos de Azure Cosmos.
 
@@ -78,7 +78,7 @@ Encontrará más ejemplos de plantillas de Azure Cosmos DB en la [galería de p
 
 3. Seleccione **Comprar**. Cuando la cuenta de Azure Cosmos se haya implementado correctamente, recibirá una notificación:
 
-   ![Plantilla de Resource Manager, integración de Cosmos DB, notificación del portal de implementación](./media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
+   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Plantilla de Resource Manager, integración de Cosmos DB, notificación del portal de implementación":::
 
 Azure Portal se usa para implementar la plantilla. Además de Azure Portal, también puede usar Azure PowerShell, la CLI de Azure y API REST. Para obtener información sobre otros métodos de implementación, consulte [Implementación de plantillas](../azure-resource-manager/templates/deploy-powershell.md).
 
@@ -108,7 +108,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the resource group name where your
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si tiene pensado seguir trabajando en otros tutoriales, considere la posibilidad de dejar estos recursos activos.
+Si planea seguir trabajando en otros inicios rápidos y tutoriales, considere la posibilidad de dejar estos recursos activos.
 Cuando ya no lo necesite, elimine el grupo de recursos; de este modo, se eliminarán también la cuenta y los recursos relacionados de Azure Cosmos. Para eliminar el grupo de recursos mediante la CLI de Azure o Azure PowerShell:
 
 # <a name="cli"></a>[CLI](#tab/CLI)

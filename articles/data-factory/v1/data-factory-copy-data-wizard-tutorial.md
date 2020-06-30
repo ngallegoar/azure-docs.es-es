@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: creación de una canalización mediante el Asistente para copia '
+title: 'Tutorial: creación de una canalización con el Asistente para copia '
 description: En este tutorial, creará una canalización de Azure Data Factory con una actividad de copia mediante el Asistente para copia compatible con Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8bbe32a202af3b8684c16cc2e56d5a111511bef5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d1b17a3e4556f6a963f3ecacd31472ce3f75b0fe
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75438915"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248554"
 ---
-# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: Creación de una canalización con la actividad de copia mediante el Asistente para copia de Data Factory
 > [!div class="op_single_selector"]
 > * [Introducción y requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
@@ -33,13 +33,13 @@ ms.locfileid: "75438915"
 > Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte el [tutorial de la actividad de copia](../quickstart-create-data-factory-dot-net.md). 
 
 
-Este tutorial muestra cómo utilizar el **Asistente para copia** para copiar datos desde un almacén de Azure Blob Storage a una base de datos de Azure SQL. 
+En este tutorial se muestra cómo usar el **Asistente para copia** para copiar datos desde Azure Blob Storage hasta Azure SQL Database. 
 
 El **Asistente para copia** de Azure Data Factory le permite crear rápidamente una canalización de datos que copia datos desde un almacén de datos de origen compatible a un almacén de datos de destino compatible. Por lo tanto, se recomienda utilizar el asistente como primer paso para crear una canalización de ejemplo para el escenario de movimiento de datos. Para obtener una lista de almacenes de datos admitidos como orígenes y destinos, consulte los [almacenes de datos admitidos](data-factory-data-movement-activities.md#supported-data-stores-and-formats).  
 
-En este tutorial se muestra cómo crear una instancia de Azure Data Factory, iniciar el Asistente para copia, y realizar una serie de pasos en los que se proporcionan detalles acerca del escenario de ingesta y movimiento de datos. Al terminar los pasos del asistente, este crea automáticamente una canalización con una actividad de copia para copiar datos desde Azure Blob Storage a Azure SQL Database. Para más información acerca de la actividad de copia, consulte las [actividades de movimiento de datos](data-factory-data-movement-activities.md).
+En este tutorial se muestra cómo crear una instancia de Azure Data Factory, iniciar el Asistente para copia, y realizar una serie de pasos en los que se proporcionan detalles acerca del escenario de ingesta y movimiento de datos. Al terminar los pasos del asistente, se crea automáticamente una canalización con una actividad de copia para copiar datos de Azure Blob Storage a Azure SQL Database. Para más información acerca de la actividad de copia, consulte las [actividades de movimiento de datos](data-factory-data-movement-activities.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 Antes de realizar este tutorial, complete los requisitos previos que se enumeran en el artículo [Copia de datos de Almacenamiento de blobs en Base de datos SQL mediante Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 ## <a name="create-data-factory"></a>Creación de Data Factory
@@ -61,7 +61,7 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
       - Seleccione en primer lugar **Usar existente** y después un grupo de recursos existente.
       - Seleccione **Crear nuevo** y escriba un nombre para un grupo de recursos.
           
-        En algunos de los pasos de este tutorial se supone que se usa el nombre: **ADFTutorialResourceGroup** para el grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../../azure-resource-manager/management/overview.md).
+        En algunos de los pasos de este tutorial se supone que usa el nombre: **ADFTutorialResourceGroup** para el grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../../azure-resource-manager/management/overview.md).
    4. Seleccione una **ubicación** para la factoría de datos.
    5. Seleccione la casilla **Anclar al panel** en la parte inferior de la hoja.  
    6. Haga clic en **Crear**.
@@ -119,7 +119,7 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
    5. En **Nombre de usuario** y **Contraseña**, escriba los valores pertinentes.
    6. Haga clic en **Next**.  
       
-      ![Herramienta de copia: Especificar Azure SQL Database](./media/data-factory-copy-data-wizard-tutorial/specify-azure-sql-database.png)
+      ![Herramienta de copia: especificación de Azure SQL Database](./media/data-factory-copy-data-wizard-tutorial/specify-azure-sql-database.png)
 10. En la página **Asignación de tabla**, seleccione **emp** en la lista desplegable del campo **Destino** y haga clic en **flecha abajo** (opcional) para ver el esquema y obtener una vista previa de los datos.
     
      ![Herramienta de copia: Asignación de tabla](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png) 
@@ -150,7 +150,7 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
     Para más información sobre el uso de esta aplicación, consulte el artículo [Supervisión y administración de canalizaciones mediante la aplicación de supervisión](data-factory-monitor-manage-app.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, ha usado Azure Blob Storage como almacén de datos de origen y una base de datos de Azure SQL como almacén de datos de destino en una operación de copia. En la tabla siguiente se proporciona una lista de almacenes de datos que se admiten como orígenes y destinos de la actividad de copia: 
+En este tutorial, ha usado Azure Blob Storage como almacén de datos de origen y Azure SQL Database como almacén de datos de destino en una operación de copia. En la tabla siguiente se proporciona una lista de almacenes de datos que se admiten como orígenes y destinos de la actividad de copia: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
 

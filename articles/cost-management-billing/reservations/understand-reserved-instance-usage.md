@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: f3890b2c2c9434c7970bd969f6f4620e5d235d96
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e3553515e2cbae007883ad75960aa1c6991926df
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017705"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254555"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Descripción del uso de reservas para su suscripción individual de pago por uso
 
@@ -71,7 +71,7 @@ Imagine que ejecuta una instancia de SQL Database Gen 4 en la región Este de EE
 
 ### <a name="statement-section-of-csv-file"></a>Sección de instrucción del archivo CSV
 
-Filtre por el nombre del medidor **Uso de instancias reservadas** y elija la **categoría de medición** necesaria:-Azure SQL Database o Azure Cosmos DB. Verá algo parecido a la siguiente captura de pantalla:
+Filtre por el nombre del medidor **Uso de instancias reservadas** y elija la **categoría de medición** necesaria: Azure SQL Database o Azure Cosmos DB. Verá algo parecido a la siguiente captura de pantalla:
 
 ![Archivo CSV para la capacidad reservada de SQL Database](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
 
@@ -83,7 +83,7 @@ Filtre por **Información adicional** y escriba su **Identificador de reserva**.
 
 ![Archivo CSV para la capacidad reservada de SQL Database](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
 
-1. El campo **ReservationId** de **Información adicional** es la reserva de capacidad reservada de SQL Database que se aplica a los recursos de bases de datos SQL.
+1. El valor **ReservationId** del campo **Información adicional** es la reserva de capacidad reservada de SQL Database que se aplica al recursos de SQL Database.
 2. **ConsumptionMeter** es el identificador del medidor del recurso de SQL Database.
 3. **Id. de medidor** es el medidor de la reserva. El costo del medidor es de 0 $. Los recursos de SQL Database que cumplen los requisitos para el descuento de reserva muestran este identificador de medidor en el archivo CSV.
 

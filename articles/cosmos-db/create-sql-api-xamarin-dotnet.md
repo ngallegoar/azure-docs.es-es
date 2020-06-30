@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 3278374a0a09ed4e776ba0f773ad2dafd9786164
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 79720655aee8be5450e02bce395ef910ad474428
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652012"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115523"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Inicio rápido: Creación de una aplicación de lista de tareas con Xamarin mediante la cuenta de SQL API de Azure Cosmos DB
 
@@ -32,9 +32,9 @@ Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribu
 
 En esta guía de inicio rápido se muestra cómo crear una cuenta de SQL API de Azure Cosmos DB, una base de datos de documentos y un contenedor mediante Azure Portal. Luego, compilará e implementará una aplicación móvil de lista de tareas integrada en la [API de .NET de SQL](sql-api-sdk-dotnet.md) y [Xamarin](https://docs.microsoft.com/xamarin/) mediante [Xamarin.Forms](https://docs.microsoft.com/xamarin/) y el [modelo arquitectónico de MVVM ](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
 
-![Aplicación de lista de tareas que se ejecuta en iOS](./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png)
+:::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png" alt-text="Aplicación de lista de tareas de Xamarin Studio que se ejecuta en iOS":::
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si va a desarrollar en Windows y aún no tiene Visual Studio 2019 instalado, puede descargar y usar la versión **gratis** de [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita las cargas de trabajo **Desarrollo de Azure** y **Desarrollo móvil con .NET** durante la instalación de Visual Studio.
 
@@ -89,7 +89,7 @@ Vuelva a Azure Portal para obtener la información de la clave de API y cópiela
 
 1. En [Azure Portal](https://portal.azure.com/), en la cuenta de la API de SQL de Azure Cosmos DB, en el panel de navegación izquierdo, haga clic en **Claves** y en **Claves de lectura y escritura**. Deberá usar los botones de copia del lado derecho de la pantalla para copiar el URI y la clave principal en el archivo APIKeys.cs en el paso siguiente.
 
-    ![Visualización y copia de una clave de acceso en Azure Portal, hoja Claves](./media/create-sql-api-xamarin-dotnet/keys.png)
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/keys.png" alt-text="Visualización y copia de una clave de acceso en Azure Portal, hoja Claves":::
 
 2. En Visual Studio 2019 o Visual Studio para Mac, abra el archivo APIKeys.cs de la carpeta azure-cosmos-db-sql-xamarin-getting-started/src/ToDoItems.Core/Helpers.
 
@@ -107,7 +107,7 @@ Vuelva a Azure Portal para obtener la información de la clave de API y cópiela
 
 Esta solución muestra cómo crear una aplicación de lista de tareas mediante la API de SQL de Azure Cosmos DB y Xamarin.Forms. La aplicación tiene dos pestañas. La primera contiene una vista de lista que muestra los elementos de la lista de tareas que aún no están completos y la segunda muestra los que se han completado. Además de ver los elementos de la lista de tareas que no se han completado en la primera pestaña, también puede agregar nuevos elementos de la lista de tareas, editar los existentes y marcar elementos como completados.
 
-![Copiar los datos JSON y hacer clic en Guardar en el Explorador de datos en Azure Portal](./media/create-sql-api-xamarin-dotnet/android-todo-screen.png)
+:::image type="content" source="./media/create-sql-api-xamarin-dotnet/android-todo-screen.png" alt-text="Copiar los datos JSON y hacer clic en Guardar en el Explorador de datos en Azure Portal":::
 
 El código de la solución ToDoItems contiene:
 
@@ -170,27 +170,27 @@ Los pasos siguientes mostrarán cómo se ejecuta la aplicación con el depurador
 
 1. En primer lugar, seleccione la plataforma de destino, para lo que debe hacer clic en la lista desplegable resaltada y seleccionar ToDoItems.iOS para iOS o ToDoItems.Android para Android.
 
-    ![Selección de una plataforma para depurar en Visual Studio para Mac](./media/create-sql-api-xamarin-dotnet/ide-select-platform.png)
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-select-platform.png" alt-text="Selección de una plataforma para depurar en Visual Studio para Mac":::
 
 2. Para iniciar la depuración de la aplicación, presione cmd + Entrar o haga clic en el botón de reproducir.
 
-    ![Inicio de la depuración en Visual Studio para Mac](./media/create-sql-api-xamarin-dotnet/ide-start-debug.png)
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-start-debug.png" alt-text="Inicio de la depuración en Visual Studio para Mac":::
 
 3. Cuando el simulador de iOS o el emulador Android acaben de iniciarse, la aplicación mostrará 2 pestañas en la parte inferior de la pantalla, en el caso de iOS, y en la parte superior de la pantalla en el caso de Android. La primera muestra los elementos de las lista de tareas que no se han completado y la segunda los que se han completado.
 
-    ![Pantalla de inicio de aplicación de lista de tareas](./media/create-sql-api-xamarin-dotnet/ios-droid-started.png)
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-droid-started.png" alt-text="Pantalla de inicio de la aplicación de lista de tareas":::
 
 4. Para completar un elemento de la lista de tareas en iOS, deslícelo hacia la izquierda > pulse el botón **Complete** (Completar). Para completar un elemento de la lista de tareas en Android, mantenga presionado el elemento > pulse el botón Complete (Completar).
 
-    ![Completar un elemento de la lista de tareas](./media/create-sql-api-xamarin-dotnet/simulator-complete.png)
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-complete.png" alt-text="Completar un elemento de la lista de tareas":::
 
 5. Para editar un elemento de la lista de tareas > pulse en el elemento > aparece una nueva pantalla que le permite escribir nuevos valores. Al pulsar el botón de guardar, los cambios realizados se guardarán en Azure Cosmos DB.
 
-    ![Editar un elemento de la lista de tareas](./media/create-sql-api-xamarin-dotnet/simulator-edit.png)
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-edit.png" alt-text="Editar un elemento de la lista de tareas":::
 
 6. Para agregar un elemento a la lista de tareas > pulse el botón **Add** (Agregar) de la esquina superior derecha de la pantalla principal > aparecerá una nueva página de edición en blanco.
 
-    ![Agregar un elemento de la lista de tareas](./media/create-sql-api-xamarin-dotnet/simulator-add.png)
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-add.png" alt-text="Agregar un elemento de la lista de tareas":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Revisión de los SLA en Azure Portal
 

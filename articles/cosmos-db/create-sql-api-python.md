@@ -13,12 +13,12 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 - tracking-python
-ms.openlocfilehash: b140371c42fffd55b271fa0215db89ea9d07da0c
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 1b3a97a11c8d5782b8b7577d6afccbbdaadea0e7
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559828"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85116577"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Inicio rápido: Compilación de una aplicación de Python mediante una cuenta de SQL API de Azure Cosmos DB
 
@@ -32,7 +32,7 @@ ms.locfileid: "84559828"
 
 En este inicio rápido, se crea y administra una cuenta de Azure Cosmos DB para SQL API desde Azure Portal y desde Visual Studio Code con una aplicación en Python clonada desde GitHub. Azure Cosmos DB es un servicio de base de datos multimodelo que permite crear y consultar rápidamente bases de datos de documentos, tablas, claves-valores y grafos con funcionalidades de distribución global y escala horizontal.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). O bien, [pruebe gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sin una suscripción de Azure. También puede usar el [emulador de Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) con el identificador URI `https://localhost:8081` y la clave `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
 - [Python 3.6+](https://www.python.org/downloads/), con el ejecutable `python` en `PATH`.
@@ -52,7 +52,7 @@ Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear u
     
     El área **Agregar contenedor** se muestra en el extremo derecho, pero es posible que haya que desplazarse hacia la derecha para verlo.
 
-    ![Explorador de datos de Azure Portal, panel Agregar contenedor](./media/create-sql-api-python/azure-cosmosdb-data-explorer.png)
+    :::image type="content" source="./media/create-sql-api-python/azure-cosmosdb-data-explorer.png" alt-text="Explorador de datos de Azure Portal, panel Agregar contenedor":::
 
 2. En la página **Agregar contenedor**, especifique la configuración del nuevo contenedor.
 
@@ -108,7 +108,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
 1. En la cuenta de Azure Cosmos DB, en [Azure Portal](https://portal.azure.com/), seleccione **Claves** en el panel de navegación izquierdo. Use los botones de copia de la derecha de la pantalla para copiar los valores de **URI** y **Clave principal** en el archivo *cosmos_get_started.py* en el paso siguiente.
 
-    ![Obtención de una clave de acceso y un URI en la configuración de claves de Azure Portal](./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png)
+    :::image type="content" source="./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png" alt-text="Obtener una clave de acceso y un identificador URI en la configuración de claves en Azure Portal":::
 
 2. In Visual Studio Code, abra el archivo *cosmos_get_started.py* de *\git-samples\azure-cosmos-db-python-getting-started*.
 

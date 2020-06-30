@@ -14,21 +14,22 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 86c73944753126aa3fb5c14c8d6626a449365c64
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 84c0f6564fc9ab8abc43205b58d9445cda82a2da
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84023981"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253824"
 ---
 # <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Implementación de un modelo predictivo en R con Azure SQL Database Machine Learning Services (versión preliminar)
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-En la tercera parte de este tutorial de tres partes, implementará un modelo predictivo, desarrollado en R, en una base de datos SQL con Azure SQL Database Machine Learning Services (versión preliminar).
+En la tercera parte de este tutorial de tres partes, implementará un modelo predictivo, desarrollado en R, en una base de datos de Azure SQL Database con Azure SQL Database Machine Learning Services (versión preliminar).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
-Creará un procedimiento almacenado con un script de R insertado que realiza predicciones mediante el modelo. Como el modelo se ejecuta en la base de datos de Azure SQL, se puede entrenar fácilmente con los datos almacenados en la base de datos.
+Creará un procedimiento almacenado con un script de R insertado que realiza predicciones mediante el modelo. Como el modelo se ejecuta en la base de datos, se puede entrenar fácilmente con los datos almacenados en la base de datos.
 
 En este artículo, con los scripts de R que desarrolló en las partes uno y dos, aprenderá a:
 
@@ -200,7 +201,7 @@ RentalCount_Predicted
 332.571428571429
 ```
 
-Ha creado, entrenado e implementado correctamente un modelo en una base de datos de Azure SQL. Después, ha usado el modelo en un procedimiento almacenado para predecir valores basándose en datos nuevos.
+Ha creado, entrenado e implementado correctamente un modelo en una base de datos de Azure SQL Database. Después, ha usado el modelo en un procedimiento almacenado para predecir valores basándose en datos nuevos.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

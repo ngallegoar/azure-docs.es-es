@@ -6,12 +6,12 @@ ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.topic: sample
 ms.date: 03/08/2017
 ms.custom: mvc
-ms.openlocfilehash: f289bd453f2387282402394c807fe9700151f221
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 6300b9fe10d7b12d71f87adec85d3a86658a8c97
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81532432"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254487"
 ---
 # <a name="powershell-samples-for-azure-app-service"></a>Ejemplos de PowerShell para Azure App Service
 
@@ -32,7 +32,7 @@ En la tabla siguiente se incluyen vínculos a scripts de PowerShell creados con 
 | [Escalado manual de una aplicación](./scripts/powershell-scale-manual.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crea una aplicación de App Service y la escala a través de dos instancias. |
 | [Escalado de una aplicación en todo el mundo con una arquitectura de alta disponibilidad](./scripts/powershell-scale-high-availability.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crea dos aplicaciones de App Service en dos regiones geográficas diferentes y hace que estén disponibles mediante un punto de conexión único con Azure Traffic Manager. |
 |**Conexión de la aplicación a recursos**||
-| [Conexión de una aplicación a SQL Database](./scripts/powershell-connect-to-sql.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea una aplicación de App Service y una base de datos SQL y, a continuación, agrega la cadena de conexión de base de datos a la configuración de la aplicación. |
+| [Conexión de una aplicación a SQL Database](./scripts/powershell-connect-to-sql.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea una aplicación de App Service y una base de datos de Azure SQL Database y, luego, agrega la cadena de conexión de base de datos a la configuración de la aplicación. |
 | [Conexión de una aplicación a una cuenta de almacenamiento](./scripts/powershell-connect-to-storage.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea una aplicación de App Service y una cuenta de almacenamiento y, a continuación, agrega la cadena de conexión de almacenamiento a la configuración de la aplicación. |
 |**Copia de seguridad y restauración de la aplicación**||
 | [Copia de seguridad de una aplicación](./scripts/powershell-backup-onetime.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crea una aplicación de App Service y una copia de seguridad única para ella. |

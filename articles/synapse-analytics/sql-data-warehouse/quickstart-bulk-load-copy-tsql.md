@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
-ms.date: 04/08/2020
+ms.subservice: sql-dw
+ms.date: 06/18/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: d39b3085a802ca0ff745ab1f63f4a8fba966ea48
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: f82bedc6ef638714b2641003e8274c2024a86c2e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115000"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213013"
 ---
 # <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>Inicio rápido: carga masiva de datos mediante la instrucción COPY
 
@@ -32,9 +32,37 @@ En este inicio rápido, realizará una carga masiva de datos en un grupo de SQL 
 - Aprovechar los formatos de fecha de SQL Server para los archivos .csv
 - Especificar caracteres comodín y varios archivos en la ruta de acceso de la ubicación de almacenamiento
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este inicio rápido se da por supuesto que ya tiene un grupo de SQL. Si no se ha creado un grupo de SQL, use el inicio rápido [Creación y conexión: portal](create-data-warehouse-portal.md).
+
+## <a name="set-up-the-required-permissions"></a>Configuración de los permisos necesarios
+
+```sql
+-- List the permissions for your user
+select  princ.name
+,       princ.type_desc
+,       perm.permission_name
+,       perm.state_desc
+,       perm.class_desc
+,       object_name(perm.major_id)
+from    sys.database_principals princ
+left join
+        sys.database_permissions perm
+on      perm.grantee_principal_id = princ.principal_id
+where name = '<yourusername>';
+
+--Make sure your user has the permissions to CREATE tables in the [dbo] schema
+GRANT CREATE TABLE TO <yourusername>;
+GRANT ALTER ON SCHEMA::dbo TO <yourusername>;
+
+--Make sure your user has ADMINISTER DATABASE BULK OPERATIONS permissions
+GRANT ADMINISTER DATABASE BULK OPERATIONS TO <yourusername>
+
+--Make sure your user has INSERT permissions on the target table
+GRANT INSERT ON <yourtable> TO <yourusername>
+
+```
 
 ## <a name="create-the-target-table"></a>Creación de la tabla de destino
 

@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Preparación de datos para realizar la agrupación en clústeres en R'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: En la primera parte de esta serie de tutoriales de tres partes, preparará los datos de una base de datos de Azure SQL para realizar la agrupación en clústeres en R con Azure SQL Database Machine Learning Services (versión preliminar).
+description: En la primera parte de esta serie de tutoriales de tres partes, preparará los datos de una base de datos de Azure SQL Database para realizar la agrupación en clústeres en R con Azure SQL Database Machine Learning Services (versión preliminar).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -14,17 +14,17 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c06e1b13f87972cbcd50e888edf55158b77881d8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a23dbd150dbe8ab05e0d4cf1f3decd67a856cbf4
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84024102"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251257"
 ---
 # <a name="tutorial-prepare-data-to-perform-clustering-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Preparación de los datos para realizar una agrupación en clústeres en R con Azure SQL Database Machine Learning Services (versión preliminar)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-En la primera parte de esta serie de tres tutoriales importará y preparará los datos de una base de datos de Azure SQL mediante R. Más adelante en la serie usará estos datos para entrenar e implementar un modelo de Machine Learning de agrupación en clústeres en R con Azure SQL Database Machine Learning Services (versión preliminar).
+En la primera parte de esta serie de tres tutoriales, importará y preparará los datos de una base de datos de Azure SQL Database mediante R. Más adelante en la serie usará estos datos para entrenar e implementar un modelo de Machine Learning de agrupación en clústeres en R con Azure SQL Database Machine Learning Services (versión preliminar).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
@@ -32,7 +32,7 @@ En la primera parte de esta serie de tres tutoriales importará y preparará los
 Usará el algoritmo **k-means** para realizar la agrupación de clientes en clústeres en un conjunto de datos de compras y devoluciones de productos. Al agrupar los clientes en clústeres, puede centrar sus actividades de marketing de forma más eficaz al dirigirse a grupos específicos.
 La agrupación en clústeres k-means es un algoritmo de *aprendizaje no supervisado* que analiza patrones en datos basándose en similitudes.
 
-En las partes uno y dos de esta serie, va a desarrollar algunos scripts de R en RStudio para preparar los datos y entrenar un modelo de Machine Learning. Luego, en la tercera parte, ejecutará esos scripts de R en una base de datos SQL mediante procedimientos almacenados.
+En las partes uno y dos de esta serie, va a desarrollar algunos scripts de R en RStudio para preparar los datos y entrenar un modelo de Machine Learning. Luego, en la tercera parte, ejecutará esos scripts de R en una base de datos mediante procedimientos almacenados.
 
 En este artículo, aprenderá a:
 
@@ -40,11 +40,11 @@ En este artículo, aprenderá a:
 >
 > * Importar una base de datos de ejemplo en Azure SQL Database
 > * Separar clientes en diferentes dimensiones mediante R
-> * Cargar los datos de la base de datos de Azure SQL en una trama de datos de R
+> * Cargar los datos de la base de datos en una trama de datos de R
 
 En la [segunda parte](clustering-model-build-tutorial.md) aprenderá a crear y entrenar un modelo de agrupación en clústeres K-Means en R.
 
-En la [tercera parte](clustering-model-deploy-tutorial.md) aprenderá a crear un procedimiento almacenado en una base de datos de Azure SQL que puede realizar una agrupación en clústeres en R basada en datos nuevos.
+En la [tercera parte](clustering-model-deploy-tutorial.md), aprenderá a crear un procedimiento almacenado que puede realizar una agrupación en clústeres en R basada en datos nuevos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -68,7 +68,7 @@ El conjunto de datos de ejemplo usado en este tutorial se ha guardado en un arch
 
 1. Descargue el archivo [tpcxbb_1gb.bacpac](https://sqlchoice.blob.core.windows.net/sqlchoice/static/tpcxbb_1gb.bacpac).
 
-1. Siga las instrucciones que se indican en [Importación de un archivo BACPAC para crear una base de datos de Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-import), y use estos datos:
+1. Siga las instrucciones que se indican en [Importación de un archivo BACPAC a una base de datos de Azure SQL Database o Instancia administrada de Azure SQL](../../azure-sql/database/database-import.md), y use estos detalles:
 
    * Importe desde el archivo **tpcxbb_1gb.bacpac** que ha descargado.
    * Durante la versión preliminar pública, elija la configuración **Gen5/vCore** (Gen5/Núcleo virtual) para la nueva base de datos.
@@ -211,9 +211,9 @@ En Azure Portal, haga lo siguiente:
 
 En la parte uno de esta serie de tutoriales, ha completado estos pasos:
 
-* Importar una base de datos de ejemplo en una base de datos de Azure SQL
+* Importar una base de datos de ejemplo en una base de datos de Azure SQL Database
 * Separar clientes en diferentes dimensiones mediante R
-* Cargar los datos de la base de datos de Azure SQL en una trama de datos de R
+* Cargar los datos de la base de datos en una trama de datos de R
 
 Para crear un modelo de aprendizaje automático que use datos de este cliente, siga la segunda parte de esta serie de tutoriales:
 

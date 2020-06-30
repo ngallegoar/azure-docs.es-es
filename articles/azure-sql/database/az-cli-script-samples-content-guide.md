@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: ecd78cdc534b68d913b6b5114a04ad2720796665
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 1f63b8adfabb9de427fd19a992f913d032aa9d8b
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84658169"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251546"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Ejemplos de la CLI de Azure para Azure SQL Database e Instancia administrada de SQL 
  
@@ -39,15 +39,15 @@ En la tabla siguiente se incluyen vínculos a ejemplos de scripts de la CLI de A
 |---|---|
 |**Creación de bases de datos en Azure SQL Database**||
 | [Creación de una base de datos única y configuración de una regla de firewall](scripts/create-and-configure-database-cli.md) | Crea una base de datos de SQL Database y configura una regla de firewall en el nivel de servidor. |
-| [Creación de grupos elásticos y traslado de bases de datos agrupadas](scripts/move-database-between-elastic-pools-cli.md) | Crea grupos elásticos de SQL, traslada las bases de datos agrupadas de SQL y cambia los tamaños de proceso. |
+| [Creación de grupos elásticos y traslado de bases de datos agrupadas](scripts/move-database-between-elastic-pools-cli.md) | Crea grupos elásticos de SQL, traslada las bases de datos agrupadas y cambia los tamaños de proceso. |
 |**Escalado de bases de datos en Azure SQL Database**||
 | [Escalado de una base de datos única](scripts/monitor-and-scale-database-cli.md) | Escala una base de datos de SQL Database a un tamaño de proceso distinto después de consultar la información del tamaño de la base de datos. |
 | [Escalado de un grupo elástico](scripts/scale-pool-cli.md) | Escala un grupo elástico de SQL a un tamaño de proceso distinto. |
 |**Configuración de la replicación geográfica y de la conmutación por error**||
 | [Adición de una base de datos única a un grupo de conmutación por error](scripts/add-database-to-failover-group-cli.md)| Crea una base de datos y un grupo de conmutación por error, agrega la base de datos al grupo de conmutación por error y, después, prueba la conmutación por error en el servidor secundario. |
 | [Configuración de un grupo de conmutación por error para un grupo elástico](../../sql-database/scripts/sql-database-add-elastic-pool-to-failover-group-cli.md) | Crea una base de datos, lo agrega a un grupo elástico, agrega el grupo elástico al grupo de conmutación por error y, después, prueba la conmutación por error en el servidor secundario. |
-| [Configuración y conmutación por error de una base de datos única mediante la replicación geográfica activa](../../sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md)| Configura la replicación geográfica activa para una base de datos de Azure SQL y la conmuta por error a la réplica secundaria. |
-| [Configuración y conmutación por error de una base de datos agrupada mediante la replicación geográfica activa](../../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md)| Configura la replicación geográfica activa para una base de datos de Azure SQL de un grupo elástico de SQL y, después, la conmuta por error a la réplica secundaria. |
+| [Configuración y conmutación por error de una base de datos única mediante la replicación geográfica activa](../../sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md)| Configura la replicación geográfica activa para una base de datos de Azure SQL Database y la conmuta por error a la réplica secundaria. |
+| [Configuración y conmutación por error de una base de datos agrupada mediante la replicación geográfica activa](../../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md)| Configura la replicación geográfica activa para una base de datos de un grupo elástico y la conmuta por error a la réplica secundaria. |
 | **Detección de amenazas y auditoría** |
 | [Configuración de detección de amenazas y auditoría](../../sql-database/scripts/sql-database-auditing-and-threat-detection-cli.md)| Configura las directivas de auditoría y detección de amenazas para una base de datos de Azure SQL Database. |
 | **Copia de seguridad, restauración, copia e importación de una base de datos**||
