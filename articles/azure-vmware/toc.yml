@@ -30,10 +30,8 @@
       href: concepts-identity.md
     - name: Actualizaciones de nube privada
       href: concepts-upgrades.md
-    - name: Integración de centro y radio
-      href: concepts-avs-hub-and-spoke-integration.md
-    - name: API Management
-      href: concepts-api-management.md
+    - name: Control de acceso basado en rol
+      href: concepts-rbac.md
 - name: Guías paso a paso
   items:
     - name: Configuración de HCX

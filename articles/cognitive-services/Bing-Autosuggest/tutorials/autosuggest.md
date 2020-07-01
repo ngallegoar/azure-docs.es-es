@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: 10e25338ab6960addeebcc224d0a6633df451964
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 04f4c91ece77f7476cbe3bb27236ecdc2b5c60e7
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78943145"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603169"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Tutorial: Obtención de sugerencias de búsqueda en una página web
 
@@ -27,9 +27,9 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 > - Realizar una consulta simple en Bing Autosuggest API
 > - Visualización de resultados de la consulta
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-Para seguir con el tutorial, necesita una clave de suscripción para Bing Autosuggest API. Si no tiene, [cree un recurso de Bing Autosuggest](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7) en Azure Portal. También puede usar una [clave de prueba](https://azure.microsoft.com/try/cognitive-services/).
+Para seguir con el tutorial, necesita una clave de suscripción para Bing Autosuggest API. Si no tiene, [cree un recurso de Bing Autosuggest](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7) en Azure Portal.
 
 ## <a name="create-a-new-web-page"></a>Creación de una página web
 
