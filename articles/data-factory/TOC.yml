@@ -26,7 +26,7 @@
     - name: 'Creación de una factoría de datos: Plantilla de Resource Manager'
       href: quickstart-create-data-factory-resource-manager-template.md
     - name: 'Seguridad: Habilitación de cifrado con claves administradas por el cliente'
-      href: quickstart-enable-customer-managed-key.md
+      href: enable-customer-managed-key.md
     - name: Creación de un flujo de datos
       href: data-flow-create.md
 - name: Tutoriales
@@ -576,7 +576,7 @@
         - name: Identidad administrada de Data Factory
           href: data-factory-service-identity.md
         - name: Cifrado de claves administrado por el cliente
-          href: quickstart-enable-customer-managed-key.md
+          href: enable-customer-managed-key.md
     - name: Supervisión y administración
       items:
         - name: Supervisión visual

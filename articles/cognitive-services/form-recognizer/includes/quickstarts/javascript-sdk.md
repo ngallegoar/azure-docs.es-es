@@ -293,7 +293,7 @@ async function TrainModelWithLabelsAsync(
 
 ## <a name="analyze-forms-with-a-custom-model"></a>Analizar formularios con un modelo personalizado
 
-En esta sección se muestra cómo extraer información de clave-valor y otro contenido de los tipos de formulario personalizados, con los modelos que ha entrenado con sus propios formularios.
+En esta sección, se muestra cómo extraer información de clave-valor y otro contenido de los tipos de formulario personalizados, con los modelos que ha entrenado con sus propios formularios.
 
 > [!IMPORTANT]
 > Para implementar este escenario, debe haber entrenado ya un modelo para que pueda pasar su identificador al método siguiente. Consulte la sección [Entrenamiento de un modelo](#train-a-model-without-labels).
