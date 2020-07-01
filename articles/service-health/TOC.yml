@@ -7,7 +7,11 @@
 - name: Guías de inicio rápido
   items:
     - name: Configuración de alertas para eventos de Service Health
-      href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md
+      items:
+        - name: Azure portal
+          href: alerts-activity-log-service-notifications-portal.md
+        - name: Plantilla ARM
+          href: alerts-activity-log-service-notifications-arm.md
 - name: Conceptos
   items:
     - name: Página de estado de Azure

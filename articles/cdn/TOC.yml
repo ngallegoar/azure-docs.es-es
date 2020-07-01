@@ -13,6 +13,7 @@
     - name: Creación de un perfil y un punto de conexión
       href: cdn-create-new-endpoint.md
     - name: 'Creación de un perfil y un punto de conexión: plantilla de ARM'
+      displayName: Resource Manager
       href: create-profile-endpoint-template.md
 - name: Tutoriales
   items:

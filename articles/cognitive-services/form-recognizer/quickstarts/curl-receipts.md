@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 03b289bb01285dd13f4456940ce891cf42518253
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d1e0587ae583585b6247aed9997243ec70fcbf03
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85206287"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563219"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Inicio rápido: Extracción de datos de recibos con API REST Form Recognizer con cURL
 
@@ -34,7 +34,7 @@ Para completar este inicio rápido, debe cumplir los siguientes requisitos:
 
 ## <a name="analyze-a-receipt"></a>Análisis de un recibo
 
-Para empezar a analizar un recibo, llame a la API **[Analyze Receipt](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeReceiptAsync)** con el comando cURL siguiente. Antes de ejecutar el comando, realice estos cambios:
+Para empezar a analizar un recibo, llame a la API **[Analyze Receipt](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)** con el comando cURL siguiente. Antes de ejecutar el comando, realice estos cambios:
 
 1. Reemplace `<Endpoint>` por el punto de conexión que obtuvo con la suscripción de Form Recognizer.
 1. Reemplace `<your receipt URL>` por la dirección URL de una imagen del recibo.
@@ -52,7 +52,7 @@ https://cognitiveservice/formrecognizer/v2.0/prebuilt/receipt/operations/54f0b07
 
 ## <a name="get-the-receipt-results"></a>Obtención de los resultados del recibo
 
-Tras la llamada a la API **Analyze Receipt**, llame a la API **[Get Receipt Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/GetAnalyzeReceiptResult)** para obtener el estado de la operación y los datos extraídos. Antes de ejecutar el comando, realice estos cambios:
+Tras la llamada a la API **Analyze Receipt**, llame a la API **[Get Receipt Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeReceiptResult)** para obtener el estado de la operación y los datos extraídos. Antes de ejecutar el comando, realice estos cambios:
 
 1. Reemplace `<Endpoint>` por el punto de conexión que obtuvo con la clave de suscripción de Form Recognizer. Lo encontrará en la pestaña **Información general** del recurso Form Recognizer.
 1. Reemplace `<operationId>` por el identificador de operación del paso anterior.
@@ -402,4 +402,4 @@ El nodo `"recognitionResults"` contiene todo el texto reconocido. El texto se or
 En este inicio rápido, usará la API REST de Form Recognizer con cURL para extraer el contenido de un recibo de ventas. A continuación, consulte la documentación de referencia para explorar la API de Form Recognizer con mayor profundidad.
 
 > [!div class="nextstepaction"]
-> [Documentación de referencia de API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeReceiptAsync)
+> [Documentación de referencia de API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)
