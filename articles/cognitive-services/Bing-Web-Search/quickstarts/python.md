@@ -26,7 +26,7 @@ En este ejemplo se ejecuta como una instancia de Jupyter Notebook en [MyBinder](
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingWebSearchAPI.ipynb)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * [Python 2.x o 3.x](https://www.python.org/)
 

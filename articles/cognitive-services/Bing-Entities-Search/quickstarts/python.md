@@ -24,7 +24,7 @@ Use este inicio rápido para realizar la primera llamada a Bing Entity Search AP
 
 Aunque esta aplicación está escrita en Python, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * [Python](https://www.python.org/downloads/) 2.x o 3.x
 
