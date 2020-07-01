@@ -57,7 +57,7 @@ Bing Visual Search API es un servicio web RESTful, por lo que resulta muy fácil
 Primero, pruebe la [demostración interactiva](https://azure.microsoft.com/services/cognitive-services/bing-visual-search/) de Bing Visual Search API.
 Esta demostración muestra cómo puede personalizar rápidamente una consulta de búsqueda y explorar la Web en busca de imágenes.
 
-Para empezar a trabajar rápidamente con la primera solicitud, consulte las guías de inicio rápido de [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
+Para empezar a trabajar rápidamente con la primera solicitud, consulte los artículos de inicio rápido: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
 
 ## <a name="see-also"></a>Consulte también
 

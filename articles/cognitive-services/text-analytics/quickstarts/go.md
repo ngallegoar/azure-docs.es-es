@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Uso de Go para llamar a Text Analytics API'
+title: 'Inicio rápido: Uso de Go para llamar a Text Analytics API'
 titleSuffix: Azure Cognitive Services
 description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Text Analytics API en Azure Cognitive Services.
 services: cognitive-services
@@ -17,14 +17,14 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "75378776"
 ---
-# <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Guía de inicio rápido: Uso de Go para llamar a Text Analytics de Cognitive Services 
+# <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Inicio rápido: Uso de Go para llamar a Text Analytics de Cognitive Services 
 <a name="HOLTop"></a>
 
 En este artículo se muestra cómo [detectar el idioma](#Detect), [analizar las opiniones](#SentimentAnalysis), [extraer las frases clave](#KeyPhraseExtraction) e [identificar las entidades vinculadas](#Entities) mediante  [instancias de Text Analytics API](//go.microsoft.com/fwlink/?LinkID=759711)  con Go.
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
