@@ -21,7 +21,7 @@ ms.locfileid: "82929662"
 
 Siga este inicio rápido para aprender a realizar llamadas a la API Bing Autosuggest y a leer la respuesta JSON. Esta sencilla aplicación de Java envía una consulta de búsqueda parcial a la API y devuelve sugerencias para las búsquedas. Si bien esta aplicación está escrita en Java, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación. El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * [Kit de desarrollo de Java (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
 * [Biblioteca Gson](https://github.com/google/gson)

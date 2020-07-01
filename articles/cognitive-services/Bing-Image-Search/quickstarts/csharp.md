@@ -23,7 +23,7 @@ Utilice este inicio rápido para aprender cómo enviar solicitudes de búsqueda 
 
 El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) con anotaciones y control de errores adicionales.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 * Cualquier edición de [Visual Studio 2017 o versiones posteriores](https://www.visualstudio.com/downloads/).
 * El marco [Json.NET](https://www.newtonsoft.com/json), disponible como un paquete NuGet.
 * Si usa Linux o MacOS, esta aplicación puede ejecutarse con [Mono](https://www.mono-project.com/).

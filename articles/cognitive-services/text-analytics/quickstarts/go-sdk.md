@@ -24,7 +24,7 @@ ms.locfileid: "83701630"
 > [!NOTE]
 > Este inicio rápido solo se aplica a Text Analytics 2.1. Actualmente, no hay disponible ninguna biblioteca de cliente v3 para Go.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/).
 * La versión más reciente de [Go](https://golang.org/dl/).

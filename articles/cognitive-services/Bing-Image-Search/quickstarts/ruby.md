@@ -27,7 +27,7 @@ Aunque esta aplicación está escrita en Ruby, la API es un servicio web RESTful
 
 El código fuente del ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingImageSearchv7.rb).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * [La última versión de Ruby](https://www.ruby-lang.org/en/downloads/).
 

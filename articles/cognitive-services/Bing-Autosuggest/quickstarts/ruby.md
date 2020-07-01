@@ -22,7 +22,7 @@ ms.locfileid: "82930206"
 Siga este inicio rápido para aprender a realizar llamadas a la API Bing Autosuggest y a leer la respuesta JSON. Esta sencilla aplicación de Ruby envía una consulta de búsqueda parcial a la API y devuelve sugerencias para búsquedas. Si bien esta aplicación está escrita en Ruby, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) o posterior.
 

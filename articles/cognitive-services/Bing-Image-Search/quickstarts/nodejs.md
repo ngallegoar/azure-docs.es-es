@@ -25,7 +25,7 @@ Utilice este inicio rápido para aprender cómo enviar solicitudes de búsqueda 
 
 El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7Quickstart.js) con anotaciones y control de errores adicionales.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * La última versión de [Node.js](https://nodejs.org/en/download/).
 

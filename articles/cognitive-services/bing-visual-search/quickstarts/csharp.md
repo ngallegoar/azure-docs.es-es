@@ -21,7 +21,7 @@ ms.locfileid: "83872775"
 
 Este inicio rápido muestra cómo cargar una imagen en la API Bing Visual Search y cómo ver la información detallada que devuelve.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Cualquier edición de [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * La [plataforma Json.NET](https://www.newtonsoft.com/json), disponible como paquete NuGet.

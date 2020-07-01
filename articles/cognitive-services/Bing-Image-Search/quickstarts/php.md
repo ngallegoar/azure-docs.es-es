@@ -27,7 +27,7 @@ Si bien esta aplicación está escrita en PHP, la API es un servicio web RESTful
 
 El código fuente del ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/php/Search/BingWebSearchv7.php).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * [PHP 5.6.x o posterior](https://php.net/downloads.php).
 
