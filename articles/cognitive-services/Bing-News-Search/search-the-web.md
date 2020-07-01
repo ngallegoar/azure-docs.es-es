@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: e0e99c7f677173c64afad3109b2f4accd7cb3cb9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: d44fe58eb17e7f11dc64ee1426df7f356cb91aef
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75448443"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85602761"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>¿Qué es Bing News Search API?
 
@@ -40,10 +40,8 @@ Aunque Bing News Search API principalmente busca y devuelve los artículos de no
 
 Bing News Search API es un servicio web RESTful, lo que significa que es fácil llamarlo desde cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar código JSON. Puede usar el servicio con la API REST o el SDK.
 
-1. Cree una cuenta de API de Cognitive Services con acceso a Bing Search APIs. Si no tiene una suscripción de Azure, puede [crear una cuenta gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-news-api).
-
+1. Cree una [cuenta de API de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con acceso a Bing Search APIs. Si no tiene una suscripción de Azure, puede [crear una cuenta](https://azure.microsoft.com/free/cognitive-services/) gratuita.
 2. Envíe una solicitud a la API con una consulta de búsqueda válida.
-
 3. Analice el mensaje JSON devuelto para procesar la respuesta de API.
 
 ## <a name="next-steps"></a>Pasos siguientes
