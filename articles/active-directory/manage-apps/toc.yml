@@ -3,20 +3,14 @@
 - name: Información general
   expanded: true
   items:
-    - name: ¿Qué es la administración de aplicaciones en la nube y el inicio de sesión único?
+    - name: ¿Qué es la administración de aplicaciones?
       href: what-is-application-management.md
-    - name: ¿Qué es Application Proxy para aplicaciones locales?
-      href: what-is-application-proxy.md
-    - name: Escenarios comunes de administración de aplicaciones
-      href: common-scenarios.md
-    - name: ¿Qué es el aprovisionamiento de aplicaciones?
-      href: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
 - name: Guías de inicio rápido
   items:
-    - name: Incorporación de una aplicación en la nube desde la galería
-      href: add-application-portal.md
     - name: Visualización de las aplicaciones empresariales
       href: view-applications-portal.md
+    - name: Incorporación de una aplicación en la nube desde la galería
+      href: add-application-portal.md
 - name: Tutoriales
   items:
     - name: 'Aplicaciones de la galería integradas (por ejemplo, ServiceNow, Salesforce o Dropbox)'
@@ -32,6 +26,8 @@
   items:
     - name: Procedimientos recomendados de administración de aplicaciones
       href: application-management-fundamentals.md
+    - name: Escenarios comunes de administración de aplicaciones
+      href: common-scenarios.md
     - name: Aplicaciones en la nube e inicio de sesión único
       items:
         - name: Planeamiento de una integración de aplicación en la nube
@@ -80,6 +76,8 @@
       items:
         - name: Proxy de aplicación
           href: application-proxy.md
+        - name: ¿Qué es un proxy de aplicación para aplicaciones locales?
+          href: what-is-application-proxy.md
         - name: Planeación de la implementación de un proxy de aplicación
           href: application-proxy-deployment-plan.md
         - name: Conectores

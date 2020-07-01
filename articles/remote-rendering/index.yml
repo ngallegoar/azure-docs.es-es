@@ -9,12 +9,12 @@ metadata:
   author: florianborn71
   ms.author: flborn
   ms.date: 03/26/2020
-  ms.openlocfilehash: 265c4087dbb93bc429cf61ebbeab13dc18c83353
-  ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+  ms.openlocfilehash: e740fd08dc3e616b0768c6c15fd4191cb58e261a
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/16/2020
-  ms.locfileid: "84808927"
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85565424"
 landingContent:
 - title: Acerca de Azure Remote Rendering
   linkLists:
@@ -60,11 +60,19 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: 'Unity: Configuración de un proyecto desde cero'
-      url: tutorials/unity/project-setup.md
-    - text: 'Unity: Uso con entidades remotas'
-      url: tutorials/unity/working-with-remote-entities.md
-    - text: 'Unity: Cambio de entorno y materiales'
-      url: tutorials/unity/changing-environment-and-materials.md
+    - text: Información general
+      url: tutorials/unity/tutorial-landing.md
+    - text: Visualización de un modelo representado de forma remota
+      url: tutorials/unity/view-remote-models/view-remote-models.md
+    - text: Carga de modelos personalizados
+      url: tutorials/unity/custom-models/custom-models.md
+    - text: Manipulación de modelos
+      url: tutorials/unity/manipulate-models/manipulate-models.md
+    - text: Refinamiento de materiales, iluminación y efectos
+      url: tutorials/unity/materials-lighting-effects/materials-lighting-effects.md
+    - text: Protección de Azure Remote Rendering y el almacenamiento de modelos
+      url: tutorials/unity/security/security.md
+    - text: Creación de una aplicación de Azure Remote Rendering lista para su comercialización
+      url: tutorials/unity/commercial-ready/commercial-ready.md
     - text: 'C++ nativo: Integración de Remote Rendering en una aplicación de HoloLens Holographic'
       url: tutorials/native-cpp/hololens/integrate-remote-rendering-into-holographic-app.md

@@ -135,6 +135,8 @@
           href: batch-virtual-network.md
         - name: Creación de un grupo con direcciones IP públicas
           href: create-pool-public-ip.md
+        - name: Creación de un grupo sin direcciones IP públicas
+          href: batch-pool-no-public-ip-address.md
         - name: Montaje de un sistema de archivos virtual
           href: virtual-file-mount.md
         - name: Montaje de un recurso compartido de archivos de Azure

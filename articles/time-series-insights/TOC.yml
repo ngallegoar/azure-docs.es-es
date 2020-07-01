@@ -117,6 +117,8 @@
       items:
         - name: Adición de para el tipo de datos Long
           href: time-series-insights-long-data-type.md
+        - name: Cambios en el almacenamiento y acoplamiento de JSON
+          href: ingestion-rules-update.md
 - name: Referencia
   items:
     - name: Time Series Insights

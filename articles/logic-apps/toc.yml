@@ -13,6 +13,9 @@
       href: quickstart-create-logic-apps-with-visual-studio.md
     - name: 'Creación de aplicaciones lógicas: Visual Studio Code'
       href: quickstart-create-logic-apps-visual-studio-code.md
+    - name: 'Creación de aplicaciones lógicas: plantilla de Resource Manager'
+      displayName: Resource Manager
+      href: quickstart-create-deploy-azure-resource-manager-template.md
 - name: Tutoriales
   items:
     - name: Creación de flujos de trabajo basados en programación

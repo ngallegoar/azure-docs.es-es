@@ -26,6 +26,9 @@
     - name: 'Ejecución de la primera consulta: Python'
       displayName: 'library, azure-mgmt, cli'
       href: ./first-query-python.md
+    - name: 'Creación de una consulta compartida: CLI de Azure'
+      displayName: 'extension, docker, queries'
+      href: ./shared-query-azure-cli.md
     - name: 'Implementación de una consulta compartida: plantilla de Resource Manager'
       displayName: 'resource manager, queries'
       href: ./shared-query-template.md

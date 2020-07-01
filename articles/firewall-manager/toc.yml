@@ -12,7 +12,7 @@
       href: quick-secure-virtual-hub.md
 - name: Tutoriales
   items:
-    - name: 'Protección de una WAN virtual: portal'
+    - name: 'Protección de un centro virtual: Azure Portal'
       href: secure-cloud-network.md
     - name: 'Protección de una WAN virtual de un centro de conectividad: portal'
       href: secure-hybrid-network.md
@@ -26,16 +26,24 @@
       href: deployment-overview.md
     - name: Proveedores de seguridad asociados
       href: trusted-security-partners.md
+    - name: Grupos de IP
+      href: ip-groups.md
     - name: Lógica de procesamiento de reglas
       href: rule-processing.md
     - name: Opciones de arquitectura
       href: vhubs-and-vnets.md
+    - name: Configuración de inteligencia sobre amenazas
+      href: threat-intelligence-settings.md
+    - name: Nombre de dominio completo en las reglas de red
+      href: fqdn-filtering-network-rules.md
 - name: Guías paso a paso
   items:
     - name: Implementación de proveedores de seguridad asociados
       href: deploy-trusted-security-partner.md
     - name: 'Directiva de migración a firewall: PowerShell'
       href: migrate-to-policy.md
+    - name: Configuración de DNS
+      href: dns-settings.md
 - name: Referencia
   items:
     - name: Azure CLI
