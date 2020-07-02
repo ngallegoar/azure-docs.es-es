@@ -10,14 +10,14 @@ ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: d45b9a153b770dd10da9dd61e8a7b3d138345b8a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 33c5cbd47213d021d374f52c1dadaf20d508ae37
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78943134"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608575"
 ---
-# <a name="tutorial-single-page-web-app"></a>Tutorial: aplicación web de una sola página
+# <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicación web de una sola página
 
 Bing Entity Search API le permite buscar en Internet información acerca de *entidades* y *lugares.* Puede solicitar cualquier tipo de resultado, o ambos, en una consulta determinada. Las definiciones de lugares y entidades se proporcionan a continuación.
 
@@ -56,9 +56,14 @@ En este tutorial, solo se describen determinadas partes del código fuente. El c
 > [!NOTE]
 > Este tutorial es bastante similar al [tutorial de la aplicación Bing Web Search de una sola página](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), pero solo se centra en los resultados de búsqueda de imágenes.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
-Para seguir con el tutorial, necesita claves de suscripción para Bing Search API y Bing Maps API. Si no las tiene, puede utilizar una [clave de prueba](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) y una [ clave básica de Bing Maps](https://www.microsoft.com/maps/create-a-bing-maps-key).
+Para seguir con el tutorial, necesita claves de suscripción para Bing Search API y Bing Maps API. 
+
+* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/).
+* Una vez que tenga la suscripción de Azure:
+  * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Cree un recurso de Bing Search"  target="_blank">Crear un recurso de Bing Search <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
+  * <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Cree un recurso de Computer Vision"  target="_blank">Crear un recurso de Bing Maps <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
 
 ## <a name="app-components"></a>Componentes de la aplicación
 
@@ -86,7 +91,7 @@ El HTML también contiene las divisiones (etiquetas `<div>` HTML) en que aparece
 ## <a name="managing-subscription-keys"></a>Administrar la clave de suscripción
 
 > [!NOTE]
-> Esta aplicación requiere claves de suscripción para Bing Search API y la API de Mapas de Bing. Puede utilizar una [clave de prueba de Bing Search](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) y una [ clave básica de Mapas de Bing](https://www.microsoft.com/maps/create-a-bing-maps-key).
+> Esta aplicación requiere claves de suscripción para Bing Search API y la API de Mapas de Bing.
 
 Para evitar tener que incluir las claves de suscripción de Bing Search API y la API de Mapas de Bing en el código, usamos el almacenamiento persistente del explorador para almacenar las claves. Si no se ha almacenado ninguna de las dos claves, las solicitamos y las almacenamos para su uso posterior. Si, más tarde, la API rechaza la clave, se invalidará la clave almacenada y se le volverá a preguntar al usuario en la siguiente búsqueda.
 
@@ -394,7 +399,7 @@ Los errores se controlan mediante una llamada a `renderErrorMessage()` con los d
 
 ## <a name="displaying-search-results"></a>Presentación de los resultados de la búsqueda
 
-Bing Entity Search API [le solicitará mostrar los resultados en un orden específico](use-display-requirements.md). Dado que la API puede devolver dos tipos diferentes de respuestas, no es suficiente iterar a través de la colección de nivel superior `Entities` o `Places` en la respuesta JSON y mostrar esos resultados. (Si solo quiere un tipo de resultado, use el parámetro de consulta `responseFilter`).
+Bing Entity Search API [le solicitará mostrar los resultados en un orden específico](use-display-requirements.md). Como la API puede devolver dos tipos diferentes de respuestas, no es suficiente iterar a través de las colecciones `Entities` o `Places` de nivel superior en la respuesta JSON y mostrar esos resultados. (Si solo quiere un tipo de resultado, use el parámetro de consulta `responseFilter`).
 
 En su lugar, usamos la colección `rankingResponse` en los resultados de la búsqueda para ordenar los resultados que se mostrarán. Este objeto se refiere a los artículos en las colecciones `Entitiess` o `Places`.
 
@@ -520,7 +525,7 @@ La función del representador de imágenes:
 
 Las respuestas de Bing Search API pueden incluir un encabezado `X-MSEdge-ClientID` que debe devolverse a la API con las solicitudes sucesivas. Si se usan varias instancias de Bing Search API, se debe usar el mismo identificador de cliente con todas ellas, si es posible.
 
-Especificar el encabezado `X-MSEdge-ClientID` permite a las API de Bing asociar todas las búsquedas de un usuario, lo que tiene dos ventajas importantes.
+Si se especifica el encabezado `X-MSEdge-ClientID`, las API de Bing podrán asociar todas las búsquedas de un usuario, lo que tiene dos ventajas importantes.
 
 En primer lugar, permite al motor de búsqueda de Bing aplicar un contexto pasado a las búsquedas, con el fin de encontrar los resultados que más satisfagan al usuario. Si un usuario ha buscado previamente términos relacionados con la navegación, por ejemplo, una búsqueda posterior de "muelles" podría devolver información acerca de los muelles que se usan para dejar un velero.
 
@@ -531,7 +536,7 @@ Las directivas de seguridad del explorador (CORS) pueden impedir que el encabeza
 > [!NOTE]
 > En una aplicación web de producción, debe realizar la solicitud del lado servidor de todos modos. En caso contrario, es preciso incluir la clave de Bing Search API en la página web, donde está disponible para cualquiera que vea el origen. Se le facturará todo el uso bajo su clave de suscripción a API, incluso las solicitudes que realicen partes no autorizadas, por lo que es importante no exponer su clave.
 
-Para fines de desarrollo, puede realizar la solicitud de Bing Web Search API a través de un proxy CORS. La respuesta de un proxy de este tipo tiene un encabezado `Access-Control-Expose-Headers` que agrega los encabezados de respuesta a listas blancas y hace que estén disponibles para JavaScript.
+Para fines de desarrollo, puede realizar la solicitud de Bing Web Search API a través de un proxy CORS. La respuesta de un proxy de este tipo tiene un encabezado `Access-Control-Expose-Headers` que permite los encabezados de respuesta de las listas y hace que estén disponibles para JavaScript.
 
 Es fácil instalar un proxy CORS para permitir que nuestra aplicación de tutorial acceda al encabezado de identificador de cliente. En primer lugar, si aún no lo tiene, [instale Node.js](https://nodejs.org/en/download/). Escriba el comando siguiente en una ventana de comandos:
 

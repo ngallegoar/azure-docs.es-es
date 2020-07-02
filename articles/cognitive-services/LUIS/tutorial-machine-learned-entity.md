@@ -3,12 +3,12 @@ title: 'Tutorial: Extracción de datos estructurados con una entidad de aprendiz
 description: Extraiga los datos estructurados de una expresión mediante la entidad de aprendizaje automático. Para aumentar la precisión de la extracción, agregue subentidades con características.
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: f9a732d38d2d4557340080d9d1bbdcf789caea08
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: e16badfb2e024c5d82f1aed8a02aa901dca2c2a9
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83676179"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611023"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Tutorial: Extracción de datos estructurados de una expresión de usuario con entidades de aprendizaje automático en Language Understanding (LUIS)
 
@@ -98,7 +98,7 @@ En los pasos anteriores se ha creado la entidad y la subentidad. Para mejorar la
 
 1. Seleccione **Crear nueva lista de frases** en el menú desplegable.
 
-1. En el cuadro **Crear lista de frases**, escriba el nombre `SizePhraselist` y, a continuación, los valores `small`, `medium` y `large`. Cuando se rellene el cuadro **Sugerencias**, seleccione `extra large` y `xl`. Seleccione **Guardar** para crear la nueva lista de frases.
+1. En el cuadro **Crear lista de frases**, escriba el nombre `SizePhraselist` y, a continuación, los valores `small`, `medium` y `large`. Cuando se rellene el cuadro **Sugerencias**, seleccione `extra large` y `xl`. Seleccione **Crear** para crear la nueva lista de frases.
 
     Esta característica lista de frases ayuda a la subentidad `Size` a buscar palabras relacionadas con el tamaño al proporcionarle palabras de ejemplo. Esta lista de frases no necesita incluir cada palabra de tamaño, pero debe incluir palabras que se espera que indiquen tamaño.
 
@@ -131,7 +131,7 @@ Agregar una lista de tamaños conocidos que la aplicación cliente reconoce, ayu
 
 1. En la pestaña **Schema and features** (Esquema y características), seleccione la entidad **Size** (Tamaño) y, a continuación, seleccione **+ Add feature** (Agregar característica).
 
-1. Seleccione **@ SizeList** en la lista desplegable.
+1. Seleccione **@ SizeListentity** en la lista desplegable.
 
 <a name="add-prebuilt-number-entity-to-app"></a>
 

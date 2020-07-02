@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 03/13/2020
+ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: 666b70ba8b632cb2cadf20de384e3e615acb2b3d
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 550cec535343d48ad74dd35e6886af78bdd15701
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79203591"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563277"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Inicio rápido: Cómo familiarizarse con Content Moderator
 
 En este tutorial, usará la herramienta de revisión en línea de Content Moderator para probar las funcionalidades básicas de Content Moderator sin tener que escribir ningún código. Si desea integrar este servicio a su aplicación más rápidamente, vea las otras guías de inicio rápido en la sección [Pasos siguientes](#next-steps).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Un explorador web
 
@@ -32,7 +32,7 @@ La herramienta de revisión Content Moderator es una herramienta basada en web q
 
 ## <a name="create-a-review-team"></a>Creación de un equipo de revisión
 
-A continuación, cree un equipo de revisión. En un escenario de trabajo, será el grupo de personas que va a revisar manualmente las decisiones de moderación del servicio. Para crear un equipo, debe seleccionar una **Región** y proporcionar un **Nombre del equipo** y un **Id. de equipo**. Si quiere invitar colegas a su equipo, puede escribir sus direcciones de correo electrónico aquí.
+A continuación, cree un equipo de revisión. En un escenario de trabajo, será el grupo de personas que revisa manualmente las decisiones de moderación del servicio. Para crear un equipo, debe seleccionar una **Región** y proporcionar un **Nombre del equipo** y un **Id. de equipo**. Si quiere invitar colegas a su equipo, puede escribir sus direcciones de correo electrónico aquí.
 
 > [!NOTE]
 > **Nombre del equipo** es un nombre descriptivo para el equipo de revisión. Este es el nombre que se muestra en Azure Portal. El **Id. de equipo** se usa para identificar el equipo de revisión mediante programación.

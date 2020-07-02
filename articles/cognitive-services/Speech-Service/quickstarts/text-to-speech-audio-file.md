@@ -1,22 +1,22 @@
 ---
 title: 'Inicio rápido: Síntesis de voz en un archivo de audio: servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: En este inicio rápido usará el SDK de Voz para convertir texto en voz sintetizada en un archivo de audio.
+description: En este inicio rápido, se usa el SDK de voz para convertir texto en voz sintetizada en un archivo de audio.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 02/10/2020
+ms.date: 06/25/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two-with-js-spx
-ms.openlocfilehash: dd8b22580a913bfeee851b089cbf2c09da530503
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: a902f15b8e782cd001e4d6dab3177751e39900e8
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715191"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391458"
 ---
 # <a name="quickstart-synthesize-speech-into-an-audio-file"></a>Inicio rápido: Síntesis de voz en un archivo de audio
 

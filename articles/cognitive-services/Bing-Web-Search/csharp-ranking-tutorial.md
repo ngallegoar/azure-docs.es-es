@@ -9,14 +9,14 @@ ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: tutorial
-ms.date: 12/19/2019
+ms.date: 06/24/2020
 ms.author: aahi
-ms.openlocfilehash: 1c8e0bb136fddeb84dc991e63a761378b38cc470
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 272a10e211e99e200b82807b188d828a9ece42d8
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75382334"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85609442"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Compilación de un cliente de búsqueda de aplicación de consola en C#
 
@@ -27,12 +27,13 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 - Realizar una consulta simple en Bing Web Search API
 - Mostrar resultados de la consulta en orden de clasificación
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Para seguir el tutorial, necesitará:
 
-- Visual Studio. Si no lo tiene, [descargue e instale la versión gratuita de Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).
-- Una clave de suscripción para Bing Web Search API. Si no tiene ninguna, [suscríbase para obtener una evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
+* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/).
+* Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="cree un recurso de Bing Search"  target="_blank">crear un recurso de Bing Search<span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
+* El [entorno de desarrollo integrado de Visual Studio](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-new-console-app-project"></a>Creación de un proyecto de aplicación de consola
 
@@ -42,7 +43,7 @@ En el cuadro de diálogo **Nuevo proyecto**, haga clic en **Visual C# > Escritor
 
 Asigne a la aplicación el nombre **MyConsoleSearchApp** y haga clic en **Aceptar**.
 
-## <a name="add-the-jsonnet-nuget-package-to-the-project"></a>Adición del paquete NuGet JSON.net para el proyecto
+## <a name="add-the-jsonnet-nuget-package-to-the-project"></a>Adición del paquete NuGet JSON.net al proyecto
 
 JSON.net permite trabajar con las respuestas JSON devueltas por la API. Agregue el paquete NuGet al proyecto:
 
@@ -224,8 +225,8 @@ Antes de mostrar cómo visualizar los resultados en orden de clasificación, ech
 El objeto JSON `rankingResponse` ([documentación](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) describe el orden de presentación adecuado de los resultados de la búsqueda. Incluye uno o varios de los grupos clasificados por orden de prioridad siguientes:
 
 - `pole`: los resultados de la búsqueda para obtener el tratamiento más visible (por ejemplo, se muestran por encima de la línea principal y la barra lateral).
-- `mainline`: los resultados de la búsqueda se muestran en la línea principal.
-- `sidebar`: los resultados de la búsqueda se muestran en la barra lateral. Si no hay ninguna barra lateral, los resultados se muestran debajo de la línea principal.
+- `mainline`: Los resultados de la búsqueda se muestran en la línea principal.
+- `sidebar`: los resultados de la búsqueda que se muestran en la barra lateral. Si no hay ninguna barra lateral, los resultados se muestran debajo de la línea principal.
 
 El código JSON de respuesta de clasificación puede incluir uno o varios de los grupos.
 

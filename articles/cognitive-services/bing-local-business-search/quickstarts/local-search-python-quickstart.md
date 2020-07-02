@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/12/2020
 ms.author: aahi
 ms.custom: tracking-python
-ms.openlocfilehash: fcd3ab3cce74aa0ef021427904077c364de1f493
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: c821df0e7cb00c73899a2694dd0b2eb6823b1d9e
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84606282"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611203"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>Inicio rápido: Envío de una consulta a Bing Local Business Search API en Python
 
@@ -24,10 +24,11 @@ Use este inicio rápido para aprender a enviar solicitudes a la API Bing Local B
 
 Esta aplicación de ejemplo obtiene los datos de respuesta local de la API para una consulta de búsqueda.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
+* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/).
 * [Python](https://www.python.org/) 2.x o 3.x.
-* Una [cuenta de API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con las API Bing Search. Para este inicio rápido, la [cuenta de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) es suficiente. Guarde la clave de API que se proporciona al activar la evaluación gratuita. Para más información, consulte [Precios de Cognitive Services: API Bing Search](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="cree un recurso de Bing Search"  target="_blank">crear un recurso de Bing Search<span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
 
 ## <a name="run-the-complete-application"></a>Ejecución de la aplicación completa
 

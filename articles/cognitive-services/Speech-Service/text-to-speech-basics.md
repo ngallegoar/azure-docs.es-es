@@ -12,12 +12,12 @@ ms.date: 04/14/2020
 ms.author: trbye
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: 2bba1536c9d0990eb771f62d27b852ae1eb3b45c
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: ddcfeaad70e6552f94f9c87b6e9cf24ed15bfba8
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84604622"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611480"
 ---
 # <a name="learn-the-basics-of-speech-synthesis"></a>Aspectos básicos de la síntesis de voz
 
@@ -29,8 +29,8 @@ En este artículo aprenderá patrones de diseño comunes para realizar la sínte
 * Uso de voces neuronales
 
 > [!TIP]
-> Si no ha tenido la oportunidad de completar alguno de nuestros inicios rápidos, le animamos a que lo haga ahora y pruebe el reconocimiento de voz.
-> * [Reconocimiento de voz a través de un micrófono](quickstarts/text-to-speech.md)
+> Si no ha tenido la oportunidad de completar ninguno de nuestros inicios rápidos, le animamos a que lo haga ahora y pruebe la conversión de texto a voz.
+> * [Síntesis de voz en un altavoz](quickstarts/text-to-speech.md)
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-csharp.md)]

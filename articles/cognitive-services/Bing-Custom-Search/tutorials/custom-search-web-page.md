@@ -10,16 +10,16 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: c7b41f77f8eb57c39489f1e5a69b0ac1c3c9c7d4
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 588751c178205ceb21617f8d9271bfa9ed76193d
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78943911"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603356"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Creación de una página web de Custom Search
 
-Bing Custom Search le permite crear experiencias de búsqueda a medida de los temas que le interesan. Por ejemplo, si tiene un sitio web de artes marciales que proporciona una experiencia de búsqueda, puede especificar los dominios, subsitios y páginas web en las que busque Bing. Los usuarios ven los resultados de búsqueda adaptados al contenido que les interesa en lugar de recorrer las páginas de resultados de búsqueda generales que pueden contener contenido carente de interés. 
+Bing Custom Search le permite crear experiencias de búsqueda a medida de los temas que le interesan. Por ejemplo, si tiene un sitio web de artes marciales que incluye la posibilidad de realizar búsquedas, puede especificar los dominios, subsitios y páginas web en las que busca Bing. Los usuarios ven los resultados de búsqueda adaptados al contenido que les interesa en lugar de recorrer las páginas de resultados de búsqueda generales que pueden contener contenido carente de interés. 
 
 En este tutorial se muestra cómo configurar una instancia de búsqueda personalizada e integrarla en una nueva página web.
 
@@ -32,9 +32,9 @@ Las tareas que se tratan son:
 > - Agregar entradas ancladas
 > - Integrar la búsqueda personalizada en una página web
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-- Para seguir con el tutorial, necesita una clave de suscripción para Bing Custom Search API.  Para obtener una clave, [cree un recurso de Bing Custom Search](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) en Azure Portal. También puede usar una [clave de prueba](https://azure.microsoft.com/try/cognitive-services).
+- Para seguir con el tutorial, necesita una clave de suscripción para Bing Custom Search API.  Para obtener una clave, [cree un recurso de Bing Custom Search](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) en Azure Portal.
 - Si aún no tiene instalado Visual Studio 2017, o cualquier versión posterior, puede descargar y usar la edición **gratuita** de [Visual Studio 2019 Community](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-custom-search-instance"></a>Creación de una instancia de búsqueda personalizada
@@ -116,7 +116,7 @@ Custom Search proporciona una interfaz de usuario hospedada para presentar la re
 
    ![Captura de pantalla del paso Configuración avanzada de interfaz de usuario hospedada](./media/custom-search-hosted-ui-advanced-configurations.png)  
   
-5. Seleccione las claves de suscripción en las listas desplegables. O bien, puede escribir manualmente la clave de suscripción. Para obtener más información sobre cómo obtener las claves, consulte [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).  
+5. Seleccione las claves de suscripción en las listas desplegables. O bien, puede escribir manualmente la clave de suscripción.
   
    ![Captura de pantalla del paso Configuración adicional de interfaz de usuario hospedada](./media/custom-search-hosted-ui-subscription-key.png)
 
@@ -130,7 +130,7 @@ Hay dos maneras de consumir la interfaz de usuario hospedada.
 - Opción 1: Integrar el fragmento de código de JavaScript proporcionado en la aplicación.
 - Opción 2: Usar el punto de conexión HTML proporcionado.
 
-En el resto del tutorial, se ilustra la **Opción 1: Fragmento de código Javascript**.  
+En el resto del tutorial, se ilustra la **Opción 1: fragmento de código de JavaScript**.  
 
 ## <a name="set-up-your-visual-studio-solution"></a>Configuración de la solución de Visual Studio
 

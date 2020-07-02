@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 03/12/2020
+ms.date: 06/25/2020
 ms.author: trbye
-ms.openlocfilehash: 664b71c56ae63ea73478923171731e343dfa5cbe
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 43efc770f3a3b29a1b0fc214d2927c8c153dff96
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417232"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391645"
 ---
 # <a name="what-is-the-speech-service"></a>¿Qué es Speech Service?
 
@@ -55,7 +55,7 @@ Ofrecemos guías de inicio rápido en los lenguajes de programación más popula
 > [!NOTE]
 > Voz a texto y texto a voz también tienen asociados puntos de conexión REST e inicios rápidos.
 
-Una vez que haya tenido la oportunidad de usar el servicio de voz, pruebe nuestro tutorial, que le enseña a reconocer intenciones a partir de contenido de voz mediante el SDK de voz y LUIS.
+Una vez que haya tenido la oportunidad de usar el servicio de voz, pruebe nuestros tutoriales, que le enseñarán a resolver distintos escenarios.
 
 - [Tutorial: Reconocimiento de intenciones a partir de contenido de voz con el SDK de voz y LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
 - [Tutorial: Habilitación del bot con voz mediante el SDK de voz, C#](tutorial-voice-enable-your-bot-speech-sdk.md)

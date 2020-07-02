@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 03/05/2020
+ms.date: 06/23/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 801bfcf02174c5dd98d4c7231c674299ef411aff
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 5aac12f4da6304e8e14f0b4f1e33ef6257f50c11
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78943112"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85602795"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Tutorial: Creación de una aplicación web de una sola página
 
@@ -41,10 +41,12 @@ En la aplicación del tutorial se muestra cómo:
 La página del tutorial es completamente independiente: no utiliza marcos, hojas de estilo ni archivos de imagen externos. Usa solo características del lenguaje JavaScript ampliamente compatibles y funciona con las versiones actuales de los principales exploradores web.
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-Para seguir con el tutorial, necesita claves de suscripción para Bing Search API. Si no las tiene, puede utilizar una [clave de prueba](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) y una [ clave básica de Bing Maps](https://www.microsoft.com/maps/create-a-bing-maps-key).
+Para seguir con el tutorial, necesita claves de suscripción para Bing Search API. Si no las tiene, debe crearlas:
 
+* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/).
+* Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="cree un recurso de Bing Search"  target="_blank">crear un recurso de Bing Search<span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
 
 ## <a name="app-components"></a>Componentes de la aplicación
 Igual que sucede con cualquier aplicación web de una sola página, la aplicación del tutorial incluye tres partes:
@@ -352,7 +354,7 @@ Una función de representador puede aceptar los parámetros siguientes:
 
 Los parámetros `index` y `count` pueden usarse para numerar los resultados, para generar un código HTML especial para el principio o el final de una colección, para insertar saltos de línea después de cierto número de elementos, etc. Si un representador no necesita esta funcionalidad, no es necesario aceptar estos dos parámetros.
 
-El representador `news` se muestra en el siguiente fragmento de JavaScript:
+El representador `news` se muestra en el siguiente extracto de JavaScript.
 ```javascript
     // render news story
     news: function (item) {

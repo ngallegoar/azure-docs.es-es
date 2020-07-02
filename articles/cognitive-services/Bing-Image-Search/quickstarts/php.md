@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 50ce929904df7d4cf4e6ee83d77a9ad16c5f8cff
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: aad804179739a77010446a146d32cd51ac6e6757
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118874"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603373"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Inicio rápido: Búsqueda de imágenes con la API de REST Bing Image Search y PHP
 
@@ -139,8 +139,7 @@ Las respuestas de Bing Image Search API se devuelven como JSON. Esta respuesta d
 ## <a name="see-also"></a>Consulte también
 
 * [¿Qué es Bing Image Search API?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Prueba de una demostración interactiva en línea](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/). 
-* [Detalles de precios de las API Bing Search](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
-* [Obtención de una clave de acceso gratuita de Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).
-* [Documentación de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services).
-* [Referencia de la API Bing Image Search](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).
+* [Prueba de una demostración interactiva en línea](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
+* [Detalles de precios de las Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) 
+* [Documentación de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
+* [Referencia de Bing Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

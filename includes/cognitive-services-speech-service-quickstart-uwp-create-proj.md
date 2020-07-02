@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 5ab0b9abd32ef2e5eb7ea02d6118e387ef753348
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: a24c0a3129a851eb94c43158424f786b1df5a532
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609330"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414372"
 ---
 Para crear un proyecto de Visual Studio C++ para el desarrollo de la Plataforma universal de Windows (UPW), debe configurar las opciones de desarrollo de Visual Studio, crear el proyecto, seleccionar la arquitectura de destino, configurar la captura de audio e instalar el SDK de voz.
 
@@ -70,7 +70,7 @@ Ahora seleccione la arquitectura de la plataforma de destino. En la barra de her
 
 ### <a name="set-up-audio-capture"></a>Configuración de la captura de audio
 
-A continuación, permita que el proyecto capture la entrada de audio:
+Deje que el proyecto capture la entrada de audio:
 
 1. En el **Explorador de soluciones**, haga doble clic en **Package.appxmanifest** para abrir el manifiesto de aplicación del paquete.
 

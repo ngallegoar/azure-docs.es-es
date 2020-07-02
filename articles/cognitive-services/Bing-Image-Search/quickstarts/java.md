@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 6032478dfc45d3d4ca1488913356718ab188e057
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: a41a448a344325c2e3820a891017a078ae1532c5
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872037"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603424"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-api-and-java"></a>Inicio rápido: Búsqueda de imágenes con la API Bing Image Search y Java 
 
@@ -25,7 +25,7 @@ Utilice este inicio rápido para aprender a enviar solicitudes de búsqueda a la
 
 El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) con anotaciones y control de errores adicionales.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * [Kit de desarrollo de Java (JDK)](https://aka.ms/azure-jdks)
 
@@ -162,8 +162,7 @@ Las respuestas de Bing Image Search API se devuelven como JSON. Esta respuesta d
 ## <a name="see-also"></a>Consulte también
 
 * [¿Qué es Bing Image Search API?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Prueba de una demostración interactiva en línea](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/).
-* [Detalles de precios de las API Bing Search](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-* [Obtención de una clave de acceso gratuita de Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).
-* [Documentación de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services).
-* [Referencia de la API Bing Image Search](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).
+* [Prueba de una demostración interactiva en línea](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)
+* [Detalles de precios de las Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)
+* [Documentación de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
+* [Referencia de Bing Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
