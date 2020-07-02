@@ -166,7 +166,7 @@ Se produce un error al intentar eliminar un grupo de sincronización. El error a
 
 - **Resolución**. Espere a que finalice el proceso de aprovisionamiento o sincronización y, después, vuelva a intentar eliminar el grupo de sincronización.
 
-### <a name="i-cant-unregister-a-sql-server-database"></a><a name="setup-unreg">No puedo anular el registro de una base de datos de SQL Server</a>
+### <a name="i-cant-unregister-a-sql-server-database"></a><a name="setup-unreg"></a>No puedo anular el registro de una base de datos de SQL Server
 
 - **Causa**. Es muy probable que esté intentando anular el registro de una base de datos que ya se ha eliminado.
 
