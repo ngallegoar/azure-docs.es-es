@@ -72,7 +72,7 @@ Asegúrese de completar los pasos descritos en [Configuración de un servicio Az
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-1. En el código fuente descargado, navegue hasta la carpeta de ejemplo **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** . Abra el archivo **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** en el editor que prefiera y agregue los detalles siguientes:
+1. En el código fuente descargado, navegue hasta la carpeta de ejemplo **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**. Abra el archivo **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** en el editor que prefiera y agregue los detalles siguientes:
 
     1. Desde el portal, agregue la cadena `[Provisioning Connection String]` para su servicio de aprovisionamiento como se muestra a continuación:
 
@@ -84,7 +84,7 @@ Asegúrese de completar los pasos descritos en [Configuración de un servicio Az
 
             ![Obtención de la cadena de conexión de aprovisionamiento desde el portal](./media/tutorial-group-enrollments/provisioning-string.png)  
 
-        1. En el archivo de código de ejemplo **_ServiceEnrollmentGroupSample.java_** , reemplace la cadena `[Provisioning Connection String]` con la **cadena de conexión de clave principal**.
+        1. En el archivo de código de ejemplo **_ServiceEnrollmentGroupSample.java_**, reemplace la cadena `[Provisioning Connection String]` con la **cadena de conexión de clave principal**.
 
             ```java
             private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
@@ -126,7 +126,7 @@ Asegúrese de completar los pasos descritos en [Configuración de un servicio Az
 
     1. Guarde el archivo _ServiceEnrollmentGroupSample.java_.
 
-1. Abra una ventana de comandos y navegue hasta la carpeta **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** .
+1. Abra una ventana de comandos y navegue hasta la carpeta **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**.
 
 1. Compile el código de ejemplo con este comando:
 
@@ -241,7 +241,7 @@ Asegúrese de completar los pasos descritos en [Configuración de un servicio Az
 
     ![El registro se completó correctamente.](./media/tutorial-group-enrollments/registration.png)
 
-1. En el portal, navegue hasta IoT Hub vinculado a su servicio de aprovisionamiento y abra la hoja **Device Explorer**. En el aprovisionamiento correcto del dispositivo simulado X.509 con el Hub, su identificador de dispositivo aparece en la hoja **Device Explorer** con el *ESTADO***habilitado**. Tenga en cuenta que debe hacer clic en el botón **Actualizar** situado en la parte superior si ya ha abierto la hoja antes de ejecutar la aplicación de ejemplo del dispositivo. 
+1. En el portal, navegue hasta IoT Hub vinculado a su servicio de aprovisionamiento y abra la hoja **Device Explorer**. En el aprovisionamiento correcto del dispositivo simulado X.509 con el Hub, su identificador de dispositivo aparece en la hoja **Device Explorer** con el *ESTADO* **habilitado**. Tenga en cuenta que debe hacer clic en el botón **Actualizar** situado en la parte superior si ya ha abierto la hoja antes de ejecutar la aplicación de ejemplo del dispositivo. 
 
     ![El dispositivo se registra con el centro de IoT](./media/tutorial-group-enrollments/hub-registration.png) 
 
