@@ -1,14 +1,14 @@
 ---
 title: Prueba de la aplicación en el portal de LUIS
 description: Use Language Understanding (LUIS) para trabajar continuamente en la aplicación para refinarla y mejorar la comprensión del lenguaje.
-ms.topic: how-to
-ms.date: 05/20/2020
-ms.openlocfilehash: 86ee90e2d3bb322a4f55439d105941cf43462d3e
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.topic: conceptual
+ms.date: 06/02/2020
+ms.openlocfilehash: 574bacdb5e1f167c9c9174d4a119552391059004
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344159"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677750"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Prueba de la aplicación de LUIS en el portal de LUIS
 
@@ -65,9 +65,25 @@ En el panel de inspección, puede agregar la expresión de prueba a una intenci�
 
 ## <a name="disable-required-features"></a>Deshabilitar las características necesarias
 
-Seleccione esta opción para ver cuál sería la predicción si la característica de la entidad no era necesaria.
+Esta opción le ayuda a determinar si la aplicación entrenada está prediciendo correctamente las entidades en función de las características necesarias. La configuración predeterminada es aplicar la característica según sea necesario durante la predicción. Seleccione este botón de alternancia para ver cuál sería la predicción si la característica de la subentidad no fuera necesaria.
 
-Esta opción le ayuda a determinar si la aplicación entrenada está prediciendo correctamente las entidades en función de las características necesarias. La aplicación entrenada puede predecir incorrectamente una entidad aprendida por máquina basada en una etiqueta incorrecta de expresiones de ejemplo o la característica necesaria no coincide con el texto.
+### <a name="when-to-disable-required-features"></a>Cuándo deshabilitar las características necesarias
+
+La aplicación entrenada puede predecir de forma inadecuada una entidad de aprendizaje automático debido a alguno de los siguientes aspectos:
+* El etiquetado de las expresiones de ejemplo es incorrecto.
+* La característica necesaria no coincide con el texto.
+
+Un ejemplo es una entidad de aprendizaje automático con una subentidad del nombre de una persona.
+
+:::image type="content" source="media/luis-how-to-interactive-test/disable-required-feature.png" alt-text="Captura de pantalla del esquema de entidades de aprendizaje automático del portal de LUIS con la característica necesaria":::
+
+Una expresión de ejemplo para esta entidad de aprendizaje automático es `Assign Bob Jones to work on the new security feature`.
+
+La extracción debe ser `security feature` como descripción del vale y `Bob Jones` como ingeniero (dos subentidades de la entidad `Assign ticket`).
+
+Para que la subentidad pueda realizar una predicción correcta, agregue la entidad predefinida [PersonName](luis-reference-prebuilt-person.md) a la subentidad `engineer` como característica. Si hace que la característica sea necesaria, la subentidad solo se extraerá si se predice la entidad predefinida PersonName para el texto. Esto significa que no se devolverá como subentidad etiquetada (`engineer`) ningún nombre del texto que no realice predicciones con la subentidad PersonName.
+
+Cuando use el panel de prueba interactivo y vea que una subentidad, con una característica necesaria, no realiza predicciones, active o desactive esta opción para ver si la subentidad se predice sin que se requiera la característica. Es posible que la subentidad pueda predecirse correctamente sin que se requiera la característica gracias al etiquetado correcto de las expresiones de ejemplo.
 
 ## <a name="view-sentiment-results"></a>Ver los resultados de sentimiento
 

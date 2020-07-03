@@ -2,13 +2,13 @@
 title: 'Tipos de entidades: LUIS'
 description: Una entidad extrae datos de una expresión de usuario en tiempo de ejecución de predicción. Un propósito _opcional_ y secundario es impulsar la predicción de la intención o de otras entidades usando la entidad como una característica.
 ms.topic: conceptual
-ms.date: 05/17/2020
-ms.openlocfilehash: a5e4812eab84650401dd19b0f8d7b361a5135dd3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 06/10/2020
+ms.openlocfilehash: 61dc0688cd304a672321f846a3ae5798c271345d
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682176"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676495"
 ---
 # <a name="extract-data-with-entities"></a>Extracción de datos con entidades
 
@@ -41,7 +41,9 @@ Mientras las [intenciones](luis-concept-intent.md) son obligatorias, las entidad
 
 A medida que la aplicación se desarrolla y se identifica una nueva necesidad de datos, podrá agregar las entidades adecuadas al modelo LUIS más adelante.
 
-## <a name="entity-compared-to-intent"></a>Comparación entre entidades e intenciones
+<a name="entity-compared-to-intent"></a>
+
+## <a name="entity-represents-data-extraction"></a>La entidad representa la extracción de datos
 
 La entidad representa un concepto de datos _dentro de la expresión_. Una intención clasifica _toda la expresión_.
 
@@ -53,6 +55,10 @@ Considere las cuatro expresiones siguientes:
 |Send something|sendSomething|-|No hay nada que extraer. El modelo no tiene una característica obligatoria para extraer `something` en este contexto y no se ha indicado ningún destinatario.|
 |Send Bob a present|sendSomething|`Bob`, `present`|El modelo extrae `Bob` agregando una característica obligatoria de entidad precompilada `personName`. Se ha usado una entidad de aprendizaje automático para extraer `present`.|
 |Send Bob a box of chocolates|sendSomething|`Bob`, `box of chocolates`|Las entidades de aprendizaje automático han extraído los dos fragmentos importantes de datos, `Bob` y `box of chocolates`.|
+
+## <a name="label-entities-in-all-intents"></a>Etiquetado de entidades en todas las intenciones
+
+Las entidades extraen los datos independientemente de la intención prevista. Asegúrese de etiquetar _todas_ las expresiones de ejemplo en todas las intenciones. El hecho de que falte el etiquetado de entidades en la intención `None` genera confusión, incluso aunque haya muchas más expresiones de entrenamiento para las otras intenciones.
 
 ## <a name="design-entities-for-decomposition"></a>Diseño de entidades para la descomposición
 

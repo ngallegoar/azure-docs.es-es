@@ -9,12 +9,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
-ms.openlocfilehash: 59e066974f690bda2384504cc27af5aa94b7b75b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4fc816c3894120a5d1b356d91ebebbc56f21b530
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79372077"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052703"
 ---
 # <a name="language-understanding-service-encryption-of-data-at-rest"></a>Cifrado de datos en reposo del servicio Language Understanding
 
@@ -38,13 +38,11 @@ Debe usar Azure Key Vault para almacenar las claves administradas por el cliente
 
 Para solicitar la capacidad de usar claves administradas por el cliente, rellene y envíe el  [formulario de solicitud de claves administradas por el cliente del servicio LUIS](https://aka.ms/cogsvc-cmk). Tardará de tres a cinco días hábiles aproximadamente en recibir una respuesta sobre el estado de la solicitud. En función de la demanda, es posible que se coloque en una cola y se apruebe a medida que haya espacio disponible. Una vez aprobado el uso de CMK con LUIS, deberá crear un nuevo recurso de Language Understanding desde Azure Portal y seleccionar E0 como el plan de tarifa. La nueva SKU funcionará igual que la SKU F0 que ya está disponible, excepto CMK. Los usuarios no podrán realizar la actualización de F0 a la nueva SKU de E0.
 
-Los recursos E0 solo están disponibles para el servicio de creación y el nivel E0 solo se admitirá en la región oeste de EE. UU.
-
 ![Imagen de la suscripción de LUIS](../media/cognitive-services-encryption/luis-subscription.png)
 
 ### <a name="regional-availability"></a>Disponibilidad regional
 
-Actualmente, las claves administradas por el cliente están disponibles en la región **Oeste de EE. UU.**
+Las claves administradas por el cliente están disponibles en todas las [regiones de creación](luis-reference-regions.md). 
 
 ### <a name="limitations"></a>Limitaciones
 
@@ -59,31 +57,31 @@ Existen algunas limitaciones al usar el nivel E0 con aplicaciones existentes o c
 
 ### <a name="enable-customer-managed-keys"></a>Habilitar claves administradas del cliente
 
-Un nuevo recurso de Cognitive Services siempre se cifra mediante claves administradas por Microsoft. No es posible habilitar claves administradas por el cliente en el momento en que se crea el recurso. Las claves administradas por el cliente se almacenan en Azure Key Vault, y el almacén de claves se debe aprovisionar con directivas de acceso que concedan permisos de clave a la identidad administrada que está asociada al recurso de Cognitive Services. La identidad administrada solo está disponible después de crear el recurso con el plan de tarifa para CMK.
+Un nuevo recurso de Cognitive Services siempre se cifra mediante claves administradas por Microsoft. No es posible habilitar claves administradas por el cliente en el momento en que se crea el recurso. Las claves administradas por el cliente se almacenan en Azure Key Vault y el almacén de claves se debe aprovisionar con directivas de acceso que concedan permisos de clave a la identidad administrada que está asociada al recurso de Cognitive Services. La identidad administrada solo está disponible después de crear el recurso con el plan de tarifa para CMK.
 
 Para aprender a usar claves administradas por el cliente con Azure Key Vault para el cifrado de Cognitive Services, consulte:
 
 - [Configuración de claves administradas por el cliente con Key Vault para el cifrado de Cognitive Services mediante Azure Portal](../Encryption/cognitive-services-encryption-keys-portal.md)
 
-Al habilitar las claves administradas por el cliente también se habilitará una identidad administrada asignada por el sistema, una característica de Azure AD. Una vez habilitada la identidad administrada asignada por el sistema, este recurso se registrará con Azure Active Directory. Tras su registro, se concederá acceso a la identidad administrada a la instancia de Key Vault seleccionada durante la configuración de la clave administrada por el cliente. Aprenda más sobre [identidades administradas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Al habilitar las claves administradas por el cliente también se habilitará una identidad administrada asignada por el sistema, una característica de Azure AD. Una vez habilitada la identidad administrada asignada por el sistema, este recurso se registrará con Azure Active Directory. Tras su registro, se concederá a la identidad administrada acceso a la instancia de Key Vault seleccionada durante la configuración de la clave administrada por el cliente. Puede obtener más información acerca de las [identidades administradas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
 > [!IMPORTANT]
-> Si deshabilita las identidades administradas asignadas por el sistema, se quitará el acceso al almacén de claves y los datos cifrados con las claves de cliente ya no estarán disponibles. Las características dependientes de estos datos dejarán de funcionar.
+> Si deshabilita las identidades administradas asignadas por el sistema, se quitará el acceso al almacén de claves y los datos cifrados con las claves de cliente dejarán de estar disponibles. Las características dependientes de estos datos dejarán de funcionar.
 
 > [!IMPORTANT]
 > Las identidades administradas no admiten actualmente escenarios entre directorios. Al configurar las claves administradas por el cliente en Azure Portal, se asigna automáticamente una identidad administrada en segundo plano. Si posteriormente mueve la suscripción, el grupo de recursos o el recurso de un directorio de Azure AD a otro, la identidad administrada asociada al recurso no se transfiere al nuevo inquilino, por lo que es posible que las claves administradas por el cliente dejen de funcionar. Para más información, vea **Transferencia de una suscripción entre directorios de Azure AD** en [Preguntas frecuentes y problemas conocidos con identidades administradas para recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories).  
 
 ### <a name="store-customer-managed-keys-in-azure-key-vault"></a>Almacenamiento de claves administradas por el cliente en Azure Key Vault
 
-Para habilitar las claves administradas por el cliente, utilice una instancia de Azure Key Vault para almacenar las claves. Debe habilitar las propiedades **Eliminación temporal** y **No purgar** en el almacén de claves.
+Para habilitar las claves administradas por el cliente, debe usar una instancia de Azure Key Vault para almacenarlas. Debe habilitar las propiedades **Eliminación temporal** y **No purgar** en el almacén de claves.
 
 Las claves RSA de tamaño 2048 son las únicas que admite el cifrado de Cognitive Services. Para más información acerca de las claves, consulte la sección **Claves en Key Vault** en [Información acerca de claves, secretos y certificados de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys).
 
 ### <a name="rotate-customer-managed-keys"></a>Rotación de claves administradas por el cliente
 
-Las claves administradas por el cliente se pueden rotar en Azure Key Vault según las directivas de cumplimiento. Si se produce la rotación de la clave, hay que actualizar el recurso de Cognitive Services para usar el nuevo identificador URI de la clave. Para aprender a actualizar el recurso para usar una nueva versión de la clave en Azure Portal, consulte la sección **Actualización de la versión de la clave** en [Configuración de claves administradas por el cliente para Cognitive Services mediante Azure Portal](../Encryption/cognitive-services-encryption-keys-portal.md).
+Las claves administradas por el cliente se pueden rotar en Azure Key Vault según las directivas de cumplimiento. Si se rota la clave, es preciso actualizar el recurso de Cognitive Services para que use el identificador URI de la clave nueva. Para aprender a actualizar el recurso para que use una nueva versión de la clave en Azure Portal, consulte la sección **Actualización de la versión de la clave** en [Configuración de claves administradas por el cliente para Cognitive Services mediante Azure Portal](../Encryption/cognitive-services-encryption-keys-portal.md).
 
-La rotación de la clave no desencadena un nuevo cifrado de los datos en el recurso. No es preciso que el usuario realice ninguna otra acción.
+La rotación de la clave no desencadena un nuevo cifrado de los datos del recurso. No es preciso que el usuario realice ninguna otra acción.
 
 ### <a name="revoke-access-to-customer-managed-keys"></a>Revocación del acceso a las claves administradas por el cliente
 

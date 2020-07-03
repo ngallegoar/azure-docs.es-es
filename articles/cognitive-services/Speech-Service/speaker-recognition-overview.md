@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: trbye
-ms.openlocfilehash: 2d4ce6f274efbd4d8afe2ac48856b0fc312f0a09
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: a333a61a28fabddc2e8101fdf3290c52f3db59ae
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261772"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84780892"
 ---
 # <a name="what-is-the-azure-speaker-recognition-service"></a>¿Qué es el servicio Azure Speaker Recognition?
 
@@ -27,7 +27,7 @@ Speaker Verification simplifica el proceso de verificación de la identidad de u
 
 ### <a name="how-does-speaker-verification-work"></a>¿Cómo funciona Speaker Verification?
 
-![Cómo funciona la verificación del hablante](media/speaker-recognition/speaker-rec.png)
+:::image type="content" source="media/speaker-recognition/speaker-rec.png" alt-text="Diagrama de flujo de Speaker Verification.":::
 
 La verificación del hablante puede ser dependiente del texto o independiente del texto. En la verificación **dependiente del texto**, los hablantes deben elegir la misma frase de contraseña para usarla durante las fases de inscripción y comprobación. En la verificación **independiente del texto**, los hablantes pueden hablar en el lenguaje cotidiano en las frases de inscripción y comprobación.
 
@@ -56,7 +56,22 @@ Puede controlar cuánto tiempo se deben conservar los datos. Los clientes pueden
 
 Al igual que sucede con todos los recursos de Cognitive Services, los desarrolladores que usan el servicio Speaker Recognition deben estar al tanto de las directivas de Microsoft sobre los datos de los clientes. Debe asegurarse de haber recibido los permisos adecuados de los usuarios para Speaker Recognition. Para obtener más información, vea la  [página de Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)  en Microsoft Trust Center. 
 
+## <a name="common-questions-and-solutions"></a>Preguntas comunes y soluciones
+
+| Pregunta | Solución |
+|---------|----------|
+| ¿Para qué escenarios se puede usar Speaker Recognition? | Verificación del cliente del centro de llamadas, registro de pacientes basado en la voz, transcripción de reuniones y personalización de dispositivos multiusuario.|
+| ¿Cuál es la diferencia entre la identificación y la verificación? | La identificación es el proceso de detectar qué miembro de un grupo de hablantes está hablando. La verificación es el acto de confirmar que un hablante coincide con una voz conocida o **inscrita**.|
+| ¿Qué diferencia hay entre las comprobaciones dependiente e independiente del texto? | La verificación dependiente del texto requiere una frase de contraseña específica para la inscripción y el reconocimiento. La verificación independiente del texto requiere una muestra de voz más larga para la inscripción, pero se puede decir cualquier cosa, incluso durante el reconocimiento.|
+| ¿Qué idiomas se admiten? | Inglés, francés, español, chino, alemán, italiano, japonés y portugués. |
+| ¿Qué regiones de Azure se admiten? | Speaker Recognition es un servicio en versión preliminar y actualmente solo está disponible en la región Oeste de EE. UU.|
+| ¿Qué formatos de audio se admiten? | WAV de 16 bits en mono a 16 kHz con codificación PCM. |
+| Las respuestas **Aceptar** y **Rechazar** no son precisas. ¿Cómo se ajusta el umbral? | Dado que el umbral óptimo varía en gran medida con los diferentes escenarios, la API toma una decisión basándose simplemente en un umbral predeterminado de 0,5. Se recomienda a los usuarios avanzados invalidar la decisión predeterminada y ajustar el resultado en función de su propio escenario. |
+| ¿Se puede inscribir a un hablante varias veces? | Sí, para la verificación dependiente del texto, puede inscribir a un hablante hasta 50 veces. En el caso de la verificación independiente del texto o la identificación del hablante, puede inscribirse con un máximo de 300 segundos de audio. |
+| ¿Qué datos se almacenan en Azure? | El audio de la inscripción se almacenará en el servicio hasta que el perfil de voz se [elimine](speaker-recognition-basics.md#deleting-voice-profile-enrollments). Las muestras de audio de reconocimiento no se conservarán ni se almacenarán. |
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
+> * Complete la lectura del [artículo sobre conceptos básicos](speaker-recognition-basics.md) de Speaker Recognition para realizar una revisión de los modelos de diseño comunes que puede usar en sus aplicaciones.
 > * Consulte el [tutorial de vídeo](https://azure.microsoft.com/resources/videos/speaker-recognition-text-independent-verification-developer-tutorial/) para la verificación del hablante independiente del texto.

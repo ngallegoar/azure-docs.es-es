@@ -107,7 +107,7 @@ Para eliminar un espacio de nombres de Event Hubs (de origen o destino) mediante
 
     ![Eliminar espacio de nombres - botón](./media/move-across-regions/delete-namespace-button.png)
 
-3. En la página **Eliminar recursos***, compruebe los recursos seleccionados y confirme la eliminación escribiendo **yes** y, a continuación, seleccione **Eliminar**. 
+3. En la página **Eliminar recursos**\*, compruebe los recursos seleccionados y confirme la eliminación escribiendo **yes** y, a continuación, seleccione **Eliminar**. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
