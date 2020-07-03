@@ -9,10 +9,10 @@ ms.date: 03/03/2020
 ms.author: barbkess
 ms.custom: references_regions
 ms.openlocfilehash: b720d9dd824018d885ccc9860ee9fd8a90a46051
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84194328"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure
@@ -70,7 +70,7 @@ No. Los usuarios pueden aprovechar los servicios de Azure para diseñar un servi
 | Noruega | Este de Noruega | Oeste de Noruega |
 | Sudáfrica | Norte de Sudáfrica |Oeste de Sudáfrica |
 | Suiza | Norte de Suiza |Oeste de Suiza |
-| Reino Unido |Oeste de Reino Unido |Sur de Reino Unido 2 |
+| Reino Unido |Oeste de Reino Unido |Sur de Reino Unido |
 | Emiratos Árabes Unidos | Norte de Emiratos Árabes Unidos | Centro de Emiratos Árabes Unidos
 | Departamento de Defensa de Estados Unidos |US DoD (este) |US DoD (centro) |
 | US Gov |US Gov: Arizona |US Gov Texas |
