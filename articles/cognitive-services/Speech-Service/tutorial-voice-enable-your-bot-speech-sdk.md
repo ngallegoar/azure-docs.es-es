@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: 69046772b81f0b5b597cce8e86aca9cbf27c49f8
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: a96ddfe2023fbddd6a4a25c97001875e0dddc7f3
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457106"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753195"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutorial: Habilitación del bot con voz mediante el SDK de voz
 
@@ -196,7 +196,7 @@ El siguiente paso es implementar el bot de eco en Azure. Hay varias maneras de i
    * En **Grupo de recursos**, seleccione **SpeechEchoBotTutorial-ResourceGroup**.
    * En **Plan de hospedaje**, seleccione **SpeechEchoBotTutorial-AppServicePlan**.
    * En **Application Insights**, deje como **Ninguno**.
-1. Haga clic en **Crear**.
+1. Haga clic en **Crear**
 1. Haga clic en **Publicar** en el lado derecho del perfil que acaba de crear.
 1. Debería ver un mensaje de operación correcta en Visual Studio que tiene el siguiente aspecto:
 
@@ -270,7 +270,7 @@ La página Azure Bot Channels Registration tiene la opción **Probar en el Chat 
 1. De vuelta en Azure Portal, en **Administración de bots**, seleccione **Configuración** y haga clic en **(Administrar)** , al lado de **Microsoft App ID** (Id. de aplicación de Microsoft).
 1. Haga clic en **Nuevo secreto de cliente** (Nuevo secreto de cliente). Agregue una descripción (p.ej., "chat en web") y haga clic en **Agregar**. Copie el nuevo secreto.
 1. Reemplace la cadena vacía que está junto a **MicrosoftAppPassword** en el archivo JSON por el valor del secreto copiado.
-1. Guarde el archivo JSON. Debería ser parecido a este:
+1. Guarde el archivo JSON. Debe tener el siguiente aspecto:
 ```json
 {
   "MicrosoftAppId": "3be0abc2-ca07-475e-b6c3-90c4476c4370",
@@ -323,13 +323,16 @@ Si recibe un mensaje de error en la ventana principal de la aplicación, use est
 
 | Error | ¿Qué debería hacer? |
 |-------|----------------------|
-|Error AuthenticationFailure: WebSocket Upgrade failed with an authentication error (401). Check for correct subscription key (or authorization token) and region name [Error AuthenticationFailure: No se pudo actualizar el socket web con un error de autenticación (401)]| En la página Configuración de la aplicación, asegúrese de que ha especificado correctamente la clave de suscripción de voz y su región.<br>Asegúrese de que la clave de voz y la región de la clave se escribieron correctamente. |
-|Error ConnectionFailure: Connection was closed by the remote host. Código de error: 1011. Detalles del error: We could not connect to the bot before sending a message (Error ConnectionFailure: El host remoto cerró la conexión. Código de error: 1011. Detalles del error: No se pudo conectar al bot antes de enviar un mensaje) | Asegúrese de [activar la casilla "Enable Streaming Endpoint"](#register-the-direct-line-speech-channel) (Habilitar el punto de conexión de streaming) o de [alternar los **sockets web**](#enable-web-sockets) en Activado.<br>Asegúrese de que la instancia de Azure App Service se ejecuta. Si es así, pruebe a reiniciar la instancia de App Service.|
-|Error ConnectionFailure: Connection was closed by the remote host. Código de error: 1011. Detalles del error: Response status code does not indicate success: 500 (InternalServerError) [Error ConnectionFailure: El host remoto cerró la conexión. Código de error: 1011. Detalles del error: El código de estado de respuesta no indica una operación correcta]| El bot especificó una voz neuronal en el campo [Speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) (Hablar) de salida, pero la región de Azure asociada a la clave de suscripción de voz no es compatible con las voces neuronales. Consulte [Voces estándares y neuronales](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).|
-|Error ConnectionFailure: Connection was closed by the remote host. Código de error: 1000. Detalles del error: Exceeded maximum web socket connection idle duration(> 300000 ms) [Error ConnectionFailure: El host remoto cerró la conexión. Código de error: 1000. Detalles del error: Se superó la duración máxima de inactividad de la conexión de socket web (> 300000 MS)]| Este es un error esperado cuando una conexión al canal se deja abierta y está inactiva durante más de cinco minutos. |
+|Error (AuthenticationFailure): WebSocket Upgrade failed with an authentication error (401). Check for correct subscription key (or authorization token) and region name [Error AuthenticationFailure: No se pudo actualizar el socket web con un error de autenticación (401)]| En la página Configuración de la aplicación, asegúrese de que ha especificado correctamente la clave de suscripción de voz y su región.<br>Asegúrese de que la clave de voz y la región de la clave se escribieron correctamente. |
+|Error (ConnectionFailure): Connection was closed by the remote host. Código de error: 1011. Detalles del error: We could not connect to the bot before sending a message (Error ConnectionFailure: El host remoto cerró la conexión. Código de error: 1011. Detalles del error: No se pudo conectar al bot antes de enviar un mensaje) | Asegúrese de [activar la casilla "Enable Streaming Endpoint"](#register-the-direct-line-speech-channel) (Habilitar el punto de conexión de streaming) o de [alternar los **sockets web**](#enable-web-sockets) en Activado.<br>Asegúrese de que la instancia de Azure App Service se ejecuta. Si es así, pruebe a reiniciar la instancia de App Service.|
+|Error (ConnectionFailure): Connection was closed by the remote host. Código de error: 1002. Detalles del error: El servidor devolvió el código de estado ''503" cuando se esperaba el código "101". | Asegúrese de [activar la casilla "Enable Streaming Endpoint"](#register-the-direct-line-speech-channel) (Habilitar el punto de conexión de streaming) o de [alternar los **sockets web**](#enable-web-sockets) en Activado.<br>Asegúrese de que la instancia de Azure App Service se ejecuta. Si es así, pruebe a reiniciar la instancia de App Service.|
+|Error (ConnectionFailure): Connection was closed by the remote host. Código de error: 1011. Detalles del error: Response status code does not indicate success: 500 (InternalServerError) [Error ConnectionFailure: El host remoto cerró la conexión. Código de error: 1011. Detalles del error: El código de estado de respuesta no indica una operación correcta]| El bot especificó una voz neuronal en el campo [Speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) (Hablar) de salida, pero la región de Azure asociada a la clave de suscripción de voz no es compatible con las voces neuronales. Consulte [Voces estándares y neuronales](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).|
 
-Si el problema no se soluciona en la tabla, consulte [Asistentes de voz: Frequently asked questions](faq-voice-assistants.md) (inicio de sesión único de conexión directa de Azure Active Directory: preguntas más frecuentes).
+Si el problema no se soluciona en la tabla, consulte [Asistentes de voz: Frequently asked questions](faq-voice-assistants.md) (inicio de sesión único de conexión directa de Azure Active Directory: preguntas más frecuentes). Si sigue sin poder resolver el problema después de seguir todos los pasos de este tutorial, envíe una nueva incidencia en la [página de GitHub del asistente de voz](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/issues).
 
+#### <a name="a-note-on-connection-time-out"></a>Nota sobre el tiempo de espera de la conexión
+
+Si está conectado a un bot y no se ha producido ninguna actividad en los últimos 5 minutos, el servicio cerrará automáticamente la conexión del websocket con el cliente y con el bot. es así por diseño. Aparecerá un mensaje en la barra inferior: *"Active connection timed out but ready to reconnect on demand"* (Se agotó el tiempo de espera de la conexión activa, que está lista para volver a conectar bajo demanda). No es necesario presionar el botón "Volver a conectar"; simplemente presione el botón de micrófono y empiece a hablar, escriba un mensaje de texto o indique la palabra clave (si está habilitada). La conexión se restablecerá automáticamente.  
 ### <a name="view-bot-activities"></a>Ver actividades de bot
 
 Cada bot envía y recibe mensajes de **actividad**. En la ventana **Activity Log** (Registro de actividades) del cliente del asistente de voz de Windows, verá los registros con marca de tiempo con cada actividad en la que el cliente ha recibido del bot. También puede ver las actividades que el cliente ha enviado al bot mediante el método [`DialogServiceConnector.SendActivityAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.sendactivityasync). Al seleccionar un elemento de registro, se mostrarán los detalles de la actividad asociada como JSON.
