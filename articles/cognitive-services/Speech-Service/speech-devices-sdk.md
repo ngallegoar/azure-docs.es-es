@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: 3fb5f1df0eb4473483c9298cdbf36909b75065e7
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 4ec153a9c770b0001888c972dc44414470e3ddbf
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927214"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730312"
 ---
 # <a name="what-is-the-speech-devices-sdk"></a>¿Qué es Speech Devices SDK?
 
@@ -37,7 +37,11 @@ El SDK de dispositivos de voz permite diversos escenarios habilitados para voz, 
 
 ### <a name="android"></a>Android
 
-Para los dispositivos Android, descargue la versión más reciente del [SDK para dispositivos de voz de Android](https://aka.ms/sdsdk-download-android).
+El SDK de dispositivos de voz para Android es compatible con [Roobo v1](speech-devices-sdk-roobo-v1.md) y dispositivos equivalentes. Para ello, descargue la versión más reciente del [SDK de dispositivos de voz de Android](https://aka.ms/sdsdk-download-android).
+
+
+Si tiene otro dispositivo Android, como un teléfono o un móvil, empiece con el [SDK de voz de Android](speech-sdk.md).
+
 
 ### <a name="windows"></a>Windows
 

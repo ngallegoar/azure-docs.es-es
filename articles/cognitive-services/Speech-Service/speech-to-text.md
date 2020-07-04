@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: trbye
-ms.openlocfilehash: 4181491053dd1f8d66afcd5f1df7cb96313011da
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b1e84f9acb439324317ed2f0d11ed06eb3e43ad8
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650618"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678076"
 ---
 # <a name="what-is-speech-to-text"></a>¿Qué es la conversión de voz a texto?
 
@@ -25,7 +25,7 @@ La característica de conversión de voz en texto del servicio de voz, también 
 
 De forma predeterminada, el servicio de conversión de voz en texto utiliza el modelo de lenguaje universal. Este modelo se entrenó con datos propiedad de Microsoft y se implementa en la nube. Resulta óptimo para escenarios de conversación y dictado. Si usa la conversión de voz en texto para el reconocimiento y la transcripción en un entorno único, puede crear y entrenar modelos acústicos, de lenguaje y pronunciación personalizados. La personalización es útil para abordar el ruido ambiente o el vocabulario específico del sector.
 
-Con texto de referencia adicional como entrada, el servicio de conversión de voz a texto también habilita la funcionalidad de [evaluación de la pronunciación](rest-speech-to-text.md#pronunciation-assessment-parameters) para evaluar la pronunciación de la voz y proporcionar a los hablantes información sobre la precisión y la fluidez del audio hablado. Con la evaluación de la pronunciación, los estudiantes de idiomas pueden practicar, obtener comentarios instantáneos y mejorar su pronunciación para poder hablar y realizar presentaciones con confianza. Los educadores pueden utilizar la funcionalidad para evaluar la pronunciación de varios hablantes en tiempo real. Actualmente, la característica es compatible con el inglés de Estados Unidos y está relacionada con las evaluaciones de voz realizadas por expertos.
+Con texto de referencia adicional como entrada, el servicio de conversión de voz a texto también habilita la funcionalidad de [evaluación de la pronunciación](rest-speech-to-text.md#pronunciation-assessment-parameters) para evaluar la pronunciación de la voz y proporcionar a los hablantes información sobre la precisión y la fluidez del audio hablado. Con la evaluación de la pronunciación, los estudiantes de idiomas pueden practicar, obtener comentarios instantáneos y mejorar su pronunciación para poder hablar y realizar presentaciones con confianza. Los educadores pueden utilizar la funcionalidad para evaluar la pronunciación de varios hablantes en tiempo real. Actualmente, la característica es compatible con el inglés de Estados Unidos y guarda una alta relación con las evaluaciones de voz realizadas por expertos.
 
 > [!NOTE]
 > Bing Speech se ha retirado el 15 de octubre de 2019. Si sus aplicaciones, herramientas o productos usan Bing Speech API, hemos creado guías para que le ayuden a migrar al servicio de voz.

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: b8ed60a1f8ddc98857b0f59aaefb141b3dab64f4
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 3aa7958ea4edf6cf3e3c1b170e2351f49f719983
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344873"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84782847"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Uso de versiones para realizar ediciones y pruebas sin afectar a las aplicaciones de almacenamiento provisional o producción
 
@@ -67,5 +67,5 @@ Puede importar una versión `.json` o `.lu` de la aplicación.
 
 * Para **eliminar** una versión, seleccione una versión de la lista y, a continuación, seleccione **Eliminar** desde la barra de herramientas. Seleccione **Aceptar**.
 * Para **cambiar el nombre** de una versión, seleccione una versión de la lista y, a continuación, seleccione **Cambiar nombre** desde la barra de herramientas. Escriba un nombre nuevo y seleccione **Listo**.
-* Para **exportar** una versión, seleccione una versión de la lista y, a continuación, seleccione **Exportar aplicación** desde la barra de herramientas. Elija JSON para exportar para copia de seguridad, elija **Exportar para contenedor** para [usar esta aplicación en un contenedor de LUIS](luis-container-howto.md).
+* Para **exportar** una versión, seleccione una versión de la lista y, a continuación, seleccione **Exportar aplicación** desde la barra de herramientas. Seleccione JSON o LU para exportar para una copia de seguridad o para guardar en el control de código fuente, seleccione **Exportar para contenedor** para [usar esta aplicación en un contenedor de LUIS](luis-container-howto.md).
 

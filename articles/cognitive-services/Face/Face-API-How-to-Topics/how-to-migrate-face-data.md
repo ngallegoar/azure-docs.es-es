@@ -10,16 +10,16 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: nitinme
-ms.openlocfilehash: fd0e7079b3b70a6a6b8166cc7fc7518070e7153d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ab03e68acf96928922959ed939c0accc1f8290a5
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120817"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84986677"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migración de los datos de caras a una suscripción de Face distinta
 
-En esta guía se muestra cómo mover datos de caras, como un objeto PersonGroup guardado con caras, a una suscripción de Face de Azure Cognitive Services distinta. Para mover los datos, use la característica Instantánea. Esto le evita tener que crear y entrenar repetidamente un objeto PersonGroup o FaceList cuando mueva o expanda las operaciones. Por ejemplo, quizás haya creado un objeto PersonGroup mediante una suscripción de evaluación gratuita y ahora desea migrarlo a su suscripción de pago. O bien, puede que deba sincronizar datos de caras entre regiones para una operación empresarial a gran escala.
+En esta guía se muestra cómo mover datos de caras, como un objeto PersonGroup guardado con caras, a una suscripción de Face de Azure Cognitive Services distinta. Para mover los datos, use la característica Instantánea. Esto le evita tener que crear y entrenar repetidamente un objeto PersonGroup o FaceList cuando mueva o expanda las operaciones. Por ejemplo, quizás haya creado un objeto PersonGroup con una suscripción gratuita y ahora quiera migrarlo a la suscripción de pago. O bien, puede que deba sincronizar datos de caras entre regiones para una operación empresarial a gran escala.
 
 Esta misma estrategia de migración también se aplica a los objetos LargePersonGroup y LargeFaceList. Si no está familiarizado con los conceptos que aparecen en esta guía, consulte sus definiciones en la guía [Conceptos del reconocimiento facial](../concepts/face-recognition.md). Esta guía usa la biblioteca cliente .NET de Face con C#.
 

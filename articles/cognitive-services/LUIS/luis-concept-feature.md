@@ -2,29 +2,70 @@
 title: 'Características: LUIS'
 description: Agregue características a un modelo de lenguaje para proporcionar sugerencias sobre cómo reconocer la entrada que quiera etiquetar o clasificar.
 ms.topic: conceptual
-ms.date: 05/14/2020
-ms.openlocfilehash: c4f19ceed2e48f3f6ec2ed0958bccb7a85cff44f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.date: 06/10/2020
+ms.openlocfilehash: 823c51f0b58481e30ff54814dde03285ad094b9e
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83742709"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677598"
 ---
 # <a name="machine-learning-ml-features"></a>Características de Machine Learning (ML)
 
-En el aprendizaje automático, una  **característica**  es un rasgo distintivo o un atributo de datos que el sistema observa.
+En el aprendizaje automático, una  **característica**  es un rasgo distintivo o un atributo de datos que el sistema observa y del que aprende.
 
 Las características del aprendizaje automático proporcionan a LUIS indicaciones importantes sobre dónde buscar los elementos que distinguirán un concepto. Son sugerencias que LUIS puede usar, pero no reglas rígidas.  Estas sugerencias se usan en combinación con las etiquetas para buscar los datos.
 
- LUIS es compatible tanto con las listas de frases como con el uso de otras entidades como características:
+## <a name="what-is-a-feature"></a>Qué es una característica
+
+Una característica es un rasgo distintivo que se puede describir como una función: f(x) = y. La característica se usa para saber dónde buscar el rasgo distintivo en la expresión de ejemplo. Al crear el esquema, ¿qué sabe sobre la expresión de ejemplo que indica el rasgo? La respuesta es la mejor guía para crear características.
+
+## <a name="types-of-features"></a>Tipos de características
+
+ LUIS admite listas de frases y modelos como características:
 * Característica de lista de frases
 * Modelo (intención o entidad) como una característica
 
 Las características deben considerarse como una parte necesaria del diseño del esquema.
 
+## <a name="how-you-find-features-in-your-example-utterances"></a>Cómo encontrar características en las expresiones de ejemplo
+
+Dado que LUIS es una aplicación basada en lenguaje, las características se basan en texto. Seleccione el texto que indica el rasgo que quiere distinguir. En LUIS, la unidad más pequeña basada en texto es el token. En el idioma inglés, un token es una extensión contigua, sin espacios ni puntuación, de letras y números. Un espacio no es un token.
+
+Dado que los espacios y la puntuación no son tokens, céntrese en las pistas de texto que puede usar como características. Recuerde incluir variaciones de palabras como:
+* formas plurales
+* tiempos verbales
+* abreviaturas
+* ortografía y errores ortográficos
+
+Determine si el texto, como rasgo distintivo, tiene que:
+* Coincidir con una palabra o frase exacta: considere la posibilidad de agregar una entidad de expresión regular o una entidad de lista como característica a la entidad o la intención
+* Coincidir con un concepto conocido como fechas, horas o nombres de personas: use una entidad precompilada como característica para la entidad o la intención
+* Aprender nuevos ejemplos con el tiempo: use una lista de frases de algunos ejemplos del concepto como característica para la entidad o la intención
+
+## <a name="combine-features"></a>Combinación de características
+
+Dado que hay varias opciones a la hora de describir un rasgo, puede usar más de una característica que ayude a describir ese rasgo o concepto. Un emparejamiento común consiste en usar una característica de lista de frases y uno de los tipos de entidad que se usan habitualmente como características: entidad precompilada, entidad de expresión regular o entidad de lista.
+
+### <a name="ticket-booking-entity-example"></a>Ejemplo de entidad de reserva de billete
+
+Como primer ejemplo, imagine una aplicación para reservar un vuelo con una intención de reserva de vuelo y una entidad de reserva de billete.
+
+La entidad de reserva de billete es una entidad de aprendizaje automático para el destino del vuelo. Para ayudar a extraer la ubicación, use dos características para ayudar:
+* Lista de frases de palabras relevantes como `plane`, `flight`, `reservation`, `ticket`
+* Entidad `geographyV2` precompilada como característica para la entidad
+
+### <a name="pizza-entity-example"></a>Ejemplo de entidad de pizza
+
+Como otro ejemplo, imagine una aplicación para pedir una pizza con una intención de creación de pedido de pizza y una entidad de pizza.
+
+La entidad de pizza es una entidad de aprendizaje automático para los detalles de la pizza. Para ayudar a extraer los detalles, use dos características para ayudar:
+* Lista de frases de palabras relevantes como `cheese`, `crust`, `pepperoni`, `pineapple`
+* Entidad `number` precompilada como característica para la entidad
+
 ## <a name="a-phrase-list-for-a-particular-concept"></a>Lista de frases para un concepto determinado
 
-Una lista de frases es una lista de palabras o frases que encapsula un concepto determinado.
+Una lista de frases es una lista de palabras o frases que encapsula un concepto determinado y que se aplica como coincidencia sin distinción entre mayúsculas y minúsculas en el nivel de token.
 
 Al agregar una lista de frases, puede establecer la característica como:
 * **[Global](#global-features)** . Una característica global se aplica a toda la aplicación.
@@ -55,6 +96,18 @@ Si desea extraer términos médicos:
 * En primer lugar, cree expresiones de ejemplo y etiquete los términos médicos dentro de esas expresiones.
 * A continuación, cree una lista de frases con ejemplos de los términos dentro del dominio del tema. En esta lista de frases se debe incluir el término real que etiquetó y otros términos que describen el mismo concepto.
 * Agregue la lista de frases a la entidad o subentidad que extrae el concepto utilizado en la lista de frases. El escenario más común es un componente (secundario) de una entidad de aprendizaje automático. Si la lista de frases debe aplicarse a todos las intenciones o entidades, marque la lista de frases como lista de frases global. La marca `enabledForAllModels` controla este ámbito del modelo en la API.
+
+### <a name="token-matches-for-a-phrase-list"></a>Coincidencias de token para una lista de frases
+
+Una lista de frases se aplica en el nivel de token, independientemente del uso de mayúsculas o minúsculas. En el gráfico siguiente se muestra cómo se aplica una lista de frases que contiene la palabra `Ann` a variaciones de los mismos caracteres en ese orden.
+
+
+| Variación de token de `Ann` | Coincidencia de lista de frases cuando se encuentra el token |
+|--------------------------|---------------------------------------|
+| ANN<br>aNN<br>           | Sí: el token es `Ann`                  |
+| De Ann                    | Sí: el token es `Ann`                  |
+| Anne                     | No: el token es `Anne`                  |
+
 
 <a name="how-to-use-phrase-lists"></a>
 <a name="how-to-use-a-phrase-lists"></a>

@@ -3,12 +3,12 @@ title: 'Límites: LUIS'
 description: En este artículo contiene los límites conocidos de Language Understanding (LUIS) de Azure Cognitive Services. LUIS tiene varias áreas de límites. El límite de modelo controla las intenciones, las entidades y las características de LUIS. Los límites de cuota se basan en el tipo de clave. La combinación de teclado controla el sitio web de LUIS.
 ms.topic: reference
 ms.date: 06/04/2020
-ms.openlocfilehash: aa4362fba09834758d47f3ef063068c1854b9280
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: fce4aab0221cf050ce175c582f21de58b6e27eac
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449505"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976989"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Límites de las claves y el modelo de LUIS
 LUIS tiene varias áreas de límites. La primera es el [límite de modelo](#model-limits), que controla las intenciones, las entidades y las características de LUIS. La segunda área son los [límites de cuota](#key-limits) según el tipo de clave. Una tercera área de límites es la [combinación de teclas](#keyboard-controls), para controlar el sitio web de LUIS. Una cuarta área es la [asignación de regiones del mundo](luis-reference-regions.md) entre el sitio web de creación de LUIS y las API de [punto de conexión](luis-glossary.md#endpoint) de LUIS.
@@ -37,7 +37,7 @@ Si la aplicación supera los límites de modelo de LUIS, puede usar una aplicaci
 | [Entidades precompiladas](./luis-prebuilt-entities.md) | ilimitado|
 | [Entidades de expresión regular](./luis-concept-entity-types.md)|20 entidades<br>Máximo de 500 caracteres por patrón de la entidad de expresiones regulares|
 | [Roles](luis-concept-roles.md)|300 roles por aplicación. 10 roles por entidad|
-| [Expresión][utterances] | 500 caracteres<br><br>Si tiene texto cuyo número de caracteres supere este límite, será preciso que segmente la expresión antes de introducirla en LUIS y que combine las respuestas en consecuencia. Hay interrupciones obvias con las que puede trabajar, como los signos de puntuación y las pausas prolongadas al hablar.|
+| [Expresión][utterances] | 500 caracteres<br><br>Si tiene texto cuyo número de caracteres supera este límite, tiene que segmentar la expresión antes de especificar en LUIS para recibir respuestas de intención individuales por segmento. Hay interrupciones obvias con las que puede trabajar, como los signos de puntuación y las pausas prolongadas al hablar.|
 | [Ejemplos de expresiones][utterances] | 15 000 por aplicación: no hay ningún límite en el número de expresiones por intención<br><br>Si necesita entrenar la aplicación con más ejemplos, use un enfoque de modelo de [envío](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch). Puede entrenar aplicaciones de LUIS individuales (conocidas como aplicaciones secundarias en la aplicación de envío principal) con una o varias intenciones y, después, entrenar una aplicación de envío que cree ejemplos de las expresiones de cada una de las aplicaciones de LUIS secundarias para dirigir la solicitud de predicción a la aplicación secundaria correcta. |
 | [Versiones](luis-concept-version.md)| 100 versiones por aplicación |
 | [Nombre de versión][luis-how-to-manage-versions] | 128 caracteres |
