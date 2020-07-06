@@ -7,12 +7,12 @@ ms.date: 04/18/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 4d486b8ffc921a5ca2f38bef912ba6dc46ecec40
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: af76025317436f7046b857731e4c8af9b504201f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83634081"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833424"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -25,7 +25,7 @@ Azure Blob Storage está optimizado para el almacenamiento de grandes cantidades
 > [!NOTE]
 > Para empezar a trabajar con la versión anterior del SDK, consulte [Inicio rápido: Administración de blobs con el SDK de JavaScript v10 en Node.js](storage-quickstart-blobs-nodejs-legacy.md)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * [Una cuenta de Azure con una suscripción activa](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 * [Una cuenta de Azure Storage](../common/storage-account-create.md).
@@ -285,7 +285,7 @@ En [Azure Portal](https://portal.azure.com), puede comprobar los resultados de l
 #### <a name="step-4---delete-the-container"></a>Paso 4: Eliminación del contenedor
 
 1. En la aplicación web, seleccione **Delete container** (Eliminar contenedor). Este estado indica que el contenedor se ha eliminado.
-2. En Azure Portal, seleccione el vínculo **\<nombre de cuenta\> | Contenedores** en la parte superior izquierda del panel del portal.
+2. En Azure Portal, seleccione el vínculo **\<account-name\> | Contenedores** en la parte superior izquierda del panel del portal.
 3. Seleccione **Refresh** (Actualizar). Desaparecerá el nuevo contenedor.
 4. Cierre la aplicación web.
 
@@ -302,7 +302,7 @@ En este inicio rápido, ha aprendido a cargar, enumerar y eliminar blobs mediant
 Para ver tutoriales, ejemplos, artículos de inicio rápido y otra documentación, visite:
 
 > [!div class="nextstepaction"]
-> [Documentación de Azure para JavaScript](/azure/javascript/)
+> [Documentación de Azure para JavaScript](/azure/developer/javascript/)
 
 * Para más información, consulte [Uso de la biblioteca cliente de Azure Blob Storage para JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).
 * Para ver las aplicaciones de ejemplo de Blob Storage, continúe con los [ejemplos de la biblioteca cliente de Azure Blob Storage para JavaScript v12](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples).
