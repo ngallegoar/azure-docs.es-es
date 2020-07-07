@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
 ms.openlocfilehash: 436b9c1569d7c33f79a126cd4d0513bac9385d8a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81427660"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>.NET 2.0 de Azure Key Vault: notas de la versión y guía de migración
@@ -54,7 +54,7 @@ Los certificados de Key Vault administran los certificados x509 y admiten los co
 
 ## <a name="return-types"></a>Tipos de valores devueltos
 
-* **KeyList** y **SecretList** ahora devuelven *IPage\<T>* en lugar de *ListKeysResponseMessage*
+* **KeyList** y **SecretList** ahora devuelve *IPage\<T>* en lugar de *ListKeysResponseMessage*
 * El valor **BackupKeyAsync** generado ahora devuelve *BackupKeyResult*, que contiene *Value* (blob de copia de seguridad). Anteriormente, el método se encapsuló y solo se devolvió el valor.
 
 ## <a name="exceptions"></a>Excepciones

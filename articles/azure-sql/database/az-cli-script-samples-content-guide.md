@@ -3,7 +3,7 @@ title: Ejemplos de script de la CLI de Azure
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Ejemplos de scripts de la CLI de Azure para crear y administrar Azure SQL Database e Instancia administrada de Azure SQL
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: service
 ms.custom: overview-samples, mvc, sqldbrb=2
 ms.devlang: azurecli
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: 1f63b8adfabb9de427fd19a992f913d032aa9d8b
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: cc762c3c10c087a8c0db5bd17f9c38b8f9d26134
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85251546"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85982812"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Ejemplos de la CLI de Azure para Azure SQL Database e Instancia administrada de SQL 
  
@@ -35,7 +35,7 @@ Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecu
 
 En la tabla siguiente se incluyen vínculos a ejemplos de scripts de la CLI de Azure para administrar bases de datos individuales y agrupadas en Azure SQL Database. 
 
-| | |
+|Área|Descripción|
 |---|---|
 |**Creación de bases de datos en Azure SQL Database**||
 | [Creación de una base de datos única y configuración de una regla de firewall](scripts/create-and-configure-database-cli.md) | Crea una base de datos de SQL Database y configura una regla de firewall en el nivel de servidor. |
@@ -63,7 +63,7 @@ Obtenga más información sobre la [API de la CLI de Azure de la base de datos �
 
 En la tabla siguiente se incluyen vínculos a ejemplos de script de la CLI de Azure para la instancia administrada de Azure SQL.
 
-| | |
+|Área|Descripción|
 |---|---|
 | **Creación de una instancia administrada de SQL**||
 | [Creación de una instancia administrada de SQL](../../sql-database/scripts/sql-database-create-configure-managed-instance-cli.md)| Crea una instancia administrada de SQL. |

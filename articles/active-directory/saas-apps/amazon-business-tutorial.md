@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8218b3dbe09e5ce7e6c28e1084b26c6eec4a16ca
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: b8f5ff42597a457a8849e424e041f1677c28b383
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773064"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608966"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Tutorial: Integración de Amazon Business con Azure Active Directory
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a integrar Amazon Business con Azure Active Directo
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -85,7 +85,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     1. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con uno de los patrones siguientes:
     
-       | | |
+       | URL | Region |
        |-|-|
        | `https://www.amazon.com`| Norteamérica |
        | `https://www.amazon.co.jp`| Este de Asia |
@@ -93,7 +93,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     1. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con uno de los siguientes patrones:
     
-       | | |
+       | URL | Region |
        |-|-|
        | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Norteamérica |
        | `https://www.amazon.co.jp/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Este de Asia |

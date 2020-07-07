@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: a8ca67d1ff3100aee02ed473c9cc2180de3973b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2daa88d258e0bf761d9afce48b94e6cd6ff2fb95
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75638942"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85981442"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Procedimientos recomendados para usar Azure Data Lake Storage Gen1
 
@@ -126,7 +126,9 @@ Al igual que Distcp, AdlCopy se debe orquestar mediante, por ejemplo, Azure Auto
 
 Data Lake Storage Gen1 proporciona registros de diagnóstico detallados y auditoría. Data Lake Storage Gen1 proporciona algunas métricas básicas en Azure Portal en la cuenta de Data Lake Storage Gen1 y en Azure Monitor. La disponibilidad de Data Lake Storage Gen1 se muestra en Azure Portal. Sin embargo, esta métrica se actualiza cada siete minutos y no se puede consultar a través de ninguna API expuesta públicamente. Para obtener la disponibilidad más actualizada de una cuenta de Data Lake Storage Gen1, deberá ejecutar sus propias pruebas sintéticas para validar la disponibilidad. Otras métricas como el uso del almacenamiento total, las solicitudes de lectura/escritura y entrada/salida pueden tardar hasta 24 horas en actualizarse. Por lo tanto, para obtener métricas más actualizadas, estas se deben calcular manualmente mediante herramientas de línea de comandos de Hadoop o agregando la información del registro. La forma más rápida de obtener la información de uso del almacenamiento más reciente es ejecutar este comando HDFS desde un nodo de clúster de Hadoop (por ejemplo, el nodo principal):
 
-    hdfs dfs -du -s -h adl://<adlsg1_account_name>.azuredatalakestore.net:443/
+```console
+hdfs dfs -du -s -h adl://<adlsg1_account_name>.azuredatalakestore.net:443/
+```
 
 ### <a name="export-data-lake-storage-gen1-diagnostics"></a>Exportación de diagnósticos de Data Lake Storage Gen1
 
@@ -138,9 +140,9 @@ Para recibir más alertas en tiempo real y tener más control sobre dónde se gu
 
 Si el trasvase de registros de Data Lake Storage Gen1 no está activado, Azure HDInsight también proporciona una forma de activar [el registro en el lado cliente para Data Lake Storage Gen1](data-lake-store-performance-tuning-mapreduce.md) a través de log4j. Debe establecer la siguiente propiedad en **Ambari** > **YARN** > **Config** > **Advanced yarn-log4j configurations** (Configuraciones avanzadas de yarn-log4j):
 
-    log4j.logger.com.microsoft.azure.datalake.store=DEBUG
+`log4j.logger.com.microsoft.azure.datalake.store=DEBUG`
 
-Una vez que se establece la propiedad y se reinician los nodos, se escriben los diagnósticos de Data Lake Storage Gen1 en los registros de YARN en los nodos (/tmp/\<user\>/yarn.log) y se pueden supervisar detalles importantes como los errores o las limitaciones (código de error HTTP 429). Esta misma información también se puede supervisar en registros de Azure Monitor o en cualquier ubicación a la que se trasvasen los registros en la hoja [Diagnóstico](data-lake-store-diagnostic-logs.md) de la cuenta de Data Lake Storage Gen1. Se recomienda tener activado al menos el registro del lado cliente o usar la opción de trasvase de registros con Data Lake Storage Gen1 para una mayor visibilidad operativa y una depuración más sencilla.
+Una vez que se establece la propiedad y se reinician los nodos, los diagnósticos de Data Lake Storage Gen1 se escriben en los registros de YARN en los nodos (/tmp/\<user\>/yarn.log) y se pueden supervisar detalles importantes como los errores o las limitaciones (código de error HTTP 429). Esta misma información también se puede supervisar en registros de Azure Monitor o en cualquier ubicación a la que se trasvasen los registros en la hoja [Diagnóstico](data-lake-store-diagnostic-logs.md) de la cuenta de Data Lake Storage Gen1. Se recomienda tener activado al menos el registro del lado cliente o usar la opción de trasvase de registros con Data Lake Storage Gen1 para una mayor visibilidad operativa y una depuración más sencilla.
 
 ### <a name="run-synthetic-transactions"></a>Ejecutar transacciones sintéticas
 
@@ -154,11 +156,15 @@ Cuando se colocan los datos en una instancia de Data Lake Store, es importante p
 
 En las cargas de trabajo de IoT, puede haber una gran cantidad de datos que se colocan en el almacén de datos que abarca varios productos, dispositivos, organizaciones y clientes. Es importante planear previamente el diseño del directorio para la organización, la seguridad y un procesamiento eficaz de los datos para los consumidores de nivel inferior. Una plantilla general a tener en cuenta podría tener el siguiente diseño:
 
-    {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/
+```console
+{Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/
+```
 
 Por ejemplo, la telemetría de aterrizaje de un motor de un avión del Reino Unido podría ser parecida a la estructura siguiente:
 
-    UK/Planes/BA1293/Engine1/2017/08/11/12/
+```console
+UK/Planes/BA1293/Engine1/2017/08/11/12/
+```
 
 Existe un motivo importante para poner la fecha al final de la estructura de carpetas. Si desea bloquear determinadas regiones o asuntos a usuarios o grupos, puede hacerlo fácilmente con los permisos POSIX. En caso contrario, si fuera necesario aplicar restricciones a un determinado grupo de seguridad para que solo vea los datos del Reino Unido o de determinados aviones con la estructura de fechas delante, se requeriría un permiso independiente para varias carpetas bajo la carpeta de cada hora. Además, el hecho de tener la estructura de fecha delante, aumentaría exponencialmente el número de carpetas a medida que transcurriera el tiempo.
 
@@ -168,14 +174,18 @@ Desde una perspectiva general, un enfoque utilizado habitualmente en el procesam
 
 En algunas ocasiones, el procesamiento de archivos es incorrecto debido a datos dañados o a formatos imprevistos. En tales casos, podría resultar útil que la estructura de directorios tuviera una carpeta **/bad** a la que mover los archivos para una mayor inspección. El trabajo por lotes también puede controlar el informe o notificación de estos archivos *incorrectos* para una posterior intervención manual. Tenga en cuenta la siguiente estructura de plantilla:
 
-    {Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/
+```console
+{Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/
+{Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/
+{Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/
+```
 
 Por ejemplo, una empresa de marketing recibe a diario extractos de datos de actualizaciones de los clientes de Norteamérica. Podría tener el aspecto del siguiente fragmento de código antes y después del procesamiento:
 
-    NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv
-    NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv
+```console
+NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv
+NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv
+```
 
 En el caso habitual de datos por lotes que se procesan directamente en bases de datos como Hive o instancias tradicionales de SQL Database, no es necesaria una carpeta **/in** o **/out** puesto que la salida ya va a una carpeta independiente de la tabla de Hive o a una base de datos externa. Por ejemplo, los extractos diarios de los clientes se colocarían en sus respectivas carpetas y la orquestación de Azure Data Factory, Apache Oozie o Apache Airflow desencadenaría un trabajo diario de Hive o Spark que procesaría y escribiría los datos en una tabla de Hive.
 

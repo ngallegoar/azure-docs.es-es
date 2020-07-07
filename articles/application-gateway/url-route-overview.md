@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 1d393055b0ac62198bd5a7239b2b92b7aeff62e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9b2e8148586ec58ea6a7a033099e726920857b6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82145370"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987935"
 ---
 # <a name="url-path-based-routing-overview"></a>Información general del enrutamiento basado en URL
 
@@ -75,7 +75,7 @@ Las reglas de ruta de acceso no distinguen mayúsculas de minúsculas.
 |Patrón de ruta de acceso de v1  |¿Se admite?  |
 |---------|---------|
 |`/images/*`     |sí|
-|`/images*`     |no|
+|`/images*`     |sí|
 |`/images/*.jpg`     |no|
 |`/*.jpg`     |no|
 |`/Repos/*/Comments/*`     |no|

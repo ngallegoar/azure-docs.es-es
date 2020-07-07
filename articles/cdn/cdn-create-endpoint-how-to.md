@@ -10,21 +10,21 @@ ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/12/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 0a130a433c68d0d5cc8c26eae4b81ff264eb0ca2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43718f8ebc851f27035f2999bfb4ff3ec12ca5b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254022"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887727"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Creación de un punto de conexión de Azure CDN
-Este artículo describe toda la configuración para crear un punto de conexión de [Azure Content Delivery Network (CDN)](cdn-overview.md) en un perfil de CDN existente. Una vez haya creado un perfil y un punto de conexión, podrá iniciar la entrega de contenido a sus clientes. Para una guía de inicio rápido sobre cómo crear un perfil y un punto de conexión, consulte [Guía de inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN](cdn-create-new-endpoint.md).
+Este artículo describe toda la configuración para crear un punto de conexión de [Azure Content Delivery Network (CDN)](cdn-overview.md) en un perfil de CDN existente. Una vez haya creado un perfil y un punto de conexión, podrá iniciar la entrega de contenido a sus clientes. Para una guía de inicio rápido sobre cómo crear un perfil y un punto de conexión, consulte [Inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN](cdn-create-new-endpoint.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 Para poder crear un punto de conexión de CDN, debe haber creado al menos un perfil de CDN, que puede contener uno o varios puntos de conexión de CDN. Puede usar varios perfiles para organizar sus puntos de conexión de la red CDN por dominio de Internet, aplicación web o cualquier otro criterio. Dado que los precios de CDN se aplican en el nivel de perfil de CDN, debe crear varios perfiles de CDN si desea utilizar una combinación de los planes de tarifa de Azure CDN. Para crear un perfil de CDN, consulte [Creación de un nuevo perfil de CDN](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
@@ -44,7 +44,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azur
    
     ![Página Agregar punto de conexión](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
 
-3. En **Nombre**, escriba un nombre único para el nuevo punto de conexión de CDN. Este nombre se usa para acceder a los recursos almacenados en caché en el dominio _\<nombre del punto de conexión>_ .azureedge.net.
+3. En **Nombre**, escriba un nombre único para el nuevo punto de conexión de CDN. Este nombre se usa para obtener acceso a sus recursos almacenados en caché en el dominio _\<endpointname>_ .azureedge.net.
 
 4. En **Tipo de origen**, elija uno de los siguientes tipos de origen: 
    - **Almacenamiento** para Azure Storage
@@ -62,7 +62,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azur
    > Algunos tipos de orígenes, como Azure Storage y Aplicaciones web, requieren que el encabezado del host coincida con el dominio del origen. A menos que tenga un origen que requiera un encabezado de host diferente de su dominio, debe dejar el valor predeterminado.
    > 
     
-8. En **Protocolo** y **Puerto de origen**, especifique los protocolos y los puertos que se usan para acceder a sus recursos en el servidor de origen. Se debe seleccionar al menos un protocolo (HTTP o HTTPS). Use el dominio proporcionado por CDN ( _\<nombrepuntoconexión>_ .azureedge.net) para acceder al contenido HTTPS. 
+8. En **Protocolo** y **Puerto de origen**, especifique los protocolos y los puertos que se usan para acceder a sus recursos en el servidor de origen. Se debe seleccionar al menos un protocolo (HTTP o HTTPS). Use el dominio proporcionado por CDN ( _\<endpointname>_ .azureedge.net) para acceder al contenido HTTPS. 
    
    > [!NOTE]
    > El valor de **Puerto de origen** solo determina el puerto que utiliza el punto de conexión para recuperar información del servidor de origen. El propio punto de conexión solo está disponible para los clientes finales en los puertos HTTP y HTTPS predeterminados (80 y 443), con independencia de cuál sea el **puerto de origen**.  
