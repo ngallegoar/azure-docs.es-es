@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: tagore
-ms.openlocfilehash: 23fbb0b4c506b2f72000add9704618337b8b24cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 774d2bb58fd7dd75825be8f433f078d70c13fe8c
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75386194"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85919993"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Compilación e implementación de una aplicación Node.js en un Servicio en la nube de Azure
 
@@ -47,19 +47,24 @@ Realice las siguientes tareas para crear un nuevo proyecto de Servicio en la nub
 2. [Conecte PowerShell] a su suscripción.
 3. Escriba el siguiente cmdlet de PowerShell para crear el proyecto:
 
-        New-AzureServiceProject helloworld
+   ```powershell
+   New-AzureServiceProject helloworld
+   ```
 
-    ![Resultado del comando New-AzureService helloworld][The result of the New-AzureService helloworld command]
+   ![Resultado del comando New-AzureService helloworld][The result of the New-AzureService helloworld command]
 
-    El cmdlet **New-AzureServiceProject** genera una estructura básica para publicar una aplicación de Node.js en un servicio en la nube. Contiene archivos de configuración necesarios para la publicación en Azure. El cmdlet también cambia su directorio de trabajo al directorio del servicio.
+   El cmdlet **New-AzureServiceProject** genera una estructura básica para publicar una aplicación de Node.js en un servicio en la nube. Contiene archivos de configuración necesarios para la publicación en Azure. El cmdlet también cambia su directorio de trabajo al directorio del servicio.
 
-    El cmdlet crea los siguientes archivos:
+   El cmdlet crea los siguientes archivos:
 
    * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** y **ServiceDefinition.csdef**: estos archivos específicos de Azure son necesarios para publicar la aplicación. Para obtener más información, consulte [Información general de la creación de un servicio hospedado para Azure].
    * **deploymentSettings.json**: almacena la configuración local que utilizan los cmdlet de implementación de Azure PowerShell.
+
 4. Escriba el siguiente comando para agregar un rol web nuevo:
 
-       Add-AzureNodeWebRole
+   ```powershell
+   Add-AzureNodeWebRole
+   ```
 
    ![Salida del comando Add-AzureNodeWebRole][The output of the Add-AzureNodeWebRole command]
 
@@ -70,12 +75,14 @@ Realice las siguientes tareas para crear un nuevo proyecto de Servicio en la nub
 
 La aplicación Node.js se define en el archivo **server.js**, que se encuentra en el directorio del rol web (**WebRole1** de forma predeterminada). Este es el código:
 
-    var http = require('http');
-    var port = process.env.port || 1337;
-    http.createServer(function (req, res) {
-        res.writeHead(200, { 'Content-Type': 'text/plain' });
-        res.end('Hello World\n');
-    }).listen(port);
+```js
+var http = require('http');
+var port = process.env.port || 1337;
+http.createServer(function (req, res) {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Hello World\n');
+}).listen(port);
+```
 
 Este código es básicamente el mismo que el ejemplo "Hola a todos" del sitio web de [nodejs.org] , excepto en que utiliza el número de puerto asignado por el entorno de la nube.
 
@@ -89,14 +96,18 @@ Para implementar una aplicación en Azure, en primer lugar es preciso descargar 
 
 1. Ejecute el siguiente cmdlet de PowerShell de Azure:
 
-       Get-AzurePublishSettingsFile
+    ```powershell
+    Get-AzurePublishSettingsFile
+    ```
 
    Este cmdlet utilizará su explorador para navegar hasta la página de descarga de la configuración de publicación. Es posible que se le solicite iniciar sesión con una cuenta de Microsoft. En ese caso, utilice una cuenta asociada a su suscripción de Azure.
 
    Guarde el perfil descargado en un ubicación de archivo a la que pueda tener acceso fácilmente.
 2. Ejecute el siguiente cmdlet para importar el perfil de publicación que descargó:
 
-       Import-AzurePublishSettingsFile [path to file]
+    ```powershell
+    Import-AzurePublishSettingsFile [path to file]
+    ```
 
     > [!NOTE]
     > Después de importar la configuración de publicación, considere la posibilidad de eliminar el archivo .publishSettings descargado, ya que contiene información que podría permitir que alguien obtuviera acceso a su cuenta.
@@ -104,8 +115,10 @@ Para implementar una aplicación en Azure, en primer lugar es preciso descargar 
 ### <a name="publish-the-application"></a>Publicación de la aplicación
 Para publicar, ejecute los siguientes comandos:
 
-      $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))
-    Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
+```powershell
+$ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))
+Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
+```
 
 * **-ServiceName** especifica el nombre de la implementación. Debe ser un nombre exclusivo. De lo contrario, se producirá un error en el proceso de publicación. El comando **Get-Date** agrega una cadena de fecha y hora que debería hacer que el nombre sea único.
 * **-Location** especifica el centro de datos en que se hospedará la aplicación. Para ver una lista de los centros de datos disponibles, utilice el cmdlet **Get-AzureLocation** .
@@ -136,14 +149,18 @@ Después de implementar su aplicación, es posible que desee deshabilitarla para
 
 1. En la ventana de Windows PowerShell, detenga la implementación del servicio creado en la sección anterior con el siguiente cmdlet:
 
-       Stop-AzureService
+    ```powershell
+    Stop-AzureService
+    ```
 
    La detención del servicio puede durar varios minutos. Una vez detenido el servicio, recibirá un mensaje que le avisará de su detención.
 
    ![Estado del comando Stop-AzureService][The status of the Stop-AzureService command]
 2. Para eliminar el servicio, llame al siguiente cmdlet:
 
-       Remove-AzureService
+    ```powershell
+    Remove-AzureService
+    ```
 
    Cuando se le solicite, escriba **Y** para eliminar el servicio.
 

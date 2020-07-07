@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/28/2019
-ms.openlocfilehash: db37a56ffbf0cb64530f8f7af38841bac72c77d4
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 995f45160985ed2693c32155232892b4077ae173
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81767538"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851789"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desarrollo de la acción de script con HDInsight
 
@@ -264,11 +264,15 @@ Los valores se pasan al script como parámetros deben estar rodeados de comillas
 
 La instrucción siguiente establece una variable de entorno:
 
-    VARIABLENAME=value
+```bash
+VARIABLENAME=value
+```
 
 Donde VARIABLENAME es el nombre de la variable. Para obtener acceso a la variable, use `$VARIABLENAME`. Por ejemplo, para asignar un valor proporcionado por un parámetro posicional como una variable de entorno denominada PASSWORD, use esta instrucción:
 
-    PASSWORD=$1
+```bash
+PASSWORD=$1
+```
 
 Para el acceso posterior a la información puede usar `$PASSWORD`.
 
@@ -352,7 +356,9 @@ Este problema suele producirse cuando se crea el script en un entorno Windows, y
 
 *Solución:* guarde el archivo como ASCII o UTF-8 sin una marca BOM. También puede usar el siguiente comando en un sistema Linux o UNIX para crear un archivo sin marca BOM:
 
-    awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
+```bash
+awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
+```
 
 Reemplace `INFILE` con el archivo que contiene la marca BOM. `OUTFILE` debe ser un nombre de archivo nuevo, que contendrá el script sin la marca BOM.
 
