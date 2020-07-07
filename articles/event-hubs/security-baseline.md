@@ -8,10 +8,10 @@ ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: c60c1d33954b5e12038fd66787225f4d0aeba62d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82184714"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Línea de base de seguridad de Azure para Event Hubs
@@ -50,7 +50,7 @@ Procedimiento para configurar reglas de firewall de IP para espacios de nombres 
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>1.2: Supervise y registre la configuración y el tráfico de redes virtuales, subredes y NIC
 
-**Guía**: Use Azure Security Center y siga las recomendaciones de protección de redes para ayudar a proteger sus recursos de Event Hubs en Azure. Si usa máquinas virtuales de Azure para obtener acceso a los centros de eventos, habilite los registros de flujo de grupos de seguridad de red (NSG) y envíe los registros a una cuenta de almacenamiento para la auditoría de tráfico.
+**Instrucciones**: Use Azure Security Center y siga las recomendaciones de protección de redes para ayudar a proteger sus recursos de Event Hubs en Azure. Si usa máquinas virtuales de Azure para obtener acceso a los centros de eventos, habilite los registros de flujo de grupos de seguridad de red (NSG) y envíe los registros a una cuenta de almacenamiento para la auditoría de tráfico.
 
 Cómo habilitar los registros de flujo de NSG: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
@@ -70,7 +70,7 @@ Descripción de la seguridad de red proporcionada por Azure Security Center: htt
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4: Deniegue las comunicaciones con direcciones IP malintencionadas conocidas
 
-**Guía**: Habilite el estándar de DDoS Protection en las redes virtuales asociadas a los centros de eventos para protegerse de los ataques por denegación de servicio distribuidos (DDoS). Use la inteligencia sobre amenazas integrada de Azure Security Center para denegar las comunicaciones con direcciones IP malintencionadas conocidas o no utilizadas.
+**Instrucciones**: Habilite el estándar de DDoS Protection en las redes virtuales asociadas a los centros de eventos para protegerse de los ataques por denegación de servicio distribuidos (DDoS). Use la inteligencia sobre amenazas integrada de Azure Security Center para denegar las comunicaciones con direcciones IP malintencionadas conocidas o no utilizadas.
 
 Cómo configurar la protección contra DDoS: [https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](/azure/virtual-network/manage-ddos-protection)
 
@@ -98,7 +98,7 @@ Cómo habilitar Network Watcher: https://docs.microsoft.com/azure/network-watche
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6: Implemente sistemas de prevención de intrusiones y detección de intrusiones (IDS/IPS) basados en la red
 
-**Guía**: Si usa máquinas virtuales de Azure para obtener acceso a los centros de eventos, seleccione una oferta de Azure Marketplace que admita la funcionalidad de IDS/IPS con funcionalidades de inspección de carga. Si la detección o prevención de intrusiones basadas en la inspección de la carga no es necesaria en su organización, puede usar la característica de firewall integrada de Azure Event Hubs. Puede restringir el acceso al espacio de nombres de Event Hubs para un intervalo limitado de direcciones IP o una dirección IP específica mediante reglas de firewall.
+**Instrucciones**: Si usa máquinas virtuales de Azure para obtener acceso a los centros de eventos, seleccione una oferta de Azure Marketplace que admita la funcionalidad de IDS/IPS con funcionalidades de inspección de carga. Si la detección o prevención de intrusiones basadas en la inspección de la carga no es necesaria en su organización, puede usar la característica de firewall integrada de Azure Event Hubs. Puede restringir el acceso al espacio de nombres de Event Hubs para un intervalo limitado de direcciones IP o una dirección IP específica mediante reglas de firewall.
 
 Azure Marketplace:
 
@@ -186,7 +186,7 @@ Creación de alertas en Azure Monitor: https://docs.microsoft.com/azure/azure-mo
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: Configuración de la administración central de registros de seguridad
 
-**Guía**: Dentro de Azure Monitor, configure los registros relacionados con Event Hubs en el registro de actividad y la configuración de diagnóstico de Event Hubs para enviar los registros a un área de trabajo de Log Analytics que se va a consultar o a una cuenta de almacenamiento para el almacenamiento de archivo a largo plazo.
+**Instrucciones**: Dentro de Azure Monitor, configure los registros relacionados con Event Hubs en el registro de actividad y la configuración de diagnóstico de Event Hubs para enviar los registros a un área de trabajo de Log Analytics que se va a consultar o a una cuenta de almacenamiento para el almacenamiento de archivo a largo plazo.
 
 Procedimiento para establecer la configuración de diagnóstico para Azure Event Hubs: https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs
 
@@ -409,7 +409,7 @@ Para obtener información sobre la manera en que Azure Event Hubs se integra en 
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: Revise y concilie regularmente el acceso de los usuarios
 
-**Guía**: Azure Active Directory (AD) proporciona registros para ayudar a descubrir cuentas obsoletas. Además, use las revisiones de acceso de identidad de Azure para administrar de forma eficiente las pertenencias a grupos, el acceso a las aplicaciones empresariales y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica para asegurarse de que solo las personas adecuadas tengan acceso continuado.
+**Instrucciones**: Azure Active Directory (AD) proporciona registros para ayudar a descubrir cuentas obsoletas. Además, use las revisiones de acceso de identidad de Azure para administrar de forma eficiente las pertenencias a grupos, el acceso a las aplicaciones empresariales y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica para asegurarse de que solo las personas adecuadas tengan acceso continuado.
 
 Además, rote periódicamente las firmas de acceso compartido de Event Hubs.
 
@@ -453,7 +453,7 @@ Cómo incorporar Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quic
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13: Proporcione a Microsoft acceso a los datos pertinentes del cliente durante los escenarios de soporte técnico
 
-**Guía**: Actualmente no disponible; la Caja de seguridad del cliente todavía no se admite en Event Hubs.
+**Instrucciones**: Actualmente no disponible; la Caja de seguridad del cliente todavía no se admite en Event Hubs.
 
 Lista de servicios admitidos por la Caja de seguridad del cliente: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
@@ -467,7 +467,7 @@ Lista de servicios admitidos por la Caja de seguridad del cliente: https://docs.
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Mantenimiento de un inventario de información confidencial
 
-**Guía**: Use etiquetas en los recursos relacionados con las instancias de Event Hubs para ayudar a realizar un seguimiento de los recursos de Azure que almacenan o procesan información confidencial.
+**Instrucciones**: Use etiquetas en los recursos relacionados con las instancias de Event Hubs para ayudar a realizar un seguimiento de los recursos de Azure que almacenan o procesan información confidencial.
 
 Creación y uso de etiquetas: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
@@ -527,7 +527,7 @@ Para comprender las características de seguridad de Event Hubs, consulte Seguri
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: Uso de una herramienta de detección activa para identificar datos confidenciales
 
-**Guía**: Las características de identificación, clasificación y prevención de pérdida de datos todavía no están disponibles para Azure Event Hubs. Implemente una solución de terceros, si es necesario, para fines de cumplimiento.
+**Instrucciones**: Las características de identificación, clasificación y prevención de pérdida de datos todavía no están disponibles para Azure Event Hubs. Implemente una solución de terceros, si es necesario, para fines de cumplimiento.
 
 En el caso de la plataforma subyacente administrada por Microsoft, Microsoft trata todo el contenido de los clientes como confidencial y hace grandes esfuerzos para proteger a los clientes contra la pérdida y exposición de sus datos. Para garantizar la seguridad de los datos de los clientes dentro de Azure, Microsoft ha implementado y mantiene un conjunto de controles y funcionalidades eficaces de protección de datos.
 
@@ -601,7 +601,7 @@ Procedimiento para crear alertas para eventos de registro de actividad de Azure:
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3: Implemente una solución automatizada de administración de revisiones de software de terceros
 
-**Guía**: No aplicable; la prueba comparativa está pensada para recursos de proceso.
+**Instrucciones**: No aplicable; la prueba comparativa está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -617,7 +617,7 @@ Procedimiento para crear alertas para eventos de registro de actividad de Azure:
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5: Use un proceso de clasificación de riesgos para priorizar la corrección de las vulnerabilidades detectadas
 
-**Guía**: No aplicable; Microsoft realiza la administración de vulnerabilidades en los sistemas subyacentes que admiten Event Hubs.
+**Instrucciones**: No aplicable; Microsoft realiza la administración de vulnerabilidades en los sistemas subyacentes que admiten Event Hubs.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -667,7 +667,7 @@ Creación y uso de etiquetas: https://docs.microsoft.com/azure/azure-resource-ma
 
 ### <a name="64-maintain-an-inventory-of-approved-azure-resources-and-software-titles"></a>6.4: Mantenimiento de un inventario de los recursos de Azure aprobados y títulos de software
 
-**Guía**: No aplicable; esta recomendación está destinada a los recursos de proceso y a Azure en su conjunto.
+**Instrucciones**: No aplicable; esta recomendación está destinada a los recursos de proceso y a Azure en su conjunto.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -956,7 +956,7 @@ Microsoft Antimalware está habilitado en el host subyacente que admite los serv
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Garantía de copias de seguridad automáticas periódicas
 
-**Guía**: Configure la recuperación ante desastres geográfica para Azure Event Hubs. Cuando hay regiones de Azure completas o centros de datos (si no se utilizan zonas de disponibilidad) que experimentan un tiempo de inactividad, es crucial que el procesamiento de datos siga funcionando en otra región o centro de datos. De esta forma, la recuperación ante desastres geográfica y la replicación geográfica son características importantes para cualquier empresa. Azure Event Hubs admite tanto la recuperación ante desastres con localización geográfica como la replicación geográfica, en el nivel de espacio de nombres. 
+**Instrucciones**: Configure la recuperación ante desastres geográfica para Azure Event Hubs. Cuando hay regiones de Azure completas o centros de datos (si no se utilizan zonas de disponibilidad) que experimentan un tiempo de inactividad, es crucial que el procesamiento de datos siga funcionando en otra región o centro de datos. De esta forma, la recuperación ante desastres geográfica y la replicación geográfica son características importantes para cualquier empresa. Azure Event Hubs admite tanto la recuperación ante desastres con localización geográfica como la replicación geográfica, en el nivel de espacio de nombres. 
 
 Introducción a la recuperación ante desastres geográfica para Azure Event Hubs: https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr#availability-zones
 

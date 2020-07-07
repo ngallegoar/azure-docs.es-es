@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.openlocfilehash: 4672a92ceba5dc52c717f76a705d0fa508ab41fd
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82515970"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-postgresql"></a>Validación del cifrado de datos Azure Database for PostgreSQL
@@ -21,15 +21,15 @@ Este artículo le ayuda a validar que el cifrado de datos mediante la clave admi
 
 ### <a name="from-portal"></a>Desde el portal
 
-1. Si desea comprobar que la clave del cliente se usa para el cifrado, siga estos pasos:
+1. Si quiere comprobar que la clave del cliente se usa para el cifrado, siga estos pasos:
 
     * En Azure Portal, vaya a **Azure Key Vault** -> **Claves**.
-    * Seleccione la clave usada para el cifrado del servidor.
+    * Seleccione la clave que se usa para el cifrado del servidor.
     * Establezca el estado de la clave **Habilitado** en **No**.
   
        Después de cierto tiempo (**unos 15 minutos**), el valor de **Estado** del servidor de Azure Database for PostgreSQL debería ser **Inaccesible**. Cualquier operación de E/S realizada en el servidor generará un error, lo que confirma que el servidor está cifrado realmente con la clave del cliente y que la clave no es válida actualmente.
     
-        Para cambiar el estado del servidor a **Disponible**, puede volver a validar la clave. 
+        Para que el estado del servidor sea **Disponible**, puede volver a validar la clave. 
     
     * Establezca el estado de la clave en Key Vault en **Sí**.
     * En el campo **Cifrado de datos** del servidor, seleccione **Volver a validar la clave**.

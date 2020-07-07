@@ -8,10 +8,10 @@ ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 95864f932fe255d561eaeb2d803b5fcc79cb2802
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82184102"
 ---
 # <a name="azure-security-baseline-for-azure-container-registry"></a>Base de referencia de Azure Security para Azure Container Registry
@@ -160,7 +160,7 @@ Creación de un plano técnico de Azure: https://docs.microsoft.com/azure/govern
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: Use herramientas automatizadas para supervisar las configuraciones de recursos de red y detectar cambios
 
-**Guía**: Use el registro de actividad de Azure para supervisar las configuraciones de los recursos de red y detectar cambios en los recursos de red relacionados con los grupos de los registros de contenedor. Cree alertas en Azure Monitor que se desencadenarán cuando se produzcan cambios en los recursos de red críticos.
+**Instrucciones**: Use el registro de actividad de Azure para supervisar las configuraciones de los recursos de red y detectar cambios en los recursos de red relacionados con los grupos de los registros de contenedor. Cree alertas en Azure Monitor que se desencadenarán cuando se produzcan cambios en los recursos de red críticos.
 
 Visualización y recuperación de eventos del registro de actividad de Azure: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
 
@@ -178,7 +178,7 @@ Creación de alertas en Azure Monitor: https://docs.microsoft.com/azure/azure-mo
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: Uso de orígenes de sincronización de hora aprobados
 
-**Guía**: Microsoft mantiene los orígenes de hora de los recursos de Azure; sin embargo, tiene la opción de administrar la configuración de la sincronización de hora de los recursos de proceso.
+**Instrucciones**: Microsoft mantiene los orígenes de hora de los recursos de Azure; sin embargo, tiene la opción de administrar la configuración de la sincronización de hora de los recursos de proceso.
 
 Configuración de la sincronización de hora de los recursos de proceso de Azure: https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
 
@@ -189,7 +189,7 @@ Configuración de la sincronización de hora de los recursos de proceso de Azure
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: Configuración de la administración central de registros de seguridad
 
-**Guía**: Ingiera registros a través de Azure Monitor para agregar datos de seguridad generados por el registro de contenedor de Azure. En Azure Monitor, use áreas de trabajo de Log Analytics para realizar consultas y análisis, y utilice cuentas de Azure Storage para el almacenamiento de archivos a largo plazo.
+**Instrucciones**: Ingiera registros a través de Azure Monitor para agregar datos de seguridad generados por el registro de contenedor de Azure. En Azure Monitor, use áreas de trabajo de Log Analytics para realizar consultas y análisis, y utilice cuentas de Azure Storage para el almacenamiento de archivos a largo plazo.
 
 Registros de Azure Container Registry para la evaluación y auditoría de diagnóstico: https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
 
@@ -246,7 +246,7 @@ Realización de consultas personalizadas en Azure Monitor: https://docs.microsof
 
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7: Habilitación de alertas para actividades anómalas
 
-**Guía**: Use el área de trabajo de Azure Log Analytics para supervisar los registros de seguridad y eventos relacionados con el registro de contenedor de Azure y generar alertas sobre actividades anómalas en ellos.
+**Instrucciones**: Use el área de trabajo de Azure Log Analytics para supervisar los registros de seguridad y eventos relacionados con el registro de contenedor de Azure y generar alertas sobre actividades anómalas en ellos.
 
 Registros de Azure Container Registry para la evaluación y auditoría de diagnóstico: https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
 
@@ -351,7 +351,7 @@ Inicio de sesión individual en un registro de contenedor: https://docs.microsof
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: Use la autenticación multifactor para todo el acceso basado en Azure Active Directory
 
-**Guía**: Habilite la autenticación multifactor (MFA) de Azure Active Directory (Azure AD) y siga las recomendaciones de administración de identidades y acceso de Azure Security Center.
+**Instrucciones**: Habilite la autenticación multifactor (MFA) de Azure Active Directory (Azure AD) y siga las recomendaciones de administración de identidades y acceso de Azure Security Center.
 
 Cómo habilitar la MFA en Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -364,7 +364,7 @@ Procedimiento para supervisar la identidad y el acceso en Azure Security Center:
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: Use máquinas dedicadas (estaciones de trabajo de acceso con privilegios) para todas las tareas administrativas
 
-**Guía**: Utilice PAW (estaciones de trabajo de acceso privilegiado) con la MFA configurada para iniciar la sesión y configurar recursos de Azure.
+**Instrucciones**: Utilice PAW (estaciones de trabajo de acceso privilegiado) con la MFA configurada para iniciar la sesión y configurar recursos de Azure.
 
 Más información sobre las estaciones de trabajo con privilegios de acceso: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
 
@@ -468,7 +468,7 @@ Lista de servicios admitidos por la Caja de seguridad del cliente: https://docs.
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Mantenimiento de un inventario de información confidencial
 
-**Guía**: Use etiquetas para ayudar a realizar el seguimiento de los recursos de Azure que almacenan o procesan información confidencial.
+**Instrucciones**: Use etiquetas para ayudar a realizar el seguimiento de los recursos de Azure que almacenan o procesan información confidencial.
 
 Imágenes de contenedor de etiquetas y versiones u otros artefactos en un registro, y bloquear imágenes o repositorios, para ayudar a realizar el seguimiento de las imágenes que almacenan o procesan información confidencial.
 
@@ -516,7 +516,7 @@ https://docs.microsoft.com/azure/firewall/threat-intel
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3: Supervisión y bloqueo de una transferencia no autorizada de información confidencial
 
-**Guía**: Implemente una herramienta automatizada en los perímetros de red que supervise la transferencia no autorizada de información confidencial y bloquee dichas transferencias al tiempo que alerta a los profesionales de seguridad de la información.
+**Instrucciones**: Implemente una herramienta automatizada en los perímetros de red que supervise la transferencia no autorizada de información confidencial y bloquee dichas transferencias al tiempo que alerta a los profesionales de seguridad de la información.
 
 En el caso de la plataforma subyacente administrada por Microsoft, Microsoft trata todo el contenido de los clientes como confidencial y hace grandes esfuerzos para proteger a los clientes contra la pérdida y exposición de sus datos. Para garantizar la seguridad de los datos de los clientes dentro de Azure, Microsoft ha implementado y mantiene un conjunto de controles y funcionalidades eficaces de protección de datos.
 
@@ -556,7 +556,7 @@ Descripción de la protección de datos de los clientes en Azure: https://docs.m
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Uso de RBAC de Azure para controlar el acceso a los recursos
 
-**Guía**: Use RBAC Azure Active Directory (Azure AD) para controlar el acceso a los datos y recursos de un registro de contenedor de Azure. 
+**Instrucciones**: Use RBAC Azure Active Directory (Azure AD) para controlar el acceso a los datos y recursos de un registro de contenedor de Azure. 
 
 Cómo configurar RBAC en Azure: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
@@ -723,7 +723,7 @@ Recomendaciones para el etiquetado y el control de versiones de las imágenes de
 
 ### <a name="64-maintain-an-inventory-of-approved-azure-resources-and-software-titles"></a>6.4: Mantenimiento de un inventario de los recursos de Azure aprobados y títulos de software
 
-**Guía**: Tendrá que crear un inventario de los recursos de Azure aprobados y el software aprobado para los recursos de proceso según las necesidades de la organización.  
+**Instrucciones**: Tendrá que crear un inventario de los recursos de Azure aprobados y el software aprobado para los recursos de proceso según las necesidades de la organización.  
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -748,7 +748,7 @@ Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governa
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6: Supervisión de aplicaciones de software no aprobadas en recursos de proceso
 
-**Guía**: Analice y supervise los registros de Azure Container Registry en busca de comportamientos anómalos y revise los resultados con regularidad. Use el área de trabajo de Log Analytics de Azure Monitor para revisar los registros y realizar consultas en los datos del registro.
+**Instrucciones**: Analice y supervise los registros de Azure Container Registry en busca de comportamientos anómalos y revise los resultados con regularidad. Use el área de trabajo de Log Analytics de Azure Monitor para revisar los registros y realizar consultas en los datos del registro.
 
 Registros de Azure Container Registry para la evaluación y auditoría de diagnóstico: https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
 
@@ -763,7 +763,7 @@ Procedimiento para realizar consultas personalizadas en Azure Monitor: https://d
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: Eliminación de aplicaciones de software y recursos de Azure no aprobadas
 
-**Guía**: Azure Automation proporciona un control completo durante la implementación, las operaciones y la retirada de las cargas de trabajo y recursos.  Puede implementar su propia solución para quitar un software no autorizado. Introducción a Azure Automation: https://docs.microsoft.com/azure/automation/automation-intro
+**Instrucciones**: Azure Automation proporciona un control completo durante la implementación, las operaciones y la retirada de las cargas de trabajo y recursos.  Puede implementar su propia solución para quitar un software no autorizado. Introducción a Azure Automation: https://docs.microsoft.com/azure/automation/automation-intro
 
 
 **Supervisión de Azure Security Center**: No aplicable
@@ -897,7 +897,7 @@ Descripción de los efectos de Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Almacene de forma segura la configuración de los recursos de Azure
 
-**Guía**: Si usa definiciones de personalizadas de Azure Policy, use Azure Repos para almacenar y administrar el código de forma segura.
+**Instrucciones**: Si usa definiciones de personalizadas de Azure Policy, use Azure Repos para almacenar y administrar el código de forma segura.
 
 Cómo almacenar un código en Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
@@ -941,7 +941,7 @@ Configuración y administración de Azure Policy: https://docs.microsoft.com/azu
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: Implemente la supervisión de configuración automatizada para servicios de Azure
 
-**Guía**: Use Azure Security Center para realizar análisis de base de referencia para los recursos de Azure.
+**Instrucciones**: Use Azure Security Center para realizar análisis de base de referencia para los recursos de Azure.
 
 Use Azure Policy para establecer restricciones en el tipo de recursos que se pueden crear en sus suscripciones.
 
@@ -1022,7 +1022,7 @@ Cómo configurar Microsoft Antimalware para Cloud Services y Virtual Machines: h
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2: Examine previamente los archivos que se van a cargar en recursos de Azure que no son de proceso
 
-**Guía**: Microsoft Antimalware está habilitado en el host subyacente que admite los servicios de Azure (por ejemplo, Azure Container Registry), pero no se ejecuta en el contenido del cliente.
+**Instrucciones**: Microsoft Antimalware está habilitado en el host subyacente que admite los servicios de Azure (por ejemplo, Azure Container Registry), pero no se ejecuta en el contenido del cliente.
 
 Examine previamente los archivos que se cargan en recursos de Azure que no son de proceso, como App Service, Data Lake Storage, Blob Storage, etc.
 
@@ -1033,7 +1033,7 @@ Examine previamente los archivos que se cargan en recursos de Azure que no son d
 
 ### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>8.3: Asegúrese de que se han actualizado el software y las firmas antimalware
 
-**Guía**: No aplicable. La prueba comparativa está pensada para recursos de proceso. Microsoft controla el antimalware de la plataforma subyacente.
+**Instrucciones**: No aplicable. La prueba comparativa está pensada para recursos de proceso. Microsoft controla el antimalware de la plataforma subyacente.
 
 
 **Supervisión de Azure Security Center**: No aplicable

@@ -8,10 +8,10 @@ ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 2d78a7e0eaed27fec7f813fa3e6bffaffe5a6540
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186176"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Línea de base de seguridad de Azure para Azure Database for MariaDB
@@ -84,7 +84,7 @@ Configuración de la protección contra DDoS: https://docs.microsoft.com/azure/v
 
 ### <a name="15-record-network-packets-and-flow-logs"></a>1.5: Registre los paquetes de red y registros de flujo
 
-**Guía**: Cuando el servidor de Azure Database for MariaDB está protegido en un punto de conexión privado, puede implementar máquinas virtuales en la misma red virtual. A continuación, puede configurar un grupo de seguridad de red (NSG) para reducir el riesgo de la filtración de datos. Habilite los registros de flujo de NSG y envíe registros a una cuenta de almacenamiento para la auditoría del tráfico. También puede enviar registros de flujo de grupo de seguridad de red a un área de trabajo de Log Analytics y usar el Análisis de tráfico para proporcionar información detallada sobre el flujo de tráfico en la nube de Azure. Algunas de las ventajas del Análisis de tráfico son la capacidad de visualizar la actividad de la red e identificar las zonas activas, identificar las amenazas de seguridad, comprender los patrones de flujo de tráfico y detectar configuraciones de red incorrectas.
+**Instrucciones**: Cuando el servidor de Azure Database for MariaDB está protegido en un punto de conexión privado, puede implementar máquinas virtuales en la misma red virtual. A continuación, puede configurar un grupo de seguridad de red (NSG) para reducir el riesgo de la filtración de datos. Habilite los registros de flujo de NSG y envíe registros a una cuenta de almacenamiento para la auditoría del tráfico. También puede enviar registros de flujo de grupo de seguridad de red a un área de trabajo de Log Analytics y usar el Análisis de tráfico para proporcionar información detallada sobre el flujo de tráfico en la nube de Azure. Algunas de las ventajas del Análisis de tráfico son la capacidad de visualizar la actividad de la red e identificar las zonas activas, identificar las amenazas de seguridad, comprender los patrones de flujo de tráfico y detectar configuraciones de red incorrectas.
 
 Cómo habilitar los registros de flujo de NSG: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal Habilitación y uso del Análisis de tráfico: https://docs.microsoft.com/azure/network-watcher/traffic-analytics
 
@@ -115,7 +115,7 @@ Configuración de Advanced Threat Protection para Azure Database for MariaDB: ht
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8: Minimice la complejidad y la sobrecarga administrativa de las reglas de seguridad de red
 
-**Guía**: En el caso de los recursos que necesitan acceso a las instancias de Azure Database for MariaDB, use las etiquetas de servicio de red virtual con el fin de definir controles de acceso a la red en grupos de seguridad de red o Azure Firewall. Puede utilizar etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. Al especificar el nombre de la etiqueta de servicio (por ejemplo, SQL.WestUs) en el campo de origen o destino apropiado de una regla, puede permitir o denegar el tráfico para el servicio correspondiente. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian.
+**Instrucciones**: En el caso de los recursos que necesitan acceso a las instancias de Azure Database for MariaDB, use las etiquetas de servicio de red virtual con el fin de definir controles de acceso a la red en grupos de seguridad de red o Azure Firewall. Puede utilizar etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. Al especificar el nombre de la etiqueta de servicio (por ejemplo, SQL.WestUs) en el campo de origen o destino apropiado de una regla, puede permitir o denegar el tráfico para el servicio correspondiente. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian.
 Nota: Azure Database for MariaDB usa la etiqueta de servicio "Microsoft.Sql".
 
 Para obtener más información sobre el uso de etiquetas de servicio, consulte: https://docs.microsoft.com/azure/virtual-network/service-tags-overview Descripción del uso de etiquetas de servicio para Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet#terminology-and-description
@@ -187,7 +187,7 @@ Visualización y recuperación de eventos del registro de actividad de Azure: ht
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: Configuración de la administración central de registros de seguridad
 
-**Guía**: Habilite la configuración de diagnóstico y los registros de servidor y de ingesta para agregar los datos de seguridad generados por las instancias de Azure Database for MariaDB. En Azure Monitor, use áreas de trabajo de Log Analytics para realizar consultas y análisis, y utilice cuentas de Azure Storage para el almacenamiento de archivos a largo plazo. Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una herramienta SIEM de terceros.
+**Instrucciones**: Habilite la configuración de diagnóstico y los registros de servidor y de ingesta para agregar los datos de seguridad generados por las instancias de Azure Database for MariaDB. En Azure Monitor, use áreas de trabajo de Log Analytics para realizar consultas y análisis, y utilice cuentas de Azure Storage para el almacenamiento de archivos a largo plazo. Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una herramienta SIEM de terceros.
 Configuración y acceso a los registros de servidor de Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-server-logs
 
 Configuración y acceso a los registros de auditoría de Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal Incorporación de Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
@@ -328,7 +328,7 @@ Descripción de identidad y acceso en Azure Security Center: https://docs.micros
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: Use el inicio de sesión único (SSO) con Azure Active Directory
 
-**Guía**: El acceso del plano de datos a MariaDB se controla mediante identidades almacenadas en la base de datos y no admite SSO. El acceso del plano de control para MariaDB está disponible a través de la API de REST y es compatible con SSO. Para autenticarse, establezca el encabezado de autorización de las solicitudes en JSON Web Token, que se obtiene de Azure Active Directory (AAD).
+**Instrucciones**: El acceso del plano de datos a MariaDB se controla mediante identidades almacenadas en la base de datos y no admite SSO. El acceso del plano de control para MariaDB está disponible a través de la API de REST y es compatible con SSO. Para autenticarse, establezca el encabezado de autorización de las solicitudes en JSON Web Token, que se obtiene de Azure Active Directory (AAD).
 
 Descripción de la API de REST de Azure Database for MariaDB: https://docs.microsoft.com/rest/api/mariadb/
 
@@ -522,7 +522,7 @@ Descripción de la protección de datos de los clientes en Azure: https://docs.m
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Uso de RBAC de Azure para controlar el acceso a los recursos
 
-**Guía**: Use RBAC de Azure AD para controlar el acceso a Azure Database para el plano de administración de MariaDB (Azure Portal/Azure Resource Manager). Para el acceso al plano de datos (dentro de la base de datos), use consultas SQL para crear usuarios y configurar permisos de usuario.
+**Instrucciones**: Use RBAC de Azure AD para controlar el acceso a Azure Database para el plano de administración de MariaDB (Azure Portal/Azure Resource Manager). Para el acceso al plano de datos (dentro de la base de datos), use consultas SQL para crear usuarios y configurar permisos de usuario.
 
 Cómo configurar RBAC en Azure: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
@@ -642,7 +642,7 @@ Creación y uso de etiquetas: https://docs.microsoft.com/azure/azure-resource-ma
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3: Eliminación de recursos de Azure no autorizados
 
-**Guía**: Use etiquetados, grupos de administración y suscripciones independientes, si procede, para organizar los servidores de Azure Database for MariaDB y los recursos relacionados y hacer un seguimiento de ellos. Concilie el inventario periódicamente y asegúrese de que los recursos no autorizados se eliminan de la suscripción de manera oportuna.
+**Instrucciones**: Use etiquetados, grupos de administración y suscripciones independientes, si procede, para organizar los servidores de Azure Database for MariaDB y los recursos relacionados y hacer un seguimiento de ellos. Concilie el inventario periódicamente y asegúrese de que los recursos no autorizados se eliminan de la suscripción de manera oportuna.
 
 Creación de suscripciones adicionales de Azure: https://docs.microsoft.com/azure/billing/billing-create-subscription
 
@@ -710,7 +710,7 @@ Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governa
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Uso exclusivo de servicios de Azure aprobados
 
-**Guía**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Instrucciones**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 
 - Tipos de recursos no permitidos
 
@@ -794,7 +794,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: Mantenga configuraciones de recursos de Azure seguras
 
-**Guía**: Utilice las directivas [deny] y [deploy if not exist] de Azure Policy para aplicar una configuración segura en los recursos de Azure.
+**Instrucciones**: Utilice las directivas [deny] y [deploy if not exist] de Azure Policy para aplicar una configuración segura en los recursos de Azure.
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -816,7 +816,7 @@ Descripción de los efectos de Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Almacene de forma segura la configuración de los recursos de Azure
 
-**Guía**: Si usa definiciones personalizadas de Azure Policy para los servidores de Azure Database for MariaDB y los recursos relacionados, use Azure Repos para almacenar y administrar el código de forma segura.
+**Instrucciones**: Si usa definiciones personalizadas de Azure Policy para los servidores de Azure Database for MariaDB y los recursos relacionados, use Azure Repos para almacenar y administrar el código de forma segura.
 
 Cómo almacenar código en Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
@@ -856,7 +856,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: Implemente la supervisión de configuración automatizada para servicios de Azure
 
-**Guía**: Use alias de Azure Policy en el espacio de nombres "Microsoft.DBforMariaDB" para crear directivas personalizadas con el fin de auditar y aplicar las configuraciones del sistema y enviar alertas sobre ellas. Use [audit], [deny] y [deployifnotexist] de Azure Policy para aplicar automáticamente las configuraciones de las instancias de Azure Database for MariaDB y los recursos relacionados.
+**Instrucciones**: Use alias de Azure Policy en el espacio de nombres "Microsoft.DBforMariaDB" para crear directivas personalizadas con el fin de auditar y aplicar las configuraciones del sistema y enviar alertas sobre ellas. Use [audit], [deny] y [deployifnotexist] de Azure Policy para aplicar automáticamente las configuraciones de las instancias de Azure Database for MariaDB y los recursos relacionados.
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -876,7 +876,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="711-manage-azure-secrets-securely"></a>7.11: Administre los secretos de Azure de forma segura
 
-**Guía**: En el caso de Azure Virtual Machines o aplicaciones web que se ejecutan en Azure App Service y se usan para tener acceso a los servidores de Azure Database for MariaDB, use Managed Service Identity junto con Azure Key Vault para simplificar y proteger la administración de secretos de Azure Database for MariaDB. Asegúrese de que la eliminación temporal de Key Vault esté habilitada.
+**Instrucciones**: En el caso de Azure Virtual Machines o aplicaciones web que se ejecutan en Azure App Service y se usan para tener acceso a los servidores de Azure Database for MariaDB, use Managed Service Identity junto con Azure Key Vault para simplificar y proteger la administración de secretos de Azure Database for MariaDB. Asegúrese de que la eliminación temporal de Key Vault esté habilitada.
 
 Cómo integrar las identidades administradas de Azure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
@@ -985,7 +985,7 @@ Realización de copias de seguridad de claves de Key Vault: https://docs.microso
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3: Validación de todas las copias de seguridad, incluidas las claves administradas por el cliente
 
-**Guía**: En Azure Database for MariaDB, realice una restauración a partir de las copias de seguridad del servidor original a fin de realizar pruebas periódicas de las copias de seguridad. Hay dos tipos de restauración disponibles: Restauración a un momento dado y geográfica. La restauración a un momento dado está disponible con cualquier opción de redundancia de copia de seguridad y crea un nuevo servidor en la misma región que el servidor original. La restauración geográfica solo está disponible si ha configurado el servidor para el almacenamiento con redundancia geográfica y le permite restaurar el servidor en otra región.
+**Instrucciones**: En Azure Database for MariaDB, realice una restauración a partir de las copias de seguridad del servidor original a fin de realizar pruebas periódicas de las copias de seguridad. Hay dos tipos de restauración disponibles: Restauración a un momento dado y geográfica. La restauración a un momento dado está disponible con cualquier opción de redundancia de copia de seguridad y crea un nuevo servidor en la misma región que el servidor original. La restauración geográfica solo está disponible si ha configurado el servidor para el almacenamiento con redundancia geográfica y le permite restaurar el servidor en otra región.
 
 El tiempo estimado de recuperación depende de varios factores, como el tamaño de la bases de datos, el tamaño del registro de transacciones, el ancho de banda de red y el número total de bases de datos que se están recuperando en la misma región al mismo tiempo. Normalmente, el tiempo de recuperación es inferior a 12 horas.
 
@@ -998,7 +998,7 @@ Descripción de la copia de seguridad y restauración en Azure Database for Mari
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantía de la protección de las copias de seguridad y las claves administradas del cliente
 
-**Guía**: Azure Database for MariaDB realiza copias de seguridad completas, diferenciales y del registro de transacciones. Estas copias de seguridad permiten restaurar un servidor a un momento dado dentro del período de retención de copias de seguridad configurado. El período de retención predeterminado es siete días. Opcionalmente, puede configurarlo hasta 35 días. Todas las copias de seguridad se cifran mediante cifrado AES de 256 bits.
+**Instrucciones**: Azure Database for MariaDB realiza copias de seguridad completas, diferenciales y del registro de transacciones. Estas copias de seguridad permiten restaurar un servidor a un momento dado dentro del período de retención de copias de seguridad configurado. El período de retención predeterminado es siete días. Opcionalmente, puede configurarlo hasta 35 días. Todas las copias de seguridad se cifran mediante cifrado AES de 256 bits.
 
 Descripción de la copia de seguridad y restauración en Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-backup
 
