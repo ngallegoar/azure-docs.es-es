@@ -5,17 +5,17 @@ description: Aprenda a usar Python en el diseñador de Azure Machine Learning pa
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 02/28/2020
-ms.custom: designer
-ms.openlocfilehash: e27844f9f534ea4db1aba53c12fb3947e7269846
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.custom: designer, tracking-python
+ms.openlocfilehash: af26dce03c0dcf5226c52dcdd8af4408186aa343
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644468"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84557047"
 ---
 # <a name="execute-python-code-in-azure-machine-learning-designer"></a>Ejecución de código de Python en el diseñador de Azure Machine Learning
 

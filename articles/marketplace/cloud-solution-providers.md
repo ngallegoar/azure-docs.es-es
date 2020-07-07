@@ -7,16 +7,16 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 58bfe5cdc58c41c2ead82ac2d280629e4fec9bcd
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 633656af72790c7dfebeee567713875ce0d609b4
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798152"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964216"
 ---
 # <a name="cloud-solution-provider-program"></a>Programa Proveedor de soluciones en la nube
 
-En este artículo se explica cómo configurar una oferta para que esté disponible en el programa Proveedor de soluciones en la nube (CSP). Además de publicar sus ofertas a través de [escaparates web del marketplace comercial](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace), también puede vender a través del programa CSP para llegar a millones de clientes cualificados de Microsoft a los que presta servicios el programa.
+En este artículo se explica cómo configurar una oferta para que esté disponible en el programa Proveedor de soluciones en la nube (CSP). Además de publicar sus ofertas a través de [escaparates web del marketplace comercial](comparing-appsource-azure-marketplace.md), también puede vender a través del programa CSP para llegar a millones de clientes cualificados de Microsoft a los que presta servicios el programa.
 
 Puede configurar ofertas nuevas o existentes para su disponibilidad en el programa CSP en función de la participación, lo que permite que los partners de CSP vendan sus productos y creen conjuntos de soluciones para los clientes.
 
@@ -191,7 +191,7 @@ Si ha participando en el canal de CSP en Cloud Partner Portal, los publicadores 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Visite la [Guía de publicación de Azure Marketplace y AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
+Visite la [Guía de publicación de Azure Marketplace y AppSource](marketplace-publishers-guide.md).
 
 Para más información sobre los servicios GTM de Marketplace, consulte [Servicios de comercialización](https://partner.microsoft.com/reach-customers/gtm).
 

@@ -3,12 +3,12 @@ title: Uso de máquinas virtuales de Azure de proceso intensivo con Batch
 description: Aprovechamiento de los tamaños de máquina virtual HPC y GPU en grupos de Azure Batch Aprenda sobre las dependencias del sistema operativo y consulte varios escenarios de ejemplo.
 ms.topic: how-to
 ms.date: 12/17/2018
-ms.openlocfilehash: 7abe3c9bd689b20f608ad40105c1bb4d7108dbc6
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: acc56679d8be157541b0d7c056e57659584645be
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779756"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962516"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Uso de instancias RDMA o GPU en grupos de Batch
 
@@ -127,7 +127,7 @@ Para ejecutar aplicaciones CUDA en un grupo de nodos NC Linux, debe instalar los
 
 ## <a name="example-microsoft-mpi-on-a-windows-h16r-vm-pool"></a>Ejemplo: Microsoft MPI en un grupo de máquinas virtuales H16r Windows
 
-Para ejecutar aplicaciones MPI de Windows en un grupo de nodos de máquinas virtuales H16r de Azure, debe configurar la extensión HpcVmDrivers e instalar [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi). Estos son los pasos de ejemplo para implementar una imagen personalizada de Windows Server 2016 con los controladores y el software necesarios:
+Para ejecutar aplicaciones MPI de Windows en un grupo de nodos de máquinas virtuales H16r de Azure, debe configurar la extensión HpcVmDrivers e instalar [Microsoft MPI](/message-passing-interface/microsoft-mpi). Estos son los pasos de ejemplo para implementar una imagen personalizada de Windows Server 2016 con los controladores y el software necesarios:
 
 1. Implemente una máquina virtual H16r de Azure que ejecute Windows Server 2016. Por ejemplo, puede crear la máquina virtual en la región Oeste de EE. UU. 
 2. Agregue la extensión HpcVmDrivers a la máquina virtual mediante la [ejecución de un comando de Azure PowerShell](../virtual-machines/sizes-hpc.md) desde un equipo cliente que se conecte a la suscripción de Azure o mediante Azure Cloud Shell. 
@@ -163,6 +163,6 @@ Mediante las API de Batch o Azure Portal, cree un grupo con esta imagen y con el
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para ejecutar trabajos MPI en un grupo de Azure Batch, consulte los ejemplos [Windows](batch-mpi.md) o [Linux](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/).
+* Para ejecutar trabajos MPI en un grupo de Azure Batch, consulte los ejemplos [Windows](batch-mpi.md) o [Linux](/archive/blogs/windowshpc/introducing-mpi-support-for-linux-on-azure-batch).
 
 * Para ejemplos de las cargas de trabajo de GPU en Batch, consulte las recetas de [Batch Shipyard](https://github.com/Azure/batch-shipyard/).

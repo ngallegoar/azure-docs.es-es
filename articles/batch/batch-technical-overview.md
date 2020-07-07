@@ -3,12 +3,12 @@ title: Azure Batch ejecuta trabajos paralelos de gran tamaño en la nube
 description: Información acerca del servicio Azure Batch para cargas de trabajo HPC y paralelas a gran escala
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: c78aec238664520c8c8c02a793298cdc1d3ac7e1
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 134706622655029c6673aea5dd04a9284155be6f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779564"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965083"
 ---
 # <a name="what-is-azure-batch"></a>¿Qué es Azure Batch?
 
@@ -18,7 +18,7 @@ Los desarrolladores pueden usar Batch como un servicio de plataforma para compil
 
 No hay ningún cargo adicional por el uso de Batch. Solo deberá pagar por los recursos subyacentes que utilice como, por ejemplo, las máquinas virtuales, el almacenamiento y las redes.
 
-Para una comparación entre Batch y otras opciones de soluciones de HPC en Azure, consulte [Informática de alto rendimiento (HPC) en Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
+Para una comparación entre Batch y otras opciones de soluciones de HPC en Azure, consulte [Informática de alto rendimiento (HPC) en Azure](/azure/architecture/topics/high-performance-computing/).
 
 ## <a name="run-parallel-workloads"></a>Ejecutar cargas de trabajo paralelas
 Batch funciona bien con cargas de trabajo intrínsecamente paralelas (a veces llamadas "embarazosamente paralelas"). Las cargas de trabajo intrínsecamente paralelas son aquellas en las que las aplicaciones se pueden ejecutar de manera independiente y donde cada instancia completa una parte del trabajo. Cuando se ejecutan las aplicaciones, estas pueden acceder a algunos datos comunes, pero no se comunican con otras instancias de la aplicación. Las cargas de trabajo intrínsecamente paralelas pueden por tanto ejecutarse a gran escala en función de la cantidad de recursos de proceso disponibles para ejecutar las aplicaciones de forma simultánea.
@@ -34,7 +34,7 @@ A continuación puede ver algunos ejemplos de cargas de trabajo intrínsecamente
 * Ingesta, procesamiento, extracción, transformación y carga de datos
 * Ejecución de pruebas de software
 
-También puede usar Batch para [ejecutar cargas de trabajo estrechamente acopladas](batch-mpi.md); se trata de cargas de trabajo donde las aplicaciones que se ejecutan necesitan comunicarse entre sí, en lugar de hacerlo de forma independiente. Las aplicaciones estrechamente acopladas normalmente utilizan Message Passing Interface (MPI) API. Puede ejecutar cargas de trabajo estrechamente acopladas con Batch mediante [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) o Intel MPI. Mejore el rendimiento de la aplicación con [informática de alto rendimiento](../virtual-machines/linux/sizes-hpc.md) especializada y tamaños de máquina virtual [optimizados para GPU](../virtual-machines/linux/sizes-gpu.md).
+También puede usar Batch para [ejecutar cargas de trabajo estrechamente acopladas](batch-mpi.md); se trata de cargas de trabajo donde las aplicaciones que se ejecutan necesitan comunicarse entre sí, en lugar de hacerlo de forma independiente. Las aplicaciones estrechamente acopladas normalmente utilizan Message Passing Interface (MPI) API. Puede ejecutar cargas de trabajo estrechamente acopladas con Batch mediante [Microsoft MPI](/message-passing-interface/microsoft-mpi) o Intel MPI. Mejore el rendimiento de la aplicación con [informática de alto rendimiento](../virtual-machines/linux/sizes-hpc.md) especializada y tamaños de máquina virtual [optimizados para GPU](../virtual-machines/linux/sizes-gpu.md).
 
 Estos son algunos ejemplos de cargas de trabajo estrechamente acopladas:
 * Análisis de elementos finitos

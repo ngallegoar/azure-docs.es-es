@@ -8,10 +8,10 @@ ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 62188aefffd05af49bb00c242b266e808b991c84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82188181"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Línea de base de seguridad de Azure para HDInsight
@@ -881,7 +881,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Uso exclusivo de servicios de Azure aprobados
 
-**Guía**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Instrucciones**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 
 - Tipos de recursos no permitidos
 
@@ -926,7 +926,7 @@ Configuración del acceso condicional para bloquear el acceso a Azure Resource M
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13: Segregación física o lógica de aplicaciones de alto riesgo
 
-**Guía**: no aplicable; la prueba comparativa está pensada para Azure App Service o recursos de proceso que hospedan aplicaciones web.
+**Instrucciones**: no aplicable; la prueba comparativa está pensada para Azure App Service o recursos de proceso que hospedan aplicaciones web.
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 

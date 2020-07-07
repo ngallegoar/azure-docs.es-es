@@ -10,13 +10,13 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 9c4c1cfdb927cfd2ee607bfe2a951e06c80f9bfb
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.custom: seodec18, tracking-python, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a65143394d8e6ee8a385cc5d1737cc976aae47b2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418548"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558494"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Proceso de ciencia de datos en equipos en acción: uso de Azure Synapse Analytics
 En este tutorial le guiaremos a través de la creación e implementación de un modelo de aprendizaje automático mediante Azure Synapse Analytics para un conjunto de datos disponible públicamente: el conjunto de datos [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/). El modelo de clasificación binaria construido predice si se dará propina por la carrera o no.  Los modelos incluyen la clasificación multiclase (si hay una propina o si no la hay) y la regresión (la distribución de los importes de propinas pagadas).
@@ -77,7 +77,7 @@ Para configurar el entorno de ciencia de datos de Azure, siga estos pasos.
 **Aprovisione su instancia de Azure Synapse Analytics.**
 Siga la documentación en [Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) para aprovisionar una instancia de Azure Synapse Analytics. Asegúrese de que hacer anotaciones en las credenciales de Azure Synapse Analytics siguientes que se usarán en los pasos posteriores.
 
-* **Nombre del servidor**: \<nombre del servidor>.database.windows.net
+* **Nombre del servidor**: \<server Name>.database.windows.net
 * **Nombre de SQLDW (base de datos)**
 * **Nombre de usuario**
 * **Contraseña**

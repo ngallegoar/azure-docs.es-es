@@ -6,16 +6,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8622ede9e6f7fba2fde2e0b2e90eb31520a23d04
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: 6583a2fe5abd0193f37502e07c7b3fa0ee58ba9d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80892451"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963456"
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Análisis de patrones de navegación del usuario mediante Flujos de usuarios de Application Insights
 
-![Herramienta Flujos de usuarios de Application Insights](./media/usage-flows/00001-flows.png)
+![Herramienta Flujos de usuarios de Application Insights](./media/usage-flows/flows.png)
 
 La herramienta Flujos de usuarios permite visualizar cómo navegan los usuarios por las páginas y características del sitio. Resulta idónea para responder a preguntas del tipo:
 
@@ -33,7 +33,7 @@ La herramienta Flujos de usuario se inicia a partir de una vista de página inic
 
 ## <a name="start-by-choosing-an-initial-event"></a>Elección de un evento inicial
 
-![Elegir un evento inicial para Flujos de usuarios](./media/usage-flows/00002-flows-initial-event.png)
+![Elegir un evento inicial para Flujos de usuarios](./media/usage-flows/initial-event.png)
 
 Para empezar a responder a las preguntas con la herramienta Flujos de usuario, elija una vista de página inicial, un evento personalizado o una excepción que sirva como punto de partida de la visualización:
 
@@ -58,7 +58,7 @@ Si desea ver más pasos en la visualización, use las listas desplegables **Paso
 
 ## <a name="after-visiting-a-page-or-feature-where-do-users-go-and-what-do-they-click"></a>Después de visitar una página o una característica, ¿a dónde van los usuarios y dónde hacen clic?
 
-![Usar Flujos de usuarios para ver dónde hacen clic los usuarios](./media/usage-flows/00003-flows-one-step.png)
+![Usar Flujos de usuarios para ver dónde hacen clic los usuarios](./media/usage-flows/one-step.png)
 
 Si el evento inicial es una vista de página, la primera columna ("Paso 1") de la visualización es una forma rápida de ver lo que hicieron los usuarios inmediatamente después de visitar la página. Intente abrir el sitio en una ventana que esté junto a la visualización de Flujos de usuarios. Compare sus expectativas de cómo los usuarios interactúan con la página, con la lista de eventos de la columna "Paso 1". A menudo, hay veces en las que un elemento de la interfaz de usuario de la página, que le parece insignificante a su equipo, puede estar entre los elementos más usados de la página. Puede ser un buen punto inicial para realizar mejoras en el diseño del sitio.
 

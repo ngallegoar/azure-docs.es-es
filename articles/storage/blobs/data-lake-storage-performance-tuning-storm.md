@@ -4,16 +4,16 @@ description: Directrices para la optimización del rendimiento de Storm en Azure
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 125c583512f6bae34c2dd3c3dd76a1b96a181ac1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 60e0d3fc22fdfc158110e9936748cc0bda280853
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74327903"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465922"
 ---
 # <a name="tune-performance-storm-hdinsight--azure-data-lake-storage-gen2"></a>Ajustar rendimiento: Storm, HDInsight y Azure Data Lake Storage Gen2
 
@@ -72,7 +72,7 @@ Este escenario básico es un buen punto de partida. Pruebe con sus propios datos
 
 Puede modificar los valores de configuración siguientes para optimizar el spout.
 
-- **Tuple timeout (Tiempo de espera de tupla): topology.message.timeout.secs**. Este valor determina la cantidad de tiempo que un mensaje tarda en completarse, y en recibir una confirmación, antes de que se considere erróneo.
+- **Tuple timeout (Tiempo de espera de tupla): topology.message.timeout.secs**. Este valor determina la cantidad de tiempo que un mensaje tarda en completarse y en recibir una confirmación, antes de que se considere erróneo.
 
 - **Max memory per worker process (Memoria máxima por proceso de trabajo): worker.childopts**. Este valor le permite especificar parámetros de línea de comandos adicionales para los trabajos de Java. El ajuste usado más frecuentemente aquí es XmX, que determina la memoria máxima asignada al montón de una JVM.
 
@@ -89,7 +89,7 @@ Mientras se ejecuta la topología, puede supervisarla en la interfaz de usuario 
 
 * **Total process execution latency (Latencia total de ejecución de procesos).** Es el tiempo medio que una tupla tarda en que la emita el spout, la procese el bolt y se confirme.
 
-* **Total bolt process latency (Latencia total de proceso del bolt).** Es el tiempo medio que está la tupla en el bolt hasta que recibe una confirmación.
+* **Total bolt process latency (Latencia total de proceso del bolt).** Es el tiempo medio que la tupla pasa en el bolt hasta que recibe una confirmación.
 
 * **Total bolt execute latency (Latencia total de ejecución del bolt).** Es el tiempo medio empleado por el bolt en el método de ejecución.
 

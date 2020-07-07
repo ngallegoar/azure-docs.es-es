@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 5afa5b5620532865233e38ccb5889b37b2100854
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7ea74c85af062ce00dbccf8a486ce39cbd524bb0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648542"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515074"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Desarrollo con las API de Media Services v3
 
@@ -41,7 +41,7 @@ En lugar de crear una entidad de servicio, use las identidades administradas de 
 
 Si va a crear una aplicación y una entidad de servicio de Azure AD, la aplicación debe estar en su propio inquilino. Después de crear la aplicación, asigne al rol **Colaborador** o **Propietario** de la aplicación acceso a la cuenta de Media Services.
 
-Si no está seguro de tener permisos para crear una aplicación de Azure AD, consulte [Permisos necesarios](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+Si no está seguro de tener permisos para crear una aplicación de Azure AD, consulte [Permisos necesarios](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 En la ilustración siguiente, los números representan el flujo de las solicitudes en orden cronológico:
 

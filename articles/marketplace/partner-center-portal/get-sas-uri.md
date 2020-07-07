@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mingshen
-ms.openlocfilehash: 42e2419301b282685b2afe13782c2deb4f52823c
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 24ba593a56d4d12211d10f143261caaf6d901bfc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725880"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964675"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Obtención del URI de firma de acceso compartido para la imagen de máquina virtual
 
@@ -124,6 +124,6 @@ Revise los identificadores URI de SAS creados según la lista de comprobación s
 
 ## <a name="next-step"></a>Paso siguiente
 
-Si tiene dificultades para crear un identificador URI de SAS, consulte [Problemas comunes de la dirección URL de SAS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/common-sas-uri-issues). En caso contrario, guarde el URI de SAS en una ubicación segura para su uso posterior. Lo necesitará para publicar la oferta de máquina virtual en el Centro de partners.
+Si tiene dificultades para crear un identificador URI de SAS, consulte [Problemas comunes de la dirección URL de SAS](common-sas-uri-issues.md). En caso contrario, guarde el URI de SAS en una ubicación segura para su uso posterior. Lo necesitará para publicar la oferta de máquina virtual en el Centro de partners.
 
-* [Creación de una oferta de máquina virtual de Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer)
+* [Creación de una oferta de máquina virtual de Azure](azure-vm-create-offer.md)

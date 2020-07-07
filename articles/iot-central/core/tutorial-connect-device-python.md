@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: tracking-python
-ms.openlocfilehash: 5555c176adfb5be78ea73f17bfa01ba87766acc1
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 98aa452e8b0b5cf04edd319298c2b35e6097148e
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100401"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971069"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-python"></a>Tutorial: Creación y conexión de un aplicación cliente a una aplicación de Azure IoT Central (Python)
 
@@ -217,29 +217,29 @@ En los pasos siguientes se muestra cómo crear una aplicación cliente Python qu
 1. Agregue las siguientes funciones dentro de la función `main` para controlar las actualizaciones de propiedades enviadas desde la aplicación de IoT Central:
 
     ```python
-        async def name_setting(value, version):
-          await asyncio.sleep(1)
-          print(f'Setting name value {value} - {version}')
-          await device_client.patch_twin_reported_properties({'name' : {'value': value['value'], 'status': 'completed', 'desiredVersion': version}})
+      async def name_setting(value, version):
+        await asyncio.sleep(1)
+        print(f'Setting name value {value} - {version}')
+        await device_client.patch_twin_reported_properties({'name' : {'value': value['value'], 'status': 'completed', 'desiredVersion': version}})
 
-        async def brightness_setting(value, version):
-          await asyncio.sleep(5)
-          print(f'Setting brightness value {value} - {version}')
-          await device_client.patch_twin_reported_properties({'brightness' : {'value': value['value'], 'status': 'completed', 'desiredVersion': version}})
+      async def brightness_setting(value, version):
+        await asyncio.sleep(5)
+        print(f'Setting brightness value {value} - {version}')
+        await device_client.patch_twin_reported_properties({'brightness' : {'value': value['value'], 'status': 'completed', 'desiredVersion': version}})
 
-        settings = {
-          'name': name_setting,
-          'brightness': brightness_setting
-        }
+      settings = {
+        'name': name_setting,
+        'brightness': brightness_setting
+      }
 
-        # define behavior for receiving a twin patch
-        async def twin_patch_listener():
-          while True:
-            patch = await device_client.receive_twin_desired_properties_patch() # blocking
-            to_update = patch.keys() & settings.keys()
-            await asyncio.gather(
-              *[settings[setting](patch[setting], patch['$version']) for setting in to_update]
-            )
+      # define behavior for receiving a twin patch
+      async def twin_patch_listener():
+        while True:
+          patch = await device_client.receive_twin_desired_properties_patch() # blocking
+          to_update = patch.keys() & settings.keys()
+          await asyncio.gather(
+            *[settings[setting](patch[setting], patch['$version']) for setting in to_update]
+          )
     ```
 
     Cuando el operador establece una propiedad que se puede escribir en la aplicación de IoT Central, la aplicación usa una propiedad deseada del dispositivo gemelo para enviar el valor al dispositivo. A continuación, el dispositivo responde con una propiedad notificada del dispositivo gemelo. Cuando IoT Central recibe el valor de la propiedad notificada, actualiza la vista de la propiedad con el estado **sincronizado**.

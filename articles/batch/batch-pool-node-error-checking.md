@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: how-to
-ms.openlocfilehash: 5ac3991a52ab75dccd0033160d6e972d155a882b
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 519b357e4e5fde30221f7dc804bb848ecec9704c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723925"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85979924"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Comprobación de errores de grupo y de nodo
 
@@ -24,9 +24,9 @@ En este artículo se tratan las operaciones en segundo plano que pueden realizar
 
 ### <a name="resize-timeout-or-failure"></a>Cambiar el tamaño del tiempo de espera o error
 
-Cuando crea un nuevo grupo o cambia el tamaño de uno existente, especifica el número de nodos de destino.  La operación de creación o de cambio de tamaño se completa inmediatamente, pero la asignación real de nuevos nodos o la eliminación de nodos existentes podrían tardar varios minutos.  El tiempo de expiración de cambio de tamaño se especifica en la API [create](https://docs.microsoft.com/rest/api/batchservice/pool/add) o [resize](https://docs.microsoft.com/rest/api/batchservice/pool/resize). Si Batch no puede obtener el número de nodos de destino durante el tiempo de espera de redimensionamiento, el grupo entra en un estado estable e informa de los errores de redimensionamiento.
+Cuando crea un nuevo grupo o cambia el tamaño de uno existente, especifica el número de nodos de destino.  La operación de creación o de cambio de tamaño se completa inmediatamente, pero la asignación real de nuevos nodos o la eliminación de nodos existentes podrían tardar varios minutos.  El tiempo de expiración de cambio de tamaño se especifica en la API [create](/rest/api/batchservice/pool/add) o [resize](/rest/api/batchservice/pool/resize). Si Batch no puede obtener el número de nodos de destino durante el tiempo de espera de redimensionamiento, el grupo entra en un estado estable e informa de los errores de redimensionamiento.
 
-La propiedad [ResizeError](https://docs.microsoft.com/rest/api/batchservice/pool/get#resizeerror) de la evaluación más reciente indica los errores producidos.
+La propiedad [ResizeError](/rest/api/batchservice/pool/get#resizeerror) de la evaluación más reciente indica los errores producidos.
 
 Las causas comunes de los errores de cambio de tamaño son:
 
@@ -34,31 +34,31 @@ Las causas comunes de los errores de cambio de tamaño son:
   - En la mayoría de las circunstancias, el tiempo de expiración predeterminado de 15 minutos es suficiente para asignar o quitar nodos del grupo.
   - Si asigna un gran número de nodos, se recomienda establecer el tiempo de expiración de cambio de tamaño en 30 minutos. Por ejemplo, cuando cambie el tamaño a más de 1 000 nodos de una imagen de Azure Marketplace o a más de 300 nodos de una imagen de máquina virtual personalizada.
 - Cuota de núcleos insuficiente
-  - Una cuenta de Batch tiene un número límite de núcleos que puede asignar en todos los grupos. Batch dejará de asignar nodos cuando se alcance esa cuota. [Puede aumentar](https://docs.microsoft.com/azure/batch/batch-quota-limit) la cuota de núcleos para que Batch pueda asignar más nodos.
-- Direcciones IP de subred insuficientes cuando un [grupo está en una red virtual](https://docs.microsoft.com/azure/batch/batch-virtual-network)
+  - Una cuenta de Batch tiene un número límite de núcleos que puede asignar en todos los grupos. Batch dejará de asignar nodos cuando se alcance esa cuota. [Puede aumentar](./batch-quota-limit.md) la cuota de núcleos para que Batch pueda asignar más nodos.
+- Direcciones IP de subred insuficientes cuando un [grupo está en una red virtual](./batch-virtual-network.md)
   - Una subred de red virtual debe tener suficientes direcciones IP sin asignar que pueda asignar a cada nodo del grupo solicitado. En caso contrario, los nodos no se pueden crear.
-- Recursos insuficientes cuando un [grupo está en una red virtual](https://docs.microsoft.com/azure/batch/batch-virtual-network)
+- Recursos insuficientes cuando un [grupo está en una red virtual](./batch-virtual-network.md)
   - Puede crear recursos, como equilibradores de carga, direcciones IP públicas y grupos de seguridad de red, en la misma suscripción que la cuenta de Batch. Compruebe que las cuotas de suscripción sean suficientes para estos recursos.
 - Grupos de gran tamaño con imágenes de máquina virtual personalizadas
   - Los grupos grandes que usan imágenes de máquina virtual personalizadas pueden tardar más tiempo en asignarse y pueden producirse tiempos de expiración de cambio de tamaño.  Consulte [Creación de un grupo con Shared Image Gallery](batch-sig-images.md) para obtener recomendaciones sobre los límites y la configuración.
 
 ### <a name="automatic-scaling-failures"></a>Errores de escalado automático
 
-También puede establecer Azure Batch para escalar automáticamente el número de nodos de un grupo. Se definen los parámetros para la [fórmula de escalado automático para un grupo](https://docs.microsoft.com/azure/batch/batch-automatic-scaling). El servicio Batch usa la fórmula para evaluar periódicamente el número de nodos del grupo y establecer un nuevo número de destino. Pueden producirse los siguientes tipos de problemas:
+También puede establecer Azure Batch para escalar automáticamente el número de nodos de un grupo. Se definen los parámetros para la [fórmula de escalado automático para un grupo](./batch-automatic-scaling.md). El servicio Batch usa la fórmula para evaluar periódicamente el número de nodos del grupo y establecer un nuevo número de destino. Pueden producirse los siguientes tipos de problemas:
 
 - Error de la evaluación de escalado automático.
 - La operación de cambio de tamaño resultante produce un error y agota el tiempo de expiración.
 - Un problema con la fórmula de escalado automático da lugar a valores incorrectos de destino de nodo. El cambio de tamaño funciona o agota el tiempo de expiración.
 
-Puede obtener información sobre la última evaluación de escalado automático mediante la propiedad [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/pool/get#autoscalerun). Esta propiedad informa del tiempo de evaluación, los valores y el resultado, así como de los errores de rendimiento.
+Puede obtener información sobre la última evaluación de escalado automático mediante la propiedad [autoScaleRun](/rest/api/batchservice/pool/get#autoscalerun). Esta propiedad informa del tiempo de evaluación, los valores y el resultado, así como de los errores de rendimiento.
 
-Un [evento completo de cambio de tamaño de grupo](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event) captura información sobre todas las evaluaciones.
+Un [evento completo de cambio de tamaño de grupo](./batch-pool-resize-complete-event.md) captura información sobre todas las evaluaciones.
 
 ### <a name="delete"></a>Eliminar
 
 Cuando se elimina un grupo que contiene nodos, Batch elimina los nodos en primer lugar. A continuación, elimina el propio objeto de grupo. Los nodos del grupo pueden tardar unos minutos en eliminar.
 
-Batch establece el [estado del grupo](https://docs.microsoft.com/rest/api/batchservice/pool/get#poolstate) en **deleting** durante el proceso de eliminación. La aplicación que realiza la llamada puede detectar si la eliminación del grupo está tardando demasiado tiempo mediante las propiedades **state** y **stateTransitionTime**.
+Batch establece el [estado del grupo](/rest/api/batchservice/pool/get#poolstate) en **deleting** durante el proceso de eliminación. La aplicación que realiza la llamada puede detectar si la eliminación del grupo está tardando demasiado tiempo mediante las propiedades **state** y **stateTransitionTime**.
 
 ## <a name="pool-compute-node-errors"></a>Errores de nodo de proceso de grupo
 
@@ -131,7 +131,7 @@ Otros archivos se escriben para cada tarea que se ejecuta en un nodo, como stdou
 El tamaño de la unidad temporal depende del tamaño de la máquina virtual. Una consideración que se debe tener en cuenta al seleccionar un tamaño de máquina virtual es asegurarse de que la unidad temporal tenga espacio suficiente.
 
 - En el Azure Portal al agregar un grupo, se puede mostrar la lista completa de tamaños de máquina virtual y hay una columna de "Tamaño de disco de recursos".
-- Los artículos que describen todos los tamaños de máquina virtual tienen tablas con una columna de "Almacenamiento temporal"; por ejemplo [Tamaños de máquinas virtuales optimizadas para proceso](/azure/virtual-machines/windows/sizes-compute)
+- Los artículos que describen todos los tamaños de máquina virtual tienen tablas con una columna de "Almacenamiento temporal"; por ejemplo [Tamaños de máquinas virtuales optimizadas para proceso](../virtual-machines/sizes-compute.md)
 
 En el caso de los archivos escritos por cada tarea, se puede especificar un tiempo de retención para cada tarea que determine durante cuánto tiempo se conservan los archivos de tareas antes de que se limpien automáticamente. Se puede reducir el tiempo de retención para reducir los requisitos de almacenamiento.
 
@@ -140,17 +140,17 @@ Si el disco temporal se queda sin espacio (o está muy cerca de quedarse sin esp
 
 ### <a name="what-to-do-when-a-disk-is-full"></a>Qué hacer cuando un disco está lleno
 
-Determine por qué está lleno el disco: Si no está seguro de qué ocupa espacio en el nodo, se recomienda que se conecte en remoto al nodo e investigue manualmente qué ha ocurrido con el espacio. También puede usar [Batch List Files API](https://docs.microsoft.com/rest/api/batchservice/file/listfromcomputenode) para examinar archivos de carpetas administradas por lotes (por ejemplo, salidas de tareas). Tenga en cuenta que esta API solo enumera los archivos de los directorios administrados por lotes y, si las tareas han creado archivos en otro lugar, no los verá.
+Determine por qué está lleno el disco: Si no está seguro de qué ocupa espacio en el nodo, se recomienda que se conecte en remoto al nodo e investigue manualmente qué ha ocurrido con el espacio. También puede usar [Batch List Files API](/rest/api/batchservice/file/listfromcomputenode) para examinar archivos de carpetas administradas por lotes (por ejemplo, salidas de tareas). Tenga en cuenta que esta API solo enumera los archivos de los directorios administrados por lotes y, si las tareas han creado archivos en otro lugar, no los verá.
 
 Asegúrese de que los datos que necesite se han recuperado del nodo o se han cargado en un almacén duradero. Para mitigar el problema de disco lleno, deberá eliminar datos para liberar espacio.
 
 ### <a name="recovering-the-node"></a>Recuperación del nodo
 
-1. Si su grupo es un grupo [CloudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration), puede volver a crear la imagen del nodo mediante [Batch re-image API](https://docs.microsoft.com/rest/api/batchservice/computenode/reimage). Esto limpiará todo el disco. Actualmente no es posible volver a crear la imagen con grupos [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration).
+1. Si su grupo es un grupo [CloudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration), puede volver a crear la imagen del nodo mediante [Batch re-image API](/rest/api/batchservice/computenode/reimage). Esto limpiará todo el disco. Actualmente no es posible volver a crear la imagen con grupos [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration).
 
-2. Si su grupo es un grupo [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration), puede quitar el nodo del grupo mediante [remove nodes API](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes). A continuación, puede volver a aumentar el grupo para reemplazar el nodo incorrecto por uno nuevo.
+2. Si su grupo es un grupo [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration), puede quitar el nodo del grupo mediante [remove nodes API](/rest/api/batchservice/pool/removenodes). A continuación, puede volver a aumentar el grupo para reemplazar el nodo incorrecto por uno nuevo.
 
-3.  Elimine los trabajos o tareas completados antiguos cuyos datos de tarea sigan estando en los nodos. Para saber qué datos de trabajos y tareas hay en los nodos, puede buscar en la [colección RecentTasks](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskinformation) del nodo o en los [archivos del nodo](https://docs.microsoft.com//rest/api/batchservice/file/listfromcomputenode). Al eliminar el trabajo, se eliminarán todas las tareas del trabajo y, al eliminar las tareas del trabajo, se desencadenará la eliminación de los datos de los directorios de tareas del nodo, lo que liberará espacio. Una vez que haya liberado espacio suficiente, reinicie el nodo, que debería pasar del estado "No utilizable" a "Inactivo".
+3.  Elimine los trabajos o tareas completados antiguos cuyos datos de tarea sigan estando en los nodos. Para saber qué datos de trabajos y tareas hay en los nodos, puede buscar en la [colección RecentTasks](/rest/api/batchservice/computenode/get#taskinformation) del nodo o en los [archivos del nodo](/rest/api/batchservice/file/listfromcomputenode). Al eliminar el trabajo, se eliminarán todas las tareas del trabajo y, al eliminar las tareas del trabajo, se desencadenará la eliminación de los datos de los directorios de tareas del nodo, lo que liberará espacio. Una vez que haya liberado espacio suficiente, reinicie el nodo, que debería pasar del estado "No utilizable" a "Inactivo".
 
 ## <a name="next-steps"></a>Pasos siguientes
 

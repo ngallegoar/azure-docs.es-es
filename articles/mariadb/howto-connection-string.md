@@ -6,12 +6,13 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 74574fb905ae4ebd2552ef97cd0b5430eea6363a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: 18e3f2ab7c581a1ff93a65e410e83739564b5be5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79530230"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558296"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mariadb"></a>Conexión de aplicaciones a Azure Database for MariaDB
 En este documento se enumeran todos los tipos de cadena de conexión que Azure Database for MariaDB admite, junto con plantillas y ejemplos. Su cadena de conexión puede tener otros parámetros y configuraciones.

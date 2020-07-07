@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 6bc29c098bcf7ef1d1a2e2532a00c95f0ec7e927
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c5e22c14d0df46ddac9a503f43df8d54c3c93d5
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61244236"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964760"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Cómo generar vistas en miniatura mediante el Codificador multimedia estándar con .NET 
 
@@ -408,9 +408,12 @@ En el ejemplo de código siguiente se usa el último SDK para .NET de Media Serv
 * Crear un trabajo de codificación.
 * Obtener una referencia al codificador Codificador multimedia estándar.
 * Cargue el valor preestablecido [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) o [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) que contiene los valores preestablecidos de codificación, así como la información necesaria para generar vistas en miniatura. Puede guardar este  [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) o [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) en un archivo y usar el siguiente código para cargar el archivo.
-  
-        // Load the XML (or JSON) from the local file.
-        string configuration = File.ReadAllText(fileName);  
+
+    ```csharp
+    // Load the XML (or JSON) from the local file.
+    string configuration = File.ReadAllText(fileName);  
+    ```
+
 * Agregar una única tarea de codificación al trabajo. 
 * Especificar el recurso de entrada que se va a codificar.
 * Crear un recurso de salida que contendrá el recurso codificado.

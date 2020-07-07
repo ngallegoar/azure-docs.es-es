@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
 ms.openlocfilehash: bc99a9c9e9ff985730ec97dbacd1d7c1de06a45e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74073649"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Solución de problemas de la extensión de máquina virtual de Microsoft Azure.
@@ -61,7 +61,7 @@ Este es la salida de ejemplo:
 ## <a name="troubleshooting-extension-failures"></a>Solución de problemas de errores de extensión
 ### <a name="rerun-the-extension-on-the-vm"></a>Volver a ejecutar la extensión en la máquina virtual
 Si está ejecutando los scripts en la máquina virtual mediante la extensión de script personalizada, a veces podría recibir un error en el que la máquina virtual se creó correctamente, pero en el que el script ha generado un error. En estas condiciones, la manera que se recomienda para recuperarse de este error es quitar la extensión y volver a ejecutar la plantilla.
-Nota: en el futuro, esta funcionalidad se mejoraría para eliminar la necesidad de desinstalar la extensión.
+Nota: En el futuro, esta funcionalidad se mejoraría para eliminar la necesidad de desinstalar la extensión.
 
 #### <a name="remove-the-extension-from-azure-powershell"></a>Eliminación de la extensión de Azure PowerShell
     Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"

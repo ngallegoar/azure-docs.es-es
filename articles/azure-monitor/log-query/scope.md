@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
 ms.openlocfilehash: 2840e5b8ff16d44f76aaafcf68264c65e4401ff7
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83199025"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Ámbito e intervalo de tiempo de una consulta de registro en Log Analytics de Azure Monitor
@@ -34,7 +34,7 @@ El ámbito lo determina el método que se utiliza para iniciar Log Analytics y, 
 | Área de trabajo de Log Analytics | Todos los registros del área de trabajo de Log Analytics. | Seleccione **Registros** en el menú **Azure Monitor** o el menú **Áreas de trabajo de Log Analytics**.  | Puede cambiar el ámbito a cualquier otro tipo de recurso. |
 | Aplicación de Application Insights | Todos los registros de la aplicación de Application Insights. | Seleccione **Analytics** en la página **Introducción** de Application Insights. | Solo se puede cambiar el ámbito a otra aplicación de Application Insights. |
 | Resource group | Recursos creados por todos los recursos del grupo de recursos. Puede incluir datos de varias áreas de trabajo de Log Analytics. | Seleccione **Registros** en el menú de grupo de recursos. | No se puede cambiar el ámbito.|
-| Subscription | Registros creados por todos los recursos de la suscripción. Puede incluir datos de varias áreas de trabajo de Log Analytics. | Seleccione **Registros** en el menú de la suscripción.   | No se puede cambiar el ámbito. |
+| Suscripción | Registros creados por todos los recursos de la suscripción. Puede incluir datos de varias áreas de trabajo de Log Analytics. | Seleccione **Registros** en el menú de la suscripción.   | No se puede cambiar el ámbito. |
 | Otros recursos de Azure | Registros creados por el recurso. Puede incluir datos de varias áreas de trabajo de Log Analytics.  | Seleccione **Registros** en el menú de recursos.<br>O BIEN<br>Seleccione **Registros** en el menú **Azure Monitor** y luego seleccione un nuevo ámbito. | Solo se puede cambiar el ámbito al mismo tipo de recurso. |
 
 ### <a name="limitations-when-scoped-to-a-resource"></a>Limitaciones cuando el ámbito se aplica a un recurso

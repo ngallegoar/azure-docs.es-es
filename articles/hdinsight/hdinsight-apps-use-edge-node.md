@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
-ms.openlocfilehash: 17c73866a11aae23efea90073f64b61808c13a35
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: a5d430dd9da2016a41a9a0b6bf04212aca557cba
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834720"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963508"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Uso de nodos perimetrales vacíos en clústeres de Apache Hadoop en HDInsight
 
@@ -62,7 +62,6 @@ Después de crear un nodo perimetral, puede conectarse a él mediante SSH y ejec
 > Los componentes personalizados que se instalan en el nodo perimetral reciben un soporte técnico de Microsoft comercialmente razonable. Esto podría suponer que disponga de su ayuda en los problemas que pueda encontrar. O bien, puede remitirse a los recursos de la comunidad para obtener más asistencia. Los siguientes son algunos de los sitios más activos donde puede obtener ayuda de la comunidad de usuarios:
 >
 > * [Página de preguntas y respuestas de Microsoft sobre HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html
-
 > * [https://stackoverflow.com](https://stackoverflow.com).
 >
 > Si usa una tecnología de Apache, es posible que encuentre asistencia a través de los sitios de los proyectos de Apache en [https://apache.org](https://apache.org), por ejemplo, en el sitio de [Apache Hadoop](https://hadoop.apache.org/).
@@ -143,11 +142,15 @@ El nodo perimetral aparece como una aplicación en Azure Portal.  El portal le p
 
 2. Después de conectarse al nodo perimetral mediante SSH, use el comando siguiente para abrir la consola de Hive:
 
-        hive
+    ```console
+    hive
+    ```
 
 3. Ejecute el siguiente comando para mostrar las tablas de Hive en el clúster:
 
-        show tables;
+    ```hiveql
+    show tables;
+    ```
 
 ## <a name="delete-an-edge-node"></a>Eliminación de un nodo perimetral
 

@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: ca23bbc2b53eaaaf1848a7a98228be23c9ffed0c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 65baff827417cebe2289cc821df94acd38a1ae61
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117087"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964811"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Tutorial: Representación de una escena de Blender con Batch Explorer
 
@@ -27,9 +27,9 @@ En este tutorial, aprenderá a:
 
 Necesita una suscripción de pago por uso u otra opción de compra de Azure para usar aplicaciones de representación en Batch sobre una base de pago por uso. Las licencias de pago por uso no se admiten si usa una oferta gratuita de Azure que proporciona un crédito monetario.
 
-Necesita una cuenta de Azure Batch con una cuenta de almacenamiento asociada.  Consulte cualquiera de las guías de inicio rápido de Batch como el [artículo sobre la CLI](https://docs.microsoft.com/azure/batch/quick-create-cli) para crear una cuenta de Batch.
+Necesita una cuenta de Azure Batch con una cuenta de almacenamiento asociada.  Consulte cualquiera de las guías de inicio rápido de Batch como el [artículo sobre la CLI](./quick-create-cli.md) para crear una cuenta de Batch.
 
-Se requiere una cuota de núcleos de baja prioridad de al menos 50 núcleos para el tamaño de máquina virtual y el número de máquinas virtuales especificado en este tutorial. Se puede usar la cuota predeterminada, pero tendrá que usar un tamaño de máquina virtual más pequeño, lo cual hará que se tarde más tiempo en representar las imágenes. El proceso para solicitar una mayor cuota de núcleos se detalla en [este artículo](https://docs.microsoft.com/azure/batch/batch-quota-limit).
+Se requiere una cuota de núcleos de baja prioridad de al menos 50 núcleos para el tamaño de máquina virtual y el número de máquinas virtuales especificado en este tutorial. Se puede usar la cuota predeterminada, pero tendrá que usar un tamaño de máquina virtual más pequeño, lo cual hará que se tarde más tiempo en representar las imágenes. El proceso para solicitar una mayor cuota de núcleos se detalla en [este artículo](./batch-quota-limit.md).
 
 Finalmente, se debe instalar [Batch Explorer](https://azure.github.io/BatchExplorer/). Está disponible para Windows, OSX y Linux. Es opcional, pero si [Blender](https://www.blender.org/download/) está instalado, se puede ver el archivo de modelo de ejemplo.
 
@@ -139,4 +139,4 @@ Cuando se hayan completado todas las tareas, el trabajo se marcará como complet
 ## <a name="next-steps"></a>Pasos siguientes
 * En la sección "Galería", explore las aplicaciones de representación disponibles a través de Batch Explorer.
 * Para cada aplicación, hay varias plantillas disponibles, que se expandirán con el tiempo.  Por ejemplo, para Blender existen plantillas que dividen una sola imagen en mosaicos, por lo que las partes de una imagen se pueden representar en paralelo.
-* Para obtener una descripción completa de las funcionalidades de representación, consulte el conjunto de artículos de [aquí](https://docs.microsoft.com/azure/batch/batch-rendering-service).
+* Para obtener una descripción completa de las funcionalidades de representación, consulte el conjunto de artículos de [aquí](./batch-rendering-service.md).

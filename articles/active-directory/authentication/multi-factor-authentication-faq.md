@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d28f93f316ac2a63be6b3a8eb0b80678bd7607f
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: aa25cffd84ee9255fed8bbaa0f2fb6adf762b47e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81271410"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84483783"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Preguntas más frecuentes relacionadas con Azure Multi-Factor Authentication
 
@@ -163,7 +163,7 @@ Para evitar el acceso no autorizado, elimine todas las contraseñas de aplicaci�
 
 ### <a name="what-if-a-user-cant-sign-in-to-non-browser-apps"></a>¿Qué puede hacer un usuario si no puede iniciar sesión en aplicaciones sin explorador?
 
-Si la organización todavía usa clientes heredados y se [permite el uso de contraseñas de aplicación](howto-mfa-mfasettings.md#app-passwords), los usuarios no podrán iniciar sesión en estos clientes heredados con su nombre de usuario y contraseña. En lugar de eso, deberán [configurar contraseñas de aplicación](../user-help/multi-factor-authentication-end-user-app-passwords.md). Los usuarios deben borrar (eliminar) su información de inicio de sesión, reiniciar la aplicación y, luego, iniciar sesión con su nombre de usuario y la *contraseña de aplicación* en lugar de la contraseña habitual.
+Si la organización todavía usa clientes heredados y se [permite el uso de contraseñas de aplicación](howto-mfa-app-passwords.md), los usuarios no podrán iniciar sesión en estos clientes heredados con su nombre de usuario y contraseña. En lugar de eso, deberán [configurar contraseñas de aplicación](../user-help/multi-factor-authentication-end-user-app-passwords.md). Los usuarios deben borrar (eliminar) su información de inicio de sesión, reiniciar la aplicación y, luego, iniciar sesión con su nombre de usuario y la *contraseña de aplicación* en lugar de la contraseña habitual.
 
 Si la organización no tiene clientes heredados, no debe permitir que los usuarios creen contraseñas de aplicación.
 

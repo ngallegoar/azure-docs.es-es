@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8a881f1cbc93d4774e25833a5c57b4727cc2e4be
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: d1b028472785b146a45c22b3d23db7cb241c11da
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594838"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84557311"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver
 
@@ -238,7 +238,7 @@ Puede elegir entre cuatro modos de cuórum cuando use Clústeres de conmutación
 * **Mayoría de disco y nodo**. Cada nodo y disco designado (un testigo de disco) en el almacenamiento del clúster puede votar siempre que esté disponible y comunicándose. El clúster funciona solamente con la mayoría de los votos, es decir, con más de la mitad. Este modo resulta útil en un entorno de clúster con un número par de nodos. Si la mitad de los nodos y el disco están en línea, el clúster permanece en buen estado.
 * **Mayoría de recurso compartido de archivos y nodo**. Cada nodo más un recurso compartido de archivos designado (un testigo de recurso de archivos) que el administrador crea puede votar, independientemente de si los nodos y el recurso compartido de archivos están disponibles y comunicándose. El clúster funciona solamente con la mayoría de los votos, es decir, con más de la mitad. Este modo resulta útil en un entorno de clúster con un número par de nodos. Es similar al modo Mayoría de disco y nodo, pero usa un recurso compartido de archivos testigo en lugar de un disco testigo. Este modo es fácil de implementar pero, si el recurso compartido de archivos en sí no es de alta disponibilidad, es posible que se convierta en un único punto de error.
 * **Sin mayoría: solo disco**. El clúster tiene cuórum si hay un nodo disponible y comunicándose con un disco específico en el almacenamiento del clúster. Los únicos nodos que pueden unirse al clúster son aquellos que estén comunicándose con ese disco. No se recomienda usar este modo.
- 
+
 
 ## <a name="windows-server-failover-clustering-on-premises"></a><a name="fdfee875-6e66-483a-a343-14bbaee33275"></a> Clústeres de conmutación por error de Windows Server local
 En la figura 1 se muestra un clúster de dos nodos. Si se produce un error en la conexión de red entre los nodos pero ambos nodos se mantienen activos y en ejecución, un recurso compartido de archivos o un disco de cuórum determinará el nodo que seguirá proporcionando las aplicaciones y servicios del clúster. El nodo que tiene acceso al recurso compartido de archivos o disco de cuórum es el nodo que garantiza la continuación de los servicios.

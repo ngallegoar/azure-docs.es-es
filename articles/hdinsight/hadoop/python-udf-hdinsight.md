@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/15/2019
-ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 201bb40e5024442587f5508886da7e844f35be40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: H1Hack27Feb2017,hdinsightactive, tracking-python
+ms.openlocfilehash: 160b563e9a0ddd9b73fffc00989945dc72a1cbd9
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74148391"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964114"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Uso de funciones definidas por el usuario (UDF) de Python con Apache Hive y Apache Pig en HDInsight
 
@@ -150,11 +150,13 @@ En los siguientes comandos, reemplace `sshuser` por el nombre de usuario real, s
 
 3. Después de escribir la última línea, debe iniciarse el trabajo. Cuando el trabajo se completa, devuelve una salida similar al siguiente ejemplo:
 
-        100041    RIM 9650    d476f3687700442549a83fac4560c51c
-        100041    RIM 9650    d476f3687700442549a83fac4560c51c
-        100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
-        100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
-        100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+    ```output
+    100041    RIM 9650    d476f3687700442549a83fac4560c51c
+    100041    RIM 9650    d476f3687700442549a83fac4560c51c
+    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+    ```
 
 4. Para salir de Beeline, escriba el comando siguiente:
 
@@ -281,11 +283,13 @@ Get-AzHDInsightJobOutput `
 
 La salida del trabajo de **Hive** debe parecerse al siguiente ejemplo:
 
-    100041    RIM 9650    d476f3687700442549a83fac4560c51c
-    100041    RIM 9650    d476f3687700442549a83fac4560c51c
-    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
-    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
-    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+```output
+100041    RIM 9650    d476f3687700442549a83fac4560c51c
+100041    RIM 9650    d476f3687700442549a83fac4560c51c
+100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+```
 
 ## <a name="apache-pig-udf"></a><a name="pigpython"></a>UDF de Apache Pig
 
@@ -399,11 +403,13 @@ En los siguientes comandos, reemplace `sshuser` por el nombre de usuario real, s
 
 3. Después de escribir la siguiente línea, debe iniciarse el trabajo. Cuando el trabajo se completa, devuelve una salida similar a los datos siguientes:
 
-        ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
-        ((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
-        ((2012-02-03,20:11:56,SampleClass8,[DEBUG],detail for id 2083681507))
-        ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
-        ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
+    ```output
+    ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
+    ((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
+    ((2012-02-03,20:11:56,SampleClass8,[DEBUG],detail for id 2083681507))
+    ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
+    ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
+    ```
 
 4. Use `quit` para salir del shell de Grunt y use lo siguiente para editar el archivo pigudf.py en el sistema de archivos local:
 
@@ -549,11 +555,13 @@ Get-AzHDInsightJobOutput `
 
 La salida del trabajo de **Pig** debe parecerse a los datos siguientes:
 
-    ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
-    ((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
-    ((2012-02-03,20:11:56,SampleClass8,[DEBUG],detail for id 2083681507))
-    ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
-    ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
+```output
+((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
+((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
+((2012-02-03,20:11:56,SampleClass8,[DEBUG],detail for id 2083681507))
+((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
+((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
+```
 
 ## <a name="troubleshooting"></a><a name="troubleshooting"></a>Solución de problemas
 
@@ -561,7 +569,9 @@ La salida del trabajo de **Pig** debe parecerse a los datos siguientes:
 
 Al ejecutar el trabajo de Hive, es posible que se produzca un error similar al texto siguiente:
 
-    Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
+```output
+Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
+```
 
 Este problema puede deberse a los finales de línea del archivo de Python. De forma predeterminada, muchos editores de Windows usan CRLF como final de línea, pero las aplicaciones Linux normalmente esperan caracteres LF.
 

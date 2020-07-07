@@ -2,17 +2,17 @@
 title: Uso de Azure Event Grid con eventos del esquema CloudEvents
 description: Se describe cómo utilizar el esquema CloudEvents para eventos de Azure Event Grid. El servicio admite eventos en la implementación JSON de eventos en la nube.
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.author: babanisa
-ms.openlocfilehash: b62122e7ce981a73fe8b8b3028c123054e16330d
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.author: femila
+ms.openlocfilehash: 734ab15819437266b7bf12e3adfc960f7480325a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847606"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963400"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Uso del esquema CloudEvents v1.0 con Event Grid
 Además de su [esquema de eventos predeterminado](event-schema.md), Azure Event Grid admite de forma nativa eventos de la [implementación de JSON de CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) y el [enlace del protocolo HTTP](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) es una [especificación abierta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) para la descripción de datos de eventos.
@@ -188,7 +188,7 @@ El siguiente ejemplo de código JavaScript para un desencadenador HTTP simula el
 module.exports = function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
     
-    if (req.method == "OPTIONS) {
+    if (req.method == "OPTIONS") {
         // If the request is for subscription validation, send back the validation code
         
         context.log('Validate request received');
@@ -214,5 +214,5 @@ module.exports = function (context, req) {
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para información sobre la supervisión de las entregas de eventos, consulte [Supervisar la entrega de mensajes de Event Grid](monitor-event-delivery.md).
-* Le animamos a que pruebe CloudEvents, nos deje su opinión y [contribuya](https://github.com/cloudevents/spec/blob/master/CONTRIBUTING.md) a dicho esquema.
+* Le animamos a que pruebe CloudEvents, nos deje su opinión y [contribuya](https://github.com/cloudevents/spec/blob/master/community/CONTRIBUTING.md) a dicho esquema.
 * Para más información acerca de la creación de una suscripción de Azure Event Grid, consulte [Esquema de suscripción de Event Grid](subscription-creation-schema.md).
