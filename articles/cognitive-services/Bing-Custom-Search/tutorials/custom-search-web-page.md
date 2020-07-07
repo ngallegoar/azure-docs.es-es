@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: 588751c178205ceb21617f8d9271bfa9ed76193d
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: da1ada27b9420643f6f0b15f0986c245ba585acd
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85603356"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921947"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Creación de una página web de Custom Search
 
@@ -60,11 +60,11 @@ Para crear una instancia de Bing Custom Search:
 
 Para incluir los resultados de direcciones URL o sitios web específicos, agréguelos a la pestaña **Activos**.
 
-1.       En la página **Configuración**, haga clic en la pestaña **Activos** y escriba la dirección URL de uno o varios sitios web que va a incluir en la búsqueda.
+1. En la página **Configuración**, haga clic en la pestaña **Activos** y escriba la dirección URL de uno o varios sitios web que va a incluir en la búsqueda.
 
     ![Captura de pantalla de la pestaña Activos del Editor de definiciones](../media/customSrchEditor.png)
 
-2.       Para confirmar que la instancia devuelve resultados, escriba una consulta en el panel de vista previa de la derecha. Bing devuelve solo los resultados de sitios web públicos que ha indizado.
+2. Para confirmar que la instancia devuelve resultados, escriba una consulta en el panel de vista previa de la derecha. Bing devuelve solo los resultados de sitios web públicos que ha indizado.
 
 ## <a name="add-blocked-entries"></a>Agregar entradas bloqueadas
 

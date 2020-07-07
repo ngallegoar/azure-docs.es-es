@@ -3,12 +3,12 @@ title: Trabajos y tareas en Azure Batch
 description: Obtenga información sobre trabajos y tareas y cómo se usan en un flujo de trabajo de Azure Batch desde el punto de vista del desarrollo.
 ms.topic: conceptual
 ms.date: 05/12/2020
-ms.openlocfilehash: aeffd05a26066675ca320ab4b3c3c09e6807e6df
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 5120b76f34e81c2ceeba88767a656b5ee0d40c2f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83790812"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955376"
 ---
 # <a name="jobs-and-tasks-in-azure-batch"></a>Trabajos y tareas en Azure Batch
 
@@ -22,7 +22,7 @@ Un trabajo especifica el [grupo](nodes-and-pools.md#pools) en el que se va a eje
 
 ### <a name="job-priority"></a>prioridad del trabajo
 
-Puede asignar una prioridad de trabajo opcional a los trabajos que cree. El servicio Batch usa el valor de prioridad del trabajo para determinar el orden de programación de trabajos dentro de una cuenta (esto no se debe confundir con un [trabajo programado](#scheduled-jobs)). Los valores de prioridad pueden oscilar entre -1000 y 1000, siendo -1000 la prioridad más baja y 1000 la más alta. Para actualizar la prioridad de un trabajo, llame a la operación [Actualizar las propiedades de un trabajo](https://docs.microsoft.com/rest/api/batchservice/job/update) (REST de Batch) o modifique la propiedad [CloudJob.Priority](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudjob) (Batch para .NET).
+Puede asignar una prioridad de trabajo opcional a los trabajos que cree. El servicio Batch usa el valor de prioridad del trabajo para determinar el orden de programación de trabajos dentro de una cuenta (esto no se debe confundir con un [trabajo programado](#scheduled-jobs)). Los valores de prioridad pueden oscilar entre -1000 y 1000, siendo -1000 la prioridad más baja y 1000 la más alta. Para actualizar la prioridad de un trabajo, llame a la operación [Actualizar las propiedades de un trabajo](/rest/api/batchservice/job/update) (REST de Batch) o modifique la propiedad [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob) (Batch para .NET).
 
 Dentro de la misma cuenta, los trabajos de mayor prioridad tienen precedencia de programación sobre los trabajos con menor prioridad. Un trabajo con un valor de prioridad mayor en una cuenta no tiene precedencia de programación sobre otro trabajo con un valor de prioridad inferior de una cuenta diferente. No adelantarán a las tareas de trabajos de prioridad más baja que ya estén en ejecución.
 
@@ -39,13 +39,13 @@ Puede utilizar restricciones de trabajo para especificar determinados límites p
 
 La aplicación cliente puede agregar tareas a un trabajo o puede especificar una [tarea del administrador de trabajos](#job-manager-task). Una tarea del administrador de trabajos contiene la información necesaria para crear las tareas que se requieren para un trabajo. Estas tareas se ejecutan en uno de los nodos de proceso del grupo. El servicio Batch controla específicamente las tareas del administrador de trabajos; las pone en cola en cuanto se crea el trabajo y las reinicia si se produce un error. Se requiere una tarea del administrador de trabajos para los trabajos creados mediante una [programación de trabajo](#scheduled-jobs), ya que es la única manera de definir las tareas antes de que se cree una instancia del trabajo.
 
-De manera predeterminada, los trabajos permanecen en estado activo cuando se completan todas las tareas que contienen. Este comportamiento se puede cambiar, con el fin de que el trabajo finalice automáticamente cuando se completen todas sus tareas. Establezca la propiedad **onAllTasksComplete** ([OnAllTasksComplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudjob) en .NET de Batch) en *terminatejob* para que el trabajo finalice automáticamente cuando todas sus tareas estén en estado completado.
+De manera predeterminada, los trabajos permanecen en estado activo cuando se completan todas las tareas que contienen. Este comportamiento se puede cambiar, con el fin de que el trabajo finalice automáticamente cuando se completen todas sus tareas. Establezca la propiedad **onAllTasksComplete** ([OnAllTasksComplete](/dotnet/api/microsoft.azure.batch.cloudjob) en .NET de Batch) en *terminatejob* para que el trabajo finalice automáticamente cuando todas sus tareas estén en estado completado.
 
 El servicio Batch considera que un trabajo *sin* tareas tiene todas sus tareas completadas. Por lo tanto, esta opción se utiliza normalmente con una [tarea del administrador de trabajos](#job-manager-task). Si desea usar la finalización automática de trabajos sin un administrador de trabajos, debe establecer inicialmente la propiedad **onAllTasksComplete** de cada trabajo nuevo en *noaction* y, después, establecerla en *terminatejob*, pero solo después de que haya terminado de agregar tareas al trabajo.
 
 ### <a name="scheduled-jobs"></a>Scheduled jobs
 
-Las [programaciones de trabajos](https://docs.microsoft.com/rest/api/batchservice/jobschedule) permiten crear trabajos recurrentes dentro del servicio Batch. Una programación de trabajo especifica cuándo se deben ejecutar los trabajos e incluye las especificaciones de los trabajos que se van a ejecutar. Puede especificar la duración de la programación (cuánto dura y cuándo está vigente), y con qué frecuencia se crean trabajos durante el período programado.
+Las [programaciones de trabajos](/rest/api/batchservice/jobschedule) permiten crear trabajos recurrentes dentro del servicio Batch. Una programación de trabajo especifica cuándo se deben ejecutar los trabajos e incluye las especificaciones de los trabajos que se van a ejecutar. Puede especificar la duración de la programación (cuánto dura y cuándo está vigente), y con qué frecuencia se crean trabajos durante el período programado.
 
 ## <a name="tasks"></a>Tareas
 
@@ -153,11 +153,11 @@ Para más detalles, consulte [Dependencias de tareas en Azure Batch](batch-task-
 
 ### <a name="environment-settings-for-tasks"></a>Configuración del entorno para las tareas
 
-Cada tarea que ejecuta el servicio Batch tiene acceso a las variables de entorno que establece en los nodos de proceso. Esto incluye las variables de entorno definidas por el servicio Batch ([definidas por el servicio](https://docs.microsoft.com/azure/batch/batch-compute-node-environment-variables)) y las variables de entorno personalizadas que se pueden definir para las tareas. Las aplicaciones y los scripts que ejecutan las tareas tienen acceso a estas variables de entorno durante la ejecución.
+Cada tarea que ejecuta el servicio Batch tiene acceso a las variables de entorno que establece en los nodos de proceso. Esto incluye las variables de entorno definidas por el servicio Batch ([definidas por el servicio](./batch-compute-node-environment-variables.md)) y las variables de entorno personalizadas que se pueden definir para las tareas. Las aplicaciones y los scripts que ejecutan las tareas tienen acceso a estas variables de entorno durante la ejecución.
 
-Puede establecer variables de entorno personalizadas en el nivel de tarea o de trabajo rellenando la propiedad *environment settings* de estas entidades. Para más detalles, consulte la operación [Incorporación de una tarea a un trabajo](https://docs.microsoft.com/rest/api/batchservice/task/add?) (API REST de Batch) o las propiedades [CloudTask.EnvironmentSettings](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask) y [CloudJob.CommonEnvironmentSettings](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudjob) en Batch para .NET.
+Puede establecer variables de entorno personalizadas en el nivel de tarea o de trabajo rellenando la propiedad *environment settings* de estas entidades. Para más detalles, consulte la operación [Incorporación de una tarea a un trabajo](/rest/api/batchservice/task/add?) (API REST de Batch) o las propiedades [CloudTask.EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask) y [CloudJob.CommonEnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudjob) en Batch para .NET.
 
-La aplicación cliente o el servicio pueden obtener las variables de entorno de una tarea, tanto las definidas por el servicio como las personalizadas, mediante la operación [Get information about a task](https://docs.microsoft.com/rest/api/batchservice/task/get) (Obtener información acerca de una tarea) (REST de Batch) o accediendo a la propiedad [CloudTask.EnvironmentSettings](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask) (Batch para .NET). Los procesos que se ejecutan en un nodo de proceso pueden acceder a estas y a otras variables de entorno en el nodo, por ejemplo mediante la conocida sintaxis de `%VARIABLE_NAME%` (Windows) o `$VARIABLE_NAME` (Linux).
+La aplicación cliente o el servicio pueden obtener las variables de entorno de una tarea, tanto las definidas por el servicio como las personalizadas, mediante la operación [Get information about a task](/rest/api/batchservice/task/get) (Obtener información acerca de una tarea) (REST de Batch) o accediendo a la propiedad [CloudTask.EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask) (Batch para .NET). Los procesos que se ejecutan en un nodo de proceso pueden acceder a estas y a otras variables de entorno en el nodo, por ejemplo mediante la conocida sintaxis de `%VARIABLE_NAME%` (Windows) o `$VARIABLE_NAME` (Linux).
 
 Puede encontrar una lista completa de las variables de entorno definidas por el servicio en [Compute node environment variables](batch-compute-node-environment-variables.md) (Variables de entorno en los nodos de proceso).
 

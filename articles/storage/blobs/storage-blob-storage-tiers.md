@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 41b7dc2b7ddcf5d8bd15043d117a25771a278f95
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 14e8b3e28115fb191760382ed2a9fbd5c5a04114
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204878"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85919915"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo
 
@@ -82,7 +82,7 @@ El almacenamiento por niveles de blob permite cargar datos en el nivel de acceso
 La hora del último cambio de nivel de blob se expone a través de la propiedad de blob **access tier change time**. Al sobrescribir un blob en el nivel de acceso frecuente o esporádico, el blob recién creado hereda el nivel del blob que se ha sobrescrito a menos que el nuevo nivel de acceso del blob se establezca explícitamente en la creación. Si un blob está en el nivel de archivo, no se puede sobrescribir y, por tanto, la carga del mismo blob no se permite en este escenario. 
 
 > [!NOTE]
-> El almacenamiento de archivo y el almacenamiento por niveles de blob solo admiten blobs en bloques. Actualmente tampoco se puede cambiar el nivel de un blob en bloques que tiene instantáneas.
+> El almacenamiento de archivo y el almacenamiento por niveles de blob solo admiten blobs en bloques.
 
 ### <a name="blob-lifecycle-management"></a>Administración del ciclo de vida de blobs
 
@@ -145,7 +145,7 @@ En esta sección se muestran los siguientes escenarios mediante Azure Portal y P
 
 1. En Azure Portal, busque y seleccione **Todos los recursos**.
 
-1. Seleccione su cuenta de almacenamiento.
+1. Seleccione la cuenta de almacenamiento.
 
 1. En **Configuración**, seleccione **Configuración** para ver y cambiar la configuración de la cuenta.
 
@@ -173,7 +173,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 1. En Azure Portal, busque y seleccione **Todos los recursos**.
 
-1. Seleccione su cuenta de almacenamiento.
+1. Seleccione la cuenta de almacenamiento.
 
 1. Seleccione el contenedor y, luego, seleccione el blob.
 

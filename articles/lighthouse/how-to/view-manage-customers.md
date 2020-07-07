@@ -2,13 +2,13 @@
 title: Ver y administrar clientes y recursos delegados
 description: Como proveedor de servicios con la administración de recursos delegados de Azure, puede ver todos los recursos y suscripciones de clientes delegados desde la sección Mis clientes de Azure Portal.
 ms.date: 01/22/2020
-ms.topic: conceptual
-ms.openlocfilehash: 0d4b3187066754e8a549f029623762df539b30b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: how-to
+ms.openlocfilehash: 9d793d73190b0b35b9794cf926405ebcad07a3d1
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76543433"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920826"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Ver y administrar clientes y recursos delegados
 
@@ -16,9 +16,9 @@ Los proveedores de servicios que usan la [administración de recursos delegados 
 
 Para acceder a la página **Mis clientes** en Azure Portal, seleccione **Todos los servicios**, busque **Mis clientes** y seleccione esta opción. También puede acceder aquí escribiendo "Mis clientes" en el cuadro de búsqueda situado cerca de la parte superior de Azure Portal.
 
-Tenga en cuenta que la sección superior **Clientes** de la página **Mis clientes** solo muestra información sobre los clientes que tienen suscripciones o grupos de recursos delegados. Si trabaja con otros clientes (por ejemplo, mediante el [programa Proveedor de soluciones en la nube](https://docs.microsoft.com/partner-center/csp-overview), no verá información sobre sus clientes en la sección **Clientes** a menos que haya incorporado sus recursos a la administración de recursos delegados de Azure.
+Tenga en cuenta que la sección superior **Clientes** de la página **Mis clientes** solo muestra información sobre los clientes que tienen suscripciones o grupos de recursos delegados. Si trabaja con otros clientes (por ejemplo, mediante el [programa Proveedor de soluciones en la nube](/partner-center/csp-overview), no verá información sobre sus clientes en la sección **Clientes** a menos que haya incorporado sus recursos a la administración de recursos delegados de Azure.
 
-Más abajo en la página, una sección independiente llamada **Proveedor de soluciones en la nube (versión preliminar)** muestra la información de facturación y los recursos para los clientes de CSP que han [firmado el Contrato de cliente de Microsoft (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) y usan [el plan de Azure](https://docs.microsoft.com/partner-center/azure-plan-get-started). Para obtener más información, consulte [Introducción a la cuenta de facturación para un contrato Microsoft Partner Agreement](../../billing/mpa-overview.md). Tenga en cuenta que esos clientes de CSP aparecen en esta sección independientemente de si también los ha incorporado para la administración de recursos delegados de Azure. Del mismo modo, no es necesario que un cliente de CSP aparezca en la sección **Proveedor de soluciones en la nube (versión preliminar)** de **Mis clientes** para poder incorporarlo a la administración de recursos delegados de Azure.
+Más abajo en la página, una sección independiente llamada **Proveedor de soluciones en la nube (versión preliminar)** muestra la información de facturación y los recursos para los clientes de CSP que han [firmado el Contrato de cliente de Microsoft (MCA)](/partner-center/confirm-customer-agreement) y usan [el plan de Azure](/partner-center/azure-plan-get-started). Para obtener más información, consulte [Introducción a la cuenta de facturación para un contrato Microsoft Partner Agreement](../../billing/mpa-overview.md). Tenga en cuenta que esos clientes de CSP aparecen en esta sección independientemente de si también los ha incorporado para la administración de recursos delegados de Azure. Del mismo modo, no es necesario que un cliente de CSP aparezca en la sección **Proveedor de soluciones en la nube (versión preliminar)** de **Mis clientes** para poder incorporarlo a la administración de recursos delegados de Azure.
 
 > [!NOTE]
 > Los clientes pueden ver información sobre los proveedores de servicios navegando a **Proveedores de servicios** en Azure Portal. Para obtener más información, consulte [View and manage service providers](view-manage-service-providers.md) (Ver y administrar los proveedores de servicios).

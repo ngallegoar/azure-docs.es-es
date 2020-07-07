@@ -4,12 +4,12 @@ description: Conéctese a una red de Azure Blockchain Service mediante MetaMask 
 ms.date: 09/12/2019
 ms.topic: quickstart
 ms.reviewer: janders
-ms.openlocfilehash: c0bad9efde44ce53f6b0656af3ac4af32ffe051d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: abb2479b81d4811b311d27fb0be9900f2827e939
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79205112"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920585"
 ---
 # <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Inicio rápido: Uso de MetaMask para conectarse a un contrato inteligente e implementarlo
 
@@ -17,7 +17,7 @@ En este inicio rápido, usará MetaMask para conectarse a una red de Azure Block
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Realizar el tutorial [Quickstart: Creación de un miembro de cadena de bloques mediante Azure Portal](create-member.md) o [Inicio rápido: Creación de un miembro de cadena de bloques de Azure Blockchain Service mediante la CLI de Azure](create-member-cli.md)
 * Instalar la [extensión del explorador MetaMask](https://metamask.io)
@@ -128,9 +128,9 @@ Remix es un entorno de desarrollo de Solidity basado en explorador. Cuando se us
 
 En el panel de depuración de Remix se muestran detalles acerca de las transacciones sobre la cadena de bloques:
 
-    ![Debug history](./media/connect-metamask/debug.png)
+![Historial de depuración](./media/connect-metamask/debug.png)
 
-    You can see the **simple** contract creation, transaction for **simple.add**, and call to **simple.get**.
+Puede ver la creación del contrato **simple** (sencillo), la transacción de **simple.add** y la llamada a **simple.get**.
 
 Para ver el historial de transacciones en MetaMask, abra la extensión del explorador MetaMask y busque en la sección **History** (Historial) para obtener un registro del contrato implementado y las transacciones.
 

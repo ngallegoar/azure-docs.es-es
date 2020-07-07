@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2774fc1374bf7fa3ed171258e8b1b51cfdb4b8b1
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: e41d3b47408d29a0463eed5f23117801be107c27
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612952"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920711"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configuración de controles de acceso basado en rol en el acelerador de soluciones de supervisión remota
 
@@ -50,7 +50,7 @@ De manera predeterminada, al usuario que implementa la solución se le asigna au
 
 ## <a name="add-or-remove-users"></a>Incorporación o eliminación de usuarios
 
-Como propietario de la aplicación de Azure Active Directory, puede usar Azure Portal para agregar un usuario a un rol o quitarlo desde la solución de supervisión remota. En los pasos siguientes se usa la [aplicación empresarial de Azure Active Directory](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) que se creó cuando implementó la solución de supervisión remota.
+Como propietario de la aplicación de Azure Active Directory, puede usar Azure Portal para agregar un usuario a un rol o quitarlo desde la solución de supervisión remota. En los pasos siguientes se usa la [aplicación empresarial de Azure Active Directory](../active-directory/manage-apps/view-applications-portal.md) que se creó cuando implementó la solución de supervisión remota.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 

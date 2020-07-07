@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/06/2019
+ms.topic: how-to
+ms.date: 06/09/2020
 ms.author: b-juche
-ms.openlocfilehash: 6f5d84dea2e835fd12a062b628181354295ed9f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cdb96f08f78e22dd0e46070ab62bf9327e2d72a3
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234112"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956311"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registro en Azure NetApp Files
 
@@ -30,7 +30,7 @@ En este artículo, obtendrá información sobre cómo registrarse en Azure NetAp
 
 ## <a name="submit-a-waitlist-request-for-accessing-the-service"></a><a name="waitlist"></a>Envío de una solicitud de lista de espera para acceder al servicio
 
-1. Envíe una solicitud de lista de espera para acceder al servicio de Azure NetApp File a través de la [página de envío de lista de espera de Azure NetApp Files](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u). 
+1. Envíe una solicitud de lista de espera para acceder al servicio de Azure NetApp File a través de la [página de envío de lista de espera de Azure NetApp Files](https://aka.ms/azurenetappfiles). 
 
     El registro de la lista de espera no garantiza un acceso inmediato al servicio. 
 
@@ -52,16 +52,22 @@ Para usar el servicio, debe registrar el proveedor de recursos de Azure para Azu
 
 2. Si tiene varias suscripciones en su cuenta de Azure, seleccione una que figure en la lista blanca para Azure NetApp Files:
     
-        az account set --subscription <subscriptionId>
+    ```azurepowershell
+    az account set --subscription <subscriptionId>
+    ```
 
 3. En la consola de Azure Cloud Shell, escriba el siguiente comando para comprobar que su suscripción se ha incluido en la lista blanca:
     
-        az feature list | grep NetApp
+    ```azurepowershell
+    az feature list | grep NetApp
+    ```
 
    La salida del comando tiene el siguiente aspecto:
    
-       "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/ANFGA",  
-       "name": "Microsoft.NetApp/ANFGA" 
+    ```output
+    "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/ANFGA",  
+    "name": "Microsoft.NetApp/ANFGA" 
+    ```
        
    `<SubID>` es su identificador de suscripción.
 
@@ -69,21 +75,27 @@ Para usar el servicio, debe registrar el proveedor de recursos de Azure para Azu
 
 4. En la consola de Azure Cloud Shell, escriba el comando siguiente para registrar el proveedor de recursos de Azure: 
     
-        az provider register --namespace Microsoft.NetApp --wait
+    ```azurepowershell
+    az provider register --namespace Microsoft.NetApp --wait
+    ```
 
    El parámetro `--wait` le indica a la consola que espere a que se complete el registro. El proceso de registro puede tardar algún tiempo en completarse.
 
 5. En la consola de Azure Cloud Shell, escriba el comando siguiente para comprobar que se ha registrado el proveedor de recursos de Azure: 
     
-        az provider show --namespace Microsoft.NetApp
+    ```azurepowershell
+    az provider show --namespace Microsoft.NetApp
+    ```
 
    La salida del comando tiene el siguiente aspecto:
    
-        {
-        "id": "/subscriptions/<SubID>/providers/Microsoft.NetApp",
-        "namespace": "Microsoft.NetApp", 
-        "registrationState": "Registered", 
-        "resourceTypes": […. 
+    ```output
+    {
+     "id": "/subscriptions/<SubID>/providers/Microsoft.NetApp",
+     "namespace": "Microsoft.NetApp", 
+     "registrationState": "Registered", 
+     "resourceTypes": […. 
+    ```
 
    `<SubID>` es su identificador de suscripción.  El valor del parámetro `state` indica `Registered`.
 

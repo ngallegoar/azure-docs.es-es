@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 92a24a59038eb74a6a2f6a738005ff8aadf35ff0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7c8a8bcef548ae752b6ddeb7663dd82b3f245349
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658063"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957892"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar la opción de publicación
 
@@ -60,7 +60,7 @@ Las aplicaciones de **Azure Marketplace** son soluciones técnicas de "bloques d
 
 ## <a name="choose-a-publishing-option"></a>Selección de la opción de publicación
 
-Las opciones de publicación disponibles ofrecen un compromiso diferenciado del cliente y le ofrecen acceso al uso compartido de clientes potenciales y a [ventajas de Marketplace comercial](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits). Tenga en cuenta las llamadas a la acción que se corresponden con la opción de publicación:
+Las opciones de publicación disponibles ofrecen un compromiso diferenciado del cliente y le ofrecen acceso al uso compartido de clientes potenciales y a [ventajas de Marketplace comercial](gtm-your-marketplace-benefits.md). Tenga en cuenta las llamadas a la acción que se corresponden con la opción de publicación:
 
 | **Opción de publicación**    | **Descripción**  |
 | :------------------- | :-------------------|

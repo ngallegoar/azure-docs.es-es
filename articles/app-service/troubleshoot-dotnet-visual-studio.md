@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
-ms.openlocfilehash: 516c7f50f7ff9fe947475b12120a527fc69353bc
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 26746a477da301eb352f002e105e883f992aaf0a
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926857"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857210"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Solución de problemas de una aplicación en Azure App Service con Visual Studio
 ## <a name="overview"></a>Información general
@@ -348,7 +348,9 @@ Para obtener información acerca de cómo crear registros de aplicaciones en Web
 
     De manera predeterminada, `trace.axd` solo está disponible localmente. Si desea que esté disponible desde una aplicación remota, puede agregar `localOnly="false"` al elemento `trace` en el archivo *Web.config*, tal como aparece en el siguiente ejemplo:
 
-        <trace enabled="true" writeToDiagnosticsTrace="true" localOnly="false" mostRecent="true" pageOutput="false" />
+    ```xml
+    <trace enabled="true" writeToDiagnosticsTrace="true" localOnly="false" mostRecent="true" pageOutput="false" />
+    ```
 
     Pero no se recomienda habilitar `trace.axd` en una aplicación de producción por motivos de seguridad. En las siguientes secciones, verá una forma más sencilla de leer registros de seguimiento en una aplicación de App Service.
 

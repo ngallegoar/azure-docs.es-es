@@ -2,13 +2,13 @@
 title: Supervisión de los cambios en la delegación en el inquilino de administración
 description: Aprenda a supervisar la actividad de delegación en los inquilinos de clientes o en el inquilino de administración.
 ms.date: 03/30/2020
-ms.topic: conceptual
-ms.openlocfilehash: a4593b34311eca34e4fb68926a3820899ab3f324
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 9a772cc577392558f050211b7f767928ecbb707b
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458818"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85919141"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Supervisión de los cambios en la delegación en el inquilino de administración
 
@@ -44,7 +44,7 @@ Dado que se trata de un amplio nivel de acceso, se recomienda que asigne este ro
 
 - [Cree una nueva cuenta de entidad de servicio](../../active-directory/develop/howto-create-service-principal-portal.md) que se usará solo para esta función, en vez de asignar este rol a una entidad de servicio existente usada para otra automatización.
 - Asegúrese de que esta entidad de servicio no tiene acceso a ningún recurso de cliente delegado.
-- [Use un certificado para la autenticación](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) y [almacénelo de forma segura en Azure Key Vault](../../key-vault/general/best-practices.md).
+- [Use un certificado para la autenticación](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in) y [almacénelo de forma segura en Azure Key Vault](../../key-vault/general/best-practices.md).
 - Limite los usuarios que tienen acceso para actuar en nombre de la entidad de servicio.
 
 Use uno de los métodos siguientes para realizar las asignaciones en el ámbito raíz.
@@ -73,7 +73,7 @@ Una vez creada la cuenta de la entidad de servicio y asignado el rol Lector de s
 
 Una vez que haya creado una nueva cuenta de entidad de servicio con el acceso de Lector de supervisión en el ámbito raíz del inquilino de administración, puede usarla para consultar e informar sobre las actividades de delegación en el inquilino. 
 
-[Este script de Azure PowerShell](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) se puede usar para consultar el último día de actividad y notifica sobre cualquier delegación agregada o eliminada (o intentos de delegaciones que no se realizaron correctamente). Consulta los datos del [registro de actividad del inquilino](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) y, a continuación, construye los valores siguientes para notificar las delegaciones que se han agregado o eliminado:
+[Este script de Azure PowerShell](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) se puede usar para consultar el último día de actividad y notifica sobre cualquier delegación agregada o eliminada (o intentos de delegaciones que no se realizaron correctamente). Consulta los datos del [registro de actividad del inquilino](/rest/api/monitor/TenantActivityLogs/List) y, a continuación, construye los valores siguientes para notificar las delegaciones que se han agregado o eliminado:
 
 - **DelegatedResourceId**: El identificador de la suscripción o grupo de recursos delegados
 - **CustomerTenantId**: El identificador de inquilino del cliente

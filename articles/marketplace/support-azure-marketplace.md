@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: bd973a859ce1fa6a9ce5566b1403331988630960
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 8615a853ea218c0598f33d87d39c9ead15709cc0
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828107"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955461"
 ---
 # <a name="support-for-microsoft-commercial-marketplace"></a>Soporte técnico de Marketplace comercial de Microsoft
 
@@ -43,10 +43,9 @@ Abra un vale con el [soporte técnico del anunciante de Marketplace](https://aka
 | Correo electrónico: [gtm@microsoft.com](mailto:gtm@microsoft.com) | Ayuda para las ventajas de GTM y preguntas relativas al programa. | El horario comercial es el de la zona horaria del Pacífico. |  
 | Correo electrónico: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Responde a preguntas sobre el uso de logotipos de Azure y la personalización de marca. |  |  
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte la [guía del publicador de marketplace comercial](https://docs.microsoft.com/azure/marketplace/).
-* Más información acerca del [Soporte técnico para el programa de marketplace comercial en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+* Consulte la [guía del publicador de marketplace comercial](index.yml).
+* Más información acerca del [Soporte técnico para el programa de marketplace comercial en el Centro de partners](partner-center-portal/support.md).
 
 ---

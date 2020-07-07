@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 9b6265bed138960a3839091ed1593413fc85710a
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82858597"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Solución de problemas del dispositivo IoT Edge
@@ -42,7 +42,7 @@ iotedge check
 
 La herramienta de solución de problemas ejecuta muchas comprobaciones que se clasifican en estas tres categorías:
 
-* Las comprobaciones de seguridad examinan detalles que podrían evitar que los dispositivos de IoT Edge se conectaran a la nube, incluidos problemas con *config.yaml* y el motor del contenedor.
+* Las comprobaciones de seguridad examinan detalles que podrían evitar que los dispositivos de IoT Edge se conectaran a la nube, incluidos problemas con *config.yaml* y el motor del contenedor *.*
 * Las *comprobaciones de conexión* comprueban que el entorno en tiempo de ejecución de IoT Edge pueda acceder a los puertos en el dispositivo de host y que todos los componentes de IoT Edge puedan conectarse a IoT Hub. Este conjunto de comprobaciones devuelve errores si el dispositivo IoT Edge está detrás de un proxy.
 * Las *comprobaciones de preparación para producción* buscan procedimientos recomendados de producción, como el estado de los certificados de la entidad de certificación (CA) del dispositivo y la configuración del archivo de registro de módulo.
 

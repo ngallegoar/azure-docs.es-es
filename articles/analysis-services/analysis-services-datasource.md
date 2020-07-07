@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 83a5543aa2d1f30696bed05caf85b04ed6685bae
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 5b0639179c21aefebc44222c9efaa4cd8d9c82f5
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84197217"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921901"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Orígenes de datos admitidos en Azure Analysis Services
 
@@ -23,7 +23,7 @@ Los orígenes de datos y los conectores que se muestran en Obtener datos o en el
 |Origen de datos  |En memoria  |DirectQuery  |Notas |
 |---------|---------|---------|---------|
 |Azure SQL Database      |   Sí      |    Sí      |<sup>[2](#azprovider)</sup>, <sup>[3](#azsqlmanaged)</sup>|
-|Azure Synapse Analytics (SQL Data Warehouse)      |   Sí      |   Sí       |<sup>[2](#azprovider)</sup>|
+|Azure Synapse Analytics (SQL DW)      |   Sí      |   Sí       |<sup>[2](#azprovider)</sup>|
 |Azure Blob Storage      |   Sí       |    No      | <sup>[1](#tab1400a)</sup> |
 |Azure Table Storage     |   Sí       |    No      | <sup>[1](#tab1400a)</sup>|
 |Azure Cosmos DB     |  Sí        |  No        |<sup>[1](#tab1400a)</sup> |

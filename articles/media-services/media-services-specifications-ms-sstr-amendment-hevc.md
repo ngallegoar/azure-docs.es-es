@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
-ms.openlocfilehash: be4009d418f2f8f3dff755e2e990efee593f070b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 30ca3bb86426b144fa6cbf5c63888d9546919ebf
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76514228"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954699"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Modificación del protocolo Smooth Streaming (MS-SSTR) para HEVC 
 
@@ -242,10 +242,12 @@ ProtectionElement DEBERÁ estar presente cuando se ha aplicado cifrado común (C
 > 
 >   La sintaxis de los campos definidos en esta sección, tal como se especifica en ABNF [[RFC5234],](https://go.microsoft.com/fwlink/?LinkId=123096) es la siguiente:
 
-    FileType = MajorBrand MinorVersion CompatibleBrands
-    MajorBrand = STRING_UINT32
-    MinorVersion = STRING_UINT32
-    CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
+```properties
+FileType = MajorBrand MinorVersion CompatibleBrands
+MajorBrand = STRING_UINT32
+MinorVersion = STRING_UINT32
+CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
+```
 
 **Nota**: Las marcas de compatibilidad "ccff" e "iso8" indican que los fragmentos se ajustan al "Common Container File Format" (Formato de archivo de contenedor común) con cifrado común [ISO/IEC 23001-7] y al formato de archivo multimedia básico ISO Edición 4 [ISO/IEC 14496-12].
 
@@ -288,14 +290,18 @@ ProtectionElement DEBERÁ estar presente cuando se ha aplicado cifrado común (C
 > 
 >   Las presentaciones que contienen secuencias HEVC DEBERÁN establecer:
 
-    MajorVersion = 2
-    MinorVersion = 2
+```properties
+MajorVersion = 2
+MinorVersion = 2
+```
 
 >   LookaheadCount = 0 (Nota: Cuadros en desuso)
 > 
 >   Las presentaciones también DEBERÍAN establecer:
 
-    TimeScale = 90000
+```properties
+TimeScale = 90000
+```
 
 >   Colección de secuencia: una colección de elementos de datos Stream Description, como se especifica en la sección *3.1.1.1.2*.
 > 

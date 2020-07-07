@@ -9,17 +9,17 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.custom: sqldbrb=1
-ms.date: 04/28/2020
-ms.openlocfilehash: 82e0cec514849eb41272e6b25dcce74eabfa2b8d
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 06/03/2020
+ms.openlocfilehash: 17d985681ab7a547bf715b1f8bb8d37cbf7ab662
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84190306"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954118"
 ---
 # <a name="sql-database-audit-log-format"></a>Formato del registro de auditoría de SQL Database
 
-[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
+[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 La [auditoría de Azure SQL Database](auditing-overview.md) realiza el seguimiento de eventos de base de datos y los escribe en una auditoría de registro en la cuenta de Azure Storage, o los envía al centro de eventos o a Log Analytics para el análisis y el procesamiento de bajada.
 
@@ -31,7 +31,7 @@ Los registros de auditoría almacenados en Azure Blob Storage se almacenan en u
 
 Por ejemplo, para la base de datos `Database1` en `Server1`, la siguiente es una posible ruta de acceso válida:
 
-    Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel
+`Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel`
 
 Los registros de auditoría de las [réplicas de solo lectura](read-scale-out.md) se almacenan en el mismo contenedor. La jerarquía de directorios dentro del contenedor tiene el formato `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`. El nombre de archivo del blob comparte el mismo formato. Los registros de auditoría de las réplicas de solo lectura se almacenan en el mismo contenedor.
 

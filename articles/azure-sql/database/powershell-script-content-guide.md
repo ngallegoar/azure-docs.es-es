@@ -2,7 +2,7 @@
 title: Ejemplo de script de Azure PowerShell
 description: Use ejemplos de scripts de Azure PowerShell que le ayudarán a crear y administrar recursos de Instancia administrada de Azure SQL y Azure SQL Database.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: PowerShell
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: cb8abf563834e23472589cd65bfe4196131d0138
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: 77220fabc78dd10b4299219ef84c1f6eb32ba82e
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718587"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85987330"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database-and-azure-sql-managed-instance"></a>Ejemplos de Azure PowerShell para Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -32,7 +32,7 @@ Si decide instalar y usar PowerShell de manera local, en este tutorial se requie
 
 En la tabla siguiente se incluyen vínculos a scripts de Azure PowerShell para Azure SQL Database.
 
-| |  |
+|Vínculo|Descripción|
 |---|---|
 |**Creación y configuración de bases de datos únicas y grupos elásticos**||
 | [Creación de una base de datos única y configuración de una regla de firewall de nivel de servidor](scripts/create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script de PowerShell crea una base de datos única y configura una regla de firewall IP en el nivel de servidor. |
@@ -64,7 +64,7 @@ Obtenga más información sobre la [API de la base de datos única de Azure Powe
 
 En la tabla siguiente se incluyen vínculos a ejemplos de scripts de Azure PowerShell para Instancia administrada de Azure SQL.
 
-| |  |
+|Vínculo|Descripción|
 |---|---|
 |**Creación y configuración de instancias administradas**||
 | [Creación y administración de una instancia administrada](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | Este script de PowerShell muestra cómo crear y administrar una instancia administrada mediante Azure PowerShell. |

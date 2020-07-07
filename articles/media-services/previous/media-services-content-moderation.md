@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: 83fe7867a3128ac82597c028452863a1ad681ace
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70d824522e1ae71bd49050779ff37e821d560783
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77914337"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954713"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Usar Azure Media Content Moderator para detectar contenido para adultos 
 
@@ -84,9 +84,11 @@ La salida JSON incluye los siguientes elementos:
 ### <a name="task-configuration-preset"></a>Configuración de tareas (valor predeterminado)
 Cuando cree una tarea con **Azure Media Content Moderator**, tiene que especificar una configuración preestablecida. El siguiente valor predeterminado de configuración es solo para la moderación de contenido.
 
-    {
-      "version":"2.0"
-    }
+```json
+{
+    "version":"2.0"
+}
+```
 
 ### <a name="net-code-sample"></a>Ejemplo de código de .NET
 
@@ -95,81 +97,83 @@ Consulte la [guía de inicio rápido para vídeos de Content Moderator](../../co
 
 
 ```csharp
-    /// <summary>
-    /// Run the Content Moderator job on the designated Asset from local file or blob storage
-    /// </summary>
-    /// <param name="asset"></param>
-    static void RunContentModeratorJob(IAsset asset)
+/// <summary>
+/// Run the Content Moderator job on the designated Asset from local file or blob storage
+/// </summary>
+/// <param name="asset"></param>
+static void RunContentModeratorJob(IAsset asset)
+{
+    // Grab the presets
+    string configuration = File.ReadAllText(CONTENT_MODERATOR_PRESET_FILE);
+
+    // grab instance of Azure Media Content Moderator MP
+    IMediaProcessor mp = _context.MediaProcessors.GetLatestMediaProcessorByName(MEDIA_PROCESSOR);
+
+    // create Job with Content Moderator task
+    IJob job = _context.Jobs.Create(String.Format("Content Moderator {0}",
+               asset.AssetFiles.First() + "_" + Guid.NewGuid()));
+
+    ITask contentModeratorTask = job.Tasks.AddNew("Adult and racy classifier task",
+                                                  mp, configuration,
+                                                  TaskOptions.None);
+    contentModeratorTask.InputAssets.Add(asset);
+    contentModeratorTask.OutputAssets.AddNew("Adult and racy classifier output",
+                                             AssetCreationOptions.None);
+
+    job.Submit();
+
+
+    // Create progress printing and querying tasks
+    Task progressPrintTask = new Task(() =>
     {
-        // Grab the presets
-        string configuration = File.ReadAllText(CONTENT_MODERATOR_PRESET_FILE);
-
-        // grab instance of Azure Media Content Moderator MP
-        IMediaProcessor mp = _context.MediaProcessors.GetLatestMediaProcessorByName(MEDIA_PROCESSOR);
-
-        // create Job with Content Moderator task
-        IJob job = _context.Jobs.Create(String.Format("Content Moderator {0}",
-                asset.AssetFiles.First() + "_" + Guid.NewGuid()));
-
-        ITask contentModeratorTask = job.Tasks.AddNew("Adult and racy classifier task",
-                mp, configuration,
-                TaskOptions.None);
-        contentModeratorTask.InputAssets.Add(asset);
-        contentModeratorTask.OutputAssets.AddNew("Adult and racy classifier output",
-            AssetCreationOptions.None);
-
-        job.Submit();
-
-
-        // Create progress printing and querying tasks
-        Task progressPrintTask = new Task(() =>
+        IJob jobQuery = null;
+        do
         {
-            IJob jobQuery = null;
-            do
-            {
-                var progressContext = _context;
-                jobQuery = progressContext.Jobs
+            var progressContext = _context;
+            jobQuery = progressContext.Jobs
                 .Where(j => j.Id == job.Id)
-                    .First();
-                    Console.WriteLine(string.Format("{0}\t{1}",
-                    DateTime.Now,
-                    jobQuery.State));
-                    Thread.Sleep(10000);
-             }
-             while (jobQuery.State != JobState.Finished &&
-             jobQuery.State != JobState.Error &&
-             jobQuery.State != JobState.Canceled);
-        });
-        progressPrintTask.Start();
-
-        Task progressJobTask = job.GetExecutionProgressTask(
-        CancellationToken.None);
-        progressJobTask.Wait();
-
-        // If job state is Error, the event handling 
-        // method for job progress should log errors.  Here we check 
-        // for error state and exit if needed.
-        if (job.State == JobState.Error)
-        {
-            ErrorDetail error = job.Tasks.First().ErrorDetails.First();
-            Console.WriteLine(string.Format("Error: {0}. {1}",
-            error.Code,
-            error.Message));
+                .First();
+            Console.WriteLine(string.Format("{0}\t{1}",
+                                            DateTime.Now,
+                                            jobQuery.State));
+            Thread.Sleep(10000);
         }
+        while (jobQuery.State != JobState.Finished &&
+               jobQuery.State != JobState.Error &&
+               jobQuery.State != JobState.Canceled);
+    });
+    progressPrintTask.Start();
 
-        DownloadAsset(job.OutputMediaAssets.First(), OUTPUT_FOLDER);
+    Task progressJobTask = job.GetExecutionProgressTask(
+                           CancellationToken.None);
+    progressJobTask.Wait();
+
+    // If job state is Error, the event handling 
+    // method for job progress should log errors.  Here we check 
+    // for error state and exit if needed.
+    if (job.State == JobState.Error)
+    {
+        ErrorDetail error = job.Tasks.First().ErrorDetails.First();
+        Console.WriteLine(string.Format("Error: {0}. {1}",
+                          error.Code,
+                          error.Message));
     }
 
-For the full source code and the Visual Studio project, check out the [Content Moderator video quickstart](../../cognitive-services/Content-Moderator/video-moderation-api.md).
+    DownloadAsset(job.OutputMediaAssets.First(), OUTPUT_FOLDER);
+}
+```
 
-### JSON output
+Para obtener el código fuente y el proyecto de Visual Studio completos, consulte la [guía de inicio rápido para vídeos de Content Moderator](../../cognitive-services/Content-Moderator/video-moderation-api.md).
 
-The following example of a Content Moderator JSON output was truncated.
+### <a name="json-output"></a>Salida de JSON
+
+En el siguiente ejemplo se muestra un elemento de salida JSON de Content Moderator que se truncó.
 
 > [!NOTE]
-> Location of a keyframe in seconds = timestamp/timescale
+> Ubicación de un fotograma clave en segundos = marca de tiempo/escala temporal
 
-    {
+```json
+{
     "version": 2,
     "timescale": 90000,
     "offset": 0,
@@ -178,46 +182,46 @@ The following example of a Content Moderator JSON output was truncated.
     "height": 720,
     "totalDuration": 18696321,
     "fragments": [
-    {
-      "start": 0,
-      "duration": 18000
-    },
-    {
-      "start": 18000,
-      "duration": 3600,
-      "interval": 3600,
-      "events": [
-        [
-          {
-            "reviewRecommended": false,
-            "adultScore": 0.00001,
-            "racyScore": 0.03077,
-            "index": 5,
-            "timestamp": 18000,
-            "shotIndex": 0
-          }
-        ]
-      ]
-    },
-    {
-      "start": 18386372,
-      "duration": 119149,
-      "interval": 119149,
-      "events": [
-        [
-          {
-            "reviewRecommended": true,
-            "adultScore": 0.00000,
-            "racyScore": 0.91902,
-            "index": 5085,
-            "timestamp": 18386372,
-            "shotIndex": 62
-          }
-        ]
-      ]
-    }
+        {
+            "start": 0,
+            "duration": 18000
+        },
+        {
+            "start": 18000,
+            "duration": 3600,
+            "interval": 3600,
+            "events": [
+                [
+                    {
+                        "reviewRecommended": false,
+                        "adultScore": 0.00001,
+                        "racyScore": 0.03077,
+                        "index": 5,
+                        "timestamp": 18000,
+                        "shotIndex": 0
+                    }
+                ]
+            ]
+        },
+        {
+            "start": 18386372,
+            "duration": 119149,
+            "interval": 119149,
+            "events": [
+                [
+                    {
+                        "reviewRecommended": true,
+                        "adultScore": 0.00000,
+                        "racyScore": 0.91902,
+                        "index": 5085,
+                        "timestamp": 18386372,
+                        "shotIndex": 62
+                    }
+                ]
+            ]
+        }
     ]
-    }
+}
 ```
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services

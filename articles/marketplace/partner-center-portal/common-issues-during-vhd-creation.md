@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 04/09/2020
-ms.openlocfilehash: addf85f3ed966f45472fec6ee15272574a0f840e
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: e96118e3c570faaaffb4cc7ef64e6d2d0e075e47
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724724"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954183"
 ---
 # <a name="common-issues-during-vhd-creation"></a>Problemas comunes durante la creación de discos duros virtuales
 
@@ -20,7 +20,7 @@ Estas preguntas más frecuentes (P+F) abordan problemas comunes que pueden surgi
 
 ## <a name="how-do-i-create-a-vm-from-the-azure-portal-using-a-vhd-in-premium-storage"></a>¿Cómo se crea una máquina virtual desde Azure Portal mediante un disco duro virtual en Premium Storage?
 
-En la actualidad, Azure Marketplace no admite la creación de ofertas de máquina virtual a partir de imágenes del almacenamiento administrado o desde Azure Premium Storage. Para información detallada, vea [Introducción a Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
+En la actualidad, Azure Marketplace no admite la creación de ofertas de máquina virtual a partir de imágenes del almacenamiento administrado o desde Azure Premium Storage. Para información detallada, vea [Introducción a Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
 
 ## <a name="can-i-use-generation-2-vms-for-offers"></a>¿Se pueden usar máquinas virtuales de generación 2 para las ofertas?
 
@@ -45,9 +45,9 @@ La generación de certificados se explica en [Certificación de imágenes de má
 
 Si usa el modelo de implementación de Azure Resource Manager, tiene tres opciones:
 
-* [Creación de una instancia de VPN Gateway basada en rutas mediante Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-portal)
-* [Creación de una instancia de VPN Gateway basada en rutas mediante Azure PowerShell](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-powershell)
-* [Creación de una instancia de VPN Gateway basada en rutas mediante la CLI](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-cli)
+* [Creación de una instancia de VPN Gateway basada en rutas mediante Azure Portal](../../vpn-gateway/create-routebased-vpn-gateway-portal.md)
+* [Creación de una instancia de VPN Gateway basada en rutas mediante Azure PowerShell](../../vpn-gateway/create-routebased-vpn-gateway-powershell.md)
+* [Creación de una instancia de VPN Gateway basada en rutas mediante la CLI](../../vpn-gateway/create-routebased-vpn-gateway-cli.md)
 
 ## <a name="what-are-microsoft-support-policies-for-running-microsoft-server-software-on-azure-based-vms"></a>¿Cuáles son las directivas de soporte técnico de Microsoft para ejecutar software de servidor de Microsoft en máquinas virtuales basadas en Azure?
 
@@ -75,4 +75,4 @@ Para obtener más información, consulte estos artículos:
 
 Cada vez que trato de crear una imagen desde el VHD, se produce el error "VHD ya está registrado con el repositorio de imágenes como un recurso" en Azure PowerShell. No he creado ninguna imagen antes ni he encontrado ninguna imagen con este nombre en Azure. ¿Cómo se resuelve este problema?
 
-Este problema suele aparecer si ha creado una máquina virtual desde un disco duro virtual que tiene un bloqueo. Asegúrese de que no hay ninguna máquina virtual asignada desde este disco duro virtual y, después, vuelva a intentar la operación. Si el problema continúa, abra una incidencia de soporte técnico. Vea [Soporte técnico para el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+Este problema suele aparecer si ha creado una máquina virtual desde un disco duro virtual que tiene un bloqueo. Asegúrese de que no hay ninguna máquina virtual asignada desde este disco duro virtual y, después, vuelva a intentar la operación. Si el problema continúa, abra una incidencia de soporte técnico. Vea [Soporte técnico para el Centro de partners](support.md).

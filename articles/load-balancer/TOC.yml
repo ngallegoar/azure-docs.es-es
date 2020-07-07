@@ -86,7 +86,7 @@
           href: upgrade-InternalBasic-To-PublicStandard.md
     - name: Configuración de reglas de salida
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: configure-load-balancer-outbound-portal.md
         - name: Azure CLI
           href: configure-load-balancer-outbound-cli.md
@@ -103,6 +103,8 @@
           displayName: ARM
     - name: Configuración de Load Balancer interno
       items:
+        - name: Azure portal
+          href: tutorial-load-balancer-standard-internal-portal.md
         - name: Azure CLI
           href: load-balancer-get-started-ilb-arm-cli.md
         - name: Azure PowerShell
@@ -121,8 +123,6 @@
           href: load-balancer-multiple-ip-cli.md
         - name: Azure PowerShell
           href: load-balancer-multiple-ip-powershell.md
-    - name: Configuración de puertos de alta disponibilidad para Load Balancer interno
-      href: load-balancer-configure-ha-ports.md
     - name: Traslado entre regiones
       items:
         - name: 'Equilibrador de carga externo: Portal'
