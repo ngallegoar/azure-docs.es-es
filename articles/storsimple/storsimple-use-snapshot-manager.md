@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: c7d91892-2881-41a2-a7a2-908dc3646493
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
 ms.custom: ''
-ms.openlocfilehash: 56771d2e62289485017f34c6a9ab26e1d53610ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1706ae4005c337fdffb45683133e5682a56a0de5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75933974"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513734"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Uso de la interfaz de usuario de StorSimple Snapshot Manager para administrar trabajos de copia de seguridad y el catálogo de copia de seguridad
 
@@ -359,7 +359,7 @@ La tabla siguiente describe las combinaciones de teclas de método abreviado par
 | ALT + F |Abre el menú **Archivo** . |N |Abre una nueva instancia de la consola. |
 |  |O |Abre la página **Herramientas administrativas** . | |
 |  |S |Guarda la consola de Administrador de instantáneas StorSimple. | |
-|  |Un |Abre la página **Guardar como** . | |
+|  |A |Abre la página **Guardar como** . | |
 |  |M |Abre la página **Agregar o quitar complemento** . | |
 |  |P |Abre la página **Opciones** . | |
 |  |H |Abre la Ayuda en pantalla. | |
@@ -368,9 +368,9 @@ La tabla siguiente describe las combinaciones de teclas de método abreviado par
 |  |F |Actualiza la consola de Administrador de instantáneas StorSimple. | |
 |  |L |Abre la página **Exportar lista** . | |
 |  |H |Abre la Ayuda en pantalla. | |
-| ALT+V |Abre el menú **Vista** . |Un |Abre la página **Agregar o quitar columnas** . |
+| ALT+V |Abre el menú **Vista** . |A |Abre la página **Agregar o quitar columnas** . |
 |  |U |Abre la página **Personalizar vista** . | |
-| ALT + O |Abre el menú **Favoritos** . |Un |Abre la página **Agregar a favoritos** . |
+| ALT + O |Abre el menú **Favoritos** . |A |Abre la página **Agregar a favoritos** . |
 |  |O |Abre la página **Organizar favoritos** . | |
 | ALT + W |Abre el menú **Ventana** . |N |Abre otra ventana de Administrador de instantáneas StorSimple. |
 |  |C |Muestra todas las ventanas de consola abiertas en un estilo en cascada. | |
@@ -378,7 +378,7 @@ La tabla siguiente describe las combinaciones de teclas de método abreviado par
 |  |I |Organiza los iconos en una fila horizontal en la parte inferior de la pantalla. | |
 | ALT + H |Abre el menú **Ayuda** . |H |Abre la Ayuda en pantalla. |
 |  |T |Abre la página web de Microsoft TechNet Tech Center. | |
-|  |Un |Abre la página **Acerca de Microsoft Management Console** . | |
+|  |A |Abre la página **Acerca de Microsoft Management Console** . | |
 
 ### <a name="scope-pane-shortcut-keys"></a>Teclas de método abreviado del panel Ámbito
 Las siguientes tablas muestran las combinaciones de teclas de método abreviado para cada nodo en el panel **Ámbito** . 
@@ -428,7 +428,7 @@ Las siguientes tablas muestran las combinaciones de teclas de método abreviado 
 | V |Abre el menú **Vista** . |
 | W |Abre una nueva consola de StorSimple Snapshot Manager centrada en el nodo **Grupos de volúmenes** . |
 | F |Actualiza la consola de Administrador de instantáneas StorSimple. |
-| L |Abre la página **Exportar lista**. |
+| L |Abre la página **Exportar lista** . |
 | H |Abre la Ayuda en pantalla. |
 
 #### <a name="backup-catalog-node-shortcut-keys"></a>Teclas de método abreviado del nodo Catálogo de copia de seguridad

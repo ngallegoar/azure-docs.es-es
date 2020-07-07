@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
-ms.openlocfilehash: 206d63e05b68cbcec65b0d06e11da48065251ea0
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 7c12beaf30651a6cb1048a75b0f7cb353b45173a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82568817"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84339899"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge"></a>Desarrollo de un módulo de IoT Edge en C# para mover archivos de Azure Stack Edge
 
@@ -24,6 +24,7 @@ Puede usar módulos de Azure IoT Edge con Azure Stack Edge para transformar los 
 En este artículo aprenderá a:
 
 > [!div class="checklist"]
+>
 > * Cree un registro de contenedor para almacenar y administrar los módulos (imágenes de Docker).
 > * Cree un módulo de IoT Edge para implementarlo en el dispositivo de Azure Stack Edge. 
 

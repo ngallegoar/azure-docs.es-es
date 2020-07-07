@@ -4,10 +4,10 @@ description: En este tema se proporcionan respuestas a las preguntas más frecue
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 0a6c1c0f26116227454fa0968264644ea7a43178
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84260738"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Preguntas más frecuentes (P+F)
@@ -87,4 +87,4 @@ Para más información, vea el artículo [Supervisión y registro](monitoring-lo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Inicio rápido: Introducción sobre Análisis de vídeos en vivo en IoT Edge](get-started-detect-motion-emit-events-quickstart.md)
+[Inicio rápido: Introducción: Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md)

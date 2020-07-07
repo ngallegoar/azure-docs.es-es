@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: 5adb09389e1d5be13f766240d9fac5a644190d6d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: fd8c3c7eaaee6a31acbc4cf513adb3e0e0fa566b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84039636"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84342007"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model---azure-sql-database"></a>Límites de recursos de bases de datos únicas que usan el modelo de compra de DTU: Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,7 +27,7 @@ Para saber más sobre los límites de recursos del modelo de compra de DTU para 
 
 ## <a name="single-database-storage-sizes-and-compute-sizes"></a>Base de datos única: tamaños de almacenamiento y tamaños de proceso
 
-Las siguientes tablas muestran los recursos disponibles para una base de datos única en cada nivel de servicio y tamaño de proceso. Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de almacenamiento para una base de datos única mediante [Azure Portal](single-database-manage.md#azure-portal), [Transact-SQL](single-database-manage.md#transact-sql-t-sql), [PowerShell](single-database-manage.md#powershell), la [CLI de Azure](single-database-manage.md#azure-cli) o la [API REST](single-database-manage.md#rest-api).
+Las siguientes tablas muestran los recursos disponibles para una base de datos única en cada nivel de servicio y tamaño de proceso. Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de almacenamiento para una base de datos única mediante [Azure Portal](single-database-manage.md#the-azure-portal), [Transact-SQL](single-database-manage.md#transact-sql-t-sql), [PowerShell](single-database-manage.md#powershell), la [CLI de Azure](single-database-manage.md#the-azure-cli) o la [API REST](single-database-manage.md#rest-api).
 
 > [!IMPORTANT]
 > Para información y consideraciones sobre el escalado, consulte [Escalado de una base de datos única](single-database-scale.md).

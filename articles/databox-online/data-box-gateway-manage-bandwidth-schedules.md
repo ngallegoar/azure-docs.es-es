@@ -5,29 +5,29 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: feae75b1fbb832f833a01fa20ce07962ab5c484f
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 25f74fb78979313acc068320d842d09a982d8d16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561419"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84339151"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Uso de Azure Portal para administrar las programaciones del ancho de banda en Azure Data Box Gateway  
 
-En este artículo se describe cómo administrar usuarios en Azure Data Box Gateway. Las programaciones del ancho de banda le permiten configurar el uso del ancho de banda de red en programaciones en varias horas del día. Dichas programaciones se pueden aplicar a las operaciones de carga y descarga desde el dispositivo a la nube. 
+En este artículo se describe cómo administrar usuarios en Azure Data Box Gateway. Las programaciones del ancho de banda le permiten configurar el uso del ancho de banda de red en programaciones en varias horas del día. Dichas programaciones se pueden aplicar a las operaciones de carga y descarga desde el dispositivo a la nube.
 
 Puede agregar, modificar o eliminar las programaciones del ancho de banda de Data Box Gateway a través de Azure Portal.
 
 En este artículo aprenderá a:
 
 > [!div class="checklist"]
+>
 > * Adición de una programación
 > * Modificar una programación
-> * Eliminación de una programación 
-
+> * Eliminación de una programación
 
 ## <a name="add-a-schedule"></a>Adición de una programación
 

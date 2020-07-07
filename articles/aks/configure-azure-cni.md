@@ -4,12 +4,12 @@ description: Aprenda a configurar redes de Azure CNI (avanzadas) en Azure Kubern
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 592376c1ff1686429d71496099f55c5009e07f20
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d025bcddfdee25cddac311ac9a201b7f3afebd22
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120936"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84416858"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configuración de redes de Azure CNI en Azure Kubernetes Service (AKS)
 
@@ -19,7 +19,7 @@ Con [Azure Container Networking Interface (CNI)][cni-networking], cada pod obtie
 
 En este artículo se muestra cómo usar las redes de *Azure CNI* para crear y usar la subred una red virtual con un clúster de AKS. Para más información sobre las opciones y consideraciones de red, consulte el artículo sobre los [conceptos de red para Kubernetes y AKS][aks-network-concepts].
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * La red virtual del clúster AKS debe permitir la conectividad saliente de Internet.
 * Los clústeres AKS no pueden usar `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16` ni `192.0.2.0/24` para el intervalo de direcciones del servicio Kubernetes.
@@ -151,7 +151,7 @@ Las siguientes preguntas y respuestas se aplican a la configuración de red de *
 
 * *¿Puedo implementar máquinas virtuales en la subred del clúster?*
 
-  No. No se admite la implementación de máquinas virtuales en la subred usada por el clúster Kubernetes. Las máquinas virtuales se pueden implementar en la misma red virtual, pero en una subred diferente.
+  Sí.
 
 * *¿Puedo configurar las directivas de red por pod?*
 

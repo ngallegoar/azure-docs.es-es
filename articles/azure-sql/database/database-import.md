@@ -2,8 +2,8 @@
 title: Importación de un archivo BACPAC para crear una base de datos en Azure SQL Database
 description: Cree una base de datos en Azure SQL Database o en Instancia administrada de Azure SQL a partir de un archivo BACPAC.
 services: sql-database
-ms.service: sql-database
-ms.subservice: migration
+ms.service: sql-db-mi
+ms.subservice: migrate
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: 81a77e3a5fac19b4d6116a74221d3506d603bff9
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 7bca179f3140a64923af71199fe4a1db48d2065c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84218827"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85982354"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Inicio rápido: Importación de un archivo BACPAC a una base de datos de Azure SQL Database o Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

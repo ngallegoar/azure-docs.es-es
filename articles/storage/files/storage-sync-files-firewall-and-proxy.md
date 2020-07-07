@@ -3,21 +3,23 @@ title: Configuración del proxy y el firewall locales de Azure File Sync | Micro
 description: Configuración de la red local de Azure File Sync
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 37c646e2f08745b2a12df41b6310fb5d3834998b
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 7410e30c892eb083f9ed71b1d9ce379ae9a036b5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142561"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515282"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Configuración del proxy y el firewall de Azure File Sync
 Azure File Sync conecta los servidores locales a Azure Files, lo que permite sincronizar las características de niveles de nube y de sincronización multisitio. Por lo tanto, un servidor local debe estar conectado a Internet. Un administrador de TI tiene que decidir cuál es la mejor ruta de acceso para que el servidor acceda a los servicios en la nube de Azure.
 
 Este artículo ofrece un resumen de las opciones y los requisitos específicos disponibles para conectar el servidor a Azure File Sync de forma correcta y segura.
+
+Se recomienda leer [Consideraciones de redes para Azure File Sync](storage-sync-files-networking-overview.md) antes de pasar a esta guía de procedimientos.
 
 ## <a name="overview"></a>Información general
 Azure File Sync funciona como un servicio de orquestación entre el servidor Windows, el recurso compartido de archivos de Azure y otros servicios de Azure con el objetivo de sincronizar los datos tal y como se describe en el grupo de sincronización. Para que Azure File Sync funcione correctamente, debe configurar los servidores para que se comuniquen con los siguientes servicios de Azure:
@@ -128,8 +130,8 @@ Por razones de continuidad empresarial y recuperación ante desastres (BCDR), es
 | Público | Centro-sur de EE. UU. | https:\//southcentralus01.afs.azure.net | Centro-Norte de EE. UU | https:\//tm-southcentralus01.afs.azure.net |
 | Público | Sur de la India | https:\//southindia01.afs.azure.net<br>https:\//kailani-sin.one.microsoft.com | Centro de la India | https:\//tm-southindia01.afs.azure.net<br>https:\//tm-kailani-sin.one.microsoft.com |
 | Público | Sudeste de Asia | https:\//southeastasia01.afs.azure.net<br>https:\//kailani10.one.microsoft.com | Este de Asia | https:\//tm-southeastasia01.afs.azure.net<br>https:\//tm-kailani10.one.microsoft.com |
-| Público | Sur de Reino Unido 2 | https:\//uksouth01.afs.azure.net<br>https:\//kailani-uks.one.microsoft.com | Oeste de Reino Unido | https:\//tm-uksouth01.afs.azure.net<br>https:\//tm-kailani-uks.one.microsoft.com |
-| Público | Oeste de Reino Unido | https:\//ukwest01.afs.azure.net<br>https:\//kailani-ukw.one.microsoft.com | Sur de Reino Unido 2 | https:\//tm-ukwest01.afs.azure.net<br>https:\//tm-kailani-ukw.one.microsoft.com |
+| Público | Sur de Reino Unido | https:\//uksouth01.afs.azure.net<br>https:\//kailani-uks.one.microsoft.com | Oeste de Reino Unido | https:\//tm-uksouth01.afs.azure.net<br>https:\//tm-kailani-uks.one.microsoft.com |
+| Público | Oeste de Reino Unido | https:\//ukwest01.afs.azure.net<br>https:\//kailani-ukw.one.microsoft.com | Sur de Reino Unido | https:\//tm-ukwest01.afs.azure.net<br>https:\//tm-kailani-ukw.one.microsoft.com |
 | Público | Centro-Oeste de EE. UU. | https:\//westcentralus01.afs.azure.net | Oeste de EE. UU. 2 | https:\//tm-westcentralus01.afs.azure.net |
 | Público | Oeste de Europa | https:\//westeurope01.afs.azure.net<br>https:\//kailani6.one.microsoft.com | Norte de Europa | https:\//tm-westeurope01.afs.azure.net<br>https:\//tm-kailani6.one.microsoft.com |
 | Público | Oeste de EE. UU. | https:\//westus01.afs.azure.net<br>https:\//kailani.one.microsoft.com | Este de EE. UU. | https:\//tm-westus01.afs.azure.net<br>https:\//tm-kailani.one.microsoft.com |

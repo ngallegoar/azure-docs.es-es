@@ -3,15 +3,15 @@ title: 'Transmisión de datos de Stream Analytics a Azure Data Lake Storage Gen1
 description: Use de Azure Stream Analytics para transmitir datos en Azure Data Lake Storage Gen1.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/30/2018
 ms.author: twooley
-ms.openlocfilehash: f1740d167bedd20f51ad5bf24a56b7e7e787f754
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 42c7894c33fe0f09748beee20508e7670545c0ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690981"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515174"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Transmisión de datos de Azure Storage Blob a Azure Data Lake Storage Gen1 mediante Stream Analytics
 En este artículo aprenderá a utilizar Azure Data Lake Storage Gen1 como salida para un trabajo de Azure Stream Analytics. En este artículo se muestra un escenario simple en el que se leen datos desde un blob de Azure Storage (entrada) y se escriben en Data Lake Storage Gen1 (salida).

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: fd006e836432ce775be8cbbefea6d9219e8b13b3
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 0330e72ad74726f97bfdfd78ef8d5f9b24a5d172
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253467"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513310"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Actividades de bifurcación y encadenamiento en una canalización de Data Factory
 
@@ -54,7 +54,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para obtener una lista de las regiones de Azure en las que Data Factory está disponible actualmente, consulte [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos y los procesos pueden estar en otras regiones. Los almacenes incluyen Azure Storage y Azure SQL Database. Los procesos incluyen HDInsight, que se usa en Data Factory.
 
-Cree una aplicación tal como se describe en [Creación de una aplicación de Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Siga las instrucciones del mismo artículo para asignar la aplicación al rol **Colaborador**. Necesitará varios valores para partes posteriores de este tutorial, como **Id. de aplicación (cliente)** e **Id. de directorio (inquilino)** .
+Cree una aplicación tal como se describe en [Creación de una aplicación de Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Siga las instrucciones del mismo artículo para asignar la aplicación al rol **Colaborador**. Necesitará varios valores para partes posteriores de este tutorial, como **Id. de aplicación (cliente)** e **Id. de directorio (inquilino)** .
 
 ### <a name="create-a-blob-table"></a>Creación de una tabla de blobs
 

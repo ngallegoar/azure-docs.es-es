@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: allensu
-ms.openlocfilehash: d2208f6769c8051b38bdafb92d62ec03cb2d668c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e20f6ce9540d357b61ae2cfdf0e8f96d127dc6c0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253567"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343224"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Encabezados HTTP específicos de Verizon para el motor de reglas de Azure CDN
 
 En el caso de los productos de **Azure CDN Premium de Verizon**, cuando se envía una solicitud HTTP al servidor de origen, el servidor de punto de presencia (POP) puede agregar uno o varios encabezados reservados (o encabezados de proxy especiales) en la solicitud del cliente al POP. Estos encabezados son adicionales a los encabezados de reenvío estándar recibidos. Para más información acerca de los encabezados de solicitud estándar, consulte [Request fields](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Request_fields) (Campos de solicitud).
 
-Si desea impedir que se agregue uno de estos encabezados reservados en la solicitud POP de Azure CDN (Content Delivery Network) al servidor de origen, deberá crear una regla con la [característica Encabezados de proxy especiales](cdn-verizon-premium-rules-engine-reference-features.md#proxy-special-headers) en el motor de reglas. En esta regla, excluya el encabezado que desee quitar de la lista predeterminada de encabezados del campo correspondiente. Si ha habilitado la [característica Depurar encabezados de respuesta de la caché](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers), no olvide agregar los encabezados `X-EC-Debug` necesarios. 
+Si desea impedir que se agregue uno de estos encabezados reservados en la solicitud POP de Azure CDN (Content Delivery Network) al servidor de origen, deberá crear una regla con la [característica Encabezados de proxy especiales](https://docs.vdms.com/cdn/Content/HRE/F/Proxy-Special-Headers.htm) en el motor de reglas. En esta regla, excluya el encabezado que desee quitar de la lista predeterminada de encabezados del campo correspondiente. Si ha habilitado la [característica Depurar encabezados de respuesta de la caché](https://docs.vdms.com/cdn/Content/HRE/F/Debug-Cache-Response-Headers.htm), no olvide agregar los encabezados `X-EC-Debug` necesarios. 
 
 Por ejemplo, para quitar el encabezado `Via`, el campo de encabezados de la regla debería incluir la siguiente lista de encabezados: *X-Forwarded-For, X-Forwarded-Proto, X-Host, X-Midgress, X-Gateway-List, X-EC-Name, Host*. 
 

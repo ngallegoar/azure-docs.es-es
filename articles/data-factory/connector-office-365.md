@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
-ms.openlocfilehash: ea68fa8d9326e6d9ebb4f475d16ac83959cae6e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dda761e12abe7ec866ad9426982563b6f629f6b2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416872"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513301"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copia de datos de Office 365 en Azure con Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -40,10 +40,10 @@ Por ahora, en una única actividad de copia, solo puede **copiar datos de Office
 Para copiar datos de Office 365 en Azure, es preciso completar los pasos de requisitos previos siguientes:
 
 - El administrador de inquilinos de Office 365 debe completar las acciones de incorporación como se describe [aquí](https://docs.microsoft.com/graph/data-connect-get-started).
-- Cree y configure una aplicación web de Azure AD en Azure Active Directory.  Para obtener instrucciones, vea cómo [crear una aplicación de Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application).
+- Cree y configure una aplicación web de Azure AD en Azure Active Directory.  Para obtener instrucciones, vea cómo [crear una aplicación de Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 - Anote los siguientes valores; los usará para definir el servicio vinculado para Office 365:
-    - Identificador de inquilino. Para obtener instrucciones, vea [Obtención del identificador de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
-    - Identificador de aplicación y clave de aplicación.  Para obtener instrucciones, vea [Obtención del id. y la clave de autenticación de la aplicación](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+    - Identificador de inquilino. Para obtener instrucciones, vea [Obtención del identificador de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
+    - Identificador de aplicación y clave de aplicación.  Para obtener instrucciones, vea [Obtención del id. y la clave de autenticación de la aplicación](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 - Agregue la identidad del usuario que va a realizar la solicitud de acceso a los datos como propietario de la aplicación web de Azure AD (aplicación web de Azure AD > Configuración > Propietarios > Agregar propietario). 
     - La identidad del usuario debe pertenecer a la organización de Office 365 de la que obtendrá los datos. Además, no debe un usuario invitado.
 

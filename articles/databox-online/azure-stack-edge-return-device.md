@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/26/2020
 ms.author: alkohli
-ms.openlocfilehash: bb73494dd5fe22c3be645f732f9d0958e48edb64
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 6e0581912a619bec11be6d322e2987a4498c5170
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743634"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84339372"
 ---
 # <a name="return-or-replace-your-azure-stack-edge-device"></a>Devolver o reemplazar el dispositivo Azure Stack Edge
 
@@ -22,6 +22,7 @@ En este artículo se explica cómo borrar los datos y luego devolver el disposit
 En este artículo aprenderá a:
 
 > [!div class="checklist"]
+>
 > * Borrar los datos de los discos de datos del dispositivo
 > * Abrir una incidencia de soporte técnico para devolver el dispositivo
 > * Empaquetar el dispositivo y programar una recogida

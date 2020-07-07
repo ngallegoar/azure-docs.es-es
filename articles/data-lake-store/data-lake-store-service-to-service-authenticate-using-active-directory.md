@@ -3,15 +3,15 @@ title: 'Autenticación entre servicios: Data Lake Storage Gen1: Azure'
 description: Aprenda a realizar la autenticación entre servicios con Azure Data Lake Storage Gen1 mediante Azure Active Directory.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 74ad40eb7f7483bb010cf8eb002776893c50a256
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 03a32b37f5ca29c6a0dd6b810b4e097379c6c32e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82688195"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515159"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Aprenda a realizar la autenticación entre servicios con Azure Data Lake Storage Gen1 mediante Azure Active Directory
 > [!div class="op_single_selector"]
@@ -43,9 +43,9 @@ Al seguir las instrucciones que aparecen en el vínculo anterior, asegúrese de 
 ## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>Paso 2: Obtener el identificador de aplicación, la clave de autenticación y el identificador de inquilino
 Al iniciar sesión mediante programación, necesita el identificador de la aplicación. Si esta se ejecuta con sus propias credenciales, también necesitará una clave de autenticación.
 
-* Para obtener instrucciones sobre cómo recuperar el identificador y la clave de autenticación de la aplicación, consulte [Obtención del id. y la clave de autenticación de la aplicación](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* Para obtener instrucciones sobre cómo recuperar el identificador y la clave de autenticación de la aplicación, consulte [Obtención del id. y la clave de autenticación de la aplicación](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 
-* Para obtener instrucciones sobre cómo recuperar el identificador de inquilino, consulte [Obtención del identificador de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* Para obtener instrucciones sobre cómo recuperar el identificador de inquilino, consulte [Obtención del identificador de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 
 ## <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder"></a>Paso 3: Asignar la aplicación de Azure AD al archivo o la carpeta de la cuenta de Azure Data Lake Storage Gen1.
 

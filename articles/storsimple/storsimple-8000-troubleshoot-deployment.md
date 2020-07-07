@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: f2b454e812db1eea686f82e92841163f1129b6c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 04c541dc10b2e25aa1e24ef704b4d939243f23ca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79232132"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513731"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Solución de problemas de implementación de dispositivos de StorSimple
 ## <a name="overview"></a>Información general
@@ -82,7 +82,7 @@ En las tablas siguientes se enumeran los errores comunes que pueden aparecer en 
 ## <a name="errors-during-the-optional-web-proxy-settings"></a>Errores durante la configuración del proxy web opcional
 | No. | Mensaje de error | Causas posibles | Acción recomendada |
 | --- | --- | --- | --- |
-| 1 |Invoke-HcsSetupWizard: Parámetro no válido (excepción de HRESULT: 0x80070057) |Uno de los parámetros proporcionados para la configuración del proxy no es válido. |El URI no se indica con el formato correcto. Use el siguiente formato: http:// *\<IP dirección o el FQDN del servidor proxy web>* : *\<número de puerto TCP>* |
+| 1 |Invoke-HcsSetupWizard: Parámetro no válido (excepción de HRESULT: 0x80070057) |Uno de los parámetros proporcionados para la configuración del proxy no es válido. |El URI no se indica con el formato correcto. Utilice el siguiente formato: http:// *\<IP address or FQDN of the web proxy server>* : *\<TCP port number>* |
 | 2 |Invoke-HcsSetupWizard: Servidor RPC no disponible (excepción de HRESULT: 0x800706ba) |La causa principal es una de las siguientes:<ol><li>El clúster no está activo.</li><li>El controlador pasivo no puede comunicarse con el controlador activo, y el comando se ejecuta desde el controlador pasivo.</li></ol> |Dependiendo de la causa principal:<ol><li>[Póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-8000-contact-microsoft-support.md) para asegurarse de que el clúster está activo.</li><li>Ejecute el comando desde el controlador activo. Si desea ejecutar el comando desde el controlador pasivo, deberá asegurarse de que el controlador pasivo puede comunicarse con el controlador activo. Tendrá que [ponerse en contacto con el servicio de soporte técnico de Microsoft](storsimple-8000-contact-microsoft-support.md) si se interrumpe la conectividad.</li></ol> |
 | 3 |Invoke-HcsSetupWizard: Error de llamada RPC (excepción de HRESULT: 0x800706be) |El clúster está inactivo. |[Póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-8000-contact-microsoft-support.md) para asegurarse de que el clúster está activo. |
 | 4 |Invoke-HcsSetupWizard: No se encuentra el recurso de clúster (excepción de HRESULT: 0x8007138f) |No se encuentra el recurso de clúster. Esto puede ocurrir si la instalación no se realizó correctamente. |Puede que necesite restablecer la configuración predeterminada de fábrica del dispositivo. [Póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-8000-contact-microsoft-support.md) para crear un recurso de clúster. |

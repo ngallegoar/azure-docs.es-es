@@ -3,21 +3,21 @@ title: Comparación de las características del motor de base de datos de SQL Da
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: En este artículo se comparan las características del motor de base de datos de Azure SQL Database e Instancia administrada de Azure SQL.
 services: sql-database
-ms.service: sql-database
-ms.subservice: service
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
-ms.date: 05/10/2019
-ms.openlocfilehash: a4a78dfd1fd88dfc6b212f0c50716bf3293a7ccd
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.date: 06/25/2020
+ms.openlocfilehash: e48a027af70ec9d002ddcfbb2ee36ded4ca7875a
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221346"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983526"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Comparación de características: Azure SQL Database e Instancia administrada de Azure SQL
 
@@ -128,7 +128,7 @@ La plataforma de Azure proporciona una serie de funcionalidades de PaaS que se a
 | Retención de copias de seguridad | Sí. 7 días (predeterminado), máximo 35 días. | Sí. 7 días (predeterminado), máximo 35 días. |
 | [Data Migration Service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview) | Sí | Sí |
 | Acceso al sistema de archivos | No. Use [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) o [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) para acceder y cargar datos de Azure Blob Storage como alternativa. | No. Use [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) o [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) para acceder y cargar datos de Azure Blob Storage como alternativa. |
-| [Restauración geográfica](recovery-using-backups.md#geo-restore) | Sí, todos los niveles de servicio que no sean de hiperescala. | Sí, todos los niveles de servicio que no sean de hiperescala. |
+| [Restauración geográfica](recovery-using-backups.md#geo-restore) | Sí | Sí |
 | [Arquitectura de hiperescala](service-tier-hyperscale.md) | Sí | No |
 | [Retención de copia de seguridad a largo plazo (LTR)](long-term-retention-overview.md) | Sí, las copias de seguridad realizadas automáticamente se conservan 10 años. | Todavía no. Utilice `COPY_ONLY` [copias de seguridad manuales](../managed-instance/transact-sql-tsql-differences-sql-server.md#backup) como una solución temporal. |
 | Pausar o reanudar | Sí, en el [modelo sin servidor](serverless-tier-overview.md) | No |

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
-ms.openlocfilehash: 2a0394e6e7c17e0a4954bbdddb1d5b2811959746
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46eb1fe7543cbc65545eaca46e38f09466406701
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79371586"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84417946"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importación y exportación de identidades de dispositivo de IoT Hub de forma masiva
 
@@ -27,8 +27,6 @@ Las operaciones de importación y exportación tienen lugar en el contexto de *T
 La clase **RegistryManager** incluye los métodos **ExportDevicesAsync** y **ImportDevicesAsync**, que usan el marco **Trabajo**. Estos métodos le permiten exportar, importar y sincronizar la totalidad de un Registro de identidad de IoT Hub.
 
 En este tema se describe el uso de la clase **RegistryManager** y del sistema de **trabajo** para realizar importaciones y exportaciones en bloque de dispositivos a un registro de identidades de un centro de IoT y desde este. También puede usar el servicio Azure IoT Hub Device Provisioning para habilitar el aprovisionamiento Just-In-Time sin intervención del usuario de uno o varios centros de IoT sin necesidad de ninguna intervención humana. Para más información, consulte la [documentación del servicio de aprovisionamiento](/azure/iot-dps).
-
-[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 ## <a name="what-are-jobs"></a>¿Qué son los trabajos?
 

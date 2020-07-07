@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: f4caa9160280b0f65f84bed36b5209d08d7f7c11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd73c6a388cde55db5437442492d53768eb03866
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235764"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343156"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Acerca de los dispositivos VPN y los parámetros de IPsec/IKE para conexiones de VPN Gateway de sitio a sitio
 
@@ -141,7 +141,7 @@ En las tablas siguientes:
 | Versión de IKE                   |IKEv1          |IKEv1 e IKEv2                              |
 | Algoritmos de cifrado y hash |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[Ofertas de SA de QM del tipo routebased](#RouteBasedOffers) |
 | Vigencia de SA (tiempo)            |3\.600 segundos  |27 000 segundos                               |
-| Vigencia de SA (bytes)           |102.400.000 KB | -                                           |
+| Vigencia de SA (bytes)           |102.400.000 KB |102.400.000 KB                               |
 | Confidencialidad directa perfecta (PFS) |No             |[Ofertas de SA de QM del tipo routebased](#RouteBasedOffers) |
 | Dead Peer Detection (DPD)     |No compatible  |Compatible                                    |
 

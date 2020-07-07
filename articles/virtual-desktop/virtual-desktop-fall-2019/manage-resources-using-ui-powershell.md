@@ -4,16 +4,16 @@ description: Cómo implementar la herramienta de administración de Windows Virt
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d9aea1f56b742d87df769a3206f15024afdf87b3
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 0ae3bb87bfee681aa518a4dfef064677ffa97119
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983098"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513394"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>Implementación de una herramienta de administración con PowerShell
 
@@ -24,7 +24,7 @@ En este artículo se describe cómo implementar la herramienta de administració
 
 ## <a name="important-considerations"></a>Consideraciones importantes
 
-La suscripción de cada inquilino de Azure Active Directory (Azure AD) necesita su propia implementación independiente de la herramienta de administración. Esta herramienta no admite escenarios de negocio a negocio (B2B) de Azure AD. 
+La suscripción de cada inquilino de Azure Active Directory (Azure AD) necesita su propia implementación independiente de la herramienta de administración. Esta herramienta no admite escenarios de negocio a negocio (B2B) de Azure AD.
 
 Esta herramienta de administración es un ejemplo. Microsoft proporcionará actualizaciones de calidad y seguridad importantes. [El código fuente está disponible en GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Tanto si es un cliente como un partner, le recomendamos que personalice la herramienta para satisfacer sus necesidades empresariales.
 
@@ -40,7 +40,7 @@ Los siguientes exploradores son compatibles con la herramienta de administració
 Antes de implementar la herramienta de administración, necesitará que un usuario de Azure Active Directory (Azure AD) cree un registro de aplicaciones e implemente la interfaz de usuario de administración. Dicho usuario debe:
 
 - Tener los permisos para crear recursos en la suscripción de Azure.
-- Tener los permisos para crear una aplicación de Azure AD. Siga los pasos que se describen en la sección [Permisos necesarios](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) para comprobar si el usuario tiene los permisos que necesita.
+- Tener los permisos para crear una aplicación de Azure AD. Siga los pasos que se describen en la sección [Permisos necesarios](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app) para comprobar si el usuario tiene los permisos que necesita.
 
 Después de implementar y configurar la herramienta de administración, se recomienda pedir a un usuario que inicie la interfaz de usuario de administración para asegurarse de que todo funciona correctamente. El usuario que inicie la interfaz de usuario de administración deberá tener una asignación de roles que le permita ver o editar el inquilino de Windows Virtual Desktop.
 
@@ -93,7 +93,7 @@ Ahora que ha completado el registro de aplicaciones de Azure AD, puede implement
 ## <a name="deploy-the-management-tool"></a>Implementación de la herramienta de administración
 
 Ejecute los siguientes comandos de PowerShell para implementar la herramienta de administración y para asociarla a la entidad de servicio que acaba de crear:
-     
+
 ```powershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
@@ -120,7 +120,7 @@ Ejecute los siguientes comandos de PowerShell para recuperar la dirección URL d
 ```powershell
 $webApp = Get-AzWebApp -ResourceGroupName $resourceGroupName -Name $appName
 $redirectUri = "https://" + $webApp.DefaultHostName + "/"
-Get-AzureADApplication -All $true | where { $_.AppId -match $servicePrincipalCredentials.UserName } | Set-AzureADApplication -ReplyUrls $redirectUri  
+Get-AzureADApplication -All $true | where { $_.AppId -match $servicePrincipalCredentials.UserName } | Set-AzureADApplication -ReplyUrls $redirectUri
 ```
 
 Ahora que ha agregado un URI de redirección, debe actualizar la dirección URL de la API para que la herramienta de administración pueda interactuar con el servicio back-end de la API.
@@ -143,11 +143,11 @@ Para comprobar la configuración de la aplicación de Azure AD y otorgar su cons
 2. En la barra de búsqueda, situada en la parte superior de Azure Portal, busque **Registros de aplicaciones** y seleccione el elemento en **Servicios**.
 3. Seleccione **Todas las aplicaciones** y busque el nombre de aplicación único que proporcionó en el script de PowerShell en el paso [Creación de un registro de aplicaciones de Azure Active Directory](#create-an-azure-active-directory-app-registration).
 4. En el panel de la izquierda del explorador, seleccione **Autenticación** y asegúrese de que el URI de redirección es igual que la dirección URL de la aplicación web para la herramienta de administración, tal y como se muestra en la siguiente imagen.
-   
+
    [ ![La página de autenticación con el URI de redirección especificado](../media/management-ui-redirect-uri-inline.png) ](../media/management-ui-redirect-uri-expanded.png#lightbox)
 
 5. En el panel izquierdo, seleccione **Permisos de API** para comprobar que se agregaron los permisos. Si es un administrador global, seleccione el botón **Conceder consentimiento del administrador para `tenantname`** y siga las indicaciones del cuadro de diálogo para proporcionar consentimiento de administrador para su organización.
-    
+
     [ ![La página de permisos de la API](../media/management-ui-permissions-inline.png) ](../media/management-ui-permissions-expanded.png#lightbox)
 
 Ya puede empezar a usar la herramienta de administración.
@@ -158,13 +158,13 @@ Ahora que ha configurado la herramienta de administración, puede iniciarla en c
 
 1. Abra la URL de la aplicación web en un explorador web. Si no recuerda la dirección URL, inicie sesión en Azure, busque el servicio de aplicaciones que ha implementado para la herramienta de administración y, después, seleccione la dirección URL.
 2. Inicie sesión con sus credenciales de Windows Virtual Desktop.
-   
+
    > [!NOTE]
    > Si no concedió su consentimiento de administrador al configurar la herramienta de administración, cada usuario que inicie sesión deberá proporcionar su propio consentimiento de usuario para poder usarla.
 
 3. Cuando se le pida que elija un grupo de inquilinos, seleccione **Default Tenant Group** (grupo de inquilinos predeterminado) en la lista desplegable.
 4. Al seleccionar **Default Tenant Group**, debería aparecer un menú en la parte izquierda de la ventana. En este menú, busque el nombre de su grupo de inquilinos y selecciónelo.
-   
+
    > [!NOTE]
    > Si tiene un grupo de inquilinos personalizado, escriba el nombre manualmente en lugar de elegirlo en la lista desplegable.
 

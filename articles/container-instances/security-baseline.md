@@ -8,10 +8,10 @@ ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 3897ef75be34d4413e06dc5459739baec3afdcec
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84268009"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Base de referencia de seguridad de Azure para Container Instances
@@ -69,7 +69,7 @@ Para más información, consulte [Introducción a la línea de base de seguridad
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4: Deniegue las comunicaciones con direcciones IP malintencionadas conocidas
 
-**Guía**: Habilite la protección contra DDoS estándar en las redes virtuales de Azure para protegerse frente a ataques DDoS. Use la inteligencia sobre amenazas integrada en Azure Security Center para denegar las comunicaciones con direcciones IP malintencionadas conocidas. Implemente Azure Firewall en cada uno de los límites de red de la organización con la inteligencia de amenazas habilitada y configurada para alertar y denegar el tráfico de red malintencionado. Use el acceso de red Just-in-Time de Azure Security Center para configurar los NSG para limitar la exposición de los puntos de conexión a las direcciones IP aprobadas durante un período limitado. Use la protección de redes adaptativa de Azure Security Center para recomendar configuraciones de NSG que limiten los puertos y las direcciones IP de origen según el tráfico real y la inteligencia sobre amenazas. 
+**Instrucciones**: Habilite la protección contra DDoS estándar en las redes virtuales de Azure para protegerse frente a ataques DDoS. Use la inteligencia sobre amenazas integrada en Azure Security Center para denegar las comunicaciones con direcciones IP malintencionadas conocidas. Implemente Azure Firewall en cada uno de los límites de red de la organización con la inteligencia de amenazas habilitada y configurada para alertar y denegar el tráfico de red malintencionado. Use el acceso de red Just-in-Time de Azure Security Center para configurar los NSG para limitar la exposición de los puntos de conexión a las direcciones IP aprobadas durante un período limitado. Use la protección de redes adaptativa de Azure Security Center para recomendar configuraciones de NSG que limiten los puertos y las direcciones IP de origen según el tráfico real y la inteligencia sobre amenazas. 
 
 * [Implementación de Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
 
@@ -117,7 +117,7 @@ Implemente la solución de firewall que prefiera en cada uno de los límites de 
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1.7: Administre el tráfico a las aplicaciones web
 
-**Guía**: Implemente Application Gateway de Azure para las aplicaciones web con HTTPS/SSL habilitado para los certificados de confianza.
+**Instrucciones**: Implemente Application Gateway de Azure para las aplicaciones web con HTTPS/SSL habilitado para los certificados de confianza.
 
 * [Implementación de Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
 
@@ -206,7 +206,7 @@ Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: Uso de orígenes de sincronización de hora aprobados
 
-**Guía**: Microsoft mantiene los orígenes de hora de los recursos de Azure; sin embargo, tiene la opción de administrar la configuración de la sincronización de hora de los recursos de proceso. Por ejemplo, ejecute un comando de sincronización de hora en un contenedor en ejecución.
+**Instrucciones**: Microsoft mantiene los orígenes de hora de los recursos de Azure; sin embargo, tiene la opción de administrar la configuración de la sincronización de hora de los recursos de proceso. Por ejemplo, ejecute un comando de sincronización de hora en un contenedor en ejecución.
 
 * [Configuración de la sincronización de hora de los recursos de proceso de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/time-sync)
 
@@ -371,7 +371,7 @@ Si usa un registro de contenedor de Azure con Azure Container Instances, cree pr
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: Use la autenticación multifactor para todo el acceso basado en Azure Active Directory
 
-**Guía**: Habilite la autenticación multifactor (MFA) de Azure Active Directory (Azure AD) y siga las recomendaciones de administración de identidades y acceso de Azure Security Center.
+**Instrucciones**: Habilite la autenticación multifactor (MFA) de Azure Active Directory (Azure AD) y siga las recomendaciones de administración de identidades y acceso de Azure Security Center.
 
 * [Procedimiento para habilitar la MFA en Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
 
@@ -477,7 +477,7 @@ Puede simplificar este proceso creando una configuración de diagnóstico para l
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Mantenimiento de un inventario de información confidencial
 
-**Guía**: use etiquetas de recursos para ayudar a realizar el seguimiento de las instancias de contenedor de Azure que almacenan o procesan información confidencial. 
+**Instrucciones**: use etiquetas de recursos para ayudar a realizar el seguimiento de las instancias de contenedor de Azure que almacenan o procesan información confidencial. 
 
 Aplique control de versiones a las imágenes de contenedor y etiquételas para ayudar a realizar el seguimiento de las imágenes que almacenan o procesan información confidencial.
 
@@ -648,7 +648,7 @@ Use una solución personalizada o de terceros para aplicar revisiones a las imá
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4: Compare los exámenes de vulnerabilidades opuestos
 
-**Guía**: exporte los resultados del examen de las imágenes en intervalos coherentes y compare los resultados para comprobar que se han corregido las vulnerabilidades. Si almacena imágenes de contenedor en Azure Container Registry, integre el registro con Azure Security Center para permitir el análisis periódico de las imágenes de contenedor a fin de detectar vulnerabilidades. Opcionalmente, puede implementar soluciones de terceros de Azure Marketplace para realizar evaluaciones de vulnerabilidades de imagen.
+**Instrucciones**: exporte los resultados del examen de las imágenes en intervalos coherentes y compare los resultados para comprobar que se han corregido las vulnerabilidades. Si almacena imágenes de contenedor en Azure Container Registry, integre el registro con Azure Security Center para permitir el análisis periódico de las imágenes de contenedor a fin de detectar vulnerabilidades. Opcionalmente, puede implementar soluciones de terceros de Azure Marketplace para realizar evaluaciones de vulnerabilidades de imagen.
 
 * [Consideraciones de seguridad para Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-image-security)
 
@@ -660,7 +660,7 @@ Use una solución personalizada o de terceros para aplicar revisiones a las imá
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5: Use un proceso de clasificación de riesgos para priorizar la corrección de las vulnerabilidades detectadas
 
-**Guía**:  si almacena imágenes de contenedor en Azure Container Registry, integre el registro con Azure Security Center para permitir el examen periódico de las imágenes de contenedor a fin de detectar las vulnerabilidades y clasificar los riesgos. Opcionalmente, puede implementar soluciones de terceros de Azure Marketplace para realizar evaluaciones de vulnerabilidades de imagen y clasificación de riesgos.
+**Instrucciones**:  si almacena imágenes de contenedor en Azure Container Registry, integre el registro con Azure Security Center para permitir el examen periódico de las imágenes de contenedor a fin de detectar las vulnerabilidades y clasificar los riesgos. Opcionalmente, puede implementar soluciones de terceros de Azure Marketplace para realizar evaluaciones de vulnerabilidades de imagen y clasificación de riesgos.
 
 * [Consideraciones de seguridad para Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-image-security)
 
@@ -817,7 +817,7 @@ Supervise los registros de Azure Container Instances en busca de comportamientos
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12: Limitación de capacidad de los usuarios para ejecutar scripts en recursos de proceso
 
-**Guía**: todos los usuarios con acceso a Azure Container Instances pueden ejecutar scripts dentro de contenedores.
+**Instrucciones**: todos los usuarios con acceso a Azure Container Instances pueden ejecutar scripts dentro de contenedores.
 
 Administre los recursos de Azure Container Instances y revise su acceso mediante distintas suscripciones o grupos de administración de Azure; también puede aislar los recursos mediante redes virtuales y grupos de seguridad de red o Azure Firewall.
 
@@ -923,7 +923,7 @@ Use una solución personalizada o de terceros para aplicar revisiones a las imá
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: Almacene imágenes de sistema operativo personalizadas de forma segura
 
-**Guía**: almacene imágenes de contenedor en Azure Container Registry y aproveche RBAC para garantizar que solo los usuarios autorizados puedan acceder a las imágenes.
+**Instrucciones**: almacene imágenes de contenedor en Azure Container Registry y aproveche RBAC para garantizar que solo los usuarios autorizados puedan acceder a las imágenes.
 
 * [Descripción de RBAC en Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 
@@ -957,7 +957,7 @@ Use una solución personalizada o de terceros para aplicar revisiones a las imá
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: Implemente la supervisión de configuración automatizada para servicios de Azure
 
-**Guía**: Use Azure Security Center para realizar análisis de base de referencia para los recursos de Azure.
+**Instrucciones**: Use Azure Security Center para realizar análisis de base de referencia para los recursos de Azure.
 
 Use Azure Policy para establecer restricciones en el tipo de recursos que se pueden crear en sus suscripciones.
 
@@ -1059,7 +1059,7 @@ Microsoft Antimalware está habilitado en el host subyacente que admite los serv
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Garantía de copias de seguridad automáticas periódicas
 
-**Guía**: habilite Azure Backup y configure el origen de la copia de seguridad (por ejemplo, un recurso compartido de archivos montado en grupos de contenedores), así como la frecuencia deseada y el período de retención. 
+**Instrucciones**: habilite Azure Backup y configure el origen de la copia de seguridad (por ejemplo, un recurso compartido de archivos montado en grupos de contenedores), así como la frecuencia deseada y el período de retención. 
 
 * [Habilitación de Azure Backup](https://docs.microsoft.com/azure/backup/)
 
@@ -1072,7 +1072,7 @@ Microsoft Antimalware está habilitado en el host subyacente que admite los serv
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2: Realización de copias de seguridad completas del sistema y copia de seguridad de las claves administradas por el cliente
 
-**Guía**: Realice una copia de seguridad de las claves administradas por el cliente en Azure Key Vault con las herramientas de línea de comandos o los SDK de Azure.
+**Instrucciones**: Realice una copia de seguridad de las claves administradas por el cliente en Azure Key Vault con las herramientas de línea de comandos o los SDK de Azure.
 
 Opcionalmente, haga una copia de seguridad de las imágenes de contenedor importando de un registro a otro.
 * [Creación de una copia de seguridad de las claves del almacén de claves en Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
@@ -1087,7 +1087,7 @@ Opcionalmente, haga una copia de seguridad de las imágenes de contenedor import
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3: Validación de todas las copias de seguridad, incluidas las claves administradas por el cliente
 
-**Guía**: Realice una copia de seguridad de las claves administradas por el cliente en Azure Key Vault con las herramientas de línea de comandos o los SDK de Azure.
+**Instrucciones**: Realice una copia de seguridad de las claves administradas por el cliente en Azure Key Vault con las herramientas de línea de comandos o los SDK de Azure.
 
 * [Restauración de las claves de Azure Key Vault en Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
@@ -1133,7 +1133,7 @@ El cliente también puede usar la guía de control de incidentes de seguridad de
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2: Creación de un procedimiento de priorización y puntuación de incidentes
 
-**Guía**: Azure Security Center asigna una gravedad a cada alerta para ayudarle a priorizar aquellas que se deben investigar en primer lugar. La gravedad se basa en la confianza que tiene Security Center en la búsqueda o en el análisis utilizados para emitir la alerta, así como en el nivel de confianza de que ha habido un intento malintencionado detrás de la actividad que ha provocado la alerta.
+**Instrucciones**: Azure Security Center asigna una gravedad a cada alerta para ayudarle a priorizar aquellas que se deben investigar en primer lugar. La gravedad se basa en la confianza que tiene Security Center en la búsqueda o en el análisis utilizados para emitir la alerta, así como en el nivel de confianza de que ha habido un intento malintencionado detrás de la actividad que ha provocado la alerta.
 
 Además, marque claramente las suscripciones (por ejemplo, producción, no producción) y cree un sistema de nomenclatura para identificar y clasificar claramente los recursos de Azure.
 

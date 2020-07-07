@@ -1,58 +1,15 @@
 - name: Kubernetes en Azure
   href: ./index.yml
 - name: Información general
-  items:
-    - name: Kubernetes en Azure
-      href: container-service-intro-kubernetes.md
 - name: Guías de inicio rápido
   expanded: true
-  items:
-    - name: Kubernetes en Azure
-      href: container-service-kubernetes-walkthrough.md
 - name: Tutoriales
-  items:
-    - name: 1 - Creación de imágenes de contenedor
-      href: container-service-tutorial-kubernetes-prepare-app.md
-    - name: 2 - Creación de un registro de contenedor
-      href: container-service-tutorial-kubernetes-prepare-acr.md
-    - name: 3 - Creación de un clúster de Kubernetes
-      href: container-service-tutorial-kubernetes-deploy-cluster.md
-    - name: 4 - Ejecución de una aplicación
-      href: container-service-tutorial-kubernetes-deploy-application.md
-    - name: 5 - Escalado de una aplicación
-      href: container-service-tutorial-kubernetes-scale.md
-    - name: 6 - Actualización de una aplicación
-      href: container-service-tutorial-kubernetes-app-update.md
-    - name: 7 - Supervisión con Log Analytics
-      href: container-service-tutorial-kubernetes-monitor.md
 - name: Conceptos
-  items:
-    - name: 'Entidad de servicio: Kubernetes'
-      href: container-service-kubernetes-service-principal.md
 - name: Guías paso a paso
   items:
-    - name: Kubernetes con Windows
-      href: container-service-kubernetes-windows-walkthrough.md
-    - name: Interfaz web de Kubernetes
-      href: container-service-kubernetes-ui.md
-    - name: Uso de gráficos de Helm
-      href: container-service-kubernetes-helm.md
     - name: Conservación de datos con Azure Files
       href: ../../aks/azure-files.md?toc=%2fazure%2fcontainer-service%2fkubernetes%2ftoc.json
-    - name: Uso de borrador con ACS
-      href: container-service-draft-up.md
-    - name: Escalar clúster
-      href: container-service-scale.md
     - name: Supervisión
-      items:
-        - name: Supervisión con Log Analytics
-          href: container-service-kubernetes-oms.md
-        - name: Supervisión con Datadog
-          href: container-service-kubernetes-datadog.md
-        - name: Supervisión con Sysdig
-          href: container-service-kubernetes-sysdig.md
-        - name: Supervisión con CoScale
-          href: container-service-kubernetes-coscale.md
     - name: Implementación de aplicaciones de Spring Boot
       items:
         - name: Implementación de una aplicación de Spring Boot en Linux en Azure Container Service
@@ -73,8 +30,6 @@
   items:
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Preguntas más frecuentes
-      href: container-service-faq.md
     - name: 'Plantillas: ACS Engine'
       href: 'https://github.com/Azure/acs-engine'
     - name: Precios

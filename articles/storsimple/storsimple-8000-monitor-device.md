@@ -3,15 +3,15 @@ title: Supervisión del dispositivo de la serie StorSimple 8000
 description: Se describe cómo usar el servicio Administrador de dispositivos de StorSimple para supervisar el uso, el rendimiento de E/S y el uso de la capacidad.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: b3b77024606c5cdb02ff7bdd357c2d14a2415efa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1c2df017a9af47bfa330c8e0fa7561bf5b2d5bae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76277052"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514700"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Usar el servicio Administrador de dispositivos de StorSimple para supervisar el dispositivo StorSimple
 

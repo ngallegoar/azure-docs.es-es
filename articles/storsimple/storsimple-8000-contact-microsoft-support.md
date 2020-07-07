@@ -3,15 +3,15 @@ title: Creación de una incidencia o caso de soporte técnico para la serie 8000
 description: Aprenda a registrar una solicitud de soporte técnico y a iniciar una sesión de soporte técnico en su dispositivo de la serie StorSimple 8000.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 99de3a6fbbbb1c4324df1712a5e24fd334ca4977
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d5e867849d17a489fad37d09215905d23fb0ed6a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228244"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514243"
 ---
 # <a name="contact-microsoft-support"></a>Ponerse en contacto con el servicio de soporte técnico de Microsoft
 

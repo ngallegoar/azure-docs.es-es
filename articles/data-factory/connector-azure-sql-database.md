@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/28/2020
-ms.openlocfilehash: 4c79779d9ce87a2596e5ccd3888e323fd27e0115
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 6a71cc080c28cfa6e54de5b942ad1d8ce5b496d3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298081"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513961"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure SQL Database mediante Azure Data Factory
 
@@ -129,7 +129,7 @@ Para ver los distintos tipos de autenticación, consulte las secciones siguiente
 
 Para usar la autenticación de token de aplicación de Azure AD basada en la entidad de servicio, realice estos pasos:
 
-1. [Cree una aplicación de Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) desde Azure Portal. Anote el nombre de la aplicación y los siguientes valores, que definen el servicio vinculado:
+1. [Cree una aplicación de Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) desde Azure Portal. Anote el nombre de la aplicación y los siguientes valores, que definen el servicio vinculado:
 
     - Identificador de aplicación
     - Clave de la aplicación

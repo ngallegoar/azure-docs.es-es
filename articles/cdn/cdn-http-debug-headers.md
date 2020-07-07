@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: allensu
-ms.openlocfilehash: 52aae3bdd2fe82eea6cbd500723192c88c293a1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4154c6a1e739f935022271e7a101f39d3ee5c500
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260503"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343027"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Encabezados HTTP X-EC-Debug para el motor de reglas de Azure CDN
 El encabezado de solicitud de caché de depuración, `X-EC-Debug`, proporciona información adicional acerca de la directiva de caché que se aplica al recurso solicitado. Estos encabezados son específicos de los productos **Azure CDN Premium de Verizon**.
@@ -27,7 +27,7 @@ El encabezado de solicitud de caché de depuración, `X-EC-Debug`, proporciona i
 ## <a name="usage"></a>Uso
 La respuesta que se envía desde los servidores POP a un usuario incluye el encabezado `X-EC-Debug` solo si se cumplen las condiciones siguientes:
 
-- La [característica Encabezados de respuesta de caché de depuración](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers) se ha habilitado en el motor de reglas para la solicitud especificada.
+- La [característica Encabezados de respuesta de caché de depuración](https://docs.vdms.com/cdn/Content/HRE/F/Debug-Cache-Response-Headers.htm) se ha habilitado en el motor de reglas para la solicitud especificada.
 - La solicitud especificada define el conjunto de encabezados de respuesta de caché de depuración que se incluirán en la respuesta.
 
 ## <a name="requesting-debug-cache-information"></a>Solicitud de información de la caché de depuración

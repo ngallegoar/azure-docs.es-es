@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
-ms.openlocfilehash: 57a3bab06e4c0a1e4fd8df5d0794a89904a88954
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f9768d4d20380e8e0c4ca6f7c71fddd68bb93d5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747649"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84340681"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variables HTTP para el motor de reglas de Azure CDN
 Las variables HTTP proporcionan los medios para recuperar metadatos de respuesta y solicitudes HTTP. Estos metadatos pueden usarse después para alterar una solicitud o respuesta de forma dinámica. El uso de las variables HTTP se restringe a las siguientes características del motor de reglas:
 
-- [Reescritura de clave de caché](cdn-verizon-premium-rules-engine-reference-features.md#cache-key-rewrite)
-- [Modificar encabezado de solicitud de cliente](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-request-header)
-- [Modificar encabezado de respuesta de cliente](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-response-header)
-- [Redirección de direcciones URL](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect)
-- [Reescritura de direcciones URL](cdn-verizon-premium-rules-engine-reference-features.md#url-rewrite)
+- [Reescritura de clave de caché](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Rewrite.htm)
+- [Modificar encabezado de solicitud de cliente](https://docs.vdms.com/cdn/Content/HRE/F/Modify-Client-Request-Header.htm)
+- [Modificar encabezado de respuesta de cliente](https://docs.vdms.com/cdn/Content/HRE/F/Modify-Client-Response-Header.htm)
+- [Redirección de direcciones URL](https://docs.vdms.com/cdn/Content/HRE/F/URL-Redirect.htm)
+- [Reescritura de direcciones URL](https://docs.vdms.com/cdn/Content/HRE/F/URL-Rewrite.htm)
 
 ## <a name="definitions"></a>Definiciones
 En la tabla siguiente se describen las variables HTTP compatibles. Se devuelve un valor en blanco cuando los metadatos de replicación geográfica (por ejemplo, el código postal) no están disponibles para una solicitud concreta.

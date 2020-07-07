@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/18/2020
-ms.openlocfilehash: a90a2def874c7f081f83a34aea956083eb72879a
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.date: 06/02/2020
+ms.openlocfilehash: 70e0a95a85920562af8bf9d3fffa6633709dccc5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81686496"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84322097"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>Transformación Selección en el flujo de datos de asignación
 
@@ -38,6 +38,9 @@ Las asignaciones fijas se pueden usar para asignar una subcolumna de una columna
 ![Asignación jerárquica](media/data-flow/select-hierarchy.png "Asignación jerárquica")
 
 ## <a name="rule-based-mapping"></a>Asignación basada en reglas
+
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xiXz]
 
 Si desea asignar muchas columnas a la vez o pasar las columnas desfasadas a un nivel inferior, use la asignación basada en reglas para definir las asignaciones mediante patrones de columna. Coincidencia basada en los valores `name`, `type`, `stream` y `position` de las columnas. Puede usar cualquier combinación de asignaciones basadas en reglas y fijas. De forma predeterminada, todas las proyecciones con más de 50 columnas tendrán como valor predeterminado una asignación basada en reglas que coincida con todas las columnas y que genere el nombre insertado. 
 

@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/18/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: ace34cf4a72b871ba6646b279007b8ce21c03e9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d312346accc4fb6781744343911158bb538c0ccf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457440"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84324086"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Uso de claves administradas por el cliente para cifrar los datos de configuración de App Configuration
 Azure App Configuration [cifra la información confidencial en reposo](../security/fundamentals/encryption-atrest.md). El uso de claves administradas por el cliente proporciona una mejor protección de los datos al permitirle administrar las claves de cifrado.  Cuando se usa el cifrado de claves administradas, toda la información confidencial de App Configuration se cifra con una clave de Azure Key Vault proporcionada por el usuario.  De esta manera, existe la posibilidad de rotar la clave de cifrado a petición.  También existe la posibilidad de revocar el acceso de Azure App Configuration a información confidencial mediante la revocación del acceso de la instancia de Azure App Configuration a la clave.
@@ -75,7 +75,7 @@ Para comenzar, necesitará una instancia de Azure App Configuration configurada 
 1. Cree una identidad administrada asignada por el sistema mediante la CLI de Azure y sustituya el nombre de la instancia de App Configuration y el grupo de recursos usado en los pasos anteriores. La identidad administrada se usará para acceder a la clave administrada. Se va a usar `contoso-app-config` para ilustrar el nombre de una instancia de App Configuration:
     
     ```azurecli
-    az appconfig identity assign --na1. me contoso-app-config --group contoso-resource-group --identities [system]
+    az appconfig identity assign --name contoso-app-config --resource-group contoso-resource-group --identities [system]
     ```
     
     La salida de este comando incluye el identificador de entidad de seguridad ("principalId") y el identificador de inquilino ("tenandId") de la identidad asignada por el sistema.  Esto se usará para conceder a la identidad acceso a la clave administrada.

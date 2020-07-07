@@ -3,12 +3,12 @@ title: Errores de plantilla no válida
 description: Describe cómo resolver errores de plantilla no válida al implementar plantillas de Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 05/22/2020
-ms.openlocfilehash: bb053f59c417827a7c07ca193ccea0b8509244d6
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 2902a6d82c32192bb241697825a31d759d5c7b75
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832528"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84324069"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Resolución de errores de plantilla no válida
 
@@ -29,7 +29,7 @@ El mensaje de error depende del tipo de error.
 
 Este error puede tener distintos orígenes. Normalmente implican un error estructural o de sintaxis en la plantilla.
 
-<a id="syntax-error" />
+<a id="syntax-error"></a>
 
 ## <a name="solution-1---syntax-error"></a>Solución 1: error de sintaxis
 
@@ -50,7 +50,7 @@ Si no proporciona la sintaxis coincidente, la plantilla genera un valor que es d
 
 Si recibe este tipo de error, revise cuidadosamente la sintaxis de las expresiones. Considere la posibilidad de utilizar un editor JSON como [Visual Studio](create-visual-studio-deployment-project.md) o [Visual Studio Code](use-vs-code-to-create-template.md) que puede avisarlo de los errores de sintaxis.
 
-<a id="incorrect-segment-lengths" />
+<a id="incorrect-segment-lengths"></a>
 
 ## <a name="solution-2---incorrect-segment-lengths"></a>Solución 2: longitudes de segmentos incorrectas
 
@@ -111,7 +111,7 @@ Obtener los segmentos correctos puede resultar complicado con los tipos de Resou
 }
 ```
 
-<a id="parameter-not-valid" />
+<a id="parameter-not-valid"></a>
 
 ## <a name="solution-3---parameter-is-not-valid"></a>Solución 3: el parámetro no es válido
 
@@ -126,13 +126,13 @@ part of the allowed values
 
 Compruebe los valores permitidos de la plantilla y proporcione uno durante la implementación. Para más información sobre los valores de parámetros permitidos, consulte [Sección de parámetros de plantillas de Azure Resource Manager](template-syntax.md#parameters).
 
-<a id="too-many-resource-groups" />
+<a id="too-many-resource-groups"></a>
 
 ## <a name="solution-4---too-many-target-resource-groups"></a>Solución 4: hay demasiados grupos de recursos de destino
 
 Puede que vea este error en implementaciones anteriores porque estaba limitado a cinco grupos de recursos de destino en una sola implementación. En mayo de 2020 ese límite se ha aumentado a 800 grupos de recursos. Para más información, consulte [Implementación de recursos de Azure en varias suscripciones y grupos de recursos](cross-resource-group-deployment.md).
 
-<a id="circular-dependency" />
+<a id="circular-dependency"></a>
 
 ## <a name="solution-5---circular-dependency-detected"></a>Solución 5: se detectó una dependencia circular
 
