@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: 1b3ae6295a639c3d59643b106b920cb606572e0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670583"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Recopilación de registros de IIS en Azure Monitor
@@ -43,7 +43,7 @@ Los registros de IIS son del tipo **W3CIISLog** y tienen las propiedades que apa
 | csUserName |Nombre del usuario autenticado que obtuvo acceso al servidor. Los usuarios anónimos se indican con un guion. |
 | csUriStem |El destino de la solicitud, como una página web. |
 | csUriQuery |La consulta que el cliente intentaba realizar, si corresponde. |
-| ManagementGroupName |Nombre del grupo de administración de agentes de Operations Manager.  En el caso de los otros agentes, es AOI-\<id. de área de trabajo\>. |
+| ManagementGroupName |Nombre del grupo de administración de agentes de Operations Manager.  En el caso de los otros agentes, es AOI-\<workspace ID\> |
 | RemoteIPCountry |País o región de la dirección IP del cliente. |
 | RemoteIPLatitude |La latitud de la dirección IP del cliente. |
 | RemoteIPLongitude |La longitud de la dirección IP del cliente. |

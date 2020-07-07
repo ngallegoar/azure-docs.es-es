@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: a01c8658ff4929d07cd185dcea45393cfe3b2a17
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: e0f0f0fdb75961f3ea9ed90e1684ff5ecd2a792d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858300"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961547"
 ---
 # <a name="publishing-guide-for-virtual-machine-offers"></a>Guía de publicación para ofertas de máquinas virtuales
 
@@ -54,7 +54,7 @@ Use el tipo de oferta de *máquina virtual* cuando implemente un dispositivo vir
 | Requisito | Detalles |  
 |:--- |:--- | 
 | Facturación y medición | Su VM debe admitir las opciones de facturación mensual BYOL o de pago por uso. |  
-| Disco duro virtual (VHD) compatible con Azure | Las máquinas virtuales deben estar basadas en Windows o Linux. Para obtener más información sobre cómo crear un VHD, vea: <ul> <li>[Distribuciones de Linux aprobadas en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) (para discos duros virtuales de Linux).</li> <li>[Creación de un VHD compatible con Azure](./partner-center-portal/azure-vm-create-offer.md) (para VHD con Windows).</li> </ul> |  
+| Disco duro virtual (VHD) compatible con Azure | Las máquinas virtuales deben estar basadas en Windows o Linux. Para obtener más información sobre cómo crear un VHD, vea: <ul> <li>[Distribuciones de Linux aprobadas en Azure](../virtual-machines/linux/endorsed-distros.md) (para discos duros virtuales de Linux).</li> <li>[Creación de un VHD compatible con Azure](./partner-center-portal/azure-vm-create-offer.md) (para VHD con Windows).</li> </ul> |  
 
 >[!Note]
 >La participación en el canal de asociados de Proveedores de soluciones en la nube (CSP) ya está disponible. Para más información sobre cómo comercializar su oferta mediante los canales de asociados de CSP de Microsoft, consulte [Proveedores de soluciones en la nube](./cloud-solution-providers.md).

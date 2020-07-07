@@ -8,10 +8,10 @@ ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: e5c57ba56ce236bcf07478e1784eec6d4c632d1c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82195254"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Base de referencia de seguridad de Azure para Cosmos DB
@@ -48,7 +48,7 @@ Configuración del firewall de IP en Azure Cosmos DB: https://docs.microsoft.co
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>1.2: Supervise y registre la configuración y el tráfico de redes virtuales, subredes y NIC
 
-**Guía**: Use Azure Security Center y siga las recomendaciones de protección de redes para ayudar a proteger sus recursos de red relacionados a la cuenta de Azure Cosmos.
+**Instrucciones**: Use Azure Security Center y siga las recomendaciones de protección de redes para ayudar a proteger sus recursos de red relacionados a la cuenta de Azure Cosmos.
 
 Cuando se implementan máquinas virtuales en la misma red virtual que la cuenta de Azure Cosmos, puede usar los grupos de seguridad de red (NSG) para reducir el riesgo de exfiltración de datos. Habilite los registros de flujo de grupos de seguridad de red y envíe registros a una cuenta de Azure Storage para la auditoría del tráfico. También puede enviar registros de flujo de grupo de seguridad de red a un área de trabajo de Log Analytics y usar el Análisis de tráfico para proporcionar información detallada sobre el flujo de tráfico en la nube de Azure. Algunas de las ventajas del Análisis de tráfico son la capacidad de visualizar la actividad de la red e identificar las zonas activas, identificar las amenazas de seguridad, comprender los patrones de flujo de tráfico y detectar configuraciones de red incorrectas.
 
@@ -102,7 +102,7 @@ Habilitación y uso del Análisis de tráfico: https://docs.microsoft.com/azure/
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6: Implemente sistemas de prevención de intrusiones y detección de intrusiones (IDS/IPS) basados en la red
 
-**Guía**: Use Advanced Threat Protection (ATP) para Azure Cosmos DB. Advanced Threat Protection para Azure Cosmos DB proporciona un nivel adicional de inteligencia de seguridad que detecta intentos poco habituales y potencialmente peligrosos de acceder a las cuentas de Azure Cosmos DB o vulnerarlas. Esta capa de protección le permite afrontar las amenazas e integrarlas con sistemas centrales de supervisión de seguridad. 
+**Instrucciones**: Use Advanced Threat Protection (ATP) para Azure Cosmos DB. Advanced Threat Protection para Azure Cosmos DB proporciona un nivel adicional de inteligencia de seguridad que detecta intentos poco habituales y potencialmente peligrosos de acceder a las cuentas de Azure Cosmos DB o vulnerarlas. Esta capa de protección le permite afrontar las amenazas e integrarlas con sistemas centrales de supervisión de seguridad. 
 
 Cómo configurar Advanced Threat Protection para Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
 
@@ -149,7 +149,7 @@ Creación de un plano técnico de Azure: https://docs.microsoft.com/azure/govern
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10: Documente las reglas de configuración de tráfico
 
-**Guía**: Use etiquetas para los recursos de red asociados a la implementación de Azure Cosmos DB a fin de organizarlos lógicamente en una taxonomía.
+**Instrucciones**: Use etiquetas para los recursos de red asociados a la implementación de Azure Cosmos DB a fin de organizarlos lógicamente en una taxonomía.
 
 Creación y uso de etiquetas: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
@@ -159,7 +159,7 @@ Creación y uso de etiquetas: https://docs.microsoft.com/azure/azure-resource-ma
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: Use herramientas automatizadas para supervisar las configuraciones de recursos de red y detectar cambios
 
-**Guía**: Use el registro de actividad de Azure para supervisar las configuraciones de los recursos de red y detectar cambios en los recursos de red relacionados con las instancias de Azure Cosmos DB. Cree alertas en Azure Monitor que se desencadenarán cuando se produzcan cambios en los recursos de red críticos. 
+**Instrucciones**: Use el registro de actividad de Azure para supervisar las configuraciones de los recursos de red y detectar cambios en los recursos de red relacionados con las instancias de Azure Cosmos DB. Cree alertas en Azure Monitor que se desencadenarán cuando se produzcan cambios en los recursos de red críticos. 
 
 Visualización y recuperación de eventos del registro de actividad de Azure: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
 
@@ -284,7 +284,7 @@ Creación, visualización y administración de alertas de registro mediante Azur
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Mantenga un inventario de cuentas administrativas
 
-**Guía**: Puede usar el panel de identidades y control de acceso (IAM) en el Azure Portal para configurar el control de acceso basado en rol (RBAC) y mantener el inventario en los recursos de Azure Cosmos DB. Los roles se aplican a usuarios, grupos, entidades de servicio e identidades administradas en Active Directory. Puede usar roles integrados o personalizados para usuarios y grupos.
+**Instrucciones**: Puede usar el panel de identidades y control de acceso (IAM) en el Azure Portal para configurar el control de acceso basado en rol (RBAC) y mantener el inventario en los recursos de Azure Cosmos DB. Los roles se aplican a usuarios, grupos, entidades de servicio e identidades administradas en Active Directory. Puede usar roles integrados o personalizados para usuarios y grupos.
 
 Azure Cosmos DB proporciona un control de acceso basado en role (RBAC) integrado para escenarios de administración comunes en Azure Cosmos DB. Un usuario que tiene un perfil en Azure Active Directory puede asignar estos roles RBAC a usuarios, grupos, entidades de servicio o identidades administradas para conceder o denegar el acceso a recursos y operaciones en los recursos de Azure Cosmos DB.
 
@@ -324,7 +324,7 @@ Cómo obtener acceso a las claves mediante programación con Azure Active Direct
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3: Use cuentas administrativas dedicadas
 
-**Guía**: No aplicable; Azure Cosmos DB no es compatible con las cuentas de administrador.  Todo el acceso se integra con Azure Active Directory y el control de acceso basado en roles (RBAC) de Azure.
+**Instrucciones**: No aplicable; Azure Cosmos DB no es compatible con las cuentas de administrador.  Todo el acceso se integra con Azure Active Directory y el control de acceso basado en roles (RBAC) de Azure.
 
 
 
@@ -370,7 +370,7 @@ Cómo habilitar la MFA en Azure: https://docs.microsoft.com/azure/active-directo
 
 ### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7: Registre y alerte de la actividad sospechosa desde cuentas administrativas
 
-**Guía**: Use Advanced Threat Protection (ATP) para Azure Cosmos DB. Advanced Threat Protection para Azure Cosmos DB proporciona un nivel adicional de inteligencia de seguridad que detecta intentos poco habituales y potencialmente peligrosos de acceder a las cuentas de Azure Cosmos DB o vulnerarlas. Esta capa de protección le permite afrontar las amenazas e integrarlas con sistemas centrales de supervisión de seguridad. 
+**Instrucciones**: Use Advanced Threat Protection (ATP) para Azure Cosmos DB. Advanced Threat Protection para Azure Cosmos DB proporciona un nivel adicional de inteligencia de seguridad que detecta intentos poco habituales y potencialmente peligrosos de acceder a las cuentas de Azure Cosmos DB o vulnerarlas. Esta capa de protección le permite afrontar las amenazas e integrarlas con sistemas centrales de supervisión de seguridad. 
 
 Así mismo, puede usar Azure Active Directory (AD) Privileged Identity Management (PIM) para la generación de registros y alertas cuando se produzca actividad sospechosa o insegura en el entorno.
 
@@ -396,7 +396,7 @@ Configuración de ubicaciones con nombre en Azure: https://docs.microsoft.com/az
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Uso de Azure Active Directory
 
-**Guía**: Use Azure Active Directory (AD) como sistema central de autenticación y autorización. Azure AD protege los datos mediante un cifrado seguro para los datos en reposo y en tránsito. Azure AD también cifra con sal, convierte en hash y almacena de forma segura las credenciales de los usuarios.
+**Instrucciones**: Use Azure Active Directory (AD) como sistema central de autenticación y autorización. Azure AD protege los datos mediante un cifrado seguro para los datos en reposo y en tránsito. Azure AD también cifra con sal, convierte en hash y almacena de forma segura las credenciales de los usuarios.
 
 Creación y configuración de una nueva instancia de Azure Active Directory: https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance
 
@@ -566,7 +566,7 @@ Cómo configurar las claves administradas por el cliente para la cuenta de Azure
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: Registro y alerta de cambios en los recursos críticos de Azure
 
-**Guía**: Use Azure Monitor con el registro de actividad de Azure para crear alertas para cuando se produzcan cambios en las instancias de Azure Cosmos DB.
+**Instrucciones**: Use Azure Monitor con el registro de actividad de Azure para crear alertas para cuando se produzcan cambios en las instancias de Azure Cosmos DB.
 
 Cómo crear alertas para eventos de registro de actividad de Azure: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
@@ -582,7 +582,7 @@ Cómo crear alertas para eventos de registro de actividad de Azure: https://docs
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: Ejecute herramientas de análisis de vulnerabilidades automatizado
 
-**Guía**: Siga las recomendaciones de Azure Security Center para las instancias de Azure Cosmos DB. 
+**Instrucciones**: Siga las recomendaciones de Azure Security Center para las instancias de Azure Cosmos DB. 
 
 Microsoft realiza revisiones del sistema y administración de vulnerabilidades en los hosts subyacentes que admiten las instancias de Azure Cosmos DB. Para garantizar la seguridad de los datos de los clientes dentro de Azure, Microsoft ha implementado y mantiene un conjunto de controles y funcionalidades eficaces de protección de datos.
 
@@ -764,7 +764,7 @@ Configuración del acceso condicional para bloquear el acceso a Azure Resource M
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12: Limitación de capacidad de los usuarios para ejecutar scripts en recursos de proceso
 
-**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
+**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
 
 
 **Supervisión de Azure Security Center**: No aplicable
@@ -786,7 +786,7 @@ Configuración del acceso condicional para bloquear el acceso a Azure Resource M
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Establezca configuraciones seguras para todos los recursos de Azure
 
-**Guía**: Defina e implemente configuraciones de seguridad estándar para las instancias de Azure Cosmos DB con Azure Policy. Use los alias de Azure Policy en el espacio de nombres "Microsoft.DocumentDB" para crear directivas personalizadas con el fin de auditar o aplicar la configuración de las instancias de Cosmos DB. También puede usar definiciones de directivas integradas para Azure Cosmos DB, como:
+**Instrucciones**: Defina e implemente configuraciones de seguridad estándar para las instancias de Azure Cosmos DB con Azure Policy. Use los alias de Azure Policy en el espacio de nombres "Microsoft.DocumentDB" para crear directivas personalizadas con el fin de auditar o aplicar la configuración de las instancias de Cosmos DB. También puede usar definiciones de directivas integradas para Azure Cosmos DB, como:
 
 - Implementar Advanced Threat Protection para cuentas de Cosmos DB
 
@@ -811,7 +811,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: Mantenga configuraciones de recursos de Azure seguras
 
-**Guía**: Utilice [deny] y [deploy if not exist] de Azure Policy para aplicar una configuración segura en los recursos de Azure.
+**Guía**: Utilice las directivas [deny] y [deploy if not exist] de Azure Policy para aplicar una configuración segura en los recursos de Azure.
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -878,7 +878,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: Implemente la supervisión de configuración automatizada para sistemas operativos
 
-**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
+**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -937,7 +937,7 @@ Cómo configurar el escáner de credenciales: https://secdevtools.azurewebsites.
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2: Examine previamente los archivos que se van a cargar en recursos de Azure que no son de proceso
 
-**Guía**: Microsoft Antimalware está habilitado en el host subyacente que admite los servicios de Azure (por ejemplo, Azure App Service), pero no se ejecuta en el contenido del cliente.
+**Instrucciones**: Microsoft Antimalware está habilitado en el host subyacente que admite los servicios de Azure (por ejemplo, Azure App Service), pero no se ejecuta en el contenido del cliente.
 
 Es su responsabilidad realizar un análisis previo de los archivos que se cargan en recursos de Azure que no son de proceso, incluido Azure Cosmos DB. Microsoft no puede acceder a los datos del cliente y, por lo tanto, no puede realizar exámenes antimalware del contenido del cliente en su nombre.
 
@@ -1009,7 +1009,7 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantía de la protección de las copias de seguridad y las claves administradas del cliente
 
-**Guía**: Dato que todos los datos de usuario almacenados en Cosmos DB están cifrados en reposo y en tránsito, no es necesario hacer nada. Otra forma de decirlo es que el cifrado en reposo está "activado" de forma predeterminada. No hay ningún mando para activarlo o desactivarlo. Azure Cosmos DB usa el cifrado de AES-256 en todas las regiones donde se ejecuta la cuenta.
+**Instrucciones**: Dato que todos los datos de usuario almacenados en Cosmos DB están cifrados en reposo y en tránsito, no es necesario hacer nada. Otra forma de decirlo es que el cifrado en reposo está "activado" de forma predeterminada. No hay ningún mando para activarlo o desactivarlo. Azure Cosmos DB usa el cifrado de AES-256 en todas las regiones donde se ejecuta la cuenta.
 
 Habilite la eliminación temporal en Key Vault para proteger las claves contra la eliminación accidental o malintencionada.
 

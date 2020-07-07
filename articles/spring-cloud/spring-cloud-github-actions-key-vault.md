@@ -6,12 +6,12 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/20/2019
-ms.openlocfilehash: 78cd5945e394219be0551bbe97afef07f18b61f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4a836ae195674556c486592a421c188f7c40e3f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78945469"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484349"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Autenticación de Azure Spring Cloud con Key Vault en Acciones de GitHub
 Key Vault es un lugar seguro para almacenar claves. Los usuarios empresariales deben almacenar las credenciales de los entornos de CI/CD en un ámbito que controlen. La clave para obtener las credenciales en Key Vault se debe limitar al ámbito de los recursos.  Solo tiene acceso al ámbito de Key Vault, no a todo el ámbito de Azure. Es como una llave que solo puede abrir una caja fuerte, no una llave maestra que puede abrir todas las puertas de un edificio. Es una forma de obtener una clave con otra clave, lo que es útil en un flujo de trabajo de CI/CD. 
@@ -73,7 +73,7 @@ Una vez más, resultados:
     "managementEndpointUrl": "https://management.core.windows.net/"
 }
 ```
-Copie toda la cadena JSON.  Vuelva al panel de **Key Vault**. Abra el menú **Secretos** y, después, haga clic en el botón **Generate/Import** (Generar o importar). Escriba el nombre del secreto, como `AZURE-CRENDENTIALS-FOR-SPRING`. Pegue la cadena de la credencial JSON en el cuadro de entrada **Valor**. Es posible que observe que el cuadro de entrada Valor es un campo de texto de una línea, no un área de texto de varias líneas.  Puede pegar la cadena JSON completa ahí.
+Copie toda la cadena JSON.  Vuelva al panel de **Key Vault**. Abra el menú **Secretos** y, después, haga clic en el botón **Generate/Import** (Generar o importar). Escriba el nombre del secreto, como `AZURE-CREDENTIALS-FOR-SPRING`. Pegue la cadena de la credencial JSON en el cuadro de entrada **Valor**. Es posible que observe que el cuadro de entrada Valor es un campo de texto de una línea, no un área de texto de varias líneas.  Puede pegar la cadena JSON completa ahí.
 
  ![Credencial de ámbito completo](./media/github-actions/key-vault3.png)
 
@@ -92,7 +92,7 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}           # Strong box key you generated in the first step
     - uses: Azure/get-keyvault-secrets@v1.0
       with:
-        keyvault: "zlhe-test"
+        keyvault: "<Your Key Vault Name>"
         secrets: "AZURE-CREDENTIALS-FOR-SPRING"           # Master key to open all doors in the building
       id: keyvaultaction
     - uses: azure/login@v1

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 9134eb6922b0ed37bbe6051b138da2c7c082b175
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1ef52d74f7ae6e7e0d8c58e3b1972a0a1227c6b5
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75658804"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962210"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Habilitar los volcados de montón de los servicios de Apache Hadoop en HDInsight basado en Linux
 
@@ -51,7 +51,7 @@ La asignación y reducción de procesos son tareas ligeramente diferentes, ya qu
 
 La siguiente opción habilita los volcados del montón cuando se produce un OutOfMemoryError:
 
-    -XX:+HeapDumpOnOutOfMemoryError
+`-XX:+HeapDumpOnOutOfMemoryError`
 
 El símbolo **+** indica que esta opción está habilitada, ya que está deshabilitada de forma predeterminada.
 
@@ -62,7 +62,7 @@ El símbolo **+** indica que esta opción está habilitada, ya que está deshabi
 
 La ubicación predeterminada del archivo de volcado es el directorio en el cual está trabajando. Puede decidir dónde guardar el archivo con la siguiente opción:
 
-    -XX:HeapDumpPath=/path
+`-XX:HeapDumpPath=/path`
 
 Por ejemplo, al usar `-XX:HeapDumpPath=/tmp`, los volcados se almacenarán en el directorio /tmp.
 
@@ -70,7 +70,7 @@ Por ejemplo, al usar `-XX:HeapDumpPath=/tmp`, los volcados se almacenarán en el
 
 También puede desencadenar un script cuando se produzca un error **OutOfMemoryError** . Por ejemplo, puede desencadenar una notificación que le avise de que el error se ha producido. Utilice la siguiente opción para desencadenar un script en un error __OutOfMemoryError__:
 
-    -XX:OnOutOfMemoryError=/path/to/script
+`-XX:OnOutOfMemoryError=/path/to/script`
 
 > [!NOTE]  
 > Puesto que Apache Hadoop es un sistema distribuido, debe colocar cualquier script que use en todos los nodos del clúster que ejecute el servicio.
