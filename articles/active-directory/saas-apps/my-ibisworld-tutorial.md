@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7c2f74b8f8ed19fd73b67fdd0465cce81f89321
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: c9ed9dd75f7119268c2d5971e05704e5a4eca4a0
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735920"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85798245"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-my-ibisworld"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con My IBISWorld
 
@@ -96,14 +96,14 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. Además de lo anterior, la aplicación My IBISWorld espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
     
-    | Nombre |   |  Atributo de origen|
-    | ---------------| --------------- | --------- |
-    | department |  | user.department |
-    | language |  | user.preferredlanguage |
-    | phone |  | user.telephonenumber |
-    | title |  | user.jobtitle |
-    | userid |  | user.employeeid |
-    | country |  | user.country |
+    | Nombre | Atributo de origen|
+    | --------------- | --------- |
+    | department | user.department |
+    | language | user.preferredlanguage |
+    | phone | user.telephonenumber |
+    | title | user.jobtitle |
+    | userid | user.employeeid |
+    | country | user.country |
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 

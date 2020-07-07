@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.service: stream-analytics
 ms.openlocfilehash: 5aa15ae4a234a56a172a0166070c32be4f822910
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83650077"
 ---
 # <a name="azure-stream-analytics-configuration-error-codes"></a>Códigos de error de configuración de Azure Stream Analytics

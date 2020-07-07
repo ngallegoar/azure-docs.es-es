@@ -2,17 +2,17 @@
 title: Temas de asociados de Auth0 con Azure Event Grid
 description: Envíe eventos desde Auth0 a servicios de Azure con Azure Event Grid.
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.author: babanisa
-ms.openlocfilehash: 6025c4c694da1e036201aef35ab73500429f7e2c
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.author: femila
+ms.openlocfilehash: 80226822e89344705c24094b073868d8ac0e1e42
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170569"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560732"
 ---
 # <a name="auth0-partner-topics"></a>Temas de asociados de Auth0
 ![Logotipo de Auth0](./media/auth0-overview/auth0-logo.png)

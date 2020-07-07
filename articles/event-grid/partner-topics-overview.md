@@ -2,17 +2,17 @@
 title: Temas del asociado de Azure Event Grid
 description: Envíe eventos de los asociados PaaS y SaaS de Event Grid de terceros directamente a los servicios de Azure con Azure Event Grid.
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.author: babanisa
-ms.openlocfilehash: f47d63ce79846e94e992df93af1768aad3c17e67
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.author: femila
+ms.openlocfilehash: 5327efea8af734c723ba76d1a00b72c08f5c88b9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170960"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560270"
 ---
 # <a name="partner-topics-in-azure-event-grid-preview"></a>Temas del asociado en Azure Event Grid (versión preliminar)
 Mediante el uso de los temas del asociado, puede conectar orígenes de eventos de terceros directamente a Azure Event Grid. Esta integración le permite suscribirse a eventos de los asociados de la misma manera que se suscribe a los eventos de los servicios de Azure. 

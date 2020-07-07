@@ -3,7 +3,7 @@ title: Actualización de una máquina virtual de Azure con SUSE Linux Enterprise
 description: En este artículo se exponen los pasos generales para usar el sistema de migración de distribución de SUSE con el fin de actualizar SUSE Linux Enterprise Server a SUSE 15 SP1 para una máquina virtual de Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: genlin
+author: amkarmak
 manager: dcscontentpm
 editor: ''
 tags: virtual-machines
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 05/21/2020
-ms.author: genli
-ms.openlocfilehash: 635758ad2624a4fc8b06702f881a34e4b2f3f123
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.author: arremana
+ms.openlocfilehash: 079574ab4c5846eae6266d1e13240baf99428a69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84260428"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84449250"
 ---
 # <a name="upgrade-azure-vm-with-sles-12-to-sles-15-sp1"></a>Actualización de una máquina virtual de Azure con SLES 12 a SLES 15 SP1
 

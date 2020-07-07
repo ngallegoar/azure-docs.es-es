@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a implementar un clúster de Azure Ser
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 2d170057a85a8e223fa9d1bc2bfc17e0c284afcd
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: dfcee93ffa5eea0b2aa0b9a93ff53ad7b61ea245
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756041"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611669"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Tutorial: Implementación de un clúster de Service Fabric con Windows una red virtual de Azure
 
@@ -73,8 +73,8 @@ En el recurso **Microsoft.ServiceFabric/clusters**, un clúster de Windows está
 * Protección con certificado (configurable en los parámetros de la plantilla).
 * Se habilita el [proxy inverso](service-fabric-reverseproxy.md).
 * Se habilita el [servicio DNS](service-fabric-dnsservice.md).
-* [Nivel de durabilidad](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de Bronze (configurable en los parámetros de la plantilla).
-* [Nivel de confiabilidad](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) de Silver (configurable en los parámetros de la plantilla).
+* [Nivel de durabilidad](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) de Bronze (configurable en los parámetros de la plantilla).
+* [Nivel de confiabilidad](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) de Silver (configurable en los parámetros de la plantilla).
 * Punto de conexión de la conexión de cliente: 19000 (configurable en los parámetros de la plantilla).
 * punto de conexión de la puerta de enlace HTTP: 19080 (configurable en los parámetros de la plantilla).
 

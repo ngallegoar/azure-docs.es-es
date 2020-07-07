@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: 450aa58d4ad9cbb721e621ec3db8b4ca7e914aa1
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 6fe25efe8f38772162c916c8d0b965267d457c0c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121208"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488824"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Traslado de Azure Key Vault a otra suscripción
 
@@ -66,9 +66,8 @@ Asegúrese de ir a la página de Azure Policy en Azure Portal y examine las asig
 4. Seleccione el botón «Mover»
 5. Seleccione «Mover a otra suscripción» de las opciones de la lista desplegable
 6. Seleccione el grupo de recursos a donde quiere trasladar el almacén de claves
-7. Seleccione el grupo de recursos a donde quiere trasladar el almacén de claves
-8. Confirme la advertencia relacionada con el traslado de recursos
-9. Seleccione Aceptar.
+7. Confirme la advertencia relacionada con el traslado de recursos.
+8. Seleccione Aceptar.
 
 ### <a name="additional-steps-post-move"></a>Pasos adicionales (después del traslado)
 

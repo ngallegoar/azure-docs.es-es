@@ -4,16 +4,16 @@ description: Aquí se muestra cómo crear una cuenta de almacenamiento de BlockB
 author: tamram
 services: storage
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4767c0310783e7e2cc51b4caa7d6e6a052d0a05a
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
+ms.openlocfilehash: 31a7048c263d7231fe827ad5a1c927c5cb3e2f6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007299"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84463587"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Creación de una cuenta BlockBlobStorage
 

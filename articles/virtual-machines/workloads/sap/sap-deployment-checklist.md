@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7b8c1b0bcc74d73f1f869972488ba7c5dfe610d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba229025608d183b886a17346a725bc64dc6b60e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060067"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84556660"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Lista de comprobación de planeamiento e implementación de cargas de trabajo de SAP en Azure
 
@@ -86,7 +86,7 @@ Durante esta fase, se planea la migración de la carga de trabajo de SAP a la pl
     - [Instalación de SAP HANA](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
 9.  Defina una cadencia periódica de revisión del diseño y la implementación entre usted como cliente, el integrador de sistemas, Microsoft y otras partes implicadas.
 
- 
+
 ## <a name="pilot-phase-strongly-recommended"></a>Fase piloto (expresamente recomendada)
  
 Puede ejecutar una prueba piloto antes o durante el planeamiento y la preparación del proyecto. También puede utilizar la fase piloto para probar las estrategias y los diseños realizados durante la fase de planeamiento y preparación. Además, puede ampliar la fase piloto para que sea una prueba de concepto real.
@@ -213,7 +213,7 @@ En esta fase, normalmente se implementan sistemas de desarrollo, sistemas de pru
 14. Optimice y perfeccione los accesos basados en rol, los permisos y los procesos de Azure de su equipo para asegurarse de conseguir la separación de funciones. Al mismo tiempo, asegúrese de que todos los equipos pueden realizar sus tareas en la infraestructura de Azure.
 15. Practique, pruebe y documente los procedimientos de alta disponibilidad y recuperación ante desastres para permitir que su personal ejecute estas tareas. Identifique las deficiencias y adapte la nueva funcionalidad de Azure que va a integrar en las implementaciones.
 
- 
+
 ## <a name="production-preparation-phase"></a>Fase de preparación de producción 
 En esta fase recopilará lo que experimentó y aprendió durante las implementaciones que no son de producción y lo aplicará a las futuras implementaciones de producción. También deberá preparar el trabajo de la transferencia de datos entre la ubicación actual de hospedaje y Azure.
 

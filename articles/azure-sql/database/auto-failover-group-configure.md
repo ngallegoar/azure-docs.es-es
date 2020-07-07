@@ -3,7 +3,7 @@ title: Configuración de un grupo de conmutación por error
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Aprenda a configurar un grupo de conmutación por error automática para una instancia de Azure SQL Database (única y agrupada) e Instancia administrada de SQL mediante Azure Portal, la CLI de Azure y PowerShell.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: 13ca1ed4abef1eb367239a60ee7fe3d40ffee8d5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 6c85fce45bcfa63d921297b068066b8f6e814223
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195539"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85987137"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configuración de un grupo de conmutación por error para Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -295,7 +295,7 @@ Se producirá un error en el grupo de conmutación por error en el servidor secu
 1. Seleccione **Conmutación por error** en el panel de tareas para conmutar por error el grupo de conmutación por error que contiene el grupo elástico.
 1. Seleccione **Sí** en la advertencia que le notifica que las sesiones de TDS se desconectarán.
 
-   ![Conmutación por error del grupo de conmutación por error que contiene la base de datos SQL](./media/auto-failover-group-configure/failover-sql-db.png)
+   ![Conmutación por error del grupo de conmutación por error que contiene la base de datos](./media/auto-failover-group-configure/failover-sql-db.png)
 
 1. Revise cuál es el servidor principal y cuál es el secundario. Si la conmutación por error se realiza correctamente, los dos servidores deben tener los roles intercambiados.
 1. Seleccionar de nuevo **Conmutación por error** para que el grupo de conmutación por error vuelva a la configuración original.

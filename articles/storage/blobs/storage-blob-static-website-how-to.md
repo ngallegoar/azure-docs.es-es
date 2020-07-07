@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.openlocfilehash: a7dfc58258c8c7c6e8bbf7567d743abf90d3a7e5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 1fb4e7cf589d63e9e595a35c34a2728d564b309b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194898"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609937"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hospedaje de un sitio web estático en Azure Storage
 
@@ -153,13 +153,10 @@ En estas instrucciones se muestra cómo cargar archivos mediante la versión del
 
 Cargue los objetos al contenedor *$web* desde un directorio de origen.
 
-> [!NOTE]
-> Si usa Azure Cloud Shell, asegúrese de agregar un carácter de escape `\` al hacer referencia al contenedor `$web` (por ejemplo: `\$web`). Si usa una instalación local de la CLI de Azure, no tendrá que utilizar el carácter de escape.
-
 En este ejemplo se da por hecho que ejecuta comandos desde la sesión de Azure Cloud Shell.
 
 ```azurecli-interactive
-az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name>
+az storage blob upload-batch -s <source-path> -d '$web' --account-name <storage-account-name>
 ```
 
 > [!NOTE] 

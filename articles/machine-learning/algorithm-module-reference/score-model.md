@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 56d8cad05a42da8de680ade487dddee9a97aab3a
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 361199bd380b126ec41fb8a5587a2ebd78cd6f24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80364174"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84447618"
 ---
-# <a name="score-model-module"></a>Score Model module
+# <a name="score-model"></a>Puntuación de modelo
 
 En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 

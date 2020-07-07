@@ -1,14 +1,14 @@
 ---
 title: 'Patrón: efectos de una definición de directiva'
 description: Este patrón de Azure Policy proporciona un ejemplo de cómo usar los distintos efectos de una definición de directiva.
-ms.date: 01/31/2020
+ms.date: 06/29/2020
 ms.topic: sample
-ms.openlocfilehash: 1a9aec50bd328b76271d54f7830c75e0848d3cde
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c7e7689aa837a2dba0992112df3cd36ac9affe6
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80372631"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565741"
 ---
 # <a name="azure-policy-pattern-effects"></a>Patrón de Azure Policy: efectos
 

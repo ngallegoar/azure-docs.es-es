@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 9cf012df65560a921f2c9f12f6c0362a033300be
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: b62441a4b1307a232ad2f592f13253c0759b5431
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561643"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85564207"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Tutorial: Aprovisionamiento de Azure Data Box Gateway en VMware
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Estos son los requisitos previos para aprovisionar un dispositivo virtual en un sistema host que usa VMware ESXi 6.0, 6.5 o 6.7.
 
@@ -145,7 +145,7 @@ Realice los pasos siguientes para aprovisionar un dispositivo virtual en el hipe
 
     En la misma página, haga clic en **Add hard disk** (Agregar disco duro) y, después, seleccione **Existing hard disk** (Disco duro existente). Seleccione el archivo VMDK en el almacén de datos. Esta acción agrega un disco del sistema operativo. 
 
-     !Página Customize settings[](./media/data-box-gateway-deploy-provision-vmware/image14.png) (Personalizar configuración)
+     ![Página Customize settings (Personalizar configuración)](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
     Desplácese hacia abajo hasta que vea el **nuevo disco duro** y expándalo para ver su configuración. En **Virtual Device Node** (Nodo de dispositivo virtual), seleccione **IDE controller 0** (Controlador IDE 0).
 

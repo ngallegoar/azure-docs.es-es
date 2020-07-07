@@ -31,64 +31,72 @@ Si necesita más ayuda con cualquier aspecto de este artículo, puede ponerse en
 [!INCLUDE [virtual-machines-linux-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
 
 ## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>El clúster no admite el tamaño de máquina virtual solicitado
-\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
+\<properties
+supportTopicIds="123456789"
+resourceTags="windows"
+productPesIds="1234, 5678"
+/>
+- \<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
 - Vuelva a intentar la solicitud con un tamaño de máquina virtual menor.
-- Si no se puede cambiar el tamaño de la máquina virtual solicitada:
-    - Detenga todas las máquinas virtuales en el conjunto de disponibilidad. Haga clic en **Grupos de recursos** > su grupo de recursos > **Recursos** > su conjunto de disponibilidad > **Máquinas virtuales** > su máquina virtual > **Detener**.
+    - Si no se puede cambiar el tamaño de la máquina virtual solicitada: Detenga todas las máquinas virtuales en el conjunto de disponibilidad.
+    - Haga clic en **Grupos de recursos** > su grupo de recursos > **Recursos** > su conjunto de disponibilidad > **Máquinas virtuales** > su máquina virtual > **Detener**.
     - Después de detener todas las máquinas virtuales, cree la máquina virtual con el tamaño deseado.
-    - Inicie la nueva máquina virtual en primer lugar y luego seleccione cada una de las máquinas virtuales detenidas y haga clic en Iniciar.
 
 
-## <a name="the-cluster-does-not-have-free-resources"></a>El clúster no tiene recursos disponibles
-\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
-- Vuelva a intentar realizar la solicitud más tarde.
-- Si la nueva máquina virtual puede formar parte de un conjunto de disponibilidad diferente
-    - Cree una máquina virtual en un conjunto de disponibilidad diferente (en la misma región).
-    - Agregue la nueva máquina virtual a la misma red virtual.
+## <a name="the-cluster-does-not-have-free-resources"></a>Inicie la nueva máquina virtual en primer lugar y luego seleccione cada una de las máquinas virtuales detenidas y haga clic en Iniciar.
+\<properties
+supportTopicIds="123456789"
+resourceTags="windows"
+productPesIds="1234, 5678"
+/>
+- El clúster no tiene recursos disponibles
+- \<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
+    - Vuelva a intentar realizar la solicitud más tarde.
+    - Si la nueva máquina virtual puede formar parte de un conjunto de disponibilidad diferente
 
-## <a name="how-do-i-activate-my-monthly-credit-for-visual-studio-enterprise-bizspark"></a>Cómo se activa mi crédito mensual para Visual Studio Enterprise (BizSpark)
+## <a name="how-do-i-activate-my-monthly-credit-for-visual-studio-enterprise-bizspark"></a>Cree una máquina virtual en un conjunto de disponibilidad diferente (en la misma región).
 
-Para activar el crédito mensual, consulte este [artículo](https://azure.microsoft.com/offers/ms-azr-0064p/).
+Agregue la nueva máquina virtual a la misma red virtual.
 
-## <a name="why-can-i-not-install-the-gpu-driver-for-an-ubuntu-nv-vm"></a>¿Por qué no puedo instalar el controlador de GPU para una máquina virtual NV de Ubuntu?
+## <a name="why-can-i-not-install-the-gpu-driver-for-an-ubuntu-nv-vm"></a>Cómo se activa mi crédito mensual para Visual Studio Enterprise (BizSpark)
 
-Actualmente, la compatibilidad con la GPU de Linux solo está disponible en las máquinas virtuales de Azure NC que ejecutan Ubuntu Server 16.04 LTS. Para más información consulte [Configuración de controladores de GPU para máquinas virtuales de la serie N con Linux](../linux/n-series-driver-setup.md).
+Para activar el crédito mensual, consulte este [artículo](https://azure.microsoft.com/offers/ms-azr-0064p/). ¿Por qué no puedo instalar el controlador de GPU para una máquina virtual NV de Ubuntu?
 
-## <a name="my-drivers-are-missing-for-my-linux-n-series-vm"></a>Faltan los controladores para mi máquina virtual de la serie N de Linux
+## <a name="my-drivers-are-missing-for-my-linux-n-series-vm"></a>Actualmente, la compatibilidad con la GPU de Linux solo está disponible en las máquinas virtuales de Azure NC que ejecutan Ubuntu Server 16.04 LTS.
 
-Las instrucciones para instalar los controladores para las máquinas virtuales basadas en Linux se encuentran [aquí](../sizes-gpu.md#supported-operating-systems-and-drivers).
+Para más información consulte [Configuración de controladores de GPU para máquinas virtuales de la serie N con Linux](../linux/n-series-driver-setup.md).
 
-## <a name="i-cant-find-a-gpu-instance-within-my-n-series-vm"></a>No puedo encontrar una instancia de la GPU en mi máquina virtual de la serie N
+## <a name="i-cant-find-a-gpu-instance-within-my-n-series-vm"></a>Faltan los controladores para mi máquina virtual de la serie N de Linux
 
-Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la serie N de Azure, debe instalar los controladores de gráficos en cada máquina virtual después de la implementación. La información sobre la instalación de los controladores está disponible [aquí](../sizes-gpu.md#supported-operating-systems-and-drivers).
+Las instrucciones para instalar los controladores para las máquinas virtuales basadas en Linux se encuentran [aquí](../sizes-gpu.md#supported-operating-systems-and-drivers). No puedo encontrar una instancia de la GPU en mi máquina virtual de la serie N
 
-## <a name="are-n-series-vms-available-in-my-region"></a>¿Hay máquinas virtuales de la serie N disponibles en mi región?
+## <a name="are-n-series-vms-available-in-my-region"></a>Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la serie N de Azure, debe instalar los controladores de gráficos en cada máquina virtual después de la implementación.
 
-Puede comprobar la disponibilidad en la [tabla de productos disponibles por región](https://azure.microsoft.com/regions/services) y el precio [aquí](https://azure.microsoft.com/pricing/details/virtual-machines/series/#n-series).
+La información sobre la instalación de los controladores está disponible [aquí](../sizes-gpu.md#supported-operating-systems-and-drivers).
 
-## <a name="i-am-not-able-to-see-vm-size-family-that-i-want-when-resizing-my-vm"></a>Al cambiar el tamaño de la máquina virtual, no puedo ver la familia de tamaño de máquina virtual que deseo.
+## <a name="i-am-not-able-to-see-vm-size-family-that-i-want-when-resizing-my-vm"></a>¿Hay máquinas virtuales de la serie N disponibles en mi región?
 
-Cuando una máquina virtual se está ejecutando, se implementa en un servidor físico. Los servidores físicos en regiones de Azure se agrupan en clústeres de hardware físico común. El modo de cambiar el tamaño de una máquina virtual que requiere que esta se mueva a clústeres de hardware diferentes difiere en función del modelo de implementación que se usara para implementarla.
+Puede comprobar la disponibilidad en la [tabla de productos disponibles por región](https://azure.microsoft.com/regions/services) y el precio [aquí](https://azure.microsoft.com/pricing/details/virtual-machines/series/#n-series). Al cambiar el tamaño de la máquina virtual, no puedo ver la familia de tamaño de máquina virtual que deseo. Cuando una máquina virtual se está ejecutando, se implementa en un servidor físico.
 
-- En el caso de las máquinas virtuales implementadas en el modelo de implementación clásico, la implementación del servicio de nube debe quitarse y volver a implementarse para cambiar su tamaño por uno de otra familia de tamaño.
+- Los servidores físicos en regiones de Azure se agrupan en clústeres de hardware físico común.
 
-- En el caso de las máquinas virtuales implementadas en el modelo de implementación Resource Manager, debe detener todas las máquinas virtuales dentro del conjunto de disponibilidad antes de cambiar el tamaño de cualquiera de estas.
+- El modo de cambiar el tamaño de una máquina virtual que requiere que esta se mueva a clústeres de hardware diferentes difiere en función del modelo de implementación que se usara para implementarla.
 
-## <a name="the-listed-vm-size-is-not-supported-while-deploying-in-availability-set"></a>El tamaño de máquina virtual enumerado no se admite mientras se implementa en el conjunto de disponibilidad.
+## <a name="the-listed-vm-size-is-not-supported-while-deploying-in-availability-set"></a>En el caso de las máquinas virtuales implementadas en el modelo de implementación clásico, la implementación del servicio de nube debe quitarse y volver a implementarse para cambiar su tamaño por uno de otra familia de tamaño.
 
-Elija un tamaño que se admita en el clúster del conjunto de disponibilidad. Al crear un conjunto de disponibilidad, se recomienda elegir el mayor tamaño de máquina virtual que piense que va a necesitar y tiene que ser la primera implementación para el conjunto de disponibilidad.
+En el caso de las máquinas virtuales implementadas en el modelo de implementación Resource Manager, debe detener todas las máquinas virtuales dentro del conjunto de disponibilidad antes de cambiar el tamaño de cualquiera de estas. El tamaño de máquina virtual enumerado no se admite mientras se implementa en el conjunto de disponibilidad.
 
-## <a name="what-linux-distributionsversions-are-supported-on-azure"></a>¿Qué distribuciones o versiones de Linux son compatibles con Azure?
+## <a name="what-linux-distributionsversions-are-supported-on-azure"></a>Elija un tamaño que se admita en el clúster del conjunto de disponibilidad.
 
-Puede encontrar la lista de Linux en [Linux en distribuciones aprobadas por Azure](../linux/endorsed-distros.md).
+Al crear un conjunto de disponibilidad, se recomienda elegir el mayor tamaño de máquina virtual que piense que va a necesitar y tiene que ser la primera implementación para el conjunto de disponibilidad.
 
-## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>¿Puedo agregar una máquina virtual clásica a un conjunto de disponibilidad?
+## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>¿Qué distribuciones o versiones de Linux son compatibles con Azure?
 
-Sí. Puede agregar una máquina virtual clásica existente a un conjunto de disponibilidad nuevo o existente. Para más información, consulte [Incorporación de una máquina virtual existente a un conjunto de disponibilidad](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic#addmachine).
+Puede encontrar la lista de Linux en [Linux en distribuciones aprobadas por Azure](../linux/endorsed-distros.md). ¿Puedo agregar una máquina virtual clásica a un conjunto de disponibilidad? Sí.
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
-Si necesita más ayuda con cualquier aspecto de este artículo, puede ponerse en contacto con los expertos de Azure en [los foros de MSDN Azure o Stack Overflow](https://azure.microsoft.com/support/forums/).
+## <a name="next-steps"></a>Puede agregar una máquina virtual clásica existente a un conjunto de disponibilidad nuevo o existente.
+Para más información, consulte [Incorporación de una máquina virtual existente a un conjunto de disponibilidad](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic#addmachine).
 
-Como alternativa, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Obtener soporte**.
+Pasos siguientes Si necesita más ayuda con cualquier aspecto de este artículo, puede ponerse en contacto con los expertos de Azure en [los foros de MSDN Azure o Stack Overflow](https://azure.microsoft.com/support/forums/).

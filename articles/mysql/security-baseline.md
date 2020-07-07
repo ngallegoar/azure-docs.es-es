@@ -8,10 +8,10 @@ ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 02050745e7c8a9aa05d3f2de63a4bc5f1ebf8318
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83654779"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Línea de base de seguridad de Azure para Azure Database for MySQL
@@ -244,7 +244,7 @@ Realización de consultas personalizadas en Azure Monitor: https://docs.microsof
 
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7: Habilitación de alertas para actividades anómalas
 
-**Guía**: Habilitación de Advanced Threat Protection para Azure Database for MySQL. Advanced Threat Protection detecta actividades anómalas que indican intentos poco habituales y posiblemente dañinos de acceder a las bases de datos o aprovecharse de ellas.
+**Instrucciones**: Habilitación de Advanced Threat Protection para Azure Database for MySQL. Advanced Threat Protection detecta actividades anómalas que indican intentos poco habituales y posiblemente dañinos de acceder a las bases de datos o aprovecharse de ellas.
 
 Además, puede habilitar los registros de servidor y la configuración de diagnóstico para MySQL y enviar registros a un área de trabajo de Log Analytics. Incorpore el área de trabajo de Log Analytics a Azure Sentinel, ya que proporciona una solución de respuesta automatizada de orquestación de seguridad (SOAR). Esto permite crear cuadernos de estrategias (soluciones automatizadas) y usarlos para corregir problemas de seguridad.
 
@@ -294,7 +294,7 @@ Incorporación de Azure Sentinel: https://docs.microsoft.com/azure/sentinel/qui
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Mantenga un inventario de cuentas administrativas
 
-**Guía**: Mantenga un inventario de las cuentas de usuario que tienen acceso administrativo al plano de administración (por ejemplo, Azure Portal) de las instancias de Azure Database for MySQL. Así mismo, mantenga un inventario de las cuentas administrativas que tienen acceso al plano de datos (dentro de la propia base de datos) de las instancias de Azure Database for MySQL. (Al crear el servidor de MySQL, se deben proporcionar las credenciales de un usuario administrador. Este administrador se puede usar para crear más usuarios de MySQL).
+**Instrucciones**: Mantenga un inventario de las cuentas de usuario que tienen acceso administrativo al plano de administración (por ejemplo, Azure Portal) de las instancias de Azure Database for MySQL. Así mismo, mantenga un inventario de las cuentas administrativas que tienen acceso al plano de datos (dentro de la propia base de datos) de las instancias de Azure Database for MySQL. (Al crear el servidor de MySQL, se deben proporcionar las credenciales de un usuario administrador. Este administrador se puede usar para crear más usuarios de MySQL).
 
 Azure Database for MySQL no admite el control de acceso basado en roles integrado, pero se pueden crear roles personalizados basados en opciones específicas del proveedor de recursos.
 
@@ -324,7 +324,7 @@ Actualización de la contraseña del administrador: https://docs.microsoft.com/a
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3: Use cuentas administrativas dedicadas
 
-**Guía**: Cree procedimientos operativos estándar en torno al uso de cuentas administrativas dedicadas que tengan acceso a las instancias de Azure Database for MySQL. Use la administración de identidad y acceso de Azure Security Center para supervisar el número de cuentas administrativas.
+**Instrucciones**: Cree procedimientos operativos estándar en torno al uso de cuentas administrativas dedicadas que tengan acceso a las instancias de Azure Database for MySQL. Use la administración de identidad y acceso de Azure Security Center para supervisar el número de cuentas administrativas.
 
 Descripción de identidad y acceso en Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
@@ -378,7 +378,7 @@ Cómo habilitar la MFA en Azure: https://docs.microsoft.com/azure/active-directo
 
 ### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7: Registre y alerte de la actividad sospechosa desde cuentas administrativas
 
-**Guía**: Habilite Advanced Threat Protection para Azure Database for MySQL con el fin de generar alertas para actividades sospechosas.
+**Instrucciones**: Habilite Advanced Threat Protection para Azure Database for MySQL con el fin de generar alertas para actividades sospechosas.
 
 Así mismo, puede usar Azure AD Privileged Identity Management (PIM) para la generación de registros y alertas cuando se produzca actividad sospechosa o insegura en el entorno.
 
@@ -420,7 +420,7 @@ Uso de Azure Active Directory para la autenticación con Azure Database for MySQ
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: Revise y concilie regularmente el acceso de los usuarios
 
-**Guía**: Revise los registros de Azure Active Directory a fin de detectar cuentas obsoletas, como aquellas con roles administrativos de Azure Database for MySQL. Además, use las revisiones de acceso de identidad de Azure para administrar de forma eficaz la pertenencia a grupos, el acceso a las aplicaciones empresariales que se pueden usar para tener acceso a Azure Database for MySQL y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica cada 90 días para asegurarse de que solo los usuarios adecuados tengan acceso continuado.
+**Instrucciones**: Revise los registros de Azure Active Directory a fin de detectar cuentas obsoletas, como aquellas con roles administrativos de Azure Database for MySQL. Además, use las revisiones de acceso de identidad de Azure para administrar de forma eficaz la pertenencia a grupos, el acceso a las aplicaciones empresariales que se pueden usar para tener acceso a Azure Database for MySQL y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica cada 90 días para asegurarse de que solo los usuarios adecuados tengan acceso continuado.
 
 Descripción de los informes de Azure AD: https://docs.microsoft.com/azure/active-directory/reports-monitoring/
 
@@ -523,7 +523,7 @@ Descripción de la protección de datos de los clientes en Azure: https://docs.m
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: Cifrado de toda la información confidencial en tránsito
 
-**Guía**: Azure Database for MySQL permite conectar el servidor MySQL a las aplicaciones cliente con la Capa de sockets seguros (SSL). Aplicar conexiones SSL entre el servidor de base de datos y las aplicaciones cliente ayuda a proteger contra los ataques de tipo "man in the middle" mediante el cifrado del flujo de datos entre el servidor y la aplicación. En Azure Portal, asegúrese de que está habilitada la opción "Aplicar conexión SSL" para todas las instancias de Azure Database for MySQL de forma predeterminada.
+**Instrucciones**: Azure Database for MySQL permite conectar el servidor MySQL a las aplicaciones cliente con la Capa de sockets seguros (SSL). Aplicar conexiones SSL entre el servidor de base de datos y las aplicaciones cliente ayuda a proteger contra los ataques de tipo "man in the middle" mediante el cifrado del flujo de datos entre el servidor y la aplicación. En Azure Portal, asegúrese de que está habilitada la opción "Aplicar conexión SSL" para todas las instancias de Azure Database for MySQL de forma predeterminada.
 
 Actualmente, la versión de TLS admitida para Azure Database for MySQL es TLS 1.0, TLS 1.1, TLS 1.2.
 
@@ -571,7 +571,7 @@ Descripción de la protección de datos de los clientes en Azure: https://docs.m
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: Cifrado de información confidencial en reposo
 
-**Guía**: El servicio Azure Database for MySQL usa el módulo criptográfico con validación FIPS 140-2 para el cifrado del almacenamiento de los datos en reposo. Los datos, incluidas las copias de seguridad, se cifran en el disco, a excepción de los archivos temporales creados mientras se ejecutan las consultas. El servicio usa el cifrado AES de 256 bits que se incluye en el cifrado de almacenamiento de Azure y las claves las administra el sistema. El cifrado de almacenamiento siempre está activado y no se puede deshabilitar.
+**Instrucciones**: El servicio Azure Database for MySQL usa el módulo criptográfico con validación FIPS 140-2 para el cifrado del almacenamiento de los datos en reposo. Los datos, incluidas las copias de seguridad, se cifran en el disco, a excepción de los archivos temporales creados mientras se ejecutan las consultas. El servicio usa el cifrado AES de 256 bits que se incluye en el cifrado de almacenamiento de Azure y las claves las administra el sistema. El cifrado de almacenamiento siempre está activado y no se puede deshabilitar.
 
 El cifrado de datos con claves administradas por el cliente para Azure Database for MySQL le permite traer su propia clave (BYOK) para la protección de datos en reposo. Por el momento, debe solicitar acceso para poder usar esta función. Para ello, póngase en contacto con:
 
@@ -736,7 +736,7 @@ Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governa
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Uso exclusivo de servicios de Azure aprobados
 
-**Guía**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Instrucciones**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 
 - Tipos de recursos no permitidos
 
@@ -832,7 +832,7 @@ Descripción de los efectos de Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Almacene de forma segura la configuración de los recursos de Azure
 
-**Guía**: Si usa definiciones personalizadas de Azure Policy para las instancias de Azure Database for MySQL y los recursos relacionados, use Azure Repos para almacenar y administrar el código de forma segura.
+**Instrucciones**: Si usa definiciones personalizadas de Azure Policy para las instancias de Azure Database for MySQL y los recursos relacionados, use Azure Repos para almacenar y administrar el código de forma segura.
 
 Cómo almacenar código en Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
@@ -888,7 +888,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="711-manage-azure-secrets-securely"></a>7.11: Administre los secretos de Azure de forma segura
 
-**Guía**: En el caso de Azure Virtual Machines o las aplicaciones web que se ejecutan en Azure App Service y se usan para tener acceso a las instancias de Azure Database for MySQL, use Managed Service Identity junto con Azure Key Vault para simplificar y proteger la administración de secretos de Azure Database for MySQL. Asegúrese de que la eliminación temporal de Key Vault esté habilitada.
+**Instrucciones**: En el caso de Azure Virtual Machines o las aplicaciones web que se ejecutan en Azure App Service y se usan para tener acceso a las instancias de Azure Database for MySQL, use Managed Service Identity junto con Azure Key Vault para simplificar y proteger la administración de secretos de Azure Database for MySQL. Asegúrese de que la eliminación temporal de Key Vault esté habilitada.
 
 Cómo integrar las identidades administradas de Azure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
@@ -902,7 +902,7 @@ Cómo proporcionar la autenticación de Key Vault con una identidad administrada
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12: Administre las identidades de forma segura y automática
 
-**Guía**: La instancia de Azure Database for MySQL admite la autenticación de Azure Active Directory para tener acceso a las bases de datos.  Al crear la instancia de Azure Database for MySQL, se deben proporcionar las credenciales de un usuario administrador. Este administrador se puede usar para crear más usuarios de base de datos.  
+**Instrucciones**: La instancia de Azure Database for MySQL admite la autenticación de Azure Active Directory para tener acceso a las bases de datos.  Al crear la instancia de Azure Database for MySQL, se deben proporcionar las credenciales de un usuario administrador. Este administrador se puede usar para crear más usuarios de base de datos.  
 
 En el caso de Azure Virtual Machines o las aplicaciones web que se ejecutan en Azure App Service y se usan para tener acceso a las instancias de Azure Database for MySQL, use Managed Service Identity junto con Azure Key Vault para almacenar y recuperar las credenciales del servidor de Azure Database for MySQL. Asegúrese de que la eliminación temporal de Key Vault esté habilitada.
 
@@ -978,7 +978,7 @@ Descripción de la configuración inicial de Azure Database for MySQL: https://d
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2: Realización de copias de seguridad completas del sistema y copia de seguridad de las claves administradas por el cliente
 
-**Guía**: Azure Database for MySQL crea automáticamente copias de seguridad del servidor y las almacena en el almacenamiento con redundancia local o geográfica en función de lo que elija el usuario. Las copias de seguridad pueden utilizarse para restaurar el servidor a un momento dado. Las copias de seguridad y las restauraciones son una parte esencial de cualquier estrategia de continuidad del negocio, ya que protegen los datos frente a daños o eliminaciones accidentales. 
+**Instrucciones**: Azure Database for MySQL crea automáticamente copias de seguridad del servidor y las almacena en el almacenamiento con redundancia local o geográfica en función de lo que elija el usuario. Las copias de seguridad pueden utilizarse para restaurar el servidor a un momento dado. Las copias de seguridad y las restauraciones son una parte esencial de cualquier estrategia de continuidad del negocio, ya que protegen los datos frente a daños o eliminaciones accidentales. 
 
 Si usa Azure Key Vault para almacenar las credenciales de las instancias de Azure Database for MySQL, asegúrese de realizar copias de seguridad automatizadas de las claves. 
 
@@ -1007,7 +1007,7 @@ Descripción de la copia de seguridad y restauración en Azure Database for MySQ
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantía de la protección de las copias de seguridad y las claves administradas del cliente
 
-**Guía**: Azure Database for MySQL realiza copias de seguridad completas, diferenciales y del registro de transacciones. Estas copias de seguridad permiten restaurar un servidor a un momento dado dentro del período de retención de copias de seguridad configurado. El período de retención predeterminado es siete días. Opcionalmente, puede configurarlo hasta 35 días. Todas las copias de seguridad se cifran mediante cifrado AES de 256 bits. Asegúrese de que la eliminación temporal de Key Vault esté habilitada.
+**Instrucciones**: Azure Database for MySQL realiza copias de seguridad completas, diferenciales y del registro de transacciones. Estas copias de seguridad permiten restaurar un servidor a un momento dado dentro del período de retención de copias de seguridad configurado. El período de retención predeterminado es siete días. Opcionalmente, puede configurarlo hasta 35 días. Todas las copias de seguridad se cifran mediante cifrado AES de 256 bits. Asegúrese de que la eliminación temporal de Key Vault esté habilitada.
 
 Descripción de la copia de seguridad y restauración en Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/concepts-backup
 

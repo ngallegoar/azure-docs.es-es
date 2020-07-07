@@ -1,14 +1,14 @@
 ---
 title: 'Patrón: operador value en una definición de directiva'
 description: Este patrón de Azure Policy proporciona un ejemplo de cómo usar el operador value en una definición de directiva.
-ms.date: 01/31/2020
+ms.date: 06/29/2020
 ms.topic: sample
-ms.openlocfilehash: ace7b7cd4a765cdb8c7aa764b52b180c60508ab2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e246e3a5e2517fa80626081227070bcb2f967784
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77170153"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565672"
 ---
 # <a name="azure-policy-pattern-the-value-operator"></a>Patrón de Azure Policy: operador value
 

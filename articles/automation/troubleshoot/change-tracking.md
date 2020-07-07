@@ -10,10 +10,10 @@ ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 3fe28ba0871009785b1bb8b263b42f453c2918be
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83684868"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>Solución de problemas de Change Tracking e Inventario
@@ -24,7 +24,7 @@ En este artículo se describe cómo diagnosticar y solucionar problemas de Chang
 
 ### <a name="scenario-change-tracking-and-inventory-records-arent-showing-for-windows-machines"></a><a name="records-not-showing-windows"></a>Escenario: no se muestran los registros de Change Tracking e Inventario para máquinas Windows
 
-#### <a name="issue"></a>Problema
+#### <a name="issue"></a>Incidencia
 
 No aparecen los resultados de Change Tracking e Inventario para las máquinas Windows donde se ha habilitado la característica.
 
@@ -37,7 +37,7 @@ Este error puede tener las causas siguientes:
 * No se han descargado los módulos de administración de Change Tracking e Inventario.
 * La VM que se quiere habilitar puede provenir de una máquina clonada que no se haya preparado mediante la preparación del sistema (sysprep) con el agente de Log Analytics para Windows instalado.
 
-#### <a name="resolution"></a>Solución
+#### <a name="resolution"></a>Resolución
 
 En la máquina del agente de Log Analytics, vaya a **C:\Archivos de programa\Microsoft Monitoring Agent\Agent\Tools** y ejecute los siguientes comandos:
 
@@ -79,7 +79,7 @@ Si utiliza una imagen clonada, primero prepare con sysprep la imagen y, a contin
 
 ### <a name="scenario-no-change-tracking-and-inventory-results-on-linux-machines"></a>Escenario: No hay resultados de Change Tracking e Inventario en las máquinas Linux
 
-#### <a name="issue"></a>Problema
+#### <a name="issue"></a>Incidencia
 
 No ve los resultados de Change Tracking e Inventario de las máquinas Linux que tienen habilitada la característica. 
 
@@ -89,7 +89,7 @@ Estas son algunas causas posibles específicas de este problema:
 * El agente de Log Analytics para Linux no está configurado correctamente.
 * Hay conflictos de supervisión de la integridad de los archivos (FIM).
 
-#### <a name="resolution"></a>Solución 
+#### <a name="resolution"></a>Resolución 
 
 ##### <a name="log-analytics-agent-for-linux-not-running"></a>El agente de Log Analytics para Linux no está en ejecución
 

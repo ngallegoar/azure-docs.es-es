@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 0a9728e05aee27e74054a77e2c9be7dc08968207
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4aec156821a7d38907602cc1def0459dbf996b24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79455866"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84447567"
 ---
 # <a name="train-model-module"></a>Módulo Entrenar modelo
 
@@ -64,7 +64,7 @@ En Azure Machine Learning, crear y usar un modelo suele ser un proceso de tres p
   
 5.  Envíe la canalización. Si tiene una gran cantidad de datos, puede tardar.
 
-## <a name="results"></a><a name="bkmk_results"></a> Resultados
+## <a name="results"></a>Results
 
 Cuando el modelo está entrenado:
 

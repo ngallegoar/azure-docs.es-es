@@ -8,10 +8,10 @@ ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 89d760e28025f64b8cd8940fc08f06d23c969e12
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83655743"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>Línea de base de seguridad de Azure para un único servidor de Azure Database for PostgreSQL
@@ -94,7 +94,7 @@ Habilitación y uso del Análisis de tráfico: https://docs.microsoft.com/azure/
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6: Implemente sistemas de prevención de intrusiones y detección de intrusiones (IDS/IPS) basados en la red
 
-**Guía**: Use de Advanced Threat Protection para Azure Database for PostgreSQL. Advanced Threat Protection detecta actividades anómalas que indican intentos poco habituales y posiblemente dañinos de acceder a las bases de datos o aprovecharse de ellas.
+**Instrucciones**: Use de Advanced Threat Protection para Azure Database for PostgreSQL. Advanced Threat Protection detecta actividades anómalas que indican intentos poco habituales y posiblemente dañinos de acceder a las bases de datos o aprovecharse de ellas.
 
 Configuración de Advanced Threat Protection para Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-database-threat-protection-portal
 
@@ -144,7 +144,7 @@ Creación de un plano técnico de Azure: https://docs.microsoft.com/azure/govern
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10: Documente las reglas de configuración de tráfico
 
-**Guía**: Use etiquetas para los recursos relacionados con la seguridad de red y el flujo de tráfico de las instancias de Azure Database for PostgreSQL a fin de proporcionar metadatos y una organización lógica.
+**Instrucciones**: Use etiquetas para los recursos relacionados con la seguridad de red y el flujo de tráfico de las instancias de Azure Database for PostgreSQL a fin de proporcionar metadatos y una organización lógica.
 
 Use cualquiera de las definiciones de Azure Policy integradas relacionadas con el etiquetado, como "Requerir etiqueta y su valor", para asegurarse de que todos los recursos se creen con etiquetas y para notificarle los recursos no etiquetados existentes.
 
@@ -232,7 +232,7 @@ Almacenamiento de los registros de recursos en una cuenta de Azure Storage: http
 
 ### <a name="26-monitor-and-review-logs"></a>2.6: Supervisión y registros de revisión
 
-**Guía**: Analice y supervise los registros de las instancias de Azure Database for PostgreSQL para comprobar si tienen comportamientos anómalos. Use Log Analytics de Azure Monitor para revisar los registros y realizar consultas en los datos de registro. Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una herramienta SIEM de terceros.
+**Instrucciones**: Analice y supervise los registros de las instancias de Azure Database for PostgreSQL para comprobar si tienen comportamientos anómalos. Use Log Analytics de Azure Monitor para revisar los registros y realizar consultas en los datos de registro. Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una herramienta SIEM de terceros.
 
 Incorporación de Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
@@ -246,7 +246,7 @@ Realización de consultas personalizadas en Azure Monitor: https://docs.microsof
 
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7: Habilitación de alertas para actividades anómalas
 
-**Guía**: Habilite Advanced Threat Protection para Azure Database for PostgreSQL. Advanced Threat Protection detecta actividades anómalas que indican intentos poco habituales y posiblemente dañinos de acceder a las bases de datos o aprovecharse de ellas.
+**Instrucciones**: Habilite Advanced Threat Protection para Azure Database for PostgreSQL. Advanced Threat Protection detecta actividades anómalas que indican intentos poco habituales y posiblemente dañinos de acceder a las bases de datos o aprovecharse de ellas.
 
 Además, puede habilitar los registros de servidor y la configuración de diagnóstico para PostgreSQL y enviar registros a un área de trabajo de Log Analytics. Incorpore el área de trabajo de Log Analytics a Azure Sentinel, ya que proporciona una solución de respuesta automatizada de orquestación de seguridad (SOAR). Esto permite crear cuadernos de estrategias (soluciones automatizadas) y usarlos para corregir problemas de seguridad.
 
@@ -337,7 +337,7 @@ Descripción sobre cómo crear usuarios administradores en Azure Database for Po
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: Use el inicio de sesión único (SSO) con Azure Active Directory
 
-**Guía**: Es posible iniciar sesión en Azure Database for PostgreSQL mediante el uso de un nombre de usuario y una contraseña configurados directamente en la base de datos, así como con el uso de una identidad de Azure Active Directory (AD) y un token de Azure AD para la conexión. Al usar un token de Azure AD, se admiten varios métodos, como un usuario, un grupo o una aplicación de Azure AD que se conecten a la base de datos.
+**Instrucciones**: Es posible iniciar sesión en Azure Database for PostgreSQL mediante el uso de un nombre de usuario y una contraseña configurados directamente en la base de datos, así como con el uso de una identidad de Azure Active Directory (AD) y un token de Azure AD para la conexión. Al usar un token de Azure AD, se admiten varios métodos, como un usuario, un grupo o una aplicación de Azure AD que se conecten a la base de datos.
 
 De forma independiente, el acceso al plano de control de PostgreSQL está disponible a través de la API REST y es compatible con SSO. Para autenticarse, establezca el encabezado de autorización de las solicitudes en JSON Web Token, que se obtiene de Azure Active Directory (AAD).
 
@@ -379,7 +379,7 @@ Cómo habilitar la MFA en Azure: https://docs.microsoft.com/azure/active-directo
 
 ### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7: Registre y alerte de la actividad sospechosa desde cuentas administrativas
 
-**Guía**: Habilite Advanced Threat Protection para Azure Database for PostgreSQL con el fin de generar alertas para actividades sospechosas.
+**Instrucciones**: Habilite Advanced Threat Protection para Azure Database for PostgreSQL con el fin de generar alertas para actividades sospechosas.
 
 Así mismo, puede usar Azure Active Directory (AD) Privileged Identity Management (PIM) para la generación de registros y alertas cuando se produzca actividad sospechosa o insegura en el entorno.
 
@@ -407,7 +407,7 @@ Configuración de ubicaciones con nombre en Azure: https://docs.microsoft.com/az
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Uso de Azure Active Directory
 
-**Guía**: Use Azure Active Directory (AD) como sistema central de autenticación y autorización. Azure AD protege los datos mediante un cifrado seguro para los datos en reposo y en tránsito. Azure AD también cifra con sal, convierte en hash y almacena de forma segura las credenciales de los usuarios.
+**Instrucciones**: Use Azure Active Directory (AD) como sistema central de autenticación y autorización. Azure AD protege los datos mediante un cifrado seguro para los datos en reposo y en tránsito. Azure AD también cifra con sal, convierte en hash y almacena de forma segura las credenciales de los usuarios.
 
 Para iniciar sesión en Azure Database for PostgreSQL, le recomendamos usar Azure AD y usar un token de Azure AD para conectarse. Al usar un token de Azure AD, se admiten varios métodos, como un usuario, un grupo o una aplicación de Azure AD que se conecten a la base de datos.
 
@@ -435,7 +435,7 @@ Revisión de los usuarios de PostgreSQL y los roles asignados: https://www.postg
 
 ### <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3.11: Supervise los intentos de acceso a cuentas desactivadas
 
-**Guía**: Habilite la configuración de diagnóstico para Azure Database for PostgreSQL y Azure Active Directory, y envíe todos los registros a un área de trabajo de Log Analytics. Configure las alertas que desee (como intentos de autenticación con errores) en Log Analytics.
+**Instrucciones**: Habilite la configuración de diagnóstico para Azure Database for PostgreSQL y Azure Active Directory, y envíe todos los registros a un área de trabajo de Log Analytics. Configure las alertas que desee (como intentos de autenticación con errores) en Log Analytics.
 
 Configuración de los registros de servidor de Azure Database for PostgreSQL y acceso a estos: https://docs.microsoft.com/azure/postgresql/howto-configure-server-logs-in-portal
 
@@ -483,7 +483,7 @@ Lista de servicios admitidos por la Caja de seguridad del cliente: https://docs.
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Mantenimiento de un inventario de información confidencial
 
-**Guía**: Use etiquetas para ayudar a realizar un seguimiento de las instancias de Azure Database for PostgreSQL o los recursos relacionados que almacenan o procesan información confidencial.
+**Instrucciones**: Use etiquetas para ayudar a realizar un seguimiento de las instancias de Azure Database for PostgreSQL o los recursos relacionados que almacenan o procesan información confidencial.
 
 Creación y uso de etiquetas: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
@@ -511,7 +511,7 @@ Configuración de reglas de firewall para Azure Database for PostgreSQL: https:/
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3: Supervisión y bloqueo de una transferencia no autorizada de información confidencial
 
-**Guía**: Al usar máquinas virtuales de Azure para tener acceso a instancias de Azure Database for PostgreSQL, use Private Link, las configuraciones de red de PostgreSQL, los grupos de seguridad de red y las etiquetas de servicio para mitigar la posibilidad de que se puedan filtrar los datos.
+**Instrucciones**: Al usar máquinas virtuales de Azure para tener acceso a instancias de Azure Database for PostgreSQL, use Private Link, las configuraciones de red de PostgreSQL, los grupos de seguridad de red y las etiquetas de servicio para mitigar la posibilidad de que se puedan filtrar los datos.
 
 Microsoft administra la infraestructura subyacente de Azure Database for PostgreSQL y ha implementado controles estrictos para evitar la pérdida o exposición de los datos de los clientes.
 
@@ -561,7 +561,7 @@ Configuración del acceso de usuario con SQL para Azure Database for PostgreSQL:
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: Uso de la prevención de pérdida de datos basada en host para aplicar el control de acceso
 
-**Guía**: No aplicable; esta recomendación está pensada para los recursos de proceso.
+**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso.
 
 Microsoft administra la infraestructura subyacente de Azure Database for PostgreSQL y ha implementado controles estrictos para evitar la pérdida o exposición de los datos de los clientes.
 
@@ -738,7 +738,7 @@ Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governa
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Uso exclusivo de servicios de Azure aprobados
 
-**Guía**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Instrucciones**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 
 - Tipos de recursos no permitidos
 
@@ -892,7 +892,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="711-manage-azure-secrets-securely"></a>7.11: Administre los secretos de Azure de forma segura
 
-**Guía**: En el caso de Azure Virtual Machines o las aplicaciones web que se ejecutan en Azure App Service y se usan para tener acceso a las instancias de Azure Database for PostgreSQL, use Managed Service Identity junto con Azure Key Vault para simplificar y proteger la administración de secretos de Azure Database for PostgreSQL. Asegúrese de que la eliminación temporal de Key Vault esté habilitada.
+**Instrucciones**: En el caso de Azure Virtual Machines o las aplicaciones web que se ejecutan en Azure App Service y se usan para tener acceso a las instancias de Azure Database for PostgreSQL, use Managed Service Identity junto con Azure Key Vault para simplificar y proteger la administración de secretos de Azure Database for PostgreSQL. Asegúrese de que la eliminación temporal de Key Vault esté habilitada.
 
 Cómo integrar las identidades administradas de Azure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
