@@ -7,15 +7,15 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: c18604a9f4b95f4b586efaf3201dd0a679d8d316
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60342617"
 ---
 # <a name="azure-database-for-mysql-videos"></a>Vídeos de Azure Database for MySQL
 
-[Overview: Azure Database for PostgreSQL y MySQL](https://channel9.msdn.com/Events/Connect/2017/T147) (Introducción: Azure Database for PostgreSQL y MySQL)
+[Información general: Azure Database for PostgreSQL y MySQL](https://channel9.msdn.com/Events/Connect/2017/T147)
 
 >[!VIDEO https://channel9.msdn.com/Events/Connect/2017/T147/player]
 
