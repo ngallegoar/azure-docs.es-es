@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/30/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 581c850801c153996031378cbf470457264cad3d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3caf67ef436093e63683c270f7121a2861242aec
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76984496"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800891"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nintex-promapp"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Nintex Promapp
 
@@ -84,14 +84,13 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     1. En el cuadro **Identificador**, escriba una dirección URL con este patrón:
 
-        | |
-        |--|
-        | `https://go.promapp.com/TENANTNAME/`|
-        | `https://au.promapp.com/TENANTNAME/`|
-        | `https://us.promapp.com/TENANTNAME/`|
-        | `https://eu.promapp.com/TENANTNAME/`|
-        | `https://ca.promapp.com/TENANTNAME/`|
-        |   |
+        ```https
+        https://go.promapp.com/TENANTNAME/
+        https://au.promapp.com/TENANTNAME/
+        https://us.promapp.com/TENANTNAME/
+        https://eu.promapp.com/TENANTNAME/
+        https://ca.promapp.com/TENANTNAME/
+        ```
 
        > [!NOTE]
        > La integración de Azure AD con Nintex Promapp está configurada actualmente solo para la autenticación iniciada por el servicio (es decir, si va a una dirección URL de Nintex Promapp se inicia el proceso de autenticación). Sin embargo, el campo **Dirección URL de respuesta** es obligatorio.

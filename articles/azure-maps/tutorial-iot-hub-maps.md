@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: cfea9aa7bfcc9a9698bb93bdf54797481b8539ce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cf1d732391f86bec9c0ec2de1e6bace2e808bb19
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80333974"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318933"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Tutorial: Implementación del análisis espacial de IoT mediante Azure Maps
 
@@ -36,7 +36,7 @@ En este tutorial, aprenderá lo siguiente:
 
 Esta solución muestra un escenario en el que una empresa de alquiler de automóviles planea supervisar y registrar los eventos de los automóviles que alquila. Las compañías de alquiler de vehículos suelen operar en una región geográfica específica. Necesitan realizar el seguimiento de la ubicación de los vehículos cuando están alquilados. Se deben registrar las instancias de un vehículo que abandona la región geográfica elegida. Los datos de registro garantizan que las directivas, las cuotas y otros aspectos empresariales se gestionan correctamente.
 
-En nuestro caso, los vehículos de alquiler están equipados con dispositivos de IoT que envían datos de telemetría a Azure IoT Hub de forma periódica. Los datos de telemetría incluyen la ubicación actual e indican si el motor del vehículo está en funcionamiento. El esquema de ubicación del dispositivo cumple el [esquema IoT Plug and Play para datos geoespaciales](https://github.com/Azure/IoTPlugandPlay/blob/master/Schemas/geospatial.md). El esquema de los datos de telemetría del dispositivo del vehículo de alquiler es como este:
+En nuestro caso, los vehículos de alquiler están equipados con dispositivos de IoT que envían datos de telemetría a Azure IoT Hub de forma periódica. Los datos de telemetría incluyen la ubicación actual e indican si el motor del vehículo está en funcionamiento. El esquema de ubicación del dispositivo cumple el [esquema IoT Plug and Play para datos geoespaciales](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/schemas/geospatial.md). El esquema de los datos de telemetría del dispositivo del vehículo de alquiler es como este:
 
 ```JSON
 {

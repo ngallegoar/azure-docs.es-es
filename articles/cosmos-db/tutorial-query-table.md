@@ -8,16 +8,16 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 06/05/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 14a6d2b448bb943356ae1738c3d53d9c6fee1a98
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: bab0487b09d7088e75ce762c9e4f0338cea507eb
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484669"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391900"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Tutorial: Consulta de Azure Cosmos DB mediante la Table API
 
-[Table API](table-introduction.md) de Azure Cosmos DB admite consultas de OData y [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) en los datos de clave-valor (tabla).  
+[Table API](table-introduction.md) de Azure Cosmos DB admite consultas de OData y [LINQ](/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) en los datos de clave-valor (tabla).  
 
 En este artículo se tratan las tareas siguientes:
 
@@ -32,7 +32,7 @@ En las consultas de este artículo se usa la tabla `People` de ejemplo siguiente
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jeff | Jeff@contoso.com| 425-555-0104 |
 
-Vea [Consultar tablas y entidades](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) para detalles sobre cómo realizar consultas mediante Table API.
+Vea [Consultar tablas y entidades](/rest/api/storageservices/fileservices/querying-tables-and-entities) para detalles sobre cómo realizar consultas mediante Table API.
 
 Para más información sobre las funcionalidades premium que ofrece Azure Cosmos DB, consulte el artículo [Azure Cosmos DB: Table API](table-introduction.md) y [Azure Cosmos DB: desarrollo con Table API en .NET](tutorial-develop-table-dotnet.md).
 
@@ -65,7 +65,7 @@ Al construir una cadena de filtro, tenga en cuenta estas reglas:
 * Utilice los operadores lógicos definidos por la especificación del protocolo OData para comparar una propiedad con un valor. Tenga en cuenta que no puede comparar una propiedad con un valor dinámico. Un lado de la expresión debe ser una constante.
 * El nombre de la propiedad, el operador y el valor constante se deben separar por espacios con codificación URL. Para codificar un espacio con codificación URL se usa `%20`.
 * Todas las partes de la cadena de filtro distinguen mayúsculas de minúsculas.
-* Para que el filtro devuelva resultados válidos, el valor constante debe ser del mismo tipo de datos que la propiedad. Para obtener más información sobre los tipos de propiedades que se admiten, consulte [Introducción al modelo de datos del servicio Tabla](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model).
+* Para que el filtro devuelva resultados válidos, el valor constante debe ser del mismo tipo de datos que la propiedad. Para obtener más información sobre los tipos de propiedades que se admiten, consulte [Introducción al modelo de datos del servicio Tabla](/rest/api/storageservices/understanding-the-table-service-data-model).
 
 Esta es una consulta de ejemplo en la que se muestra cómo filtrar por propiedades PartitionKey e Email con un elemento `$filter` de OData.
 
@@ -75,7 +75,7 @@ Esta es una consulta de ejemplo en la que se muestra cómo filtrar por propiedad
 https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and%20Email%20eq%20'Ben@contoso.com'
 ```
 
-Para obtener más información sobre cómo construir expresiones de filtro para diferentes tipos de datos, consulte [Consulta de tablas y entidades](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities).
+Para obtener más información sobre cómo construir expresiones de filtro para diferentes tipos de datos, consulte [Consulta de tablas y entidades](/rest/api/storageservices/querying-tables-and-entities).
 
 **Resultados**
 

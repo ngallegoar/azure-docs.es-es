@@ -4,12 +4,12 @@ description: Aprenda a preparar máquinas locales para la migración con Azure M
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: d5ac4ded59a69e57de02779b0ba8ade9d7b48b26
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.openlocfilehash: 01e4a0652d575efd1c40612153be1742cd8e8927
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85106360"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341321"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparación de las máquinas locales para la migración a Azure
 
@@ -35,7 +35,7 @@ En la tabla se resumen los límites de detección, evaluación y migración de A
 --- | --- | --- | ---
 **Máquinas virtuales de VMware** | Detecte y evalúe hasta 35 000 máquinas virtuales en un solo proyecto de Azure Migrate. | Detecte hasta 10 000 máquinas virtuales VMware con un solo [dispositivo Azure Migrate](common-questions-appliance.md) para VMware. | **Migración sin agente**: puede replicar simultáneamente un máximo de 300 máquinas virtuales. Para obtener el mejor rendimiento, se recomienda crear varios lotes de máquinas virtuales si tiene más de 50.<br/><br/> **Migración basada en agente**: puede [escalar horizontalmente](./agent-based-migration-architecture.md#performance-and-scaling) el [dispositivo de replicación](migrate-replication-appliance.md) para replicar un gran número de máquinas virtuales.<br/><br/> En el portal puede seleccionar hasta 10 máquinas virtuales a la vez para la replicación. Para replicar más máquinas, agregue lotes de 10.
 **Máquinas virtuales de Hyper-V** | Detecte y evalúe hasta 35 000 máquinas virtuales en un solo proyecto de Azure Migrate. | Detecte hasta 5 000 máquinas virtuales Hyper-V con un único dispositivo Azure Migrate. | No se utiliza un dispositivo para la migración de Hyper-V. En su lugar, el proveedor de replicación de Hyper-V se ejecuta en cada host de Hyper-V.<br/><br/> La capacidad de replicación se ve afectada por factores de rendimiento como la renovación de máquinas virtuales y la carga de ancho de banda de los datos de replicación.<br/><br/> En el portal puede seleccionar hasta 10 máquinas virtuales a la vez para la replicación. Para replicar más máquinas, agregue lotes de 10.
-**máquinas físicas** | Detecte y evalúe hasta 35 000 máquinas en un solo proyecto de Azure Migrate. | Detecte hasta 250 servidores físicos con un único dispositivo Azure Migrate para servidores físicos. | Puede [escalar horizontalmente](/agent-based-migration-architecture.md#performance-and-scaling) el [dispositivo de replicación](migrate-replication-appliance.md) para replicar un gran número de servidores.<br/><br/> En el portal puede seleccionar hasta 10 máquinas virtuales a la vez para la replicación. Para replicar más máquinas, agregue lotes de 10.
+**máquinas físicas** | Detecte y evalúe hasta 35 000 máquinas en un solo proyecto de Azure Migrate. | Detecte hasta 250 servidores físicos con un único dispositivo Azure Migrate para servidores físicos. | Puede [escalar horizontalmente](./agent-based-migration-architecture.md#performance-and-scaling) el [dispositivo de replicación](migrate-replication-appliance.md) para replicar un gran número de servidores.<br/><br/> En el portal puede seleccionar hasta 10 máquinas virtuales a la vez para la replicación. Para replicar más máquinas, agregue lotes de 10.
 
 ## <a name="select-a-vmware-migration-method"></a>Selección de un método de migración de VMware
 
