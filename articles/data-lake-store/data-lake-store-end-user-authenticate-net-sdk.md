@@ -3,15 +3,15 @@ title: 'Autenticación de usuario final en .NET con Data Lake Storage Gen1: A
 description: Aprenda a lograr la autenticación del usuario final con Azure Data Lake Storage Gen1 mediante Azure Active Directory con SDK de .NET.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 37507f686ad2cf3fc66087b89ae77242ec79afdd
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 12f6e0fd34de96677693b7f0d159c7cf9032ca1b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82688152"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85511290"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticación de usuario final con Azure Data Lake Storage Gen1 mediante el SDK de .NET.
 > [!div class="op_single_selector"]
@@ -69,7 +69,7 @@ En este artículo, aprenderá a usar el SDK de .NET para realizar la autenticaci
 ## <a name="end-user-authentication"></a>Autenticación de usuario final
 Agregue este fragmento de código a su aplicación cliente .NET. Reemplace los valores de marcador de posición por los valores recuperados de una aplicación nativa de Azure AD (se enumera como requisito previo). Este fragmento de código le permite autenticar la aplicación **de manera interactiva** con Data Lake Store Gen1, lo que significa que se le pedirá que escriba sus credenciales de Azure.
 
-Para facilitar su uso, el siguiente fragmento de código emplea valores predeterminados para el identificador de cliente y un URI de redirección que son válidos con cualquier suscripción de Azure. En el siguiente fragmento de código, solo es necesario proporcionar el valor del identificador del inquilino. Puede recuperar el identificador del inquilino siguiendo las instrucciones proporcionadas en [Obtención del identificador de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+Para facilitar su uso, el siguiente fragmento de código emplea valores predeterminados para el identificador de cliente y un URI de redirección que son válidos con cualquier suscripción de Azure. En el siguiente fragmento de código, solo es necesario proporcionar el valor del identificador del inquilino. Puede recuperar el identificador del inquilino siguiendo las instrucciones proporcionadas en [Obtención del identificador de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
     
 - Reemplace la función Main() por el siguiente contenido:
 

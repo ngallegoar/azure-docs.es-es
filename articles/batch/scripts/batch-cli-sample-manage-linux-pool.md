@@ -3,12 +3,12 @@ title: 'Ejemplo de script de la CLI de Azure: grupo de Linux en Batch'
 description: Este script muestra algunos de los comandos disponibles en la CLI de Azure para crear y administrar un grupo de nodos de proceso de Linux en Azure Batch.
 ms.topic: sample
 ms.date: 01/29/2018
-ms.openlocfilehash: e39deaf2cb897e01ac69b26a7855d7227904539a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 21236ef2f314cb1306adc7346e620b80db540034
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681866"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964069"
 ---
 # <a name="cli-example-create-and-manage-a-linux-pool-in-azure-batch"></a>Ejemplo de la CLI: creación y administración de un grupo de Linux en Azure Batch
 
@@ -40,14 +40,14 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Crea la cuenta de Batch. |
 | [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Realiza la autenticación respecto de la cuenta de Batch especificada para una mayor interacción de la CLI.  |
 | [az batch pool node-agent-skus list](../batch-linux-nodes.md#list-of-virtual-machine-images) | Enumera las SKU del agente del nodo disponibles y la información de la imagen.  |
-| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-create) | Crea un grupo de nodos de proceso.  |
-| [az batch pool resize](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-resize) | Cambia la cantidad de máquinas virtuales en ejecución en el grupo especificado.  |
-| [az batch pool show](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-show) | Muestra las propiedades de un grupo.  |
-| [az batch node list](https://docs.microsoft.com/cli/azure/batch/node#az-batch-node-list) | Enumera todos los nodos de proceso del grupo especificado.  |
-| [az batch node reboot](https://docs.microsoft.com/cli/azure/batch/node#az-batch-node-reboot) | Reinicia el nodo de proceso especificado.  |
-| [az batch node delete](https://docs.microsoft.com/cli/azure/batch/node#az-batch-node-delete) | Elimina los nodos enumerados del grupo especificado.  |
+| [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create) | Crea un grupo de nodos de proceso.  |
+| [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize) | Cambia la cantidad de máquinas virtuales en ejecución en el grupo especificado.  |
+| [az batch pool show](/cli/azure/batch/pool#az-batch-pool-show) | Muestra las propiedades de un grupo.  |
+| [az batch node list](/cli/azure/batch/node#az-batch-node-list) | Enumera todos los nodos de proceso del grupo especificado.  |
+| [az batch node reboot](/cli/azure/batch/node#az-batch-node-reboot) | Reinicia el nodo de proceso especificado.  |
+| [az batch node delete](/cli/azure/batch/node#az-batch-node-delete) | Elimina los nodos enumerados del grupo especificado.  |
 | [az group delete](/cli/azure/group#az-group-delete) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure).
+Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure).

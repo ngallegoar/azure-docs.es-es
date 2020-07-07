@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: dsindona
-ms.openlocfilehash: 4d1ee4fc0760e76af7475dd3b2dc83f306e7a7bd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 46f8da8b2b688900e50548bbece01117a7a47e24
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657816"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963842"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guía de publicación de ofertas de aplicaciones SaaS
 
@@ -62,11 +62,9 @@ Para empezar, se recomienda contar con una suscripción dedicada a la publicaci�
 
 La documentación, ejemplos y guía recomendada de Azure Active Directory se encuentran en los siguientes sitios: 
 
-* [Guía del desarrollador de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
+* [Guía del desarrollador de Azure Active Directory](../active-directory/develop/index.yml)
 
-* [Integración con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
-
-* [Integración de aplicaciones con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
+* [Integración con Azure Active Directory](../active-directory/develop/active-directory-how-to-integrate.md)
 
 * [Hoja de ruta de Azure: seguridad e identidad](https://azure.microsoft.com/roadmap/?category=security-identity)
 
@@ -90,7 +88,7 @@ Además, Azure Active Directory proporciona un sitio para buscar actualizaciones
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Uso de Azure Active Directory para habilitar las evaluaciones  
 
-Microsoft autentica a todos los usuarios de Marketplace con Azure AD, de ahí que cuando un usuario autenticado hace clic en la lista de versiones de evaluación de Marketplace y se le redirige a su entorno de evaluación, puede aprovisionar al usuario directamente en una versión de evaluación sin necesidad de un paso adicional de inicio de sesión. El token que recibe la aplicación de Azure AD durante la autenticación incluye información valiosa del usuario que se puede usar para crear una cuenta de usuario en su aplicación, lo que le permite automatizar la experiencia de aprovisionamiento y aumentar la probabilidad de conversión. Para obtener más información sobre el token, consulte [Tokens de ejemplo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Microsoft autentica a todos los usuarios de Marketplace con Azure AD, de ahí que cuando un usuario autenticado hace clic en la lista de versiones de evaluación de Marketplace y se le redirige a su entorno de evaluación, puede aprovisionar al usuario directamente en una versión de evaluación sin necesidad de un paso adicional de inicio de sesión. El token que recibe la aplicación de Azure AD durante la autenticación incluye información valiosa del usuario que se puede usar para crear una cuenta de usuario en su aplicación, lo que le permite automatizar la experiencia de aprovisionamiento y aumentar la probabilidad de conversión. Para obtener más información sobre el token, consulte [Tokens de ejemplo](../active-directory/develop/active-directory-token-and-claims.md).
 
 El uso de Azure AD para habilitar la autenticación con un solo clic en su aplicación o versión de evaluación hace lo siguiente:  
 * Optimiza la experiencia del cliente de Marketplace a la versión de Evaluación.  
@@ -106,15 +104,15 @@ Certifique la integración de Azure AD de varias maneras, en función de si la a
 
 Si ya admite Azure AD, siga estos pasos:
 1.    Registre la aplicación en Azure Portal
-2.    Habilite la característica de compatibilidad multiinquilino en Azure AD para obtener una experiencia de evaluación con un clic. Se puede encontrar información más específica [aquí](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
+2.    Habilite la característica de compatibilidad multiinquilino en Azure AD para obtener una experiencia de evaluación con un clic. Se puede encontrar información más específica [aquí](../active-directory/develop/active-directory-integrating-applications.md).  
 
 Si no está familiarizado con el SSO federado de Azure AD, haga lo siguiente: 
 1.  Registre la aplicación en Azure Portal
-2.  Desarrolle el SSO con Azure AD mediante [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) o [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
-3.  Habilite la característica de compatibilidad multiinquilino en AAD para obtener la experiencia de evaluación "con un clic". Se puede encontrar información más específica [aquí](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
+2.  Desarrolle el SSO con Azure AD mediante [OpenID Connect](../active-directory/develop/active-directory-protocols-openid-connect-code.md) o [OAuth 2.0](../active-directory/develop/active-directory-protocols-oauth-code.md).
+3.  Habilite la característica de compatibilidad multiinquilino en AAD para obtener la experiencia de evaluación "con un clic". Se puede encontrar información más específica [aquí](../active-directory/develop/active-directory-devhowto-appsource-certified.md).  
 
 **Para la aplicación de inquilino único, use cualquiera de las siguientes opciones:**  
-* Agregue usuarios al directorio como usuarios invitados con [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+* Agregue usuarios al directorio como usuarios invitados con [Azure B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)
 * Aprovisione manualmente versiones de evaluación para los clientes mediante la opción de "Contacto"
 * Desarrolle una "versión de prueba" por cliente
 * Compile una aplicación de demostración de ejemplo multiinquilino con SSO.

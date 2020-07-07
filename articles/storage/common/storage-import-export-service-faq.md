@@ -4,16 +4,16 @@ description: Lea las respuestas a las preguntas frecuentes sobre el servicio Azu
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 0c8af4cafb2c7ab4d39a591f5972803161c2aa0f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: f3a41fbd3cbd5b7c8eccfbea8833fdfedee97510
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120392"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512404"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Servicio Azure Import/Export: preguntas frecuentes
 

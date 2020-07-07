@@ -5,16 +5,16 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 21ae6e0a190875e3e541eb858ec38658ce191ee6
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: ace3fe7aee6b9ffc7226448b455bcfea1f931458
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726509"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964879"
 ---
 # <a name="rendering-applications"></a>Aplicaciones de representación
 
-Las aplicaciones de representación se usan mediante la creación de tareas y trabajos de Batch. La propiedad de línea de comandos de la tarea especifica la línea de comandos y los parámetros adecuados.  La forma más fácil de crear las tareas de un trabajo es usar las plantillas de Batch Explorer como se especifica en [este artículo](https://docs.microsoft.com/azure/batch/batch-rendering-using#using-batch-explorer).  Las plantillas se pueden ver y se pueden modificar las versiones creadas, en caso de que sea necesario.
+Las aplicaciones de representación se usan mediante la creación de tareas y trabajos de Batch. La propiedad de línea de comandos de la tarea especifica la línea de comandos y los parámetros adecuados.  La forma más fácil de crear las tareas de un trabajo es usar las plantillas de Batch Explorer como se especifica en [este artículo](./batch-rendering-using.md#using-batch-explorer).  Las plantillas se pueden ver y se pueden modificar las versiones creadas, en caso de que sea necesario.
 
 En este artículo se proporciona una breve descripción de cómo ejecutar cada aplicación de representación.
 

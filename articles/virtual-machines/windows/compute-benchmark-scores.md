@@ -10,10 +10,10 @@ ms.date: 04/29/2020
 ms.author: cynthn
 ms.reviewer: davberg
 ms.openlocfilehash: c3e0fdc398d3b0b851c6f548119858e6c41a5a19
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82583919"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Puntuaciones de pruebas comparativas de proceso para máquinas virtuales Windows

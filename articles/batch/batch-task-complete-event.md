@@ -3,12 +3,12 @@ title: Evento completo de tarea de Azure Batch
 description: Referencia del evento completo de tarea de Batch. Este evento se emite una vez que se completa una tarea, independientemente del código de salida.
 ms.topic: reference
 ms.date: 04/20/2017
-ms.openlocfilehash: 5e3959a34b96ef4cebdbedadf736418d08cb2746
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 42860836e294780649616b0843db6ba19718dd64
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726373"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965185"
 ---
 # <a name="task-complete-event"></a>Evento de tarea completada
 
@@ -50,7 +50,7 @@ ms.locfileid: "83726373"
 |`taskType`|String|Tipo de la tarea. Puede ser "JobManager", que indica que es una tarea del administrador de trabajos, o "User", que indica que no lo es. Este evento no se emite para tareas de preparación de trabajos, tareas de liberación de trabajo ni tareas de inicio.|
 |`systemTaskVersion`|Int32|Se trata del contador interno de reintentos de una tarea. De manera interna, el servicio de Batch puede reintentar una tarea para tener en cuenta los problemas transitorios. Estos problemas pueden incluir errores internos de programación o intentos de recuperación a partir de nodos de proceso en estado no válido.|
 |[`nodeInfo`](#nodeInfo)|Tipo complejo|Contiene información sobre el nodo de ejecución en que se ejecutó la tarea.|
-|[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complejo|Especifica que la tarea es una tarea de instancias múltiples que requiere varios nodos de proceso.  Pulse [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) para ver los detalles.|
+|[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complejo|Especifica que la tarea es una tarea de instancias múltiples que requiere varios nodos de proceso.  Pulse [`multiInstanceSettings`](/rest/api/batchservice/get-information-about-a-task) para ver los detalles.|
 |[`constraints`](#constraints)|Tipo complejo|Restricciones de ejecución que se aplican a esta tarea.|
 |[`executionInfo`](#executionInfo)|Tipo complejo|Contiene información sobre la ejecución de la tarea.|
 

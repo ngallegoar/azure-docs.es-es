@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 180015a6bab576c02dcfaaea589628e40c6adde4
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 5a867243e57790bf72cef6991d6d8ac06639be49
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82736107"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963927"
 ---
 # <a name="managed-application-metered-billing"></a>Facturación según uso de aplicaciones administradas 
 
@@ -125,7 +125,7 @@ Siga los pasos siguientes para enviar una incidencia de soporte técnico:
 4. En "Select a problem that best describes the issue" (Seleccionar un problema que mejor describa la incidencia), seleccione **Metered billing** (Facturación medida).
 5. Al seleccionar el botón **Siguiente**, se le dirigirá a la página **Detalles del problema**, donde puede especificar más detalles de su incidencia.
 
-Para ver más opciones de soporte técnico para editores, consulte [Soporte técnico para el programa Marketplace comercial en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+Para ver más opciones de soporte técnico para editores, consulte [Soporte técnico para el programa Marketplace comercial en el Centro de partners](support.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

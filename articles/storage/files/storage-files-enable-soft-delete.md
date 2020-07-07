@@ -3,17 +3,17 @@ title: 'Habilitación de la eliminación temporal: recursos compartidos de archi
 description: Obtenga información sobre cómo habilitar la eliminación temporal (versión preliminar) en recursos compartidos de archivos de Azure para la recuperación de datos y para evitar la eliminación accidental.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 582a3603ad80ec1312429ed7cbd140d4310fadcb
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 84da8993bd1b0a61ef885d03f7c2bc80b92d47cb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196192"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510819"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Habilitación de la eliminación temporal en recursos compartidos de archivos de Azure
 

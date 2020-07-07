@@ -3,12 +3,12 @@ title: 'Ejemplo de script de la CLI de Azure: creación de una cuenta en Batch -
 description: Este script crea una cuenta en Azure Batch en modo de suscripción de usuario. Esta cuenta asigna nodos de proceso a la suscripción.
 ms.topic: sample
 ms.date: 01/29/2018
-ms.openlocfilehash: 9f3919574dd7dcbe932c71dfcea2ac52ec906c6c
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: e589361da8442107f06a0933a1f1ac79a88945ff
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681894"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964085"
 ---
 # <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>Ejemplo de la CLI: creación de una cuenta en Batch en modo de suscripción de usuario
 
@@ -38,8 +38,8 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 |---|---|
 | [az role assignment create](/cli/azure/role) | Crea una nueva asignación de roles para un usuario, grupo o entidad de servicio. |
 | [az group create](/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-create) | Crea un almacén de claves. |
-| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-set-policy) | Actualiza la directiva de seguridad del almacén de Key Vault especificado. |
+| [az keyvault create](/cli/azure/keyvault#az-keyvault-create) | Crea un almacén de claves. |
+| [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) | Actualiza la directiva de seguridad del almacén de Key Vault especificado. |
 | [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Crea la cuenta de Batch.  |
 | [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Realiza la autenticación respecto de la cuenta de Batch especificada para una mayor interacción de la CLI.  |
 | [az group delete](/cli/azure/group#az-group-delete) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |

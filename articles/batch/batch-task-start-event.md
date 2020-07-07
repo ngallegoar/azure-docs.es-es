@@ -3,12 +3,12 @@ title: Evento de inicio de tarea de Azure Batch
 description: Información de referencia del evento de inicio de tarea de Batch. Este evento se emite una vez que el programador programa que una tarea se inicie en un nodo de ejecución.
 ms.topic: reference
 ms.date: 04/20/2017
-ms.openlocfilehash: f872e6c89e2f528729ae08125c6cc3eb5718e19a
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: ed7b3014279fc87fbaae6f1c270f056e95073aaf
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725795"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965100"
 ---
 # <a name="task-start-event"></a>Evento de inicio de tarea
 
@@ -46,7 +46,7 @@ ms.locfileid: "83725795"
 |`taskType`|String|Tipo de la tarea. Puede ser "JobManager", que indica que es una tarea del administrador de trabajos, o "User", que indica que no lo es.|
 |`systemTaskVersion`|Int32|Se trata del contador interno de reintentos de una tarea. De manera interna, el servicio de Batch puede reintentar una tarea para tener en cuenta los problemas transitorios. Estos problemas pueden incluir errores internos de programación o intentos de recuperación a partir de nodos de proceso en estado no válido.|
 |[`nodeInfo`](#nodeInfo)|Tipo complejo|Contiene información sobre el nodo de ejecución en que se ejecutó la tarea.|
-|[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complejo|Especifica que la tarea es una tarea de instancias múltiples que requiere varios nodos de proceso.  Consulte [multiInstanceSettings](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) para detalles.|
+|[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complejo|Especifica que la tarea es una tarea de instancias múltiples que requiere varios nodos de proceso.  Consulte [multiInstanceSettings](/rest/api/batchservice/get-information-about-a-task) para detalles.|
 |[`constraints`](#constraints)|Tipo complejo|Restricciones de ejecución que se aplican a esta tarea.|
 |[`executionInfo`](#executionInfo)|Tipo complejo|Contiene información sobre la ejecución de la tarea.|
 

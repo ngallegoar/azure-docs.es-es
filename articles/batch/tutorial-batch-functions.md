@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc
-ms.openlocfilehash: 01c3ab167239affa4d7ae94f5649d60072c3c270
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 88937e5bc9870075bfe273c21b11f886d32bf99d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117172"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963859"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Tutorial: Desencadenamiento de un trabajo de Batch con Azure Functions
 
@@ -55,7 +55,7 @@ En esta sección, usará Batch Explorer para crear el grupo y el trabajo de Batc
 Aquí podrá crear contenedores de blobs que almacenarán la entrada y salida de archivos para el trabajo de Batch OCR.
 
 1. Inicie sesión en Explorador de Storage con sus credenciales de Azure.
-1. Con la cuenta de almacenamiento vinculada a su cuenta de Batch, cree dos contenedores de blobs (uno para los archivos de entrada y otro para los de salida); para ello, siga los pasos descritos en [Creación de un contenedor de blobs](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#create-a-blob-container).
+1. Con la cuenta de almacenamiento vinculada a su cuenta de Batch, cree dos contenedores de blobs (uno para los archivos de entrada y otro para los de salida); para ello, siga los pasos descritos en [Creación de un contenedor de blobs](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
 
 En este ejemplo, el contenedor de entrada se denomina `input` y es donde se cargan inicialmente todos los documentos sin reconocimiento óptico de caracteres para ser procesados. El contenedor de salida se denomina `output` y es donde el trabajo de Batch escribe los documentos procesados con OCR.  
     * En este ejemplo, llamaremos a nuestro contenedor de entrada `input` y al contenedor de salida, `output`.  
@@ -68,7 +68,7 @@ Cree una firma de acceso compartido para el contenedor de salida en el Explorado
 
 En esta sección creará la función de Azure que desencadena el proceso de Batch OCR cuando se carga un archivo en el contenedor de entrada.
 
-1. Siga los pasos de [Crear una función desencadenada por Azure Blob Storage](https://docs.microsoft.com/azure/azure-functions/functions-create-storage-blob-triggered-function) para crear una función.
+1. Siga los pasos de [Crear una función desencadenada por Azure Blob Storage](../azure-functions/functions-create-storage-blob-triggered-function.md) para crear una función.
     1. Cuando se le solicite una cuenta de almacenamiento, utilice la misma cuenta de almacenamiento que ha vinculado a su cuenta de Batch.
     1. En **Pila en tiempo de ejecución**, elija .NET. Escribiremos nuestra función C# para aprovechar el SDK de .NET para Batch.
 1. Una vez creada la función desencadenada por blob, use [`run.csx`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/run.csx) y [`function.proj`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/function.proj) desde GitHub en la función.
@@ -111,4 +111,4 @@ En este tutorial, ha aprendido cómo:
 
 * Para más muestras de uso de la API de .NET para programar y procesar cargas de trabajo de Batch, consulte [las muestras de GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp). 
 
-* Para ver más desencadenadores de Azure Functions que puede usar para ejecutar cargas de trabajo de Batch, consulte [la documentación de Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings).
+* Para ver más desencadenadores de Azure Functions que puede usar para ejecutar cargas de trabajo de Batch, consulte [la documentación de Azure Functions](../azure-functions/functions-triggers-bindings.md).

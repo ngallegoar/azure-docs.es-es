@@ -3,18 +3,18 @@ title: Flujo de trabajo y recursos del servicio Batch
 description: Obtenga información sobre las características del servicio Batch y su flujo de trabajo general desde el punto de vista del desarrollo.
 ms.topic: conceptual
 ms.date: 05/12/2020
-ms.openlocfilehash: 5084ae222d0a9da0d8aa171bc89dba48377a9dd4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 76a0b140f3bea4b07a6de632abbcbc3fd26e582d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835927"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965219"
 ---
 # <a name="batch-service-workflow-and-resources"></a>Flujo de trabajo y recursos del servicio Batch
 
 En este artículo se proporciona información general sobre los componentes principales del servicio Azure Batch, se describe el flujo de trabajo general que pueden usar los desarrolladores de Batch para crear soluciones de proceso en paralelo a gran escala, junto con los recursos de servicio principal que se usan.
 
-Usará muchos de los recursos y las características que se describen en este artículo, tanto si va a desarrollar una aplicación informática distribuida o un servicio que emita llamadas [API REST](https://docs.microsoft.com/rest/api/batchservice/) directas, como si usa uno de los [SDK de Batch](batch-apis-tools.md#batch-service-apis).
+Usará muchos de los recursos y las características que se describen en este artículo, tanto si va a desarrollar una aplicación informática distribuida o un servicio que emita llamadas [API REST](/rest/api/batchservice/) directas, como si usa uno de los [SDK de Batch](batch-apis-tools.md#batch-service-apis).
 
 > [!TIP]
 > Para ver una introducción de nivel superior sobre el servicio Batch, consulte [Datos básicos de Azure Batch](batch-technical-overview.md). Consulte también la versión más reciente de las [actualizaciones del servicio Batch](https://azure.microsoft.com/updates/?product=batch).
@@ -47,4 +47,4 @@ En los temas siguientes se describen los recursos de Batch que habilitan escenar
 - Obtenga información acerca de las [API y herramientas de Batch](batch-apis-tools.md) disponibles para la creación de soluciones de Batch.
 - Para conocer los aspectos básicos del desarrollo de una aplicación habilitada para Batch, consulte la [biblioteca de cliente de Batch para .NET](quick-run-dotnet.md) o [Python](quick-run-python.md). Estas guías de inicio rápido le guían a través de una aplicación de ejemplo que usa el servicio de Batch para ejecutar una carga de trabajo en varios nodos de proceso e incluye el uso de Azure Storage para el almacenamiento provisional y la recuperación del archivo de la carga de trabajo.
 - Descargue e instale la utilidad [Batch Explorer](https://azure.github.io/BatchExplorer/) para usarla durante el desarrollo de sus soluciones de Batch. Use Batch Explorer para crear, depurar y supervisar aplicaciones de Azure Batch.
-- Vea los recursos de la comunidad entre los que se encuentran [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-batch), el [repositorio de la Comunidad de Batch](https://github.com/Azure/Batch) y el [foro de Azure Batch](https://docs.microsoft.com/answers/topics/azure-batch.html).
+- Vea los recursos de la comunidad entre los que se encuentran [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-batch), el [repositorio de la Comunidad de Batch](https://github.com/Azure/Batch) y el [foro de Azure Batch](/answers/topics/azure-batch.html).

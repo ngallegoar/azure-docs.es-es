@@ -3,16 +3,16 @@ title: Uso de Azure Files con Linux | Microsoft Docs
 description: Aprenda a montar un recurso compartido de archivos de Azure mediante SMB en Linux.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fcc9876caf0c002650ab30b7eaed7dc44e2f135e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f668844951a2416b25d1649721fc005a0d70b75
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137746"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509853"
 ---
 # <a name="use-azure-files-with-linux"></a>Uso de Azure Files con Linux
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar en distribuciones de Linux mediante el [cliente kernel de SMB](https://wiki.samba.org/index.php/LinuxCIFS). En este artículo se muestran dos maneras de montar un recurso compartido de archivos de Azure: a petición, con el comando `mount` y al inicio, mediante la creación de una entrada en `/etc/fstab`.

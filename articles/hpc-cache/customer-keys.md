@@ -3,15 +3,15 @@ title: Uso de claves administradas por el cliente para cifrar datos en Azure HPC
 description: Cómo usar Azure Key Vault con Azure HPC Cache para controlar el acceso con claves de cifrado en lugar de usar las claves de cifrado administradas por Microsoft predeterminadas
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: v-erkel
-ms.openlocfilehash: 2d10241b8395c33767ffeeb550d9d8060bde3ce3
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: b7b9e9e6858d709e80642603e77bfb36f2e4c0c9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597746"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512908"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Uso de claves de cifrado administradas por el cliente para Azure HPC Cache
 

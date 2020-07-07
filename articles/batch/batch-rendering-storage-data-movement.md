@@ -7,25 +7,25 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: dcb9d43b228428379414ca5d7688cff709a9959e
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 6fff0e224aaa6bb247543282ac16fbb33fe7e904
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726424"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965270"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Opciones de almacenamiento y movimiento de datos para representar archivos de recursos y de salida
 
 Existen varias opciones para que las aplicaciones de representación del grupo de máquinas virtuales puedan usar los archivos de escena y de recursos:
 
-* [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction):
+* [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md):
   * Tanto los archivos de escena como los de recursos se cargan en Blob Storage desde un sistema de archivos local. Cuando es una tarea la que ejecuta la aplicación, los archivos necesarios se copian de Blob Storage a la máquina virtual, con el fin de que la aplicación que realiza la representación pueda acceder a ellos. Los archivos de salida los escribe la aplicación que realiza la representación en el disco de la máquina virtual y, después, se copian en Blob Storage.  Si es necesario, los archivos de salida se pueden descargar de Blob Storage a un sistema de archivos local.
   * Azure Blob Storage es una opción sencilla y rentable para proyectos pequeños.  Dado que todos los archivos de recursos son necesarios en cada máquina virtual del grupo, una vez que aumenta el número y tamaño de los archivos de recursos es preciso prestar más atención para asegurarse de que las transferencias de archivos sean tan eficaces como sea posible.  
-* Azure Storage como sistema de archivos que usa [blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux):
+* Azure Storage como sistema de archivos que usa [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md):
   * En el caso de las máquinas virtuales Linux, una cuenta de almacenamiento se puede exponer y usar como sistema de archivos cuando se utiliza el controlador del sistema de archivos virtual blobfuse.
   * Esta opción tiene la ventaja de ser muy rentable, ya que no se necesitan máquinas virtuales para el sistema de archivos, además de que el almacenamiento en caché de blobfuse en las máquinas virtuales evita tener que descargar en repetidas ocasiones los mismos archivos para varios trabajos y tareas.  El movimiento de datos también es sencillo, ya que los archivos son simplemente blobs y se pueden usar API y herramientas estándar, como azcopy, para copiar cualquier archivo entre un sistema de archivos local y Azure Storage.
 * Sistema de archivos o recurso compartido de archivos:
-  * En función del sistema operativo y de los requisitos de rendimiento y escalado de la máquina virtual, las opciones incluyen [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction), el uso de una máquina virtual con discos conectados para NFS, el uso de varias máquinas virtuales con discos conectados para un sistema de archivos distribuido como GlusterFS o el uso de una oferta de terceros.
+  * En función del sistema operativo y de los requisitos de rendimiento y escalado de la máquina virtual, las opciones incluyen [Azure Files](../storage/files/storage-files-introduction.md), el uso de una máquina virtual con discos conectados para NFS, el uso de varias máquinas virtuales con discos conectados para un sistema de archivos distribuido como GlusterFS o el uso de una oferta de terceros.
   * [Avere Systems](https://www.averesystems.com/) ahora forma parte de Microsoft y en un futuro próximo tendrá soluciones ideales para la representación a gran escala y de alto rendimiento.  La solución de Avere permitirá crear una caché un NFS o SMB basada en Azure que funcione en conjunción con Blob Storage o con dispositivos NAS locales.
   * Con un sistema de archivos, los archivos se pueden leer o escribir directamente en el sistema de archivos, o bien se pueden copiar entre este y las máquinas virtuales del grupo.
   * Un sistema de archivos compartido permite utilizar un gran número de recursos compartidos entre proyectos y trabajos, y que las tareas de representación solo accedan a los que se requieren.
@@ -36,7 +36,7 @@ Se deben usar una cuenta de Blob Storage o una cuenta de almacenamiento de uso g
 
 ### <a name="copying-files-between-client-and-blob-storage"></a>Copia de archivos entre el cliente y Blob Storage
 
-Para copiar archivos a Azure Storage, y desde él, se pueden usar diversos mecanismos, entre los que se incluyen la API de Blob Storage, la [Biblioteca de movimiento de datos de Azure Storage](https://github.com/Azure/azure-storage-net-data-movement), la herramienta de línea de comandos azcopy para [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) o [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux), el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/), y [Azure Batch Explorer](https://azure.github.io/BatchExplorer/).
+Para copiar archivos a Azure Storage, y desde él, se pueden usar diversos mecanismos, entre los que se incluyen la API de Blob Storage, la [Biblioteca de movimiento de datos de Azure Storage](https://github.com/Azure/azure-storage-net-data-movement), la herramienta de línea de comandos azcopy para [Windows](../storage/common/storage-use-azcopy-v10.md) o [Linux](../storage/common/storage-use-azcopy-v10.md), el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/), y [Azure Batch Explorer](https://azure.github.io/BatchExplorer/).
 
 Por ejemplo, mediante azcopy, todos los recursos de una carpeta se pueden transferir como se indica a continuación:
 
@@ -52,8 +52,8 @@ Para copiar solo los archivos modificados, se puede usar el parámetro /XO:
 Hay un par de enfoques distintos para copiar archivos, y el mejor lo determina el tamaño de los recursos del trabajo.
 El enfoque más sencillo es copiar todos los archivos de recursos a las máquinas virtuales del grupo para cada trabajo:
 
-* Cuando haya archivos únicos para un trabajo, pero sean necesarios para todas las tareas de un trabajo, se puede especificar una [tarea de preparación del trabajo](https://docs.microsoft.com/rest/api/batchservice/job/add#jobpreparationtask) para copiar todos los archivos.  La tarea de preparación del trabajo se ejecuta una vez cuando la primera tarea del trabajo se ejecuta en una máquina virtual, pero no en las tareas posteriores del trabajo.
-* Se debe especificar una [tarea de liberación del trabajo](https://docs.microsoft.com/rest/api/batchservice/job/add#jobreleasetask) para quitar los archivos por trabajo una vez que este se haya completado; así se evita que los archivos de recursos del trabajo llenen el disco de la máquina virtual.
+* Cuando haya archivos únicos para un trabajo, pero sean necesarios para todas las tareas de un trabajo, se puede especificar una [tarea de preparación del trabajo](/rest/api/batchservice/job/add#jobpreparationtask) para copiar todos los archivos.  La tarea de preparación del trabajo se ejecuta una vez cuando la primera tarea del trabajo se ejecuta en una máquina virtual, pero no en las tareas posteriores del trabajo.
+* Se debe especificar una [tarea de liberación del trabajo](/rest/api/batchservice/job/add#jobreleasetask) para quitar los archivos por trabajo una vez que este se haya completado; así se evita que los archivos de recursos del trabajo llenen el disco de la máquina virtual.
 * Cuando varios trabajos usen los mismos recursos y solo haya cambios incrementales en los recursos de cada trabajo se copiarán todos los archivos de recursos, aunque se haya actualizado solo un subconjunto.  Esto es ineficaz cuando hay muchos archivos de recursos de gran tamaño.
 
 Si los archivos de recursos se reutilizan en distintos trabajos y solo se realizan cambios incrementales entre los trabajos, un enfoque más eficaz, aunque un poco más complicado, es almacenar los recursos en la carpeta compartida en la máquina virtual y sincronizar los archivos que han cambiado.
@@ -61,11 +61,11 @@ Si los archivos de recursos se reutilizan en distintos trabajos y solo se realiz
 * La tarea de preparación del trabajo realizaría la copia mediante azcopy con el parámetro /XO en la carpeta compartida de la máquina virtual especificada por la variable de entorno AZ_BATCH_NODE_SHARED_DIR.  Esto solo copiará los archivos cambiados en cada máquina virtual.
 * Habrá que pensar en el tamaño de todos los recursos para asegurarse de que encajan en la unidad temporal de las máquinas virtuales del grupo.
 
-Azure Batch tiene compatibilidad integrada para copiar archivos entre una cuenta de almacenamiento y las máquinas virtuales del grupo de Batch.  Los [archivos de recursos](https://docs.microsoft.com/rest/api/batchservice/job/add#resourcefile) de la tarea copian archivos de almacenamiento a las máquinas virtuales del grupo y se pueden especificar para la tarea de preparación del trabajo.  Lamentablemente, cuando hay cientos de archivos es posible alcanzar un límite y que ello produzca errores en las tareas.  Cuando hay un gran número de recursos se recomienda usar la herramienta de línea de comandos azcopy en la tarea de preparación del trabajo, ya que puede usar caracteres comodín y no tiene ningún límite.
+Azure Batch tiene compatibilidad integrada para copiar archivos entre una cuenta de almacenamiento y las máquinas virtuales del grupo de Batch.  Los [archivos de recursos](/rest/api/batchservice/job/add#resourcefile) de la tarea copian archivos de almacenamiento a las máquinas virtuales del grupo y se pueden especificar para la tarea de preparación del trabajo.  Lamentablemente, cuando hay cientos de archivos es posible alcanzar un límite y que ello produzca errores en las tareas.  Cuando hay un gran número de recursos se recomienda usar la herramienta de línea de comandos azcopy en la tarea de preparación del trabajo, ya que puede usar caracteres comodín y no tiene ningún límite.
 
 ### <a name="copying-output-files-to-blob-storage-from-batch-pool-vms"></a>Copia de archivos de salida en Blob Storage desde las máquinas virtuales del grupo de Batch
 
-Los [archivos de salida](https://docs.microsoft.com/rest/api/batchservice/task/add#outputfile) se pueden usar para copiar archivos de una máquina virtual de un grupo en el almacenamiento.  Uno o varios archivos se pueden copiar desde la máquina virtual a una cuenta de almacenamiento especificada cuando se haya completado la tarea.  Se debe copiar la salida representada, pero también se pueden almacenar los archivos de registro.
+Los [archivos de salida](/rest/api/batchservice/task/add#outputfile) se pueden usar para copiar archivos de una máquina virtual de un grupo en el almacenamiento.  Uno o varios archivos se pueden copiar desde la máquina virtual a una cuenta de almacenamiento especificada cuando se haya completado la tarea.  Se debe copiar la salida representada, pero también se pueden almacenar los archivos de registro.
 
 ## <a name="using-a-blobfuse-virtual-file-system-for-linux-vm-pools"></a>Uso de un sistema de archivos virtual blobfuse para los grupos de máquinas virtuales Linux
 
@@ -85,9 +85,9 @@ Como los archivos son simplemente blobs en Azure Storage, las API de blob están
 
 ## <a name="using-azure-files-with-windows-vms"></a>Uso de Azure Files con máquinas virtuales Windows
 
-[Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) ofrece recursos compartidos de archivos en la nube totalmente administrados a los que se puede acceder mediante el protocolo SMB.  Se basa en Azure Blob Storage; es [rentable](https://azure.microsoft.com/pricing/details/storage/files/) y se puede configurar con la replicación de datos en otra región, así que es redundante de forma global.  [Escalar destinos](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#azure-files-scale-targets) deben examinarse para determinar si se debe usar Azure Files dado el tamaño del grupo de previsión y el número de archivos de recursos.
+[Azure Files](../storage/files/storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados a los que se puede acceder mediante el protocolo SMB.  Se basa en Azure Blob Storage; es [rentable](https://azure.microsoft.com/pricing/details/storage/files/) y se puede configurar con la replicación de datos en otra región, así que es redundante de forma global.  [Escalar destinos](../storage/files/storage-files-scale-targets.md#azure-files-scale-targets) deben examinarse para determinar si se debe usar Azure Files dado el tamaño del grupo de previsión y el número de archivos de recursos.
 
-Hay una [entrada de blog](https://blogs.msdn.microsoft.com/windowsazurestorage/2014/05/26/persisting-connections-to-microsoft-azure-files/) y [documentación](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) que trata acerca de cómo montar un recurso compartido de Azure Files.
+Hay una [entrada de blog](https://blogs.msdn.microsoft.com/windowsazurestorage/2014/05/26/persisting-connections-to-microsoft-azure-files/) y [documentación](../storage/files/storage-how-to-use-files-windows.md) que trata acerca de cómo montar un recurso compartido de Azure Files.
 
 ### <a name="mounting-an-azure-files-share"></a>Montaje de un recurso compartido de Azure Files
 
@@ -126,12 +126,12 @@ Las tareas del trabajo especifican las rutas de acceso a los archivos de entrada
 
 Azure Files es compatibles con las principales API y herramientas que tienen compatibilidad con Azure Storage; por ejemplo, azcopy, CLI de Azure, el Explorador de Storage, Azure PowerShell, Batch Explorer, etc.
 
-[Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning) está disponible para sincronizar automáticamente archivos entre un sistema de archivos local y un recurso compartido de Azure Files.
+[Azure File Sync](../storage/files/storage-sync-files-planning.md) está disponible para sincronizar automáticamente archivos entre un sistema de archivos local y un recurso compartido de Azure Files.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información acerca de las opciones de almacenamiento, consulte la documentación detallada:
 
-* [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
-* [Blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux)
-* [Archivos de Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)
+* [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)
+* [Blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md)
+* [Archivos de Azure](../storage/files/storage-files-introduction.md)

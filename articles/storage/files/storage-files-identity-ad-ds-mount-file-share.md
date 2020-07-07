@@ -4,15 +4,15 @@ description: Obtenga información sobre cómo montar un recurso compartido de ar
 author: roygara
 ms.service: storage
 ms.subservice: files
-ms.topic: conceptual
-ms.date: 05/29/2020
+ms.topic: how-to
+ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 1b07025fb7ba21607f52c43bdde653429f7a7835
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 9a8805666e1e162f76cf5fa6f7d828833c573bed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268353"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510440"
 ---
 # <a name="part-four-mount-a-file-share-from-a-domain-joined-vm"></a>Parte 4: Montaje de un recurso compartido de archivos desde una VM unida al dominio
 

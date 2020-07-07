@@ -3,16 +3,16 @@ title: Migración de Linux a Azure File Sync
 description: Aprenda a migrar archivos desde una ubicación de servidor Linux a una implementación de nube híbrida con Azure File Sync y recursos compartidos de archivos de Azure.
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 3131d6a7e3675027968eadd5f3e3ca8a7f2449c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fd2e4f5c81427413e3f3f3eceaa0cc41a3b9e318
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143631"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510368"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migración desde Linux a una implementación de nube híbrida con Azure File Sync
 
@@ -118,7 +118,7 @@ Fondo:
 :::row-end:::
 :::row:::
    :::column span="1":::
-      /UNILOG:\<nombre de archivo\>
+      /UNILOG:\<file name\>
    :::column-end:::
    :::column span="1":::
       Envía el estado a un archivo de registro como Unicode (sobrescribe el registro existente).

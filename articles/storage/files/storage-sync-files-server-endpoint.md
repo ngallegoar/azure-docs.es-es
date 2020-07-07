@@ -3,16 +3,16 @@ title: Adición o eliminación de un punto de conexión de servidor de Azure Fil
 description: Conozca los aspectos que debe tener en cuenta al planear una implementación de Azure Files.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 684b30a24e049722cb531cbc84e3a2cd90912ec8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70cdf01cb327d1be6b2ac4b9cae414f87e27964f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228280"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509479"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Adición o eliminación de un punto de conexión de servidor de Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello, transforma los servidores de Windows Server en una caché rápida del recurso compartido de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.

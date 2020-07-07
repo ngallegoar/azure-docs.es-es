@@ -3,16 +3,16 @@ title: Montaje de un recurso compartido de archivos de Azure mediante SMB con ma
 description: Obtenga información acerca de cómo montar un recurso compartido de archivos de Azure mediante SMB con macOS.
 author: RenaShahMSFT
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/19/2017
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 0e3420e469b117d90efb2949dab828021bfedcb6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 87271cfc602ff81a65a63426360f3bc0a8a8f030
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74924705"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509836"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montaje de un recurso compartido de archivos de Azure mediante SMB con macOS
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar con el protocolo estándar del sector SMB 3 a partir de macOS El Capitan 10.11+. En este artículo se muestran dos maneras diferentes de montar un recurso compartido de archivos de Azure en macOS, con la interfaz de usuario de Finder y utilizando el Terminal.

@@ -4,12 +4,12 @@ description: Conozca las diferentes opciones para guardar los datos de salida de
 ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 492de237acdf2d6d42f27638bac3adc0f6549828
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 4ebe0b6d57225eff9f3f1251d5e491c95e9b7ffc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726305"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965117"
 ---
 # <a name="persist-job-and-task-output"></a>Trabajo persistente y resultado de la tarea
 
@@ -35,7 +35,7 @@ En las secciones siguientes se describe brevemente cada enfoque, así como las c
 
 ### <a name="use-the-batch-service-api"></a>Usar la API del servicio Batch.
 
-El servicio Batch es compatible con la especificación de archivos de salida en Azure Storage para los datos de tareas cuando [agrega una tarea a un trabajo](https://docs.microsoft.com/rest/api/batchservice/add-a-task-to-a-job) o [agrega una colección de tareas a un trabajo](https://docs.microsoft.com/rest/api/batchservice/add-a-collection-of-tasks-to-a-job).
+El servicio Batch es compatible con la especificación de archivos de salida en Azure Storage para los datos de tareas cuando [agrega una tarea a un trabajo](/rest/api/batchservice/add-a-task-to-a-job) o [agrega una colección de tareas a un trabajo](/rest/api/batchservice/add-a-collection-of-tasks-to-a-job).
 
 Para más información sobre el almacenamiento de salidas de tareas con la API del servicio Batch, consulte [Persist task data to Azure Storage with the Batch service API](batch-task-output-files.md) (Almacenamiento de datos de tareas en Azure Storage con la API del servicio Batch).
 

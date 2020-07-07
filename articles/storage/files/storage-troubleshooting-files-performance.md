@@ -3,16 +3,16 @@ title: Guía de solución de problemas de rendimiento de Azure Files
 description: Problemas de rendimiento conocidos con los recursos compartidos de archivos de Azure y las soluciones asociadas.
 author: gunjanj
 ms.service: storage
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 09e55abcd97317b87f8a272afa51c6b4ace572e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 64c7e56f14fb06e7b211954eb93e4858563a8f08
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77598092"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85511952"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Solucionar problemas de rendimiento de Azure Files
 
@@ -113,7 +113,7 @@ Falta de compatibilidad para las concesiones de directorios.
 ### <a name="workaround"></a>Solución alternativa
 
 - Si es posible, evite las aperturas o cierres excesivos en el mismo directorio en un período de tiempo breve.
-- Para las máquinas virtuales Linux, aumente el tiempo de espera de caché de entrada del directorio mediante la especificación de **actimeo=\<sec>** como opción de montaje. De forma predeterminada es un segundo, por lo que un valor mayor, como tres o cinco, podría ayudar.
+- Para las máquinas virtuales de Linux, aumente el tiempo de espera de caché de entrada de directorio especificando **actimeo=\<sec>** como opción de montaje. De forma predeterminada es un segundo, por lo que un valor mayor, como tres o cinco, podría ayudar.
 - Para las máquinas virtuales de Linux, actualice el kernel a 4.20 o una versión posterior.
 
 ## <a name="low-iops-on-centosrhel"></a>Baja tasa de IOPS en RHEL/CentOS

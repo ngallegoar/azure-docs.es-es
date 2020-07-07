@@ -4,16 +4,16 @@ description: Conozca los requisitos de hardware y software del servicio Azure Im
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ded8aa0587ecb6bb756f3faa07cc816b7d46b561
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 6da9490d5d9a876922fb9c2ba5d908db411adb1a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259582"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512422"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos del sistema de Azure Import/Export
 

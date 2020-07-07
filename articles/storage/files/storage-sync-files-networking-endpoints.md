@@ -3,16 +3,16 @@ title: Configuración de puntos de conexión de red de Azure File Sync | Microso
 description: Introducción a las opciones de red de Azure File Sync.
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: how-to
 ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e62f093c46b4acc4380f43419a2af0f30e9eb540
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 68d2b864b0e825756fbcd8e43fee3d6289c77c36
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84466671"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512848"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Configuración de puntos de conexión de red de Azure File Sync
 Azure Files y Azure File Sync proporcionan dos tipos principales de puntos de conexión para el acceso a los recursos compartidos de archivos de Azure: 

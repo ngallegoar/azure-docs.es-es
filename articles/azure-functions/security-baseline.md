@@ -8,10 +8,10 @@ ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 040eeda3edc8aa1165915a157cb7e1bdd1594740
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82793812"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Base de referencia de seguridad de Azure para Azure Functions
@@ -142,7 +142,7 @@ Existen también otras opciones en el mercado, como el WAF de Barracuda para Azu
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1.7: Administre el tráfico a las aplicaciones web
 
-**Guía**: Configure una puerta de enlace front-end para la red, como el firewall de aplicaciones web de Azure con cifrado TLS de un extremo a otro. Para incorporar un WAF, se necesita una instancia de App Service Environment o deben usarse puntos de conexión privados (versión preliminar). Asegúrese de que los puntos de conexión privados no tengan ya el estado de versión preliminar antes de usarlos con las cargas de trabajo de producción.
+**Instrucciones**: Configure una puerta de enlace front-end para la red, como el firewall de aplicaciones web de Azure con cifrado TLS de un extremo a otro. Para incorporar un WAF, se necesita una instancia de App Service Environment o deben usarse puntos de conexión privados (versión preliminar). Asegúrese de que los puntos de conexión privados no tengan ya el estado de versión preliminar antes de usarlos con las cargas de trabajo de producción.
 
 - [Opciones de redes de Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-networking-options)
 
@@ -164,7 +164,7 @@ Existen también otras opciones en el mercado, como el WAF de Barracuda para Azu
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8: Minimice la complejidad y la sobrecarga administrativa de las reglas de seguridad de red
 
-**Guía**: puede usar las etiquetas del servicio Red virtual para definir los controles de acceso a la red en los grupos de seguridad de red o Azure Firewall. Puede utilizar etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. Al especificar el nombre de la etiqueta de servicio (por ejemplo, AzureAppService) en el campo de origen o destino apropiado de una regla, puede permitir o denegar el tráfico en el servicio correspondiente. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian.
+**Instrucciones**: puede usar las etiquetas del servicio Red virtual para definir los controles de acceso a la red en los grupos de seguridad de red o Azure Firewall. Puede utilizar etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. Al especificar el nombre de la etiqueta de servicio (por ejemplo, AzureAppService) en el campo de origen o destino apropiado de una regla, puede permitir o denegar el tráfico en el servicio correspondiente. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian.
 
 - [Más información sobre el uso de etiquetas de servicio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
 
@@ -191,7 +191,7 @@ También puede utilizar Azure Blueprints para simplificar las implementaciones d
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10: Documente las reglas de configuración de tráfico
 
-**Guía**: Si usa grupos de seguridad de red (NSG) con su implementación de Azure Functions, use etiquetas para estos grupos y otros recursos relacionados con la seguridad de red y el flujo del tráfico. En el caso de las reglas de NSG individuales, use el campo "Descripción" para especificar las necesidades empresariales o la duración (etc.) de las reglas que permiten que entre o salga el tráfico en una red.
+**Instrucciones**: Si usa grupos de seguridad de red (NSG) con su implementación de Azure Functions, use etiquetas para estos grupos y otros recursos relacionados con la seguridad de red y el flujo del tráfico. En el caso de las reglas de NSG individuales, use el campo "Descripción" para especificar las necesidades empresariales o la duración (etc.) de las reglas que permiten que entre o salga el tráfico en una red.
 
 Use cualquiera de las definiciones de directiva de Azure integradas relacionadas con el etiquetado, como "Requerir etiqueta y su valor" para asegurarse de que todos los recursos se crean con etiquetas y para notificarle los recursos no etiquetados existentes.
 
@@ -351,7 +351,7 @@ Si lo desea, también puede habilitar e incorporar datos en Azure Sentinel o en 
 
 ## <a name="identity-and-access-control"></a>Control de identidades y acceso
 
-*Para más información, consulte [Control de seguridad: identidad y control de acceso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Para más información, consulte [Control de seguridad: Identidad y control de acceso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Mantenga un inventario de cuentas administrativas
 
@@ -449,7 +449,7 @@ Además, use las detecciones de riesgo de Azure AD para ver alertas e informes 
 
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8: Administre los recursos de Azure solo desde ubicaciones aprobadas
 
-**Guía**: El cliente debe usar ubicaciones con nombre de acceso condicional para permitir el acceso a Azure Portal solo desde agrupaciones lógicas específicas de intervalos de direcciones IP o países o regiones.
+**Instrucciones**: El cliente debe usar ubicaciones con nombre de acceso condicional para permitir el acceso a Azure Portal solo desde agrupaciones lógicas específicas de intervalos de direcciones IP o países o regiones.
 
 - [Configuración de ubicaciones con nombre en Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
 
@@ -459,7 +459,7 @@ Además, use las detecciones de riesgo de Azure AD para ver alertas e informes 
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Uso de Azure Active Directory
 
-**Guía**: Use Azure Active Directory (AD) como sistema central de autenticación y autorización en las aplicaciones de Azure Functions. Azure AD protege los datos mediante un cifrado seguro para los datos en reposo y en tránsito. Azure AD también cifra con sal, convierte en hash y almacena de forma segura las credenciales de los usuarios.
+**Instrucciones**: Use Azure Active Directory (AD) como sistema central de autenticación y autorización en las aplicaciones de Azure Functions. Azure AD protege los datos mediante un cifrado seguro para los datos en reposo y en tránsito. Azure AD también cifra con sal, convierte en hash y almacena de forma segura las credenciales de los usuarios.
 
 - [Configuración de una aplicación de App Service o Azure Functions para usar el inicio de sesión de Azure AD](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
 
@@ -525,7 +525,7 @@ Para simplificar este proceso, cree una configuración de diagnóstico para las 
 
 ## <a name="data-protection"></a>Protección de los datos
 
-*Para más información, consulte [Control de seguridad: protección de datos](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Para más información, consulte [Control de seguridad: Protección de datos](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Mantenimiento de un inventario de información confidencial
 
@@ -583,7 +583,7 @@ Microsoft administra la infraestructura subyacente de Azure Functions y ha imple
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: Uso de una herramienta de detección activa para identificar datos confidenciales
 
-**Guía**: no está disponible en estos momentos; las características de identificación, clasificación y prevención de pérdida de datos no están disponibles actualmente en Azure Functions. Etiquete las aplicaciones de Functions que podrían procesar información confidencial e implemente una solución de terceros, si es necesario por motivos de cumplimiento.
+**Instrucciones**: no está disponible en estos momentos; las características de identificación, clasificación y prevención de pérdida de datos no están disponibles actualmente en Azure Functions. Etiquete las aplicaciones de Functions que podrían procesar información confidencial e implemente una solución de terceros, si es necesario por motivos de cumplimiento.
 
 En el caso de la plataforma subyacente administrada por Microsoft, Microsoft trata todo el contenido de los clientes como confidencial y hace grandes esfuerzos para proteger a los clientes contra la pérdida y exposición de sus datos. Para garantizar la seguridad de los datos de los clientes dentro de Azure, Microsoft ha implementado y mantiene un conjunto de controles y funcionalidades eficaces de protección de datos.
 
@@ -643,7 +643,7 @@ Microsoft administra la infraestructura subyacente de Azure Functions y ha imple
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: Ejecute herramientas de análisis de vulnerabilidades automatizado
 
-**Guía**: Adopte un enfoque DevSecOps (desarrollo, seguridad y operaciones) para garantizar que las aplicaciones de Azure Functions son seguras y que se van a mantener lo más protegidas posible durante su ciclo de vida útil. El enfoque DevSecOps involucra al equipo de seguridad de la organización y sus funcionalidades en las prácticas de DevOps, lo que convierte la seguridad en una responsabilidad de todos los usuarios del equipo.
+**Instrucciones**: Adopte un enfoque DevSecOps (desarrollo, seguridad y operaciones) para garantizar que las aplicaciones de Azure Functions son seguras y que se van a mantener lo más protegidas posible durante su ciclo de vida útil. El enfoque DevSecOps involucra al equipo de seguridad de la organización y sus funcionalidades en las prácticas de DevOps, lo que convierte la seguridad en una responsabilidad de todos los usuarios del equipo.
 
 Siga también las recomendaciones de Azure Security Center para ayudar a proteger las aplicaciones de Azure Functions.
 
@@ -691,11 +691,11 @@ Siga también las recomendaciones de Azure Security Center para ayudar a protege
 
 ## <a name="inventory-and-asset-management"></a>Inventario y administración de recursos
 
-*Para más información, consulte [Control de seguridad: administración de recursos y del inventario](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Para más información, consulte [Control de seguridad: Administración de recursos y del inventario](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1: Uso de la detección de recursos de Azure
 
-**Guía**: Use Azure Resource Graph para consultar o detectar todos los recursos (por ejemplo, proceso, almacenamiento, red, puertos y protocolos, etc.) dentro de las suscripciones.  Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y enumere todas las suscripciones de Azure, así como los recursos de las suscripciones.
+**Instrucciones**: Use Azure Resource Graph para consultar o detectar todos los recursos (por ejemplo, proceso, almacenamiento, red, puertos y protocolos, etc.) dentro de las suscripciones.  Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y enumere todas las suscripciones de Azure, así como los recursos de las suscripciones.
 
 Aunque los recursos clásicos de Azure se pueden detectar a través de Resource Graph, se recomienda encarecidamente crear y usar los recursos de Azure Resource Manager que figuran a continuación.
 
@@ -721,7 +721,7 @@ Aunque los recursos clásicos de Azure se pueden detectar a través de Resource 
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3: Eliminación de recursos de Azure no autorizados
 
-**Guía**: Use el etiquetado, los grupos de administración y las suscripciones independientes, si procede, para organizar y realizar un seguimiento de los recursos de Azure. Concilie el inventario periódicamente y asegúrese de que los recursos no autorizados se eliminan de la suscripción de manera oportuna.
+**Instrucciones**: use el etiquetado, los grupos de administración y las suscripciones independientes, si procede, para organizar y realizar un seguimiento de los recursos de Azure. Concilie el inventario periódicamente y asegúrese de que los recursos no autorizados se eliminan de la suscripción de manera oportuna.
 
 Además, use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas: tipos de recursos no permitidos y tipos de recursos permitidos
 
@@ -737,7 +737,7 @@ Además, use Azure Policy para establecer restricciones sobre el tipo de recurso
 
 ### <a name="64-maintain-an-inventory-of-approved-azure-resources-and-software-titles"></a>6.4: Mantenimiento de un inventario de los recursos de Azure aprobados y títulos de software
 
-**Guía**: Defina los recursos de Azure y el software aprobados para los recursos de proceso.
+**Instrucciones**: Defina los recursos de Azure y el software aprobados para los recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -775,7 +775,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="68-use-only-approved-applications"></a>6.8: Uso exclusivo de aplicaciones aprobadas
 
-**Guía**: no aplicable; esta recomendación está diseñada para recursos de proceso de IaaS.
+**Instrucciones**: no aplicable; esta recomendación está diseñada para recursos de proceso de IaaS.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -849,7 +849,7 @@ Creación de un ASE interno:
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Establezca configuraciones seguras para todos los recursos de Azure
 
-**Guía**: Defina e implemente configuraciones de seguridad estándar para su aplicación de Azure Functions con Azure Policy. Utilice los alias de Azure Policy en el espacio de nombres "Microsoft.Batch" para crear directivas personalizadas que permitan auditar o aplicar la configuración de las aplicaciones de Azure Functions. También puede utilizar definiciones de directivas integradas como:
+**Instrucciones**: Defina e implemente configuraciones de seguridad estándar para su aplicación de Azure Functions con Azure Policy. Utilice los alias de Azure Policy en el espacio de nombres "Microsoft.Batch" para crear directivas personalizadas que permitan auditar o aplicar la configuración de las aplicaciones de Azure Functions. También puede utilizar definiciones de directivas integradas como:
 - La identidad administrada debe usarse en la aplicación de funciones.
 - Se debe desactivar la depuración remota para Function App
 - Acceso a Function App solo a través de HTTPS
@@ -864,7 +864,7 @@ Creación de un ASE interno:
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2: Establezca configuraciones del sistema operativo seguras
 
-**Guía**: no aplicable; esta guía está pensada para recursos de proceso de IaaS.
+**Instrucciones**: no aplicable; esta guía está pensada para recursos de proceso de IaaS.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -884,7 +884,7 @@ Creación de un ASE interno:
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4: Mantenga configuraciones del sistema operativo seguras
 
-**Guía**: no aplicable; aunque se pueden implementar funciones locales, esta guía está pensada para los recursos de proceso de IaaS. Si implementa funciones locales, la responsabilidad de crear una configuración segura en el entorno recaerá sobre usted.
+**Instrucciones**: no aplicable; aunque se pueden implementar funciones locales, esta guía está pensada para los recursos de proceso de IaaS. Si implementa funciones locales, la responsabilidad de crear una configuración segura en el entorno recaerá sobre usted.
 
 - [Descripción de las funciones locales](https://docs.microsoft.com/azure/azure-functions/functions-runtime-install)
 
@@ -894,7 +894,7 @@ Creación de un ASE interno:
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Almacene de forma segura la configuración de los recursos de Azure
 
-**Guía**: almacene y administre plantillas de ARM y definiciones de directivas personalizadas de Azure de forma segura en el control de código fuente.
+**Instrucciones**: almacene y administre plantillas de ARM y definiciones de directivas personalizadas de Azure de forma segura en el control de código fuente.
 
 - [¿Qué es la infraestructura como código?](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code)
 
@@ -1027,7 +1027,7 @@ Microsoft Antimalware está habilitado en el host subyacente que admite los serv
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Garantía de copias de seguridad automáticas periódicas
 
-**Guía**: utilice la característica Copias de seguridad y restauración para programar copias de seguridad periódicas de la aplicación. Las aplicaciones de Functions que se ejecutan en el plan Premium tienen las mismas funcionalidades de hospedaje que las aplicaciones web de Azure App Service, como la característica de copia de seguridad y restauración.
+**Instrucciones**: utilice la característica Copias de seguridad y restauración para programar copias de seguridad periódicas de la aplicación. Las aplicaciones de Functions que se ejecutan en el plan Premium tienen las mismas funcionalidades de hospedaje que las aplicaciones web de Azure App Service, como la característica de copia de seguridad y restauración.
 
 También puede usar una solución de control de código fuente como Azure Repos y Azure DevOps para almacenar y administrar el código de forma segura. Azure DevOps Services utiliza muchas de las características de almacenamiento de Azure para garantizar la disponibilidad de los datos en caso de un error de hardware, una interrupción del servicio o un desastre en la región. Además, el equipo de Azure DevOps sigue los procedimientos para proteger los datos contra la eliminación accidental o malintencionada.
 
@@ -1165,7 +1165,7 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Pruebas de penetración y ejercicios del equipo rojo
 
-*Para más información, consulte [Control de seguridad: pruebas de penetración y ejercicios del equipo rojo](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Para más información, consulte [Control de seguridad: Pruebas de penetración y ejercicios del equipo rojo](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Realice pruebas de penetración periódicas de los recursos de Azure y asegúrese de corregir todos los resultados de seguridad críticos
 
@@ -1182,4 +1182,4 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Consulte la [prueba comparativa de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/overview).
-- Más información sobre las [bases de referencia seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+- Obtenga más información sobre las [líneas de base de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).

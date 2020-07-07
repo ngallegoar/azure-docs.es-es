@@ -3,16 +3,16 @@ title: Autenticación de usuario final: Data Lake Storage Gen1 con Azur
 description: Aprenda a lograr la autenticación del usuario final con Azure Data Lake Storage Gen1 mediante Azure Active Directory
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: has-adal-ref
-ms.openlocfilehash: 5a0c3e1df5cd283ad08f905ed0bd4f329dcfcc7e
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: ac585f1c215e5eb7ad5a6628ac85b70e7c76b14e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82688238"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85511316"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticación de usuario final en Azure Data Lake Storage Gen1 con Azure Active Directory
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ En este artículo se habla de cómo crear una **aplicación nativa de Azure AD p
 
     ![Obtener dominio de AAD](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
-* El identificador del inquilino de Azure. Para obtener instrucciones sobre cómo recuperar el identificador de inquilino, consulte [Obtención del identificador de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* El identificador del inquilino de Azure. Para obtener instrucciones sobre cómo recuperar el identificador de inquilino, consulte [Obtención del identificador de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 
 ## <a name="end-user-authentication"></a>Autenticación de usuario final
 El mecanismo de autenticación es el enfoque recomendado si quiere que un usuario final inicie sesión en la aplicación a través de Azure AD. La aplicación puede acceder a los recursos de Azure con el mismo nivel de acceso que el usuario final que ha iniciado sesión. El usuario final tiene que proporcionar sus credenciales periódicamente para que la aplicación conserve el acceso.
@@ -78,7 +78,7 @@ Al seguir las instrucciones del vínculo, asegúrese de seleccionar **Nativa** c
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>Paso 2: Obtener el identificador de aplicación y el URI de redireccionamiento
 
-Si necesita recuperar el identificador de la aplicación, consulte [Obtener el identificador de la aplicación](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+Si necesita recuperar el identificador de la aplicación, consulte [Obtener el identificador de la aplicación](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 
 Para recuperar el URI de redireccionamiento, siga estos pasos.
 
