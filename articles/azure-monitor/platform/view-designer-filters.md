@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/22/2018
-ms.openlocfilehash: b4840ed30eb1f6dc8d6e6cef47da17807f9644d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4f4b914fe5851df0928df9ccc41ca3b20c5d3469
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77658581"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955962"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Filtros en las vistas de Azure Monitor
 Un **filtro** de una [vista de Azure Monitor](view-designer.md) permite a los usuarios filtrar los datos de la vista por el valor de una propiedad determinada sin modificar la vista propiamente dicha.  Por ejemplo, podría permitir que los usuarios de la vista la filtraran por los datos de solo un determinado equipo o conjunto de equipos.  Puede crear varios filtros en una sola vista para permitir que los usuarios filtren por varias propiedades.  En este artículo se describe cómo usar un filtro y agregar uno a una vista personalizada.
@@ -61,15 +61,19 @@ Para que un filtro surta efecto, debe modificar las consultas de la vista para f
 
 La sintaxis para usar un valor de filtro en una consulta es la siguiente: 
 
-    where ${filter name}  
+`where ${filter name}`  
 
 Por ejemplo, si la vista tiene una consulta que devuelve eventos y usa un filtro llamado _Equipos_, podría usar la siguiente consulta.
 
-    Event | where ${Computers} | summarize count() by EventLevelName
+```kusto
+Event | where ${Computers} | summarize count() by EventLevelName
+```
 
 Si agregara otro filtro denominado Gravedad, podría usar la siguiente consulta para utilizar ambos filtros.
 
-    Event | where ${Computers} | where ${Severity} | summarize count() by EventLevelName
+```kusto
+Event | where ${Computers} | where ${Severity} | summarize count() by EventLevelName
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Aprenda más sobre los [elementos de visualización](view-designer-parts.md) que puede agregar a la vista personalizada.

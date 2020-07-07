@@ -4,12 +4,12 @@ description: Batch admite Azure AD para la autenticación desde el servicio de B
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 186de47b61c25485cec602cbc9bb208a795a7785
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: ed2bfb8e0fbaff0b7ad0ded734e33512c82a4040
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757597"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958215"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticación de soluciones de servicio de Batch con Active Directory
 
@@ -20,7 +20,7 @@ Al utilizar la autenticación de Azure AD con Azure Batch, puede autenticar de u
 - Uso de **autenticación integrada** para autenticar un usuario que está interactuando con la aplicación. Una aplicación que use la autenticación integrada recopila las credenciales de un usuario y las usa para autenticar el acceso a los recursos de Batch.
 - Uso de una **entidad de servicio** para autenticar una aplicación desatendida. Una entidad de servicio define la directiva y los permisos de una aplicación para representar la aplicación cuando se accede a los recursos en tiempo de ejecución.
 
-Para más información acerca de Azure AD, consulte la [Documentación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/).
+Para más información acerca de Azure AD, consulte la [Documentación de Azure Active Directory](../active-directory/index.yml).
 
 ## <a name="endpoints-for-authentication"></a>Puntos de conexión para autenticación
 
@@ -419,7 +419,7 @@ Utilice las credenciales del servicio principal para abrir un objeto **BatchServ
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información acerca de Azure AD, consulte la [Documentación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Puede consultar los ejemplos detallados sobre el uso de ADAL que están disponibles en la biblioteca de [ejemplos de código de Azure](https://azure.microsoft.com/resources/samples/?service=active-directory).
+- Para más información acerca de Azure AD, consulte la [Documentación de Azure Active Directory](../active-directory/index.yml). Puede consultar los ejemplos detallados sobre el uso de ADAL que están disponibles en la biblioteca de [ejemplos de código de Azure](https://azure.microsoft.com/resources/samples/?service=active-directory).
 
 - Para más información acerca de las entidades de servicio, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). Para crear una entidad de servicio mediante Azure Portal, consulte [Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos](../active-directory/develop/howto-create-service-principal-portal.md). Las entidades de servicio también se pueden crear con PowerShell o la CLI de Azure.
 

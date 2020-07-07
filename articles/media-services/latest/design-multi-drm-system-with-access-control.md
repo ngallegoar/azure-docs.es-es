@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: fbc6d6fa8f9a3b424eaec1f04a61b5ca24fe14fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3d02c335f6e950300a7ced36643e6276c3d8d16a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77161790"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957382"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Diseño del sistema de protección de contenido con DRM múltiple con control de acceso 
 
@@ -222,8 +222,10 @@ Utilice la siguiente información para solución de problemas para obtener ayuda
 
 * La dirección URL del emisor debe terminar por "/". La audiencia debe ser el identificador de cliente de la aplicación de reproductor. Además, agregue "/" al final de la dirección URL del emisor.
 
-        <add key="ida:audience" value="[Application Client ID GUID]" />
-        <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
+    ```xml
+    <add key="ida:audience" value="[Application Client ID GUID]" />
+    <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
+    ```
 
     En [JWT Decoder](http://jwt.calebb.net/), debería ver **aud** y **iss**, como se muestra a continuación en el token JWT:
 
@@ -235,11 +237,15 @@ Utilice la siguiente información para solución de problemas para obtener ayuda
 
 * Utilice al emisor correcto cuando configure la protección de CENC dinámica.
 
-        <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
+    ```xml
+    <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
+    ```
 
     Lo siguiente no funciona:
 
-        <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
+    ```xml
+    <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
+    ```
 
     El GUID es el identificador del inquilino de Azure AD. El GUID puede encontrarse en el menú emergente **Puntos de conexión** en Azure Portal.
 
@@ -249,7 +255,7 @@ Utilice la siguiente información para solución de problemas para obtener ayuda
 
 * Establezca el valor adecuado de TokenType al crear los requisitos de restricción.
 
-        objTokenRestrictionTemplate.TokenType = TokenType.JWT;
+    `objTokenRestrictionTemplate.TokenType = TokenType.JWT;`
 
     Como agregó compatibilidad con el token JWT (Azure AD), además de con SWT (ACS), el valor predeterminado de TokenType es TokenType.JWT. Si utiliza SWT y ACS, debe establecer el token en TokenType.SWT.
 

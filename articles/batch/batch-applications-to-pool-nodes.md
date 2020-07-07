@@ -3,12 +3,12 @@ title: Copia de aplicaciones y datos en nodos de grupo
 description: Obtenga información sobre cómo copiar aplicaciones y datos en nodos de grupo.
 ms.topic: how-to
 ms.date: 02/17/2020
-ms.openlocfilehash: dad52a69ee468872c10b3a9e66b967a1c7bd101d
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: e21b8551fb62c4335910fd05bb9590eaf6f7e35a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726832"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954900"
 ---
 # <a name="copy-applications-and-data-to-pool-nodes"></a>Copia de aplicaciones y datos en nodos de grupo
 
@@ -19,13 +19,13 @@ Azure Batch admite varias maneras de copiar datos y aplicaciones en nodos de pro
 Ejemplos: 
 - Use la línea de comandos de la tarea de inicio para mover o instalar aplicaciones.
 
-- Especifique una lista de archivos o contenedores específicos en una cuenta de almacenamiento de Azure. Para obtener más información, vea cómo [agregar el elemento resourcefile en la documentación de REST](https://docs.microsoft.com/rest/api/batchservice/pool/add#resourcefile).
+- Especifique una lista de archivos o contenedores específicos en una cuenta de almacenamiento de Azure. Para obtener más información, vea cómo [agregar el elemento resourcefile en la documentación de REST](/rest/api/batchservice/pool/add#resourcefile).
 
-- Todos los trabajos que se ejecutan en el grupo ejecutan el archivo MyApplication.exe, el cual se debe instalar primero con el archivo MyApplication.msi. Si usa este método, debe establecer la propiedad **Esperar operación correcta** de la tarea de inicio en **true**. Para obtener más información, vea cómo [agregar el elemento starttask en la documentación de REST](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask).
+- Todos los trabajos que se ejecutan en el grupo ejecutan el archivo MyApplication.exe, el cual se debe instalar primero con el archivo MyApplication.msi. Si usa este método, debe establecer la propiedad **Esperar operación correcta** de la tarea de inicio en **true**. Para obtener más información, vea cómo [agregar el elemento starttask en la documentación de REST](/rest/api/batchservice/pool/add#starttask).
 
-- **Referencias de paquetes de aplicación** en el grupo: para las aplicaciones o los datos que se deben instalar en cada nodo del grupo. No hay ningún comando de instalación asociado a un paquete de aplicación, pero puede usar una tarea de inicio para ejecutar cualquier comando de instalación. Si la aplicación no requiere instalación o está formada por un gran número de archivos, puede usar este método. Los paquetes de aplicación son idóneos para un gran número de archivos porque combinan muchas referencias de archivo en una carga pequeña. Si intenta incluir más de 100 archivos de recursos independientes en una tarea, el servicio de Batch puede encontrar limitaciones internas del sistema para una sola tarea. Aparte de esto, use paquetes de aplicación si tiene requisitos de versiones estrictos; por ejemplo, puede tener muchas versiones diferentes de la misma aplicación entre las que necesita elegir. Para obtener más información, consulte el artículo [Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch](https://docs.microsoft.com/azure/batch/batch-application-packages).
+- **Referencias de paquetes de aplicación** en el grupo: para las aplicaciones o los datos que se deben instalar en cada nodo del grupo. No hay ningún comando de instalación asociado a un paquete de aplicación, pero puede usar una tarea de inicio para ejecutar cualquier comando de instalación. Si la aplicación no requiere instalación o está formada por un gran número de archivos, puede usar este método. Los paquetes de aplicación son idóneos para un gran número de archivos porque combinan muchas referencias de archivo en una carga pequeña. Si intenta incluir más de 100 archivos de recursos independientes en una tarea, el servicio de Batch puede encontrar limitaciones internas del sistema para una sola tarea. Aparte de esto, use paquetes de aplicación si tiene requisitos de versiones estrictos; por ejemplo, puede tener muchas versiones diferentes de la misma aplicación entre las que necesita elegir. Para obtener más información, consulte el artículo [Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch](./batch-application-packages.md).
 
-- **Archivos de recursos de tareas de preparación del trabajo**: para las aplicaciones o los datos que se deben instalar para que el trabajo se ejecute, pero que no es necesario instalar en todo el grupo. Por ejemplo, si su grupo tiene muchos tipos diferentes de trabajos y solo uno de ellos necesita MyApplication.msi para ejecutarse, sería conveniente colocar el paso de instalación en una tarea de preparación del trabajo. Para obtener más información sobre las tareas de preparación del trabajo, consulte [Ejecución de tareas de preparación y liberación de trabajos en nodos de proceso de Batch](https://azure.microsoft.com/documentation/articles/batch-job-prep-release/).
+- **Archivos de recursos de tareas de preparación del trabajo**: para las aplicaciones o los datos que se deben instalar para que el trabajo se ejecute, pero que no es necesario instalar en todo el grupo. Por ejemplo, si su grupo tiene muchos tipos diferentes de trabajos y solo uno de ellos necesita MyApplication.msi para ejecutarse, sería conveniente colocar el paso de instalación en una tarea de preparación del trabajo. Para obtener más información sobre las tareas de preparación del trabajo, consulte [Ejecución de tareas de preparación y liberación de trabajos en nodos de proceso de Batch](./batch-job-prep-release.md).
 
 - **Archivos de recursos de tareas**: para cuando una aplicación o ciertos datos solo son relevantes para una tarea individual. Por ejemplo: Tiene cinco tareas, cada una procesa un archivo diferente y, a continuación, escribe la salida en el almacenamiento de blobs.  En este caso, se debe especificar el archivo de entrada en la recopilación de **archivos de recursos de tareas** porque cada tarea tiene su propio archivo de entrada.
 

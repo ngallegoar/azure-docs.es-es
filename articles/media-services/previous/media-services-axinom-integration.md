@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 2ec3276b9b02c29b80d46e5fd31298c909857182
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 147fecdd9777e06ce078e4ed1531d6d0a0da749c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78197171"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954628"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso de Axinom para entregar licencias de Widevine a Azure Media Services 
 > [!div class="op_single_selector"]
@@ -63,7 +63,9 @@ AMP v1.4.0 es compatible con la reproducción del contenido de AMS que está emp
 Si el servidor de licencias de Widevine no requiere autenticación mediante token, no hay nada más que deba hacer para probar un contenido de DASH protegido por Widevine. El equipo de AMP proporciona un [ejemplo](https://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevineFairPlay_notoken.html)sencillo, en el que puede ver su funcionamiento en Microsoft Edge e IE11 con PlayReady y Chrome con Widevine.
 El servidor de licencias de Widevine proporcionado por Axinom requiere autenticación mediante token JWT. El token JWT debe enviarse con la solicitud de licencia mediante un encabezado HTTP “X-AxDRM-Message”. Para ello, debe agregar el siguiente código de Javascript en la página web que hospeda AMP antes de establecer el origen:
 
-    <script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
+```html
+<script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
+```
 
 El resto del código de AMP es una API estándar de AMP como en el documento de AMP que se encuentra [aquí](https://amp.azure.net/libs/amp/latest/docs/).
 
@@ -78,63 +80,67 @@ El [paquete de NuGet JWT](https://www.nuget.org/packages/JWT) de John Sheehan se
 
 A continuación se muestra el código para generar el token JWT con las notificaciones necesarias, en función de lo que requiere el servidor de licencias de Widevine de Axinom para las pruebas:
 
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using System.IdentityModel.Tokens;
-    using System.IdentityModel.Protocols.WSTrust;
-    using System.Security.Claims;
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.IdentityModel.Tokens;
+using System.IdentityModel.Protocols.WSTrust;
+using System.Security.Claims;
 
-    namespace OpenIdConnectWeb.Utils
+namespace OpenIdConnectWeb.Utils
+{
+    public class JwtUtils
     {
-        public class JwtUtils
+        //using John Sheehan's NuGet JWT library: https://www.nuget.org/packages/JWT/
+        public static string CreateJwtSheehan(string symmetricKeyHex, string key_id)
         {
-            //using John Sheehan's NuGet JWT library: https://www.nuget.org/packages/JWT/
-            public static string CreateJwtSheehan(string symmetricKeyHex, string key_id)
+            byte[] symmetricKey = ConvertHexStringToByteArray(symmetricKeyHex);  //hex string to byte[] Note: Note that the key is a hex string, however it must be treated as a series of bytes not a string when encoding.
+
+            var payload = new Dictionary<string, object>()
             {
-                byte[] symmetricKey = ConvertHexStringToByteArray(symmetricKeyHex);  //hex string to byte[] Note: Note that the key is a hex string, however it must be treated as a series of bytes not a string when encoding.
+                { "version", 1 },
+                { "com_key_id", System.Configuration.ConfigurationManager.AppSettings["ax:com_key_id"] },
+                { "message", new { type = "entitlement_message", key_ids = new string[] { key_id } }  }
+            };
 
-                var payload = new Dictionary<string, object>()
-                             {
-                                 { "version", 1 },
-                                 { "com_key_id", System.Configuration.ConfigurationManager.AppSettings["ax:com_key_id"] },
-                                 { "message", new { type = "entitlement_message", key_ids = new string[] { key_id } }  }
-                             };
+            string token = JWT.JsonWebToken.Encode(payload, symmetricKey, JWT.JwtHashAlgorithm.HS256);
 
-                string token = JWT.JsonWebToken.Encode(payload, symmetricKey, JWT.JwtHashAlgorithm.HS256);
+            return token;
+        }
 
-                return token;
+        //convert hex string to byte[]
+        public static byte[] ConvertHexStringToByteArray(string hexString)
+        {
+            if (hexString.Length % 2 != 0)
+            {
+                throw new ArgumentException(String.Format(System.Globalization.CultureInfo.InvariantCulture, "The binary key cannot have an odd number of digits: {0}", hexString));
             }
 
-            //convert hex string to byte[]
-            public static byte[] ConvertHexStringToByteArray(string hexString)
+            byte[] HexAsBytes = new byte[hexString.Length / 2];
+            for (int index = 0; index < HexAsBytes.Length; index++)
             {
-                if (hexString.Length % 2 != 0)
-                {
-                    throw new ArgumentException(String.Format(System.Globalization.CultureInfo.InvariantCulture, "The binary key cannot have an odd number of digits: {0}", hexString));
-                }
-
-                byte[] HexAsBytes = new byte[hexString.Length / 2];
-                for (int index = 0; index < HexAsBytes.Length; index++)
-                {
-                    string byteValue = hexString.Substring(index * 2, 2);
-                    HexAsBytes[index] = byte.Parse(byteValue, System.Globalization.NumberStyles.HexNumber, System.Globalization.CultureInfo.InvariantCulture);
-                }
-
-                return HexAsBytes;
+                string byteValue = hexString.Substring(index * 2, 2);
+                HexAsBytes[index] = byte.Parse(byteValue, System.Globalization.NumberStyles.HexNumber, System.Globalization.CultureInfo.InvariantCulture);
             }
 
-        }  
+            return HexAsBytes;
+        }
 
     }  
 
+}  
+```
+
 Servidor de licencias de Widevine de Axinom
 
-    <add key="ax:laurl" value="https://drm-widevine-licensing.axtest.net/AcquireLicense" />
-    <add key="ax:com_key_id" value="69e54088-e9e0-4530-8c1a-1eb6dcd0d14e" />
-    <add key="ax:com_key" value="4861292d027e269791093327e62ceefdbea489a4c7e5a4974cc904b840fd7c0f" />
-    <add key="ax:keyseed" value="8888000000000000000000000000000000000000" />
+```xml
+<add key="ax:laurl" value="https://drm-widevine-licensing.axtest.net/AcquireLicense" />
+<add key="ax:com_key_id" value="69e54088-e9e0-4530-8c1a-1eb6dcd0d14e" />
+<add key="ax:com_key" value="4861292d027e269791093327e62ceefdbea489a4c7e5a4974cc904b840fd7c0f" />
+<add key="ax:keyseed" value="8888000000000000000000000000000000000000" />
+```
 
 ### <a name="considerations"></a>Consideraciones
 1. Aunque el servicio de entrega de licencias de AMS PlayReady requiere un “Bearer=” que preceda a un token de autenticación, el servidor de licencias de Widevine de Axinom no lo usa.
@@ -145,36 +151,38 @@ Quizá ha podido observar que en el código para generar un token JWT, se requie
 
 Por supuesto, hay varias maneras de obtener el identificador de clave. Por ejemplo, se puede almacenar el identificador de clave junto con los metadatos de contenido en una base de datos. O bien recuperar el identificador de clave del archivo DASH MPD (Descripción de presentación de medios). El código siguiente es para esta última opción.
 
-    //get key_id from DASH MPD
-    public static string GetKeyID(string dashUrl)
+```csharp
+//get key_id from DASH MPD
+public static string GetKeyID(string dashUrl)
+{
+    if (!dashUrl.EndsWith("(format=mpd-time-csf)"))
     {
-        if (!dashUrl.EndsWith("(format=mpd-time-csf)"))
-        {
-            dashUrl += "(format=mpd-time-csf)";
-        }
-
-        XPathDocument objXPathDocument = new XPathDocument(dashUrl);
-        XPathNavigator objXPathNavigator = objXPathDocument.CreateNavigator();
-        XmlNamespaceManager objXmlNamespaceManager = new XmlNamespaceManager(objXPathNavigator.NameTable);
-        objXmlNamespaceManager.AddNamespace("",     "urn:mpeg:dash:schema:mpd:2011");
-        objXmlNamespaceManager.AddNamespace("ns1",  "urn:mpeg:dash:schema:mpd:2011");
-        objXmlNamespaceManager.AddNamespace("cenc", "urn:mpeg:cenc:2013");
-        objXmlNamespaceManager.AddNamespace("ms",   "urn:microsoft");
-        objXmlNamespaceManager.AddNamespace("mspr", "urn:microsoft:playready");
-        objXmlNamespaceManager.AddNamespace("xsi",  "https://www.w3.org/2001/XMLSchema-instance");
-        objXmlNamespaceManager.PushScope();
-
-        XPathNodeIterator objXPathNodeIterator;
-        objXPathNodeIterator = objXPathNavigator.Select("//ns1:MPD/ns1:Period/ns1:AdaptationSet/ns1:ContentProtection[@value='cenc']", objXmlNamespaceManager);
-
-        string key_id = string.Empty;
-        if (objXPathNodeIterator.MoveNext())
-        {
-            key_id = objXPathNodeIterator.Current.GetAttribute("default_KID", "urn:mpeg:cenc:2013");
-        }
-
-        return key_id;
+        dashUrl += "(format=mpd-time-csf)";
     }
+
+    XPathDocument objXPathDocument = new XPathDocument(dashUrl);
+    XPathNavigator objXPathNavigator = objXPathDocument.CreateNavigator();
+    XmlNamespaceManager objXmlNamespaceManager = new XmlNamespaceManager(objXPathNavigator.NameTable);
+    objXmlNamespaceManager.AddNamespace("",     "urn:mpeg:dash:schema:mpd:2011");
+    objXmlNamespaceManager.AddNamespace("ns1",  "urn:mpeg:dash:schema:mpd:2011");
+    objXmlNamespaceManager.AddNamespace("cenc", "urn:mpeg:cenc:2013");
+    objXmlNamespaceManager.AddNamespace("ms",   "urn:microsoft");
+    objXmlNamespaceManager.AddNamespace("mspr", "urn:microsoft:playready");
+    objXmlNamespaceManager.AddNamespace("xsi",  "https://www.w3.org/2001/XMLSchema-instance");
+    objXmlNamespaceManager.PushScope();
+
+    XPathNodeIterator objXPathNodeIterator;
+    objXPathNodeIterator = objXPathNavigator.Select("//ns1:MPD/ns1:Period/ns1:AdaptationSet/ns1:ContentProtection[@value='cenc']", objXmlNamespaceManager);
+
+    string key_id = string.Empty;
+    if (objXPathNodeIterator.MoveNext())
+    {
+        key_id = objXPathNodeIterator.Current.GetAttribute("default_KID", "urn:mpeg:cenc:2013");
+    }
+
+    return key_id;
+}
+```
 
 ## <a name="summary"></a>Resumen
 

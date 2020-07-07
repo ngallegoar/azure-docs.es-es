@@ -7,18 +7,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 9b39cbab71808aaf09f7dc38b3be77f6f35ab598
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 6e889fef16d8ad80d52810207f0328a765ca9cfe
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982690"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958504"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guía de publicación por tipo de oferta
 
 En este artículo se describen los tipos de ofertas que están disponibles en marketplace comercial. El *tipo de oferta* define la estructura de la oferta, incluidos los metadatos, artefactos y otros contenidos usados para presentar la oferta en Marketplace.
 
-Antes de crear una oferta y después de [elegir una opción de publicación](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type), debe elegir el tipo de oferta que se usará para presentar su oferta. El tipo de oferta se corresponderá con el tipo de oferta de solución, aplicación o servicio que quiera publicar, así como con su alineación con los servicios y productos de Microsoft.
+Antes de crear una oferta y después de [elegir una opción de publicación](determine-your-listing-type.md), debe elegir el tipo de oferta que se usará para presentar su oferta. El tipo de oferta se corresponderá con el tipo de oferta de solución, aplicación o servicio que quiera publicar, así como con su alineación con los servicios y productos de Microsoft.
 
 Un tipo de oferta se puede configurar de modos diferentes para habilitar distintas opciones de publicación, llamadas a la acción, aprovisionamiento o precios. La opción de publicación y la configuración del tipo de oferta también se alinea con la idoneidad de la oferta y los requisitos técnicos.
 

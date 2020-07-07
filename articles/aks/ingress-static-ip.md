@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Aprenda a instalar y configurar un controlador de entrada NGINX con una dirección IP pública estática en un clúster de Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 04/27/2020
-ms.openlocfilehash: a44a41806af30479f06ec4daba936c7aa71ef5d7
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.date: 07/02/2020
+ms.openlocfilehash: f10bed46f93af3579f07e04d9940fc98eef67826
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561920"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920317"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Cree un controlador de entrada con una dirección IP pública estática en Azure Kubernetes Service (AKS)
 
@@ -69,6 +69,9 @@ Actualice el siguiente script con la **dirección IP** del controlador de entrad
 ```console
 # Create a namespace for your ingress resources
 kubectl create namespace ingress-basic
+
+# Add the official stable repository
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 
 # Use Helm to deploy an NGINX ingress controller
 helm install nginx-ingress stable/nginx-ingress \

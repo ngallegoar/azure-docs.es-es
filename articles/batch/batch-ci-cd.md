@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: 72f976071a5fc65c8e96f6b3cd5c0094785e287b
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: d6b68a8448d8b644500b62e54ab763838d707c66
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726849"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956668"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Usar Azure Pipelines para compilar e implementar soluciones HPC
 
@@ -28,8 +28,8 @@ En este ejemplo, crearemos una canalización de compilación y versión para imp
 
 Para realizar los pasos descritos en este artículo, se necesita una organización de Azure DevOps y un proyecto de equipo.
 
-* [Crear una organización de Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=azure-devops)
-* [Creación de un proyecto en Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
+* [Crear una organización de Azure DevOps](/azure/devops/organizations/accounts/create-organization?view=azure-devops)
+* [Creación de un proyecto en Azure DevOps](/azure/devops/organizations/projects/create-project?view=azure-devops)
 
 ### <a name="source-control-for-your-environment"></a>Control de código fuente del entorno
 
@@ -48,7 +48,7 @@ La estructura del código base utilizada en este ejemplo es parecida a la siguie
 
 En esta sección se supone que está familiarizado con el control de versiones y el diseño de plantillas de Resource Manager. Si no lo está, consulte las siguientes páginas para obtener más información.
 
-* [¿Qué es el control de código fuente?](https://docs.microsoft.com/azure/devops/user-guide/source-control?view=azure-devops)
+* [¿Qué es el control de código fuente?](/azure/devops/user-guide/source-control?view=azure-devops)
 * [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 
 #### <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
@@ -62,7 +62,7 @@ En este ejemplo hay una plantilla de solución completa (deployment.json) que im
 
 ![Ejemplo de estructura de plantillas vinculadas mediante plantillas de Azure Resource Manager](media/batch-ci-cd/ARMTemplateHierarchy.png)
 
-La primera plantilla que veremos está pensada para una cuenta de Azure Storage. Nuestra solución requiere una cuenta de almacenamiento para poder implementar la aplicación en la cuenta de Batch. Conviene conocer los [tipos de recursos Microsoft.Storage de la guía de referencia de plantillas de Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.storage/allversions) al compilar plantillas de Resource Manager para cuentas de Storage.
+La primera plantilla que veremos está pensada para una cuenta de Azure Storage. Nuestra solución requiere una cuenta de almacenamiento para poder implementar la aplicación en la cuenta de Batch. Conviene conocer los [tipos de recursos Microsoft.Storage de la guía de referencia de plantillas de Resource Manager](/azure/templates/microsoft.storage/allversions) al compilar plantillas de Resource Manager para cuentas de Storage.
 
 ```json
 {
@@ -102,7 +102,7 @@ La primera plantilla que veremos está pensada para una cuenta de Azure Storage.
 }
 ```
 
-Luego, nos centraremos en la plantilla de la cuenta de Azure Batch. La cuenta de Azure Batch actúa como plataforma donde ejecutar muchas aplicaciones en grupos (agrupaciones de máquinas). Conviene conocer los [tipos de recursos Microsoft.Batch de la guía de referencia de plantillas de Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.batch/allversions) al compilar plantillas de Resource Manager para cuentas de Batch.
+Luego, nos centraremos en la plantilla de la cuenta de Azure Batch. La cuenta de Azure Batch actúa como plataforma donde ejecutar muchas aplicaciones en grupos (agrupaciones de máquinas). Conviene conocer los [tipos de recursos Microsoft.Batch de la guía de referencia de plantillas de Resource Manager](/azure/templates/microsoft.batch/allversions) al compilar plantillas de Resource Manager para cuentas de Batch.
 
 ```json
 {
@@ -141,7 +141,7 @@ Luego, nos centraremos en la plantilla de la cuenta de Azure Batch. La cuenta de
 }
 ```
 
-La siguiente plantilla muestra un ejemplo de creación de un grupo de Azure Batch (los equipos back-end que procesarán nuestras aplicaciones). Conviene conocer los [tipos de recursos Microsoft.Batch de la guía de referencia de plantillas de Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.batch/allversions) al compilar plantillas de Resource Manager para grupos de cuentas de Batch.
+La siguiente plantilla muestra un ejemplo de creación de un grupo de Azure Batch (los equipos back-end que procesarán nuestras aplicaciones). Conviene conocer los [tipos de recursos Microsoft.Batch de la guía de referencia de plantillas de Resource Manager](/azure/templates/microsoft.batch/allversions) al compilar plantillas de Resource Manager para grupos de cuentas de Batch.
 
 ```json
 {
@@ -309,7 +309,7 @@ Ahora que ya tenemos el código fuente configurado, podemos empezar la primera c
 
 ## <a name="continuous-integration"></a>Integración continua
 
-[Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/?view=azure-devops), que forma parte Azure DevOps Services, sirve para implementar una canalización de compilación, prueba e implementación para sus aplicaciones.
+[Azure Pipelines](/azure/devops/pipelines/get-started/?view=azure-devops), que forma parte Azure DevOps Services, sirve para implementar una canalización de compilación, prueba e implementación para sus aplicaciones.
 
 En esta fase de la canalización se suelen ejecutar pruebas para validar el código y compilar los fragmentos de software adecuados. La cantidad y los tipos de pruebas, así como cualquier otra tarea que ejecute, dependerán de la estrategia de compilación y versión más amplia que haya trazado.
 
@@ -323,9 +323,9 @@ En este ejemplo, nos centraremos en la carpeta **hpc-application**. La carpeta *
 
 1. Existen dos formas de crear una canalización de compilación:
 
-    a. [Mediante el diseñador visual](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav). Para ello, haga clic en "Usar el diseñador visual" en la página **Nueva canalización**.
+    a. [Mediante el diseñador visual](/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav). Para ello, haga clic en "Usar el diseñador visual" en la página **Nueva canalización**.
 
-    b. [Mediante compilaciones YAML](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml?view=azure-devops). Para crear una canalización YAML, haga clic en la opción Azure Repos o en la opción GitHub en la página Nueva canalización. Si lo desea, puede almacenar el siguiente ejemplo en su control de código fuente y hacer referencia a un archivo YAML existente, haciendo clic para ello en el diseñador visual y, después, usando la plantilla YAML.
+    b. [Mediante compilaciones YAML](/azure/devops/pipelines/get-started-yaml?view=azure-devops). Para crear una canalización YAML, haga clic en la opción Azure Repos o en la opción GitHub en la página Nueva canalización. Si lo desea, puede almacenar el siguiente ejemplo en su control de código fuente y hacer referencia a un archivo YAML existente, haciendo clic para ello en el diseñador visual y, después, usando la plantilla YAML.
 
     ```yml
     # To publish an application into Azure Batch, we need to
@@ -357,11 +357,11 @@ En este ejemplo, nos centraremos en la carpeta **hpc-application**. La carpeta *
     ![Ver salidas directas de la compilación](media/batch-ci-cd/Build-1.jpg)
 
 > [!NOTE]
-> Si usa una aplicación cliente para ejecutar la aplicación HPC de Batch, deberá crear una definición de compilación aparte para esa aplicación. Encontrará varias guías de procedimientos en la documentación de [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/index?view=azure-devops).
+> Si usa una aplicación cliente para ejecutar la aplicación HPC de Batch, deberá crear una definición de compilación aparte para esa aplicación. Encontrará varias guías de procedimientos en la documentación de [Azure Pipelines](/azure/devops/pipelines/get-started/index?view=azure-devops).
 
 ## <a name="continuous-deployment"></a>Implementación continua
 
-Azure Pipelines también sirve para implementar la aplicación y la infraestructura subyacente. [Las canalizaciones de versiones](https://docs.microsoft.com/azure/devops/pipelines/release) son el componente que permite una implementación continua y que automatiza el proceso de lanzamiento.
+Azure Pipelines también sirve para implementar la aplicación y la infraestructura subyacente. [Las canalizaciones de versiones](/azure/devops/pipelines/release) son el componente que permite una implementación continua y que automatiza el proceso de lanzamiento.
 
 ### <a name="deploying-your-application-and-underlying-infrastructure"></a>Implementar la aplicación y la infraestructura subyacente
 

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: dsindona
-ms.openlocfilehash: 25753ce4c313a60b06147ab06dbf0b5e3e05865f
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: ce8534fae44549c20eceda16e0e12fb0adc52c6f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800511"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957773"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Las ventajas de Marketplace comercial
 
@@ -26,7 +26,7 @@ Las Recompensas de Marketplace están diseñadas para ayudarlo en su fase de cre
 
 El programa crea un bucle de retroalimentación positivo: las ventajas de cada fase de crecimiento están diseñadas para llevarle hasta la fase siguiente, lo que le permite llevar el negocio a los clientes de Microsoft, con el campo de Microsoft, y a través del canal de Microsoft mediante el aprovechamiento de Marketplace comercial como plataforma. 
 
-Sus ventajas se diferencian en función de si la oferta es de [Lista, Prueba o Transacción](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#choose-a-publishing-option).
+Sus ventajas se diferencian en función de si la oferta es de [Lista, Prueba o Transacción](determine-your-listing-type.md#choose-a-publishing-option).
 
 Un miembro del equipo de Recompesas se pondrá en contacto con usted cuando se publique la oferta, en función de su idoneidad. 
 
@@ -101,7 +101,7 @@ Todas las actividades descritas en esta página se incluyen en el [contrato del 
 
 ### <a name="cancellation-policy"></a>Directiva de cancelaciones
 
-Los anunciantes de ofertas de [lista y prueba](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) pueden participar o no en las actividades por publicación de oferta. Los asociados pueden rechazar cualquier involucración en cualquier momento. 
+Los anunciantes de ofertas de [lista y prueba](determine-your-listing-type.md) pueden participar o no en las actividades por publicación de oferta. Los asociados pueden rechazar cualquier involucración en cualquier momento. 
 
 Microsoft se reserva el derecho de revocar y finalizar las ventajas de las Recompensas de Marketplace para los anunciantes que: 
 

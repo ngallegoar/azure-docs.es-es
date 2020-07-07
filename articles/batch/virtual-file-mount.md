@@ -3,23 +3,23 @@ title: Montaje de un sistema de archivos virtual en un grupo
 description: Obtenga información sobre cómo montar un sistema de archivos virtual en un grupo de Batch.
 ms.topic: how-to
 ms.date: 08/13/2019
-ms.openlocfilehash: 4e51e8a1f11d670515893a83398a0c6d7c6e9a46
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 80acf5df0cf5262249b2eac584152744a4224a35
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816036"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954679"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Montaje de un sistema de archivos virtual en un grupo de Batch
 
 Ahora Azure Batch admite el montaje de almacenamiento en la nube o un sistema de archivos externo en nodos de ejecución de Windows o Linux en los grupos de Batch. Cuando un nodo de ejecución se une a un grupo, el sistema de archivos virtual se monta y se trata como una unidad local en ese nodo. Puede montar sistemas de archivos como Azure Files, Azure Blob Storage, Network File System (NFS), incluida una [caché de Avere vFXT](../avere-vfxt/avere-vfxt-overview.md), o Sistema de archivos de Internet común (CIFS).
 
-En este artículo, aprenderá a montar un sistema de archivos virtual en un grupo de nodos de ejecución mediante la [biblioteca de administración de Batch para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/batch?view=azure-dotnet).
+En este artículo, aprenderá a montar un sistema de archivos virtual en un grupo de nodos de ejecución mediante la [biblioteca de administración de Batch para .NET](/dotnet/api/overview/azure/batch?view=azure-dotnet).
 
 > [!NOTE]
 > El montaje de un sistema de archivos virtual se admite en grupos de Batch creados el 19 de agosto de 2019 o posteriormente. Los grupos de Batch creados antes de esta fecha no admiten esta característica.
 > 
-> Las API para el montaje de sistemas de archivos en un nodo de ejecución forman parte de la biblioteca de [Batch para .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch?view=azure-dotnet).
+> Las API para el montaje de sistemas de archivos en un nodo de ejecución forman parte de la biblioteca de [Batch para .NET](/dotnet/api/microsoft.azure.batch?view=azure-dotnet).
 
 ## <a name="benefits-of-mounting-on-a-pool"></a>Ventajas del montaje en un grupo
 
@@ -128,7 +128,7 @@ new PoolAddParameter
 
 ### <a name="common-internet-file-system"></a>Sistema de archivos de Internet común
 
-Los sistemas de archivos de Internet común (CIFS) también se pueden montar en nodos de grupo, lo que permite que los nodos de Azure Batch puedan tener acceso fácilmente a los sistemas de archivos tradicionales. CIFS es un protocolo de uso compartido de archivos que proporciona un mecanismo abierto y multiplataforma para solicitar servicios y archivos de servidor de red. CIFS se basa en la versión mejorada del protocolo de bloque de mensajes del servidor (SMB) de Microsoft para el uso compartido de archivos de Internet e intranet y se usa para montar sistemas de archivos externos en nodos de Windows. Para obtener más información acerca de SMB, consulte [Servidor de archivos y SMB](https://docs.microsoft.com/windows-server/storage/file-server/file-server-smb-overview).
+Los sistemas de archivos de Internet común (CIFS) también se pueden montar en nodos de grupo, lo que permite que los nodos de Azure Batch puedan tener acceso fácilmente a los sistemas de archivos tradicionales. CIFS es un protocolo de uso compartido de archivos que proporciona un mecanismo abierto y multiplataforma para solicitar servicios y archivos de servidor de red. CIFS se basa en la versión mejorada del protocolo de bloque de mensajes del servidor (SMB) de Microsoft para el uso compartido de archivos de Internet e intranet y se usa para montar sistemas de archivos externos en nodos de Windows. Para obtener más información acerca de SMB, consulte [Servidor de archivos y SMB](/windows-server/storage/file-server/file-server-smb-overview).
 
 ```csharp
 new PoolAddParameter
@@ -153,7 +153,7 @@ new PoolAddParameter
 
 ## <a name="diagnose-mount-errors"></a>Diagnóstico de errores de montaje
 
-Si se produce un error en una configuración de montaje, se producirá un error en el nodo de ejecución del grupo y el estado del nodo pasará a ser inutilizable. Para diagnosticar un error de configuración de montaje, inspeccione la propiedad [`ComputeNodeError`](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) para obtener más información sobre el error.
+Si se produce un error en una configuración de montaje, se producirá un error en el nodo de ejecución del grupo y el estado del nodo pasará a ser inutilizable. Para diagnosticar un error de configuración de montaje, inspeccione la propiedad [`ComputeNodeError`](/rest/api/batchservice/computenode/get#computenodeerror) para obtener más información sobre el error.
 
 Para obtener los archivos de registro para la depuración, use [OutputFiles](batch-task-output-files.md) para cargar los archivos `*.log`. Los archivos `*.log` contienen información sobre el montaje del sistema de archivos en la ubicación `AZ_BATCH_NODE_MOUNTS_DIR`. Los archivos de registro de montaje tienen el formato `<type>-<mountDirOrDrive>.log` para cada montaje. Por ejemplo, un montaje `cifs` en un directorio de montaje denominado `test` tendrá un archivo de registro de montaje denominado `cifs-test.log`.
 
@@ -179,5 +179,5 @@ Para obtener los archivos de registro para la depuración, use [OutputFiles](bat
 
 - Obtenga más información sobre el montaje de un recurso compartido de Azure Files con [Windows](../storage/files/storage-how-to-use-files-windows.md) o [Linux](../storage/files/storage-how-to-use-files-linux.md).
 - Obtenga información sobre el uso y el montaje de sistemas de archivos virtuales de [blobfuse](https://github.com/Azure/azure-storage-fuse).
-- Consulte [Network File System overview](https://docs.microsoft.com/windows-server/storage/nfs/nfs-overview) (Introducción a Network File System) para obtener información sobre NFS y sus aplicaciones.
-- Consulte [Microsoft SMB protocol and CIFS protocol overview](https://docs.microsoft.com/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) (Introducción a los protocolos CIFS y SMB de Microsoft) para obtener más información sobre CIFS.
+- Consulte [Network File System overview](/windows-server/storage/nfs/nfs-overview) (Introducción a Network File System) para obtener información sobre NFS y sus aplicaciones.
+- Consulte [Microsoft SMB protocol and CIFS protocol overview](/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) (Introducción a los protocolos CIFS y SMB de Microsoft) para obtener más información sobre CIFS.

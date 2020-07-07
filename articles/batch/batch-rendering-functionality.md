@@ -5,18 +5,18 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 867dfae570a1e2006b7eea568e3450050f485d9d
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 6e34e0ef9035882a32ff46222686db4a948d7997
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726475"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957467"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Funcionalidades de representación de Azure Batch
 
 Las funcionalidades estándar de Azure Batch se utilizan para ejecutar aplicaciones y cargas de trabajo de representación. Batch también incluye características específicas para admitir cargas de trabajo de representación.
 
-Para obtener información general sobre los conceptos de Batch, incluidos grupos, trabajos y tareas, consulte [este artículo](https://docs.microsoft.com/azure/batch/batch-api-basics).
+Para obtener información general sobre los conceptos de Batch, incluidos grupos, trabajos y tareas, consulte [este artículo](./batch-service-workflow-features.md).
 
 ## <a name="batch-pools"></a>Grupos de Batch
 
@@ -26,7 +26,7 @@ Una imagen de VM de representación de Azure Marketplace puede especificarse en 
 
 Hay una imagen de Windows 2016 y una imagen de CentOS.  En [Azure Marketplace](https://azuremarketplace.microsoft.com), las imágenes de VM pueden encontrarse buscando "representación por lotes".
 
-Para obtener un ejemplo de configuración de grupo, consulte el [tutorial de representación de la CLI de Azure](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli).  Azure Portal y Batch Explorer proporcionan herramientas de GUI para seleccionar una imagen de VM de representación al crear un grupo.  Si usa una API de Batch, especifique los siguientes valores de propiedad para [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) al crear un grupo:
+Para obtener un ejemplo de configuración de grupo, consulte el [tutorial de representación de la CLI de Azure](./tutorial-rendering-cli.md).  Azure Portal y Batch Explorer proporcionan herramientas de GUI para seleccionar una imagen de VM de representación al crear un grupo.  Si usa una API de Batch, especifique los siguientes valores de propiedad para [ImageReference](/rest/api/batchservice/pool/add#imagereference) al crear un grupo:
 
 | Publicador | Oferta | SKU | Versión |
 |---------|---------|---------|--------|
@@ -37,16 +37,16 @@ Hay otras opciones disponibles si se requieren aplicaciones adicionales en las V
 
 * Una imagen personalizada de Shared Image Gallery:
   * Con esta opción, puede configurar la máquina virtual con las aplicaciones exactas y las versiones específicas que necesite. Para más información, consulte [Creación de un grupo con Shared Image Gallery](batch-sig-images.md). Autodesk y Chaos Group han modificado Arnold y V-Ray, respectivamente, para la validación frente a un servicio de licencias de Azure Batch. Asegúrese de que tiene las versiones compatibles de estas aplicaciones, de lo contrario, la licencia de pago por uso no funcionará. Las versiones actuales de Maya o 3ds Max no requieren un servidor de licencias con la ejecución desatendida (en modo de lote/línea de comandos). Póngase en contacto con el soporte técnico de Azure si no está seguro de cómo continuar con esta opción.
-* [Paquetes de aplicación](https://docs.microsoft.com/azure/batch/batch-application-packages):
+* [Paquetes de aplicación](./batch-application-packages.md):
   * Empaquete los archivos de aplicación en uno o varios archivos ZIP, cargue desde Azure Portal y especifique el paquete en la configuración del grupo. Cuando se crean VM del grupo, los archivos ZIP se descargan y se extraen los archivos.
 * Archivos de recursos:
-  * Los archivos de la aplicación se cargan en el almacenamiento de blobs de Azure, y especifica las referencias de archivo en la [tarea de inicio del grupo](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask). Cuando se crean VM del grupo, se descargan los archivos de recursos a cada VM.
+  * Los archivos de la aplicación se cargan en el almacenamiento de blobs de Azure, y especifica las referencias de archivo en la [tarea de inicio del grupo](/rest/api/batchservice/pool/add#starttask). Cuando se crean VM del grupo, se descargan los archivos de recursos a cada VM.
 
 ### <a name="pay-for-use-licensing-for-pre-installed-applications"></a>Licencias de pago por uso para las aplicaciones instaladas previamente
 
 Las aplicaciones que se usarán y que tienen una tarifa de licencia deben especificarse en la configuración del grupo.
 
-* Especifique la propiedad `applicationLicenses` al [crear un grupo](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body).  En la matriz de cadenas ("vray", "arnold", "3dsmax", "maya") se pueden especificar los valores siguientes.
+* Especifique la propiedad `applicationLicenses` al [crear un grupo](/rest/api/batchservice/pool/add#request-body).  En la matriz de cadenas ("vray", "arnold", "3dsmax", "maya") se pueden especificar los valores siguientes.
 * Cuando se especifican una o varias aplicaciones, el costo de esas aplicaciones se agrega al costo de las VM.  Los precios de las aplicaciones se muestran en la [página de precios de Azure Batch](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
 > [!NOTE]
@@ -58,7 +58,7 @@ Si se intenta usar una aplicación, pero no se ha especificado la aplicación en
 
 ### <a name="environment-variables-for-pre-installed-applications"></a>Variables de entorno para aplicaciones instaladas previamente
 
-Para poder crear la línea de comandos para las tareas de representación, se debe especificar la ubicación de instalación de los archivos ejecutables de aplicación de representación.  Se han creado las variables de entorno del sistema en las imágenes de VM de Azure Marketplace, que pueden usarse en lugar de tener que especificar las rutas de acceso reales.  Estas variables de entorno son complementarias a las [variables de entorno de Batch estándares](https://docs.microsoft.com/azure/batch/batch-compute-node-environment-variables) creadas para cada tarea.
+Para poder crear la línea de comandos para las tareas de representación, se debe especificar la ubicación de instalación de los archivos ejecutables de aplicación de representación.  Se han creado las variables de entorno del sistema en las imágenes de VM de Azure Marketplace, que pueden usarse en lugar de tener que especificar las rutas de acceso reales.  Estas variables de entorno son complementarias a las [variables de entorno de Batch estándares](./batch-compute-node-environment-variables.md) creadas para cada tarea.
 
 |Application|Archivo ejecutable de aplicación|Variable de entorno|
 |---------|---------|---------|
@@ -75,13 +75,13 @@ Arnold 2017 command line|kick.exe|ARNOLD_2017_EXEC|
 
 Al igual que con otras cargas de trabajo, los requisitos del sistema de las aplicaciones de representación varían, y los requisitos de rendimiento varían para los proyectos y los trabajos.  En Azure hay disponible una gran variedad de familias de VM según sus requisitos: menor costo, mejor relación precio/rendimiento, mejor rendimiento, etc.
 Algunas aplicaciones de representación, como Arnold, se basan en CPU; otras, como V-Ray y Blender Cycles, pueden utilizar CPU o GPU.
-Para obtener una descripción de las familias de VM y los tamaños de VM disponibles, [consulte los tamaños y tipos de VM](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+Para obtener una descripción de las familias de VM y los tamaños de VM disponibles, [consulte los tamaños y tipos de VM](../virtual-machines/windows/sizes.md).
 
 ### <a name="low-priority-vms"></a>VM de prioridad baja
 
 Al igual que con otras cargas de trabajo, se pueden utilizar VM de prioridad baja en grupos de Batch para la representación.  Las VM de prioridad baja tienen un rendimiento similar a las VM dedicadas normales, pero utilizan la capacidad sobrante de Azure y están disponibles con un gran descuento.  El inconveniente del uso de máquinas virtuales de prioridad baja es que esas máquinas virtuales pueden no estar disponibles para su asignación o pueden reemplazarse en cualquier momento, según la capacidad disponible. Por este motivo, las VM de prioridad baja no son adecuadas para todos los trabajos de representación. Por ejemplo, si las imágenes tardan muchas horas en representarse, es probable que no sea aceptable interrumpir y reiniciar la representación de esas imágenes debido al reemplazo por baja prioridad de las VM.
 
-Para obtener más información sobre las características de las VM de prioridad baja y las diversas maneras de configurarlas con Batch, consulte [Uso de máquinas virtuales de prioridad baja con Batch](https://docs.microsoft.com/azure/batch/batch-low-pri-vms).
+Para obtener más información sobre las características de las VM de prioridad baja y las diversas maneras de configurarlas con Batch, consulte [Uso de máquinas virtuales de prioridad baja con Batch](./batch-low-pri-vms.md).
 
 ## <a name="jobs-and-tasks"></a>Trabajos y tareas
 
@@ -92,5 +92,5 @@ Cuando se usan las imágenes de VM de Azure Marketplace, la práctica recomendad
 
 Para ver ejemplos de representación de Batch consulte los dos tutoriales siguientes:
 
-* [Representación mediante la CLI de Azure](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
-* [Representación mediante Batch Explorer](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
+* [Representación mediante la CLI de Azure](./tutorial-rendering-cli.md)
+* [Representación mediante Batch Explorer](./tutorial-rendering-batchexplorer-blender.md)

@@ -6,16 +6,16 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 345794eead05a4ff5e5d1396df78878d2693f405
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 8483fd2a1b33330b868fb21d71922377e906e6c8
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834992"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958428"
 ---
 # <a name="best-practices-for-sql-pools-in-azure-synapse-analytics"></a>Procedimientos recomendados para grupos de SQL en Azure Synapse Analytics
 
@@ -59,7 +59,7 @@ Lo que haya cargado con PolyBase se ejecuta con la consulta CTAS o de selección
 
 Con el fin de conseguir un mayor rendimiento al usar archivos de texto Gzip, divídalos en 60 o más archivos para aumentar el paralelismo de la carga. Para conseguir un rendimiento total más rápido, cargue los datos simultáneamente. En los siguientes artículos se incluye información adicional sobre los temas pertinentes para esta sección:
 
-- [Carga de datos](data-loading-overview.md)
+- [Carga de datos](../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Guía para el uso de PolyBase](data-loading-best-practices.md)
 - [Modelos y estrategias de carga en el grupo de Azure SQL](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/)
 - [Carga de datos con Azure Data Factory](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

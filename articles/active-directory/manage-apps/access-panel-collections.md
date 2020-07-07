@@ -3,25 +3,23 @@ title: Creación de colecciones para los portales Mis aplicaciones en Azure Act
 description: Use colecciones de Mis aplicaciones para personalizar las páginas de Mis aplicaciones con el fin de que los usuarios finales reciban una experiencia más sencilla. Organice las aplicaciones en grupos con pestañas independientes.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/10/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c91b9ffc9e3487e492c91cb0f5825d0b725f9410
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f520141d36726e94dc8d49d7e5aa95bb35d5484
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77120082"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956243"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Creación de colecciones en el portal Mis aplicaciones
 
