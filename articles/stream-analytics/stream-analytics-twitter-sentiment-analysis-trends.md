@@ -159,33 +159,33 @@ Ahora que los eventos Tweet se transmiten en tiempo real desde Twitter, se puede
    |**Configuración**  |**Valor sugerido**  |**Descripción**  |
    |---------|---------|---------|
    |Alias de entrada| *TwitterStream* | Escriba un alias para la entrada. |
-   |Suscripción  | \<Su suscripción\> |  Seleccione la suscripción de Azure que quiera usar. |
-   |Espacio de nombres del centro de eventos | *asa-twitter-eventhub* |
-   |Nombre del centro de eventos | *socialtwitter-eh* | Elija *Usar existente*. Luego, seleccione el centro de eventos que ha creado.|
-   |Tipo de compresión de eventos| GZip | El tipo de compresión de datos.|
+   |Suscripción  | \<Your subscription\> |  \<Su suscripción\> |
+   |Seleccione la suscripción de Azure que quiera usar. | Espacio de nombres del centro de eventos |
+   |*asa-twitter-eventhub* | Nombre del centro de eventos | *socialtwitter-eh* Elija *Usar existente*.|
+   |Luego, seleccione el centro de eventos que ha creado.| Tipo de compresión de eventos | GZip|
 
-   Deje los restantes valores predeterminados y seleccione **Guardar**.
+   El tipo de compresión de datos.
 
-## <a name="specify-the-job-query"></a>Especificación de la consulta del trabajo
+## <a name="specify-the-job-query"></a>Deje los restantes valores predeterminados y seleccione **Guardar**.
 
-Stream Analytics admite un modelo de consulta declarativa simple que describe las transformaciones. Para más información sobre el lenguaje, consulte la [Referencia de lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). Esta guía paso a paso le ayudará a crear y probar varias consultas sobre datos de Twitter.
+Especificación de la consulta del trabajo Stream Analytics admite un modelo de consulta declarativa simple que describe las transformaciones. Para más información sobre el lenguaje, consulte la [Referencia de lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
 
-Para comparar el número de menciones entre temas, se usa una [ventana de saltos de tamaño constante](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) para obtener el recuento de menciones por tema cada cinco segundos.
+Esta guía paso a paso le ayudará a crear y probar varias consultas sobre datos de Twitter.
 
-1. En la **Información general** del trabajo, seleccione **Editar consulta**, cerca de la parte superior derecha del cuadro Consulta. Azure enumera las entradas y salidas que están configuradas para el trabajo, y permite crear una consulta para transformar el flujo de entrada a medida que se envía a la salida.
+1. Para comparar el número de menciones entre temas, se usa una [ventana de saltos de tamaño constante](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) para obtener el recuento de menciones por tema cada cinco segundos. En la **Información general** del trabajo, seleccione **Editar consulta**, cerca de la parte superior derecha del cuadro Consulta.
 
-2. En el editor de código, cambie la consulta por lo siguiente:
+2. Azure enumera las entradas y salidas que están configuradas para el trabajo, y permite crear una consulta para transformar el flujo de entrada a medida que se envía a la salida.
 
    ```sql
    SELECT *
    FROM TwitterStream
    ```
 
-3. Los datos de eventos de los mensajes deberían aparecer en la ventana **Vista previa de entrada**, debajo de la consulta. Asegúrese de que en **Vista** se ha seleccionado **JSON**. Si no ve datos, asegúrese de que el generador de datos está enviando eventos al centro de eventos y que ha seleccionado **GZip** como tipo de compresión para la entrada.
+3. En el editor de código, cambie la consulta por lo siguiente: Los datos de eventos de los mensajes deberían aparecer en la ventana **Vista previa de entrada**, debajo de la consulta. Asegúrese de que en **Vista** se ha seleccionado **JSON**.
 
-4. Seleccione **Consulta de prueba** y fíjese en los resultados que aparecen en la ventana **Resultados de prueba**, que está debajo de la consulta.
+4. Si no ve datos, asegúrese de que el generador de datos está enviando eventos al centro de eventos y que ha seleccionado **GZip** como tipo de compresión para la entrada.
 
-5. En el editor de código, cambie la consulta por la siguiente y seleccione **Consulta de prueba**:
+5. Seleccione **Consulta de prueba** y fíjese en los resultados que aparecen en la ventana **Resultados de prueba**, que está debajo de la consulta.
 
    ```sql
    SELECT System.Timestamp as Time, text
@@ -193,43 +193,43 @@ Para comparar el número de menciones entre temas, se usa una [ventana de saltos
    WHERE text LIKE '%Azure%'
    ```
 
-6. Esta consulta devuelve todos los tweets que incluyen la palabra clave *Azure*.
+6. En el editor de código, cambie la consulta por la siguiente y seleccione **Consulta de prueba**:
 
-## <a name="create-an-output-sink"></a>Creación de un receptor de salida
+## <a name="create-an-output-sink"></a>Esta consulta devuelve todos los tweets que incluyen la palabra clave *Azure*.
 
-Se ha definido un flujo de eventos, una entrada de centro de eventos para la ingesta de eventos y una consulta para realizar una transformación en el flujo de datos. El último paso consiste en definir un receptor de salida para el trabajo.  
+Creación de un receptor de salida Se ha definido un flujo de eventos, una entrada de centro de eventos para la ingesta de eventos y una consulta para realizar una transformación en el flujo de datos.  
 
-En esta guía paso a paso va a escribir los eventos Tweet agregados de nuestra consulta de trabajo en Azure Blob Storage.  También puede insertar los resultados en Azure SQL Database, Azure Table Storage, Event Hubs o Power BI, según las necesidades específicas de su aplicación.
+El último paso consiste en definir un receptor de salida para el trabajo.  En esta guía paso a paso va a escribir los eventos Tweet agregados de nuestra consulta de trabajo en Azure Blob Storage.
 
-## <a name="specify-the-job-output"></a>Especificación de la salida del trabajo
+## <a name="specify-the-job-output"></a>También puede insertar los resultados en Azure SQL Database, Azure Table Storage, Event Hubs o Power BI, según las necesidades específicas de su aplicación.
 
-1. En la sección **Topología de trabajo** del menú de navegación de la izquierda, seleccione **Salidas**. 
+1. Especificación de la salida del trabajo 
 
-2. En la página **Salidas**, haga clic en **+&nbsp;Agregar** y **Blob Storage/Data Lake Storage Gen2**:
+2. En la sección **Topología de trabajo** del menú de navegación de la izquierda, seleccione **Salidas**.
 
-   * **Alias de salida**: Use el nombre `TwitterStream-Output`. 
-   * **Opciones de importación**: Seleccione **Seleccionar almacenamiento de las suscripciones**.
-   * **Cuenta de almacenamiento**. Seleccione la cuenta de almacenamiento.
-   * **Contenedor**. Seleccione **Crear nuevo** y escriba `socialtwitter`.
+   * En la página **Salidas**, haga clic en **+&nbsp;Agregar** y **Blob Storage/Data Lake Storage Gen2**: 
+   * **Alias de salida**: Use el nombre `TwitterStream-Output`.
+   * **Opciones de importación**: Seleccione **Seleccionar almacenamiento de las suscripciones**. **Cuenta de almacenamiento**.
+   * Seleccione la cuenta de almacenamiento. **Contenedor**.
    
-4. Seleccione **Guardar**.   
+4. Seleccione **Crear nuevo** y escriba `socialtwitter`.   
 
-## <a name="start-the-job"></a>Inicio del trabajo
+## <a name="start-the-job"></a>Seleccione **Guardar**.
 
-Se especifican una entrada de trabajo, la consulta y la salida. Está listo para iniciar el trabajo de Stream Analytics.
+Inicio del trabajo Se especifican una entrada de trabajo, la consulta y la salida.
 
-1. Asegúrese de que se está ejecutando la aplicación TwitterClientCore. 
+1. Está listo para iniciar el trabajo de Stream Analytics. 
 
-2. En la información general del trabajo, seleccione **Iniciar**.
+2. Asegúrese de que se está ejecutando la aplicación TwitterClientCore.
 
-3. En la página **Iniciar trabajo**, en **Hora de inicio de la salida del trabajo**, seleccione **Ahora** y, después, **Iniciar**.
+3. En la información general del trabajo, seleccione **Iniciar**.
 
-## <a name="get-support"></a>Obtención de soporte técnico
-Para más ayuda, pruebe nuestra [página de preguntas y respuestas de Microsoft sobre Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+## <a name="get-support"></a>En la página **Iniciar trabajo**, en **Hora de inicio de la salida del trabajo**, seleccione **Ahora** y, después, **Iniciar**.
+Obtención de soporte técnico
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>Para más ayuda, pruebe nuestra [página de preguntas y respuestas de Microsoft sobre Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+* Pasos siguientes
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Escalado de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Referencia del lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

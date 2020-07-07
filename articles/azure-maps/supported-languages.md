@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 2bab7b101b5461d854bb2db509b5cb243012a592
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83746017"
 ---
 # <a name="localization-support-in-azure-maps"></a>Soporte de localización en Azure Maps
@@ -25,7 +25,7 @@ Azure Maps admite varios idiomas y vistas según el país o región. En este art
 Los servicios de Azure Maps se han localizado en una variedad de idiomas. En la tabla siguiente se proporcionan los códigos de idioma admitidos para cada servicio.  
   
 
-| id         | Nombre                   |  Mapas | Search | Enrutamiento | Tiempo | Incidentes de tráfico | Control de mapa JS |
+| ID         | Nombre                   |  Mapas | Search | Enrutamiento | Tiempo | Incidentes de tráfico | Control de mapa JS |
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | af-ZA      | Afrikáans              |       |    ✓   |    ✓    |         |                   |                |
 | ar-SA      | Árabe                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
