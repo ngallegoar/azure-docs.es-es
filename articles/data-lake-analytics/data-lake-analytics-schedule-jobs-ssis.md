@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
 ms.openlocfilehash: 0650fcc5023ac57b193fa23b0dedf65113fd64e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71672890"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Programación de trabajos U-SQL mediante SQL Server Integration Services (SSIS)
 
 En este documento, aprenda a organizar y crear trabajos U-SQL mediante SQL Server Integration Service (SSIS). 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [Azure Feature Pack para Integration Services](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud) proporciona la [tarea de Azure Data Lake Analytics](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017) y el [Administrador de conexiones de Azure Data Lake Analytics](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017) que ayuda a conectarse con el servicio de Azure Data Lake Analytics. Para usar esta tarea, asegúrese de instalar lo siguiente:
 
@@ -93,7 +93,7 @@ En la vista de diseño del paquete SSIS, agregue una **tarea del sistema de arch
     
     Para crear esta conexión de archivos:
 
-   1. Elija **\<Nueva conexión...>** en la configuración FileConnection.
+   1. Elija **\<New Connection...>** en la configuración FileConnection.
    2. Establezca **Usage type** (Tipo de uso) en **Existing file** (Archivo existente) y establezca **File** (Archivo) en la ruta de acceso de archivo de cualquier archivo existente.
 
        ![Configuración del contenedor de bucles Foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)

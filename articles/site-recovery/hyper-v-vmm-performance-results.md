@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 3edd182e335bc679d95d7be64f45b617a9f54c1a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73663171"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Resultados de pruebas para la replicación de Hyper-V a un sitio secundario
@@ -175,10 +175,10 @@ La tabla resume las métricas de rendimiento y contadores que se midieron en la 
 | CPU |Procesador(_Total)\% Hora del procesador |
 | Memoria disponible |\Memoria\MB disponibles |
 | E/S |\Disco físico(_Total)\Transferencias de disco/s |
-| Operaciones de lectura de máquinas virtuales por segundo (IOPS)/s |\Dispositivo de almacenamiento virtual de Hyper-V\<VHD>\Operaciones de lectura/s |
-| Operaciones de escritura de máquinas virtuales por segundo (IOPS)/s |\Dispositivo de almacenamiento virtual de Hyper-V\<VHD>\Operaciones de escritura/s |
-| Rendimiento de lectura de máquinas virtuales |\Dispositivo de almacenamiento virtual de Hyper-V\\<VHD>\Bytes leídos/s |
-| Rendimiento de escritura de máquinas virtuales |\Dispositivo de almacenamiento virtual de Hyper-V\<VHD>\Bytes escritos/s |
+| Operaciones de lectura de máquinas virtuales por segundo (IOPS)/s |\Dispositivo de almacenamiento virtual de Hyper-V(\<VHD>)\Operaciones de lectura/s |
+| Operaciones de escritura de máquinas virtuales por segundo (IOPS)/s |\Dispositivo de almacenamiento virtual de Hyper-V(\<VHD>)\Operaciones de escritura/s |
+| Rendimiento de lectura de máquinas virtuales |\Dispositivo de almacenamiento virtual de Hyper-V(\<VHD>)\Bytes leídos/s |
+| Rendimiento de escritura de máquinas virtuales |\Dispositivo de almacenamiento virtual de Hyper-V(\<VHD>)\Bytes escritos/s |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

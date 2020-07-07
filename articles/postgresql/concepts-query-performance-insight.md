@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.openlocfilehash: dd5b4ec53d82421ddd9d680ca41e48eeecc43c2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74768391"
 ---
 # <a name="query-performance-insight"></a>Información de rendimiento de consultas 
@@ -22,7 +22,7 @@ Query Performance Insight le ayuda a identificar rápidamente cuáles son las co
 ## <a name="permissions"></a>Permisos
 Se necesitan los permisos **Propietario** o **Colaborador** para ver el texto de las consultas en Query Performance Insight. **Lector** pueden ver las tablas y los gráficos, pero no el texto de consulta.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Para que Query Performance Insight funcione, deben existir datos en el [Almacén de consultas](concepts-query-store.md).
 
 ## <a name="viewing-performance-insights"></a>Ver información de rendimiento

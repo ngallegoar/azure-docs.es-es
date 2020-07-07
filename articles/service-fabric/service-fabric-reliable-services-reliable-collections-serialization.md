@@ -4,10 +4,10 @@ description: Obtenga información sobre la serialización de objetos de colecci�
 ms.topic: conceptual
 ms.date: 5/8/2017
 ms.openlocfilehash: 666e1bb45a9c75ee143f15a0d871d6ae1408eca9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75639554"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serialización de objetos de Reliable Collections en Azure Service Fabric
@@ -44,7 +44,7 @@ Reliable State Manager tiene serializadores integrados para los siguientes tipos
 
 Los serializadores personalizados se usan normalmente para aumentar el rendimiento o para cifrar los datos en la red y en disco. Entre otras razones, los serializadores personalizados suelen ser más eficaces que el serializador genérico, ya que no necesitan serializar la información sobre el tipo. 
 
-[IReliableStateManager.TryAddStateSerializer\<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) se usa para registrar un serializador personalizado para un tipo determinado T. Este registro suele realizarse en la construcción de StatefulServiceBase, a fin de garantizar que, antes de que empiece la recuperación, todos los elementos de Reliable Collections puedan acceder al serializador pertinente para leer los datos guardados.
+[IReliableStateManager.TryAddStateSerializer\<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) se usa para registrar un serializador personalizado para un tipo determinado T. Este registro suele realizarse para la compilación de StatefulServiceBase, a fin de garantizar que, antes de que empiece la recuperación, todos los elementos de Reliable Collections puedan acceder al serializador pertinente para leer los datos persistentes.
 
 ```csharp
 public StatefulBackendService(StatefulServiceContext context)
@@ -65,7 +65,7 @@ public StatefulBackendService(StatefulServiceContext context)
 Un serializador personalizado debe implementar la interfaz [IStateSerializer\<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1).
 
 > [!NOTE]
-> IStateSerializer\<T> incluye una sobrecarga para escritura y lectura que usa un valor base adicional llamado por T. Esta API se usa para la serialización diferencial. Actualmente no se expone la característica de serialización diferencial. Por tanto, no se llama a estas dos sobrecargas hasta que se exponga y habilite la serialización diferencial.
+> IStateSerializer\<T> incluye una sobrecarga para escritura y lectura que usa un valor base adicional denominado T. Esta API se usa para la serialización diferencial. Actualmente no se expone la característica de serialización diferencial. Por tanto, no se llama a estas dos sobrecargas hasta que se exponga y habilite la serialización diferencial.
 
 A continuación se expone un ejemplo de tipo personalizado denominado OrderKey que contiene cuatro propiedades.
 
