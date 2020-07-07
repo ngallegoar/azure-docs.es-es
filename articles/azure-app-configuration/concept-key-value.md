@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.openlocfilehash: 0b83a35d912c97ae25bc2d69d076e8eae8ca490f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b8f8bda52be63a4176411855dd9ff9919e9e31f5
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77523611"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856671"
 ---
 # <a name="keys-and-values"></a>Claves y valores
 
@@ -25,13 +25,17 @@ Estos son dos ejemplos de nombres de clave estructurados en una jerarquía:
 
 * Según los servicios de los componentes.
 
+```aspx
         AppName:Service1:ApiEndpoint
         AppName:Service2:ApiEndpoint
+```
 
 * Según las regiones de implementación.
 
+```aspx
         AppName:Region1:DbEndpoint
         AppName:Region2:DbEndpoint
+```
 
 El uso de datos de configuración dentro de los marcos de trabajo de las aplicaciones puede dictar esquemas de nombres específicos para los pares clave-valor. Por ejemplo, el marco de trabajo de Spring Cloud de Java define los recursos `Environment` que suministran la configuración a una aplicación de Spring.  Esta se va a parametrizar mediante variables entre las que se incluyen el *nombre de la aplicación* y el *perfil*. Las claves de los datos de configuración relacionadas con Spring Cloud empiezan normalmente por estos dos elementos, separados por un delimitador.
 
@@ -57,9 +61,11 @@ Los valores de clave de App Configuration pueden tener un atributo de etiqueta. 
 
 Las etiquetas proporcionan una manera cómoda de crear variantes de una clave. Un uso habitual de las etiquetas consiste en especificar varios entornos para la misma clave:
 
+```aspx
     Key = AppName:DbEndpoint & Label = Test
     Key = AppName:DbEndpoint & Label = Staging
     Key = AppName:DbEndpoint & Label = Production
+```
 
 ### <a name="version-key-values"></a>Valores de clave de versión
 

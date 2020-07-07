@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 02/21/2020
+ms.date: 06/24/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 064fcf618914bca31ad9e7e60c76df8f599cd8bf
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 151e7d286dac91ddd0e988027968f2e44a83e35e
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84687198"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362652"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal
 
@@ -26,7 +26,9 @@ Una manera de controlar el acceso de red saliente desde una subred de Azure es c
 
 El tráfico está sujeto a las reglas de firewall configuradas cuando enruta el tráfico al firewall como puerta de enlace predeterminada de la subred.
 
-En este tutorial, creará una red virtual única simplificada con tres subredes para facilitar la implementación. Para las implementaciones de producción, se recomienda un [modelo de concentrador y radio](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). El firewall está en su propia red virtual. Los servidores de las cargas de trabajo están en redes virtuales emparejadas en la misma región con una o varias subredes.
+En este tutorial, creará una red virtual única simplificada con tres subredes para facilitar la implementación.
+
+Para las implementaciones de producción, se recomienda un [modelo de concentrador y radio](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), en el que el firewall está en su propia red virtual. Los servidores de las cargas de trabajo están en redes virtuales emparejadas en la misma región con una o varias subredes.
 
 * **AzureFirewallSubnet**: el firewall está en esta subred.
 * **Workload-SN**: el servidor de carga de trabajo está en esta subred. El tráfico de red de esta subred va a través del firewall.

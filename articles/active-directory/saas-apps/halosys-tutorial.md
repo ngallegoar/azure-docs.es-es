@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d224f8fa5d696cd55b4f214111280d9210f836e9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3f7cdc8dce8a4b30b543c4e332207354697a9e0d
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73159106"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367672"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Tutorial: Integración de Azure Active Directory con Halosys
 
@@ -111,7 +111,7 @@ Para configurar el inicio de sesión único de Azure AD con Halosys, siga estos 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<company-name>.halosys.com/<instance name>`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico para clientes de Halosys](https://halosys.com/halosys#contact) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico para clientes de Halosys](https://www.sonata-software.com/form/contact) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -129,7 +129,7 @@ Para configurar el inicio de sesión único de Azure AD con Halosys, siga estos 
 
 ### <a name="configure-halosys-single-sign-on"></a>Configuración del inicio de sesión único en Halosys
 
-Para configurar el inicio de sesión único en **Halosys**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Halosys](https://halosys.com/halosys#contact). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Halosys**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Halosys](https://www.sonata-software.com/form/contact). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -184,7 +184,7 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 
 ### <a name="create-halosys-test-user"></a>Creación de un usuario de prueba en Halosys
 
-En esta sección, creará un usuario llamado Britta Simon en Halosys. Trabaje con el  [equipo de soporte técnico de Halosys](https://halosys.com/halosys#contact) para agregar los usuarios a la plataforma de Halosys. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Halosys. Trabaje con el  [equipo de soporte técnico de Halosys](https://www.sonata-software.com/form/contact) para agregar los usuarios a la plataforma de Halosys. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: a644e211cc933ca686f0bd6a13b0d2ba8ae20162
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 61f555dc8f24ce303934187d36ee994b25b31920
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81114103"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920091"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Problemas comunes que causan el reciclaje de los roles
 En este artículo se describen algunas de las causas comunes de problemas relacionados con la implementación y se proporcionan sugerencias para la resolución de dichos problemas. Aparece una indicación de que existe un problema con una aplicación cuando la instancia de rol no se inicia o cuando alterna entre los estados inicializando, ocupado y deteniendo.
@@ -53,7 +53,9 @@ Para asegurarse de que el valor de `DiagnosticsConnectionString` sea correcto an
   De forma predeterminada, este valor apunta a la cuenta de almacenamiento emulado, por lo que debe cambiar explícitamente esta configuración antes de implementar el paquete de aplicación. Si no cambia este valor, se produce una excepción cuando la instancia de rol intenta iniciar al monitor de diagnóstico. Esto puede hacer que la instancia de rol se recicle indefinidamente.
 * La cadena de conexión se especifica en el siguiente [formato](../storage/common/storage-configure-connection-string.md). (El protocolo debe especificarse como HTTPS). Reemplace *MyAccountName* por el nombre de su cuenta de almacenamiento y *MyAccountKey* por la clave de acceso de su cuenta:    
 
-        DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
+```console
+DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
+```
 
   Si está desarrollando una aplicación con Azure Tools para Microsoft Visual Studio, puede usar las páginas de propiedades para establecer este valor.
 

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 2821ee637b2562b5287dd3d59cf943b3dcb7ef97
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: dae829336c5328bec4b620217c34c69fa5931b3a
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010892"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856853"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Configuración de la compatibilidad de red virtual con el nivel Premium de Azure Cache for Redis
 Azure Cache for Redis cuenta con diferentes opciones de caché, lo que proporciona flexibilidad en la elección del tamaño y las características de la memoria caché, incluidas algunas características del nivel Prémium, como la agrupación en clústeres, la persistencia y la compatibilidad con las redes virtuales. Una red virtual es una red privada en la nube. Cuando una instancia de Azure Cache for Redis se configure con una red virtual, no será posible acceder a ella públicamente, solo se podrá acceder a ella desde máquinas virtuales y aplicaciones de dentro de la red virtual. En este artículo se describe cómo configurar la compatibilidad con redes virtuales de una instancia de Azure Cache for Redis de nivel Premium.
@@ -59,18 +59,20 @@ Una vez que se crea la memoria caché, para ver la configuración de la red virt
 
 Para conectarse a la instancia de Azure Cache for Redis cuando usa una red virtual, especifique el nombre de host de la memoria caché en la cadena de conexión, como se muestra en el ejemplo siguiente:
 
-    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-    {
-        return ConnectionMultiplexer.Connect("contoso5premium.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
-    });
+```csharp
+private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+{
+    return ConnectionMultiplexer.Connect("contoso5premium.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
+});
 
-    public static ConnectionMultiplexer Connection
+public static ConnectionMultiplexer Connection
+{
+    get
     {
-        get
-        {
-            return lazyConnection.Value;
-        }
+        return lazyConnection.Value;
     }
+}
+```
 
 ## <a name="azure-cache-for-redis-vnet-faq"></a>Preguntas frecuentes sobre redes virtuales de Azure Cache for Redis
 La lista siguiente contiene las respuestas a las preguntas más frecuentes sobre el escalado de Azure Cache for Redis.

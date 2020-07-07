@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 2a5ef1837375cc395a871f9a9860fa8bde572a94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76773598"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Cifrado del contenido con cifrado de almacenamiento 
@@ -115,7 +115,7 @@ A continuación, se muestran los pasos generales para generar claves de contenid
 
     Propiedad del cuerpo de la solicitud    | Descripción
     ---|---
-    Identificador | El identificador de ContentKey se genera con el siguiente formato: "nb:kid:UUID:\<NUEVO GUID>".
+    Identificador | El identificador de ContentKey se genera mediante el siguiente formato: "nb:kid:UUID:\<NEW GUID>".
     ContentKeyType | El tipo de clave de contenido es un entero que define la clave. En el formato de cifrado de almacenamiento, el valor es 1.
     EncryptedContentKey | Creamos un valor de clave de contenido que es un valor de 256 bits (32 bytes). La clave se cifra con el certificado X.509 de cifrado de almacenamiento que recuperamos de Microsoft Azure Media Services mediante la ejecución de una solicitud HTTP GET para los métodos de GetProtectionKeyId y GetProtectionKey. A modo de ejemplo, vea el siguiente código. NET: el método **EncryptSymmetricKeyData** definido [aquí](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | Es el identificador de la clave de protección para el certificado X.509 de cifrado de almacenamiento que se usó para cifrar la clave de contenido.

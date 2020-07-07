@@ -3,12 +3,12 @@ title: Instalación del agente de Microsoft Azure Recovery Services (MARS)
 description: Aprenda a instalar el agente de Microsoft Azure Recovery Services (MARS) para realizar copias de seguridad de máquinas Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: d3932b66dbc41ff2631e2cccbe716c0877a509d3
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 7a43f585e978b7d6974ac89fbb5d93f15aebb1d7
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422928"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855237"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Instalación del agente de MARS de Azure Backup
 
@@ -66,11 +66,12 @@ Para modificar el tipo de replicación de almacenamiento:
 Si la máquina tiene limitado el acceso a Internet, asegúrese de que su configuración de firewall en la máquina o el proxy está establecida para permitir las direcciones URL y direcciones IP:
 
 * URLs
-  * `www\.msftncsi.com`
+  * `www.msftncsi.com`
   * `*.Microsoft.com`
   * `*.WindowsAzure.com`
   * `*.microsoftonline.com`
   * `*.windows.net`
+  * `www.msftconnecttest.com`
 * Direcciones IP
   * 20.190.128.0/18
   * 40.126.0.0/18
@@ -82,6 +83,7 @@ Puede realizar una copia de seguridad de los datos mediante Azure ExpressRoute c
 Para usar el emparejamiento público, asegúrese primero de tener acceso a los siguientes dominios y direcciones:
 
 * `http://www.msftncsi.com/ncsi.txt`
+* `http://www.msftconnecttest.com/connecttest.txt`
 * `microsoft.com`
 * `.WindowsAzure.com`
 * `.microsoftonline.com`
