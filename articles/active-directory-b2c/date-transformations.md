@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c02ac9392d6f3f95deef38ff86250e96dfb76d96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eaf58b964517162ee7f7eb925e1e64830eedc087
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476695"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85202558"
 ---
 # <a name="date-claims-transformations"></a>Transformaciones de notificaciones de fecha
 
@@ -41,7 +41,7 @@ La transformación de notificaciones **AssertDateTimeIsGreaterThan** siempre se 
 
 En el ejemplo siguiente se comparan la notificación `currentDateTime` con la notificación `approvedDateTime`. Se produce un error si `currentDateTime` es mayor que `approvedDateTime`. La transformación trata los valores como iguales si están dentro de la diferencia de 5 minutos (30 000 milisegundos).
 
-```XML
+```xml
 <ClaimsTransformation Id="AssertApprovedDateTimeLaterThanCurrentDateTime" TransformationMethod="AssertDateTimeIsGreaterThan">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="approvedDateTime" TransformationClaimType="leftOperand" />
@@ -56,7 +56,7 @@ En el ejemplo siguiente se comparan la notificación `currentDateTime` con la no
 ```
 
 El perfil técnico de validación `login-NonInteractive` llama a la transformación de notificaciones `AssertApprovedDateTimeLaterThanCurrentDateTime`.
-```XML
+```xml
 <TechnicalProfile Id="login-NonInteractive">
   ...
   <OutputClaimsTransformations>
@@ -67,7 +67,7 @@ El perfil técnico de validación `login-NonInteractive` llama a la transformaci
 
 El perfil técnico autoafirmado llama al perfil técnico **login-NonInteractive** de validación.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
   <Metadata>
     <Item Key="DateTimeGreaterThan">Custom error message if the provided left operand is greater than the right operand.</Item>
@@ -96,7 +96,7 @@ Convierte un ClaimType **Date** en un ClaimType **DateTime**. La transformación
 
 En el ejemplo siguiente se muestra la conversión de la notificación `dateOfBirth` (tipo de datos date) en otra notificación `dateOfBirthWithTime` (tipo de datos dateTime).
 
-```XML
+```xml
   <ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">
     <InputClaims>
       <InputClaim ClaimTypeReferenceId="dateOfBirth" TransformationClaimType="inputClaim" />
@@ -125,7 +125,7 @@ Convierte un ClaimType **DateTime** en un ClaimType **Date**. La transformación
 
 En el ejemplo siguiente se muestra la conversión de la notificación `systemDateTime` (tipo de datos dateTime) en otra notificación `systemDate` (tipo de datos date).
 
-```XML
+```xml
 <ClaimsTransformation Id="ConvertToDate" TransformationMethod="ConvertDateTimeToDateClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="systemDateTime" TransformationClaimType="inputClaim" />
@@ -151,7 +151,7 @@ Obtenga la fecha y la hora UTC actual y agregue el valor a ClaimType.
 | ---- | ----------------------- | --------- | ----- |
 | OutputClaim | currentDateTime | dateTime | El valor ClaimType que se genera después de que se haya invocado esta ClaimsTransformation. |
 
-```XML
+```xml
 <ClaimsTransformation Id="GetSystemDateTime" TransformationMethod="GetCurrentDateTime">
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="systemDateTime" TransformationClaimType="currentDateTime" />
@@ -179,7 +179,7 @@ Determine si un valor dateTime es mayor, menor o igual que otro. El resultado es
 Use esta transformación de notificaciones para determinar si dos valores ClaimType son iguales, mayores o menores entre sí. Por ejemplo, puede almacenar la última vez que un usuario ha aceptado los términos del servicio (TOS). Después de 3 meses, puede pedir al usuario que vuelva a acceder a los TOS.
 Para ejecutar la transformación de notificaciones, primero deberá obtener el valor dateTime actual y la última vez que el usuario aceptó los TOS.
 
-```XML
+```xml
 <ClaimsTransformation Id="CompareLastTOSAcceptedWithCurrentDateTime" TransformationMethod="DateTimeComparison">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="currentDateTime" TransformationClaimType="firstDateTime" />

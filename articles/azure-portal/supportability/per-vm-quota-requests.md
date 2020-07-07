@@ -4,15 +4,15 @@ description: Cómo solicitar un aumento del límite de cuota de vCPU de una seri
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: de06375dad5999a29691435317e62585a2ea7f64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e00b1cf11b906390335f257b20787d394b3a8ed4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76843764"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117172"
 ---
 # <a name="standard-quota-increase-limits-by-vm-series"></a>Cuota estándar: Aumento de los límites por serie de máquinas virtuales
 
@@ -26,7 +26,7 @@ La cuota de vCPU estándar para las instancias reservadas de máquina virtual y 
 * El primer nivel es el *límite de vCPU regionales totales*, en todas las series de máquinas virtuales.
 * El segundo nivel es el *límite de vCPU por serie de máquinas virtuales*; por ejemplo, las vCPU de la serie Dv3.
 
-Cada vez que implemente una nueva máquina virtual al contado, el uso total de las vCPU nuevas y existentes de esa serie de máquinas virtuales no deberá superar la cuota de vCPU aprobada para esa serie. Además, el número total de vCPU nuevas y existentes que se implementan en todas las series de máquinas virtuales no debe superar la cuota de vCPU regionales totales aprobada para la suscripción. Si se supera alguna de estas cuotas, no se permitirá la implementación de la máquina virtual.
+Cada vez que se implementa una nueva máquina virtual al contado, el total de uso de vCPU nuevo y existente para todas las instancias de máquina virtual al contado no debe superar el límite de cuota de vCPU al contado aprobado. Si se supera la cuota al contado, no se permite la implementación de máquinas virtuales al contado.
 
 Puede solicitar un aumento del límite de cuota de vCPU para la serie de máquinas virtuales a través de Azure Portal. Al aumentar la cuota de la serie de máquinas virtuales, se aumenta automáticamente el límite de vCPU regionales totales en la misma cantidad.
 

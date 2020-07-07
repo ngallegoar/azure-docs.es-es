@@ -4,16 +4,16 @@ description: Cómo configurar el método de equilibrio de carga de un entorno de
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 447de339d3ceef7aeb1c232605b0e30bbbb1e7d8
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 5d5c39ff867add80833ee522ef173506fa1c642c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612442"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204357"
 ---
 # <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Configuración del método de equilibrio de carga de Windows Virtual Desktop
 
@@ -33,15 +33,15 @@ El equilibrio de carga en amplitud es la configuración predeterminada de los nu
 Para configurar un grupo de hosts para realizar el equilibrio de carga en amplitud sin ajustar el límite de sesiones máximo, ejecute el siguiente cmdlet de PowerShell:
 
 ```powershell
-Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'BreadthFirst' 
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'BreadthFirst'
 ```
 
-Después, para asegurarse de que ha establecido el método de equilibrio de carga en amplitud, ejecute el siguiente cmdlet: 
+Después, para asegurarse de que ha establecido el método de equilibrio de carga en amplitud, ejecute el siguiente cmdlet:
 
 ```powershell
-Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType 
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType
 
-Name             : hostpoolname 
+Name             : hostpoolname
 LoadBalancerType : BreadthFirst
 ```
 
@@ -58,13 +58,13 @@ El equilibrio de carga en profundidad distribuye nuevas sesiones de usuario a un
 Para configurar un grupo de hosts para realizar el equilibrio de carga en profundidad, ejecute el siguiente cmdlet de PowerShell:
 
 ```powershell
-Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'DepthFirst' -MaxSessionLimit ### 
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'DepthFirst' -MaxSessionLimit ###
 ```
 
 Para asegurarse de que la configuración se ha actualizado, ejecute este cmdlet:
 
 ```powershell
-Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType, MaxSessionLimit 
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType, MaxSessionLimit
 
 Name             : hostpoolname
 LoadBalancerType : DepthFirst
@@ -77,8 +77,8 @@ También puede configurar el equilibrio de carga con Azure Portal.
 
 Para configurar el equilibrio de carga:
 
-1. Inicie sesión en Azure Portal en https://portal.azure.com. 
-2. Busque y seleccione **Windows Virtual Desktop** en Servicios. 
+1. Inicie sesión en Azure Portal en https://portal.azure.com.
+2. Busque y seleccione **Windows Virtual Desktop** en Servicios.
 3. En la página de Windows Virtual Desktop, seleccione **Grupos de hosts**.
 4. Seleccione el nombre del grupo de hosts que quiera editar.
 5. Seleccione **Propiedades**.

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f50373b0841b7626bc405f121015c15ae1587a97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 77bb53e2605913fcee6999284acb04616efc53af
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80088872"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201419"
 ---
 # <a name="define-an-application-insights-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definición de un perfil técnico de Application Insights en una directiva personalizada de Azure AD B2C
 
@@ -47,7 +47,7 @@ En el ejemplo siguiente se muestra el perfil técnico común de Application Insi
 
 El elemento **InputClaims** contiene una lista de notificaciones para enviar a Application Insights. También puede asignar el nombre de la notificación a un nombre que prefiera que aparezca en Application Insights. En el ejemplo siguiente se muestra cómo enviar datos de telemetría a Application Insights. Las propiedades de un evento se agregan a través de la sintaxis `{property:NAME}`, donde NAME es la propiedad que se agrega al evento. DefaultValue puede ser un valor estático o un valor resuelto por uno de los [solucionadores de notificaciones](claim-resolver-overview.md) admitidos.
 
-```XML
+```xml
 <InputClaims>
   <InputClaim ClaimTypeReferenceId="PolicyId" PartnerClaimType="{property:Policy}" DefaultValue="{Policy:PolicyId}" />
   <InputClaim ClaimTypeReferenceId="CorrelationId" PartnerClaimType="{property:JourneyId}" DefaultValue="{Context:CorrelationId}" />

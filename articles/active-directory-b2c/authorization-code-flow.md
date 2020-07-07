@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8248ca0abb1d633786b09b894bcd6b1089ab2d8c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd94811baddba3a40910b3a0c68eb4e1b2744b0b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230060"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201249"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Flujo de código de autorización de OAuth 2.0 en Azure Active Directory B2C
 
@@ -41,7 +41,7 @@ Para probar las solicitudes HTTP en este artículo, haga lo siguiente:
 El flujo del código de autorización comienza con el cliente dirigiendo al usuario al punto de conexión `/authorize` . Esta es la parte interactiva del flujo, en la que el usuario lleva a cabo la acción. En esta solicitud, el cliente indica en el parámetro `scope` los permisos que debe obtener por parte del usuario. Los siguientes tres ejemplos (con saltos de línea para facilitar la lectura) usan cada uno un flujo de usuario diferente.
 
 
-```HTTP
+```http
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code
@@ -70,7 +70,7 @@ Cuando el usuario haya completado el flujo de usuario, Azure AD devuelve una res
 
 Una respuesta correcta que usa `response_mode=query` tiene este aspecto:
 
-```HTTP
+```http
 GET urn:ietf:wg:oauth:2.0:oob?
 code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...        // the authorization_code, truncated
 &state=arbitrary_data_you_can_receive_in_the_response                // the value provided in the request
@@ -83,7 +83,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...        // the auth
 
 Las respuestas de error también se pueden enviar al URI de redireccionamiento para que la aplicación pueda controlarlas correctamente:
 
-```HTTP
+```http
 GET urn:ietf:wg:oauth:2.0:oob?
 error=access_denied
 &error_description=The+user+has+cancelled+entering+self-asserted+information
@@ -101,7 +101,7 @@ Ahora que ha adquirido un código de autorización, puede canjear el elemento `c
 
 También puede solicitar un token de acceso para su propia API web de back-end de la aplicación mediante la convención del uso del identificador del cliente de la aplicación como el ámbito solicitado (lo que resultará en un token de acceso con ese identificador de cliente como el "público"):
 
-```HTTP
+```http
 POST https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
 
 Content-Type: application/x-www-form-urlencoded
@@ -123,7 +123,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 Una respuesta correcta del token tiene el siguiente aspecto:
 
-```JSON
+```json
 {
     "not_before": "1442340812",
     "token_type": "Bearer",
@@ -144,7 +144,7 @@ Una respuesta correcta del token tiene el siguiente aspecto:
 
 Las respuestas de error tienen un aspecto similar al siguiente:
 
-```JSON
+```json
 {
     "error": "access_denied",
     "error_description": "The user revoked access to the app.",
@@ -159,7 +159,7 @@ Las respuestas de error tienen un aspecto similar al siguiente:
 ## <a name="3-use-the-token"></a>3. Uso del token
 Ahora que ha adquirido correctamente un token de acceso, puede usar el token en las solicitudes a las API web de back-end incluyéndolo en el encabezado `Authorization`:
 
-```HTTP
+```http
 GET /tasks
 Host: mytaskwebapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
@@ -168,7 +168,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ## <a name="4-refresh-the-token"></a>4. Actualización del token
 Los tokens de acceso y los tokens de identificación tienen una corta duración. Una vez expirados, debe actualizarlos para poder seguir obteniendo acceso a los recursos. Para ello, envíe otra solicitud POST al punto de conexión `/token`. Esta vez, proporcione el elemento `refresh_token`, en lugar de `code`:
 
-```HTTP
+```http
 POST https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
 
 Content-Type: application/x-www-form-urlencoded
@@ -189,7 +189,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 
 Una respuesta correcta del token tiene el siguiente aspecto:
 
-```JSON
+```json
 {
     "not_before": "1442340812",
     "token_type": "Bearer",
@@ -210,7 +210,7 @@ Una respuesta correcta del token tiene el siguiente aspecto:
 
 Las respuestas de error tienen un aspecto similar al siguiente:
 
-```JSON
+```json
 {
     "error": "access_denied",
     "error_description": "The user revoked access to the app.",

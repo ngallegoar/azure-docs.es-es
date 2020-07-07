@@ -4,15 +4,16 @@ description: En este artículo se explica cómo configurar los permisos de la id
 author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: how-to
+ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1f0644c25d0047f774fe8f99efa34a33e10d7b2b
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 8e33bd127fca9ddce7b15d144fd287ec4a6bf0e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983302"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85193471"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Concesión de permisos a una identidad administrada de área de trabajo (versión preliminar)
 

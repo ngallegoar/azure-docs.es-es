@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4998fb19e42e123edd57bfcf10931d594ac4cb44
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 131ecd010cba55f08199f713654792c0844a47e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78188739"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85202303"
 ---
 # <a name="display-controls"></a>Controles de visualización
 
@@ -34,7 +34,7 @@ En la imagen siguiente se muestra una página de registro de aserción automáti
 
  En la sección [Metadatos](self-asserted-technical-profile.md#metadata) de un [perfil técnico de aserción automática](self-asserted-technical-profile.md), el elemento [ContentDefinition](contentdefinitions.md) al que se hace referencia debe tener `DataUri` establecido en la versión 2.0.0 o superior del contrato de página. Por ejemplo:
 
-```XML
+```xml
 <ContentDefinition Id="api.selfasserted">
   <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
@@ -66,7 +66,7 @@ En un control de pantalla, puede usar **InputClaims** para rellenar previamente 
 
 En el ejemplo siguiente se rellena previamente la dirección de correo electrónico que se va a comprobar con la dirección ya presente.
 
-```XML
+```xml
 <DisplayControl Id="emailControl" UserInterfaceControlType="VerificationControl">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="emailAddress" />
@@ -82,7 +82,7 @@ De forma similar a las **notificaciones de visualización** definidas en un [per
 
 Determinadas notificaciones de visualización son necesarias para algunos tipos de controles de visualización. Por ejemplo, **VerificationCode** es necesario para el control de visualización de tipo **VerificationControl**. Use el atributo **ControlClaimType** para especificar qué DisplayClaim se designa para la notificación requerida. Por ejemplo:
 
-```XML
+```xml
 <DisplayClaim ClaimTypeReferenceId="otpCode" ControlClaimType="VerificationCode" Required="true" />
 ```
 
@@ -100,7 +100,7 @@ Una acción define una lista de **perfiles técnicos de validación**. Se usan p
 
 En el ejemplo siguiente se envía un código por correo electrónico o SMS en función de la selección del usuario de la notificación **mfaType**.
 
-```XML
+```xml
 <Action Id="SendCode">
   <ValidationClaimsExchange>
     <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AzureMfa-SendSms">
@@ -131,7 +131,7 @@ Se hace referencia a los [controles de visualización](self-asserted-technical-p
 
 Por ejemplo:
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
   ...
   <DisplayClaims>

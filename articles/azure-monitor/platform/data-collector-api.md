@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/01/2019
-ms.openlocfilehash: f12e9e90b99a055945c34398ff5351334c344253
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bcce08285c7412644de22f19ddd9d821ad3adea7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77666759"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85124401"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Envío de datos de registro a Azure Monitor con HTTP Data Collector API (versión preliminar pública)
 En este artículo se muestra cómo utilizar HTTP Data Collector API para enviar datos de registro a Azure Monitor desde un cliente de API REST.  Describe cómo dar formato a los datos recopilados por el script o la aplicación, incluirlos en una solicitud y hacer que esa solicitud la autorice Azure Monitor.  Se proporcionan ejemplos de PowerShell, C# y Python.
@@ -45,7 +45,7 @@ Para usar la API de recopilador de datos de HTTP, cree una solicitud POST que in
 | Parámetro | Descripción |
 |:--- |:--- |
 | CustomerID |El identificador único del área de trabajo de Log Analytics. |
-| Resource |Nombre de recurso de la API: /api/logs. |
+| Recurso |Nombre de recurso de la API: /api/logs. |
 | Versión de API |Versión de la API que se usará con esta solicitud. Actualmente, es 2016-04-01. |
 
 ### <a name="request-headers"></a>Encabezados de solicitud
@@ -180,7 +180,7 @@ El código de estado HTTP 200 significa que se ha recibido la solicitud para su 
 
 Esta tabla muestra el conjunto completo de códigos de estado que el servicio puede devolver:
 
-| Código | Status | Código de error | Descripción |
+| Código | Estado | Código de error | Descripción |
 |:--- |:--- |:--- |:--- |
 | 200 |Aceptar | |La solicitud se aceptó correctamente. |
 | 400 |Solicitud incorrecta |InactiveCustomer |El área de trabajo se cerró. |
@@ -225,7 +225,7 @@ $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 $LogType = "MyRecordType"
 
 # You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
-$TimeStampField = "DateValue"
+$TimeStampField = ""
 
 
 # Create two records with the same set of properties to create

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84c1cf798e88e4067da8a495c1591143d2ee1bd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6553b9ec120ca0e1e479b400495b61bc68c88cf3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78189793"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201215"
 ---
 # <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de transformación de notificaciones en una directiva personalizada en Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ El atributo **Name** del elemento **Protocol** tiene que establecerse en `Propri
 
 En el ejemplo siguiente se muestra un perfil técnico de transformación de notificaciones:
 
-```XML
+```xml
 <TechnicalProfile Id="Facebook-OAUTH-UnLink">
     <DisplayName>Unlink Facebook</DisplayName>
     <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -52,7 +52,7 @@ El elemento **OutputClaims** es obligatorio. Debe proporcionar al menos una noti
 
 El elemento **OutputClaimsTransformations** puede contener una colección de elementos **OutputClaimsTransformation** que se usan para modificar las notificaciones o generar otras nuevas. El perfil técnico siguiente llama a la transformación de notificaciones **RemoveAlternativeSecurityIdByIdentityProvider**. Esta transformación de notificaciones quita una identidad social de la colección de **AlternativeSecurityIds**. Las notificaciones de salida de este perfil técnico son **identityProvider2**, que se establece en `facebook.com`, y **AlternativeSecurityIds**, que contiene la lista de identidades sociales asociadas a este usuario después de quitar la identidad facebook.com.
 
-```XML
+```xml
 <ClaimsTransformations>
   <ClaimsTransformation Id="RemoveAlternativeSecurityIdByIdentityProvider"
 TransformationMethod="RemoveAlternativeSecurityIdByIdentityProvider">
@@ -84,7 +84,7 @@ TransformationClaimType="collection" />
 
 El perfil técnico de transformación de notificaciones permite ejecutar una transformación de notificaciones del paso de orquestación del recorrido de cualquier usuario. En el ejemplo siguiente, el paso de orquestación llama a uno de los perfiles técnicos de desvinculación, como **UnLink-Facebook-OAUTH**. Este perfil técnico llama al perfil técnico de transformación de notificaciones **RemoveAlternativeSecurityIdByIdentityProvider**, que genera una notificación **AlternativeSecurityIds2** nueva que contiene la lista de identidades sociales del usuario, al tiempo que se quita la identidad Facebook de las colecciones.
 
-```XML
+```xml
 <UserJourney Id="AccountUnLink">
   <OrchestrationSteps>
     ...
@@ -110,7 +110,7 @@ El perfil técnico de transformación de notificaciones permite ejecutar una tra
 
 Un perfil técnico de transformación de notificaciones se puede usar para validar la información. En el ejemplo siguiente, el [perfil técnico autoafirmado](self-asserted-technical-profile.md) denominado **LocalAccountSignUpWithLogonEmail** pide al usuario que escriba el correo electrónico dos veces y, después, llama al [perfil técnico de validación](validation-technical-profile.md) denominado **Validate-Email** para validar los correos electrónicos. El perfil técnico **Validate-Email** llama a la transformación de notificaciones **AssertEmailAreEqual** para comparar las dos notificaciones **email** y **emailRepeat**, e inicia una excepción si no son iguales según la comparación especificada.
 
-```XML
+```xml
 <ClaimsTransformations>
   <ClaimsTransformation Id="AssertEmailAreEqual" TransformationMethod="AssertStringClaimsAreEqual">
     <InputClaims>
@@ -126,7 +126,7 @@ Un perfil técnico de transformación de notificaciones se puede usar para valid
 
 El perfil técnico de transformación de notificaciones llama a la transformación de notificaciones **AssertEmailAreEqual**, que confirma que los mensajes de correo electrónico proporcionados por el usuario sean los mismos.
 
-```XML
+```xml
 <TechnicalProfile Id="Validate-Email">
   <DisplayName>Unlink Facebook</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -145,7 +145,7 @@ El perfil técnico de transformación de notificaciones llama a la transformaci�
 
 Un perfil técnico autofirmado puede llamar al perfil técnico de validación y mostrar el mensaje de error especificado en los metadatos de **UserMessageIfClaimsTransformationStringsAreNotEqual**.
 
-```XML
+```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>User ID signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />

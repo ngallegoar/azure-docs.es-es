@@ -3,12 +3,12 @@ title: Patrones de redes para Azure Service Fabric
 description: En este artículo se describen los patrones de redes comunes de Service Fabric y cómo crear un clúster con las características de red de Azure.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 065c311fffe409b20e02a3fddf1e9e7e6a82a2a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9114be5498bcb7fdec4e105ad6e3ff9fcc03a7c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75466282"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85106615"
 ---
 # <a name="service-fabric-networking-patterns"></a>Patrones de redes de Service Fabric
 Puede integrar el clúster de Azure Service Fabric con otras características de red de Azure. En este artículo se muestra cómo crear clústeres que usan las siguientes características:
@@ -171,7 +171,7 @@ En los ejemplos de este artículo, usamos el archivo template.json de Service Fa
     C:>\Users\users>ping NOde1000000 -n 1
     ```
 
-Para obtener otro ejemplo, consulte [uno que no es específico de Service Fabric](https://github.com/gbowerman/azure-myriad/tree/master/existing-vnet).
+Para obtener otro ejemplo, consulte [uno que no es específico de Service Fabric](https://github.com/gbowerman/azure-myriad/tree/main/existing-vnet).
 
 
 <a id="staticpublicip"></a>

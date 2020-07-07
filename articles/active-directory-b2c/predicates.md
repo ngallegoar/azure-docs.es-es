@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 887c9432f04cce775e045bb6da83f0af4a4a4bce
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: b01f1edd4305c09a874b177e4bca373991c9162e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396886"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203816"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates y PredicateValidations
 
@@ -81,7 +81,7 @@ El método IsLengthRange comprueba si la longitud de un valor de notificación d
 
 En el ejemplo siguiente se muestra un método IsLengthRange con los parámetros `Minimum` y `Maximum` que especifican el intervalo de longitud de la cadena:
 
-```XML
+```xml
 <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
   <Parameters>
     <Parameter Id="Minimum">8</Parameter>
@@ -100,7 +100,7 @@ El método MatchesRegex comprueba si un valor de notificación de cadena coincid
 
 En el ejemplo siguiente se muestra un método `MatchesRegex` con el parámetro `RegularExpression` que especifica una expresión regular:
 
-```XML
+```xml
 <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be numbers only.">
   <Parameters>
     <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
@@ -118,7 +118,7 @@ El método IncludesCharacters comprueba si un valor de notificación de cadena c
 
 En el ejemplo siguiente se muestra un método `IncludesCharacters` con el parámetro `CharacterSet` que especifica un juego de caracteres:
 
-```XML
+```xml
 <Predicate Id="Lowercase" Method="IncludesCharacters" HelpText="a lowercase letter">
   <Parameters>
     <Parameter Id="CharacterSet">a-z</Parameter>
@@ -137,7 +137,7 @@ El método IsDateRange comprueba si un valor de notificación de fecha se encuen
 
 En el ejemplo siguiente se muestra un método `IsDateRange` con los parámetros `Minimum` y `Maximum` que especifican el intervalo de fechas con un formato de `yyyy-mm-dd` y `Today`.
 
-```XML
+```xml
 <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 1970-01-01 and today.">
   <Parameters>
     <Parameter Id="Minimum">1970-01-01</Parameter>
@@ -152,7 +152,7 @@ Mientras que los predicados definen la validación que se va a comparar con un t
 
 El elemento **PredicateValidations** debe aparecer directamente después del elemento **Predicados** en el elemento [BuildingBlocks](buildingblocks.md).
 
-```XML
+```xml
 <PredicateValidations>
   <PredicateValidation Id="">
     <PredicateGroups>
@@ -239,7 +239,7 @@ Con **Predicates** y **PredicateValidationsInput** puede controlar los requisito
 - **AllowedAADCharacters** con el método `MatchesRegex` valida que se ha proporcionado el único carácter no válido de la contraseña.
 - **DisallowedWhitespace** con el método `MatchesRegex` valida que la contraseña no empiece ni termine con un carácter de espacio en blanco.
 
-```XML
+```xml
 <Predicates>
   <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
     <Parameters>
@@ -297,7 +297,7 @@ Después de definir las validaciones básicas, puede combinarlas y crear un conj
 - **StrongPassword** valida los predicados DisallowedWhitespace, AllowedAADCharacters y IsLengthBetween8And64. El último grupo `CharacterClasses` ejecuta un conjunto adicional de predicados con `MatchAtLeast` establecido en 3. La contraseña del usuario debe tener entre 8 y 16 caracteres e incluir los siguientes caracteres: minúsculas, mayúsculas, números o símbolos.
 - **CustomPassword** solo valida DisallowedWhitespace y AllowedAADCharacters. Por lo tanto, el usuario puede proporcionar cualquier contraseña de cualquier longitud, siempre y cuando los caracteres sean válidos.
 
-```XML
+```xml
 <PredicateValidations>
   <PredicateValidation Id="SimplePassword">
     <PredicateGroups>
@@ -367,7 +367,7 @@ Después de definir las validaciones básicas, puede combinarlas y crear un conj
 
 En el tipo de notificación, agregue el elemento **PredicateValidationReference** y especifique el identificador como una de las validaciones de predicado, como SimplePassword, StrongPassword o CustomPassword.
 
-```XML
+```xml
 <ClaimType Id="password">
   <DisplayName>Password</DisplayName>
   <DataType>string</DataType>
@@ -386,7 +386,7 @@ A continuación, se muestra cómo se organizan los elementos cuando Azure AD B2C
 
 Con los elementos **Predicates** y **PredicateValidations** puede controlar los valores de fecha mínimos y máximos de **UserInputType** utilizando `DateTimeDropdown`. Para ello, cree un **Predicate** con el método `IsDateRange` y especifique los parámetros mínimos y máximos.
 
-```XML
+```xml
 <Predicates>
   <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 01-01-1980 and today.">
     <Parameters>
@@ -399,7 +399,7 @@ Con los elementos **Predicates** y **PredicateValidations** puede controlar los 
 
 Agregue un **PredicateValidation** con una referencia al predicado `DateRange`.
 
-```XML
+```xml
 <PredicateValidations>
   <PredicateValidation Id="CustomDateRange">
     <PredicateGroups>
@@ -415,7 +415,7 @@ Agregue un **PredicateValidation** con una referencia al predicado `DateRange`.
 
 En el tipo de notificación, agregue el elemento **PredicateValidationReference** y especifique el identificador como `CustomDateRange`.
 
-```XML
+```xml
 <ClaimType Id="dateOfBirth">
   <DisplayName>Date of Birth</DisplayName>
   <DataType>date</DataType>

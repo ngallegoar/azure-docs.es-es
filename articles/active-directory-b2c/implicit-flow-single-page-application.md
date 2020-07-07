@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 37b59c2a23a8f00e8376be2ac4a7b35a6d58aa28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb1750996f40db6d76db30cd1c3bc07186660159
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399006"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201861"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Inicio de sesión de página única mediante el flujo implícito de OAuth 2.0 con Azure Active Directory B2C
 
@@ -40,7 +40,7 @@ Cuando su aplicación web necesite autenticar al usuario y ejecutar el flujo de 
 
 En esta solicitud, el cliente indica los permisos que necesita adquirir del usuario en el parámetro `scope` y el flujo de usuario que se va a ejecutar. Para hacerse una idea de cómo funciona la solicitud, intente pegarla en un explorador y ejecutarla. Reemplace `{tenant}` por el nombre del inquilino de Azure AD B2C. Reemplace `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` por el id. de la aplicación que registró previamente en el inquilino. Reemplace `{policy}` por el nombre de una directiva que haya creado en el inquilino, por ejemplo `b2c_1_sign_in`.
 
-```HTTP
+```http
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=id_token+token
@@ -71,7 +71,7 @@ Cuando el usuario haya completado el flujo de usuario, Azure AD devuelve una res
 ### <a name="successful-response"></a>Respuesta correcta
 Una respuesta correcta que usa `response_mode=fragment` y `response_type=id_token+token` es como la siguiente, con saltos de línea para mejorar la legibilidad:
 
-```HTTP
+```http
 GET https://aadb2cplayground.azurewebsites.net/#
 access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &token_type=Bearer
@@ -93,7 +93,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 ### <a name="error-response"></a>Respuesta de error
 Las respuestas de error también se pueden enviar al URI de redireccionamiento para que la aplicación pueda controlarlas correctamente:
 
-```HTTP
+```http
 GET https://aadb2cplayground.azurewebsites.net/#
 error=access_denied
 &error_description=the+user+canceled+the+authentication
@@ -114,13 +114,13 @@ Muchas bibliotecas de código abierto están disponibles para validar los JWT, s
 
 Azure AD B2C tiene un punto de conexión de metadatos OpenID Connect. Una aplicación puede usar el punto de conexión para obtener información sobre Azure AD B2C en tiempo de ejecución. En esta información se incluyen los extremos, los contenidos del token y las claves de firma de los token. Hay un documento de metadatos JSON para cada flujo de usuario en su inquilino de Azure AD B2C. Por ejemplo, el documento de metadatos para el flujo de usuario b2c_1_sign_in del inquilino fabrikamb2c.onmicrosoft.com se encuentra en:
 
-```HTTP
+```http
 https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/v2.0/.well-known/openid-configuration
 ```
 
 Una de las propiedades de este documento de configuración es `jwks_uri`. El valor para el mismo flujo de usuario sería:
 
-```HTTP
+```http
 https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/discovery/v2.0/keys
 ```
 
@@ -152,7 +152,7 @@ Ahora que ha iniciado la sesión del usuario en su aplicación de una página, p
 
 En el flujo de aplicación web normal, realizaríamos una solicitud al punto de conexión `/token`. Sin embargo, el punto de conexión no admite solicitudes CORS, por lo que las llamadas a AJAX para obtener un token de actualización no son una opción. En su lugar, puede usar el flujo implícito en un elemento iframe HTML oculto para obtener nuevos tokens para otras API web. Aquí se muestra un ejemplo, con saltos de línea por motivos de legibilidad:
 
-```HTTP
+```http
 https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=token
@@ -184,7 +184,7 @@ Al establecer el parámetro `prompt=none`, esta solicitud se realiza correctamen
 ### <a name="successful-response"></a>Respuesta correcta
 Una respuesta correcta al usar `response_mode=fragment` tiene el aspecto del siguiente ejemplo:
 
-```HTTP
+```http
 GET https://aadb2cplayground.azurewebsites.net/#
 access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=arbitrary_data_you_sent_earlier
@@ -204,7 +204,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 ### <a name="error-response"></a>Respuesta de error
 Las respuestas de error también se pueden enviar al URI de redireccionamiento para que la aplicación pueda controlarlas correctamente.  Para `prompt=none`, un error esperado tiene el aspecto del siguiente ejemplo:
 
-```HTTP
+```http
 GET https://aadb2cplayground.azurewebsites.net/#
 error=user_authentication_required
 &error_description=the+request+could+not+be+completed+silently
@@ -225,7 +225,7 @@ Cuando quiera iniciar sesión fuera de la aplicación, redirija al usuario a Azu
 
 Lo que puede hacer es simplemente redirigir al usuario al elemento `end_session_endpoint` que se enumera en el mismo documento de metadatos de OpenID Connect que se ha descrito en [Validar el token de identificador](#validate-the-id-token). Por ejemplo:
 
-```HTTP
+```http
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 

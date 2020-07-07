@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4c3b3318e941723ec333597c7e4b3e48710152d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d02bc8d97b65f4ea2c2585201654899a63d3229b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78397800"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201368"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -23,7 +23,7 @@ ms.locfileid: "78397800"
 
 El elemento **ClaimsSchema** define los tipos de notificación a los que se puede hacer referencia como parte de la directiva. El esquema de notificaciones es el lugar en el que se declaran las notificaciones. Una notificación puede ser el nombre, apellido, nombre para mostrar, número de teléfono y mucho más. El elemento ClaimsSchema contiene la lista de elementos **ClaimType**. El elemento **ClaimType** contiene el atributo **Id**, que es el nombre de la notificación.
 
-```XML
+```xml
 <BuildingBlocks>
   <ClaimsSchema>
     <ClaimType Id="Id">
@@ -97,7 +97,7 @@ El elemento **Protocol** contiene los atributos siguientes:
 
 En el ejemplo siguiente, cuando el marco de experiencia de identidad interactúa con un proveedor de identidades de SAML2 o una aplicación de usuario de confianza, la notificación **surname** se asigna a `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`; con OpenIdConnect y OAuth2, la notificación se asigna a `family_name`.
 
-```XML
+```xml
 <ClaimType Id="surname">
   <DisplayName>Surname</DisplayName>
   <DataType>string</DataType>
@@ -111,7 +111,7 @@ En el ejemplo siguiente, cuando el marco de experiencia de identidad interactúa
 
 Como resultado, el token JWT emitido por Azure AD B2C emite `family_name` en lugar del nombre **surname** de ClaimType.
 
-```JSON
+```json
 {
   "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",
   "auth_time": 1535013501,
@@ -132,7 +132,7 @@ El elemento **Mask** contiene los siguientes atributos:
 
 El ejemplo siguiente configura una notificación **PhoneNumber** con el enmascaramiento `Simple`:
 
-```XML
+```xml
 <ClaimType Id="PhoneNumber">
   <DisplayName>Phone Number</DisplayName>
   <DataType>string</DataType>
@@ -147,7 +147,7 @@ El marco de experiencia de identidad representa el número de teléfono con los 
 
 El ejemplo siguiente configura una notificación **AlternateEmail** con el enmascaramiento `Regex`:
 
-```XML
+```xml
 <ClaimType Id="AlternateEmail">
   <DisplayName>Please verify the secondary email linked to your account</DisplayName>
   <DataType>string</DataType>
@@ -190,7 +190,7 @@ El elemento **Enumeration** contiene los siguientes atributos:
 
 En el ejemplo siguiente se configura una notificación de lista desplegable **Ciudad** con un valor predeterminado establecido en `New York`:
 
-```XML
+```xml
 <ClaimType Id="city">
   <DisplayName>city where you work</DisplayName>
   <DataType>string</DataType>
@@ -218,7 +218,7 @@ El elemento **Pattern** puede contener los siguientes atributos:
 
 En el ejemplo siguiente se configura una notificación de **correo electrónico** con el texto de ayuda y la validación de entrada de la expresión regular:
 
-```XML
+```xml
 <ClaimType Id="email">
   <DisplayName>Email Address</DisplayName>
   <DataType>string</DataType>
@@ -262,7 +262,7 @@ El tipo de entrada de usuario **TextBox** se usa para proporcionar un cuadro de 
 
 ![Cuadro de texto que muestra las propiedades especificadas en el tipo de notificación](./media/claimsschema/textbox.png)
 
-```XML
+```xml
 <ClaimType Id="displayName">
   <DisplayName>Display Name</DisplayName>
   <DataType>string</DataType>
@@ -277,7 +277,7 @@ El tipo de entrada de usuario **EmailBox** se usa para proporcionar un campo de 
 
 ![Cuadro de correo electrónico que muestra las propiedades especificadas en el tipo de notificación](./media/claimsschema/emailbox.png)
 
-```XML
+```xml
 <ClaimType Id="email">
   <DisplayName>Email Address</DisplayName>
   <DataType>string</DataType>
@@ -295,7 +295,7 @@ El tipo de entrada de usuario **Password** se usa para registrar una contraseña
 
 ![Uso del tipo de notificación con Password](./media/claimsschema/password.png)
 
-```XML
+```xml
 <ClaimType Id="password">
   <DisplayName>Password</DisplayName>
   <DataType>string</DataType>
@@ -310,7 +310,7 @@ El tipo de entrada de usuario **DateTimeDropdown** se usa para proporcionar un c
 
 ![Uso del tipo de notificación con Datetimedropdown](./media/claimsschema/datetimedropdown.png)
 
-```XML
+```xml
 <ClaimType Id="dateOfBirth">
   <DisplayName>Date Of Birth</DisplayName>
   <DataType>date</DataType>
@@ -325,7 +325,7 @@ El tipo de entrada de usuario **RadioSingleSelect** se usa para proporcionar una
 
 ![Uso del tipo de notificación con RadioSingleSelect](./media/claimsschema/radiosingleselect.png)
 
-```XML
+```xml
 <ClaimType Id="color">
   <DisplayName>Preferred color</DisplayName>
   <DataType>string</DataType>
@@ -344,7 +344,7 @@ El tipo de entrada de usuario **DropdownSingleSelect** se usa para proporcionar 
 
 ![Uso del tipo de notificación con DropdownSingleSelect](./media/claimsschema/dropdownsingleselect.png)
 
-```XML
+```xml
 <ClaimType Id="city">
   <DisplayName>City where you work</DisplayName>
   <DataType>string</DataType>
@@ -363,7 +363,7 @@ El tipo de entrada de usuario **CheckboxMultiSelect** se usa para proporcionar u
 
 ![Uso del tipo de notificación con CheckboxMultiSelect](./media/claimsschema/checkboxmultiselect.png)
 
-```XML
+```xml
 <ClaimType Id="languages">
   <DisplayName>Languages you speak</DisplayName>
   <DataType>string</DataType>
@@ -382,7 +382,7 @@ El tipo de entrada de usuario **Readonly** se usa para proporcionar un campo de 
 
 ![Uso del tipo de notificación con Readonly](./media/claimsschema/readonly.png)
 
-```XML
+```xml
 <ClaimType Id="membershipNumber">
   <DisplayName>Membership number</DisplayName>
   <DataType>string</DataType>
@@ -398,7 +398,7 @@ El tipo de entrada de usuario **Paragraph** se usa para proporcionar un campo qu
 
 ![Uso del tipo de notificación con Paragraph](./media/claimsschema/paragraph.png)
 
-```XML
+```xml
 <ClaimType Id="responseMsg">
   <DisplayName>Error message: </DisplayName>
   <DataType>string</DataType>

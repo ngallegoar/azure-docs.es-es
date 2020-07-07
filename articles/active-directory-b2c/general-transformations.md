@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: afdf2f531ede30d868123d89cac94fcfae070384
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 52831a1907d5ca8d13b0477c909d0d0358873973
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78188552"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85202227"
 ---
 # <a name="general-claims-transformations"></a>Transformaciones de notificaciones generales
 
@@ -35,7 +35,7 @@ Copiar el valor de una notificación en otra. Ambas notificaciones deben ser del
 
 Use esta transformación de notificaciones para copiar un valor de una notificación de cadena o numérica a otra notificación. En el ejemplo siguiente se copia el valor de la notificación externalEmail a una notificación por correo electrónico.
 
-```XML
+```xml
 <ClaimsTransformation Id="CopyEmailAddress" TransformationMethod="CopyClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="externalEmail" TransformationClaimType="inputClaim"/>
@@ -64,7 +64,7 @@ Comprueba si el elemento **inputClaim** existe o no y establece **outputClaim** 
 
 Use esta transformación de notificaciones para comprobar si una notificación existe o contiene algún valor. El valor devuelto es un valor booleano que indica si existe la notificación. En el ejemplo siguiente se comprueba si existe la dirección de correo electrónico.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckIfEmailPresent" TransformationMethod="DoesClaimExist">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="inputClaim" />
@@ -93,7 +93,7 @@ Hash del texto sin formato proporcionado con el valor salt y un secreto. El algo
 | InputParameter | randomizerSecret | string | Apunta a una **clave de directiva** de Azure AD B2C existente. Para crear una nueva clave de directiva: En su inquilino de Azure AD B2C, en **Administrar**, seleccione **Identity Experience Framework**. Seleccione **Claves de directiva** para ver las claves disponibles en el inquilino. Seleccione **Agregar**. En **Opciones**, seleccione **Manual**. Proporcione un nombre (es posible que se agregue automáticamente el prefijo *B2C_1A_* ). En el cuadro de texto **Secreto**, escriba el secreto que quiere usar, por ejemplo, 1234567890. En **Uso de claves**, seleccione **Firma**. Seleccione **Crear**. |
 | OutputClaim | hash | string | El valor ClaimType que se genera después de que se haya invocado esta transformación de notificaciones. La notificación configurada en el elemento inputClaim `plaintext`. |
 
-```XML
+```xml
 <ClaimsTransformation Id="HashPasswordWithEmail" TransformationMethod="Hash">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="password" TransformationClaimType="plaintext" />

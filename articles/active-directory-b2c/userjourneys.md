@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 189343888d2856a6945723c030485e58394c912f
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: d705c7fbdb744082b402f4dd598551107563ed2e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559608"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203187"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -106,7 +106,7 @@ El elemento **Precondition** contiene los siguientes elementos:
 
 Con las siguientes condiciones previas se comprueba si existe el objectId del usuario. En el recorrido del usuario, el usuario ha optado por iniciar sesión con una cuenta local. Si existe el valor objectId, omita este paso de orquestación.
 
-```XML
+```xml
 <OrchestrationStep Order="2" Type="ClaimsExchange">
   <Preconditions>
     <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
@@ -123,7 +123,7 @@ Con las siguientes condiciones previas se comprueba si existe el objectId del us
 
 Con las siguientes condiciones previas se comprueba si el usuario ha iniciado sesión con una cuenta social. Se intenta encontrar la cuenta de usuario en el directorio. Si el usuario inicia sesión o se registra con una cuenta local, este paso de orquestación se omite.
 
-```XML
+```xml
 <OrchestrationStep Order="3" Type="ClaimsExchange">
   <Preconditions>
     <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
@@ -140,7 +140,7 @@ Con las siguientes condiciones previas se comprueba si el usuario ha iniciado se
 
 Las condiciones previas pueden comprobar varias condiciones previas. En el ejemplo siguiente se comprueba si existe “objectId” o “email”. Si la primera condición es true, el recorrido se omite hasta el siguiente paso de orquestación.
 
-```XML
+```xml
 <OrchestrationStep Order="4" Type="ClaimsExchange">
   <Preconditions>
   <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
@@ -185,7 +185,7 @@ El elemento **ClaimsProviderSelection** contiene los atributos siguientes:
 
 En el siguiente paso de orquestación, el usuario puede iniciar sesión con una cuenta local o con una cuenta de Facebook, LinkedIn, Twitter o Google. Si el usuario selecciona uno de los proveedores de identidades sociales, el segundo paso de orquestación se ejecuta con el intercambio de notificaciones seleccionado especificado en el atributo `TargetClaimsExchangeId`. El segundo paso de orquestación redirige al usuario al proveedor de identidades sociales para completar el proceso de inicio de sesión. Si el usuario decide iniciar sesión con la cuenta local, Azure AD B2C se mantiene en el mismo paso de orquestación (la misma página de registro o de inicio de sesión) y omite el segundo paso de orquestación.
 
-```XML
+```xml
 <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
     <ClaimsProviderSelections>
     <ClaimsProviderSelection TargetClaimsExchangeId="FacebookExchange" />

@@ -6,14 +6,14 @@ manager: nitinme
 author: careyjmac
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 06/17/2020
 ms.author: chalton
-ms.openlocfilehash: 0f67caad03c4ebd1cf8f3721f377d8362219016a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f209be383e445e3b0c011e0bfb4266a191a8d931
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76837738"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080875"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Aptitud cognitiva de extracción de documentos
 
@@ -25,7 +25,8 @@ La aptitud de **extracción de documentos** extrae el contenido de un archivo de
 > [!NOTE]
 > A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y para la extracción de imágenes como parte de la fase de descifrado de documentos en la indexación. No hay ningún cargo por la extracción de texto de documentos.
 >
-> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios](https://go.microsoft.com/fwlink/?linkid=2042400).
+> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios](https://azure.microsoft.com/pricing/details/search/).
+
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.DocumentExtractionSkill
 
@@ -51,7 +52,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 
 | Nombre de entrada     | Descripción |
 |--------------------|-------------|
-| file_data | Archivo del que se debe extraer el contenido. |
+| `file_data` | Archivo del que se debe extraer el contenido. |
 
 La entrada "file_data" debe ser un objeto definido de la siguiente manera:
 
@@ -74,8 +75,8 @@ Este objeto de referencia de archivo se puede generar mediante una de estas tres
 
 | Nombre de salida    | Descripción |
 |--------------|-------------|
-| content | Contenido textual del documento. |
-| normalized_images | Si `imageAction` se establece en un valor distinto de `none`, el nuevo campo *normalized_images* contendrá una matriz de imágenes. Consulte [la documentación de extracción de imágenes](cognitive-search-concept-image-scenarios.md) para obtener más detalles sobre el formato de salida de cada imagen. |
+| `content` | Contenido textual del documento. |
+| `normalized_images`   | Si `imageAction` se establece en un valor distinto de `none`, el nuevo campo *normalized_images* contendrá una matriz de imágenes. Consulte [la documentación de extracción de imágenes](cognitive-search-concept-image-scenarios.md) para obtener más detalles sobre el formato de salida de cada imagen. |
 
 ##  <a name="sample-definition"></a>Definición de ejemplo
 

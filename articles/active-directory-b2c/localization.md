@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 94ff7ddda41f2df2634d927a7dbf8a5a0d4fc1d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69368ecd7234912bcaf5eb606545f62ddb7b30a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681413"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204190"
 ---
 # <a name="localization"></a>Localización
 
@@ -26,7 +26,7 @@ El elemento **Localization** permite incluir varios idiomas o configuraciones re
 - Configurar la lista explícita de los idiomas admitidos en una directiva y seleccionar un idioma predeterminado.
 - Proporcionar cadenas y colecciones específicas del idioma.
 
-```XML
+```xml
 <Localization Enabled="true">
   <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
     <SupportedLanguage>en</SupportedLanguage>
@@ -116,7 +116,7 @@ El elemento **Item** contiene los atributos siguientes:
 
 En el ejemplo siguiente, se muestra cómo usar el elemento **LocalizedCollections**. Contiene dos elementos **LocalizedCollection**, uno para inglés y otro para español. Ambos establecen la colección **Restriction** de la notificación `Gender` con una lista de elementos para inglés y español.
 
-```XML
+```xml
 <LocalizedResources Id="api.selfasserted.en">
  <LocalizedCollections>
    <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
@@ -205,7 +205,7 @@ El valor de ClaimType se usa para localizar uno de los atributos de la notificac
 
 En el ejemplo siguiente se muestra cómo localizar los atributos DisplayName, UserHelpText y PatternHelpText del tipo de notificación de correo electrónico.
 
-```XML
+```xml
 <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
 <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
 <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
@@ -228,7 +228,7 @@ El valor de ErrorMessage se usa para localizar uno de los mensajes de error del 
 En el ejemplo siguiente se muestra cómo localizar el mensaje de error UserMessageIfClaimsPrincipalAlreadyExists.
 
 
-```XML
+```xml
 <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
 ```
 
@@ -319,7 +319,7 @@ El valor de InputValidation se usa para localizar uno de los mensajes de error d
 
 En el ejemplo siguiente se muestra cómo localizar el texto de ayuda de un grupo de validación de predicados.
 
-```XML
+```xml
 <LocalizedString ElementType="InputValidation" ElementId="CustomPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
 ```
 
@@ -327,7 +327,7 @@ En el ejemplo siguiente se muestra cómo localizar el texto de ayuda de un grupo
 
 El valor de UxElement se usa para localizar uno de los elementos de la interfaz de usuario. En el ejemplo siguiente se muestra cómo localizar los botones Continuar y Cancelar.
 
-```XML
+```xml
 <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
 <LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
 ```

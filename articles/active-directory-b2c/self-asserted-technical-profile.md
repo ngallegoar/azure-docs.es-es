@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2b29b8b0975639e5c5315a55e1382794d7662665
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 84e92cbac064106ca95277288eb773e311798930
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80332505"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203459"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico autoafirmado en una directiva personalizada en Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ El atributo **Name** del elemento **Protocol** tiene que establecerse en `Propri
 
 En el ejemplo siguiente se muestra un perfil técnico autoafirmado para el registro de un correo electrónico:
 
-```XML
+```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>Email signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -40,7 +40,7 @@ En el ejemplo siguiente se muestra un perfil técnico autoafirmado para el regis
 
 En un perfil técnico autoafirmado, puede usar los elementos **InputClaims** y **InputClaimsTransformations** para rellenar previamente el valor de las notificaciones que aparecen en la página autoafirmada (notificaciones de salida). Por ejemplo, en la directiva del perfil de edición, el recorrido del usuario lee primero el perfil de usuario desde el servicio de directorio de Azure AD B2C y, después, el perfil técnico autoafirmado establece las notificaciones de entrada con los datos de usuario almacenados en el perfil de usuario. Estas notificaciones se recopilan desde el perfil de usuario y se presentan al usuario, que después puede editar los datos existentes.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
 ...
   <InputClaims>
@@ -71,7 +71,7 @@ En el siguiente ejemplo `TechnicalProfile` se muestra el uso de las notificacion
 * La quinta notificación de visualización hace referencia al control de visualización `phoneVerificationControl`, que recopila y comprueba un número de teléfono.
 * Las demás notificaciones de visualización son elementos ClaimTypes que se van a recopilar del usuario.
 
-```XML
+```xml
 <TechnicalProfile Id="Id">
   <DisplayClaims>
     <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
@@ -93,7 +93,7 @@ Si especifica uno o más elementos de **DisplayClaim** en un perfil técnico aut
 
 Considere el siguiente ejemplo en el que se define una notificación `age` como una notificación de **salida** en una directiva base. Antes de agregar cualquier notificación de visualización al perfil técnico autoafirmado, la notificación `age` se muestra en la pantalla para la recopilación de datos del usuario:
 
-```XML
+```xml
 <TechnicalProfile Id="id">
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="age" />
@@ -103,7 +103,7 @@ Considere el siguiente ejemplo en el que se define una notificación `age` como 
 
 Si una directiva de hoja que hereda esa base especifica posteriormente `officeNumber` como una notificación de **visualización**:
 
-```XML
+```xml
 <TechnicalProfile Id="id">
   <DisplayClaims>
     <DisplayClaim ClaimTypeReferenceId="officeNumber" />
@@ -140,7 +140,7 @@ Use notificaciones de salida si:
 
 En el ejemplo siguiente se muestra el uso de un perfil técnico autoafirmado que utiliza notificaciones de visualización y notificaciones de salida.
 
-```XML
+```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>Email signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ff2a8ad05e26ea31fc8100d4000171313881f4e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e42c889277f937a33e72eaf57819385166d6a409
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78188790"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85202321"
 ---
 # <a name="verification-display-control"></a>Control de pantalla de verificación
 
@@ -53,7 +53,7 @@ En el ejemplo siguiente, se muestra un cuadro de texto de **correo electrónico*
 
 Después, el usuario especifica la acción **verificationCode** y selecciona **VerifyCode** para desencadenar la acción **VerifyCode** en el back-end. Si se pasan todas las validaciones, se considera que la clase **VerificationControl** se ha completado y el usuario puede continuar con el paso siguiente.
 
-```XML
+```xml
 <DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
   <DisplayClaims>
     <DisplayClaim ClaimTypeReferenceId="email"  Required="true" />

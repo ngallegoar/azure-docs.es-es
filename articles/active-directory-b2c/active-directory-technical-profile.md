@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7db47eda47850c1c080b6a49256c8a0b37bb0d3c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 67acf675c6636c5d1066d4fe25310d875fa7c064
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80330381"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201521"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de Azure Active Directory en una directiva personalizada en Azure Active Directory B2C
 
@@ -41,7 +41,7 @@ Siguiendo el [paquete de inicio de directivas personalizadas](custom-policy-get-
 
 En el ejemplo siguiente se muestra el perfil técnico **AAD-Common**:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-Common">
   <DisplayName>Azure Active Directory</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -96,7 +96,7 @@ El elemento **PersistedClaims** contiene todos los valores que Azure AD debe co
 
 El perfil técnico **AAD-UserWriteUsingLogonEmail** crea una cuenta local y conserva las notificaciones siguientes:
 
-```XML
+```xml
   <PersistedClaims>
     <!-- Required claims -->
     <PersistedClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" />
@@ -126,7 +126,7 @@ El nombre de la notificación es el del atributo de Azure AD, a menos que se esp
 
 La operación **Read** lee los datos sobre una sola cuenta de usuario. El perfil técnico siguiente lee los datos sobre una cuenta de usuario mediante el valor objectId del usuario:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-UserReadUsingObjectId">
   <Metadata>
     <Item Key="Operation">Read</Item>
@@ -156,7 +156,7 @@ La operación **Read** lee los datos sobre una sola cuenta de usuario. El perfil
 
 La operación **Write** crea o actualiza una sola cuenta de usuario. El perfil técnico siguiente crea la cuenta de red social:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
   <Metadata>
     <Item Key="Operation">Write</Item>
@@ -196,7 +196,7 @@ La operación **Write** crea o actualiza una sola cuenta de usuario. El perfil t
 
 La operación **DeleteClaims** borra la información de una lista de notificaciones proporcionada. El perfil técnico siguiente elimina notificaciones:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-DeleteClaimsUsingObjectId">
   <Metadata>
     <Item Key="Operation">DeleteClaims</Item>
@@ -217,7 +217,7 @@ La operación **DeleteClaims** borra la información de una lista de notificacio
 
 La operación **DeleteClaimsPrincipal** elimina una sola cuenta de usuario del directorio. El perfil técnico siguiente elimina una cuenta de usuario del directorio mediante el nombre principal de usuario:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-DeleteUserUsingObjectId">
   <Metadata>
     <Item Key="Operation">DeleteClaimsPrincipal</Item>
@@ -232,7 +232,7 @@ La operación **DeleteClaimsPrincipal** elimina una sola cuenta de usuario del d
 
 El perfil técnico siguiente elimina una cuenta de usuario de red social mediante **alternativeSecurityId**:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-DeleteUserUsingAlternativeSecurityId">
   <Metadata>
     <Item Key="Operation">DeleteClaimsPrincipal</Item>

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 83e1e11fe38a21bbd7c44139fac562342bcab866
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8e575cf9bba02a59179cc70870fb680a27648963
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229653"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201182"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Acerca de los solucionadores de notificaciones en las directivas personalizadas de Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Para utilizar un solucionador de notificaciones en una notificación de entrada 
 
 En el ejemplo siguiente, un tipo de notificación llamada `correlationId` se define con un **DataType** de `string`.
 
-```XML
+```xml
 <ClaimType Id="correlationId">
   <DisplayName>correlationId</DisplayName>
   <DataType>string</DataType>
@@ -36,7 +36,7 @@ En el ejemplo siguiente, un tipo de notificación llamada `correlationId` se def
 
 En el perfil técnico, asigne el solucionador de notificaciones al tipo de notificación. Azure AD B2C rellena el valor del solucionador de notificaciones `{Context:CorrelationId}` en la notificación `correlationId` y envía la notificación al perfil técnico.
 
-```XML
+```xml
 <InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{Context:CorrelationId}" />
 ```
 
@@ -157,7 +157,7 @@ En un perfil técnico de [RESTful](restful-technical-profile.md), es posible que
 
 En el ejemplo siguiente se muestra un perfil técnico de RESTful con este escenario:
 
-```XML
+```xml
 <TechnicalProfile Id="REST">
   <DisplayName>Validate user input data and return loyaltyNumber claim</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -187,7 +187,7 @@ Azure AD B2C le permite pasar parámetros de cadena de consulta a los puntos de
 
 El ejemplo siguiente pasa en la cadena de consulta un parámetro denominado **campaignId** con un valor de `Hawaii`, un código de **idioma** de `en-US` y una **aplicación** que representa el identificador de cliente:
 
-```XML
+```xml
 <UserJourneyBehaviors>
   <ContentDefinitionParameters>
     <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
@@ -207,7 +207,7 @@ Como resultado, Azure AD B2C envía los parámetros anteriores a la página de 
 
 En el parámetro `LoadUri` de [ContentDefinition](contentdefinitions.md), puede enviar resoluciones de notificaciones para extraer contenido de distintos lugares, en función de los parámetros utilizados.
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>https://contoso.blob.core.windows.net/{Culture:LanguageName}/myHTML/unified.html</LoadUri>
   ...
@@ -218,7 +218,7 @@ En el parámetro `LoadUri` de [ContentDefinition](contentdefinitions.md), puede 
 
 Con Azure Application Insights y los solucionadores de notificaciones, puede obtener información sobre el comportamiento del usuario. En el perfil técnico de Application Insights, envía notificaciones de entrada que se conservan en Azure Application Insights. Para más información, consulte [Seguimiento del comportamiento del usuario dentro de los recorridos de Azure AD B2C mediante Application Insights](analytics-with-application-insights.md). El ejemplo siguiente envía el identificador de directiva, el identificador de correlación, el idioma y el identificador de cliente a Azure Application Insights.
 
-```XML
+```xml
 <TechnicalProfile Id="AzureInsights-Common">
   <DisplayName>Alternate Email</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.Insights.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -236,7 +236,7 @@ Con Azure Application Insights y los solucionadores de notificaciones, puede obt
 
 En un perfil técnico de directiva de [Usuario de confianza](relyingparty.md), es posible que quiera enviar el identificador de inquilino o el identificador de correlación a la aplicación de usuario de confianza en el JWT.
 
-```XML
+```xml
 <RelyingParty>
     <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
     <TechnicalProfile Id="PolicyProfile">

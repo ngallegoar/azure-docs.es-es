@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a659d8929f845b1c58bd64f628b2d3f47a96674e
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: de5c478ac6641fe5b1e342c063d134f70084b2ef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84297537"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201453"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Solicitud de token de acceso en Azure Active Directory B2C
 
@@ -67,7 +67,7 @@ En el ejemplo siguiente, reemplace estos valores:
 - `<application-ID>`: el identificador de la aplicación web que ha registrado para admitir el flujo de usuario.
 - `<redirect-uri>`: el **identificador URI de redirección** que especificó al registrar la aplicación cliente.
 
-```HTTP
+```http
 GET https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
 client_id=<application-ID>
 &nonce=anyRandomValue
@@ -84,7 +84,7 @@ https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 
 Después de recibir correctamente el código de autorización, puede usarlo para solicitar un token de acceso:
 
-```HTTP
+```http
 POST <tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
@@ -99,7 +99,7 @@ grant_type=authorization_code
 
 Debe ver algo parecido a la siguiente respuesta:
 
-```JSON
+```json
 {
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrN...",
     "token_type": "Bearer",
@@ -113,7 +113,7 @@ Debe ver algo parecido a la siguiente respuesta:
 
 Cuando se usa https://jwt.ms para examinar el token de acceso devuelto, debe ver algo similar al ejemplo siguiente:
 
-```JSON
+```json
 {
   "typ": "JWT",
   "alg": "RS256",

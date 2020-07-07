@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 125d89301e9d2cc3fc863bffb9b9e6c41e0c129e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 16fdc38d6235ddd0f72c7a35a3d71973ce01a4be
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229942"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203221"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Acerca de los perfiles técnicos en las directivas personalizadas de Azure Active Directory B2C
 
@@ -49,7 +49,7 @@ Un perfil técnico posibilita estos tipos de escenarios:
 Todos los tipos de perfiles técnicos comparten el mismo concepto. El usuario envía notificaciones de entrada, ejecuta la transformación de notificaciones y se comunica con la entidad configurada, como un proveedor de identidades, la API REST o los servicios de directorio de Azure AD. Una vez finalizado el proceso, el perfil técnico devuelve las notificaciones de salida y puede ejecutar la transformación de notificaciones de salida. El diagrama siguiente muestra cómo se procesan las transformaciones y las asignaciones a las que se hace referencia en el perfil técnico. Independientemente de la entidad con la que interactúe el perfil técnico, una vez que se ejecute la transformación de las notificaciones, las notificaciones de salida del perfil técnico se almacenan de inmediato en el contenedor de notificaciones.
 
 ![Diagrama que ilustra el flujo de perfil técnico](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
- 
+
 1. **Administración de la sesión de inicio de sesión único (SSO)** : restaura el estado de la sesión del perfil técnico mediante la [administración de la sesión de inicio de sesión único](custom-policy-reference-sso.md).
 1. **Tranformación de las notificaciones de entrada**: las notificaciones de entrada de cada [transformación de notificaciones](claimstransformations.md) de entrada se toman del contenedor de notificaciones.  Las notificaciones de salida de una transformación de notificaciones de entrada pueden ser notificaciones de entrada de una transformación de notificaciones de entrada subsiguiente.
 1. **Notificaciones de entrada**: las notificaciones se toman del contenedor de notificaciones y se usan para el perfil técnico. Por ejemplo, un [perfil técnico autoafirmado](self-asserted-technical-profile.md) usa las notificaciones de entrada para rellenar previamente las notificaciones de salida que proporciona el usuario. Un perfil técnico de la API REST usa las notificaciones de entrada para enviar los parámetros de entrada al punto de conexión de la API REST. Azure Active Directory usa la notificación de entrada como un identificador único para leer, actualizar o eliminar una cuenta.
@@ -70,7 +70,7 @@ Un perfil técnico puede incluir otro perfil técnico para cambiar la configurac
 
 Por ejemplo, el perfil técnico **AAD-UserReadUsingAlternativeSecurityId-NoError** incluye **AAD-UserReadUsingAlternativeSecurityId**. Este perfil técnico establece el elemento de metadatos `RaiseErrorIfClaimsPrincipalDoesNotExist` en `true` y genera un error si no existe una cuenta de redes sociales en el directorio. **AAD-UserReadUsingAlternativeSecurityId-NoError** invalida este comportamiento y deshabilita ese mensaje de error.
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId-NoError">
   <Metadata>
     <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">false</Item>
@@ -81,7 +81,7 @@ Por ejemplo, el perfil técnico **AAD-UserReadUsingAlternativeSecurityId-NoError
 
 **AAD UserReadUsingAlternativeSecurityId** incluye el perfil técnico de `AAD-Common`.
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
   <Metadata>
     <Item Key="Operation">Read</Item>
@@ -105,7 +105,7 @@ Por ejemplo, el perfil técnico **AAD-UserReadUsingAlternativeSecurityId-NoError
 
 Ni **AAD-UserReadUsingAlternativeSecurityId-NoError** ni **AAD-UserReadUsingAlternativeSecurityId** especifican el elemento **Protocol**, porque se especifica en el perfil técnico **AAD-Common**.
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-Common">
   <DisplayName>Azure Active Directory</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />

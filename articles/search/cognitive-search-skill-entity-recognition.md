@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 6ef5952b6413563b2c2e16ff2218f709b414fb84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/17/2020
+ms.openlocfilehash: 716951616a82dfd13d6bdcf127c4c4382576e792
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297808"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080856"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Aptitud cognitiva de reconocimiento de entidades
 
@@ -22,7 +22,7 @@ La aptitud **Reconocimiento de entidades** extrae entidades de distintos tipos d
 > [!NOTE]
 > A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y por la extracción de imágenes como parte de la fase de descifrado de documentos de Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.
 >
-> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Búsqueda cognitiva de Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
+> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Búsqueda cognitiva de Azure](https://azure.microsoft.com/pricing/details/search/).
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -37,18 +37,18 @@ Los parámetros distinguen mayúsculas de minúsculas y son opcionales.
 
 | Nombre de parámetro     | Descripción |
 |--------------------|-------------|
-| categories    | Matriz de categorías que se deben extraer.  Tipos de categorías posibles: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Si no se proporciona ninguna categoría, se devuelven todos los tipos.|
-|defaultLanguageCode |    Código de idioma del texto de entrada. Se admiten los siguientes idiomas: `ar, cs, da, de, en, es, fi, fr, hu, it, ja, ko, nl, no, pl, pt-BR, pt-PT, ru, sv, tr, zh-hans`. No todas las categorías de entidad son compatibles con todos los idiomas. Consulte la nota que aparece a continuación.|
-|minimumPrecision | Un valor entre 0 y 1. Si la puntuación de confianza (en el resultado `namedEntities`) es inferior a este valor, no se devuelve la entidad. El valor predeterminado es 0. |
-|includeTypelessEntities | Establézcalo en `true` si desea reconocer entidades conocidas que no se ajustan a las categorías actuales. Las entidades reconocidas se devuelven en el campo de salida complejo `entities`. Por ejemplo, "Windows 10" es una entidad conocida (un producto), pero como "Productos" no es una categoría admitida, esta entidad se incluiría en el campo de salida de las entidades. Valor predeterminado: `false` |
+| `categories`    | Matriz de categorías que se deben extraer.  Tipos de categorías posibles: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Si no se proporciona ninguna categoría, se devuelven todos los tipos.|
+| `defaultLanguageCode` |    Código de idioma del texto de entrada. Se admiten los siguientes idiomas: `ar, cs, da, de, en, es, fi, fr, hu, it, ja, ko, nl, no, pl, pt-BR, pt-PT, ru, sv, tr, zh-hans`. No todas las categorías de entidad son compatibles con todos los idiomas. Consulte la nota que aparece a continuación.|
+| `minimumPrecision` | Un valor entre 0 y 1. Si la puntuación de confianza (en el resultado `namedEntities`) es inferior a este valor, no se devuelve la entidad. El valor predeterminado es 0. |
+| `includeTypelessEntities` | Establézcalo en `true` si desea reconocer entidades conocidas que no se ajustan a las categorías actuales. Las entidades reconocidas se devuelven en el campo de salida complejo `entities`. Por ejemplo, "Windows 10" es una entidad conocida (un producto), pero como "Productos" no es una categoría admitida, esta entidad se incluiría en el campo de salida de las entidades. Valor predeterminado: `false` |
 
 
 ## <a name="skill-inputs"></a>Entradas de la aptitud
 
 | Nombre de entrada      | Descripción                   |
 |---------------|-------------------------------|
-| languageCode    | Opcional. El valor predeterminado es `"en"`.  |
-| text          | Texto que se analizará.          |
+| `languageCode`    | Opcional. El valor predeterminado es `"en"`.  |
+| `text`          | Texto que se analizará.          |
 
 ## <a name="skill-outputs"></a>Salidas de la aptitud
 
@@ -57,15 +57,15 @@ Los parámetros distinguen mayúsculas de minúsculas y son opcionales.
 
 | Nombre de salida      | Descripción                   |
 |---------------|-------------------------------|
-| persons       | Una matriz de cadenas donde cada cadena representa el nombre de una persona. |
-| locations  | Una matriz de cadenas donde cada cadena representa una ubicación. |
-| organizations  | Una matriz de cadenas donde cada cadena representa una organización. |
-| quantities  | Una matriz de cadenas donde cada cadena representa una cantidad. |
-| dateTimes  | Una matriz de cadenas donde cada cadena representa un valor de fecha y hora (como aparece en el texto). |
-| urls | Una matriz de cadenas donde cada cadena representa una dirección URL. |
-| emails | Una matriz de cadenas donde cada cadena representa un correo electrónico. |
-| namedEntities | Una matriz de tipos complejos, que contiene los siguientes campos: <ul><li>category</li> <li>valor (el nombre de entidad real)</li><li>desplazamiento (la ubicación donde se encontró en el texto)</li><li>confianza (cuanto más alto sea el valor, más real será una entidad)</li></ul> |
-| entities | Una matriz de tipos complejos que contiene información valiosa acerca de las entidades extraídas del texto, con los siguientes campos: <ul><li> name (el nombre real de la entidad. Esto representa una forma "normalizada")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (un vínculo a la página de Wikipedia de la entidad)</li><li>bingId</li><li>type (la categoría de la entidad reconocida)</li><li>subType (solo disponible para determinadas categorías; proporciona una vista más pormenorizada del tipo de entidad)</li><li> matches (una colección compleja que contiene)<ul><li>text (el texto sin formato de la entidad)</li><li>offset (la ubicación donde se encontró)</li><li>length (la longitud del texto de la entidad sin formato)</li></ul></li></ul> |
+| `persons`       | Una matriz de cadenas donde cada cadena representa el nombre de una persona. |
+| `locations`  | Una matriz de cadenas donde cada cadena representa una ubicación. |
+| `organizations`  | Una matriz de cadenas donde cada cadena representa una organización. |
+| `quantities`  | Una matriz de cadenas donde cada cadena representa una cantidad. |
+| `dateTimes`  | Una matriz de cadenas donde cada cadena representa un valor de fecha y hora (como aparece en el texto). |
+| `urls` | Una matriz de cadenas donde cada cadena representa una dirección URL. |
+| `emails` | Una matriz de cadenas donde cada cadena representa un correo electrónico. |
+| `namedEntities` | Una matriz de tipos complejos, que contiene los siguientes campos: <ul><li>category</li> <li>valor (el nombre de entidad real)</li><li>desplazamiento (la ubicación donde se encontró en el texto)</li><li>confianza (cuanto más alto sea el valor, más real será una entidad)</li></ul> |
+| `entities` | Una matriz de tipos complejos que contiene información valiosa acerca de las entidades extraídas del texto, con los siguientes campos: <ul><li> name (el nombre real de la entidad. Esto representa una forma "normalizada")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (un vínculo a la página de Wikipedia de la entidad)</li><li>bingId</li><li>type (la categoría de la entidad reconocida)</li><li>subType (solo disponible para determinadas categorías; proporciona una vista más pormenorizada del tipo de entidad)</li><li> matches (una colección compleja que contiene)<ul><li>text (el texto sin formato de la entidad)</li><li>offset (la ubicación donde se encontró)</li><li>length (la longitud del texto de la entidad sin formato)</li></ul></li></ul> |
 
 ##    <a name="sample-definition"></a>Definición de ejemplo
 

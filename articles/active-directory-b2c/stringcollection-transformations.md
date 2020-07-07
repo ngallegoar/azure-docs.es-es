@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cac7e6feb632456b63b97ead057f9ecaf49322ea
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 1ad9cc3d6d07c8d744ec667e2fffb035848121b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81729715"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203255"
 ---
 # <a name="stringcollection-claims-transformations"></a>Transformaciones de notificaciones StringCollection
 
@@ -38,7 +38,7 @@ Use esta transformación de notificaciones para agregar una cadena a una clase s
 
 La siguiente transformación de notificaciones agrega el ClaimType **email** al ClaimType **otherMails**.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="item" />
@@ -70,7 +70,7 @@ Agrega un parámetro de cadena a una nueva notificación stringCollection de val
 
 Use esta transformación de notificaciones para agregar un valor de cadena a una clase stringCollection nueva o existente. En el ejemplo siguiente se agrega una dirección de correo electrónico constante (admin@contoso.com) a la notificación **otherMails**.
 
-```XML
+```xml
 <ClaimsTransformation Id="SetCompanyEmail" TransformationMethod="AddParameterToStringCollection">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
@@ -104,7 +104,7 @@ Obtiene el primer elemento de la colección de la cadena proporcionada.
 
 En el ejemplo siguiente se lee la notificación **otherMails** y se devuelve el primer elemento de la notificación de **correo electrónico**.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateEmailFromOtherMails" TransformationMethod="GetSingleItemFromStringCollection">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
@@ -136,7 +136,7 @@ Comprueba si un tipo de notificación StringCollection contiene un elemento.
 
 En el siguiente ejemplo se comprueba si el tipo de notificación stringCollection `roles` contiene el valor **admin**.
 
-```XML
+```xml
 <ClaimsTransformation Id="IsAdmin" TransformationMethod="StringCollectionContains">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
@@ -172,7 +172,7 @@ Comprueba si un tipo de notificación StringCollection contiene un valor de noti
 
 En el siguiente ejemplo se comprueba si el tipo de notificación del elemento stringCollection `roles` contiene el valor del tipo de notificación `role`.
 
-```XML
+```xml
 <ClaimsTransformation Id="HasRequiredRole" TransformationMethod="StringCollectionContainsClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="collection" />

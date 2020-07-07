@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 8439788c63ec1b9feaea148ab52aba498791dc12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/17/2020
+ms.openlocfilehash: bac2f86f4134cc8d22e9f388b46bc76ab2d0e5ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76045019"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080809"
 ---
 #   <a name="language-detection-cognitive-skill"></a>Aptitud cognitiva para la detección de idiomas
 
@@ -26,7 +26,7 @@ La detección de idioma aprovecha las bibliotecas de procesamiento de lenguaje n
 > [!NOTE]
 > A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y por la extracción de imágenes como parte de la fase de descifrado de documentos de Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.
 >
-> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Búsqueda cognitiva de Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
+> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Búsqueda cognitiva de Azure](https://azure.microsoft.com/pricing/details/search/).
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -41,15 +41,15 @@ Los parámetros distinguen mayúsculas de minúsculas.
 
 | Entradas     | Descripción |
 |--------------------|-------------|
-| text | Texto que se va a analizar.|
+| `text` | Texto que se va a analizar.|
 
 ## <a name="skill-outputs"></a>Salidas de la aptitud
 
 | Nombre de salida    | Descripción |
 |--------------------|-------------|
-| languageCode | El código de idioma ISO 6391 para el idioma identificado. Por ejemplo, "en". |
-| languageName | El nombre del idioma. Por ejemplo, "inglés". |
-| score | Un valor entre 0 y 1. La probabilidad de que el lenguaje esté correctamente identificado. La puntuación puede ser inferior a 1 si la oración tiene distintos idiomas.  |
+| `languageCode` | El código de idioma ISO 6391 para el idioma identificado. Por ejemplo, "en". |
+| `languageName` | El nombre del idioma. Por ejemplo, "inglés". |
+| `score` | Un valor entre 0 y 1. La probabilidad de que el lenguaje esté correctamente identificado. La puntuación puede ser inferior a 1 si la oración tiene distintos idiomas.  |
 
 ##  <a name="sample-definition"></a>Definición de ejemplo
 

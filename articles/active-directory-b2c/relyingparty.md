@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 733a33881fe3acc962aeda4b05a1b01be4e148ca
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: c8c4e65c7ee97b33acbd68bfd8267a334508e25c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81680356"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203748"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -25,7 +25,7 @@ El elemento **RelyingParty** especifica el recorrido del usuario para ejecutar l
 
 En el ejemplo siguiente se muestra un elemento **RelyingParty** en el archivo de directiva *B2C_1A_signup_signin*:
 
-```XML
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TrustFrameworkPolicy
   xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
@@ -86,7 +86,7 @@ El elemento `DefaultUserJourney` especifica una referencia al identificador del 
 
 Directiva de *B2C_1A_signup_signin*:
 
-```XML
+```xml
 <RelyingParty>
   <DefaultUserJourney ReferenceId="SignUpOrSignIn">
   ...
@@ -94,7 +94,7 @@ Directiva de *B2C_1A_signup_signin*:
 
 *B2C_1A_TrustFrameWorkBase* o *B2C_1A_TrustFrameworkExtensionPolicy*:
 
-```XML
+```xml
 <UserJourneys>
   <UserJourney Id="SignUpOrSignIn">
   ...
@@ -222,7 +222,7 @@ El elemento **SubjectNamingInfo** contiene el siguiente atributo:
 
 En el ejemplo siguiente se muestra cómo definir un usuario de confianza de OpenID Connect. La información sobre el nombre del asunto se configura como `objectId`:
 
-```XML
+```xml
 <RelyingParty>
   <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
   <TechnicalProfile Id="PolicyProfile">
@@ -242,7 +242,7 @@ En el ejemplo siguiente se muestra cómo definir un usuario de confianza de Open
 ```
 El token JWT incluye la notificación `sub` con el objectId del usuario:
 
-```JSON
+```json
 {
   ...
   "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",

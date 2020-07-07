@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b42c2a414333e7ed262441321a808fc45425fc3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 37df1a052a58271c239b8b3bcaa4808ab7c355f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81756748"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204377"
 ---
 # <a name="json-claims-transformations"></a>Transformaciones de notificaciones de JSON
 
@@ -36,7 +36,7 @@ Use valores de notificaciones o constantes para generar una cadena JSON. La cade
 
 En el ejemplo siguiente se genera una cadena JSON basada en el valor de notificación de "email" y "OTP", así como cadenas de constantes.
 
-```XML
+```xml
 <ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
@@ -67,7 +67,7 @@ La siguiente transformación de notificaciones genera una notificación de caden
 - Notificación de salida:
   - **requestBody**: Valor JSON
 
-```JSON
+```json
 {
   "personalizations": [
     {
@@ -102,7 +102,7 @@ Obtener un elemento especificado de datos JSON.
 
 En el ejemplo siguiente, se muestra que la transformación de notificaciones extrajo el elemento `emailAddress` a partir de los datos JSON: `{"emailAddress": "someone@example.com", "displayName": "Someone"}`
 
-```XML
+```xml
 <ClaimsTransformation Id="GetEmailClaimFromJson" TransformationMethod="GetClaimFromJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="customUserData" TransformationClaimType="inputJson" />
@@ -141,11 +141,11 @@ Obtener una lista de los elementos especificados a partir de datos JSON.
 
 En el ejemplo siguiente, la transformación de notificaciones extrae estas notificaciones: email (string), displayName (string), membershipNum (int), active (boolean) y birthdate (datetime) a partir de los datos JSON.
 
-```JSON
+```json
 [{"key":"email","value":"someone@example.com"}, {"key":"displayName","value":"Someone"}, {"key":"membershipNum","value":6353399}, {"key":"active","value":true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
 ```
 
-```XML
+```xml
 <ClaimsTransformation Id="GetClaimsFromJson" TransformationMethod="GetClaimsFromJsonArray">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="jsonSourceClaim" TransformationClaimType="jsonSource" />
@@ -192,7 +192,7 @@ Obtiene un elemento numérico especificado (long) a partir de datos JSON.
 
 En el ejemplo siguiente, la transformación de notificaciones extrae el elemento `id` a partir de datos JSON.
 
-```JSON
+```json
 {
     "emailAddress": "someone@example.com",
     "displayName": "Someone",
@@ -200,7 +200,7 @@ En el ejemplo siguiente, la transformación de notificaciones extrae el elemento
 }
 ```
 
-```XML
+```xml
 <ClaimsTransformation Id="GetIdFromResponse" TransformationMethod="GetNumericClaimFromJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="exampleInputClaim" TransformationClaimType="inputJson" />
@@ -235,7 +235,7 @@ Obtiene el primer elemento de los datos JSON.
 
 En el ejemplo siguiente, la transformación de notificaciones extrae el primer elemento (givenName) de los datos JSON.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetGivenNameFromResponse" TransformationMethod="GetSingleItemFromJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="json" TransformationClaimType="inputJson" />
@@ -267,7 +267,7 @@ Obtiene el primer elemento de una matriz de datos JSON.
 
 En el ejemplo siguiente, la transformación de notificaciones extrae el primer elemento (dirección de correo electrónico) de la matriz JSON `["someone@example.com", "Someone", 6353399]`.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetEmailFromJson" TransformationMethod="GetSingleValueFromJsonArray">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userData" TransformationClaimType="inputJsonClaim" />
@@ -294,7 +294,7 @@ Convierte los datos XML en formato JSON.
 | InputClaim | Xml | string | ClaimTypes usados por la transformación de notificaciones para convertir los datos XML en formato JSON. |
 | OutputClaim | json | string | El valor ClaimType que se genera después de que se haya invocado esta ClaimsTransformation, con los datos en formato JSON. |
 
-```XML
+```xml
 <ClaimsTransformation Id="ConvertXmlToJson" TransformationMethod="XmlStringToJsonString">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="intpuXML" TransformationClaimType="xml" />
@@ -310,7 +310,7 @@ En el ejemplo siguiente, la transformación de notificaciones convierte los sigu
 #### <a name="example"></a>Ejemplo
 Notificación de entrada:
 
-```XML
+```xml
 <user>
   <name>Someone</name>
   <email>someone@example.com</email>
@@ -319,7 +319,7 @@ Notificación de entrada:
 
 Notificación de salida:
 
-```JSON
+```json
 {
   "user": {
     "name":"Someone",

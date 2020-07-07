@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c2291d4d2eca2abd11ef9c0f18f3fda52424ab93
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: d22d0da692516c89f6dd5ca7377ec83d7c430280
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739114"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203442"
 ---
 # <a name="string-claims-transformations"></a>Transformaciones de notificaciones de cadena
 
@@ -41,7 +41,7 @@ La transformación de notificaciones **AssertStringClaimsAreEqual** siempre se e
 
 Puede usar esta transformación de notificaciones para asegurarse de que dos argumentos ClaimType tienen el mismo valor. Si no es así, se emite un mensaje de error. En el ejemplo siguiente se comprueba que los argumentos ClaimType **strongAuthenticationEmailAddress** e **email** son iguales. De lo contrario, se emite un mensaje de error.
 
-```XML
+```xml
 <ClaimsTransformation Id="AssertEmailAndStrongAuthenticationEmailAddressAreEqual" TransformationMethod="AssertStringClaimsAreEqual">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="strongAuthenticationEmailAddress" TransformationClaimType="inputClaim1" />
@@ -55,7 +55,7 @@ Puede usar esta transformación de notificaciones para asegurarse de que dos arg
 
 
 El perfil técnico de validación **login-NonInteractive** llama a la transformación de notificaciones **AssertEmailAndStrongAuthenticationEmailAddressAreEqual**.
-```XML
+```xml
 <TechnicalProfile Id="login-NonInteractive">
   ...
   <OutputClaimsTransformations>
@@ -66,7 +66,7 @@ El perfil técnico de validación **login-NonInteractive** llama a la transforma
 
 El perfil técnico autoafirmado llama al perfil técnico **login-NonInteractive** de validación.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
   <Metadata>
     <Item Key="UserMessageIfClaimsTransformationStringsAreNotEqual">Custom error message the email addresses you provided are not the same.</Item>
@@ -98,7 +98,7 @@ Cambia el uso de mayúsculas y minúsculas en la notificación proporcionada, de
 
 Use esta transformación de notificaciones para cambiar cualquier ClaimType de cadena a minúsculas o mayúsculas.
 
-```XML
+```xml
 <ClaimsTransformation Id="ChangeToLower" TransformationMethod="ChangeCase">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="inputClaim1" />
@@ -132,7 +132,7 @@ Crea una notificación de cadena a partir del parámetro de entrada proporcionad
 
 Use que esta transformación de notificaciones para establecer un valor de ClaimType de cadena.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateTermsOfService" TransformationMethod="CreateStringClaim">
   <InputParameters>
     <InputParameter Id="value" DataType="string" Value="Contoso terms of service..." />
@@ -164,7 +164,7 @@ Determine si una notificación de cadena es igual a otra. El resultado es un nue
 
 Use esta transformación de notificaciones para comprobar si una notificación es igual a otra notificación. Por ejemplo, la siguiente transformación de notificaciones comprueba si el valor de la notificación **email** es igual al de la notificación **Verified.Email**.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckEmail" TransformationMethod="CompareClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="Email" TransformationClaimType="inputClaim1" />
@@ -205,7 +205,7 @@ Determina si un valor de notificación es igual al valor del parámetro de entra
 
 Puede usar esta transformación de notificaciones para comprobar si una notificación es igual a un valor que haya especificado. Por ejemplo, la siguiente transformación de notificaciones comprueba si el valor de la notificación **termsOfUseConsentVersion** es igual a `v1`.
 
-```XML
+```xml
 <ClaimsTransformation Id="IsTermsOfUseConsentRequiredForVersion" TransformationMethod="CompareClaimToValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="termsOfUseConsentVersion" TransformationClaimType="inputClaim1" />
@@ -246,7 +246,7 @@ Crea una cadena aleatoria mediante el generador de números aleatorios. Si el ge
 
 El ejemplo siguiente genera un identificador único global. Esta transformación de notificaciones se usa para crear el UPN (nombre principal del usuario) aleatorio.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateRandomUPNUserName" TransformationMethod="CreateRandomString">
   <InputParameters>
     <InputParameter Id="randomGeneratorType" DataType="string" Value="GUID" />
@@ -265,7 +265,7 @@ El ejemplo siguiente genera un identificador único global. Esta transformación
 
 El ejemplo siguiente genera un valor entero aleatorio entre 0 y 1000. El valor pasa a tener el formato OTP_ {valor_aleatorio}.
 
-```XML
+```xml
 <ClaimsTransformation Id="SetRandomNumber" TransformationMethod="CreateRandomString">
   <InputParameters>
     <InputParameter Id="randomGeneratorType" DataType="string" Value="INTEGER" />
@@ -302,7 +302,7 @@ Da formato a una notificación de acuerdo con la cadena de formato proporcionada
 
 Use esta transformación de notificaciones para dar formato a cualquier cadena con un parámetro {0}. El ejemplo siguiente crea un **userPrincipalName**. Todos los perfiles técnicos de proveedores de las identidades de redes sociales, como `Facebook-OAUTH` llaman a **CreateUserPrincipalName** para generar un **userPrincipalName**.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateUserPrincipalName" TransformationMethod="FormatStringClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="upnUserName" TransformationClaimType="inputClaim" />
@@ -338,7 +338,7 @@ Da formato a dos notificaciones de acuerdo con la cadena de formato proporcionad
 
 Use esta transformación de notificaciones para dar formato a cualquier cadena con dos parámetros, {0} y {1}. En el ejemplo siguiente se crea un **displayName** con el formato especificado:
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateDisplayNameFromFirstNameAndLastName" TransformationMethod="FormatStringMultipleClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="inputClaim1" />
@@ -385,7 +385,7 @@ En el siguiente ejemplo se busca el asunto, el cuerpo, el mensaje de código y l
 
 Defina cadenas localizadas para inglés (predeterminado) y español.
 
-```XML
+```xml
 <Localization Enabled="true">
   <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
     <SupportedLanguage>en</SupportedLanguage>
@@ -413,7 +413,7 @@ Defina cadenas localizadas para inglés (predeterminado) y español.
 
 La transformación de notificaciones establece el valor del tipo de notificación *subject* con el valor de `StringId`email_subject*de*.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="subject" TransformationClaimType="email_subject" />
@@ -444,7 +444,7 @@ Buscar un elemento en una colección **Restriction** de notificaciones.
 
 En el ejemplo siguiente se busca la descripción del mensaje de error según la clave de error. La notificación **responseMsg** contiene una colección de mensajes de error para presentar al usuario final o a enviar al usuario de confianza.
 
-```XML
+```xml
 <ClaimType Id="responseMsg">
   <DisplayName>Error message: </DisplayName>
   <DataType>string</DataType>
@@ -458,7 +458,7 @@ En el ejemplo siguiente se busca la descripción del mensaje de error según la 
 ```
 La transformación de notificaciones busca el texto del elemento y devuelve su valor. Si la restricción se localiza mediante `<LocalizedCollection>`, la transformación de notificaciones devuelve el valor localizado.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetResponseMsgMappedToResponseCode" TransformationMethod="GetMappedValueFromLocalizedCollection">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="responseCode" TransformationClaimType="mapFromClaim" />
@@ -489,7 +489,7 @@ Buscar un valor de notificación en una lista de valores en función del valor d
 
 En el ejemplo siguiente se busca el nombre de dominio en una de las colecciones inputParameters. La transformación de notificaciones busca el nombre de dominio en el identificador y devuelve su valor (un identificador de aplicación).
 
-```XML
+```xml
  <ClaimsTransformation Id="DomainToClientId" TransformationMethod="LookupValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="domainName" TransformationClaimType="inputParameterId" />
@@ -524,7 +524,7 @@ Cuando el parámetro de entrada `errorOnFailedLookup` está establecido en `true
 
 En el ejemplo siguiente se busca el nombre de dominio en una de las colecciones inputParameters. La transformación de notificaciones busca el nombre de dominio en el identificador y devuelve su valor (un identificador de aplicación), o bien genera un mensaje de error.
 
-```XML
+```xml
  <ClaimsTransformation Id="DomainToClientId" TransformationMethod="LookupValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="domainName" TransformationClaimType="inputParameterId" />
@@ -564,7 +564,7 @@ Limpiar el valor de una notificación determinada.
 
 Use esta transformación de notificaciones para quitar datos innecesarios de la bolsa de propiedades de notificaciones, para que la cookie de la sesión sea menor. En el ejemplo siguiente se quita el valor del tipo de notificación `TermsOfService`.
 
-```XML
+```xml
 <ClaimsTransformation Id="SetTOSToNull" TransformationMethod="NullClaim">
   <OutputClaims>
   <OutputClaim ClaimTypeReferenceId="TermsOfService" TransformationClaimType="claim_to_null" />
@@ -588,7 +588,7 @@ Obtiene la parte de dominio de una dirección de correo electrónico.
 
 Use esta transformación de notificaciones para analizar el nombre de dominio después el símbolo @ del usuario. La siguiente transformación de notificaciones muestra cómo analizar el nombre de dominio desde una notificación de **email**.
 
-```XML
+```xml
 <ClaimsTransformation Id="SetDomainName" TransformationMethod="ParseDomain">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="emailAddress" />
@@ -624,7 +624,7 @@ Comprueba que una notificación de cadena `claimToMatch` y el parámetro de entr
 
 Comprueba si el número de teléfono indicado es válido, en función del patrón de expresión regular de número de teléfono.
 
-```XML
+```xml
 <ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="SetClaimsIfRegexMatch">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phone" TransformationClaimType="claimToMatch" />
@@ -653,7 +653,7 @@ Comprueba si el número de teléfono indicado es válido, en función del patró
 
 Comprueba si la dirección de correo electrónico proporcionada es válida y devuelve el alias de correo electrónico.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetAliasFromEmail" TransformationMethod="SetClaimsIfRegexMatch">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="claimToMatch" />
@@ -699,7 +699,7 @@ Comprueba que una notificación de cadena y el parámetro de entrada `matchTo` s
 
 Puede usar esta transformación de notificaciones para comprobar si una notificación es igual a un valor que haya especificado. Por ejemplo, la siguiente transformación de notificaciones comprueba si el valor de la notificación **termsOfUseConsentVersion** es igual a `v1`. En caso afirmativo, cambie el valor a `v2`.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckTheTOS" TransformationMethod="SetClaimsIfStringsAreEqual">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="termsOfUseConsentVersion" TransformationClaimType="inputClaim" />
@@ -746,7 +746,7 @@ Comprueba que una notificación de cadena y el parámetro de entrada `matchTo` s
 
 Por ejemplo, la siguiente transformación de notificaciones comprueba si el valor de la notificación **ageGroup** es igual a `Minor`. En caso afirmativo, devuelve el valor para `B2C_V1_90001`.
 
-```XML
+```xml
 <ClaimsTransformation Id="SetIsMinor" TransformationMethod="SetClaimsIfStringsMatch">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="ageGroup" TransformationClaimType="claimToMatch" />
@@ -789,7 +789,7 @@ Determina si una subcadena especificada aparece dentro de la notificación de en
 
 Use esta transformación de notificaciones para comprobar si un tipo de notificación de cadena contiene una subcadena. En el siguiente ejemplo se comprueba si el tipo de notificación de cadena `roles` contiene el valor **admin**.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
@@ -828,7 +828,7 @@ Extrae partes de un tipo de notificación de cadena, comenzando por el carácter
 Por ejemplo, obtiene el prefijo de país o región del número de teléfono.
 
 
-```XML
+```xml
 <ClaimsTransformation Id="GetPhonePrefix" TransformationMethod="StringSubstring">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="inputClaim" />
@@ -866,7 +866,7 @@ Busca un valor especificado en una notificación de tipo cadena y devuelve una n
 Por ejemplo, normaliza un número de teléfono quitando los caracteres `-`.
 
 
-```XML
+```xml
 <ClaimsTransformation Id="NormalizePhoneNumber" TransformationMethod="StringReplace">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="inputClaim" />
@@ -902,7 +902,7 @@ Concatena los elementos de un tipo de notificación de colección de cadenas esp
 
 En el ejemplo siguiente se toma una colección de cadenas de roles de usuario y se convierte en una cadena con delimitador de comas. Puede usar este método para almacenar una colección de cadenas en la cuenta de usuario de Azure AD. Más adelante, cuando lea la cuenta desde el directorio, podrá usar `StringSplit` para volver a convertir la cadena con delimitador de coma en una colección de cadenas.
 
-```XML
+```xml
 <ClaimsTransformation Id="ConvertRolesStringCollectionToCommaDelimiterString" TransformationMethod="StringJoin">
   <InputClaims>
    <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim" />
@@ -938,7 +938,7 @@ Devuelve una matriz de cadenas que contiene las subcadenas de esta instancia que
 
 En el siguiente ejemplo se toma una cadena con delimitador de coma de roles de usuario y se convierte en una colección de cadenas.
 
-```XML
+```xml
 <ClaimsTransformation Id="ConvertRolesToStringCollection" TransformationMethod="StringSplit">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="rolesCommaDelimiter" TransformationClaimType="inputClaim" />

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cb713651aca266ab2546ff26c3cd0175a4cbc289
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eaa2984c0d7a5d3763f554e39f687fdbd2865e96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78183761"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203391"
 ---
 # <a name="social-accounts-claims-transformations"></a>Transformaciones de notificaciones de cuentas de redes sociales
 
@@ -24,7 +24,7 @@ ms.locfileid: "78183761"
 
 En Azure Active Directory B2C (Azure AD B2C), las identidades de cuentas de redes sociales se almacenan en un atributo `userIdentities` de un tipo de notificación **alternativeSecurityIdCollection**. Cada elemento de **alternativeSecurityIdCollection** especifica el emisor (nombre del proveedor de identidades, como facebook.com) y `issuerUserId`, que es un identificador de usuario único para el emisor.
 
-```JSON
+```json
 "userIdentities": [{
     "issuer": "google.com",
     "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"
@@ -49,7 +49,7 @@ Crea una representación JSON de la propiedad alternativeSecurityId del usuario 
 
 Use esta transformación de notificaciones para generar un elemento ClaimType `alternativeSecurityId`. Se usa en todos los perfiles técnicos de proveedores de identidades de redes sociales, como `Facebook-OAUTH`. La siguiente transformación de notificaciones recibe el id. de cuenta de red social del usuario y el nombre del proveedor de identidades. El resultado de este perfil técnico es un formato de cadena JSON que puede usarse en los servicios de directorio de Azure AD.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateAlternativeSecurityId" TransformationMethod="CreateAlternativeSecurityId">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="issuerUserId" TransformationClaimType="key" />
@@ -86,7 +86,7 @@ En el ejemplo siguiente, se vincula una nueva identidad de red social a una cuen
 1. Realice una llamada a la transformación de notificaciones **AddItemToAlternativeSecurityIdCollection** para agregar la notificación **AlternativeSecurityId2** a la notificación **AlternativeSecurityIds** existente.
 1. Hacer persistir la notificación **alternativeSecurityIds** en la cuenta de usuario
 
-```XML
+```xml
 <ClaimsTransformation Id="AddAnotherAlternativeSecurityId" TransformationMethod="AddItemToAlternativeSecurityIdCollection">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="AlternativeSecurityId2" TransformationClaimType="item" />
@@ -117,7 +117,7 @@ Muestra la lista de emisores de la notificación **alternativeSecurityIdCollecti
 
 La siguiente transformación de notificaciones lee la notificación **alternativeSecurityIds** del usuario y extrae la lista de nombres de proveedores de identidades asociados a esa cuenta. Use el resultado de **identityProvidersCollection** para mostrar al usuario la lista de proveedores de identidades asociados a la cuenta. O bien, en la página de selección de proveedor de identidades, filtre la lista de proveedores de identidades según la notificación **identityProvidersCollection** de salida. Por lo tanto, el usuario puede vincular una nueva identidad de red social que aún no esté asociada a la cuenta.
 
-```XML
+```xml
 <ClaimsTransformation Id="ExtractIdentityProviders" TransformationMethod="GetIdentityProvidersFromAlternativeSecurityIdCollectionTransformation">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="alternativeSecurityIds" TransformationClaimType="alternativeSecurityIdCollection" />
@@ -149,7 +149,7 @@ En el ejemplo siguiente, se desvincula una de las identidades de red social de u
 3. Realiza una llamada a un perfil técnico de transformación de notificaciones que llama a la transformación de notificaciones **RemoveAlternativeSecurityIdByIdentityProvider**, que ha quitado la identidad de red social seleccionada, mediante el nombre del proveedor de identidades.
 4. Hace persistir la notificación **alternativeSecurityIds** en la cuenta de usuario.
 
-```XML
+```xml
 <ClaimsTransformation Id="RemoveAlternativeSecurityIdByIdentityProvider" TransformationMethod="RemoveAlternativeSecurityIdByIdentityProvider">
     <InputClaims>
         <InputClaim ClaimTypeReferenceId="secondIdentityProvider" TransformationClaimType="identityProvider" />

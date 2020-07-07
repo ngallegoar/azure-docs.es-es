@@ -1,21 +1,25 @@
 ---
 title: Lista de definiciones de directiva integradas
 description: Se enumeran las definiciones de directiva integradas para Azure Policy. Las categorías incluyen Etiquetas, Cumplimiento de normativas, Key Vault, Kubernetes, Configuración de invitados, etc.
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 0ab717e4246112152b9a497c51d2a630bc48dfd1
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 94f69754ab51728a18da10b45e05770f1271760b
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84709627"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85313775"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Definiciones de directiva integradas de Azure Policy
 
 Esta página es un índice de las definiciones de directiva integradas de Azure Policy.
 
 El nombre de cada uno de los vínculos integrados a la definición de directiva en Azure Portal. Use el vínculo de la columna **Origen** para ver el origen en el [repositorio de GitHub de Azure Policy](https://github.com/Azure/azure-policy). Los directivas integradas se agrupan por la propiedad **category** (categoría) de los **metadatos**. Para ir a una **categoría** específica, use el menú del lado derecho de la página. Como alternativa, puede usar <kbd>Ctrl</kbd>-<kbd>F</kbd> para utilizar la característica de búsqueda del explorador.
+
+## <a name="api-for-fhir"></a>Azure API for FHIR
+
+[!INCLUDE [azure-policy-samples-policies-api-for-fhir](../../../../includes/policy/samples/bycat/policies-api-for-fhir.md)]
 
 ## <a name="api-management"></a>API Management
 
