@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
-ms.openlocfilehash: ace953fcb278604cb64eef463753f0f2622d3d24
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9317999f8862cd9930870fecaf5be44d291c07a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235308"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829676"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Solución de problemas del lado cliente de Redis Cache
 
@@ -43,8 +43,10 @@ Las ráfagas de tráfico se combinan con una mala configuración de `ThreadPool`
 
 Supervise cómo las estadísticas de `ThreadPool` cambian a lo largo del tiempo con [un ejemplo `ThreadPoolLogger`](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). Puede usar mensajes de `TimeoutException` de StackExchange.Redis, tal como aparece debajo, para investigar más a fondo:
 
+```output
     System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0,
     IOCP: (Busy=6,Free=999,Min=2,Max=1000), WORKER: (Busy=7,Free=8184,Min=2,Max=8191)
+```
 
 En la excepción anterior, hay varias incidencias que son interesantes:
 

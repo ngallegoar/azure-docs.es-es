@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 1917bd6744e100db54fe959292e29486f8a1784b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7dcc6f9ece407bee20ed344d91ee95e34f8f4c0a
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74770193"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848206"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Optimización del vaciado automático en Azure Database for PostgreSQL con un único servidor
 En este artículo se describe cómo optimizar con eficacia el vaciado automático en un servidor de Azure Database for PostgreSQL.
@@ -47,7 +47,7 @@ Aquí se incluyen algunos de los parámetros de configuración del vaciado autom
 Parámetro|Descripción|Valor predeterminado
 ---|---|---
 autovacuum_vacuum_threshold|Especifica el número mínimo de tuplas actualizadas o eliminadas necesarias para desencadenar una operación de vaciado en cualquier tabla. El valor predeterminado es de 50 tuplas. Configure este parámetro solo en el archivo postgresql.conf o en la línea de comandos del servidor. Para anular la configuración de tablas individuales, cambie los parámetros de almacenamiento de la tabla en cuestión.|50
-autovacuum_vacuum_scale_factor|Especifica una fracción del tamaño de la tabla para agregar a autovacuum_vacuum_threshold cuando se decide activar una operación de vaciado. El valor predeterminado es 0,2 (20 % del tamaño de la tabla). Configure este parámetro solo en el archivo postgresql.conf o en la línea de comandos del servidor. Para anular la configuración de tablas individuales, cambie los parámetros de almacenamiento de la tabla en cuestión.|5 %
+autovacuum_vacuum_scale_factor|Especifica una fracción del tamaño de la tabla para agregar a autovacuum_vacuum_threshold cuando se decide activar una operación de vaciado. El valor predeterminado es 0,2 (20 % del tamaño de la tabla). Configure este parámetro solo en el archivo postgresql.conf o en la línea de comandos del servidor. Para anular la configuración de tablas individuales, cambie los parámetros de almacenamiento de la tabla en cuestión.|0,2
 autovacuum_vacuum_cost_limit|Especifica el valor límite del costo usado en las operaciones de vaciado automáticas. Si se especifica -1, que es el valor predeterminado, se usará el valor normal vacuum_cost_limit. Si hay más de un trabajo, el valor se distribuye proporcionalmente entre los trabajos de vaciado automático en funcionamiento. La suma de los límites de cada trabajo no excede el valor de esta variable. Configure este parámetro solo en el archivo postgresql.conf o en la línea de comandos del servidor. Para anular la configuración de tablas individuales, cambie los parámetros de almacenamiento de la tabla en cuestión.|-1
 autovacuum_vacuum_cost_delay|Especifica el valor de demora del costo usado en las operaciones de vaciado automáticas. Si se especifica -1, se usa el valor normal vacuum_cost_delay. El valor predeterminado es 20 milisegundos. Configure este parámetro solo en el archivo postgresql.conf o en la línea de comandos del servidor. Para anular la configuración de tablas individuales, cambie los parámetros de almacenamiento de la tabla en cuestión.|20 ms
 autovacuum_nap_time|Especifica el retraso mínimo entre las ejecuciones de vaciado automáticas en cualquier base de datos determinada. En cada ronda, el demonio examina la base de datos y emite los comandos VACUUM y ANALYZE según sea necesario para las tablas en esa base de datos. El retraso se mide en segundos y el valor predeterminado es de un minuto (1 minuto). Configure este parámetro solo en el archivo postgresql.conf o en la línea de comandos del servidor.|15 s

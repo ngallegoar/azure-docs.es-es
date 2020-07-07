@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: dd6228ea50968c98c5ba151b8af9a0c2fa829582
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: fe76e32bfd9b1734f3c84a400f897b7af7e3168b
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684067"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801002"
 ---
 # <a name="learn-image-moderation-concepts"></a>Información sobre los conceptos de moderación de imágenes
 
@@ -25,14 +25,16 @@ Use la moderación de imágenes asistida por máquina de Content Moderator y la 
 
 La operación **Evaluate** (Evaluar) devuelve una puntuación de confianza entre 0 y 1. También devuelve datos booleanos que equivalen a true o false. Estos valores predicen si la imagen tiene contenido potencial para adultos o subido de tono. Al llamar a la API con la imagen (archivo o dirección URL), la respuesta que se devuelve incluye la siguiente información:
 
-    "ImageModeration": {
-      .............
-      "adultClassificationScore": 0.019196987152099609,
-      "isImageAdultClassified": false,
-      "racyClassificationScore": 0.032390203326940536,
-      "isImageRacyClassified": false,
-      ............
-      ],
+```json
+"ImageModeration": {
+    .............
+    "adultClassificationScore": 0.019196987152099609,
+    "isImageAdultClassified": false,
+    "racyClassificationScore": 0.032390203326940536,
+    "isImageRacyClassified": false,
+    ............
+    ],
+```
 
 > [!NOTE]
 > 
@@ -51,18 +53,19 @@ La respuesta incluye la siguiente información:
 
 Extracción de ejemplo:
 
-    "TextDetection": {
-      "status": {
+```json
+"TextDetection": {
+    "status": {
         "code": 3000.0,
         "description": "OK",
         "exception": null
-      },
-      .........
-      "language": "eng",
-      "text": "IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n",
-      "candidates": []
     },
-
+    .........
+    "language": "eng",
+    "text": "IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n",
+    "candidates": []
+},
+```
 
 ## <a name="detecting-faces"></a>Detección de caras
 
@@ -75,29 +78,30 @@ Una respuesta incluye esta información:
 
 Extracción de ejemplo:
 
-
-    "FaceDetection": {
-       ......
-      "result": true,
-      "count": 2,
-      "advancedInfo": [
-      .....
-      ],
-      "faces": [
+```json
+"FaceDetection": {
+    ......
+    "result": true,
+    "count": 2,
+    "advancedInfo": [
+        .....
+    ],
+    "faces": [
         {
-          "bottom": 598,
-          "left": 44,
-          "right": 268,
-          "top": 374
+            "bottom": 598,
+            "left": 44,
+            "right": 268,
+            "top": 374
         },
         {
-          "bottom": 620,
-          "left": 308,
-          "right": 532,
-          "top": 396
+            "bottom": 620,
+            "left": 308,
+            "right": 532,
+            "top": 396
         }
-      ]
-    }
+    ]
+}
+```
 
 ## <a name="creating-and-managing-custom-lists"></a>Creación y administración de listas personalizadas
 
@@ -124,7 +128,8 @@ Si se encuentra una coincidencia, la operación devuelve el identificador y las 
 
 Extracción de ejemplo:
 
-    {
+```json
+{
     ..............,
     "IsMatch": true,
     "Matches": [
@@ -137,7 +142,8 @@ Extracción de ejemplo:
         }
     ],
     ....
-    }
+}
+```
 
 ## <a name="review-tool"></a>Herramienta de revisión
 

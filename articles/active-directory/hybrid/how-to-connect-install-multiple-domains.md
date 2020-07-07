@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0775e717c0610e122bb31f752beecd2c97599053
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 7a49abdea9d5b80687c53fbaa3d41480825ed504
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201047"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849953"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Compatibilidad con varios dominios para la federación con Azure AD
 La siguiente documentación proporciona una guía sobre cómo usar varios dominios y subdominios de nivel superior al federarse con Office 365 o con dominios de Azure AD.
@@ -73,7 +73,9 @@ Por ejemplo, si el UPN de un usuario es bsimon@bmcontoso.com, la propiedad Issue
 
 A continuación se muestra la regla de notificaciones personalizada que implementa esta lógica:
 
-    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
+```
+c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
+```
 
 
 > [!IMPORTANT]
@@ -144,7 +146,9 @@ Para solucionar este comportamiento, es necesario actualizar la relación de con
 
 La siguiente notificación hará lo siguiente:
 
-    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+```    
+c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+```
 
 [!NOTE]
 El último número de la expresión regular establece la cantidad de dominios primarios que hay en el dominio raíz. En este caso tenemos bmcontoso.com, por lo que se requieren dos dominios principales. Si tuviéramos que mantener tres dominios principales (es decir, corp.bmcontoso.com), el número habría sido tres. Es posible indicar un intervalo; en ese caso, la coincidencia se realizará siempre con el número máximo de dominios. "{2,3}" coincidirá con dos o tres dominios (esto es, bmfabrikam.com y corp.bmcontoso.com).
@@ -156,11 +160,14 @@ Siga los pasos indicados a continuación para agregar una notificación personal
 3. Seleccione la tercera regla de notificación y reemplace ![Editar notificación](./media/how-to-connect-install-multiple-domains/sub1.png).
 4. Reemplace la notificación actual:
 
-        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
+   ```
+   c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
+   ```
+    con
 
-       with
-
-        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+   ```
+   c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+   ```
 
     ![Reemplazar notificación](./media/how-to-connect-install-multiple-domains/sub2.png)
 

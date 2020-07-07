@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
-ms.openlocfilehash: 0428f9a4a2330fded9cb05d0ab7ae395b9216582
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8dcaecb1e4eb91ee01e3ccb39000e087b3455ba2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84036096"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832362"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Informes de bases de datos escaladas horizontalmente en la nube (vista previa)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -49,10 +49,12 @@ Estas instrucciones crean la representación de los metadatos de la capa de dato
 
 La credencial utiliza la consulta elástica para conectarse a las bases de datos remotas.  
 
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
-    CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
-    SECRET = '<password>'
-    [;]
+```sql
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
+CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
+SECRET = '<password>'
+[;]
+```
 
 > [!NOTE]
 > Asegúrese de que *"\<username\>"* no incluye ningún sufijo *"\@nombreDeServidor"* .
@@ -61,30 +63,36 @@ La credencial utiliza la consulta elástica para conectarse a las bases de datos
 
 Sintaxis:
 
-    <External_Data_Source> ::=
+```sql
+<External_Data_Source> ::=
     CREATE EXTERNAL DATA SOURCE <data_source_name> WITH
-            (TYPE = SHARD_MAP_MANAGER,
-                       LOCATION = '<fully_qualified_server_name>',
-            DATABASE_NAME = ‘<shardmap_database_name>',
-            CREDENTIAL = <credential_name>,
-            SHARD_MAP_NAME = ‘<shardmapname>’
-                   ) [;]
+        (TYPE = SHARD_MAP_MANAGER,
+                   LOCATION = '<fully_qualified_server_name>',
+        DATABASE_NAME = ‘<shardmap_database_name>',
+        CREDENTIAL = <credential_name>,
+        SHARD_MAP_NAME = ‘<shardmapname>’
+               ) [;]
+```
 
 ### <a name="example"></a>Ejemplo
 
-    CREATE EXTERNAL DATA SOURCE MyExtSrc
-    WITH
-    (
-        TYPE=SHARD_MAP_MANAGER,
-        LOCATION='myserver.database.windows.net',
-        DATABASE_NAME='ShardMapDatabase',
-        CREDENTIAL= SMMUser,
-        SHARD_MAP_NAME='ShardMap'
-    );
+```sql
+CREATE EXTERNAL DATA SOURCE MyExtSrc
+WITH
+(
+    TYPE=SHARD_MAP_MANAGER,
+    LOCATION='myserver.database.windows.net',
+    DATABASE_NAME='ShardMapDatabase',
+    CREDENTIAL= SMMUser,
+    SHARD_MAP_NAME='ShardMap'
+);
+```
 
 Recuperación de la lista de orígenes de datos externos actual:
 
-    select * from sys.external_data_sources;
+```sql
+select * from sys.external_data_sources;
+```
 
 El origen de datos externo hace referencia al mapa de particiones. Una consulta elástica usa el origen de datos externo y el mapa de particiones subyacente para enumerar las bases de datos que participan en la capa de datos.
 Se usan las mismas credenciales para leer el mapa de particiones y para tener acceso a los datos de las particiones durante el procesamiento de una consulta elástica.
@@ -93,47 +101,55 @@ Se usan las mismas credenciales para leer el mapa de particiones y para tener ac
 
 Sintaxis:  
 
-    CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name  
-        ( { <column_definition> } [ ,...n ])
-        { WITH ( <sharded_external_table_options> ) }
-    ) [;]  
+```sql
+CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name  
+    ( { <column_definition> } [ ,...n ])
+    { WITH ( <sharded_external_table_options> ) }
+) [;]  
 
-    <sharded_external_table_options> ::=
-      DATA_SOURCE = <External_Data_Source>,
-      [ SCHEMA_NAME = N'nonescaped_schema_name',]
-      [ OBJECT_NAME = N'nonescaped_object_name',]
-      DISTRIBUTION = SHARDED(<sharding_column_name>) | REPLICATED |ROUND_ROBIN
+<sharded_external_table_options> ::=
+  DATA_SOURCE = <External_Data_Source>,
+  [ SCHEMA_NAME = N'nonescaped_schema_name',]
+  [ OBJECT_NAME = N'nonescaped_object_name',]
+  DISTRIBUTION = SHARDED(<sharding_column_name>) | REPLICATED |ROUND_ROBIN
+```
 
 **Ejemplo**
 
-    CREATE EXTERNAL TABLE [dbo].[order_line](
-         [ol_o_id] int NOT NULL,
-         [ol_d_id] tinyint NOT NULL,
-         [ol_w_id] int NOT NULL,
-         [ol_number] tinyint NOT NULL,
-         [ol_i_id] int NOT NULL,
-         [ol_delivery_d] datetime NOT NULL,
-         [ol_amount] smallmoney NOT NULL,
-         [ol_supply_w_id] int NOT NULL,
-         [ol_quantity] smallint NOT NULL,
-         [ol_dist_info] char(24) NOT NULL
-    )
+```sql
+CREATE EXTERNAL TABLE [dbo].[order_line](
+     [ol_o_id] int NOT NULL,
+     [ol_d_id] tinyint NOT NULL,
+     [ol_w_id] int NOT NULL,
+     [ol_number] tinyint NOT NULL,
+     [ol_i_id] int NOT NULL,
+     [ol_delivery_d] datetime NOT NULL,
+     [ol_amount] smallmoney NOT NULL,
+     [ol_supply_w_id] int NOT NULL,
+     [ol_quantity] smallint NOT NULL,
+      [ol_dist_info] char(24) NOT NULL
+)
 
-    WITH
-    (
-        DATA_SOURCE = MyExtSrc,
-         SCHEMA_NAME = 'orders',
-         OBJECT_NAME = 'order_details',
-        DISTRIBUTION=SHARDED(ol_w_id)
-    );
+WITH
+(
+    DATA_SOURCE = MyExtSrc,
+     SCHEMA_NAME = 'orders',
+     OBJECT_NAME = 'order_details',
+    DISTRIBUTION=SHARDED(ol_w_id)
+);
+```
 
 Recuperación de la lista de tablas externas de la base de datos actual:
 
-    SELECT * from sys.external_tables;
+```sql
+SELECT * from sys.external_tables;
+```
 
 Para eliminar tablas externas:
 
-    DROP EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name[;]
+```sql
+DROP EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name[;]
+```
 
 ### <a name="remarks"></a>Observaciones
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f10bf6a0487ea53bf4e05d0d2d389e2a275e83a
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: ea300148f421577e6f3ace961d06127fc9f2b536
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765219"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801179"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pymetrics"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con pymetrics
 
@@ -102,11 +102,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. Además de lo anterior, la aplicación pymetrics espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
     
-    | Nombre |  |  Atributo de origen|
-    | ---------------| --------------- | --------- |
-    | UserFirstName | | user.givenname |
-    | UserLastName | | user.surname |
-    | UserEmail | | user.userprincipalname |
+    | Nombre | Atributo de origen|
+    | --------------- | --------- |
+    | UserFirstName | user.givenname |
+    | UserLastName | user.surname |
+    | UserEmail | user.userprincipalname |
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 

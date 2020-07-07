@@ -6,20 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/16/2020
+ms.date: 06/23/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2547a0fdbfbcc143ff822de333b41198f469375c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 76026313eea8c8fbb2f3e55321e2e4ebbe5dcfc7
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649323"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850918"
 ---
 # <a name="add-and-manage-groups-in-administrative-units-in-azure-active-directory"></a>Adición y administración de grupos en las unidades administrativas en Azure Active Directory
 
@@ -47,27 +47,33 @@ En la versión preliminar, solo puede asignar grupos individualmente a una unida
 
 ### <a name="powershell"></a>PowerShell
 
-    $administrative unitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
-    $GroupObj = Get-AzureADGroup -Filter "displayname eq 'TestGroup'"
-    Add-AzureADAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId -RefObjectId $GroupObj.ObjectId
+```powershell
+$administrative unitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
+$GroupObj = Get-AzureADGroup -Filter "displayname eq 'TestGroup'"
+Add-AzureADAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId -RefObjectId $GroupObj.ObjectId
+```
 
 En este ejemplo, el cmdlet Add-AzureADAdministrativeUnitMember se usa para agregar el grupo a la unidad administrativa. El id. de objeto de la unidad administrativa y el id. de objeto del grupo que se va a agregar se usan como argumento. La sección resaltada se puede cambiar según sea necesario para el entorno específico.
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
-    Http request
-    POST /administrativeUnits/{Admin Unit id}/members/$ref
+```http
+Http request
+POST /administrativeUnits/{Admin Unit id}/members/$ref
 
-    Request body
-    {
-      "@odata.id":"https://graph.microsoft.com/beta/groups/{id}"
-    }
+Request body
+{
+"@odata.id":"https://graph.microsoft.com/beta/groups/{id}"
+}
+```
 
 Ejemplo:
 
-    {
-      "@odata.id":"https://graph.microsoft.com/beta/users/ 871d21ab-6b4e-4d56-b257-ba27827628f3"
-    }
+```http
+{
+"@odata.id":"https://graph.microsoft.com/beta/groups/ 871d21ab-6b4e-4d56-b257-ba27827628f3"
+}
+```
 
 ## <a name="list-groups-in-an-au"></a>Lista de grupos en una unidad administrativa
 
@@ -79,25 +85,30 @@ Vaya a **Azure AD > Unidades administrativas** en el portal. Seleccione la unida
 
 ### <a name="powershell"></a>PowerShell
 
-    $administrative unitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
-    Get-AzureADAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId
+```powershell
+$administrative unitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
+Get-AzureADAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId
+```
 
 Esto le ayudará a obtener a todos los miembros de la unidad administrativa. Si quiere mostrar todos los grupos que son miembros de la unidad administrativa, puede usar el siguiente fragmento de código:
 
-    foreach ($member in (Get-AzureADAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId)) 
-    {
-    if($member.ObjectType -eq "Group")
-    {
-    Get-AzureADGroup -ObjectId $member.ObjectId
-    }
-    }
-
+```http
+foreach ($member in (Get-AzureADAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId)) 
+{
+if($member.ObjectType -eq "Group")
+{
+Get-AzureADGroup -ObjectId $member.ObjectId
+}
+}
+```
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
-    HTTP request
-    GET /administrativeUnits/{Admin id}/members/$/microsoft.graph.group
-    Request body
-    {}
+```http
+HTTP request
+GET /administrativeUnits/{Admin id}/members/$/microsoft.graph.group
+Request body
+{}
+```
 
 ## <a name="list-aus-for-a-group"></a>Enumeración de las unidades administrativas de un grupo
 
@@ -109,11 +120,15 @@ En el portal de Azure AD, puede abrir los detalles de un grupo al abrir **Grupos
 
 ### <a name="powershell"></a>PowerShell
 
-    Get-AzureADAdministrativeUnit | where { Get-AzureADAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $groupObjId} }
+```powershell
+Get-AzureADAdministrativeUnit | where { Get-AzureADAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $groupObjId} }
+```
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
-    https://graph.microsoft.com/beta/groups/<group-id>/memberOf/$/Microsoft.Graph.AdministrativeUnit
+```http
+https://graph.microsoft.com/beta/groups/<group-id>/memberOf/$/Microsoft.Graph.AdministrativeUnit
+```
 
 ## <a name="remove-a-group-from-an-au"></a>Eliminación de un grupo de una unidad administrativa
 
@@ -131,11 +146,15 @@ También puede ir a **Azure AD** > **Unidades administrativas** y seleccionar la
 
 ### <a name="powershell"></a>PowerShell
 
-    Remove-AzureADAdministrativeUnitMember -ObjectId $auId -MemberId $memberGroupObjId
+```powershell
+Remove-AzureADAdministrativeUnitMember -ObjectId $auId -MemberId $memberGroupObjId
+```
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
-    https://graph.microsoft.com/beta/administrativeUnits/<adminunit-id>/members/<group-id>/$ref
+```http
+https://graph.microsoft.com/beta/administrativeUnits/<adminunit-id>/members/<group-id>/$ref
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

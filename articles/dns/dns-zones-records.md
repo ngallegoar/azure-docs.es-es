@@ -10,11 +10,11 @@ ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: rohink
 ms.openlocfilehash: 19189af6424960b8e20be686af745b10f2d8578b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231372"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846831"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Información general sobre zonas y registros de DNS
 
@@ -130,12 +130,12 @@ En el nivel de la API de REST de DNS de Azure, los valores de Etag se especifica
 | Encabezado | Comportamiento |
 | --- | --- |
 | None |PUT siempre se realiza correctamente (sin comprobaciones de ETag) |
-| \<ETag> If-match |PUT solo se realiza correctamente si el recurso existe y ETag coincide |
+| If-match \<etag> |PUT solo se realiza correctamente si el recurso existe y ETag coincide |
 | If-match * |PUT solo se realiza correctamente si el recurso existe |
 | If-none-match * |PUT solo se realiza correctamente si el recurso no existe |
 
 
-## <a name="limits"></a>límites
+## <a name="limits"></a>Límites
 
 Se aplican los límites predeterminados siguientes cuando se usa DNS de Azure:
 

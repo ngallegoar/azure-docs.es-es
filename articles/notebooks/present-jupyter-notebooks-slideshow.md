@@ -3,18 +3,18 @@ title: Presentación de un cuaderno de Jupyter Notebook como una presentación e
 description: Aprenda a configurar las celdas para el modo de presentación en un cuaderno de Jupyter Notebook y, después, a realizar la presentación con la extensión RISE.
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: 05dd3d9c5580e208ecf6f9e6d762476b0b493a6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2fe337361436ecfc8eabf2855ad633b891db69d8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75647125"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85834053"
 ---
 # <a name="run-a-notebook-slideshow-in-azure-notebooks-preview"></a>Ejecución de una presentación de un cuaderno en la versión preliminar de Azure Notebooks
 
-El servicio Azure Notebooks está preconfigurado con la extensión de presentación Jupyter/IPython (RISE) que permite presentar un cuaderno directamente como una presentación. En una presentación, las celdas se muestran normalmente de una en una con un tamaño de fuente adecuado para presentar en pantallas grandes y aún puede ejecutar el código en lugar de cambiar a un equipo independiente de demostración.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+El servicio Azure Notebooks está preconfigurado con la extensión de presentación Jupyter/IPython (RISE) que permite presentar un cuaderno directamente como una presentación. En una presentación, las celdas se muestran normalmente de una en una con un tamaño de fuente adecuado para presentar en pantallas grandes y aún puede ejecutar el código en lugar de cambiar a un equipo independiente de demostración.
 
 En la siguiente imagen se muestra la vista estándar del cuaderno, en el que puede ver las celdas de Markdown y código juntas:
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 77314514ca26997fecd6b5d7c6ba1fc7d14c2584
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ea86b94f087eef3472edac9d38c076ae3c7ae0fe
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209067"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851569"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Uso de firmas de acceso compartido de Azure Storage para restringir el acceso a datos en HDInsight
 
@@ -421,7 +421,9 @@ Siga los pasos siguientes para comprobar que solo puede leer y enumerar elemento
 
     Recibirá un mensaje similar al texto siguiente:
 
-        put: java.io.IOException
+    ```output
+    put: java.io.IOException
+    ```
 
     Este error se produce porque la ubicación de almacenamiento es solo de lectura y lista. Use el siguiente comando para colocar los datos en el almacenamiento predeterminado para el clúster, que tiene permiso de escritura:
 

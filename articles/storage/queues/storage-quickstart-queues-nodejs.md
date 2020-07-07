@@ -7,12 +7,12 @@ ms.date: 12/13/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 59a5308d2c0a1fa2e1f38f2fe3da3a2cc29448be
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4e3953c56a9acf911c7dc2bbbd453b52b72f9bb4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78199791"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833245"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para JavaScript
 
@@ -158,7 +158,7 @@ Agregue este código dentro de la función `main`:
 // connection string is stored in an environment variable on the machine
 // running the application called AZURE_STORAGE_CONNECTION_STRING. If the
 // environment variable is created after the application is launched in a
-// console or with Visual Studio, the shell or application needs to be 
+// console or with Visual Studio, the shell or application needs to be
 // closed and reloaded to take the environment variable into account.
 const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STRING;
 ```
@@ -348,7 +348,7 @@ En este inicio rápido, ha aprendido a crear una cola y a agregarle mensajes med
 Para ver tutoriales, ejemplos, artículos de inicio rápido y otra documentación, visite:
 
 > [!div class="nextstepaction"]
-> [Documentación de Azure para JavaScript](https://docs.microsoft.com/azure/javascript/)
+> [Documentación de Azure para JavaScript](https://docs.microsoft.com/azure/developer/javascript/)
 
 * Para más información, consulte [Biblioteca cliente de Azure Queue Storage para JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue).
 * Para ver las aplicaciones de ejemplo de Azure Queue Storage, continúe con los [ejemplos de la biblioteca cliente de Azure Queue Storage para JavaScript v12](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples).

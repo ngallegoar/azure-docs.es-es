@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: bf8d8a2c11962467300ae8d65fe5bbbe9a65cf92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d4113205b47b4c6cab8b133d89c35520aa8505c1
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75708362"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851209"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Incorporación del almacenamiento en caché para mejorar el rendimiento en Azure API Management
 
@@ -62,15 +62,19 @@ Con las directivas de almacenamiento en caché que se muestran en este ejemplo, 
 
 8. En el elemento **inbound**, agregue la siguiente directiva:
 
-        <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
-            <vary-by-header>Accept</vary-by-header>
-            <vary-by-header>Accept-Charset</vary-by-header>
-            <vary-by-header>Authorization</vary-by-header>
-        </cache-lookup>
+   ```
+   <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
+       <vary-by-header>Accept</vary-by-header>
+       <vary-by-header>Accept-Charset</vary-by-header>
+       <vary-by-header>Authorization</vary-by-header>
+   </cache-lookup>
+   ```
 
 9. En el elemento **outbound**, agregue la siguiente directiva:
 
-        <cache-store duration="20" />
+   ```
+   <cache-store duration="20" />
+   ```
 
     **Duración** especifica el intervalo de expiración de las respuestas almacenadas en caché. En este ejemplo, el intervalo es **20** segundos.
 

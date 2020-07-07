@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc,seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: 4da8fd4c2b5d736f0b384db306c62304384b2766
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eaee58cf0a1a2e3497b0e09b7c26852f0699af59
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82194030"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848438"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Tutorial: Creación de una aplicación de Scala Maven para Apache Spark en HDInsight mediante IntelliJ
 
@@ -133,42 +133,49 @@ Para instalar el complemento Scala, siga estos pasos:
 
 18. Reemplace el código de ejemplo existente por el código siguiente y guarde los cambios. Este código lee los datos de HVAC.csv (disponible en todos los clústeres de HDInsight Spark). Recupera las filas que solo tienen un dígito en la sexta columna. Luego escribe el resultado en **/HVACOut** en el contenedor de almacenamiento predeterminado para el clúster.
 
-        package com.microsoft.spark.example
-   
-        import org.apache.spark.SparkConf
-        import org.apache.spark.SparkContext
-   
-        /**
-          * Test IO to wasb
-          */
-        object WasbIOTest {
-          def main (arg: Array[String]): Unit = {
+    ```scala
+    package com.microsoft.spark.example
+
+    import org.apache.spark.SparkConf
+    import org.apache.spark.SparkContext
+
+    /**
+      * Test IO to wasb
+      */
+    object WasbIOTest {
+        def main (arg: Array[String]): Unit = {
             val conf = new SparkConf().setAppName("WASBIOTest")
             val sc = new SparkContext(conf)
-   
+    
             val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-   
+    
             //find the rows which have only one digit in the 7th column in the CSV
             val rdd1 = rdd.filter(s => s.split(",")(6).length() == 1)
-   
+    
             rdd1.saveAsTextFile("wasb:///HVACout")
-          }
         }
+    }
+    ```
+
 19. En el panel izquierdo, haga doble clic en **pom.xml**.  
 
 20. En `<project>\<properties>`, agregue los siguientes segmentos:
 
-          <scala.version>2.11.8</scala.version>
-          <scala.compat.version>2.11.8</scala.compat.version>
-          <scala.binary.version>2.11</scala.binary.version>
+    ```xml
+    <scala.version>2.11.8</scala.version>
+    <scala.compat.version>2.11.8</scala.compat.version>
+    <scala.binary.version>2.11</scala.binary.version>
+    ```
 
 21. En `<project>\<dependencies>`, agregue los siguientes segmentos:
 
-           <dependency>
-             <groupId>org.apache.spark</groupId>
-             <artifactId>spark-core_${scala.binary.version}</artifactId>
-             <version>2.3.0</version>
-           </dependency>
+    ```xml
+    <dependency>
+        <groupId>org.apache.spark</groupId>
+        <artifactId>spark-core_${scala.binary.version}</artifactId>
+        <version>2.3.0</version>
+    </dependency>
+    ```
 
     Guarde los cambios en pom.xml.
 

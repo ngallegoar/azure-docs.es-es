@@ -3,25 +3,25 @@ title: Solución de problemas del proxy de aplicación | Microsoft Docs
 description: Explica cómo solucionar errores en Proxy de aplicación de Azure AD.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 06/24/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.custom: H1Hack27Feb2017; it-pro
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7be9a17bed2a39d16f813332c2d6effc03393264
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57a77b486239f1fd49a4979d7acbbfc8f0254311
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79224932"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848456"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Solución de problemas y mensajes de error de Proxy de aplicación
 
@@ -39,13 +39,13 @@ Es posible que tenga problemas con la representación o el funcionamiento incorr
 
 Por ejemplo, si publica la ruta de acceso `https://yourapp/app`, pero la aplicación llama a imágenes de `https://yourapp/media`, no se representarán. Asegúrese de publicar la aplicación con la ruta de nivel superior que debe incluir todo el contenido relevante. En este ejemplo, sería `http://yourapp/`.
 
-Si cambia la ruta de acceso para incluir el contenido al que se hace referencia, pero necesita que los usuarios lleguen a un vínculo más profundo de la ruta de acceso, consulte la entrada del blog [Setting the right link for Application Proxy applications in the Azure AD access panel and Office 365 app launcher](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/)(Establecimiento del vínculo correcto para las aplicaciones del proxy de aplicación en el panel de acceso de Azure AD y en el selector de programas de Office 365).
-
 ## <a name="connector-errors"></a>Errores del conector
 
 Si se produce un error en el registro durante la instalación del Asistente para el conector, hay dos maneras de ver el motivo de dicho error. Se puede examinar el registro de eventos en **Registros de aplicaciones y servicios/\Microsoft\AadApplicationProxy\Connector\Admin**, o bien se puede ejecutar el siguiente comando de Windows PowerShell:
 
-    Get-EventLog application –source "Microsoft AAD Application Proxy Connector" –EntryType "Error" –Newest 1
+```powershell
+Get-EventLog application –source "Microsoft AAD Application Proxy Connector" –EntryType "Error" –Newest 1
+```
 
 Una vez que encuentre el error del conector en el registro de eventos, use esta lista de errores comunes para resolver el problema:
 

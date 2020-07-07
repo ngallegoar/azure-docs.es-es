@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 1f6a05fdfc28adf412ffbd1402e37b69d1c51634
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1a2d0322436bd91e92a7018552c5827e021ee74e
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79477772"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851515"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Inicio rápido: Creación de una instancia de Standard Load Balancer para equilibrar la carga de máquinas virtuales mediante la CLI de Azure
 
@@ -73,7 +73,7 @@ En esta sección se detalla cómo se pueden crear y configurar los componentes s
 
 ### <a name="create-the-load-balancer"></a>Creación del equilibrador de carga
 
-Cree con [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) una instancia de Azure Load Balancer pública llamada **myLoadBalancer** que incluya un grupo de servidores front-end llamado **myFrontEnd** y un grupo de servidores back-end llamado **myBackEndPool** que esté asociado a la dirección IP pública **myPublicIP** que creó en el paso anterior. Utilice `--sku basic` para crear una dirección IP pública básica. Microsoft recomienda la SKU estándar para cargas de trabajo de producción.
+Cree con [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) una instancia de Azure Load Balancer pública llamada **myLoadBalancer** que incluya un grupo de servidores front-end llamado **myFrontEnd** y un grupo de servidores back-end llamado **myBackEndPool** que esté asociado a la dirección IP pública **myPublicIP** que creó en el paso anterior. Utilice `--sku basic` para crear una instancia de Load Balancer Básico. Microsoft recomienda la SKU estándar para cargas de trabajo de producción.
 
 ```azurecli-interactive
   az network lb create \

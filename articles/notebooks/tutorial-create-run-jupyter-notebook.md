@@ -4,20 +4,20 @@ description: Aprenda a crear y ejecutar un cuaderno de Jupyter en la versión pr
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.custom: tracking-python
-ms.openlocfilehash: e677fca9291bb5247071c3970b7db3f36a6bdceb
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: fd7fc324894595a991074c6d83ffc0f9fa3cff75
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561744"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85834138"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: Creación y ejecución de un cuaderno de Jupyter con Python
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Este tutorial le guiará en el proceso de uso de Azure Notebooks para crear un cuaderno de Jupyter completo que muestra la regresión lineal simple. En el transcurso de este tutorial, se familiarizará con la interfaz de usuario de Jupyter Notebook, que incluye la creación de distintas celdas, la ejecución de celdas y la visualización del cuaderno como una presentación.
 
 Encontrará el cuaderno completo en [GitHub: Ejemplos de Azure Notebooks](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps). Sin embargo, este tutorial empieza con un proyecto nuevo y un cuaderno vacío para que pueda experimentar su creación paso a paso.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 En este tutorial, aprenderá a:
 

@@ -8,12 +8,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7780bdbc92868f62e8d066d171b2a04fe06a981d
-ms.sourcegitcommit: 940e16ff194d5163f277f98d038833b1055a1a3e
+ms.openlocfilehash: 7b6081e6bad1382ca2b3a8349036234c0c01cb13
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80245810"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856506"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Tutorial: Uso de la configuración dinámica en una aplicación de .NET Framework
 
@@ -119,11 +119,15 @@ En este tutorial, aprenderá a:
 
 1. Establezca una variable de entorno llamada **ConnectionString** y defínala como la clave de acceso a su almacén de App Configuration. Si usa el símbolo del sistema de Windows, ejecute el siguiente comando y reinícielo para que se aplique el cambio:
 
+    ```console
         setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```
 
     Si usa Windows PowerShell, ejecute el siguiente comando:
 
+    ```powershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```
 
 1. Reinicie Visual Studio para permitir que el cambio surta efecto. 
 

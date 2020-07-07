@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: e73a8a420c7591a45a62ba38123c6b3368e0f738
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b72ee3e7cb155808bf040a8bca61ee4b5fd96b9b
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190646"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851541"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Carga de datos para trabajos de Apache Hadoop en HDInsight
 
@@ -62,11 +62,11 @@ Por ejemplo: `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 Como el sistema de archivos predeterminado de HDInsight está en Azure Storage, /example/data/data.txt está en realidad en Azure Storage. También puede referirse al archivo como:
 
-    wasbs:///example/data/data.txt
+`wasbs:///example/data/data.txt`
 
 or
 
-    wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
+`wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt`
 
 Para obtener una lista de otros comandos de Hadoop que funcionan con archivos, consulte [https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 

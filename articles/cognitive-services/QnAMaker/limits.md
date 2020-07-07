@@ -3,20 +3,20 @@ title: 'Límites: QnA Maker'
 description: QnA Maker tiene meta-límites para partes de la base de conocimiento y el servicio. Es importante mantener la base de conocimiento dentro de esos límites para probar y publicar.
 ms.topic: reference
 ms.date: 02/14/2020
-ms.openlocfilehash: 6375a6c6efc0c7016d9947e04e9479385aa80af5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6a600bcb25bc524cda38d1e35a777d23d47b15c9
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78273349"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855561"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Límites de la base de conocimiento de QnA Maker
 
-Los límites de QnA Maker que se proporcionan a continuación son una combinación de los [límites del plan de tarifa de Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity) y los [límites del plan de tarifa de QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/). Debe conocer ambos conjuntos de límites para comprender el número de bases de conocimiento que puede crear por recurso y el tamaño que puede alcanzar cada base de conocimiento.
+Los límites de QnA Maker que se proporcionan a continuación son una combinación de los [límites del plan de tarifa de Azure Cognitive Search](../../search/search-limits-quotas-capacity.md) y los [límites del plan de tarifa de QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/). Debe conocer ambos conjuntos de límites para comprender el número de bases de conocimiento que puede crear por recurso y el tamaño que puede alcanzar cada base de conocimiento.
 
 ## <a name="knowledge-bases"></a>Bases de conocimiento
 
-El número máximo de bases de conocimiento se basa en los [límites de plan de Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity).
+El número máximo de bases de conocimiento se basa en los [límites de plan de Azure Cognitive Search](../../search/search-limits-quotas-capacity.md).
 
 |**Nivel de Azure Cognitive Search** | **Gratis** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
@@ -59,7 +59,7 @@ Los metadatos se presentan como un par clave-valor basado en texto, como `produc
 
 ### <a name="by-azure-cognitive-search-pricing-tier"></a>Por plan de tarifa de Azure Cognitive Search
 
-El número máximo de campos de metadatos por base de conocimiento se basa en los **[límites de plan de Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)** .
+El número máximo de campos de metadatos por base de conocimiento se basa en los **[límites de plan de Azure Cognitive Search](../../search/search-limits-quotas-capacity.md)** .
 
 |**Nivel de Azure Cognitive Search** | **Gratis** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
@@ -85,7 +85,7 @@ Límites generales del contenido de la base de conocimiento:
 * Longitud del nombre de archivo: 200
 * Formatos de archivo admitidos: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
 * Número máximo de preguntas alternativas: 300
-* Número máximo de pares de preguntas y respuestas: en función del **[nivel de Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits)** elegido. Un par de pregunta y respuesta se asigna a un documento en el índice de Azure Cognitive Search.
+* Número máximo de pares de preguntas y respuestas: en función del **[nivel de Azure Cognitive Search](../../search/search-limits-quotas-capacity.md#document-limits)** elegido. Un par de pregunta y respuesta se asigna a un documento en el índice de Azure Cognitive Search.
 * Página HTML/URL: 1 millón de caracteres
 
 ## <a name="create-knowledge-base-call-limits"></a>Límites de llamada de creación de la base de conocimiento:

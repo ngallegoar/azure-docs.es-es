@@ -1,6 +1,6 @@
 - name: Azure Blockchain Service (versión preliminar)
   href: index.yml
-- name: Introducción
+- name: Información general
   items:
     - name: Acerca del servicio Azure Blockchain
       href: overview.md
@@ -62,6 +62,10 @@
       href: ethereum-logic-app.md
     - name: Supervisión de Azure Blockchain Service
       href: monitor-azure-blockchain-service.md
+- name: Referencia
+  items:
+    - name: Azure CLI
+      href: /cli/azure/ext/blockchain/blockchain
 - name: Recursos
   items:
     - name: Kit de desarrollo de Azure Blockchain

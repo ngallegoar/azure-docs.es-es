@@ -8,17 +8,17 @@ manager: dcscontentpm
 ms.custom: seodoc18
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: e7c5e00f2e5565393ff46dbb06b30991ebcfc01f
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 1cfe27fd5c63bc4c1436982212b91e07f54aedb5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873701"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801927"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Solución de problemas de Azure Load Balancer
 
@@ -124,7 +124,7 @@ Que la aplicación hospedada en la máquina virtual de back-end del equilibrador
 
 ### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>Causa 4: Acceso al front-end del equilibrador de carga interno desde la VM del grupo de back-end del equilibrador de carga participante
 
-Si se configura un equilibrador de carga interno dentro de una red virtual y una de las máquinas virtuales de back-end participantes intenta acceder al front-end de este, pueden producirse errores al asignar el flujo a la máquina virtual original. No se admite este escenario. Revise las [limitaciones](concepts.md#limitations) para información detallada.
+Si se configura un equilibrador de carga interno dentro de una red virtual y una de las máquinas virtuales de back-end participantes intenta acceder al front-end de este, pueden producirse errores al asignar el flujo a la máquina virtual original. No se admite este escenario.
 
 **Solución**: hay varias maneras para desbloquear este escenario, incluido el uso de un proxy. Evalúe Application Gateway u otros proxys de terceros (por ejemplo, nginx o haproxy). Para más información acerca de Application Gateway, consulte [Introducción a Application Gateway](../application-gateway/application-gateway-introduction.md)
 
@@ -136,7 +136,7 @@ Cuando el flujo se vuelve a asignar a sí mismo, el flujo de salida parece origi
 
 El síntoma de este escenario es el tiempo de espera de conexión intermitente cuando el flujo vuelve al mismo back-end que originó el flujo. Las soluciones alternativas comunes incluyen la inserción de una capa de proxy detrás del Load Balancer interno y el uso de reglas de estilo de Direct Server Return (DSR). Para más información, consulte [Varios front-ends para Azure Load Balancer](load-balancer-multivip-overview.md).
 
-Puede combinar una Load Balancer interna con cualquier proxy de terceros o usar el [Application Gateway](../application-gateway/application-gateway-introduction.md) interno para escenarios de proxy con HTTP/HTTPS. Aunque podría usar un Load Balancer público para mitigar este problema, el escenario resultante es propenso a [agotamiento de SNAT](load-balancer-outbound-connections.md#snat). Evite este segundo enfoque a menos que se administre con cuidado.
+Puede combinar una Load Balancer interna con cualquier proxy de terceros o usar el [Application Gateway](../application-gateway/application-gateway-introduction.md) interno para escenarios de proxy con HTTP/HTTPS. Aunque podría usar un Load Balancer público para mitigar este problema, el escenario resultante es propenso a [agotamiento de SNAT](load-balancer-outbound-connections.md). Evite este segundo enfoque a menos que se administre con cuidado.
 
 ## <a name="symptom-cannot-change-backend-port-for-existing-lb-rule-of-a-load-balancer-which-has-vm-scale-set-deployed-in-the-backend-pool"></a>Síntoma: No se puede cambiar el puerto de back-end para la regla de LB existente para un equilibrador de carga con un conjunto de escalado de máquinas virtuales implementado en el grupo de servidores back-end. 
 ### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>Causa: no se puede modificar el puerto de back-end para una regla de equilibrio de carga que usa un sondeo de estado para el equilibrador de carga al que el conjunto de escalado de máquinas virtuales hace referencia.

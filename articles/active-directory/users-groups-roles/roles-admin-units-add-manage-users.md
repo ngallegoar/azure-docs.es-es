@@ -6,7 +6,7 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.date: 04/16/2020
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c2c5c083115440e1e4da203f39f2b32734458c3
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: a9b76ac103b873026dce3d3f8f92e54dc3afc14c
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81684971"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850935"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Adición y administración de usuarios en las unidades administrativas en Azure Active Directory
 
@@ -51,26 +51,32 @@ Hay dos maneras en las que puede asignar usuarios a las unidades administrativas
 
 ### <a name="powershell"></a>PowerShell
 
-    $administrativeunitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
-    $UserObj = Get-AzureADUser -Filter "UserPrincipalName eq 'billjohn@fabidentity.onmicrosoft.com'"
-    Add-AzureADAdministrativeUnitMember -ObjectId $administrativeunitObj.ObjectId -RefObjectId $UserObj.ObjectId
+```powershell
+$administrativeunitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
+$UserObj = Get-AzureADUser -Filter "UserPrincipalName eq 'billjohn@fabidentity.onmicrosoft.com'"
+Add-AzureADAdministrativeUnitMember -ObjectId $administrativeunitObj.ObjectId -RefObjectId $UserObj.ObjectId
+```
 
 En el ejemplo anterior, el cmdlet Add-AzureADAdministrativeUnitMember se usa para agregar el usuario a la unidad administrativa. Se usan como argumentos tanto el id. de objeto de la unidad administrativa como el id. de objeto del usuario que se va a agregar. La sección resaltada se puede cambiar según sea necesario para el entorno específico.
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
-    Http request
-    POST /administrativeUnits/{Admin Unit id}/members/$ref
-    Request body
-    {
-      "@odata.id":"https://graph.microsoft.com/beta/users/{id}"
-    }
+```http
+Http request
+POST /administrativeUnits/{Admin Unit id}/members/$ref
+Request body
+{
+  "@odata.id":"https://graph.microsoft.com/beta/users/{id}"
+}
+```
 
 Ejemplo:
 
-    {
-      "@odata.id":"https://graph.microsoft.com/beta/users/johndoe@fabidentity.com"
-    }
+```http
+{
+  "@odata.id":"https://graph.microsoft.com/beta/users/johndoe@fabidentity.com"
+}
+```
 
 ## <a name="list-administrative-units-for-a-user"></a>Enumeración de las unidades administrativas de un usuario
 
@@ -86,11 +92,15 @@ Seleccione **Unidades administrativas** en el panel izquierdo para ver la lista 
 
 ### <a name="powershell"></a>PowerShell
 
-    Get-AzureADAdministrativeUnit | where { Get-AzureADAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $userObjId} }
+```powershell
+Get-AzureADAdministrativeUnit | where { Get-AzureADAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $userObjId} }
+```
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
-    https://graph.microsoft.com/beta/users//memberOf/$/Microsoft.Graph.AdministrativeUnit
+```http
+https://graph.microsoft.com/beta/users//memberOf/$/Microsoft.Graph.AdministrativeUnit
+```
 
 ## <a name="remove-a-single-user-from-an-au"></a>Eliminación un solo usuario de una unidad administrativa
 
@@ -106,7 +116,9 @@ También puede quitar un usuario en **Azure AD** > **Unidades administrativas** 
 
 ### <a name="powershell"></a>PowerShell
 
-    Remove-AzureADAdministrativeUnitMember -ObjectId $auId -MemberId $memberUserObjId
+```powershell
+Remove-AzureADAdministrativeUnitMember -ObjectId $auId -MemberId $memberUserObjId
+```
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 

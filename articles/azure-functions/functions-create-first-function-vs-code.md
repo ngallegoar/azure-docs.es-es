@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: mvc, devcenter, seo, tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: ebb402da5a647d20b669442c05c47a0f1c627471
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 819fdec23d00929db34942434f66a6ffa5d4a1d8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559939"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833747"
 ---
 # <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>Inicio rápido: Creación de un función en Azure mediante Visual Studio Code
 
@@ -172,7 +172,9 @@ Después de comprobar que la función se ejecuta correctamente en el equipo loca
 
 1. Pegue esta dirección URL de la solicitud HTTP en la barra de dirección del navegador, agregue la `name` cadena de consulta como `?name=Functions` al final de la dirección URL y, después, ejecute la solicitud. La dirección URL que llama a la función desencadenada por HTTP debería tener el formato siguiente:
 
-        http://<functionappname>.azurewebsites.net/api/httpexample?name=Functions 
+    ```http
+    http://<functionappname>.azurewebsites.net/api/httpexample?name=Functions
+    ```
         
     En el siguiente ejemplo se muestra la respuesta en el explorador para la solicitud GET remota devuelta por la función: 
 

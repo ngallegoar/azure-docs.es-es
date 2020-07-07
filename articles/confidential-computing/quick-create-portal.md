@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/23/2020
 ms.author: JenCook
-ms.openlocfilehash: 49824b324df044ae2883ab6844dd321be27cbcbf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3cf772fb10ee41887d76976b30e9bebaba51a2f3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82150360"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85830475"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>Inicio rápido: Implementación de una máquina virtual de computación confidencial de Azure en Azure Portal
 
@@ -22,7 +22,7 @@ Empiece a trabajar con la computación confidencial de Azure mediante Azure Port
 Se recomienda este tutorial si está interesado en implementar una máquina virtual de computación confidencial con una configuración personalizada. En caso contrario, le recomendamos que siga los [pasos de implementación de la máquina virtual de computación confidencial del marketplace comercial de Microsoft](quick-create-marketplace.md).
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) antes de empezar.
 
@@ -84,7 +84,7 @@ Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.
    * **Tipo de autenticación**: Seleccione **Clave pública SSH** si va a crear una máquina virtual Linux. 
 
         > [!NOTE]
-         > Para la autenticación, puede una clave pública SSH o una contraseña. La opción de SSH es más segura. Para obtener instrucciones acerca de cómo generar una clave SSH, consulte [Creación y uso de un par de claves SSH pública y privada para máquinas virtuales Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
+        > Para la autenticación, puede una clave pública SSH o una contraseña. La opción de SSH es más segura. Para obtener instrucciones acerca de cómo generar una clave SSH, consulte [Creación y uso de un par de claves SSH pública y privada para máquinas virtuales Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
 
     * **Nombre de usuario**: Escriba el nombre del administrador de la máquina virtual.
 
@@ -127,8 +127,7 @@ ssh azureadmin@40.55.55.555
 
 Puede buscar la dirección IP pública de la máquina virtual en la sección Información general de la máquina virtual en Azure Portal.
 
-[!div class="mx-imgBorder"]
-![Dirección IP en Azure Portal](media/quick-create-portal/public-ip-virtual-machine.png)
+:::image type="content" source="media/quick-create-portal/public-ip-virtual-machine.png" alt-text="Dirección IP en Azure Portal":::
 
 Si utiliza Windows y no tiene un shell de BASH, instale un cliente de SSH, como PuTTY.
 

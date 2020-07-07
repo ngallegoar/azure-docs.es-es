@@ -9,17 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
 ms.author: markvi
-ms.openlocfilehash: 01b8e1dbc290bed86ccfc3c7016e8bd9168e427a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: afcbf5187a3b5ef3f44aebda22d376e9b796bf59
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80049066"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848383"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Dejar de usar la extensión de identidades administradas de máquina virtual y empezar a usar Azure Instance Metadata Service
 
@@ -44,26 +44,26 @@ Al configurar una máquina virtual, o un conjunto de escalado de máquinas virtu
 
 También puede usar la plantilla de implementación de Azure Resource Manager para aprovisionar la extensión de máquina virtual, agregando para ello el siguiente JSON a la sección `resources` de la plantilla (use `ManagedIdentityExtensionForLinux` con los elementos de nombre y de tipo de la versión de Linux).
 
-    ```json
-    {
-        "type": "Microsoft.Compute/virtualMachines/extensions",
-        "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
-        "apiVersion": "2018-06-01",
-        "location": "[resourceGroup().location]",
-        "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-        ],
-        "properties": {
-            "publisher": "Microsoft.ManagedIdentity",
-            "type": "ManagedIdentityExtensionForWindows",
-            "typeHandlerVersion": "1.0",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-                "port": 50342
-            }
+```json
+{
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
+    "apiVersion": "2018-06-01",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.ManagedIdentity",
+        "type": "ManagedIdentityExtensionForWindows",
+        "typeHandlerVersion": "1.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "port": 50342
         }
     }
-    ```
+}
+```
     
     
 Si trabaja con conjuntos de escalado de máquinas virtuales, puede aprovisionar las identidades administradas también para la extensión de conjunto de escalado de máquinas virtuales de recursos de Azure, mediante el cmdlet [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension). Puede pasar `ManagedIdentityExtensionForWindows` o `ManagedIdentityExtensionForLinux`, según el tipo de conjunto de escalado de máquinas virtuales, y asignar un nombre mediante el parámetro `-Name`. El parámetro `-Settings` especifica el puerto utilizado por el punto de conexión del token de OAuth para la adquisición de tokens:
@@ -75,23 +75,23 @@ Si trabaja con conjuntos de escalado de máquinas virtuales, puede aprovisionar 
    ```
 Para aprovisionar la extensión de conjunto de escalado de máquinas virtuales con la plantilla de implementación de Azure Resource Manager, agregue el siguiente JSON a la sección `extensionpProfile` de la plantilla (use `ManagedIdentityExtensionForLinux` con los elementos de nombre y de tipo de la versión de Linux).
 
-    ```json
-    "extensionProfile": {
-        "extensions": [
-            {
-                "name": "ManagedIdentityWindowsExtension",
-                "properties": {
-                    "publisher": "Microsoft.ManagedIdentity",
-                    "type": "ManagedIdentityExtensionForWindows",
-                    "typeHandlerVersion": "1.0",
-                    "autoUpgradeMinorVersion": true,
-                    "settings": {
-                        "port": 50342
-                    },
-                    "protectedSettings": {}
-                }
+```json
+"extensionProfile": {
+    "extensions": [
+        {
+            "name": "ManagedIdentityWindowsExtension",
+            "properties": {
+                "publisher": "Microsoft.ManagedIdentity",
+                "type": "ManagedIdentityExtensionForWindows",
+                "typeHandlerVersion": "1.0",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "port": 50342
+                },
+                "protectedSettings": {}
             }
-    ```
+        }
+```
 
 Se puede producir un error en el aprovisionamiento de la extensión de máquina virtual debido a errores de búsqueda DNS. Si esto ocurre, reinicie la máquina virtual e inténtelo de nuevo. 
 

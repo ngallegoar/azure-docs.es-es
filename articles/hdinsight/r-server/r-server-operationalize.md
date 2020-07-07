@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: a05bcdef2b7456fbab852e9728c156e57f847f57
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e1628cdfbfc23eae7db2aad1948a7fbd84e5035f
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71123561"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850003"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Puesta en funcionamiento de clústeres de ML Services en Azure HDInsight
 
@@ -32,7 +32,9 @@ Después de haber usado el clúster de ML Services en HDInsight para completar e
 
 1. Uso de SSH en el nodo perimetral.
 
-        ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
+    ```bash
+    ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
+    ```
 
     Para obtener instrucciones sobre cómo utilizar SSH con Azure HDInsight, consulte [Uso de SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -40,13 +42,17 @@ Después de haber usado el clúster de ML Services en HDInsight para completar e
 
     - Para Microsoft ML Server 9.1:
 
-            cd /usr/lib64/microsoft-r/rserver/o16n/9.1.0
-            sudo dotnet Microsoft.RServer.Utils.AdminUtil/Microsoft.RServer.Utils.AdminUtil.dll
+        ```bash
+        cd /usr/lib64/microsoft-r/rserver/o16n/9.1.0
+        sudo dotnet Microsoft.RServer.Utils.AdminUtil/Microsoft.RServer.Utils.AdminUtil.dll
+        ```
 
     - Para Microsoft R Server 9.0:
 
-            cd /usr/lib64/microsoft-deployr/9.0.1
-            sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
+        ```bash
+        cd /usr/lib64/microsoft-deployr/9.0.1
+        sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
+        ```
 
 1. Se muestran las diferentes opciones que tiene. Elija la primera opción, tal como se muestra en la siguiente captura de pantalla, con el fin de **configurar ML Server para la puesta en marcha**.
 
@@ -82,19 +88,20 @@ Después de haber usado el clúster de ML Services en HDInsight para completar e
 
 Si se producen retrasos prolongados al intentar consumir un servicio web creado con funciones de mrsdeploy en un contexto de proceso de Apache Spark, puede que necesite agregar algunas carpetas que falten. La aplicación de Spark pertenece a un usuario llamado "*rserve2*" cada vez que se invoque desde un servicio web mediante las funciones de mrsdeploy. Para evitar este problema:
 
-    # Create these required folders for user 'rserve2' in local and hdfs:
+```r
+# Create these required folders for user 'rserve2' in local and hdfs:
 
-    hadoop fs -mkdir /user/RevoShare/rserve2
-    hadoop fs -chmod 777 /user/RevoShare/rserve2
+hadoop fs -mkdir /user/RevoShare/rserve2
+hadoop fs -chmod 777 /user/RevoShare/rserve2
 
-    mkdir /var/RevoShare/rserve2
-    chmod 777 /var/RevoShare/rserve2
+mkdir /var/RevoShare/rserve2
+chmod 777 /var/RevoShare/rserve2
 
 
-    # Next, create a new Spark compute context:
- 
-    rxSparkConnect(reset = TRUE)
+# Next, create a new Spark compute context:
 
+rxSparkConnect(reset = TRUE)
+```
 
 En esta fase, la configuración de la puesta en operación está completa. Ahora puede usar el paquete `mrsdeploy` en RClient para conectarse a la operacionalización en el nodo perimetral y empezar a usar sus características, como la [ejecución remota](https://docs.microsoft.com/machine-learning-server/r/how-to-execute-code-remotely) y los [servicios web](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services). Dependiendo de si el clúster se configura en una red virtual o no, puede que necesite configurar la tunelización de reenvío del puerto mediante el inicio de sesión SSH. En las secciones siguientes se explica cómo configurar este túnel.
 
@@ -102,15 +109,15 @@ En esta fase, la configuración de la puesta en operación está completa. Ahora
 
 Asegúrese de que permite que el tráfico pase a través del puerto 12800 al nodo perimetral. De esa forma, puede usar el nodo perimetral para conectarse a la característica de operacionalización.
 
+```r
+library(mrsdeploy)
 
-    library(mrsdeploy)
-
-    remoteLogin(
-        deployr_endpoint = "http://[your-cluster-name]-ed-ssh.azurehdinsight.net:12800",
-        username = "admin",
-        password = "xxxxxxx"
-    )
-
+remoteLogin(
+    deployr_endpoint = "http://[your-cluster-name]-ed-ssh.azurehdinsight.net:12800",
+    username = "admin",
+    password = "xxxxxxx"
+)
+```
 
 Si `remoteLogin()` no se puede conectarse al nodo perimetral, pero se posible usar SSH en dicho nodo, tendrá que comprobar si se ha configurado correctamente la regla para permitir el tráfico en el puerto 12800. Si el problema no desaparece, puede solucionarlo mediante la configuración de la tunelización de reenvío del puerto a través de SSH. Para obtener instrucciones, consulte la siguiente sección:
 
@@ -118,19 +125,21 @@ Si `remoteLogin()` no se puede conectarse al nodo perimetral, pero se posible us
 
 Si el clúster no está configurado en la red virtual o si tiene problemas con la conectividad a través de la red virtual, puede utilizar la tunelización de reenvío del puerto de SSH:
 
-    ssh -L localhost:12800:localhost:12800 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
+```bash
+ssh -L localhost:12800:localhost:12800 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
+```
 
 Cuando la sesión SSH esté activa, el tráfico del puerto 12800 de la máquina local se reenviará al puerto 12800 del nodo perimetral mediante la sesión de SSH. Asegúrese de utilizar `127.0.0.1:12800` en el método `remoteLogin()`. Con esta acción, se iniciará sesión en la operacionalización del nodo perimetral mediante el enrutamiento de puerto.
 
+```r
+library(mrsdeploy)
 
-    library(mrsdeploy)
-
-    remoteLogin(
-        deployr_endpoint = "http://127.0.0.1:12800",
-        username = "admin",
-        password = "xxxxxxx"
-    )
-
+remoteLogin(
+    deployr_endpoint = "http://127.0.0.1:12800",
+    username = "admin",
+    password = "xxxxxxx"
+)
+```
 
 ## <a name="scale-operationalized-compute-nodes-on-hdinsight-worker-nodes"></a>Escala de nodos de proceso operacionalizados en nodos de trabajo de HDInsight
 
@@ -164,7 +173,9 @@ Siga estos pasos para retirar nodos de trabajo:
 
 1. Ejecute la utilidad de administración con el archivo DLL correspondiente para el clúster de ML Services que tenga. Para ML Server 9.1, ejecute lo siguiente:
 
-        dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
+    ```bash
+    dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
+    ```
 
 1. Escriba **1** para seleccionar la opción **Configure ML Server for Operationalization** (Configurar R Server para operacionalización).
 
@@ -182,12 +193,14 @@ Una vez que todos los nodos de trabajo retirados se hayan configurado para ejecu
 
 1. Busque la sección de identificadores URI y agregue la dirección IP del nodo de trabajo y los detalles del puerto.
 
-       "Uris": {
-         "Description": "Update 'Values' section to point to your backend machines. Using HTTPS is highly recommended",
-         "Values": [
-           "http://localhost:12805", "http://[worker-node1-ip]:12805", "http://[workder-node2-ip]:12805"
-         ]
-       }
+    ```json
+    "Uris": {
+        "Description": "Update 'Values' section to point to your backend machines. Using HTTPS is highly recommended",
+        "Values": [
+            "http://localhost:12805", "http://[worker-node1-ip]:12805", "http://[workder-node2-ip]:12805"
+        ]
+    }
+    ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

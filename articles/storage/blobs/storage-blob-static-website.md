@@ -3,26 +3,27 @@ title: Hospedaje de sitios web estáticos en Azure Storage
 description: Azure Storage le ofrece hospedaje de sitios web estáticos, lo que le proporciona una solución rentable y escalable para hospedar aplicaciones web modernas.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/14/2020
 ms.subservice: blobs
-ms.openlocfilehash: 6a007525f8402bb163195b623173d665f9721bff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e2dcc070baa94ecf1ea27100fd49d4cde1dac637
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648511"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833353"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedaje de sitios web estáticos en Azure Storage
 
 Puede proporcionar contenido estático (HTML, CSS, JavaScript y archivos de imagen) directamente desde un contenedor de almacenamiento llamado *$web*. El hospedaje de contenido en Azure Storage permite usar arquitecturas sin servidor que incluyen [Azure Functions](/azure/azure-functions/functions-overview) y otros servicios de plataforma como servicio (PaaS).
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 > [!NOTE]
 > Si su sitio depende del código del lado servidor, use [Azure App Service](/azure/app-service/overview).
+Asegúrese de crear una cuenta de almacenamiento estándar de uso general v2. Los sitios web estáticos no están disponibles en ningún otro tipo de cuenta de almacenamiento.
 
 ## <a name="setting-up-a-static-website"></a>Configuración de un sitio web estático
 
@@ -46,7 +47,7 @@ Puede usar cualquiera de estas herramientas para cargar contenido en el contened
 > * [AzCopy](../common/storage-use-azcopy-v10.md)
 > * [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/)
 > * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-> * [Extensión de Visual Studio Code](/azure/javascript/tutorial-vscode-static-website-node-01)
+> * [Extensión de Visual Studio Code](/azure/developer/javascript/tutorial-vscode-static-website-node-01)
 
 ## <a name="viewing-content"></a>Visualización de contenido
 
@@ -63,11 +64,11 @@ La dirección URL del sitio contiene un código regional. Por ejemplo, la direcc
 
 Aunque el código debe permanecer en la dirección URL, solo es para uso interno y no se tiene que usar de ninguna otra manera.
 
-El documento del índice que especifique al habilitar el hospedaje de sitios web estáticos aparece cuando los usuarios abren el sitio y no especifican un archivo concreto (por ejemplo, `https://contosoblobaccount.z22.web.core.windows.net`).  
+El documento del índice que especifique al habilitar el hospedaje de sitios web estáticos aparece cuando los usuarios abren el sitio y no especifican un archivo concreto (por ejemplo, `https://contosoblobaccount.z22.web.core.windows.net`).
 
 ### <a name="secondary-endpoints"></a>Puntos de conexión secundarios
 
-Si configura la [redundancia en una región secundaria](../common/storage-redundancy.md#redundancy-in-a-secondary-region), también puede tener acceso al contenido del sitio web mediante un punto de conexión secundario. Dado que los datos se replican en las regiones secundarias de forma asincrónica, los archivos que están disponibles en el punto de conexión secundario no están siempre sincronizados con los archivos que están disponibles en el punto de conexión principal. 
+Si configura la [redundancia en una región secundaria](../common/storage-redundancy.md#redundancy-in-a-secondary-region), también puede tener acceso al contenido del sitio web mediante un punto de conexión secundario. Dado que los datos se replican en las regiones secundarias de forma asincrónica, los archivos que están disponibles en el punto de conexión secundario no están siempre sincronizados con los archivos que están disponibles en el punto de conexión principal.
 
 ## <a name="impact-of-the-setting-the-public-access-level-of-the-web-container"></a>Impacto de la configuración del nivel de acceso público del contenedor web
 
@@ -85,11 +86,11 @@ Sin embargo, el acceso público al punto de conexión principal de Blob service 
 
 ## <a name="mapping-a-custom-domain-to-a-static-website-url"></a>Asignación de un dominio personalizado a una dirección URL de un sitio web estático
 
-Puede hacer que el sitio web estático esté disponible a través de un dominio personalizado. 
+Puede hacer que el sitio web estático esté disponible a través de un dominio personalizado.
 
 Es más fácil habilitar el acceso HTTP para un dominio personalizado, ya que Azure Storage lo admite de forma nativa. Para habilitar HTTPS, tendrá que usar Azure CDN porque Azure Storage no admite de forma nativa HTTPS con dominios personalizados. Para obtener instrucciones pormenorizadas, consulte [Asignación de un dominio personalizado a un punto de conexión de Azure Blob Storage](storage-custom-domain-name.md).
 
-Si la cuenta de almacenamiento está configurada para [requerir la transferencia segura](../common/storage-require-secure-transfer.md) a través de HTTPS, los usuarios deben utilizar el punto de conexión HTTPS. 
+Si la cuenta de almacenamiento está configurada para [requerir la transferencia segura](../common/storage-require-secure-transfer.md) a través de HTTPS, los usuarios deben utilizar el punto de conexión HTTPS.
 
 > [!TIP]
 > Consider la posibilidad de hospedar el dominio en Azure. Para más información, consulte [Hospedaje de un dominio en Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).

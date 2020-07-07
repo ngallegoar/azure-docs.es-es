@@ -4,12 +4,12 @@ description: Modelo de datos de Application Insights para la telemetría de soli
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: d8a28063bf6780c3cace4ead81e289779b95eb9a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57cc9c95137facaaf2ddf5bb212121f88e150f5b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671909"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807662"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetría de solicitudes: Modelo de datos de Application Insights
 
@@ -21,7 +21,7 @@ La telemetría de solicitudes admite el modelo de extensibilidad estándar media
 
 El nombre de la solicitud representa la ruta de código seguida para procesar la solicitud. Un valor de cardinalidad bajo permite una mejor agrupación de las solicitudes. En las solicitudes de HTTP, representa el método HTTP y la plantilla de la ruta URL como `GET /values/{id}` sin el valor de `id` real.
 
-SDK web de Application Insights envía el nombre de la solicitud tal cual en cuanto a mayúsculas y minúsculas. El agrupamiento de la IU distingue entre mayúsculas y minúsculas, de modo que `GET /Home/Index` se cuenta por separado de `GET /home/INDEX`, incluso aunque a menudo producen la misma ejecución de controlador y acción. El motivo es que las URL suelen [distinguir entre mayúsculas y minúsculas](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Puede comprobar si todos los errores `404` se produjeron con las URL escritas en mayúsculas. En la [entrada de blog ](https://apmtips.com/blog/2015/02/23/request-name-and-url/) encontrará más información sobre la colección de nombres de solicitud del SDK web de ASP.NET.
+SDK web de Application Insights envía el nombre de la solicitud tal cual en cuanto a mayúsculas y minúsculas. El agrupamiento de la IU distingue entre mayúsculas y minúsculas, de modo que `GET /Home/Index` se cuenta por separado de `GET /home/INDEX`, incluso aunque a menudo producen la misma ejecución de controlador y acción. El motivo es que las URL suelen [distinguir entre mayúsculas y minúsculas](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Puede comprobar si todos los errores `404` se produjeron con las URL escritas en mayúsculas. En la [entrada de blog ](https://apmtips.com/posts/2015-02-23-request-name-and-url/) encontrará más información sobre la colección de nombres de solicitud del SDK web de ASP.NET.
 
 Longitud máxima: 1024 caracteres
 
@@ -61,7 +61,7 @@ Para las aplicaciones web, Application Insights define una solicitud como correc
 
 El contenido aceptado parcialmente `206` puede indicar un error de una solicitud general. Por ejemplo, el punto de conexión de Application Insights recibe un lote de elementos de telemetría como una solicitud única. Devuelve el error `206` cuando algunos elementos del lote no se han procesado correctamente. Un aumento de la frecuencia del error `206` indica la presencia de un problema que es necesario investigar. Se aplica una lógica similar al error con varios estados de `207`, en el cual el estado correcto puede ser el peor de los códigos de respuesta separados.
 
-Puede leer más sobre el código de resultados de solicitudes y el código de estado en la [publicación del blog](https://apmtips.com/blog/2016/12/03/request-success-and-response-code/).
+Puede leer más sobre el código de resultados de solicitudes y el código de estado en la [publicación del blog](https://apmtips.com/posts/2016-12-03-request-success-and-response-code/).
 
 ## <a name="custom-properties"></a>Propiedades personalizadas
 

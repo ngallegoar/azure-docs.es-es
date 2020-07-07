@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
 ms.openlocfilehash: b05da78091260297d94062c06cba100d01ce7e2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229268"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847868"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Ciclo de vida, recolección automática de elementos no utilizados y eliminación manual de actores
 Un actor se activa la primera vez que se realiza una llamada a cualquiera de sus métodos y se desactiva (el runtime de los actores recolecta los elementos no utilizados) si no se usa durante un periodo determinado. Un actor y su estado también se pueden eliminar manualmente en cualquier momento.

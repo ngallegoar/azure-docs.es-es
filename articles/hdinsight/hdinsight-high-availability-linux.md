@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 767d87efcf94d720159dcf3b9dc42981ec957ef0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 21ecf33291924097f076aa28088eb4eac652ce67
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81381409"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849668"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilidad y fiabilidad de clústeres de Apache Hadoop en HDInsight
 
@@ -245,8 +245,10 @@ De igual forma a utilizar un cliente SSH, al conectarse al clúster debe proporc
 
 Una vez conectado, se le presentará un símbolo del sistema `sftp>`. Desde este símbolo del sistema, puede cambiar los directorios, cargar y descargar archivos. Por ejemplo, los siguientes comandos cambian los directorios al directorio **/var/log/hadoop/hdfs** y después descargan todos los archivos en el directorio.
 
-    cd /var/log/hadoop/hdfs
-    get *
+```bash
+cd /var/log/hadoop/hdfs
+get *
+```
 
 Para ver una lista de comandos disponibles, escriba `help` en el símbolo del sistema `sftp>`.
 

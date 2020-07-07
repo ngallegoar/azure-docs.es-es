@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 02/28/2020
-ms.openlocfilehash: 476f265d9658d08ef62647e707c0594af8cda480
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0b7353731d5e733bc55cd81c0643e060a3281be2
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192032"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849646"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Conexión a HDInsight (Apache Hadoop) mediante SSH
 
@@ -72,7 +72,9 @@ Si su cuenta SSH se protege utilizando una clave, el cliente tiene que proporcio
 
 Use el comando `ssh-keygen` para crear archivos de clave pública y privada. El comando siguiente genera un par de claves de RSA de 2048 bits que puede utilizarse con HDInsight:
 
-    ssh-keygen -t rsa -b 2048
+```azurepowershell-interactive
+ssh-keygen -t rsa -b 2048
+```
 
 Se le pedirá información durante el proceso de creación de claves. Por ejemplo, dónde se almacenan las claves o si se debe usar una frase de contraseña. Una vez completado el proceso, se crean dos archivos: una clave pública y una clave privada.
 

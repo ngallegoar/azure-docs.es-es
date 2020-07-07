@@ -12,18 +12,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcbeedddc65a916f869a778616779917a9571181
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 58bc154f4ffb234df52faf3c02b5ed7ecaf77c2e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80331974"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830934"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Administre y personalice Servicios de federación de Active Directory con Azure AD Connect
 En este artículo se describe cómo administrar y personalizar Servicios de federación de Active Directory (AD FS) con Azure Active Directory (Azure AD) Connect. También se incluyen otras tareas comunes de AD FS que podría tener que hacer para configurar completamente una granja de servidores de AD FS.
@@ -192,7 +192,9 @@ Para cambiar el logotipo de la compañía que se muestra en la página de **inic
 > [!NOTE]
 > Las dimensiones recomendadas para el logotipo son 260 x 35 a 96 \@ con un tamaño de archivo no superior a 10 KB.
 
-    Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
+```azurepowershell-interactive
+Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
+```
 
 > [!NOTE]
 > Se requiere el parámetro *TargetName* . El tema predeterminado que se incluyó con AD FS se llamada Default.
@@ -200,7 +202,9 @@ Para cambiar el logotipo de la compañía que se muestra en la página de **inic
 ## <a name="add-a-sign-in-description"></a><a name="addsignindescription"></a>Adición de una descripción de inicio de sesión 
 Para agregar una descripción de la **página de inicio de sesión**a dicha página, use el siguiente cmdlet de Windows PowerShell y la sintaxis.
 
-    Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
+```azurepowershell-interactive
+Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
+```
 
 ## <a name="modify-ad-fs-claim-rules"></a><a name="modclaims"></a>Modificación de las reglas de notificaciones de AD FS 
 AD FS admite un amplio lenguaje de notificaciones que sirve para crear reglas de notificaciones personalizadas. Para más información, consulte [El papel de lenguaje de reglas de notificación](https://technet.microsoft.com/library/dd807118.aspx).
@@ -214,8 +218,10 @@ Por ejemplo, puede seleccionar **ms-ds-consistencyguid** como atributo del delim
 
 **Regla 1: Consultar atributos**
 
-    c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"]
-    => add(store = "Active Directory", types = ("http://contoso.com/ws/2016/02/identity/claims/objectguid", "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"), query = "; objectGuid,ms-ds-consistencyguid;{0}", param = c.Value);
+```claim-rule-language
+c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"]
+=> add(store = "Active Directory", types = ("http://contoso.com/ws/2016/02/identity/claims/objectguid", "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"), query = "; objectGuid,ms-ds-consistencyguid;{0}", param = c.Value);
+```
 
 En esta regla simplemente se consultan los valores de **ms-ds-consistencyguid** y **objectGuid** para el usuario desde Active Directory. Cambie el nombre del almacén por un nombre adecuado en la implementación de AD FS. Cambie también el tipo de notificaciones a un tipo correcto para la federación, tal como se define para los atributos **objectGuid** y **ms-ds-consistencyguid**.
 
@@ -223,23 +229,29 @@ Además, al usar **add** y no **issue**, no se tiene que agregar una emisión de
 
 **Regla 2: Comprobar si ms-ds-consistencyguid existe para el usuario**
 
-    NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
-    => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
+```claim-rule-language
+NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
+=> add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
+```
 
 Esta regla define un marcador temporal **idflag**, que se establece en **useguid** si no hay ningún atributo **ms-ds-consistencyguid** rellenado para el usuario. Esto se debe a que ADFS no admite notificaciones vacías. De este modo, al agregar notificaciones `http://contoso.com/ws/2016/02/identity/claims/objectguid` y `http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid` en la primera regla, solo se generará una notificación **msdsconsistencyguid** si se ha rellenado el valor del usuario. Si no se rellena, AD FS ve que tiene un valor vacío y lo coloca inmediatamente. Todos los objetos tendrán el atributo **objectGuid**, así que esa notificación seguirá estando después de que se ejecute la regla 1.
 
 **Regla 3: Emitir el atributo ms-ds-consistencyguid como identificador inmutable si está presente**
 
-    c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"]
-    => issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c.Value);
+```claim-rule-language
+c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"]
+=> issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c.Value);
+```
 
 Se trata de una comprobación **Exist** implícita. Si el valor de la notificación existe, emítalo como identificador inmutable. En el ejemplo anterior se utiliza la notificación **nameidentifier** . Tendrá que cambiar este valor al tipo de notificación adecuado para un identificador inmutable en su entorno.
 
 **Regla 4: Emitir el atributo objectGuid como identificador inmutable si ms-ds-consistencyguid no está presente**
 
-    c1:[Type == "urn:anandmsft:tmp/idflag", Value =~ "useguid"]
-    && c2:[Type == "http://contoso.com/ws/2016/02/identity/claims/objectguid"]
-    => issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c2.Value);
+```claim-rule-language
+c1:[Type == "urn:anandmsft:tmp/idflag", Value =~ "useguid"]
+&& c2:[Type == "http://contoso.com/ws/2016/02/identity/claims/objectguid"]
+=> issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c2.Value);
+```
 
 En esta regla, simplemente va a comprobar el atributo **idflag**temporal. Decida si va a emitir la notificación basándose en su valor.
 

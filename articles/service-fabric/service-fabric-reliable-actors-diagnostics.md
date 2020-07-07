@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: abhisram
 ms.openlocfilehash: e6e9fb66368461e0d3ebdd2709f4ced0e796bea5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236656"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846596"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnósticos y supervisión del rendimiento de Reliable Actors
 El tiempo de ejecución de Reliable Actors emite eventos [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) y [contadores de rendimiento](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Estos ofrecen información sobre cómo está funcionando el tiempo de ejecución y ayudarán con la solución de problemas y la supervisión de rendimiento.

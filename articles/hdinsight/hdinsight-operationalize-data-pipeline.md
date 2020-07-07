@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/25/2019
-ms.openlocfilehash: efbd8dfa34f5d954e302b421dfcea6c46d9469ca
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 9b45b23f8d90794f8b426822cdc06773a69c9c88
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022835"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851338"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Uso de una canalización de análisis de datos
 
@@ -422,7 +422,9 @@ Utilice SCP desde la sesión de bash para implementar el flujo de trabajo de Ooz
 
 1. Cuando el estado sea SUCCEEDED (CORRECTO), consulte la tabla de SQL Database para ver las filas insertadas. En Azure Portal, vaya al panel de la base de datos SQL, seleccione **Herramientas** y abra el **Editor de consultas**.
 
-        SELECT * FROM dailyflights
+    ```sql
+    SELECT * FROM dailyflights
+    ```
 
 Ahora que el flujo de trabajo se está ejecutando para el día de la prueba individual, puede encapsular este flujo de trabajo con un coordinador que programe el flujo de trabajo para que se ejecute diariamente.
 

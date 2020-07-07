@@ -3,14 +3,16 @@ title: Migración de un cuaderno de Jupyter Notebook local a Azure Notebooks (ve
 description: Transfiera rápidamente un cuaderno de Jupyter Notebook a Azure Notebooks (versión preliminar) desde el equipo local o una dirección URL web y, posteriormente, a compartirlo con fines de colaboración.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: baf05d7adb1340d712ff0fc87436d5bbac51bc8f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 9c961ad67260cee2809e0bba1e79f2c709183dea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77064332"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85832124"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook-in-azure-notebooks-preview"></a>Inicio rápido: Migración de un cuaderno de Jupyter Notebook local a Azure Notebooks (versión preliminar)
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 En este inicio rápido, se migra a Azure Notebooks un cuaderno de Jupyter Notebook desde un equipo local u otra dirección URL de archivo accesible. 
 
@@ -25,8 +27,6 @@ Al migrar a Azure Notebooks los cuadernos locales o los que están en el reposit
 ## <a name="create-a-project-on-azure-notebooks"></a>Creación de un proyecto en Azure Notebooks
 
 En este inicio rápido, se muestra cómo migrar un cuaderno desde su equipo local u otra dirección URL de archivo a la que se pueda acceder. Para migrar los cuadernos desde un repositorio de GitHub, consulte [Inicio rápido: Clonación de un cuaderno](quickstart-clone-jupyter-notebook.md).
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 1. Vaya a [Azure Notebooks](https://notebooks.azure.com) e inicie sesión. (Para más información, consulte [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md) [Inicio rápido: Inicio de sesión en Azure Notebooks]).
 

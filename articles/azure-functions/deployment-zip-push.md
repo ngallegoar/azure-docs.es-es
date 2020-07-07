@@ -3,12 +3,12 @@ title: Implementación para insertar archivos ZIP en Azure Functions
 description: Use las funciones de implementación de archivos ZIP del servicio de implementación de Kudu para publicar sus instancias de Azure Functions.
 ms.topic: conceptual
 ms.date: 08/12/2018
-ms.openlocfilehash: 6bda0859ca4741fe74f572b204e40130c56c46fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e104661dcdf1f6c6fd6dd5eb1024748980e7931f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75769681"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833059"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Implementación de archivos ZIP en Azure Functions
 
@@ -56,7 +56,9 @@ Sin embargo, es posible crear las funciones mediante el editor en Azure Portal. 
 
     Use la siguiente API GET de implementación para descargar los archivos del proyecto `<function_app>`: 
 
-        https://<function_app>.scm.azurewebsites.net/api/zip/site/wwwroot/
+    ```http
+    https://<function_app>.scm.azurewebsites.net/api/zip/site/wwwroot/
+    ```
 
     Al incluir `/site/wwwroot/` se garantiza que el archivo ZIP solo incorpora los archivos de proyecto de la aplicación de función y no el sitio entero. Si aún no ha iniciado sesión en Azure, se le pedirá que lo haga.  
 

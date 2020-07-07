@@ -3,12 +3,12 @@ title: Paquetes NuGet de Application Insights de Azure Monitor
 description: Listas de paquetes NuGet de Application Insights de Azure Monitor para ASP.NET, ASP.NET Core, Python
 ms.topic: reference
 ms.date: 10/16/2018
-ms.openlocfilehash: 5675c0fad61f1b75aa7e93db02246eed43967ec2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 91b48aee64a6b6942719f7f4abfb444b894c728e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670005"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807169"
 ---
 # <a name="application-insights-nuget-packages"></a>Paquetes NuGet de Application Insights
 
@@ -79,7 +79,7 @@ A continuación se encuentra la lista actual de los paquetes NuGet de versión e
 | Microsoft.ApplicationInsights.Agent_x64 | 2.2.1 |  Habilita la recopilación de datos en tiempo de ejecución para aplicaciones x64 | [Descargar paquete](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x64/) |
 | Microsoft.ApplicationInsights.Agent_x86 | 2.2.1 |  Habilita la recopilación de datos en tiempo de ejecución para aplicaciones x86. | [Descargar paquete](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x86/) |
 
-Estos paquetes forman parte de la funcionalidad básica de la supervisión en tiempo de ejecución en [Monitor de estado](../../azure-monitor/app/monitor-performance-live-website-now.md). No necesita descargar estos paquetes directamente; use solo el instalador del Monitor de estado. Si desea obtener más información sobre cómo funcionan estos paquetes en segundo plato, esta [entrada de blog](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/) de uno de nuestros desarrolladores es un buen punto de partida.
+Estos paquetes forman parte de la funcionalidad básica de la supervisión en tiempo de ejecución en [Monitor de estado](../../azure-monitor/app/monitor-performance-live-website-now.md). No necesita descargar estos paquetes directamente; use solo el instalador del Monitor de estado. Si desea obtener más información sobre cómo funcionan estos paquetes en segundo plato, esta [entrada de blog](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/) de uno de nuestros desarrolladores es un buen punto de partida.
 
 ## <a name="additional-packages"></a>Paquetes adicionales
 

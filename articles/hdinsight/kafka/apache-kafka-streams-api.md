@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
 ms.date: 03/20/2020
-ms.openlocfilehash: 2885fccd95d09149ae496b80a658f34e5b697d0b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0174c40a0fada0f78cc8d52f5c45b991c3851da0
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80064494"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850566"
 ---
 # <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Tutorial: Uso de Streams API de Apache Kafka en Azure HDInsight
 
@@ -232,19 +232,21 @@ Use los siguientes pasos para compilar e implementar el proyecto en el clúster 
 
     La salida será similar al siguiente texto:
 
-        dwarfs  13635
-        ago     13664
-        snow    13636
-        dwarfs  13636
-        ago     13665
-        a       13803
-        ago     13666
-        a       13804
-        ago     13667
-        ago     13668
-        jumped  13640
-        jumped  13641
-   
+    ```output
+    dwarfs  13635
+    ago     13664
+    snow    13636
+    dwarfs  13636
+    ago     13665
+    a       13803
+    ago     13666
+    a       13804
+    ago     13667
+    ago     13668
+    jumped  13640
+    jumped  13641
+    ```
+
     El parámetro `--from-beginning` configura el consumidor para que empiece por el primero de los registros almacenados en el tema. El recuento se incrementa cada vez que se encuentra una palabra, por lo que el tema contiene varias entradas para cada palabra, con un recuento creciente.
 
 4. Use __Ctrl + C__ para salir del productor. Siga usando __Ctrl + C__ para salir de la aplicación y del consumidor.

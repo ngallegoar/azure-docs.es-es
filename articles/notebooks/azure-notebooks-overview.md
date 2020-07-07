@@ -3,22 +3,22 @@ title: Introducción a Azure Notebooks (versión preliminar)
 description: Ejecute cuadernos de Jupyter Notebook en la nube mediante el servicio gratuito Azure Notebooks (versión preliminar), donde no se requiere realizar ninguna configuración.
 ms.topic: overview
 ms.date: 04/05/2019
-ms.openlocfilehash: e40b7056aef7e59759c9e04ba9d98fbfb7d28ca3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d229e48e5c49a9a672c533fb24231e9329e524c0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647537"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85831410"
 ---
 # <a name="overview-of-azure-notebooks-preview"></a>Introducción a Azure Notebooks (versión preliminar)
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Azure Notebooks es un servicio hospedado gratuito para desarrollar y ejecutar cuadernos de Jupyter Notebook en la nube sin necesidad de instalación. [Jupyter](https://jupyter.org/) (anteriormente IPython) es un proyecto de código abierto que permite combinar fácilmente texto Markdown, código ejecutable y datos, gráficos y visualizaciones persistentes en un único lienzo que se puede compartir, denominado el *cuaderno* (imagen cortesía de jupyter.org):
 
 [![Ejemplos de Jupyter Notebooks](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Debido a esta potente combinación de código, gráficos y texto explicativo, el uso de Jupyter se ha extendido en escenarios como la instrucción de ciencia de datos, la limpieza y transformación de datos, la simulación numérica, el modelado estadístico y el desarrollo de modelos de aprendizaje automático.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="hassle-free-experience"></a>Experiencia sin complicaciones
 

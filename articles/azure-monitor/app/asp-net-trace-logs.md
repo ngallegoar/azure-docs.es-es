@@ -3,12 +3,12 @@ title: Exploración de registros de seguimiento de .NET en Application Insights
 description: Busque registros generados por Seguimiento, NLog o Log4Net.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: bcd21286a547e0b0a6b5b93e8b05921e8e8cc1e2
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d010fe4389e22c9909800f5329911b6b5619d7b6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647905"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829540"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Exploración de los registros de seguimiento de .NET, .NET Core y Python en Application Insights
 
@@ -73,11 +73,15 @@ Para ver algunos ejemplos de uso de la implementación de ILogger para Applicati
 ## <a name="insert-diagnostic-log-calls"></a>Insertar llamadas de registro de diagnóstico
 Si usa System.Diagnostics.Trace, una llamada típica sería:
 
-    System.Diagnostics.Trace.TraceWarning("Slow response - database01");
+```csharp
+System.Diagnostics.Trace.TraceWarning("Slow response - database01");
+```
 
 Si prefiere log4net o NLog, use lo siguiente:
 
+```csharp
     logger.Warn("Slow response - database01");
+```
 
 ## <a name="use-eventsource-events"></a>Uso de eventos EventSource
 Puede configurar eventos [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) para enviarse a Application Insights como seguimientos. Primero, instale el paquete de NuGet `Microsoft.ApplicationInsights.EventSourceListener`. Seguidamente, edite la sección `TelemetryModules` del archivo [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md).
@@ -133,17 +137,21 @@ Puede llamar directamente a la API de seguimiento de Application Insights. Los a
 
 Por ejemplo:
 
-    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
-    telemetry.TrackTrace("Slow response - database01");
+```csharp
+var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+telemetry.TrackTrace("Slow response - database01");
+```
 
 Una ventaja de TrackTrace es que puede colocar datos relativamente largos en el mensaje. Por ejemplo, aquí puede codificar datos POST.
 
 También puede agregar un nivel de gravedad al mensaje. Además, al igual que con otra telemetría, puede agregar valores de propiedad para ayudar a filtrar o buscar distintos conjuntos de seguimientos. Por ejemplo:
 
-    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
-    telemetry.TrackTrace("Slow database response",
-                   SeverityLevel.Warning,
-                   new Dictionary<string,string> { {"database", db.ID} });
+  ```csharp
+  var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+  telemetry.TrackTrace("Slow database response",
+                 SeverityLevel.Warning,
+                 new Dictionary<string,string> { {"database", db.ID} });
+  ```
 
 Esto permitiría filtrar fácilmente en [Búsqueda][diagnostic] todos los mensajes de un determinado nivel de gravedad relativos a una determinada base de datos.
 

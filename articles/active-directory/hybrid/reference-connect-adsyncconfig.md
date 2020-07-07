@@ -10,12 +10,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8159ef45dee8a2f9ace69c2a5b66a29e4948d82c
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 2a2126aceba8724b46de094d14db754d704500c6
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982010"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850963"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect:  Referencia de PowerShell ADSyncConfig
 En la siguiente documentación se proporciona información de referencia para el módulo de PowerShell ADSyncConfig.psm1 que se incluye con Azure AD Connect.
@@ -1080,28 +1080,19 @@ Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <
 ### <a name="description"></a>DESCRIPTION
 La función Set-ADSyncRestrictedPermissions reforzará los permisos para la cuenta proporcionada.
 Para limitar los permisos, es necesario realizar los pasos siguientes:
-1.
-Deshabilite la herencia en el objeto especificado.
-2.
-Quite todas las ACE del objeto específico, excepto las ACE específicas de SELF.
+1. Deshabilite la herencia en el objeto especificado.
+2. Quite todas las ACE del objeto específico, excepto las ACE específicas de SELF.
 Deseamos mantener intactos los permisos predeterminados cuando se trata de SELF.
-3.
-Asigne estos permisos específicos:
+3. Asigne estos permisos específicos:
 
-        Type    Name                                        Access              Applies To
-        =============================================================================================
-        Allow   SYSTEM                                      Full Control        This object
-        Allow   Enterprise Admins                           Full Control        This object
-        Allow   Domain Admins                               Full Control        This object
-        Allow   Administrators                              Full Control        This object
-
-        Allow   Enterprise Domain Controllers               List Contents
-                                                            Read All Properties
-                                                            Read Permissions    This object
-
-        Allow   Authenticated Users                         List Contents
-                                                            Read All Properties
-                                                            Read Permissions    This object
+   | Tipo | Nombre | Acceso | Se aplica a |
+   |------|------|--------|------------|
+   | Allow | SYSTEM | Control total | Este objeto |
+   | Allow | Administradores de empresas | Control total | Este objeto |
+   | Allow | Administradores de dominio | Control total | Este objeto | 
+   | Allow | Administradores | Control total | Este objeto |
+   | Allow | Enterprise Domain Controllers | Contenido de la lista <br> Lectura de todas las propiedades <br> Permisos de lectura | Este objeto |
+   | Allow | Usuarios autenticados | Contenido de la lista <br> Lectura de todas las propiedades <br> Permisos de lectura | Este objeto |
 
 ### <a name="examples"></a>EJEMPLOS
 

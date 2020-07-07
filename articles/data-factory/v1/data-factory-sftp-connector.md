@@ -12,11 +12,11 @@ ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 3f78934fb11dd4f9e34bf27d565d471d47f250b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231572"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847695"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Movimiento de datos de un servidor FTP mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]

@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/13/2019
 ms.author: alkohli
-ms.openlocfilehash: 760f5c6c929aa082993683d7a466a71c6484289a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5d977fe0b7459af35f678e77681d3b27c31431cc
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67148136"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849187"
 ---
 # <a name="troubleshoot-data-copy-issues-in-azure-data-box-disk"></a>Solución de problemas de copia de datos en Azure Data Box Disk
 
@@ -32,7 +32,9 @@ Puede deberse a un sistema de archivos no limpio.
 
 Volver a montar una unidad como de lectura y escritura no funciona con Data Box Disk. Este escenario no es compatible con las unidades descifradas por dislocker. Es posible que haya vuelto a montar correctamente el dispositivo con el comando siguiente:
 
-    `# mount -o remount, rw /mnt/DataBoxDisk/mountVol1`
+```
+# mount -o remount, rw /mnt/DataBoxDisk/mountVol1
+```
 
 Si bien el nuevo montaje se completó correctamente, los datos no se conservarán.
 

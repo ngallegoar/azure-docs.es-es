@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: b2c16c27c0dfc0c30a99c52544cc4d2278eadfc7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8cb436edf6b355c3b5bb59aa4c333b3359daa3c2
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75647737"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850042"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Administración de clústeres de ML Services en Azure HDInsight
 
@@ -56,11 +56,13 @@ Siga las instrucciones que se proporcionan en [Conexión a través de SSH con HD
 
 Para agregar un usuario al nodo perimetral, ejecute los comandos:
 
-    # Add a user 
-    sudo useradd <yournewusername> -m
+```bash
+# Add a user 
+sudo useradd <yournewusername> -m
 
-    # Set password for the new user
-    sudo passwd <yournewusername>
+# Set password for the new user
+sudo passwd <yournewusername>
+```
 
 En la captura de pantalla siguiente se muestra el resultado.
 
@@ -80,27 +82,29 @@ Tenga en cuenta también que los usuarios recién agregados no tienen privilegio
 
 Puede configurar el acceso al contexto de proceso de HDInsight Spark desde una instancia remota de ML Client que se ejecute en un equipo de escritorio. Para ello, debe especificar las opciones (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches y sshProfileScript) al definir el contexto de proceso RxSpark en el equipo de escritorio: Por ejemplo:
 
-    myNameNode <- "default"
-    myPort <- 0
+```r
+myNameNode <- "default"
+myPort <- 0
 
-    mySshHostname  <- '<clustername>-ed-ssh.azurehdinsight.net'  # HDI secure shell hostname
-    mySshUsername  <- '<sshuser>'# HDI SSH username
-    mySshSwitches  <- '-i /cygdrive/c/Data/R/davec'   # HDI SSH private key
+mySshHostname  <- '<clustername>-ed-ssh.azurehdinsight.net'  # HDI secure shell hostname
+mySshUsername  <- '<sshuser>'# HDI SSH username
+mySshSwitches  <- '-i /cygdrive/c/Data/R/davec'   # HDI SSH private key
 
-    myhdfsShareDir <- paste("/user/RevoShare", mySshUsername, sep="/")
-    myShareDir <- paste("/var/RevoShare" , mySshUsername, sep="/")
+myhdfsShareDir <- paste("/user/RevoShare", mySshUsername, sep="/")
+myShareDir <- paste("/var/RevoShare" , mySshUsername, sep="/")
 
-    mySparkCluster <- RxSpark(
-      hdfsShareDir = myhdfsShareDir,
-      shareDir     = myShareDir,
-      sshUsername  = mySshUsername,
-      sshHostname  = mySshHostname,
-      sshSwitches  = mySshSwitches,
-      sshProfileScript = '/etc/profile',
-      nameNode     = myNameNode,
-      port         = myPort,
-      consoleOutput= TRUE
-    )
+mySparkCluster <- RxSpark(
+    hdfsShareDir = myhdfsShareDir,
+    shareDir     = myShareDir,
+    sshUsername  = mySshUsername,
+    sshHostname  = mySshHostname,
+    sshSwitches  = mySshSwitches,
+    sshProfileScript = '/etc/profile',
+    nameNode     = myNameNode,
+    port         = myPort,
+    consoleOutput= TRUE
+)
+```
 
 Para más información, consulte la sección "Using Microsoft Machine Learning Server as a Apache Hadoop Client" (Uso de Microsoft Machine Learning Server como cliente de Apache Hadoop) de [How to use RevoScaleR in a Apache Spark compute context](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios) (Uso de RevoScaleR en un contexto de proceso de Apache Spark)
 
@@ -112,25 +116,29 @@ Un contexto de proceso le permite controlar si un cálculo se realizará de form
 
 Con ML Services en HDInsight puede seleccionar el código de R existente y ejecutarlo en varios nodos del clúster mediante `rxExec`. Esta función es útil cuando se realiza un barrido de parámetros o simulaciones. El siguiente código es un ejemplo de cómo usar `rxExec`:
 
-    rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
+```r
+rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
+```
 
 Si aún usa el contexto de Spark, este comando devuelve el valor nodename de los nodos de trabajo en los que se ejecuta el código `(Sys.info()["nodename"])`. Por ejemplo, en un clúster de cuatro nodos, lo esperable es recibir una salida similar al siguiente fragmento de código:
 
-    $rxElem1
-        nodename
-    "wn3-mymlser"
+```r
+$rxElem1
+    nodename
+"wn3-mymlser"
 
-    $rxElem2
-        nodename
-    "wn0-mymlser"
+$rxElem2
+    nodename
+"wn0-mymlser"
 
-    $rxElem3
-        nodename
-    "wn3-mymlser"
+$rxElem3
+    nodename
+"wn3-mymlser"
 
-    $rxElem4
-        nodename
-    "wn3-mymlser"
+$rxElem4
+    nodename
+"wn3-mymlser"
+```
 
 ## <a name="access-data-in-apache-hive-and-parquet"></a>Acceso a datos en Apache Hive y Parquet
 
@@ -138,36 +146,37 @@ ML Services de HDInsight permite el acceso directo a los datos en Hive y Parquet
 
 El siguiente código proporciona código de ejemplos relativo al uso de las nuevas funciones:
 
-    #Create a Spark compute context:
-    myHadoopCluster <- rxSparkConnect(reset = TRUE)
+```r
+#Create a Spark compute context:
+myHadoopCluster <- rxSparkConnect(reset = TRUE)
 
-    #Retrieve some sample data from Hive and run a model:
-    hiveData <- RxHiveData("select * from hivesampletable",
-                     colInfo = list(devicemake = list(type = "factor")))
-    rxGetInfo(hiveData, getVarInfo = TRUE)
+#Retrieve some sample data from Hive and run a model:
+hiveData <- RxHiveData("select * from hivesampletable",
+                       colInfo = list(devicemake = list(type = "factor")))
+rxGetInfo(hiveData, getVarInfo = TRUE)
 
-    rxLinMod(querydwelltime ~ devicemake, data=hiveData)
+rxLinMod(querydwelltime ~ devicemake, data=hiveData)
 
-    #Retrieve some sample data from Parquet and run a model:
-    rxHadoopMakeDir('/share')
-    rxHadoopCopyFromLocal(file.path(rxGetOption('sampleDataDir'), 'claimsParquet/'), '/share/')
-    pqData <- RxParquetData('/share/claimsParquet',
-                     colInfo = list(
-                age    = list(type = "factor"),
-               car.age = list(type = "factor"),
-                  type = list(type = "factor")
-             ) )
-    rxGetInfo(pqData, getVarInfo = TRUE)
+#Retrieve some sample data from Parquet and run a model:
+rxHadoopMakeDir('/share')
+rxHadoopCopyFromLocal(file.path(rxGetOption('sampleDataDir'), 'claimsParquet/'), '/share/')
+pqData <- RxParquetData('/share/claimsParquet',
+                        colInfo = list(
+                            age    = list(type = "factor"),
+                            car.age = list(type = "factor"),
+                            type = list(type = "factor")
+                        ) )
+rxGetInfo(pqData, getVarInfo = TRUE)
 
-    rxNaiveBayes(type ~ age + cost, data = pqData)
+rxNaiveBayes(type ~ age + cost, data = pqData)
 
-    #Check on Spark data objects, cleanup, and close the Spark session:
-    lsObj <- rxSparkListData() # two data objs are cached
-    lsObj
-    rxSparkRemoveData(lsObj)
-    rxSparkListData() # it should show empty list
-    rxSparkDisconnect(myHadoopCluster)
-
+#Check on Spark data objects, cleanup, and close the Spark session:
+lsObj <- rxSparkListData() # two data objs are cached
+lsObj
+rxSparkRemoveData(lsObj)
+rxSparkListData() # it should show empty list
+rxSparkDisconnect(myHadoopCluster)
+```
 
 Para más información acerca del uso de estas nuevas funciones, consulte la ayuda en línea de ML Services mediante los comandos `?RxHivedata` y `?RxParquetData`.  
 

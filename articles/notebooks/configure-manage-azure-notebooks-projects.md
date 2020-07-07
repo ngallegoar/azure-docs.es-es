@@ -3,18 +3,19 @@ title: Configurar y administrar Azure Notebooks Preview
 description: Más información sobre cómo administrar metadatos del proyecto, archivos de proyecto, el entorno del proyecto y los pasos de configuración a través de la interfaz de usuario de Azure Notebooks y el acceso directo a terminal.
 ms.topic: how-to
 ms.date: 02/28/2020
-ms.openlocfilehash: 1674effda2cb9bda45f49c91ca618225b0a75f0c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: tracking-python
+ms.openlocfilehash: 53acf7c916b402e291b9779948579761e79179ef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236124"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85834087"
 ---
 # <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" /> Administrar y configurar proyectos en Azure Notebooks Preview
 
-Un proyecto en Azure Notebooks Preview es esencialmente una configuración de la máquina virtual de Linux subyacente en la que se ejecutan los cuadernos de Jupyter Notebook, junto con una carpeta de archivos y metadatos descriptivos. 
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Un proyecto en Azure Notebooks Preview es esencialmente una configuración de la máquina virtual de Linux subyacente en la que se ejecutan los cuadernos de Jupyter Notebook, junto con una carpeta de archivos y metadatos descriptivos. 
 
 El panel del proyecto de Azure Notebooks permite administrar los archivos y configurar las características del proyecto:
 

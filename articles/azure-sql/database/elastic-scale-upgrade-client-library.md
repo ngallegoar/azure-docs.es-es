@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: 8610342c1d01deceebaf1f4998dd04181e5ddc21
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 3bc575dfd815ce4d967fb4328a0a412fce1e8d81
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84039376"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829506"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Actualización de una aplicación para usar la biblioteca de cliente de base de datos elástica más reciente
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -57,6 +57,7 @@ Al realizar estos pasos de actualización en orden se asegura de que las version
 
 De forma alternativa, puede crear una aplicación de Visual Studio que abra ShardMapManager, recorra en iteración todas las particiones y realice la actualización de metadatos mediante una llamada a los métodos [UpgradeLocalStore](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradelocalstore) y [UpgradeGlobalStore](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradeglobalstore), como en este ejemplo:
 
+```csharp
     ShardMapManager smm =
        ShardMapManagerFactory.GetSqlShardMapManager
        (connStr, ShardMapManagerLoadPolicy.Lazy);
@@ -67,6 +68,7 @@ De forma alternativa, puede crear una aplicación de Visual Studio que abra Shar
     {
        smm.UpgradeLocalStore(loc);
     }
+```
 
 Estas técnicas para las actualizaciones de metadatos se pueden aplicar varias veces sin problema. Por ejemplo, si una versión anterior del cliente crea sin darse cuenta una partición después de haber actualizado, puede ejecutar la actualización de nuevo en todas las particiones para asegurarse de que la última versión de metadatos está presente en toda su infraestructura.
 

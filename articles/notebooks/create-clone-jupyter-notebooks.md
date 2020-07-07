@@ -3,18 +3,18 @@ title: 'Creación y clonación de cuadernos de Jupyter: Azure Notebooks Preview'
 description: Los proyectos de Azure Notebooks Preview administran una colección de cuadernos y archivos relacionados, que puede crear o clonar desde otro origen.
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.openlocfilehash: b29ff336c09a3bbf05a57c8a3a503b1875b76e54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e1321afc2ce294c8a39ba8d55574e2ca949f632e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236116"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831291"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Creación y clonación de proyectos en Azure Notebooks Preview
 
-Azure Notebooks organiza sus cuadernos de Jupyter Notebooks y los archivos relacionados en grupos lógicos llamados *proyectos*. En primer lugar, crea un proyecto como contenedor, luego, crea o clona uno o más cuadernos de una carpeta junto con otros archivos del proyecto. (Este proceso se muestra en el [tutorial](tutorial-create-run-jupyter-notebook.md)).
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Azure Notebooks organiza sus cuadernos de Jupyter Notebooks y los archivos relacionados en grupos lógicos llamados *proyectos*. En primer lugar, crea un proyecto como contenedor, luego, crea o clona uno o más cuadernos de una carpeta junto con otros archivos del proyecto. (Este proceso se muestra en el [tutorial](tutorial-create-run-jupyter-notebook.md)).
 
 Un proyecto también mantiene los metadatos y otras opciones de configuración que afectan al servidor en el que se ejecutan los cuadernos, incluidos los pasos de instalación personalizados y la instalación del paquete. Para más información, consulte [Administración y configuración de proyectos](configure-manage-azure-notebooks-projects.md).
 

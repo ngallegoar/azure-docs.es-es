@@ -4,15 +4,15 @@ description: En este artículo aprenderá a solucionar problemas de Azure Bastio
 services: bastion
 author: charwen
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: 749d7125c013f419197ef8243d2475e612dc81b5
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: f3c142491363f30513877ae4368f291430aa3675
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619167"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831937"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Solución de problemas de Azure Bastion
 
@@ -28,7 +28,7 @@ Este artículo le mostrará cómo solucionar problemas de Azure Bastion.
 2. Registro de diagnósticos y otros: saliente en 443 a AzureCloud (todavía no se admiten etiquetas regionales dentro de esta etiqueta de servicio).
 3. Máquina virtual de destino: saliente de 3389 y 22 a VirtualNetwork
 
-Hay un ejemplo de las reglas de los grupos de seguridad de red disponible como referencia en esta [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion).
+Hay un ejemplo de las reglas de los grupos de seguridad de red disponible como referencia en esta [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
 Para más información, consulte [Guía sobre los grupos de seguridad de red para Azure Bastion](bastion-nsg.md).
 
 ## <a name="unable-to-use-my-ssh-key-with-azure-bastion"></a><a name="sshkey"></a>No se puede usar mi clave SSH con Azure Bastion

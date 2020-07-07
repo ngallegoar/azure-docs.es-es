@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89de1495dc6bb411d5d43986177f11abb016cf15
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: f0c8134cdb72f8bff74fa68dff81fc9d6f1f5ccc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82200894"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830458"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renovación de certificados de federación para Office 365 y Azure Active Directory
 ## <a name="overview"></a>Información general
@@ -62,7 +62,9 @@ Azure AD intenta supervisar los metadatos de federación y actualizar el token d
 ### <a name="step-1-check-the-autocertificaterollover-state"></a>Paso 1: Comprobación del estado del proceso AutoCertificateRollover
 En el servidor de AD FS, abra Powershell. Compruebe que el valor AutoCertRollover está establecido en True.
 
-    Get-Adfsproperties
+```azurepowershell-interactive
+Get-Adfsproperties
+```
 
 ![AutoCertificateRollover](./media/how-to-connect-fed-o365-certs/autocertrollover.png)
 
@@ -78,16 +80,22 @@ En el servidor de AD FS, abra el símbolo del sistema de MSOnline PowerShell y c
 > 
 >
 
-    Install-Module MSOnline
+```azurepowershell-interactive
+Install-Module MSOnline
+```
 
 Conéctese a Azure AD mediante MSOnline PowerShell-Module.
 
-    Import-Module MSOnline
-    Connect-MsolService
+```azurepowershell-interactive
+Import-Module MSOnline
+Connect-MsolService
+```
 
 Compruebe que los certificados configurados en AD FS y Azure AD confían en las propiedades para el dominio especificado.
 
-    Get-MsolFederationProperty -DomainName <domain.name> | FL Source, TokenSigningCertificate
+```azurepowershell-interactive
+Get-MsolFederationProperty -DomainName <domain.name> | FL Source, TokenSigningCertificate
+```
 
 ![Get-MsolFederationProperty](./media/how-to-connect-fed-o365-certs/certsync.png)
 

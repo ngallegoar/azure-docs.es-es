@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.custom: fasttrack-edit
-ms.openlocfilehash: a92e64311d8a4f5e87c5be3d00c1c23898db551d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.custom: fasttrack-edit, tracking-python
+ms.openlocfilehash: c86a58c384c7356ecdaf668644f08c011a4c0a40
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648312"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833008"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Desencadenador de Azure Event Grid para Azure Functions
 
@@ -419,11 +419,15 @@ El comando requiere la dirección URL del punto de conexión que invoca la funci
 
 #### <a name="version-2x-and-higher-runtime"></a>Entorno en tiempo de ejecución versión 2.x (y posteriores)
 
-    https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
+```http
+https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
+```
 
 #### <a name="version-1x-runtime"></a>Entorno en tiempo de ejecución versión 1.x
 
-    https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
+```http
+https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
+```
 
 La clave de sistema es una clave de autorización que debe incluirse en la dirección URL del punto de conexión para desencadenador de Event Grid. En la siguiente sección se explica cómo obtener la clave del sistema.
 

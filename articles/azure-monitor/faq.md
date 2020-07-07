@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: 4cf851022a2b2b0c9a9781f4d41b40982bf2ad57
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 4e4abdd5d5a9e3cddf00cf47d7388a57d0d4d6fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835349"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807713"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Monitor
 
@@ -318,7 +318,7 @@ Buscamos la dirección IP (IPv4 o IPv6) del cliente web mediante [GeoLite2](http
 * Para más información acerca de cómo se recopilan los datos de la dirección IP y la ubicación geográfica en Application Insights, consulte este [artículo](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection).
 
 
-Puede configurar `ClientIpHeaderTelemetryInitializer` para tomar la dirección IP de un encabezado distinto. En algunos sistemas, por ejemplo, se mueve mediante un servidor proxy, un equilibrador de carga o la red CDN `X-Originating-IP`. [Más información](https://apmtips.com/blog/2016/07/05/client-ip-address/).
+Puede configurar `ClientIpHeaderTelemetryInitializer` para tomar la dirección IP de un encabezado distinto. En algunos sistemas, por ejemplo, se mueve mediante un servidor proxy, un equilibrador de carga o la red CDN `X-Originating-IP`. [Más información](https://apmtips.com/posts/2016-07-05-client-ip-address/).
 
 También puede [usar Power BI](app/export-power-bi.md ) para mostrar la telemetría de solicitudes en un mapa.
 
@@ -367,7 +367,7 @@ Utilice un único recurso para todos los componentes o funciones en un sistema d
 ### <a name="what-are-the-user-and-session-counts"></a>¿Qué son los recuentos de usuarios y sesiones?
 
 * El SDK de JavaScript establece una cookie de usuario en el cliente web para identificar los usuarios que vuelven y una cookie de sesión para agrupar las actividades.
-* Si no hay ningún script de cliente, puede [establecer cookies en el servidor](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
+* Si no hay ningún script de cliente, puede [establecer cookies en el servidor](https://apmtips.com/posts/2016-07-09-tracking-users-in-api-apps/).
 * Si un usuario real usa su sitio en exploradores diferentes o usa la exploración InPrivate o de incógnito, o distintas máquinas, entonces se contabilizará más de una vez.
 * Para identificar un usuario que ha iniciado sesión en todas las máquinas y exploradores, agregue una llamada a [setAuthenticatedUserContext()](app/api-custom-events-metrics.md#authenticated-users).
 

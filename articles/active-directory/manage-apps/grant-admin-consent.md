@@ -2,22 +2,22 @@
 title: Concesión del consentimiento del administrador para todo el inquilino a una aplicación - Azure AD
 description: Obtenga información sobre cómo conceder consentimiento para todo el inquilino a una aplicación de modo que no se les solicite consentimiento a los usuarios finales al iniciar sesión en una aplicación.
 services: active-directory
-author: psignoret
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/04/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c515fef4997720435c64bd5f3ae7b18f8921fc5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c24023bdd3540785dec58ebeaa14d99ab659ab1
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75475274"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848365"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Concesión del consentimiento del administrador para todo el inquilino a una aplicación
 
@@ -69,7 +69,9 @@ Al conceder el consentimiento del administrador para todo el inquilino con cualq
 
 La dirección URL de consentimiento del administrador para todo el inquilino tiene el formato siguiente:
 
-    https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
+```http
+https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
+```
 
 donde:
 

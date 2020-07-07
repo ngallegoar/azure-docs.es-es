@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: routlaw
-ms.openlocfilehash: 8621dde43ff38cee15feb1d30b6ea80ab681c855
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 7e78a8dfdf902c4c2548e0521a79d67716987791
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594787"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832090"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Uso de módulos Node.js con aplicaciones de Azure
 Este documento le proporciona orientación sobre el uso de módulos Node.js con aplicaciones hospedadas en Azure. Mediante este documento podrá asegurarse de que su aplicación use una versión específica de un módulo y de que use módulos nativos con Azure.
@@ -32,8 +32,8 @@ Si ya está familiarizado con el uso de módulos Node.js y los archivos **packag
 
 > [!NOTE]
 > No se tratan Azure Virtual Machines en este artículo, ya que la experiencia de implementación en una máquina virtual depende del sistema operativo hospedado por la máquina virtual.
-> 
-> 
+>
+>
 
 ## <a name="nodejs-modules"></a>Módulos Node.js
 Los módulos son paquetes JavaScript que pueden cargarse y que proporcionan una funcionalidad específica para su aplicación. Los módulos se instalan normalmente con la herramienta de la línea de comandos **npm**. Sin embargo, algunos módulos (como el módulo http) se proporcionan como parte del paquete Node.js principal.
@@ -63,12 +63,12 @@ Un posible problema con el archivo **package.json** es que solo especifica la ve
 
 > [!NOTE]
 > Cuando se implementa en Azure App Service, si el archivo <b>package.json</b> hace referencia a un módulo nativo, verá un error parecido al del siguiente ejemplo al publicar la aplicación con Git:
-> 
+>
 > npm ERR! module-name@0.6.0 install: 'node-gyp configure build'
-> 
+>
 > npm ERR! 'cmd "/c" "node-gyp configure build"' failed with 1
-> 
-> 
+>
+>
 
 ### <a name="using-a-npm-shrinkwrapjson-file"></a>Uso de un archivo npm-shrinkwrap.json
 El archivo **npm-shrinkwrap.json** es un intento de solucionar las limitaciones de la versión del módulo del archivo **package.json**. Mientras que el archivo **package.json** solo incluye versiones para los módulos de nivel superior, el archivo **npm-shrinkwrap.json** contiene los requisitos de la versión para la cadena de dependencia del módulo completa.
@@ -77,17 +77,17 @@ Cuando la aplicación esté preparada para producción, puede bloquear los requi
 
 > [!NOTE]
 > Cuando implemente en Azure App Service, si el archivo <b>npm-shrinkwrap.json</b> hace referencia a un módulo nativo, verá un error parecido al del siguiente ejemplo al publicar la aplicación con Git:
-> 
+>
 > npm ERR! module-name@0.6.0 install: 'node-gyp configure build'
-> 
+>
 > npm ERR! 'cmd "/c" "node-gyp configure build"' failed with 1
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que sabe cómo usar los módulos Node.js con Azure, obtenga información sobre cómo [especificar la versión de Node.js](https://github.com/squillace/nodejs-microservice), [crear e implementar una aplicación web de Node.js](app-service/app-service-web-get-started-nodejs.md) y [usar la interfaz de la línea de comandos de Azure para Mac y Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
 
-Para más información, vea el [Centro para desarrolladores de Node.js](/azure/javascript/).
+Para más información, vea el [Centro para desarrolladores de Node.js](/azure/developer/javascript/).
 
 [specify the Node.js version]: nodejs-specify-node-version-azure-apps.md
 [How to use the Azure Command-Line Interface for Mac and Linux]:cli-install-nodejs.md

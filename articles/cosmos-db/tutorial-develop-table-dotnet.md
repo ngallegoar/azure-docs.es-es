@@ -6,14 +6,14 @@ ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
-ms.topic: sample
+ms.topic: tutorial
 ms.date: 12/03/2019
-ms.openlocfilehash: 6e1dc5f0016c27d987361aa52e59682806a31c95
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 2133b68bf942cee87548783fb40d08c9bfe876ff
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118923"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851627"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introducción a Table API de Azure Cosmos DB y Azure Table Storage mediante el SDK de .NET
 
@@ -255,7 +255,7 @@ Haga clic con el botón derecho en el proyecto **CosmosTableSamples**. Seleccion
  }
 ```
 
-### <a name="get-an-entity-from-a-partition"></a>Obtención de una entidad de una partición
+## <a name="get-an-entity-from-a-partition"></a>Obtención de una entidad de una partición
 
 Puede obtener la entidad de una partición mediante el método Retrieve de la clase [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation). En el ejemplo de código siguiente se obtiene la clave de fila de la clave de partición, el correo electrónico y el número de teléfono de una entidad de cliente. Este ejemplo también imprime las unidades de solicitud utilizadas para consultar la entidad. Para consultar una entidad, anexe el código siguiente al archivo **SamplesUtils.cs**: 
 

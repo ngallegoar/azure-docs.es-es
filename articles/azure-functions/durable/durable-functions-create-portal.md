@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo instalar la extensión Durable Fun
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.reviewer: azfuncdf
-ms.openlocfilehash: a1d0e428da18d44705f4deaf6da3299957076d87
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 7eee3c36620d0cc9f5906e355b76e7418c61b477
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171402"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807968"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Creación de Durable Functions mediante Azure Portal
 
@@ -83,7 +83,7 @@ Si va a crear Durable Functions de JavaScript, deberá instalar el [`durable-fun
 1. Use una herramienta HTTP como Postman o cURL para enviar una solicitud POST a la dirección URL que copió. El ejemplo siguiente es un comando de cURL que envía una solicitud POST a la función duradera:
 
     ```bash
-    curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/HelloSequence
+    curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/HelloSequence --header "Content-Length: 0"
     ```
 
     En este ejemplo, `{your-function-app-name}` es el dominio que es el nombre de la aplicación de función. El mensaje de respuesta contiene un conjunto de puntos de conexión URI que puede usar para supervisar y administrar la ejecución, que es similar al ejemplo siguiente:

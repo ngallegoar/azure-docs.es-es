@@ -2,13 +2,13 @@
 title: Implementación de recursos en una suscripción
 description: Se describe cómo crear un grupo de recursos en una plantilla de Azure Resource Manager. También se muestra cómo implementar recursos en el ámbito de la suscripción de Azure.
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 60f77d7bb29af8bcd1a0932a9ac93f5fe4b8e3ac
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.date: 07/01/2020
+ms.openlocfilehash: ab39fed11ee53849e7d588d16749de96172b234d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299254"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832821"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creación de grupos de recursos y otros recursos en el nivel de suscripción
 
@@ -17,7 +17,7 @@ Para simplificar la administración de recursos, puede implementar recursos en e
 > [!NOTE]
 > Puede implementar en 800 grupos de recursos distintos en una implementación de nivel de suscripción.
 
-Para implementar plantillas en el nivel de suscripción, use la CLI de Azure, PowerShell o la API REST. Azure Portal no admite la implementación en el nivel de suscripción.
+Para implementar plantillas en el nivel de suscripción, use la CLI de Azure, PowerShell o la API REST.
 
 ## <a name="supported-resources"></a>Recursos compatibles
 
@@ -209,8 +209,8 @@ En el ejemplo siguiente se crea un grupo de recursos y se implementa una cuenta 
     {
       "type": "Microsoft.Resources/resourceGroups",
       "apiVersion": "2019-10-01",
-      "location": "[parameters('rgLocation')]",
       "name": "[parameters('rgName')]",
+      "location": "[parameters('rgLocation')]",
       "properties": {}
     },
     {
@@ -224,7 +224,7 @@ En el ejemplo siguiente se crea un grupo de recursos y se implementa una cuenta 
       "properties": {
         "mode": "Incremental",
         "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "parameters": {},
           "variables": {},

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: 9bdf7360ce00637b0eed3de7a3349da8656a3ed0
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: e05389e0510b5029fa2672bbd6b781e06ba10fd2
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314174"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849682"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>Use la tunelización SSH para tener acceso a la interfaz de usuario web de Apache Ambari, JobHistory, NameNode, Apache Oozie y otras interfaces de usuario.
 
@@ -64,16 +64,16 @@ ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 
 Este comando crea una conexión que enruta el tráfico al puerto local 9876 al clúster a través de SSH. Las opciones son:
 
-    |Opción |Descripción |
-    |---|---|
-    |D 9876|Puerto local que enruta el tráfico a través del túnel.|
-    |C|Comprimir todos los datos, debido a que el tráfico web es principalmente texto.|
-    |2|Forzar a SSH a que intente solo la versión 2 del protocolo.|
-    |q|Modo silencioso.|
-    |T|Deshabilitar la asignación seudotty, ya que solo está desviando un puerto.|
-    |n|Evitar la lectura de STDIN, ya que solo está desviando un puerto.|
-    |N|No ejecutar un comando remoto, ya que solo está desviando un puerto.|
-    |f|Ejecutar en segundo plano.|
+|Opción |Descripción |
+|---|---|
+|D 9876|Puerto local que enruta el tráfico a través del túnel.|
+|C|Comprimir todos los datos, debido a que el tráfico web es principalmente texto.|
+|2|Forzar a SSH a que intente solo la versión 2 del protocolo.|
+|q|Modo silencioso.|
+|T|Deshabilitar la asignación seudotty, ya que solo está desviando un puerto.|
+|n|Evitar la lectura de STDIN, ya que solo está desviando un puerto.|
+|N|No ejecutar un comando remoto, ya que solo está desviando un puerto.|
+|f|Ejecutar en segundo plano.|
 
 Una vez que se completa el comando, el tráfico enviado al puerto 9876 de la máquina local se enruta al nodo principal del cluster.
 

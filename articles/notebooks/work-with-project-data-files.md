@@ -3,18 +3,18 @@ title: Importación y exportación de datos en proyectos con Azure Notebooks Pre
 description: Aprenda a importar datos en un proyecto de Azure Notebooks Preview desde orígenes externos y a exportar datos desde un proyecto.
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: e1d4a52ab7f4ad2ca3438af4bc87bec0b79f34d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b3669128582d3bdd6a3c4506a040856ab7b07e9a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75646983"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85834121"
 ---
 # <a name="work-with-data-files-in-azure-notebooks-preview-projects"></a>Trabajo con archivos de datos en proyectos de Azure Notebooks Preview
 
-Los datos son la parte esencial de muchas instancias de Jupyter Notebook, especialmente los cuadernos utilizados para la ciencia de datos. Con Azure Notebooks, puede importar fácilmente desde una variedad de orígenes en un proyecto y, a continuación, usar esos datos desde cuadernos. También puede hacer que los cuadernos generen datos que se almacenen en el proyecto, que podrá descargar más adelante para usar en otro lugar.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Los datos son la parte esencial de muchas instancias de Jupyter Notebook, especialmente los cuadernos utilizados para la ciencia de datos. Con Azure Notebooks, puede importar fácilmente desde una variedad de orígenes en un proyecto y, a continuación, usar esos datos desde cuadernos. También puede hacer que los cuadernos generen datos que se almacenen en el proyecto, que podrá descargar más adelante para usar en otro lugar.
 
 El menú **Datos** de un cuaderno en ejecución también proporciona los comandos **Upload** y **Download**, que funcionan con archivos del proyecto y como archivos temporales para la sesión actual del cuaderno.
 

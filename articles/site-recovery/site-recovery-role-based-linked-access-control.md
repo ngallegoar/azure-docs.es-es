@@ -7,11 +7,11 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: ce389f9281b02662f87353f00c9bca92cdf86937
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229040"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847902"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Administración del acceso de Site Recovery con el control de acceso basado en rol (RBAC)
 

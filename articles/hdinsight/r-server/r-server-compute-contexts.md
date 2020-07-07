@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: b67bd5b6310e1f8ce35dc14690757209ef62c9d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02cfd13e129e9a8baf94008dc22aec6b0597ec95
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75660263"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851496"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Opciones de contexto de proceso para ML Services en HDInsight
 
@@ -73,7 +73,9 @@ Con estos principios, las siguientes secciones ofrecen algunas reglas generales 
 ## <a name="inline-help-on-rxsetcomputecontext"></a>Ayuda insertada en rxSetComputeContext
 Para más información sobre los contextos de proceso de RevoScaleR y ver algunos ejemplos, consulte la ayuda insertada en R en el método rxSetComputeContext, por ejemplo:
 
-    > ?rxSetComputeContext
+```console
+> ?rxSetComputeContext
+```
 
 También puede consultar la [información general sobre la computación distribuida ](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) en la [documentación de Machine Learning Server](https://docs.microsoft.com/machine-learning-server/).
 

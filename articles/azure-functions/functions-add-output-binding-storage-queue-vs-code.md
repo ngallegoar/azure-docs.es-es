@@ -5,12 +5,12 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 68d1e4e7fdf50ef3ec228b7e7ca4e620a47afb05
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: d41c018e07f792fd0af4027229449d8352aa6c55
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555902"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849981"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Conexión de Azure Functions a Azure Storage mediante Visual Studio Code
 
@@ -68,7 +68,7 @@ El uso de conjuntos de extensiones se habilita en el archivo host.json en la ra�
 A excepción de los desencadenadores HTTP y el temporizador, los enlaces se implementan como paquetes de extensión. Ejecute el siguiente comando [dotnet add package](/dotnet/core/tools/dotnet-add-package) en la ventana Terminal para agregar el paquete de extensión de Storage al proyecto.
 
 ```bash
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage
 ```
 
 ::: zone-end

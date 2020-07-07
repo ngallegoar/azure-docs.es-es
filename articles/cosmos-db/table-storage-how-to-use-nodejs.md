@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: d04cf082f5dc7ca3ae07b60dc193c66613fa5c4f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1f0541cd3ae7cf2c78d3cd2bf6844fed930e7968
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76771075"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833154"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Uso de Azure Table Storage o Table API de Azure Cosmos DB desde Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -41,16 +41,19 @@ Para usar Azure Storage o Azure Cosmos DB necesitará Azure Storage SDK para Nod
 1. Use una interfaz de línea de comandos como **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Unix) y vaya a la carpeta donde creó la aplicación.
 2. Escriba **npm install azure-storage** en la ventana de comandos. La salida del comando es similar al ejemplo siguiente.
 
-       azure-storage@0.5.0 node_modules\azure-storage
-       +-- extend@1.2.1
-       +-- xmlbuilder@0.4.3
-       +-- mime@1.2.11
-       +-- node-uuid@1.4.3
-       +-- validator@3.22.2
-       +-- underscore@1.4.4
-       +-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
-       +-- xml2js@0.2.7 (sax@0.5.2)
-       +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
+   ```bash
+    azure-storage@0.5.0 node_modules\azure-storage
+    +-- extend@1.2.1
+    +-- xmlbuilder@0.4.3
+    +-- mime@1.2.11
+    +-- node-uuid@1.4.3
+    +-- validator@3.22.2
+    +-- underscore@1.4.4
+    +-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
+    +-- xml2js@0.2.7 (sax@0.5.2)
+    +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
+   ```
+
 3. Puede ejecutar manualmente el comando **ls** para comprobar si se ha creado una carpeta **node_modules**. Dentro de dicha carpeta, encontrará el paquete **azure-storage** , que contiene las bibliotecas necesarias para el acceso al almacenamiento.
 
 ### <a name="import-the-package"></a>Importación del paquete
@@ -72,10 +75,10 @@ Para agregar una conexión de Azure Cosmos DB, cree un objeto **TableService** y
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
-```  
+```
 
 ## <a name="create-a-table"></a>Creación de una tabla
-El código siguiente crea un objeto **TableService** que usa para crear una tabla. 
+El código siguiente crea un objeto **TableService** que usa para crear una tabla.
 
 ```javascript
 var tableSvc = azure.createTableService();
@@ -136,8 +139,6 @@ var task = {
 
 > [!NOTE]
 > Hay también un campo **Timestamp** para cada registro; Azure lo establece cuando se inserta o actualiza una entidad.
->
->
 
 También puede usar **entityGenerator** para crear entidades. En el siguiente ejemplo se crea la misma entidad de tarea mediante **entityGenerator**.
 
@@ -173,8 +174,6 @@ Respuesta de ejemplo:
 > De forma predeterminada, el elemento **insertEntity** no devuelve la entidad insertada como parte de la información de `response`. Si tiene pensado realizar otras operaciones en esta entidad o desea almacenar en caché la información, puede ser útil que la devuelva como parte de `result`. Para ello, puede habilitar **echoContent** de la manera siguiente:
 >
 > `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
->
->
 
 ## <a name="update-an-entity"></a>Actualización de una entidad
 Hay varios métodos para actualizar una entidad existente:
@@ -365,7 +364,7 @@ dc.table.queryEntities(tableName,
 
 Si inspecciona el objeto `continuationToken`, encontrará propiedades como `nextPartitionKey`, `nextRowKey` y `targetLocation`, que puede usar para iterar en todos los resultados.
 
-También puede usar `top` junto con `continuationToken` para establecer el tamaño de página. 
+También puede usar `top` junto con `continuationToken` para establecer el tamaño de página.
 
 ## <a name="work-with-shared-access-signatures"></a>Trabajo con firmas de acceso compartido
 Las firmas de acceso compartido (SAS) constituyen una manera segura de ofrecer acceso granular a las tablas sin proporcionar el nombre o las claves de su cuenta de almacenamiento. Las SAS se usan con frecuencia para proporcionar acceso limitado a sus datos, por ejemplo, para permitir que una aplicación móvil consulte registros.
@@ -394,7 +393,7 @@ var host = tableSvc.host;
 
 Tenga en cuenta que también debe proporcionar la información del host, puesto que es necesaria cuando el titular de la SAS intenta acceder a la tabla.
 
-La aplicación cliente usa entonces la SAS con **TableServiceWithSAS** para realizar operaciones en la tabla. En el siguiente ejemplo se realiza la conexión a la tabla y se realiza una consulta. Consulte en el artículo [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](../storage/common/storage-sas-overview.md) el formato de tableSAS. 
+La aplicación cliente usa entonces la SAS con **TableServiceWithSAS** para realizar operaciones en la tabla. En el siguiente ejemplo se realiza la conexión a la tabla y se realiza una consulta. Consulte en el artículo [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](../storage/common/storage-sas-overview.md) el formato de tableSAS.
 
 ```javascript
 // Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;
@@ -459,6 +458,6 @@ Para obtener más información, vea los recursos siguientes.
 
 * El [Explorador de Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) es una aplicación independiente y gratuita de Microsoft que permite trabajar visualmente con los datos de Azure Storage en Windows, macOS y Linux.
 * Repositorio de [Azure Storage SDK para Node.js](https://github.com/Azure/azure-storage-node) en GitHub.
-* [Azure para desarrolladores de Node.js](https://docs.microsoft.com/azure/javascript/)
+* [Azure para desarrolladores de Node.js](https://docs.microsoft.com/azure/developer/javascript/)
 * [Creación de una aplicación web de Node.js en Azure](../app-service/app-service-web-get-started-nodejs.md)
 * [Compilación e implementación de una aplicación Node.js en un Servicio en la nube de Azure](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (con Windows PowerShell)
