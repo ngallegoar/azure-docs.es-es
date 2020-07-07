@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.openlocfilehash: 67df46742be52b03bd91af19654fbfac5df29646
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79226868"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Características y extensiones de las máquinas virtuales para Linux
@@ -37,7 +37,7 @@ Varias extensiones de máquina virtual de Azure diferentes están disponibles, c
 
 Además de las extensiones específicas de proceso, una extensión de script personalizado está disponible tanto para máquinas virtuales Windows como para máquinas virtuales Linux. La extensión de script personalizado para Linux permite que se ejecute cualquier script de Bash en una máquina virtual. Los scripts personalizados resultan útiles para diseñar implementaciones de Azure que requieren una configuración más allá de lo que las herramientas de Azure nativas pueden proporcionar. Para obtener más información, consulte la sección sobre la [extensión de script personalizado de máquina virtual Linux](custom-script-linux.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Para controlar la extensión en la máquina virtual, debe tener instalado el Agente Linux de Azure. Algunas extensiones individuales tienen requisitos previos, como el acceso a los recursos o las dependencias.
 
@@ -105,7 +105,7 @@ info:    Executing command vm extension set
 info:    vm extension set command OK
 ```
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure portal
 
 Las extensiones de máquina virtual se pueden aplicar a una máquina virtual existente a través de Azure Portal. Seleccione la máquina virtual en el portal, elija **Extensiones** y, luego, **Agregar**. Elija la extensión que quiera en la lista de extensiones disponibles y siga las instrucciones del asistente.
 
@@ -336,7 +336,7 @@ Los pasos de solución de problemas siguientes se aplican a todas las extensione
 
 1. Para comprobar el registro del agente Linux, examine la actividad cuando la extensión se aprovisionó en */var/log/waagent.log*.
 
-2. Revise los registros reales de la extensión para ver más detalles en */var/log/azure/\<nombreDeExtensión>* .
+2. Revise los registros reales de la extensión para ver más detalles en */var/log/azure/\<extensionName>* .
 
 3. Revise las secciones de solución de problemas de la documentación específica de la extensión para ver los códigos de errores, los problemas conocidos, etc.
 

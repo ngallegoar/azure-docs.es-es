@@ -7,17 +7,17 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 87b6033e486e9009573436628d0183c8a022aced
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79372770"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-mariadb-using-azure-portal"></a>Denegación del acceso a una red pública en Azure Database for MariaDB mediante Azure Portal
 
 En este artículo se describe cómo puede configurar un servidor de Azure Database for MariaDB para denegar todas las configuraciones públicas y permitir solo las conexiones a través de puntos de conexión privados para mejorar aún más la seguridad de la red.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar esta guía, necesita:
 

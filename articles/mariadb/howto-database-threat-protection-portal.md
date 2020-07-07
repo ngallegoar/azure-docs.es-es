@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: de056f61337311642589ba937c6d9842d8354d36
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79530145"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Advanced Threat Protection para Azure Database for MariaDB
@@ -23,7 +23,7 @@ Advanced Threat Protection forma parte de la oferta Seguridad de datos avanzada,
 > Advanced Threat Protection está en versión preliminar pública. Esta característica está disponible en todas las regiones de Azure donde se implementa Azure Database for MariaDB para servidores de uso general y optimizados para memoria.
 
 > [!NOTE]
-> La característica Advanced Threat Protection **no** está disponible en las siguientes regiones de nube soberana y gobierno de Azure: US Gov Texas, US Gov Arizona, US Gov Iowa, US Gov Virginia, US DoD (este), US DoD (centro), Centro de Alemania, Norte de Alemania, Este de China, Este de China 2. Visite [productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/) para obtener información de disponibilidad general del producto.
+> La característica Advanced Threat Protection **no** está disponible en las siguientes regiones de nube soberana y Azure Government: US Gov Texas, US Gov Arizona, US Gov Iowa, US Gov Virginia, US DoD (este), US DoD (centro), Centro de Alemania, Norte de Alemania, Este de China y Este de China 2. Visite [productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/) para obtener información de disponibilidad general del producto.
 
 ## <a name="set-up-threat-detection"></a>Configurar la detección de amenazas
 1. Inicie Azure Portal en [https://portal.azure.com](https://portal.azure.com).
