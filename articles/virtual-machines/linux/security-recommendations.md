@@ -11,10 +11,10 @@ ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.reviewer: cynthn
 ms.openlocfilehash: 8a0d43c4401fa3fd2bb8ba504e42edc6324675e8
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81758520"
 ---
 # <a name="security-recommendations-for-linux-virtual-machines-in-azure"></a>Recomendaciones de seguridad para máquinas virtuales Linux en Azure

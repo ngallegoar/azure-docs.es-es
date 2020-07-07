@@ -9,10 +9,10 @@ ms.date: 08/14/2017
 ms.author: cynthn
 ms.topic: conceptual
 ms.openlocfilehash: 58546c84daa28a76de0429bf6c93bd421011b513
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81865628"
 ---
 # <a name="how-to-monitor-virtual-machines-in-azure"></a>Supervisión de máquinas virtuales en Azure
