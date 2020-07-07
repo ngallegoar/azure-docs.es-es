@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 04bbfe3ee38c5ce37c36ab2f85467ce68e7335be
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 093d8cdd97f28a419788070e674d80aad595f46a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262980"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556321"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-cassandra-api"></a>Ejemplos de la CLI de Azure para Cassandra API para Azure Cosmos DB
 
 En la tabla siguiente se incluyen vínculos a scripts de ejemplo de la CLI de Azure para Cassandra API para Azure Cosmos DB. Hay páginas de referencia para todos los comandos de CLI de Azure Cosmos DB disponibles en la [referencia de la CLI de Azure](/cli/azure/cosmosdb). Encontrará más ejemplos de scripts de la CLI de Azure Cosmos DB en el [repositorio de la CLI de Azure Cosmos DB en GitHub](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
-| |  |
+|Tarea | Descripción |
 |---|---|
 | [Crear una cuenta, un espacio de claves y una tabla de Azure Cosmos](scripts/cli/cassandra/create.md?toc=%2fcli%2fazure%2ftoc.json)| Crea una cuenta, un espacio de claves y una tabla de Cassandra API para Azure Cosmos DB. |
 | [Cambiar la capacidad de proceso](scripts/cli/cassandra/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Actualiza la capacidad de proceso (RU/s) de un espacio de claves y una tabla.|

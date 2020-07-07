@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: f5a37ebba7dd0622db7e76ecef1c3eda24d72b27
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 262431cfcc906b6df1054aaa7dc2b9573c3b8833
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726407"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965253"
 ---
 # <a name="using-azure-batch-rendering"></a>Uso de la representación de Azure Batch
 
@@ -19,8 +19,8 @@ Hay varias formas de usar la representación de Azure Batch:
 * API:
   * Escriba código con cualquiera de las API de Batch.  Los desarrolladores pueden integrar funcionalidades de Azure Batch en sus aplicaciones o su flujo de trabajo existentes, independientemente de que se encuentre en la nube o de forma local.
 * Herramientas de línea de comandos:
-  * La [línea de comandos de Azure](https://docs.microsoft.com/cli/azure/) o [PowerShell](https://docs.microsoft.com/powershell/azure/overview) se pueden usar para crear un script de uso de Batch.
-  * En concreto, la [compatibilidad con plantillas de la CLI de Batch](https://docs.microsoft.com/azure/batch/batch-cli-templates) facilita considerablemente la creación de grupos y el envío de trabajos.
+  * La [línea de comandos de Azure](/cli/azure/) o [PowerShell](/powershell/azure/overview) se pueden usar para crear un script de uso de Batch.
+  * En concreto, la [compatibilidad con plantillas de la CLI de Batch](./batch-cli-templates.md) facilita considerablemente la creación de grupos y el envío de trabajos.
 * Interfaz de usuario de Batch Explorer:
   * [Batch Explorer](https://github.com/Azure/BatchLabs) es una herramienta de cliente multiplataforma que también permite la supervisión y administración de cuentas de Batch.
   * Para cada una de las aplicaciones de representación, se proporcionan varias plantillas de grupos y trabajos que se pueden usar tanto para crear fácilmente grupos como para enviar trabajos.  En la interfaz de usuario de la aplicación aparece un conjunto de plantillas con los archivos de plantilla a los que se accede desde GitHub.
@@ -32,7 +32,7 @@ La mejor forma de probar la representación de Azure Batch y la manera más senc
 
 ## <a name="using-batch-explorer"></a>Uso de Batch Explorer
 
-Para ver un tutorial paso a paso para usar Batch Explorer para realizar la representación consulte el [tutorial de Blender](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender).
+Para ver un tutorial paso a paso para usar Batch Explorer para realizar la representación consulte el [tutorial de Blender](./tutorial-rendering-batchexplorer-blender.md).
 
 ### <a name="download-and-install"></a>Descarga e instalación
 
@@ -65,5 +65,5 @@ Hay disponibles complementos para algunas de las aplicaciones cliente.  Dichos c
 
 Para ver ejemplos de representación de Batch consulte los dos tutoriales siguientes:
 
-* [Representación mediante la CLI de Azure](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
-* [Representación mediante Batch Explorer](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
+* [Representación mediante la CLI de Azure](./tutorial-rendering-cli.md)
+* [Representación mediante Batch Explorer](./tutorial-rendering-batchexplorer-blender.md)

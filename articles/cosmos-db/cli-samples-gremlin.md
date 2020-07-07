@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 1f927823fd7984014e2b8dd4d2ab90d83f144605
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 01e46d144c287569687bb79e7e9cb67b4923b78a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262963"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552903"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-gremlin-api"></a>Ejemplos de la CLI de Azure para Gremlin API para Azure Cosmos DB
 
 En la tabla siguiente se incluyen vínculos a scripts de ejemplo de la CLI de Azure para Gremlin API para Azure Cosmos DB. Hay páginas de referencia para todos los comandos de CLI de Azure Cosmos DB disponibles en la [referencia de la CLI de Azure](/cli/azure/cosmosdb). Encontrará más ejemplos de scripts de la CLI de Azure Cosmos DB en el [repositorio de la CLI de Azure Cosmos DB en GitHub](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
-| |  |
+|Tarea | Descripción |
 |---|---|
 | [Crear una cuenta, una base de datos y un grafo de Azure Cosmos](scripts/cli/gremlin/create.md?toc=%2fcli%2fazure%2ftoc.json)| Crea una cuenta de Azure Cosmos DB y una base de datos y un grafo de Gremlin API. |
 | [Cambiar la capacidad de proceso](scripts/cli/gremlin/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Actualiza la capacidad de proceso (RU/s) de una base de datos y un grafo.|
