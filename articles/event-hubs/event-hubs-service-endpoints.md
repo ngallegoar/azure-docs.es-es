@@ -13,7 +13,6 @@ ms.date: 11/26/2019
 ms.author: shvija
 ms.openlocfilehash: 91b08d6130da640adc28a3b7d85bd33f0e876caf
 ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
-ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/15/2020
 ms.locfileid: "81390278"
@@ -70,7 +69,7 @@ En esta sección se muestra cómo usar Azure Portal para agregar un punto de con
 
     ![Firewall: opción Todas las redes seleccionada](./media/event-hubs-firewall/firewall-all-networks-selected.png)
 1. Para restringir el acceso a redes específicas, seleccione la opción **Redes seleccionadas** en la parte superior de la página.
-2. En la sección **Red virtual** de la página, seleccione **+Agregar red virtual existente***. Seleccione **+ Crear una red virtual nueva** si quiere crear una nueva red virtual. 
+2. En la sección **Red virtual** de la página, seleccione **+Agregar red virtual existente** *. Seleccione **+ Crear una red virtual nueva** si quiere crear una nueva red virtual. 
 
     ![adición de una red virtual existente](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
 3. En la lista de redes virtuales, seleccione la red virtual y después elija la **subred**. Debe habilitar el punto de conexión de servicio antes de agregar la red virtual a la lista. Si no está habilitado el punto de conexión de servicio, el portal le pedirá que lo habilite.
