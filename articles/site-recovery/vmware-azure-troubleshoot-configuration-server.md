@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 85021af94c3cc88f45b391690d7481d5498c40a9
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 26376c6b20816d2e7302403c8391195e16092fa3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84246890"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504327"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Solución de problemas del servidor de configuración
 
@@ -193,7 +193,7 @@ No tiene permisos suficientes para crear una aplicación en Azure Active Directo
 Para resolver el problema, inicie sesión en Azure Portal y realice una de las siguientes acciones:
 
 - Solicite el rol de desarrollador de aplicaciones en AAD. Para obtener más información sobre los distintos roles de desarrollador de aplicaciones, consulte [Permisos de roles de administrador en Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
-- Compruebe que la marca de que el **usuario puede crear la aplicación** se establece en *True* en AAD. Para más información, vea: [Cómo: portal para crear una aplicación de Azure AD y una entidad de servicio que puedan acceder a los recursos](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Compruebe que la marca de que el **usuario puede crear la aplicación** se establece en *True* en AAD. Para más información, vea: [Cómo: portal para crear una aplicación de Azure AD y una entidad de servicio que puedan acceder a los recursos](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>El destino maestro o el servidor de procesos no puede comunicarse con el servidor de configuración 
 

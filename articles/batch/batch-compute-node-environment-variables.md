@@ -3,22 +3,22 @@ title: Variables de entorno de tiempo de ejecución de tareas
 description: Instrucciones y referencia de las variable de entorno de tiempo de ejecución de tareas para Azure Batch Analytics.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 0b3f00bcae50b0913432b122c85a3725a489679a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 6b8ade312146802ede6e12181a082a8fcd3842fe
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745344"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960918"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variables de entorno de tiempo de ejecución de Azure Batch
 
 El [servicio Azure Batch](https://azure.microsoft.com/services/batch/) establece las siguientes variables del entorno en nodos de proceso. Puede hacer referencia a estas variables del entorno en líneas de comandos de la tarea y en los programas y secuencias de comandos que ejecutan las líneas de comandos.
 
-Para obtener más información sobre el uso de variables de entorno con Batch, consulte [Configuración del entorno para las tareas](https://docs.microsoft.com/azure/batch/batch-api-basics#environment-settings-for-tasks).
+Para obtener más información sobre el uso de variables de entorno con Batch, consulte [Configuración del entorno para las tareas](./jobs-and-tasks.md#environment-settings-for-tasks).
 
 ## <a name="environment-variable-visibility"></a>Visibilidad de la variable del entorno
 
-Estas variables del entorno solo son visibles en el contexto de la **tarea del usuario**, es decir, la cuenta de usuario en el nodo donde se ejecuta una tarea. *No* las verá si [se conecta de forma remota](https://azure.microsoft.com/documentation/articles/batch-api-basics/#connecting-to-compute-nodes) a un nodo de proceso a través del protocolo de escritorio remoto (RDP) o de Secure Shell (SSH) y muestra la lista de variables de entorno. Esto se debe a que la cuenta de usuario que se usa para la conexión remota no es la misma que la cuenta que utiliza la tarea.
+Estas variables del entorno solo son visibles en el contexto de la **tarea del usuario**, es decir, la cuenta de usuario en el nodo donde se ejecuta una tarea. *No* las verá si [se conecta de forma remota](./error-handling.md#connect-to-compute-nodes) a un nodo de proceso a través del protocolo de escritorio remoto (RDP) o de Secure Shell (SSH) y muestra la lista de variables de entorno. Esto se debe a que la cuenta de usuario que se usa para la conexión remota no es la misma que la cuenta que utiliza la tarea.
 
 Para obtener el valor actual de una variable de entorno, inicie `cmd.exe` en un nodo de proceso de Windows o `/bin/sh` en un nodo de Linux:
 
@@ -40,8 +40,8 @@ Las líneas de comandos que ejecutan las tareas en nodos de proceso no se ejecut
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | El nombre de la cuenta de Batch a la que pertenece la tarea.                  | Todas las tareas.   | mybatchaccount |
 | AZ_BATCH_ACCOUNT_URL            | La dirección URL de la cuenta de Batch. | Todas las tareas. | `https://myaccount.westus.batch.azure.com` |
-| AZ_BATCH_APP_PACKAGE            | Un prefijo de todas las variables de entorno de paquete de aplicación. Por ejemplo, si la aplicación "FOO" versión "1" se instala en un grupo, la variable de entorno es AZ_BATCH_APP_PACKAGE_FOO_1 (en Linux) o AZ_BATCH_APP_PACKAGE_FOO#1 (en Windows). AZ_BATCH_APP_PACKAGE_FOO_1 apunta a la ubicación en la que se descargó el paquete (una carpeta). Al usar la versión predeterminada del paquete de la aplicación, use la variable de entorno AZ_BATCH_APP_PACKAGE sin los números de versión. Si está en Linux y el nombre del paquete de aplicación es "Agent-linux-x64" y la versión es "1.1.46.0", el nombre del entorno es: AZ_BATCH_APP_PACKAGE_agent_linux_x64_1_1_46_0 (con guiones bajos y en minúsculas). Obtenga más información [aquí](https://docs.microsoft.com/azure/batch/batch-application-packages#execute-the-installed-applications). | Cualquier tarea con un paquete de aplicación asociado. También está disponible para todas las tareas si el nodo mismo tiene paquetes de aplicación. | AZ_BATCH_APP_PACKAGE_FOO_1 (Linux) o AZ_BATCH_APP_PACKAGE_FOO#1 (Windows) |
-| AZ_BATCH_AUTHENTICATION_TOKEN   | Token de autenticación que concede acceso a un conjunto limitado de operaciones de servicio de Batch. Esta variable de entorno solo está presente si [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings) está establecido al [agregar la tarea](/rest/api/batchservice/task/add#request-body). El valor del token se usa en las API de Batch como credenciales para crear un cliente de Batch, como en [BatchClient.Open() .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_). | Todas las tareas. | Token de acceso de OAuth2 |
+| AZ_BATCH_APP_PACKAGE            | Un prefijo de todas las variables de entorno de paquete de aplicación. Por ejemplo, si la aplicación "FOO" versión "1" se instala en un grupo, la variable de entorno es AZ_BATCH_APP_PACKAGE_FOO_1 (en Linux) o AZ_BATCH_APP_PACKAGE_FOO#1 (en Windows). AZ_BATCH_APP_PACKAGE_FOO_1 apunta a la ubicación en la que se descargó el paquete (una carpeta). Al usar la versión predeterminada del paquete de la aplicación, use la variable de entorno AZ_BATCH_APP_PACKAGE sin los números de versión. Si está en Linux y el nombre del paquete de aplicación es "Agent-linux-x64" y la versión es "1.1.46.0", el nombre del entorno es: AZ_BATCH_APP_PACKAGE_agent_linux_x64_1_1_46_0 (con guiones bajos y en minúsculas). Obtenga más información [aquí](./batch-application-packages.md#execute-the-installed-applications). | Cualquier tarea con un paquete de aplicación asociado. También está disponible para todas las tareas si el nodo mismo tiene paquetes de aplicación. | AZ_BATCH_APP_PACKAGE_FOO_1 (Linux) o AZ_BATCH_APP_PACKAGE_FOO#1 (Windows) |
+| AZ_BATCH_AUTHENTICATION_TOKEN   | Token de autenticación que concede acceso a un conjunto limitado de operaciones de servicio de Batch. Esta variable de entorno solo está presente si [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings) está establecido al [agregar la tarea](/rest/api/batchservice/task/add#request-body). El valor del token se usa en las API de Batch como credenciales para crear un cliente de Batch, como en [BatchClient.Open() .NET API](/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_). | Todas las tareas. | Token de acceso de OAuth2 |
 | AZ_BATCH_CERTIFICATES_DIR       | Un directorio en el [directorio de trabajo de la tarea][files_dirs] en el que se almacenan los certificados para nodos de proceso de Linux. Esta variable de entorno no se aplica a los nodos de ejecución de Windows.                                                  | Todas las tareas.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_HOST_LIST              | La lista de nodos que se asignan a una [tarea de varias instancias][multi_instance] en el formato `nodeIP,nodeIP`. | Tareas principales y secundarias de varias instancias. | `10.0.0.4,10.0.0.5` |
 | AZ_BATCH_IS_CURRENT_NODE_MASTER | Especifica si el nodo actual es el nodo maestro de una [tarea de varias instancias][multi_instance]. Los valores posibles son `true` y `false`.| Tareas principales y secundarias de varias instancias. | `true` |
@@ -63,7 +63,7 @@ Las líneas de comandos que ejecutan las tareas en nodos de proceso no se ejecut
 | AZ_BATCH_TASK_WORKING_DIR       | La ruta de acceso completa del [directorio de trabajo en tareas][files_dirs] en el nodo. La tarea que se está ejecutando tiene acceso de lectura/escritura a este directorio. | Todas las tareas. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
 | CCP_NODES                       | La lista de nodos y el número de núcleos por nodo que se asignan a una [tarea de varias instancias][multi_instance]. Los nodos y núcleos se muestran en el formato `numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, donde el número de nodos es seguido de una o varias direcciones IP de nodo y el número de núcleos para cada una. |  Tareas principales y secundarias de varias instancias. |`2 10.0.0.4 1 10.0.0.5 1` |
 
-[files_dirs]: https://azure.microsoft.com/documentation/articles/batch-api-basics/#files-and-directories
-[multi_instance]: https://azure.microsoft.com/documentation/articles/batch-mpi/
-[coord_cmd]: https://azure.microsoft.com/documentation/articles/batch-mpi/#coordination-command
-[app_cmd]: https://azure.microsoft.com/documentation/articles/batch-mpi/#application-command
+[files_dirs]: ./files-and-directories.md
+[multi_instance]: ./batch-mpi.md
+[coord_cmd]: ./batch-mpi.md#coordination-command
+[app_cmd]: ./batch-mpi.md#application-command

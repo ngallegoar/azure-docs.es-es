@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/07/2019
-ms.openlocfilehash: a4e97fc6b46127dbc6b047e897dadf0efa76c94b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: c4fddcaf786801e13e962c888a154adfdffae9f8
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84038476"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961836"
 ---
 # <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Creación de contadores de rendimiento para realizar el seguimiento del rendimiento del administrador de mapa de particiones
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ Puede capturar el rendimiento de una instancia de [Shard Map Manager](elastic-sc
 
 Para crear los contadores, llame al método CreatePerformanceCategoryAndCounters de la [clase ShardMapManagementFactory](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory). Solo un administrador puede ejecutar el método:
 
-    ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
+`ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()`
 
 También puede usar [este](https://gallery.technet.microsoft.com/scriptcenter/Elastic-DB-Tools-for-Azure-17e3d283) script de PowerShell para ejecutar el método.
 El método crea los siguientes contadores de rendimiento:  

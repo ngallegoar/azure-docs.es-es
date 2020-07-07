@@ -3,12 +3,12 @@ title: Evento completo de eliminación de grupo de Azure Batch
 description: Referencia del evento completo de eliminación de grupo de Batch. Este evento se genera cuando se finaliza una operación de eliminación del grupo.
 ms.topic: reference
 ms.date: 04/20/2017
-ms.openlocfilehash: 6e009b55869b7ba8c81190837086557743d53219
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: f00d32fd5e4eb49fddf4975a9b64ce792d0226dd
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724061"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962465"
 ---
 # <a name="pool-delete-complete-event"></a>Evento de finalización de eliminación del grupo
 
@@ -31,4 +31,4 @@ ms.locfileid: "83724061"
 |`endTime`|DateTime|La hora en que finalizó la eliminación del grupo.|
 
 ## <a name="remarks"></a>Observaciones
-Para más información sobre los estados y códigos de error para la operación de cambio de tamaño del grupo, consulte [Eliminar un grupo de una cuenta](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account).
+Para más información sobre los estados y códigos de error para la operación de cambio de tamaño del grupo, consulte [Eliminar un grupo de una cuenta](/rest/api/batchservice/delete-a-pool-from-an-account).

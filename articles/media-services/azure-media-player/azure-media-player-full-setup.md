@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.openlocfilehash: d4c2dc58ca341db7ba17dbaf6a5ce7c009983379
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 62d4e26d5a0d3d86cc58421dab4167d5d9d2562d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81725901"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961786"
 ---
 # <a name="azure-media-player-full-setup"></a>Configuración completa de Azure Media Player #
 
@@ -23,11 +23,14 @@ Azure Media Player es fácil de configurar. Solo se tarda unos minutos en obtene
 Con Azure Media Player, puede acceder a los scripts desde la versión hospedada de la red CDN. A menudo se recomienda actualmente poner JavaScript antes de la etiqueta BODY final `<body>` en lugar de antes de `<head>`, pero Azure Media Player incluye una modificación de HTML5, que debe estar en el encabezado de las versiones más antiguas de IE para que respete la etiqueta de vídeo como un elemento válido.
 
 > [!NOTE]
-> Si ya usa una modificación de HTML5 como [Modernizr](http://modernizr.com/) puede incluir el JavaScript de Azure Media Player en cualquier lugar. Sin embargo, asegúrese de que la versión de Modernizr incluye shiv para vídeo.
+> Si ya usa una modificación de HTML5 como [Modernizr](https://modernizr.com/) puede incluir el JavaScript de Azure Media Player en cualquier lugar. Sin embargo, asegúrese de que la versión de Modernizr incluye shiv para vídeo.
 
 ### <a name="cdn-version"></a>Versión para CDN ###
+
+```html
     <link href="//amp.azure.net/libs/amp/latest/skins/amp-default/azuremediaplayer.min.css" rel="stylesheet">
     <script src= "//amp.azure.net/libs/amp/latest/azuremediaplayer.min.js"></script>
+```
 
 > [!IMPORTANT]
 > **NO** use la versión `latest` en producción, porque está sujeta a cambios a petición. Reemplace `latest` por una versión de Azure Media Player. Por ejemplo, reemplace `latest` por `2.1.1`. Las versiones de Azure Media Player pueden consultarse desde [aquí](azure-media-player-changelog.md).

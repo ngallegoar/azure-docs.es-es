@@ -3,15 +3,15 @@ title: Acceso al panel de control de Avere vFXT - Azure
 description: Cómo conectarse al clúster de vFXT y al panel de control basado en explorador de Avere para configurar Avere vFXT
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
-ms.openlocfilehash: fe2fc062f690498f3d1f588887279aa33d2434b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 69395a27500b8e7bd066536b367b8e6cb385602c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75416146"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505620"
 ---
 # <a name="access-the-vfxt-cluster"></a>Acceso al clúster de vFXT
 

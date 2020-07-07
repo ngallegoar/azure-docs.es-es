@@ -3,15 +3,15 @@ title: Requisitos previos de Avere vFXT - Azure
 description: Requisitos previos de Avere vFXT para Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: a183989cc666f00da4be077c719c40d2524fd6e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1828bcde5c26c5605b867c115127eb2502bdd86
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227492"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505348"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparación para la creación de Avere vFXT
 

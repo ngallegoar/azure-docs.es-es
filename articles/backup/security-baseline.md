@@ -8,10 +8,10 @@ ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 68453341defd2d359e69e0ecf8a821464fead0d3
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82744061"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Línea de base de seguridad de Azure para Backup
@@ -36,7 +36,7 @@ Para obtener más información, consulte [Introducción a las líneas de base de
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>1.2: Supervise y registre la configuración y el tráfico de redes virtuales, subredes y NIC
 
-**Guía**: No aplicable; no se puede asociar una red virtual, una subred o un grupo de seguridad de red a un almacén de Recovery Services. Al realizar una copia de seguridad de una máquina virtual de Azure, los datos se transfieren a través de la red troncal de Azure. Cuando se realiza una copia de seguridad desde un equipo local, se crea un túnel cifrado con un punto de conexión específico en Azure y se usan las credenciales para cifrar previamente los datos y enviarlos luego a través del túnel cifrado.
+**Instrucciones**: No aplicable; no se puede asociar una red virtual, una subred o un grupo de seguridad de red a un almacén de Recovery Services. Al realizar una copia de seguridad de una máquina virtual de Azure, los datos se transfieren a través de la red troncal de Azure. Cuando se realiza una copia de seguridad desde un equipo local, se crea un túnel cifrado con un punto de conexión específico en Azure y se usan las credenciales para cifrar previamente los datos y enviarlos luego a través del túnel cifrado.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -62,7 +62,7 @@ Para obtener más información, consulte [Introducción a las líneas de base de
 
 ### <a name="15-record-network-packets-and-flow-logs"></a>1.5: Registre los paquetes de red y registros de flujo
 
-**Guía**: No aplicable; no se puede asociar una red virtual, una subred o un grupo de seguridad de red a un almacén de Recovery Services. Al realizar una copia de seguridad de una máquina virtual de Azure, los datos se transfieren a través de la red troncal de Azure. Cuando se realiza una copia de seguridad desde un equipo local, se crea un túnel cifrado con un punto de conexión específico en Azure y se usan las credenciales para cifrar previamente los datos y enviarlos luego a través del túnel cifrado.
+**Instrucciones**: No aplicable; no se puede asociar una red virtual, una subred o un grupo de seguridad de red a un almacén de Recovery Services. Al realizar una copia de seguridad de una máquina virtual de Azure, los datos se transfieren a través de la red troncal de Azure. Cuando se realiza una copia de seguridad desde un equipo local, se crea un túnel cifrado con un punto de conexión específico en Azure y se usan las credenciales para cifrar previamente los datos y enviarlos luego a través del túnel cifrado.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -106,7 +106,7 @@ Para obtener más información, consulte [Introducción a las líneas de base de
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10: Documente las reglas de configuración de tráfico
 
-**Guía**: Si usa el agente de MARS en una máquina virtual de Azure, asocie esa máquina virtual a un grupo de seguridad de red y use la descripción para especificar la necesidad empresarial de la regla.
+**Instrucciones**: Si usa el agente de MARS en una máquina virtual de Azure, asocie esa máquina virtual a un grupo de seguridad de red y use la descripción para especificar la necesidad empresarial de la regla.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -186,7 +186,7 @@ Además, Azure Backup envía eventos de diagnóstico que se pueden recopilar y u
 
 ### <a name="26-monitor-and-review-logs"></a>2.6: Supervisión y registros de revisión
 
-**Guía**: Azure Backup proporciona funcionalidades de supervisión y alerta integradas en un almacén de Recovery Services. Estas funcionalidades están disponibles sin ninguna infraestructura de administración adicional. También puede aumentar la escala de la supervisión y los informes mediante Azure Monitor.
+**Instrucciones**: Azure Backup proporciona funcionalidades de supervisión y alerta integradas en un almacén de Recovery Services. Estas funcionalidades están disponibles sin ninguna infraestructura de administración adicional. También puede aumentar la escala de la supervisión y los informes mediante Azure Monitor.
 
 Habilite la configuración de diagnóstico en el registro de actividad de Azure y envíe los registros a un área de trabajo de Log Analytics. Realice consultas en Log Analytics para buscar términos, identificar tendencias, analizar patrones y proporcionar muchas otras conclusiones basadas en los datos del registro de actividad que se pueden recopilar para almacenes de Recovery Services.
 
@@ -248,7 +248,7 @@ También puede incorporar el área de trabajo de Log Analytics a Azure Sentinel,
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Mantenga un inventario de cuentas administrativas
 
-**Guía**: Azure Active Directory (AD) tiene roles integrados que se deben asignar explícitamente y son consultables. Use el módulo de PowerShell de Azure AD para realizar consultas ad hoc para detectar cuentas que son miembros de grupos administrativos.
+**Instrucciones**: Azure Active Directory (AD) tiene roles integrados que se deben asignar explícitamente y son consultables. Use el módulo de PowerShell de Azure AD para realizar consultas ad hoc para detectar cuentas que son miembros de grupos administrativos.
 
 Documentación complementaria:
 
@@ -298,7 +298,7 @@ Además, para ayudarle a realizar un seguimiento de las cuentas administrativas 
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: Use la autenticación multifactor para todo el acceso basado en Azure Active Directory
 
-**Guía**: Al realizar operaciones críticas en Azure Backup, debe especificar un PIN de seguridad, disponible en Azure Portal. Al habilitar Azure Multi-Factor Authentication, se agrega una capa de seguridad. Solo los usuarios autorizados con credenciales de Azure válidas y autenticados desde un segundo dispositivo pueden tener acceso a Azure Portal.
+**Instrucciones**: Al realizar operaciones críticas en Azure Backup, debe especificar un PIN de seguridad, disponible en Azure Portal. Al habilitar Azure Multi-Factor Authentication, se agrega una capa de seguridad. Solo los usuarios autorizados con credenciales de Azure válidas y autenticados desde un segundo dispositivo pueden tener acceso a Azure Portal.
 
 - [Multi-Factor Authentication en Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-security-feature)
 
@@ -310,7 +310,7 @@ Además, para ayudarle a realizar un seguimiento de las cuentas administrativas 
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: Use máquinas dedicadas (estaciones de trabajo de acceso con privilegios) para todas las tareas administrativas
 
-**Guía**: Utilice estaciones de acceso con privilegios (PAW) con Azure Multi-Factor Authentication (MFA) configurada para iniciar sesión en recursos habilitados para Azure Backup y configurarlos.
+**Instrucciones**: Utilice estaciones de acceso con privilegios (PAW) con Azure Multi-Factor Authentication (MFA) configurada para iniciar sesión en recursos habilitados para Azure Backup y configurarlos.
 
 - [Uso de estaciones de trabajo con privilegios de acceso](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
@@ -494,7 +494,7 @@ Azure Backup proporciona tres roles integrados para controlar las operaciones de
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: Uso de la prevención de pérdida de datos basada en host para aplicar el control de acceso
 
-**Guía**: No aplicable; esta recomendación está pensada para los recursos de proceso. Microsoft administra la infraestructura subyacente para Azure Backup y ha implementado controles estrictos para evitar la pérdida o exposición de los datos de los clientes.
+**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso. Microsoft administra la infraestructura subyacente para Azure Backup y ha implementado controles estrictos para evitar la pérdida o exposición de los datos de los clientes.
 
 - [Protección de datos de cliente de Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
@@ -566,7 +566,7 @@ Plataforma subyacente examinada y revisada por Microsoft. Revise los controles d
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5: Use un proceso de clasificación de riesgos para priorizar la corrección de las vulnerabilidades detectadas
 
-**Guía**: Actualmente no está disponible; todavía no se admiten las configuraciones de seguridad para Azure Backup en Azure Security Center.
+**Instrucciones**: Actualmente no está disponible; todavía no se admiten las configuraciones de seguridad para Azure Backup en Azure Security Center.
 
 - [Lista de servicios PaaS compatibles con Azure Security Center](https://docs.microsoft.com/azure/security-center/features-paas)
 
@@ -606,7 +606,7 @@ Aunque los recursos clásicos de Azure se pueden detectar a través de Resource 
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3: Eliminación de recursos de Azure no autorizados
 
-**Guía**: Use el etiquetado, los grupos de administración y las suscripciones independientes, si procede, para organizar y realizar un seguimiento de los recursos de Azure. Concilie el inventario periódicamente y asegúrese de que los recursos no autorizados se eliminan de la suscripción de manera oportuna.
+**Instrucciones**: use el etiquetado, los grupos de administración y las suscripciones independientes, si procede, para organizar y realizar un seguimiento de los recursos de Azure. Concilie el inventario periódicamente y asegúrese de que los recursos no autorizados se eliminan de la suscripción de manera oportuna.
 
 Además, use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas: Tipos de recursos no permitidos Tipos de recursos permitidos
 
@@ -630,7 +630,7 @@ Además, use Azure Policy para establecer restricciones sobre el tipo de recurso
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Supervisión de recursos de Azure no aprobados
 
-**Guía**: Use Azure Policy para establecer restricciones en el tipo de recursos que se pueden crear en sus suscripciones.
+**Instrucciones**: Use Azure Policy para establecer restricciones en el tipo de recursos que se pueden crear en sus suscripciones.
 
 Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscripciones.  Asegúrese de que todos los recursos de Azure presentes en el entorno estén aprobados.
 
@@ -718,7 +718,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Establezca configuraciones seguras para todos los recursos de Azure
 
-**Guía**: Defina e implemente configuraciones de seguridad estándar para el almacén de Recovery Services con Azure Policy. Use alias de Azure Policy en el espacio de nombres "Microsoft.RecoveryServices" para crear directivas personalizadas con el fin de auditar o aplicar la configuración de los almacenes de Recovery Services.
+**Instrucciones**: Defina e implemente configuraciones de seguridad estándar para el almacén de Recovery Services con Azure Policy. Use alias de Azure Policy en el espacio de nombres "Microsoft.RecoveryServices" para crear directivas personalizadas con el fin de auditar o aplicar la configuración de los almacenes de Recovery Services.
 
 - [Visualización de los alias de Azure Policy disponibles](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
@@ -894,7 +894,7 @@ Use la detección de amenazas de Azure Security Center para los servicios de dat
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2: Realización de copias de seguridad completas del sistema y copia de seguridad de las claves administradas por el cliente
 
-**Guía**: El almacenamiento con redundancia local (LRS) replica los datos tres veces (crea tres copias de los datos) en una unidad de escalado de almacenamiento de un centro de datos. Todas las copias de los datos se encuentran en la misma región. LRS es una opción de bajo costo para proteger los datos frente a errores de hardware locales. El almacenamiento con redundancia geográfica (GRS) es la opción de replicación predeterminada y recomendada. GRS replica los datos en una región secundaria (a cientos de kilómetros de la ubicación principal de los datos de origen). GRS cuesta más que LRS, pero proporciona un mayor nivel de durabilidad de los datos, aunque se produzca una interrupción regional.
+**Instrucciones**: El almacenamiento con redundancia local (LRS) replica los datos tres veces (crea tres copias de los datos) en una unidad de escalado de almacenamiento de un centro de datos. Todas las copias de los datos se encuentran en la misma región. LRS es una opción de bajo costo para proteger los datos frente a errores de hardware locales. El almacenamiento con redundancia geográfica (GRS) es la opción de replicación predeterminada y recomendada. GRS replica los datos en una región secundaria (a cientos de kilómetros de la ubicación principal de los datos de origen). GRS cuesta más que LRS, pero proporciona un mayor nivel de durabilidad de los datos, aunque se produzca una interrupción regional.
 
 Realice una copia de seguridad de las claves administradas del cliente con Azure Key Vault.
 
@@ -970,7 +970,7 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4: Provisión de detalles de contacto de incidentes de seguridad y configuración de notificaciones de alerta para incidentes de seguridad
 
-**Guía**: La información de contacto del incidente de seguridad la utilizará Microsoft para ponerse en contacto con usted si Microsoft Security Response Center (MSRC) detecta que un tercero no autorizado o ilegal ha accedido a los datos del cliente.  Revise los incidentes después del hecho para asegurarse de que se resuelven los problemas.
+**Instrucciones**: La información de contacto del incidente de seguridad la utilizará Microsoft para ponerse en contacto con usted si Microsoft Security Response Center (MSRC) detecta que un tercero no autorizado o ilegal ha accedido a los datos del cliente.  Revise los incidentes después del hecho para asegurarse de que se resuelven los problemas.
 
 - [Establecimiento del contacto de seguridad de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
 

@@ -3,15 +3,15 @@ title: Traslado de datos a un contenedor en la nube de Azure HPC Cache
 description: Cómo rellenar Azure Blob Storage para usarlo con Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: fd21a78d0271f91d334bba5aba748f3770ad38cf
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: ac963fd01016506193aae0fab5582224b3957de8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537940"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85508969"
 ---
 # <a name="move-data-to-azure-blob-storage"></a>Traslado de datos a Azure Blob Storage
 

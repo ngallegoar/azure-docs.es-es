@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: fa53213e577028628d48db91704578e23888f2a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41546a449165951cd7b462d1db2b1b58ae74e407
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228096"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85508102"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>Instalación de Update 1.0 en StorSimple Virtual Array
 
@@ -30,6 +30,7 @@ En este artículo se describen los pasos requeridos para instalar Update 1.0 en 
 Se aplican las actualizaciones o revisiones de software para mantener actualizada la matriz virtual de StorSimple. Antes de aplicar una actualización, se recomienda que desconecte primero los volúmenes o recursos compartidos en el host y, luego, el dispositivo. Esto minimizará la posibilidad de daños en los datos. Cuando los volúmenes o recursos compartidos están sin conexión, también debe realizar una copia de seguridad manual del dispositivo.
 
 > [!IMPORTANT]
+>
 > - Update 1.0 se corresponde a la versión de software **10.0.10296.0** del dispositivo. Para obtener más información sobre cuáles son las novedades de esta actualización, vaya a las [Notas de la versión de Update 1.0](storsimple-virtual-array-update-1-release-notes.md).
 >
 > - Tenga en cuenta que al instalar una actualización o revisión, se reiniciará el dispositivo. Dado que la matriz virtual de StorSimple es un dispositivo de nodo único, se interrumpirá cualquier operación de E/S que esté en curso y el dispositivo permanecerá un rato inactivo.

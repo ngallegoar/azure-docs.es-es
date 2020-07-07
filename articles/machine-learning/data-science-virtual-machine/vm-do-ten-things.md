@@ -5,16 +5,17 @@ description: Realice tareas de exploración y modelado de datos en Windows Data 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: tracking-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: acada42cd50d607925d7c4583820c2590ff76639
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 7d9aced42efefc8651605be44f0091b2f4f2815e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266566"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959286"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Diez cosas que puede hacer en Windows Data Science Virtual Machine
 
@@ -248,7 +249,9 @@ DSVM incluye herramientas de cliente en la línea de comandos y en la GUI para p
 
 Para descargar código de un repositorio de GitHub, debe usar el comando ```git clone```. Por ejemplo, para descargar el repositorio de ciencia de datos que publica Microsoft en el directorio actual, puede ejecutar el siguiente comando en Git Bash:
 
-    git clone https://github.com/Azure/DataScienceVM.git
+```bash
+git clone https://github.com/Azure/DataScienceVM.git
+```
 
 En Visual Studio, puede realizar la misma operación de clonación. En la captura de pantalla siguiente, se muestra cómo acceder a las herramientas de Git y GitHub en Visual Studio:
 
@@ -275,7 +278,9 @@ Azure Blob Storage es un servicio de almacenamiento en nube confiable y económi
 
 Para mover datos entre los archivos locales y Blob Storage, puede usar AzCopy en la línea de comandos o en PowerShell:
 
-    AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
+```powershell
+AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
+```
 
 Reemplace **C:\myfolder** por la ruta de acceso al lugar donde está almacenado su archivo, **mystorageaccount** por el nombre de su cuenta de Blob Storage, **mycontainer** por el nombre del contenedor y **storage account key** por la clave de acceso a Blob Storage. Puede encontrar las credenciales de su cuenta de almacenamiento en [Azure Portal](https://portal.azure.com).
 
