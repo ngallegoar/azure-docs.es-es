@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: cf0e5267885df1ace51271c53bb2d68ee5002f00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335425"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Búsqueda de ubicaciones con los servicios Search de Azure Maps
@@ -27,7 +27,7 @@ En este artículo, aprenderá a:
 * Realizar una [búsqueda de dirección inversa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) para traducir la ubicación de coordenadas a la dirección postal
 * Buscar una intersección de calles mediante [Search Address Reverse Cross Street API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar los pasos descritos en este artículo, primero debe crear una cuenta de Azure Maps y obtener la clave de suscripción de cuenta de los mapas. Siga las instrucciones que se indican en [Creación de una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps) para crear una suscripción a una cuenta de Azure Maps y siga los pasos para [obtener la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) de la cuenta. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](./how-to-manage-authentication.md).
 
@@ -58,7 +58,7 @@ Si tiene un conjunto de direcciones para la geocodificación, puede usar [Post S
 | Clave | Value | 
 |------------------|-------------------------| 
 | api-version | 1.0 | 
-| subscription-key | \<la clave de Azure Maps\> | 
+| subscription-key | \<your Azure Maps key\> | 
 | Query | 400 Broad St, Seattle, WA 98109 | 
 
 4. Haga clic en **Enviar** y revise el cuerpo de la respuesta. 
@@ -108,7 +108,7 @@ La mayoría de las consultas de búsqueda tienen como valor predeterminado `maxF
     | Clave | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | \<la clave de Azure Maps\> |
+    | subscription-key | \<your Azure Maps key\> |
     | Query | pizza |
 
 4. Haga clic en **Enviar** y revise el cuerpo de la respuesta.
@@ -162,7 +162,7 @@ Si tiene un conjunto de direcciones en forma de coordenadas para realizar la geo
     | Clave | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | \<la clave de Azure Maps\> |
+    | subscription-key | \<your Azure Maps key\> |
     | Query | 47,591180,-122,332700 |
   
 4. Haga clic en **Enviar** y revise el cuerpo de la respuesta.
@@ -220,7 +220,7 @@ Si tiene un conjunto de direcciones en forma de coordenadas para realizar la geo
     | Clave | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | \<la clave de Azure Maps\> |
+    | subscription-key | \<your Azure Maps key\> |
     | Query | 47,591180,-122,332700 |
   
 4. Haga clic en **Enviar** y revise el cuerpo de la respuesta.
