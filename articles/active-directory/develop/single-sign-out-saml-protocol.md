@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.openlocfilehash: dbe21d020d5d01f24913b95587721403fa218cc8
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80881274"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Protocolo SAML de cierre de sesión único
@@ -66,9 +66,9 @@ Azure AD envía un elemento `LogoutResponse` en respuesta a un elemento `LogoutR
 Azure AD configura los valores `ID`, `Version` y `IssueInstant` en el elemento `LogoutResponse`. También establece el elemento `InResponseTo` en el valor del atributo `ID` del elemento `LogoutRequest` que obtiene la respuesta.
 
 ### <a name="issuer"></a>Emisor
-Azure AD establece este valor en `https://login.microsoftonline.com/<TenantIdGUID>/`, donde \<TenantIdGUID> es el identificador del inquilino de Azure AD.
+Azure AD establece este valor en `https://login.microsoftonline.com/<TenantIdGUID>/`, donde \<TenantIdGUID> es el identificador de inquilino del inquilino de Azure AD.
 
 Para evaluar el valor del elemento `Issuer` , utilice el valor del identificador **URI de id. de aplicación** proporcionado durante el registro de la aplicación.
 
-### <a name="status"></a>Status
+### <a name="status"></a>Estado
 Azure AD usa el elemento `StatusCode` en `Status` para indicar que el cierre de sesión ha sido satisfactorio o que se ha producido algún error. Cuando se produce un error en el intento de cierre de sesión, el elemento `StatusCode` también puede contener mensajes de error personalizados.
