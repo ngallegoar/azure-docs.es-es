@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 01/15/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: cd4cc90fb102d517a47ba458619e22b8921dd498
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aed015b67aa36e7678b31d7f2f047cb1e77c6a3d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75495328"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485313"
 ---
 # <a name="fail-back-vmware-vms-to-on-premises-site"></a>Conmutación por recuperación de máquinas virtuales de VMware al sitio local
 
@@ -29,7 +29,7 @@ En este artículo se describe cómo conmutar por recuperación las máquinas vir
 
 ## <a name="run-a-failover-to-fail-back"></a>Ejecución de una conmutación por error a una conmutación por recuperación
 
-1. Asegúrese de que las máquinas virtuales de Azure están nuevamente protegidas y se replican en el sitio local. 
+1. Asegúrese de que las máquinas virtuales de Azure están nuevamente protegidas y se replican en el sitio local.
     - Una máquina virtual necesita al menos un punto de recuperación para realizar la conmutación por recuperación.
     - Si realiza la conmutación por recuperación de un plan de recuperación, todas las máquinas del plan deben tener al menos un punto de recuperación.
 2. En el almacén > **Elementos replicados**, seleccione la máquina virtual. Haga clic con el botón derecho en la máquina virtual > **Conmutación por error no planeada** .

@@ -3,12 +3,12 @@ title: Introducción a la copia de seguridad sin conexión
 description: Conozca los componentes de la copia de seguridad sin conexión. Por ejemplo, la copia de seguridad sin conexión basada en Azure Data Box y la copia de seguridad sin conexión basada en el servicio Azure Import/Export.
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: c3ef79136ca32c24ae6d16057d3195b57e8ced2d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 84f79efe10f867b37d1e3bb21363be4b12156615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744634"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84628350"
 ---
 # <a name="overview-of-offline-backup"></a>Introducción a la copia de seguridad sin conexión
 
@@ -60,7 +60,7 @@ Este es un resumen de la arquitectura:
 
 Para usar la copia de seguridad sin conexión basada en el servicio Azure Import/Export con el agente de MARS, consulte [Flujo de trabajo de copia de seguridad sin conexión en Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export).
 
-Para usar lo mismo con MABS o DPM-A, consulte [Flujo de copia de seguridad sin conexión para DPM y Azure Backup Server](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export-).
+Para usar lo mismo con MABS o DPM-A, consulte [Flujo de copia de seguridad sin conexión para DPM y Azure Backup Server](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export).
 
 ## <a name="offline-backup-support-summary"></a>Resumen de compatibilidad de la copia de seguridad sin conexión
 
@@ -83,4 +83,4 @@ En la tabla siguiente se comparan las dos opciones disponibles, de modo que pued
 
 - [Copia de seguridad sin conexión de Azure Backup con Azure Data Box](offline-backup-azure-data-box.md#backup-data-size-and-supported-data-box-skus)
 - [Flujo de trabajo de copia de seguridad sin conexión en Azure Backup](backup-azure-backup-import-export.md)
-- [Flujo de copia de seguridad sin conexión para DPM y Azure Backup Server](backup-azure-backup-server-import-export-.md)
+- [Flujo de copia de seguridad sin conexión para DPM y Azure Backup Server](backup-azure-backup-server-import-export.md)
