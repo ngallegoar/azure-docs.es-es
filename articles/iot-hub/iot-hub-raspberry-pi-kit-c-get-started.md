@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: wesmc
 ms.openlocfilehash: 03f9d58cab725335b0f4090ac1a7289c32c0af7f
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81640543"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Conectar Raspberry Pi a Azure IoT Hub (C)

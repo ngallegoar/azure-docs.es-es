@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.openlocfilehash: aacec8830948e08f66d71da88897670f7ef43788
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81606131"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Uso de patrones de columnas en el flujo de datos de asignación
