@@ -200,6 +200,8 @@
       href: storage-resource-deletion-errors.md
     - name: Errores al eliminar recursos de almacenamiento clásicos
       href: storage-classic-cannot-delete-storage-account-container-vhd.md
+    - name: No se admiten discos duros virtuales al crear máquinas virtuales en Azure
+      href: vhd-not-supported-vm-azure.md
     - name: Uso de la virtualización anidada
       href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Problemas de rendimiento de máquinas virtuales

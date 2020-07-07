@@ -222,6 +222,8 @@
               href: service-fabric-manifest-example-container-app.md
         - name: Modelo de alojamiento
           href: service-fabric-hosting-model.md
+        - name: Temas avanzados del ciclo de vida de activación y desactivación del hospedaje
+          href: service-fabric-hosting-lifecycle.md
         - name: Seguridad de la aplicación
           href: service-fabric-application-and-service-security.md
         - name: Estado de servicio
@@ -404,13 +406,13 @@
           href: service-fabric-get-started-containers.md
         - name: Aplicación contenedora de Linux
           href: service-fabric-get-started-containers-linux.md
-        - name: 'Aplicación en C# de Reliable Services en Windows'
+        - name: Aplicación en C# de Reliable Services en Windows
           href: service-fabric-reliable-services-quick-start.md
         - name: Aplicación en Java de Reliable Services en Linux
           href: service-fabric-reliable-services-quick-start-java.md
-        - name: 'Aplicación en C# de Reliable Services en Linux'
+        - name: Aplicación en C# de Reliable Services en Linux
           href: service-fabric-create-your-first-linux-application-with-csharp.md
-        - name: 'Aplicación en C# de Reliable Actors en Windows'
+        - name: Aplicación en C# de Reliable Actors en Windows
           href: service-fabric-reliable-actors-get-started.md
         - name: Aplicación en Java de Reliable Actors en Linux
           href: service-fabric-create-your-first-linux-application-with-java.md
@@ -561,7 +563,7 @@
           items:
             - name: Introducción a VS Code
               href: service-fabric-get-started-vs-code.md
-            - name: 'Desarrollo de aplicaciones C# de Service Fabric con VS Code'
+            - name: Desarrollo de aplicaciones C# de Service Fabric con VS Code
               href: service-fabric-develop-csharp-applications-with-vs-code.md
             - name: Desarrollo de aplicaciones Java de Service Fabric con VS Code
               href: service-fabric-develop-java-applications-with-vs-code.md

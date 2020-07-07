@@ -133,6 +133,8 @@
               href: howto-use-app-templates.md
             - name: Supervisión del estado de la aplicación
               href: howto-monitor-application-health.md
+            - name: Acerca de su aplicación
+              href: howto-get-app-info.md
         - name: Administración desde otros lugares
           items:
             - name: Administración desde Azure Portal

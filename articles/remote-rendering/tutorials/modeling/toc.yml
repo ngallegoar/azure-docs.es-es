@@ -1,2 +1,4 @@
-- name: Configuración de materiales de representación con representación física en Maya
+- name: Configuración de materiales con representación física en Autodesk Maya
   href: maya-material-setup.md
+- name: Configuración de materiales con representación física en Autodesk 3DSMax
+  href: 3dsmax-material-setup.md

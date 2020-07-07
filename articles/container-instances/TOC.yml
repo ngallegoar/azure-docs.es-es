@@ -1,10 +1,10 @@
 - name: Documentación de Container Instances
   href: index.yml
-- name: Introducción
+- name: Información general
   items:
     - name: Acerca de Azure Container Instances
       href: container-instances-overview.md
-- name: Guías de inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: 'Implementación de una instancia de contenedor: CLI'
@@ -86,6 +86,8 @@
           href: container-instances-start-command.md
         - name: Ejecución de un comando (exec)
           href: container-instances-exec.md
+        - name: Ejecución de un contenedor de instalación (init)
+          href: container-instances-init-container.md
         - name: Uso de una identidad administrada (versión preliminar)
           href: container-instances-managed-identity.md
         - name: Uso de recursos de GPU (versión preliminar)

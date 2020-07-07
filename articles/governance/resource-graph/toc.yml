@@ -17,6 +17,9 @@
     - name: 'Ejecución de la primera consulta: Azure PowerShell'
       displayName: 'module, docker, Az.ResourceGraph'
       href: ./first-query-powershell.md
+    - name: 'Ejecución de la primera consulta: .NET'
+      displayName: 'core, auth, dotnet'
+      href: ./first-query-dotnet.md
     - name: "Ejecución de la primera consulta:\_Go"
       displayName: 'package, sdk, golang'
       href: ./first-query-go.md
@@ -26,6 +29,9 @@
     - name: 'Ejecución de la primera consulta: Python'
       displayName: 'library, azure-mgmt, cli'
       href: ./first-query-python.md
+    - name: 'Ejecución de la primera consulta: REST'
+      displayName: 'armclient, postman'
+      href: ./first-query-rest-api.md
     - name: 'Creación de una consulta compartida: CLI de Azure'
       displayName: 'extension, docker, queries'
       href: ./shared-query-azure-cli.md

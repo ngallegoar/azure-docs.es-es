@@ -230,6 +230,8 @@
               href: sql/data-loading-best-practices.md
             - name: Compresión de almacén de columnas
               href: sql/data-load-columnstore-compression.md
+            - name: Introducción a la carga de datos
+              href: sql/load-data-overview.md
         - name: Desarrollo
           items:
             - name: Información general
@@ -362,8 +364,10 @@
       items:
         - name: Ejecuciones de la canalización
           href: monitoring/how-to-monitor-pipeline-runs.md
-        - name: Aplicaciones de Spark
+        - name: Aplicaciones de Apache Spark
           href: monitoring/how-to-monitor-spark-applications.md
+        - name: Detalles de aplicaciones de Apache Spark
+          href: monitoring/apache-spark-applications.md
         - name: SQL de Synapse
           items:
             - name: Supervisión de la memoria caché de Gen2

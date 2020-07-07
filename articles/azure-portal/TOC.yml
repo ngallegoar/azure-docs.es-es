@@ -43,8 +43,8 @@
       items:
         - name: Creación de una solicitud de soporte técnico de Azure
           href: supportability/how-to-create-azure-support-request.md
-        - name: Carga de archivos para una solicitud de soporte técnico
-          href: supportability/how-to-use-file-uploader.md
+        - name: Administración de una solicitud de soporte técnico de Azure
+          href: supportability/how-to-manage-azure-support-request.md
         - name: Solicitud de aumento de cuota
           items:
             - name: Aumento de los límites de vCPU de proceso

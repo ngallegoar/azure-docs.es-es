@@ -1,18 +1,20 @@
 ---
 title: Introducción al ejemplo de plano técnico de nivel 4 de impacto del DoD
 description: Introducción al ejemplo de nivel 4 de impacto del DoD. Este ejemplo de plano técnico ayuda a los clientes a evaluar controles concretos del nivel 4 de impacto del DoD.
-ms.date: 03/12/2020
+ms.date: 06/30/2020
 ms.topic: sample
-ms.openlocfilehash: 3b032e1a26c4fb5e97b1c7ab4fff65bc1b046f21
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
-ms.translationtype: HT
+ms.openlocfilehash: 1c06cd738b9a63cb7a3ec14ef48bb8ae7c6dd6cb
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517259"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800399"
 ---
 # <a name="overview-of-the-dod-impact-level-4-blueprint-sample"></a>Introducción al ejemplo de plano técnico de nivel 4 de impacto del DoD
 
 El ejemplo de plano técnico del nivel 4 de impacto del Departamento de defensa (IL4 de DoD) proporciona directivas de gobernanza que usan [Azure Policy](../../../policy/overview.md) y que le ayudan a evaluar los controles específicos del nivel 4 de impacto del DoD. Este plano técnico ayuda a los clientes a implementar un conjunto básico de directivas para todas las arquitecturas implementadas en Azure que deban implementar los controles del nivel 4 de impacto del DoD. Para obtener la información más reciente sobre qué nubes y servicios de Azure cumplen la autorización de nivel 4 de impacto de DoD, consulte el artículo en que se explican los [servicios de Azure por ámbito de auditoría de Federal Risk and Authorization Management Program y Department of Defense Cloud Computing Security Requirements Guide](../../../../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
+
+> [!NOTE]
+> Este ejemplo de plano técnico está disponible en Azure Government.
 
 ## <a name="control-mapping"></a>Asignación de controles
 

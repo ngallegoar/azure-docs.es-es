@@ -1,14 +1,13 @@
 ---
 title: Índice de ejemplos de planos técnicos
 description: Índice de ejemplos de cumplimiento y estándar para implementar entornos, directivas y las bases de Cloud Adoption Framework con Azure Blueprints.
-ms.date: 06/02/2020
+ms.date: 07/01/2020
 ms.topic: sample
-ms.openlocfilehash: 0ed5af98644f116622aa44a2503161ce2fd6225b
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: HT
+ms.openlocfilehash: 7e45cbbbf7cf6c2e267156dbb0087a19d8288aa2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84730006"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85832328"
 ---
 # <a name="azure-blueprints-samples"></a>Ejemplos de Azure Blueprints
 
@@ -23,6 +22,7 @@ En la tabla siguiente se incluyen vínculos a ejemplos de Azure Blueprints. Cada
 | [Canada Federal PBMM](./canada-federal-pbmm/index.md) | Proporciona barreras de seguridad para garantizar el cumplimiento con la norma Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM). |
 | [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1-1-0.md)| Proporciona un conjunto de directivas para ayudar a cumplir con las recomendaciones de CIS Microsoft Azure Foundations Benchmark. |
 | [Nivel 4 de impacto de DoD](./dod-impact-level-4/index.md) | Proporciona un conjunto de directivas que ayudan a cumplir los requisitos del nivel 4 de impacto del DoD. |
+| [Nivel de impacto 5 de DoD5](./dod-impact-level-5/index.md) | Proporciona un conjunto de directivas que ayudan a cumplir los requisitos del nivel de impacto 5 de DoD. |
 | [FedRAMP Moderate](./fedramp-m/index.md) | Proporciona un conjunto de directivas para ayudar a cumplir con FedRAMP Moderate. |
 | [Nivel de impacto alto de FedRAMP](./fedramp-h/index.md) | Proporciona un conjunto de directivas que ayudar a cumplir los requisitos del nivel de impacto alto de FedRAMP. |
 | [HIPAA/HITRUST](./HIPAA-HITRUST/index.md) | Proporciona un conjunto de directivas para ayudar a cumplir con HIPAA/HITRUST. |
@@ -32,6 +32,7 @@ En la tabla siguiente se incluyen vínculos a ejemplos de Azure Blueprints. Cada
 | [Cargas de trabajo de App Service Environment y SQL Database compatibles con ISO 27001](./iso27001-ase-sql-workload/index.md) | Proporciona una infraestructura adicional para el ejemplo de plano técnico de los [servicios compartidos de la norma ISO 27001](./iso27001-shared/index.md). |
 | [Elementos multimedia](./media/index.md) | Proporciona un conjunto de directivas que ayudan a cumplir los requisitos del nivel de impacto alto de Media MPAA. |
 | [NIST SP 800-53 R4](./nist-sp-800-53-r4.md) | Proporciona barreras de seguridad para garantizar el cumplimiento con la norma NIST SP 800-53 R4. |
+| [NIST SP 800-171 R2](./nist-sp-800-171-r2.md) | Proporciona límites de protección para garantizar el cumplimiento de la norma NIST SP 800-171 R2. |
 | [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | Proporciona un conjunto de directivas que ayuda a lograr la conformidad con PCI DSS v3.2.1. |
 | [SWIFT CSP-CSCF v2020](./swift-2020/index.md) | Ayuda en el cumplimiento de la norma SWIFT CSP-CSCF v2020. |
 | [Gobernanza de UK OFFICIAL y UK NHS](./ukofficial/index.md) | Proporciona un conjunto de patrones de infraestructura compatibles y una directiva de protección que ayuda a la obtención de la certificación UK OFFICIAL y UK NHS. |

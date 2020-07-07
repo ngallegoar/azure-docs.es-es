@@ -99,6 +99,10 @@
     - name: Auditoría de máquinas virtuales con la configuración de invitado
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md
+    - name: Seguridad
+      items:
+        - name: Línea de base de seguridad para Azure Security Benchmark
+          href: ./concepts/azure-security-benchmark-baseline.md
 - name: Guías paso a paso
   items:
     - name: "Extensión de Azure Policy para VS\_Code"

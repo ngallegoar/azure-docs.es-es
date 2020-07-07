@@ -7,10 +7,14 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: 'Creación del servicio: portal'
-      href: quickstart-create-data-migration-service-portal.md
-    - name: 'Creación del servicio en modo híbrido: portal'
-      href: quickstart-create-data-migration-service-hybrid-portal.md
+    - name: Creación de servicio
+      items:
+        - name: Portal
+          href: quickstart-create-data-migration-service-portal.md
+        - name: Plantilla ARM
+          href: create-dms-resource-manager-template.md
+        - name: en modo híbrido (Azure Portal)
+          href: quickstart-create-data-migration-service-hybrid-portal.md
 - name: Conceptos
   items:
     - name: Requisitos previos
