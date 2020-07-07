@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c926aac3ea4360793ff52b616a55dc6198357c8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721785"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Creación de características para los datos en un clúster de Hadoop mediante consultas de Hive
@@ -27,7 +27,7 @@ También se ofrecen ejemplos de las consultas que son específicos de escenarios
 
 Esta tarea constituye un paso del [proceso de ciencia de datos en equipos (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 En este artículo se supone que ha:
 
 * Creado una cuenta de almacenamiento de Azure. Si necesita instrucciones, consulte [Creación de una cuenta de Azure Storage](../../storage/common/storage-account-create.md)
@@ -96,7 +96,7 @@ Si un campo de fecha y hora no se encuentra en el formato predeterminado, deber�
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-En esta consulta, si *\<datetime field>* sigue un patrón de tipo *03/26/2015 12:04:39*, *\<pattern of the datetime field>'* debe ser `'MM/dd/yyyy HH:mm:ss'`. Para probarlo, los usuarios pueden ejecutar
+En esta consulta, si *\<datetime field>* tiene el patrón *26/03/2015 12:04:39*, el *\<pattern of the datetime field>'* debe ser `'MM/dd/yyyy HH:mm:ss'`. Para probarlo, los usuarios pueden ejecutar
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;
@@ -139,23 +139,23 @@ Se puede encontrar una lista completa de las UDF incrustadas de Hive en la secci
 ## <a name="advanced-topics-tune-hive-parameters-to-improve-query-speed"></a><a name="tuning"></a> Temas avanzados: Ajustar parámetros de Hive para mejorar la velocidad de consulta
 La configuración de parámetros predeterminados del clúster de subárbol podría no ser adecuada para las consultas de subárbol y los datos que estas consultas procesan. En esta sección se describen algunos parámetros que los usuarios pueden ajustar para mejorar el rendimiento de las consultas de Hive. Los usuarios necesitan agregar el parámetro que optimiza las consultas antes de las consultas de procesamiento de datos.
 
-1. **Espacio de montón de Java**: para las consultas que implican la combinación de grandes conjuntos de datos o el procesamiento de largos registros, un error habitual es **quedarse sin espacio en el montón**. Este error se puede evitar estableciendo los parámetros *mapreduce.map.java.opts* y *mapreduce.task.io.sort.mb* en los valores deseados. Este es un ejemplo:
+1. **Espacio de montón de Java**: Para las consultas que implican la combinación de grandes conjuntos de datos o el procesamiento de largos registros, un error habitual es **quedarse sin espacio en el montón**. Este error se puede evitar estableciendo los parámetros *mapreduce.map.java.opts* y *mapreduce.task.io.sort.mb* en los valores deseados. Este es un ejemplo:
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
     Este parámetro no solo asigna 4 GB de memoria al espacio en el montón de Java, sino que también aumenta la eficacia de la ordenación, ya que le asigna más memoria. Es buena idea jugar con estas asignaciones si no hay ningún error de trabajo relacionado con el espacio en el montón.
 
-1. **Tamaño de bloque de DFS**: este parámetro establece la unidad más pequeña de datos que el sistema de archivos almacena. Por ejemplo, si el tamaño de bloque DFS es 128 MB, los datos que tengan un tamaño de 128 MB o inferior se almacenarán en un solo bloque. Asimismo, se asignarán bloques adicionales para los datos que tengan más de 128 MB. 
+1. **Tamaño de bloque de DFS**: Este parámetro establece la unidad más pequeña de datos que el sistema de archivos almacena. Por ejemplo, si el tamaño de bloque DFS es 128 MB, los datos que tengan un tamaño de 128 MB o inferior se almacenarán en un solo bloque. Asimismo, se asignarán bloques adicionales para los datos que tengan más de 128 MB. 
 2. Si elige un tamaño de bloque pequeño, se producirán grandes sobrecargas en Hadoop, puesto que el nodo de nombre tiene que procesar muchas más solicitudes para buscar el bloque pertinente relacionado con el archivo. Una configuración recomendada al tratar con datos de gigabytes (o mayores) es:
 
         set dfs.block.size=128m;
 
-2. **Optimización de la operación de unión en Hive**: aunque las operaciones de unión en el marco de asignación/reducción suelen tener lugar en la fase de reducción, en ocasiones se pueden obtener ganancias enormes mediante la programación de uniones en la fase de asignación (también denominada "mapjoins"). Establezca esta opción:
+2. **Optimización de la operación de unión en Hive**: Aunque las operaciones de unión en el marco de asignación/reducción suelen tener lugar en la fase de reducción, en ocasiones se pueden obtener ganancias enormes mediante la programación de uniones en la fase de asignación (también denominada "mapjoins"). Establezca esta opción:
    
        set hive.auto.convert.join=true;
 
-3. **Especificación del número de asignadores a Hive**: aunque Hadoop permite al usuario establecer el número de reductores, este no suele hacerlo. Un truco que permite cierto grado de control sobre este número es elegir las variables de Hadoop, *mapred.min.split.size* y *mapred.max.split.size*, puesto que el tamaño de cada tarea de asignación se determina mediante:
+3. **Especificación del número de asignadores a Hive**: Si bien Hadoop permite al usuario establecer el número de reductores, normalmente el usuario no será quien establezca es el número de asignadores. Un truco que permite cierto grado de control sobre este número es elegir las variables de Hadoop, *mapred.min.split.size* y *mapred.max.split.size*, puesto que el tamaño de cada tarea de asignación se determina mediante:
    
         num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
    

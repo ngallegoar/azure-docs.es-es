@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a043a1655950f3ed7688e59352f8a912146e12c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76720459"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>El ciclo de vida del proceso de ciencia de datos en equipo
@@ -43,7 +43,7 @@ El ciclo de vida del TDSP se modela como una secuencia de pasos repetidos que le
 
 Para cada fase, damos la siguiente información:
 
-   * **Objetivos**: los objetivos específicos.
+   * **Objetivos**: objetivos específicos.
    * **Cómo hacerlo**: un esquema de las tareas específicas y orientación sobre cómo realizarlas.
    * **Artefactos**: las entregas y la asistencia para producirlas.
 

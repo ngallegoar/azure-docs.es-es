@@ -237,5 +237,5 @@ customMetrics
 > [!div class="nextstepaction"]
 > [Más información sobre la supervisión de las aplicaciones de funciones](functions-monitoring.md)
 
-[Página de precios]:https://azure.microsoft.com/pricing/details/functions/
+[Página de precios]: https://azure.microsoft.com/pricing/details/functions/
 [Azure Portal]: https://portal.azure.com

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 96078be20e8048e481a994fefc169e48ab1d8459
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76511100"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Preparación del entorno de desarrollo y prueba para IoT Edge
@@ -49,7 +49,7 @@ Para obtener más información y descargar, consulte [Herramientas de Azure IoT 
 
 Además de las extensiones de IoT Edge, le resultará útil instalar extensiones adicionales para el desarrollo. Por ejemplo, puede usar [compatibilidad con Docker para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) para administrar imágenes, contenedores y registros. Además, todos los principales lenguajes compatibles tienen extensiones para Visual Studio Code que pueden ayudar cuando desarrolle módulos.
 
-#### <a name="prerequisites"></a>Prerequisites
+#### <a name="prerequisites"></a>Requisitos previos
 
 Las plantillas de módulo para algunos lenguajes y servicios tienen requisitos previos que son necesarios para crear las carpetas de proyecto en el equipo de desarrollo con Visual Studio Code.
 
