@@ -2,23 +2,23 @@
 title: Planificación de una implementación de inicio de sesión único de Azure Active Directory
 description: Guía para ayudarle a planear, implementar y administrar el inicio de sesión único en la organización.
 services: active-directory
-author: jeevansd
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/22/2019
+ms.date: 06/10/2020
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 4b5836ffe721aa3e329651c3709ce64344363728
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 75e3f7fc98072957f571937a1627247cdc4a9e7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197869"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374449"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planeación de una implementación de inicio de sesión único
 
@@ -194,8 +194,6 @@ Use las fases siguientes para planear e implementar la solución en la organizac
    Si no se puede encontrar la aplicación, vea la [documentación de la aplicación personalizada](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery). Esto le guiará por el proceso de agregar una aplicación que no se encuentra en la galería de Azure AD.
 
    Opcionalmente, puede usar las notificaciones emitidas en el token SAML para aplicaciones empresariales mediante la [documentación de las instrucciones de Microsoft](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping). Asegúrese de que esto se asigna a lo que espera recibir en la respuesta SAML para la aplicación. Si encuentra problemas durante la configuración, use las instrucciones sobre [cómo depurar la integración del inicio de sesión único](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging).
-
-La incorporación de aplicaciones personalizadas es una característica de las licencias Azure AD Premium P1 o P2.
 
 ### <a name="provide-sso-change-communications-to-end-users"></a>Comunicación de cambios del inicio de sesión único a los usuarios finales
 

@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8d074c12f28abdc61f4d70356c2a7aa264deb44c
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 744b186b32927f81be21ff067c9195bddb33c416
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871873"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362098"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configuración y personalización de las tareas de compilación
 
@@ -107,36 +107,6 @@ Las opciones disponibles incluyen:
   - **Versión**: versión de la tarea de compilación en Azure DevOps. Esta opción no se usa con frecuencia.
 
 Para obtener información sobre la configuración de YAML para esta tarea, consulte nuestras [opciones del detector de credenciales de YAML](yaml-configuration.md#credential-scanner-task).
-
-## <a name="microsoft-security-risk-detection-task"></a>Tarea de Microsoft Security Risk Detection
-
-> [!NOTE]
-> Debe crear y configurar una cuenta con el servicio Microsoft Security Risk Detection (MSRD) antes de usar la tarea de MSRD. Este servicio requiere un proceso de incorporación independiente. A diferencia de la mayor parte de las otras tareas de esta extensión, esta tarea requiere una suscripción independiente con MSRD.
->
-> Consulte [Microsoft Security Risk Detection](https://aka.ms/msrddocs) y [Microsoft Security Risk Detection: How To](https://docs.microsoft.com/security-risk-detection/how-to/) (Microsoft Security Risk Detection: instrucciones) para obtener instrucciones.
-
-En la siguiente lista se muestran detalles para la configuración de esta tarea. Para cualquier elemento de interfaz de usuario, puede mantener el mouse sobre ese elemento para obtener ayuda.
-
-   - **Azure DevOps Service Endpoint Name for MSRD** (nombre del punto de conexión de servicio de Azure DevOps para MSRD): un tipo genérico de punto de conexión de servicio de Azure DevOps almacena la dirección URL de la instancia de MSRD incorporada y el token de acceso de la API de REST. Si ha creado dicho punto de conexión, puede especificarlo aquí. De lo contrario, seleccione el vínculo **Administrar** para crear y configurar un nuevo punto de conexión de servicio para esta tarea de MSRD.
-   - **Id. de cuenta**: un GUID que se puede recuperar de la dirección URL de la cuenta de MSRD.
-   - **URLs to Binaries** (direcciones URL para archivos binarios): una lista delimitada por punto y coma de las direcciones URL disponibles públicamente. La máquina de pruebas de vulnerabilidad usa estas direcciones URL para descargar los archivos binarios.
-   - **URLs of the Seed Files** (direcciones URL de los archivos de valores iniciales): una lista delimitada por punto y coma de las direcciones URL disponibles públicamente. La máquina de pruebas de vulnerabilidad usa estas direcciones URL para descargar los archivos binarios. Especificar este valor es opcional si se descargan los archivos de valores iniciales junto con los archivos binarios.
-   - **OS Platform Type** (tipo de plataforma de SO): la plataforma del sistema operativo (SO) de las máquinas que ejecutan el trabajo de pruebas de vulnerabilidad. Los valores disponibles son **Windows** y **Linux**.
-   - **Windows Edition / Linux Edition** (edición de Windows o Linux): edición del sistema operativo de las máquinas que ejecutan el trabajo de pruebas de vulnerabilidad. Puede sobrescribir el valor predeterminado si sus máquinas tienen una edición de sistema operativo diferente.
-   - **Package Installation Script** (script de instalación del paquete): script que se va a ejecutar en una máquina de prueba. Este script instala el programa de destino de la prueba y sus dependencias antes de enviarse el trabajo de pruebas de vulnerabilidad.
-   - **Job Submission Parameters** (parámetros de envío del trabajo):
-       - **Seed Directory** (directorio de valores iniciales): ruta de acceso al directorio en la máquina de pruebas de vulnerabilidad que contiene los valores iniciales.
-       - **Seed Extension** (extensión de los valores iniciales): la extensión de nombre de archivo de los valores iniciales.
-       - **Test Driver Executable** (ejecutable del controlador de prueba): ruta de acceso al archivo ejecutable de destino en la máquina de pruebas de vulnerabilidad.
-       - **Test Driver Executable Architecture** (arquitectura del ejecutable del controlador de prueba): arquitectura del archivo ejecutable de destino. Los valores disponibles son **x86** y **amd64**.
-       - **Test Driver Arguments** (argumentos del controlador de prueba): argumentos de la línea de comandos pasados al archivo ejecutable de la prueba. El argumento "%testfile%", incluidas las comillas, se reemplaza automáticamente por la ruta de acceso completa al archivo de destino. El controlador de prueba analiza este archivo, el cual es necesario.
-       - **Test Driver Process Exits Upon Test Completion** (el proceso del controlador de prueba finaliza al completarse la prueba): active esta casilla si el controlador de prueba se va a terminar tras la finalización. Desactívela si el controlador de prueba tiene que cerrarse a la fuerza.
-       - **Duración máxima (en segundos)** : una estimación del mayor tiempo que cabe esperar para que el programa de destino analice un archivo de entrada. Cuanto más precisa sea la estimación, mayor será la eficacia de la ejecución de la aplicación de pruebas de vulnerabilidad.
-       - **Test Driver Can Be Run Repeatedly** (el controlador de prueba puede ejecutarse repetidamente): active esta casilla si el controlador de prueba se puede ejecutar repetidamente sin depender de un estado global persistente o compartido.
-       - **Test Driver Can Be Renamed** (se puede cambiar el nombre del controlador de prueba): active esta casilla si al cambiar el nombre del archivo ejecutable del controlador de prueba, este puede seguir funcionando correctamente.
-       - **The Fuzzing Application Runs as a Single OS Process** (la aplicación de pruebas de vulnerabilidad se ejecuta como un proceso de sistema operativo único): active esta casilla si el controlador de prueba se ejecuta en un único proceso del sistema operativo. Desactívela si el controlador de prueba genera procesos adicionales.
-
-Para obtener información sobre la configuración de YAML para esta tarea, consulte nuestras [opciones de detección de riesgos de seguridad de Microsoft de YAML](yaml-configuration.md#microsoft-security-risk-detection-task).
 
 ## <a name="roslyn-analyzers-task"></a>Tarea de analizadores basados en Roslyn
 

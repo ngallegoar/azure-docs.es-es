@@ -3,14 +3,14 @@ title: Copia de seguridad de los recursos compartidos de archivos de Azure en Az
 description: Aprenda a usar Azure Portal para realizar copias de seguridad de recursos compartidos de archivos de Azure en almacenes de Recovery Services
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: a77f7fd0ec21eae60a7313a9ffa889fbef4372c6
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 76bf8e00dede5f227cb862f9c9474844e349e298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82978035"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85391167"
 ---
-# <a name="back-up-azure-file-shares-in-a-recovery-services-vault"></a>Copia de seguridad de recursos compartidos de archivos de Azure en un almacén de Recovery Services
+# <a name="back-up-azure-file-shares"></a>Copia de seguridad de recursos compartidos de archivos de Azure
 
 En este artículo se explica cómo usar Azure Portal para realizar copias de seguridad de [recursos compartidos de archivos de Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
@@ -20,33 +20,12 @@ En este artículo, aprenderá a:
 * Detectar recursos compartidos de archivos y configuración de copias de seguridad.
 * Ejecutar un trabajo de copia de seguridad a petición para crear un punto de restauración.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Identifique o cree un [almacén de Recovery Services](#create-a-recovery-services-vault) en la misma región que la cuenta de almacenamiento que hospeda el recurso compartido de archivos.
 * Asegúrese de que el recurso compartido de archivos se encuentra en uno de los [tipos de cuenta de almacenamiento admitidos](azure-file-share-support-matrix.md).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
-
-## <a name="modify-storage-replication"></a>Modificar la replicación de almacenamiento
-
-De forma predeterminada, los almacenes usan el [almacenamiento con redundancia geográfica (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
-
-* Si el almacén es su mecanismo principal de copia de seguridad, le recomendamos que use GRS.
-* Puede usar el [almacenamiento con redundancia local (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) como opción de bajo costo.
-
-Para modificar el tipo de replicación de almacenamiento:
-
-1. En la sección **Configuración** del nuevo almacén, seleccione **Propiedades**.
-
-1. En la hoja **Propiedades**, haga clic en **Actualizar** en la hoja **Configuración de copia de seguridad**.
-
-1. Seleccione el tipo de replicación almacenamiento y seleccione **Guardar**.
-
-    ![Actualización de la configuración de copia de seguridad](./media/backup-afs/backup-configuration.png)
-
-> [!NOTE]
-> No puede modificar el tipo de replicación de almacenamiento después de configurar el almacén y si este contiene elementos de copia de seguridad. Si quiere hacer esto, tiene que volver a crear el almacén.
->
 
 ## <a name="discover-file-shares-and-configure-backup"></a>Detección de recursos compartidos de archivos y configuración de copias de seguridad
 

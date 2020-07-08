@@ -5,15 +5,15 @@ description: En este artículo se muestra cómo configurar el equilibrio de carg
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: allensu
-ms.openlocfilehash: b75f49155991bfc71f788ad88f166c0bec281841
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2dff916bf005b307f27264ad7a17864fbba50872
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77589695"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367400"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-the-azure-portal"></a>Configuración del equilibrio de carga y las reglas de salida en Standard Load Balancer mediante Azure Portal
 
@@ -40,12 +40,12 @@ En esta sección, va a crear un equilibrador de carga que ayuda a equilibrar la 
 
     | Configuración                 | Value                                              |
     | ---                     | ---                                                |
-    | Subscription               | Seleccione su suscripción.    |    
+    | Suscripción               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **Crear nuevo** y escriba **MyResourceGroupSLB** en el cuadro de texto.|
     | Nombre                   | **myLoadBalancer**                                   |
     | Region         | Seleccione **Oeste de Europa**.                                        |
     | Tipo          | Seleccione **Público**.                                        |
-    | SKU           | Seleccione **Standard** o **Básico**. Microsoft recomienda la versión Standard para cargas de trabajo de producción. |
+    | SKU           | Seleccione **Estándar**. |
     | Dirección IP pública | Seleccione **Crear nuevo**. Si tiene una dirección IP pública que le gustaría usar, seleccione **Utilizar existente**.  La dirección IP pública existente debe ser una SKU **estándar**.  Las direcciones IP públicas básicas no son compatibles con el equilibrador de carga de la SKU **estándar**.  |
     | Nombre de la dirección IP pública              | Escriba **myPublicIP** en el cuadro de texto.|
     | Zona de disponibilidad | Seleccione **Con redundancia de zona** para crear un equilibrador de carga resistente. Para crear una instancia de Load Balancer de zonas, seleccione una zona específica de 1, 2 o 3. |

@@ -2,17 +2,15 @@
 title: 'Versión preliminar: Incorporación de un grupo de nodos de Spot a un clúster de Azure Kubernetes Service (AKS)'
 description: Aprenda a agregar un grupo de nodos de Spot a un clúster de Azure Kubernetes Service (AKS).
 services: container-service
-author: zr-msft
 ms.service: container-service
 ms.topic: article
 ms.date: 02/25/2020
-ms.author: zarhoads
-ms.openlocfilehash: 466ad7c88547b6676ba0ae263b74d14059322f1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce2871883300e9eb135b51fdb2f5566e451084f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77622038"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374617"
 ---
 # <a name="preview---add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>Versión preliminar: Incorporación de un grupo de nodos de Spot a un clúster de Azure Kubernetes Service (AKS)
 
@@ -43,9 +41,6 @@ Al crear un clúster para que use un grupo de nodos de Spot, este también debe 
 ### <a name="register-spotpoolpreview-preview-feature"></a>Registro de la característica en versión preliminar spotpoolpreview
 
 Para crear un clúster de AKS que use un grupo de nodos de Spot, debe habilitar la marca de la característica *spotpoolpreview* en la suscripción. Esta característica proporciona el conjunto de mejoras de servicio más recientes al configurar un clúster.
-
-> [!CAUTION]
-> Actualmente, al registrar una característica en una suscripción, no se puede anular el registro de esa característica. Después de habilitar algunas características en vista previa, se pueden usar los valores predeterminados en todos los clústeres de AKS y, luego, se pueden crear en la suscripción. No habilite características en vista previa en las suscripciones de producción. Use una suscripción independiente para probar las características en vista previa y recopilar comentarios.
 
 Para registrar la marca de característica *spotpoolpreview*, use el comando [az feature register][az-feature-register] tal como se muestra en el siguiente ejemplo:
 
