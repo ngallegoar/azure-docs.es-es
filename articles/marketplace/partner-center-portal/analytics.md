@@ -1,18 +1,18 @@
 ---
 title: Análisis de marketplace comercial de Microsoft en el Centro de partners
 description: Obtenga información sobre cómo obtener acceso a los informes de análisis para supervisar las ventas, evaluar el rendimiento y optimizar las ofertas de marketplace en el Centro de partners de Microsoft.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: rajap
+ms.author: rajap
 ms.date: 12/11/2019
-ms.openlocfilehash: 0c406efd30e891c8ca69481299801e7309cdff81
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 6fd42e7661e04b6eab35e3b076e9c8c2fb55a363
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744909"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86122020"
 ---
 # <a name="access-analytic-reports-for-the-commercial-marketplace-in-partner-center"></a>Acceso a los informes de análisis de marketplace comercial en el Centro de partners
 

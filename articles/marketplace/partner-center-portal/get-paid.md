@@ -1,17 +1,15 @@
 ---
 title: Recepción de pagos en el marketplace comercial de Microsoft
 description: Obtenga información acerca de cómo recibir los pagos de sus ganancias en el marketplace comercial de Microsoft.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/10/2019
-ms.openlocfilehash: d34687703506db89b524ad7510d4946df8ac5360
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 06/09/2020
+ms.openlocfilehash: 604d5c93ca87831b1feb76095da694b4be402ad9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849032"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121697"
 ---
 # <a name="getting-paid-in-the-commercial-marketplace"></a>Recepción de pagos en el Marketplace comercial
 
@@ -27,21 +25,6 @@ Cuando [se registra a una cuenta de desarrollador](https://go.microsoft.com/fwli
 Los honorarios están definidos oficialmente en el [Acuerdo de publicador de Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560). Revise siempre ese documento si tiene alguna pregunta.
 
 Los honorarios de Store se aplican a todas las ventas de ofertas que reciba el Marketplace comercial, incluidos los complementos.
-
-## <a name="price-tiers"></a>Franjas de precio
-
-Las franjas de precio seleccionadas establecen el precio de venta en todos los países o regiones en los que decida distribuir su oferta. También puede usar funciones de precios adicionales, como elegir precios diferentes para distintos mercados.
-
-Puede ofrecer su aplicación de forma gratuita, o puede elegir un precio que los clientes deben pagar para adquirir su oferta. Las franjas de precio comienzan en los 0,99 USD, con incrementos adicionales (1,09 USD, 1,19 USD, etc.). Los incrementos entre las franjas de precio aumentan a medida que el precio es mayor.
-
-> [!NOTE] 
-> Estas franjas de precio también se aplican a los complementos que ofrece desde su oferta.
-
-Cada franja de precio tiene un valor correspondiente en cada una de las monedas que ofrece la Store. Usamos estos valores para ayudarle a vender su oferta con un precio similar en todo el mundo. Sin embargo, debido a los cambios en las tasas de cambio, el importe exacto de las ventas puede variar ligeramente de una moneda a otra.
-
-También tiene la opción de especificar el precio que quiera de forma libre en la moneda local de un mercado específico. Al hacerlo, el precio no se ajustará (incluso si cambian las tasas de conversión) a menos que envíe una actualización con un precio nuevo. 
-
-Tenga en cuenta que el precio que seleccione puede incluir impuestos de ventas o al valor añadido que los clientes deben pagar. Para más información, consulte [Información sobre impuestos para los publicadores de Marketplace comercial](tax-details-paid-transactions.md).
 
 ## <a name="payout-reporting"></a>Informes de pago
 
