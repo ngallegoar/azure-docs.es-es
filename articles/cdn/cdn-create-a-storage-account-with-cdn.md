@@ -114,7 +114,7 @@ Un objeto que ya está almacenado en caché en Azure CDN permanece en caché has
 
 En los pasos anteriores, ha creado un perfil y un punto de conexión de CDN en un grupo de recursos. Guarde estos recursos si desea continuar con los [Pasos siguientes](#next-steps) y aprender cómo agregar un dominio personalizado al punto de conexión. No obstante, si no cree que vaya a necesitar estos recursos en el futuro, puede eliminarlos mediante la eliminación del grupo de recursos y así evitar cargos adicionales:
 
-1. En el menú izquierdo de Azure Portal, seleccione **Grupos de recursos** y después *CDNQuickstart-rg**.
+1. En el menú izquierdo de Azure Portal, seleccione **Grupos de recursos** y después *CDNQuickstart-rg*\*.
 
 2. En la página **Grupo de recursos**, seleccione **Eliminar grupo de recursos**, escriba *CDNQuickstart-rg* en el cuadro de texto y, después, seleccione **Eliminar**.
 
