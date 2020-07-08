@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 0abc98c95c03e3dd2e12a601188d9c5f7cb4523d
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: f89ab93820770eb8b5485bb7911c60fe2438454a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85558984"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026826"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Inicio rápido: Entrenamiento de un modelo de Form Recognizer y extracción de los datos del formulario mediante la API de REST con cURL
 
@@ -39,7 +39,7 @@ En primer lugar, se necesitará un conjunto de datos de entrenamiento de un blob
 > [!NOTE]
 > Puede usar la característica de datos etiquetados para etiquetar manualmente algunos o todos los datos de entrenamiento de antemano. Se trata de un proceso más complejo, pero el resultado es un modelo mejor entrenado. Consulte la sección [Entrenamiento con etiquetas](../overview.md#train-with-labels) de la introducción para más información acerca de esta característica.
 
-Para entrenar un modelo de Form Recognizer con los documentos del contenedor de blobs de Azure, llame a la API **[Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** mediante la ejecución del siguiente comando de cURL. Antes de ejecutar el comando, realice estos cambios:
+Para entrenar un modelo de Form Recognizer con los documentos del contenedor de blobs de Azure, llame a la API **[Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)** mediante la ejecución del siguiente comando de cURL. Antes de ejecutar el comando, realice estos cambios:
 
 1. Reemplace `<Endpoint>` por el punto de conexión que obtuvo con la suscripción de Form Recognizer.
 1. Reemplace `<subscription key>` con la clave de suscripción que copió en el paso anterior.
@@ -53,7 +53,7 @@ Recibirá una respuesta `201 (Success)` con un encabezado **Location** (Ubicaci�
 
 ## <a name="get-training-results"></a>Obtención de los resultados del entrenamiento
 
-Una vez iniciada la operación de entrenamiento, utilizará una nueva operación, **[Obtención del modelo personalizado](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetCustomModel)** , para comprobar el estado del entrenamiento. Pase el identificador de modelo a esta llamada API para comprobar el estado del entrenamiento:
+Una vez iniciada la operación de entrenamiento, utilizará una nueva operación, **[Obtención del modelo personalizado](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/GetCustomModel)** , para comprobar el estado del entrenamiento. Pase el identificador de modelo a esta llamada API para comprobar el estado del entrenamiento:
 
 1. Reemplace `<Endpoint>` por el punto de conexión que obtuvo con la clave de suscripción de Form Recognizer.
 1. Reemplace `<subscription key>` por la clave de suscripción.
@@ -135,7 +135,7 @@ El campo `"modelId"` contiene el identificador del modelo que se está entrenand
 
 ## <a name="analyze-forms-for-key-value-pairs-and-tables"></a>Análisis de los formularios para obtener los pares clave-valor y las tablas
 
-A continuación, utilizará el modelo recién entrenado para analizar un documento y extraerá de él tanto los pares clave-valor como las tablas. Llame a la API **[Analyze Form](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)** mediante la ejecución del siguiente comando cURL. Antes de ejecutar el comando, realice estos cambios:
+A continuación, utilizará el modelo recién entrenado para analizar un documento y extraerá de él tanto los pares clave-valor como las tablas. Llame a la API **[Analyze Form](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)** mediante la ejecución del siguiente comando cURL. Antes de ejecutar el comando, realice estos cambios:
 
 1. Reemplace `<Endpoint>` por el punto de conexión que obtuvo de la clave de suscripción de Form Recognizer. Lo encontrará en la pestaña **Información general** del recurso Form Recognizer.
 1. Reemplace `<model ID>` por el identificador de modelo que recibió en la sección anterior.
@@ -422,4 +422,4 @@ Las asociaciones de pares clave-valor principales y tablas se encuentran en el n
 En este inicio rápido, ha utilizado la API de REST de Form Recognizer con cURL para entrenar un modelo y ejecutarlo en un escenario de ejemplo. A continuación, consulte la documentación de referencia para explorar la API de Form Recognizer con mayor profundidad.
 
 > [!div class="nextstepaction"]
-> [Documentación de referencia de API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)
+> [Documentación de referencia de API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)

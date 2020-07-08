@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: tracking-python
-ms.openlocfilehash: a3d3754959b3a95e5028fc4386c368bfe36f92c8
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 64f5eefa465c3f7fc9e7c0040ca64797a806bc6e
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562919"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028044"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Inicio rápido: Entrenamiento de un modelo de Form Recognizer y extracción de datos del formulario mediante la API de REST con Python
 
@@ -30,7 +30,7 @@ Para completar este inicio rápido, debe cumplir los siguientes requisitos:
 - Un conjunto de al menos cinco formularios del mismo tipo. Estos datos se usarán para entrenar el modelo. Los formularios pueden ser diferentes tipos de archivo, pero deben ser del mismo tipo de documento. En este inicio rápido puede usar un [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451). Cargue los archivos de entrenamiento en la raíz de un contenedor de almacenamiento de blobs de una cuenta de Azure Storage.
 
 > [!NOTE]
-> En este inicio rápido se usan documentos remotos con acceso mediante la dirección URL. Para usar en cambio archivos locales, consulte la [documentación de referencia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync).
+> En este inicio rápido se usan documentos remotos con acceso mediante la dirección URL. Para usar en cambio archivos locales, consulte la [documentación de referencia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync).
 
 
 ## <a name="create-a-form-recognizer-resource"></a>Creación de un recurso de Form Recognizer
@@ -44,7 +44,7 @@ En primer lugar, necesitará un conjunto de datos de entrenamiento de un contene
 > [!NOTE]
 > Puede usar la característica de datos etiquetados para etiquetar manualmente algunos o todos los datos de entrenamiento de antemano. Se trata de un proceso más complejo, pero el resultado es un modelo mejor entrenado. Consulte la sección [Entrenamiento con etiquetas](../overview.md#train-with-labels) de la introducción para más información.
 
-Para entrenar un modelo de Form Recognizer con los documentos del contenedor de blobs de Azure, llame a la API **[Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** mediante la ejecución del siguiente código de Python. Antes de ejecutar el código, realice estos cambios:
+Para entrenar un modelo de Form Recognizer con los documentos del contenedor de blobs de Azure, llame a la API **[Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)** mediante la ejecución del siguiente código de Python. Antes de ejecutar el código, realice estos cambios:
 
 1. Reemplace `<SAS URL>` por la dirección URL de la firma de acceso compartido (SAS) del contenedor de almacenamiento de blobs de Azure. Para recuperar la dirección URL de SAS, abra el Explorador de Microsoft Azure Storage, haga clic con el botón derecho en el contenedor y seleccione **Get shared access signature** (Obtener firma de acceso compartido). Asegúrese de que los permisos de **lectura** y **enumeración** están marcados y haga clic en **Create** (Crear). A continuación, copie el valor en la sección **URL**. Debe tener el formato `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 1. Reemplace `<subscription key>` con la clave de suscripción que copió en el paso anterior.
@@ -461,4 +461,4 @@ Cuando se complete el proceso, recibirá una respuesta `200 (Success)` con conte
 En este inicio rápido, ha utilizado la API de REST de Form Recognizer con Python para entrenar un modelo y ejecutarlo en un escenario de ejemplo. A continuación, consulte la documentación de referencia para explorar la API de Form Recognizer con mayor profundidad.
 
 > [!div class="nextstepaction"]
-> [Documentación de referencia de API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)
+> [Documentación de referencia de API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)

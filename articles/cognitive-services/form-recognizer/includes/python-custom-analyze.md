@@ -5,16 +5,16 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 11/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 76b2b465354df5b06ecd93986aec71530d175fe6
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 0644dad9e8e6f2999acfa24ea1088207f6d5e692
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562916"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028043"
 ---
 ## <a name="analyze-forms-for-key-value-pairs-and-tables"></a>Análisis de los formularios para obtener los pares clave-valor y las tablas
 
-A continuación, utilizará el modelo recién entrenado para analizar un documento y extraerá de él tanto los pares clave-valor como las tablas. Llame a la API **[Analyze Form](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)** mediante la ejecución del siguiente código en un nuevo script de Python. Antes de ejecutar el script, realice estos cambios:
+A continuación, utilizará el modelo recién entrenado para analizar un documento y extraerá de él tanto los pares clave-valor como las tablas. Llame a la API **[Analyze Form](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)** mediante la ejecución del siguiente código en un nuevo script de Python. Antes de ejecutar el script, realice estos cambios:
 
 1. Reemplace `<file path>` por la ruta de acceso de archivo del formulario (por ejemplo, C:\temp\file.pdf). Esta también puede ser una dirección URL a un archivo remoto. En este inicio rápido puede usar los archivos de la carpeta **Prueba** del [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451).
 1. Reemplace `<model_id>` por el identificador de modelo que recibió en la sección anterior.

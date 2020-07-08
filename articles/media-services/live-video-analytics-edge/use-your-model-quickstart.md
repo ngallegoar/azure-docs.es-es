@@ -3,12 +3,12 @@ title: 'Análisis de vídeo en directo con su propio modelo: Azure'
 description: En este inicio rápido, aplicará Computer Vision para analizar la fuente de vídeo en directo desde una cámara IP (simulada).
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 73b8f83b9e3c450612c742a831ac800343b3bbbc
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: e19c5bd6b44f9a4dd225f6a849ee9aaf62fa6273
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84816697"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027671"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-model"></a>Inicio rápido: Análisis de vídeo en directo con su propio modelo
 
@@ -190,7 +190,7 @@ En los mensajes siguientes, se definen las propiedades de la aplicación y el co
 
 ### <a name="mediasessionestablished-event"></a>Evento MediaSessionEstablished
 
-Cuando se crean instancias del grafo multimedia, el nodo de origen RTSP intenta conectarse al servidor RTSP que se ejecuta en el contenedor rtspsim-live55. Si la conexión se realiza correctamente, se imprime el evento siguiente. El tipo de evento es `Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished`.
+Cuando se crean instancias del grafo multimedia, el nodo de origen RTSP intenta conectarse al servidor RTSP que se ejecuta en el contenedor rtspsim-live555. Si la conexión se realiza correctamente, se imprime el evento siguiente. El tipo de evento es `Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished`.
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:
