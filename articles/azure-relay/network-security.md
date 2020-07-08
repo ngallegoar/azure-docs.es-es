@@ -1,18 +1,14 @@
 ---
 title: Seguridad de red para Azure Relay
 description: En este artículo se describe cómo configurar el acceso desde puntos de conexión privados
-services: service-bus-relay
-author: spelluru
-ms.service: service-bus-relay
 ms.topic: conceptual
-ms.date: 05/07/2020
-ms.author: spelluru
-ms.openlocfilehash: d0a0d03680877ae78f5af939f8d47e4e426abadb
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: a1ade21df39890b7f1c31a81fca1fffafe2acaa0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83204339"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322158"
 ---
 # <a name="network-security-for-azure-relay"></a>Seguridad de red para Azure Relay 
 En este artículo se describe cómo usar las siguientes características de seguridad con Azure Relay: 

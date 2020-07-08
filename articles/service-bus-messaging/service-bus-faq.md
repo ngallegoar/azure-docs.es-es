@@ -1,20 +1,14 @@
 ---
 title: Preguntas más frecuentes (FAQ) sobre Azure Service Bus | Microsoft Docs
 description: En este artículo se responden algunas de las preguntas más frecuentes (P+F) relativas a Azure Service Bus.
-services: service-bus-messaging
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 3cd4e69481fb452391e6dc027cb41fd6dae71b7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/23/2020
+ms.openlocfilehash: 35721d174ec4b840185727efe5fb384015040b80
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76760256"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341465"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Preguntas más frecuentes (FAQ) sobre Azure Service Bus
 
@@ -63,7 +57,7 @@ Para buscar las direcciones IP correctas para incluirlas en la lista de direcci
 1. Ejecute el siguiente comando desde el símbolo del sistema: 
 
     ```
-    nslookup <YourNamespaceName>.servicebus.windows.net
+    nslookup <YourNamespaceName>.cloudapp.net
     ```
 2. Anote la dirección IP devuelta en `Non-authoritative answer`. Esta dirección IP es estática. El único momento en que cambiaría es si restaurara el espacio de nombres en un clúster distinto.
 
@@ -72,14 +66,14 @@ Si usa la redundancia de zona para el espacio de nombres, deberá realizar algun
 1. En primer lugar, ejecute nslookup en el espacio de nombres.
 
     ```
-    nslookup <yournamespace>.servicebus.windows.net
+    nslookup <yournamespace>.cloudapp.net
     ```
 2. Anote el nombre de la sección **respuesta no autoritativa**, que se encuentra en uno de los siguientes formatos: 
 
     ```
-    <name>-s1.servicebus.windows.net
-    <name>-s2.servicebus.windows.net
-    <name>-s3.servicebus.windows.net
+    <name>-s1.cloudapp.net
+    <name>-s2.cloudapp.net
+    <name>-s3.cloudapp.net
     ```
 3. Ejecute nslookup para cada uno con los sufijos s1, s2 y s3 para obtener las direcciones IP de las tres instancias que se ejecutan en tres zonas de disponibilidad. 
 
@@ -122,13 +116,6 @@ Es importante tener en cuenta que no se trata de cargos nuevos, es decir, que ya
 ## <a name="quotas"></a>Cuotas
 
 Para obtener una lista de las cuotas y los límites de Service Bus, consulte la [información general sobre cuotas de Service Bus][Quotas overview].
-
-### <a name="does-service-bus-have-any-usage-quotas"></a>¿Service Bus tiene alguna cuota de uso?
-De forma predeterminada, para cualquier servicio en la nube, Microsoft establece una cuota de uso mensual agregada que se calcula en todas las suscripciones del cliente. Si estos límites no son suficientes, puede ponerse en contacto con el servicio de atención al cliente en cualquier momento para que podamos conocer sus necesidades y ajustar estos límites según corresponda. En lo que respecta a Service Bus, las cuotas de uso agregado ascienden a 5000 millones de mensajes al mes.
-
-Aunque Microsoft se reserva el derecho de deshabilitar una cuenta de cliente que supere sus cuotas de uso en un mes determinado, se proporcionará una notificación por correo electrónico y se realizarán varios intentos para ponerse en contacto con un cliente antes de llevar a cabo cualquier acción. Los clientes que superen estas cuotas siguen siendo responsables de cargos por exceso de cuotas.
-
-Al igual que con otros servicios de Azure, Service Bus aplica un conjunto de cuotas específicas para garantizar un uso justo de los recursos. Puede encontrar más detalles acerca de estas cuotas en [Información general sobre cuotas de Service Bus][Quotas overview].
 
 ### <a name="how-to-handle-messages-of-size--1-mb"></a>Cómo administrar los mensajes con un tamaño superior a 1 MB
 Los servicios de mensajería de Service Bus (colas y temas o suscripciones) permiten que la aplicación envíe mensajes de un tamaño de hasta 256 KB (nivel estándar) o 1 MB (nivel prémium). Si trabaja con mensajes de tamaño superior a 1 MB, use el patrón de comprobación de notificaciones que se describe en [esta entrada de blog](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).

@@ -3,25 +3,25 @@ title: Inicio de sesión único con el proxy de aplicación | Microsoft Docs
 description: Explica cómo proporcionar el inicio de sesión único mediante el proxy de aplicación de Azure AD.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/13/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.custom: H1Hack27Feb2017, it-pro
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 521982a5cf09e0da9c52bca2fe367432a1d29e57
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 7ae642df48fbd18d8ead439d89ced88aa3da327c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583128"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85317539"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegación restringida de Kerberos para el inicio de sesión único para las aplicaciones con Proxy de aplicación
 
@@ -43,7 +43,7 @@ En este diagrama se explica el flujo que se crea cuando un usuario intenta tener
 7. El conector envía la solicitud original al servidor de aplicaciones, con el token de Kerberos que recibió de AD.
 8. La aplicación envía la respuesta al conector y, después, se devuelve al servicio Application Proxy y, por último, al usuario.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar a trabajar con el inicio de sesión único para aplicaciones con autenticación integrada de Windows, asegúrese de que el entorno está preparado con los siguientes ajustes y configuraciones:
 
 * Sus aplicaciones, como las aplicaciones web de SharePoint, están establecidas para usar la autenticación de Windows integrada. Para más información, consulte [Habilitar la compatibilidad con la autenticación Kerberos](https://technet.microsoft.com/library/dd759186.aspx) o, para SharePoint, consulte [Planear la autenticación Kerberos en SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
@@ -119,8 +119,6 @@ Para habilitar SPNEGO:
     net stop WAPCSvc & net start WAPCSvc
     ```
 
-Para obtener más información sobre Kerberos, consulte [All you want to know about Kerberos Constrained Delegation (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd) (Todo lo que necesita saber sobre Delegación restringida de kerberos [KCD]).
-
 Las aplicaciones que no son de Windows normalmente usan nombres de usuario o nombres de cuenta SAM en lugar de direcciones de correo electrónico de dominio. Si esta situación se aplica a sus aplicaciones, debe configurar el campo de identidad de inicio de sesión delegada para conectar las identidades de nube a las identidades de aplicación. 
 
 ## <a name="working-with-different-on-premises-and-cloud-identities"></a>Trabajar con diferentes identidades locales y de nube
@@ -159,5 +157,3 @@ Pero, en algunos casos, la solicitud se envía correctamente a la aplicación de
 * [Configuración de una aplicación de proxy de aplicación para que use la delegación restringida de Kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Solucionar los problemas que tiene con el Proxy de aplicación](application-proxy-troubleshoot.md)
 
-
-Para ver las últimas noticias y actualizaciones, consulte el [blog Application Proxy](https://blogs.technet.com/b/applicationproxyblog/)

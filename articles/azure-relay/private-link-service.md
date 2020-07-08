@@ -1,18 +1,14 @@
 ---
 title: Integración de Azure Relay con el servicio Azure Private Link
 description: Información sobre la integración de Azure Relay con el servicio Azure Private Link
-services: service-bus-relay
-author: spelluru
-ms.author: spelluru
-ms.date: 05/13/2020
-ms.service: service-bus-relay
+ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: 3c2426b65e16d8d6bcdd9733280c8f97f4aa79d6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a113e52b892a25fd2b12a18d73df443d9a9866f2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657615"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85317313"
 ---
 # <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Integración de Azure Relay con Azure Private Link (versión preliminar)
 El **servicio Azure Private Link** le permite acceder a los servicios de Azure (por ejemplo, Azure Relay, Azure Service Bus, Azure Event Hubs, Azure Storage y Azure Cosmos DB) y a los servicios de asociados o clientes hospedados por Azure mediante un punto de conexión privado de la red virtual. Para más información, consulte [¿Qué es Azure Private Link?](../private-link/private-link-overview.md)
@@ -28,7 +24,7 @@ Un **punto de conexión privado** es una interfaz de red que permite que las car
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Incorporación de un punto de conexión privado mediante Azure Portal
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 Para integrar un espacio de nombres de Azure Relay con Azure Private Link (versión preliminar), necesitará los permisos o las entidades siguientes:
 
 - Un espacio de nombres de Azure Relay.

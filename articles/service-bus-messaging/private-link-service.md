@@ -1,18 +1,16 @@
 ---
 title: Integración de Azure Service Bus con Azure Private Link Service
 description: Aprenda a integrar Azure Service Bus con Azure Private Link Service
-services: service-bus-messaging
 author: spelluru
 ms.author: spelluru
-ms.date: 03/13/2020
-ms.service: service-bus-messaging
+ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: a78375a3acf5c56d9a59c0f4b6113a063f8c431a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4516405472abf733c8ef06fb5ee5855f8e97d396
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650951"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340434"
 ---
 # <a name="integrate-azure-service-bus-with-azure-private-link"></a>Integración de Azure Service Bus con Azure Private Link
 
@@ -42,7 +40,7 @@ Para más información, consulte [¿Qué es Azure Private Link?](../private-link
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Incorporación de un punto de conexión privado mediante Azure Portal
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 Para integrar un espacio de nombres de Service Bus con Azure Private Link, necesitará las siguientes entidades o permisos:
 

@@ -1,25 +1,14 @@
 ---
 title: Creación de un espacio de nombres de Service Bus en Azure Portal
 description: En este artículo se proporciona instrucciones para crear un espacio de nombres de Azure Service Bus en Azure Portal.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: fbb10e62-b133-4851-9d27-40bd844db3ba
-ms.service: service-bus-messaging
-ms.devlang: tbd
 ms.topic: conceptual
-ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: b6351fade23f1671573964f946005d57671d3cc7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/23/2020
+ms.openlocfilehash: 3c665dad06ca7cf7bba39b5e1a0f748b420ad770
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76761073"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337753"
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Creación de un espacio de nombres de Service Bus mediante Azure Portal
 

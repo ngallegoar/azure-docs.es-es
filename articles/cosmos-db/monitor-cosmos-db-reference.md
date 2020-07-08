@@ -4,17 +4,17 @@ description: Referencia de registro y métricas para la supervisión de datos de
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: reference
+ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: bwren
 ms.custom: subject-monitoring
 ms.subservice: logs
-ms.openlocfilehash: d243224192b5761af45d387690f5fb41b84481e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 446d876033b09728ebcbec43c6300884a5c29cd3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77588729"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262742"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Referencia de datos de supervisión de Azure Cosmos DB
 En este artículo se proporciona una referencia de datos de registro y métricas recopilados para analizar el rendimiento y la disponibilidad de Azure Cosmos DB. Consulte [Supervisión de Cosmos DB](monitor-cosmos-db.md) para obtener más información sobre la recopilación y el análisis de datos de supervisión para Azure Cosmos DB.
@@ -28,7 +28,7 @@ En la tabla siguiente se enumeran las propiedades de los registros de recursos d
 | **time** | **TimeGenerated** | La fecha y hora (UTC) cuando se produjo la operación. |
 | **resourceId** | **Recurso** | La cuenta de Azure Cosmos DB para la cual los registros están habilitados.|
 | **category** | **Categoría** | En el caso de los registros de Azure Cosmos DB, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption** y **ControlPlaneRequests** son los tipos de registro disponibles. |
-| **operationName** | **OperationName** | Nombre de la operación. Este valor puede ser cualquiera de las siguientes operaciones: Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed o Upsert.   |
+| **operationName** | **OperationName** | Nombre de la operación. Este valor puede ser cualquiera de las operaciones siguientes: Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed o Upsert.   |
 | **properties** | N/D | El contenido de este campo se describe en las filas siguientes. |
 | **activityId** | **activityId_g** | GUID único para la operación registrada. |
 | **userAgent** | **userAgent_s** | Una cadena que especifica el agente de usuario de cliente que realiza la solicitud. El formato es {nombre de agente de usuario}/{versión}.|
@@ -42,6 +42,7 @@ En la tabla siguiente se enumeran las propiedades de los registros de recursos d
 | **requestLength** | **requestLength_s** | Longitud de la solicitud, en bytes. |
 | **responseLength** | **responseLength_s** | Longitud de la respuesta, en bytes.|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | Este valor no está vacío cuando se usan [tokens de recursos](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) para la autenticación. Los puntos de valor para el identificador de recurso del usuario. |
+| **responseLength** | **responseLength_s** | Longitud de la respuesta, en bytes.|
 
 Para obtener una lista de todas las categorías de registros de Azure Monitor y los vínculos a los esquemas asociados, consulte [Categorías y esquemas de los registros de Azure Monitor](../azure-monitor/platform/diagnostic-logs-schema.md). 
 

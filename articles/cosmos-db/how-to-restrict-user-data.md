@@ -3,15 +3,15 @@ title: Restricción del acceso de los usuarios solo a las operaciones de datos c
 description: Obtenga información sobre cómo restringir el acceso de los usuarios solo a las operaciones de datos con Azure Cosmos DB
 author: voellm
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/9/2019
 ms.author: tvoellm
-ms.openlocfilehash: 03cad9e4c3752b5f35be785a6280bf18aaa14860
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 88899dc697839b16c2b0cd24ac9233f87da26b41
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74980021"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261229"
 ---
 # <a name="restrict-user-access-to-data-operations-only"></a>Restricción del acceso de los usuarios solo a las operaciones de datos
 
@@ -19,7 +19,9 @@ En Azure Cosmos DB, hay dos maneras de autenticar las interacciones con el servi
 - puede usar su identidad de Azure Active Directory al interactuar con Azure Portal;
 - puede usar las [claves](secure-access-to-data.md#master-keys) o [tokens de recursos](secure-access-to-data.md#resource-tokens) de Azure Cosmos DB al emitir llamadas desde las API y los SDK.
 
-Cada método de autenticación proporciona acceso a diferentes conjuntos de operaciones, con algunas superposiciones: ![División de operaciones por tipo de autenticación](./media/how-to-restrict-user-data/operations.png)
+Cada método de autenticación proporciona acceso a diferentes conjuntos de operaciones, con algunas superposiciones:
+
+:::image type="content" source="./media/how-to-restrict-user-data/operations.png" alt-text="División de operaciones por tipo de autenticación" border="false":::
 
 En algunos escenarios, puede que quiera restringir a algunos usuarios de la organización para que solo realicen operaciones de datos (es decir, solicitudes y consultas CRUD). Este suele ser el caso de los desarrolladores que no necesitan crear o eliminar recursos, ni cambiar el rendimiento aprovisionado de los contenedores en los que están trabajando.
 

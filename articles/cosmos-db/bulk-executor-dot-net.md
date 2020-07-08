@@ -5,16 +5,16 @@ author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 40ef05107f20a3396f6710f894a2dbad2d7fa6c9
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 4bcd2349913c1823e80d46565dfa869d9efe955f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478850"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260668"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Uso de la biblioteca BulkExecutor en .NET para realizar operaciones en bloque en Azure Cosmos DB
 
@@ -27,7 +27,7 @@ En este tutorial se proporcionan instrucciones sobre cómo usar la biblioteca Bu
 
 Actualmente, la biblioteca BulkExecutor solo es compatible con las cuentas de API de SQL y de Gremlin API de Azure Cosmos DB. En este artículo se describe cómo usar la biblioteca BulkExecutor en .NET con las cuentas de API de SQL. Para obtener información acerca de cómo utilizar la biblioteca BulkExecutor en .NET con cuentas de Gremlin API, consulte la información sobre la [realización de operaciones en bloque en Gremlin API de Azure Cosmos DB](bulk-executor-graph-dotnet.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Si aún no tiene Visual Studio 2019 instalado, puede descargar y usar la versión [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita "Desarrollo de Azure" durante la instalación de Visual Studio.
 

@@ -4,16 +4,16 @@ description: Cómo configurar Azure Multi-Factor Authentication para mejorar la 
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a769b5584abbd6da89ccb6032e5f0c5ac8ea1cb1
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 16abe8d155a0d7d7f65c69e6305da62bd8813ea4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930529"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361156"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Habilitación de Azure Multi-Factor Authentication para Windows Virtual Desktop
 
@@ -23,7 +23,7 @@ Al iniciar sesión por primera vez, el cliente solicita el nombre de usuario, la
 
 Aunque recordar credenciales resulta práctico, también puede hacer que las implementaciones en escenarios empresariales o dispositivos personales sean menos seguras. Para proteger a los usuarios, debe asegurarse de que el cliente sigue solicitando las credenciales de Azure Multi-Factor Authentication (MFA). En este artículo se muestra cómo configurar la directiva de acceso condicional de Windows Virtual Desktop para habilitar esta opción de configuración.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Requisitos para poder comenzar:
 
@@ -47,8 +47,9 @@ En esta sección se muestra cómo crear una directiva de acceso condicional que 
    - Seleccione **Listo**.
 6. En **Aplicaciones en la nube o acciones** > **Incluir**, escoger **Seleccionar aplicaciones**.
    - Elija **Windows Virtual Desktop** (id. de aplicación 9cdead84-a844-4324-93f2-b2e6bb768d07), después **Seleccionar** y, a continuación, **Listo**.
-   
-     ![Captura de pantalla de la página Aplicaciones en la nube o acciones. Las aplicaciones de Windows Virtual Desktop y del cliente de Windows Virtual Desktop están resaltadas con rojo.](media/cloud-apps-enterprise.png)
+
+     > [!div class="mx-imgBorder"]
+     > ![Captura de pantalla de la página Aplicaciones en la nube o acciones. Las aplicaciones de Windows Virtual Desktop y Windows Virtual Desktop Client están resaltadas en rojo.](media/cloud-apps-enterprise.png)
 
      >[!NOTE]
      >Para buscar el identificador de la aplicación que quiere seleccionar, diríjase a **Aplicaciones empresariales** y seleccione **Aplicaciones de Microsoft** en el menú desplegable Tipo de aplicación.
