@@ -3,12 +3,12 @@ author: areddish
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 04/14/2020
-ms.openlocfilehash: 0546645bc496f6e8918f937305ac6cad6a4428ed
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: a96e78ed15eaa4d97cafb7ffc9d5d6979ab869b5
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837884"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965908"
 ---
 En este artículo se muestra cómo empezar a utilizar el SDK de Custom Vision con Node.js para crear un modelo de clasificación de imágenes. Después de crearlo, puede agregar etiquetas, cargar imágenes, entrenar el proyecto, obtener la dirección URL publicada del punto de conexión de predicción del proyecto y utilizar el punto de conexión para probar una imagen mediante programación. Utilice este ejemplo como plantilla para crear su propia aplicación de Node.js. Si desea seguir el proceso de creación y utilizar un modelo de clasificación _sin_ código, consulte la [guía basada en explorador](../../getting-started-build-a-classifier.md) en su lugar.
 
@@ -62,7 +62,7 @@ const trainer = new TrainingApi.TrainingAPIClient(credentials, endPoint);
 
 (async () => {
     console.log("Creating project...");
-    const sampleProject = await trainer.createProject("Sample Project")
+    const sampleProject = await trainer.createProject("Sample Project");
 ```
 
 ### <a name="create-tags-in-the-project"></a>Creación de etiquetas en el proyecto
@@ -70,8 +70,8 @@ const trainer = new TrainingApi.TrainingAPIClient(credentials, endPoint);
 Para crear etiquetas de clasificación al proyecto, agregue el código siguiente al final de *sample.js*:
 
 ```javascript
-const hemlockTag = await trainer.createTag(sampleProject.id, "Hemlock");
-const cherryTag = await trainer.createTag(sampleProject.id, "Japanese Cherry");
+    const hemlockTag = await trainer.createTag(sampleProject.id, "Hemlock");
+    const cherryTag = await trainer.createTag(sampleProject.id, "Japanese Cherry");
 ```
 
 ### <a name="upload-and-tag-images"></a>Carga y etiquetado de imágenes
@@ -82,22 +82,22 @@ Para agregar las imágenes de ejemplo al proyecto, inserte el siguiente código 
 > Tendrá que cambiar *sampleDataRoot* por la ruta de acceso a las imágenes en función del lugar en que descargó el proyecto Cognitive Services Node.js SDK Samples antes.
 
 ```javascript
-console.log("Adding images...");
-let fileUploadPromises = [];
-
-const hemlockDir = `${sampleDataRoot}/Hemlock`;
-const hemlockFiles = fs.readdirSync(hemlockDir);
-hemlockFiles.forEach(file => {
-    fileUploadPromises.push(trainer.createImagesFromData(sampleProject.id, fs.readFileSync(`${hemlockDir}/${file}`), { tagIds: [hemlockTag.id] }));
-});
-
-const cherryDir = `${sampleDataRoot}/Japanese Cherry`;
-const japaneseCherryFiles = fs.readdirSync(cherryDir);
-japaneseCherryFiles.forEach(file => {
-    fileUploadPromises.push(trainer.createImagesFromData(sampleProject.id, fs.readFileSync(`${cherryDir}/${file}`), { tagIds: [cherryTag.id] }));
-});
-
-await Promise.all(fileUploadPromises);
+    console.log("Adding images...");
+    let fileUploadPromises = [];
+    
+    const hemlockDir = `${sampleDataRoot}/Hemlock`;
+    const hemlockFiles = fs.readdirSync(hemlockDir);
+    hemlockFiles.forEach(file => {
+        fileUploadPromises.push(trainer.createImagesFromData(sampleProject.id, fs.readFileSync(`${hemlockDir}/${file}`), { tagIds: [hemlockTag.id] }));
+    });
+    
+    const cherryDir = `${sampleDataRoot}/Japanese Cherry`;
+    const japaneseCherryFiles = fs.readdirSync(cherryDir);
+    japaneseCherryFiles.forEach(file => {
+        fileUploadPromises.push(trainer.createImagesFromData(sampleProject.id, fs.readFileSync(`${cherryDir}/${file}`), { tagIds: [cherryTag.id] }));
+    });
+    
+    await Promise.all(fileUploadPromises);
 ```
 
 ### <a name="train-the-classifier-and-publish"></a>Entrenar el clasificador y publicarlo
@@ -105,20 +105,20 @@ await Promise.all(fileUploadPromises);
 Este código crea la primera iteración del modelo de predicción y, después, publica dicha iteración en el punto de conexión de la predicción. El nombre que se da a la iteración publicada se puede utilizar para enviar solicitudes de predicción. Una iteración no está disponible en el punto de conexión de la predicción hasta que se publica.
 
 ```javascript
-console.log("Training...");
-let trainingIteration = await trainer.trainProject(sampleProject.id);
-
-// Wait for training to complete
-console.log("Training started...");
-while (trainingIteration.status == "Training") {
+    console.log("Training...");
+    let trainingIteration = await trainer.trainProject(sampleProject.id);
+    
+    // Wait for training to complete
+    console.log("Training started...");
+    while (trainingIteration.status == "Training") {
+        console.log("Training status: " + trainingIteration.status);
+        await setTimeoutPromise(1000, null);
+        trainingIteration = await trainer.getIteration(sampleProject.id, trainingIteration.id)
+    }
     console.log("Training status: " + trainingIteration.status);
-    await setTimeoutPromise(1000, null);
-    trainingIteration = await trainer.getIteration(sampleProject.id, trainingIteration.id)
-}
-console.log("Training status: " + trainingIteration.status);
-
-// Publish the iteration to the end point
-await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIterationName, predictionResourceId);
+    
+    // Publish the iteration to the end point
+    await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIterationName, predictionResourceId);
 ```
 
 ### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obtener y usar la iteración publicada en el punto de conexión de predicción
