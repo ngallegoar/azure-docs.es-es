@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/31/2020
 ms.author: ccompy
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: e56e5878c2f3528bee50137b4d40d947feda3ece
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 8e63c0678967a21a6b2763574e594a1a6c2ba25b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84197162"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832991"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloqueo de una instancia de App Service Environment
 
@@ -96,8 +96,10 @@ Este uso de Application Gateway es solo un ejemplo de cómo configurar el sistem
 
 Azure Firewall puede enviar registros a Azure Storage, Event Hub o a registros de Azure Monitor. Para integrar la aplicación con cualquier destino admitido, vaya al portal de Azure Firewall > Registros de diagnóstico y habilite los registros para el destino deseado. Si realiza la integración con los registros de Azure Monitor, podrá ver el registro de todo el tráfico enviado a Azure Firewall. Para ver el tráfico que se va a denegar, abra el portal del área de trabajo de Log Analytics > Registros y escriba una consulta como: 
 
-    AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
- 
+```kusto
+AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
+```
+
 La integración de Azure Firewall con los registros de Azure Monitor resulta útil la primera vez que se pone una aplicación en funcionamiento, cuando aún no se conocen todas las dependencias de la aplicación. Puede obtener más información acerca de los registros de Azure Monitor en [Análisis de datos de registro en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
  
 ## <a name="dependencies"></a>Dependencias
@@ -248,6 +250,7 @@ Con una instancia de Azure Firewall, se configurará automáticamente todo lo si
 |security.ubuntu.com:80 |
 | \*.cdn.mscr.io:443 |
 |mcr.microsoft.com:443 |
+|\*.data.mcr.microsoft.com:443 |
 |packages.fluentbit.io:80 |
 |packages.fluentbit.io:443 |
 |apt-mo.trafficmanager.net:80 |
