@@ -3,12 +3,12 @@ title: Implementación de ejemplos de planos técnicos de UK OFFICIAL y UK NHS
 description: Pasos de implementación de los ejemplos de plano técnico de UK OFFICIAL y UK NHS, incluidos los detalles de los parámetros del artefacto de plano técnico.
 ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: 7fa78eab463c9a3202b2ec08e1952e275e51b20d
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 2ac2d17c08b3f585f86d1b2d339c3c7cf52844ce
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005599"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037178"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Implementación de los ejemplos de planos técnicos de UK OFFICIAL y UK NHS
 
@@ -93,7 +93,7 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 
 Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|Descripción|
 |-|-|-|-|
-|Iniciativa de plano técnico de UK OFFICIAL o UK NHS|Asignación de directiva |Tipos de recursos para auditar los registros de diagnóstico (Directiva: Iniciativa de plano técnico de UK OFFICIAL o UK NHS) |Lista de tipos de recursos para auditar si la opción de registro de diagnóstico no está habilitada.  Para obtener los valores admitidos, consulte [Servicios, esquemas y categorías admitidos en los registros de diagnóstico de Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
+|Iniciativa de plano técnico de UK OFFICIAL o UK NHS|Asignación de directiva |Tipos de recursos para auditar los registros de diagnóstico (Directiva: Iniciativa de plano técnico de UK OFFICIAL o UK NHS) |Lista de tipos de recursos para auditar si la opción de registro de diagnóstico no está habilitada.  Para obtener los valores admitidos, consulte [Servicios, esquemas y categorías admitidos en los registros de diagnóstico de Azure](../../../../azure-monitor/platform/resource-logs-schema.md). |
 |\[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Linux |Asignación de directiva |Opcional: Lista de imágenes de VM que han admitido el sistema operativo Linux que se agregarán al ámbito (directiva: \[Versión preliminar\]: Implementar el agente de Log Analytics en VM de Linux) |(Opcional) El valor predeterminado es _none_. Para obtener más información, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
 |\[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows |Asignación de directiva |Opcional: Lista de imágenes de VM que han admitido el sistema operativo Windows que se agregarán al ámbito (directiva: \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows) |(Opcional) El valor predeterminado es _none_. Para obtener más información, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
 
