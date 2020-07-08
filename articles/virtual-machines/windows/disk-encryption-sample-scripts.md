@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: e5e0a970df680df43a7bd303636b3d81bda3e141
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 1a0bac96c3daa0d81786b1a3facf6ccd328cd579
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82085712"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076766"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Scripts de ejemplo de Azure Disk Encryption 
 
@@ -76,22 +76,30 @@ Configure la opción de la directiva de grupos de BitLocker denominada **Cifrado
 ### <a name="install-bitlocker-feature-components"></a>Instalación de componentes de características de BitLocker
 Para Windows Server 2012 y versiones posteriores, utilice el siguiente comando:
 
-    dism /online /Enable-Feature /all /FeatureName:BitLocker /quiet /norestart
+```console
+dism /online /Enable-Feature /all /FeatureName:BitLocker /quiet /norestart
+```
 
 Para Windows Server 2008 R2, utilice el siguiente comando:
 
-    ServerManagerCmd -install BitLockers
+```console
+ServerManagerCmd -install BitLockers
+```
 
 ### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Preparación del volumen del sistema operativo para BitLocker mediante `bdehdcfg`
 Si es necesario, ejecute el comando [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment) para comprimir la partición del sistema operativo y preparar la máquina para BitLocker:
 
-    bdehdcfg -target c: shrink -quiet 
+```console
+bdehdcfg -target c: shrink -quiet 
+```
 
 ### <a name="protect-the-os-volume-by-using-bitlocker"></a>Protección del volumen del sistema operativo mediante BitLocker
 Use el comando [`manage-bde`](https://technet.microsoft.com/library/ff829849.aspx) para habilitar el cifrado en el volumen de arranque mediante un protector de clave externo. También puede colocar la clave externa (archivo .bek) en el disco externo o el volumen. El cifrado se habilita en el volumen de sistema o de arranque la próxima vez que se reinicie el equipo.
 
-    manage-bde -on %systemdrive% -sk [ExternalDriveOrVolume]
-    reboot
+```console
+manage-bde -on %systemdrive% -sk [ExternalDriveOrVolume]
+reboot
+```
 
 > [!NOTE]
 > Prepare la máquina virtual con un VHD de datos o recursos separado para obtener la clave externa mediante BitLocker.

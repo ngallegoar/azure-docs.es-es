@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 765c73a3ab8d5fa8939abe597d0141b24b59ac52
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3c7b74d31bc3c4e2276cd52c8e6450630dc99bcd
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76152484"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058034"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Tutorial: Uso de la comprobación de estado en Azure Deployment Manager (versión preliminar pública)
 
@@ -35,7 +35,7 @@ En este tutorial se describen las tareas siguientes:
 
 Recursos adicionales:
 
-* La [referencia de API REST de Azure Deployment Manager](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* La [referencia de API REST de Azure Deployment Manager](/rest/api/deploymentmanager/).
 * [Un ejemplo de Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
@@ -58,7 +58,7 @@ Abra CreateADMRollout.Parameters.json y actualice los valores de **projectName**
 
 ## <a name="create-a-health-check-service-simulator"></a>Creación de un simulador del servicio de comprobación de estado
 
-En producción, se suele utilizar uno o varios proveedores de supervisión. Para que la integración del mantenimiento sea lo más sencilla posible, Microsoft ha trabajado con varias de las compañías de seguimiento del estado de los servicios más punteras para ofrecer una solución sencilla de copiar y pegar para integrar las comprobaciones de estado en las implementaciones. Para obtener una lista de estas empresas, consulte [Proveedores de seguimiento de estado](./deployment-manager-health-check.md#health-monitoring-providers). Para este tutorial, cree una [función de Azure](/azure/azure-functions/) que simule un servicio de supervisión de estado. Dicha función toma un código de estado y devuelve el mismo código. La plantilla de Azure Deployment Manager usa el código de estado para determinar cómo realizar la implementación.
+En producción, se suele utilizar uno o varios proveedores de supervisión. Para que la integración del mantenimiento sea lo más sencilla posible, Microsoft ha trabajado con varias de las compañías de seguimiento del estado de los servicios más punteras para ofrecer una solución sencilla de copiar y pegar para integrar las comprobaciones de estado en las implementaciones. Para obtener una lista de estas empresas, consulte [Proveedores de seguimiento de estado](./deployment-manager-health-check.md#health-monitoring-providers). Para este tutorial, cree una [función de Azure](../../azure-functions/index.yml) que simule un servicio de supervisión de estado. Dicha función toma un código de estado y devuelve el mismo código. La plantilla de Azure Deployment Manager usa el código de estado para determinar cómo realizar la implementación.
 
 Los dos archivos siguientes se usan para implementar la función de Azure. Para completar el tutorial no es preciso descargarlos.
 
@@ -369,4 +369,4 @@ Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que impl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a la característica de comprobación de estado de Azure Deployment Manager. Para más información, consulte la [documentación de Azure Resource Manager](/azure/azure-resource-manager/).
+En este tutorial, ha aprendido a la característica de comprobación de estado de Azure Deployment Manager. Para más información, consulte la [documentación de Azure Resource Manager](../index.yml).

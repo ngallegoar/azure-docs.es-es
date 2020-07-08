@@ -5,12 +5,12 @@ description: Conozca las prácticas recomendadas de operador de clúster para us
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: d0d13a699d2559c6b4360c807721e0b748959382
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 5b003c9f0c3b47779bd7da92fb64c57830911fae
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617517"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077854"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para características avanzadas del programador en Azure Kubernetes Service (AKS)
 
@@ -101,7 +101,7 @@ Se usan valores taint y toleration para aislar lógicamente los recursos con un 
 Veamos un ejemplo de nodos con una gran cantidad de memoria. Estos nodos pueden dar preferencia a los pods que solicitan una gran cantidad de memoria. Para asegurarse de que los recursos no estén inactivos, también permiten que se ejecuten otros pods.
 
 ```console
-kubectl label node aks-nodepool1 hardware:highmem
+kubectl label node aks-nodepool1 hardware=highmem
 ```
 
 Una especificación de pod, a continuación, agrega la propiedad `nodeSelector` para definir un selector de nodo que coincide con la etiqueta configurada en un nodo:
@@ -122,7 +122,7 @@ spec:
       limits:
         cpu: 4.0
         memory: 16Gi
-    nodeSelector:
+  nodeSelector:
       hardware: highmem
 ```
 

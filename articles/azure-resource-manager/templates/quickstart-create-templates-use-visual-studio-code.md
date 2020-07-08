@@ -5,18 +5,18 @@ author: neilpeterson
 ms.date: 04/17/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: cd107db5220a96d75092a94736e060ae46672926
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: d36f8a9a8650b504da206e884d9be8e43e1becdb
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81686614"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058153"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Inicio rápido: Creación de plantillas de Azure Resource Manager con Visual Studio Code
 
 Las herramientas de Azure Resource Manager para Visual Studio Code proporcionan compatibilidad con lenguajes, fragmentos de código de los recursos y la finalización automática de los recursos. Además, ayudan a crear y validar plantillas de Azure Resource Manager. En este inicio rápido, usará la extensión para crear una plantilla de Azure Resource Manager desde cero. Al hacerlo, utilizará las funcionalidades de las extensiones, como los fragmentos de código de las plantillas de Resource Manager, la validación, las finalizaciones y la compatibilidad con archivos de parámetros.
 
-Para completar este inicio rápido, necesita [Visual Studio Code](https://code.visualstudio.com/) con la [extensión de herramientas de Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) instalada. También necesita la [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) o el [módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.7.0) instalados y autenticados.
+Para completar este inicio rápido, necesita [Visual Studio Code](https://code.visualstudio.com/) con la [extensión de herramientas de Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) instalada. También necesita la [CLI de Azure](/cli/azure/?view=azure-cli-latest) o el [módulo de Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-3.7.0) instalados y autenticados.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
