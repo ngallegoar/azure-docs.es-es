@@ -8,8 +8,6 @@
   items:
     - name: Solicitar la aceptación de los términos de uso
       href: require-tou.md
-    - name: Bloqueo del acceso si se detecta un riesgo de sesión
-      href: app-sign-in-risk.md
 - name: Tutoriales
   items:
     - name: Requerir Azure Multi-Factor Authentication
@@ -68,8 +66,10 @@
           href: howto-conditional-access-policy-azure-management.md
         - name: Exigir autenticación multifactor para todos los usuarios
           href: howto-conditional-access-policy-all-users-mfa.md
-        - name: Acceso condicional basado en el riesgo
+        - name: Acceso condicional basado en el riesgo del inicio de sesión
           href: howto-conditional-access-policy-risk.md
+        - name: Acceso condicional basado en el riesgo del usuario
+          href: howto-conditional-access-policy-risk-user.md
         - name: Protección del registro de información de seguridad
           href: howto-conditional-access-policy-registration.md
         - name: Bloqueo del acceso por ubicación

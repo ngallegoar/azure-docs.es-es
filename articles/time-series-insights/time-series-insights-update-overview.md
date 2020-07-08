@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 04/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 73244a635bbf14efcf33f1b978db14e9e2589581
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 20ab78aa67fa5d59dac774559b3c43561cf75fbc
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81271070"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040714"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>¿Qué es la versión preliminar de Azure Time Series Insights?
 
@@ -78,12 +78,12 @@ Gracias a la introducción de estas funcionalidades de IoT industriales clave, T
 
 | | |
 | ---| ---|
-| Almacenamiento multicapa para datos de series temporales a escala de IoT | Con una canalización de procesamiento de datos compartida para la ingesta de datos, puede ingerir datos en almacenes intermedios y en frío. Use el almacén intermedio para las consultas interactivas y el almacén en frío para almacenar grandes volúmenes de datos. Para más información sobre cómo aprovechar las consultas basadas en recursos de alto rendimiento, vea [Consultas de datos](./time-series-insights-update-tsq.md). |
-| Modelo de serie temporal para contextualizar datos de telemetría sin procesar y derivar información basada en recursos | Puede usar el modelo de serie temporal para crear instancias, jerarquías, tipos y variables para los datos de series temporales. Para más información sobre el modelo de Time Series consulte [Modelo de Time Series](./time-series-insights-update-tsm.md).  |
-| Integración suave y continua con otras soluciones de datos | Los datos del almacén en frío de Time Series Insights se [almacenan](./time-series-insights-update-storage-ingress.md) en archivo de Apache Parquet de código abierto. Esto permite la integración de datos con otras soluciones de datos, de primera entidad o de terceros, en escenarios que incluyen inteligencia empresarial, aprendizaje automático avanzado y análisis predictivo. |
+| Almacenamiento multicapa para datos de series temporales a escala de IoT | Con una canalización de procesamiento de datos compartida para la ingesta de datos, puede ingerir datos en almacenes intermedios y en frío. Use el almacén intermedio para las consultas interactivas y el almacén en frío para almacenar grandes volúmenes de datos. Para más información sobre cómo aprovechar las consultas basadas en recursos de alto rendimiento, vea [Consultas de datos](./concepts-query-overview.md). |
+| Modelo de serie temporal para contextualizar datos de telemetría sin procesar y derivar información basada en recursos | Puede usar el modelo de serie temporal para crear instancias, jerarquías, tipos y variables para los datos de series temporales. Para más información sobre el modelo de Time Series consulte [Modelo de Time Series](./concepts-model-overview.md).  |
+| Integración suave y continua con otras soluciones de datos | Los datos del almacén en frío de Time Series Insights se [almacenan](concepts-storage.md) en archivo de Apache Parquet de código abierto. Esto permite la integración de datos con otras soluciones de datos, de primera entidad o de terceros, en escenarios que incluyen inteligencia empresarial, aprendizaje automático avanzado y análisis predictivo. |
 | Exploración de datos casi en tiempo real | La experiencia de usuario del [explorador de la versión preliminar de Azure Time Series Insights](./time-series-insights-update-explorer.md) proporciona la visualización de todos los flujos de datos mediante la canalización de ingesta. Después de conectarse a un origen del evento, puede ver, explorar y consultar datos del evento. De este modo, puede validar si un dispositivo emite los datos según lo previsto. También puede supervisar el mantenimiento, la productividad y la eficacia general de un recurso de IoT. | 
 | Extensibilidad e integración | La integración del conector de Azure Time Series Insights para Power BI está directamente disponible en la experiencia de usuario del Explorador de Time Series con la opción **Exportar**, que permite a los clientes exportar las consultas de series temporales que crean en nuestra experiencia de usuario directamente en el escritorio de Power BI y así ver los gráficos de series temporales junto con otros análisis de inteligencia empresarial. Esto abre la puerta a una nueva clase de escenarios para empresas de IoT industriales que han invertido en Power BI proporcionando un único panel en análisis de diversos orígenes de datos, incluida la serie temporal de IoT. | 
-| Aplicaciones personalizadas creadas en la plataforma de Time Series Insights | Time Series Insights admite el [SDK de JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). El SDK ofrece controles enriquecidos y acceso simplificado a las consultas. Use el SDK para compilar aplicaciones personalizadas de IoT en Time Series Insights para satisfacer sus necesidades empresariales. También puede usar las [API de consulta](./time-series-insights-update-tsq.md) de Time Series Insights directamente para dirigir datos a las aplicaciones de IoT personalizadas. |
+| Aplicaciones personalizadas creadas en la plataforma de Time Series Insights | Time Series Insights admite el [SDK de JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). El SDK ofrece controles enriquecidos y acceso simplificado a las consultas. Use el SDK para compilar aplicaciones personalizadas de IoT en Time Series Insights para satisfacer sus necesidades empresariales. También puede usar las [API de consulta](./concepts-query-overview.md) de Time Series Insights directamente para dirigir datos a las aplicaciones de IoT personalizadas. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
