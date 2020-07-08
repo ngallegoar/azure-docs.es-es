@@ -5,15 +5,15 @@ description: Habilitación de Azure Peering Service en un emparejamiento directo
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: c029b822d00ce545e3623a6212421a55b2d1971f
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 579af2d5cbe0f3dcdbdf749894d5c400112f37cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81686995"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710803"
 ---
 # <a name="enable-azure-peering-service-on-a-direct-peering-by-using-powershell"></a>Habilitación de Azure Peering Service en un emparejamiento directo mediante PowerShell
 

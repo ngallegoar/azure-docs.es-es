@@ -2,7 +2,7 @@
 title: Habilitación de la configuración de subred asistida por servicio para Instancia administrada de Azure SQL
 description: Habilitación de la configuración de subred asistida por servicio para Instancia administrada de Azure SQL
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.date: 03/12/2020
-ms.openlocfilehash: c8531af9e8d43dfe1279306cea57a93cf89ded90
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b88740c71db6ae56621410ef41975a4616ff8ecd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84032186"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711381"
 ---
 # <a name="enabling-service-aided-subnet-configuration-for-azure-sql-managed-instance"></a>Habilitación de la configuración de subred asistida por servicio para Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -27,7 +27,7 @@ Los grupos de seguridad de red y las reglas de tabla de enrutamiento configurado
 La configuración asistida por servicio se habilita automáticamente cuando se activa la [delegación de subred](../../virtual-network/subnet-delegation-overview.md) para el proveedor de recursos `Microsoft.Sql/managedInstances`.
 
 > [!IMPORTANT] 
-> Cuando la delegación de subred está activada, no puede desactivarla hasta que quite el último clúster virtual de la subred. Para obtener más información sobre cómo eliminar un clúster virtual, consulte el siguiente [artículo](virtual-cluster-delete.md#delete-virtual-cluster-from-the-azure-portal).
+> Cuando la delegación de subred está activada, no puede desactivarla hasta que quite el último clúster virtual de la subred. Para obtener más información sobre cómo eliminar un clúster virtual, consulte el siguiente [artículo](virtual-cluster-delete.md#delete-a-virtual-cluster-from-the-azure-portal).
 
 > [!NOTE] 
 > Dado que la configuración de subred asistida por servicio es una característica esencial para el mantenimiento del Acuerdo de Nivel de Servicio, a partir del 1 de mayo de 2020, no se podrán implementar instancias administradas en subredes no delegadas en el proveedor de recursos de instancia administrada. El 1 de julio de 2020 todas las subredes que contienen instancias administradas se delegarán automáticamente al proveedor de recursos de instancia administrada. 

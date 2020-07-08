@@ -3,7 +3,7 @@ title: Configuración de la conectividad de punto a sitio mediante SSMS
 titleSuffix: Azure SQL Managed Instance
 description: Conéctese a Instancia administrada de Azure SQL mediante SQL Server Management Studio (SSMS) con una conexión de punto a sitio desde un equipo cliente local.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: debe32bc39840573620bba5280b6e05b94f3edb6
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 7b9c9fc6259656af77bf1ba1b95ccf190cbd85da
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220928"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708667"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-azure-sql-managed-instance-from-on-premises"></a>Inicio rápido: Configuración de una conexión de punto a sitio a Instancia administrada de Azure SQL desde el entorno local
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

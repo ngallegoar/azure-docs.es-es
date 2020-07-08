@@ -3,12 +3,12 @@ title: Funciones definidas por el usuario en plantillas
 description: Se describe cómo definir y usar funciones definidas por el usuario en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 2c09572a460aa028b23987033d2b77e2aad8a0cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 69f4e98d389cc8dbe5cd3f4b628189676c501106
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78943220"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84672942"
 ---
 # <a name="user-defined-functions-in-azure-resource-manager-template"></a>Funciones definidas por el usuario de la plantilla de Azure Resource Manager
 
@@ -48,7 +48,7 @@ En el ejemplo siguiente se muestra una plantilla que incluye una función defini
 
 ```json
 {
- "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+ "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
  "contentVersion": "1.0.0.0",
  "parameters": {
    "storageNamePrefix": {

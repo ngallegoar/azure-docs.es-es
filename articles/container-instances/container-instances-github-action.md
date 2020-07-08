@@ -4,12 +4,12 @@ description: Configure una acción de GitHub que automatice los pasos necesarios
 ms.topic: article
 ms.date: 03/18/2020
 ms.custom: ''
-ms.openlocfilehash: 13397cee8197afc65b93c587ae1505e59cfdebc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fab0eff04d86428a7e3eba730373da72c903b0ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258046"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744007"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Configuración de una acción de GitHub para crear una instancia de contenedor
 
@@ -53,7 +53,7 @@ En este artículo se muestran dos maneras de configurar el flujo de trabajo:
 
 En el flujo de trabajo de GitHub, debe proporcionar las credenciales de Azure para autenticarse en la CLI de Azure. En el ejemplo siguiente se crea una entidad de servicio con el rol Colaborador limitado al grupo de recursos del registro de contenedor.
 
-En primer lugar, obtenga el identificador de recurso del grupo de recursos. Sustituya el nombre del grupo en el siguiente comando [az group show][az-acr-show]:
+En primer lugar, obtenga el identificador de recurso del grupo de recursos. Sustituya el nombre del grupo en el siguiente comando [az group show][az-group-show]:
 
 ```azurecli
 groupId=$(az group show \

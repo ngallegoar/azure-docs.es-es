@@ -3,7 +3,7 @@ title: Restauración a un momento dado
 titleSuffix: Azure SQL Managed Instance
 description: Restaure una base de datos en una Instancia administrada de Azure SQL a un momento dado anterior.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 379d5e59024174c8f6cfbc185b3514287b7d5031
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 407d56c209f64d350906a17c0746b1c43f969d43
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310179"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708685"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Restauración de una base de datos en una Instancia administrada de Azure SQL a un momento dado anterior
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

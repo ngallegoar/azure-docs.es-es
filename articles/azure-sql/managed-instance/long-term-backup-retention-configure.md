@@ -2,7 +2,7 @@
 title: 'Instancia administrada de Azure SQL: Retención de copia de seguridad a largo plazo (PowerShell)'
 description: Obtenga información sobre cómo almacenar y restaurar copias de seguridad automatizadas en contenedores de Azure Blob Storage independientes para una instancia administrada de Azure SQL mediante PowerShell.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
@@ -10,19 +10,18 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 04/29/2020
-ms.openlocfilehash: 385a7594de48f1bcf04d79d0dcd9dfb521d4ff08
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b628ca7f676c3eab80e11da124f4d6aa7ebd52a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84031216"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708803"
 ---
 # <a name="manage-azure-sql-managed-instance-long-term-backup-retention-powershell"></a>Administración de la retención de copias de seguridad a largo plazo de la instancia administrada de Azure SQL (PowerShell)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-En la instancia administrada de Azure SQL, puede configurar una directiva de [retención de copias de seguridad a largo plazo](../database/long-term-retention-overview.md#managed-instance-support) (LTR) como característica en vista previa (GB) pública limitada. Esto permite conservar automáticamente copias de seguridad de bases de datos en contenedores de Azure Blob Storage independientes durante un máximo de 10 años. Posteriormente, puede recuperar una base de datos mediante estas copias de seguridad con PowerShell.
+En la instancia administrada de Azure SQL, puede configurar una directiva de [retención de copias de seguridad a largo plazo](../database/long-term-retention-overview.md#sql-managed-instance-support) (LTR) como característica en vista previa (GB) pública limitada. Esto permite conservar automáticamente copias de seguridad de bases de datos en contenedores de Azure Blob Storage independientes durante un máximo de 10 años. Posteriormente, puede recuperar una base de datos mediante estas copias de seguridad con PowerShell.
 
    > [!IMPORTANT]
    > LTR para instancias administradas se encuentra actualmente en versión preliminar limitada y está disponible para las suscripciones de EA y CSP en cada caso. Para solicitar la inscripción, cree un [vale de soporte de Azure](https://azure.microsoft.com/support/create-ticket/). En Tipo de problema, seleccione Problema técnico, en Servicio elija Instancia administrada de SQL Database y, en Tipo de problema, seleccione **Copia de seguridad, restauración y continuidad empresarial/Retención de copias de seguridad a largo plazo**. En la solicitud, indique que le gustaría inscribirse en la versión preliminar pública limitada de LTR para la instancia administrada.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: 40352b7ae1f3fb6b1178f2dfe70cdca9871c76b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d18258d62267c931a39947611dda038ff6e65205
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77603772"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84718706"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>Refuerce su seguridad con Azure Security Center
 Este artículo le ayuda a reforzar la seguridad. Use las funcionalidades de supervisión de Azure Security Center para asegurarse de que la seguridad de los recursos es tan estricta como sea posible y para supervisar que cumple con las directivas establecidas.
@@ -34,7 +34,7 @@ Puede ver el estado de seguridad de sus recursos, además de cualquier problema,
 - Para supervisar los recursos de red, como las máquinas virtuales, los grupos de seguridad de red y los puntos de conexión, y recibir recomendaciones para mejorar su seguridad, consulte [Protección de las redes en Azure Security Center](security-center-network-recommendations.md) para obtener más información. 
 - Para supervisar los recursos de datos y almacenamiento, como los servidores de SQL y las cuentas de almacenamiento, y recibir recomendaciones para mejorar su seguridad, consulte [Protecting Azure SQL service and data in Azure Security Center](security-center-sql-service-recommendations.md) (Protección del servicio y los datos de SQL de Azure en Azure Security Center) para obtener más información. 
 - Para supervisar los recursos de identidad y acceso, incluidos los permisos de cuenta y MFA, y recibir recomendaciones para mejorar su seguridad, consulte [Supervisión de la identidad y el acceso en Azure Security Center](security-center-identity-access.md) para obtener más información. 
-- Para supervisar el acceso Just-in-Time a los recursos, consulte [Administrar el acceso a máquina virtual mediante Just-In-Time](security-center-just-in-time.md) para obtener más información. 
+- Para supervisar el acceso Just-in-Time a los recursos, consulte [Administrar el acceso a máquina virtual mediante Just-In-Time](security-center-just-in-time.md) para obtener más información.
 
 
 Para más información sobre cómo aplicar las recomendaciones, lea [Implementación de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md).

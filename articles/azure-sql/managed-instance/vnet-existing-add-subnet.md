@@ -3,8 +3,8 @@ title: Configuración de una red virtual existente
 titleSuffix: Azure SQL Managed Instance
 description: En este artículo se describe cómo configurar una red virtual y una subred existentes en las que se puede implementar Instancia administrada de Azure SQL.
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: bce5acd6ce51092efccd1e09f7436ff78fd420a8
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 5d91fc0d5dd51ea5ef766f23519f38202b24a337
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219334"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711313"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-managed-instance"></a>Configuración de una red virtual para Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

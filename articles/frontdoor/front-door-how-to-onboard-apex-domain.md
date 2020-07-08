@@ -4,15 +4,15 @@ description: Obtenga información sobre cómo incorporar un dominio raíz o de v
 services: front-door
 author: sharad4u
 ms.service: frontdoor
-ms.topic: article
+ms.topic: how-to
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: 4b74338f22a82d76ef13126ee0862b841bd89a99
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: d8f08f7cde54aaf705872c8c45bc18eb4a27df77
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878891"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743599"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Incorporación de un dominio raíz o de vértice a una instancia de Front Door
 Azure Front Door usa registros CNAME a fin de validar la propiedad del dominio para la incorporación de dominios personalizados. Además, Front Door no expone la dirección IP de front-end asociada al perfil de Front Door, por lo que no podrá asignar su dominio de vértice a una dirección IP, si lo que pretende es incorporarlo a Azure Front Door.

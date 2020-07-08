@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 7314559849f0b2019820ec3cb4fb10c684d330d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fd288cfb78bb97bd5c05c1cc59af3c082ab549a2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458444"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84687011"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configure claves administradas por el cliente para cifrar los datos en reposo para los entornos de servicio de integración (ISE) en Azure Logic Apps
 
@@ -27,7 +27,7 @@ En este tema se muestra cómo configurar y especificar su propia clave de cifrad
 
 * Solo puede especificar una clave administrada por el cliente *cuando cree su ISE*, no después. No se puede deshabilitar esta clave una vez creado el ISE. Actualmente, no existe compatibilidad para rotar una clave administrada por el cliente para un ISE.
 
-* Para admitir las claves administradas por el cliente, el ISE requiere tener su [identidad administrada asignada por el sistema](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) habilitada. Esta identidad permite que el ISE autentique el acceso a los recursos de otros inquilinos de Azure Active Directory (Azure AD), de modo que no tenga que iniciar sesión con sus credenciales.
+* Para admitir las claves administradas por el cliente, el ISE requiere tener su [identidad administrada asignada por el sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) habilitada. Esta identidad permite que el ISE autentique el acceso a los recursos de otros inquilinos de Azure Active Directory (Azure AD), de modo que no tenga que iniciar sesión con sus credenciales.
 
 * Actualmente, para crear un ISE que admita claves administradas por el cliente y tenga habilitada la identidad asignada por el sistema, debe llamar a la API de REST de Logic Apps mediante una solicitud HTTPS PUT.
 

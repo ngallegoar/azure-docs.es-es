@@ -3,15 +3,15 @@ title: Traslado de una red virtual de Azure a otra región de Azure mediante Azu
 description: Traslade una red virtual de Azure de una región de Azure a otra mediante una plantilla de Resource Manager y Azure Portal.
 author: asudbring
 ms.service: virtual-network
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: c54725d9a947b0c912a822686d7b2cffe1a7b5c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ed3da649ba65484a79b42ba5bb45431839e123d4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75640795"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711449"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-the-azure-portal"></a>Traslado de una red virtual de Azure a otra región mediante Azure Portal
 

@@ -3,7 +3,7 @@ title: Implementación de Instancia administrada de SQL en un grupo de instancia
 titleSuffix: Azure SQL Managed Instance
 description: En este artículo se describe cómo crear y administrar grupos de Instancia administrada de Azure SQL (versión preliminar).
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 9b59f6e091143e5c10be393620e4cc042faac36a
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 1461ba4ae0bea61b3a220c22144a31eade6cdf04
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84216371"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708814"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Implementación de Instancia administrada de Azure SQL en un grupo de instancias
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -54,7 +54,7 @@ En la tabla siguiente se muestran las operaciones disponibles relacionadas con l
 
 Para usar PowerShell, [instale la versión más reciente de PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell) y siga las instrucciones para [instalar el módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-En el caso de las operaciones relacionadas con instancias dentro de grupos e instancias únicas, use los [comandos de instancia administrada](api-references-create-manage-instance.md#powershell-create-and-manage-managed-instances) estándar, pero la propiedad de *nombre del grupo de instancias* se debe rellenar al usar estos comandos para una instancia de un grupo.
+En el caso de las operaciones relacionadas con instancias dentro de grupos e instancias únicas, use los [comandos de instancia administrada](api-references-create-manage-instance.md#powershell-create-and-configure-managed-instances) estándar, pero la propiedad de *nombre del grupo de instancias* se debe rellenar al usar estos comandos para una instancia de un grupo.
 
 ## <a name="deployment-process"></a>Proceso de implementación
 

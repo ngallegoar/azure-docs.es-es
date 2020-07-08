@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 3/17/2020
-ms.openlocfilehash: 6cc089a1efc3f5960a8bca8a36063bb1019bbcc6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/10/2020
+ms.openlocfilehash: 075c8b2670121e7d493d0d99397961155fd0de4b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81409391"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84736581"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Copia incremental de nuevos archivos por el nombre de archivo con particiones de tiempo mediante la herramienta Copiar datos
 
@@ -155,7 +155,7 @@ Haga lo siguiente para preparar su instancia de Blob Storage para el tutorial.
 
 10. Observe que la pestaña **Monitor** (Supervisión) de la izquierda se selecciona automáticamente.  Debe esperar a que la canalización se ejecute cuando se desencadene automáticamente (después de una hora aproximadamente). Cuando se ejecute, haga clic en el vínculo del nombre de canalización **DeltaCopyFromBlobPipeline** para ver los detalles de la ejecución de la actividad o vuelva a ejecutar la canalización. Seleccione **Refresh** (Actualizar) para actualizar la lista.
 
-    ![La supervisión de la canalización se ejecuta](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs1.png)
+    ![La supervisión de la canalización se ejecuta](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs-1.png)
 11. Como solo hay una actividad (actividad de copia) en la canalización, solo verá una entrada. Ajuste el ancho de columna de la columnas de **origen** y **destino** (si es necesario) para mostrar más detalles. Puede ver que el archivo de origen (file1.txt) se ha copiado de *source/2020/03/17/03/* a *destination/2020/03/17/03/* con el mismo nombre de archivo. 
 
     ![La supervisión de la canalización se ejecuta](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)

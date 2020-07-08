@@ -4,15 +4,15 @@ description: Con esta ruta de aprendizaje, empiece a delegar un subdominio de Az
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 2/7/2019
 ms.author: rohink
-ms.openlocfilehash: 7e019afaae98422b8d5a3c8fa7a5f79e26c6a149
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9b37d313aa5d8c2255b4e3be69831dfcb50238ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76937707"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84712554"
 ---
 # <a name="delegate-an-azure-dns-subdomain-using-azure-powershell"></a>Delegación de un subdominio de Azure DNS con Azure PowerShell
 

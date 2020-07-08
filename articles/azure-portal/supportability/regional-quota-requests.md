@@ -4,15 +4,15 @@ description: Cómo solicitar un aumento del límite de cuota de vCPU para una re
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 9236989f7bbb4695db24f86a2a049f5bb58f302a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd4a770aee43709c46ab4c1baf965941d8d2c3ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76843691"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763863"
 ---
 # <a name="standard-quota-increase-limits-by-region"></a>Cuota estándar: aumento de los límites por región
 
