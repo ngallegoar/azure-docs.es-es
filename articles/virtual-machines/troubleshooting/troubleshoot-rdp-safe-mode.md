@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 7bc2c0f472a03c3f069a889c360bea9017a780f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f1ffd26a243d15f7ee6e06d6c52406a16327b4a0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77918213"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086779"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>No se puede usar RDP en una máquina virtual porque esta se inicia en modo seguro
 
@@ -47,7 +47,9 @@ Para resolver este problema, use el control de serie para configurar la máquina
    ). Si la consola serie no está habilitada en la máquina virtual, vaya a la sección de [reparación de la máquina virtual sin conexión](#repair-the-vm-offline).
 2. Consulte los datos de configuración de arranque:
 
-        bcdedit /enum
+    ```console
+    bcdedit /enum
+    ```
 
     Si la máquina virtual está configurada para iniciarse en modo seguro, verá una marca adicional en la sección del **cargador de arranque de Windows** denominada **safeboot**. Si no ve la marca **safeboot**, quiere decir que la máquina virtual no está en modo seguro. El contenido de este artículo no se aplica a este escenario.
 
@@ -61,11 +63,15 @@ Para resolver este problema, use el control de serie para configurar la máquina
 
 3. Elimine la marca **safemoade** marca para que la máquina virtual se inicie en modo normal:
 
-        bcdedit /deletevalue {current} safeboot
+    ```console
+    bcdedit /deletevalue {current} safeboot
+    ```
 
 4. Compruebe los datos de configuración de arranque para asegurarse de que la marca **safeboot** se quita:
 
-        bcdedit /enum
+    ```console
+    bcdedit /enum
+    ```
 
 5. A continuación, reinicie la máquina virtual y compruebe si se ha resuelto el problema.
 
@@ -115,7 +121,10 @@ Para habilitar el registro de volcado de memoria y Serial Console, ejecute el si
 1. Abra una sesión de símbolo del sistema con privilegios elevados (**Ejecutar como administrador**).
 2. Consulte los datos de configuración de arranque. En los siguientes comandos, se supone que la letra de unidad que se asigna al disco del sistema operativo conectado es F. Reemplácela por el valor apropiado para su máquina virtual.
 
-        bcdedit /store F:\boot\bcd /enum
+    ```console
+    bcdedit /store F:\boot\bcd /enum
+    ```
+
     Tome nota del nombre del identificador de la partición que tiene la carpeta **\windows**. De forma predeterminada, el nombre del identificador es "Default".
 
     Si la máquina virtual está configurada para iniciarse en modo seguro, verá una marca adicional en la sección del **cargador de arranque de Windows** denominada **safeboot**. Si no ve la marca **safeboot**, este artículo no es aplicable a su escenario.
@@ -124,8 +133,14 @@ Para habilitar el registro de volcado de memoria y Serial Console, ejecute el si
 
 3. Elimine la marca **safeboot** para que la máquina virtual se inicie en modo normal:
 
-        bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
+    ```console
+    bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
+    ```
+
 4. Compruebe los datos de configuración de arranque para asegurarse de que la marca **safeboot** se quita:
 
-        bcdedit /store F:\boot\bcd /enum
+    ```console
+    bcdedit /store F:\boot\bcd /enum
+    ```
+
 5. [Desconecte el disco del sistema operativo y vuelva a crear la máquina virtual](../windows/troubleshoot-recovery-disks-portal.md). A continuación, compruebe si se ha resuelto el problema.

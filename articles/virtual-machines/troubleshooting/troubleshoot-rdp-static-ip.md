@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/08/2018
 ms.author: genli
-ms.openlocfilehash: 92ad33fbc759605ae901c3bcf09283c8e0b1c4b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 49f3f44c7de8c700d0093c5eb6f166a1dffb34a4
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77918196"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087255"
 ---
 #  <a name="cannot-remote-desktop-to-azure-virtual-machines-because-of-static-ip"></a>No se puede conectar mediante escritorio remoto a Azure Virtual Machines debido a una dirección IP estática
 
@@ -56,18 +56,27 @@ Para resolver este problema, use el control serie para habilitar DHCP o realice 
 ). Si la consola serie no está habilitada en la máquina virtual, consulte [Restablecimiento de la interfaz de red](reset-network-interface.md).
 2. Compruebe si el protocolo DHCP está deshabilitado en la interfaz de red:
 
-        netsh interface ip show config
+    ```console
+    netsh interface ip show config
+    ```
+
 3. Si el protocolo DHCP está deshabilitado, puede revertir la configuración de la interfaz de red para usar DHCP:
 
-        netsh interface ip set address name="<NIC Name>" source=dhc
+    ```console
+    netsh interface ip set address name="<NIC Name>" source=dhc
+    ```
 
     Por ejemplo, si la interfaz de red se llama "Ethernet 2", ejecute el siguiente comando:
 
-        netsh interface ip set address name="Ethernet 2" source=dhc
+    ```console
+    netsh interface ip set address name="Ethernet 2" source=dhc
+    ```
 
 4. Consulte de nuevo la configuración IP para asegurarse de que la interfaz de red está ahora configurada correctamente. La nueva dirección IP debe coincidir con la proporcionada por Azure.
 
-        netsh interface ip show config
+    ```console
+    netsh interface ip show config
+    ```
 
     No tiene que reiniciar la máquina virtual en este momento. La máquina virtual volverá a ser accesible.
 
