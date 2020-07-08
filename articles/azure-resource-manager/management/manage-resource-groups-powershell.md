@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 25e001927d5c06b4a7e5639faaa054ae18b12bb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6f18eea697e875cc926e8fbaa0f61cf2d4639be0
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226204"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057524"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Administración de grupos de recursos de Azure Resource Manager mediante Azure PowerShell
 
@@ -74,7 +74,7 @@ Para obtener más información sobre cómo ordena Azure Resource Manager la el
 
 Consulte [Implementar recursos en un grupo de recursos](manage-resources-powershell.md#deploy-resources-to-an-existing-resource-group).
 
-Para validar la implementación de un grupo de recursos, consulte [Test-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/Az.Resources/Test-AzResourceGroupDeployment?view=azps-1.3.0).
+Para validar la implementación de un grupo de recursos, consulte [Test-AzResourceGroupDeployment](/powershell/module/Az.Resources/Test-AzResourceGroupDeployment?view=azps-1.3.0).
 
 ## <a name="deploy-a-resource-group-and-resources"></a>Implementación de un grupo de recursos y de recursos
 
@@ -223,5 +223,5 @@ El [control de acceso basado en rol (RBAC)](../../role-based-access-control/over
 
 - Para obtener información sobre Azure Resource Manager, consulte [Información general de Azure Resource Manager](overview.md).
 - Para obtener información sobre la sintaxis de las plantillas de Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../templates/template-syntax.md).
-- Para obtener información sobre cómo desarrollar plantillas, consulte los [tutoriales paso a paso](/azure/azure-resource-manager/).
+- Para obtener información sobre cómo desarrollar plantillas, consulte los [tutoriales paso a paso](../index.yml).
 - Para ver los esquemas de plantilla de Azure Resource Manager, vea la [referencia de plantilla](/azure/templates/).

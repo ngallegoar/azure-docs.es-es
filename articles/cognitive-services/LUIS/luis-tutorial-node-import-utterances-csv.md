@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 7b9646f2bab4c17449c6683ae7924af87b184167
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 69eb6c5e5d0139049e252b0a22fefad747429068
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340188"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057745"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Compilar una aplicación de LUIS mediante programación con Node.js
 
@@ -26,7 +26,7 @@ LUIS proporciona una API de programación que hace lo mismo que el sitio web de 
 
 ## <a name="prerequisites"></a>Prerequisites
 
-* Inicie sesión en el sitio web de [LUIS](luis-reference-regions.md) y busque la [clave de creación](luis-concept-keys.md#authoring-key) en la configuración de la cuenta. Esta clave se usa para llamar a las API de creación.
+* Inicie sesión en el sitio web de [LUIS](luis-reference-regions.md) y busque la [clave de creación](luis-how-to-azure-subscription.md#authoring-key) en la configuración de la cuenta. Esta clave se usa para llamar a las API de creación.
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 * Este artículo empieza con un archivo CSV para los archivos de registro de solicitudes de usuario de una empresa hipotética. Descárguela [aquí](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
 * Instale el Node.js más reciente con NPM. Puede descargarlo [aquí](https://nodejs.org/en/download/).

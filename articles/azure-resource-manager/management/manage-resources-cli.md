@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: f00c1725201b0e49f80fec64e5d69b375ec7a233
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a8683a4c9a2ff3cbe3edce5b101973cde73feb2
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75476694"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057507"
 ---
 # <a name="manage-azure-resources-by-using-azure-cli"></a>Administración de recursos de Azure mediante la CLI de Azure
 
@@ -142,5 +142,5 @@ El [control de acceso basado en rol (RBAC)](../../role-based-access-control/over
 
 - Para obtener información sobre Azure Resource Manager, consulte [Información general de Azure Resource Manager](overview.md).
 - Para obtener información sobre la sintaxis de las plantillas de Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../templates/template-syntax.md).
-- Para obtener información sobre cómo desarrollar plantillas, consulte los [tutoriales paso a paso](/azure/azure-resource-manager/).
+- Para obtener información sobre cómo desarrollar plantillas, consulte los [tutoriales paso a paso](../index.yml).
 - Para ver los esquemas de plantilla de Azure Resource Manager, vea la [referencia de plantilla](/azure/templates/).

@@ -6,16 +6,16 @@ manager: jureid
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: jureid
-ms.openlocfilehash: b77efd7e5cf7ff016605e0ba2e74cff9ea8dab89
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6a03d5e67e859a29cb18e29223fe74134aef75fb
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75474646"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057626"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Concesión de acceso para crear suscripciones de Azure Enterprise (versión preliminar)
 
-Como cliente de Azure del [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), puede conceder a otro usuario u otra entidad de servicio permisos para crear suscripciones facturadas en su cuenta. En este artículo, aprenderá a usar el [control de acceso basado en rol (RBAC)](../../active-directory/role-based-access-control-configure.md) para compartir la capacidad de crear suscripciones y cómo auditar creaciones de suscripciones. Debe tener el rol de propietario en la cuenta que desea compartir.
+Como cliente de Azure del [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), puede conceder a otro usuario u otra entidad de servicio permisos para crear suscripciones facturadas en su cuenta. En este artículo, aprenderá a usar el [control de acceso basado en rol (RBAC)](../../role-based-access-control/role-assignments-portal.md) para compartir la capacidad de crear suscripciones y cómo auditar creaciones de suscripciones. Debe tener el rol de propietario en la cuenta que desea compartir.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -158,7 +158,7 @@ Para [crear suscripciones en una cuenta de inscripción](programmatically-create
 
     # <a name="powershell"></a>[PowerShell](#tab/azure-powershell-2)
 
-    Ejecute el comando [New-AzRoleAssignment](../../active-directory/role-based-access-control-manage-access-powershell.md) siguiente, reemplazando ```<enrollmentAccountObjectId>``` con el valor `ObjectId` recopilado en el primer paso (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Reemplace ```<userObjectId>``` con el identificador de objeto recopilado en el segundo paso.
+    Ejecute el comando [New-AzRoleAssignment](../../role-based-access-control/role-assignments-powershell.md) siguiente, reemplazando ```<enrollmentAccountObjectId>``` con el valor `ObjectId` recopilado en el primer paso (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Reemplace ```<userObjectId>``` con el identificador de objeto recopilado en el segundo paso.
 
     ```azurepowershell-interactive
     New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
@@ -166,7 +166,7 @@ Para [crear suscripciones en una cuenta de inscripción](programmatically-create
 
     # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli-2)
 
-    Ejecute el comando [az role assignment create](../../active-directory/role-based-access-control-manage-access-azure-cli.md) siguiente, reemplazando ```<enrollmentAccountObjectId>``` con el valor `name` recopilado en el primer paso (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Reemplace ```<userObjectId>``` con el identificador de objeto recopilado en el segundo paso.
+    Ejecute el comando [az role assignment create](../../role-based-access-control/role-assignments-cli.md) siguiente, reemplazando ```<enrollmentAccountObjectId>``` con el valor `name` recopilado en el primer paso (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Reemplace ```<userObjectId>``` con el identificador de objeto recopilado en el segundo paso.
 
     ```azurecli-interactive
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
@@ -180,7 +180,7 @@ Para [crear suscripciones en una cuenta de inscripción](programmatically-create
 
 Para realizar el seguimiento de las suscripciones creadas a través de esta API, use la [API de registro de actividad de inquilinos](/rest/api/monitor/tenantactivitylogs). Actualmente no es posible usar PowerShell, la CLI ni Azure Portal para realizar el seguimiento de la creación de suscripciones.
 
-1. Como administrador de inquilinos del inquilino de Azure AD, [eleve los privilegios de acceso](../../active-directory/role-based-access-control-tenant-admin-access.md) y asigne un rol de lector al usuario de auditoría con el ámbito `/providers/microsoft.insights/eventtypes/management`.
+1. Como administrador de inquilinos del inquilino de Azure AD, [eleve los privilegios de acceso](../../role-based-access-control/elevate-access-global-admin.md) y asigne un rol de lector al usuario de auditoría con el ámbito `/providers/microsoft.insights/eventtypes/management`.
 1. Como usuario de auditoría, llame a la [API de registro de actividad de inquilinos](/rest/api/monitor/tenantactivitylogs) para ver las actividades de creación de suscripciones. Ejemplo:
 
     ```

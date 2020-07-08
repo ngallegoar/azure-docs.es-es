@@ -3,12 +3,12 @@ title: Exportación de plantilla en Azure Portal
 description: Use Azure Portal para exportar una plantilla de Azure Resource Manager desde los recursos de la suscripción.
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 8cdba58a7a2ba998bac7fc0225ff957047cd69b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dbdcaa6e6db4a7a4a958f1be2e9977a14e092663
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234012"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057711"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Exportación de uno y varios recursos a una plantilla en Azure Portal
 
@@ -121,5 +121,5 @@ Puede exportar la plantilla que se ha usado para implementar los recursos existe
 
 - Aprenda a exportar plantillas con la [CLI de Azure](../management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../management/manage-resource-groups-powershell.md#export-resource-groups-to-templates) o la [API REST](/rest/api/resources/resourcegroups/exporttemplate).
 - Para obtener información sobre la sintaxis de las plantillas de Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
-- Para obtener información sobre cómo desarrollar plantillas, consulte los [tutoriales paso a paso](/azure/azure-resource-manager/).
+- Para obtener información sobre cómo desarrollar plantillas, consulte los [tutoriales paso a paso](../index.yml).
 - Para ver los esquemas de plantilla de Azure Resource Manager, vea la [referencia de plantilla](/azure/templates/).
