@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: 6f543b3f5c2bb7d4949c431580771c4b0d965e4d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4bcd8deef28f8e0123e6e2171b3ab24d6ac49292
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125487"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84635006"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Uso de claves administradas por el cliente en Azure Key Vault para Azure Data Box
 
@@ -23,7 +23,7 @@ Las claves administradas por el cliente se deben crear y almacenar en una instan
 
 En este artículo se muestra cómo usar las claves administradas por el cliente con Azure Data Box en [Azure Portal](https://portal.azure.com/). La información de este artículo se aplica tanto a los dispositivos de Azure Data Box como a los de Azure Data Box Heavy.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, asegúrese de que:
 
@@ -103,7 +103,7 @@ La configuración de la clave administrada por el cliente de Azure Data Box es o
 
 Si recibe errores relacionados con la clave administrada por el cliente, use la tabla siguiente para solucionar los problemas.
 
-| Código de error| Mensaje de error| Detalles|
+| Código de error| Detalles del error| ¿Recuperable?|
 |-------------|--------------|---------|
 | SsemUserErrorEncryptionKeyDisabled| No se pudo capturar la clave de paso porque la clave administrada por el cliente está deshabilitada.| Sí, habilitando la versión de la clave.|
 | SsemUserErrorEncryptionKeyExpired| No se pudo capturar la clave de paso porque la clave administrada por el cliente ha expirado.| Sí, habilitando la versión de la clave.|

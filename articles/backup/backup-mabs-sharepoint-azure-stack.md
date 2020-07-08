@@ -2,13 +2,13 @@
 title: Copia de seguridad de una granja de SharePoint en Azure Stack
 description: Use Azure Backup Server para crear una copia de seguridad de los datos de SharePoint y restaurarlos en Azure Stack. En este artículo se proporciona la información sobre cómo configurar la granja de SharePoint para almacenar los datos deseados en Azure. Puede restaurar los datos protegidos de SharePoint desde disco o desde Azure.
 ms.topic: conceptual
-ms.date: 06/08/2018
-ms.openlocfilehash: d080605022cadf121fa6be99c9758fe9c0d878ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/07/2020
+ms.openlocfilehash: 8b9257c1d175c350df06f9421b31a9e7b8e2bb80
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78673041"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84657928"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Copia de seguridad de una granja de SharePoint en Azure Stack
 
@@ -26,127 +26,116 @@ Azure Backup para MABS admite los siguientes escenarios:
 
 Antes de realizar una copia de seguridad de una granja de SharePoint en Azure, hay algunas cuantas cosas que debe confirmar.
 
-### <a name="prerequisites"></a>Prerrequisitos
-
-Antes de continuar, asegúrese de que ha [instalado y preparado Azure Backup Server](backup-mabs-install-azure-stack.md) para proteger las cargas de trabajo.
-
-### <a name="protection-agent"></a>Agente de protección
-
-El agente de Azure Backup debe instalarse en el servidor que ejecuta SharePoint, en los servidores que ejecutan SQL Server y en todos los demás servidores que forman parte de la granja de SharePoint. Para obtener más información sobre cómo configurar el agente de protección, consulte [Programa de instalación del agente de protección](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019).  La única excepción es que solo instale al agente en un único servidor web front-end (WFE). Azure Backup Server necesita el agente en un servidor WFE con el único fin de servir como punto de entrada para la protección.
-
-### <a name="sharepoint-farm"></a>Granja de SharePoint
-
-Para cada 10 millones de elementos del conjunto de servidores, debe haber al menos 2 GB de espacio en el volumen donde se encuentra la carpeta MABS. Este espacio se requiere para la generación del catálogo. Para que MABS pueda recuperar elementos específicos (colecciones de sitios, sitios, listas, bibliotecas de documentos, carpetas, documentos individuales y elementos de lista), la generación de catálogos crea una lista de las direcciones URL que están dentro de cada base de datos de contenido. Puede ver la lista de direcciones URL en el panel de elementos recuperables en el área de tareas de **recuperación** de la Consola de administrador MABS.
-
-### <a name="sql-server"></a>SQL Server
-
-Azure Backup Server se ejecuta como una cuenta LocalSystem. Para realizar una copia de seguridad de las bases de datos SQL Server, MABS necesita privilegios de administrador del sistema en esa cuenta en el servidor que ejecuta SQL Server. Establezca NT AUTHORITY\SYSTEM en *sysadmin* en el servidor que ejecuta SQL Server antes de proceder con la copia de seguridad.
-
-Si la granja de SharePoint tiene bases de datos SQL Server que están configuradas con alias de SQL Server, instale los componentes de cliente de SQL Server en el servidor web front-end que MABS vaya a proteger.
-
 ### <a name="whats-not-supported"></a>Lo que no se admite
 
 * Que MABS proteja una granja de SharePoint y no proteja índices de búsqueda o bases de datos de servicios de aplicaciones. Deberá configurar la protección de estas bases de datos por separado.
+
 * Que MABS no proporcione copia de seguridad de bases de datos SQL Server de SharePoint hospedadas en recursos compartidos de servidor de archivos de escalabilidad horizontal (SOFS).
 
-## <a name="configure-sharepoint-protection"></a>Configuración de la protección de SharePoint
+### <a name="prerequisites"></a>Requisitos previos
 
-Antes de poder usar MABS para proteger SharePoint, debe configurar el servicio VSS Writer de SharePoint (servicio WSS Writer) mediante **ConfigureSharePoint.exe**.
+Antes de continuar, asegúrese de que se cumplen todos los [requisitos previos para usar Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites-and-limitations) a fin de proteger las cargas de trabajo. Algunas de las tareas que son requisito previo incluyen: crear un almacén de copia de seguridad, descargar las credenciales de almacén, instalar el agente de copia de seguridad de Azure y registrar Azure Backup Server en el almacén.
 
-Puede encontrar **ConfigureSharePoint.exe** en la carpeta [ruta de instalación de MABS]\bin en el servidor web front-end. Esta herramienta proporciona al agente de protección las credenciales para la granja de servidores de SharePoint. Debe ejecutarlo en un solo servidor WFE. Si tiene varios servidores WFE, seleccione solo uno al configurar un grupo de protección.
+Requisitos previos y las limitaciones adicionales:
 
-### <a name="to-configure-the-sharepoint-vss-writer-service"></a>Para configurar el servicio VSS Writer de SharePoint
+* De forma predeterminada, al proteger SharePoint, se protegerán todas las bases de datos de contenido (y las bases de datos SharePoint_Config y SharePoint_AdminContent*). Si desea agregar personalizaciones como índices de búsqueda, plantillas o bases de datos de servicios de aplicación, o bien el servicio de perfiles de usuario, deberá configurarlas para la protección por separado. Asegúrese de habilitar la protección para todas las carpetas que incluyan estos tipos de características o archivos de personalización.
 
-1. En el servidor WFE, en un símbolo del sistema, vaya a [ubicación de instalación de MABS]\bin\
-2. Escriba ConfigureSharePoint -EnableSharePointProtection.
-3. Escriba las credenciales de administrador de la granja de servidores. Esta cuenta debe ser miembro del grupo de administradores local en el servidor WFE. Si el administrador de la granja no es un administrador local, conceda los permisos siguientes en el servidor WFE:
-   * Conceda al grupo WSS_Admin_WPG control total sobre la carpeta DPM (%Program Files%\Microsoft Azure Backup\DPM).
-   * Conceda al grupo WSS_Admin_WPG acceso de lectura a la clave del Registro de DPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
+* No puede proteger las bases de datos de SharePoint como un origen de datos de SQL Server. Puede recuperar bases de datos individuales desde una copia de seguridad de la granja.
 
-> [!NOTE]
-> Debe volver a ejecutar ConfigureSharePoint.exe cada vez que haya un cambio en las credenciales de administrador de la granja de servidores de SharePoint.
->
->
+* Recuerde que MABS se ejecuta como **sistema local**, y para realizar una copia de seguridad de las bases de datos de SQL Server, necesita privilegios de administrador del sistema en esa cuenta para SQL Server. En el servidor SQL Server del que desea realizar una copia de seguridad, establezca NT AUTHORITY\SYSTEM en **sysadmin**.
 
-## <a name="back-up-a-sharepoint-farm-by-using-mabs"></a>Realización de una copia de seguridad de una granja de SharePoint con MABS
+* Para cada 10 millones de elementos del conjunto de servidores, debe haber al menos 2 GB de espacio en el volumen donde se encuentra la carpeta MABS. Este espacio se requiere para la generación del catálogo. Para poder utilizar MABS para realizar una recuperación específica de elementos (colecciones de sitios, sitios, listas, bibliotecas de documentos, carpetas, documentos individuales y elementos de lista), la generación de catálogos crea una lista de las direcciones URL que están dentro de cada base de datos de contenido. Puede ver la lista de direcciones URL en el panel de elementos recuperables en el área de tareas de recuperación de la Consola de administrador MABS.
 
-Después de que haya configurado MABS y la granja de SharePoint tal y como se ha explicado anteriormente, SharePoint se puede proteger con MABS.
+* En la granja de SharePoint, si tiene bases de datos de SQL Server que están configuradas con alias de SQL Server, instale los componentes del cliente de SQL Server en el servidor web front-end web que MABS protegerá.
 
-### <a name="to-protect-a-sharepoint-farm"></a>Para proteger una granja de SharePoint
+* La protección de elementos de la tienda de aplicaciones no es compatible con SharePoint 2013.
 
-1. En la pestaña **Protección** de la Consola de administrador MABS, haga clic en **Nuevo**.
-    ![Nueva pestaña de protección](./media/backup-azure-backup-sharepoint/dpm-new-protection-tab.png)
-2. En la página **Seleccionar tipo de grupo de protección** del asistente **Crear nuevo grupo de protección**, seleccione **Servidores** y luego haga clic en **Siguiente**.
+* MABS no admite la protección de FILESTREAM remoto. FILESTREAM debe formar parte de la base de datos.
 
-    ![Seleccionar tipo de grupo de protección](./media/backup-azure-backup-sharepoint/select-protection-group-type.png)
-3. En la pantalla **Seleccionar miembros del grupo**, active la casilla del servidor de SharePoint que quiere proteger y haga clic en **Siguiente**.
+## <a name="configure-backup"></a>Configuración de la copia de seguridad
 
-    ![Seleccionar a miembros del grupo](./media/backup-azure-backup-sharepoint/select-group-members2.png)
+Para realizar una copia de seguridad de una granja de SharePoint, configure la protección de SharePoint mediante ConfigureSharePoint.exe y, a continuación, cree un grupo de protección en MABS.
 
-   > [!NOTE]
-   > Con el agente de protección instalado, puede ver el servidor en el asistente. MABS también muestra su estructura. Como ha ejecutado ConfigureSharePoint.exe, MABS se comunica con el servicio VSS Writer de SharePoint y con sus bases de datos SQL Server correspondientes y reconoce la estructura de la granja de SharePoint, las bases de datos de contenido asociadas y cualquier elemento correspondiente.
-   >
-   >
-4. En la pantalla **Seleccionar método de protección de datos**, escriba el nombre del **grupo de protección** y seleccione los *métodos de protección* que prefiera. Haga clic en **Next**.
+1. **Ejecute ConfigureSharePoint.exe**: esta herramienta configura el servicio \(WSS\) de VSS Writer de SharePoint y proporciona el agente de protección con las credenciales de la granja de SharePoint. Después de haber implementado el agente de protección, el archivo ConfigureSharePoint.exe puede encontrarse en la carpeta `<MABS Installation Path\>\bin` del servidor web del front-end.  Si tiene varios servidores WFE, solo tiene que instalarlo en uno de ellos. Ejecute del modo siguiente:
 
-    ![Seleccionar método de protección de datos](./media/backup-azure-backup-sharepoint/select-data-protection-method1.png)
+    * En el servidor WFE, en un símbolo del sistema, vaya a `\<MABS installation location\>\\bin\\` y ejecute `ConfigureSharePoint \[\-EnableSharePointProtection\] \[\-EnableSPSearchProtection\] \[\-ResolveAllSQLAliases\] \[\-SetTempPath <path>\]`, donde:
 
-   > [!NOTE]
-   > El método de protección en disco ayuda a cumplir objetivos de tiempo de recuperación corto.
-   >
-   >
-5. En la pantalla **Especificar objetivos a corto plazo**, seleccione su **intervalo de retención** preferido y especifique cuándo quiere que se creen las copias de seguridad.
+        * **EnableSharePointProtection** habilita la protección de la granja de SharePoint, habilita VSS Writer y registra la identidad del WssCmdletsWrapper de la aplicación DCOM para que se ejecute como un usuario cuyas credenciales se especifican con esta opción. Esta cuenta debe tener el rol de administrador de la granja y también administrador local en el servidor web del front\-end.
 
-    ![Especificar objetivos a corto plazo](./media/backup-azure-backup-sharepoint/specify-short-term-goals2.png)
+        * **EnableSPSearchProtection** habilita la protección de SP Search de WSS 3.0 mediante la clave del Registro SharePointSearchEnumerationEnabled en HKLM\\Software\\Microsoft\\Microsoft Data Protection Manager\\Agent\\2.0\\ en el servidor web del front\-end y registra la identidad del WssCmdletsWrapper de la aplicación DCOM WssCmdletsWrapper para que se ejecute como un usuario cuyas credenciales se especifican con esta opción. Esta cuenta debe tener el rol de administrador de la granja y también administrador local en el servidor web del front\-end.
 
-   > [!NOTE]
-   > Como la recuperación suele ser más necesaria para datos de menos de cinco días, seleccionamos un intervalo de retención de cinco días en el disco y nos aseguramos que la copia de seguridad se crea durante las horas que no son de producción para este ejemplo.
-   >
-   >
-6. Revise el espacio en disco del grupo de almacenamiento asignado al grupo de protección y haga clic en **Siguiente**.
-7. Para cada grupo de protección, MABS asigna espacio en disco para almacenar y administrar réplicas. En este punto, MABS debe crear una copia de los datos seleccionados. Seleccione cómo y cuándo quiere que se cree la réplica y haga clic en **Siguiente**.
+        * **ResolveAllSQLAliases** muestra todos los alias notificados por VSS Writer de SharePoint y los resuelve en el servidor SQL Server correspondiente. También se muestran sus nombres de instancia resueltos. Si los servidores están reflejados, también muestra el servidor reflejado. Notifica todos los alias que no se están resolviendo en un servidor SQL Server.
 
-    ![Elegir método de creación de réplica](./media/backup-azure-backup-sharepoint/choose-replica-creation-method.png)
+        * **SetTempPath** establece las variables de entorno TEMP y TMP en la ruta de acceso especificada. Se produce un error en la recuperación de nivel de elemento si se está realizando una recuperación extensa de un sitio, una colección de sitios, una lista o un elemento y no hay espacio suficiente en la carpeta Temporary del administrador de la granja. Esta opción permite cambiar la ruta de acceso de la carpeta de los archivos temporales a un volumen que tenga espacio suficiente para almacenar el sitio o la colección de sitios objeto de recuperación.
 
-   > [!NOTE]
-   > Para asegurarse de que no se aplica el tráfico de red, seleccione una hora fuera del horario de producción.
-   >
-   >
-8. MABS garantiza la integridad de los datos con comprobaciones de coherencia en la réplica. Hay dos opciones disponibles. Puede definir una programación para ejecutar comprobaciones de coherencia. También DPM puede ejecutar comprobaciones de coherencia automáticamente en la réplica cada vez que sea incoherente. Seleccione la opción que prefiera y haga clic en **Siguiente**.
+    * Escriba las credenciales de administrador de la granja de servidores. Esta cuenta debe ser miembro del grupo de administradores local en el servidor WFE. Si el administrador de la granja no es un administrador local, conceda los permisos siguientes en el servidor WFE:
 
-    ![Comprobación de coherencia](./media/backup-azure-backup-sharepoint/consistency-check.png)
-9. En la pantalla **Especificar datos de protección en línea**, seleccione la granja de SharePoint que quiere proteger y haga clic en **Siguiente**.
+        * Conceda al grupo **WSS_Admin_WPG** control total sobre la carpeta de MABS (`%Program Files%\Data Protection Manager\DPM\`).
 
-    ![DPM SharePoint Protection1](./media/backup-azure-backup-sharepoint/select-online-protection1.png)
-10. En la pantalla **Especificar una programación de copia de seguridad en línea**, seleccione la programación que prefiera y haga clic en **Siguiente**.
+        * Conceda al grupo **WSS_Admin_WPG** acceso de lectura a la clave de Registro de MABS (`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager`).
 
-    ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
+        Después de ejecutar ConfigureSharePoint.exe, tendrá que volver a ejecutarlo cada vez que haya un cambio en las credenciales de administrador de la granja de SharePoint.
 
-    > [!NOTE]
-    > MABS ofrece un máximo de dos copias de seguridad diarias a Azure desde el punto de copia de seguridad del disco más reciente disponible. Azure Backup también puede controlar la cantidad de ancho de banda WAN que puede usarse para copias de seguridad en horas de máxima y mínima actividad mediante la [limitación de red de Azure Backup](backup-windows-with-mars-agent.md#enable-network-throttling).
-    >
-    >
-11. Según la programación de copia de seguridad seleccionada, en la página **Especificar la directiva de retención en línea** , seleccione la directiva de retención para los puntos de copia de seguridad diarios, semanales, mensuales y anuales.
+1. Para crear un grupo de protección, haga clic en **Protección** > **Acciones** > **Crear grupo de protección** para abrir el Asistente para **crear nuevo grupo de protección** en la Consola de MABS.
 
-    ![Online_retention_policy](./media/backup-azure-backup-sharepoint/specify-online-retention.png)
+1. En **Seleccionar tipo de grupo de protección**, seleccione **Servidores**.
 
-    > [!NOTE]
-    > MABS emplea un esquema de retención abuelo-padre-hijo en el que se puede elegir una directiva de retención diferente para distintos puntos de copia de seguridad.
-    >
-    >
-12. Como ocurre con el disco, se debe crear una réplica de punto de referencia inicial en Azure. Seleccione la opción preferida para crear una copia de seguridad inicial en Azure y haga clic en **Siguiente**.
+1. En **Seleccionar miembros del grupo**, expanda el servidor que contiene el rol WFE. Si hay más de un servidor WFE, seleccione aquel en que instaló ConfigureSharePoint.exe.
 
-    ![Online_replica](./media/backup-azure-backup-sharepoint/online-replication.png)
-13. Revise la configuración seleccionada en la página **Resumen** y haga clic en **Crear grupo**. Verá un mensaje de operación completada correctamente una vez que se haya creado el grupo de protección.
+    Al expandir el servidor de SharePoint, MABS consulta a VSS para ver qué datos puede proteger MABS.  Si la base de datos de SharePoint es remota, MABS se conecta a ella. Si los orígenes de datos de SharePoint no aparecen, compruebe que VSS Writer se está ejecutando en el servidor de SharePoint y en cualquier servidor SQL Server remoto, y asegúrese de que el agente de MABS esté instalado en el servidor de SharePoint y en el servidor SQL Server remoto. Además, asegúrese de que las bases de datos de SharePoint no se están protegiendo en otro lugar como bases de datos de SQL Server.
 
-    ![Resumen](./media/backup-azure-backup-sharepoint/summary.png)
+1. En **Seleccionar método de protección de datos**, especifique cómo desea administrar la copia de seguridad a corto y largo plazo. La copia de seguridad a corto plazo siempre se realiza primero en disco, pero existe la opción de realizar una copia de seguridad desde el disco a la nube de Azure mediante Azure Backup \(para corto o largo plazo\).
+
+1. En **Especificar objetivos a corto plazo**, especifique cómo quiere realizar la copia de seguridad en el almacenamiento a corto plazo en disco.   En **Duración de retención**, especfique cuánto tiempo quiere conservar los datos en el disco. En **Frecuencia de sincronización**, especifique con qué frecuencia quiere ejecutar una copia de seguridad incremental en el disco. Si no desea establecer un intervalo de copia de seguridad, puede marcar Solo antes de un punto de recuperación para que MABS ejecute una copia de seguridad completa rápida solo antes del momento en que esté programado un punto de recuperación.
+
+1. En la página Revisar asignación de disco, revise el espacio en disco del grupo de almacenamiento asignado para el grupo de protección.
+
+    **Total Data size** (Tamaño total de datos) es el tamaño de los datos de los que quiere realizar la copia de seguridad y **Disk space to be provisioned on MABS** (Espacio en disco que se va a aprovisionar en MABS) es el espacio que recomienda MABS para el grupo de protección. MABS elige el volumen ideal para la copia de seguridad, en función de la configuración. Pero puede editar las opciones de volumen de copia de seguridad en los **detalles de asignación del disco**. En el caso de las cargas de trabajo, seleccione el almacenamiento de su preferencia en el menú desplegable. Las modificaciones cambiarán los valores de **Almacenamiento total** y **Free Storage** (Almacenamiento libre) en el panel **Almacenamiento en disco disponible**. El espacio insuficiente es la cantidad de almacenamiento que MABS sugiere agregar al volumen, para continuar las copias de seguridad sin problemas en el futuro.
+
+1. En **Elegir método de creación de réplica**, seleccione cómo quiere controlar la replicación inicial completa de los datos.  Si selecciona replicar a través de la red, se recomienda elegir una hora de menor actividad. Para grandes cantidades de datos o condiciones de red no del todo óptimas, considere la posibilidad de replicar los datos sin conexión con medios extraíbles.
+
+1. En **Elegir las opciones de la comprobación de coherencia**, seleccione cómo quiere automatizar las comprobaciones de coherencia. Puede habilitar una comprobación para que se ejecute solo cuando los datos de réplica no sean coherentes, o bien según una programación. Si no quiere configurar la comprobación de coherencia automática, puede ejecutar una comprobación manual en cualquier momento: para ello, haga clic con el botón derecho en el grupo de protección en el área **Protección** de la consola de MABS y seleccione **Realizar comprobación de coherencia**.
+
+1. Si ha seleccionado realizar una copia de seguridad en la nube mediante Azure Backup, asegúrese de que en la página **Especificar datos de protección en línea** están seleccionadas las cargas de trabajo de las que quiere realizar una copia de seguridad en Azure.
+
+1. En **Especificar la programación de copia de seguridad en línea**, especifique con qué frecuencia se deberían realizar las copias de seguridad incrementales en Azure. Puede programar que las copias de seguridad se ejecuten cada día, semana, mes y año y seleccionar la hora y la fecha en la que se deben ejecutar. Pueden realizarse copias de seguridad hasta dos veces al día. Cada vez que se ejecuta una copia de seguridad, se crea un punto de recuperación de datos en Azure a partir de la copia de los datos de copia de seguridad almacenados en el disco de MABS.
+
+1. En **Especificar la directiva de retención en línea**, puede especificar cómo se retienen en Azure los puntos de recuperación creados a partir de copias de seguridad diarias, semanales, mensuales y anuales.
+
+1. En **Elegir replicación en línea**, especifique cómo se realizará la replicación inicial total de los datos. Puede replicar a través de la red o realizar una copia de seguridad sin conexión (propagación sin conexión). Las copias de seguridad sin conexión usan la característica Azure Import. [Más información](https://azure.microsoft.com/documentation/articles/backup-azure-backup-import-export/).
+
+1. En la página **Resumen**, revise la configuración. Después de seleccionar **Crear grupo**, se produce la replicación inicial de los datos. Cuando finalice, el estado del grupo de protección se mostrará como **Correcto** en la página**Estado**. Después se realiza una copia de seguridad según la configuración del grupo de protección.
+
+## <a name="monitoring"></a>Supervisión
+
+Después de crear el grupo de protección, se produce la replicación inicial y MABS empieza a realizar la copia de seguridad y la sincronización de los datos de SharePoint. MABS supervisa la sincronización inicial y las copias de seguridad posteriores.  Puede supervisar los datos de SharePoint de dos maneras:
+
+* Mediante la supervisión de MABS predeterminada, puede configurar las notificaciones para la supervisión proactiva mediante la publicación de alertas y la configuración de notificaciones. Puede enviar notificaciones por correo electrónico para las alertas críticas, de advertencia o informativas y para el estado de las recuperaciones con instancias.
+
+* Si usa Operations Manager, puede publicar las alertas de forma centralizada.
+
+### <a name="set-up-monitoring-notifications"></a>Configuración de notificaciones de supervisión
+
+1. En la Consola de administrador de MABS, haga clic en **Supervisión** > **Acción** > **Opciones**.
+
+2. Haga clic en **Servidor SMTP**, escriba el nombre del servidor, el puerto y la dirección de correo desde la que se enviarán las notificaciones. La dirección debe ser válida.
+
+3. En **Servidor SMTP autenticado**, escriba un nombre de usuario y una contraseña. El nombre de usuario y la contraseña que escriba deben ser el nombre de cuenta de dominio de la persona cuya dirección "De" se describe en el paso anterior. De lo contrario, se produce un error en la entrega de la notificación.
+
+4. Para probar la configuración del servidor SMTP, haga clic en **Enviar correo electrónico de prueba**, escriba la dirección de correo electrónico en la que desea que MABS envíe el mensaje de prueba y, a continuación, haga clic en **Aceptar**. Haga clic en **Opciones** > **Notificaciones** y seleccione los tipos de alertas sobre qué destinatarios desean recibir notificaciones. En **Destinatarios**, escriba la dirección de correo electrónico para cada destinatario al que desea que MABS envíe copias de las notificaciones.
+
+### <a name="publish-operations-manager-alerts"></a>Importación de alertas de Operations Manager
+
+1. En la Consola de administrador de MABS, haga clic en **Supervisión** > **Acción** > **Opciones** > **Publicación de alertas** > **Publicar alertas activas**.
+
+2. Después de habilitar **Publicación de alertas**, todas las alertas de MABS existentes que pueden requerir una acción del usuario se publican en el registro de eventos de **Alertas de MABS**. A continuación, el agente de Operations Manager que está instalado en el servidor de MABS publica estas alertas en Operations Manager y continúa actualizando la consola a medida que se generan nuevas alertas.
 
 ## <a name="restore-a-sharepoint-item-from-disk-by-using-mabs"></a>Restauración de un elemento de SharePoint desde un disco con MABS
 
 En el ejemplo siguiente, el *elemento de recuperación de SharePoint* se eliminó accidentalmente y es necesario recuperarlo.
 ![Protección de SharePoint con MABS4](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection5.png)
 
-1. Abra la **Consola de administrador DPM**. Todas las granjas de SharePoint que están protegidas con DPM se muestran en la pestaña **Protección** .
+1. Abra la **Consola de administrador de MABS**. Todas las granjas de SharePoint que están protegidas con MABS se muestran en la pestaña **Protección**.
 
     ![Protección de SharePoint con MABS3](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection4.png)
 2. Para empezar a recuperar el elemento, seleccione la pestaña **Recuperación** .
@@ -203,7 +192,7 @@ En el ejemplo siguiente, el *elemento de recuperación de SharePoint* se elimin�
     >
     >
 
-## <a name="restore-a-sharepoint-database-from-azure-by-using-dpm"></a>Restauración de una base de datos de SharePoint de Azure con DPM
+## <a name="restore-a-sharepoint-database-from-azure-by-using-mabs"></a>Restauración de una base de datos de SharePoint de Azure con MABS
 
 1. Para recuperar una base de datos de contenido de SharePoint, desplácese por los diversos puntos de recuperación (tal como se mostró anteriormente) y seleccione aquel que quiera recuperar.
 
@@ -211,7 +200,7 @@ En el ejemplo siguiente, el *elemento de recuperación de SharePoint* se elimin�
 2. Haga doble clic en el punto de recuperación de SharePoint para mostrar la información de catálogo de SharePoint disponible.
 
    > [!NOTE]
-   > Como la granja de SharePoint está protegida para la retención a largo plazo en Azure, no hay información de catálogo (metadatos) disponible en MABS. Como resultado, cada vez que deba recuperar una base de datos de contenido de SharePoint en un momento dado, deberá volver a catalogar la granja de SharePoint.
+   > Como la granja de SharePoint está protegida para la retención a largo plazo en Azure, no hay información de catálogo (metadatos) disponible en el servidor de MABS. Como resultado, cada vez que deba recuperar una base de datos de contenido de SharePoint en un momento dado, deberá volver a catalogar la granja de SharePoint.
    >
    >
 3. Haga clic en **Volver a catalogar**.
@@ -230,15 +219,45 @@ En el ejemplo siguiente, el *elemento de recuperación de SharePoint* se elimin�
     ![Protección de SharePoint con MABS13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. En este momento, siga los pasos de recuperación que se han indicado en este artículo para recuperar una base de datos de contenido de SharePoint desde el disco.
 
-## <a name="faqs"></a>Preguntas más frecuentes
+## <a name="switching-the-front-end-web-server"></a>Cambio del servidor front-end web
 
-P: ¿Puedo recuperar un elemento de SharePoint en la ubicación original si SharePoint está configurado con SQL AlwaysOn (con protección en disco)?<br>
-A. Sí, se puede recuperar el elemento en el sitio de SharePoint original.
+Si tiene más de un servidor front-end web y desea cambiar el servidor que MABS usa para proteger la granja, siga las instrucciones:
 
-P: ¿Puedo recuperar una base de datos de SharePoint en la ubicación original si SharePoint está configurada con SQL AlwaysOn?<br>
-A. Como las bases de datos de SharePoint están configuradas en SQL AlwaysOn, no se pueden modificar a menos que se quite el grupo de disponibilidad. En consecuencia, MABS no puede restaurar la base de datos en la ubicación original. Puede recuperar una base de datos SQL Server en otra instancia de SQL Server.
+El siguiente procedimiento usa el ejemplo de una granja de servidores con dos servidores web de front-end: *Servidor1* y *Servidor2*. MABS usa el *Servidor1* para proteger la granja. Cambie el servidor web de front-end que MABS usa para *Servidor2* para poder quitar el *Servidor1* de la granja.
+
+> [!NOTE]
+> Si el servidor web de front-end que usa MABS para proteger la granja no está disponible, utilice el siguiente procedimiento para cambiar el servidor web de front-end a partir del paso 4.
+
+### <a name="to-change-the-front-end-web-server-that-mabs-uses-to-protect-the-farm"></a>Para cambiar el servidor front-end web que usa MABS para proteger la granja de servidores
+
+1. Detenga el servicio VSS Writer de SharePoint en el *Servidor1* ejecutando el siguiente comando en un símbolo del sistema:
+
+    ```CMD
+    stsadm -o unregisterwsswriter
+    ```
+
+1. En el *Servidor1*, abra el Editor del Registro y desplácese hasta la clave siguiente:
+
+   **HKLM\System\CCS\Services\VSS\VssAccessControl**
+
+1. Compruebe todos los valores que figuran en la subclave VssAccessControl. Si alguna entrada tiene un valor de 0 y otra instancia de VSS Writer se está ejecutando en las credenciales de la cuenta asociada, cambie los datos del valor a 1.
+
+1. Instale un agente de protección en el *Servidor2*.
+
+   > [!WARNING]
+   > Solo puede cambiar los servidores web de front-end si ambos servidores están en el mismo dominio.
+
+1. En el *Servidor2*, en un símbolo del sistema, cambie el directorio a `_MABS installation location_\bin\` y ejecute **ConfigureSharepoint**. Para obtener más información sobre ConfigureSharePoint, vea [Configurar la copia de seguridad](#configure-backup).
+
+1. Seleccione el grupo de protección al que pertenece la granja de servidores y, a continuación, haga clic en **Modificar grupo de protección**.
+
+1. En el Asistente para modificar grupo, en la página **Seleccionar miembros del grupo**, expanda *Servidor2* y seleccione la granja de servidores. A continuación, complete el asistente.
+
+   Se iniciará una comprobación de coherencia.
+
+1. Si realizó el paso 6, ahora puede quitar el volumen del grupo de protección.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el artículo sobre [copia de seguridad de archivos y aplicaciones](backup-mabs-files-applications-azure-stack.md).
-Consulte el artículo sobre [copia de seguridad de SQL Server en Azure Stack](backup-mabs-sql-azure-stack.md).
+* Consulte el artículo sobre [copia de seguridad de archivos y aplicaciones](backup-mabs-files-applications-azure-stack.md).
+* Consulte el artículo sobre [copia de seguridad de SQL Server en Azure Stack](backup-mabs-sql-azure-stack.md).
