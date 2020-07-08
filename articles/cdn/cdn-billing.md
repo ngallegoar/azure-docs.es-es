@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
-ms.openlocfilehash: d3a2dfba98f83d34c3e83ec865e3b692f7dbacd2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f3240151937a8ad758e4afe765341261069fd60e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254230"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254572"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Descripción de la facturación de Azure CDN
 
@@ -111,10 +111,11 @@ Si usa uno de los siguientes servicios de Azure como origen de CDN, no se le cob
 - Azure Batch 
 - Explorador de datos de Azure
 - HDInsight
-- Azure Cosmos DB
+- Azure Cosmos DB
 - Azure Data Lake Store
 - Azure Machine Learning 
-- Azure SQL Database
+- Azure SQL Database
+- Instancia administrada de Azure SQL
 - Azure Cache for Redis
 
 ## <a name="how-do-i-manage-my-costs-most-effectively"></a>¿Cómo administro mis costos con más eficacia?

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 7c15312b48e7118517894d8ffd4807e4892e03a3
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: e323c56f22c3a7d32bda5afe03a3462d3263f0d0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233136"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254079"
 ---
 # <a name="using-azure-stream-analytics-jobs-with-sql-edge"></a>Uso de trabajos de Azure Stream Analytics con SQL Edge
 
@@ -52,7 +52,7 @@ Azure SQL Edge tiene una implementación nativa del runtime de Stream Analytics.
     |Campo      | Descripción |
     |---------------|-------------|
     |Alias de salida | Nombre del alias de salida.|
-    |Base de datos | El nombre de la base de datos SQL. Debe ser un nombre de base de datos válido que exista en la instancia de SQL Edge.|
+    |Base de datos | Nombre de la base de datos. Debe ser un nombre de base de datos válido que exista en la instancia de SQL Edge.|
     |Nombre de servidor | Detalles de nombre (o de dirección IP) y número de puerto de la instancia de SQL. En el caso de una implementación de SQL Edge, puede usar **tcp:.,1433** como nombre del servidor.|
     |Nombre de usuario | Cuenta de inicio de sesión de SQL que tiene acceso de lectura y escritura de datos a la base de datos que especificó anteriormente.|
     |Contraseña | Contraseña de la cuenta de inicio de sesión de SQL que especificó anteriormente.|
