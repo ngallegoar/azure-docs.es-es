@@ -4,12 +4,12 @@ description: En este artículo se describe cómo migrar máquinas virtuales de A
 ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: MVC
-ms.openlocfilehash: 739439f63c81ef75cdcbe0b9e1d3f367d073d43b
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 6eeff73bdcac214eb3836731fcbfd2f9410c6045
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85198836"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102810"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Detección, evaluación y migración de máquinas virtuales de Amazon Web Services (AWS) a Azure
 
@@ -39,8 +39,8 @@ Antes de migrar a Azure, se recomienda realizar una evaluación de la detección
 
 Configure una evaluación como se indica a continuación:
 
-1. La evaluación se puede realizar tratando las máquinas virtuales de AWS como máquinas físicas, con el fin de llevarla a cabo mediante Azure Migrate: Server Assessment. Siga el [tutorial](https://docs.microsoft.com/azure/migrate/tutorial-prepare-physical) para configurar Azure y preparar las máquinas virtuales de AWS para una evaluación.
-2. A continuación, siga este [tutorial](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical) para configurar un proyecto y un dispositivo de Azure Migrate para detectar y evaluar las máquinas virtuales de AWS.
+1. La evaluación se puede realizar tratando las máquinas virtuales de AWS como máquinas físicas, con el fin de llevarla a cabo mediante Azure Migrate: Server Assessment. Siga el [tutorial](./tutorial-prepare-physical.md) para configurar Azure y preparar las máquinas virtuales de AWS para una evaluación.
+2. A continuación, siga este [tutorial](./tutorial-assess-physical.md) para configurar un proyecto y un dispositivo de Azure Migrate para detectar y evaluar las máquinas virtuales de AWS.
 
 Aunque se recomienda probar una evaluación, no es obligatorio llevarla a cabo para poder migrar máquinas virtuales.
 
@@ -48,9 +48,9 @@ Aunque se recomienda probar una evaluación, no es obligatorio llevarla a cabo p
 
 ## <a name="1-prerequisites-for-migration"></a>1. Requisitos previos para la migración
 
-- Asegúrese de que las máquinas virtuales de AWS que quiere migrar ejecutan una versión del sistema operativo compatible. Las máquinas virtuales de AWS se tratan como máquinas físicas para el propósito de la migración. Revise los [sistemas operativos compatibles](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#replicated-machines) para el flujo de trabajo de migración de servidores físicos. Se recomienda realizar una migración de prueba (conmutación por error de prueba) para validar si la máquina virtual funciona según lo esperado antes de continuar con la migración real.
-- Asegúrese de que las máquinas virtuales de AWS cumplan con las [configuraciones admitidas](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical-migration#physical-server-requirements) para la migración a Azure.
-- Compruebe que las máquinas virtuales de AWS que replique en Azure cumplan con los [requisitos de máquina virtual de Azure](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical-migration#azure-vm-requirements).
+- Asegúrese de que las máquinas virtuales de AWS que quiere migrar ejecutan una versión del sistema operativo compatible. Las máquinas virtuales de AWS se tratan como máquinas físicas para el propósito de la migración. Revise los [sistemas operativos compatibles](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) para el flujo de trabajo de migración de servidores físicos. Se recomienda realizar una migración de prueba (conmutación por error de prueba) para validar si la máquina virtual funciona según lo esperado antes de continuar con la migración real.
+- Asegúrese de que las máquinas virtuales de AWS cumplan con las [configuraciones admitidas](./migrate-support-matrix-physical-migration.md#physical-server-requirements) para la migración a Azure.
+- Compruebe que las máquinas virtuales de AWS que replique en Azure cumplan con los [requisitos de máquina virtual de Azure](./migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 - Hay que realizar algunos cambios necesarios en las máquinas virtuales antes de migrarlas a Azure.
     - En algunos sistemas operativos, Azure Migrate realiza estos cambios automáticamente.
     - Es importante realizar estos cambios antes de comenzar la migración. Si migra la máquina virtual antes de realizar el cambio, es posible que la máquina virtual no arranque en Azure.
@@ -98,7 +98,7 @@ Azure Migrate: Server Migration usa un dispositivo de replicación para replicar
 
 Para prepararse para la implementación del dispositivo, siga estos pasos:
 
-- Configure una máquina virtual EC2 independiente para hospedar el dispositivo de replicación. Esta instancia debe ejecutar Windows Server 2012 R2 o Windows Server 2016. [Revise](https://docs.microsoft.com/azure/migrate/migrate-replication-appliance#appliance-requirements) los requisitos de hardware, software y red para el dispositivo.
+- Configure una máquina virtual EC2 independiente para hospedar el dispositivo de replicación. Esta instancia debe ejecutar Windows Server 2012 R2 o Windows Server 2016. [Revise](./migrate-replication-appliance.md#appliance-requirements) los requisitos de hardware, software y red para el dispositivo.
 - El dispositivo no debe instalarse en una máquina virtual de origen que quiera replicar; se debe implementar en una máquina virtual diferente.
 - Las máquinas virtuales de AWS de origen que se van a migrar deben tener línea de visión de red al dispositivo de replicación. Configure las reglas de grupo de seguridad necesarias para conseguirlo. Se recomienda implementar el dispositivo de replicación en la misma red privada virtual (VPC) que las máquinas virtuales de origen que se van a migrar. Si el dispositivo de replicación debe estar en otra VPC, las redes privadas virtuales deben conectarse mediante el emparejamiento de VPC.
 - Las máquinas virtuales de AWS de origen se comunican con el dispositivo de replicación en los puertos de entrada HTTPS 443 (orquestación del canal de control) y TCP 9443 (transporte de datos) para la administración de la replicación y la transferencia de datos de la replicación. A su vez, el dispositivo de replicación orquesta y envía los datos de replicación a Azure a través del puerto HTTPS 443 de salida. Para configurar estas reglas, edite las reglas de entrada y salida del grupo de seguridad con los puertos y la información de IP de origen adecuados.
@@ -183,7 +183,7 @@ Se debe instalar un agente del servicio Mobility en las máquinas virtuales de A
 
 1. Inicie sesión en el dispositivo de replicación.
 2. Vaya a **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository**.
-3. Busque el instalador correspondiente al sistema operativo y la versión de las máquinas virtuales de AWS de origen. Revise los [sistemas operativos compatibles](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#replicated-machines).
+3. Busque el instalador correspondiente al sistema operativo y la versión de las máquinas virtuales de AWS de origen. Revise los [sistemas operativos compatibles](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines).
 4. Copie el archivo de instalación en la máquina virtual de AWS de origen que desea migrar.
 5. Asegúrese de que tiene el archivo de texto de frase de contraseña guardado que se creó al instalar el dispositivo de replicación.
     - Si olvidó guardar la frase de contraseña, puede verla en el dispositivo de replicación con este paso. Desde la línea de comandos, ejecute **C:\ProgramData\ASR\home\svsystems\bin\genpassphrase.exe -v** para ver la frase de contraseña actual.
@@ -335,7 +335,7 @@ Después de comprobar que la migración de prueba funciona según lo previsto, p
     - Detiene la replicación de la máquina virtual de AWS.
     - Quita la máquina virtual de AWS del recuento de **Replicando servidores** en Azure Migrate: Server Migration.
     - Limpia la información de estado de replicación de la máquina virtual.
-2. Instale el agente de [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) en las máquinas migradas. El agente de Windows de la máquina virtual de Azure se instala previamente durante el proceso de migración.
+2. Instale el agente de [Linux](../virtual-machines/extensions/agent-linux.md) en las máquinas migradas. El agente de Windows de la máquina virtual de Azure se instala previamente durante el proceso de migración.
 3. Realice los ajustes de la aplicación posteriores a la migración, como actualizar las cadenas de conexión de la base de datos y las configuraciones del servidor web.
 4. Realice las pruebas finales de la aplicación y la aceptación de la migración en la aplicación migrada que ahora se ejecuta en Azure.
 5. Pase el tráfico a la instancia de máquina virtual de Azure migrada.
@@ -347,16 +347,16 @@ Después de comprobar que la migración de prueba funciona según lo previsto, p
     - Proteja los datos mediante la copia de seguridad de máquinas virtuales de Azure mediante el servicio Azure Backup. [Más información](../backup/quick-backup-vm-portal.md).
     - Mantenga las cargas de trabajo en ejecución y disponibles continuamente mediante la replicación de máquinas virtuales de Azure en una región secundaria con Site Recovery. [Más información](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - Para aumentar la seguridad:
-    - Bloquee y limite el acceso de tráfico de entrada con la [administración Just-In-Time de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
-    - Restrinja el tráfico de red a los puntos de conexión de administración con [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/security-overview).
-    - Implemente [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) para ayudar a proteger discos y datos frente al robo y acceso no autorizado.
+    - Bloquee y limite el acceso de tráfico de entrada con la [administración Just-In-Time de Azure Security Center](../security-center/security-center-just-in-time.md).
+    - Restrinja el tráfico de red a los puntos de conexión de administración con [grupos de seguridad de red](../virtual-network/security-overview.md).
+    - Implemente [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) para ayudar a proteger discos y datos frente al robo y acceso no autorizado.
     - Obtenga más información sobre la [protección de recursos IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) y visite [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - Para supervisión y administración:
-    - Considere la posibilidad de implementar [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) para supervisar el gasto y el uso de recursos.
+    - Considere la posibilidad de implementar [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) para supervisar el gasto y el uso de recursos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Investigue el [proceso de la migración en la nube](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) en el marco de Cloud Adoption Framework para Azure.
+Investigue el [proceso de la migración en la nube](/azure/architecture/cloud-adoption/getting-started/migrate) en el marco de Cloud Adoption Framework para Azure.
 
 ## <a name="troubleshooting--tips"></a>Solución de problemas y sugerencias
 
