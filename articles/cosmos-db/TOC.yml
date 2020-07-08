@@ -123,7 +123,7 @@
           href: partitioning-overview.md
         - name: Creación de particiones y escalado horizontal
           href: partition-data.md
-        - name: Creación de una clave de partición sintética
+        - name: Clave de partición sintética
           href: synthetic-partition-keys.md
     - name: Rendimiento aprovisionado
       items:

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 8be1f1161ac1c4611ddb2a5ec61592394014c488
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9d44c1da27a1440e105ce76436bc284a537503c7
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548678"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054447"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Azure DDoS Protection: diseño de soluciones resistentes
 
@@ -269,7 +269,5 @@ Para más información acerca de esta arquitectura de referencia, consulte [Exte
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Responsabilidad compartida en la nube](shared-responsibility.md)
-
 * [Página del producto Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/)
-
 * [Documentación de Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview)

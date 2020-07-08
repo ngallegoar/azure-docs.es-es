@@ -11,6 +11,10 @@
       href: ./quickstarts/client-libraries.md
 - name: Tutoriales
   items:
+    - name: Inicio del Lector inmersivo (Android)
+      href: tutorial-android.md
+    - name: Inicio del Lector inmersivo (iOS)
+      href: tutorial-ios.md
     - name: Inicio del Lector inmersivo (Python)
       href: tutorial-python.md
     - name: Uso de varios recursos del Lector inmersivo
@@ -31,7 +35,7 @@
       href: how-to-cache-token.md
     - name: Configuración de la lectura en voz alta
       href: how-to-configure-read-aloud.md
-    - name: Configuración de la traducción
+    - name: Configurar la traducción
       href: how-to-configure-translation.md
     - name: Almacenamiento de las preferencias del usuario
       href: how-to-store-user-preferences.md

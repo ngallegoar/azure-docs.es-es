@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: a42ee5d6f7f40d391acb743ef85f671f25804749
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: dcd036f09982cba8271ed6057a167eb7440303a9
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79473003"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054498"
 ---
 # <a name="tutorial-publish-azure-managed-applications-in-the-marketplace"></a>Tutorial: Publicación de aplicaciones administradas de Azure en Marketplace
 
@@ -172,6 +172,6 @@ Después de rellenar todas las secciones, seleccione **Publicar** para comenzar 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener información sobre lo que sucede después de hacer clic en **Publicar**, consulte [Publicación de una oferta de aplicación de Azure](../../marketplace/cloud-partner-portal/azure-applications/cpp-publish-offer.md).
+* Para obtener información sobre lo que sucede después de hacer clic en **Publicar**, consulte [Publicación de una oferta de aplicación de Azure](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
 * Para una introducción a las aplicaciones administradas, consulte [Introducción a las aplicaciones administradas](overview.md).
 * Para información sobre cómo publicar una aplicación administrada del catálogo de servicios, consulte [Creación y publicación de una aplicación administrada del catálogo de servicios](publish-service-catalog-app.md).
