@@ -2,21 +2,21 @@
 title: Referencia de atributos de Workday
 description: Obtenga información sobre qué atributos de SuccessFactors se admiten con el aprovisionamiento controlado por RR. HH. de SuccessFactors.
 services: active-directory
-author: cmmdesai
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: conceptual
+ms.topic: reference
 ms.workload: identity
 ms.date: 05/25/2020
-ms.author: chmutali
+ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: d1e432ef99a3c83fe06c00b15acbb00c630e1be1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8c508e65ef2c6d62716454af151feb0a1c80bba0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014407"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781116"
 ---
 # <a name="workday-attribute-reference"></a>Referencia de atributos de Workday
 

@@ -3,25 +3,25 @@ title: 'Instalación de la extensión del explorador del panel de acceso de la a
 description: Corrección de los errores comunes encontrados al instalar la extensión del explorador del panel de acceso.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 05/04/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 771ba79f067cbff1ab8bbfece64f4028b4ca50b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2046c24220079a604792d07f3ebc3f6ef11e9c8a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74275853"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84761092"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Instalación de la extensión del explorador del panel de acceso
 

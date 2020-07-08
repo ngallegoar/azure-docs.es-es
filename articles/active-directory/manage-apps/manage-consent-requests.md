@@ -2,22 +2,22 @@
 title: 'Administración del consentimiento en las aplicaciones y evaluación de las solicitudes de consentimiento: Azure AD'
 description: Aprenda a administrar las solicitudes de consentimiento cuando el consentimiento del usuario está deshabilitado o restringido, y a evaluar una solicitud de consentimiento del administrador para todo el inquilino a una aplicación.
 services: active-directory
-author: psignoret
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/27/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0451fe18629a572c9b49f14924bfa50293f42a2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a725eefd678720f2d9b8763277b02452819155b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77367848"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763200"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Administración del consentimiento a las aplicaciones y evaluación de las solicitudes de consentimiento
 

@@ -3,25 +3,24 @@ title: Solución de problemas de la extensión del Panel de acceso de Azure para
 description: Cómo usar la directiva de grupo para implementar el complemento de Internet Explorer para el portal de Mis aplicaciones.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
-ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0269c87572e2a9242a54491103ae0fcc3637518
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 16abfbeacd972ee8b0ab55f09945e687c95f0093
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67723905"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763268"
 ---
 # <a name="troubleshoot-the-access-panel-extension-for-internet-explorer"></a>Solución de problemas de la extensión del Panel de acceso para Internet Explorer
 

@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2815b496545ca5f920c00df7b2b5b7efe15c12a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d9bfc7f194730545469e7d17d46c47f7293f016e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74900898"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84728901"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Visualización y asignación de roles de administrador en Azure Active Directory
 
@@ -49,7 +49,6 @@ Si es un administrador global o un administrador de roles con privilegios, puede
 Cuando esté viendo los miembros de un rol, haga clic en **Descripción** para ver una lista completa de los permisos otorgados por la asignación de roles. En la página se incluyen vínculos a documentación relevante que le guiarán a través de la administración de los roles de directorio.
 
 ![lista de permisos para un rol de administrador](./media/directory-manage-roles-portal/role-description.png)
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

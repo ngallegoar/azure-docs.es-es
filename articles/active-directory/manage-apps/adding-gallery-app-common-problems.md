@@ -3,24 +3,24 @@ title: Problemas al agregar una aplicación de la galería de Azure AD | Microso
 description: Conozca los problemas habituales a los que se enfrentan los usuarios al agregar aplicaciones de la galería de Azure AD y los pasos que se deben dar para resolverlos
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/11/2018
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2b42880f99f3e87d75854166047896860f9eb14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4387a3ca02297311cd9ab025c315ca3324cbbbe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65784425"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760412"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Problemas al agregar una aplicación de la galería de Azure AD
 

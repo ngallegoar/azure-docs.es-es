@@ -3,27 +3,28 @@ title: 'Administración de aplicaciones: Procedimientos recomendados y recomenda
 description: Obtenga información sobre los procedimiento recomendados y recomendaciones para administrar aplicaciones en Azure Active Directory. Aprenda a usar el aprovisionamiento automático y la publicación de aplicaciones locales con el proxy de aplicación.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: reference
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2019
 ms.subservice: app-mgmt
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6534efb6fcd07ee3b9f3979cabf2feb77496a8b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c633f6d311d052b9f9388a38b17c6459aec4b6cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74085192"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760276"
 ---
 # <a name="application-management-best-practices"></a>Procedimientos recomendados de administración de aplicaciones
+
 Este artículo contiene recomendaciones y procedimientos recomendados para administrar aplicaciones en Azure Active Directory (Azure AD), usar el aprovisionamiento automático y publicar aplicaciones locales con el proxy de aplicación.
 
 ## <a name="cloud-app-and-single-sign-on-recommendations"></a>Recomendaciones para la aplicación en la nube y el inicio de sesión único

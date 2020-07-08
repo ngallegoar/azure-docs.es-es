@@ -2,22 +2,22 @@
 title: 'Configuración de cookies para Application Proxy: Azure Active Directory | Microsoft Docs'
 description: Azure Active Directory (Azure AD) cuenta con cookies de sesión y acceso para acceder a aplicaciones locales a través de Application Proxy. En este artículo, encontrará información sobre cómo usar y configurar los valores de las cookies.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcedb24a0efdbabaaef150fc3d5aff07d210ce23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 656841fc8e62e81318ffd568069c0664192b1747
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481371"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764900"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Configuración de las cookies para el acceso a aplicaciones locales en Azure Active Directory
 

@@ -2,22 +2,22 @@
 title: Descripción de los conectores del Proxy de aplicación de Azure AD | Microsoft Docs
 description: Se explican los conceptos básicos acerca de los conectores del Proxy de aplicación de Azure AD.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b80d20084f45dd2212cdc03f9c7417a67833d887
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 236e8e32eedce1a075aa4b3d1600c9c5595b7e2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116614"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764679"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Descripción de los conectores del Proxy de aplicación de Azure AD
 

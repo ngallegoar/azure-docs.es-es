@@ -3,12 +3,12 @@ title: Referencia de YAML para el grupo de contenedores
 description: Referencia del archivo YAML compatible con Azure Container Instances para configurar un grupo de contenedores
 ms.topic: article
 ms.date: 08/12/2019
-ms.openlocfilehash: 8497330a327201c4c64e9f7ae57e6fc4225b52de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be78c7d498187486a1502da17faa2b8faa5a0982
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74896561"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84730533"
 ---
 # <a name="yaml-reference-azure-container-instances"></a>Referencia de YAML: Azure Container Instances
 
@@ -133,7 +133,7 @@ properties: # Properties of container group
 
 Las tablas siguientes describen los valores que debe establecer en el esquema.
 
-<a id="Microsoft.ContainerInstance/containerGroups" />
+
 
 ### <a name="microsoftcontainerinstancecontainergroups-object"></a>Objeto Microsoft.ContainerInstance/containerGroups
 
@@ -143,11 +143,11 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 |  apiVersion | enum | Sí | 2018-10-01 |
 |  ubicación | string | No | Ubicación del recurso. |
 |  etiquetas | object | No | Etiquetas del recurso. |
-|  identity | object | No | Identidad del grupo de contenedores, si está configurada. - [Objeto ContainerGroupIdentity](#ContainerGroupIdentity) |
-|  properties | object | Sí | [Objeto ContainerGroupProperties](#ContainerGroupProperties) |
+|  identity | object | No | Identidad del grupo de contenedores, si está configurada. - [Objeto ContainerGroupIdentity](#containergroupidentity-object) |
+|  properties | object | Sí | [Objeto ContainerGroupProperties](#containergroupproperties-object) |
 
 
-<a id="ContainerGroupIdentity" />
+
 
 ### <a name="containergroupidentity-object"></a>Objeto ContainerGroupIdentity
 
@@ -157,34 +157,34 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 |  userAssignedIdentities | object | No | Lista de identidades de usuario asociadas con el grupo de contenedores. Las referencias clave del diccionario de identidades de usuario serán los identificadores de recursos de Azure Resource Manager con el formato "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}". |
 
 
-<a id="ContainerGroupProperties" />
+
 
 ### <a name="containergroupproperties-object"></a>Objeto ContainerGroupProperties
 
 |  Nombre | Tipo | Obligatorio | Value |
 |  ---- | ---- | ---- | ---- |
-|  containers | array | Sí | Contenedores del grupo de contenedores. - [Objeto Container](#Container) |
-|  imageRegistryCredentials | array | No | Credenciales del registro de imágenes por las que se crea el grupo de contenedores. - [Objeto ImageRegistryCredential](#ImageRegistryCredential) |
+|  containers | array | Sí | Contenedores del grupo de contenedores. - [Objeto Container](#container-object) |
+|  imageRegistryCredentials | array | No | Credenciales del registro de imágenes por las que se crea el grupo de contenedores. - [Objeto ImageRegistryCredential](#imageregistrycredential-object) |
 |  restartPolicy | enum | No | Directiva de reinicio para todos los contenedores del grupo de contenedores. - `Always` Reiniciar siempre- `OnFailure` Reiniciar con un error - `Never` No reiniciar nunca. - Always, OnFailure, Never |
-|  ipAddress | object | No | Tipo de dirección IP del grupo de contenedores. - [Objeto IpAddress](#IpAddress) |
+|  ipAddress | object | No | Tipo de dirección IP del grupo de contenedores. - [Objeto IpAddress](#ipaddress-object) |
 |  osType | enum | Sí | Tipo de sistema operativo requerido por los contenedores del grupo de contenedores. - Windows o Linux |
-|  volumes | array | No | Lista de volúmenes que pueden montar los contenedores de este grupo de contenedores. - [Objeto Volume](#Volume) |
-|  diagnóstico | object | No | Información de diagnóstico de un grupo de contenedores. - [Objeto ContainerGroupDiagnostics](#ContainerGroupDiagnostics) |
-|  networkProfile | object | No | Información de perfil de red de un grupo de contenedores. - [Objeto ContainerGroupNetworkProfile](#ContainerGroupNetworkProfile) |
-|  dnsConfig | object | No | Información de configuración DNS de un grupo de contenedores. - [Objeto DnsConfiguration](#DnsConfiguration) |
+|  volumes | array | No | Lista de volúmenes que pueden montar los contenedores de este grupo de contenedores. - [Objeto Volume](#volume-object) |
+|  diagnóstico | object | No | Información de diagnóstico de un grupo de contenedores. - [Objeto ContainerGroupDiagnostics](#containergroupdiagnostics-object) |
+|  networkProfile | object | No | Información de perfil de red de un grupo de contenedores. - [Objeto ContainerGroupNetworkProfile](#containergroupnetworkprofile-object) |
+|  dnsConfig | object | No | Información de configuración DNS de un grupo de contenedores. - [Objeto DnsConfiguration](#dnsconfiguration-object) |
 
 
-<a id="Container" />
+
 
 ### <a name="container-object"></a>Objeto Container
 
 |  Nombre | Tipo | Obligatorio | Value |
 |  ---- | ---- | ---- | ---- |
 |  name | string | Sí | Nombre proporcionado por el usuario de la instancia de contenedor. |
-|  properties | object | Sí | Propiedades de la instancia de contenedor. - [Objeto ContainerProperties](#ContainerProperties) |
+|  properties | object | Sí | Propiedades de la instancia de contenedor. - [Objeto ContainerProperties](#containerproperties-object) |
 
 
-<a id="ImageRegistryCredential" />
+
 
 ### <a name="imageregistrycredential-object"></a>Objeto ImageRegistryCredential
 
@@ -195,41 +195,41 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 |  password | string | No | Contraseña del registro privado. |
 
 
-<a id="IpAddress" />
+
 
 ### <a name="ipaddress-object"></a>Objeto IpAddress
 
 |  Nombre | Tipo | Obligatorio | Value |
 |  ---- | ---- | ---- | ---- |
-|  ports | array | Sí | Lista de puertos expuestos en el grupo de contenedores. - [Objeto Port](#Port) |
+|  ports | array | Sí | Lista de puertos expuestos en el grupo de contenedores. - [Objeto Port](#port-object) |
 |  type | enum | Sí | Especifica si la dirección IP se expone a la red pública de Internet o una red virtual privada. - Pública o privada |
 |  ip | string | No | Dirección IP expuesta a la red pública de Internet. |
 |  dnsNameLabel | string | No | Etiqueta del nombre DNS para la IP. |
 
 
-<a id="Volume" />
+
 
 ### <a name="volume-object"></a>Objeto Volume
 
 |  Nombre | Tipo | Obligatorio | Value |
 |  ---- | ---- | ---- | ---- |
 |  name | string | Sí | El nombre del objeto visual. |
-|  azureFile | object | No | Volumen de archivos de Azure. - [Objeto AzureFileVolume](#AzureFileVolume) |
+|  azureFile | object | No | Volumen de archivos de Azure. - [Objeto AzureFileVolume](#azurefilevolume-object) |
 |  emptyDir | object | No | Volumen de directorio vacío. |
 |  secret | object | No | Volumen secreto. |
-|  gitRepo | object | No | Volumen de repositorio GIT. - [Objeto GitRepoVolume](#GitRepoVolume) |
+|  gitRepo | object | No | Volumen de repositorio GIT. - [Objeto GitRepoVolume](#gitrepovolume-object) |
 
 
-<a id="ContainerGroupDiagnostics" />
+
 
 ### <a name="containergroupdiagnostics-object"></a>Objeto ContainerGroupDiagnostics
 
 |  Nombre | Tipo | Obligatorio | Value |
 |  ---- | ---- | ---- | ---- |
-|  logAnalytics | object | No | Información de Log Analytics del grupo de contenedores. - [Objeto LogAnalytics](#LogAnalytics) |
+|  logAnalytics | object | No | Información de Log Analytics del grupo de contenedores. - [Objeto LogAnalytics](#loganalytics-object) |
 
 
-<a id="ContainerGroupNetworkProfile" />
+
 
 ### <a name="containergroupnetworkprofile-object"></a>Objeto ContainerGroupNetworkProfile
 
@@ -238,7 +238,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 |  id | string | Sí | Identificador de un perfil de red. |
 
 
-<a id="DnsConfiguration" />
+
 
 ### <a name="dnsconfiguration-object"></a>Objeto DnsConfiguration
 
@@ -249,7 +249,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 |  opciones | string | No | Opciones de DNS para el grupo de contenedores. |
 
 
-<a id="ContainerProperties" />
+
 
 ### <a name="containerproperties-object"></a>Objeto ContainerProperties
 
@@ -257,15 +257,15 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 |  ---- | ---- | ---- | ---- |
 |  imagen | string | Sí | Nombre de la imagen utilizada para crear la instancia de contenedor. |
 |  command | array | No | Comandos para ejecutar dentro de la instancia de contenedor en el formato de ejecución. - cadena |
-|  ports | array | No | Puertos expuestos en la instancia de contenedor. - [Objeto ContainerPort](#ContainerPort) |
-|  environmentVariables | array | No | Variables de entorno para establecer en la instancia de contenedor. - [Objeto EnvironmentVariable](#EnvironmentVariable) |
-|  resources | object | Sí | Requisitos de los recursos de la instancia de contenedor. - [Objeto ResourceRequirements](#ResourceRequirements) |
-|  volumeMounts | array | No | Montajes de volumen disponibles para la instancia de contenedor. - [Objeto VolumeMount](#VolumeMount) |
-|  livenessProbe | object | No | Sondeo de ejecución. - [Objeto ContainerProbe](#ContainerProbe) |
-|  readinessProbe | object | No | Sondeo de preparación. - [Objeto ContainerProbe](#ContainerProbe) |
+|  ports | array | No | Puertos expuestos en la instancia de contenedor. - [Objeto ContainerPort](#containerport-object) |
+|  environmentVariables | array | No | Variables de entorno para establecer en la instancia de contenedor. - [Objeto EnvironmentVariable](#environmentvariable-object) |
+|  resources | object | Sí | Requisitos de los recursos de la instancia de contenedor. - [Objeto ResourceRequirements](#resourcerequirements-object) |
+|  volumeMounts | array | No | Montajes de volumen disponibles para la instancia de contenedor. - [Objeto VolumeMount](#volumemount-object) |
+|  livenessProbe | object | No | Sondeo de ejecución. - [Objeto ContainerProbe](#containerprobe-object) |
+|  readinessProbe | object | No | Sondeo de preparación. - [Objeto ContainerProbe](#containerprobe-object) |
 
 
-<a id="Port" />
+
 
 ### <a name="port-object"></a>Objeto Port
 
@@ -275,7 +275,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 |  port | integer | Sí | Número del puerto. |
 
 
-<a id="AzureFileVolume" />
+
 
 ### <a name="azurefilevolume-object"></a>Objeto AzureFileVolume
 
@@ -287,7 +287,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 |  storageAccountKey | string | No | Clave de acceso de la cuenta de almacenamiento utilizada para acceder al recurso compartido de archivos de Azure. |
 
 
-<a id="GitRepoVolume" />
+
 
 ### <a name="gitrepovolume-object"></a>Objeto GitRepoVolume
 
@@ -298,7 +298,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 |  revision | string | No | Hash de confirmación para la revisión especificada. |
 
 
-<a id="LogAnalytics" />
+
 
 ### <a name="loganalytics-object"></a>Objeto LogAnalytics
 
@@ -310,7 +310,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 |  metadata | object | No | Metadatos de Log Analytics. |
 
 
-<a id="ContainerPort" />
+
 
 ### <a name="containerport-object"></a>Objeto ContainerPort
 
@@ -320,7 +320,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 |  port | integer | Sí | Número de puerto expuesto en el grupo de contenedores. |
 
 
-<a id="EnvironmentVariable" />
+
 
 ### <a name="environmentvariable-object"></a>Objeto EnvironmentVariable
 
@@ -331,17 +331,17 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 |  secureValue | string | No | Valor de la variable de entorno segura. |
 
 
-<a id="ResourceRequirements" />
+
 
 ### <a name="resourcerequirements-object"></a>Objeto ResourceRequirements
 
 |  Nombre | Tipo | Obligatorio | Value |
 |  ---- | ---- | ---- | ---- |
-|  Solicitudes | object | Sí | Solicitudes de los recursos de la instancia de contenedor. - [Objeto ResourceRequests](#ResourceRequests) |
-|  límites | object | No | Límites de los recursos de la instancia de contenedor. - [Objeto ResourceLimits](#ResourceLimits) |
+|  Solicitudes | object | Sí | Solicitudes de los recursos de la instancia de contenedor. - [Objeto ResourceRequests](#resourcerequests-object) |
+|  límites | object | No | Límites de los recursos de la instancia de contenedor. - [Objeto ResourceLimits](#resourcelimits-object) |
 
 
-<a id="VolumeMount" />
+
 
 ### <a name="volumemount-object"></a>Objeto VolumeMount
 
@@ -352,14 +352,14 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 |  readOnly | boolean | No | Marca que indica si el montaje del volumen es de solo lectura. |
 
 
-<a id="ContainerProbe" />
+
 
 ### <a name="containerprobe-object"></a>Objeto ContainerProbe
 
 |  Nombre | Tipo | Obligatorio | Value |
 |  ---- | ---- | ---- | ---- |
-|  exec | object | No | Comando de ejecución para sondear - [objeto ContainerExec](#ContainerExec) |
-|  httpGet | object | No | La configuración de http get para sondear - [objeto ContainerHttpGet](#ContainerHttpGet) |
+|  exec | object | No | Comando de ejecución para sondear - [objeto ContainerExec](#containerexec-object) |
+|  httpGet | object | No | La configuración de http get para sondear - [objeto ContainerHttpGet](#containerhttpget-object) |
 |  initialDelaySeconds | integer | No | Segundos de retardo iniciales. |
 |  periodSeconds | integer | No | Período de segundos. |
 |  failureThreshold | integer | No | Umbral de error. |
@@ -367,7 +367,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 |  timeoutSeconds | integer | No | Tiempo de espera en segundos. |
 
 
-<a id="ResourceRequests" />
+
 
 ### <a name="resourcerequests-object"></a>Objeto ResourceRequests
 
@@ -375,10 +375,10 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 |  ---- | ---- | ---- | ---- |
 |  memoryInGB | number | Sí | Solicitud de memoria en GB de esta instancia de contenedor. |
 |  cpu | number | Sí | Solicitud de CPU de esta instancia de contenedor. |
-|  gpu | object | No | Solicitud de GPU de esta instancia de contenedor. - [Objeto GpuResource](#GpuResource) |
+|  gpu | object | No | Solicitud de GPU de esta instancia de contenedor. - [Objeto GpuResource](#gpuresource-object) |
 
 
-<a id="ResourceLimits" />
+
 
 ### <a name="resourcelimits-object"></a>Objeto ResourceLimits
 
@@ -386,10 +386,10 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 |  ---- | ---- | ---- | ---- |
 |  memoryInGB | number | No | Límite de memoria en GB de esta instancia de contenedor. |
 |  cpu | number | No | Límite de CPU de esta instancia de contenedor. |
-|  gpu | object | No | Límite de GPU de esta instancia de contenedor. - [Objeto GpuResource](#GpuResource) |
+|  gpu | object | No | Límite de GPU de esta instancia de contenedor. - [Objeto GpuResource](#gpuresource-object) |
 
 
-<a id="ContainerExec" />
+
 
 ### <a name="containerexec-object"></a>Objeto ContainerExec
 
@@ -398,7 +398,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 |  command | array | No | Comandos para ejecutar dentro del contenedor. - cadena |
 
 
-<a id="ContainerHttpGet" />
+
 
 ### <a name="containerhttpget-object"></a>Objeto ContainerHttpGet
 
@@ -409,7 +409,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 |  scheme | enum | No | Esquema. - http o https |
 
 
-<a id="GpuResource" />
+
 
 ### <a name="gpuresource-object"></a>Objeto GpuResource
 

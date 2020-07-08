@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 3/18/2020
-ms.openlocfilehash: 3098ca0d3d5e41c298d3058ffa84fcf129648281
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 6/10/2020
+ms.openlocfilehash: 402214da75bffd278e12db94f089d64acd62221e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399484"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84730157"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copia incremental de archivos nuevos y modificados según LastModifiedDate con la herramienta Copiar datos
 
@@ -150,7 +150,7 @@ Complete estos pasos para preparar su instancia de Blob Storage para el tutorial
 
 10. Observe que la pestaña **Monitor** (Supervisión) de la izquierda se selecciona automáticamente. La aplicación cambia a la pestaña **Monitor** (Supervisión). Verá el estado de la canalización. Seleccione **Refresh** (Actualizar) para actualizar la lista. Seleccione el vínculo bajo **PIPELINE NAME** (NOMBRE DE CANALIZACIÓN) para ver los detalles de la ejecución de actividad o para volver a ejecutar la canalización.
 
-    ![Actualizar la lista y ver los detalles de la ejecución de actividad](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs1.png)
+    ![Actualizar la lista y ver los detalles de la ejecución de actividad](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs-1.png)
 
 11. Como solo hay una actividad (actividad de copia) en la canalización, solo verá una entrada. Para detalles sobre la operación de copia, seleccione el vínculo **Detalles** (el icono de gafas) en la columna **ACTIVITY NAME** (NOMBRE DE ACTIVIDAD). Para detalles sobre las propiedades, consulte [Introducción a la actividad de copia](copy-activity-overview.md).
 
@@ -165,8 +165,6 @@ Complete estos pasos para preparar su instancia de Blob Storage para el tutorial
     ![Crear file1.txt y cargar en el contenedor de origen](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
 
 13. Para volver a la vista **Ejecuciones de canalización**, seleccione **Todas las ejecuciones de la canalización** y espere a que la misma canalización se vuelva a desencadenar automáticamente.  
-
-    ![Seleccionar All Pipeline Runs (Todas las ejecuciones de canalizaciones)](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs4.png)
 
 14. Cuando se complete la segunda ejecución de canalización, siga los mismos pasos mencionados anteriormente para revisar los detalles de la ejecución de actividad.  
 

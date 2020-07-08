@@ -4,16 +4,16 @@ description: Cómo habilitar el modo de transporte de IPsec entre máquinas virt
 services: expressroute
 author: fabferri
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: fabferri
 ms.custom: seodec18
-ms.openlocfilehash: 1bc33047d31262af443cddc418853fbacd88aec1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 32ad4f643ff0b217460403245cbb4e99f139aef9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74022006"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737264"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configuración del modo de transporte de IPsec para emparejamiento privado de ExpressRoute
 

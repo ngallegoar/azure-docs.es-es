@@ -4,15 +4,15 @@ description: Este documento proporciona información general sobre cómo vincula
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cherylmc
-ms.openlocfilehash: 53c200b01dfa6bce09cfc058dc24ab8e38d253a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a289284fa27055c76e1e0594e3b0655e746159b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930031"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737094"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Conexión de una red virtual a un circuito ExpressRoute mediante PowerShell (clásica)
 > [!div class="op_single_selector"]

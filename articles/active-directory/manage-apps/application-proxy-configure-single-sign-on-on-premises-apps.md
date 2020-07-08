@@ -3,25 +3,25 @@ title: Inicio de sesión único de SAML en aplicaciones locales mediante el prox
 description: Aprenda a proporcionar un inicio de sesión único para aplicaciones locales que estén protegidas con la autenticación de SAML. Proporcione acceso remoto a aplicaciones locales con Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/24/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3d2117e913f292e92f37f31d2e123587c70a189
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: f9b6753a0aa9e79624b9b972264611fd31f2bba8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80803304"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764832"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>Inicio de sesión único de SAML para aplicaciones en el entorno local con Application Proxy
 
