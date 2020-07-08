@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/09/2020
+ms.date: 06/03/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 1e53dda2c6cb293a9204f344d152daa1937aa38b
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: ce964ac197fbff64bbb7cc36e8c2bf762f93663f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81008371"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84337364"
 ---
 Durante la versión preliminar, los discos compartidos solo se pueden habilitar para un subconjunto de tipos de disco. Actualmente, solo los discos Ultra Disks y SSD Premium pueden habilitar discos compartidos. Cada disco administrado que tiene discos compartidos habilitados está sujeto a las siguientes limitaciones, organizadas según el tipo de disco:
 
@@ -23,7 +23,6 @@ Los discos Ultra Disks tienen su propia lista independiente de limitaciones, que
 
 Al compartir discos Ultra Disks, estos tienen las siguientes limitaciones adicionales:
 
-- Actualmente, solo se admite en Oeste de EE. UU.
 - Actualmente, se limita a la compatibilidad con Azure Resource Manager o SDK.
 - Solo se pueden usar discos básicos con algunas versiones del clúster de conmutación por error de Windows Server. Para más información, consulte [Requisitos de hardware y opciones de almacenamiento de clústeres de conmutación por error](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
 
