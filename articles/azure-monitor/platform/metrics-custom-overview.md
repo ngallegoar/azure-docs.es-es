@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: 2aca113e21d759416580c8876ec2092762893da5
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 930e32cfc57cb5b48180c7695b7b6c7d11df8caa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299832"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506980"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas en Azure Monitor (versión preliminar)
 
@@ -189,28 +189,28 @@ Durante la versión preliminar pública, la capacidad de publicar métricas pers
 |Región de Azure |Prefijo del punto de conexión regional|
 |---|---|
 | **EE. UU. y Canadá** | |
-|Centro-Oeste de EE. UU. | https:\//westcentralus.monitoring.azure.com/ |
-|Oeste de EE. UU. 2       | https:\//westus2.monitoring.azure.com/ |
+|Centro-Oeste de EE. UU. | https:\//westcentralus.monitoring.azure.com |
+|Oeste de EE. UU. 2       | https:\//westus2.monitoring.azure.com |
 |Centro-Norte de EE. UU | https:\//northcentralus.monitoring.azure.com
-|Centro-sur de EE. UU.| https:\//southcentralus.monitoring.azure.com/ |
+|Centro-sur de EE. UU.| https:\//southcentralus.monitoring.azure.com |
 |Centro de EE. UU.      | https:\//centralus.monitoring.azure.com |
-|Centro de Canadá | https:\//canadacentral.monitoring.azure.comc
-|Este de EE. UU.| https:\//eastus.monitoring.azure.com/ |
-|Este de EE. UU. 2 | https:\//eastus2.monitoring.azure.com/
+|Centro de Canadá | https:\//canadacentral.monitoring.azure.com |
+|Este de EE. UU.| https:\//eastus.monitoring.azure.com |
+|Este de EE. UU. 2 | https:\//eastus2.monitoring.azure.com |
 | **Europa** | |
-|Norte de Europa    | https:\//northeurope.monitoring.azure.com/ |
-|Oeste de Europa     | https:\//westeurope.monitoring.azure.com/ |
+|Norte de Europa    | https:\//northeurope.monitoring.azure.com |
+|Oeste de Europa     | https:\//westeurope.monitoring.azure.com |
 |Sur de Reino Unido | https:\//uksouth.monitoring.azure.com
 |Centro de Francia | https:\//francecentral.monitoring.azure.com |
 | **África** | |
-|Norte de Sudáfrica | https:\//southafricanorth.monitoring.azure.com
+|Norte de Sudáfrica | https:\//southafricanorth.monitoring.azure.com |
 | **Asia** | |
-|Centro de la India | https:\//centralindia.monitoring.azure.com
-|Este de Australia | https:\//australiaeast.monitoring.azure.com
-|Japón Oriental | https:\//japaneast.monitoring.azure.com
+|Centro de la India | https:\//centralindia.monitoring.azure.com |
+|Este de Australia | https:\//australiaeast.monitoring.azure.com |
+|Japón Oriental | https:\//japaneast.monitoring.azure.com |
 |Sudeste de Asia  | https:\//southeastasia.monitoring.azure.com |
-|Este de Asia | https:\//eastasia.monitoring.azure.com
-|Centro de Corea del Sur   | https:\//koreacentral.monitoring.azure.com
+|Este de Asia | https:\//eastasia.monitoring.azure.com |
+|Centro de Corea del Sur   | https:\//koreacentral.monitoring.azure.com |
 
 ## <a name="latency-and-storage-retention"></a>Latencia y retención del almacenamiento
 
