@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 61a71539dc034a216689eafd8991df60db96d2a4
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 771cfa11375e97f2f6a94fc65cbd72306b12cd7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396921"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84803963"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Cómo consultar registros de Azure Monitor para VM
 
@@ -454,7 +454,7 @@ Los contadores de rendimiento recopilados actualmente en la tabla *InsightsMetri
 | Espacio de nombres | Nombre | Descripción | Unidad | Etiquetas |
 |:---|:---|:---|:---|:---|
 | Computer    | Latido             | Latido de equipo                        | | |
-| Memoria      | AvailableMB           | Bytes disponibles en la memoria                    | Bytes          | memorySizeMB: tamaño total de la memoria|
+| Memoria      | AvailableMB           | Bytes disponibles en la memoria                    | Megabytes      | memorySizeMB: tamaño total de la memoria|
 | Red     | WriteBytesPerSecond   | Bytes de escritura de red por segundo            | BytesPerSecond | NetworkDeviceId: identificador del dispositivo<br>bytes: total de bytes enviados |
 | Red     | ReadBytesPerSecond    | Bytes de lectura de red por segundo             | BytesPerSecond | networkDeviceId: identificador del dispositivo<br>bytes: total de bytes recibidos |
 | Procesador   | UtilizationPercentage | Porcentaje de uso del procesador          | Percent        | totalCpus: CPU totales |
@@ -467,7 +467,7 @@ Los contadores de rendimiento recopilados actualmente en la tabla *InsightsMetri
 | LogicalDisk | ReadLatencyMs         | Latencia de lectura del disco lógico en milisegundos     | MilliSeconds   | mountId: identificador de montaje del dispositivo |
 | LogicalDisk | ReadBytesPerSecond    | Bytes de lectura de disco lógico por segundo        | BytesPerSecond | mountId: identificador de montaje del dispositivo |
 | LogicalDisk | FreeSpacePercentage   | Porcentaje de espacio disponible en disco lógico        | Percent        | mountId: identificador de montaje del dispositivo |
-| LogicalDisk | FreeSpaceMB           | Bytes de espacio disponible en el disco lógico             | Bytes          | mountId: identificador de montaje del dispositivo<br>diskSizeMB: tamaño total del disco |
+| LogicalDisk | FreeSpaceMB           | Bytes de espacio disponible en el disco lógico             | Megabytes      | mountId: identificador de montaje del dispositivo<br>diskSizeMB: tamaño total del disco |
 | LogicalDisk | BytesPerSecond        | Bytes del disco lógico por segundo             | BytesPerSecond | mountId: identificador de montaje del dispositivo |
 
 

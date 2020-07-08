@@ -2,20 +2,20 @@
 title: Aprovisionamiento de aplicaciones con filtros de ámbito | Microsoft Docs
 description: Obtenga información sobre cómo usar los filtros de ámbito para evitar el aprovisionamiento de los objetos de las aplicaciones que admiten el aprovisionamiento automático de usuarios, en caso de que un objeto no satisfaga los requisitos empresariales.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 09/11/2018
-ms.author: mimart
-ms.openlocfilehash: 71c2e3a83c3d63d375935294a25a369ca7e54d80
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.topic: how-to
+ms.date: 06/08/2020
+ms.author: kenwith
+ms.openlocfilehash: 1e858f1141ade52a1872d8a9822f515796d9182c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593751"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781963"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito
 El objetivo de este artículo es explicar cómo usar filtros de ámbito para definir reglas basadas en atributos que determinarán qué usuarios se aprovisionarán en una aplicación.
@@ -29,7 +29,7 @@ Puede usar los filtros de ámbito de diversas maneras, según el tipo de conecto
 * **Aprovisionamiento de salida desde Azure AD a aplicaciones SaaS**. Cuando Azure AD es el sistema de origen, las [asignaciones de usuarios y grupos](../manage-apps/assign-user-or-group-access-portal.md) son el método más común para determinar qué usuarios deben incluirse en el ámbito de aprovisionamiento. Estas asignaciones también se usan para habilitar el inicio de sesión único y proporcionan un único método para administrar el acceso y el aprovisionamiento. Igualmente, puede usar los filtros de ámbito de forma opcional como complemento a las asignaciones, o simplemente puede filtrar los usuarios según los valores de los atributos.
 
     >[!TIP]
-    > Puede deshabilitar la opción de aprovisionamiento basada en asignaciones para una aplicación empresarial estableciendo la opción del menú [Ámbito](../app-provisioning/user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) que se encuentra en la configuración de aprovisionamiento en **Sincronizar todos los usuarios y grupos**. Gracias a esta opción y a los filtros de ámbito basados en los atributos, obtendrá un rendimiento más rápido que si usa asignaciones basadas en grupos.  
+    > Puede deshabilitar la opción de aprovisionamiento basada en asignaciones para una aplicación empresarial estableciendo la opción del menú [Ámbito](../app-provisioning/user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) que se encuentra en la configuración de aprovisionamiento en **Sincronizar todos los usuarios y grupos**. 
 
 * **Aprovisionamiento de entrada desde aplicaciones HCM a Azure AD y Active Directory**. Cuando una [aplicación HCM como Workday](../saas-apps/workday-tutorial.md) es el sistema de origen, los filtros de ámbito son el método principal para determinar qué usuarios deben ser aprovisionados desde la aplicación HCM en Active Directory o Azure AD.
 

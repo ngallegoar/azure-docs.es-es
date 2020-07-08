@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: ce287ed94066aac4b900d2ddb02579a54b8550f6
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: f1ae8ca1ef940e45c2d32adc9a002b349f9e1b44
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80678954"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84783017"
 ---
 # <a name="material-mapping-for-model-formats"></a>Asignación de materiales para formatos de modelos
 
@@ -54,7 +54,6 @@ Se admiten las texturas incrustadas en archivos *\*.bin* o *\*.glb*.
 Además del conjunto de características básicas, Azure Remote Rendering admite las siguientes extensiones de glTF:
 
 * [MSFT_packing_occlusionRoughnessMetallic](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Vendor/MSFT_packing_occlusionRoughnessMetallic/README.md)
-* [MSFT_texture_dds](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Vendor/MSFT_texture_dds/README.md)
 * [KHR_materials_unlit](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_unlit/README.md): corresponde a [materiales de color](../overview/features/color-materials.md). Como materiales *emisores*, se recomienda usar esta extensión.
 * [KHR_materials_pbrSpecularGlossiness](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_pbrSpecularGlossiness/README.md): en lugar de texturas de rugosidad metálica, puede proporcionar texturas de brillo, especular o difusas. La implementación de Azure Remote Rendering sigue directamente las fórmulas de conversión de la extensión.
 

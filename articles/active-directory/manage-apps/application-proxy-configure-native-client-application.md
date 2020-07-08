@@ -3,25 +3,25 @@ title: 'Publicación de aplicaciones cliente nativas: Azure AD | Microsoft Docs'
 description: Explica cómo habilitar las aplicaciones cliente nativas para comunicarse con el conector del proxy de la aplicación de Azure AD para proporcionar acceso remoto seguro a las aplicaciones locales.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/12/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 442e1515159afc1df79bb6f5f1f747ce0800fef7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ca5cdb592de29f8c5396a68a7c36e6994df906cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647239"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764815"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>Habilitación de las aplicaciones cliente nativas para interactuar con el proxy de aplicaciones
 
@@ -113,10 +113,10 @@ La información necesaria del código de ejemplo puede encontrarse en el portal 
 
 | Información necesaria | Cómo encontrarla en el portal de Azure AD |
 | --- | --- |
-| \<Identificador de inquilino> | **Azure Active Directory** > **Propiedades** > **Id. de directorio** |
-| \<Identificador de aplicación de la aplicación nativa> | **Registro de aplicaciones** > *la aplicación nativa* > **Información general** > **Identificador de la aplicación** |
-| \<Ámbito> | **Registro de aplicaciones** > *la aplicación nativa* > **Permisos de API** > Haga clic en la API de permisos (user_impersonation) > Un panel con el título **user_impersonation** aparece en el lado derecho. > El ámbito es la dirección URL en el cuadro de edición.
-| \<Dirección URL de la aplicación proxy > | la dirección URL externa y la ruta de acceso a la API
+| \<Tenant ID> | **Azure Active Directory** > **Propiedades** > **Id. de directorio** |
+| \<App ID of the Native app> | **Registro de aplicaciones** > *la aplicación nativa* > **Información general** > **Identificador de la aplicación** |
+| \<Scope> | **Registro de aplicaciones** > *la aplicación nativa* > **Permisos de API** > Haga clic en la API de permisos (user_impersonation) > Un panel con el título **user_impersonation** aparece en el lado derecho. > El ámbito es la dirección URL en el cuadro de edición.
+| \<Proxy App Url> | la dirección URL externa y la ruta de acceso a la API
 
 Cuando se edita el código de MSAL con estos parámetros, los usuarios podrán autenticarse en las aplicaciones cliente nativas incluso si están fuera de la red corporativa.
 

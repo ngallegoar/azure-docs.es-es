@@ -7,26 +7,23 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: e567994038fb4f71ef86dc577760ecf4699a0b1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6d2b2fb55a9c23643bbb778ced047e75871ba7f5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76840645"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807685"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualización de registros de flujo de grupo de seguridad de red de Azure Network Watcher con herramientas de código abierto
 
 Los registros de flujo de grupo de seguridad de red proporcionan información que sirve para comprender el tráfico IP de entrada y salida en grupos de seguridad de red. Estos registros de flujo muestran los flujos de entrada y salida en función de cada regla, la NIC a la que se aplica el flujo, 5 datos sobre el flujo (IP de origen y de destino, puerto de origen y de destino, protocolo), y si se permitió o denegó el tráfico.
 
 El análisis y la extracción de información de forma manual de estos registros de flujo pueden resultar difíciles. Sin embargo, hay varias herramientas de código abierto que pueden ayudar a visualizar estos datos. En este artículo se proporciona una solución para visualizar estos registros mediante Elastic Stack, lo que le permitirá indexar y visualizar rápidamente el flujo de registros en un panel de Kibana.
-
-> [!Warning]  
-> En los pasos siguientes se trabajará con la versión 1 de los registros de flujo. Para obtener más detalles, vea [Introducción al registro de flujo de grupos de seguridad de red](network-watcher-nsg-flow-logging-overview.md). Las siguientes instrucciones no funcionarán con la versión 2 de los archivos de registro, sin ninguna modificación.
 
 ## <a name="scenario"></a>Escenario
 
@@ -138,6 +135,11 @@ Para más instrucciones sobre cómo instalar Elasticsearch, consulte las [instru
                   "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
                   "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
                   "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
+                  "flowstate" => "%{[records][properties][flows][flows][flowTuples][8]}"
+                   "packetsSourceToDest" => "%{[records][properties][flows][flows][flowTuples][9]}"
+                   "bytesSentSourceToDest" => "%{[records][properties][flows][flows][flowTuples][10]}"
+                   "packetsDestToSource" => "%{[records][properties][flows][flows][flowTuples][11]}"
+                   "bytesSentDestToSource" => "%{[records][properties][flows][flows][flowTuples][12]}"
                    }
       convert => {"unixtimestamp" => "integer"}
       convert => {"srcPort" => "integer"}

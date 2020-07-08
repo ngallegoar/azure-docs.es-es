@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 21b05631f1c225c9c4b1f7c65d18588900850b8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 19f06893c862e1e34cd79a42c428d202918f92e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77911735"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84817713"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Protección de datos y seguridad de Azure Data Box
 
@@ -45,7 +45,6 @@ Data Box proporciona una solución segura para proteger los datos al garantizar 
 El dispositivo Data Box se protege mediante las siguientes características:
 
 - Una carcasa resistente para el dispositivo, capaz de resistir impactos, transporte adverso y condiciones ambientales. 
-- Sellos a prueba de manipulaciones para indicar cualquier alteración hecha al dispositivo durante el transporte.
 - Detección de manipulaciones en hardware y software que impide más operaciones en el dispositivo.
 - Ejecuta solo el software específico para Data Box.
 - Arranca en un estado bloqueado.
@@ -57,7 +56,7 @@ El dispositivo Data Box se protege mediante las siguientes características:
 Los datos que fluyen en Data Box se protegen mediante las siguientes características:
 
 - Cifrado AES de 256 bits para datos en reposo.
-- Se pueden usar protocolos cifrados para los datos en movimiento.
+- Se pueden usar protocolos cifrados para los datos en movimiento. Se recomienda utilizar SMB 3.0 con cifrado para proteger los datos cuando se copien de los servidores de datos.
 - Eliminación segura de los datos desde el dispositivo una vez completada la carga de datos en Azure. La eliminación de datos se ha establecido de acuerdo con las instrucciones del [Apéndice A para las unidades de disco duro ATA en el estándar NIST 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). El evento de eliminación de datos se registra en el [historial de pedidos](data-box-logs.md#download-order-history).
 
 ### <a name="data-box-service-protection"></a>Protección del servicio Data Box

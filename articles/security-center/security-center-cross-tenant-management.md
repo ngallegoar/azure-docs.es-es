@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 2aeb2ab4cfb4ed5e8652638aaced320cc7119d3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7700e151a49dbfbad452927ba4a308651a0b584a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77919488"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782819"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Administración entre inquilinos en Security Center
 
@@ -46,7 +46,7 @@ En la barra de menús superior, haga clic en el icono de filtro y seleccione las
 Las vistas y acciones son básicamente las mismas. Estos son algunos ejemplos:
 
 - **Administrar directivas de seguridad**: desde una vista, administre la posición de seguridad de muchos recursos con las [directivas](tutorial-security-policy.md), haga acciones con las recomendaciones de seguridad y recopile y administre los datos relacionados con la seguridad.
-- **Mejorar la puntuación de seguridad y la posición de cumplimiento**: La visibilidad entre inquilinos le permite ver la posición de seguridad general de todos los inquilinos y dónde y cómo mejorar más la [puntuación de seguridad](security-center-secure-score.md) y la [posición de cumplimiento](security-center-compliance-dashboard.md) de cada uno de ellos.
+- **Mejorar la puntuación de seguridad y la posición de cumplimiento**: la visibilidad entre inquilinos le permite ver la posición de seguridad general de todos los inquilinos y dónde y cómo mejorar más la [puntuación segura](secure-score-security-controls.md) y la [posición de cumplimiento](security-center-compliance-dashboard.md) de cada uno de ellos.
 - **Corrección de recomendaciones**: supervise y corrija una [recomendación](security-center-recommendations.md) para varios recursos de varios inquilinos de una sola vez. Luego, puede abordar de inmediato las vulnerabilidades que presentan el riesgo más alto en todos los inquilinos.
 - **Administrar alertas**: detecte [alertas](security-center-alerts-overview.md) en los distintos inquilinos. Tome medidas en los recursos que no cumplen con los [pasos de corrección](security-center-managing-and-responding-alerts.md) accionables.
 
