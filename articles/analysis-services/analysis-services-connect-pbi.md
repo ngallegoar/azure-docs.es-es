@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6205c4189abfefc2ee9c4a273ebfd6773ea609b6
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 4e75329444c2ddb9401f32bccea400d90b633294
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411356"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361530"
 ---
 # <a name="connect-with-power-bi"></a>Conexión con Power BI
 
@@ -48,5 +48,5 @@ Una vez que se ha creado un servidor en Azure y se ha implementado un modelo tab
 
 ## <a name="see-also"></a>Consulte también
 [Conexión a Azure Analysis Services](analysis-services-connect.md)   
-[Bibliotecas de cliente](analysis-services-data-providers.md)
+[Bibliotecas de cliente](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)
 

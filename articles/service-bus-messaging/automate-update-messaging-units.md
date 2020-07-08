@@ -1,19 +1,14 @@
 ---
 title: 'Azure Service Bus: actualización automática de las unidades de mensajería'
 description: En este artículo se muestra cómo puede usar un runbook de Azure Automation para actualizar automáticamente las unidades de mensajería de un espacio de nombres de Service Bus.
-services: service-bus-messaging
-ms.service: service-bus-messaging
-documentationcenter: ''
-author: spelluru
 ms.topic: how-to
-ms.date: 05/14/2020
-ms.author: spelluru
-ms.openlocfilehash: 5ece7beaea709c9b1e52cf2130484663da0aa4ac
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 06/23/2020
+ms.openlocfilehash: 52f5b13b482739bfa56ff606f684fd5a9c7d3b6e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663103"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341502"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Actualización automática de las unidades de mensajería de un espacio de nombres de Azure Service Bus 
 En este artículo se muestra cómo puede actualizar automáticamente las [unidades de mensajería](service-bus-premium-messaging.md) de un espacio de nombres de Service Bus basado en el uso de recursos (CPU o memoria). 
@@ -75,10 +70,10 @@ Para obtener instrucciones paso a paso, consulte [Importación de un módulo des
         if ($schemaId -eq "AzureMonitorMetricAlert") {
 
             # Get the resource group name from the alert context
-            $resourceGroupName = $AlertContext.resourceGroupName
+            $resourceGroupName = $WebhookBody.resourceGroupName
             
             # Get the namespace name from the alert context
-            $namespaceName = $AlertContext.resourceName
+            $namespaceName = $WebhookBody.resourceName
         }
     }
     

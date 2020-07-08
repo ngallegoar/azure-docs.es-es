@@ -4,16 +4,16 @@ description: Expansión de un grupo de hosts existente con nuevos hosts de sesi�
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f4313f36a0b250be9646c6658b98f15037374729
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 70ae4a014768976c7dcf81ffadf1066027fa06ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614301"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85214288"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expansión de un grupo de hosts existente con nuevos hosts de sesión
 
@@ -57,12 +57,12 @@ Aquí se muestra cómo volver a implementar la plantilla de Azure Resource Manag
      - Si ha creado el grupo de hosts original con la oferta de Azure Marketplace, seleccione la implementación que empieza por **rds.wvd-provision-host-pool**.
      - Si ha creado el grupo de hosts original con la plantilla de Azure Resource Manager de GitHub, seleccione la implementación denominada **Microsoft.Template**.
 6. Seleccione **Volver a implementar**.
-     
+
      >[!NOTE]
      >Si la plantilla no se vuelve a implementar automáticamente al seleccionar **Volver a implementar**, seleccione **Plantilla** en el panel del lado izquierdo del explorador y, luego, seleccione **Implementar**.
 
 7. Seleccione el grupo de recursos que contiene las máquinas virtuales de host de sesión actuales en el grupo de hosts existente.
-     
+
      >[!NOTE]
      >Si ve un error que indica que seleccione un grupo de recursos diferente aunque el que especificó sea correcto, seleccione otro grupo de recursos y, luego, seleccione el grupo de recursos original.
 
@@ -96,7 +96,7 @@ Todos los valores de esta sección deben coincidir con lo que proporcionó cuand
 Todos los valores de parámetros de esta sección deben coincidir con lo que proporcionó cuando creó por primera vez el grupo de hosts y las máquinas virtuales de host de sesión, excepto el número total de máquinas virtuales. El número de máquinas virtuales que escriba será el número de máquinas virtuales en el grupo de hosts expandido:
 
 1. Seleccione el tamaño de máquina virtual que coincida con las máquinas virtuales de host de sesión existentes.
-    
+
     >[!NOTE]
     >Si el tamaño de máquina virtual específico que busca no aparece en el selector, es porque aún no se ha incorporado a la herramienta Azure Marketplace. Para solicitar un tamaño de máquina virtual, cree una solicitud o vote por una existente en el [foro de UserVoice de Windows Virtual Desktop](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
 

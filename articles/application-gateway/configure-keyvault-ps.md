@@ -5,15 +5,15 @@ description: Obtenga información sobre cómo puede integrar Azure Application G
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/26/2020
 ms.author: victorh
-ms.openlocfilehash: 6c638004d209996e52b0e57b467bfa184a77779c
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 5e0cb1a5c5c115aa1aaf9697e19631e2142853a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873470"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808062"
 ---
 # <a name="configure-tls-termination-with-key-vault-certificates-using-azure-powershell"></a>Configuración de la terminación TLS con certificados de Key Vault mediante Azure PowerShell
 

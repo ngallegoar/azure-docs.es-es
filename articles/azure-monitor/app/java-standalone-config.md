@@ -3,12 +3,12 @@ title: 'Supervisión de aplicaciones Java en cualquier lugar: Application Insigh
 description: Supervisión del rendimiento de aplicaciones sin código para aplicaciones Java que se ejecutan en cualquier entorno sin instrumentar la aplicación. Descubra la causa principal de los problemas mediante el seguimiento distribuido y el mapa de aplicación.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 478e42669339ac015076c89da103d91080090685
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 0c66ad01f265dde7da2f48b17b3ad4438d59a0ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509217"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85319693"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opciones de configuración: agente independiente de Java para Application Insights de Azure Monitor
 
@@ -33,14 +33,14 @@ Encontrará más detalles y opciones de configuración adicionales a continuaci�
 
 ## <a name="configuration-file-path"></a>Ruta del archivo de configuración
 
-De forma predeterminada, Application Insights Java 3.0 Preview espera que el archivo de configuración se denomine `ApplicationInsights.json` y que se encuentre en el mismo directorio que el archivo `applicationinsights-agent-3.0.0-PREVIEW.4.jar`.
+De forma predeterminada, Application Insights Java 3.0 Preview espera que el archivo de configuración se denomine `ApplicationInsights.json` y que se encuentre en el mismo directorio que el archivo `applicationinsights-agent-3.0.0-PREVIEW.5.jar`.
 
 Puede especificar la ruta de acceso a su propio archivo de configuración mediante
 
 * la variable de entorno `APPLICATIONINSIGHTS_CONFIGURATION_FILE`, o
 * la propiedad del sistema Java `applicationinsights.configurationFile`.
 
-Si especifica una ruta de acceso relativa, se resolverá de forma relativa al directorio en el que se encuentra `applicationinsights-agent-3.0.0-PREVIEW.4.jar`.
+Si especifica una ruta de acceso relativa, se resolverá de forma relativa al directorio en el que se encuentra `applicationinsights-agent-3.0.0-PREVIEW.5.jar`.
 
 ## <a name="connection-string"></a>Cadena de conexión
 

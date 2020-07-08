@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a4e2dc09c54b39d58b0193e7ac9f585236886722
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36031006f155f1651845dbce48b6c6ec84397e93
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73572683"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361428"
 ---
 # <a name="create-an-office-data-connection-file"></a>Creación de un archivo de conexión de datos de Office
 
-La información de este artículo describe cómo crear un archivo de conexión de datos de Office para conectarse a un servidor de Azure Analysis Services desde el número de versión 16.0.7369.2117, o cualquier otro anterior, de Excel 2016, o bien desde Excel 2013. También se requiere un [proveedor de MSOLAP.7](analysis-services-data-providers.md) actualizado.
+La información de este artículo describe cómo crear un archivo de conexión de datos de Office para conectarse a un servidor de Azure Analysis Services desde el número de versión 16.0.7369.2117, o cualquier otro anterior, de Excel 2016, o bien desde Excel 2013. También se requiere un [proveedor de MSOLAP.7](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) actualizado.
 
 
 1. Copie el siguiente archivo de conexión de ejemplo y péguelo en un editor de texto. 

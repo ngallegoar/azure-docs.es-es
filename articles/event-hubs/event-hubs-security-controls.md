@@ -1,18 +1,14 @@
 ---
 title: Controles de seguridad para Azure Event Hubs
 description: En este artículo se proporciona una lista de comprobación de los controles de seguridad para evaluar Azure Event Hubs (red, identidad, protección de datos, etc.).
-services: event-hubs
-ms.service: event-hubs
-author: spelluru
 ms.topic: conceptual
-ms.date: 09/23/2019
-ms.author: spelluru
-ms.openlocfilehash: 0769e88eb72b5b347dd9ebf4b1634501ca54098e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/23/2020
+ms.openlocfilehash: da20778f1e24372e445d635e675df6484905f195
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76309513"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85315395"
 ---
 # <a name="security-controls-for-azure-event-hubs"></a>Controles de seguridad para Azure Event Hubs
 

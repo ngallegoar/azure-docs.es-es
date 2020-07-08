@@ -4,15 +4,15 @@ description: Este artículo ofrece información sobre el uso de direcciones IP p
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 570f28ce559ff1c1180ffaacb781b9120b1890a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33b70ba8ab7ffef90c42f53e58a2d27e619862f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73795488"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84806797"
 ---
 # <a name="use-private-ip-for-internal-routing-for-an-ingress-endpoint"></a>Uso de una dirección IP privada para el enrutamiento interno de un punto de conexión de entrada 
 

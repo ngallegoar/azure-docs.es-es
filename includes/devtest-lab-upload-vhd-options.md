@@ -4,16 +4,16 @@ ms.service: devtest-lab
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
-ms.openlocfilehash: f4a9a131bcabc28a1eb77ffc31d93dc1d391cce4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 979deae11ebe785b28ffdfa20fe1fdaca4beb7fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67186910"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84884592"
 ---
 ## <a name="prerequisites"></a>Prerequisites 
 Para completar este tutorial, debe tener un archivo VHD cargado en la cuenta de almacenamiento asociada al laboratorio en el que se crea la imagen personalizada. Seleccione uno de los vínculos siguientes para cargar un archivo VHD:
 
-- [Carga mediante la utilidad de la línea de comandos AzCopy](../articles/lab-services/devtest-lab-upload-vhd-using-azcopy.md)
-- [Carga mediante el Explorador de Microsoft Azure Storage](../articles/lab-services/devtest-lab-upload-vhd-using-storage-explorer.md)
-- [Carga mediante la consola de PowerShell](../articles/lab-services/devtest-lab-upload-vhd-using-powershell.md)
+- [Carga mediante la utilidad de la línea de comandos AzCopy](../articles/devtest-labs/devtest-lab-upload-vhd-using-azcopy.md)
+- [Carga mediante el Explorador de Microsoft Azure Storage](../articles/devtest-labs/devtest-lab-upload-vhd-using-storage-explorer.md)
+- [Carga mediante la consola de PowerShell](../articles/devtest-labs/devtest-lab-upload-vhd-using-powershell.md)

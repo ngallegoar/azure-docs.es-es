@@ -2,13 +2,13 @@
 title: Implementación de recursos en el inquilino
 description: Se describe cómo implementar recursos en el ámbito de un inquilino en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.openlocfilehash: d72b4a63e564732a9a4baaf8b8cd94d0f165e12a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/08/2020
+ms.openlocfilehash: 45541bcbea5a80e55dbc9f80e1eae8e17189bf6e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653335"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945450"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Creación de recursos en el nivel de inquilino
 
@@ -72,7 +72,7 @@ Para la CLI de Azure, use [az deployment tenant create](/cli/azure/deployment/te
 az deployment tenant create \
   --name demoTenantDeployment \
   --location WestUS \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
 En el caso de Azure PowerShell, use [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
@@ -81,7 +81,7 @@ En el caso de Azure PowerShell, use [New-AzTenantDeployment](/powershell/module/
 New-AzTenantDeployment `
   -Name demoTenantDeployment `
   -Location "West US" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
 Para la API REST, use [Implementaciones: Crear o actualizar en el ámbito del inquilino](/rest/api/resources/deployments/createorupdateattenantscope).
@@ -117,7 +117,7 @@ En las implementaciones de nivel de inquilino, hay algunas consideraciones impor
 
 ## <a name="create-management-group"></a>Creación de un grupo de administración
 
-La [siguiente plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-level-deployments/new-mg) crea un grupo de administración.
+La [siguiente plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/new-mg) crea un grupo de administración.
 
 ```json
 {
@@ -143,7 +143,7 @@ La [siguiente plantilla](https://github.com/Azure/azure-quickstart-templates/tre
 
 ## <a name="assign-role"></a>Asignación de un rol
 
-La [siguiente plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-level-deployments/tenant-role-assignment) asigna un rol en el ámbito del inquilino.
+La [siguiente plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/tenant-role-assignment) asigna un rol en el ámbito del inquilino.
 
 ```json
 {

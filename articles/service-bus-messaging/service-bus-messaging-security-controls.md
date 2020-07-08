@@ -1,18 +1,14 @@
 ---
 title: Controles de seguridad para la mensajería de Azure Service Bus
 description: Lista de comprobación de los controles de seguridad para evaluar la mensajería de Azure Service Bus
-services: service-bus-messaging
-ms.service: service-bus-messaging
-author: spelluru
 ms.topic: conceptual
-ms.date: 09/23/2019
-ms.author: spelluru
-ms.openlocfilehash: af119ef026b70fcb4a56b4f823d20c0e9eddddc8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/23/2020
+ms.openlocfilehash: 3130150a227076befae3f58f65e00a36578b68d5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75903245"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341637"
 ---
 # <a name="security-controls-for-azure-service-bus-messaging"></a>Controles de seguridad para la mensajería de Azure Service Bus
 

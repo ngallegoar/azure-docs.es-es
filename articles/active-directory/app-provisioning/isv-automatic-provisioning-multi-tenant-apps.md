@@ -2,21 +2,21 @@
 title: 'Habilitar el aprovisionamiento automático de usuarios para aplicaciones multiinquilino: Azure AD'
 description: Esta es una guía para proveedores de software independientes para habilitar el aprovisionamiento automatizado
 services: active-directory
-author: BarbaraSelden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: conceptual
+ms.topic: reference
 ms.workload: identity
 ms.date: 07/23/2019
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: 3713b7a191c5c7c90e0e76bde25d1b1b3bf3700b
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 8e1b953cd2a108e216b4f8e3889287c724f68fa0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593597"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781623"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Habilitar el aprovisionamiento automático de usuarios para aplicaciones multiinquilino
 

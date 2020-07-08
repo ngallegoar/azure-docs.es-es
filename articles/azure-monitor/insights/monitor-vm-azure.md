@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: ebb25d49250b71ab8d948833ac982ef244225539
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: e38ae07aa032e4a828c9188fd78b112f4ff0d397
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84216441"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945399"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Supervisión de máquinas virtuales de Azure con Azure Monitor
 En este artículo se describe cómo usar Azure Monitor para recopilar y analizar datos de supervisión de máquinas virtuales de Azure para mantener su estado. Las máquinas virtuales se pueden supervisar en términos de disponibilidad y rendimiento con Azure Monitor como cualquier [otro](monitor-azure-resource.md) recurso de Azure, pero se diferencian de otros recursos en cuanto que también debe supervisar el sistema operativo invitado y las cargas de trabajo que se ejecutan en él. 
@@ -105,9 +105,9 @@ Instale la extensión de diagnósticos para una sola máquina virtual Windows en
 Consulte [Instalación y configuración de Telegraf](../platform/collect-custom-metrics-linux-telegraf.md#install-and-configure-telegraf) para obtener más información sobre la configuración de los agentes de Telegraf en máquinas virtuales Linux. La opción de menú **Configuración de diagnóstico** está disponible para Linux, pero solo le permitirá enviar datos a Azure Storage.
 
 ### <a name="collect-platform-metrics-and-activity-log"></a>Recopilación de métricas de plataforma y registro de actividad
-Puede ver las métricas de la plataforma y el registro de actividad recopilados para cada máquina virtual anfitriona en Azure Portal. Recopile estos datos en la misma área de trabajo de Log Analytics que Azure Monitor para VM para analizarlos con los demás datos de supervisión recopilados para la máquina virtual. Esta colección se establece con una [configuración de diagnóstico](../platform/diagnostic-settings.md). Recopile el registro de actividad con una [configuración de diagnóstico para la suscripción](../platform/diagnostic-settings.md#create-diagnostic-settings-in-azure-portal).
+Puede ver las métricas de la plataforma y el registro de actividad recopilados para cada máquina virtual anfitriona en Azure Portal. Recopile estos datos en la misma área de trabajo de Log Analytics que Azure Monitor para VM para analizarlos con los demás datos de supervisión recopilados para la máquina virtual. Esta colección se establece con una [configuración de diagnóstico](../platform/diagnostic-settings.md). Recopile el registro de actividad con una [configuración de diagnóstico para la suscripción](../platform/diagnostic-settings.md#create-in-azure-portal).
 
-Recopile las métricas de la plataforma con una configuración de diagnóstico para la máquina virtual. A diferencia de otros recursos de Azure, no puede crear una configuración de diagnóstico para una máquina virtual en Azure Portal, sino que debe usar [otro método](../platform/diagnostic-settings.md#create-diagnostic-settings-using-powershell). En los siguientes ejemplos se muestra cómo recopilar métricas para una máquina virtual mediante PowerShell y la CLI.
+Recopile las métricas de la plataforma con una configuración de diagnóstico para la máquina virtual. A diferencia de otros recursos de Azure, no puede crear una configuración de diagnóstico para una máquina virtual en Azure Portal, sino que debe usar [otro método](../platform/diagnostic-settings.md#create-using-powershell). En los siguientes ejemplos se muestra cómo recopilar métricas para una máquina virtual mediante PowerShell y la CLI.
 
 ```powershell
 Set-AzDiagnosticSetting -Name vm-diagnostics -ResourceId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/my-vm" -Enabled $true -MetricCategory AllMetrics -workspaceId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace"

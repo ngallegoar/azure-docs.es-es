@@ -1,25 +1,14 @@
 ---
 title: Configuración de puerto de Azure Relay | Microsoft Docs
 description: En este artículo se incluye una tabla que describe la configuración que se requiere para los valores de los puertos de Azure Relay.
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/21/2020
-ms.author: spelluru
-ms.openlocfilehash: 532e3c297c42ea16b1f462a01699fc2fd71c6cce
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 97640debe81041ff7e2b082c6a9ac606d6088664
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83204567"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85314278"
 ---
 # <a name="azure-relay-port-settings"></a>Configuración de puerto de Relay de Azure
 

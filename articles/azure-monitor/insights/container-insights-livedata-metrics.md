@@ -4,41 +4,38 @@ description: En este artículo se describe cómo ver las métricas en tiempo rea
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
-ms.openlocfilehash: 54d751769005dabb4708eb198bcc765d830ba605
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 81d7210778fd6b5d75fb4b4fa8e066d2e015174f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196148"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85338030"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>Cómo ver métricas en tiempo real
 
-La característica de datos en directo de Azure Monitor para contenedores (versión preliminar) permite visualizar las métricas sobre el estado de nodo y pod en un clúster en tiempo real. Emula el acceso directo a los comandos `kubectl top nodes`, `kubectl get pods –all-namespaces` y `kubectl get nodes` para llamar, analizar y visualizar los datos de los gráficos de rendimiento que se incluyen con esta conclusión. 
+La característica de datos en directo de Azure Monitor para contenedores (versión preliminar) permite visualizar las métricas sobre el estado de nodo y pod en un clúster en tiempo real. Emula el acceso directo a los comandos `kubectl top nodes`, `kubectl get pods –all-namespaces` y `kubectl get nodes` para llamar, analizar y visualizar los datos de los gráficos de rendimiento que se incluyen con esta conclusión.
 
-En este artículo se proporciona una introducción detallada y le ayuda a entender cómo usar esta característica.  
-
->[!NOTE]
->No se admiten los clústeres de AKS habilitados como [clústeres privados](https://azure.microsoft.com/updates/aks-private-cluster/) con esta característica. Esta característica se basa en el acceso directo a la API de Kubernetes a través de un servidor proxy desde el explorador. La habilitación de la seguridad de red para bloquear la API de Kubernetes desde este proxy bloqueará este tráfico. 
+En este artículo se proporciona una introducción detallada y le ayuda a entender cómo usar esta característica.
 
 >[!NOTE]
->Esta característica está disponible en todas las regiones de Azure, incluida Azure China. Actualmente no está disponible en Azure US Gov
+>No se admiten los clústeres de AKS habilitados como [clústeres privados](https://azure.microsoft.com/updates/aks-private-cluster/) con esta característica. Esta característica se basa en el acceso directo a la API de Kubernetes a través de un servidor proxy desde el explorador. La habilitación de la seguridad de red para bloquear la API de Kubernetes desde este proxy bloqueará este tráfico.
 
 Para obtener ayuda para configurar o solucionar problemas de la característica de datos en directo (versión preliminar), revise la [guía de instalación](container-insights-livedata-setup.md).
 
-## <a name="how-it-works"></a>Funcionamiento 
+## <a name="how-it-works"></a>Funcionamiento
 
-La característica de datos en directo (versión preliminar) accede directamente a la API Kubernetes y se puede encontrar información adicional sobre el modelo de autenticación [aquí](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
+La característica de datos en directo (versión preliminar) accede directamente a la API Kubernetes y se puede encontrar información adicional sobre el modelo de autenticación [aquí](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
-Esta característica realiza una operación de sondeo en los puntos de conexión de métricas (incluidos `/api/v1/nodes`, `/apis/metrics.k8s.io/v1beta1/nodes` y `/api/v1/pods`), que se realiza cada cinco segundos de forma predeterminada. Estos datos se almacenan en caché en el explorador y se muestran en los cuatro gráficos de rendimiento incluidos en Azure Monitor para contenedores en la pestaña **Clúster** seleccionando **Go Live (versión preliminar)** . Cada sondeo subsiguiente se representa en una ventana de visualización sucesiva de cinco minutos. 
+Esta característica realiza una operación de sondeo en los puntos de conexión de métricas (incluidos `/api/v1/nodes`, `/apis/metrics.k8s.io/v1beta1/nodes` y `/api/v1/pods`), que se realiza cada cinco segundos de forma predeterminada. Estos datos se almacenan en caché en el explorador y se muestran en los cuatro gráficos de rendimiento incluidos en Azure Monitor para contenedores en la pestaña **Clúster** seleccionando **Go Live (versión preliminar)** . Cada sondeo subsiguiente se representa en una ventana de visualización sucesiva de cinco minutos.
 
 ![Opción Go Live en la vista de clúster](./media/container-insights-livedata-metrics/cluster-view-go-live-example-01.png)
 
-El intervalo de sondeo se configura desde la lista desplegable **Configurar intervalo**, lo que le permite establecer el sondeo de los nuevos datos cada 1, 5, 15 y 30 segundos. 
+El intervalo de sondeo se configura desde la lista desplegable **Configurar intervalo**, lo que le permite establecer el sondeo de los nuevos datos cada 1, 5, 15 y 30 segundos.
 
 ![Intervalo de sondeo desplegable de Go Live](./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.png)
 
 >[!IMPORTANT]
->Se recomienda establecer el intervalo de sondeo en un segundo mientras se soluciona un problema durante un breve período de tiempo. Estas solicitudes pueden afectar la disponibilidad y limitación de la API de Kubernetes en el clúster. Después, vuelva a establecer el intervalo de sondeo más largo. 
+>Se recomienda establecer el intervalo de sondeo en un segundo mientras se soluciona un problema durante un breve período de tiempo. Estas solicitudes pueden afectar la disponibilidad y limitación de la API de Kubernetes en el clúster. Después, vuelva a establecer el intervalo de sondeo más largo.
 
 >[!IMPORTANT]
 >Durante el funcionamiento de esta característica, no se almacenan datos de forma permanente. Toda la información capturada durante la sesión se elimina al cerrar el explorador o cuando sale de ella. Los datos solo permanecen para su visualización en la ventana por un período de cinco minutos; las métricas con una antigüedad superior a cinco minutos se eliminan de forma permanente.
@@ -47,9 +44,9 @@ Estos gráficos no se pueden anclar al último panel de Azure que vio en modo ac
 
 ## <a name="metrics-captured"></a>Métricas capturadas
 
-### <a name="node-cpu-utilization---node-memory-utilization-"></a>% de uso de CPU de nodo / % uso de memoria de nodo 
+### <a name="node-cpu-utilization---node-memory-utilization-"></a>% de uso de CPU de nodo / % uso de memoria de nodo
 
-Estos dos gráficos de rendimiento se asignan a un equivalente de invocar `kubectl top nodes` y capturar los resultados de las columnas **CPU%** y **MEMORY%** en el gráfico correspondiente. 
+Estos dos gráficos de rendimiento se asignan a un equivalente de invocar `kubectl top nodes` y capturar los resultados de las columnas **CPU%** y **MEMORY%** en el gráfico correspondiente.
 
 ![Resultados de ejemplo de los nodos principales de Kubectl](./media/container-insights-livedata-metrics/kubectl-top-nodes-example.png)
 
@@ -81,7 +78,7 @@ Este gráfico de rendimiento se asigna a un equivalente de invocar `kubectl get 
 ![Gráfico de recuento de pod de nodos](./media/container-insights-livedata-metrics/cluster-view-node-pod-count.png)
 
 >[!NOTE]
->Es posible que los nombres de estado que interpreta `kubectl` no coincidan exactamente con el gráfico. 
+>Es posible que los nombres de estado que interpreta `kubectl` no coincidan exactamente con el gráfico.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

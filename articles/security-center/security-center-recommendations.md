@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
-ms.openlocfilehash: 408b0f020be72b8e6b10dd6c97298afda1b91360
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d65b43dad80cb130d582132d21e2d10bd8051dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225264"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791391"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recomendaciones de seguridad en el Centro de seguridad de Azure 
 En este tema se explica cómo ver y entender las recomendaciones de Azure Security Center para ayudar a proteger los recursos de Azure.
@@ -53,7 +53,7 @@ Security Center analiza el estado de seguridad de los recursos para identificar 
     Puede filtrar las recomendaciones. Para ello, seleccione **Filtro** en la hoja **Recomendaciones**. Se abrirá la hoja **Filtro** , donde podrá seleccionar los valores de gravedad y de estado que quiera ver.
 
    * **RECOMENDACIONES**: la recomendación.
-   * **IMPACTO DE LA PUNTUACIÓN SEGURA**: puntuación que genera Security Center mediante sus recomendaciones de seguridad y la aplicación de algoritmos avanzados para determinar la importancia de cada recomendación. Para obtener más información, consulte [Cálculo de Puntuación segura](security-center-secure-score.md#secure-score-calculation).
+   * **IMPACTO DE LA PUNTUACIÓN SEGURA**: puntuación que genera Security Center mediante sus recomendaciones de seguridad y la aplicación de algoritmos avanzados para determinar la importancia de cada recomendación. Para obtener más información, consulte [Cálculo de Puntuación segura](secure-score-security-controls.md#how-your-secure-score-is-calculated).
    * **RECURSO**: enumera los recursos a los que se aplica la recomendación.
    * **BARRAS DE ESTADO**:  describe la gravedad de una recomendación concreta:
        * **Alta (rojo)** : existe una vulnerabilidad en un recurso importante (como una aplicación, una máquina virtual o un grupo de seguridad de red) y requiere atención.

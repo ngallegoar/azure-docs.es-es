@@ -2,14 +2,14 @@
 title: Supervisión de Azure Blockchain Service (ABS)
 description: Supervisión de Azure Blockchain Service a través de Azure Monitor
 ms.date: 01/08/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: v-umha
-ms.openlocfilehash: 6f2a91a8ffce67d3c4008a7587f2787f6446c341
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9d5b3cb02f6e4cd0804dc7fb15a4eacc8370bb99
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76293256"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85214050"
 ---
 # <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Supervisión de Azure Blockchain Service a través de Azure Monitor  
 

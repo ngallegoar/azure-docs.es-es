@@ -1,19 +1,14 @@
 ---
 title: Introducción a la limitación de Azure Service Bus | Microsoft Docs
 description: 'Introducción a la limitación de Service Bus: niveles Estándar y Premium.'
-services: service-bus-messaging
-author: axisc
-editor: spelluru
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 10/01/2019
-ms.author: aschhab
-ms.openlocfilehash: f852ad70b2eb97e2b8b3e40d086e98b3836c3592
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/23/2020
+ms.openlocfilehash: 436f9a40269f7eea4e31b55b9657d38849876eb4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77598296"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340953"
 ---
 # <a name="throttling-operations-on-azure-service-bus"></a>Operaciones de limitación en Azure Service Bus
 

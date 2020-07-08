@@ -1,23 +1,14 @@
 ---
 title: 'Servicios de mensajería de Azure: de Service Manager a Resource Manager'
 description: En este artículo se proporciona la asignación de cmdlets de PowerShell y la API REST de Azure Service Manager en desuso a cmdlets de PowerShell y la API REST de Resource Manager.
-services: service-bus-messaging, event-hubs, event-grid
-documentationcenter: na
-author: spelluru
-editor: ''
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/22/2020
-ms.author: spelluru
-ms.openlocfilehash: 714d881f34cace928be5d66973f15fa47cf68f72
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.date: 06/23/2020
+ms.openlocfilehash: 7ef744a3a35888be9d72addca61ef389f2cf97cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259497"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340764"
 ---
 # <a name="deprecation-of-azure-service-manager-support-for-azure-service-bus-relay-and-event-hubs"></a>Desuso del soporte técnico de Azure Service Manager para Azure Service Bus, Relay y Event Hubs
 

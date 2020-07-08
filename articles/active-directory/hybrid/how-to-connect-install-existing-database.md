@@ -12,17 +12,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/30/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dc6993586063c9c99a287c51d799b44f921768d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 23bcb63b6b499e72cb43089659e513d276bd8306
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60245291"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358980"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Instalación de Azure AD Connect mediante una base de datos existente de ADSync
 Azure AD Connect requiere una base de datos de SQL Server para almacenar datos. Puede usar la instancia predeterminada de LocalDB incluida en SQL Server 2012 Express que se instala con Azure AD Connect o utilizar su propia versión completa de SQL. Anteriormente, al instalar Azure AD Connect, se creaba siempre una base de datos denominada ADSync. Con Azure AD Connect versión 1.1.613.0 (o posterior), tiene la opción de instalar Azure AD Connect haciendo que apunte a una base de datos existente de ADSync.
@@ -76,19 +76,15 @@ Notas importantes a tener en cuenta antes de continuar:
 1. En la pantalla **Conectar sus directorios**, el bosque de AD existente configurado para la sincronización de directorios se muestra con un icono de cruz roja junto a él. Para sincronizar los cambios desde un bosque de AD local, se necesita una cuenta de AD DS. El asistente de Azure AD Connect no puede recuperar las credenciales de la cuenta de AD DS almacenada en la base de datos de ADSync porque las credenciales están cifradas y solo las puede descifrar el anterior servidor de Azure AD Connect. Haga clic en **Cambiar credenciales** para especificar la cuenta de AD DS para el bosque de AD.
    ![Directorios](./media/how-to-connect-install-existing-database/db6.png)
  
- 
 1. En el cuadro de diálogo emergente, puede (i) proporcionar credenciales de administrador de la organización y dejar que Azure AD Connect cree la cuenta de AD DS en su lugar, o (ii) crear la cuenta de AD DS usted mismo y proporcionar sus credenciales a Azure AD Connect. Una vez que haya seleccionado una opción y proporcionado las credenciales necesarias, haga clic en **Aceptar** para cerrar el cuadro de diálogo emergente.
    ![Pantalla de bienvenida](./media/how-to-connect-install-existing-database/db7.png)
  
- 
 1. Una vez que se hayan proporcionado las credenciales, el icono de cruz roja se reemplazará por un icono de marca de verificación verde. Haga clic en **Next**.
    ![Pantalla de bienvenida](./media/how-to-connect-install-existing-database/db8.png)
  
- 
 1. En la pantalla **Listo para configurar**, haga clic en **Instalar**.
    ![Pantalla de bienvenida](./media/how-to-connect-install-existing-database/db9.png)
  
- 
 1. Una vez completada la instalación, el servidor de Azure AD Connect se habilita automáticamente para el modo de ensayo. Se recomienda que revise la configuración del servidor y las exportaciones pendientes para detectar cambios inesperados antes de deshabilitar el modo de ensayo. 
 
 ## <a name="post-installation-tasks"></a>Tareas posteriores a la instalación

@@ -3,16 +3,16 @@ title: Cargos de unidades de solicitud para Azure Cosmos DB como almacén de par
 description: Obtenga información sobre los cargos de unidades de solicitud de Azure Cosmos DB para operaciones simples de escritura y lectura cuando se utiliza como un almacén de pares de clave y valor.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 5b2ee8b5bf19f16d7f7f04e9515fe591db7132f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1cd6b4b52db224db5febcec1eff79b01379a5956
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77647515"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262827"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB como almacén de pares valor-clave: Información general de costos
 

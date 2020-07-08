@@ -3,15 +3,15 @@ title: Escalado de Azure Cosmos DB según una programación mediante el tempori
 description: Aprenda a escalar los cambios de rendimiento en Azure Cosmos DB con PowerShell y Azure Functions.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 68ba40ea212c061fa5c8bbddc47ea0dfc6d8caa4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f538b02e81d885e22a6417d7c1f139c22635b0d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75934949"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262487"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Escalado del rendimiento de Azure Cosmos DB mediante el desencadenador de temporizador de Azure Functions
 

@@ -4,15 +4,15 @@ description: En este artículo se proporciona información sobre cómo agregar s
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 5d0543a3a43d53e462a6406312faddf37d2653c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8c8b8b0090877db7abc8fae0e44f928e8b10dcf5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73795594"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808007"
 ---
 # <a name="add-health-probes-to-your-service"></a>Adición de sondeos de estado a servicios
 De forma predeterminada, el controlador de entrada aprovisionará un sondeo HTTP GET para los pods expuestos.
@@ -47,7 +47,7 @@ spec:
 
 Referencia de la API de Kubernetes:
 * [Sondeo de contenedores](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
-* [Acción de HttpGet](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.14/#httpgetaction-v1-core)
+* [Acción de HttpGet](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#httpgetaction-v1-core)
 
 > [!NOTE]
 > * `readinessProbe` y `livenessProbe` se admiten cuando se configuran con `httpGet`.
