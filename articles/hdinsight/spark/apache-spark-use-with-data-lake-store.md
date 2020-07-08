@@ -6,14 +6,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: f7a6ab954aff1bcc2e3dae3fc035db4b136ccbbe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 583a5bcac71265596127c7860c0509963f76b2fb
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73818162"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080948"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>Uso de un clúster de HDInsight Spark para analizar los datos en Data Lake Storage Gen1
 
@@ -36,21 +36,27 @@ Si ha creado un clúster de HDInsight con Data Lake Storage como almacenamiento 
 
 2. Ejecute el siguiente comando para copiar un blob específico desde el contenedor de origen a Data Lake Storage:
 
-        AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>
+    ```scala
+    AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>
+    ```
 
     Copie el archivo de datos de ejemplo **HVAC.csv** situado en **/HdiSamples/HdiSamples/SensorSampleData/hvac/** en la cuenta de Azure Data Lake Storage. El fragmento de código debería tener este aspecto:
 
-        AdlCopy /Source https://mydatastore.blob.core.windows.net/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv /dest swebhdfs://mydatalakestore.azuredatalakestore.net/hvac/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
+    ```scala
+    AdlCopy /Source https://mydatastore.blob.core.windows.net/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv /dest swebhdfs://mydatalakestore.azuredatalakestore.net/hvac/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
+    ```
 
    > [!WARNING]  
    > Asegúrese de que los nombres de archivo y ruta de acceso estén escritos con las mayúsculas adecuadas.
 
 3. Se le pide que escriba las credenciales de la suscripción a Azure en la que tiene la cuenta de Data Lake Storage. Debe ver una salida similar al siguiente fragmento de código:
 
-        Initializing Copy.
-        Copy Started.
-        100% data copied.
-        Copy Completed. 1 file copied.
+    ```output
+    Initializing Copy.
+    Copy Started.
+    100% data copied.
+    Copy Completed. 1 file copied.
+    ```
 
     El archivo de datos (**HVAC.csv**) se copiará en una carpeta **/hvac** en la cuenta de Data Lake Storage.
 
@@ -71,7 +77,9 @@ Si ha creado un clúster de HDInsight con Data Lake Storage como almacenamiento 
 
 4. Dado que creó un cuaderno con el kernel PySpark, no necesitará crear ningún contexto explícitamente. Los contextos Spark y Hive se crearán automáticamente al ejecutar la primera celda de código. Puede empezar por importar los tipos necesarios para este escenario. Para ello, pegue el siguiente fragmento de código en una celda y presione **MAYÚS + ENTRAR**.
 
-        from pyspark.sql.types import *
+    ```scala
+    from pyspark.sql.types import *
+    ```
 
     Cada vez que se ejecuta un trabajo en Jupyter, el título de la ventana del explorador web mostrará el estado **(Busy)** (Ocupado) junto con el título del cuaderno. También verá un círculo sólido junto al texto **PySpark** en la esquina superior derecha. Una vez completado el trabajo, cambiará a un círculo hueco.
 
@@ -81,38 +89,47 @@ Si ha creado un clúster de HDInsight con Data Lake Storage como almacenamiento 
 
    * Si dispone de Data Lake Storage Gen1 como almacenamiento predeterminado, HVAC.csv estará en la ruta de acceso similar a la siguiente dirección URL:
 
-           adl://<data_lake_store_name>.azuredatalakestore.net/<cluster_root>/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
+        ```scala
+        adl://<data_lake_store_name>.azuredatalakestore.net/<cluster_root>/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
+        ```
 
        También podría usar un formato abreviado como el siguiente:
 
-           adl:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
+        ```scala
+        adl:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
+        ```
 
    * Si cuenta con Data Lake Storage como almacenamiento adicional, HVAC.csv estará en la ubicación donde lo copió, por ejemplo:
 
-           adl://<data_lake_store_name>.azuredatalakestore.net/<path_to_file>
+        ```scala
+        adl://<data_lake_store_name>.azuredatalakestore.net/<path_to_file>
+        ```
 
      En una celda vacía, pegue el siguiente ejemplo de código, reemplace **MYDATALAKESTORE** por el nombre de su cuenta de Azure Data Lake Storage y presione **MAYÚS+ENTRAR**. Este ejemplo de código registra los datos en una tabla temporal llamada **hvac**.
 
-           # Load the data. The path below assumes Data Lake Storage is default storage for the Spark cluster
-           hvacText = sc.textFile("adl://MYDATALAKESTORE.azuredatalakestore.net/cluster/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+      ```scala
+      # Load the data. The path below assumes Data Lake Storage is   default storage for the Spark cluster
+      hvacText = sc.textFile("adl://MYDATALAKESTORazuredatalakestore.  net/cluster/mysparkclusteHdiSamples/HdiSamples/  SensorSampleData/hvac/HVAC.csv")
 
-           # Create the schema
-           hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
+      # Create the schema
+      hvacSchema = StructType([StructField("date", StringTy(), False)  ,StructField("time", StringType(), FalseStructField  ("targettemp", IntegerType(), FalseStructField("actualtemp",   IntegerType(), FalseStructField("buildingID", StringType(),   False)])
 
-           # Parse the data in hvacText
-           hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
+      # Parse the data in hvacText
+      hvac = hvacText.map(lambda s: s.split(",")).filt(lambda s: s  [0] != "Date").map(lambda s:(str(s[0]), s(s[1]), int(s[2]), int  (s[3]), str(s[6]) ))
 
-           # Create a data frame
-           hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
+      # Create a data frame
+      hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
 
-           # Register the data fram as a table to run queries against
-           hvacdf.registerTempTable("hvac")
+      # Register the data fram as a table to run queries against
+      hvacdf.registerTempTable("hvac")
+      ```
 
 6. Al usar un kernel de PySpark, puede ejecutar directamente una consulta SQL en la tabla temporal **hvac** que acaba de crear con la instrucción mágica `%%sql`. Para más información sobre la función mágica `%%sql`, así como otras funciones mágicas disponibles con el kernel de PySpark, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres de Apache Spark en HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
-        %%sql
-        SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
-
+    ```sql
+    %%sql
+    SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
+    ```
 7. Una vez que el trabajo se completa correctamente, se muestra de forma predeterminada el resultado tabular siguiente.
 
       ![Salida de tabla del resultado de la consulta](./media/apache-spark-use-with-data-lake-store/jupyter-tabular-output.png "Salida de tabla del resultado de la consulta")

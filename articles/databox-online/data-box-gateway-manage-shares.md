@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 5ca8f5d629a110d2a4d3b35cb357af2c723ec312
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2b26016ec67f0eecd785e3bfb951fe5fd607545
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339202"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079161"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Uso de Azure Portal para administrar recursos compartidos en Azure Data Box Gateway 
 
@@ -92,23 +92,23 @@ La característica de actualización permite actualizar el contenido de los recu
 
 Siga estos pasos en Azure Portal para actualizar un recurso compartido.
 
-1.   En Azure Portal, vaya a **Recursos compartidos**. Seleccione y haga clic en el recurso compartido que desea actualizar.
+1. En Azure Portal, vaya a **Recursos compartidos**. Seleccione y haga clic en el recurso compartido que desea actualizar.
 
-    ![Seleccionar recurso compartido](media/data-box-gateway-manage-shares/refresh-1.png)
+   ![Seleccionar recurso compartido](media/data-box-gateway-manage-shares/refresh-1.png)
 
-2.   Haga clic en **Actualizar**. 
+2. Haga clic en **Actualizar**. 
 
-    ![Hacer clic en actualizar](media/data-box-gateway-manage-shares/refresh-2.png)
+   ![Hacer clic en actualizar](media/data-box-gateway-manage-shares/refresh-2.png)
  
-3.   Cuando se le pida confirmación, haga clic en **Sí**. Se inicia el trabajo de actualización del contenido del recurso compartido local. 
+3. Cuando se le pida confirmación, haga clic en **Sí**. Se inicia el trabajo de actualización del contenido del recurso compartido local. 
 
-    ![Confirmar actualización](media/data-box-gateway-manage-shares/refresh-3.png)
+   ![Confirmar actualización](media/data-box-gateway-manage-shares/refresh-3.png)
  
 4.   Mientras la actualización está en curso, la opción de actualización está deshabilitada en el menú contextual. Haga clic en la notificación para ver el estado del trabajo de actualización.
 
-5.   El tiempo que tarde en completarse la actualización dependerá del número de archivos que haya en el contenedor de Azure, así como de los archivos del dispositivo. Cuando la actualización se haya completado correctamente, se actualizará la marca de tiempo del recurso compartido. Aunque la actualización tenga errores parciales, la operación se considerará correcta y se actualizará la marca de tiempo. 
+5. El tiempo que tarde en completarse la actualización dependerá del número de archivos que haya en el contenedor de Azure, así como de los archivos del dispositivo. Cuando la actualización se haya completado correctamente, se actualizará la marca de tiempo del recurso compartido. Aunque la actualización tenga errores parciales, la operación se considerará correcta y se actualizará la marca de tiempo. 
 
-    ![Marca de tiempo actualizada](media/data-box-gateway-manage-shares/refresh-4.png)
+   ![Marca de tiempo actualizada](media/data-box-gateway-manage-shares/refresh-4.png)
  
 Si se produce un error, se genera una alerta, en la que se indica la causa del error y se proporciona una recomendación para solucionarlo. La alerta también incluye vínculos a un archivo que contiene el resumen completo de los errores, incluidos los archivos que no se pudieron actualizar o eliminar.
 

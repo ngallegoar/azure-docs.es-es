@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: eb7bb7933303aaf16f320e219ad3673bf1efde72
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 59983530d93885f28dfb1625ca6d58fe572609b8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82564663"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080488"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-for-advanced-deployment-flow"></a>Tutorial: Transformación de datos con Azure Stack Edge para el flujo de implementación avanzada
 
@@ -22,7 +22,7 @@ Este tutorial describe cómo configurar el rol de proceso para un flujo de imple
 
 El proceso puede configurarse para un flujo de implementación sencilla o avanzada en el dispositivo.
 
-|                  | Implementación sencilla                                | Implementación avanzada                   |
+| Criterios | Implementación sencilla                                | Implementación avanzada                   |
 |------------------|--------------------------------------------------|---------------------------------------|
 | Destinado a     | Administradores de TI                                | Desarrolladores                            |
 | Tipo             | Usar el servicio Azure Stack Edge para implementar módulos      | Usar el servicio IoT Hub para implementar módulos |
@@ -41,7 +41,7 @@ En este tutorial, aprenderá a:
 > * Comprobar la transformación y la transferencia de los datos
 
  
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de configurar un rol de proceso en el dispositivo de Azure Stack Edge, compruebe lo siguiente:
 
@@ -215,9 +215,9 @@ En esta sección, agregará un módulo personalizado al dispositivo de IoT Edge 
 
         ![Agregar un módulo personalizado](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-6.png)
  
-5.    En **Especificar rutas**, defina las rutas entre módulos.  
-    
-    ![Especificación de rutas](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-7.png)
+5. En **Especificar rutas**, defina las rutas entre módulos.  
+   
+   ![Especificación de rutas](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-7.png)
 
     Puede reemplazar la *ruta* por la cadena de ruta siguiente copiada anteriormente. En este ejemplo, proporcione el nombre del recurso compartido local que insertará los datos en el recurso compartido en la nube. Reemplace `modulename` por el nombre del módulo. Seleccione **Next** (Siguiente).
         
@@ -227,9 +227,9 @@ En esta sección, agregará un módulo personalizado al dispositivo de IoT Edge 
 
     ![La sección "Especificar rutas"](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-8.png)
 
-6.    En **Revisar la implementación**, revise todos los valores y, después, seleccione **Enviar** a fin de enviar el módulo para la implementación.
+6. En **Revisar la implementación**, revise todos los valores y, después, seleccione **Enviar** a fin de enviar el módulo para la implementación.
 
-    ![La página Establecer módulos](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
+   ![La página Establecer módulos](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
  
     Esta acción inicia la implementación del módulo. Una vez completada la implementación, el **Estado en tiempo de ejecución** del módulo es **En ejecución**.
 
@@ -241,13 +241,13 @@ El último paso es asegurarse de que el módulo está conectado y funciona segú
 
 Realice los pasos siguientes para verificar la transformación de los datos y la transferencia a Azure.
  
-1.    En el Explorador de archivos, conéctese a los recursos compartidos local perimetral y perimetral que creó anteriormente.
+1. En el Explorador de archivos, conéctese a los recursos compartidos local perimetral y perimetral que creó anteriormente.
 
-    ![Comprobar transformación de datos](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-2.png)
+   ![Comprobar transformación de datos](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-2.png)
  
-1.    Agregue datos al recurso compartido local.
+1. Agregue datos al recurso compartido local.
 
-    ![Comprobar transformación de datos](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
+   ![Comprobar transformación de datos](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
  
     Los datos se mueven al recurso compartido en la nube.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 851c5eb4ebfee4e4a4836a07b51578dd2b0c68cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b3e06ff28c7980910636edeb06c5863859120484
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231900"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081577"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Solución de problemas de mensajes de error específicos de RDP en una máquina virtual Windows en Azure
 Puede recibir un mensaje de error específico al usar la conexión Escritorio remoto a una máquina virtual (VM) Windows en Azure. Este artículo describe algunos de los mensajes de error más comunes que se pueden obtener, junto con los pasos de solución de problemas para resolverlos. Si tiene problemas para conectarse a la máquina virtual mediante RDP, pero no ve un mensaje de error específico, consulte la [Guía de solución de problemas de Escritorio remoto](troubleshoot-rdp-connection.md).
@@ -40,7 +40,9 @@ Causa: el período de gracia de licencias de 120 días para el rol de servidor d
 
 Como solución alternativa, guarde una copia local del archivo RDP desde el portal y ejecute este comando en un símbolo del sistema de PowerShell para conectarse. Con este paso se deshabilita la obtención de licencias solo de esa conexión:
 
-        mstsc <File name>.RDP /admin
+```powershell
+mstsc <File name>.RDP /admin
+```
 
 Si no necesita más de dos conexiones simultáneas de Escritorio remoto a la máquina virtual, puede usar el administrador del servidor para quitar el rol de servidor de Escritorio remoto.
 
@@ -55,9 +57,11 @@ Posibles soluciones:
 
 * Si se encuentra en la intranet de una organización, asegúrese de que el equipo tenga acceso al servidor proxy y puede enviarle tráfico HTTPS.
 * Si usa un archivo RDP almacenado localmente, intente usar uno generado por el portal. Con este paso se garantiza que tiene el nombre DNS correcto para la máquina virtual o el servicio en la nube y el puerto de punto de conexión de la máquina virtual. A continuación le facilitamos un archivo RDP de ejemplo generado por el portal:
-  
-        full address:s:tailspin-azdatatier.cloudapp.net:55919
-        prompt for credentials:i:1
+
+    ```output
+    full address:s:tailspin-azdatatier.cloudapp.net:55919
+    prompt for credentials:i:1
+    ```
 
 La parte de la dirección de este archivo RDP tiene:
 

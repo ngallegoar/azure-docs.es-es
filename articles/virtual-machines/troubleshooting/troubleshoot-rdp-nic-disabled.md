@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 315974e4995630eb3af055ac0e1c44f7d8dd0737
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6bce1616ce0c7f7e42810a551acb2f02165ccf93
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77918247"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078636"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>No se puede establecer el escritorio remoto en una VM porque la interfaz de red está deshabilitada
 
@@ -40,21 +40,29 @@ Para habilitar la interfaz para la VM, use el control de serie o [restablezca la
 ). Si la consola serie no está habilitada en la VM, consulte el artículo sobre cómo [restablecer la interfaz de red](#reset-network-interface).
 2. Compruebe el estado de la interfaz de red:
 
-        netsh interface show interface
+    ```console
+    netsh interface show interface
+    ```
 
     Anótese el nombre de la interfaz de red deshabilitada.
 
 3. Habilite la interfaz de red:
 
-        netsh interface set interface name="interface Name" admin=enabled
+    ```console
+    netsh interface set interface name="interface Name" admin=enabled
+    ```
 
     Por ejemplo, si la interfaz de red se llama "Ethernet 2", ejecute el siguiente comando:
 
-        netsh interface set interface name="Ethernet 2" admin=enabled
+    ```console
+    netsh interface set interface name="Ethernet 2" admin=enabled
+    ```
 
 4.  Vuelva a comprobar el estado de la interfaz de red para asegurarse de que está habilitada.
 
-        netsh interface show interface
+    ```console
+    netsh interface show interface
+    ```
 
     No tiene que reiniciar la máquina virtual en este momento. La máquina virtual volverá a ser accesible.
 

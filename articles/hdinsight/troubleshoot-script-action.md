@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: e2a2f6abfd6b7c644e95649f3c9832e4cc986037
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8585779a263f4ff5dbdd998bbf065c6a4e1acdf
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82188453"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079267"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Solución de problemas de acciones de script en Azure HDInsight
 
@@ -55,7 +55,9 @@ Si se produce un error al crear el clúster debido a un error de script, los reg
 
 * Todos los **stdout** y **stderr** del host correspondiente se cargan en la cuenta de almacenamiento. Hay un archivo **output-\*.txt** y **errors-\*.txt** para cada acción de script. El archivo **output-*.txt** contiene información sobre el identificador URI del script que se ejecutó en el host. El siguiente texto es un ejemplo de esta información:
 
-        'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
+    ```output
+    'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
+    ```
 
 * Es posible crear repetidamente un clúster de la acción de script con el mismo nombre. En tal caso, puede distinguir los registros pertinentes según el nombre de la carpeta de **fecha**. Por ejemplo, la estructura de carpetas de un clúster (**mycluster**) creado en diferentes fechas es similar a las siguientes entradas de registro:
 
