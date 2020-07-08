@@ -4,14 +4,14 @@ description: En este artículo se describe cómo puede optimizar el vaciado auto
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 7dcc6f9ece407bee20ed344d91ee95e34f8f4c0a
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 9b0e263d3b8bce9e04548f5e8433ff90d2bda274
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848206"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116365"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Optimización del vaciado automático en Azure Database for PostgreSQL con un único servidor
 En este artículo se describe cómo optimizar con eficacia el vaciado automático en un servidor de Azure Database for PostgreSQL.
@@ -22,20 +22,25 @@ PostgreSQL usa el control de simultaneidad multiversión (MVCC) para permitir ma
 Puede activar un trabajo de vaciado de forma manual o automática. Aparecerán más tuplas inactivas cuando la base de datos experimente una gran cantidad de operaciones de actualización o eliminación, y aparecerán menos cuando esta esté inactiva. Cuando la carga de la base de datos es muy elevada, tiene que vaciar con más frecuencia, lo que hace poco práctico el vaciado de trabajos *manual*.
 
 El vaciado automático se puede configurar y aprovecharse de las opciones de ajuste. Los valores predeterminados que incluye PostgreSQL intentan garantizar el funcionamiento del producto en todos los tipos de dispositivos. Estos dispositivos incluyen Raspberry Pi. Los valores de configuración ideales dependen de lo siguiente:
+
 - Total de recursos disponibles, como SKU y tamaño de almacenamiento.
 - Uso de los recursos.
 - Características de objetos individuales.
 
 ## <a name="autovacuum-benefits"></a>Ventajas del vaciado automático
+
 Si no vacía de vez en cuando, las tuplas inactivas que se acumulan en pueden convertirse en:
+
 - Sobredimensionamiento de datos, como bases de datos y tablas aún más grandes.
 - Índices de mayor tamaño poco óptimos.
 - Aumento de E/S.
 
 ## <a name="monitor-bloat-with-autovacuum-queries"></a>Supervisión del sobredimensionamiento con consultas de vaciado automático
 La siguiente consulta de ejemplo está diseñada para identificar el número de tuplas inactivas y activas en una tabla llamada XYZ:
- 
-    'SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_tables WHERE relname = 'XYZ' order by n_dead_tup DESC;'
+
+```sql
+SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_tables WHERE relname = 'XYZ' order by n_dead_tup DESC;
+```
 
 ## <a name="autovacuum-configurations"></a>Configuraciones del vaciado automático
 Los parámetros de configuración que controlan el vaciado automático se basan en las respuestas a dos preguntas clave:
@@ -56,6 +61,7 @@ autovacuum_max_workers|Especifica el número máximo de procesos de vaciado auto
 Para anular la configuración de tablas individuales, cambie los parámetros de almacenamiento de la tabla en cuestión. 
 
 ## <a name="autovacuum-cost"></a>Costo del vaciado automático
+
 Aquí se muestran los "costos" de ejecutar una operación de vaciado:
 
 - Se bloquean las páginas de datos que ejecuta el vaciado.
@@ -64,6 +70,7 @@ Aquí se muestran los "costos" de ejecutar una operación de vaciado:
 Por ello, no ejecute trabajos de vaciado con demasiada frecuencia ni con demasiada poca frecuencia. Un trabajo de vaciado debe adaptarse a la carga de trabajo. Pruebe todos los cambios de parámetros del vaciado automático porque cada uno tiene sus ventajas y desventajas.
 
 ## <a name="autovacuum-start-trigger"></a>Desencadenador de inicio del vaciado automático
+
 El vaciado automático se activa cuando el número de tuplas desactivadas excede autovacuum_vacuum_threshold + autovacuum_vacuum_scale_factor * reltuples. En este caso, reltuples es una constante.
 
 La limpieza del vaciado automático debe mantenerse acorde a la carga de la base de datos. En caso contrario, podría quedarse sin almacenamiento y experimentar una ralentización general en las consultas. Como se amortiza con el tiempo, la velocidad a la que la operación de vaciado limpia las tuplas inactivas debe ser igual a la velocidad a la que se crean las tuplas inactivas.
@@ -91,7 +98,9 @@ El parámetro autovacuum_max_workers determina el número máximo de procesos de
 Con PostgreSQL puede configurar estos parámetros a nivel de tabla o de instancia. Hoy en día, puede configurar estos parámetros a nivel de tabla solo en Azure Database for PostgreSQL.
 
 ## <a name="optimize-autovacuum-per-table"></a>Optimización del vaciado automático por tabla
+
 Puede configurar todos los parámetros de configuración anteriores por tabla. Este es un ejemplo:
+
 ```sql
 ALTER TABLE t SET (autovacuum_vacuum_threshold = 1000);
 ALTER TABLE t SET (autovacuum_vacuum_scale_factor = 0.1);
@@ -102,7 +111,8 @@ ALTER TABLE t SET (autovacuum_vacuum_cost_delay = 10);
 El vaciado automático es un proceso sincrónico que se realiza por tabla. Cuanto mayor es el porcentaje de tuplas inactivas que tiene una tabla, mayor es el "coste" del vaciado automático. Puede dividir las tablas que tienen una alta tasa de actualizaciones y eliminaciones en varias tablas. La división de tablas ayuda a paralelizar el vaciado automático y reduce el "coste" de completar el vaciado automático en una tabla. También puede aumentar el número de trabajos paralelos de vaciado automático para asegurarse de que los trabajos se programan de forma independiente.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Para más información acerca del uso y la optimización del vaciado automático, consulte la siguiente documentación de PostgreSQL:
 
- - [Chapter 18, Server configuration](https://www.postgresql.org/docs/9.5/static/runtime-config-autovacuum.html) (Capítulo 18: configuración del servidor)
- - [Chapter 24, Routine database maintenance tasks](https://www.postgresql.org/docs/9.6/static/routine-vacuuming.html) (Capítulo 24: tareas rutinarias de mantenimiento de base de datos)
+- [Chapter 18, Server configuration](https://www.postgresql.org/docs/9.5/static/runtime-config-autovacuum.html) (Capítulo 18: configuración del servidor)
+- [Chapter 24, Routine database maintenance tasks](https://www.postgresql.org/docs/9.6/static/routine-vacuuming.html) (Capítulo 24: tareas rutinarias de mantenimiento de base de datos)

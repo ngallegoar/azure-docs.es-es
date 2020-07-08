@@ -4,14 +4,14 @@ description: En este artículo se describe cómo optimizar el tiempo de consulta
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: ac1dc43a2b89bc1cc748947ec08e6ada87edbfcb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3f1fa0affb821b00d4f5529841533e854e634377
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65066966"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116189"
 ---
 # <a name="optimize-query-time-with-the-toast-table-storage-strategy"></a>Optimización del tiempo de consulta con la estrategia de almacenamiento de tablas TOAST 
 En este artículo se describe cómo optimizar los tiempos de consulta con la estrategia de almacenamiento de tablas TOAST (técnica de almacenamiento de atributos de gran tamaño).

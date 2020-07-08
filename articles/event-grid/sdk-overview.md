@@ -1,19 +1,14 @@
 ---
 title: SDK de Azure Event Grid
 description: Se describen los SDK de Azure Event Grid. Estos SDK proporcionan administración, publicación y consumo.
-services: event-grid
-author: spelluru
-manager: timlt
-ms.service: event-grid
 ms.topic: reference
-ms.date: 01/19/2019
-ms.author: spelluru
-ms.openlocfilehash: 7f05665f4bcc5449c1a81fa24582b333b0a944e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/07/2019
+ms.openlocfilehash: 2b21d8bf2c393b096e9046765e6cfadc76baffbf
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60822841"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119113"
 ---
 # <a name="event-grid-sdks-for-management-and-publishing"></a>SDK de Event Grid para administración y publicación
 

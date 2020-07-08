@@ -7,14 +7,14 @@ author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/09/2017
-ms.openlocfilehash: f3b9f14be4422373fb30f8c3d4909fd9c9546fdf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 78bd7f446b7716031e3eef02639acc8bb729719e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71672842"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119572"
 ---
 # <a name="get-started-with-the-u-sql-catalog-in-azure-data-lake-analytics"></a>Introducción al catálogo de U-SQL en Azure Data Lake Analytics
 
@@ -24,7 +24,7 @@ En el anterior script de U-SQL, repitió el uso de EXTRACT para leer el mismo ar
 
 El siguiente script crea una función TVF llamada `Searchlog()` en la base de datos y el esquema predeterminados:
 
-```
+```usql
 DROP FUNCTION IF EXISTS Searchlog;
 
 CREATE FUNCTION Searchlog()
@@ -55,7 +55,7 @@ END;
 
 El siguiente script muestra cómo usar la TVF definida en el anterior script:
 
-```
+```usql
 @res =
     SELECT
         Region,
@@ -76,7 +76,7 @@ Si tiene una expresión de consulta única, en lugar de una función TVF puede u
 
 El siguiente script crea una vista llamada `SearchlogView` en la base de datos y el esquema predeterminados:
 
-```
+```usql
 DROP VIEW IF EXISTS SearchlogView;
 
 CREATE VIEW SearchlogView AS  
@@ -93,7 +93,7 @@ USING Extractors.Tsv();
 
 El siguiente script muestra el uso de la vista definida:
 
-```
+```usql
 @res =
     SELECT
         Region,
@@ -113,7 +113,7 @@ De forma semejante a una tabla de base de datos relacional, U-SQL permite crear 
 
 Cree una base de datos y dos tablas mediante el siguiente script:
 
-```
+```usql
 DROP DATABASE IF EXISTS SearchLogDb;
 CREATE DATABASE SearchLogDb;
 USE DATABASE SearchLogDb;
@@ -147,7 +147,7 @@ Puede consultar tablas, como las creadas en el script anterior, de la misma form
 
 Para leer las tablas, modifique el script de transformación que usó anteriormente:
 
-```
+```usql
 @rs1 =
     SELECT
         Region,

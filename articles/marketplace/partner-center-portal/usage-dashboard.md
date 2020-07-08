@@ -1,18 +1,16 @@
 ---
 title: Panel Uso de los análisis de Marketplace comercial de Microsoft
 description: Obtenga información sobre cómo acceder a todas las métricas de uso y facturación medida de las ofertas de máquina virtual. Vaya al panel Uso del Centro de Partners en Marketplace comercial.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: b60475c56b18e81b082e7552fec789b06adeff27
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 8747ff98cd2b53773d9e0a95436d90fef74fda55
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746664"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120677"
 ---
 # <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Panel Uso de los análisis de Marketplace comercial de Microsoft
 

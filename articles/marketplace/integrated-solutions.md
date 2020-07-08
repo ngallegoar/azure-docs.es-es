@@ -1,18 +1,18 @@
 ---
 title: 'Soluciones integradas: marketplace comercial de Microsoft'
 description: Obtenga información sobre las ventajas, los recursos y los pasos sucesivos para ofrecer soluciones integradas en marketplace comercial.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 04/15/2020
-ms.author: dsindona
-ms.openlocfilehash: bf20473b407db1804a4275fdc6dd3d528de1f189
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8e029d888b963fd10e7198486a973766755c9812
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657998"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119521"
 ---
 # <a name="integrated-solutions-in-the-commercial-marketplace"></a>Soluciones integradas en Marketplace comercial
 Una solución integrada reúne las mejores tecnologías de asociados de Microsoft, junto con la consultoría, la implementación y la asistencia que proporcionan expertos asociados de servicios.

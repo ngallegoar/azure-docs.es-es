@@ -1,18 +1,16 @@
 ---
 title: Facturación según uso para aplicaciones administradas con el servicio de medición de Marketplace | Azure Marketplace
 description: Esta documentación es una guía para proveedores de software independientes que publican aplicaciones de Azure con modelos de facturación flexibles.
-author: qianw211
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 5a867243e57790bf72cef6991d6d8ac06639be49
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d1ed294412e44c79fc1eb8cbc01bf134f08a953f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963927"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118943"
 ---
 # <a name="managed-application-metered-billing"></a>Facturación según uso de aplicaciones administradas 
 

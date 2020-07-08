@@ -1,20 +1,14 @@
 ---
 title: 'Cuotas y límites: Azure Event Grid | Microsoft Docs'
 description: En este artículo se proporcionan límites y cuotas para Azure Event Grid. Por ejemplo, el número de suscripciones del tema, el número de temas personalizados por suscripción, etc.
-services: event-grid
-author: spelluru
-editor: ''
-ms.service: event-grid
-ms.devlang: na
 ms.topic: reference
-ms.date: 05/12/2020
-ms.author: shvija
-ms.openlocfilehash: decfc6659ea38ea35ab41615ff5077492cfa03b5
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 07/07/2020
+ms.openlocfilehash: 78fb18f579eb1fa0c032b72c6d32bf56a7f0c8f4
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595644"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120439"
 ---
 # <a name="azure-event-grid-quotas-and-limits"></a>Cuotas y límites de Azure Event Grid
 En este artículo se enumeran las cuotas y los límites de Azure Event Grid. 
