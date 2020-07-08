@@ -3,12 +3,12 @@ title: Implementación del ejemplo de plano técnico de FedRAMP moderado
 description: Pasos de implementación para el ejemplo de plano técnico de FedRAMP moderado incluidos los detalles de los parámetros del artefacto de plano técnico.
 ms.date: 05/14/2020
 ms.topic: sample
-ms.openlocfilehash: af29dafe071bcd50c24c7ff7dc1aaf4a2d60ae4c
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 80c33fc854b00aa9fc33d288b8b466c80596a078
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816257"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044794"
 ---
 # <a name="deploy-the-fedramp-moderate-blueprint-sample"></a>Implementación del ejemplo de plano técnico de FedRAMP moderado
 
@@ -94,7 +94,7 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 |Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|Descripción|
 |-|-|-|-|
 |\[Versión preliminar\]: Auditar los controles de FedRAMP moderado e implementar extensiones de VM específicas para admitir los requisitos de auditoría|Asignación de directiva|Identificación del área de trabajo de Log Analytics para el que deberían configurarse las máquinas virtuales|Este es el identificador (GUID) del área de trabajo de Log Analytics para el que deberían estar configuradas las máquinas virtuales.|
-|\[Versión preliminar\]: Auditar los controles de FedRAMP moderado e implementar extensiones de VM específicas para admitir los requisitos de auditoría|Asignación de directiva|Lista de tipos de recursos que deben tener los registros de diagnóstico habilitados|Lista de tipos de recursos para auditar si la opción de registro de diagnóstico no está habilitada. Los valores aceptables se pueden encontrar en [esquemas de los registros de diagnóstico de Azure Monitor](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|\[Versión preliminar\]: Auditar los controles de FedRAMP moderado e implementar extensiones de VM específicas para admitir los requisitos de auditoría|Asignación de directiva|Lista de tipos de recursos que deben tener los registros de diagnóstico habilitados|Lista de tipos de recursos para auditar si la opción de registro de diagnóstico no está habilitada. Los valores aceptables se pueden encontrar en [esquemas de los registros de diagnóstico de Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 |\[Versión preliminar\]: Auditar los controles de FedRAMP moderado e implementar extensiones de VM específicas para admitir los requisitos de auditoría|Asignación de directiva|Lista de usuarios que deben excluirse del grupo de administradores de máquinas virtuales de Windows|Lista separada por punto y coma de los miembros que se deben excluir en el grupo Administradores local. Por ejemplo: Administrador; miUsuario1; miUsuario2|
 |\[Versión preliminar\]: Auditar los controles de FedRAMP moderado e implementar extensiones de VM específicas para admitir los requisitos de auditoría|Asignación de directiva|Lista de usuarios que deben incluirse en el grupo de administradores de máquinas virtuales Windows|Lista separada por punto y coma de los miembros que deben incluirse en el grupo de administradores local. Por ejemplo: Administrador; miUsuario1; miUsuario2|
 |\[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Linux|Asignación de directiva|Área de trabajo de Log Analytics para VM Scale Sets (VMSS) para Linux|Si este área de trabajo está fuera del ámbito de la asignación, debe conceder manualmente los permisos de "colaborador de Log Analytics" (o similar) al identificador de la entidad de seguridad de la asignación de la directiva.|

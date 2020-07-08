@@ -3,12 +3,12 @@ title: Implementación de ejemplo de plano técnico de la norma ISO 27001 sobre 
 description: Pasos de implementación para el ejemplo de plano técnico de servicios compartidos ISO 27001, incluidos los detalles de los parámetros del artefacto de plano técnico.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: a9dabc99469321445006e449757a10fbc51aba87
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 19e394f115c87c499f7839c6ef63921e68f4d357
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75920687"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044709"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Implementación del ejemplo de plano técnico de servicios compartidos según la norma ISO 27001
 
@@ -110,7 +110,7 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 |Tipos de recursos permitidos|Asignación de directiva|Tipos de recursos permitidos|Lista de tipos de recursos que se pueden implementar. Esta lista se compone de todos los tipos de recursos implementados en los servicios compartidos.|
 |SKU de cuenta de almacenamiento permitida|Asignación de directiva|SKU de almacenamiento permitidas|Lista de SKU de cuenta de almacenamiento de registros de diagnóstico permitidas. El valor predeterminado es _["Standard_LRS"]_ .|
 |SKU de máquina virtual permitida|Asignación de directiva|Lista de SKU de máquinas virtuales que se pueden implementar. El valor predeterminado es _["Standard_DS1_v2", "Standard_DS2_v2"]_ .|
-|Iniciativa de plano técnico para ISO 27001|Asignación de directiva|Tipos de recursos para auditar registros de diagnóstico|Lista de tipos de recursos para auditar si la opción de registro de diagnóstico no está habilitada. Los valores aceptables se pueden encontrar en [esquemas de los registros de diagnóstico de Azure Monitor](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|Iniciativa de plano técnico para ISO 27001|Asignación de directiva|Tipos de recursos para auditar registros de diagnóstico|Lista de tipos de recursos para auditar si la opción de registro de diagnóstico no está habilitada. Los valores aceptables se pueden encontrar en [esquemas de los registros de diagnóstico de Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 |Grupo de recursos de Log Analytics|Resource group|Nombre|**Bloqueado**: concatena el **nombre de la organización** con `-sharedsvsc-log-rg` para que el grupo de recursos sea único.|
 |Grupo de recursos de Log Analytics|Resource group|Location|**Bloqueado**: utiliza el parámetro del plano técnico.|
 |Plantilla de Log Analytics|Plantilla de Resource Manager|Nivel de servicio|Establece el nivel de servicio del área de trabajo de Log Analytics. El valor predeterminado es _PerNode_.|

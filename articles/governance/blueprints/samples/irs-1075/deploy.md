@@ -3,12 +3,12 @@ title: Implementación del ejemplo de plano técnico de la norma IRS 1075
 description: Pasos de implementación para el ejemplo de plano técnico de IRS 1075 (Rev.11-2016), incluidos los detalles de los parámetros del artefacto de plano técnico.
 ms.date: 05/13/2020
 ms.topic: sample
-ms.openlocfilehash: 7faf1042f695ac43b2fa22d2685149426cb1ed80
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 59e9194e3f7839ce0826717e2f8fcef35de7decb
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653104"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044777"
 ---
 # <a name="deploy-the-irs-1075-blueprint-sample"></a>Implementación del ejemplo de plano técnico de la norma IRS 1075
 
@@ -94,7 +94,7 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 |Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|Descripción|
 |-|-|-|-|
 |Audite los controles de IRS 1075 (Rev.11-2016) e implemente extensiones de VM específicas para admitir los requisitos de auditoría.|Asignación de directiva|Identificación del área de trabajo de Log Analytics para el que deberían configurarse las máquinas virtuales|Este es el identificador (GUID) del área de trabajo de Log Analytics para el que deberían estar configuradas las máquinas virtuales.|
-|Audite los controles de IRS 1075 (Rev.11-2016) e implemente extensiones de VM específicas para admitir los requisitos de auditoría.|Asignación de directiva|Lista de tipos de recursos que deben tener los registros de diagnóstico habilitados|Lista de tipos de recursos para auditar si la opción de registro de diagnóstico no está habilitada. Los valores aceptables se pueden encontrar en [esquemas de los registros de diagnóstico de Azure Monitor](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|Audite los controles de IRS 1075 (Rev.11-2016) e implemente extensiones de VM específicas para admitir los requisitos de auditoría.|Asignación de directiva|Lista de tipos de recursos que deben tener los registros de diagnóstico habilitados|Lista de tipos de recursos para auditar si la opción de registro de diagnóstico no está habilitada. Los valores aceptables se pueden encontrar en [esquemas de los registros de diagnóstico de Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 |Audite los controles de IRS 1075 (Rev.11-2016) e implemente extensiones de VM específicas para admitir los requisitos de auditoría.|Asignación de directiva|Lista de usuarios que deben excluirse del grupo de administradores de máquinas virtuales de Windows|Lista separada por punto y coma de los miembros que se deben excluir en el grupo Administradores local. Por ejemplo: Administrador; miUsuario1; miUsuario2|
 |Audite los controles de IRS 1075 (Rev.11-2016) e implemente extensiones de VM específicas para admitir los requisitos de auditoría.|Asignación de directiva|Lista de usuarios que deben incluirse en el grupo de administradores de máquinas virtuales Windows|Lista separada por punto y coma de los miembros que deben incluirse en el grupo de administradores local. Por ejemplo: Administrador; miUsuario1; miUsuario2|
 |Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Linux|Asignación de directiva|Área de trabajo de Log Analytics para VM Scale Sets (VMSS) para Linux|Si este área de trabajo está fuera del ámbito de la asignación, debe conceder manualmente los permisos de "colaborador de Log Analytics" (o similar) al identificador de la entidad de seguridad de la asignación de la directiva.|

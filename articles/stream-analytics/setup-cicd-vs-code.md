@@ -6,14 +6,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: deb6c2439cc84f196b7f42fd9f49d3ebfd057cbb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a7fe3f7e1c39837106471d118a8b1bb770a524e
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76962228"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045831"
 ---
 # <a name="deploy-an-azure-stream-analytics-job-using-cicd-npm-package"></a>Implementación de un trabajo de Azure Stream Analytics mediante el paquete npm de CI/CD 
 
@@ -39,13 +39,17 @@ azure-streamanalytics-cicd build -scriptPath "/Users/roger/projects/samplejob/sc
 
 Cuando un proyecto de Stream Analytics para Visual Studio Code se compila correctamente, genera los dos siguientes archivos de plantilla de Azure Resource Manager en la carpeta **bin/[Debug/Retail]/Deploy**: 
 
-*  Archivo de plantilla de Resource Manager
+* Archivo de plantilla de Resource Manager
 
-       [ProjectName].JobTemplate.json 
+   ```
+   [ProjectName].JobTemplate.json 
+   ```
 
-*  Archivo de parámetros de Resource Manager
+* Archivo de parámetros de Resource Manager
 
-       [ProjectName].JobTemplate.parameters.json   
+   ```
+   [ProjectName].JobTemplate.parameters.json
+   ```   
 
 Los parámetros predeterminados en el archivo parameters.json provienen de la configuración del proyecto de Visual Studio Code. Si quiere implementar en otro entorno, reemplace los parámetros según corresponda.
 

@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
-ms.custom: mvc
-ms.openlocfilehash: 44f1a2cd3336eeae87878c333fb05d2e6b1f88e8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom: mvc, tracking-python
+ms.openlocfilehash: 92e224448d26c24c073bd81b7f9e001fa8a09898
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77605394"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044692"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Inicio rápido: Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos Python para el servicio IoT Hub Device Provisioning
 
@@ -22,7 +22,7 @@ ms.locfileid: "77605394"
 
 En este inicio rápido se crea un dispositivo simulado X.509 en un equipo Windows. Use el código de ejemplo de Python del dispositivo para conectar este dispositivo simulado con su centro de IoT mediante una inscripción individual con el servicio de aprovisionamiento de dispositivos.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Revisión de [Conceptos de aprovisionamiento automático](concepts-auto-provisioning.md).
 - Finalización de [Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal](./quick-setup-auto-provision.md).
@@ -87,15 +87,17 @@ En este artículo se muestran las inscripciones individuales.
 
 3. En la ventana de salida, escriba `i` para la inscripción individual cuando se le solicite. La ventana de salida muestra un certificado X.509 generado localmente para el dispositivo simulado. 
     
-    Copie el primer certificado en el Portapapeles. Comience por la primera aparición de:
+    ```output
+    Copy the first certificate to clipboard. Begin with the first occurrence of:
     
         -----BEGIN CERTIFICATE----- 
         
-    Termine de copiar tras la primera aparición de:
+    End you copying after the first occurrence of:
     
         -----END CERTIFICATE-----
         
-    Asegúrese de incluir también esas dos líneas. 
+    Make sure to include both of those lines as well.
+    ``` 
 
     ![Aplicación de inscripción de dispositivos DICE](./media/python-quick-create-simulated-device-x509/dice-device-enrollment.png)
  

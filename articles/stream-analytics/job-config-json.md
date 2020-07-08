@@ -4,14 +4,14 @@ description: En este artículo se enumeran los campos admitidos del archivo JobC
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2020
-ms.openlocfilehash: 27ed553035ce9d7abf57ffe93078df9c17b8408c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0676b987725a33049d9da3256bdd4e6dc8028d00
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77617740"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045185"
 ---
 # <a name="azure-stream-analytics-jobconfigjson-fields"></a>Campos del archivo JobConfig.json de Azure Stream Analytics
 

@@ -3,12 +3,12 @@ title: Implementación del ejemplo de plano técnico con un nivel de impacto alt
 description: Pasos de implementación para el ejemplo de plano técnico de nivel de impacto alto de FedRAMP incluidos los detalles de los parámetros del artefacto de plano técnico.
 ms.date: 01/31/2020
 ms.topic: sample
-ms.openlocfilehash: 96b033c153789b3edbfb6a197981fe3d56f12076
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
+ms.openlocfilehash: c4b2915222bc2d1772a2772c719d5d6cc4b59657
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517141"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044811"
 ---
 # <a name="deploy-the-fedramp-high-blueprint-sample"></a>Implementación del ejemplo de plano técnico con un nivel de impacto alto de FedRAMP
 
@@ -94,7 +94,7 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 |Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|Descripción|
 |-|-|-|-|
 |\[Versión preliminar\]: Auditoría de los controles de nivel de impacto alto de FedRAMP e implementación de las extensiones de VM específicas para admitir los requisitos de auditoría|Asignación de directiva|Identificación del área de trabajo de Log Analytics para el que deberían configurarse las máquinas virtuales|Este es el identificador (GUID) del área de trabajo de Log Analytics para el que deberían estar configuradas las máquinas virtuales.|
-|\[Versión preliminar\]: Auditoría de los controles de nivel de impacto alto de FedRAMP e implementación de las extensiones de VM específicas para admitir los requisitos de auditoría|Asignación de directiva|Lista de tipos de recursos que deben tener los registros de diagnóstico habilitados|Lista de tipos de recursos para auditar si la opción de registro de diagnóstico no está habilitada. Los valores aceptables se pueden encontrar en [esquemas de los registros de diagnóstico de Azure Monitor](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|\[Versión preliminar\]: Auditoría de los controles de nivel de impacto alto de FedRAMP e implementación de las extensiones de VM específicas para admitir los requisitos de auditoría|Asignación de directiva|Lista de tipos de recursos que deben tener los registros de diagnóstico habilitados|Lista de tipos de recursos para auditar si la opción de registro de diagnóstico no está habilitada. Los valores aceptables se pueden encontrar en [esquemas de los registros de diagnóstico de Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 |\[Versión preliminar\]: Auditoría de los controles de nivel de impacto alto de FedRAMP e implementación de las extensiones de VM específicas para admitir los requisitos de auditoría|Asignación de directiva|Lista de usuarios que deben excluirse del grupo de administradores de máquinas virtuales de Windows|Lista separada por punto y coma de los miembros que se deben excluir en el grupo Administradores local. Por ejemplo: Administrador; miUsuario1; miUsuario2|
 |\[Versión preliminar\]: Auditoría de los controles de nivel de impacto alto de FedRAMP e implementación de las extensiones de VM específicas para admitir los requisitos de auditoría|Asignación de directiva|Lista de usuarios que deben incluirse en el grupo de administradores de máquinas virtuales Windows|Lista separada por punto y coma de los miembros que deben incluirse en el grupo de administradores local. Por ejemplo: Administrador; miUsuario1; miUsuario2|
 |\[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Linux|Asignación de directiva|Área de trabajo de Log Analytics para VM Scale Sets (VMSS) para Linux|Si este área de trabajo está fuera del ámbito de la asignación, debe conceder manualmente los permisos de "colaborador de Log Analytics" (o similar) al identificador de la entidad de seguridad de la asignación de la directiva.|

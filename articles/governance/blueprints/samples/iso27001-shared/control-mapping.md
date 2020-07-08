@@ -3,12 +3,12 @@ title: Controles del ejemplo de plano técnico de servicios compartidos ISO 270
 description: Asignación de controles del ejemplo de plano técnico de servicios compartidos ISO 27001. Cada control se asigna a una o varias directivas de Azure que ayudan en la evaluación.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 448808a54cd313ca0acf0b8db40172bc8e0f1e06
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 0c400ebde894e03116c1b87c1c3655f9efa1ce0a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919854"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044743"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Asignación de control del ejemplo de plano técnico de servicios compartidos según la norma ISO 27001
 
@@ -28,7 +28,7 @@ Tener solo un propietario de la suscripción de Azure no permite la redundancia 
 
 ## <a name="a821-classification-of-information"></a>A.8.2.1 Clasificación de la información
 
-El [servicio de evaluación de vulnerabilidad de SQL](/azure/sql-database/sql-vulnerability-assessment) de Azure puede ayudarle a detectar información confidencial almacenada en las bases de datos e incluye recomendaciones para clasificar esa información. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) para comprobar si las vulnerabilidades identificadas durante el examen de evaluación de vulnerabilidad de SQL se corrigieron.
+El [servicio de evaluación de vulnerabilidad de SQL](../../../../azure-sql/database/sql-vulnerability-assessment.md) de Azure puede ayudarle a detectar información confidencial almacenada en las bases de datos e incluye recomendaciones para clasificar esa información. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) para comprobar si las vulnerabilidades identificadas durante el examen de evaluación de vulnerabilidad de SQL se corrigieron.
 
 - \[Versión preliminar\]: Supervisión de los resultados de evaluación de puntos vulnerables de SQL en Azure Security Center
 

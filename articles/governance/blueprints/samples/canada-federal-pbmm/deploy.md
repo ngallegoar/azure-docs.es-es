@@ -3,12 +3,12 @@ title: Implementación de un ejemplo de plano técnico de Canada Federal PBMM
 description: Pasos de implementación para el ejemplo de plano técnico Canada Federal PBMM, incluidos los detalles de los parámetros del artefacto de plano técnico.
 ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: f9234b3ff44d3536380e19cb685ca4e3bbd9b0a5
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 5cbca772212f361fb7020dbfbdca20ca236c1ff0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005691"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045015"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Implementación de los ejemplos de plano técnico Canada Federal PBMM
 
@@ -98,7 +98,7 @@ Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|Descripción|
 |\[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows |Asignación de directiva |Opcional: Lista de imágenes de VM que han admitido el sistema operativo Windows que se agregarán al ámbito. |Se puede usar una matriz vacía para indicar que no hay parámetros opcionales: `[]` |
 |\[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows |Asignación de directiva |Área de trabajo de Log Analytics para máquinas virtuales Windows |Para obtener más información, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
 |\[Versión preliminar\]: Auditoría de los controles de Canada Federal PBMM e implementación de extensiones de máquina virtual específicas para admitir los requisitos de auditoría |Asignación de directiva |Identificación del área de trabajo de Log Analytics para el que deberían configurarse las máquinas virtuales |Este es el identificador (GUID) del área de trabajo de Log Analytics para el que deberían estar configuradas las máquinas virtuales. |
-|\[Versión preliminar\]: Auditoría de los controles de Canada Federal PBMM e implementación de extensiones de máquina virtual específicas para admitir los requisitos de auditoría |Asignación de directiva |Lista de tipos de recursos que deben tener los registros de diagnóstico habilitados |Lista de tipos de recursos para auditar si la opción de registro de diagnóstico no está habilitada. Los valores aceptables se pueden encontrar en [esquemas de los registros de diagnóstico de Azure Monitor](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type). |
+|\[Versión preliminar\]: Auditoría de los controles de Canada Federal PBMM e implementación de extensiones de máquina virtual específicas para admitir los requisitos de auditoría |Asignación de directiva |Lista de tipos de recursos que deben tener los registros de diagnóstico habilitados |Lista de tipos de recursos para auditar si la opción de registro de diagnóstico no está habilitada. Los valores aceptables se pueden encontrar en [esquemas de los registros de diagnóstico de Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas). |
 |\[Versión preliminar\]: Auditoría de los controles de Canada Federal PBMM e implementación de extensiones de máquina virtual específicas para admitir los requisitos de auditoría |Asignación de directiva |Grupo de administradores |Grupo. Ejemplo: `Administrator; myUser1; myUser2` |
 |\[Versión preliminar\]: Auditoría de los controles de Canada Federal PBMM e implementación de extensiones de máquina virtual específicas para admitir los requisitos de auditoría |Asignación de directiva |Lista de usuarios que deben incluirse en el grupo de administradores de máquinas virtuales Windows |Lista separada por punto y coma de los miembros que deben incluirse en el grupo de administradores local. Ejemplo: `Administrator; myUser1; myUser2` |
 |Implementar Advanced Threat Protection en las cuentas de almacenamiento |Asignación de directiva |Efecto |Puede encontrar información sobre los efectos de las directivas en [Comprender los efectos de Azure Policy](../../../policy/concepts/effects.md). |

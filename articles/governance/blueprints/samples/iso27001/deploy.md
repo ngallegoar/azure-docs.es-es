@@ -3,12 +3,12 @@ title: Implementación del ejemplo de plano técnico ISO 27001
 description: Pasos de implementación para el ejemplo de plano técnico independiente ISO 27001, incluidos los detalles de los parámetros del artefacto de plano técnico.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: f5920541d49c454bd6648318c04ed607eada1dfb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9eaf559f0c1e6c99d3a2469d63eddea1c1ae9867
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75922501"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044658"
 ---
 # <a name="deploy-the-iso-27001-blueprint-sample"></a>Implementación del ejemplo de plano técnico ISO 27001
 
@@ -109,7 +109,7 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 |\[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Windows que se agregarán al ámbito.|Se puede usar una matriz vacía para indicar que no hay parámetros opcionales: \[\]|
 |SKU de cuenta de almacenamiento permitida|Asignación de directiva|Lista de SKU de almacenamiento permitidas|Lista de las SKU que se pueden especificar para las cuentas de almacenamiento.|
 |SKU de máquina virtual permitida|Asignación de directiva|Lista de SKU de máquina virtual permitidas|Lista de las SKU que se pueden especificar para las máquinas virtuales.|
-|Iniciativa de plano técnico para ISO 27001|Asignación de directiva|Lista de tipos de recursos que deben tener los registros de diagnóstico habilitados|Lista de tipos de recursos para auditar si la opción de registro de diagnóstico no está habilitada. Los valores aceptables se pueden encontrar en [esquemas de los registros de diagnóstico de Azure Monitor](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|Iniciativa de plano técnico para ISO 27001|Asignación de directiva|Lista de tipos de recursos que deben tener los registros de diagnóstico habilitados|Lista de tipos de recursos para auditar si la opción de registro de diagnóstico no está habilitada. Los valores aceptables se pueden encontrar en [esquemas de los registros de diagnóstico de Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 
 ## <a name="next-steps"></a>Pasos siguientes
 
