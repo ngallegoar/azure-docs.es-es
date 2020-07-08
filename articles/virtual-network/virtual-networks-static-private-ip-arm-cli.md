@@ -3,24 +3,25 @@ title: 'Configuración de direcciones IP privadas para máquinas virtuales: CLI 
 description: Aprenda a configurar direcciones IP privadas para máquinas virtuales mediante la interfaz de la línea de comandos (CLI) de Azure.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: asudbring
+manager: KumudD
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 40b03a1a-ea00-454c-b716-7574cea49ac0
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
-ms.author: kumud
-ms.openlocfilehash: f4643aae0b28861f4ddb99d8dace749e62f930b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: c34ab73422d8dd41feb9da542ed63fdba060fe3f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78199485"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708168"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Configuración de direcciones IP privadas para una máquina virtual mediante la CLI de Azure
 
@@ -38,38 +39,7 @@ Para crear una máquina virtual denominada *DNS01* en la subred *FrontEnd* de un
 
 1. Si aún no lo ha hecho, instale y configure la última versión de la [CLI de Azure](/cli/azure/install-azure-cli) e inicie sesión en una cuenta de Azure con [az login](/cli/azure/reference-index).
 
-2. Cree una dirección IP pública para la máquina virtual con el comando [az network public-ip create](/cli/azure/network/public-ip). En la lista que se muestra en la salida se explican los parámetros utilizados.
-
-    > [!NOTE]
-    > Puede que quiera o necesite usar valores diferentes para los argumentos de este paso y los siguientes, dependiendo de su entorno.
-
-    ```azurecli
-    az network public-ip create \
-    --name TestPIP \
-    --resource-group TestRG \
-    --location centralus \
-    --allocation-method Static
-    ```
-
-    Resultado esperado:
-
-   ```json
-   {
-        "publicIp": {
-            "idleTimeoutInMinutes": 4,
-            "ipAddress": "52.176.43.167",
-            "provisioningState": "Succeeded",
-            "publicIPAllocationMethod": "Static",
-            "resourceGuid": "79e8baa3-33ce-466a-846c-37af3c721ce1"
-        }
-    }
-    ```
-
-   * `--resource-group`: nombre del grupo de recursos en el que se creará la dirección IP pública.
-   * `--name`: nombre de la dirección IP pública.
-   * `--location`: región de Azure donde se va a crear la dirección IP pública.
-
-3. Ejecute el comando [azure network nic create](/cli/azure/network/nic) para crear una NIC con una dirección IP privada estática. En la lista que se muestra en la salida se explican los parámetros utilizados. 
+2. Ejecute el comando [azure network nic create](/cli/azure/network/nic) para crear una NIC con una dirección IP privada estática. En la lista que se muestra en la salida se explican los parámetros utilizados. 
    
     ```azurecli
     az network nic create \
@@ -117,11 +87,11 @@ Para crear una máquina virtual denominada *DNS01* en la subred *FrontEnd* de un
     
     Parámetros:
 
-    * `--private-ip-address`: dirección IP privada estática para la NIC.
+    * `--private-ip-address`: Dirección IP privada estática para la NIC.
     * `--vnet-name`: nombre de la red virtual en la que se va a crear la NIC.
     * `--subnet`: nombre de la subred en la que se va a crear la NIC.
 
-4. Ejecute el comando [azure vm create](/cli/azure/vm/nic) para crear la máquina virtual mediante la dirección IP pública y la NIC creadas anteriormente. En la lista que se muestra en la salida se explican los parámetros utilizados.
+3. Ejecute el comando [azure vm create](/cli/azure/vm/nic) para crear la máquina virtual mediante la dirección IP pública y la NIC creadas anteriormente. En la lista que se muestra en la salida se explican los parámetros utilizados.
    
     ```azurecli
     az vm create \

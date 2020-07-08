@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 7c93c1f525713a90abd71c30a21401b9d1cfcb9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 25e8be28903d490a7a8c17e16d2beddc44c95c41
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81460909"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782779"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Sincronizar la hora en las máquinas virtuales de Linux en Azure
 
@@ -25,10 +25,10 @@ La sincronización de la hora es importante para la seguridad y la correlación 
 
 Por ello, Azure cuenta con la infraestructura que ejecuta Windows Server 2016. Windows Server 2016 ha mejorado los algoritmos que se usan para corregir la hora y la condición del reloj local, y así poder sincronizarse con la hora UTC.  La característica de hora precisa de Windows Server 2016 ha mejorado en gran medida la manera en que el servicio VMICTimeSync rige las máquinas virtuales con el host para obtener la hora exacta. Las mejoras incluyen una hora inicial más precisa en el inicio o la restauración de la máquina virtual, así como la interrupción de la corrección de la latencia. 
 
->[!NOTE]
->Para obtener información general rápida del servicio Horario de Windows, eche un vistazo a este [vídeo de información general de alto nivel](https://aka.ms/WS2016TimeVideo).
+> [!NOTE]
+> Para obtener información general rápida del servicio Horario de Windows, eche un vistazo a este [vídeo de información general de alto nivel](https://aka.ms/WS2016TimeVideo).
 >
-> Para obtener más información, consulte el artículo [Hora de Windows Server 2016 precisa](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
+> Para obtener más información, consulte el artículo [Hora de Windows Server 2016 precisa](/windows-server/networking/windows-time-service/accurate-time). 
 
 ## <a name="overview"></a>Información general
 
@@ -140,9 +140,9 @@ refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
 
 Para más información sobre Ubuntu y NTP, vea [Sincronización de hora](https://help.ubuntu.com/lts/serverguide/NTP.html).
 
-Para más información sobre Red Hat y NTP, vea [Configurar NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-configure_ntp). 
+Para más información sobre Red Hat y NTP, vea [Configurar NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_ntpd#s1-Configure_NTP). 
 
-Para más información sobre chrony, vea [Usar chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-using_chrony).
+Para más información sobre chrony, vea [Usar chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_the_chrony_suite#sect-Using_chrony).
 
 Si los orígenes de chrony y TimeSync están habilitados simultáneamente, puede marcar el que **prefiera**; al hacer esto, el otro origen se establecerá como una copia de seguridad. Como los servicios de NTP no actualizan el reloj para grandes distorsiones, excepto después de un largo período, VMICTimeSync recuperará el reloj de los eventos de la máquina virtual en pausa mucho más rápido que las herramientas basadas en NTP.
 
@@ -164,6 +164,6 @@ En las versiones de SUSE y Ubuntu anteriores a 19.10, la sincronización de hor
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información, consulte el artículo [Hora de Windows Server 2016 precisa](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time).
+Para obtener más información, consulte el artículo [Hora de Windows Server 2016 precisa](/windows-server/networking/windows-time-service/accurate-time).
 
 

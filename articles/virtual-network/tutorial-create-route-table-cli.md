@@ -4,25 +4,25 @@ description: En este artículo, aprenderá a enrutar el tráfico de red con una 
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 5fa94b93e081ab6334c39b848068f50682f5f1f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70f7bd4443602f6f18be54c5bc4ff038e868e58e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80235068"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84703356"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Enrutamiento del tráfico de red con una tabla de rutas mediante la CLI de Azure
 
@@ -210,7 +210,7 @@ Anote el valor de **publicIpAddress**. En un paso posterior, usaremos esta direc
 
 ## <a name="route-traffic-through-an-nva"></a>Enrutamiento del tráfico a través de una aplicación virtual de red
 
-Use el siguiente comando para crear una sesión de SSH con la máquina virtual *myVmPrivate*. Reemplace *\<publicIpAddress>* por la dirección IP pública de la VM. En el ejemplo anterior, la dirección IP era *13.90.242.231*.
+Use el siguiente comando para crear una sesión de SSH con la máquina virtual *myVmPrivate*. Reemplace *\<publicIpAddress>* con la dirección IP pública de la máquina virtual. En el ejemplo anterior, la dirección IP era *13.90.242.231*.
 
 ```bash
 ssh azureuser@<publicIpAddress>

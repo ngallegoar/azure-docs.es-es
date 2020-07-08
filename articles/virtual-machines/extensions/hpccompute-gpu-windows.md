@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: akjosh
-ms.openlocfilehash: c388f433327b5328483f10fbef637a6fdfd08832
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a30a6b3daaf1f334c7e61f93aaab6fc717e18063
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226876"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676546"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensión del controlador de GPU de NVIDIA para Windows
 
@@ -29,7 +29,7 @@ Esta extensión instala los controladores de GPU de NVIDIA en VM de la serie N d
 Puede consultar [aquí](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup) instrucciones sobre la instalación manual de los controladores y las versiones que son compatibles actualmente.
 También hay disponible una extensión para instalar controladores de GPU de NVIDIA en [VM de la serie N para Linux](hpccompute-gpu-linux.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="operating-system"></a>Sistema operativo
 
@@ -61,7 +61,7 @@ En el siguiente JSON, se muestra el esquema para la extensión.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.2",
+    "typeHandlerVersion": "1.3",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -76,7 +76,7 @@ En el siguiente JSON, se muestra el esquema para la extensión.
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
 | type | NvidiaGpuDriverWindows | string |
-| typeHandlerVersion | 1.2 | int |
+| typeHandlerVersion | 1.3 | int |
 
 
 ## <a name="deployment"></a>Implementación
@@ -101,7 +101,7 @@ En el siguiente ejemplo se da por supuesto que la extensión está anidada dentr
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.2",
+    "typeHandlerVersion": "1.3",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -119,7 +119,7 @@ Set-AzVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverWindows" `
     -ExtensionType "NvidiaGpuDriverWindows" `
-    -TypeHandlerVersion 1.2 `
+    -TypeHandlerVersion 1.3 `
     -SettingString '{ `
     }'
 ```
@@ -127,13 +127,13 @@ Set-AzVMExtension
 ### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
-az vm extension set `
-  --resource-group myResourceGroup `
-  --vm-name myVM `
-  --name NvidiaGpuDriverWindows `
-  --publisher Microsoft.HpcCompute `
-  --version 1.2 `
-  --settings '{ `
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name NvidiaGpuDriverWindows \
+  --publisher Microsoft.HpcCompute \
+  --version 1.3 \
+  --settings '{ \
   }'
 ```
 
@@ -163,7 +163,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | :---: | --- | --- |
 | 0 | Operación correcta |
 | 1 | Operación correcta. Se requiere reiniciar. |
-| 100 | La operación no es compatible o no se pudo completar. | Causas posibles: no se admite la versión de PowerShell, el tamaño de la VM no corresponde con una VM de la serie N, no se pudieron descargar los datos. Compruebe los archivos de registro para determinar la causa del error. |
+| 100 | La operación no es compatible o no se pudo completar. | Causas posibles: No se admite la versión de PowerShell, el tamaño de la VM no corresponde con una VM de la serie N, no se pudieron descargar los datos. Compruebe los archivos de registro para determinar la causa del error. |
 | 240, 840 | Tiempo de espera de la operación. | Reintentar operación. |
 | -1 | Se produjo una excepción. | Comprobar los archivos de registro para determinar la causa de la excepción. |
 | -5x | La operación se interrumpió debido a un reinicio pendiente. | Reinicie la VM. La instalación continuará después del reinicio. La desinstalación se debe invocar manualmente. |

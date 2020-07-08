@@ -1,18 +1,18 @@
 ---
-title: 'Serie HB: Azure Virtual Machines'
+title: Serie HB
 description: Especificaciones de las máquinas virtuales de la serie HB.
-services: virtual-machines
-author: jonbeck7
+author: ju-shim
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: 600f10e81742e9bb66c800b747fd7b2dc062754d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: jushiman
+ms.openlocfilehash: b0ffd9af8df830c1bdacbfe3809d4086346679b6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78164838"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678569"
 ---
 # <a name="hb-series"></a>Serie HB
 
