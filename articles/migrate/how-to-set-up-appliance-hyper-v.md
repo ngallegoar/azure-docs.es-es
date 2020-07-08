@@ -3,12 +3,12 @@ title: Configurar un dispositivo de Azure Migrate para Hyper-V
 description: Obtenga información sobre cómo configurar un dispositivo de Azure Migrate para evaluar y migrar VM de Hyper-V.
 ms.topic: article
 ms.date: 03/23/2020
-ms.openlocfilehash: 77c13a3a8c87d116bd0863324d28669185c53c84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56b034709309a3afe9d18df7af9ababc74a24cee
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538297"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109712"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configuración de un dispositivo para VM de Hyper-V
 
@@ -50,7 +50,7 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 2. Ejecute el siguiente comando para generar el código hash del disco duro virtual.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Ejemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.vhd SHA256```
-3.  El código hash generado debe coincidir con esta [configuración](https://docs.microsoft.com/azure/migrate/tutorial-assess-hyper-v#verify-security) para la versión 2.19.11.12 del dispositivo.
+3.  El código hash generado debe coincidir con esta [configuración](./tutorial-assess-hyper-v.md#verify-security) para la versión 2.19.11.12 del dispositivo.
 
 
 

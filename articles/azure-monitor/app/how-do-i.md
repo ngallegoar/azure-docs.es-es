@@ -3,12 +3,12 @@ title: Procedimientos en Azure Application Insights | Microsoft Docs
 description: P+F en Application Insights.
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: 9ca5900bc9172b1f4ef9b1a7a660c6936ac38095
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 665d98378fc52e972986111847872ae30701f631
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83701946"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110239"
 ---
 # <a name="how-do-i--in-application-insights"></a>¿Cómo ... en Application Insights?
 ## <a name="get-an-email-when-"></a>Recibir un correo electrónico cuando...
@@ -33,17 +33,23 @@ Supongamos que quiere recibir un correo electrónico cuando se produce un evento
 
 Las alertas se pueden establecer en [métricas personalizadas](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric), aunque no así los eventos no personalizados. Escribir código para aumentar una métrica cuando se produce el evento:
 
-    telemetry.TrackMetric("Alarm", 10);
+```csharp
+telemetry.TrackMetric("Alarm", 10);
+```
 
 o:
 
-    var measurements = new Dictionary<string,double>();
-    measurements ["Alarm"] = 10;
-    telemetry.TrackEvent("status", null, measurements);
+```csharp
+var measurements = new Dictionary<string,double>();
+measurements ["Alarm"] = 10;
+telemetry.TrackEvent("status", null, measurements);
+```
 
 Dado que las alertas tienen dos estados, debe enviar un valor bajo cuando considere que la alerta ha finalizado:
 
-    telemetry.TrackMetric("Alarm", 0.5);
+```csharp
+telemetry.TrackMetric("Alarm", 0.5);
+```
 
 Cree un gráfico en el [Explorador de métricas](../../azure-monitor/platform/metrics-charts.md) para ver la alarma:
 
@@ -131,9 +137,9 @@ Para **iniciar y detener dinámicamente** la recopilación y la transmisión de 
 ### <a name="aspnet-classic-applications"></a>Aplicaciones clásicas de ASP.NET
 
 ```csharp
-    using  Microsoft.ApplicationInsights.Extensibility;
+using  Microsoft.ApplicationInsights.Extensibility;
 
-    TelemetryConfiguration.Active.DisableTelemetry = true;
+TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
 ### <a name="other-applications"></a>Otras aplicaciones

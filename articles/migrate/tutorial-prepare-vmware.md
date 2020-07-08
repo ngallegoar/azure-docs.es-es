@@ -4,12 +4,12 @@ description: Aprenda a prepararse para la evaluación y migración de máquinas 
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc
-ms.openlocfilehash: f3bfaf7c2396e0f1091299375aae4bfaa1d7e8ff
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 8b812924c0922d460c631baec8b0e13a9f45cd76
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771196"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109583"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparación de máquinas virtuales de VMware para la evaluación y migración a Azure
 
@@ -64,7 +64,7 @@ La cuenta de Azure necesita permisos para crear aplicaciones de Azure AD para r
 Conceda permisos a la cuenta de la siguiente manera:
 
 1. Asegúrese de que es un administrador del inquilino o un administrador global. A continuación, en Azure AD, vaya a **Azure Active Directory** > **Usuarios** > **Configuración de usuario**.
-2. Establezca **Registros de aplicaciones** en **Sí**. Se trata de una configuración predeterminada que no es confidencial. [Más información](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+2. Establezca **Registros de aplicaciones** en **Sí**. Se trata de una configuración predeterminada que no es confidencial. [Más información](../active-directory/develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
     ![Permisos de Azure AD](./media/tutorial-prepare-vmware/aad.png)
 
@@ -72,7 +72,7 @@ Conceda permisos a la cuenta de la siguiente manera:
 
 #### <a name="method-2-assign-application-developer-role"></a>Método 2: Asignación del rol de desarrollador de aplicaciones
 
-Como alternativa, el administrador de inquilinos o administrador global puede asignar el rol de desarrollador de aplicaciones a una cuenta. [Más información](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) sobre la asignación de roles.
+Como alternativa, el administrador de inquilinos o administrador global puede asignar el rol de desarrollador de aplicaciones a una cuenta. [Más información](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) sobre la asignación de roles.
 
 ### <a name="assign-permissions-to-create-a-key-vault"></a>Asignación de permisos para crear un almacén de claves
 

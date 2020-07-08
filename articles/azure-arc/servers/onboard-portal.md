@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/18/2020
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 0b43bb92a58af58ae5924610f0667e9796a426e6
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 459360e72c2d35cafedb0291642bf081bfcad96c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193736"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104000"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Conexión de máquinas híbridas a Azure desde Azure Portal
 
@@ -40,9 +40,10 @@ El script para automatizar la descarga y la instalación, y para establecer la c
 
     >[!NOTE]
     >Azure Arc para servidores (versión preliminar) solo admite las siguientes regiones:
+    >- EastUS
     >- WestUS2
     >- Oeste de Europa
-    >- WestAsia
+    >- SoutheastAsia
     >
     >Revise las consideraciones adicionales que se deben tener en cuenta al seleccionar una región [aquí](overview.md#supported-regions), en el artículo de información general.
 
@@ -66,7 +67,7 @@ Para instalar manualmente el agente de Connected Machine, puede ejecutar el paqu
 
 Si la máquina necesita comunicarse mediante un servidor proxy con el servicio, después de instalar el agente, debe ejecutar un comando que se describe más adelante en este artículo. Este permite establecer la variable de entorno del sistema del servidor proxy `https_proxy`.
 
-Si no está familiarizado con las opciones de la línea de comandos para los paquetes de Windows Installer, consulte [Opciones de la línea de comandos estándar de msiexec](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) y [Opciones de la línea de comandos de msiexec](https://docs.microsoft.com/windows/win32/msi/command-line-options).
+Si no está familiarizado con las opciones de la línea de comandos para los paquetes de Windows Installer, consulte [Opciones de la línea de comandos estándar de msiexec](/windows/win32/msi/standard-installer-command-line-options) y [Opciones de la línea de comandos de msiexec](/windows/win32/msi/command-line-options).
 
 Por ejemplo, ejecute el programa de instalación con el parámetro `/?` para revisar la opción de ayuda y referencia rápida. 
 

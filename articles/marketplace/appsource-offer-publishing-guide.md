@@ -1,18 +1,18 @@
 ---
 title: Guía de publicación de ofertas de Microsoft AppSource
 description: Guía paso a paso y listas de comprobación de publicación para publicar aplicaciones en Microsoft AppSource para Office 365, Dynamics 365, Power Apps y Power BI.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/15/2020
-ms.author: dsindona
-ms.openlocfilehash: 60fb95e47831363353e553d8e55c56e812127bfd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c0052b515d87ecb744783d57942d2557fc1db913
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186193"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110290"
 ---
 # <a name="offer-publishing-guide-for-office-365-dynamics-365-power-apps-and-power-bi"></a>Guía de publicación de ofertas de Office 365, Dynamics 365, Power Apps y Power BI
 

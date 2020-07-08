@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 45a61b5bc6f1082b84bf94db7e8ad5ce49ec068f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac6a00efa7db848e4c05703c81ba835fbf5f77e3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83648060"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103796"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Conexión de máquinas híbridas a Azure a gran escala
 
@@ -86,7 +86,7 @@ A continuación, se muestran los valores que se configuran en el comando `azcmag
 * `location`: consulte [Regiones de Azure compatibles](overview.md#supported-regions). Esta ubicación puede ser la misma u otra diferente que la del grupo de recursos.
 * `resource-name`: (*opcional*) Se usa para la representación de recursos de Azure de la máquina local. Si no especifica este valor, se usa el nombre de host de la máquina.
 
-Para obtener más información sobre la herramienta de línea de comandos `azcmagent`, revise la [referencia de Azcmagent](azcmagent-reference.md).
+Para obtener más información sobre la herramienta de línea de comandos `azcmagent`, revise la [referencia de Azcmagent](./manage-agent.md).
 
 ### <a name="windows-installation-script"></a>Script de instalación en Windows
 

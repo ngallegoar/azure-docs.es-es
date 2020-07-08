@@ -4,12 +4,12 @@ description: Aprenda a prepararse para la evaluación y migración de máquinas 
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: ca9020a9c306eea39d75c15c96b5f9fe9bcc11fe
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 5f669de6bd8d767ca7b947fca883187dad9fe29d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84770550"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109627"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Preparación de la evaluación y migración de máquinas virtuales de Hyper-V a Azure
 
@@ -74,13 +74,13 @@ El administrador de inquilinos o global puede conceder permisos como se indica:
     ![Permisos de Azure AD](./media/tutorial-prepare-hyper-v/aad.png)
 
 > [!NOTE]
-> Se trata de una configuración predeterminada que no es confidencial. [Más información](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+> Se trata de una configuración predeterminada que no es confidencial. [Más información](../active-directory/develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
 
 
 #### <a name="assign-application-developer-role"></a>Asignación del rol de desarrollador de aplicaciones
 
-El administrador de inquilinos o administrador global puede asignar el rol de desarrollador de aplicaciones a una cuenta. [Más información](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+El administrador de inquilinos o administrador global puede asignar el rol de desarrollador de aplicaciones a una cuenta. [Más información](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ### <a name="assign-azure-account-permissions"></a>Asignación de los permisos de la cuenta de Azure
 
@@ -106,7 +106,7 @@ Puede preparar Hyper-V para la evaluación de máquinas virtuales manualmente o 
 **Comprobación de la versión de PowerShell** | Comprueba que se está ejecutando el script en una versión compatible de PowerShell. | Compruebe que ejecuta la versión 4.0 o posterior de PowerShell en el host de Hyper-V.
 **Crear una cuenta** | Comprueba que usted (el usuario que ejecuta el script) tiene privilegios administrativos en el host de Hyper-V.<br/><br/>  Permite crear una cuenta de usuario local (no administrador) que se usa para que el servicio Azure Migrate se comunique con el host de Hyper-V. Esta cuenta de usuario se agrega a estos grupos en el host:<br/><br/> - Usuarios de Administración remota<br/><br/> - Administradores de Hyper-V<br/><br/>- Usuarios de Monitor de rendimiento | Configure una cuenta de usuario local o de dominio con permisos de administrador en el clúster o los hosts de Hyper-V.<br/><br/> - Necesita una sola cuenta para todos los hosts y clústeres que desee incluir en la detección.<br/><br/> - La cuenta puede ser una cuenta local o de dominio. Se recomienda que tenga permisos de administrador en los hosts o clústeres de Hyper-V.<br/><br/> O bien, si no desea asignar permisos de administrador, se necesitan los siguientes permisos: Usuarios de administración remota, Administradores de Hyper-V y Usuarios de Monitor de rendimiento.
 **Habilitación de la comunicación remota con PowerShell** | Habilita la comunicación remota de PowerShell en el host de modo que el dispositivo Azure Migrate pueda ejecutar comandos de PowerShell en el host mediante una conexión de WinRM.| Para configurarlo, en cada uno de los hosts, abra una consola de PowerShell como administrador y ejecute este comando:<br/><br/>``` Enable-PSRemoting -force ```
-**Configuración de los servicios de integración de Hyper-V** | Comprueba que los servicios de integración de Hyper-V está habilitado en todas las máquinas virtuales administradas por el host. |  [ Habilite los servicios de integración de Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) en cada máquina virtual.<br/><br/> Si ejecuta Windows Server 2003, [siga estas instrucciones](prepare-windows-server-2003-migration.md).
+**Configuración de los servicios de integración de Hyper-V** | Comprueba que los servicios de integración de Hyper-V está habilitado en todas las máquinas virtuales administradas por el host. |  [ Habilite los servicios de integración de Hyper-V](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) en cada máquina virtual.<br/><br/> Si ejecuta Windows Server 2003, [siga estas instrucciones](prepare-windows-server-2003-migration.md).
 **Delegación de credenciales si los discos de máquina virtual se encuentran en recursos compartidos SMB remotos** | El script delega las credenciales. | [Habilite CredSSP](#enable-credssp-to-delegate-credentials) para delegar las credenciales.
 
 ### <a name="run-the-script"></a>Ejecute el script.

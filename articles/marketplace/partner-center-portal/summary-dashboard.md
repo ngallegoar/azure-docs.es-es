@@ -1,18 +1,16 @@
 ---
 title: Panel Resumen para los análisis del Centro de partners en Marketplace comercial
 description: Aprenda a acceder a gráficos, tendencias y valores de datos agregados que resumen la actividad de Marketplace desde el panel Resumen en el Centro de partners.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: c7f1700cb386a197b33427e2ea615de019284d96
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 39b963fe40d26d498e69b8fc9bbb62ce514bef39
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738326"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109151"
 ---
 # <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Panel Resumen de los análisis de marketplace comercial
 

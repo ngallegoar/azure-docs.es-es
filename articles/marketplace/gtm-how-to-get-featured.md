@@ -1,18 +1,18 @@
 ---
 title: 'Servicios de comercialización: cómo aparecer como destacado en Marketplace | Azure Marketplace'
 description: 'Servicios de comercialización: en esta sección se describe cómo lograr que una descripción se muestre como destacada en Azure Marketplace'
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/16/2020
-ms.author: dsindona
-ms.openlocfilehash: aac3f87c642559b0dfa13c38da448e425df3ffa2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 09f5d61984d5802184d70867f94815fac8fe2b7d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957807"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103575"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Cómo aparecer como destacado en Azure Marketplace y AppSource
 

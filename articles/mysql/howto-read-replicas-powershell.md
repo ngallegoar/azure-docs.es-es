@@ -4,14 +4,14 @@ description: Aprenda a configurar y administrar réplicas de lectura en Azure D
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 4/29/2020
-ms.openlocfilehash: 9ac85299311c1fd233988c6472d6325934dd42dd
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.topic: how-to
+ms.date: 6/10/2020
+ms.openlocfilehash: f6d24ba0d31020b82669947189da180348f2a46b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82613997"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108012"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-powershell"></a>Creación y administración de réplicas de lectura en Azure Database for MySQL mediante PowerShell
 
@@ -21,7 +21,7 @@ En este artículo aprenderá a crear y administrar réplicas de lectura en el se
 
 Puede crear y administrar réplicas de lectura mediante PowerShell.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar esta guía, necesita:
 
@@ -40,6 +40,9 @@ Si decide usar PowerShell de forma local, conéctese a su cuenta de Azure con el
 > La característica de réplica de lectura solo está disponible para servidores de Azure Database for MySQL en los planes de tarifa De uso general u Optimizada para memoria. Asegúrese de que el servidor maestro está en uno de estos planes de tarifa.
 
 ### <a name="create-a-read-replica"></a>Creación de una réplica de lectura
+
+> [!IMPORTANT]
+> Cuando se crea una réplica para un servidor maestro que no tiene réplicas existentes, el maestro se reiniciará en primer lugar para prepararse para la replicación. Téngalo en cuenta y realice estas operaciones durante un período de poca actividad.
 
 Un servidor de réplica de lectura se puede crear mediante el comando siguiente:
 

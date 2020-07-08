@@ -4,14 +4,14 @@ description: En este artículo se describe cómo reiniciar un servidor de Azure 
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 4/28/2020
-ms.openlocfilehash: 935459a398c07d3b4f61c76dec75b083a2354720
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: faefdfb93257521c9c687045c1467c5d2d0f84ab
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609064"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107944"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-powershell"></a>Reinicio de un servidor de Azure Database for MySQL mediante PowerShell
 
@@ -21,7 +21,7 @@ Si el servicio está ocupado, se bloquea el reinicio del servidor. Por ejemplo, 
 
 El tiempo necesario para completar un reinicio depende el proceso de recuperación de MySQL. Para reducir el tiempo de reinicio, se recomienda que minimice la cantidad de actividades que se ejecutan en el servidor antes del reinicio.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar esta guía, necesita:
 

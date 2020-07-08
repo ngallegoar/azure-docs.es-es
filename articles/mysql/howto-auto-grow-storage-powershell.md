@@ -4,14 +4,14 @@ description: En este artículo se describe cómo habilitar el aumento automátic
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 4/28/2020
-ms.openlocfilehash: c8a19fe338af14f97e0eb191d7b57e840c71e400
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 28dd9296eb0b2b2a014de9aeccf82baad5ef6e2c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612731"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112568"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mysql-server-using-powershell"></a>Aumento automático del almacenamiento en el servidor de Azure Database for MySQL mediante PowerShell
 
@@ -22,7 +22,7 @@ El aumento automático del almacenamiento impide que el servidor [alcance el lí
 > [!IMPORTANT]
 > Recuerde que el almacenamiento solo se puede escalar verticalmente, no reducir.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar esta guía, necesita:
 

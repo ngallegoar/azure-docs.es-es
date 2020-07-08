@@ -1,18 +1,18 @@
 ---
 title: Opción de venta conjunta en el Centro de partners | Azure Marketplace
 description: Los equipos de ventas de Microsoft usarán la información que proporciona en la pestaña de venta conjunta de su oferta para obtener más información sobre su solución al evaluar su idoneidad para las necesidades de los clientes.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: palanis-MSFT
+ms.author: palanis
 ms.date: 05/12/2020
-ms.openlocfilehash: c8265f641afb4164f26b8b2663b9f904f95b2b67
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 529988ce456b9017d700880d55b349fa93e15f96
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201448"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104238"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opción de venta conjunta en el Centro de partners
 

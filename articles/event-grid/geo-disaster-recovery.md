@@ -1,18 +1,14 @@
 ---
 title: Recuperación ante desastres geográfica en Azure Event Grid | Microsoft Docs
 description: Describe cómo Azure Event Grid admite la recuperación ante desastres geográfica (GeoDR) automáticamente.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/24/2019
-ms.author: spelluru
-ms.openlocfilehash: 5b5c973a8daa8776efb0909092c569ea46902265
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/07/2020
+ms.openlocfilehash: ccb16971020a65932daa8f9adf4b7cd9008a9253
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "66307323"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105853"
 ---
 # <a name="server-side-geo-disaster-recovery-in-azure-event-grid"></a>Recuperación ante desastres geográfica del servidor en Azure Event Grid
 Ahora, Event Grid incluye una recuperación ante desastres geográfica (GeoDR) automática de metadatos, en que no solo se recuperan las suscripciones a eventos, los temas y los dominios nuevos, sino también todos los existentes. Si deja de funcionar toda una región de Azure, Event Grid ya tendrá todos los metadatos de infraestructura relacionados con el evento sincronizados en una región emparejada. Los nuevos eventos empezarán a fluir de nuevo sin intervención del usuario. 

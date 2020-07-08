@@ -7,15 +7,15 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 0827311218202de447e5cf27356e00c4da020e94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 580f23fa2b4fc9c5afee4eb8435e74a8bfa1fbe9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61472998"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106958"
 ---
 # <a name="debug-azure-data-lake-analytics-code-locally"></a>Depuración de código de Azure Data Lake Analytics de forma local
 
@@ -42,8 +42,10 @@ Puede depurar ensamblados de C# sin enviarlos y registrarlos en el servicio Azur
 1. Cree un proyecto de ensamblado de C# y compílelo para generar la **DLL** de salida.
 2. Registre el archivo **DLL** mediante una instrucción de U-SQL:
 
-        CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
-        
+   ```sql
+   CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+   ```
+   
 3. Establezca puntos de interrupción en el código de C#.
 4. Presione **F5** para depurar el script con referencia a al archivo **DLL** de C# localmente.
 
