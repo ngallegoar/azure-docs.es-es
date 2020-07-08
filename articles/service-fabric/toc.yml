@@ -278,6 +278,8 @@
               href: service-fabric-backup-restore-service-trigger-restore.md
             - name: Copia de seguridad a petición de partición
               href: service-fabric-backup-restore-service-ondemand-backup.md
+            - name: Visualización y edición de una copia de seguridad de colecciones de confianza sin conexión
+              href: backup-explorer.md
         - name: Inicializador CodePackages
           href: initializer-codepackages.md
         - name: RunToCompletion
