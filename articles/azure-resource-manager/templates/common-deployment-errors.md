@@ -3,13 +3,13 @@ title: Solución de errores de implementación comunes
 description: Describe cómo solucionar errores comunes al implementar recursos en Azure con Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 10/04/2019
-ms.openlocfilehash: e1b7a318f73a513d699de97f0973ece9b6481b93
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.date: 06/25/2020
+ms.openlocfilehash: 9914cf8267624cd05db860e7dd8eb8d8c5831f7e
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84230627"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055671"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solución de errores comunes de implementación de Azure con Azure Resource Manager
 
@@ -25,7 +25,7 @@ Si busca información sobre un código de error y esa información no se proporc
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Siga las restricciones de nomenclatura para las cuentas de almacenamiento. | [Resolución del nombre de la cuenta de almacenamiento](error-storage-account-name.md) |
 | AccountPropertyCannotBeSet | Consulte las propiedades disponibles para la cuenta de almacenamiento. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| AllocationFailed | El clúster o la región no tienen recursos disponibles o no admiten el tamaño de máquina virtual solicitado. Vuelva a realizar la solicitud más adelante o solicite otro tamaño de máquina virtual. | [Problemas de aprovisionamiento y asignación en Linux](../../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Problemas de aprovisionamiento y asignación en Windows](../../virtual-machines/windows/troubleshoot-deployment-new-vm.md) y [Solución de problemas de asignación](../../virtual-machines/troubleshooting/allocation-failure.md)|
+| AllocationFailed | El clúster o la región no tienen recursos disponibles o no admiten el tamaño de máquina virtual solicitado. Vuelva a realizar la solicitud más adelante o solicite otro tamaño de máquina virtual. | [Problemas de aprovisionamiento y asignación en Linux](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md), [Problemas de aprovisionamiento y asignación en Windows](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md) y [Solución de problemas de asignación](../../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Espere a que la operación simultánea finalice. | |
 | AuthorizationFailed | La cuenta o entidad de servicio no dispone de acceso suficiente para completar la implementación. Compruebe el rol al que la cuenta pertenece y su acceso para el ámbito de implementación.<br><br>Puede recibir este error cuando un proveedor de recursos necesario no está registrado. | [Control de acceso basado en roles de Azure](../../role-based-access-control/role-assignments-portal.md)<br><br>[Resolución de registros](error-register-resource-provider.md) |
 | BadRequest | Envió valores de implementación que no coinciden con los que Resource Manager esperaba. Compruebe el mensaje de estado interno para obtener ayuda para solucionar el problema. | [Referencia de plantillas](/azure/templates/) y [ubicaciones admitidas](resource-location.md) |
@@ -114,7 +114,7 @@ Para ver los mensajes y códigos de error de implementación con PowerShell, use
 Para ver los mensajes y códigos de error de implementación con la CLI de Azure, use:
 
 ```azurecli-interactive
-az deployment group operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
+az deployment operation group list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
 ```
 
 En el portal, seleccione la notificación.
@@ -172,7 +172,7 @@ Actualmente, la CLI de Azure no admite activar el registro de depuración, pero 
 Examine las operaciones de implementación con el siguiente comando:
 
 ```azurecli
-az deployment group operation list \
+az deployment operation group list \
   --resource-group examplegroup \
   --name exampledeployment
 ```
@@ -180,7 +180,7 @@ az deployment group operation list \
 Examine el contenido de la solicitud con el siguiente comando:
 
 ```azurecli
-az deployment group operation list \
+az deployment operation group list \
   --name exampledeployment \
   -g examplegroup \
   --query [].properties.request
@@ -189,7 +189,7 @@ az deployment group operation list \
 Examine el contenido de la respuesta con el siguiente comando:
 
 ```azurecli
-az deployment group operation list \
+az deployment operation group list \
   --name exampledeployment \
   -g examplegroup \
   --query [].properties.response
@@ -223,7 +223,7 @@ En algunos casos, la manera más fácil de solucionar problemas de plantillas es
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
   "storageName": {

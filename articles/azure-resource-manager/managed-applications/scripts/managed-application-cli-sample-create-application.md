@@ -6,12 +6,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 346ea59209bc2f74970e708c947f5caa158a0338
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0c2fc3dc4e76f295dff94ebda71d54bad425b621
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75648792"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056147"
 ---
 # <a name="deploy-a-managed-application-for-service-catalog-with-azure-cli"></a>Implementación de una aplicación administrada para el catálogo de servicios con la CLI de Azure
 
@@ -33,10 +33,10 @@ Este script usa el siguiente comando para implementar la aplicación administrad
 
 | Get-Help | Notas |
 |---|---|
-| [az managedapp create](https://docs.microsoft.com/cli/azure/managedapp#az-managedapp-create) | Cree una aplicación administrada. Proporcione el identificador de definición y los parámetros para la plantilla. |
+| [az managedapp create](/cli/azure/managedapp#az-managedapp-create) | Cree una aplicación administrada. Proporcione el identificador de definición y los parámetros para la plantilla. |
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para una introducción a las aplicaciones administradas, consulte la [introducción a las aplicaciones administradas de Azure](../overview.md).
-* Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure).
+* Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure).

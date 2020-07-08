@@ -3,12 +3,12 @@ title: Implementación de recursos entre suscripciones y grupo de recursos
 description: Muestra cómo tener como destino más de un grupo de recursos y una suscripción de Azure durante la implementación.
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 2ef68dcb933075833c323d973b023cdaee61bd2f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 34de1d9df53d61d849ffbb81a57b468020bc3b65
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650624"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057388"
 ---
 # <a name="deploy-azure-resources-across-subscriptions-or-resource-groups"></a>Implementación de recursos de Azure en varias suscripciones o grupos de recursos
 
@@ -25,7 +25,7 @@ Para establecer como destino un grupo de recursos diferente al de la plantilla p
 
 Si no se especifica el grupo de recursos o el identificador de la suscripción, se utilizan los de la plantilla primaria. Todos los grupos de recursos deben existir antes de que se ejecute la implementación.
 
-La cuenta que implemente la plantilla debe tener permiso para implementar en el identificador de suscripción especificado. Si la suscripción especificada no existe en un inquilino de Azure Active Directory diferente, debe [agregar usuarios invitados de otro directorio](../../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
+La cuenta que implemente la plantilla debe tener permiso para implementar en el identificador de suscripción especificado. Si la suscripción especificada no existe en un inquilino de Azure Active Directory diferente, debe [agregar usuarios invitados de otro directorio](../../active-directory/b2b/what-is-b2b.md).
 
 En el ejemplo siguiente se implementan dos cuentas de almacenamiento. La primera cuenta de almacenamiento se implementa en el grupo de recursos especificado en la operación de implementación. La segunda cuenta de almacenamiento se implementa en el grupo de recursos especificado en los parámetros `secondResourceGroup` y `secondSubscriptionID`:
 

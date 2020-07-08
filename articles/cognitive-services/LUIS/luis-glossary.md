@@ -3,12 +3,12 @@ title: 'Glosario: LUIS'
 description: En el glosario se explican los términos que puede encontrar cuando use el servicio de API de LUIS.
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: 1513099decc21a7d219bfcb84563619640028550
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 93e3df755596f7f77d2cd11edfa616c44d1f6c16
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681622"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056385"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glosario de Language Understanding de conceptos y vocabulario común
 En el glosario de Language Understanding (LUIS) se explican los términos que pueden aparecer cuando se trabaja con el servicio LUIS.
@@ -38,11 +38,11 @@ La creación es la capacidad de crear, administrar e implementar una aplicación
 
 ### <a name="authoring-key"></a>Clave de creación
 
-La [clave de creación](luis-concept-keys.md) se usa para crear la aplicación. No se usa para enviar consultas de punto de conexión de nivel de producción. Para obtener más información, vea [Key limits](luis-limits.md#key-limits) (Límites de la clave).
+La [clave de creación](luis-how-to-azure-subscription.md) se usa para crear la aplicación. No se usa para enviar consultas de punto de conexión de nivel de producción. Para obtener más información, vea [Key limits](luis-limits.md#key-limits) (Límites de la clave).
 
 ### <a name="authoring-resource"></a>Recurso de creación
 
-El [recurso de creación](luis-concept-keys.md#azure-resources-for-luis) de LUIS es un elemento administrable que está disponible a través de Azure. El recurso es el acceso a las capacidades de creación, aprendizaje y publicación asociadas del servicio de Azure. El recurso incluye la información de autenticación, autorización y seguridad que necesita para acceder al servicio asociado de Azure.
+El [recurso de creación](luis-how-to-azure-subscription.md#azure-resources-for-luis) de LUIS es un elemento administrable que está disponible a través de Azure. El recurso es el acceso a las capacidades de creación, aprendizaje y publicación asociadas del servicio de Azure. El recurso incluye la información de autenticación, autorización y seguridad que necesita para acceder al servicio asociado de Azure.
 
 El recurso de creación tiene una "clase" de Azure de `LUIS-Authoring`.
 
@@ -234,7 +234,7 @@ Una predicción es una solicitud de REST al servicio de predicción de LUIS de A
 
 ### <a name="prediction-key"></a>Clave de predicción
 
-La [clave de predicción](luis-concept-keys.md) (anteriormente conocida como clave de suscripción) es la clave asociada al servicio LUIS que creó en Azure y que autoriza el uso del punto de conexión de predicción.
+La [clave de predicción](luis-how-to-azure-subscription.md) (anteriormente conocida como clave de suscripción) es la clave asociada al servicio LUIS que creó en Azure y que autoriza el uso del punto de conexión de predicción.
 
 No es la clave de creación. Si tiene una clave de punto de conexión de predicción, se debe usar para las solicitudes de punto de conexión en lugar de la clave de creación. Puede ver la clave de predicción actual en la dirección URL del punto de conexión, en la parte inferior de la página de recursos de Azure del sitio web de LUIS. Es el valor del par de nombre y valor de la clave de suscripción.
 

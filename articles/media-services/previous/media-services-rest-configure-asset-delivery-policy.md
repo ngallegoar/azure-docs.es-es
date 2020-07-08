@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 09f0371bc189fcf7b25ec3261e2e1f5eaf1892ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4c67866e55b49f37d7dbf94ddde9698f58b5300b
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78194520"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057065"
 ---
 # <a name="configuring-asset-delivery-policies"></a>Configuración de directivas de entrega de recursos
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -78,69 +78,77 @@ Para obtener información sobre los valores que puede especificar al crear una e
 
 Solicitud:
 
-    POST https://media.windows.net/api/AssetDeliveryPolicies HTTP/1.1
-    Content-Type: application/json
-    DataServiceVersion: 1.0;NetFx
-    MaxDataServiceVersion: 3.0;NetFx
-    Accept: application/json
-    Accept-Charset: UTF-8
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.19
-    x-ms-client-request-id: 4651882c-d7ad-4d5e-86ab-f07f47dcb41e
-    Host: media.windows.net
+```console
+POST https://media.windows.net/api/AssetDeliveryPolicies HTTP/1.1
+Content-Type: application/json
+DataServiceVersion: 1.0;NetFx
+MaxDataServiceVersion: 3.0;NetFx
+Accept: application/json
+Accept-Charset: UTF-8
+Authorization: Bearer <ENCODED JWT TOKEN> 
+x-ms-version: 2.19
+x-ms-client-request-id: 4651882c-d7ad-4d5e-86ab-f07f47dcb41e
+Host: media.windows.net
 
-    {"Name":"Clear Policy",
-    "AssetDeliveryProtocol":7,
-    "AssetDeliveryPolicyType":2,
-    "AssetDeliveryConfiguration":null}
+{"Name":"Clear Policy",
+"AssetDeliveryProtocol":7,
+"AssetDeliveryPolicyType":2,
+"AssetDeliveryConfiguration":null}
+```
 
 Respuesta:
 
-    HTTP/1.1 201 Created
-    Cache-Control: no-cache
-    Content-Length: 363
-    Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-    Location: https://media.windows.net/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3A92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd')
-    Server: Microsoft-IIS/8.5
-    x-ms-client-request-id: 4651882c-d7ad-4d5e-86ab-f07f47dcb41e
-    request-id: 6aedbf93-4bc2-4586-8845-fd45590136af
-    x-ms-request-id: 6aedbf93-4bc2-4586-8845-fd45590136af
-    X-Content-Type-Options: nosniff
-    DataServiceVersion: 3.0;
-    X-Powered-By: ASP.NET
-    Strict-Transport-Security: max-age=31536000; includeSubDomains
-    Date: Sun, 08 Feb 2015 06:21:27 GMT
+```output
+HTTP/1.1 201 Created
+Cache-Control: no-cache
+Content-Length: 363
+Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
+Location: https://media.windows.net/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3A92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd')
+Server: Microsoft-IIS/8.5
+x-ms-client-request-id: 4651882c-d7ad-4d5e-86ab-f07f47dcb41e
+request-id: 6aedbf93-4bc2-4586-8845-fd45590136af
+x-ms-request-id: 6aedbf93-4bc2-4586-8845-fd45590136af
+X-Content-Type-Options: nosniff
+DataServiceVersion: 3.0;
+X-Powered-By: ASP.NET
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Date: Sun, 08 Feb 2015 06:21:27 GMT
 
-    {"odata.metadata":"https://media.windows.net/api/$metadata#AssetDeliveryPolicies/@Element",
-    "Id":"nb:adpid:UUID:92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd",
-    "Name":"Clear Policy",
-    "AssetDeliveryProtocol":7,
-    "AssetDeliveryPolicyType":2,
-    "AssetDeliveryConfiguration":null,
-    "Created":"2015-02-08T06:21:27.6908329Z",
-    "LastModified":"2015-02-08T06:21:27.6908329Z"}
+{"odata.metadata":"https://media.windows.net/api/$metadata#AssetDeliveryPolicies/@Element",
+"Id":"nb:adpid:UUID:92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd",
+"Name":"Clear Policy",
+"AssetDeliveryProtocol":7,
+"AssetDeliveryPolicyType":2,
+"AssetDeliveryConfiguration":null,
+"Created":"2015-02-08T06:21:27.6908329Z",
+"LastModified":"2015-02-08T06:21:27.6908329Z"}
+```
 
 ### <a name="link-asset-with-asset-delivery-policy"></a><a id="link_asset_with_asset_delivery_policy"></a>Vinculación de un recurso con la directiva de entrega de recursos
 La siguiente solicitud HTTP vincula el recurso especificado con la directiva de entrega de recursos.
 
 Solicitud:
 
-    POST https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3A86933344-9539-4d0c-be7d-f842458693e0')/$links/DeliveryPolicies HTTP/1.1
-    DataServiceVersion: 1.0;NetFx
-    MaxDataServiceVersion: 3.0;NetFx
-    Accept: application/json
-    Accept-Charset: UTF-8
-    Content-Type: application/json
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.19
-    x-ms-client-request-id: 56d2763f-6e72-419d-ba3c-685f6db97e81
-    Host: media.windows.net
+```console
+POST https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3A86933344-9539-4d0c-be7d-f842458693e0')/$links/DeliveryPolicies HTTP/1.1
+DataServiceVersion: 1.0;NetFx
+MaxDataServiceVersion: 3.0;NetFx
+Accept: application/json
+Accept-Charset: UTF-8
+Content-Type: application/json
+Authorization: Bearer <ENCODED JWT TOKEN> 
+x-ms-version: 2.19
+x-ms-client-request-id: 56d2763f-6e72-419d-ba3c-685f6db97e81
+Host: media.windows.net
 
-    {"uri":"https://media.windows.net/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3A92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd')"}
+{"uri":"https://media.windows.net/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3A92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd')"}
+```
 
 Respuesta:
 
-    HTTP/1.1 204 No Content
+```output
+HTTP/1.1 204 No Content
+```
 
 
 ## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>Directiva de entrega de recursos DynamicEnvelopeEncryption
@@ -154,35 +162,39 @@ Especifique el tipo de la dirección URL que se obtendrá en el cuerpo de la sol
 
 Solicitud:
 
-    POST https://media.windows.net/api/ContentKeys('nb:kid:UUID:dc88f996-2859-4cf7-a279-c52a9d6b2f04')/GetKeyDeliveryUrl HTTP/1.1
-    Content-Type: application/json
-    MaxDataServiceVersion: 3.0;NetFx
-    Accept: application/json
-    Accept-Charset: UTF-8
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.19
-    x-ms-client-request-id: 569d4b7c-a446-4edc-b77c-9fb686083dd8
-    Host: media.windows.net
-    Content-Length: 21
+```console
+POST https://media.windows.net/api/ContentKeys('nb:kid:UUID:dc88f996-2859-4cf7-a279-c52a9d6b2f04')/GetKeyDeliveryUrl HTTP/1.1
+Content-Type: application/json
+MaxDataServiceVersion: 3.0;NetFx
+Accept: application/json
+Accept-Charset: UTF-8
+Authorization: Bearer <ENCODED JWT TOKEN> 
+x-ms-version: 2.19
+x-ms-client-request-id: 569d4b7c-a446-4edc-b77c-9fb686083dd8
+Host: media.windows.net
+Content-Length: 21
 
-    {"keyDeliveryType":2}
+{"keyDeliveryType":2}
+```
 
 Respuesta:
 
-    HTTP/1.1 200 OK
-    Cache-Control: no-cache
-    Content-Length: 198
-    Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-    Server: Microsoft-IIS/8.5
-    x-ms-client-request-id: 569d4b7c-a446-4edc-b77c-9fb686083dd8
-    request-id: d26f65d2-fe65-4136-8fcf-31545be68377
-    x-ms-request-id: d26f65d2-fe65-4136-8fcf-31545be68377
-    X-Content-Type-Options: nosniff
-    DataServiceVersion: 3.0;
-    Strict-Transport-Security: max-age=31536000; includeSubDomains
-    Date: Sun, 08 Feb 2015 21:42:30 GMT
+```output
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Content-Length: 198
+Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
+Server: Microsoft-IIS/8.5
+x-ms-client-request-id: 569d4b7c-a446-4edc-b77c-9fb686083dd8
+request-id: d26f65d2-fe65-4136-8fcf-31545be68377
+x-ms-request-id: d26f65d2-fe65-4136-8fcf-31545be68377
+X-Content-Type-Options: nosniff
+DataServiceVersion: 3.0;
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Date: Sun, 08 Feb 2015 21:42:30 GMT
 
-    {"odata.metadata":"media.windows.net/api/$metadata#Edm.String","value":"https://amsaccount1.keydelivery.mediaservices.windows.net/?KID=dc88f996-2859-4cf7-a279-c52a9d6b2f04"}
+{"odata.metadata":"media.windows.net/api/$metadata#Edm.String","value":"https://amsaccount1.keydelivery.mediaservices.windows.net/?KID=dc88f996-2859-4cf7-a279-c52a9d6b2f04"}
+```
 
 
 ### <a name="create-asset-delivery-policy"></a>Creación de directiva de entrega de recursos
@@ -192,38 +204,42 @@ Para obtener información sobre los valores que puede especificar al crear una e
 
 Solicitud:
 
-    POST https://media.windows.net/api/AssetDeliveryPolicies HTTP/1.1
-    Content-Type: application/json
-    DataServiceVersion: 1.0;NetFx
-    MaxDataServiceVersion: 3.0;NetFx
-    Accept: application/json
-    Accept-Charset: UTF-8
-    User-Agent: Microsoft ADO.NET Data Services
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.19
-    x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
-    Host: media.windows.net
+```console
+POST https://media.windows.net/api/AssetDeliveryPolicies HTTP/1.1
+Content-Type: application/json
+DataServiceVersion: 1.0;NetFx
+MaxDataServiceVersion: 3.0;NetFx
+Accept: application/json
+Accept-Charset: UTF-8
+User-Agent: Microsoft ADO.NET Data Services
+Authorization: Bearer <ENCODED JWT TOKEN> 
+x-ms-version: 2.19
+x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
+Host: media.windows.net
 
-    {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/\"}]"}
+{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/\"}]"}
+```
 
 
 Respuesta:
 
-    HTTP/1.1 201 Created
-    Cache-Control: no-cache
-    Content-Length: 460
-    Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-    Location: media.windows.net/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3Aec9b994e-672c-4a5b-8490-a464eeb7964b')
-    Server: Microsoft-IIS/8.5
-    x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
-    request-id: c2a1ac0e-9644-474f-b38f-b9541c3a7c5f
-    x-ms-request-id: c2a1ac0e-9644-474f-b38f-b9541c3a7c5f
-    X-Content-Type-Options: nosniff
-    DataServiceVersion: 3.0;
-    Strict-Transport-Security: max-age=31536000; includeSubDomains
-    Date: Mon, 09 Feb 2015 05:24:38 GMT
+```output
+HTTP/1.1 201 Created
+Cache-Control: no-cache
+Content-Length: 460
+Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
+Location: media.windows.net/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3Aec9b994e-672c-4a5b-8490-a464eeb7964b')
+Server: Microsoft-IIS/8.5
+x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
+request-id: c2a1ac0e-9644-474f-b38f-b9541c3a7c5f
+x-ms-request-id: c2a1ac0e-9644-474f-b38f-b9541c3a7c5f
+X-Content-Type-Options: nosniff
+DataServiceVersion: 3.0;
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Date: Mon, 09 Feb 2015 05:24:38 GMT
 
-    {"odata.metadata":"media.windows.net/api/$metadata#AssetDeliveryPolicies/@Element","Id":"nb:adpid:UUID:ec9b994e-672c-4a5b-8490-a464eeb7964b","Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/\"}]","Created":"2015-02-09T05:24:38.9167436Z","LastModified":"2015-02-09T05:24:38.9167436Z"}
+{"odata.metadata":"media.windows.net/api/$metadata#AssetDeliveryPolicies/@Element","Id":"nb:adpid:UUID:ec9b994e-672c-4a5b-8490-a464eeb7964b","Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/\"}]","Created":"2015-02-09T05:24:38.9167436Z","LastModified":"2015-02-09T05:24:38.9167436Z"}
+```
 
 
 ### <a name="link-asset-with-asset-delivery-policy"></a>Vinculación de un recurso con la directiva de entrega de recursos
@@ -243,26 +259,30 @@ Para obtener información sobre los valores que puede especificar al crear una e
 
 Solicitud:
 
-    POST https://media.windows.net/api/AssetDeliveryPolicies HTTP/1.1
-    Content-Type: application/json
-    DataServiceVersion: 1.0;NetFx
-    MaxDataServiceVersion: 3.0;NetFx
-    Accept: application/json
-    Accept-Charset: UTF-8
-    User-Agent: Microsoft ADO.NET Data Services
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.19
-    x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
-    Host: media.windows.net
+```console
+POST https://media.windows.net/api/AssetDeliveryPolicies HTTP/1.1
+Content-Type: application/json
+DataServiceVersion: 1.0;NetFx
+MaxDataServiceVersion: 3.0;NetFx
+Accept: application/json
+Accept-Charset: UTF-8
+User-Agent: Microsoft ADO.NET Data Services
+Authorization: Bearer <ENCODED JWT TOKEN> 
+x-ms-version: 2.19
+x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
+Host: media.windows.net
 
-    {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
+{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
+```
 
 
 Si quiere proteger su contenido con DRM de Widevine, actualice los valores de AssetDeliveryConfiguration para usar WidevineLicenseAcquisitionUrl (que tiene el valor de 7) y especifique la dirección URL de un servicio de entrega de licencias. Puede usar los siguientes asociados de AMS para ayudarle a entregar licencias de Widevine: [Axinom](https://www.axinom.com), [EZDRM](https://ezdrm.com/), [castLabs](https://castlabs.com/company/partners/azure/).
 
 Por ejemplo: 
 
-    {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":2,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":7,\"Value\":\"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}
+```console
+{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":2,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":7,\"Value\":\"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}
+```
 
 > [!NOTE]
 > Al cifrar con Widevine, solo podría entregar con DASH. Asegúrese de especificar DASH (2) en el protocolo de entrega de recursos.
@@ -278,149 +298,157 @@ Consulte [Vinculación de un recurso con la directiva de entrega de recursos](#l
 
 La enumeración siguiente describe los valores que puede establecer para el protocolo de entrega de recursos.
 
-    [Flags]
-    public enum AssetDeliveryProtocol
-    {
-        /// <summary>
-        /// No protocols.
-        /// </summary>
-        None = 0x0,
+```csharp
+[Flags]
+public enum AssetDeliveryProtocol
+{
+    /// <summary>
+    /// No protocols.
+    /// </summary>
+    None = 0x0,
 
-        /// <summary>
-        /// Smooth streaming protocol.
-        /// </summary>
-        SmoothStreaming = 0x1,
+    /// <summary>
+    /// Smooth streaming protocol.
+    /// </summary>
+    SmoothStreaming = 0x1,
 
-        /// <summary>
-        /// MPEG Dynamic Adaptive Streaming over HTTP (DASH)
-        /// </summary>
-        Dash = 0x2,
+    /// <summary>
+    /// MPEG Dynamic Adaptive Streaming over HTTP (DASH)
+    /// </summary>
+    Dash = 0x2,
 
-        /// <summary>
-        /// Apple HTTP Live Streaming protocol.
-        /// </summary>
-        HLS = 0x4,
+    /// <summary>
+    /// Apple HTTP Live Streaming protocol.
+    /// </summary>
+    HLS = 0x4,
 
-        ProgressiveDownload = 0x10, 
- 
-        /// <summary>
-        /// Include all protocols.
-        /// </summary>
-        All = 0xFFFF
-    }
+    ProgressiveDownload = 0x10, 
+
+    /// <summary>
+    /// Include all protocols.
+    /// </summary>
+    All = 0xFFFF
+}
+```
 
 ### <a name="assetdeliverypolicytype"></a>AssetDeliveryPolicyType
 
 La enumeración siguiente describe los valores que puede establecer para el tipo de directiva de entrega de recursos.  
 
-    public enum AssetDeliveryPolicyType
-    {
-        /// <summary>
-        /// Delivery Policy Type not set.  An invalid value.
-        /// </summary>
-        None,
+```csharp
+public enum AssetDeliveryPolicyType
+{
+    /// <summary>
+    /// Delivery Policy Type not set.  An invalid value.
+    /// </summary>
+    None,
 
-        /// <summary>
-        /// The Asset should not be delivered via this AssetDeliveryProtocol. 
-        /// </summary>
-        Blocked, 
+    /// <summary>
+    /// The Asset should not be delivered via this AssetDeliveryProtocol. 
+    /// </summary>
+    Blocked, 
 
-        /// <summary>
-        /// Do not apply dynamic encryption to the asset.
-        /// </summary>
-        /// 
-        NoDynamicEncryption,  
+    /// <summary>
+    /// Do not apply dynamic encryption to the asset.
+    /// </summary>
+    /// 
+    NoDynamicEncryption,  
 
-        /// <summary>
-        /// Apply Dynamic Envelope encryption.
-        /// </summary>
-        DynamicEnvelopeEncryption,
+    /// <summary>
+    /// Apply Dynamic Envelope encryption.
+    /// </summary>
+    DynamicEnvelopeEncryption,
 
-        /// <summary>
-        /// Apply Dynamic Common encryption.
-        /// </summary>
-        DynamicCommonEncryption
-        }
+    /// <summary>
+    /// Apply Dynamic Common encryption.
+    /// </summary>
+    DynamicCommonEncryption
+    }
+```
 
 ### <a name="contentkeydeliverytype"></a>ContentKeyDeliveryType
 
 La enumeración siguiente describe los valores que puede utilizar para configurar el método de entrega de la clave de contenido al cliente.
     
-    public enum ContentKeyDeliveryType
-    {
-        /// <summary>
-        /// None.
-        ///
-        </summary>
-        None = 0,
+```csharp
+public enum ContentKeyDeliveryType
+{
+    /// <summary>
+    /// None.
+    ///
+    </summary>
+    None = 0,
 
-        /// <summary>
-        /// Use PlayReady License acquisition protocol
-        ///
-        </summary>
-        PlayReadyLicense = 1,
+    /// <summary>
+    /// Use PlayReady License acquisition protocol
+    ///
+    </summary>
+    PlayReadyLicense = 1,
 
-        /// <summary>
-        /// Use MPEG Baseline HTTP key protocol.
-        ///
-        </summary>
-        BaselineHttp = 2,
+    /// <summary>
+    /// Use MPEG Baseline HTTP key protocol.
+    ///
+    </summary>
+    BaselineHttp = 2,
 
-        /// <summary>
-        /// Use Widevine License acquisition protocol
-        ///
-        </summary>
-        Widevine = 3
+    /// <summary>
+    /// Use Widevine License acquisition protocol
+    ///
+    </summary>
+    Widevine = 3
 
-    }
+}
+```
 
 
 ### <a name="assetdeliverypolicyconfigurationkey"></a>AssetDeliveryPolicyConfigurationKey
 
 La enumeración siguiente describe los valores que puede establecer para configurar las claves usadas para obtener la configuración específica para una directiva de entrega de recursos.
 
-    public enum AssetDeliveryPolicyConfigurationKey
-    {
-        /// <summary>
-        /// No policies.
-        /// </summary>
-        None,
+```csharp
+public enum AssetDeliveryPolicyConfigurationKey
+{
+    /// <summary>
+    /// No policies.
+    /// </summary>
+    None,
 
-        /// <summary>
-        /// Exact Envelope key URL.
-        /// </summary>
-        EnvelopeKeyAcquisitionUrl,
+    /// <summary>
+    /// Exact Envelope key URL.
+    /// </summary>
+    EnvelopeKeyAcquisitionUrl,
 
-        /// <summary>
-        /// Base key url that will have KID=<Guid> appended for Envelope.
-        /// </summary>
-        EnvelopeBaseKeyAcquisitionUrl,
+    /// <summary>
+    /// Base key url that will have KID=<Guid> appended for Envelope.
+    /// </summary>
+    EnvelopeBaseKeyAcquisitionUrl,
 
-        /// <summary>
-        /// The initialization vector to use for envelope encryption in Base64 format.
-        /// </summary>
-        EnvelopeEncryptionIVAsBase64,
+    /// <summary>
+    /// The initialization vector to use for envelope encryption in Base64 format.
+    /// </summary>
+    EnvelopeEncryptionIVAsBase64,
 
-        /// <summary>
-        /// The PlayReady License Acquisition Url to use for common encryption.
-        /// </summary>
-        PlayReadyLicenseAcquisitionUrl,
+    /// <summary>
+    /// The PlayReady License Acquisition Url to use for common encryption.
+    /// </summary>
+    PlayReadyLicenseAcquisitionUrl,
 
-        /// <summary>
-        /// The PlayReady Custom Attributes to add to the PlayReady Content Header
-        /// </summary>
-        PlayReadyCustomAttributes,
+    /// <summary>
+    /// The PlayReady Custom Attributes to add to the PlayReady Content Header
+    /// </summary>
+    PlayReadyCustomAttributes,
 
-        /// <summary>
-        /// The initialization vector to use for envelope encryption.
-        /// </summary>
-        EnvelopeEncryptionIV,
+    /// <summary>
+    /// The initialization vector to use for envelope encryption.
+    /// </summary>
+    EnvelopeEncryptionIV,
 
-        /// <summary>
-        /// Widevine DRM acquisition url
-        /// </summary>
-        WidevineLicenseAcquisitionUrl
-    }
+    /// <summary>
+    /// Widevine DRM acquisition url
+    /// </summary>
+    WidevineLicenseAcquisitionUrl
+}
+```
 
 ## <a name="additional-notes"></a>Notas adicionales
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: c5095efef5d4bef44993bdd9cd52dbdef17378a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f7295515b75ba7e26454f8b6ce6e0d660657ec4e
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156113"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055246"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Desarrollo de plantillas de ARM para la coherencia en la nube
 
@@ -133,7 +133,7 @@ A lo largo de la plantilla, se generan vínculos mediante la combinación del UR
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2015-01-01",
+    "apiVersion": "2019-10-01",
     "name": "shared",
     "properties": {
       "mode": "Incremental",
@@ -301,7 +301,7 @@ Por este motivo, Resource Manager introdujo el concepto de perfiles de API para 
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -342,7 +342,7 @@ Una versión de perfil de API actúa como un alias para una única versión de A
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "apiProfile": "2018–03-01-hybrid",
     "parameters": {
@@ -384,7 +384,7 @@ El perfil de API no es un elemento necesario en una plantilla. Incluso si agrega
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "apiProfile": "2018–03-01-hybrid",
     "parameters": {
@@ -574,7 +574,7 @@ Los mismos cambios también se aplican a los [discos de datos](../../virtual-mac
 
 ### <a name="verify-that-vm-extensions-are-available-in-azure-stack"></a>Comprobar que las extensiones de máquina virtual están disponibles en Azure Stack
 
-Otra consideración para mantener la coherencia en la nube es el uso de [extensiones de máquina virtual](../../virtual-machines/windows/extensions-features.md) para configurar los recursos dentro de una máquina virtual. No todas las extensiones de máquina virtual están disponibles en Azure Stack. Una plantilla puede especificar los recursos dedicados a la extensión de máquina virtual, y crear dependencias y condiciones dentro de la plantilla.
+Otra consideración para mantener la coherencia en la nube es el uso de [extensiones de máquina virtual](../../virtual-machines/extensions/features-windows.md) para configurar los recursos dentro de una máquina virtual. No todas las extensiones de máquina virtual están disponibles en Azure Stack. Una plantilla puede especificar los recursos dedicados a la extensión de máquina virtual, y crear dependencias y condiciones dentro de la plantilla.
 
 Por ejemplo, si quiere configurar una máquina virtual que ejecute Microsoft SQL Server, la extensión de máquina virtual puede configurar SQL Server como parte de la implementación de plantilla. Tenga en cuenta qué sucede si la plantilla de implementación también contiene un servidor de aplicaciones configurado para crear una base de datos en la máquina virtual que ejecuta SQL Server. Además de usar una extensión de máquina virtual para los servidores de aplicaciones, puede configurar la dependencia del servidor de aplicaciones tras la devolución correcta del recurso de extensión de máquina virtual de SQL Server. Este enfoque garantiza que la máquina virtual que ejecuta SQL Server está configurada y disponible cuando se indique al servidor de aplicaciones que cree la base de datos.
 

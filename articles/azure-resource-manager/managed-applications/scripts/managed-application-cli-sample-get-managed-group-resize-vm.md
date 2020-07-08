@@ -6,12 +6,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 878a8d660495c932cc8fa44bb1ed06e79576729b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f119fe4b4547bda8249a3620baf938dd8b83c235
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75648782"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056054"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>Obtención de recursos de un grupo de recursos administrados y cambio de tamaño de las máquinas virtuales con la CLI de Azure
 
@@ -33,12 +33,12 @@ Este script usa los siguientes comandos para implementar la aplicación administ
 
 | Get-Help | Notas |
 |---|---|
-| [az managedapp list](https://docs.microsoft.com/cli/azure/managedapp#az-managedapp-list) | Enumera las aplicaciones administradas. Proporciona valores de consulta que se centran en los resultados. |
-| [az resource list](https://docs.microsoft.com/cli/azure/resource#az-resource-list) | Enumera los recursos. Proporciona un grupo de recursos y valores de consulta que se centran en el resultado. |
-| [az vm resize](https://docs.microsoft.com/cli/azure/vm#az-vm-resize) | Actualiza el tamaño de una máquina virtual. |
+| [az managedapp list](/cli/azure/managedapp#az-managedapp-list) | Enumera las aplicaciones administradas. Proporciona valores de consulta que se centran en los resultados. |
+| [az resource list](/cli/azure/resource#az-resource-list) | Enumera los recursos. Proporciona un grupo de recursos y valores de consulta que se centran en el resultado. |
+| [az vm resize](/cli/azure/vm#az-vm-resize) | Actualiza el tamaño de una máquina virtual. |
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para una introducción a las aplicaciones administradas, consulte la [introducción a las aplicaciones administradas de Azure](../overview.md).
-* Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure).
+* Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure).

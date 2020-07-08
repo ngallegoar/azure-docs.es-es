@@ -105,9 +105,6 @@
           href: luis-concept-test.md
         - name: Pruebas por lotes
           href: luis-concept-batch-test.md
-    - name: Creación y claves en tiempo de ejecución
-      displayName: 'shared, transfer, ownership, author, access, import'
-      href: luis-concept-keys.md
     - name: Administración de datos
       items:
         - name: Modificar datos

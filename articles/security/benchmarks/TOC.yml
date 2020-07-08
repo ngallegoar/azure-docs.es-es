@@ -41,10 +41,14 @@
       href: ../../automation/security-baseline.md
     - name: Base de referencia de seguridad de Azure Cache for Redis
       href: ../../azure-cache-for-redis/security-baseline.md
+    - name: Base de referencia de seguridad de Azure Policy
+      href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
     - name: Base de referencia de seguridad de Backup
       href: ../../backup/security-baseline.md
     - name: Base de referencia de seguridad de Batch
       href: ../../batch/security-baseline.md
+    - name: Base de referencia de seguridad de Cognitive Services
+      href: ../../cognitive-services/security-baseline.md
     - name: Línea de base de seguridad de Container Instances
       href: ../../container-instances/security-baseline.md
     - name: Base de referencia de seguridad de Container Registry
@@ -53,7 +57,7 @@
       href: ../../cosmos-db/security-baseline.md
     - name: Base de referencia de seguridad de Caja de seguridad del cliente
       href: ../fundamentals/customer-lockbox-security-baseline.md
-    - name: Línea de base de seguridad de Databox
+    - name: Base de referencia de seguridad de Data Box
       href: ../../databox/security-baseline.md
     - name: Base de referencia de seguridad de Data Explorer
       href: /azure/data-explorer/security-baseline
@@ -87,3 +91,5 @@
       href: ../../stream-analytics/security-baseline.md
     - name: Base de referencia de seguridad de Storage
       href: ../../storage/common/security-baseline.md
+    - name: Base de referencia de seguridad de Synapse Analytics
+      href: ../../synapse-analytics/security-baseline.md
