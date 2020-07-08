@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 7c2c14a937b4ef55d0e5f71e7b20214428ecd68c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e04da10d71eed3706b87fc728a13927aeae82826
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158204"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84660132"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Ampliación de Azure IoT Central con análisis personalizados mediante Azure Databricks
 
@@ -231,4 +231,4 @@ En esta guía paso a paso, ha aprendido lo siguiente:
 * Hacer streaming de datos de telemetría desde una aplicación de IoT Central mediante la *exportación de datos continua*.
 * Cree un entorno de Azure Databricks para analizar y representar datos de telemetría.
 
-Ahora que ya sabe cómo crear análisis personalizados, el siguiente paso recomendado es aprender a [administrar la aplicación](howto-administer.md).
+Ahora que sabe cómo crear un análisis personalizado, el siguiente paso sugerido es aprender a [Visualizar y analizar los datos de Azure IoT Central en un panel de Power BI](howto-connect-powerbi.md).

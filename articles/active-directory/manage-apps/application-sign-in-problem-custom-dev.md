@@ -3,25 +3,25 @@ title: Problemas de inicio de sesión en una aplicación desarrollada personaliz
 description: Errores comunes que pueden causar la imposibilidad de iniciar sesión en una aplicación desarrollada con Azure AD
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01a424129abf88c18500c96bd1889fc6dcce2ec6
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: cdfc2a39c6bd3b68df7feb978d2548ad67631235
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890696"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84759137"
 ---
 # <a name="problems-signing-in-to-a-custom-developed-application"></a>Problemas de inicio de sesión en una aplicación desarrollada personalizada
 

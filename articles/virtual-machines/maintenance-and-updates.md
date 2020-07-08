@@ -4,15 +4,15 @@ description: Información general sobre el mantenimiento y las actualizaciones d
 author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: shants
-ms.openlocfilehash: 97605b0cdc7ac6368b21e9427f64e4bca7e35d4a
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 3caf8b63cbd86338bbef653e9be9916907578627
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83815951"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84675886"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Mantenimiento de máquinas virtuales en Azure
 

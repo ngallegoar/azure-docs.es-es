@@ -5,15 +5,15 @@ description: Información acerca de la interconexión de una SD-WAN privada con 
 services: virtual-wan
 author: skishen525
 ms.service: virtual-wan
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/12/2020
 ms.author: sukishen
-ms.openlocfilehash: 9b935c1f612e7634bad86818cd8331fba0078a9d
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 7b134e8ef4e09f1506f1d548ffb7579dcf65fbdd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860586"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753328"
 ---
 # <a name="sd-wan-connectivity-architecture-with-azure-virtual-wan"></a>Arquitectura de conectividad SD WAN con Azure Virtual WAN
 

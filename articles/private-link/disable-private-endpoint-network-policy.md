@@ -4,15 +4,15 @@ description: Obtenga información sobre cómo deshabilitar las directivas de red
 services: private-link
 author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: b5ab62e7ab57d32a11a45713519633034deb6a5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a4c04033f3fb5ff523f0d80bb6c978955f4c9ec2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75453014"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737519"
 ---
 # <a name="disable-network-policies-for-private-endpoints"></a>Deshabilitar las directivas de red de puntos de conexión privados
 

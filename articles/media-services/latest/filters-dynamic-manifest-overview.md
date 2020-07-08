@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: juliako
-ms.openlocfilehash: cd955f97a2f26543f799d95b7dc0b1de235333c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb7a399258dcab679468d2b8f699487b1ec5406b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74186206"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84705209"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrado de los manifiestos mediante el empaquetador dinámico
 
@@ -36,7 +36,7 @@ Esta capacidad para especificar filtros diferentes en la secuencia proporciona u
 
 ## <a name="overview-of-manifests"></a>Introducción a los manifiestos
 
-Azure Media Services admite los protocolos HLS, MPEG DASH y Smooth Streaming. Como parte del [empaquetado dinámico](dynamic-packaging-overview.md), los manifiestos de cliente de streaming (HLS Master Playlist, DASH Media Presentation Description [MPD] y Smooth Streaming), se generan dinámicamente a partir del selector de formato de la dirección URL. Para más información, consulte los protocolos de entrega en el [flujo de trabajo común a petición](dynamic-packaging-overview.md#delivery-protocols).
+Azure Media Services admite los protocolos HLS, MPEG DASH y Smooth Streaming. Como parte del [empaquetado dinámico](dynamic-packaging-overview.md), los manifiestos de cliente de streaming (HLS Master Playlist, DASH Media Presentation Description [MPD] y Smooth Streaming), se generan dinámicamente a partir del selector de formato de la dirección URL. Para más información, consulte los protocolos de entrega en el [flujo de trabajo común a petición](dynamic-packaging-overview.md#to-prepare-your-source-files-for-delivery).
 
 ### <a name="get-and-examine-manifest-files"></a>Obtención y examen de archivos de manifiesto
 

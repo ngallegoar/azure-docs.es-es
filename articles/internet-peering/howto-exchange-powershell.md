@@ -5,15 +5,15 @@ description: Creación o modificación de un emparejamiento de Exchange mediante
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 23c905f148da614c7785b61b76abed191206cd90
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 1c0620875e7da4582156080c4a52fd6fbe0e573c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81678681"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84700253"
 ---
 # <a name="create-or-modify-an-exchange-peering-by-using-powershell"></a>Creación o modificación de un emparejamiento de Exchange mediante PowerShell
 

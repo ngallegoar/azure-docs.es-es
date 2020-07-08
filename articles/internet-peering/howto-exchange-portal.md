@@ -5,15 +5,15 @@ description: Creación o modificación de un emparejamiento de Exchange mediante
 services: internet-peering
 author: derekolo
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 5/2/2020
 ms.author: derekol
-ms.openlocfilehash: 259ced3032eb43a946de7f1cf4dad9abb99d4a11
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 69201c97882846fb929b3b6f9a90be6647603bcc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845293"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84700487"
 ---
 # <a name="create-or-modify-an-exchange-peering-by-using-the-azure-portal"></a>Creación o modificación de un emparejamiento de Exchange mediante Azure Portal
 
