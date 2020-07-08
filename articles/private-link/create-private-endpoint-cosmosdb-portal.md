@@ -3,15 +3,15 @@ title: Conexión a una cuenta de Azure Cosmos con Azure Private Link
 description: Aprenda a acceder de forma segura a la cuenta de Azure Cosmos desde una máquina virtual mediante la creación de un punto de conexión privado.
 author: malopMSFT
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: b7a50a2dabc9503ca5dbdd3388e29cfc69963885
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d074128376d481902a203de3d32ef89aa72d7b3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252598"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737723"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Conexión privada a una cuenta de Azure Cosmos con Azure Private Link
 
@@ -33,11 +33,11 @@ En esta sección, tendrá que reemplazar los siguientes parámetros de los pasos
 
 | Parámetro                   | Value                |
 |-----------------------------|----------------------|
-| **\<nombre-de-grupo-recursos>**  | myResourceGroup|
+| **\<resource-group-name>**  | myResourceGroup|
 | **\<virtual-network-name>** | myVirtualNetwork         |
 | **\<region-name>**          | Centro-Oeste de EE. UU.     |
-| **\<espacio-de-direcciones-IPv4>**   | 10.1.0.0\16          |
-| **\<nombre-de-subred>**          | mySubnet        |
+| **\<IPv4-address-space>**   | 10.1.0.0\16          |
+| **\<subnet-name>**          | mySubnet        |
 | **\<subnet-address-range>** | 10.1.0.0\24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
@@ -51,7 +51,7 @@ En esta sección, tendrá que reemplazar los siguientes parámetros de los pasos
     | Configuración | Value |
     | ------- | ----- |
     | **DETALLES DEL PROYECTO** | |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.  |
     | **DETALLES DE INSTANCIA** |  |
     | Nombre de la máquina virtual | Escriba *myVm*. |

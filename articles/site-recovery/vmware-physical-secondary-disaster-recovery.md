@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
 ms.openlocfilehash: 71d230c9fea25edfbf0ca4ea40f15b69779ad060
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228804"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711908"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configuración de la recuperación ante desastres de máquinas virtuales de VMware o de servidores físicos locales en un sitio secundario
 
@@ -57,7 +57,7 @@ o   Para máquinas físicas, siga este [tutorial](./physical-azure-disaster-reco
 **Matrices compatibles** | [Haga clic aquí para obtener información detallada](./vmware-physical-azure-support-matrix.md)|[Descarga de matriz compatible de ASR Scout](https://aka.ms/asr-scout-cm)
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Para completar este tutorial:
 
 - [Revise](vmware-physical-secondary-support-matrix.md) los requisitos de compatibilidad de todos los componentes.

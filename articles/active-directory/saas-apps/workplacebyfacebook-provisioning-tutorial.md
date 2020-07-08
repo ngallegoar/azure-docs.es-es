@@ -15,34 +15,16 @@ ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99103c9994b240e2f45b66acf269b320c90e5135
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 799206ee08dc3b1cdac46a0e4e79d2c929138c31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231737"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84718628"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workplace by Facebook para el aprovisionamiento automático de usuarios
 
 En este tutorial, se describen los pasos que debe realizar en Workplace by Facebook y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando se configura, Azure AD aprovisiona y desaprovisiona automáticamente usuarios y grupos en [Workplace by Facebook](https://work.workplace.com/) mediante el servicio de aprovisionamiento de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../manage-apps/user-provisioning.md).
-
-## <a name="migrating-to-the-new-workplace-by-facebook-application"></a>Migración a la nueva aplicación Workplace by Facebook
-Si tiene una integración existente con Workplace by Facebook, consulte la sección siguiente acerca de los cambios que se aplicarán. Si está configurando Workplace by Facebook por primera vez, puede omitir esta sección y pasar a las funcionalidades admitidas. 
-
-#### <a name="whats-changing"></a>¿Qué está cambiando?
-* Cambios en Azure AD: el método de autorización para aprovisionar a los usuarios en el área de trabajo ha sido históricamente un token de secreto de larga duración. Pronto verá que el método de autorización cambia a la concesión de autorización de OAuth. 
-* Cambios en Workplace: anteriormente, la aplicación Azure AD era una integración personalizada en Workplace by Facebook. Ahora verá Azure AD en el directorio de integraciones de Workplace como una aplicación de terceros. 
-
-#### <a name="what-do-i-need-to-do-to-migrate-my-existing-custom-integration-to-the-new-application"></a>¿Qué tengo que hacer para migrar mi integración personalizada existente a la nueva aplicación?
-Si tiene una integración de Workplace existente con un token válido, no es necesario realizar ninguna acción. **A partir del 28 de abril de 2020, se han migrado automáticamente todas las aplicaciones que no están en cuarentena debido a credenciales no válidas.**
- 
-#### <a name="how-can-i-tell-if-my-application-has-been-migrated"></a>¿Cómo puedo saber si se ha migrado mi aplicación? 
-* En Azure Portal: Una vez migrada la aplicación, se quitará el banner de la sección de autorización sobre los futuros cambios y se reemplazará el campo de token secreto por un botón de autorización azul. 
-* En el portal Workplace by Facebook: Revise la aplicación Azure AD para asegurarse de que está aprobada.  
-
-#### <a name="the-admin-credentials-section-is-greyed-out-on-my-application-and-i-cant-save-why"></a>La sección de credenciales de administrador aparece atenuada en mi aplicación y no puedo guardar los cambios. ¿Por qué?
-Hemos bloqueado la sección de credenciales de administrador para los clientes de Workplace que no han migrado. Use la siguiente dirección URL si la sección Credenciales de administrador está atenuada y necesita volver a autorizar el acceso. **?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true** (https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true)
-
 
 ## <a name="capabilities-supported"></a>Funcionalidades admitidas
 > [!div class="checklist"]
@@ -51,7 +33,7 @@ Hemos bloqueado la sección de credenciales de administrador para los clientes d
 > * Mantener los atributos de usuario sincronizados entre Azure AD y Workplace by Facebook
 > * [Inicio de sesión único](https://docs.microsoft.com/azure/active-directory/saas-apps/workplacebyfacebook-tutorial) en Workplace by Facebook (recomendado)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 

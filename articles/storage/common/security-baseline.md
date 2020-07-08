@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 92f2102d8d6353da2002a4ee9d5bfbe57a774e10
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: cd7e7df5c789743cf6bd84c6150fd901490bdedd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792078"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84751629"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Línea de referencia de seguridad de Azure para Azure Storage
 
@@ -108,7 +108,7 @@ Tenga en cuenta que, si tiene puntos de conexión privados conectados a la cuent
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8: Minimice la complejidad y la sobrecarga administrativa de las reglas de seguridad de red
 
-**Guía**: En el caso de los recursos en instancias de Virtual Network que necesitan acceder a la cuenta de Storage, use etiquetas de servicio de Virtual Network para la red virtual configurada para definir los controles de acceso de red en grupos de seguridad de red o Azure Firewall. Puede utilizar etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. Al especificar el nombre de la etiqueta de servicio (p. ej., Storage) en el campo de origen o destino apropiado de una regla, puede permitir o denegar el tráfico para el servicio correspondiente. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian. 
+**Instrucciones**: En el caso de los recursos en instancias de Virtual Network que necesitan acceder a la cuenta de Storage, use etiquetas de servicio de Virtual Network para la red virtual configurada para definir los controles de acceso de red en grupos de seguridad de red o Azure Firewall. Puede utilizar etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. Al especificar el nombre de la etiqueta de servicio (p. ej., Storage) en el campo de origen o destino apropiado de una regla, puede permitir o denegar el tráfico para el servicio correspondiente. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian. 
 
 Cuando el acceso a la red se deba restringir al ámbito de determinadas cuentas de almacenamiento, use directivas de punto de conexión de servicio de Virtual Network.
 
@@ -154,7 +154,7 @@ También puede usar definiciones de directivas integradas relacionadas con la cu
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: Uso de herramientas automatizadas para supervisar las configuraciones de los recursos de red y detectar cambios
 
-**Guía**: Use Azure Policy para registrar los cambios de configuración de los recursos de red. Cree alertas en Azure Monitor que se desencadenarán cuando se produzcan cambios en los recursos de red críticos. 
+**Instrucciones**: Use Azure Policy para registrar los cambios de configuración de los recursos de red. Cree alertas en Azure Monitor que se desencadenarán cuando se produzcan cambios en los recursos de red críticos. 
 
 - [Configuración y administración de Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -178,7 +178,7 @@ También puede usar definiciones de directivas integradas relacionadas con la cu
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: Configuración de la administración central de registros de seguridad
 
-**Guía**: Ingiera recursos mediante Azure Monitor para agregar datos de seguridad agregados generados por dispositivos de punto de conexión, recursos de red y otros sistemas de seguridad. En Azure Monitor, use áreas de trabajo de Log Analytics para realizar consultas y análisis, y utilice cuentas de Azure Storage para el almacenamiento de archivos a largo plazo, lo que puede incluir, opcionalmente, características de seguridad como almacenamiento inmutable y aplicación de suspensiones de retención.
+**Instrucciones**: Ingiera recursos mediante Azure Monitor para agregar datos de seguridad agregados generados por dispositivos de punto de conexión, recursos de red y otros sistemas de seguridad. En Azure Monitor, use áreas de trabajo de Log Analytics para realizar consultas y análisis, y utilice cuentas de Azure Storage para el almacenamiento de archivos a largo plazo, lo que puede incluir, opcionalmente, características de seguridad como almacenamiento inmutable y aplicación de suspensiones de retención.
 
 - [Recopilación de registros y métricas de plataforma con Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
 
@@ -454,7 +454,7 @@ Cree una configuración de diagnóstico para las cuentas de usuario de Azure Act
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13: Proporcione a Microsoft acceso a los datos pertinentes del cliente durante los escenarios de soporte técnico
 
-**Guía**: En escenarios de soporte técnico en los que Microsoft necesita acceder a los datos del cliente, la Caja de seguridad del cliente (versión preliminar para cuentas de Storage) proporciona una interfaz para que los clientes revisen y aprueben o rechacen las solicitudes de acceso a los datos del cliente. Microsoft no necesitará ni solicitará acceso a los secretos de la organización almacenados en la cuenta de Storage.
+**Instrucciones**: En escenarios de soporte técnico en los que Microsoft necesita acceder a los datos del cliente, la Caja de seguridad del cliente (versión preliminar para cuentas de Storage) proporciona una interfaz para que los clientes revisen y aprueben o rechacen las solicitudes de acceso a los datos del cliente. Microsoft no necesitará ni solicitará acceso a los secretos de la organización almacenados en la cuenta de Storage.
 
 - [Descripción de la Caja de seguridad del cliente](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
 
@@ -468,7 +468,7 @@ Cree una configuración de diagnóstico para las cuentas de usuario de Azure Act
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Mantenimiento de un inventario de información confidencial
 
-**Guía**: Use etiquetas para ayudar a realizar el seguimiento de los recursos de cuentas de Storage que almacenan o procesan información confidencial. 
+**Instrucciones**: Use etiquetas para ayudar a realizar el seguimiento de los recursos de cuentas de Storage que almacenan o procesan información confidencial. 
 
 - [Creación y uso de etiquetas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
@@ -512,7 +512,7 @@ Además, use directivas de punto de conexión de servicio de red virtual para fi
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: Cifrado de toda la información confidencial en tránsito
 
-**Guía**: Puede exigir el uso de HTTPS mediante la habilitación de la transferencia segura requerida para la cuenta de Storage. Una vez que esta opción esté habilitada, se rechazarán las conexiones que usan HTTP. Además, use Azure Security Center y Azure Policy para aplicar la transferencia segura para la cuenta de Storage.
+**Instrucciones**: Puede exigir el uso de HTTPS mediante la habilitación de la transferencia segura requerida para la cuenta de Storage. Una vez que esta opción esté habilitada, se rechazarán las conexiones que usan HTTP. Además, use Azure Security Center y Azure Policy para aplicar la transferencia segura para la cuenta de Storage.
 
 - [Requisito de transferencia segura en Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)
 
@@ -588,7 +588,7 @@ Además, use directivas de punto de conexión de servicio de red virtual para fi
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: Ejecución de herramientas de análisis de vulnerabilidades automatizadas
 
-**Guía**: Siga las recomendaciones de Azure Security Center para auditar y supervisar continuamente la configuración de las cuentas de almacenamiento. 
+**Instrucciones**: Siga las recomendaciones de Azure Security Center para auditar y supervisar continuamente la configuración de las cuentas de almacenamiento. 
 
 - [Guía de referencia sobre las recomendaciones de seguridad](https://docs.microsoft.com/azure/security-center/recommendations-reference)
 
@@ -785,7 +785,10 @@ Además, use Azure Resource Graph para consultar o detectar recursos dentro de s
 
 **Guía**: Use alias de Azure Policy en el espacio de nombres "Microsoft.Storage" para crear directivas personalizadas con el fin de auditar o aplicar la configuración de las instancias de la cuenta de Storage. También puede usar definiciones de Azure Policy para la cuenta de Azure Storage, como las siguientes: 
 
-Auditar el acceso de red sin restricciones a cuentas de almacenamiento, Implementar Advanced Threat Protection en las cuentas de almacenamiento, Se deben migrar las cuentas de almacenamiento a los nuevos recursos de Azure Resource Manager, Se debe habilitar la transferencia segura a las cuentas de almacenamiento 
+Auditar el acceso de red sin restricciones a cuentas de almacenamiento  
+Implementar Advanced Threat Protection en las cuentas de almacenamiento  
+Se deben migrar las cuentas de almacenamiento a los nuevos recursos de Azure Resource Manager  
+Se debe habilitar la transferencia segura a las cuentas de almacenamiento  
 
 Use las recomendaciones de Azure Security Center como línea de base de configuración segura para las cuentas de Storage. 
 
@@ -921,7 +924,7 @@ Además, cambie las claves de la cuenta de Storage con frecuencia para limitar e
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Uso de software antimalware administrado centralmente
 
-**Guía**: No aplicable; esta recomendación está pensada para los recursos de proceso. Microsoft controla el antimalware de la plataforma subyacente.
+**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso. Microsoft controla el antimalware de la plataforma subyacente.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -941,7 +944,7 @@ También puede realizar un examen previo de cualquier contenido en busca de malw
 
 ### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>8.3: Aseguramiento de la actualización del software y las firmas antimalware
 
-**Guía**: No aplicable; esta recomendación está pensada para los recursos de proceso. Microsoft controla el antimalware de la plataforma subyacente.
+**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso. Microsoft controla el antimalware de la plataforma subyacente.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -953,7 +956,7 @@ También puede realizar un examen previo de cualquier contenido en busca de malw
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Garantía de copias de seguridad automáticas periódicas
 
-**Guía**: Los datos de la cuenta de Microsoft Azure Storage siempre se replican automáticamente para garantizar la durabilidad y la alta disponibilidad. Azure Storage copia los datos para protegerlos de eventos previstos e imprevistos, como errores transitorios del hardware, interrupciones del suministro eléctrico o de la red y desastres naturales masivos. Puede optar por replicar los datos en el mismo centro de datos, en centros de datos zonales que estén en la misma región o en regiones geográficamente separadas. 
+**Instrucciones**: Los datos de la cuenta de Microsoft Azure Storage siempre se replican automáticamente para garantizar la durabilidad y la alta disponibilidad. Azure Storage copia los datos para protegerlos de eventos previstos e imprevistos, como errores transitorios del hardware, interrupciones del suministro eléctrico o de la red y desastres naturales masivos. Puede optar por replicar los datos en el mismo centro de datos, en centros de datos zonales que estén en la misma región o en regiones geográficamente separadas. 
 
 También puede permitir que Azure Automation tome instantáneas periódicas de los blobs.
 
@@ -1026,7 +1029,7 @@ Nota: Si desea copiar datos desde y hacia su servicio Azure Table Storage, insta
 
 ### <a name="101-create-incident-response-guide"></a>10.1: Creación de una guía de respuesta ante incidentes
 
-**Guía**: Cree una guía de respuesta a incidentes para su organización. Asegúrese de que haya planes de respuesta a incidentes escritos que definan todos los roles del personal, así como las fases de administración y gestión de los incidentes, desde la detección hasta la revisión posterior a la incidencia.
+**Instrucciones**: Cree una guía de respuesta a incidentes para su organización. Asegúrese de que haya planes de respuesta a incidentes escritos que definan todos los roles del personal, así como las fases de administración y gestión de los incidentes, desde la detección hasta la revisión posterior a la incidencia.
 
 - [Guía para crear su propio proceso de respuesta a incidentes de seguridad](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -1054,7 +1057,7 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 
 ### <a name="103-test-security-response-procedures"></a>10.3: Prueba de los procedimientos de respuesta de seguridad
 
-**Guía**: Realice ejercicios para probar las funcionalidades de respuesta a los incidentes de los sistemas periódicamente para ayudar a proteger los recursos de Azure. Identifique puntos débiles y brechas y revise el plan según sea necesario.
+**Instrucciones**: Realice ejercicios para probar las funcionalidades de respuesta a los incidentes de los sistemas periódicamente para ayudar a proteger los recursos de Azure. Identifique puntos débiles y brechas y revise el plan según sea necesario.
 
 - [Publicación de NIST: Guía para probar, entrenar y ejecutar programas para planes y funcionalidades de TI](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 

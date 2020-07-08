@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 04/30/2020
-ms.openlocfilehash: a2e80b9320509144456663672ac5ae03f522459a
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 1004f7fcc8ff93a170b724a6d8b1c2216b9c39b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735392"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84726980"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Actividad de Data Flow en Azure Data Factory
 
@@ -57,7 +57,7 @@ Utilice la actividad de Data Flow para transformar y trasladar datos a través d
 Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
 dataflow | Referencia al flujo de datos que se está ejecutando. | DataFlowReference | Sí
-integrationRuntime | Entorno de proceso en el que se ejecuta el flujo de datos. Si no se especifica, se usará la resolución automática del entorno de Azure Integration Runtime. Solo se admiten entornos de ejecución de integración de resolución automática de la región. | IntegrationRuntimeReference | No
+integrationRuntime | Entorno de proceso en el que se ejecuta el flujo de datos. Si no se especifica, se usará la resolución automática del entorno de Azure Integration Runtime. | IntegrationRuntimeReference | No
 compute.coreCount | Número de núcleos utilizados en el clúster de Spark. Solo se puede especificar si se usa la resolución automática de Azure Integration Runtime | 8, 16, 32, 48, 80, 144, 272 | No
 compute.computeType | Tipo de proceso utilizado en el clúster de Spark. Solo se puede especificar si se usa la resolución automática de Azure Integration Runtime | "General", "ComputeOptimized", "MemoryOptimized" | No
 staging.linkedService | Si usa un origen o un receptor de Azure SQL Data Warehouse, es la cuenta de almacenamiento que se utiliza como almacenamiento provisional de PolyBase. | LinkedServiceReference | Solo si el flujo de datos lee o escribe en una instancia de Azure SQL Data Warehouse.
@@ -75,7 +75,7 @@ Las propiedades Recuento de núcleos y Tipo de proceso se pueden configurar din�
 
 ### <a name="data-flow-integration-runtime"></a>Entorno de ejecución de integración de Data Flow
 
-Seleccione el entorno de ejecución de integración que desee usar con la ejecución de la actividad de Data Flow. De forma predeterminada, Data Factory usará la función de resolución automática de Azure Integration Runtime con cuatro núcleos de trabajo y sin período de vida (TTL). Este entorno de ejecución de integración tendrá un tipo de proceso de uso general y se ejecutará en la misma región que la fábrica. Puede crear entornos de ejecución de integración de Azure propios que definan regiones específicas, el tipo de proceso, el número de núcleos y el período de vida de la ejecución de actividades del flujo de datos. En este momento, solo se admiten en la actividad de flujo de datos los entornos de ejecución de integración de resolución automática de la región.
+Seleccione el entorno de ejecución de integración que desee usar con la ejecución de la actividad de Data Flow. De forma predeterminada, Data Factory usará la función de resolución automática de Azure Integration Runtime con cuatro núcleos de trabajo y sin período de vida (TTL). Este entorno de ejecución de integración tendrá un tipo de proceso de uso general y se ejecutará en la misma región que la fábrica. Puede crear entornos de ejecución de integración de Azure propios que definan regiones específicas, el tipo de proceso, el número de núcleos y el período de vida de la ejecución de actividades del flujo de datos.
 
 En el caso de las ejecuciones de canalización, el clúster que se utiliza es de trabajo y tarda varios minutos en arrancar antes de que se inicie la ejecución. Si no se especifica ningún período de vida, cada ejecución de la canalización tardará ese tiempo en iniciarse. Si especifica un período de vida, habrá un grupo de clústeres semiactivos preparados durante el tiempo que se especifique después de la última ejecución, lo que reducirá los tiempos de inicio. Por ejemplo, si tiene un período de vida de 60 minutos y ejecuta un flujo de datos cada hora, el grupo de clústeres permanecerá activo. Para más información, consulte [Azure Integration Runtime](concepts-integration-runtime.md).
 
