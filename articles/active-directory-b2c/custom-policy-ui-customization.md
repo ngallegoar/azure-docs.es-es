@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e50d6d0623e87dfa68a7cc9744c3f595ff0179c6
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: cb833ff35dae4fe1c0c27204ec66fa6b4cdb82c7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396379"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388891"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario de la aplicación mediante una directiva personalizada en Azure Active Directory B2C
 
@@ -85,7 +85,7 @@ Con las directivas personalizadas de Azure AD B2C, puede enviar un parámetro d
 
 Para enviar parámetros de cadena de consulta, en la [directiva del usuario de confianza](relyingparty.md), agregue un elemento `ContentDefinitionParameters` tal como se muestra a continuación.
 
-```XML
+```xml
 <RelyingParty>
     <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
     <UserJourneyBehaviors>
@@ -101,7 +101,7 @@ Para enviar parámetros de cadena de consulta, en la [directiva del usuario de c
 
 En la definición de contenido, cambie el valor de `LoadUri` a `https://<app_name>.azurewebsites.net/home/unified`. La directiva personalizada `ContentDefinition` debería ser similar al fragmento de código siguiente:
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>https://<app_name>.azurewebsites.net/home/unified</LoadUri>
   ...
@@ -118,7 +118,7 @@ https://<app_name>.azurewebsites.net/home/unified?campaignId=123&lang=fr&appId=f
 
 Puede extraer contenido de distintos lugares, según los parámetros utilizados. En el punto de conexión habilitado para CORS, configure una estructura de carpetas para hospedar contenido. Por ejemplo, puede organizar el contenido en la estructura siguiente. Raíz *carpeta/carpeta por idioma/sus archivos html*. Por ejemplo, el URI de la página personalizada podría ser similar al siguiente:
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>https://contoso.blob.core.windows.net/{Culture:LanguageName}/myHTML/unified.html</LoadUri>
   ...

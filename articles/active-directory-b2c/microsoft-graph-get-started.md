@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b62f30f428a0aaf5a564e2f2d2ad8d753dff7767
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: d95b45b9be0893282a532bae9ec0278c3a141686
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298944"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385933"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Administración de Azure AD B2C con Microsoft Graph
 
@@ -46,7 +46,15 @@ Aunque actualmente el flujo de concesión de credenciales de cliente de OAuth 2.
 
 Antes de que los scripts y las aplicaciones puedan interactuar con [Microsoft Graph API][ms-graph-api] para administrar recursos de Azure AD B2C, debe crear un registro de aplicación en el inquilino de Azure AD B2C que conceda los permisos de API necesarios.
 
-[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. En Azure Portal, busque y seleccione **Azure AD B2C**.
+1. Seleccione **Registros de aplicaciones** y luego **Nuevo registro**.
+1. Escriba un **Nombre** para la aplicación. Por ejemplo, *managementapp1*.
+1. Seleccione **Solo las cuentas de este directorio organizativo**.
+1. En **Permisos**, desactive la casilla *Conceda permiso del administrador a los permisos openid y offline_access*.
+1. Seleccione **Registrar**.
+1. Registre el valor **Id. de aplicación (cliente)** que se muestra en la página de información general de la aplicación. Se usará este valor en un paso posterior.
 
 ### <a name="grant-api-access"></a>Concesión de acceso de API
 

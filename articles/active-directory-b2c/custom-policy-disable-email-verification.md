@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 51cb46d3ce1b74681c2ee3e53104cc57e73f1c5d
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 29426f8e3797c89deb712e89e0d972dd1ac8028e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84192227"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389316"
 ---
 # <a name="disable-email-verification-during-customer-sign-up-using-a-custom-policy-in-azure-active-directory-b2c"></a>Deshabilitación de la comprobación de correo electrónico durante la suscripción de clientes mediante una directiva personalizada en Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ El perfil técnico **LocalAccountSignUpWithLogonEmail** es [autofirmado](self-as
 1. Busque el elemento `ClaimsProviders`. Si el elemento no existe, agréguelo.
 1. Agregue el siguiente proveedor de notificaciones al elemento `ClaimsProviders`:
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>

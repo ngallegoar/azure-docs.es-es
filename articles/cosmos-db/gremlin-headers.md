@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/03/2019
 author: luisbosquez
 ms.author: lbosq
-ms.openlocfilehash: 95677f4c45c0213de5ffac5521bac1c6bf7294e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d244a5bfb6d0a1e2a0965cc72a8f223e0646fa77
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72755079"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85390863"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Encabezados de respuesta del servidor Gremlin en Azure Cosmos DB
 En este artículo, se describen los encabezados que el servidor Gremlin de Cosmos DB devuelve al autor de la llamada al ejecutar una solicitud. Estos encabezados son útiles para solucionar problemas de rendimiento de las solicitudes, crear aplicaciones que se integren de forma nativa con el servicio Cosmos DB y simplificar el servicio de soporte al cliente.
@@ -107,6 +107,6 @@ try {
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Códigos de Estado HTTP en Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) 
-* [Encabezados de respuesta comunes de REST en Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers)
+* [Códigos de Estado HTTP en Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) 
+* [Encabezados de respuesta comunes de REST en Azure Cosmos DB](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers)
 * [Requisitos del proveedor del controladores de grafos de TinkerPop]( http://tinkerpop.apache.org/docs/current/dev/provider/#_graph_driver_provider_requirements)

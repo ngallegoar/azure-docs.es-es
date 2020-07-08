@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
+ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 090fecea44c7881920fcd087304f33f935a5e907
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8939d4546657b049b61eb31c08844dac07c67ae2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636259"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389095"
 ---
 # <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Localización de la interfaz de usuario de la aplicación con una directiva personalizada en Azure Active Directory B2C.
 
@@ -33,7 +33,7 @@ Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocal
 1. Agregue el elemento `Localization` con los idiomas admitidos: Inglés (predeterminado) y español.  
 
 
-```XML
+```xml
 <Localization Enabled="true">
   <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
     <SupportedLanguage>en</SupportedLanguage>
@@ -51,7 +51,7 @@ Configura los elementos de recursos localizados para la definición de contenido
 > [!NOTE]
 > En el ejemplo siguiente se ha agregado el símbolo de almohadilla `#` al comienzo de cada línea, por lo que puede encontrar fácilmente las etiquetas localizadas en la pantalla.
 
-```XML
+```xml
 <!--Local account sign-up or sign-in page English-->
 <LocalizedResources Id="api.signuporsignin.en">
   <LocalizedStrings>
@@ -218,7 +218,7 @@ Pegue todo el contenido del elemento ContentDefinitions que ha copiado como elem
 
 En el ejemplo siguiente, las cadenas personalizadas inglés (en) y español (es) se agregan a la página de registro o de inicio de sesión y a la página de registro de la cuenta local. El elemento **LocalizedResourcesReferenceId** por cada elemento **LocalizedResourcesReference** es el mismo que la configuración regional, pero puede usarse cualquier cadena como el identificador. Por cada combinación de idioma y página, apunte al elemento **LocalizedResources** correspondiente que ha creado anteriormente.
 
-```XML
+```xml
 <ContentDefinitions>
   <ContentDefinition Id="api.signuporsignin">
     <LocalizedResourcesReferences MergeBehavior="Prepend">

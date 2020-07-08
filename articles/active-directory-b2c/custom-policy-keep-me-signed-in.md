@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 041fb8d881307b52fb170a11618f930debc522a4
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: de5dd051804f3a0a7d1b0d32b998262af13e8926
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80803167"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389197"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Habilitación de Mantener la sesión iniciada (KMSI) en Azure Active Directory B2C
 
@@ -59,7 +59,7 @@ Para agregar la casilla KMSI a la página de registro e inicio de sesión, estab
 1. Busque el elemento ClaimsProviders. Si el elemento no existe, agréguelo.
 1. Agregue el siguiente proveedor de notificaciones al elemento ClaimsProviders:
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
@@ -82,7 +82,7 @@ Actualice el archivo de usuario de confianza (RP) que inicia el recorrido del us
 1. Si aún no existe, agregue un nodo secundario `<UserJourneyBehaviors>` al nodo `<RelyingParty>`. Tiene que estar situado inmediatamente después de `<DefaultUserJourney ReferenceId="User journey Id" />`, por ejemplo: `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />`.
 1. Agregue el siguiente nodo como nodo secundario del elemento `<UserJourneyBehaviors>`.
 
-    ```XML
+    ```xml
     <UserJourneyBehaviors>
       <SingleSignOn Scope="Tenant" KeepAliveInDays="30" />
       <SessionExpiryType>Absolute</SessionExpiryType>
@@ -100,7 +100,7 @@ Actualice el archivo de usuario de confianza (RP) que inicia el recorrido del us
 
 Se recomienda que establezca el valor de SessionExpiryInSeconds para un período breve (1200 segundos), mientras que el valor de KeepAliveInDays se puede establecer en un período relativamente largo (30 días), como se muestra en el ejemplo siguiente:
 
-```XML
+```xml
 <RelyingParty>
   <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
   <UserJourneyBehaviors>

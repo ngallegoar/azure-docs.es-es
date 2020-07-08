@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8b0362f9bb80af9f98dad032790a9e88651284a1
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 1ea11008155899e09bf461e56a8bb4981d37238d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298880"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385423"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Protección de una API de Azure API Management con Azure AD B2C
 
@@ -171,7 +171,7 @@ Con el token de acceso y la clave de suscripción de APIM anotadas, ya está lis
 
 1. Seleccione el botón **Enviar** de Postman para ejecutar la solicitud. Si ha configurado todo correctamente, debe aparecer una respuesta JSON con una colección de oradores de la conferencia (aquí se muestra truncada):
 
-    ```JSON
+    ```json
     {
       "collection": {
         "version": "1.0",
@@ -206,7 +206,7 @@ Ahora que ha realizado una solicitud correcta, pruebe el caso de error para aseg
 
 1. Seleccione el botón **Enviar** para ejecutar la solicitud. Con un token no válido, el resultado esperado es un código de estado no autorizado `401`:
 
-    ```JSON
+    ```json
     {
         "statusCode": 401,
         "message": "Unauthorized. Access token is missing or invalid."
@@ -219,7 +219,7 @@ Si ve el código de estado `401`, habrá comprobado que solo los autores de llam
 
 Normalmente, interactúan varias aplicaciones con una sola API REST. Para permitir que la API acepte los tokens destinados a varias aplicaciones, agregue sus identificadores de aplicación al elemento `<audiences>` de la directiva de entrada de APIM.
 
-```XML
+```xml
 <!-- Accept tokens intended for these recipient applications -->
 <audiences>
     <audience>44444444-0000-0000-0000-444444444444</audience>
@@ -229,7 +229,7 @@ Normalmente, interactúan varias aplicaciones con una sola API REST. Para permit
 
 Del mismo modo, para admitir varios emisores de tokens, agregue los identificadores URI del punto de conexión al elemento `<issuers>` de la directiva de entrada de APIM.
 
-```XML
+```xml
 <!-- Accept tokens from multiple issuers -->
 <issuers>
     <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
@@ -249,7 +249,7 @@ Puede seguir este proceso general para realizar una migración por fases:
 
 En el siguiente ejemplo de directiva de entrada de APIM se muestra cómo aceptar tokens emitidos por b2clogin.com y login.microsoftonline.com. Además, admite solicitudes de API desde dos aplicaciones.
 
-```XML
+```xml
 <policies>
     <inbound>
         <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">

@@ -4,15 +4,15 @@ description: Aprenda cómo instrumentar y depurar el rendimiento de consultas SQ
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: ae1773ec1d470b9cff2efb00c200427b7b4c2fb4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8776ecae982a4b1c67f6b66f16fceec930a561f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69614822"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392138"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Optimización del rendimiento de consultas con Azure Cosmos DB
 
@@ -131,7 +131,7 @@ Los encabezados de respuesta principales devueltos por la consulta incluyen los 
 | `x-ms-documentdb-query-metrics` | Las estadísticas de consulta para la ejecución. Es una cadena delimitada que contiene las estadísticas del tiempo empleado en las distintas fases de ejecución de consultas. Se devuelve si `x-ms-documentdb-populatequerymetrics` está establecido en `True`. | 
 | `x-ms-request-charge` | El número de [unidades de solicitud](request-units.md) usadas por la consulta. | 
 
-Para más información sobre los encabezados de solicitud y las opciones de la API de REST, consulte [Querying resources using the REST API](https://docs.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api) (Consulta de recursos mediante la API de REST).
+Para más información sobre los encabezados de solicitud y las opciones de la API de REST, consulte [Querying resources using the REST API](/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api) (Consulta de recursos mediante la API de REST).
 
 ## <a name="best-practices-for-query-performance"></a>Procedimientos recomendados para el rendimiento de consultas
 A continuación se muestran los factores más comunes que afectan al rendimiento de consultas de Azure Cosmos DB. Cada uno de estos temas se tratará con mayor detalle en este artículo.

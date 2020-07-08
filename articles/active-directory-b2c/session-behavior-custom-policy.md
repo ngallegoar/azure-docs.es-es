@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3f6af5e8e1cfadd302eadfedf189a6710ac4aeca
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: a2f20a4521efe2806c4bc66e4612b99caf84382a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82943652"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385270"
 ---
 # <a name="configure-session-behavior-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del comportamiento de la sesión mediante directivas personalizadas en Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Puede usar las propiedades siguientes para administrar sesiones de la aplicació
 
 Para cambiar las configuraciones de comportamiento de sesión y SSO, debe agregar un elemento **UserJourneyBehaviors** dentro del elemento [RelyingParty](relyingparty.md).  El elemento **UserJourneyBehaviors** debe aparecer inmediatamente después de **DefaultUserJourney**. El elemento **UserJourneyBehavors** debería parecerse a este ejemplo:
 
-```XML
+```xml
 <UserJourneyBehaviors>
    <SingleSignOn Scope="Application" />
    <SessionExpiryType>Absolute</SessionExpiryType>
@@ -60,7 +60,7 @@ Cuando redirige al usuario al punto de conexión de cierre de sesión de Azure 
 Para admitir el cierre de sesión único, los perfiles técnicos del emisor de tokens para JWT y SAML deben especificar lo siguiente:
 
 - El nombre del protocolo, como `<Protocol Name="OpenIdConnect" />`.
-- La referencia al perfil técnico de la sesión, como `UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />`.
+- La referencia al perfil técnico de la sesión, como `UseTechnicalProfileForSessionManagement ReferenceId="SM-OAuth-issuer" />`.
 
 En el ejemplo siguiente se muestran emisores de tokens de JWT y SAML con el cierre de sesión único:
 
@@ -74,7 +74,7 @@ En el ejemplo siguiente se muestran emisores de tokens de JWT y SAML con el cier
       <Protocol Name="OpenIdConnect" />
       <OutputTokenFormat>JWT</OutputTokenFormat>
       ...    
-      <UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-OAuth-issuer" />
     </TechnicalProfile>
 
     <!-- Session management technical profile for OIDC based tokens -->

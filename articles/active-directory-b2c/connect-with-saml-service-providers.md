@@ -7,17 +7,17 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
+ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 68143c4ac3851604996e1f7ba2adce48934e59c5
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: b9ea9e756587af124ca94518d9f15271310ddee3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295395"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389385"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrar una aplicación SAML en Azure AD B2C
 
@@ -119,7 +119,7 @@ Busque la sección `<ClaimsProviders>` y agregue el siguiente fragmento de códi
 
 Puede cambiar el valor de los metadatos de `IssuerUri`. Este es el URI del emisor que se devuelve en la respuesta de SAML desde Azure AD B2C. La aplicación de usuario de confianza debe configurarse para aceptar un URI de emisor durante la validación de aserciones de SAML.
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Token Issuer</DisplayName>
   <TechnicalProfiles>
@@ -165,7 +165,7 @@ Ahora que el inquilino puede emitir aserciones de SAML, debe crear la directiva 
 
 1. Cambie los valores de `PolicyId` y `PublicPolicyUri` de la directiva a _B2C_1A_signup_signin_saml_ y `http://tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml`, como se muestra a continuación.
 
-    ```XML
+    ```xml
     <TrustFrameworkPolicy
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -178,7 +178,7 @@ Ahora que el inquilino puede emitir aserciones de SAML, debe crear la directiva 
 
 1. Agregue el siguiente fragmento de código XML justo antes del elemento `<RelyingParty>`. Este XML sobrescribe el paso 7 de la orquestación del recorrido del usuario _SignUpOrSignIn_. Si ha iniciado desde una carpeta diferente en el paquete de inicio o ha personalizado el recorrido del usuario mediante la adición o eliminación de pasos de orquestación, asegúrese de que el número (en el elemento `order`) está alineado con el especificado en el recorrido del usuario para el paso del emisor de tokens (por ejemplo, en las otras carpetas del paquete de inicio corresponde al paso número 4 para `LocalAccounts`, 6 para `SocialAccounts` y 9 para `SocialAndLocalAccountsWithMfa`).
 
-    ```XML
+    ```xml
     <UserJourneys>
       <UserJourney Id="SignUpOrSignIn">
         <OrchestrationSteps>
@@ -190,7 +190,7 @@ Ahora que el inquilino puede emitir aserciones de SAML, debe crear la directiva 
 
 1. Reemplace el elemento `<TechnicalProfile>` completo en el elemento `<RelyingParty>` por el siguiente XML de perfil técnico.
 
-    ```XML
+    ```xml
     <TechnicalProfile Id="PolicyProfile">
       <DisplayName>PolicyProfile</DisplayName>
       <Protocol Name="SAML2"/>
@@ -210,7 +210,7 @@ Ahora que el inquilino puede emitir aserciones de SAML, debe crear la directiva 
 
 El archivo de directiva de usuario de confianza final debe tener un aspecto similar al siguiente:
 
-```XML
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TrustFrameworkPolicy
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -297,7 +297,7 @@ Si hay propiedades especificadas *tanto* en la dirección URL de metadatos de SA
 
 Para este tutorial, en el que se usa la aplicación de prueba de SAML, utilice el siguiente valor para `samlMetadataUrl`:
 
-```JSON
+```json
 "samlMetadataUrl":"https://samltestapp2.azurewebsites.net/Metadata",
 ```
 
@@ -309,7 +309,7 @@ Si elige no configurar la dirección URL de respuesta y la dirección URL de cie
 
 En este tutorial, en el que se usa la aplicación de prueba de SAML, establezca la propiedad `url` de `replyUrlsWithType` en el valor que se muestra en el siguiente fragmento de código JSON.
 
-```JSON
+```json
 "replyUrlsWithType":[
   {
     "url":"https://samltestapp2.azurewebsites.net/SP/AssertionConsumer",
@@ -324,7 +324,7 @@ Esta propiedad opcional representa la dirección URL `Logout` (dirección URL `S
 
 Para este tutorial, en el que se usa la aplicación de prueba de SAML, deje `logoutUrl` establecido en `https://samltestapp2.azurewebsites.net/logout`:
 
-```JSON
+```json
 "logoutUrl": "https://samltestapp2.azurewebsites.net/logout",
 ```
 

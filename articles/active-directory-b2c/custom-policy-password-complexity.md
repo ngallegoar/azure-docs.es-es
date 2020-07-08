@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b16790e288f6569f08ce14e5a7c751bbd8083faf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4ab196e894fc53b1243ac363f9863d5c7d4e328f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79138441"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389010"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración de la complejidad de las contraseñas con directivas personalizadas en Azure Active Directory B2C
 
@@ -37,7 +37,7 @@ Para configurar la complejidad de la contraseña, reemplace los [tipos de notifi
 1. Busque el elemento [ClaimsSchema](claimsschema.md). Si el elemento no existe, agréguelo.
 1. Agregue las notificaciones `newPassword` y `reenterPassword` al elemento **ClaimsSchema**.
 
-    ```XML
+    ```xml
     <ClaimType Id="newPassword">
       <PredicateValidationReference Id="CustomPassword" />
     </ClaimType>
@@ -48,7 +48,7 @@ Para configurar la complejidad de la contraseña, reemplace los [tipos de notifi
 
 1. [Predicates](predicates.md) define una validación básica para comprobar el valor de un tipo de notificación y devuelve true o false. La validación se realiza mediante un elemento de método especificado y un conjunto de parámetros pertinentes para el método. Agregue los siguientes predicados al elemento **BuildingBlocks** justo después del cierre del elemento `</ClaimsSchema>`:
 
-    ```XML
+    ```xml
     <Predicates>
       <Predicate Id="LengthRange" Method="IsLengthRange">
         <UserHelpText>The password must be between 6 and 64 characters.</UserHelpText>
@@ -86,7 +86,7 @@ Para configurar la complejidad de la contraseña, reemplace los [tipos de notifi
 
 1. Agregue las siguientes validaciones de predicado al elemento **BuildingBlocks** justo después del cierre del elemento `</Predicates>`:
 
-    ```XML
+    ```xml
     <PredicateValidations>
       <PredicateValidation Id="CustomPassword">
         <PredicateGroups>
@@ -111,7 +111,7 @@ Para configurar la complejidad de la contraseña, reemplace los [tipos de notifi
 
 1. Los siguientes perfiles técnicos son [perfiles técnicos de Active Directory](active-directory-technical-profile.md), que leen y escriben datos en Azure Active Directory. Reemplace estos perfiles técnicos en el archivo de extensión. Use `PersistedClaims` para deshabilitar la directiva de contraseñas seguras. Busque el elemento **ClaimsProviders**.  Agregue los siguientes proveedores de notificaciones tal como se indica a continuación:
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <DisplayName>Azure Active Directory</DisplayName>
       <TechnicalProfiles>
