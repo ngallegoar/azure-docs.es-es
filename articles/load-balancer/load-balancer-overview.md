@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 1bc18788019c3ec97e06e3b01e823a0ba53541b8
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 598df2f0a1e9badebbb1bf8e7ec0f93ff98d55ce
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734763"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341782"
 ---
 # <a name="what-is-azure-load-balancer"></a>¿Qué es Azure Load Balancer?
 
@@ -44,7 +44,7 @@ Con Standard Load Balancer, puede escalar las aplicaciones y crear servicios con
 
 Entre los escenarios clave que puede realizar con Standard Load Balancer se incluyen:
 
-- Equilibrio de carga del tráfico **[interno](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-manage-portal)** y **[externo](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-internal-portal)** a las máquinas virtuales de Azure.
+- Equilibrio de carga del tráfico **[interno](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-internal-portal)** y **[externo](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-manage-portal)** a las máquinas virtuales de Azure.
 
 - Aumento de la disponibilidad mediante la distribución de recursos **[en zonas](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-public-zonal-portal)** y **[a través de ellas](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal)** .
 

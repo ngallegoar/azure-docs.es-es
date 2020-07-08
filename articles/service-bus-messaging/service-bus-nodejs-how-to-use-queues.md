@@ -1,26 +1,18 @@
 ---
 title: Uso de colas de Azure Service Bus en Node.js con el paquete azure-sb
 description: Aprenderá a crear aplicaciones de Node.js para enviar mensajes a una cola de Service Bus, y recibirlos de ella, mediante el paquete azure-sb.
-services: service-bus-messaging
-documentationcenter: nodejs
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: a87a00f9-9aba-4c49-a0df-f900a8b67b3f
-ms.service: service-bus-messaging
-ms.workload: tbd
-ms.tgt_pltfrm: na
+author: spelluru
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 01/27/2020
-ms.author: aschhab
+ms.date: 06/23/2020
+ms.author: spelluru
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 7ee3939c1a1b450f2458267ab0b70e3924a4869b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 01841b1e6d6fed684137e1327dd77e276650803c
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78330607"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340616"
 ---
 # <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Inicio rápido: Uso de colas de Service Bus en Azure con Node.js y el paquete azure-sb
 En este tutorial, obtendrá información sobre cómo crear aplicaciones de Node.js para enviar mensajes a una cola Service Bus y recibir mensajes de una cola de Azure Service Bus mediante el paquete [azure-sb](https://www.npmjs.com/package/azure-sb). Los ejemplos están escritos en JavaScript y usan el [módulo Node.js de Azure](https://www.npmjs.com/package/azure), que internamente usa el paquete azure-sb.

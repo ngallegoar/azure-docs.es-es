@@ -1,25 +1,15 @@
 ---
 title: Uso de temas de Azure Service Bus con PHP
 description: En este tutorial, va a aprender a usar los temas de Azure Service Bus y las suscripciones de una aplicación PHP.
-services: service-bus-messaging
-documentationcenter: php
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: faaa4bbd-f6ef-42ff-aca7-fc4353976449
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: quickstart
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 92f25f4bdac4942478c93f717c81eadd2c2f5b4a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 06/23/2020
+ms.openlocfilehash: f2161d39961cc52bc0f0da509abec3ed6377cc07
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76760681"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341088"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Inicio rápido: Uso de temas y suscripciones de Service Bus con PHP
 

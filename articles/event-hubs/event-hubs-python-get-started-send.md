@@ -1,21 +1,14 @@
 ---
 title: Envío o recepción de eventos desde Azure Event Hubs mediante Python (anteriores)
 description: En este tutorial se muestra cómo crear y ejecutar scripts de Python que envíen eventos a Azure Event Hubs, o los reciban de él, mediante el anterior paquete azure-eventhub versión 1.
-services: event-hubs
-author: spelluru
-manager: femila
-ms.service: event-hubs
-ms.workload: core
 ms.topic: quickstart
-ms.date: 01/15/2020
-ms.author: spelluru
-ms.custom: tracking-python
-ms.openlocfilehash: 96c95efdc8f2154e0586fec59d1af66496acb101
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 06/23/2020
+ms.openlocfilehash: 4ce53d2d82a00f98dbbd538bd7a61da9ba44e832
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558961"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85314482"
 ---
 # <a name="quickstart-send-and-receive-events-with-event-hubs-using-python-azure-eventhub-version-1"></a>Inicio rápido: Envío y recepción de eventos con Azure Event Hubs mediante Python (azure-eventhub versión 1)
 En este inicio rápido se muestra cómo enviar y recibir eventos desde un centro de eventos mediante el paquete de Python **azure-eventhub, versión 1**. 

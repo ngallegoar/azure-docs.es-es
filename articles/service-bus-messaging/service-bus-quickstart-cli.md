@@ -1,20 +1,17 @@
 ---
 title: 'Inicio rápido: Uso de la CLI de Azure para crear una cola de Service Bus | Microsoft Docs'
 description: En este inicio rápido aprenderá a utilizar la CLI de Azure para crear una cola de Service Bus. Después, puede usar una aplicación de Java de ejemplo para enviar mensajes a la cola y recibirlos desde ella.
-services: service-bus-messaging
 author: spelluru
-manager: timlt
-ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 04/10/2019
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: e34599b12b8b0c487c6813038951b051d1eaf425
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ed09a72fd5eed72e7a07fefed53bf010a543b658
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "66400261"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337391"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Inicio rápido: Uso de la CLI de Azure para crear una cola de Service Bus
 En este inicio rápido se describe cómo enviar y recibir mensajes con Service Bus mediante la CLI de Azure y la biblioteca Java de Service Bus. Por último, si le interesa obtener más información técnica, puede [leer una explicación](#understand-the-sample-code) de los elementos clave del ejemplo de código.

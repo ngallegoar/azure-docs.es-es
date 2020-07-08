@@ -1,24 +1,14 @@
 ---
 title: Acerca de Azure Lab Services | Microsoft Docs
 description: Obtenga información sobre cómo Lab Services puede facilitar la creación, administración y protección de laboratorios con máquinas virtuales que pueden usar los desarrolladores, evaluadores, formadores, alumnos y otros usuarios.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
-ms.date: 06/16/2020
-ms.author: spelluru
-ms.openlocfilehash: 1c4fb6660f8eaebe2a65e3dba3f9adbb07f1eb22
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 7661b26d16eb2c2acd53c30889ea791689c1eec0
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84882720"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85442812"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Introducción a Azure Lab Services
 **Azure Lab Services** le permite crear laboratorios cuya infraestructura la administra Azure. Actualmente, el laboratorio educativo es el único tipo de laboratorio administrado compatible con Azure Lab Services. El servicio gestiona la administración de toda la infraestructura de un tipo de laboratorio administrado, desde la sincronización de las máquinas virtuales hasta la gestión de errores y el escalado de dicha infraestructura. Una vez que un administrador de TI crea una cuenta de laboratorio en Azure Lab Services, un instructor puede configurar rápidamente un laboratorio para la clase, especificar el número y tipo de máquinas virtuales necesarias para los ejercicios de la clase y agregar usuarios a la clase. En cuanto un usuario se registra en la clase puede acceder a la máquina virtual para realizar los ejercicios de la clase.  

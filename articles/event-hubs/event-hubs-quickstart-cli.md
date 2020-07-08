@@ -1,21 +1,15 @@
 ---
 title: Creación de un centro de eventos mediante la CLI de Azure con Azure Event Hubs | Microsoft Docs
 description: En esta guía de inicio rápido se describe cómo crear un centro de eventos mediante la CLI de Azure y, a continuación, cómo enviar y recibir eventos mediante Java.
-services: event-hubs
-author: spelluru
-manager: timlt
-ms.service: event-hubs
-ms.devlang: java
 ms.topic: quickstart
-ms.custom: seodec18
-ms.date: 02/11/2020
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 92fd7d15ee5bc54cc41b78f4ba0d078d3f8fac6b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5d3499d6c480a3bfdbad57ffa367c5d2d326d565
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77162640"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85313119"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-cli"></a>Guía de inicio rápido: Creación de un centro de eventos mediante la CLI de Azure
 

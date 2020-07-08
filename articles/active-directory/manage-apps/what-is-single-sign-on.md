@@ -2,22 +2,22 @@
 title: 'Inicio de sesión único en aplicaciones: Azure Active Directory | Microsoft Docs'
 description: Aprenda a elegir un método de inicio de sesión único al configurar aplicaciones en Azure Active Directory (Azure AD). Use el inicio de sesión único, para que los usuarios no necesiten recordar las contraseñas de todas las aplicaciones y para simplificar la administración de cuentas.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 12/03/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f46bcf412403d8f911e484e12a9d1f421b1666f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd8b20d7d285f30eb0aa9ba5ac22739b57856d6c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79366077"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85479715"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Inicio de sesión único en aplicaciones de Azure Active Directory
 

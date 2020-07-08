@@ -1,19 +1,16 @@
 ---
 title: Uso de Azure Portal para crear una cola de Service Bus
 description: En este inicio rápido, aprenderá a crear una cola de Service Bus con Azure Portal. Después, usará una aplicación cliente de ejemplo para enviar mensajes a la cola y recibirlos desde ella.
-services: service-bus-messaging
 author: spelluru
-ms.service: service-bus-messaging
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 01/16/2020
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 0c88db652efe54a497af094160fb426be7c43d16
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0753259f76c46c5df4246008f3f80ffa5bf35747
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215613"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337328"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Inicio rápido: Uso de Azure Portal para crear una cola de Service Bus
 En este inicio rápido se describe cómo enviar y recibir mensajes en una cola de Service Bus, cómo usar [Azure Portal][Azure portal] para crear un espacio de nombres de mensajería y una cola dentro de este, y cómo obtener las credenciales de autorización en ese espacio de nombres. El procedimiento muestra después cómo enviar y recibir mensajes de esta cola mediante la [biblioteca de .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).

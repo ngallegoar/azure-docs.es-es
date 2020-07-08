@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 02/10/2020
-ms.openlocfilehash: 612751c2405cd55ad0b3760aa8e093e434a22f57
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 96ab2b7c8e80375f97df550ed6c83e7bb3e2f3e3
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77121611"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85562078"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en PowerShell mediante las API REST
 > [!div class="op_single_selector"]
@@ -63,7 +63,7 @@ Todas las solicitudes requieren una clave de API en cada solicitud enviada al se
 2. Cree un objeto **$url** que especifique la colección de índices del servicio. Reemplace el nombre del servicio (YOUR-SEARCH-SERVICE-NAME) por un servicio de búsqueda válido.
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name"
+    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2020-06-30&$select=name"
     ```
 
 3. Ejecute **Invoke-RestMethod** para enviar una solicitud GET al servicio y comprobar la conexión. Agregue **ConvertTo-Json** para poder ver las respuestas que se envían desde el servicio.
@@ -123,7 +123,7 @@ Este índice se denomina "hotels-quickstart" y tiene las definiciones de campo q
 2. Establezca el URI en la colección de índices del servicio y el índice *hotels-quickstart*.
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06"
+    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart?api-version=2020-06-30"
     ```
 
 3. Ejecute el comando con **$url**, **$headers** y **$body** para crear el índice en el servicio. 
@@ -273,7 +273,7 @@ Para insertar documentos, use una solicitud HTTP POST al punto de conexión de l
 1. Establezca el punto de conexión en la colección de documentos *hotels-quickstart* e incluya la operación de índice (indexes/hotels-quickstart/docs/index).
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2019-05-06"
+    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2020-06-30"
     ```
 
 1. Ejecute el comando con **$url**, **$headers** y **$body** para cargar documentos en el índice hotels-quickstart.
@@ -326,7 +326,7 @@ Asegúrese de usar comillas sencillas en las direcciones $url de búsqueda. Las 
    Esta cadena ejecuta una búsqueda vacía (búsqueda=*), que devuelve una lista no clasificada (puntuación de búsqueda = 1,0) de documentos arbitrarios. De forma predeterminada, Azure Cognitive Search devuelve 50 resultados cada vez. Al ser estructurada, esta consulta devuelve la estructura y los valores del documento entero. Agregue **$count=true** para obtener un recuento de todos los documentos de los resultados.
 
     ```powershell
-    $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$count=true'
+    $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=*&$count=true'
     ```
 
 1. Ejecute el comando para enviar el valor de **$url** al servicio.
@@ -375,21 +375,21 @@ Pruebe con algunos otros ejemplos de consultas para hacerse una idea de la sinta
 # Query example 1
 # Search the entire index for the terms 'restaurant' and 'wifi'
 # Return only the HotelName, Description, and Tags fields
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=restaurant wifi&$count=true&$select=HotelName,Description,Tags'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=restaurant wifi&$count=true&$select=HotelName,Description,Tags'
 
 # Query example 2 
 # Apply a filter to the index to find hotels rated 4 or highter
 # Returns the HotelName and Rating. Two documents match.
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$filter=Rating gt 4&$select=HotelName,Rating'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=*&$filter=Rating gt 4&$select=HotelName,Rating'
 
 # Query example 3
 # Take the top two results, and show only HotelName and Category in the results
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=boutique&$top=2&$select=HotelName,Category'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=boutique&$top=2&$select=HotelName,Category'
 
 # Query example 4
 # Sort by a specific field (Address/City) in ascending order
 
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating'
 ```
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

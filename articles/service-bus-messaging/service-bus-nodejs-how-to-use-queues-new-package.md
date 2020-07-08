@@ -1,24 +1,17 @@
 ---
 title: Uso de colas de azure/service-bus en Node.js
 description: Aprenda a escribir un programa de Nodejs para enviar mensajes a una cola de Service Bus, y recibirlos de ella, con el nuevo paquete @azure/service-bus.
-services: service-bus-messaging
-documentationcenter: nodejs
-author: axisc
-editor: spelluru
-ms.assetid: a87a00f9-9aba-4c49-a0df-f900a8b67b3f
-ms.service: service-bus-messaging
-ms.workload: tbd
-ms.tgt_pltfrm: na
+author: spelluru
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 01/27/2020
-ms.author: aschhab
-ms.openlocfilehash: c2e24e9dea2c8463294c85f04c9e4d7d2da17261
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.openlocfilehash: 59137cd50c2bb6fcd71b43028f68d63225b4094c
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78330658"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340672"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>Inicio rápido: Uso de colas de Service Bus con Node.js y el paquete azure/service-bus
 En este tutorial, aprenderá a escribir un programa de Nodejs para enviar mensajes a una cola de Service Bus, y recibirlos de ella, con el nuevo paquete [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus). En este paquete se usa el [protocolo AMQP 1.0](service-bus-amqp-overview.md) (más rápido), mientras que en el paquete [azure-sb](https://www.npmjs.com/package/azure-sb) anterior se utilizaban las [API de tiempo de ejecución REST de Service Bus](/rest/api/servicebus/service-bus-runtime-rest). Los ejemplos están escritos en JavaScript.

@@ -1,25 +1,17 @@
 ---
 title: Uso de temas y suscripciones de Azure Service Bus con Node.js
 description: 'Inicio rápido: Aprenda a usar los temas y las suscripciones de Service Bus en Azure desde una aplicación Node.js.'
-services: service-bus-messaging
-documentationcenter: nodejs
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: b9f5db85-7b6c-4cc7-bd2c-bd3087c99875
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
+author: spelluru
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 01/16/2020
-ms.author: aschhab
-ms.openlocfilehash: 6088b4c54ed16c5ef46d2c0671e619884cad29d4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.openlocfilehash: ceedd018f80ba189afa0bd986a5606ad68327d77
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78330624"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340621"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Inicio rápido: Uso de los temas y las suscripciones de Service Bus con Node.js y el paquete azure/services-bus.
 En este tutorial, obtendrá información sobre cómo crear un programa de Node.js para enviar mensajes a un tema de Service Bus y recibir mensajes de una suscripción de Service Bus con el paquete [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) nuevo. En este paquete se usa el [protocolo AMQP 1.0](service-bus-amqp-overview.md) (más rápido), mientras que en el paquete [azure-sb](https://www.npmjs.com/package/azure-sb) anterior se utilizaban las [API de tiempo de ejecución REST de Service Bus](/rest/api/servicebus/service-bus-runtime-rest). Los ejemplos están escritos en JavaScript.

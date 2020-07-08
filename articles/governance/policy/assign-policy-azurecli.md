@@ -1,14 +1,14 @@
 ---
 title: 'Inicio rápido: Asignación de directivas nuevas con la CLI de Azure'
 description: En este inicio rápido, se usa la CLI de Azure para crear una asignación de Azure Policy para identificar recursos no compatibles.
-ms.date: 01/11/2020
+ms.date: 06/29/2020
 ms.topic: quickstart
-ms.openlocfilehash: b1d93cdb4dfa1c82e8004af4052c22bba60f3a3a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 33db6b4098dc0a69f4dabbea62fc9627cdc948eb
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745742"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85558936"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles mediante la CLI de Azure
 
