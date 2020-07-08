@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2c153d818136c5d8804dae72004dfaf17fd1bf7a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1dbf6478a62675c8b514298007a7663239d8f7cf
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73494537"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084649"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemas conocidos de clústeres de Apache Spark en HDInsight
 
@@ -30,13 +30,17 @@ Utilice el procedimiento siguiente para encontrar una solución para el problema
 
 2. Ejecute el siguiente comando para buscar los identificadores de aplicación de los trabajos interactivos iniciados mediante Livy.
 
-        yarn application –list
+   ```bash
+   yarn application –list
+   ```
 
     Los nombres de trabajo predeterminados serán Livy si se iniciaron con una sesión interactiva de Livy sin especificar ningún nombre. Para la sesión de Livy que inició [Jupyter Notebook](https://jupyter.org/), el nombre del trabajo empieza por `remotesparkmagics_*`.
 
 3. Ejecute el comando siguiente para terminar esos trabajos.
 
-        yarn application –kill <Application ID>
+   ```bash
+   yarn application –kill <Application ID>
+   ```
 
 Los nuevos trabajos empezarán a ejecutarse.
 
