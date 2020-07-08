@@ -3,15 +3,15 @@ title: 'Códigos de error de configuración: Azure Stream Analytics'
 description: Solucione problemas de Azure Stream Analytics con códigos de error de configuración.
 ms.author: mamccrea
 author: mamccrea
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: 5aa15ae4a234a56a172a0166070c32be4f822910
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de8eefd099f3691ae5e5eb5234ae8f76015dd68f
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83650077"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041122"
 ---
 # <a name="azure-stream-analytics-configuration-error-codes"></a>Códigos de error de configuración de Azure Stream Analytics
 

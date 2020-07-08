@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2020
 ms.author: allensu
-ms.openlocfilehash: db50a8938459fe063553f08c495149867ee36f43
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 0b025b3e017c8a7702b411e9d91cbdf22f915aba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84710072"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549636"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Diseño de redes virtuales con recursos de puertas de enlace de NAT
 
@@ -47,7 +47,7 @@ Red virtual:
 
 No se necesitan rutas definidas por el usuario.
 
-## <a name="resource"></a>Resource
+## <a name="resource"></a>Recurso
 
 El recurso se ha diseñado para que sea muy sencillo, como se puede ver en el siguiente ejemplo de Azure Resource Manager en un formato de tipo plantilla.  Este formato se muestra aquí para ilustrar los conceptos y la estructura.  Modifique el ejemplo para adecuarlo a sus necesidades.  No se pretende que este documento sea un tutorial.
 
@@ -134,7 +134,7 @@ El escenario de solo salida a Internet que proporciona la puerta de enlace de NA
 
 *Ilustración: Virtual Network NAT y máquina virtual con IP pública de nivel de instancia*
 
-| Dirección | Resource |
+| Dirección | Recurso |
 |:---:|:---:|
 | Entrada | Máquina virtual con IP pública de nivel de instancia |
 | Salida | NAT Gateway |
@@ -149,7 +149,7 @@ La máquina virtual usará una puerta de enlace de NAT para la salida.  La entra
 
 *Ilustración: Virtual Network NAT y máquina virtual con equilibrador de carga público*
 
-| Dirección | Resource |
+| Dirección | Recurso |
 |:---:|:---:|
 | Entrada | Equilibrador de carga público |
 | Salida | NAT Gateway |
@@ -164,7 +164,7 @@ La puerta de enlace de NAT sustituye la configuración de salida de una regla de
 
 *Ilustración: Virtual Network NAT y máquina virtual con IP pública de nivel de instancia y equilibrador de carga pública*
 
-| Dirección | Resource |
+| Dirección | Recurso |
 |:---:|:---:|
 | Entrada | Máquina virtual con IP pública de nivel de instancia y equilibrador de carga pública |
 | Salida | NAT Gateway |
@@ -202,7 +202,7 @@ Si su escenario requiere puntos de conexión de entrada, tiene dos opciones:
 | Opción | Patrón | Ejemplo | Pros | Contras |
 |---|---|---|---|---|
 | (1) | **Alinee** los puntos de conexión de entrada con las **pilas de zona** correspondientes que está creando para salida. | Cree de un equilibrador de carga estándar con el front-end de zona. | Mismo modelo de estado y el modo de error para entrada y salida. Más sencillo de operar. | Es posible que sea necesario enmascarar las direcciones IP individuales por zona con un nombre DNS común. |
-|  (2) | **Superponga** las pilas de zona con un punto de conexión de entrada **entre zonas**. | Cree un equilibrador de carga estándar con redundancia de zona en el front-end. | Dirección IP única para el punto de conexión de entrada. | Modelo de estado variable y modos de error de entrada y salida.  Más complejo de operar. |
+| (2) | **Superponga** las pilas de zona con un punto de conexión de entrada **entre zonas**. | Cree un equilibrador de carga estándar con redundancia de zona en el front-end. | Dirección IP única para el punto de conexión de entrada. | Modelo de estado variable y modos de error de entrada y salida.  Más complejo de operar. |
 
 >[!NOTE]
 > Una puerta de enlace de NAT con una zona aislada requiere que las direcciones IP coincidan con la zona de la puerta de enlace de NAT. No se admiten recursos de la puerta de enlace de NAT con direcciones IP de otra zona o que no tengan ninguna zona.
@@ -325,8 +325,7 @@ Los puertos SNAT están disponibles para volver a usarlos con la misma direcció
 - El registro de flujos de grupos de seguridad de red no se admite cuando se usa NAT.
 - NAT no puede abarcar varias redes virtuales.
 
-
-## <a name="feedback"></a>Comentarios
+## <a name="suggestions"></a>Sugerencias
 
 Queremos saber cómo podemos mejorar el servicio. ¿Falta una funcionalidad? Proponga lo que debemos crear después en [UserVoice para NAT](https://aka.ms/natuservoice).
 

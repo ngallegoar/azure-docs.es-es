@@ -6,16 +6,16 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 79318ab67ec58ed10520365a366785ea0de41666
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 7bebfeba6da1493557d51777ba8438747e160750
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836335"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85476281"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Procedimientos recomendados de SQL a petición (versión preliminar) en Azure Synapse Analytics
 
@@ -52,7 +52,7 @@ Si es posible, puede preparar los archivos para mejorar el rendimiento:
 
 ## <a name="push-wildcards-to-lower-levels-in-the-path"></a>Inserción de caracteres comodín en los niveles inferiores de la ruta de acceso
 
-Puede usar caracteres comodín en la ruta de acceso para [consultar varios archivos y carpetas](develop-storage-files-overview.md#query-multiple-files-or-folders). SQL a petición muestra los archivos de la cuenta de almacenamiento, empezando por el primer carácter comodín (*) con la API de almacenamiento. Elimina los archivos que no coinciden con la ruta de acceso especificada. Al reducir la lista inicial de archivos, puede mejorar el rendimiento si hay muchos que coincidan con la ruta de acceso especificada hasta el primer carácter comodín.
+Puede usar caracteres comodín en la ruta de acceso para [consultar varios archivos y carpetas](query-data-storage.md#query-multiple-files-or-folders). SQL a petición muestra los archivos de la cuenta de almacenamiento, empezando por el primer carácter comodín (*) con la API de almacenamiento. Elimina los archivos que no coinciden con la ruta de acceso especificada. Al reducir la lista inicial de archivos, puede mejorar el rendimiento si hay muchos que coincidan con la ruta de acceso especificada hasta el primer carácter comodín.
 
 ## <a name="use-appropriate-data-types"></a>Uso del tipo de datos adecuado
 
@@ -113,7 +113,7 @@ FROM
 
 A menudo, los datos se organizan en particiones. Puede indicar a SQL a petición que consulte archivos y carpetas concretos. De este modo se reducirá el número de archivos y la cantidad de datos que la consulta tiene que leer y procesar. Como ventaja adicional, logrará un mejor rendimiento.
 
-Para más información, lea acerca de las funciones [filename](develop-storage-files-overview.md#filename-function) y [filepath](develop-storage-files-overview.md#filepath-function), y consulte los ejemplos para [consultar archivos específicos](query-specific-files.md).
+Para más información, lea acerca de las funciones [filename](query-data-storage.md#filename-function) y [filepath](query-data-storage.md#filepath-function), y consulte los ejemplos para [consultar archivos específicos](query-specific-files.md).
 
 > [!TIP]
 > Convierta siempre los resultados de las funciones filepath y filename a los tipos de datos adecuados. Si usa tipos de datos de caracteres, asegúrese de que se usa la longitud apropiada.

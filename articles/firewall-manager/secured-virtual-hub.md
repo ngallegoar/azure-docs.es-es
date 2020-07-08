@@ -5,18 +5,16 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: d93c3b47c518962bf45762b846eaf53e490ae8f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56e0d40bcbfb97f57b63dc82da1a6604f83dffad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73512009"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563622"
 ---
 # <a name="what-is-a-secured-virtual-hub"></a>¿Qué es un centro virtual protegido?
-
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
 Un centro virtual es una red virtual administrada por Microsoft que permite la conectividad desde otros recursos. Cuando se crea un centro virtual desde una WAN virtual en Azure Portal, se crean como componentes una red virtual del centro virtual y puertas de enlace (opcionales).
 

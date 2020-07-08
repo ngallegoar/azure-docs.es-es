@@ -8,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 46da3750e4d0ac78c5fd9df91ae37670e541302d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c78889c8d910edb5111c18b9cbb77387d2693f87
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71315754"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564777"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Introducción a Azure Data Lake Analytics mediante Azure Portal
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -44,7 +44,7 @@ Ahora, creará una instancia de Data Lake Analytics y una cuenta de Azure Data L
 
 El siguiente texto es un script U-SQL muy simple. Simplemente se encarga de definir un pequeño conjunto de datos en el script y, a continuación, escribir ese conjunto de datos en la cuenta de Data Lake Storage Gen1 predeterminada como un archivo denominado `/data.csv`.
 
-```
+```usql
 @a  = 
     SELECT * FROM 
         (VALUES

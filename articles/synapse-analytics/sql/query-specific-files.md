@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: e8d7301799bfb4af9a0f5a6f242be929e8253d7c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: bf62d57aab07f5b1f2839b9e6e45c42e6b1b2c51
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744214"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478423"
 ---
 # <a name="using-file-metadata-in-queries"></a>Uso de metadatos de archivo en consultas
 
@@ -22,7 +22,7 @@ El servicio de consultas de SQL a petición puede tratar varios archivos y carpe
 
 A veces, puede que necesite saber qué origen de archivo o carpeta se correlaciona con una fila específica en el conjunto de resultados.
 
-Puede usar las funciones `filepath` y `filename` para devolver nombres de archivo o la ruta de acceso en el conjunto de resultados. O bien puede usarlas para filtrar los datos según el nombre de archivo o la ruta de acceso de la carpeta. Estas funciones se describen en las secciones [Función filename](develop-storage-files-overview.md#filename-function) y [Función filepath](develop-storage-files-overview.md#filepath-function) de la sintaxis. A continuación encontrará breves descripciones, junto con ejemplos.
+Puede usar las funciones `filepath` y `filename` para devolver nombres de archivo o la ruta de acceso en el conjunto de resultados. O bien puede usarlas para filtrar los datos según el nombre de archivo o la ruta de acceso de la carpeta. Estas funciones se describen en las secciones [Función filename](query-data-storage.md#filename-function) y [Función filepath](query-data-storage.md#filepath-function) de la sintaxis. A continuación encontrará breves descripciones, junto con ejemplos.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

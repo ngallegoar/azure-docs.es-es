@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 88e9cdfa8ea4554a44ddfc25cde2b0eb2aed7a57
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9528b31bfd1be40b478f3c47fd0a16047a7f6ff
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83682701"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028117"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas y herramientas para proyectos de ciencia de datos
 
@@ -110,16 +110,18 @@ El equipo del proceso de ciencia de datos en equipo de Microsoft ha publicado do
 
 Si está siguiendo el proceso de ciencia de datos en equipo en **Windows**, debe instalar la **el Administrador de credenciales (GCM), Git** para comunicarse con los repositorios de Git. Para instalar GCM, primero debe instalar **Chocolaty**. Para instalar Chocolaty y GCM, ejecute los siguientes comandos en Windows PowerShell como **administrador**:  
 
-    iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
-    choco install git-credential-manager-for-windows -y
-    
+```powershell
+iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
+choco install git-credential-manager-for-windows -y
+```  
 
 ### <a name="install-git-on-linux-centos-machines"></a>Instalación de Git en máquinas Linux (CentOS)
 
 Ejecute el siguiente comando de bash para instalar Git en máquinas Linux (CentOS):
 
-    sudo yum install git
-
+```powershell
+sudo yum install git
+```
 
 ### <a name="generate-public-ssh-key-on-linux-centos-machines"></a>Generación de clave SSH pública en máquinas Linux (CentOS)
 

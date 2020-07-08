@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 99a2f32c3f76d7fec475c9b299f7208b4db29cfe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd2c58b07f3be5d5fa6d99d0c8c64906b81e7de4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77650930"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86036991"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Dar forma a los eventos con la versión preliminar de Azure Time Series Insights
 
@@ -33,7 +33,7 @@ Entre los procedimientos recomendados generales se incluyen:
 Para obtener el mejor rendimiento de las consultas, cumpla las siguientes reglas de control:
 
 * No envíe propiedades innecesarias. La versión preliminar de Time Series Insights factura en función del uso. Es mejor almacenar y procesar solo los datos que vaya a consultar.
-* Use campos de instancia para los datos estáticos. Este procedimiento ayuda a evitar el envío de datos estáticos a través de la red. Los campos de instancia, un componente del modelo de Time Series Insights, funcionan como datos de referencia en el servicio Time Series Insights, que tiene disponibilidad general. Para más información sobre los campos de instancia, lea [Modelo de Time Series](./time-series-insights-update-tsm.md).
+* Use campos de instancia para los datos estáticos. Este procedimiento ayuda a evitar el envío de datos estáticos a través de la red. Los campos de instancia, un componente del modelo de Time Series Insights, funcionan como datos de referencia en el servicio Time Series Insights, que tiene disponibilidad general. Para más información sobre los campos de instancia, lea [Modelo de Time Series](./concepts-model-overview.md).
 * Comparta propiedades de dimensión entre dos o más eventos. Este procedimiento le ayudará a enviar datos a través de la red de manera más eficaz.
 * No utilice el anidamiento profundo de matriz. La versión preliminar de Time Series Insights admite hasta dos niveles de matrices anidadas que contienen objetos. Igualmente, la versión preliminar de Time Series Insights acopla las matrices en mensajes de varios eventos con pares de valores de propiedad.
 * Si solo existen algunas de las medidas para todos o la mayoría de los eventos, es mejor que envíe estas medidas como propiedades independientes dentro del mismo objeto. Al enviarlas por separado se reduce el número de eventos y podría mejorar el rendimiento de consultas, ya que se deben procesar menos eventos.
@@ -95,7 +95,7 @@ Hay un único mensaje de Azure IoT Hub enviado donde la matriz externa contiene 
 
 **Puntos clave:**
 
-* El JSON de ejemplo tiene una matriz externa que usa datos de [instancia de Time Series](./time-series-insights-update-tsm.md#time-series-model-instances) para aumentar la eficacia del mensaje. Aunque no es probable que cambien los metadatos de dispositivos de instancias de Time Series, suele proporcionar propiedades útiles para el análisis de datos.
+* El JSON de ejemplo tiene una matriz externa que usa datos de [instancia de Time Series](./concepts-model-overview.md#time-series-model-instances) para aumentar la eficacia del mensaje. Aunque no es probable que cambien los metadatos de dispositivos de instancias de Time Series, suele proporcionar propiedades útiles para el análisis de datos.
 
 * El archivo JSON combina dos o más mensajes (uno de cada dispositivo) en una sola carga, lo que permite ahorrar ancho de banda a lo largo del tiempo.
 
@@ -106,7 +106,7 @@ Hay un único mensaje de Azure IoT Hub enviado donde la matriz externa contiene 
 
 #### <a name="time-series-instance"></a>Instancia de serie temporal 
 
-Echemos un vistazo más detallado sobre cómo usar la [instancia de Time Series](./time-series-insights-update-tsm.md#time-series-model-instances) para dar forma al JSON de manera óptima. 
+Echemos un vistazo más detallado sobre cómo usar la [instancia de Time Series](./concepts-model-overview.md#time-series-model-instances) para dar forma al JSON de manera óptima. 
 
 > [!NOTE]
 > Los siguientes [identificadores de Time Series](./time-series-insights-update-how-to-id.md) son *deviceIds*.

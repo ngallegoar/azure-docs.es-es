@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo implementar un clúster de Service
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
-ms.openlocfilehash: a9026e46f2fd386892af5a3d8f4ec8d7e0c9f649
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1d6edc086233d757269c12e323241bc4bf55249f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81411005"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611703"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Implementación de un clúster de Service Fabric de Linux en una red virtual de Azure
 
@@ -54,8 +54,8 @@ En el recurso **Microsoft.ServiceFabric/clusters**, se ha implementado un clúst
 * Sistema operativo: (Ubuntu 16.04 LTS / Ubuntu 18.04 LTS) (configurable en los parámetros de la plantilla)
 * protección con certificado (configurable en los parámetros de la plantilla)
 * se habilita el [servicio DNS](service-fabric-dnsservice.md)
-* [Nivel de durabilidad](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster): Bronze (configurable en los parámetros de plantilla)
-* [Nivel de confiabilidad](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster): Silver (configurable en los parámetros de plantilla)
+* [Nivel de durabilidad](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster): Bronze (configurable en los parámetros de plantilla)
+* [Nivel de confiabilidad](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster): Silver (configurable en los parámetros de plantilla)
 * punto de conexión de la conexión de cliente: 19000 (configurable en los parámetros de la plantilla)
 * punto de conexión de la puerta de enlace HTTP: 19080 (configurable en los parámetros de la plantilla)
 

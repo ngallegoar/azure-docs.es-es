@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dekapur
-ms.openlocfilehash: 16ec0eb429ec6e8f6613490226b7cff01dff1b32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3195f1f409ab5cb87cd0520192a3dd362e188a3f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75451906"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610241"
 ---
 # <a name="scaling-service-fabric-standalone-clusters"></a>Escalado de clústeres independientes de Service Fabric
 Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Un equipo o máquina virtual que forma parte de un clúster se denomina nodo. Los clústeres pueden contener potencialmente miles de nodos. Después de crear un clúster de Service Fabric, puede escalar el clúster horizontalmente (cambiar el número de nodos) o verticalmente (cambiar los recursos de los nodos).  Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster.  Según se escala el clúster, las aplicaciones se escalan automáticamente.
@@ -28,7 +28,7 @@ Los clústeres independientes le permiten implementar el clúster de Service Fab
 La eliminación de nodos puede iniciar varias actualizaciones. Algunos nodos están marcados con la etiqueta `IsSeedNode=”true”` y se pueden identificar consultando el manifiesto del clúster mediante [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest). La eliminación de estos nodos puede tardar más que la de otros, ya que se tendrán que mover los nodos de inicialización en estos escenarios. El clúster debe tener un mínimo de tres nodos del tipo de nodo principal.
 
 > [!WARNING]
-> Se recomienda no reducir el número de nodos por debajo del [tamaño del clúster del nivel de confiabilidad](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) del clúster. Esto interferirá con la capacidad de los servicios del sistema de Service Fabric para replicarse en el clúster y llegar a desestabilizar o, posiblemente, destruir el clúster.
+> Se recomienda no reducir el número de nodos por debajo del [tamaño del clúster del nivel de confiabilidad](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) del clúster. Esto interferirá con la capacidad de los servicios del sistema de Service Fabric para replicarse en el clúster y llegar a desestabilizar o, posiblemente, destruir el clúster.
 >
 
 Al escalar un clúster independiente, tenga en cuenta las directrices siguientes:

@@ -10,19 +10,19 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 39ebbf99ad31cce20eabc20fbdc056c889235713
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2fa56217c54ac662a62a5ce835d75e3d85f05bfa
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77470758"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041479"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Modelado de datos en la versión preliminar de Azure Time Series Insights
 
 En este artículo se describe cómo usar el modelo de serie temporal de la versión preliminar de Azure Time Series Insights. Aquí se detallan varios escenarios comunes de datos.
 
 > [!TIP]
-> * Lea sobre la versión preliminar del [modelo de serie temporal](time-series-insights-update-tsm.md).
+> * Lea sobre la versión preliminar del [modelo de serie temporal](concepts-model-overview.md).
 > * Obtenga más información acerca de la interfaz de usuario de la versión preliminar en [Explorador de Azure Time Series Insights (versión preliminar)](./time-series-insights-update-explorer.md).
 
 ## <a name="instances"></a>Instancias
@@ -168,7 +168,7 @@ Para comenzar, seleccione la vista **Modelo** en la vista **Analizar** del explo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información sobre el modelo de serie temporal, consulte [Modelado de datos](./time-series-insights-update-tsm.md).
+- Para más información sobre el modelo de serie temporal, consulte [Modelado de datos](./concepts-model-overview.md).
 
 - Para obtener más información acerca de la versión preliminar, lea [Visualize data in the Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md) (Visualizar datos en el explorador de la versión preliminar de Azure Time Series Insights).
 

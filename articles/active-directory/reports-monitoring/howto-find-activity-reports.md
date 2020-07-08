@@ -7,19 +7,19 @@ author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d356f8c10ae3770d9f4ade100ab0496ee58d772f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33c4eeda7f7df1a8238f54fa1afd1bc069f64e96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74008206"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608218"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Búsqueda de informes de actividad en Azure Portal
 
@@ -171,10 +171,10 @@ Realice algunas acciones en Azure Portal y esperaba ver los registros de auditor
 
 Las acciones no aparecen inmediatamente en los registro de actividad. En la tabla siguiente se enumeran el tiempo de latencia de los registros de actividad. 
 
-| Informe | &nbsp; | Latencia (P95) | Latencia (P99) |
-|--------|--------|---------------|---------------|
-| Auditoría de directorio | &nbsp; | 2 minutos | 5 minutos |
-| Actividad de inicio de sesión | &nbsp; | 2 minutos | 5 minutos | 
+| Informe | Latencia (P95) | Latencia (P99) |
+|--------|---------------|---------------|
+| Auditoría de directorio | 2 minutos | 5 minutos |
+| Actividad de inicio de sesión | 2 minutos | 5 minutos |
 
 #### <a name="resolution"></a>Solución
 
@@ -192,10 +192,10 @@ Hace poco he iniciado sesión en Azure Portal y esperaba ver los registros de in
 
 Las acciones no aparecen inmediatamente en los registro de actividad. En la tabla siguiente se enumeran el tiempo de latencia de los registros de actividad. 
 
-| Informe | &nbsp; | Latencia (P95) | Latencia (P99) |
-|--------|--------|---------------|---------------|
-| Auditoría de directorio | &nbsp; | 2 minutos | 5 minutos |
-| Actividad de inicio de sesión | &nbsp; | 2 minutos | 5 minutos | 
+| Informe | Latencia (P95) | Latencia (P99) |
+|--------|---------------|---------------|
+| Auditoría de directorio | 2 minutos | 5 minutos |
+| Actividad de inicio de sesión | 2 minutos | 5 minutos |
 
 #### <a name="resolution"></a>Solución
 
@@ -213,10 +213,10 @@ No puedo ver más de 30 días de datos de inicio de sesión y auditoría en Azur
 
 En función de su licencia, las acciones de Azure Active Directory almacenan los informes de actividad durante el siguiente tiempo:
 
-| Informe           | &nbsp; |  Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
-| ---              | ----   |  ---           | ---                 | ---                 |
-| Auditoría de directorio  | &nbsp; |   7 días     | 30 días             | 30 días             |
-| Actividad de inicio de sesión | &nbsp; | No disponible. Puede acceder a sus propios inicios de sesión durante 7 días en la hoja del perfil de usuario individual. | 30 días | 30 días             |
+| Informe           | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| ---              | ---           | ---                 | ---
+| Auditoría de directorio  | 7 días        | 30 días             | 30 días             |
+| Actividad de inicio de sesión | No disponible. Puede acceder a sus propios inicios de sesión durante 7 días en la hoja del perfil de usuario individual. | 30 días | 30 días             |
 
 Para más información, consulte [Directivas de retención de informes de Azure Active Directory](reference-reports-data-retention.md).  
 

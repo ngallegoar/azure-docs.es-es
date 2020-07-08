@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: fb7ddce34a32d7108587bf1a3d47be4b31214535
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 387e100a05cb51eb034f737b259bad4e5812465c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832289"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557882"
 ---
 # <a name="monitor-runbook-output"></a>Supervisión de la salida de runbooks
 
@@ -88,7 +88,7 @@ A continuación se muestran ejemplos de tipos de datos de salida:
 
 #### <a name="declare-output-data-type-in-a-workflow"></a>Declaración del tipo de datos de salida de un flujo de trabajo
 
-Un flujo de trabajo especifica el tipo de datos de su salida mediante el [atributo OutputType](https://technet.microsoft.com/library/hh847785.aspx). Este atributo no tiene ningún efecto en tiempo de ejecución, pero en tiempo de diseño proporciona una indicación de la salida esperada del runbook. A medida que el conjunto de herramientas de los runbooks evoluciona, aumenta la importancia de la declaración de los tipos de datos de la salida en tiempo de diseño. Por tanto, es recomendable incluir esta declaración en cualquier runbook que se cree.
+Un flujo de trabajo especifica el tipo de datos de su salida mediante el [atributo OutputType](/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute). Este atributo no tiene ningún efecto en tiempo de ejecución, pero en tiempo de diseño proporciona una indicación de la salida esperada del runbook. A medida que el conjunto de herramientas de los runbooks evoluciona, aumenta la importancia de la declaración de los tipos de datos de la salida en tiempo de diseño. Por tanto, es recomendable incluir esta declaración en cualquier runbook que se cree.
 
 El siguiente runbook de ejemplo genera un objeto de cadena e incluye una declaración de su tipo de salida. Si su runbook genera una matriz de un tipo determinado, deberá especificar el tipo en lugar de una matriz de ese tipo.
 

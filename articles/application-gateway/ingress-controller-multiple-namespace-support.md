@@ -4,15 +4,15 @@ description: Este artículo ofrece información sobre cómo habilitar la compati
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 83650e7cf46ec1dede5f25e32114d6469bab24be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 953430421bd30aaa1df352451b549994aeaa1a70
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235916"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556159"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Habilitar la compatibilidad con varios espacios de nombres en un clúster de AKS con un controlador de entrada de Application Gateway
 
@@ -45,6 +45,7 @@ En la parte superior de la jerarquía: los **clientes de escucha** (dirección I
 Por otra parte, las rutas de acceso, los grupos de back-end, la configuración HTTP y los certificados TLS solo se pueden crear mediante un espacio de nombres y los duplicados se eliminarán.
 
 Por ejemplo, considere los siguientes espacios de nombres definidos de recursos de entrada duplicados `staging` y `production` para `www.contoso.com`:
+
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -101,6 +102,7 @@ De forma predeterminada, AGIC configurará Application Gateway en función de la
   - usar [Role/RoleBinding](https://docs.microsoft.com/azure/aks/azure-ad-rbac) para limitar AGIC a espacios de nombres específicos
 
 ## <a name="sample-helm-config-file"></a>Archivo de ejemplo de configuración de Helm
+
 ```yaml
     # This file contains the essential configs for the ingress controller helm chart
 
@@ -152,5 +154,5 @@ De forma predeterminada, AGIC configurará Application Gateway en función de la
     # Specify aks cluster related information. THIS IS BEING DEPRECATED.
     aksClusterConfiguration:
         apiServerAddress: <aks-api-server-address>
-    ```
+```
 

@@ -4,26 +4,24 @@ description: Si tiene cuentas de usuario internas para asociados, distribuidores
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/12/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 783fc0fa6f6c4e6c918fa3ff5fe0b53a71fa0178
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: c03c2c55988df04cc45ef4a1d66d959513c1626d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81680167"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551363"
 ---
 # <a name="invite-internal-users-to-b2b-collaboration"></a>Invitar a usuarios internos a la colaboración B2B
 
-|     |
-| --- |
-| La invitación a los usuarios internos para usar la colaboración B2B es una característica en vista previa pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). |
-|     |
+> [!NOTE]
+> La invitación a los usuarios internos para usar la colaboración B2B es una característica en vista previa pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Antes de la disponibilidad de la colaboración B2B de Azure AD, las organizaciones pueden colaborar con distribuidores, proveedores y otros usuarios invitados mediante la configuración de credenciales internas para ellos. Si tiene usuarios invitados internos como este, puede invitarlos a usar la colaboración B2B para que pueda aprovechar las ventajas de B2B de Azure AD. Los usuarios invitados de B2B podrán usar sus propias identidades y credenciales para iniciar sesión, y no tendrá que mantener contraseñas ni administrar los ciclos de vida de las cuentas.
 
@@ -62,7 +60,7 @@ Use el siguiente comando para invitar al usuario a la colaboración B2B:
 ```powershell
 Uninstall-Module AzureADPreview
 Install-Module AzureADPreview
-$ADGraphUser = Get-AzureADUser -searchstring "<<external email>>"
+$ADGraphUser = Get-AzureADUser -objectID "UPN of Internal User"
 $msGraphUser = New-Object Microsoft.Open.MSGraph.Model.User -ArgumentList $ADGraphUser.ObjectId
 New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitationMessage $True -InviteRedirectUrl "http://myapps.microsoft.com" -InvitedUser $msGraphUser
 ```

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: c3c7f59ecb3a06d80012917e2da4425a899859d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd7a74ff775e6e07d1c32ed198ff028765fce45d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228016"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037297"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Enviar eventos a un entorno de Time Series Insights mediante un centro de eventos
 
@@ -55,13 +55,13 @@ En este artículo se explica cómo crear y configurar un centro de eventos en Az
 
 ## <a name="add-a-time-series-insights-instance"></a>Agregar una instancia de Time Series Insights
 
-La actualización de Time Series Insights usa instancias para agregar datos contextuales a los datos de telemetría entrantes. Los datos se unen en el momento de la consulta mediante un **id. de serie temporal**. El **identificador de serie temporal** del proyecto de ejemplo de los molinos de viento que se usará más adelante en este artículo es `id`. Para más información sobre las instancias de Time Series Insight y el **id. de serie temporal**, lea [Modelos de Time Series](./time-series-insights-update-tsm.md).
+La actualización de Time Series Insights usa instancias para agregar datos contextuales a los datos de telemetría entrantes. Los datos se unen en el momento de la consulta mediante un **id. de serie temporal**. El **identificador de serie temporal** del proyecto de ejemplo de los molinos de viento que se usará más adelante en este artículo es `id`. Para más información sobre las instancias de Time Series Insight y el **id. de serie temporal**, lea [Modelos de Time Series](./concepts-model-overview.md).
 
 ### <a name="create-a-time-series-insights-event-source"></a>Crear un origen de eventos de Time Series Insights
 
 1. Complete los pasos para [crear un origen de eventos](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub) si aún no ha creado uno.
 
-1. Establezca el valor de `timeSeriesId`. Para más información sobre el **id. de serie temporal**, lea [Modelos de Time Series](./time-series-insights-update-tsm.md).
+1. Establezca el valor de `timeSeriesId`. Para más información sobre el **id. de serie temporal**, lea [Modelos de Time Series](./concepts-model-overview.md).
 
 ### <a name="push-events-to-windmills-sample"></a>Eventos push del ejemplo de los molinos de viento
 

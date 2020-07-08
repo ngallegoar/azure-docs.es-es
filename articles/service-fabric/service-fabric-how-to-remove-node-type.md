@@ -6,12 +6,12 @@ manager: sridmad
 ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: chrpap
-ms.openlocfilehash: 330b455a61c45ccdb59e5aef8162fd1b04859a00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d9562c09fe99372a9b1106d3ae891f65663cf307
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78969400"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610115"
 ---
 # <a name="how-to-remove-a-service-fabric-node-type"></a>Eliminación de un tipo de nodo de Service Fabric
 En este artículo, se explica cómo escalar un clúster de Azure Service Fabric quitando un tipo de nodo existente de un clúster. Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Un equipo o máquina virtual que forma parte de un clúster se denomina nodo. Los conjuntos de escalado de máquinas virtuales son un recurso de proceso de Azure que se puede usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Cada tipo de nodo que se define en un clúster de Azure está [configurado como un conjunto de escalado independiente](service-fabric-cluster-nodetypes.md). Cada tipo de nodo, a continuación, se puede administrar por separado. Después de crear un clúster de Service Fabric, puede escalarlo horizontalmente quitando un tipo de nodo (conjunto de escalado de máquinas virtuales) junto con todos sus nodos.  Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster.  Según se escala el clúster, las aplicaciones se escalan automáticamente.
@@ -20,7 +20,7 @@ En este artículo, se explica cómo escalar un clúster de Azure Service Fabric 
 > No se recomienda usar este enfoque muy a menudo para quitar un tipo de nodo de un clúster de producción. Se trata de un comando muy peligroso, ya que elimina el recurso del conjunto de escalado de máquinas virtuales que hay detrás del tipo de nodo. 
 
 ## <a name="durability-characteristics"></a>Características de durabilidad
-Al usar Remove-AzServiceFabricNodeType, se da prioridad a la seguridad frente a la velocidad. El tipo de nodo debe tener un [nivel de durabilidad](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) Silver o Gold, ya que:
+Al usar Remove-AzServiceFabricNodeType, se da prioridad a la seguridad frente a la velocidad. El tipo de nodo debe tener un [nivel de durabilidad](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#durability-characteristics-of-the-cluster) Silver o Gold, ya que:
 - Bronze no ofrece ningún tipo de garantía sobre la información de estado de guardado.
 - Las durabilidades Silver y Gold identifican cualquier cambio tiene lugar en el conjunto de escalado.
 - La durabilidad Gold también permite controlar las actualizaciones de Azure que tienen lugar bajo el conjunto de escalado.
@@ -175,6 +175,6 @@ Al quitar un tipo de nodo Bronze, todos los nodos del tipo de nodo dejarán de e
     - Espere a que la implementación finalice.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Obtenga más información sobre las [características de durabilidad](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) del clúster.
+- Obtenga más información sobre las [características de durabilidad](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#durability-characteristics-of-the-cluster) del clúster.
 - Obtenga más información sobre los [tipos de nodo y los conjuntos de escalado de máquinas virtuales](service-fabric-cluster-nodetypes.md).
 - Obtenga más información sobre el [escalado de clústeres de Service Fabric](service-fabric-cluster-scaling.md).

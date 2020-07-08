@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: aahi
-ms.openlocfilehash: 33200f8807ad28ac160bb377b1107548f4e42d51
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 4a73ff517347baa2cf589432be025bd922597ed3
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590815"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611397"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Creación de un recurso de Cognitive Services con Azure Portal
 
@@ -25,24 +25,24 @@ Use esta guía de inicio rápido para empezar a usar Azure Cognitive Services. D
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción a Azure válida: [cree una de manera gratuita](https://azure.microsoft.com/free/).
+* Una suscripción a Azure válida: [cree una de manera gratuita](https://azure.microsoft.com/free/cognitive-services/).
 
 ## <a name="create-a-new-azure-cognitive-services-resource"></a>Creación de un nuevo recurso de Azure Cognitive Services
 
 1. Crea un recurso.
 
     #### <a name="multi-service-resource"></a>[Recurso de varios servicios](#tab/multiservice)
-    
+
     El recurso multiservicio se denomina **Cognitive Services** en el portal. [Cree un recurso de Cognitive Services](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
-    
+
     En este momento, el recurso multiservicio permite el acceso a los siguientes servicios de Cognitive Services:
-    
+
     |                  |                                                      |                    |                               |                  |
     |------------------|------------------------------------------------------|--------------------|-------------------------------|------------------|
     | Computer Vision  | Content Moderator                                    | Caras               | Language Understanding (LUIS) | Text Analytics   |
     | Traductor  | Bing Search versión 7 <br>(Web, imágenes, noticias, vídeos, contenido visual) | Bing Custom Search | Bing Entity Search            | Bing Autosuggest |
     | Bing Spell Check |                                                      |                    |                               |                  |
-    
+
     #### <a name="single-service-resource"></a>[Recurso de servicio único](#tab/singleservice)
 
     Use los vínculos siguientes si desea crear un recurso para los servicios de Cognitive Services disponibles:

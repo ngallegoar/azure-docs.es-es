@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 37fc78971124240077a59d4ad99aa06cc408dbae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9448b7df8855f7cf2883f6cf8bd7f2ce465038cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74533970"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563551"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Indexación de blobs JSON con el indexador de blobs de Azure Cognitive Search
 
@@ -149,7 +149,7 @@ El primer paso es proporcionar la información de conexión de origen de datos u
 
 Sustituya los valores válidos para los marcadores de posición de nombre del servicio, clave de administración, cuenta de almacenamiento y clave de la cuenta.
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
 
@@ -168,7 +168,7 @@ El índice almacena el contenido utilizable en búsquedas en Azure Cognitive Sea
 
 El ejemplo siguiente muestra una solicitud de [Creación de índice](https://docs.microsoft.com/rest/api/searchservice/create-index). El índice tendrá un campo `content` utilizable en búsquedas para almacenar el texto extraído de los blobs:   
 
-    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
 
@@ -185,7 +185,7 @@ El ejemplo siguiente muestra una solicitud de [Creación de índice](https://doc
 
 Al igual que ocurre con los índices y los orígenes de datos, los indexadores son objetos con nombre que se pueden crear y volver a usar en un servicio Azure Cognitive Search. Una solicitud totalmente especificada para crear un indexador se vería similar a la siguiente:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
 
@@ -212,7 +212,7 @@ Esta sección es un resumen de todas las solicitudes que se usan para crear obje
 
 Todos los indexadores necesitan un objeto de origen de datos que proporcione información de conexión a los datos existentes. 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
 
@@ -228,7 +228,7 @@ Todos los indexadores necesitan un objeto de origen de datos que proporcione inf
 
 Todos los indizadores necesitan un índice de destino que reciba los datos. El cuerpo de la solicitud define el esquema de índice, que consta de campos con atributos para admitir el comportamiento que quiera en un índice de búsqueda. Este índice debe estar vacío cuando ejecute el indexador. 
 
-    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
 
@@ -247,7 +247,7 @@ Esta solicitud muestra un indexador completamente especificado. Incluye asignaci
 
 Si se crea el indexador en Azure Cognitive Search, se desencadena la importación de datos. Se ejecuta inmediatamente y, después, se ejecuta siguiendo una programación si se ha proporcionado una.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
 
@@ -328,7 +328,7 @@ Si lo prefiere, puede usar la opción de matriz JSON. Esta opción es útil cuan
 
 Para una matriz JSON, la definición del indizador debe ser similar a la del ejemplo siguiente. Tenga en cuenta que el parámetro parsingMode especifica al analizador `jsonArray`. Para indexar blobs JSON, los dos únicos requisitos específicos para las matrices son especificar el analizador correcto y tener los datos de entrada correctos.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -375,7 +375,7 @@ Si el blob contiene varias entidades JSON separadas por una nueva línea y quier
 
 Para las líneas JSON, la definición del indizador debe ser similar a la del ejemplo siguiente. Tenga en cuenta que el parámetro parsingMode especifica al analizador `jsonLines`. 
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 

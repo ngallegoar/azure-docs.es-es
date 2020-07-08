@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/10/2020
+ms.date: 06/29/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 315bab473ccb42c3ca7b481c16bf8d8fbcfaac67
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: f3861ab8839ba0483c5096e29cd09b6268bd765e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193462"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563920"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conocidos con Azure Data Lake Storage Gen2
 
@@ -65,19 +65,6 @@ No se admiten discos de máquina virtual no administrados en cuentas que tengan 
 ## <a name="file-system-support-in-sdks-powershell-and-azure-cli"></a>Compatibilidad del sistema de archivos en los SDK, PowerShell y la CLI de Azure
 
 - Las operaciones de ACL Get y Set no son recursivas actualmente.
-
-
-## <a name="lifecycle-management-policies"></a>Directivas de administración del ciclo de vida
-
-Todavía no se admite la eliminación de instantáneas de blob. 
-
-## <a name="archive-tier"></a>Nivel de archivo
-
-Actualmente hay un error que afecta al nivel de acceso de archivo.
-
-## <a name="blobfuse"></a>Blobfuse
-
-Blobfuse no se admite.
 
 <a id="known-issues-tools"></a>
 

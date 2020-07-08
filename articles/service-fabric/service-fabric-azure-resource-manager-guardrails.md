@@ -7,12 +7,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: pepogors
-ms.openlocfilehash: 04c6444723180c34f6605810260f5f865dff2d12
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: f8d8d5ae677ea438de4baed7d6636c2087277427
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790922"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602710"
 ---
 # <a name="service-fabric-guardrails"></a>Protecciones de Service Fabric 
 Al implementar un clúster de Service Fabric, se colocan protecciones, lo que producirá un error en una implementación de Azure Resource Manager en el caso de que haya una configuración de clúster no válida. En las secciones siguientes se proporciona información general sobre los problemas comunes de configuración de clústeres y los pasos necesarios para mitigarlos. 
@@ -68,7 +68,7 @@ Para solucionar un error de coincidencia de durabilidad, que se indica mediante 
 
 ## <a name="seed-node-deletion"></a>Eliminación de nodo de inicialización 
 ### <a name="overview"></a>Información general
-Un clúster de Service Fabric tiene una propiedad de [nivel de confiabilidad](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) que se usa para determinar el número de réplicas de los servicios del sistema que se ejecutan en el tipo de nodo principal del clúster. El número de réplicas necesarias determinará el número mínimo de nodos que se deben mantener en el tipo de nodo principal del clúster. Si el número de nodos en el tipo de nodo principal es inferior al mínimo necesario para el nivel de confiabilidad, el clúster se volverá inestable.  
+Un clúster de Service Fabric tiene una propiedad de [nivel de confiabilidad](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#reliability-characteristics-of-the-cluster) que se usa para determinar el número de réplicas de los servicios del sistema que se ejecutan en el tipo de nodo principal del clúster. El número de réplicas necesarias determinará el número mínimo de nodos que se deben mantener en el tipo de nodo principal del clúster. Si el número de nodos en el tipo de nodo principal es inferior al mínimo necesario para el nivel de confiabilidad, el clúster se volverá inestable.  
 
 ### <a name="error-messages"></a>Mensajes de error 
 Se ha detectado una operación de eliminación del nodo de inicialización y se rechazará. 

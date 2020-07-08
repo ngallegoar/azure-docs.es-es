@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 254c912114e3f1c7a495f389bc6a6416cbde7e11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ffb52cd34d56c227fc689ea70146e99983e17c0d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77472458"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564434"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Asociación de un recurso de Cognitive Services con un conjunto de aptitudes en Azure Cognitive Search 
 
@@ -29,7 +29,7 @@ Azure Cognitive Search tiene una dependencia en Cognitive Services, lo que inclu
 
 + Azure Cognitive Search usa la clave de recurso de Cognitive Services proporcionada por el usuario en un conjunto de aptitudes con objeto de facturar el enriquecimiento de imágenes y texto. La ejecución de aptitudes facturables tiene lugar al [precio de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
-+ La extracción de imágenes es una operación de Azure Cognitive Search que se produce al descifrar documentos antes del enriquecimiento. La extracción de imágenes es facturable. Para ver los precios de la extracción de imágenes, consulte la [página de precios de Azure Cognitive Search](https://go.microsoft.com/fwlink/?linkid=2042400).
++ La extracción de imágenes es una operación de Azure Cognitive Search que se produce al descifrar documentos antes del enriquecimiento. La extracción de imágenes es facturable. Para ver los precios de la extracción de imágenes, consulte la [página de precios de Azure Cognitive Search](https://azure.microsoft.com/pricing/details/search/).
 
 + La extracción de texto también se produce durante la fase de descifrado de documentos. No es facturable.
 
@@ -113,7 +113,7 @@ Cuando defina un conjunto de aptitudes mediante programación, agregue una secci
 En el siguiente ejemplo se muestra este patrón. Observe la sección `cognitiveServices` al final de la definición.
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
 ```

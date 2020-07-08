@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 0ebbf0d41c05f71c571d9665903ba4ba44f71bd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2128fee29e64c58a8066a681776fb509b3e31b6f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77198810"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85445702"
 ---
 # <a name="configure-opc-publisher"></a>Configuración de OPC Publisher
 
@@ -58,7 +58,7 @@ En el ejemplo siguiente se muestra el formato del archivo de configuración:
 
 Para publicar eventos de OPC UA, use el mismo archivo de configuración que para los cambios de datos.
 
-El ejemplo siguiente muestra cómo configurar la publicación para los eventos generados por el [servidor SimpleEvents](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/SimpleEvents/Server). El servidor SimpleEvents que puede encontrarse en el [repositorio de OPC Foundation](https://github.com/OPCFoundation/UA-.NETStandard) es:
+El ejemplo siguiente muestra cómo configurar la publicación para los eventos generados por el [servidor SimpleEvents](https://github.com/OPCFoundation/UA-.NETStandard-Samples/tree/master/Workshop/SimpleEvents/Server). El servidor SimpleEvents que puede encontrarse en el [repositorio de OPC Foundation](https://github.com/OPCFoundation/UA-.NETStandard-Samples) es:
 
 ```json
 [
