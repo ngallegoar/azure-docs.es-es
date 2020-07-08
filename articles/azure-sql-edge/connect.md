@@ -2,19 +2,19 @@
 title: Conexión a Azure SQL Edge y consulta (versión preliminar)
 description: Información sobre la conexión a una instancia de Azure SQL Edge y su consulta (versión preliminar)
 keywords: ''
-services: sql-edge
-ms.service: sql-edge
+services: sql-database-edge
+ms.service: sql-database-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: e7034c3f664eeba802341510b109ba9cc57845a8
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 17bb5afebe0335bcdcf40298490f94999c04a621
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235128"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83593954"
 ---
 # <a name="connect-and-query-azure-sql-edge-preview"></a>Conexión a Azure SQL Edge y consulta (versión preliminar)
 
@@ -94,7 +94,7 @@ conn = pyodbc.connect(db_connection_string, autocommit=True)
 
 ## <a name="connect-to-sql-edge-from-another-network-machine"></a>Conexión a SQL Edge desde otro equipo de red
 
-Para conectarse a la instancia de SQL Edge desde otro equipo de la red, debe usar la dirección IP del host de Docker y el puerto de host al que está asignado el contenedor de SQL Edge. Por ejemplo, si la dirección IP del host de Docker es *xxx.xxx.xxx.xxx" y el contenedor de SQL Edge está asignado al puerto de host *1600*, la dirección del servidor para la instancia de SQL Edge sería **xxx.xxx.xxx.xxx,1600**. El script de Python actualizado tendría el siguiente aspecto:
+Para conectarse a la instancia de SQL Edge desde otro equipo de la red, debe usar la dirección IP del host de Docker y el puerto de host al que está asignado el contenedor de SQL Edge. Por ejemplo, si la dirección IP del host de Docker es *xxx.xxx.xxx.xxx" y el contenedor de SQL Edge está asignado al puerto de host *1600*, la dirección del servidor para la instancia de SQL Edge sería **xxx.xxx.xxx.xxx,1600**. El script de Python actualizado tendría el siguiente aspecto:
 
 ```python
 
