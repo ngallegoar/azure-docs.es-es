@@ -10,20 +10,18 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
 ms.custom: mqtt
-ms.openlocfilehash: 620e0213733d278a28ec1bcad4b031f5764ccda9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 91cebee1196dc38af8ece4086b6e6ab66fdc14da
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81733129"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135547"
 ---
 # <a name="get-started-with-device-twins-net"></a>Introducción a los dispositivos gemelos (.NET)
 
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
 En este tutorial, creará estas aplicaciones de consola de .NET:
-
-* **CreateDeviceIdentity**. Esta aplicación crea una identidad de dispositivo y una clave de seguridad asociada para conectar la aplicación de dispositivo simulado.
 
 * **AddTagsAndQuery**. Esta aplicación de back-end agrega dispositivos gemelos de consultas y etiquetas.
 

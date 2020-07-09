@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 88f0ad795767d0b2f85845cb714ce7cb244f5084
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: a74d9347d0050a2970e698ae616eb09fe32bdc5b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121544"
+ms.locfileid: "86135448"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planeamiento de la capacidad y escalado para la recuperación ante desastres de VMware en Azure
 
@@ -92,7 +92,7 @@ Después de ejecutar la herramienta [Site Recovery Deployment Planner](site-reco
 
     ![Captura de pantalla del cuadro de diálogo de propiedades de Azure Backup](./media/site-recovery-vmware-to-azure/throttle2.png)
 
-También puede utilizar el cmdlet [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) para establecer la limitación. Este es un ejemplo:
+También puede utilizar el cmdlet [Set-OBMachineSetting](/previous-versions/windows/powershell-scripting/hh770409(v=wps.640)) para establecer la limitación. Este es un ejemplo:
 
 ```azurepowershell-interactive
 $mon = [System.DayOfWeek]::Monday

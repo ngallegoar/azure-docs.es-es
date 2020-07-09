@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d3e8a90c66370bd83d2d02ed9de1cd62e9b485b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 669b8427f13efcc55a69bc7c970b6658a6719cd8
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687912"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134724"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-powershell"></a>Configuración de direcciones IP privadas para una máquina virtual (clásica) mediante PowerShell
 
@@ -40,94 +40,114 @@ En los siguientes comandos de PowerShell de ejemplo se presupone que ya se ha cr
 ## <a name="how-to-verify-if-a-specific-ip-address-is-available"></a>Comprobación de que una dirección IP concreta está disponible
 Para comprobar si la dirección IP *192.168.1.101* está disponible en una red virtual denominada *TestVnet*, ejecute el siguiente comando de PowerShell y compruebe el valor de *IsAvailable*:
 
-    Test-AzureStaticVNetIP –VNetName TestVNet –IPAddress 192.168.1.101 
+```azurepowershell
+Test-AzureStaticVNetIP –VNetName TestVNet –IPAddress 192.168.1.101 
+```
 
 Resultado esperado:
 
-    IsAvailable          : True
-    AvailableAddresses   : {}
-    OperationDescription : Test-AzureStaticVNetIP
-    OperationId          : fd3097e1-5f4b-9cac-8afa-bba1e3492609
-    OperationStatus      : Succeeded
+```output
+IsAvailable          : True
+AvailableAddresses   : {}
+OperationDescription : Test-AzureStaticVNetIP
+OperationId          : fd3097e1-5f4b-9cac-8afa-bba1e3492609
+OperationStatus      : Succeeded
+```
 
 ## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>Especificación de una dirección IP privada estática al crear una VM
 El siguiente script de PowerShell crea un servicio en la nube denominado *TestService*; a continuación, recupera una imagen de Azure, crea una máquina virtual denominada *DNS01* en el nuevo servicio en la nube con la imagen recuperada, establece que la máquina virtual esté en una subred llamada *FrontEnd* y establece *192.168.1.7* como dirección IP privada estática para la máquina virtual:
 
-    New-AzureService -ServiceName TestService -Location "Central US"
-    $image = Get-AzureVMImage | where {$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
-    New-AzureVMConfig -Name DNS01 -InstanceSize Small -ImageName $image.ImageName |
-      Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! |
-      Set-AzureSubnet –SubnetNames FrontEnd |
-      Set-AzureStaticVNetIP -IPAddress 192.168.1.7 |
-      New-AzureVM -ServiceName TestService –VNetName TestVNet
+```azurepowershell
+New-AzureService -ServiceName TestService -Location "Central US"
+$image = Get-AzureVMImage | where {$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
+New-AzureVMConfig -Name DNS01 -InstanceSize Small -ImageName $image.ImageName |
+    Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! |
+    Set-AzureSubnet –SubnetNames FrontEnd |
+    Set-AzureStaticVNetIP -IPAddress 192.168.1.7 |
+    New-AzureVM -ServiceName TestService –VNetName TestVNet
+```
 
 Resultado esperado:
 
-    WARNING: No deployment found in service: 'TestService'.
-    OperationDescription OperationId                          OperationStatus
-    -------------------- -----------                          ---------------
-    New-AzureService     fcf705f1-d902-011c-95c7-b690735e7412 Succeeded      
-    New-AzureVM          3b99a86d-84f8-04e5-888e-b6fc3c73c4b9 Succeeded  
+```output
+WARNING: No deployment found in service: 'TestService'.
+OperationDescription OperationId                          OperationStatus
+-------------------- -----------                          ---------------
+New-AzureService     fcf705f1-d902-011c-95c7-b690735e7412 Succeeded      
+New-AzureVM          3b99a86d-84f8-04e5-888e-b6fc3c73c4b9 Succeeded  
+```
 
 ## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Recuperación de la información de la dirección IP privada estática para una VM
 Para ver la información de la dirección IP privada estática para la máquina virtual creada con este script, ejecute el siguiente comando de PowerShell y observe los valores de *IpAddress*:
 
-    Get-AzureVM -Name DNS01 -ServiceName TestService
+```azurepowershell
+Get-AzureVM -Name DNS01 -ServiceName TestService
+```
 
 Resultado esperado:
 
-    DeploymentName              : TestService
-    Name                        : DNS01
-    Label                       : 
-    VM                          : Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVM
-    InstanceStatus              : Provisioning
-    IpAddress                   : 192.168.1.7
-    InstanceStateDetails        : Windows is preparing your computer for first use...
-    PowerState                  : Started
-    InstanceErrorCode           : 
-    InstanceFaultDomain         : 0
-    InstanceName                : DNS01
-    InstanceUpgradeDomain       : 0
-    InstanceSize                : Small
-    HostName                    : rsR2-797
-    AvailabilitySetName         : 
-    DNSName                     : http://testservice000.cloudapp.net/
-    Status                      : Provisioning
-    GuestAgentStatus            : Microsoft.WindowsAzure.Commands.ServiceManagement.Model.GuestAgentStatus
-    ResourceExtensionStatusList : {Microsoft.Compute.BGInfo}
-    PublicIPAddress             : 
-    PublicIPName                : 
-    NetworkInterfaces           : {}
-    ServiceName                 : TestService
-    OperationDescription        : Get-AzureVM
-    OperationId                 : 34c1560a62f0901ab75cde4fed8e8bd1
-    OperationStatus             : OK
+```output
+DeploymentName              : TestService
+Name                        : DNS01
+Label                       : 
+VM                          : Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVM
+InstanceStatus              : Provisioning
+IpAddress                   : 192.168.1.7
+InstanceStateDetails        : Windows is preparing your computer for first use...
+PowerState                  : Started
+InstanceErrorCode           : 
+InstanceFaultDomain         : 0
+InstanceName                : DNS01
+InstanceUpgradeDomain       : 0
+InstanceSize                : Small
+HostName                    : rsR2-797
+AvailabilitySetName         : 
+DNSName                     : http://testservice000.cloudapp.net/
+Status                      : Provisioning
+GuestAgentStatus            : Microsoft.WindowsAzure.Commands.ServiceManagement.Model.GuestAgentStatus
+ResourceExtensionStatusList : {Microsoft.Compute.BGInfo}
+PublicIPAddress             : 
+PublicIPName                : 
+NetworkInterfaces           : {}
+ServiceName                 : TestService
+OperationDescription        : Get-AzureVM
+OperationId                 : 34c1560a62f0901ab75cde4fed8e8bd1
+OperationStatus             : OK
+```
 
 ## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Eliminación de una dirección IP privada estática de una VM
 Para quitar la dirección IP privada estática agregada a la máquina virtual en el script anterior, ejecute el siguiente comando de PowerShell:
 
-    Get-AzureVM -ServiceName TestService -Name DNS01 |
-      Remove-AzureStaticVNetIP |
-      Update-AzureVM
+```azurepowershell
+Get-AzureVM -ServiceName TestService -Name DNS01 |
+    Remove-AzureStaticVNetIP |
+    Update-AzureVM
+```
 
 Resultado esperado:
 
-    OperationDescription OperationId                          OperationStatus
-    -------------------- -----------                          ---------------
-    Update-AzureVM       052fa6f6-1483-0ede-a7bf-14f91f805483 Succeeded
+```output
+OperationDescription OperationId                          OperationStatus
+-------------------- -----------                          ---------------
+Update-AzureVM       052fa6f6-1483-0ede-a7bf-14f91f805483 Succeeded
+```
 
 ## <a name="how-to-add-a-static-private-ip-address-to-an-existing-vm"></a>Adición de una dirección IP privada estática a una VM existente
 Para agregar una dirección IP privada estática a la VM creada con el script anterior, ejecute el siguiente comando:
 
-    Get-AzureVM -ServiceName TestService -Name DNS01 |
-      Set-AzureStaticVNetIP -IPAddress 192.168.1.7 |
-      Update-AzureVM
+```azurepowershell
+Get-AzureVM -ServiceName TestService -Name DNS01 |
+    Set-AzureStaticVNetIP -IPAddress 192.168.1.7 |
+    Update-AzureVM
+```
 
 Resultado esperado:
 
-    OperationDescription OperationId                          OperationStatus
-    -------------------- -----------                          ---------------
-    Update-AzureVM       77d8cae2-87e6-0ead-9738-7c7dae9810cb Succeeded 
+```output
+OperationDescription OperationId                          OperationStatus
+-------------------- -----------                          ---------------
+Update-AzureVM       77d8cae2-87e6-0ead-9738-7c7dae9810cb Succeeded 
+```
 
 ## <a name="set-ip-addresses-within-the-operating-system"></a>Configuración de direcciones IP en el sistema operativo
 

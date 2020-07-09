@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 022d6edad1e907173dfde3481e60d2523be087a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e0fd3a6bc62feeb3728fa88b4aad56c8713bce11
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74082668"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134927"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Arquitectura de recuperación ante desastres de Hyper-V en Azure
 
@@ -67,14 +67,14 @@ La tabla y gráfico siguientes proporcionan una visión general de los component
 ### <a name="enable-protection"></a>Habilitar protección
 
 1. Después de habilitar la protección de una máquina virtual de Hyper-V, en el Azure Portal o de forma local, la opción **Habilitar la protección** se inicia.
-2. El trabajo comprueba que la máquina cumpla los requisitos previos e invoca [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) para que configure la replicación con su configuración.
-3. El trabajo comienza la replicación inicial con la invocación del método [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) para inicializar una replicación completa de la máquina virtual y enviar los discos virtuales de la máquina virtual a Azure.
+2. El trabajo comprueba que la máquina cumpla los requisitos previos e invoca [CreateReplicationRelationship](/windows/win32/hyperv_v2/createreplicationrelationship-msvm-replicationservice) para que configure la replicación con su configuración.
+3. El trabajo comienza la replicación inicial con la invocación del método [StartReplication](/windows/win32/hyperv_v2/startreplication-msvm-replicationservice) para inicializar una replicación completa de la máquina virtual y enviar los discos virtuales de la máquina virtual a Azure.
 4. Puede supervisar el trabajo en la pestaña **Trabajos**.      ![Lista de trabajos](media/hyper-v-azure-architecture/image1.png) ![Detalles de Habilitar protección](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>Replicación inicial de datos
 
-1. Cuando se desencadena la replicación inicial, se toma una [instantánea de la máquina virtual de Hyper-V](https://technet.microsoft.com/library/dd560637.aspx).
+1. Cuando se desencadena la replicación inicial, se toma una [instantánea de la máquina virtual de Hyper-V](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560637(v=ws.10)).
 2. Los discos duros virtuales en la máquina virtual se replican uno a uno hasta que se copian todos en Azure. Esto puede tardar unos minutos, en función del tamaño de la máquina virtual y del ancho de banda de la red. [Aprenda a](https://support.microsoft.com/kb/3056159) aumentar el ancho de banda de red.
 3. Si se producen cambios en el disco con la replicación inicial en curso, el seguimiento de replicaciones de Réplica de Hyper-V realiza un seguimiento de esos cambios en los registros de replicación de Hyper-V (.hrl). Estos archivos de registro se encuentran en la misma carpeta que los discos. Cada disco tiene un archivo .hrl asociado que se envía al almacenamiento secundario. Los archivos de instantáneas y de registro consumen recursos de disco mientras la replicación inicial está en curso.
 4. Cuando finalice la replicación inicial, se elimina la instantánea de la máquina virtual.

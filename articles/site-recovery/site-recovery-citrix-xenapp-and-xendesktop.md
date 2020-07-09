@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
-ms.openlocfilehash: 29fbe5389da924a2ecc660aa5ce5c4bb0a0902b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 90d54a8ded99dd8ab43aed688036add6aede20ab
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74084554"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134837"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>Configuración de la recuperación ante desastres para una implementación de XenApp y XenDesktop de Citrix de niveles múltiples
 
@@ -30,8 +30,8 @@ En este documento se proporcionan instrucciones detalladas para crear una soluci
 
 Antes de empezar, no olvide informarse sobre las cuestione siguientes:
 
-1. [Replicación de una máquina virtual en Azure](site-recovery-vmware-to-azure.md)
-1. [Diseño de una red de recuperación](site-recovery-network-design.md)
+1. [Replicación de una máquina virtual en Azure](./vmware-azure-tutorial.md)
+1. [Diseño de una red de recuperación](./concepts-on-premises-to-azure-networking.md)
 1. [Realización de una conmutación por error de prueba en Azure](site-recovery-test-failover-to-azure.md)
 1. [Ejecución de una conmutación por error en Azure](site-recovery-failover.md)
 1. [Replicación de un controlador de dominio](site-recovery-active-directory.md)
@@ -96,7 +96,7 @@ Vea [Protección de Active Directory y DNS con Azure Site Recovery](site-recover
 
 Vea [Proteger SQL Server con la recuperación ante desastres de SQL Server y Azure Site Recovery](site-recovery-sql.md) para obtener instrucciones técnicas detalladas sobre las opciones recomendadas para proteger servidores SQL Server.
 
-Siga [estas instrucciones](site-recovery-vmware-to-azure.md) para empezar a replicar en Azure las demás máquinas virtuales de los componentes.
+Siga [estas instrucciones](./vmware-azure-tutorial.md) para empezar a replicar en Azure las demás máquinas virtuales de los componentes.
 
 ![Protección de componentes de XenApp](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-enablereplication.png)
 

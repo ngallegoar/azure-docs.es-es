@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: 0b32f00374aa8ce6c41415e28f319e3e7d5abddb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dfa3c108d00aeba9c7d42e96e7a40736a087a508
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75941585"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133821"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configuración de la recuperación ante desastres para una implementación de Dynamics AX en varios niveles   
 
@@ -69,7 +69,7 @@ El cliente tiene muchas aplicaciones, ejecuta un bosque de Active Directory y pl
 Para obtener orientación técnica acerca de la opción recomendada para proteger el nivel de SQL, consulte [Replicación de aplicaciones con SQL Server y Azure Site Recovery](site-recovery-sql.md).
 
 ### <a name="3-enable-protection-for-the-dynamics-ax-client-and-application-object-server-vms"></a>3. Habilitación de la protección del cliente de Dynamics AX de las y máquinas virtuales de Application Object Server
-Realice la configuración pertinente de Site Recovery en función de si las máquinas virtuales están implementadas en [Hyper-V](site-recovery-hyper-v-site-to-azure.md) o [VMware](site-recovery-vmware-to-azure.md).
+Realice la configuración pertinente de Site Recovery en función de si las máquinas virtuales están implementadas en [Hyper-V](./hyper-v-azure-tutorial.md) o [VMware](./vmware-azure-tutorial.md).
 
 > [!TIP]
 > Se recomienda configurar la frecuencia coherente con los bloqueos en 15 minutos.
@@ -176,7 +176,7 @@ Para ver consideraciones específicas acerca de Active Directory durante la conm
 6. Haga clic en **✓** para iniciar el proceso de conmutación por recuperación.
 
 
-Para más información acerca de cómo realizar una conmutación por recuperación, consulte [Conmutación por recuperación de máquinas virtuales de VMware y servidores físicos al sitio local](site-recovery-failback-azure-to-vmware.md).
+Para más información acerca de cómo realizar una conmutación por recuperación, consulte [Conmutación por recuperación de máquinas virtuales de VMware y servidores físicos al sitio local](./vmware-azure-failback.md).
 
 ## <a name="summary"></a>Resumen
 Con Azure Site Recovery puede crear un plan completo de recuperación ante desastres automatizado para su aplicación Dynamics AX. Si se produce una interrupción, puede iniciar la conmutación por error en cuestión de segundos desde cualquier lugar y poner en funcionamiento la aplicación en pocos minutos.

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 9f394fa8d618c97d74a47ff6e42a002f177cf7d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b4f18c32639ceb2084febe210a8cfd4c423a0cf
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75973663"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135753"
 ---
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>Replicación de máquinas virtuales de Azure mediante la ejecución de Espacios de almacenamiento directo en otra región
 
@@ -20,7 +20,7 @@ En este artículo se describe cómo habilitar la recuperación ante desastres de
 >Solo se admiten los puntos de recuperación coherentes frente a bloqueos para los clústeres de Espacios de almacenamiento directo.
 >
 
-[Espacios de almacenamiento directo (S2D)](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) es almacenamiento definido por software, que proporciona una manera de crear [clústeres invitados](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure) en Azure.  Un clúster invitado en Microsoft Azure es un clúster de conmutación por error formado por máquinas virtuales IaaS. Permite que las cargas de trabajo de VM hospedadas se conmuten por error a través de clústeres invitados para lograr SLA de mayor disponibilidad para las aplicaciones, en comparación con lo que puede proporcionar una sola VM de Azure. Resulta útil en escenarios donde la máquina virtual hospeda una aplicación crítica, como un servidor de archivo de escalabilidad horizontal o SQL.
+[Espacios de almacenamiento directo (S2D)](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) es almacenamiento definido por software, que proporciona una manera de crear [clústeres invitados](https://techcommunity.microsoft.com/t5/failover-clustering/bg-p/FailoverClustering) en Azure.  Un clúster invitado en Microsoft Azure es un clúster de conmutación por error formado por máquinas virtuales IaaS. Permite que las cargas de trabajo de VM hospedadas se conmuten por error a través de clústeres invitados para lograr SLA de mayor disponibilidad para las aplicaciones, en comparación con lo que puede proporcionar una sola VM de Azure. Resulta útil en escenarios donde la máquina virtual hospeda una aplicación crítica, como un servidor de archivo de escalabilidad horizontal o SQL.
 
 ## <a name="disaster-recovery-with-storage-spaces-direct"></a>Recuperación ante desastres con espacios de almacenamiento directo
 
@@ -38,14 +38,14 @@ En el diagrama siguiente se muestra un clúster de conmutación por error de má
 
 **Consideraciones acerca de la recuperación ante desastres**
 
-1. Cuando está configurando el [testigo de la nube](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp) para el clúster, mantenga el testigo en la región de recuperación ante desastres.
-2. Si va a conmutar por error las máquinas virtuales a la subred en una región de recuperación ante desastres que es diferente de la región de origen, la dirección IP del clúster debe cambiarse después de la conmutación por error.  Para cambiar la dirección IP del clúster, debe usar el [script del plan de recuperación](https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation) de Site Recovery.</br>
+1. Cuando está configurando el [testigo de la nube](/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp) para el clúster, mantenga el testigo en la región de recuperación ante desastres.
+2. Si va a conmutar por error las máquinas virtuales a la subred en una región de recuperación ante desastres que es diferente de la región de origen, la dirección IP del clúster debe cambiarse después de la conmutación por error.  Para cambiar la dirección IP del clúster, debe usar el [script del plan de recuperación](./site-recovery-runbook-automation.md) de Site Recovery.</br>
 [Script de ejemplo](https://github.com/krnese/azure-quickstart-templates/blob/master/asr-automation-recovery/scripts/ASR-Wordpress-ChangeMysqlConfig.ps1) para ejecutar el comando dentro de la VM mediante la extensión de script personalizado 
 
 ### <a name="enabling-site-recovery-for-s2d-cluster"></a>Habilitación de Site Recovery para el clúster de S2D:
 
 1. Dentro del almacén de los servicios de recuperación, haga clic en "+ replicar".
-1. Seleccione todos los nodos del clúster y hágalos que sean parte de un [grupo de coherencia de varias VM](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-common-questions#multi-vm-consistency).
+1. Seleccione todos los nodos del clúster y hágalos que sean parte de un [grupo de coherencia de varias VM](./azure-to-azure-common-questions.md#multi-vm-consistency).
 1. Seleccione la directiva de replicación con la coherencia de la aplicación desactivada* (solo está disponible la compatibilidad con coherencia frente a bloqueos).
 1. Habilite la replicación.
 
@@ -70,7 +70,7 @@ Para que las aplicaciones funciones correctamente, es posible que tenga que real
 
 
 ### <a name="failover-of-the-virtual-machines"></a>Conmutación por error de las máquinas virtuales 
-Los dos nodos de las máquinas virtuales se deben conmutar por error mediante el [plan de recuperación](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans) de Site Recovery. 
+Los dos nodos de las máquinas virtuales se deben conmutar por error mediante el [plan de recuperación](./site-recovery-create-recovery-plans.md) de Site Recovery. 
 
 ![protección de storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/recoveryplan.PNG)
 
@@ -94,4 +94,4 @@ Para más información, consulte [Conmutación por error de prueba a Azure en Si
 Para más información, consulte [Conmutación por error en Site Recovery](site-recovery-failover.md).
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Más información](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback) sobre la ejecución de conmutaciones por recuperación.
+[Más información](./azure-to-azure-tutorial-failover-failback.md) sobre la ejecución de conmutaciones por recuperación.

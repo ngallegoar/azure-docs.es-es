@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: rajanaki
-ms.openlocfilehash: 5e74466891a5926d8ae8feb3c1c48348ecf3cfe6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9d333467864f67bc357314830ff885af4232ba0
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74134400"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133196"
 ---
 # <a name="deprecation-of-site-recovery-data-encryption-feature"></a>Desuso de la característica de cifrado de datos de Site Recovery
 
@@ -22,7 +22,7 @@ En este documento se describen los detalles de desuso y la acción correctiva qu
 ## <a name="deprecation-information"></a>Información sobre el desuso
 
 
-El cifrado de datos de Site Recovery estaba disponible para los clientes que protegen máquinas virtuales de Hyper-V para asegurarse de que los datos replicados estaban protegidos contra amenazas de seguridad. Esta característica estará en desuso el **30 de diciembre de 2019**. Se está reemplazando por la característica más avanzada [Cifrado en reposo](https://azure.microsoft.com/blog/azure-site-recovery-encryption-at-rest/), que usa [Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) (SSE). Con SSE, los datos se cifran antes de guardarse en el almacenamiento y se descifran en la recuperación y, tras la conmutación por error en Azure, las máquinas virtuales se ejecutarán desde las cuentas de almacenamiento cifradas, lo que permite un mejor objetivo de tiempo de recuperación (RTO).
+El cifrado de datos de Site Recovery estaba disponible para los clientes que protegen máquinas virtuales de Hyper-V para asegurarse de que los datos replicados estaban protegidos contra amenazas de seguridad. Esta característica estará en desuso el **30 de diciembre de 2019**. Se está reemplazando por la característica más avanzada [Cifrado en reposo](https://azure.microsoft.com/blog/azure-site-recovery-encryption-at-rest/), que usa [Storage Service Encryption](../storage/common/storage-service-encryption.md) (SSE). Con SSE, los datos se cifran antes de guardarse en el almacenamiento y se descifran en la recuperación y, tras la conmutación por error en Azure, las máquinas virtuales se ejecutarán desde las cuentas de almacenamiento cifradas, lo que permite un mejor objetivo de tiempo de recuperación (RTO).
 
 Tenga en cuenta que si es un cliente que usa esta característica, ya habrá recibido información con los detalles de desuso y los pasos de corrección. 
 
@@ -35,9 +35,9 @@ Después del **30 de diciembre de 2019**, cualquier máquina virtual que siga us
 Para continuar con las operaciones de conmutación por error correctas y las replicaciones, siga los pasos que se mencionan a continuación:
 
 Siga estos pasos para cada máquina virtual: 
-1.  [Deshabilite la replicación](https://docs.microsoft.com/azure/site-recovery/site-recovery-manage-registration-and-protection#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario).
-2.  [Cree una directiva de replicación nueva](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-tutorial#set-up-a-replication-policy).
-3.  [Habilite la replicación](https://docs.microsoft.com/azure/site-recovery/hyper-v-vmm-azure-tutorial#enable-replication) y seleccione una cuenta de almacenamiento con SSE habilitado.
+1.  [Deshabilite la replicación](./site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario).
+2.  [Cree una directiva de replicación nueva](./hyper-v-azure-tutorial.md#set-up-a-replication-policy).
+3.  [Habilite la replicación](./hyper-v-vmm-azure-tutorial.md#enable-replication) y seleccione una cuenta de almacenamiento con SSE habilitado.
 
 Después de completar la replicación inicial en las cuentas de almacenamiento con SSE habilitado, las máquinas virtuales utilizarán el cifrado en reposo con Azure Site Recovery.
 

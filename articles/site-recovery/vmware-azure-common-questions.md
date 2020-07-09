@@ -3,12 +3,12 @@ title: Preguntas comunes sobre la recuperación ante desastres de VMware con Azu
 description: Obtenga respuestas a las preguntas comunes sobre cómo configurar la recuperación ante desastres de máquinas virtuales de VMware locales en Azure mediante Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: d551cef7037c0b6d7286cbb4b70d8f7a8f7f5cae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a523df21caca2a6def4274542979e9963345384b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81259517"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135166"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Preguntas frecuentes sobre la replicación de VMware en Azure
 
@@ -122,7 +122,7 @@ La replicación de máquinas virtuales nuevas en una cuenta de almacenamiento se
 
 ### <a name="can-i-change-the-managed-disk-type-after-a-machine-is-protected"></a>¿Puedo cambiar el tipo de disco administrado después de proteger una máquina?
 
-Sí, le resultará muy fácil [cambiar el tipo de disco administrado](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) de las replicaciones en curso. Antes de cambiar el tipo, asegúrese de que no se ha generado ninguna dirección URL de firma de acceso compartido en el disco administrado:
+Sí, le resultará muy fácil [cambiar el tipo de disco administrado](../virtual-machines/windows/convert-disk-storage.md) de las replicaciones en curso. Antes de cambiar el tipo, asegúrese de que no se ha generado ninguna dirección URL de firma de acceso compartido en el disco administrado:
 
 1. Vaya al recurso **Disco administrado** en Azure Portal y compruebe si tiene un banner de dirección URL de firma de acceso compartido en la hoja **Información general**.
 1. Si ve el banner, selecciónelo para cancelar la exportación en curso.

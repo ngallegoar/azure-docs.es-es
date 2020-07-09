@@ -5,18 +5,18 @@ author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
 ms.date: 05/25/2020
-ms.openlocfilehash: 9fabf6cf4c8a3afc2d119fca2c8cdc2526ddbebb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c125f11400a75d221a62aa62020001104e05d167
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84415872"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134895"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>Replicación de máquinas virtuales de Azure que se ejecutan en grupos con ubicación por proximidad en otra región
 
 En este artículo se describe cómo replicar, conmutar por error y por recuperación máquinas virtuales que se ejecutan en un grupo con ubicación por proximidad en una región secundaria.
 
-[Grupos con ubicación por proximidad](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups-portal) es una funcionalidad de agrupación lógica de máquinas virtuales de Azure que se puede usar para reducir la latencia de red entre máquinas virtuales asociada a las aplicaciones. Cuando las máquinas virtuales se implementan en el mismo grupo con ubicación por proximidad, se ubican físicamente lo más cerca posible entre sí. Los grupos con ubicación por proximidad son especialmente útiles para satisfacer los requisitos de las cargas de trabajo sensibles a la latencia.
+[Grupos con ubicación por proximidad](../virtual-machines/windows/proximity-placement-groups-portal.md) es una funcionalidad de agrupación lógica de máquinas virtuales de Azure que se puede usar para reducir la latencia de red entre máquinas virtuales asociada a las aplicaciones. Cuando las máquinas virtuales se implementan en el mismo grupo con ubicación por proximidad, se ubican físicamente lo más cerca posible entre sí. Los grupos con ubicación por proximidad son especialmente útiles para satisfacer los requisitos de las cargas de trabajo sensibles a la latencia.
 
 ## <a name="disaster-recovery-with-proximity-placement-groups"></a>Recuperación ante desastres con grupos con ubicación por proximidad
 
@@ -33,21 +33,21 @@ En un escenario típico, puede hacer que las máquinas virtuales que se ejecutan
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-1. Asegúrese de que tiene del módulo Az de Azure PowerShell. Si necesita instalar o actualizar Azure PowerShell, siga esta [Guía para instalar y configurar Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+1. Asegúrese de que tiene del módulo Az de Azure PowerShell. Si necesita instalar o actualizar Azure PowerShell, siga esta [Guía para instalar y configurar Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="set-up-site-recovery-for-virtual-machines-in-proximity-placement-group"></a>Configuración de Site Recovery para Virtual Machines en un grupo con ubicación por proximidad
 
 ### <a name="azure-to-azure"></a>De Azure a Azure
 
-1. [Inicie sesión](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#sign-in-to-your-microsoft-azure-subscription) en la cuenta y establezca la suscripción.
-2. Obtenga los detalles de la máquina virtual que va a replicar tal y como se ha mencionado [aquí](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#get-details-of-the-virtual-machine-to-be-replicated).
-3. [Cree](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#create-a-recovery-services-vault) el almacén de Recovery Services y [establezca](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#set-the-vault-context) su contexto.
-4. Prepare el almacén para iniciar la replicación de máquinas virtuales. Esto implica la creación de un [objeto de Service Fabric](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#create-a-site-recovery-fabric-object-to-represent-the-primary-source-region) para la región principal y la de recuperación.
-5. [Cree](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#create-a-site-recovery-protection-container-in-the-primary-fabric) un contenedor de protección de Site Recovery, para el tejido principal y el de recuperación.
-6. [Cree](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#create-a-replication-policy) una directiva de replicación.
-7. Cree una asignación de contenedor de protección entre el contenedor de protección principal y el de recuperación mediante [estos](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#create-a-protection-container-mapping-between-the-primary-and-recovery-protection-container) pasos y una asignación de contenedor de protección para la conmutación por recuperación, como se ha mencionado [aquí](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover).
-8. Siga [estos](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#create-cache-storage-account-and-target-storage-account) pasos para crear una cuenta de almacenamiento en caché.
-9. Cree las asignaciones de red necesarias como se ha mencionado [aquí](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#create-network-mappings).
+1. [Inicie sesión](./azure-to-azure-powershell.md#sign-in-to-your-microsoft-azure-subscription) en la cuenta y establezca la suscripción.
+2. Obtenga los detalles de la máquina virtual que va a replicar tal y como se ha mencionado [aquí](./azure-to-azure-powershell.md#get-details-of-the-virtual-machine-to-be-replicated).
+3. [Cree](./azure-to-azure-powershell.md#create-a-recovery-services-vault) el almacén de Recovery Services y [establezca](./azure-to-azure-powershell.md#set-the-vault-context) su contexto.
+4. Prepare el almacén para iniciar la replicación de máquinas virtuales. Esto implica la creación de un [objeto de Service Fabric](./azure-to-azure-powershell.md#create-a-site-recovery-fabric-object-to-represent-the-primary-source-region) para la región principal y la de recuperación.
+5. [Cree](./azure-to-azure-powershell.md#create-a-site-recovery-protection-container-in-the-primary-fabric) un contenedor de protección de Site Recovery, para el tejido principal y el de recuperación.
+6. [Cree](./azure-to-azure-powershell.md#create-a-replication-policy) una directiva de replicación.
+7. Cree una asignación de contenedor de protección entre el contenedor de protección principal y el de recuperación mediante [estos](./azure-to-azure-powershell.md#create-a-protection-container-mapping-between-the-primary-and-recovery-protection-container) pasos y una asignación de contenedor de protección para la conmutación por recuperación, como se ha mencionado [aquí](./azure-to-azure-powershell.md#create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover).
+8. Siga [estos](./azure-to-azure-powershell.md#create-cache-storage-account-and-target-storage-account) pasos para crear una cuenta de almacenamiento en caché.
+9. Cree las asignaciones de red necesarias como se ha mencionado [aquí](./azure-to-azure-powershell.md#create-network-mappings).
 10. Para replicar la máquina virtual de Azure con discos administrados, use el siguiente cmdlet de PowerShell: 
 
 ```azurepowershell
@@ -91,8 +91,8 @@ Para supervisar el estado y el mantenimiento de la replicación en la máquina v
 Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $PrimaryProtContainer | Select FriendlyName, ProtectionState, ReplicationHealth
 ```
 
-11. Para realizar una conmutación por error de prueba, una validación y limpiar la conmutación por error de prueba, siga [estos](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#do-a-test-failover-validate-and-cleanup-test-failover) pasos.
-12. Para la conmutación por error, siga los pasos descritos [aquí](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#fail-over-to-azure).
+11. Para realizar una conmutación por error de prueba, una validación y limpiar la conmutación por error de prueba, siga [estos](./azure-to-azure-powershell.md#do-a-test-failover-validate-and-cleanup-test-failover) pasos.
+12. Para la conmutación por error, siga los pasos descritos [aquí](./azure-to-azure-powershell.md#fail-over-to-azure).
 13. Para volver a proteger y realizar la conmutación por recuperación en la región de origen, use el siguiente cmdlet de PowerShell:
 
 ```azurepowershell
@@ -103,16 +103,16 @@ $WestUSCacheStorageAccount = New-AzStorageAccount -Name "a2acachestoragewestus" 
 #Use the recovery protection container, new cache storage account in West US and the source region VM resource group 
 Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $ReplicationProtectedItem -AzureToAzure -ProtectionContainerMapping $WusToEusPCMapping -LogStorageAccountId $WestUSCacheStorageAccount.Id -RecoveryResourceGroupID $sourceVMResourcegroup.ResourceId -RecoveryProximityPlacementGroupId $vm.ProximityPlacementGroup.Id
 ```
-14. Para deshabilitar la replicación, siga [estos](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#disable-replication) pasos.
+14. Para deshabilitar la replicación, siga [estos](./azure-to-azure-powershell.md#disable-replication) pasos.
 
 ### <a name="vmware-to-azure"></a>De VMware a Azure
 
-1. Asegúrese de [preparar los servidores de VMware locales](https://docs.microsoft.com/azure/site-recovery/vmware-azure-tutorial-prepare-on-premises) para la recuperación ante desastres en Azure.
-2. Inicie sesión en la cuenta y establezca la suscripción como se ha especificado [aquí](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell#log-into-azure).
-3. [Configure](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell#set-up-a-recovery-services-vault) un almacén de Recovery Services y [establezca su contexto](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell#set-the-vault-context).
-4. [Valide](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell#validate-vault-registration) el registro del almacén.
-5. [Cree](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell#create-a-replication-policy) una directiva de replicación.
-6. [Agregue](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell#add-a-vcenter-server-and-discover-vms) un servidor vCenter y detecte máquinas virtuales, y [cree](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell#create-storage-accounts-for-replication) cuentas de almacenamiento para la replicación.
+1. Asegúrese de [preparar los servidores de VMware locales](./vmware-azure-tutorial-prepare-on-premises.md) para la recuperación ante desastres en Azure.
+2. Inicie sesión en la cuenta y establezca la suscripción como se ha especificado [aquí](./vmware-azure-disaster-recovery-powershell.md#log-into-azure).
+3. [Configure](./vmware-azure-disaster-recovery-powershell.md#set-up-a-recovery-services-vault) un almacén de Recovery Services y [establezca su contexto](./vmware-azure-disaster-recovery-powershell.md#set-the-vault-context).
+4. [Valide](./vmware-azure-disaster-recovery-powershell.md#validate-vault-registration) el registro del almacén.
+5. [Cree](./vmware-azure-disaster-recovery-powershell.md#create-a-replication-policy) una directiva de replicación.
+6. [Agregue](./vmware-azure-disaster-recovery-powershell.md#add-a-vcenter-server-and-discover-vms) un servidor vCenter y detecte máquinas virtuales, y [cree](./vmware-azure-disaster-recovery-powershell.md#create-storage-accounts-for-replication) cuentas de almacenamiento para la replicación.
 7. Para replicar máquinas virtuales de VMware, consulte los detalles aquí y siga el siguiente cmdlet de PowerShell:
 
 ```azurepowershell
@@ -137,18 +137,18 @@ $Job_EnableReplication1 = New-AzRecoveryServicesAsrReplicationProtectedItem -VMw
 ```azurepowershell
 Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $ProtectionContainer | Select FriendlyName, ProtectionState, ReplicationHealth
 ```
-9. Para configurar los valores de conmutación por error, siga [estos](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell#configure-failover-settings) pasos.
-10. [Ejecute](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell#run-a-test-failover) una conmutación por error de prueba. 
-11. Siga [estos](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell#fail-over-to-azure) pasos para conmutar por error a Azure.
+9. Para configurar los valores de conmutación por error, siga [estos](./vmware-azure-disaster-recovery-powershell.md#configure-failover-settings) pasos.
+10. [Ejecute](./vmware-azure-disaster-recovery-powershell.md#run-a-test-failover) una conmutación por error de prueba. 
+11. Siga [estos](./vmware-azure-disaster-recovery-powershell.md#fail-over-to-azure) pasos para conmutar por error a Azure.
 
 ### <a name="hyper-v-to-azure"></a>De Hyper-V a Azure
 
-1. Asegúrese de [preparar los servidores de Hyper-V locales](https://docs.microsoft.com/azure/site-recovery/hyper-v-prepare-on-premises-tutorial) para la recuperación ante desastres en Azure.
-2. [Inicie sesión](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-powershell-resource-manager#step-1-sign-in-to-your-azure-account) en Azure.
-3. [Configure](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-powershell-resource-manager#step-2-set-up-the-vault) el almacén de Recovery Services y [establezca](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-powershell-resource-manager#step-3-set-the-recovery-services-vault-context) su contexto.
-4. [Cree](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-powershell-resource-manager#step-4-create-a-hyper-v-site) un sitio de Hyper-V.
-5. [Instale](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-powershell-resource-manager#step-5-install-the-provider-and-agent) el proveedor y el agente.
-6. [Cree](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-powershell-resource-manager#step-6-create-a-replication-policy) una directiva de replicación.
+1. Asegúrese de [preparar los servidores de Hyper-V locales](./hyper-v-prepare-on-premises-tutorial.md) para la recuperación ante desastres en Azure.
+2. [Inicie sesión](./hyper-v-azure-powershell-resource-manager.md#step-1-sign-in-to-your-azure-account) en Azure.
+3. [Configure](./hyper-v-azure-powershell-resource-manager.md#step-2-set-up-the-vault) el almacén de Recovery Services y [establezca](./hyper-v-azure-powershell-resource-manager.md#step-3-set-the-recovery-services-vault-context) su contexto.
+4. [Cree](./hyper-v-azure-powershell-resource-manager.md#step-4-create-a-hyper-v-site) un sitio de Hyper-V.
+5. [Instale](./hyper-v-azure-powershell-resource-manager.md#step-5-install-the-provider-and-agent) el proveedor y el agente.
+6. [Cree](./hyper-v-azure-powershell-resource-manager.md#step-6-create-a-replication-policy) una directiva de replicación.
 7. Siga estos pasos para habilitar la replicación: 
     
     a. Recupere el elemento protegible correspondiente a la máquina virtual que quiere proteger, como se indica a continuación:
@@ -188,13 +188,13 @@ Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $Protecti
 
     Get-AzRecoveryServicesAsrJob -Job $job | Select-Object -ExpandProperty state
     ```
-8. Ejecute una [conmutación por error](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-powershell-resource-manager#step-8-run-a-test-failover) de prueba.
+8. Ejecute una [conmutación por error](./hyper-v-azure-powershell-resource-manager.md#step-8-run-a-test-failover) de prueba.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para realizar la reprotección y la conmutación por recuperación de VMware en Azure, siga [estos](https://docs.microsoft.com/azure/site-recovery/vmware-azure-prepare-failback) pasos.
+Para realizar la reprotección y la conmutación por recuperación de VMware en Azure, siga [estos](./vmware-azure-prepare-failback.md) pasos.
 
-Para realizar la conmutación por error de Hyper-V a Azure, siga [estos](https://docs.microsoft.com/azure/site-recovery/site-recovery-failover) pasos y, para la conmutación por recuperación, [estos](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-failback).
+Para realizar la conmutación por error de Hyper-V a Azure, siga [estos](./site-recovery-failover.md) pasos y, para la conmutación por recuperación, [estos](./hyper-v-azure-failback.md).
 
 Para obtener más información, vea [Conmutación por error en Site Recovery](site-recovery-failover.md).

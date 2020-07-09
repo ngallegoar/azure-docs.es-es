@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: 6ecf0f047fe353d94ca901118d1f434e33e9c8d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e50601ac2c10861f63995af37fe8a98f9caa211b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82100573"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135131"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Etiquetado de una máquina virtual en Azure
 En este artículo se describen diferentes maneras de etiquetar una máquina virtual Windows en Azure por medio del modelo de implementación de Resource Manager. Las etiquetas son pares clave-valor definidos por el usuario que se pueden colocar directamente en un recurso o un grupo de recursos. Actualmente, Azure admite un máximo de 50 etiquetas por recurso y grupo de recursos. Las etiquetas se pueden colocar en un recurso en el momento de su creación, o bien se pueden agregar a un recurso existente. Tenga en cuenta que las etiquetas solo son compatibles con los recursos creados mediante el modelo de implementación de Resource Manager. Si desea etiquetar una máquina virtual Linux, consulte [How to tag a Linux virtual machine in Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)(Etiquetado de una máquina virtual Linux en Azure).
@@ -26,56 +26,66 @@ Para crear, agregar y eliminar etiquetas a través de PowerShell, primero es pre
 
 En primer lugar, navegue a una máquina virtual a través del cmdlet `Get-AzVM` .
 
-        PS C:\> Get-AzVM -ResourceGroupName "MyResourceGroup" -Name "MyTestVM"
+```azurepowershell
+PS C:\> Get-AzVM -ResourceGroupName "MyResourceGroup" -Name "MyTestVM"
+```
 
 Si la máquina virtual ya contiene etiquetas, verá todas ellas en el recurso:
 
-        Tags : {
-                "Application": "MyApp1",
-                "Created By": "MyName",
-                "Department": "MyDepartment",
-                "Environment": "Production"
-               }
+```json
+Tags : {
+        "Application": "MyApp1",
+        "Created By": "MyName",
+        "Department": "MyDepartment",
+        "Environment": "Production"
+        }
+```
 
 Si desea agregar etiquetas a través de PowerShell, puede usar el comando `Set-AzResource` . Tenga en cuenta que si actualiza las etiquetas a través de PowerShell, se actualizan todas ellas en conjunto. Por tanto, si va a agregar una etiqueta a un recurso que ya tiene etiquetas, tendrá que incluir todas las etiquetas que desea colocar en el recurso. A continuación se muestra un ejemplo de cómo agregar etiquetas adicionales a un recurso mediante los cmdlets de PowerShell.
 
 Este primer cmdlet establece todas las etiquetas colocadas en *MyTestVM* en la variable *$tags*, para lo que emplea las propiedades `Get-AzResource` y `Tags`.
 
-        PS C:\> $tags = (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
+```azurepowershell
+PS C:\> $tags = (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
+```
 
 El segundo comando muestra las etiquetas de la variable especificada.
 
-```
-    PS C:\> $tags
-    
-    Key           Value
-    ----          -----
-    Department    MyDepartment
-    Application   MyApp1
-    Created By    MyName
-    Environment   Production
+```azurepowershell
+PS C:\> $tags
+
+Key           Value
+----          -----
+Department    MyDepartment
+Application   MyApp1
+Created By    MyName
+Environment   Production
 ```
 
 El tercer comando agrega una etiqueta adicional a la variable *tags* . Observe el uso de **+=** para anexar el nuevo par de clave-valor a la lista de *tags* .
 
-        PS C:\> $tags += @{Location="MyLocation"}
+```azurepowershell
+PS C:\> $tags += @{Location="MyLocation"}
+```
 
 El cuarto comando establece todas las etiquetas definidas en la variable *tags* en el recurso especificado. En este caso, es MyTestVM.
 
-        PS C:\> Set-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM -ResourceType "Microsoft.Compute/VirtualMachines" -Tag $tags
+```azurepowershell
+PS C:\> Set-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM -ResourceType "Microsoft.Compute/VirtualMachines" -Tag $tags
+```
 
 El quinto comando muestra todas las etiquetas en el recurso. Como puede ver, *Location* está definido como una etiqueta, con *MyLocation* como valor.
 
-```
-    PS C:\> (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
+```azurepowershell
+PS C:\> (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
-    Key           Value
-    ----          -----
-    Department    MyDepartment
-    Application   MyApp1
-    Created By    MyName
-    Environment   Production
-    Location      MyLocation
+Key           Value
+----          -----
+Department    MyDepartment
+Application   MyApp1
+Created By    MyName
+Environment   Production
+Location      MyLocation
 ```
 
 Para más información sobre el etiquetado a través de PowerShell, consulte los [cmdlets de recursos de Azure][Azure Resource Cmdlets].

@@ -1,6 +1,6 @@
 - name: Documentación de Azure Resource Graph
   href: index.yml
-- name: Información general
+- name: Introducción
   items:
     - name: ¿Qué es Azure Resource Graph?
       displayName: 'Resource Manager, query language, rbac, permissions'
@@ -65,6 +65,10 @@
     - name: Guía para solicitudes limitadas
       displayName: 'pagination, batching, throttling, parallel'
       href: ./concepts/guidance-for-throttled-requests.md
+    - name: Seguridad
+      items:
+        - name: Línea de base de seguridad para Azure Security Benchmark
+          href: ./concepts/azure-security-benchmark-baseline.md
 - name: Guías paso a paso
   items:
     - name: Obtención de los cambios del recurso

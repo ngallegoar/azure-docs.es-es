@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: f7de3c28463a86852cba03713ca4c500e7ca0339
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 482a3808065bb2ec565bad7e760b9337b3db7007
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80437505"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133999"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configuración de la recuperación ante desastres para máquinas virtuales de Hyper-V en el sitio local secundario
 
@@ -48,10 +48,10 @@ La [asignación de red](hyper-v-vmm-network-mapping.md) funciona entre redes de 
 
 Prepare VMM de la siguiente manera:
 
-1. Asegúrese de tener [redes lógicas VMM](https://docs.microsoft.com/system-center/vmm/network-logical) en los servidores VMM de origen y destino.
+1. Asegúrese de tener [redes lógicas VMM](/system-center/vmm/network-logical) en los servidores VMM de origen y destino.
     - La red lógica del servidor de origen se debe asociar con la nube de origen en la que se encuentran los hosts Hyper-V.
     - La red lógica del servidor de destino se debe asociar con la nube de destino.
-1. Asegúrese de tener [redes de máquina virtual](https://docs.microsoft.com/system-center/vmm/network-virtual) en los servidores VMM de origen y destino. Las redes de máquina virtual se deben vincular a la red lógica de cada ubicación.
+1. Asegúrese de tener [redes de máquina virtual](/system-center/vmm/network-virtual) en los servidores VMM de origen y destino. Las redes de máquina virtual se deben vincular a la red lógica de cada ubicación.
 2. Conecte máquinas virtuales en los host Hyper-V de origen a la red de máquina virtual de origen. 
 
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 3e81e353d2912f56a932ce118a0424e45e758df7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fbd11c279708cd828693baab3f9f6df91515bc48
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74133016"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133909"
 ---
 # <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>Arquitectura de replicación de Hyper-V en un sitio secundario
 
@@ -36,7 +36,7 @@ En la siguiente tabla y gráfico se proporciona una visión general de los compo
 
 ## <a name="replication-process"></a>Proceso de replicación
 
-1. Cuando se desencadena la replicación inicial, se toma una [instantánea de la máquina virtual de Hyper-V](https://technet.microsoft.com/library/dd560637.aspx).
+1. Cuando se desencadena la replicación inicial, se toma una [instantánea de la máquina virtual de Hyper-V](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560637(v=ws.10)).
 2. Los discos duros virtuales de la máquina virtual se replican uno a uno en la ubicación secundaria.
 3. Si se producen cambios en el disco con la replicación inicial en curso, el seguimiento de replicaciones de Réplica de Hyper-V realiza un seguimiento de esos cambios en los registros de replicación de Hyper-V (.hrl). Estos archivos de registro se encuentran en la misma carpeta que los discos. Cada disco tiene un archivo .hrl asociado que se envía a la ubicación secundaria. Los archivos de instantáneas y de registro consumen recursos de disco mientras la replicación inicial está en curso.
 4. Cuando finaliza la replicación inicial, se elimina la instantánea de la máquina virtual y la replicación diferencial comienza.

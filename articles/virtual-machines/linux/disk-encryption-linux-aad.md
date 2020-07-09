@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2ce3afb533aa33b88b15510eacc88c0884811cc6
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: c1349052488cb520f5866b5b0d238a223f2ceb68
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792605"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135088"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Habilitación de Azure Disk Encryption con Azure AD en máquinas virtuales Linux (versión anterior)
 
@@ -211,20 +211,28 @@ Se recomienda una configuración LVM-on-crypt. En todos los ejemplos siguientes,
 
     1. Formatee el disco recién agregado. Aquí se usarán symlinks generados por Azure. El uso de symlinks evita los problemas relacionados con el cambio de los nombres de dispositivo. Para más información, consulte [Solución de problemas de nombres de dispositivo](troubleshoot-device-names-problems.md).
     
-             `mkfs -t ext4 /dev/disk/azure/scsi1/lun0`
-        
+        ```console
+        mkfs -t ext4 /dev/disk/azure/scsi1/lun0
+        ```
+
     2. Monte los discos.
-         
-             `mount /dev/disk/azure/scsi1/lun0 /mnt/mountpoint`    
-        
+
+        ```console
+        mount /dev/disk/azure/scsi1/lun0 /mnt/mountpoint
+        ```
+
     3. Agréguelos a fstab.
-         
-            `echo "/dev/disk/azure/scsi1/lun0 /mnt/mountpoint ext4 defaults,nofail 1 2" >> /etc/fstab`
-        
+
+        ```console
+        echo "/dev/disk/azure/scsi1/lun0 /mnt/mountpoint ext4 defaults,nofail 1 2" >> /etc/fstab
+        ```
+
     4. Ejecute el cmdlet Set-AzVMDiskEncryptionExtension PowerShell con -EncryptFormatAll para cifrar estos discos.
-             ```azurepowershell-interactive
-             Set-AzVMDiskEncryptionExtension -ResourceGroupName "MySecureGroup" -VMName "MySecureVM" -DiskEncryptionKeyVaultUrl "https://mykeyvault.vault.azure.net/" -EncryptFormatAll
-             ```
+
+       ```azurepowershell-interactive
+        Set-AzVMDiskEncryptionExtension -ResourceGroupName "MySecureGroup" -VMName "MySecureVM" -DiskEncryptionKeyVaultUrl "https://mykeyvault.vault.azure.net/" -EncryptFormatAll
+        ```
+
     5. Configure LVM encima de estos nuevos discos. Tenga en cuenta que las unidades cifradas se desbloquean después de que la máquina virtual ha terminado de arrancar. Por lo tanto, el montaje de LVM también tendrá que retrasarse.
 
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 6c77cd43231d4596535c11564313a0fe90633cdb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bb112e0b2d1c64e65ecaf6749a25707d8632c0cb
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60947803"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134953"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Traffic Manager con Azure Site Recovery
 
@@ -30,7 +30,7 @@ En el primer escenario, tenemos la **Compañía A** donde toda su infraestructur
 La **Compañía A** ejecuta aplicaciones con puntos de conexión públicos y desea tener la posibilidad de redirigir completamente el tráfico a Azure en caso de desastre. El método de enrutamiento del tráfico de [Prioridad](../traffic-manager/traffic-manager-configure-priority-routing-method.md) de Azure Traffic Manager permite que la Compañía A implemente fácilmente este patrón de conmutación por error.
 
 La configuración es la siguiente:
-- La **Compañía A** crea un [perfil de Traffic Manager](../traffic-manager/traffic-manager-create-profile.md).
+- La **Compañía A** crea un [perfil de Traffic Manager](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 - Mediante el método de enrutamiento de **Prioridad**, la **Compañía A** crea dos puntos de conexión: uno **Principal** para el entorno local y otro de **Conmutación por error** para Azure. Al punto de conexión **Principal** se le asigna la Prioridad 1 y al de **Conmutación por error** la Prioridad 2.
 - Puesto que el punto de conexión **Principal** se hospeda fuera de Azure, el punto de conexión se crea como un punto de conexión [Externo](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints).
 - Con Azure Site Recovery, el sitio de Azure no tiene máquinas virtuales ni aplicaciones que se ejecuten antes de la conmutación por error. Por lo tanto, el punto de conexión de **Conmutación por error** también se crea como un punto de conexión **Externo**.
@@ -65,7 +65,7 @@ En este ejemplo, tenemos la **Compañía C** en la que toda su infraestructura d
 La **Compañía C** ejecuta aplicaciones con puntos de conexión públicos y desea tener la posibilidad de redirigir completamente el tráfico a una región diferente de Azure en caso de desastre. El método de enrutamiento de tráfico de [Prioridad](../traffic-manager/traffic-manager-configure-priority-routing-method.md) permite que la **Compañía C** implemente fácilmente este patrón de conmutación por error.
 
 La configuración es la siguiente:
-- La **Compañía C** crea un [perfil de Traffic Manager](../traffic-manager/traffic-manager-create-profile.md).
+- La **Compañía C** crea un [perfil de Traffic Manager](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 - Mediante el método de enrutamiento de **Prioridad**, la **Compañía C** crea dos puntos de conexión: uno **Principal** para la región de origen (Azure Este de Asia) y otro de **Conmutación por error** para la región de recuperación (Azure Sudeste de Asia). Al punto de conexión **Principal** se le asigna la Prioridad 1 y al de **Conmutación por error** la Prioridad 2.
 - Dado que el punto de conexión **Principal** está hospedado en Azure, el punto de conexión puede ser un punto de conexión de [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints).
 - Con Azure Site Recovery, el sitio de Azure de recuperación no tiene máquinas virtuales o aplicaciones que se ejecuten antes de la conmutación por error. Por lo tanto, el punto de conexión de **Conmutación por error** se puede crear como un punto de conexión [Externo](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints).

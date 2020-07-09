@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: mayg
-ms.openlocfilehash: 70d84516e2d7a42b1c6a3714d9060bedf6535f58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71f4209b4af9c5bb5f171cf3c8e35b0fbc05fac9
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79366303"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134783"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Información sobre Azure Site Recovery Deployment Planner para VMware en Azure
 Este artículo es la guía del usuario de Azure Site Recovery Deployment Planner para implementaciones de producción de VMware en Azure.
@@ -120,7 +120,7 @@ Si tiene una versión anterior de Deployment Planner, realice una de las siguien
 
 ## <a name="version-history"></a>Historial de versiones
 La versión más reciente de la herramienta Site Recovery Deployment Planner es la 2.5.
-Para saber qué correcciones se agregan en cada actualización, consulte [ASR Deployment Planner Version History](https://docs.microsoft.com/azure/site-recovery/site-recovery-deployment-planner-history) (Historial de versiones de ASR Deployment Planner).
+Para saber qué correcciones se agregan en cada actualización, consulte [ASR Deployment Planner Version History](./site-recovery-deployment-planner-history.md) (Historial de versiones de ASR Deployment Planner).
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Ejecución de Site Recovery Deployment Planner](site-recovery-vmware-deployment-planner-run.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: c555b058e6d0b8c110a3273525b5a8c58baaff61
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 0fd2bcfb32524c6911a70157f58cea1e48b7bea9
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309788"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135239"
 ---
 # <a name="azure-serial-console-for-windows"></a>Consola serie de Azure para Windows
 
@@ -102,15 +102,15 @@ Si tiene que habilitar los mensajes del cargador de arranque de Windows para que
 
     ![Conectarse a SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 
-1.    Escriba `cmd` para crear un canal que contenga una instancia de CMD.
+1. Escriba `cmd` para crear un canal que contenga una instancia de CMD.
 
-1.    Escriba `ch -si 1` o presione las teclas de método abreviado `<esc>+<tab>` para cambiar al canal que ejecuta la instancia de CDM.
+1. Escriba `ch -si 1` o presione las teclas de método abreviado `<esc>+<tab>` para cambiar al canal que ejecuta la instancia de CDM.
 
-1.    Presione **Entrar** y, a continuación, escriba las credenciales de inicio de sesión con permisos administrativos.
+1. Presione **Entrar** y, a continuación, escriba las credenciales de inicio de sesión con permisos administrativos.
 
-1.    Después de escribir las credenciales válidas, se abre la instancia de CMD.
+1. Después de escribir las credenciales válidas, se abre la instancia de CMD.
 
-1.    Para iniciar una instancia de PowerShell, escriba `PowerShell` en la instancia de CMD y, a continuación, presione **Entrar**.
+1. Para iniciar una instancia de PowerShell, escriba `PowerShell` en la instancia de CMD y, a continuación, presione **Entrar**.
 
     ![Abrir una instancia de PowerShell](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 

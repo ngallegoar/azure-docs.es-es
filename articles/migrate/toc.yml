@@ -1,6 +1,6 @@
 - name: Documentación de Azure Migrate
   href: index.yml
-- name: Información general
+- name: Introducción
   items:
     - name: Acerca de Azure Migrate
       href: migrate-services-overview.md
@@ -131,7 +131,7 @@
     - name: Creación de una valoración de AVS
       href: how-to-create-azure-vmware-solution-assessment.md
     - name: Evaluación de una base de datos de SQL Server
-      href: 'https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb'
+      href: /sql/dma/dma-assess-sql-data-estate-to-sqldb
     - name: Personalización de una evaluación
       href: how-to-modify-assessment.md
     - name: Incorporación de herramientas de migración
@@ -171,9 +171,9 @@
 - name: Recursos
   items:
     - name: Migración en Cloud Adoption Framework
-      href: 'https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/index'
+      href: /azure/cloud-adoption-framework/migrate/
     - name: API DE REST
-      href: 'https://docs.microsoft.com/rest/api/migrate/'
+      href: /rest/api/migrate/
     - name: Plantilla de Resource Manager
       href: /azure/templates/microsoft.migrate/allversions
     - name: Precios
@@ -181,7 +181,7 @@
     - name: UserVoice
       href: 'https://aka.ms/AzureMigrateUservoice'
     - name: Página de preguntas y respuestas de Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-migrate.html'
+      href: /answers/topics/azure-migrate.html
     - name: Blog
       href: 'https://azure.microsoft.com/blog/tag/azure-migrate/'
     - name: Azure Migrate

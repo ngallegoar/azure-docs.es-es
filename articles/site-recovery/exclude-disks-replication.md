@@ -3,12 +3,12 @@ title: Exclusión de discos de una replicación con Azure Site Recovery
 description: Cómo excluir discos de una replicación en Azure con Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: aa2e3ef3906a03be649a1978c1d662056c4d0f25
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 5a8d52bd0cc40b45f92039c537a1b3b63f0bec61
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83740531"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135686"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Exclusión de discos de una recuperación ante desastres
 
@@ -260,7 +260,6 @@ La configuración de nuestro archivo de paginación en la máquina virtual de A
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga más información sobre las directrices relativas al disco de almacenamiento temporal:
-    - [Obtenga información sobre cómo](https://blogs.technet.microsoft.com/dataplatforminsider/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) usar SSD en máquinas virtuales de Azure para almacenar la base de datos TempDB de SQL Server y las extensiones del grupo de búferes.
-    - [Repase ](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance) los procedimientos recomendados de rendimiento de SQL Server en máquinas virtuales de Azure.
+    - [Obtenga información sobre cómo](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) usar SSD en máquinas virtuales de Azure para almacenar la base de datos TempDB de SQL Server y las extensiones del grupo de búferes.
+    - [Repase ](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) los procedimientos recomendados de rendimiento de SQL Server en máquinas virtuales de Azure.
 - Después de que la implementación esté configurada y en ejecución, [obtenga más información](failover-failback-overview.md) sobre los diferentes tipos de conmutación por error.
-

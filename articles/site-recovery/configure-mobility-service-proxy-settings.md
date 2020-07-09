@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sideeksh
-ms.openlocfilehash: 3d33b5a89a718a41e5c547551f6e7eb4f7033a63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 429ffcab147142ae2e96de13b7c9e1e5ee1ac7ba
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79504124"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133218"
 ---
 # <a name="configure-mobility-service-proxy-settings-for-azure-to-azure-disaster-recovery"></a>Configuración del proxy del servicio Mobility para Azure en la recuperación ante desastres de Azure
 
@@ -54,5 +54,5 @@ En este caso, el cliente proporciona la configuración personalizada del proxy d
 ProxyInfo.conf contiene la siguiente plantilla [proxy] Address=http://1.2.3.4 Port=5678 BypassList=hypervrecoverymanager.windowsazure.com,login.microsoftonline.com,blob.core.windows.net. BypassList no admite caracteres comodín como "*. windows.net", pero escribir windows.net es suficiente para la omisión. 
 
 ## <a name="next-steps"></a>Pasos siguientes:
-- Obtenga más información en las [instrucciones sobre redes](site-recovery-azure-to-azure-networking-guidance.md) para replicar máquinas virtuales de Azure.
-- Implemente la recuperación ante desastres mediante [la replicación de máquinas virtuales de Azure](site-recovery-azure-to-azure.md).
+- Obtenga más información en las [instrucciones sobre redes](./azure-to-azure-about-networking.md) para replicar máquinas virtuales de Azure.
+- Implemente la recuperación ante desastres mediante [la replicación de máquinas virtuales de Azure](./azure-to-azure-quickstart.md).

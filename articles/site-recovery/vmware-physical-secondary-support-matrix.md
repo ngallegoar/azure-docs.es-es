@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: cabd3f7693c6b6b86bf0324bdafdfe1377d1ece8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6f0f48df32db0beb9c0a57982d9bc87b26538d8
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711891"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135151"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en un sitio secundario.
 
@@ -131,5 +131,5 @@ Mobility Service coordina la replicación entre los servidores físicos o los se
 
 Descargue la [guía del usuario de InMage Scout](https://aka.ms/asr-scout-user-guide).
 
-- [Replicar las máquinas virtuales de Hyper-V en nubes VMM en una nube secundaria](tutorial-vmm-to-vmm.md)
-- [Replicación de máquinas virtuales de VMware y servidores físicos en un sitio secundario](tutorial-vmware-to-vmware.md)
+- [Replicar las máquinas virtuales de Hyper-V en nubes VMM en una nube secundaria](./hyper-v-vmm-disaster-recovery.md)
+- [Replicación de máquinas virtuales de VMware y servidores físicos en un sitio secundario](./vmware-physical-secondary-disaster-recovery.md)
