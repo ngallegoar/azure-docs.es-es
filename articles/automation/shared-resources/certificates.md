@@ -9,16 +9,16 @@ ms.author: magoedte
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ebd4bf0ff91342229edb4295489f0cbd0970699a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 918e34114faa7a57e54ec45c1cca8036462a8fa1
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745022"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187394"
 ---
 # <a name="manage-certificates-in-azure-automation"></a>Administración de certificados en Azure Automation
 
-Azure Automation almacena los certificados de forma segura para que los runbooks o las configuraciones DSC puedan acceder a ellos mediante el cmdlet [Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) para recursos de Azure Resource Manager. El almacenamiento seguro de certificados permite crear runbooks y configuraciones DSC que usan certificados para autenticación, o agregarlos a Azure o a recursos de terceros.
+Azure Automation almacena los certificados de forma segura para que los runbooks o las configuraciones DSC puedan acceder a ellos mediante el cmdlet [Get-AzAutomationCertificate](/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) para recursos de Azure Resource Manager. El almacenamiento seguro de certificados permite crear runbooks y configuraciones DSC que usan certificados para autenticación, o agregarlos a Azure o a recursos de terceros.
 
 >[!NOTE]
 >Los recursos protegidos en Azure Automation incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se cifran y se almacenan en Automation con una clave única que se genera para cada cuenta de Automation. Automation almacena la clave en el servicio de Key Vault administrado por el sistema. Antes de almacenar un recurso seguro, Automation carga la clave desde Key Vault y después la usa para cifrar el recurso. 
@@ -29,10 +29,10 @@ Los cmdlets de la tabla siguiente permiten crear y administrar certificados de A
 
 |Cmdlet |Descripción|
 | --- | ---|
-|[Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0)|Recupera información sobre un certificado para utilizarlo en un runbook o en la configuración de DSC. Solo puede recuperar el certificado mediante el cmdlet `Get-AutomationCertificate` interno.|
-|[New-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationCertificate?view=azps-3.7.0)|Crea un certificado nuevo en Automation.|
-|[Remove-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationCertificate?view=azps-3.7.0)|Quita un certificado de Automation.|
-|[Set-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationCertificate?view=azps-3.7.0)|Establece las propiedades de un certificado existente, incluidos la carga del archivo de certificado y el establecimiento de la contraseña para un archivo **.pfx**.|
+|[Get-AzAutomationCertificate](/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0)|Recupera información sobre un certificado para utilizarlo en un runbook o en la configuración de DSC. Solo puede recuperar el certificado mediante el cmdlet `Get-AutomationCertificate` interno.|
+|[New-AzAutomationCertificate](/powershell/module/Az.Automation/New-AzAutomationCertificate?view=azps-3.7.0)|Crea un certificado nuevo en Automation.|
+|[Remove-AzAutomationCertificate](/powershell/module/Az.Automation/Remove-AzAutomationCertificate?view=azps-3.7.0)|Quita un certificado de Automation.|
+|[Set-AzAutomationCertificate](/powershell/module/Az.Automation/Set-AzAutomationCertificate?view=azps-3.7.0)|Establece las propiedades de un certificado existente, incluidos la carga del archivo de certificado y el establecimiento de la contraseña para un archivo **.pfx**.|
 
 También se puede usar el cmdlet [Add-AzureCertificate](/powershell/module/servicemanagement/azure/add-azurecertificate) para cargar un certificado de servicio para el servicio en la nube especificado.
 
@@ -127,7 +127,7 @@ New-AzResourceGroupDeployment -Name NewCert -ResourceGroupName TestAzureAuto -Te
 
 ## <a name="get-a-certificate"></a>Obtener un certificado
 
-Para recuperar un certificado, use el cmdlet `Get-AutomationCertificate` interno. No puede usar el cmdlet [Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) porque devuelve información sobre el recurso de certificado, pero no el certificado en sí.
+Para recuperar un certificado, use el cmdlet `Get-AutomationCertificate` interno. No puede usar el cmdlet [Get-AzAutomationCertificate](/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) porque devuelve información sobre el recurso de certificado, pero no el certificado en sí.
 
 ### <a name="textual-runbook-example"></a>Ejemplo de un runbook textual
 

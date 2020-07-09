@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 184e65c929d43e7a5d4ca3be8bd93770c55cd2a5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 24d0123eecc56b56573e94d831283d8d360cd16e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836573"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185932"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbooks de Azure Automation
 
@@ -68,15 +68,15 @@ Los runbooks de PowerShell están basados en Windows PowerShell. Puede modificar
 * Debe estar familiarizado con el scripting de PowerShell.
 * Los runbooks no pueden usar el [procesamiento paralelo](automation-powershell-workflow.md#use-parallel-processing) para ejecutar varias acciones en paralelo.
 * Los runbooks no pueden usar los [puntos de control](automation-powershell-workflow.md#use-checkpoints-in-a-workflow) para reanudar un runbook si se produce un error.
-* Solo puede incluir los runbooks gráficos y de flujo de trabajo de PowerShell como runbooks secundarios mediante el cmdlet [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0), que crea un trabajo.
+* Solo puede incluir los runbooks gráficos y de flujo de trabajo de PowerShell como runbooks secundarios mediante el cmdlet [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0), que crea un trabajo.
 
 ### <a name="known-issues"></a>Problemas conocidos
 
 A continuación se describen los problemas conocidos actuales con los runbooks de PowerShell:
 
-* Los runbooks de PowerShell no pueden recuperar un [recurso de variable](automation-variables.md) sin cifrar con un valor null.
+* Los runbooks de PowerShell no pueden recuperar un [recurso de variable](./shared-resources/variables.md) sin cifrar con un valor null.
 * Los runbooks de PowerShell no pueden recuperar un recurso de variable con `*~*` en el nombre.
-* Una operación [Get-Process](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-process?view=powershell-7) en un bucle de un runbook de PowerShell puede bloquearse después de más de 80 iteraciones.
+* Una operación [Get-Process](/powershell/module/microsoft.powershell.management/get-process?view=powershell-7) en un bucle de un runbook de PowerShell puede bloquearse después de más de 80 iteraciones.
 * Un runbook de PowerShell puede producir un error si intenta escribir una gran cantidad de datos en el flujo de salida a la vez. Puede evitar este problema si hace que el runbook genere únicamente la información necesaria para trabajar con objetos grandes. Por ejemplo, en lugar de usar `Get-Process` sin limitaciones, puede hacer que el cmdlet genere solo los parámetros necesarios como en `Get-Process | Select ProcessName, CPU`.
 
 ## <a name="powershell-workflow-runbooks"></a>Runbooks del flujo de trabajo de PowerShell

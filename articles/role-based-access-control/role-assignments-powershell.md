@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 46aea9ab113a0c75ed24497ee39793d08c4f7165
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9b0df4337a5e5faff3427222fb66caf8e02184a3
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84790898"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146651"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Incorporación o eliminación de asignaciones de roles de Azure con Azure PowerShell
 
@@ -109,7 +109,7 @@ Incluso si se cambia el nombre de un rol, su identificador no cambia. Si utiliza
 Para agregar una asignación de roles con el identificador de rol único en lugar del nombre de rol, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 ```azurepowershell
-New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
+New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -Scope <resource_group_name/resource/management groups>
 ```
 
 En el ejemplo siguiente, se asigna el rol [Colaborador de la máquina virtual](built-in-roles.md#virtual-machine-contributor) al usuario *alain\@example.com* en el ámbito del grupo de recursos *pharma-sales*. Para obtener el identificador de rol único, puede usar [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) o consultar [Roles integrados de Azure](built-in-roles.md).

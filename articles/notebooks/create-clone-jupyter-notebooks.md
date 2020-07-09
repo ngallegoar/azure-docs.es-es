@@ -3,12 +3,12 @@ title: 'Creación y clonación de cuadernos de Jupyter: Azure Notebooks Preview'
 description: Los proyectos de Azure Notebooks Preview administran una colección de cuadernos y archivos relacionados, que puede crear o clonar desde otro origen.
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.openlocfilehash: e1321afc2ce294c8a39ba8d55574e2ca949f632e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a51f9b12ca24d16858b41357627ff26d233357f
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831291"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181510"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Creación y clonación de proyectos en Azure Notebooks Preview
 
@@ -68,13 +68,33 @@ Cuando usa el comando **+ Nuevo proyecto**, Azure Notebooks muestra una ventana 
 
 Las palabras reservadas siguientes no se puede usar por sí mismas como identificadores de proyecto. Sin embargo, estas palabras reservadas se pueden utilizar como parte de identificadores de proyecto más largos.
 
-| | | | | | |
-| --- | --- | --- | --- | --- | --- |
-| acerca de | account | administration | api | blog | classroom |
-| content | dashboard | explore | faq | help | html |
-| home | importación | biblioteca | management | nuevo | notebook |
-| notebooks | pdf | Vista previa | Precios | perfile | búsqueda |
-| status | support | test | | | |
+- acerca de
+- account
+- administration
+- api
+- blog
+- classroom
+- content
+- dashboard
+- explore
+- faq
+- help
+- html
+- home
+- importación
+- biblioteca
+- management
+- nuevo
+- notebook
+- notebooks
+- pdf
+- Vista previa
+- Precios
+- perfile
+- búsqueda
+- status
+- support
+- test
 
 Si intenta utilizar una de estas palabras como un identificador de proyecto, las opciones emergentes **Crear proyecto** y **Configuración del proyecto** indica que el identificador de la biblioteca es un identificador reservado.
 

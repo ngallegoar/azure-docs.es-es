@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1feadeaf2a905abee396c09829dab5e06c46d99c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: acf31af6d3ba3d78a6435210fa17562aaddac0a3
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837117"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186612"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Uso de una alerta para desencadenar un runbook de Azure Automation
 
@@ -45,7 +45,7 @@ Como se ha descrito en la sección anterior, cada tipo de alerta tiene un esquem
 
 Este ejemplo usa una alerta de una VM. Los datos de la VM se recuperan de la carga y luego se usa esa información para detener dicha VM. La conexión debe estar configurada en la cuenta de Automation donde se ejecuta el runbook. Al usar alertas para desencadenar runbooks, es importante comprobar el estado de la alerta en el runbook que se desencadena. El runbook se desencadena cada vez que la alerta cambia el estado. Las alertas tienen varios estados, y los dos más comunes son Activado y Resuelto. Compruebe el estado de la lógica del runbook para asegurarse de que no se ejecuta más de una vez. En el ejemplo de este artículo se muestra cómo buscar únicamente alertas con el estado Activado.
 
-El runbook usa el activo de conexión `AzureRunAsConnection` [Ejecutar como cuenta](automation-create-runas-account.md) para autenticarse en Azure con el fin de realizar la acción de administración en la máquina virtual.
+El runbook usa el activo de conexión `AzureRunAsConnection` [Ejecutar como cuenta](./manage-runas-account.md) para autenticarse en Azure con el fin de realizar la acción de administración en la máquina virtual.
 
 Use este ejemplo para crear un runbook llamado **AzureVmInResponsetoVMAlert Stop**. Puede modificar el script de PowerShell y usarlo con muchos recursos diferentes.
 
@@ -192,7 +192,7 @@ Las alertas usan grupos de acciones, que son colecciones de acciones que la aler
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para iniciar un runbook con un webhook, vea [Iniciar un runbook desde un webhook](automation-webhooks.md).
-* Para descubrir diferentes maneras de iniciar un runbook, vea [Iniciar un runbook](automation-starting-a-runbook.md).
+* Para descubrir diferentes maneras de iniciar un runbook, vea [Iniciar un runbook](./start-runbooks.md).
 * Para crear una alerta de registro de actividad, vea [Creación de alertas del registro de actividad](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
 * Para aprender a crear una alerta casi en tiempo real, consulte [Creación de una regla de alertas en Azure Portal](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
-* Para obtener una referencia de los cmdlets de PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Para obtener una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

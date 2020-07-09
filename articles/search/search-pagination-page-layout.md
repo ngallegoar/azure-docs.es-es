@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 15d2a7a2ad00f7f9b5db59d3d4803f60508b7b2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd102706d1fa6c33d8962a5d1caf5aa3e41b231d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561591"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146176"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Procedimientos para trabajar con los resultados de búsqueda en Azure Cognitive Search
 
@@ -55,20 +55,26 @@ No se garantiza que los resultados de las consultas paginadas sean estables si e
  
 A continuación, encontrará un ejemplo de cómo podría obtener duplicados. Supongamos que tiene un índice con cuatro documentos:
 
-    { "id": "1", "rating": 5 }
-    { "id": "2", "rating": 3 }
-    { "id": "3", "rating": 2 }
-    { "id": "4", "rating": 1 }
+```text
+{ "id": "1", "rating": 5 }
+{ "id": "2", "rating": 3 }
+{ "id": "3", "rating": 2 }
+{ "id": "4", "rating": 1 }
+```
  
 Ahora supongamos que desea que los resultados se devuelvan dos a la vez, ordenados por calificación. Ejecutaría esta consulta para obtener la primera página de resultados: `$top=2&$skip=0&$orderby=rating desc`, lo que produce los siguientes resultados:
 
-    { "id": "1", "rating": 5 }
-    { "id": "2", "rating": 3 }
+```text
+{ "id": "1", "rating": 5 }
+{ "id": "2", "rating": 3 }
+```
  
 En el servicio, suponga que se agrega un quinto documento al índice entre las llamadas de consulta: `{ "id": "5", "rating": 4 }`.  Poco después, ejecuta una consulta para capturar la segunda página: `$top=2&$skip=2&$orderby=rating desc`, y obtiene estos resultados:
 
-    { "id": "2", "rating": 3 }
-    { "id": "3", "rating": 2 }
+```text
+{ "id": "2", "rating": 3 }
+{ "id": "3", "rating": 2 }
+```
  
 Observe que el documento 2 se captura dos veces. Esto se debe a que el nuevo documento 5 tiene un valor mayor de calificación, por lo que se ordena antes del documento 2 y se sitúa en la primera página. Si bien este comportamiento podría ser inesperado, es típico de cómo se comporta un motor de búsqueda.
 

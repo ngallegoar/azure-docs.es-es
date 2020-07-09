@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: fa1be31f90bd14c1f22d9e389132487094ecb4ff
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: c5d611ddffedc2f69cfc4f2b5600a158b0be9680
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849763"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186340"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Control de errores en runbooks gráficos de Azure Automation
 
@@ -61,7 +61,7 @@ Seleccione una actividad en el lienzo para configurar sus propiedades y parámet
 
 Un conjunto de parámetros define los parámetros obligatorios y opcionales que aceptan los valores de un cmdlet determinado. Todos los cmdlets tienen, al menos, un conjunto de parámetros y algunos tienen varios. Si un cmdlet tiene varios conjuntos de parámetros, debe seleccionar cuál va a usar para poder configurar los parámetros. Puede cambiar el conjunto de parámetros que una actividad usa mediante la selección de **Conjunto de parámetros** y luego de otro conjunto. En este caso, se pierden todos los valores de parámetro que ya había configurado.
 
-En el ejemplo siguiente, el cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm?view=azps-3.5.0) tiene tres conjuntos de parámetros. En el ejemplo se utiliza un conjunto denominado **ListVirtualMachineInResourceGroupParamSet**, con un único parámetro opcional, para devolver todas las máquinas virtuales de un grupo de recursos. En el ejemplo también se usa el conjunto de parámetros **GetVirtualMachineInResourceGroupParamSet** para especificar la máquina virtual que se va a devolver. Este conjunto tiene dos parámetros obligatorios y un parámetro opcional.
+En el ejemplo siguiente, el cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0) tiene tres conjuntos de parámetros. En el ejemplo se utiliza un conjunto denominado **ListVirtualMachineInResourceGroupParamSet**, con un único parámetro opcional, para devolver todas las máquinas virtuales de un grupo de recursos. En el ejemplo también se usa el conjunto de parámetros **GetVirtualMachineInResourceGroupParamSet** para especificar la máquina virtual que se va a devolver. Este conjunto tiene dos parámetros obligatorios y un parámetro opcional.
 
 ![Conjunto de parámetros](media/automation-graphical-authoring-intro/get-azvm-parameter-sets.png)
 
@@ -264,11 +264,11 @@ Las propiedades de la siguiente tabla definen los parámetros de entrada:
 
 ## <a name="handle-runbook-output"></a>Controlar salida de runbook
 
-La creación gráfica guarda los datos que crea cualquier actividad que no tiene un vínculo saliente en la [salida del runbook](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages). La salida se guarda con el trabajo del runbook y queda a disposición de un runbook principal cuando el runbook se usa como secundario.
+La creación gráfica guarda los datos que crea cualquier actividad que no tiene un vínculo saliente en la [salida del runbook](./automation-runbook-output-and-messages.md). La salida se guarda con el trabajo del runbook y queda a disposición de un runbook principal cuando el runbook se usa como secundario.
 
 ## <a name="work-with-powershell-expressions"></a>Funcionamiento con expresiones de PowerShell
 
-Una de las ventajas de la creación gráfica es que permite crear un runbook con un conocimiento mínimo de PowerShell. No obstante, actualmente es necesario conocer un poco PowerShell para rellenar determinados [valores de parámetro](#use-activities) y para configurar [condiciones de vínculo](#use-links-for-workflow). En esta sección se proporciona una introducción rápida a las expresiones de PowerShell. En [Scripting con Windows PowerShell](https://docs.microsoft.com/powershell/scripting/overview)están disponibles todos los detalles sobre PowerShell.
+Una de las ventajas de la creación gráfica es que permite crear un runbook con un conocimiento mínimo de PowerShell. No obstante, actualmente es necesario conocer un poco PowerShell para rellenar determinados [valores de parámetro](#use-activities) y para configurar [condiciones de vínculo](#use-links-for-workflow). En esta sección se proporciona una introducción rápida a las expresiones de PowerShell. En [Scripting con Windows PowerShell](/powershell/scripting/overview)están disponibles todos los detalles sobre PowerShell.
 
 ### <a name="use-a-powershell-expression-as-a-data-source"></a>Usar una expresión de PowerShell como origen de datos
 
@@ -323,7 +323,7 @@ El runbook puede utilizar la salida de una actividad en una expresión más comp
 
 ### <a name="compare-values"></a>Comparar valores
 
-Utilice [operadores de comparación](https://technet.microsoft.com/library/hh847759.aspx) para comparar valores o determinar si un valor coincide con un patrón especificado. Una comparación devuelve un valor de True o False.
+Utilice [operadores de comparación](/powershell/module/microsoft.powershell.core/about/about_comparison_operators) para comparar valores o determinar si un valor coincide con un patrón especificado. Una comparación devuelve un valor de True o False.
 
 Por ejemplo, la siguiente condición determina si la máquina virtual de una actividad denominada `Get-AzureVM` está actualmente detenida.
 
@@ -337,7 +337,7 @@ La siguiente condición determina si la misma máquina virtual está en cualquie
 $ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
 ```
 
-Puede combinar varias condiciones en el runbook usando un [operador lógico](https://technet.microsoft.com/library/hh847789.aspx), como `-and` u `-or`. Por ejemplo, la siguiente condición comprueba si la misma máquina virtual del ejemplo anterior se encuentra en un estado Detenido o Deteniendo.
+Puede combinar varias condiciones en el runbook usando un [operador lógico](/powershell/module/microsoft.powershell.core/about/about_logical_operators), como `-and` u `-or`. Por ejemplo, la siguiente condición comprueba si la misma máquina virtual del ejemplo anterior se encuentra en un estado Detenido o Deteniendo.
 
 ```powershell-interactive
 ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopping")
@@ -345,7 +345,7 @@ Puede combinar varias condiciones en el runbook usando un [operador lógico](htt
 
 ### <a name="use-hashtables"></a>Tablas hash
 
-Las [tablas hash](https://technet.microsoft.com/library/hh847780.aspx) son pares de nombre-valor útiles para devolver un conjunto de valores. También puede encontrar referencias a la tabla hash como diccionario. Las propiedades de ciertas actividades esperan una tabla hash en lugar de un valor simple.
+Las [tablas hash](/powershell/module/microsoft.powershell.core/about/about_hash_tables) son pares de nombre-valor útiles para devolver un conjunto de valores. También puede encontrar referencias a la tabla hash como diccionario. Las propiedades de ciertas actividades esperan una tabla hash en lugar de un valor simple.
 
 Una tabla hash se crea con la siguiente sintaxis. Puede contener cualquier número de entradas, pero cada una se define mediante un nombre y un valor.
 
@@ -373,7 +373,7 @@ En el ejemplo siguiente se usa la salida de una actividad llamada `Get Twitter C
 
 ## <a name="authenticate-to-azure-resources"></a>Autenticarse en los recursos de Azure
 
-Los runbooks de Azure Automation que administran recursos de Azure tienen que autenticarse en Azure. La [cuenta de ejecución](automation-create-runas-account.md), también denominada entidad de servicio, es el método predeterminado que utiliza un runbook de Automation para acceder a los recursos de Azure Resource Manager de la suscripción. Para agregar esta funcionalidad a un runbook gráfico, agregue al lienzo el recurso de conexión `AzureRunAsConnection`, que usa el cmdlet [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) de PowerShell. También puede agregar el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Este escenario se ilustra en el siguiente ejemplo.
+Los runbooks de Azure Automation que administran recursos de Azure tienen que autenticarse en Azure. La [cuenta de ejecución](./manage-runas-account.md), también denominada entidad de servicio, es el método predeterminado que utiliza un runbook de Automation para acceder a los recursos de Azure Resource Manager de la suscripción. Para agregar esta funcionalidad a un runbook gráfico, agregue al lienzo el recurso de conexión `AzureRunAsConnection`, que usa el cmdlet [Get-AutomationConnection](/system-center/sma/manage-global-assets) de PowerShell. También puede agregar el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Este escenario se ilustra en el siguiente ejemplo.
 
 ![Actividades de autenticación de ejecución](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 
@@ -390,7 +390,7 @@ La siguiente actividad, `Connect-AzAccount`, agrega la cuenta de ejecución aute
 
 En los campos de parámetro **APPLICATIONID**, **CERTIFICATETHUMBPRINT** y **TENANTID**, especifique el nombre de la propiedad en la ruta de campo, ya que la actividad genera un objeto con varias propiedades. De lo contrario, cuando se ejecute el runbook, se producirá un error al intentar realizar la autenticación. Estos son los requisitos mínimos para autenticar el runbook con la cuenta de ejecución.
 
-Algunos suscriptores crean una cuenta de Automation mediante una [cuenta de usuario de Azure AD](automation-create-aduser-account.md) para administrar la implementación clásica de Azure o los recursos de Azure Resource Manager. Para mantener la compatibilidad con versiones anteriores de estos suscriptores, el mecanismo de autenticación que se debe usar en el runbook es el cmdlet `Add-AzureAccount` con un [recurso de credencial](automation-credentials.md). El recurso representa a un usuario de Active Directory con acceso a la cuenta de Azure.
+Algunos suscriptores crean una cuenta de Automation mediante una [cuenta de usuario de Azure AD](./shared-resources/credentials.md) para administrar la implementación clásica de Azure o los recursos de Azure Resource Manager. Para mantener la compatibilidad con versiones anteriores de estos suscriptores, el mecanismo de autenticación que se debe usar en el runbook es el cmdlet `Add-AzureAccount` con un [recurso de credencial](./shared-resources/credentials.md). El recurso representa a un usuario de Active Directory con acceso a la cuenta de Azure.
 
 Puede habilitar esta funcionalidad para el runbook gráfico si agrega un recurso de credencial al lienzo, seguido de una actividad `Add-AzureAccount` que use el recurso de credencial para su entrada. Consulte el ejemplo siguiente.
 
@@ -435,4 +435,4 @@ Tiene la opción de revertir a la versión publicada de un runbook. Esta operaci
 * Para empezar a trabajar con runbooks de PowerShell, vea el [Tutorial: Crear un runbook gráfico](learn/automation-tutorial-runbook-graphical.md).
 * Para más información sobre los tipos de runbook, sus ventajas y sus limitaciones, consulte [Tipos de runbooks de Azure Automation](automation-runbook-types.md).
 * Para comprender cómo se realiza la autenticación con la cuenta de ejecución de Automation, consulte [Cuentas de ejecución](automation-security-overview.md#run-as-account).
-* Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

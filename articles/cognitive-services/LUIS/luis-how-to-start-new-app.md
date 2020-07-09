@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: diberry
-ms.openlocfilehash: 3d6b2b5896242ff85c6fb96071b747083893b03a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 304e76a2bf8bae3e6ee2120b892ef97d89c3decc
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343173"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144401"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Creación de una aplicación de LUIS en el portal de LUIS
 Hay un par de formas de crear aplicaciones de LUIS. Puede crear una aplicación de LUIS en el portal de LUIS o a través de las [API](developer-reference-resource.md) de creación de LUIS.
@@ -45,7 +45,7 @@ Puede crear una aplicación con las API de creación de dos maneras:
 
 ## <a name="create-new-app-in-luis"></a>Creación de una aplicación en LUIS
 
-1. En la página **Mis aplicaciones**, seleccione su **suscripción** y el **recurso de creación** y luego **+ Create** (+ Crear). Si usa una clave de evaluación gratuita, aprenda a [crear un recurso de creación](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal).
+1. En la página **Mis aplicaciones**, seleccione su **suscripción** y el **recurso de creación** y luego **+ Create** (+ Crear). 
 
 > [!div class="mx-imgBorder"]
 > ![Lista de aplicaciones de LUIS](./media/create-app-in-portal.png)

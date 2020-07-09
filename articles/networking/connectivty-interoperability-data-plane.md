@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: fe7b74b0d4d065d4f222fefbbdc4a1d434d1163b
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 635a8fc5409e18da9529763b06e4a531a36d0156
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80518261"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169211"
 ---
 # <a name="interoperability-in-azure--data-plane-analysis"></a>Interoperabilidad en Azure: Análisis del plano de datos
 
@@ -29,13 +29,15 @@ En el análisis del plano de datos se examina la ruta de acceso de los paquetes 
 
 El emparejamiento de redes virtuales emula la funcionalidad de puente de red entre las dos redes virtuales emparejadas. A continuación se muestra la salida de traceroute desde un centro de conectividad a una máquina virtual de la red virtual de radio:
 
-    C:\Users\rb>tracert 10.11.30.4
+```console
+C:\Users\rb>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
+Tracing route to 10.11.30.4 over a maximum of 30 hops
 
-      1     2 ms     1 ms     1 ms  10.11.30.4
+  1     2 ms     1 ms     1 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 En la siguiente ilustración se muestra la vista de conexión gráfica del centro de conectividad y la red virtual de radio desde la perspectiva de Azure Network Watcher:
 
@@ -46,15 +48,17 @@ En la siguiente ilustración se muestra la vista de conexión gráfica del centr
 
 A continuación se muestra la salida de traceroute desde un centro de conectividad a una máquina virtual de la red virtual de sucursal:
 
-    C:\Users\rb>tracert 10.11.30.68
+```console
+C:\Users\rb>tracert 10.11.30.68
 
-    Tracing route to 10.11.30.68 over a maximum of 30 hops
+Tracing route to 10.11.30.68 over a maximum of 30 hops
 
-      1     1 ms     1 ms     1 ms  10.10.30.142
-      2     *        *        *     Request timed out.
-      3     2 ms     2 ms     2 ms  10.11.30.68
+  1     1 ms     1 ms     1 ms  10.10.30.142
+  2     *        *        *     Request timed out.
+  3     2 ms     2 ms     2 ms  10.11.30.68
 
-    Trace complete.
+Trace complete.
+```
 
 En este comando traceroute, el primer salto es la puerta de enlace de VPN en la instancia de Azure VPN Gateway del centro de conectividad. El segundo salto es la puerta de enlace de VPN de la red virtual de sucursal. La dirección IP de la puerta de enlace de VPN de la red virtual de sucursal no se anuncia en el centro de conectividad. El tercer salto es la máquina virtual de la red virtual de sucursal.
 
@@ -70,16 +74,18 @@ Para la misma conexión, en la siguiente ilustración se muestra la vista de cua
 
 A continuación se muestra la salida de traceroute desde un centro de conectividad a una máquina virtual de la ubicación 1 local:
 
-    C:\Users\rb>tracert 10.2.30.10
+```console
+C:\Users\rb>tracert 10.2.30.10
 
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
+Tracing route to 10.2.30.10 over a maximum of 30 hops
 
-      1     2 ms     2 ms     2 ms  10.10.30.132
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4     2 ms     2 ms     2 ms  10.2.30.10
+  1     2 ms     2 ms     2 ms  10.10.30.132
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4     2 ms     2 ms     2 ms  10.2.30.10
 
-    Trace complete.
+Trace complete.
+```
 
 En este comando traceroute, el primer salto es el punto de conexión del túnel de puerta de enlace de Azure ExpressRoute a un enrutador de Microsoft Enterprise Edge (MSEE). El segundo y tercer salto son las direcciones IP del enrutador del lado del cliente y la LAN de la ubicación 1 local. Estas direcciones IP no se anuncian en el centro de conectividad. El cuarto salto es la máquina virtual de la ubicación 1 local.
 
@@ -88,16 +94,18 @@ En este comando traceroute, el primer salto es el punto de conexión del túnel 
 
 A continuación se muestra la salida de traceroute desde un centro de conectividad a una máquina virtual de la ubicación 2 local:
 
-    C:\Users\rb>tracert 10.1.31.10
+```console
+C:\Users\rb>tracert 10.1.31.10
 
-    Tracing route to 10.1.31.10 over a maximum of 30 hops
+Tracing route to 10.1.31.10 over a maximum of 30 hops
 
-      1    76 ms    75 ms    75 ms  10.10.30.134
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4    75 ms    75 ms    75 ms  10.1.31.10
+  1    76 ms    75 ms    75 ms  10.10.30.134
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4    75 ms    75 ms    75 ms  10.1.31.10
 
-    Trace complete.
+Trace complete.
+```
 
 En este comando traceroute, el primer salto es el punto de conexión del túnel de puerta de enlace de ExpressRoute a un enrutador MSEE. El segundo y tercer salto son las direcciones IP del enrutador del lado del cliente y la LAN de la ubicación 2 local. Estas direcciones IP no se anuncian en el centro de conectividad. El cuarto salto es la máquina virtual de la ubicación 2 local.
 
@@ -105,15 +113,17 @@ En este comando traceroute, el primer salto es el punto de conexión del túnel 
 
 A continuación se muestra la salida de traceroute desde un centro de conectividad a una máquina virtual de la red virtual remota:
 
-    C:\Users\rb>tracert 10.17.30.4
+```console
+C:\Users\rb>tracert 10.17.30.4
 
-    Tracing route to 10.17.30.4 over a maximum of 30 hops
+Tracing route to 10.17.30.4 over a maximum of 30 hops
 
-      1     2 ms     2 ms     2 ms  10.10.30.132
-      2     *        *        *     Request timed out.
-      3    69 ms    68 ms    69 ms  10.17.30.4
+  1     2 ms     2 ms     2 ms  10.10.30.132
+  2     *        *        *     Request timed out.
+  3    69 ms    68 ms    69 ms  10.17.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 En este comando traceroute, el primer salto es el punto de conexión del túnel de puerta de enlace de ExpressRoute a un enrutador MSEE. El segundo salto es la dirección IP de la puerta de enlace de la red virtual remota. El intervalo IP del segundo salto no se anuncia en el centro de conectividad. El tercer salto es la máquina virtual de la red virtual remota.
 
@@ -125,27 +135,31 @@ La red virtual de radio comparte la vista de red del centro de conectividad. Med
 
 A continuación se muestra la salida de traceroute desde una red virtual de radio a una máquina virtual del centro de conectividad:
 
-    C:\Users\rb>tracert 10.10.30.4
+```console
+C:\Users\rb>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-branch-vnet"></a>Ruta de acceso a la red virtual de sucursal
 
 A continuación se muestra la salida de traceroute desde una red virtual de radio a una máquina virtual de la red virtual de sucursal:
 
-    C:\Users\rb>tracert 10.11.30.68
+```console
+C:\Users\rb>tracert 10.11.30.68
 
-    Tracing route to 10.11.30.68 over a maximum of 30 hops
+Tracing route to 10.11.30.68 over a maximum of 30 hops
 
-      1     1 ms    <1 ms    <1 ms  10.10.30.142
-      2     *        *        *     Request timed out.
-      3     3 ms     2 ms     2 ms  10.11.30.68
+  1     1 ms    <1 ms    <1 ms  10.10.30.142
+  2     *        *        *     Request timed out.
+  3     3 ms     2 ms     2 ms  10.11.30.68
 
-    Trace complete.
+Trace complete.
+```
 
 En este comando traceroute, el primer salto es la puerta de enlace de VPN del centro de conectividad. El segundo salto es la puerta de enlace de VPN de la red virtual de sucursal. La dirección IP de la puerta de enlace de VPN de la red virtual de sucursal no se anuncia en el centro de conectividad ni en la red virtual de radio. El tercer salto es la máquina virtual de la red virtual de sucursal.
 
@@ -153,16 +167,18 @@ En este comando traceroute, el primer salto es la puerta de enlace de VPN del ce
 
 A continuación se muestra la salida de traceroute desde la red virtual de radio a una máquina virtual de la ubicación 1 local:
 
-    C:\Users\rb>tracert 10.2.30.10
+```console
+C:\Users\rb>tracert 10.2.30.10
 
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
+Tracing route to 10.2.30.10 over a maximum of 30 hops
 
-      1    24 ms     2 ms     3 ms  10.10.30.132
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4     3 ms     2 ms     2 ms  10.2.30.10
+  1    24 ms     2 ms     3 ms  10.10.30.132
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4     3 ms     2 ms     2 ms  10.2.30.10
 
-    Trace complete.
+Trace complete.
+```
 
 En este comando traceroute, el primer salto es el punto de conexión del túnel de puerta de enlace de ExpressRoute del centro de conectividad a un enrutador MSEE. El segundo y tercer salto son las direcciones IP del enrutador del lado del cliente y la LAN de la ubicación 1 local. Estas direcciones IP no se anuncian en el centro de conectividad ni en la red virtual de radio. El cuarto salto es la máquina virtual de la ubicación 1 local.
 
@@ -170,17 +186,18 @@ En este comando traceroute, el primer salto es el punto de conexión del túnel 
 
 A continuación se muestra la salida de traceroute desde la red virtual de radio a una máquina virtual de la ubicación 2 local:
 
+```console
+C:\Users\rb>tracert 10.1.31.10
 
-    C:\Users\rb>tracert 10.1.31.10
+Tracing route to 10.1.31.10 over a maximum of 30 hops
 
-    Tracing route to 10.1.31.10 over a maximum of 30 hops
+  1    76 ms    75 ms    76 ms  10.10.30.134
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4    75 ms    75 ms    75 ms  10.1.31.10
 
-      1    76 ms    75 ms    76 ms  10.10.30.134
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4    75 ms    75 ms    75 ms  10.1.31.10
-
-    Trace complete.
+Trace complete.
+```
 
 En este comando traceroute, el primer salto es el punto de conexión del túnel de puerta de enlace de ExpressRoute del centro de conectividad a un enrutador MSEE. El segundo y tercer salto son las direcciones IP del enrutador del lado del cliente y la LAN de la ubicación 2 local. Estas direcciones IP no se anuncian en el centro de conectividad ni en la red virtual de radio. El cuarto salto es la máquina virtual de la ubicación 2 local.
 
@@ -188,15 +205,17 @@ En este comando traceroute, el primer salto es el punto de conexión del túnel 
 
 A continuación se muestra la salida de traceroute desde una red virtual de radio a una máquina virtual de la red virtual remota:
 
-    C:\Users\rb>tracert 10.17.30.4
+```console
+C:\Users\rb>tracert 10.17.30.4
 
-    Tracing route to 10.17.30.4 over a maximum of 30 hops
+Tracing route to 10.17.30.4 over a maximum of 30 hops
 
-      1     2 ms     1 ms     1 ms  10.10.30.133
-      2     *        *        *     Request timed out.
-      3    71 ms    70 ms    70 ms  10.17.30.4
+  1     2 ms     1 ms     1 ms  10.10.30.133
+  2     *        *        *     Request timed out.
+  3    71 ms    70 ms    70 ms  10.17.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 En este comando traceroute, el primer salto es el punto de conexión del túnel de puerta de enlace de ExpressRoute del centro de conectividad a un enrutador MSEE. El segundo salto es la dirección IP de la puerta de enlace de la red virtual remota. El intervalo IP del segundo salto no se anuncia en el centro de conectividad ni en la red virtual de radio. El tercer salto es la máquina virtual de la red virtual remota.
 
@@ -206,15 +225,17 @@ En este comando traceroute, el primer salto es el punto de conexión del túnel 
 
 A continuación se muestra la salida de traceroute desde la red virtual de sucursal a una máquina virtual del centro de conectividad:
 
-    C:\Windows\system32>tracert 10.10.30.4
+```console
+C:\Windows\system32>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.11.30.100
-      2     *        *        *     Request timed out.
-      3     4 ms     3 ms     3 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.11.30.100
+  2     *        *        *     Request timed out.
+  3     4 ms     3 ms     3 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 En este comando traceroute, el primer salto es la puerta de enlace de VPN de la red virtual de sucursal. El segundo salto es la puerta de enlace de VPN del centro de conectividad. La dirección IP de la puerta de enlace de VPN de centro de conectividad no se anuncia en la red virtual remota. El tercer salto es la máquina virtual del centro de conectividad.
 
@@ -222,15 +243,17 @@ En este comando traceroute, el primer salto es la puerta de enlace de VPN de la 
 
 A continuación se muestra la salida de traceroute desde una red virtual de sucursal a una máquina virtual de la red virtual de radio:
 
-    C:\Users\rb>tracert 10.11.30.4
+```console
+C:\Users\rb>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
+Tracing route to 10.11.30.4 over a maximum of 30 hops
 
-      1     1 ms    <1 ms     1 ms  10.11.30.100
-      2     *        *        *     Request timed out.
-      3     4 ms     3 ms     2 ms  10.11.30.4
+  1     1 ms    <1 ms     1 ms  10.11.30.100
+  2     *        *        *     Request timed out.
+  3     4 ms     3 ms     2 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 En este comando traceroute, el primer salto es la puerta de enlace de VPN de la red virtual de sucursal. El segundo salto es la puerta de enlace de VPN del centro de conectividad. La dirección IP de la puerta de enlace de VPN de centro de conectividad no se anuncia en la red virtual remota. El tercer salto es la máquina virtual de la red virtual de radio.
 
@@ -238,17 +261,19 @@ En este comando traceroute, el primer salto es la puerta de enlace de VPN de la 
 
 A continuación se muestra la salida de traceroute desde la red virtual de radio a una máquina virtual de la ubicación 1 local:
 
-    C:\Users\rb>tracert 10.2.30.10
+```console
+C:\Users\rb>tracert 10.2.30.10
 
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
+Tracing route to 10.2.30.10 over a maximum of 30 hops
 
-      1     1 ms    <1 ms    <1 ms  10.11.30.100
-      2     *        *        *     Request timed out.
-      3     3 ms     2 ms     2 ms  10.2.30.125
-      4     *        *        *     Request timed out.
-      5     3 ms     3 ms     3 ms  10.2.30.10
+  1     1 ms    <1 ms    <1 ms  10.11.30.100
+  2     *        *        *     Request timed out.
+  3     3 ms     2 ms     2 ms  10.2.30.125
+  4     *        *        *     Request timed out.
+  5     3 ms     3 ms     3 ms  10.2.30.10
 
-    Trace complete.
+Trace complete.
+```
 
 En este comando traceroute, el primer salto es la puerta de enlace de VPN de la red virtual de sucursal. El segundo salto es la puerta de enlace de VPN del centro de conectividad. La dirección IP de la puerta de enlace de VPN de centro de conectividad no se anuncia en la red virtual remota. El tercer salto es el punto de terminación de túnel VPN en el enrutador CE principal. El cuarto salto es una dirección IP interna de la ubicación 1 local. Esta dirección IP de LAN no se anuncia fuera del enrutador del lado del cliente. El quinto salto es la máquina virtual de destino de la ubicación 1 local.
 
@@ -256,27 +281,29 @@ En este comando traceroute, el primer salto es la puerta de enlace de VPN de la 
 
 Como se explicó al hablar del análisis del plano de control, la red virtual de sucursal no tiene visibilidad de la ubicación 2 local ni de la red virtual remota según la configuración de red. Los siguientes resultados de ping lo confirman: 
 
-    C:\Users\rb>ping 10.1.31.10
+```console
+C:\Users\rb>ping 10.1.31.10
 
-    Pinging 10.1.31.10 with 32 bytes of data:
+Pinging 10.1.31.10 with 32 bytes of data:
 
-    Request timed out.
-    ...
-    Request timed out.
+Request timed out.
+...
+Request timed out.
 
-    Ping statistics for 10.1.31.10:
-        Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+Ping statistics for 10.1.31.10:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
 
-    C:\Users\rb>ping 10.17.30.4
+C:\Users\rb>ping 10.17.30.4
 
-    Pinging 10.17.30.4 with 32 bytes of data:
+Pinging 10.17.30.4 with 32 bytes of data:
 
-    Request timed out.
-    ...
-    Request timed out.
+Request timed out.
+...
+Request timed out.
 
-    Ping statistics for 10.17.30.4:
-        Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+Ping statistics for 10.17.30.4:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+```
 
 ## <a name="data-path-from-on-premises-location-1"></a>Ruta de acceso de datos desde la ubicación 1 local
 
@@ -284,17 +311,19 @@ Como se explicó al hablar del análisis del plano de control, la red virtual de
 
 A continuación se muestra la salida de traceroute desde la ubicación 1 local a una máquina virtual del centro de conectividad:
 
-    C:\Users\rb>tracert 10.10.30.4
+```console
+C:\Users\rb>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2    <1 ms    <1 ms    <1 ms  192.168.30.0
-      3    <1 ms    <1 ms    <1 ms  192.168.30.18
-      4     *        *        *     Request timed out.
-      5     2 ms     2 ms     2 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2    <1 ms    <1 ms    <1 ms  192.168.30.0
+  3    <1 ms    <1 ms    <1 ms  192.168.30.18
+  4     *        *        *     Request timed out.
+  5     2 ms     2 ms     2 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 En el comando traceroute, los dos primeros saltos forman parte de la red local. El tercer salto es la interfaz MSEE principal que se expone al enrutador del lado del cliente. El cuarto salto es la puerta de enlace de ExpressRoute del centro de conectividad. El intervalo IP de la puerta de enlace de ExpressRoute del centro de conectividad no se anuncia en la red local. El quinto salto es la máquina virtual de destino.
 
@@ -306,15 +335,17 @@ En la siguiente ilustración se muestra la vista de topología de la conectivida
 
 Como se comentó anteriormente, en la configuración de prueba se usa VPN de sitio a sitio como conectividad de copia de seguridad para ExpressRoute entre la ubicación 1 local y el centro de conectividad. Para probar la ruta de acceso de datos de copia de seguridad se va a inducir un error de vinculación de ExpressRoute entre el enrutador CE principal de la ubicación 1 local y el MSEE correspondiente. Para inducir un error de vinculación de ExpressRoute, apague la interfaz del lado del cliente que se expone al MSEE:
 
-    C:\Users\rb>tracert 10.10.30.4
+```console
+C:\Users\rb>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2    <1 ms    <1 ms    <1 ms  192.168.30.0
-      3     3 ms     2 ms     3 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2    <1 ms    <1 ms    <1 ms  192.168.30.0
+  3     3 ms     2 ms     3 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 En la siguiente ilustración se muestra la vista de topología de la conectividad de la máquina virtual en la ubicación 1 local con la máquina virtual con el centro de conectividad mediante la conectividad VPN de sitio a sitio cuando la de ExpressRoute está inactiva:
 
@@ -326,17 +357,19 @@ A continuación se muestra la salida de traceroute desde la ubicación 1 local a
 
 Volvamos a la conectividad de ExpressRoute principal para realizar el análisis de la ruta de datos hacia la red virtual de radio:
 
-    C:\Users\rb>tracert 10.11.30.4
+```console
+C:\Users\rb>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
+Tracing route to 10.11.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2    <1 ms    <1 ms    <1 ms  192.168.30.0
-      3    <1 ms    <1 ms    <1 ms  192.168.30.18
-      4     *        *        *     Request timed out.
-      5     3 ms     2 ms     2 ms  10.11.30.4
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2    <1 ms    <1 ms    <1 ms  192.168.30.0
+  3    <1 ms    <1 ms    <1 ms  192.168.30.18
+  4     *        *        *     Request timed out.
+  5     3 ms     2 ms     2 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 Recuperemos la conectividad de ExpressRoute 1 principal para el resto del análisis de la ruta acceso de datos.
 
@@ -344,46 +377,52 @@ Recuperemos la conectividad de ExpressRoute 1 principal para el resto del análi
 
 A continuación se muestra la salida de traceroute desde la ubicación 1 local a una máquina virtual de la red virtual de sucursal:
 
-    C:\Users\rb>tracert 10.11.30.68
+```console
+C:\Users\rb>tracert 10.11.30.68
 
-    Tracing route to 10.11.30.68 over a maximum of 30 hops
+Tracing route to 10.11.30.68 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2    <1 ms    <1 ms    <1 ms  192.168.30.0
-      3     3 ms     2 ms     2 ms  10.11.30.68
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2    <1 ms    <1 ms    <1 ms  192.168.30.0
+  3     3 ms     2 ms     2 ms  10.11.30.68
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-on-premises-location-2"></a>Ruta de acceso a la ubicación 2 local
 
 Como se explicó en el [análisis del plano de control][Control-Analysis], la ubicación 1 local no tiene visibilidad de la ubicación 2 local según la configuración de red. Los siguientes resultados de ping lo confirman: 
 
-    C:\Users\rb>ping 10.1.31.10
-    
-    Pinging 10.1.31.10 with 32 bytes of data:
+```console
+C:\Users\rb>ping 10.1.31.10
 
-    Request timed out.
-    ...
-    Request timed out.
+Pinging 10.1.31.10 with 32 bytes of data:
 
-    Ping statistics for 10.1.31.10:
-        Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+Request timed out.
+...
+Request timed out.
+
+Ping statistics for 10.1.31.10:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+```
 
 ### <a name="path-to-the-remote-vnet"></a>Ruta de acceso a la red virtual remota
 
 A continuación se muestra la salida de traceroute desde la ubicación 1 local a una máquina virtual de la red virtual remota:
 
-    C:\Users\rb>tracert 10.17.30.4
+```console
+C:\Users\rb>tracert 10.17.30.4
 
-    Tracing route to 10.17.30.4 over a maximum of 30 hops
+Tracing route to 10.17.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2     2 ms     5 ms     7 ms  192.168.30.0
-      3    <1 ms    <1 ms    <1 ms  192.168.30.18
-      4     *        *        *     Request timed out.
-      5    69 ms    70 ms    69 ms  10.17.30.4
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2     2 ms     5 ms     7 ms  192.168.30.0
+  3    <1 ms    <1 ms    <1 ms  192.168.30.18
+  4     *        *        *     Request timed out.
+  5    69 ms    70 ms    69 ms  10.17.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ## <a name="data-path-from-on-premises-location-2"></a>Ruta de acceso de datos desde la ubicación 2 local
 
@@ -391,32 +430,36 @@ A continuación se muestra la salida de traceroute desde la ubicación 1 local a
 
 A continuación se muestra la salida de traceroute desde la ubicación 2 local a una máquina virtual del centro de conectividad:
 
-    C:\Windows\system32>tracert 10.10.30.4
+```console
+C:\Windows\system32>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.1.31.3
-      2    <1 ms    <1 ms    <1 ms  192.168.31.4
-      3    <1 ms    <1 ms    <1 ms  192.168.31.22
-      4     *        *        *     Request timed out.
-      5    75 ms    74 ms    74 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.1.31.3
+  2    <1 ms    <1 ms    <1 ms  192.168.31.4
+  3    <1 ms    <1 ms    <1 ms  192.168.31.22
+  4     *        *        *     Request timed out.
+  5    75 ms    74 ms    74 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-spoke-vnet"></a>Ruta a la red virtual de radio
 
 A continuación se muestra la salida de traceroute desde la ubicación 2 local a una máquina virtual de la red virtual de radio:
 
-    C:\Windows\system32>tracert 10.11.30.4
+```console
+C:\Windows\system32>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
-      1    <1 ms    <1 ms     1 ms  10.1.31.3
-      2    <1 ms    <1 ms    <1 ms  192.168.31.0
-      3    <1 ms    <1 ms    <1 ms  192.168.31.18
-      4     *        *        *     Request timed out.
-      5    75 ms    74 ms    74 ms  10.11.30.4
+Tracing route to 10.11.30.4 over a maximum of 30 hops
+  1    <1 ms    <1 ms     1 ms  10.1.31.3
+  2    <1 ms    <1 ms    <1 ms  192.168.31.0
+  3    <1 ms    <1 ms    <1 ms  192.168.31.18
+  4     *        *        *     Request timed out.
+  5    75 ms    74 ms    74 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-branch-vnet-on-premises-location-1-and-the-remote-vnet"></a>Ruta de acceso a la red virtual de sucursal, la ubicación 1 local y la red virtual remota
 
@@ -428,29 +471,33 @@ Como se explicó en el [análisis del plano de control][Control-Analysis], la ub
 
 A continuación se muestra la salida de traceroute desde la red virtual remota a una máquina virtual del centro de conectividad:
 
-    C:\Users\rb>tracert 10.10.30.4
+```console
+C:\Users\rb>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    65 ms    65 ms    65 ms  10.17.30.36
-      2     *        *        *     Request timed out.
-      3    69 ms    68 ms    68 ms  10.10.30.4
+  1    65 ms    65 ms    65 ms  10.17.30.36
+  2     *        *        *     Request timed out.
+  3    69 ms    68 ms    68 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-spoke-vnet"></a>Ruta a la red virtual de radio
 
 A continuación se muestra la salida de traceroute desde una red virtual remota a una máquina virtual de la red virtual de radio:
 
-    C:\Users\rb>tracert 10.11.30.4
+```console
+C:\Users\rb>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
+Tracing route to 10.11.30.4 over a maximum of 30 hops
 
-      1    67 ms    67 ms    67 ms  10.17.30.36
-      2     *        *        *     Request timed out.
-      3    71 ms    69 ms    69 ms  10.11.30.4
+  1    67 ms    67 ms    67 ms  10.17.30.36
+  2     *        *        *     Request timed out.
+  3    71 ms    69 ms    69 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-branch-vnet-and-on-premises-location-2"></a>Ruta de acceso a la red virtual de sucursal y la ubicación 2 local
 
@@ -460,17 +507,18 @@ Como se explicó en el [análisis del plano de control][Control-Analysis], la re
 
 A continuación se muestra la salida de traceroute desde la red virtual remota a una máquina virtual de la ubicación 1 local:
 
-    C:\Users\rb>tracert 10.2.30.10
+```console
+C:\Users\rb>tracert 10.2.30.10
 
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
+Tracing route to 10.2.30.10 over a maximum of 30 hops
 
-      1    67 ms    67 ms    67 ms  10.17.30.36
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4    69 ms    69 ms    69 ms  10.2.30.10
+  1    67 ms    67 ms    67 ms  10.17.30.36
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4    69 ms    69 ms    69 ms  10.2.30.10
 
-    Trace complete.
-
+Trace complete.
+```
 
 ## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>Uso simultáneo de ExpressRoute y la conectividad VPN de sitio a sitio
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4d2ee2bccf94dca933981c3070323b659eab6cfa
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f7bf1c8f3f1ecbb21207776a99bba99d123ea891
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836097"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171948"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Procedimiento para implementar la navegación por facetas en Azure Cognitive Search
 
@@ -284,10 +284,12 @@ En la profundización por facetas, normalmente solo debe incluir los documentos 
 
 Los resultados de faceta son documentos que se encuentran en los resultados de búsqueda y que coinciden con un término de faceta. En el ejemplo siguiente, en los resultados de búsqueda de *cloud computing*, 254 elementos también tienen *internal specification* como tipo de contenido. Los elementos no son necesariamente excluyentes mutuamente. Si un elemento cumple los criterios de ambos filtros, se contabiliza en cada uno de ellos. Esta duplicación es posible cuando se usan facetas en campos `Collection(Edm.String)`, que suelen usarse para implementar el etiquetado de documentos.
 
-        Search term: "cloud computing"
-        Content type
-           Internal specification (254)
-           Video (10) 
+```output
+Search term: "cloud computing"
+Content type
+   Internal specification (254)
+   Video (10)
+```
 
 En general, si encuentra que los resultados de faceta son demasiado grandes de forma persistente, se recomienda agregar más filtros para ofrecer a los usuarios más opciones para delimitar la búsqueda.
 
@@ -345,7 +347,7 @@ Para datos numéricos, puede usar una lista de valores.  Tenga en cuenta el inte
 
 Para especificar un intervalo de faceta semejante al de la captura de pantalla anterior, use una lista de valores:
 
-    facet=listPrice,values:10|25|100|500|1000|2500
+> `facet=listPrice,values:10|25|100|500|1000|2500`
 
 Cada intervalo se genera usando 0 como punto de partida, un valor de la lista como extremo y, después, se recorta el intervalo anterior para crear diferentes intervalos. Azure Cognitive Search hace esto como parte de la navegación por facetas. No es necesario escribir código para estructurar cada intervalo.
 

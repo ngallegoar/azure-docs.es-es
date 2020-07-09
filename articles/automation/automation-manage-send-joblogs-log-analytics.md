@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 05/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: ba498fe9f70664a801172a6ff3705ac41a6371ef
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 0c8863615446f8b14043cd7bd13e529b7efa1e46
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835261"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186204"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Reenvío de datos de un trabajo de Azure Automation a registros de Azure Monitor
 
@@ -28,8 +28,8 @@ Azure Automation puede enviar el estado de un trabajo del runbook y de flujos de
 
 Para empezar a enviar los registros de Automation a registros de Azure Monitor, necesita:
 
-* La versión más reciente de [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
-* Un área de trabajo de Log Analytics. Para más información, consulte [Introducción a Azure Monitor](../log-analytics/log-analytics-get-started.md).
+* La versión más reciente de [Azure PowerShell](/powershell/azureps-cmdlets-docs/).
+* Un área de trabajo de Log Analytics. Para más información, consulte [Introducción a Azure Monitor](../azure-monitor/overview.md).
 * El identificador de recurso de su cuenta de Azure Automation.
 
 Use el siguiente comando para conocer el identificador de recurso de su cuenta de Azure Automation:
@@ -186,8 +186,8 @@ Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para aprender a crear consultas de búsqueda y a revisar los registros de trabajos de Automation con registros de Azure Monitor, consulte [Introducción a las consultas de registro en Azure Monitor](../log-analytics/log-analytics-log-searches.md).
+* Para aprender a crear consultas de búsqueda y a revisar los registros de trabajos de Automation con registros de Azure Monitor, consulte [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 * Para comprender la creación y recuperación de mensajes de error y de salida de runbooks, consulte [Salidas de runbook y mensajes en Azure Automation](automation-runbook-output-and-messages.md).
 * Para más información sobre la ejecución de runbooks, la supervisión de trabajos de runbook y otros detalles técnicos, consulte [Ejecución de un runbook en Azure Automation](automation-runbook-execution.md).
-* Para obtener más información sobre los registros de Azure Monitor y los orígenes de recopilación de datos, consulte [Introducción a la recopilación de datos de almacenamiento en los registros de Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md).
+* Para obtener más información sobre los registros de Azure Monitor y los orígenes de recopilación de datos, consulte [Introducción a la recopilación de datos de almacenamiento en los registros de Azure Monitor](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
 * Si necesita ayuda con la solución de problemas de análisis de registros, consulte el artículo sobre [por qué el análisis de registros ya no recopila datos](../azure-monitor/platform/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data).

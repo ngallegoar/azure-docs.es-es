@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7155a3fa9481ef5f2da62d85d4a932ad5e8e8ab1
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: b73b8418b202563ca7c4a73181b1b1b404db6ee2
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382518"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170401"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatización de la implementación de recursos para una aplicación de función en Azure Functions
 
@@ -26,12 +26,12 @@ Para obtener las plantillas de ejemplo, vea:
 
 Normalmente, una implementación de Azure Functions consta de estos recursos:
 
-| Resource                                                                           | Requisito | Referencia de sintaxis y propiedades                                                         |   |
-|------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
-| Una aplicación de función.                                                                     | Obligatorio    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
-| Una cuenta de [Azure Storage](../storage/index.yml).                                   | Obligatorio    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
-| Un componente de [Application Insights](../azure-monitor/app/app-insights-overview.md) | Opcional    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)         |   |
-| Un [Plan de hospedaje](./functions-scale.md)                                             | Opcional<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
+| Resource                                                                           | Requisito | Referencia de sintaxis y propiedades                                                         |
+|------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
+| Una aplicación de función.                                                                     | Obligatorio    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |
+| Una cuenta de [Azure Storage](../storage/index.yml).                                   | Obligatorio    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| Un componente de [Application Insights](../azure-monitor/app/app-insights-overview.md) | Opcional    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)         |
+| Un [Plan de hospedaje](./functions-scale.md)                                             | Opcional<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |
 
 <sup>1</sup>Un plan de hospedaje solo es necesario si decide ejecutar la aplicación de función en un [plan Premium](./functions-premium-plan.md) o en un [plan de App Service](../app-service/overview-hosting-plans.md).
 

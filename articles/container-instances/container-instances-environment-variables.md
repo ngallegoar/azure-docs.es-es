@@ -3,12 +3,12 @@ title: Establecimiento de variables de entorno en instancias de contenedor
 description: Aprenda a establecer variables de entorno en los contenedores que ejecuta en Azure Container Instances.
 ms.topic: article
 ms.date: 04/17/2019
-ms.openlocfilehash: c3c76ba0c6131a8ab3de68c13c9dfddaf7e8749a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92ae59f69b7cb43fee1d3ce8190a85fc20a11f60
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84686744"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169772"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Establecimiento de variables de entorno en instancias de contenedor
 
@@ -166,7 +166,7 @@ Establezca una variable de entorno segura especificando la propiedad `secureValu
 Cree un archivo `secure-env.yaml` con el siguiente fragmento de código.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: securetest
 properties:

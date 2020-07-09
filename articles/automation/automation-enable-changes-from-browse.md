@@ -5,12 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: f84a609ea2821546c4001b98ad11495305ac101a
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 0d657dc38cd5b4149bcf7d1dbf1ad73afa75a5e6
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171079"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186306"
 ---
 # <a name="enable-change-tracking-and-inventory-from-azure-portal"></a>Habilitación de Change Tracking e Inventario desde Azure Portal
 
@@ -24,7 +24,7 @@ El número de grupos de recursos que puede usar para administrar las máquinas v
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción de Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Una [cuenta de Automation](automation-offering-get-started.md) para administrar máquinas.
+* Una [cuenta de Automation](./index.yml) para administrar máquinas.
 * Una [máquina virtual](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e0a711b9239e1a76774d8e75f035e6c862218c82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6670966b4cf74510df5dd26c994e0c53b219ba9
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563138"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145246"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Indexación de documentos en Azure Blob Storage con Azure Cognitive Search
 
@@ -49,6 +49,7 @@ Para realizar la indexación de tablas, el origen de datos debe tener las siguie
 
 Para crear un origen de datos:
 
+```http
     POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -59,6 +60,7 @@ Para crear un origen de datos:
         "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
     }   
+```
 
 Para más información sobre la API de creación de origen de datos, consulte [Create Datasource](https://docs.microsoft.com/rest/api/searchservice/create-data-source) (Creación de origen de datos).
 
@@ -81,6 +83,7 @@ El índice especifica los campos de un documento, los atributos y otras construc
 
 Para crear un índice:
 
+```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -92,6 +95,7 @@ Para crear un índice:
             { "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
           ]
     }
+```
 
 Para más información sobre la creación de índices, consulte [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) (Creación de un índice).
 
@@ -100,6 +104,7 @@ Un indexador conecta un origen de datos con un índice de búsqueda de destino y
 
 Después de crear el origen de datos y el índice, ya puede crear el indexador:
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -110,6 +115,7 @@ Después de crear el origen de datos y el índice, ya puede crear el indexador:
       "targetIndexName" : "my-target-index",
       "schedule" : { "interval" : "PT2H" }
     }
+```
 
 Este indexador se ejecuta cada dos horas. (El intervalo de programación se establece en "PT2H"). Para ejecutar un indizador cada 30 minutos, establézcalo en PT30M. El intervalo más breve que se admite es de cinco minutos. La programación es opcional: si se omite, el indexador solo se ejecuta una vez cuando se crea. Sin embargo, puede ejecutarlo a petición en cualquier momento.   
 
@@ -135,6 +141,7 @@ Cuando configure un indizador de tablas para que se ejecute según una programac
 
 Para indicar que determinados documentos se deben quitar del índice, puede usar una estrategia de eliminación temporal. En lugar de eliminar una fila, agregue una propiedad para indicar que se elimina y configure una directiva de detección de eliminaciones temporales en el origen de datos. Por ejemplo, la siguiente directiva considera que una fila se ha eliminado si tiene una propiedad `IsDeleted` con el valor `"true"`:
 
+```http
     PUT https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -146,6 +153,7 @@ Para indicar que determinados documentos se deben quitar del índice, puede usar
         "container" : { "name" : "table name", "query" : "<query>" },
         "dataDeletionDetectionPolicy" : { "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy", "softDeleteColumnName" : "IsDeleted", "softDeleteMarkerValue" : "true" }
     }   
+```
 
 <a name="Performance"></a>
 ## <a name="performance-considerations"></a>Consideraciones de rendimiento

@@ -3,26 +3,26 @@ title: Supervisión de Azure Batch
 description: Más información sobre los servicios de supervisión de Azure, las métricas, los registros de diagnóstico y otras características de supervisión para Azure Batch.
 ms.topic: how-to
 ms.date: 04/05/2018
-ms.openlocfilehash: 09ac9c676dc1e95cbece6fa500b4f2cf554f8526
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9387d4894dbf06445fd43722353ca7ae98607359
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83723534"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144937"
 ---
 # <a name="monitor-batch-solutions"></a>Supervisión de soluciones de Batch
 
 Azure y el servicio Batch proporcionan una gama de servicios, herramientas y API para supervisar las soluciones de Batch. Este artículo de información general le ayudará a elegir una estrategia de supervisión que se adapte a sus necesidades.
 
-Para información general de los componentes y servicios de Azure disponibles para la supervisión de recursos de Azure, consulte [Supervisión de aplicaciones y recursos de Azure](../monitoring-and-diagnostics/monitoring-overview.md).
+Para información general de los componentes y servicios de Azure disponibles para la supervisión de recursos de Azure, consulte [Supervisión de aplicaciones y recursos de Azure](../azure-monitor/overview.md).
 
 ## <a name="subscription-level-monitoring"></a>Supervisión a nivel de suscripción
 
-El nivel de suscripción, que incluye las cuentas de Batch, el [registro de actividad de Azure](../azure-monitor/platform/platform-logs-overview.md) recopila datos de eventos operativos de [varias categorías](../azure-monitor/platform/activity-log-view.md#categories-in-the-activity-log).
+El nivel de suscripción, que incluye las cuentas de Batch, el [registro de actividad de Azure](../azure-monitor/platform/platform-logs-overview.md) recopila datos de eventos operativos de [varias categorías](../azure-monitor/platform/activity-log.md#view-the-activity-log).
 
 Para las cuentas de Batch en concreto, el registro de actividad recopila eventos relacionados con la creación y la eliminación de cuentas, y la administración de claves.
 
-Una manera de recuperar eventos del registro de actividad es usar Azure Portal. Haga clic en **Todos los servicios** > **Registro de actividad**. O consulte los eventos con la CLI de Azure, los cmdlets de PowerShell o la API REST de Azure Monitor. También puede exportar el registro de actividad o configurar [alertas del registro de actividad](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md).
+Una manera de recuperar eventos del registro de actividad es usar Azure Portal. Haga clic en **Todos los servicios** > **Registro de actividad**. O consulte los eventos con la CLI de Azure, los cmdlets de PowerShell o la API REST de Azure Monitor. También puede exportar el registro de actividad o configurar [alertas del registro de actividad](../azure-monitor/platform/alerts-activity-log.md).
 
 ## <a name="batch-account-level-monitoring"></a>Supervisión a nivel de la cuenta de Batch
 

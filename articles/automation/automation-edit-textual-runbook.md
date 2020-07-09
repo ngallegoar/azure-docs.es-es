@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d388162738930030ba311a04a0dce1db15590c79
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: c51ef23e27cd63d3706c104d1e39a14bf61c258e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836845"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186357"
 ---
 # <a name="edit-textual-runbooks-in-azure-automation"></a>Editar runbooks de texto en Azure Automation
 
@@ -57,7 +57,7 @@ En este artículo, se proporcionan pasos detallados para realizar diferentes fun
 1. En el control Lienzo del editor de texto, coloque el cursor donde desee colocar el código del runbook secundario.
 2. Expanda el nodo **Recursos** en el control Biblioteca.
 3. Expanda el nodo del tipo de recurso deseado.
-4. Haga clic con el botón derecho en el nombre del recurso para insertarlo y seleccione **Agregar al lienzo**. Para [recursos variables](automation-variables.md), seleccione **Agregar "Obtener variable" a lienzo** o **Agregar "Establecer variable" a lienzo** en función de si desea obtener o establecer la variable.
+4. Haga clic con el botón derecho en el nombre del recurso para insertarlo y seleccione **Agregar al lienzo**. Para [recursos variables](./shared-resources/variables.md), seleccione **Agregar "Obtener variable" a lienzo** o **Agregar "Establecer variable" a lienzo** en función de si desea obtener o establecer la variable.
 5. Observe que el código del recurso se inserta en el runbook.
 
 ## <a name="edit-an-azure-automation-runbook-using-windows-powershell"></a>Edición de un runbook de Azure Automation mediante Windows PowerShell
@@ -96,9 +96,9 @@ Publish-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automatio
 * [Administración de runbooks en Azure Automation](manage-runbooks.md).
 * [Aprendizaje del flujo de trabajo de Windows PowerShell](automation-powershell-workflow.md).
 * [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md).
-* [Certificados](automation-certificates.md).
+* [Certificados](./shared-resources/certificates.md).
 * [Conexiones](automation-connections.md).
-* [Credenciales](automation-credentials.md).
-* [Programaciones](automation-schedules.md).
-* [Variables](automation-variables.md).
-* [Referencia de cmdlets de PowerShell](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* [Credenciales](./shared-resources/credentials.md).
+* [Programaciones](./shared-resources/schedules.md).
+* [Variables](./shared-resources/variables.md).
+* [Referencia de cmdlets de PowerShell](/powershell/module/az.automation/?view=azps-3.7.0#automation).

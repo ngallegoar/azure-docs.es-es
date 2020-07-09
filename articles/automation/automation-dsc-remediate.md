@@ -9,12 +9,12 @@ ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
-ms.openlocfilehash: ff785bf3ace7c65f83fe8e505f0544edd24776d8
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 4430b8cdfe9414ddbfd7aad3c3fe7827adbc8705
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836862"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186374"
 ---
 # <a name="remediate-noncompliant-azure-automation-state-configuration-servers"></a>Corrección de servidores de Azure Automation State Configuration no conformes
 
@@ -25,7 +25,7 @@ En este documento se proporcionan scripts de ejemplo de esta característica que
 
 ## <a name="correct-drift-of-windows-virtual-machines-using-powershell"></a>Corrección de variación en máquinas virtuales Windows con PowerShell
 
-Puede corregir el desfase de las máquinas virtuales de Windows mediante la característica de comando `Run`. Vea [Ejecución de scripts de PowerShell en la máquina virtual Windows con el comando Ejecutar](/azure/virtual-machines/windows/run-command).
+Puede corregir el desfase de las máquinas virtuales de Windows mediante la característica de comando `Run`. Vea [Ejecución de scripts de PowerShell en la máquina virtual Windows con el comando Ejecutar](../virtual-machines/windows/run-command.md).
 
 Para hacer que un nodo de Azure Automation State Configuration descargue la configuración más reciente y la aplique, use el cmdlet [Update-DscConfiguration](/powershell/module/psdesiredstateconfiguration/update-dscconfiguration).
 
@@ -43,5 +43,5 @@ En el caso de los nodos híbridos, puede corregir este desfase con los scripts d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
 - Para ver un ejemplo del uso de Azure Automation State Configuration en una canalización de implementación continua, vea [Configuración de la implementación continua con Chocolatey](automation-dsc-cd-chocolatey.md).

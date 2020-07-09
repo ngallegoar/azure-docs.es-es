@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 54ddc8222816831b5b436297bbb1b40d03230f0c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 47e7e09bae082141efd872d3a90ecc30a3be04e5
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74113237"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146071"
 ---
 # <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Operadores de colección de OData en Azure Cognitive Search: `any` y `all`
 
@@ -66,23 +66,33 @@ Una **expresión lambda** en un filtro de colección es como el cuerpo de un buc
 
 Comparar documentos cuyo campo `tags` contenga exactamente la cadena "wifi":
 
-    tags/any(t: t eq 'wifi')
+```text
+tags/any(t: t eq 'wifi')
+```
 
 Comparar documentos donde todos los elementos del campo `ratings` estén comprendidos entre 3 y 5, inclusive:
 
-    ratings/all(r: r ge 3 and r le 5)
+```text
+ratings/all(r: r ge 3 and r le 5)
+```
 
 Comparar documentos donde cualquiera de las geocoordenadas del campo `locations` esté dentro del polígono indicado:
 
-    locations/any(loc: geo.intersects(loc, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'))
+```text
+locations/any(loc: geo.intersects(loc, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'))
+```
 
 Comparar documentos donde el campo `rooms` está vacío:
 
-    not rooms/any()
+```text
+not rooms/any()
+```
 
 Comparar documentos donde, para todas las habitaciones, el campo `rooms/amenities` contiene "tv" y `rooms/baseRate` es inferior a 100:
 
-    rooms/all(room: room/amenities/any(a: a eq 'tv') and room/baseRate lt 100.0)
+```text
+rooms/all(room: room/amenities/any(a: a eq 'tv') and room/baseRate lt 100.0)
+```
 
 ## <a name="limitations"></a>Limitaciones
 

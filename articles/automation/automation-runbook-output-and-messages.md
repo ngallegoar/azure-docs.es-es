@@ -5,18 +5,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 387e100a05cb51eb034f737b259bad4e5812465c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4be7934002730253b77b1c129165ad9f19f23b7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557882"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185983"
 ---
 # <a name="monitor-runbook-output"></a>Supervisión de la salida de runbooks
 
 La mayoría de los runbooks de Azure Automation tienen alguna forma de salida. Esta salida puede ser un mensaje de error para el usuario o un objeto complejo que se va a usar con otro runbook. Windows PowerShell le ofrece [varios flujos](/powershell/module/microsoft.powershell.core/about/about_redirection) para enviar la salida desde un script o flujo de trabajo. Azure Automation funciona de forma diferente con cada uno de estos flujos. Debe seguir los procedimientos recomendados sobre cómo usar los flujos al crear un runbook.
 
-En la tabla siguiente se describe brevemente cada flujo con su comportamiento en Azure Portal en los runbooks publicados y durante las [pruebas de un runbook](automation-testing-runbook.md). El flujo de salida es el flujo principal que se usa para la comunicación entre runbooks. El resto de los flujos se clasifican como flujos de mensajes, pensados para comunicar información al usuario. 
+En la tabla siguiente se describe brevemente cada flujo con su comportamiento en Azure Portal en los runbooks publicados y durante las [pruebas de un runbook](./manage-runbooks.md). El flujo de salida es el flujo principal que se usa para la comunicación entre runbooks. El resto de los flujos se clasifican como flujos de mensajes, pensados para comunicar información al usuario. 
 
 | STREAM | Descripción | Publicado | Prueba |
 |:--- |:--- |:--- |:--- |
@@ -33,7 +33,7 @@ El flujo de salida se usa para la salida de los objetos creados por un script o 
 
 El runbook usa el flujo de salida para comunicar información general al cliente solo si nunca se le llama desde otro runbook. Como procedimiento recomendado, sin embargo, le recomendamos que los runbooks usen la opción de [flujo detallado](#monitor-verbose-stream) para comunicar información general al usuario.
 
-Para que el runbook escriba datos en el flujo de salida, utilice [Write-Output](https://technet.microsoft.com/library/hh849921.aspx). Como alternativa, puede colocar el objeto en su propia línea en el script.
+Para que el runbook escriba datos en el flujo de salida, utilice [Write-Output](/powershell/module/microsoft.powershell.utility/write-output). Como alternativa, puede colocar el objeto en su propia línea en el script.
 
 ```powershell
 #The following lines both write an object to the output stream.
@@ -133,7 +133,7 @@ Los flujos de error y de advertencia registran los problemas que se producen en 
 
 De forma predeterminada, un runbook continúa ejecutándose después de una advertencia o un error. Puede especificar que el runbook se suspenda en caso de advertencia o error haciendo que el runbook establezca una [variable de preferencia](#work-with-preference-variables) antes de crear el mensaje. Por ejemplo, para hacer que el runbook se suspenda en caso de que se produzca un error, al igual que lo hace en caso de una excepción, establezca la variable `ErrorActionPreference` en Stop.
 
-Cree un mensaje de advertencia o de error mediante los cmdlets [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) o [Write-Error](https://technet.microsoft.com/library/hh849962.aspx). Las actividades también pueden escribir en los flujos de advertencia y de error.
+Cree un mensaje de advertencia o de error mediante los cmdlets [Write-Warning](/powershell/module/microsoft.powershell.utility/write-warning) o [Write-Error](/powershell/module/microsoft.powershell.utility/write-error). Las actividades también pueden escribir en los flujos de advertencia y de error.
 
 ```powershell
 #The following lines create a warning message and then an error message that will suspend the runbook.
@@ -153,9 +153,9 @@ El flujo de mensajes detallados ofrece información general acerca del funcionam
 
 De forma predeterminada, el historial de trabajos no almacena mensajes detallados de runbooks publicados, por motivos de rendimiento. Para almacenar mensajes detallados, use la pestaña **Configurar** de Azure Portal con el valor **Registrar registros detallados**; de este modo establece que los runbooks publicados registren mensajes detallados. Active esta opción solo para solucionar problemas o para depurar un runbook. En la mayoría de los casos, deberá mantener la configuración predeterminada y no escribir los registros detallados.
 
-Cuando se [prueba un runbook](automation-testing-runbook.md), los mensajes detallados no se muestran aunque el runbook esté configurado para escribir registros detallados. Para mostrar mensajes detallados al [probar un runbook](automation-testing-runbook.md), debe establecer la variable `VerbosePreference` en Continue. Cuando se establece este valor en la variable, los mensajes detallados se muestran en el panel de salida de la prueba de Azure Portal.
+Cuando se [prueba un runbook](./manage-runbooks.md), los mensajes detallados no se muestran aunque el runbook esté configurado para escribir registros detallados. Para mostrar mensajes detallados al [probar un runbook](./manage-runbooks.md), debe establecer la variable `VerbosePreference` en Continue. Cuando se establece este valor en la variable, los mensajes detallados se muestran en el panel de salida de la prueba de Azure Portal.
 
-En el código siguiente se crea un mensaje detallado mediante el cmdlet [Write-Verbose](https://technet.microsoft.com/library/hh849951.aspx).
+En el código siguiente se crea un mensaje detallado mediante el cmdlet [Write-Verbose](/powershell/module/microsoft.powershell.utility/write-verbose).
 
 ```powershell
 #The following line creates a verbose message.
@@ -170,11 +170,11 @@ Puede usar la pestaña **Configurar** de Azure Portal para establecer que un run
 Si habilita el registro de progreso, el runbook escribe un registro en el historial de trabajos antes y después de que se ejecute cada actividad. Cuando se prueba un runbook, no se muestran los mensajes de progreso, aunque el runbook esté configurado para escribir estos registros.
 
 >[!NOTE]
->El cmdlet [Write-Progress](https://technet.microsoft.com/library/hh849902.aspx) no es válido en un runbook, ya que está pensado para usarse con un usuario interactivo.
+>El cmdlet [Write-Progress](/powershell/module/microsoft.powershell.utility/write-progress) no es válido en un runbook, ya que está pensado para usarse con un usuario interactivo.
 
 ## <a name="work-with-preference-variables"></a>Trabajo con variables de preferencia
 
-Puede establecer determinadas [variables de preferencia](https://technet.microsoft.com/library/hh847796.aspx) de Windows PowerShell en los runbooks, para controlar la respuesta a los datos enviados a diferentes flujos de salida. En la siguiente tabla se enumeran las variables de preferencia que pueden usarse en runbooks, junto con sus valores predeterminados y válidos. Hay otros valores disponibles para las variables de preferencia cuando se usan en Windows PowerShell fuera de Azure Automation.
+Puede establecer determinadas [variables de preferencia](/powershell/module/microsoft.powershell.core/about/about_preference_variables) de Windows PowerShell en los runbooks, para controlar la respuesta a los datos enviados a diferentes flujos de salida. En la siguiente tabla se enumeran las variables de preferencia que pueden usarse en runbooks, junto con sus valores predeterminados y válidos. Hay otros valores disponibles para las variables de preferencia cuando se usan en Windows PowerShell fuera de Azure Automation.
 
 | Variable | Valor predeterminado | Valores válidos |
 |:--- |:--- |:--- |
@@ -198,7 +198,7 @@ Puede ver los detalles de un trabajo de runbook en Azure Portal, en la pestaña 
 
 ### <a name="retrieve-runbook-output-and-messages-in-windows-powershell"></a>Recuperación de salidas de runbook y mensajes en Windows PowerShell
 
-En Windows PowerShell, puede recuperar la salida y los mensajes de un runbook con el cmdlet [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0). Este cmdlet requiere la identificación del trabajo y tiene un parámetro denominado `Stream` en el cual se especifica qué flujo hay que recuperar. Puede especificar un valor de Any para este parámetro, con el fin de recuperar todos los flujos del trabajo.
+En Windows PowerShell, puede recuperar la salida y los mensajes de un runbook con el cmdlet [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0). Este cmdlet requiere la identificación del trabajo y tiene un parámetro denominado `Stream` en el cual se especifica qué flujo hay que recuperar. Puede especificar un valor de Any para este parámetro, con el fin de recuperar todos los flujos del trabajo.
 
 En el ejemplo siguiente se inicia un runbook y, a continuación, se espera a que finalice. Una vez que el runbook finaliza la ejecución, el script recopila su flujo de salida del trabajo.
 
@@ -260,6 +260,5 @@ Para más información sobre cómo configurar la integración con los registros 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para trabajar con runbooks, consulte [Administración de runbooks en Azure Automation](manage-runbooks.md).
-* Para más información sobre PowerShell, consulte [Documentación de PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
-* * Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* Para más información sobre PowerShell, consulte [Documentación de PowerShell](/powershell/scripting/overview).
+* * Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

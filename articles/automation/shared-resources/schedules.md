@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 557dc3ad48f8f21d8898e2beb5d940d66058e90c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 8bd988029b8d78a29de38e995c36ee1860d8cda9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744975"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187360"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Administración de programaciones en Azure Automation
 
@@ -32,13 +32,13 @@ Los cmdlets de la tabla siguiente permiten crear y administrar programaciones de
 
 | Cmdlets | Descripción |
 |:--- |:--- |
-| [Get-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationSchedule?view=azps-3.7.0) |Recupera una programación. |
-| [Get-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationscheduledrunbook?view=azps-3.7.0) |Recupera runbooks programados. |
-| [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) |Crea una nueva programación. |
-| [Register-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) |Asocia un runbook con una programación. |
-| [Remove-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationSchedule?view=azps-3.7.0) |Quita una programación. |
-| [Set-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) |Establece las propiedades de una programación existente. |
-| [Unregister-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook?view=azps-3.7.0) |Anula la asociación de un runbook con una programación. |
+| [Get-AzAutomationSchedule](/powershell/module/Az.Automation/Get-AzAutomationSchedule?view=azps-3.7.0) |Recupera una programación. |
+| [Get-AzAutomationScheduledRunbook](/powershell/module/az.automation/get-azautomationscheduledrunbook?view=azps-3.7.0) |Recupera runbooks programados. |
+| [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) |Crea una nueva programación. |
+| [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) |Asocia un runbook con una programación. |
+| [Remove-AzAutomationSchedule](/powershell/module/Az.Automation/Remove-AzAutomationSchedule?view=azps-3.7.0) |Quita una programación. |
+| [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) |Establece las propiedades de una programación existente. |
+| [Unregister-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook?view=azps-3.7.0) |Anula la asociación de un runbook con una programación. |
 
 ## <a name="create-a-schedule"></a>Crear una programación
 
@@ -65,7 +65,7 @@ Puede crear una programación para sus runbooks en Azure Portal o con PowerShell
 
 ### <a name="create-a-new-schedule-with-powershell"></a>Creación de una nueva programación con PowerShell
 
-Use el cmdlet [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) para crear programaciones. Especifique la hora de inicio de la programación y la frecuencia con que se debe ejecutar. En los ejemplos siguientes se muestra cómo crear muchos escenarios de programación distintos.
+Use el cmdlet [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) para crear programaciones. Especifique la hora de inicio de la programación y la frecuencia con que se debe ejecutar. En los ejemplos siguientes se muestra cómo crear muchos escenarios de programación distintos.
 
 #### <a name="create-a-one-time-schedule"></a>Creación de una programación única
 
@@ -128,7 +128,7 @@ Un runbook puede vincularse a varias programaciones y una programación puede te
 
 ### <a name="link-a-schedule-to-a-runbook-with-powershell"></a>Vinculación de una programación a un runbook con PowerShell
 
-Use el cmdlet [Register-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) para vincular una programación. Puede especificar valores para los parámetros del runbook con el parámetro Parameters. Para más información sobre cómo especificar valores de parámetro, consulte [Inicio de un runbook en Azure Automation](../automation-starting-a-runbook.md).
+Use el cmdlet [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) para vincular una programación. Puede especificar valores para los parámetros del runbook con el parámetro Parameters. Para más información sobre cómo especificar valores de parámetro, consulte [Inicio de un runbook en Azure Automation](../start-runbooks.md).
 En el ejemplo siguiente se muestra cómo vincular una programación a un runbook mediante un cmdlet de Azure Resource Manager con parámetros.
 
 ```azurepowershell-interactive
@@ -164,7 +164,7 @@ Cuando se deshabilita una programación, los runbooks vinculados a ella ya no se
 
 ### <a name="disable-a-schedule-with-powershell"></a>Deshabilitación de una programación con PowerShell
 
-Use el cmdlet [Set-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) para cambiar las propiedades de una programación existente. Para deshabilitar la programación, especifique False para el parámetro `IsEnabled`.
+Use el cmdlet [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) para cambiar las propiedades de una programación existente. Para deshabilitar la programación, especifique False para el parámetro `IsEnabled`.
 
 En el ejemplo siguiente se muestra cómo deshabilitar una programación para un runbook mediante un cmdlet de Azure Resource Manager.
 

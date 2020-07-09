@@ -3,15 +3,15 @@ title: Implementación de una imagen de contenedor de Azure Container Registry
 description: Obtenga información acerca de cómo implementar contenedores en Azure Container Instances mediante la extracción de imágenes de contenedor de Azure Container Registry.
 services: container-instances
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 07/02/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 212624b857d65297830995018603c2627f83369b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a82b0b70b7be8897d8f85cabea2ee21ce84d913
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81453530"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169619"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implementación en Azure Container Instances desde Azure Container Registry
 
@@ -136,7 +136,7 @@ Puede especificar las propiedades de Azure Container Registry en una plantilla d
 [...]
 ```
 
-Para obtener la configuración de grupo de contenedores completa, consulte la [referencia de plantillas de Resource Manager](/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups).    
+Para obtener la configuración de grupo de contenedores completa, consulte la [referencia de plantillas de Resource Manager](/azure/templates/Microsoft.ContainerInstance/2019-12-01/containerGroups).    
 
 Para más información acerca de cómo hacer referencia a secretos de Azure Key Vault en una plantilla de Resource Manager, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](../azure-resource-manager/templates/key-vault-parameter.md).
 

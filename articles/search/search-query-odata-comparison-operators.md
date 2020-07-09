@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 62c8c93e07326e776cbe089042abc481544794bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 572b653a49833ae06ee57b1718000e8555239de7
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74113226"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146035"
 ---
 # <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Operadores de comparación de OData en Azure Cognitive Search: `eq`, `ne`, `gt`, `lt`, `ge` y `le`
 
@@ -136,23 +136,33 @@ En los filtros, las cadenas se pueden comparar para obtener coincidencias exacta
 
 Comparar documentos donde el campo `Rating` esté entre 3 y 5, inclusive:
 
-    Rating ge 3 and Rating le 5
+```text
+Rating ge 3 and Rating le 5
+```
 
 Comparar documentos donde el campo `Location` está a menos de dos kilómetros de la latitud y longitud especificadas:
 
-    geo.distance(Location, geography'POINT(-122.031577 47.578581)') lt 2.0
+```text
+geo.distance(Location, geography'POINT(-122.031577 47.578581)') lt 2.0
+```
 
 Comparar documentos donde el campo `LastRenovationDate` es mayor o igual que el 1 de enero de 2015, medianoche (UTC):
 
-    LastRenovationDate ge 2015-01-01T00:00:00.000Z
+```text
+LastRenovationDate ge 2015-01-01T00:00:00.000Z
+```
 
 Comparar documentos donde el campo `Details/Sku` no es `null`:
 
-    Details/Sku ne null
+```text
+Details/Sku ne null
+```
 
 Comparar documentos para hoteles donde al menos una habitación tenga el tipo "Deluxe Room" (Habitación Deluxe), donde la cadena del campo `Rooms/Type` coincide exactamente con el filtro:
 
-    Rooms/any(room: room/Type eq 'Deluxe Room')
+```text
+Rooms/any(room: room/Type eq 'Deluxe Room')
+```
 
 ## <a name="next-steps"></a>Pasos siguientes  
 

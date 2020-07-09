@@ -5,16 +5,16 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 72065b388f348da1d268f875a10d5b13d2f8cf3b
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 8770762fa2d2ae6bc0584d75397829298a62e8c0
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117399"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185898"
 ---
 # <a name="limit-update-management-deployment-scope"></a>Limitación del ámbito de implementación de Update Management
 
-En este artículo se describe cómo trabajar con configuraciones de ámbito cuando se utiliza la característica [Update Management](automation-update-management.md) para implementar actualizaciones y revisiones en las máquinas virtuales. Para más información, consulte [Soluciones de supervisión como destino en Azure Monitor (versión preliminar)](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting). 
+En este artículo se describe cómo trabajar con configuraciones de ámbito cuando se utiliza la característica [Update Management](automation-update-management.md) para implementar actualizaciones y revisiones en las máquinas virtuales. Para más información, consulte [Soluciones de supervisión como destino en Azure Monitor (versión preliminar)](../azure-monitor/insights/solution-targeting.md). 
 
 ## <a name="about-scope-configurations"></a>Acerca de las configuraciones de ámbito
 

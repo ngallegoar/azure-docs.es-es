@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: de46f4e2fd53b888981076256fda28a2a14995af
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 3bb42886c653afbdf8975b532bd2e1e1c3c63ce9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837049"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186544"
 ---
 # <a name="compile-dsc-configurations-in-azure-automation-state-configuration"></a>Compilación de configuraciones de DSC en Azure Automation State Configuration
 
@@ -27,7 +27,7 @@ Azure Automation State Configuration permite compilar las configuraciones de Des
   - Trabajo con datos de nodo y datos que no son de nodo a escala
   - Mejora significativa del rendimiento
 
-También puede usar plantillas de Azure Resource Manager con la extensión de Azure Desired State Configuration (DSC) para insertar configuraciones en las máquinas virtuales de Azure. La extensión DSC de Azure usa el marco del agente de máquina virtual de Azure para entregar y aplicar las configuraciones de DSC que se ejecutan en las máquinas virtuales de Azure, así como informar sobre estas. Para obtener información detallada sobre la compilación mediante plantillas de Azure Resource Manager, consulte [Extensión Desired State Configuration con plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template#details). 
+También puede usar plantillas de Azure Resource Manager con la extensión de Azure Desired State Configuration (DSC) para insertar configuraciones en las máquinas virtuales de Azure. La extensión DSC de Azure usa el marco del agente de máquina virtual de Azure para entregar y aplicar las configuraciones de DSC que se ejecutan en las máquinas virtuales de Azure, así como informar sobre estas. Para obtener información detallada sobre la compilación mediante plantillas de Azure Resource Manager, consulte [Extensión Desired State Configuration con plantillas de Azure Resource Manager](../virtual-machines/extensions/dsc-template.md#details). 
 
 ## <a name="compile-a-dsc-configuration-in-azure-state-configuration"></a>Compilar una configuración de DSC en Azure State Configuration
 
@@ -63,7 +63,7 @@ $CompilationJob | Get-AzAutomationDscCompilationJobOutput –Stream Any
 
 ### <a name="declare-basic-parameters"></a>Declaración de los parámetros básicos
 
-La declaración de parámetro en configuraciones DSC, incluidos los tipos de parámetro y las propiedades, funciona igual que en los runbooks de Azure Automation. Vea [Inicio de un runbook en Azure Automation](automation-starting-a-runbook.md) para obtener más información acerca de los parámetros del runbook.
+La declaración de parámetro en configuraciones DSC, incluidos los tipos de parámetro y las propiedades, funciona igual que en los runbooks de Azure Automation. Vea [Inicio de un runbook en Azure Automation](./start-runbooks.md) para obtener más información acerca de los parámetros del runbook.
 
 En el ejemplo siguiente se usan los parámetros `FeatureName` y `IsPresent` para determinar los valores de las propiedades de la configuración del nodo **ParametersExample.sample**, que se han generado durante la compilación.
 
@@ -123,7 +123,7 @@ Para obtener información acerca de cómo pasar objetos `PSCredential` como par�
 La característica **Recursos compuestos** le permite utilizar las configuraciones de DSC como recursos anidados dentro de una configuración. Esta característica permite la aplicación de varias configuraciones a un solo recurso. Consulte [Recursos compuestos: uso de una configuración de DSC como un recurso](/powershell/scripting/dsc/resources/authoringresourcecomposite) para más información acerca de los recursos compuestos.
 
 > [!NOTE]
-> Para que las configuraciones que contienen recursos compuestos se compilen correctamente, antes debe importar en Azure Automation los recursos de DSC en los que se basan los compuestos. La incorporación de un recurso compuesto de DSC no es diferente de la incorporación de cualquier módulo de PowerShell a Azure Automation. El proceso se documenta en [Administración de módulos en Azure Automation](/azure/automation/shared-resources/modules).
+> Para que las configuraciones que contienen recursos compuestos se compilen correctamente, antes debe importar en Azure Automation los recursos de DSC en los que se basan los compuestos. La incorporación de un recurso compuesto de DSC no es diferente de la incorporación de cualquier módulo de PowerShell a Azure Automation. El proceso se documenta en [Administración de módulos en Azure Automation](./shared-resources/modules.md).
 
 ### <a name="manage-configurationdata-when-compiling-configurations-in-azure-automation"></a>Administración de ConfigurationData al compilar configuraciones en Azure Automation
 
@@ -184,10 +184,10 @@ Start-AzAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -Automa
 
 Las referencias de recursos son las mismas en State Configuration de Azure Automation y en los runbooks. Para obtener más información, vea lo siguiente:
 
-- [Certificados](automation-certificates.md)
+- [Certificados](./shared-resources/certificates.md)
 - [Conexiones](automation-connections.md)
-- [Credenciales](automation-credentials.md)
-- [Variables](automation-variables.md)
+- [Credenciales](./shared-resources/credentials.md)
+- [Variables](./shared-resources/variables.md)
 
 #### <a name="credential-assets"></a>Recursos de credenciales
 
@@ -278,7 +278,6 @@ Import-AzAutomationDscNodeConfiguration -AutomationAccountName 'MyAutomationAcco
 
 - Para dar los primeros pasos, consulte [Introducción a Azure Automation State Configuration](automation-dsc-getting-started.md).
 - Para aprender a compilar configuraciones de DSC para poder asignarlas a los nodos de destino, consulte [Compilación de configuraciones de DSC en Azure Automation State Configuration](automation-dsc-compile.md).
-- Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+- Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
 - Para obtener información de precios, consulte [Precios de State Configuration de Azure Automation](https://azure.microsoft.com/pricing/details/automation/).
 - Para ver un ejemplo del uso de State Configuration en una canalización de implementación continua, consulte [Configuración de la implementación continua con Chocolatey](automation-dsc-cd-chocolatey.md).

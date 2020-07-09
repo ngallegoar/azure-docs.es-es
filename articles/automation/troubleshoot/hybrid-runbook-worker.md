@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 28b6b09c679e37ca4ecd901371e65bffb27ecba4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 2149fd68cdf5f2991d6035f245f70515e920045c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681008"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187207"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Solución de incidencias de Hybrid Runbook Worker
 
@@ -58,7 +58,7 @@ Compruebe el registro de eventos **Microsoft-SMA** en busca de un evento que cor
 
 #### <a name="issue"></a>Problema
 
-Hybrid Runbook Worker recibe el evento 15011, lo que indica que el resultado de una consulta no es válido. El error siguiente aparece cuando el rol de trabajo intenta abrir una conexión con el [servidor de SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
+Hybrid Runbook Worker recibe el evento 15011, lo que indica que el resultado de una consulta no es válido. El error siguiente aparece cuando el rol de trabajo intenta abrir una conexión con el [servidor de SignalR](/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
 
 ```error
 [AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
@@ -238,7 +238,7 @@ Los roles de Hybrid Worker envían [salida y mensajes de los runbooks](../automa
 
 #### <a name="issue"></a>Problema
 
-Un script que se ejecuta en una instancia de Hybrid Runbook Worker de Windows no puede conectarse como se esperaba a Office 365 en un espacio aislado de Orchestrator. El script usa [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) para la conexión. 
+Un script que se ejecuta en una instancia de Hybrid Runbook Worker de Windows no puede conectarse como se esperaba a Office 365 en un espacio aislado de Orchestrator. El script usa [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) para la conexión. 
 
 Si ajusta **Orchestrator.Sandbox.exe.config** para establecer el proxy y la lista de omisión, el espacio aislado sigue sin conectarse correctamente. Sin embargo, un archivo **Powershell_ise.exe.config** con la misma configuración de proxy y lista de omisión parece funcionar como se espera. Los registros de Service Management Automation (SMA) y los registros de PowerShell no ofrecen ninguna información relacionada con el proxy.
 
@@ -248,9 +248,9 @@ La conexión a Servicios de federación de Active Directory (AD FS) del servid
 
 #### <a name="resolution"></a>Solución
 
-Puede resolver el problema del espacio aislado de Orchestrator mediante la migración del script para que use los módulos de Azure Active Directory en lugar del módulo MSOnline para los cmdlets de PowerShell. Para más información, consulte [Migración de Orchestrator a Azure Automation (beta)](https://docs.microsoft.com/azure/automation/automation-orchestrator-migration).
+Puede resolver el problema del espacio aislado de Orchestrator mediante la migración del script para que use los módulos de Azure Active Directory en lugar del módulo MSOnline para los cmdlets de PowerShell. Para más información, consulte [Migración de Orchestrator a Azure Automation (beta)](../automation-orchestrator-migration.md).
 
-Si desea seguir usando los cmdlets del módulo MSOnline, cambie el script para que use [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Especifique valores de los parámetros `ComputerName` y `Credential`. 
+Si desea seguir usando los cmdlets del módulo MSOnline, cambie el script para que use [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Especifique valores de los parámetros `ComputerName` y `Credential`. 
 
 ```powershell
 $Credential = Get-AutomationPSCredential -Name MyProxyAccessibleCredential

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: rohink
-ms.openlocfilehash: b0585c755e8dd9a6625a8259dc71ca521f156afb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88c2536ad53be0beb583dc64e633322b2a531d15
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704070"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183450"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Solución de problemas de estado degradado en el Administrador de tráfico de Azure
 
@@ -56,9 +56,11 @@ Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirectio
 
 Salida de ejemplo:
 
-    StatusCode StatusDescription
-    ---------- -----------------
-           301 Moved Permanently
+```output
+StatusCode StatusDescription
+---------- -----------------
+        301 Moved Permanently
+```
 
 Observe que hemos recibido una respuesta de redirección. Como se indicó anteriormente, cualquier StatusCode distinto de 200 se considera un error. Traffic Manager cambia el estado de punto de conexión a Sin conexión. Para resolver el problema, compruebe la configuración del sitio web para asegurarse de que se puede devolver el StatusCode apropiado desde la ruta de acceso del sondeo. Vuelva a configurar el sondeo de Traffic Manager para que señale a una ruta de acceso que devuelva una respuesta 200.
 
