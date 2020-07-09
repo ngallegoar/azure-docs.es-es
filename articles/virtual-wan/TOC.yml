@@ -116,6 +116,12 @@
           href: how-to-virtual-hub-routing.md
         - name: Visualización de rutas efectivas de centro virtual
           href: effective-routes-virtual-hub.md
+        - name: Enrutamiento del tráfico desde un centro virtual a NVA (heredado)
+          items:
+            - name: Azure portal
+              href: virtual-wan-route-table-nva-portal.md
+            - name: Azure PowerShell
+              href: virtual-wan-route-table-nva.md
     - name: Seguridad
       items:
         - name: Instalación de Azure Firewall en un centro de conectividad

@@ -88,7 +88,7 @@
           href: stream-analytics-edge-csharp-udf-methods.md
         - name: UDF de Machine Learning
           href: machine-learning-udf.md
-        - name: Depuración de UDF y actualizaciones
+        - name: Depuración de UDF
           href: debug-user-defined-functions.md
     - name: Optimización de trabajos de Stream Analytics
       items:

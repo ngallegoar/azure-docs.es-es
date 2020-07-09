@@ -520,6 +520,8 @@
         - name: Configuración de contenedores de voz
           displayName: 'containers,configure containers,container config,configuration'
           href: speech-container-configuration.md
+        - name: Procesamiento por lotes con contenedores de voz
+          href: speech-container-batch-processing.md
         - name: Contenedores de voz con Kubernetes y Helm
           displayName: 'containers,kubernetes,k8s,helm,orchestration,on-prem,on-premises'
           href: speech-container-howto-on-premises.md

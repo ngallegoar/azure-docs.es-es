@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2020
 ms.author: jehollan, glenga
 ms.custom: include file
-ms.openlocfilehash: c53486bf3368039f172c7a13420e2291dd9c9892
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4dc85988d904fdec72e1e6d92f03582a2a8f1427
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83122733"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85121451"
 ---
 1. En el menú de Azure Portal o en la página **Principal**, seleccione **Crear un recurso**.
 
@@ -37,8 +37,8 @@ ms.locfileid: "83122733"
     | Configuración      | Valor sugerido  | Descripción |
     | ------------ | ---------------- | ----------- |
     | **[Cuenta de almacenamiento](../articles/storage/common/storage-account-create.md)** |  Nombre único globalmente |  Cree una cuenta de almacenamiento que use la aplicación de función. Los nombres de las cuentas de almacenamiento deben tener entre 3 y 24 caracteres y solo pueden incluir números y letras en minúscula. También puede usar una cuenta existente que debe cumplir los [requisitos de la cuenta de almacenamiento](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
-    |**Sistema operativo**| Sistema operativo preferido | Se preselecciona un sistema operativo en función de la selección de pila en tiempo de ejecución, pero puede cambiar esta configuración si es necesario. |
-    | **[Plan](../articles/azure-functions/functions-scale.md)** | Premium | Plan de hospedaje que define cómo se asignan los recursos a la Function App. Seleccione **Premium** y, a continuación, seleccione los valores predeterminados de **Plan de Windows** y **SKU y tamaño**. |
+    |**Sistema operativo**| Sistema operativo preferido | Se preselecciona un sistema operativo en función de la selección de pila en tiempo de ejecución, pero puede cambiar esta configuración si es necesario. Python solo es compatible con Linux. |
+    | **[Plan](../articles/azure-functions/functions-scale.md)** | Premium | Plan de hospedaje que define cómo se asignan los recursos a la Function App. Seleccione **Premium**. De forma predeterminada, se crea un plan de App Service. El valor predeterminado de **SKU y tamaño** es **EP1**, donde EP son las siglas de _Elástico Premium_. Para más información, consulte la lista de [SKU Premium](../articles/azure-functions/functions-premium-plan.md#available-instance-skus).<br/>Al ejecutar las funciones de JavaScript en un plan Prémium, debe elegir una instancia que tenga menos vCPU. Para más información, consulte el apartado sobre la [elección de planes Premium de un solo núcleo](../articles/azure-functions/functions-reference-node.md#considerations-for-javascript-functions).  |
 
     ![Página Hospedaje](./media/functions-premium-create/function-app-premium-create-hosting.png)
 

@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6a053b94813145f9ccd69158d18edb728d5dad61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95c553d26a3e79b53106b933c629c5884c3e004c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74795872"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84466893"
 ---
-| Resource | Destino | Límite máximo |
+| Recurso | Destino | Límite máximo |
 |----------|--------------|------------|
-| Servicios de sincronización de almacenamiento por región | 20 servicios de sincronización de almacenamiento | Sí |
-| Grupos de sincronización por servicio de sincronización de almacenamiento | 100 grupos de sincronización | Sí |
+| Servicios de sincronización de almacenamiento por región | 100 servicios de sincronización de Storage | Sí |
+| Grupos de sincronización por servicio de sincronización de almacenamiento | 200 grupos de sincronización | Sí |
 | Servidores registrados por servicio de sincronización de almacenamiento | 99 servidores | Sí |
 | Puntos de conexión en la nube por grupo de sincronización | 1 punto de conexión en la nube | Sí |
 | Puntos de conexión del servidor por grupo de sincronización | 50 puntos de conexión del servidor | No |

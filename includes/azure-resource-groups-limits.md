@@ -4,14 +4,14 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 02/24/2020
 ms.author: tomfitz
-ms.openlocfilehash: c883383d3c870689bb95f808f6f60c5185c165c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33a63280f6973d2c5e29db29f7a6f3fc68c57c77
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334694"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84424770"
 ---
-| Resource | Límite |
+| Recurso | Límite |
 | --- | --- |
 | Recursos por [grupo de recursos](../articles/azure-resource-manager/management/overview.md#resource-groups) | Los recursos no están limitados por el grupo de recursos. En su lugar, están limitados por el tipo de recurso de un grupo de recursos. Consulte la fila siguiente. |
 | Recursos por grupo de recursos, por tipo de recurso |800: algunos tipos de recursos pueden superar el límite de 800. Consulte [Resources not limited to 800 instances per resource group](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md) (Recursos no limitados a 800 instancias por grupo de recursos). |
@@ -22,7 +22,7 @@ ms.locfileid: "80334694"
 | Longitud de la clave de etiqueta |512 |
 | Longitud del valor de la etiqueta |256 |
 
-<sup>1</sup>Si se alcanza el límite de 800 implementaciones por grupo de recursos, elimine las implementaciones que ya no necesite del historial. Eliminar una entrada del historial de implementaciones no afecta a los recursos implementados. Para más información, consulte [Resolución de error cuando el recuento de implementaciones es superior a 800](../articles/azure-resource-manager/templates/deployment-quota-exceeded.md).
+<sup>1</sup>A partir de junio 2020, las implementaciones se eliminarán automáticamente del historial cuando se aproxime al límite. Eliminar una entrada del historial de implementaciones no afecta a los recursos implementados. Para obtener más información, consulte [Eliminaciones automáticas del historial de implementaciones](../articles/azure-resource-manager/templates/deployment-history-deletions.md).
 
 #### <a name="template-limits"></a>Límites de plantilla
 

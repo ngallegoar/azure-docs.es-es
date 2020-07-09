@@ -3,24 +3,22 @@ title: archivo de inclusión
 description: archivo de inclusión
 services: batch
 documentationcenter: ''
-author: LauraBrenner
+author: JnHs
 manager: evansma
 editor: ''
-ms.assetid: ''
 ms.service: batch
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
-ms.workload: ''
-ms.date: 04/03/2020
-ms.author: labrenne
+ms.date: 06/16/2020
+ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: dc08dcded6418208751edbffcb5d263db059ec01
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 1b21141a4b3f9ae92cdcf1d5a93a457012cb136a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657467"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506619"
 ---
 ### <a name="general-requirements"></a>Requisitos generales
 
@@ -40,16 +38,14 @@ Los requisitos adicionales de red virtual difieren en función de si el grupo de
 
 **Id. de subred**: al especificar la subred mediante las API de Batch, utilice el *identificador de recurso* de la subred. El identificador de subred tiene el formato:
 
-  ```
-  /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/virtualNetworks/{network}/subnets/{subnet}
-  ```
+`/subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/virtualNetworks/{network}/subnets/{subnet}`
 
 **Permisos**: compruebe si sus directivas de seguridad o bloqueos del grupo de recursos o la suscripción de la red virtual restringen los permisos de un usuario para administrar la red virtual.
 
 **Recursos de red adicionales**: Batch asigna automáticamente los recursos de red adicionales del grupo de recursos que contiene la red virtual.
 
 > [!IMPORTANT]
->Por cada 50 nodos especializados (o 20 nodos de prioridad baja), Batch asigna: un grupo de seguridad de red, una dirección IP pública y un equilibrador de carga. Estos recursos están limitados por las [cuotas de recursos](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) de la suscripción. En el caso de los grupos grandes, es posible que deba solicitar un aumento de la cuota de uno o varios de estos recursos.
+> Por cada 100 nodos dedicados o de prioridad baja, Batch asigna: un grupo de seguridad de red, una dirección IP pública y un equilibrador de carga. Estos recursos están limitados por las [cuotas de recursos](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) de la suscripción. En el caso de los grupos grandes, es posible que deba solicitar un aumento de la cuota de uno o varios de estos recursos.
 
 #### <a name="network-security-groups-batch-default"></a>Grupos de seguridad de red: valor predeterminado de Batch
 
@@ -61,11 +57,11 @@ La subred debe permitir la comunicación de entrada desde el servicio Batch para
 * Tráfico saliente en cualquier puerto para Internet. Se puede modificar por regla de grupo de seguridad de red del nivel de subred (véase a continuación).
 
 > [!IMPORTANT]
-> Tenga cuidado si modifica reglas de entrada o salida en los grupos de seguridad de red configurados para Batch o las agrega a ellos. Si un NSG deniega la comunicación con los nodos de proceso en la subred especificada, el servicio Batch establece el estado de dichos nodos en **No utilizable**. Además, no se deben aplicar bloqueos de recursos a ningún recurso creado por Batch, ya que, si se aplican, se puede impedir la limpieza de recursos como consecuencia de acciones iniciadas por el usuario, como la eliminación de un grupo.
+> Tenga cuidado si modifica reglas de entrada o salida en los grupos de seguridad de red configurados para Batch o las agrega a ellos. Si un grupo de seguridad de red deniega la comunicación con los nodos de ejecución en la subred especificada, el servicio Batch establecerá el estado de dichos nodos en **No utilizable**. Además, no se deben aplicar bloqueos de recursos a ningún recurso creado por Batch, ya que así se puede impedir la limpieza de recursos como consecuencia de las acciones iniciadas por el usuario, como la eliminación de un grupo.
 
 #### <a name="network-security-groups-specifying-subnet-level-rules"></a>Grupos de seguridad de red: especificación de grupos de nivel de subred
 
-No es preciso especificar grupos de seguridad de red en el nivel de subred de la red virtual, ya que Batch configura los suyos propios (véase a continuación). Si tiene un grupo de seguridad de red asociado a la subred en la que se implementan los nodos de ejecución de Batch o desea aplicar reglas de NSG personalizadas que reemplacen a las reglas predeterminadas aplicadas, debe configurar el grupo de seguridad de red, como mínimo, con las reglas de seguridad de entrada y de salida, como se muestra en las tablas siguientes.
+No es preciso que especifique grupos de seguridad de red en el nivel de subred de la red virtual, ya que Batch configura los suyos propios (véase a continuación). Si tiene un grupo de seguridad de red asociado a la subred en la que se implementan los nodos de ejecución de Batch o si desea aplicar reglas de NSG personalizadas que reemplacen a las reglas aplicadas de forma predeterminada, debe configurar el grupo de seguridad de red, como mínimo, con las reglas de seguridad de entrada y de salida que se muestran en las tablas siguientes.
 
 Configure el tráfico de entrada en los puertos 3389 (Windows) o 22 (Linux) solo si necesita permitir el acceso remoto a los nodos de ejecución del grupo desde orígenes externos. Si requiere que las tareas con varias instancias sean compatibles con ciertos runtimes de MPI, es posible que necesite habilitar las reglas del puerto 22 en Linux. Para que se puedan usar los nodos de ejecución del grupo no es obligatorio permitir el tráfico en estos puertos.
 
@@ -77,7 +73,7 @@ Configure el tráfico de entrada en los puertos 3389 (Windows) o 22 (Linux) solo
 | Las direcciones IP de origen de usuario para tener acceso remoto a los nodos de ejecución o la subred de nodo de ejecución para tareas de instancias múltiples de Linux, si es necesario. | N/D | * | Any | 3389 (Windows), 22 (Linux) | TCP | Allow |
 
 > [!WARNING]
-> Las direcciones IP del servicio Batch pueden cambiar con el tiempo. Por lo tanto, se recomienda encarecidamente usar la etiqueta de servicio `BatchNodeManagement` (o la variante regional) para las reglas de grupo de seguridad de red. No se recomienda rellenar las reglas de grupo de seguridad de red directamente con las direcciones IP del servicio Batch.
+> Las direcciones IP del servicio Batch pueden cambiar con el tiempo. Por lo tanto, se recomienda encarecidamente usar la etiqueta de servicio `BatchNodeManagement` (o la variante regional) para las reglas de NSG. Evite rellenar las reglas de NSG con direcciones IP específicas del servicio Batch.
 
 **Reglas de seguridad de salida**
 
@@ -91,9 +87,7 @@ Configure el tráfico de entrada en los puertos 3389 (Windows) o 22 (Linux) solo
 
 **Id. de subred**: al especificar la subred mediante las API de Batch, utilice el *identificador de recurso* de la subred. El identificador de subred tiene el formato:
 
-  ```
-  /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.ClassicNetwork /virtualNetworks/{network}/subnets/{subnet}
-  ```
+`/subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.ClassicNetwork /virtualNetworks/{network}/subnets/{subnet}`
 
 **Permisos**: para utilizar una red virtual clásica, la entidad de servicio `Microsoft Azure Batch` debe tener el rol de Control de acceso basado en roles (RBAC) `Classic Virtual Machine Contributor` para la red virtual especificada.
 
@@ -101,9 +95,9 @@ Configure el tráfico de entrada en los puertos 3389 (Windows) o 22 (Linux) solo
 
 La subred debe permitir las comunicaciones entrantes desde el servicio Batch para poder programar tareas en los nodos de proceso y la comunicación saliente para comunicarse con Azure Storage u otros recursos.
 
-No es necesario especificar un grupo de seguridad de red, ya que Batch configura la comunicación de entrada únicamente de las direcciones IP de Batch a los nodos del grupo. Sin embargo, si la subred especificada tiene asociados grupos de seguridad de red o un firewall, configure las reglas de seguridad de entrada y salida como se muestra en las tablas siguientes. Si un NSG deniega la comunicación con los nodos de proceso en la subred especificada, el servicio Batch establece el estado de dichos nodos en **No utilizable**.
+No es necesario especificar un grupo de seguridad de red, ya que Batch configura la comunicación de entrada únicamente de las direcciones IP de Batch a los nodos del grupo. Sin embargo, si la subred especificada tiene asociados grupos de seguridad de red o un firewall, configure las reglas de seguridad de entrada y salida como se muestra en las tablas siguientes. Si un grupo de seguridad de red deniega la comunicación con los nodos de ejecución en la subred especificada, el servicio Batch establece el estado de dichos nodos en **No utilizable**.
 
-Configure el tráfico entrante en el puerto 3389 para Windows si tiene que permitir el RDP a los nodos del grupo. No es necesario para que se puedan usar los nodos del grupo.
+Configure el tráfico entrante en el puerto 3389 para Windows si tiene que permitir el RDP a los nodos del grupo. Esta acción no se requiere para que se puedan usar los nodos del grupo.
 
 **Reglas de seguridad de entrada**
 

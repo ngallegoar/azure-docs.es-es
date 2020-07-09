@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/21/2020
 ms.author: kumud
 ms.custom: include file
-ms.openlocfilehash: 1c790f10a310b6c4dea3aefd6cb02891b5bbcf9a
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 2c33d4988082496e53520254e0d85431497d8b38
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81768757"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84902711"
 ---
  Los límites siguientes corresponden a Azure Private Link:
 
-|Resource |Límite |
+|Recurso |Límite |
 |---------|---------|
 |Número de puntos de conexión privados por red virtual     |  1000       |
 |Número de puntos de conexión privados por suscripción       |   64000       |

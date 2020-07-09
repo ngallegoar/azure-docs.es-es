@@ -8,23 +8,25 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 0dd6618bdee8e6810d414d4b04b16a1e0a9c90ed
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e6c4b07d01a4992e22107cb7d524646f439c37c6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "67186791"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84905874"
 ---
-Puede acceder a los registros de consola generados desde dentro del contenedor. En primer lugar, active el registro de contenedores mediante la ejecución del siguiente comando en Cloud Shell:
+Para acceder a los registros de la consola generados desde el código de la aplicación en App Service, active el registro de diagnósticos, para lo que debe ejecutar el siguiente comando en [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp log config --name <app-name> --resource-group myResourceGroup --docker-container-logging filesystem
+az webapp log config --resource-group <resource-group-name> --name <app-name> --application-logging true --level Verbose
 ```
 
-Una vez que se active el registro de contenedor, ejecute el siguiente comando para ver el flujo del registro:
+Los valores posibles de `--level` son: `Error`, `Warning`, `Info` y `Verbose`. Todos los niveles incluyen el nivel anterior. Por ejemplo: `Error` incluye solo los mensajes de error, mientras que `Verbose` incluye todos los mensajes.
+
+Una vez que se activa el registro de contenedor, ejecute el siguiente comando para ver la transmisión del registro:
 
 ```azurecli-interactive
-az webapp log tail --name <app-name> --resource-group myResourceGroup
+az webapp log tail --resource-group <resource-group-name> --name <app-name>
 ```
 
 Si no ve los registros de la consola de inmediato, vuelve a comprobarlo en 30 segundos.

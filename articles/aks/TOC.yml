@@ -228,6 +228,8 @@
           href: control-kubeconfig-access.md
         - name: Protección del tráfico de pod con directivas de red
           href: use-network-policies.md
+        - name: Protección de pods con Azure Policy (versión preliminar)
+          href: use-pod-security-on-azure-policy.md
         - name: Uso de directivas de seguridad de pod (versión preliminar)
           href: use-pod-security-policies.md
         - name: Definición de intervalos IP de servidor de API autorizado
@@ -244,6 +246,8 @@
               href: managed-aad.md
             - name: Uso de la CLI de Azure
               href: azure-ad-integration-cli.md
+        - name: Uso de Azure RBAC para la autorización de Kubernetes (versión preliminar)
+          href: manage-azure-rbac.md
         - name: Uso del acceso basado en rol de Kubernetes con integración de Azure AD
           href: azure-ad-rbac.md
           maintainContext: true
