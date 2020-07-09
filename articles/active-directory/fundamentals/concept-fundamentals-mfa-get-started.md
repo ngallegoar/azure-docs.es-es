@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf05532f81d70d4d7b09de2ccbf9807273a85330
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 38f3a6d9cea1aa1ebcb76f61882dcf2615dc4832
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799587"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554652"
 ---
 # <a name="overview-of-azure-multi-factor-authentication-for-your-organization"></a>Introducción a Azure Multi-Factor Authentication en una organización
 
@@ -53,7 +53,7 @@ Proporciona la opción de seguridad más potente y una experiencia de usuario me
 
 ## <a name="authentication-methods"></a>Métodos de autenticación
 
-|   | Valores predeterminados de seguridad | Todos los demás métodos |
+| Método | Valores predeterminados de seguridad | Todos los demás métodos |
 | --- | --- | --- |
 | Notificación a través de aplicación móvil | X | X |
 | Código de verificación de aplicación móvil o token de hardware |   | X |

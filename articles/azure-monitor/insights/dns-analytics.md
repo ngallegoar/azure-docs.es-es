@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: 2471c29f559df5c347c62ceb4c7fd9b4ae1e5eec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 385f4a9ff1c299f49a514ad63bb3c8d633d8c191
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77657340"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552821"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Recopilación de información sobre la infraestructura de DNS con la solución DNS Analytics
 
@@ -179,7 +179,7 @@ Pasos comunes de solución de problemas:
 
 1. Faltan datos de búsquedas de DNS: para solucionar este problema, intente restablecer la configuración o simplemente cargar la página de configuración una vez en el portal. Para restablecerla, solo tiene que cambiar el valor de una opción por otro y luego volver al valor original y guardar la configuración.
 
-## <a name="feedback"></a>Comentarios
+## <a name="suggestions"></a>Sugerencias
 
 Para proporcionar comentarios, visite la [página de UserVoice de análisis de registros](https://aka.ms/dnsanalyticsuservoice) y publique ideas sobre las características de DNS Analytics con las que trabajar. 
 

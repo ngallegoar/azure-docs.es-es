@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 9a291971ce0edead9ca28a47f7ad0689b0f65547
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ff4781109b2572d5555ec0a03c65359ef5a89d8d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834958"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482520"
 ---
 # <a name="development-best-practices-for-synapse-sql"></a>Procedimientos recomendados de desarrollo para SQL de Synapse
 En este artículo se describen la guía y los procedimientos recomendados a medida que desarrolla una solución de almacenamiento de datos. 
@@ -150,7 +150,7 @@ Si es posible, puede preparar los archivos para mejorar el rendimiento:
 
 A menudo, los datos se organizan en particiones. Puede indicar a SQL a petición que consulte archivos y carpetas concretos. Esta acción reduce el número de archivos y la cantidad de datos que la consulta necesita leer y procesar. 
 
-Por lo tanto, conseguirá un mejor rendimiento. Para obtener más información, consulte las funciones [filename](develop-storage-files-overview.md#filename-function) y [filepath](develop-storage-files-overview.md#filepath-function), así como ejemplos sobre cómo [consultar archivos específicos](query-specific-files.md).
+Por lo tanto, conseguirá un mejor rendimiento. Para obtener más información, consulte las funciones [filename](query-data-storage.md#filename-function) y [filepath](query-data-storage.md#filepath-function), así como ejemplos sobre cómo [consultar archivos específicos](query-specific-files.md).
 
 Si los datos en el almacenamiento no tienen particiones, considere la posibilidad de crear particiones para usar estas funciones en la optimización de las consultas que están dirigidas a esos archivos.
 

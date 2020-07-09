@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d67d867249286ad1591b441bbe5ea2637971e104
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 841b12b27447c4d32d25b8eb0d5bcf51ff8e2932
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80652608"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550282"
 ---
 # <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>Supervisión y revisión de los registros de los entornos de protección con contraseña de Azure AD local
 
@@ -63,7 +63,7 @@ Se registran eventos discretos para capturar estas situaciones en función de lo
 
 Los principales eventos relacionados con la validación de contraseñas son los siguientes:
 
-|   |Cambio de contraseña |Establecimiento de contraseña|
+| Evento |Cambio de contraseña |Establecimiento de contraseña|
 | --- | :---: | :---: |
 |Pass (pasado) |10014 |10015|
 |Error (debido a la directiva de contraseñas del cliente)| 10016, 30002| 10017, 30003|

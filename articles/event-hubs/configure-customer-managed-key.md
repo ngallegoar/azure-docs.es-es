@@ -1,19 +1,14 @@
 ---
 title: Configuración de su propia clave para cifrar datos en reposo de Azure Event Hubs
 description: En este artículo se proporciona información sobre cómo configurar su propia clave para cifrar datos en reposo de Azure Event Hubs.
-services: event-hubs
-ms.service: event-hubs
-documentationcenter: ''
-author: spelluru
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.author: spelluru
-ms.openlocfilehash: f515d3ad832db7f78f98111ab67628a2874033ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 2d82fc8c962496246196331c7d191c0fc057694f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459141"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85479834"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configuración de claves administradas por el cliente para cifrar datos en reposo de Azure Event Hubs mediante Azure Portal
 Azure Event Hubs proporciona cifrado de datos en reposo con Azure Storage Service Encryption (Azure SSE). Event Hubs se basa en Azure Storage para almacenar los datos y, de forma predeterminada, todos los datos que se almacenan con Azure Storage se cifran mediante claves administradas por Microsoft. 
@@ -71,7 +66,7 @@ Después de habilitar las claves administradas por el cliente, debe asociar la c
 
 
 ## <a name="rotate-your-encryption-keys"></a>Rotación de las claves de cifrado
-Puede rotar la clave en el almacén de claves mediante el mecanismo de rotación de los Azure Key Vault. Para más información, consulte [Configuración de la auditoría y la rotación de claves](../key-vault/secrets/key-rotation-log-monitoring.md). También es posible establecer fechas de activación y expiración para automatizar la rotación de claves. El servicio Event Hubs detectará nuevas versiones de clave y comenzará a usarlas automáticamente.
+Puede rotar la clave en el almacén de claves mediante el mecanismo de rotación de los Azure Key Vault. También es posible establecer fechas de activación y expiración para automatizar la rotación de claves. El servicio Event Hubs detectará nuevas versiones de clave y comenzará a usarlas automáticamente.
 
 ## <a name="revoke-access-to-keys"></a>Revocación del acceso a las claves
 Al revocar el acceso a las claves de cifrado, no se purgan los datos de Event Hubs. Sin embargo, no se podrá acceder a los datos desde el espacio de nombres de Event Hubs. Puede revocar la clave de cifrado mediante la directiva de acceso o eliminando la clave. Obtenga más información sobre las directivas de acceso y la protección del almacén de claves en [Protección del acceso a un almacén de claves](../key-vault/general/secure-your-key-vault.md).

@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: c698b9381755f81303dc3adfa9422b82500bb208
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 977dfea28c5c0dc3f34ada0c138556d70c979e04
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83642206"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551702"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Llamadas entre servicios mediante las credenciales del cliente (secreto compartido o certificado)
 
@@ -52,7 +52,7 @@ Se pueden dar dos casos en función de si la aplicación cliente elige un secret
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primer caso: solicitud de token de acceso con un secreto compartido
 Cuando se utiliza un secreto compartido, una solicitud de token de acceso entre servicios contiene los parámetros siguientes:
 
-| Parámetro |  | Descripción |
+| Parámetro | Tipo | Descripción |
 | --- | --- | --- |
 | grant_type |requerido |Especifica el tipo de concesión solicitado. En un flujo de concesión de credenciales de cliente, el valor debe ser **client_credentials**. |
 | client_id |requerido |Especifica el identificador de cliente de Azure AD del servicio web que realiza la llamada. Para buscar el identificador del cliente de la aplicación que realiza la llamada, en [Azure Portal](https://portal.azure.com), haga clic en **Azure Active Directory** y **Registros de aplicaciones**, y haga clic en la aplicación. El identificador client_id es el *identificador de aplicación* |
@@ -73,7 +73,7 @@ grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&cli
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Segundo caso: solicitud de token de acceso con un certificado
 Una solicitud de token de acceso entre servicios con un certificado contiene los parámetros siguientes:
 
-| Parámetro |  | Descripción |
+| Parámetro | Tipo | Descripción |
 | --- | --- | --- |
 | grant_type |requerido |Especifica el tipo de respuesta solicitado. En un flujo de concesión de credenciales de cliente, el valor debe ser **client_credentials**. |
 | client_id |requerido |Especifica el identificador de cliente de Azure AD del servicio web que realiza la llamada. Para buscar el identificador del cliente de la aplicación que realiza la llamada, en [Azure Portal](https://portal.azure.com), haga clic en **Azure Active Directory** y **Registros de aplicaciones**, y haga clic en la aplicación. El identificador client_id es el *identificador de aplicación* |

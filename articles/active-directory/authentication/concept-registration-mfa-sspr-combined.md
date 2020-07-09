@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d4caaf8704f2ee49f8f094ad22065ae462154be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 87cec45ac3d7bf491278a4ba8520e8257fd0f6c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143917"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550666"
 ---
 # <a name="combined-security-information-registration-overview"></a>Introducción al registro de información de seguridad combinado
 
@@ -46,7 +46,7 @@ Las páginas de mi perfil se localizan basándose en la configuración de idioma
 
 El registro combinado admite los siguientes métodos y acciones de autenticación:
 
-|   | Register  | Change | Eliminar |
+| Método | Register | Change | Eliminar |
 | --- | --- | --- | --- |
 | Microsoft Authenticator | Sí (máximo de 5) | No | Sí |
 | Aplicación autenticadora distinta | Sí (máximo de 5) | No | Sí |
@@ -57,7 +57,7 @@ El registro combinado admite los siguientes métodos y acciones de autenticació
 | Email | Sí | Sí | Sí |
 | Preguntas de seguridad | Sí | No | Sí |
 | Contraseñas de aplicación | Sí | No | Sí |
-| Claves de seguridad FIDO2<br />*Modo administrado solo desde la página [Información de seguridad](https://mysignins.microsoft.com/security-info)* | Sí | Sí | Sí |
+| Claves de seguridad FIDO2<br />*Modo administrado solo desde la página [Información de seguridad](https://mysignins.microsoft.com/security-info)*| Sí | Sí | Sí |
 
 > [!NOTE]
 > Las contraseñas de aplicación solo están disponibles para los usuarios a los que se les ha exigido Multi-Factor Authentication. Las contraseñas de aplicación no están disponibles para los usuarios que están habilitados para Multi-Factor Authentication través de una directiva de acceso condicional.

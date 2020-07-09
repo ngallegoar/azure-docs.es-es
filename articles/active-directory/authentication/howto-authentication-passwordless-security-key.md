@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 066ab7892bed6e7505e7ee114ff37a7850ef5c9b
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 300bb317d521ac9202fdd1a02328f844110a48e4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81450928"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550421"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Habilitar el inicio de sesión con clave de seguridad sin contraseña (versión preliminar)
 
@@ -24,10 +24,8 @@ En el caso de las empresas que usan las contraseñas hoy en día y tienen un ent
 
 Este documento se centra en la habilitación de la autenticación sin contraseña basada en claves de seguridad. Al final de este artículo, será capaz de iniciar sesión en aplicaciones basadas en Web con su cuenta de Azure AD mediante una llave de seguridad FIDO2.
 
-|     |
-| --- |
-| Las claves de seguridad FIDO2 son una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+> [!NOTE]
+> Las claves de seguridad FIDO2 son una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="requirements"></a>Requisitos
 

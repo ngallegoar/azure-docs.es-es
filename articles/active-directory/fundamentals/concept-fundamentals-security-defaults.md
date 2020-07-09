@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 62933a0e83a7494bc208068cb418f9ccc29ba637
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 385107f3bb5dd30a118d3a5f7a5f14213f0ad1c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266362"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554535"
 ---
 # <a name="what-are-security-defaults"></a>¿Cuáles son los valores de seguridad predeterminados?
 
@@ -92,7 +92,7 @@ Después de habilitar los valores de seguridad predeterminados en el inquilino, 
 > [!WARNING]
 > Antes de habilitar los valores predeterminados de seguridad, asegúrese de que los administradores no estén usando protocolos de autenticación antiguos. Para más información, consulte [Cómo cambiar la autenticación heredada](concept-fundamentals-block-legacy-authentication.md).
 
-- [Cómo configurar una aplicación o dispositivo multifunción para enviar correos electrónicos mediante Office 365 y Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)
+- [Cómo configurar una aplicación o dispositivo multifunción para enviar correos electrónicos mediante Office 365 y Microsoft 365](https://docs.microsoft.com/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
 
 ### <a name="protecting-privileged-actions"></a>Protección de acciones con privilegios
 
@@ -122,7 +122,7 @@ A continuación, se muestran consideraciones adicionales relacionadas con la imp
 
 Los valores predeterminados de seguridad permiten el registro y el uso de Azure Multi-Factor Authentication **mediante el uso exclusivo de la aplicación Microsoft Authenticator con notificaciones**. El acceso condicional permite el uso de cualquier método de autenticación que el administrador decida habilitar.
 
-|   | Valores predeterminados de seguridad | Acceso condicional |
+| Método | Valores predeterminados de seguridad | Acceso condicional |
 | --- | --- | --- |
 | Notificación a través de aplicación móvil | X | X |
 | Código de verificación de aplicación móvil o token de hardware | X** | X |

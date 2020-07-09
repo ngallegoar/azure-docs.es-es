@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: decb674c2b55b93a81169c540ee04713bdf2799e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bb21bcefa0f9fb6f691ebfb578177c64543c1403
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80054852"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549657"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Creación de una aplicación web de Service Manager mediante el script automatizado
 
@@ -32,7 +32,7 @@ Guarde estos valores, ya que los necesitará cuando cree una conexión con el Co
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
  Windows Management Framework 5.0 o posterior.
 Windows 10 tiene la versión 5.1 de forma predeterminada. Puede descargar el marco desde [aquí](https://www.microsoft.com/download/details.aspx?id=50395):
@@ -314,6 +314,8 @@ Write-Host "URI:"  $azureSite
 if(!$err)
 {
     Write-Host "ServiceBus Namespace:"  $serviceName  
-}```
-## Next steps
-[Configure the Hybrid connection](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).
+}
+```
+
+## <a name="next-steps"></a>Pasos siguientes
+[Configuración de la conexión híbrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).

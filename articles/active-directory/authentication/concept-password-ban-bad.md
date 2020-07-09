@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef127d120b32f5344bce0f68d79f48401087f0ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0f905b3eb6d1675f0bc252c3500169b3144287d9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231016"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550713"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Elimine las contraseñas incorrectas de su organización
 
@@ -158,7 +158,7 @@ Después de la normalización, esta contraseña se convierte en "contosoblankf9!
 
 ## <a name="license-requirements"></a>Requisitos de licencia
 
-|   | Protección con contraseña de Azure AD con la lista global de contraseñas prohibidas | Protección con contraseña de Azure AD con la lista personalizada de contraseñas prohibidas|
+| Usuarios | Protección con contraseña de Azure AD con la lista global de contraseñas prohibidas | Protección con contraseña de Azure AD con la lista personalizada de contraseñas prohibidas|
 | --- | --- | --- |
 | Usuarios solo en la nube | Azure AD Free | Azure AD Premium (P1 o P2) |
 | Usuarios sincronizados desde un entorno local de Windows Server Active Directory | Azure AD Premium (P1 o P2) | Azure AD Premium (P1 o P2) |

@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: bcf971b56aa0dc343fdfaf34b329e49a82bba9a8
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 9e653469eb5bffbf81a0e09982edcbd1e937ba61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771527"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553539"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Flujo con derechos delegados de OAuth 2.0 y Plataforma de identidad de Microsoft
 
@@ -61,7 +61,7 @@ Se pueden dar dos casos en función de si la aplicación cliente elige un secret
 
 Cuando se utiliza un secreto compartido, una solicitud de token de acceso entre servicios contiene los parámetros siguientes:
 
-| Parámetro |  | Descripción |
+| Parámetro | Tipo | Descripción |
 | --- | --- | --- |
 | `grant_type` | Obligatorio | Tipo de la solicitud de token. Para una solicitud mediante un JWT, el valor debe ser `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
 | `client_id` | Obligatorio | El identificador de aplicación (cliente) que la página [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) asignó a la aplicación. |
@@ -93,7 +93,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 
 Una solicitud de token de acceso entre servicios con un certificado contiene los parámetros siguientes:
 
-| Parámetro |  | Descripción |
+| Parámetro | Tipo | Descripción |
 | --- | --- | --- |
 | `grant_type` | Obligatorio | Tipo de la solicitud de token. Para una solicitud mediante un JWT, el valor debe ser `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
 | `client_id` | Obligatorio |  El identificador de aplicación (cliente) que la página [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) asignó a la aplicación. |

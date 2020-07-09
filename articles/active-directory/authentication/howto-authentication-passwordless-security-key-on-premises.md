@@ -11,21 +11,19 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 181e8192170cd7394d6817edd655f4e8257b48a4
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 81cd2649ff056ab107491cf60602f0da7435b228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654040"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550641"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Habilitar el inicio de sesión con una clave de seguridad sin contraseña en recursos locales con Azure Active Directory (versión preliminar)
 
 Este documento gira en torno a la habilitación de la autenticación sin contraseña en los recursos locales en entornos con dispositivos Windows 10 **unidos a Azure AD** y **unidos a Azure AD híbrido**. Esta funcionalidad proporciona inicio de sesión único (SSO) de conexión directa a recursos locales mediante claves de seguridad compatibles con Microsoft.
 
-|     |
-| --- |
-| Las claves de seguridad FIDO2 son una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+> [!NOTE]
+> Las claves de seguridad FIDO2 son una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="sso-to-on-premises-resources-using-fido2-keys"></a>Inicio de sesión único en los recursos locales mediante claves de FIDO2
 
@@ -113,7 +111,7 @@ Este comando genera las propiedades del servidor Kerberos de Azure AD. Puede re
 
 | Propiedad | Descripción |
 | --- | --- |
-| id | Identificador único del objeto controlador de dominio de AD DS. En ocasiones, a este identificador se le conoce como "ranura" o "id. de rama". |
+| ID | Identificador único del objeto controlador de dominio de AD DS. En ocasiones, a este identificador se le conoce como "ranura" o "id. de rama". |
 | DomainDnsName | Nombre de dominio DNS del dominio de Active Directory. |
 | ComputerAccount | Objeto de cuenta de equipo del objeto de servidor Kerberos de Azure AD (controlador de dominio). |
 | UserAccount | Objeto de cuenta de usuario deshabilitado que contiene la clave de cifrado del TGT del servidor Kerberos de Azure AD. El DN de esta cuenta es `CN=krbtgt_AzureAD,CN=Users,<Domain-DN>`. |

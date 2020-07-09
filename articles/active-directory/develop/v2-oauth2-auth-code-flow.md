@@ -13,12 +13,12 @@ ms.date: 05/19/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 2bc9bb8b79ca0a6f59e6c771109cf4d102cdd78e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 198ab9505c550ad5bf8dc75211864a562b45979f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682245"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553659"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidad y flujo de código de autorización de OAuth 2.0
 
@@ -274,7 +274,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > Pruebe a ejecutar esta solicitud en Postman (No olvide reemplazar `refresh_token`) [![Pruebe a ejecutar esta solicitud en Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 >
 
-| Parámetro     |                | Descripción        |
+| Parámetro     | Tipo           | Descripción        |
 |---------------|----------------|--------------------|
 | `tenant`        | requerido     | El valor `{tenant}` de la ruta de acceso de la solicitud se puede usar para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son `common`, `organizations`, `consumers` y los identificadores de inquilinos. Para obtener más información, consulte los [conceptos básicos sobre el protocolo](active-directory-v2-protocols.md#endpoints).   |
 | `client_id`     | requerido    | El **identificador de aplicación (cliente)** que la experiencia [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) asignó a la aplicación. |
