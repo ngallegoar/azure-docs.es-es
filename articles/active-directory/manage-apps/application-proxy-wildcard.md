@@ -3,25 +3,25 @@ title: Aplicaciones con comodín en Azure AD Application Proxy
 description: Aprenda a usar aplicaciones con comodín en el proxy de aplicación de Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/06/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e5861e802f39adecb5661bc17c22b432f137d59
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: b566081459b0bab0aae9831e128ffbee0efaf4e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770298"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367740"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicaciones con comodín en Azure Active Directory Application Proxy
 
@@ -51,7 +51,7 @@ Aunque las direcciones URL internas y externas pueden usar dominios diferentes, 
 
 La creación de una aplicación comodín se basa en el mismo [flujo de publicación de aplicaciones](application-proxy-add-on-premises-application.md) que está disponible para las demás aplicaciones. La única diferencia es que se incluye un carácter comodín en las direcciones URL y, quizá, la configuración del inicio de sesión único.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para comenzar, asegúrese de que reúne estos requisitos.
 
@@ -62,7 +62,7 @@ Mientras que los[dominios personalizados](application-proxy-configure-custom-dom
 1. La creación de un dominio comprobado en Azure.
 1. La carga de un certificado TLS/SSL con formato PFX para el proxy de aplicación.
 
-Considere la posibilidad de usar un certificado con comodín para que coincida con la aplicación que va a crear. Como alternativa, también puede utilizar un certificado que solo incluya aplicaciones específicas. En este caso, mediante esta aplicación con comodín solo se podrá acceder a las aplicaciones incluidas en el certificado.
+Considere la posibilidad de usar un certificado con comodín para que coincida con la aplicación que va a crear. 
 
 Por motivos de seguridad, se trata de un requisito de disco duro y no se admiten caracteres comodín para las aplicaciones que no puedan utilizar un dominio personalizado para la dirección URL externa.
 
