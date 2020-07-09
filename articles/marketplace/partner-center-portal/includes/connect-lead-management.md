@@ -2,19 +2,17 @@
 title: archivo de inclusión
 description: archivo de inclusión
 documentationcenter: partner-center-commercial-marketplace
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 ms.date: 08/16/2019
-ms.author: dsindona
 ms.custom: include file
-ms.openlocfilehash: cf6a5730f92eba8f0a4e63bf40a4d2b50f76eb3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86b16c92f7a9bd3f594b01820db6cbf7ef5ecb6b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131097"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104372"
 ---
 Al publicar su oferta en Marketplace a través del Centro de partners, debe conectar su oferta al sistema CRM. De este modo, podrá recibir información de contacto del cliente inmediatamente después de que un cliente exprese interés o implemente el producto.
 

@@ -4,18 +4,18 @@ description: Obtenga información sobre cómo usar la CLI de Azure para crear un
 services: container-service
 ms.topic: article
 ms.date: 04/16/2019
-ms.openlocfilehash: dba6590daf5c64dd1e53663e71a0cc27941b1470
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 85441b53b22b4d33ee2ff967d777cc3267e171da
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779950"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106108"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integración de Azure Active Directory con Azure Kubernetes Service mediante la CLI de Azure
 
 Es posible configurar Azure Kubernetes Service (AKS) para que utilice Azure Active Directory (AD) para la autenticación de usuarios. En esta configuración, puede iniciar sesión en un clúster de AKS mediante un token de autenticación de Azure AD. Los operadores del clúster también pueden configurar el control de acceso basado en roles (RBAC) de Kubernetes en función de la identidad de los usuarios o su pertenencia a un grupo del directorio.
 
-En este artículo se muestra cómo crear los requisitos necesarios para Azure AD y, luego, implementar un clúster habilitado para Azure AD y crear un rol de RBAC simple en el clúster de AKS. También puede [completar estos pasos con Azure Portal][azure-ad-portal].
+En este artículo se muestra cómo crear los requisitos necesarios para Azure AD y, luego, implementar un clúster habilitado para Azure AD y crear un rol de RBAC simple en el clúster de AKS.
 
 Para obtener el script de ejemplo completo que se usa en este artículo, consulte [Ejemplos de la CLI de Azure: integración de AKS con Azure AD][complete-script].
 
@@ -276,6 +276,6 @@ Para ver procedimientos recomendados sobre el control de recursos e identidades,
 [azure-ad-portal]: azure-ad-integration.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
-[rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
+[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md

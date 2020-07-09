@@ -4,15 +4,15 @@ description: En este documento se enumeran todas las cadenas de conexión admiti
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 18e3f2ab7c581a1ff93a65e410e83739564b5be5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3afa43f4db04b8289dea8e3d2d6511efb27b3d28
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558296"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104646"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mariadb"></a>Conexión de aplicaciones a Azure Database for MariaDB
 En este documento se enumeran todos los tipos de cadena de conexión que Azure Database for MariaDB admite, junto con plantillas y ejemplos. Su cadena de conexión puede tener otros parámetros y configuraciones.
@@ -63,7 +63,7 @@ client = Mysql2::Client.new(username: "{username@servername}", password: {your_p
 ```
 
 ## <a name="get-the-connection-string-details-from-the-azure-portal"></a>Obtención de los detalles de la cadena de conexión de Azure Portal
-En [Azure Portal](https://portal.azure.com), vaya al servidor de Azure Database for MariaDB y haga clic en **Cadenas de conexión** para obtener la lista de cadenas para la instancia: ![El panel Cadenas de conexión en Azure Portal](./media/howto-connection-strings/connection-strings-on-portal.png)
+En [Azure Portal](https://portal.azure.com), vaya al servidor de Azure Database for MariaDB y haga clic en **Cadenas de conexión** para obtener la lista de cadenas para la instancia: ![Panel Cadenas de conexión en Azure Portal](./media/howto-connection-strings/connection-strings-on-portal.png)
 
 La cadena proporciona detalles como el controlador, el servidor y otros parámetros de conexión de base de datos. Modifique estos ejemplos para usar sus propios parámetros, como un nombre de base de datos, una contraseña, etc. Luego puede usar esta cadena para conectarse al servidor desde su código y sus aplicaciones.
 
