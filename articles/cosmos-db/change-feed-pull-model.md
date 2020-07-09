@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: c47016d0b82a4e4ed084f5d82394d91fd2b46be1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 8916f4b9824f88361fdeb9d866f84adb71e8138e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697716"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563801"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Modelo de extracción de la fuente de cambios de Azure Cosmos DB
 
@@ -164,14 +164,14 @@ Plantéese el uso del modelo de extracción en los siguientes escenarios:
 
 Estas son algunas diferencias clave entre el procesador de fuente de cambios y el modelo de extracción:
 
-|  | Procesador de fuente de cambios| Modelo de extracción |
+|Característica  | Procesador de fuente de cambios| Modelo de extracción |
 | --- | --- | --- |
 | Realizar un seguimiento del punto actual en el procesamiento de la fuente de cambios. | Concesión (almacenada en un contenedor de Azure Cosmos DB). | Token de continuación (almacenado en la memoria o guardado manualmente). |
 | Funcionalidad para reproducir los cambios anteriores. | Sí, con el modelo de inserción. | Sí, con el modelo de extracción.|
 | Sondeo para cambios futuros. | Comprueba automáticamente si hay cambios según el `WithPollInterval` especificado por el usuario. | Manual |
 | Procesar cambios de todo un contenedor. | Sí, y se ejecuta en paralelo automáticamente en varios subprocesos o máquinas que consumen el mismo contenedor.| Sí, y se ejecuta en paralelo de forma manual mediante FeedTokens. |
 | Procesar los cambios de una sola clave de partición. | No compatible | Sí|
-| Nivel de compatibilidad | Disponibilidad general | Vista previa |
+| Nivel de compatibilidad | Disponibilidad general | Versión preliminar |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

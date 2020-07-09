@@ -2,25 +2,25 @@
 title: Planeamiento de la implementación del Panel de acceso de Azure Active Directory
 description: Guía de implementación del Panel de acceso de Azure Active Directory
 services: active-directory
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04d8b6c6d40aa81bf56baed59f90417f2147fa56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b8a74c85b63e3a532e49136ba3b33437d907694
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76897074"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555317"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Planeamiento de la implementación del Panel de acceso de Azure Active Directory
 
@@ -261,7 +261,7 @@ Para planear la pertenencia a grupos de autoservicio, determine si va a permitir
 
 Azure AD proporciona [informes que ofrecen datos técnicos y empresariales](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). Colabore con los propietarios de las aplicaciones empresariales y técnicas para que asuman la propiedad de los informes y los usen de forma periódica. En la tabla siguiente se proporcionan algunos ejemplos de escenarios de informes típicos.
 
-|   | Administración de los riesgos.| Aumento de la productividad| Gobernanza y cumplimiento |
+| Ejemplo | Administración de los riesgos.| Aumento de la productividad| Gobernanza y cumplimiento |
 |  - |- | - | - |
 | Tipos de informes|  Permisos y uso de la aplicación| Actividad de aprovisionamiento de cuentas| Revise quién accede a las aplicaciones |
 | Acciones posibles| Auditar el acceso; revocar los permisos| Corregir los errores de aprovisionamiento| Revocar el acceso |

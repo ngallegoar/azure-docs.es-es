@@ -1,17 +1,17 @@
 ---
-title: Migración de aplicaciones lógicas entre suscripciones, grupos de recursos o regiones
+title: Traslado de aplicaciones lógicas entre suscripciones, grupos de recursos o regiones
 description: Migración de aplicaciones lógicas o cuentas de integración a otras suscripciones de Azure, grupos de recursos o ubicaciones (regiones)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 065bbc62d65d7e91728b10cd9f95b2e73ea03abc
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: d420f244b0d1e5ccf9a7aaa78c10f613cdbad38f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878738"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564276"
 ---
 # <a name="move-logic-app-resources-to-other-azure-resource-groups-regions-or-subscriptions"></a>Traslado de recursos de aplicaciones lógicas a otros grupos de recursos, regiones o suscripciones de Azure
 
@@ -27,7 +27,7 @@ Para migrar la aplicación lógica o los recursos relacionados a otro grupo de r
 
 * Puede trasladar un [entorno de servicio de integración (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) solo a otro grupo de recursos que exista en la misma región de Azure o en la misma suscripción de Azure. No se puede trasladar un ISE a un grupo de recursos que exista en otra región de Azure o en otra suscripción de Azure. Además, después de este traslado, debe actualizar todas las referencias al ISE en los flujos de trabajo de la aplicación lógica, las cuentas de integración, las conexiones, etc.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * La misma suscripción de Azure que se usó para crear la aplicación lógica o la cuenta de integración que desea trasladar
 

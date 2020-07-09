@@ -2,21 +2,21 @@
 title: 'Depuración de los conectores de Application Proxy: Azure Active Directory | Microsoft Docs'
 description: Depure los problemas con los conectores de Application Proxy de Azure Active Directory (Azure AD).
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: c041578932bd33eb0a2d3afc18a35c2c0458dc8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 39a27ce3b3e7946504298451233b6054302c45f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72311856"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555042"
 ---
 # <a name="debug-application-proxy-connector-issues"></a>Depuración de problemas de los conectores de Application Proxy 
 
@@ -40,7 +40,7 @@ Este diagrama de flujo lo guía a través de los pasos para depurar algunos de l
 
 ![Diagrama de flujo que muestra los pasos para depurar un conector](media/application-proxy-debug-connectors/application-proxy-connector-debugging-flowchart.png)
 
-|  | Acción | Descripción | 
+| Paso | Acción | Descripción |
 |---------|---------|---------|
 |1 | Búsqueda del grupo de conectores asignado a la aplicación | Probablemente tiene un conector instalado en varios servidores, en cuyo caso los conectores se deben [asignar a grupos de conectores](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups). Para más información acerca de los grupos de conectores, consulte [Publicación de aplicaciones en redes independientes y ubicaciones mediante grupos de conectores](application-proxy-connector-groups.md). |
 |2 | Instalación del conector y asignación de un grupo | Si no tiene instalado un conector, consulte [Instalación y registro de un conector](application-proxy-add-on-premises-application.md#install-and-register-a-connector).<br></br> Si tiene problemas para instalar el conector, consulte [Problema al instalar el conector](application-proxy-connector-installation-problem.md).<br></br> Si el conector no está asignado a un grupo, consulte sobre la [asignación del conector a un grupo](application-proxy-connector-groups.md#create-connector-groups).<br></br>Si la aplicación no está asignada a un grupo de conectores, consulte sobre la [asignación de la aplicación a un grupo de conectores](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups).|

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15cdaba7d63d72aab25757e7ba6f5eadc48e026a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 259a1324c412dad40d32a8b8e026d84e6f5aa066
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76512256"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554926"
 ---
 # <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos híbridos unidos a Azure AD
 
@@ -29,7 +29,7 @@ Normalmente, las organizaciones con un uso local confían en los métodos de cre
 
 Si su entorno tiene un uso local de AD y también desea aprovechar las funcionalidades proporcionadas por Azure Active Directory, puede implementar dispositivos híbridos unidos a Azure AD. Estos dispositivos se han unido al entorno local de Active Directory y se han registrado en Azure Active Directory.
 
-|   | Unión a Azure AD híbrido |
+| Unión a Azure AD híbrido | Descripción |
 | --- | --- |
 | **Definición** | Dispositivos unidos a AD local y a Azure AD que requieren una cuenta de la organización para iniciar sesión en el dispositivo |
 | **Público principal** | Adecuados para organizaciones híbridas con infraestructura de AD local existente |

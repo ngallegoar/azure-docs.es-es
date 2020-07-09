@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22ab3e7403069ed1b579631b88c2ac2c41191ecd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf21f2ea5aacb36f3a76034e99b748bf4c6c363b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181331"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554772"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido
 
@@ -30,7 +30,7 @@ Al traer sus dispositivos a Azure AD, está maximizando la productividad de los 
 
 Si tiene un entorno local de Active Directory (AD) y quiere unir sus equipos unidos a un dominio AD a Azure AD, puede realizar una unión a Azure AD híbrido. En este artículo se proporcionan los pasos relacionados con la implementación de una unión a Azure AD híbrido en su entorno. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se da por hecho que está familiarizado con la [introducción a la administración de identidades de dispositivos en Azure Active Directory](../device-management-introduction.md).
 
@@ -41,13 +41,12 @@ En este artículo se da por hecho que está familiarizado con la [introducción 
 
 Para planear la implementación de Azure AD híbrido, debe familiarizarse con:
 
-|   |   |
-| --- | --- |
-| ![Comprobar][1] | Revisión de los dispositivos compatibles |
-| ![Comprobar][1] | Revisión de los aspectos que debe conocer |
-| ![Comprobar][1] | Revisión de la validación controlada de la unión a Azure AD híbrido |
-| ![Comprobar][1] | Seleccione el escenario según la infraestructura de identidad |
-| ![Comprobar][1] | Revisión del UPN de AD local para la unión a Azure AD híbrido |
+> [!div class="checklist"]
+> - Revisión de los dispositivos compatibles
+> - Revisión de los aspectos que debe conocer
+> - Revisión de la validación controlada de la unión a Azure AD híbrido
+> - Seleccione el escenario según la infraestructura de identidad
+> - Revisión del UPN de AD local para la unión a Azure AD híbrido
 
 ## <a name="review-supported-devices"></a>Revisión de los dispositivos compatibles
 

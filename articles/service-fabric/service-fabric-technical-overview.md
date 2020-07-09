@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: masnider
 ms.custom: sfrev
-ms.openlocfilehash: a9266c2a8d2ad179cfdb12e367a14f37d1abc9b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dc429500081e65bf3fdf4d7f7557d2423f56ee23
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229244"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611737"
 ---
 # <a name="service-fabric-terminology-overview"></a>Información general sobre la terminología de Service Fabric
 
@@ -116,7 +116,7 @@ Para más información sobre la implementación en el servicio Image Store, cons
 
 **Servicio Administrador de reparaciones**: se trata de un servicio del sistema opcional que permite acciones de reparación que se realizan en un clúster de manera segura, automatizable y transparente. El administrador de reparaciones se usa en:
 
-   - Reparaciones de mantenimiento de Azure en clústeres de Azure Service Fabric con [durabilidad Silver y Gold](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster).
+   - Reparaciones de mantenimiento de Azure en clústeres de Azure Service Fabric con [durabilidad Silver y Gold](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster).
    - Acciones de reparación para la [aplicación de orquestación de revisiones](service-fabric-patch-orchestration-application.md)
 
 ## <a name="deployment-and-application-models"></a>Modelos de implementación y aplicación

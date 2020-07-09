@@ -2,14 +2,14 @@
 title: Cambios de punto de conexión para predicciones en la versión 3 de la API
 description: Se cambiaron las API v3 del punto de conexión para la predicción de consultas. Use esta guía para aprender a migrar a la versión 3 de las API de punto de conexión.
 ms.topic: how-to
-ms.date: 05/15/2020
+ms.date: 06/30/2020
 ms.author: diberry
-ms.openlocfilehash: 293cbd583e1493c5f142604457a00a8055c7a802
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: d3d8f4d77793390484c64b03393fb528dfa643b7
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84338199"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85610887"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Cambios de punto de conexión para predicciones para la versión 3
 
@@ -86,17 +86,7 @@ Si quiere realizar una consulta por visión, primero debe [publicarla a través 
 
 ### <a name="query-string-changes"></a>Cambios en la cadena de consulta
 
-La API v3 tiene parámetros de cadena de consulta diferentes.
-
-|Nombre del parámetro|Tipo|Versión|Valor predeterminado|Propósito|
-|--|--|--|--|--|
-|`log`|boolean|v2 y v3|false|Almacena la consulta en el archivo de registro. El valor predeterminado es False.|
-|`query`|string|Solo v3|No tiene valor predeterminado: es obligatorio en la solicitud GET.|**En la versión 2**, la expresión que va a predecirse se almacena en el parámetro `q`. <br><br>**En la versión 3**, la funcionalidad se pasa en el parámetro `query`.|
-|`show-all-intents`|boolean|Solo v3|false|Devuelve todas las intenciones con la puntuación correspondiente en el objeto **prediction.intents**. Las intenciones se devuelven como objetos en un objeto `intents` primario. Esto habilita el acceso mediante programación sin necesidad de encontrar la intención en una matriz: `prediction.intents.give`. En la versión 2, se devuelven en una matriz. |
-|`verbose`|boolean|v2 y v3|false|**En la versión 2**, cuando se establece en true, se devuelven todas las intenciones previstas. Si necesita todas las intenciones previstas, use el parámetro v3 de `show-all-intents`.<br><br>**En la versión 3**, este parámetro solo proporciona detalles de los metadatos de la entidad para la predicción de entidad.  |
-|`timezoneOffset`|string|V2|-|Zona horaria aplicada a las entidades datetimeV2.|
-|`datetimeReference`|string|V3|-|[Zona horaria](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) aplicada a las entidades datetimeV2. Reemplaza `timezoneOffset` de la versión 2.|
-
+[!INCLUDE [V3 query params](./includes/v3-prediction-query-params.md)]
 
 ### <a name="v3-post-body"></a>Cuerpo de POST de la versión 3
 

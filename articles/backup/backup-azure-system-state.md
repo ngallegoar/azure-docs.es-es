@@ -1,17 +1,16 @@
 ---
 title: Copias de seguridad del estado del sistema de Windows en Azure
 description: Aprenda a hacer copias de seguridad del estado del sistema de Windows Server y/o equipos Windows en Azure.
-ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 4089815f8f76d9868f8fa56f8b2eab3de89541d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4319e03f9673baa2be01c1650ac1929204741087
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128149"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611448"
 ---
-# <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Copias de seguridad del estado del sistema de Windows en la implementación de Resource Manager
+# <a name="back-up-windows-system-state-to-azure"></a>Copias de seguridad del estado del sistema de Windows en Azure
 
 En este artículo se explica cómo realizar copias de seguridad del estado del sistema de Windows Server en Azure. Está diseñado para guiarle en los aspectos básicos.
 
@@ -19,49 +18,9 @@ Si desea más información acerca de Azure Backup, lea esta [introducción](back
 
 Si no tiene una suscripción de Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) que le permita acceder a todos los servicios de Azure.
 
-## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Servicios de recuperación
+[!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-Para hacer una copia de seguridad del estado del sistema de Windows Server, debe crear un almacén de Recovery Services en la región en la que quiere almacenar los datos. También debe determinar cómo desea que se replique el almacenamiento.
-
-### <a name="to-create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
-
-1. Si aún no lo ha hecho, inicie sesión en [Azure Portal](https://portal.azure.com/) mediante su suscripción de Azure.
-2. En el menú del concentrador, haga clic en **Todos los servicios** y, en la lista de recursos, escriba **Recovery Services** y haga clic en **Almacenes de Recovery Services**.
-
-    ![Creación del almacén de Recovery Services, paso 1](./media/backup-azure-system-state/open-rs-vault-list.png)
-
-    Si hay almacenes de Recovery Services en la suscripción, estos aparecerán en una lista.
-3. En el menú **Almacenes de Recovery Services**, haga clic en **Agregar**.
-
-    ![Creación del almacén de Recovery Services, paso 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
-
-    Se abre la hoja del almacén de Recovery Services, donde se le pide que especifique los valores de **Nombre**, **Suscripción**, **Grupo de recursos** y **Ubicación**.
-
-    ![Creación del almacén de Recovery Services, paso 3](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
-
-4. En **Nombre**, escriba un nombre descriptivo que identifique el almacén. El nombre debe ser único para la suscripción de Azure. Escriba un nombre que tenga entre 2 y 50 caracteres. Debe comenzar por una letra y solo puede contener letras, números y guiones.
-
-5. En la sección **Suscripción**, utilice el menú desplegable para elegir la suscripción de Azure. Si utiliza una sola suscripción, esta aparece y puede pasar al paso siguiente. Si no está seguro de la suscripción que desea utilizar, use la suscripción predeterminada (o sugerida). Solo hay varias opciones si la cuenta de su organización está asociada a más de una suscripción de Azure.
-
-6. En la sección **Grupo de recursos**:
-
-    * Si desea crear un nuevo grupo de recursos, seleccione **Crear nuevo**.
-    Or
-    * Seleccione **Use existing** (Usar existente) y haga clic en el menú desplegable para ver la lista de grupos de recursos disponibles.
-
-   Para más información sobre los grupos de recursos, consulte [Introducción a Azure Resource Manager](../azure-resource-manager/management/overview.md).
-
-7. Haga clic en **Ubicación** para seleccionar la región geográfica del almacén. Esta elección determina la región geográfica a la que se envían los datos de copia de seguridad.
-
-8. En la parte inferior de la hoja de almacén de recovery Services, haga clic en **Create** (Crear).
-
-    La creación del almacén de Recovery Services puede tardar unos minutos. Supervise las notificaciones de estado de la parte superior derecha del portal. Una vez creado el almacén, aparece en la lista de almacenes de Recovery Services. Si no ve el almacén pasados unos minutos, haga clic en **Refresh** (Actualizar).
-
-    ![Clic en el botón Refresh (Actualizar)](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
-
-    Cuando vea el almacén en la lista de almacenes de Recovery Services, estará listo para configurar la redundancia de almacenamiento.
-
-### <a name="set-storage-redundancy-for-the-vault"></a>Establecimiento de la redundancia de almacenamiento para el almacén
+## <a name="set-storage-redundancy-for-the-vault"></a>Establecimiento de la redundancia de almacenamiento para el almacén
 
 Cuando cree un almacén de Recovery Services, asegúrese de que la configuración de la redundancia de almacenamiento sea la que quiere.
 

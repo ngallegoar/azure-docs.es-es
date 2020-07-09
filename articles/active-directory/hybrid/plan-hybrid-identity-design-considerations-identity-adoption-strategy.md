@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e662d2c6d7939756dee6eb25ca62fef171b7d6d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7263d6a73a78b4b804cddd77f979898008ebadd6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67109332"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555383"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definición de una estrategia de adopción de identidad híbrida
 En esta tarea, define la estrategia de adopción de identidades híbridas para que una solución de identidad híbrida cumpla los requisitos empresariales que se trataron en:
@@ -63,7 +63,7 @@ La estrategia que se use determinará la experiencia de inicio de sesión del us
 
 **Aplicaciones de red privada y conectadas a un dominio**:
 
-|  | Identidad sincronizada | Identidad federada |
+| Application | Identidad sincronizada | Identidad federada |
 | --- | --- | --- |
 | Exploradores web |Autenticación basada en formularios |Inicio de sesión único, a veces es preciso especificar la identificación de la organización |
 | Outlook |Se piden credenciales |Se piden credenciales |
@@ -73,7 +73,7 @@ La estrategia que se use determinará la experiencia de inicio de sesión del us
 
 **Orígenes externos o que no son de confianza**:
 
-|  | Identidad sincronizada | Identidad federada |
+| Application | Identidad sincronizada | Identidad federada |
 | --- | --- | --- |
 | Exploradores web |Autenticación basada en formularios |Autenticación basada en formularios |
 | Outlook, Skype Empresarial (Lync), OneDrive para la Empresa, suscripción de Office |Se piden credenciales |Se piden credenciales |

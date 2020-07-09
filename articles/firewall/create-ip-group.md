@@ -4,20 +4,17 @@ description: Los grupos de IP permiten agrupar y administrar direcciones IP en l
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: conceptual
-ms.date: 02/18/2020
+ms.topic: how-to
+ms.date: 06/23/2020
 ms.author: victorh
-ms.openlocfilehash: 7e8b2350b9e85d07ce1c399ce4536703ec998cbc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c3ae62bf5b4f0b4796cac2e7079c8a09116d4895
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77444857"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602540"
 ---
-# <a name="create-ip-groups-preview"></a>Creación de grupos de IP (versión preliminar)
-
-> [!IMPORTANT]
-> Esta versión preliminar pública se proporciona sin un acuerdo de nivel de servicio y no debe usarse para cargas de trabajo de producción. Puede que algunas características no se admitan, que tengan funcionalidades limitadas o que no estén disponibles en todas las ubicaciones de Azure. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="create-ip-groups"></a>Creación de grupos de IP
 
 Los grupos de IP permiten agrupar y administrar direcciones IP en las reglas de Azure Firewall. Pueden tener una sola dirección IP, varias direcciones IP o uno o varios intervalos de direcciones IP.
 

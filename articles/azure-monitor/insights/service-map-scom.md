@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: a20884c33d5232661e858e0b3ec722f139825aea
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: dc9425b25fa594d06473865f1add9c91c7760a97
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82928013"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557223"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integración de System Center Operations Manager con la característica Map de Azure Monitor para VM
 
@@ -20,7 +20,7 @@ En Azure Monitor para VM, puede ver los componentes de la aplicación detectados
 >[!NOTE]
 >Si ya ha implementado Service Map, ahora puede ver las asignaciones en Azure Monitor para VM, lo que incluye características adicionales para supervisar el rendimiento y el estado de las VM. La característica Asignar de Azure Monitor para VM está pensada para reemplazar la solución de Service Map independiente. Para obtener más información, consulte [¿Qué es Azure Monitor para máquinas virtuales?](vminsights-overview.md)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Un grupo de administración de System Center Operations Manager (2012 R2 o posterior).
 * Un área de trabajo de Log Analytics configurada para admitir Azure Monitor para VM.
@@ -142,5 +142,6 @@ Para obtener documentación oficial de Azure acerca de cómo crear una entidad d
 * [Uso de la CLI de Azure para crear a una entidad de servicio](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 * [Create a service principal by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) (Uso de Azure Portal para crear una entidad de servicio)
 
-### <a name="feedback"></a>Comentarios
+### <a name="suggestions"></a>Sugerencias
+
 ¿Tiene algún comentario para nosotros sobre la integración con la característica Asignar de Azure Monitor para VM o con esta documentación? Visite nuestra [página Voz del usuario](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), donde puede sugerir características o votar sugerencias existentes.

@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bea00f429f31f2be62ee6a9c00f88873c595d94c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b647515e9bd802673114de82089ede5f52f9016
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76509825"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562715"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Almacenamiento de datos en el perímetro con Azure Blob Storage en IoT Edge
 
@@ -53,7 +53,7 @@ Si el proceso finaliza de forma inesperada (por ejemplo, debido a un error eléc
 * Especificar el tiempo en minutos (deleteAfterMinutes) después del cual los blobs se eliminarán automáticamente.
 * Elija la capacidad de retener el blob mientras se está cargando, si el valor de deleteAfterMinutes expira.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Un dispositivo de Azure IoT Edge:
 
@@ -291,7 +291,7 @@ Ahora el Azure Blob Storage en el módulo de IoT Edge proporciona integración c
 
 Aquí están las [notas de la versión de Docker Hub](https://hub.docker.com/_/microsoft-azure-blob-storage) para este módulo
 
-## <a name="feedback"></a>Comentarios
+## <a name="suggestions"></a>Sugerencias
 
 Su opinión es muy importante para que este módulo y sus características sean útiles y fáciles de usar. Comparta sus comentarios y háganos saber cómo podemos mejorar.
 

@@ -4,7 +4,7 @@ description: Inicio de sesión de Azure AD en una VM de Azure que ejecuta Window
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/29/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -12,21 +12,19 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4abc2dee6b83820169173d965d53381ead9f4d0b
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 152f7ab6ccb9f01c7fe70553501c8cf8afa1c650
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194019"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554887"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicio de sesión en una máquina virtual Windows en Azure mediante la autenticación de Azure Active Directory (versión preliminar)
 
 Las organizaciones ahora pueden utilizar la autenticación de Azure Active Directory (AD) en sus máquinas virtuales (VM) de Azure que ejecutan **Windows Server 2019 Datacenter Edition** o **Windows 10 1809** y versiones posteriores. El uso de Azure AD para autenticarse en VM le proporciona una manera de controlar y aplicar directivas de forma centralizada. Herramientas como, por ejemplo, control de acceso basado en rol (RBAC) de Azure y el acceso condicional Azure AD, permiten controlar quién puede tener acceso a una VM. En este artículo se muestra cómo crear y configurar una VM Windows Server 2019 para usar la autenticación de Azure AD.
 
-|     |
-| --- |
-| El inicio de sesión de Azure AD para VM Windows de Azure es una Característica en vista previa (GB) pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+> [!NOTE]
+> El inicio de sesión de Azure AD para VM Windows de Azure es una Característica en vista previa (GB) pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Usar la autenticación de Azure AD para iniciar sesión en VM Windows en Azure implica varias ventajas, entre las que se incluyen:
 
