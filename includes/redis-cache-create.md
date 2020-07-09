@@ -9,10 +9,10 @@ ms.date: 11/05/2019
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 3c064aa8e57a77b96161da06847f543816be1217
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73719101"
 ---
 1. Para crear una instancia de caché, inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione **Crear un recurso**. 
