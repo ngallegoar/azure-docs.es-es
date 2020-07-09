@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 2c7d312910c6d38c54b291da34bfb827246c7dad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 66a3ecd82ab61f25c99fd1268d9ce7567b057d66
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79504317"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050239"
 ---
 ## <a name="prepare-for-akv-integration"></a>Preparación para la integración de AKV
 Para usar la Integración de Azure Key Vault para configurar la máquina virtual de SQL Server, hay varios requisitos previos: 
@@ -56,7 +56,9 @@ A continuación, registre una aplicación con AAD. Esto le dará una cuenta de e
 ### <a name="create-a-key-vault"></a><a id="createkeyvault"></a> Crear un almacén de claves
 Para poder usar Azure Key Vault para guardar las claves que se utilizarán para el cifrado en la máquina virtual, tiene que tener acceso a un almacén de claves. Si no ha configurado ya su almacén de claves, cree uno siguiendo los pasos que se mencionan en el artículo [Introducción a Azure Key Vault](../articles/key-vault/key-vault-overview.md). Antes de completar estos pasos, durante esta configuración tiene que recopilar cierta información que necesitará más adelante cuando habilite la integración de Azure Key Vault en la máquina virtual de SQL.
 
-    New-AzKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
+```azurepowershell
+New-AzKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
+```
 
 Cuando llegue al paso Creación de un Almacén de claves, tenga en cuenta la propiedad **vaultUri** devuelta, que es la dirección URL del Almacén de claves. En el ejemplo que se proporciona en ese paso, que se muestra a continuación, el nombre del almacén de claves es ContosoKeyVault, por lo que su dirección URL sería https://contosokeyvault.vault.azure.net/.
 

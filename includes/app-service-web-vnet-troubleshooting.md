@@ -4,25 +4,29 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
-ms.openlocfilehash: 652d42d6e2d9e909c3a03bd82a3a36f91bc73807
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: ff54d60573fbc7b6694b8d02d1378869674c1e81
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80419546"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050213"
 ---
 La característica es fácil de configurar, aunque eso no quiere decir que no presente problemas con el uso. Si encuentra problemas para acceder al punto de conexión que quiere, existen varias utilidades que sirven para probar la conectividad desde la consola de la aplicación. Dispone de dos consolas que puede usar. Una es la consola Kudu y la otra es la consola a la que se accede en Azure Portal. Para acceder a la consola Kudu desde la aplicación, vaya a **Herramientas** > **Kudu**. También puede tener acceso a la consola de Kudo en [sitename].scm.azurewebsites.net. Después de que se cargue el sitio web, vaya a la pestaña **Consola de depuración**. Para llegar a la consola hospedada en Azure Portal desde su aplicación, vaya a **Herramientas** > **Consola**.
 
 #### <a name="tools"></a>Herramientas
 Las herramientas **ping**, **nslookup** y **tracert** no funcionan en la consola debido a restricciones de seguridad. Para suplir esta carencia, se agregaron dos herramientas diferentes. Para probar la funcionalidad de DNS, se agregó una herramienta denominada **nameresolver.exe**. La sintaxis es:
 
-    nameresolver.exe hostname [optional: DNS Server]
+```console
+nameresolver.exe hostname [optional: DNS Server]
+```
 
 Puede usar nameresolver para comprobar los nombres de host de los que depende la aplicación. De este modo, puede probar si hay algo mal configurado en el DNS o si no tiene acceso al servidor DNS. Para ver el servidor DNS que la aplicación usa en la consola, examine las variables de entorno WEBSITE_DNS_SERVER y WEBSITE_DNS_ALT_SERVER.
 
 Puede usar la siguiente herramienta para probar la conectividad de TCP en una combinación de host y puerto. Esta herramienta se llama **tcpping** y la sintaxis es:
 
-    tcpping.exe hostname [optional: port]
+```console
+tcpping.exe hostname [optional: port]
+```
 
 La utilidad **tcpping** indica si se puede llegar a un host y puerto específicos. Puede mostrar un resultado correcto solo si hay una aplicación que escucha en la combinación de host y puerto, y existe acceso a la red desde la aplicación hacia el host y puerto especificados.
 
@@ -62,7 +66,9 @@ Otros pasos de depuración son:
 
 * Conectarse a una máquina virtual de la red virtual e intentar acceder al recurso host:puerto desde allí. Para probar el acceso de TCP, use el comando **test-netconnection** de PowerShell. La sintaxis es:
 
-      test-netconnection hostname [optional: -Port]
+```powershell
+test-netconnection hostname [optional: -Port]
+```
 
 * Abra una aplicación en una máquina virtual y pruebe el acceso a ese host y ese puerto desde la consola de la aplicación mediante **tcpping**.
 

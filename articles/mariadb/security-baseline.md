@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2d78a7e0eaed27fec7f813fa3e6bffaffe5a6540
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09d2fb709e21b7c1251c2caf224f4d5c3ce6aea1
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186176"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026583"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Línea de base de seguridad de Azure para Azure Database for MariaDB
 
@@ -84,7 +84,7 @@ Configuración de la protección contra DDoS: https://docs.microsoft.com/azure/v
 
 ### <a name="15-record-network-packets-and-flow-logs"></a>1.5: Registre los paquetes de red y registros de flujo
 
-**Instrucciones**: Cuando el servidor de Azure Database for MariaDB está protegido en un punto de conexión privado, puede implementar máquinas virtuales en la misma red virtual. A continuación, puede configurar un grupo de seguridad de red (NSG) para reducir el riesgo de la filtración de datos. Habilite los registros de flujo de NSG y envíe registros a una cuenta de almacenamiento para la auditoría del tráfico. También puede enviar registros de flujo de grupo de seguridad de red a un área de trabajo de Log Analytics y usar el Análisis de tráfico para proporcionar información detallada sobre el flujo de tráfico en la nube de Azure. Algunas de las ventajas del Análisis de tráfico son la capacidad de visualizar la actividad de la red e identificar las zonas activas, identificar las amenazas de seguridad, comprender los patrones de flujo de tráfico y detectar configuraciones de red incorrectas.
+**Guía**: Cuando el servidor de Azure Database for MariaDB está protegido en un punto de conexión privado, puede implementar máquinas virtuales en la misma red virtual. A continuación, puede configurar un grupo de seguridad de red (NSG) para reducir el riesgo de la filtración de datos. Habilite los registros de flujo de NSG y envíe registros a una cuenta de almacenamiento para la auditoría del tráfico. También puede enviar registros de flujo de grupo de seguridad de red a un área de trabajo de Log Analytics y usar el Análisis de tráfico para proporcionar información detallada sobre el flujo de tráfico en la nube de Azure. Algunas de las ventajas del Análisis de tráfico son la capacidad de visualizar la actividad de la red e identificar las zonas activas, identificar las amenazas de seguridad, comprender los patrones de flujo de tráfico y detectar configuraciones de red incorrectas.
 
 Cómo habilitar los registros de flujo de NSG: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal Habilitación y uso del Análisis de tráfico: https://docs.microsoft.com/azure/network-watcher/traffic-analytics
 
@@ -115,7 +115,7 @@ Configuración de Advanced Threat Protection para Azure Database for MariaDB: ht
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8: Minimice la complejidad y la sobrecarga administrativa de las reglas de seguridad de red
 
-**Instrucciones**: En el caso de los recursos que necesitan acceso a las instancias de Azure Database for MariaDB, use las etiquetas de servicio de red virtual con el fin de definir controles de acceso a la red en grupos de seguridad de red o Azure Firewall. Puede utilizar etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. Al especificar el nombre de la etiqueta de servicio (por ejemplo, SQL.WestUs) en el campo de origen o destino apropiado de una regla, puede permitir o denegar el tráfico para el servicio correspondiente. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian.
+**Guía**: En el caso de los recursos que necesitan acceso a las instancias de Azure Database for MariaDB, use las etiquetas de servicio de red virtual con el fin de definir controles de acceso a la red en grupos de seguridad de red o Azure Firewall. Puede utilizar etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. Al especificar el nombre de la etiqueta de servicio (por ejemplo, SQL.WestUs) en el campo de origen o destino apropiado de una regla, puede permitir o denegar el tráfico para el servicio correspondiente. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian.
 Nota: Azure Database for MariaDB usa la etiqueta de servicio "Microsoft.Sql".
 
 Para obtener más información sobre el uso de etiquetas de servicio, consulte: https://docs.microsoft.com/azure/virtual-network/service-tags-overview Descripción del uso de etiquetas de servicio para Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet#terminology-and-description
@@ -128,7 +128,7 @@ Para obtener más información sobre el uso de etiquetas de servicio, consulte: 
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: Mantenga las configuraciones de seguridad estándar para dispositivos de red
 
-**Guía**: Defina e implemente configuraciones de seguridad estándar para los recursos y la configuración de red asociados a las instancias de Azure Database for MariaDB con Azure Policy. Use alias de Azure Policy en los espacios de nombres "Microsoft.DBforMariaDB" y "Microsoft.Network" para crear directivas personalizadas con el fin de auditar o aplicar la configuración de red de las instancias de Azure Database for MariaDB. También puede usar las definiciones de directiva integradas relacionadas con las redes o las instancias de Azure Database for MariaDB, como:
+**Instrucciones**: Defina e implemente configuraciones de seguridad estándar para los recursos y la configuración de red asociados a las instancias de Azure Database for MariaDB con Azure Policy. Use alias de Azure Policy en los espacios de nombres "Microsoft.DBforMariaDB" y "Microsoft.Network" para crear directivas personalizadas con el fin de auditar o aplicar la configuración de red de las instancias de Azure Database for MariaDB. También puede usar las definiciones de directiva integradas relacionadas con las redes o las instancias de Azure Database for MariaDB, como:
 
 - Se debe habilitar DDoS Protection estándar
 
@@ -178,7 +178,7 @@ Visualización y recuperación de eventos del registro de actividad de Azure: ht
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: Uso de orígenes de sincronización de hora aprobados
 
-**Guía**: Microsoft mantiene el origen de la hora usado en los recursos de Azure, como Azure Database for MariaDB, para las marcas de tiempo de los registros.
+**Instrucciones**: Microsoft mantiene el origen de la hora usado en los recursos de Azure, como Azure Database for MariaDB, para las marcas de tiempo de los registros.
 
 
 **Supervisión de Azure Security Center**: No aplicable
@@ -187,7 +187,7 @@ Visualización y recuperación de eventos del registro de actividad de Azure: ht
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: Configuración de la administración central de registros de seguridad
 
-**Instrucciones**: Habilite la configuración de diagnóstico y los registros de servidor y de ingesta para agregar los datos de seguridad generados por las instancias de Azure Database for MariaDB. En Azure Monitor, use áreas de trabajo de Log Analytics para realizar consultas y análisis, y utilice cuentas de Azure Storage para el almacenamiento de archivos a largo plazo. Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una herramienta SIEM de terceros.
+**Guía**: Habilite la configuración de diagnóstico y los registros de servidor y de ingesta para agregar los datos de seguridad generados por las instancias de Azure Database for MariaDB. En Azure Monitor, use áreas de trabajo de Log Analytics para realizar consultas y análisis, y utilice cuentas de Azure Storage para el almacenamiento de archivos a largo plazo. Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una herramienta SIEM de terceros.
 Configuración y acceso a los registros de servidor de Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-server-logs
 
 Configuración y acceso a los registros de auditoría de Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal Incorporación de Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
@@ -200,7 +200,7 @@ Configuración y acceso a los registros de auditoría de Azure Database for Mari
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: Habilitación del registro de auditoría para recursos de Azure
 
-**Guía**: Habilite Configuración de diagnóstico en las instancias de Azure Database for MariaDB para poder acceder a los registros de auditoría, seguridad y diagnóstico. Asegúrese de habilitar específicamente el registro de auditoría de MariaDB. Los registros de actividad, que están disponibles automáticamente, incluyen el origen del evento, la fecha, el usuario, la marca de tiempo, las direcciones de origen y de destino, y otros elementos útiles. También puede habilitar la configuración de diagnóstico del registro de actividad de Azure y enviar los registros a la misma área de trabajo de Log Analytics o cuenta de almacenamiento.
+**Instrucciones**: Habilite Configuración de diagnóstico en las instancias de Azure Database for MariaDB para poder acceder a los registros de auditoría, seguridad y diagnóstico. Asegúrese de habilitar específicamente el registro de auditoría de MariaDB. Los registros de actividad, que están disponibles automáticamente, incluyen el origen del evento, la fecha, el usuario, la marca de tiempo, las direcciones de origen y de destino, y otros elementos útiles. También puede habilitar la configuración de diagnóstico del registro de actividad de Azure y enviar los registros a la misma área de trabajo de Log Analytics o cuenta de almacenamiento.
 
 Configuración y acceso a los registros de servidor de Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-server-logs Configuración y acceso a los registros de auditoría de Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal Establecimiento de la configuración de diagnóstico para el registro de actividad de Azure: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
 
@@ -246,7 +246,7 @@ Realización de consultas personalizadas en Azure Monitor: https://docs.microsof
 
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7: Habilitación de alertas para actividades anómalas
 
-**Guía**: Habilite Advanced Threat Protection para MariaDB. Advanced Threat Protection para Azure Database for MariaDB detecta actividades anómalas que indican intentos inusuales y potencialmente dañinos de acceso o ataque a las bases de datos.
+**Instrucciones**: Habilite Advanced Threat Protection para MariaDB. Advanced Threat Protection para Azure Database for MariaDB detecta actividades anómalas que indican intentos inusuales y potencialmente dañinos de acceso o ataque a las bases de datos.
 
 Además, puede habilitar los registros de servidor y la configuración de diagnóstico para MariaDB y enviar registros a un área de trabajo de Log Analytics. Incorpore el área de trabajo de Log Analytics a Azure Sentinel, ya que proporciona una solución de respuesta automatizada de orquestación de seguridad (SOAR). Esto permite crear cuadernos de estrategias (soluciones automatizadas) y usarlos para corregir problemas de seguridad.
 
@@ -328,7 +328,7 @@ Descripción de identidad y acceso en Azure Security Center: https://docs.micros
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: Use el inicio de sesión único (SSO) con Azure Active Directory
 
-**Instrucciones**: El acceso del plano de datos a MariaDB se controla mediante identidades almacenadas en la base de datos y no admite SSO. El acceso del plano de control para MariaDB está disponible a través de la API de REST y es compatible con SSO. Para autenticarse, establezca el encabezado de autorización de las solicitudes en JSON Web Token, que se obtiene de Azure Active Directory (AAD).
+**Guía**: El acceso del plano de datos a MariaDB se controla mediante identidades almacenadas en la base de datos y no admite SSO. El acceso del plano de control para MariaDB está disponible a través de la API de REST y es compatible con SSO. Para autenticarse, establezca el encabezado de autorización de las solicitudes en JSON Web Token, que se obtiene de Azure Active Directory (AAD).
 
 Descripción de la API de REST de Azure Database for MariaDB: https://docs.microsoft.com/rest/api/mariadb/
 
@@ -458,7 +458,7 @@ Lista de servicios admitidos por la Caja de seguridad del cliente: https://docs.
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Mantenimiento de un inventario de información confidencial
 
-**Guía**: Use etiquetas para ayudar a realizar un seguimiento de las instancias de Azure Database for MariaDB o los recursos relacionados que almacenan o procesan información confidencial.
+**Instrucciones**: Use etiquetas para ayudar a realizar un seguimiento de las instancias de Azure Database for MariaDB o los recursos relacionados que almacenan o procesan información confidencial.
 
 Creación y uso de etiquetas: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
@@ -546,7 +546,7 @@ Descripción de la protección de datos de los clientes en Azure: https://docs.m
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: Cifrado de información confidencial en reposo
 
-**Guía**: El servicio Azure Database for MariaDB usa el módulo criptográfico con validación FIPS 140-2 para el cifrado del almacenamiento de los datos en reposo. Los datos, incluidas las copias de seguridad, se cifran en el disco, a excepción de los archivos temporales creados mientras se ejecutan las consultas. El servicio usa el cifrado AES de 256 bits que se incluye en el cifrado de almacenamiento de Azure y las claves las administra el sistema. El cifrado de almacenamiento siempre está activado y no se puede deshabilitar.
+**Instrucciones**: El servicio Azure Database for MariaDB usa el módulo criptográfico con validación FIPS 140-2 para el cifrado del almacenamiento de los datos en reposo. Los datos, incluidas las copias de seguridad, se cifran en el disco, a excepción de los archivos temporales creados mientras se ejecutan las consultas. El servicio usa el cifrado AES de 256 bits que se incluye en el cifrado de almacenamiento de Azure y las claves las administra el sistema. El cifrado de almacenamiento siempre está activado y no se puede deshabilitar.
 
 Descripción del cifrado en reposo para MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-security
 
@@ -605,7 +605,7 @@ Creación de alertas para eventos de registro de actividad de Azure: https://doc
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5: Use un proceso de clasificación de riesgos para priorizar la corrección de las vulnerabilidades detectadas
 
-**Guía**: Microsoft realiza la administración de vulnerabilidades en los sistemas subyacentes que admiten servidores de Azure Database for MariaDB.
+**Instrucciones**: Microsoft realiza la administración de vulnerabilidades en los sistemas subyacentes que admiten servidores de Azure Database for MariaDB.
 
 
 **Supervisión de Azure Security Center**: No aplicable
@@ -642,7 +642,7 @@ Creación y uso de etiquetas: https://docs.microsoft.com/azure/azure-resource-ma
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3: Eliminación de recursos de Azure no autorizados
 
-**Instrucciones**: Use etiquetados, grupos de administración y suscripciones independientes, si procede, para organizar los servidores de Azure Database for MariaDB y los recursos relacionados y hacer un seguimiento de ellos. Concilie el inventario periódicamente y asegúrese de que los recursos no autorizados se eliminan de la suscripción de manera oportuna.
+**Guía**: Use etiquetados, grupos de administración y suscripciones independientes, si procede, para organizar los servidores de Azure Database for MariaDB y los recursos relacionados y hacer un seguimiento de ellos. Concilie el inventario periódicamente y asegúrese de que los recursos no autorizados se eliminan de la suscripción de manera oportuna.
 
 Creación de suscripciones adicionales de Azure: https://docs.microsoft.com/azure/billing/billing-create-subscription
 
@@ -710,7 +710,7 @@ Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governa
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Uso exclusivo de servicios de Azure aprobados
 
-**Instrucciones**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Guía**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 
 - Tipos de recursos no permitidos
 
@@ -737,7 +737,7 @@ Denegación de un tipo de recurso específico con Azure Policy: https://docs.mi
 
 ### <a name="611-divlimit-users-ability-to-interact-with-azure-resources-manager-via-scriptsdiv"></a>6.11: <div>Limitación de la capacidad de los usuarios para interactuar con Azure Resource Manager mediante scripts</div>
 
-**Guía**: Use el acceso condicional de Azure para limitar la capacidad de los usuarios de interactuar con Azure Resource Manager configurando "Bloquear acceso" en la aplicación Microsoft Azure Management. De este modo, se puede impedir la creación y los cambios en los recursos dentro de un entorno de alta seguridad, como servidores de Azure Database for MariaDB que contienen información confidencial.
+**Instrucciones**: Use el acceso condicional de Azure para limitar la capacidad de los usuarios de interactuar con Azure Resource Manager configurando "Bloquear acceso" en la aplicación Microsoft Azure Management. De este modo, se puede impedir la creación y los cambios en los recursos dentro de un entorno de alta seguridad, como servidores de Azure Database for MariaDB que contienen información confidencial.
 
 Configuración del acceso condicional para bloquear el acceso a Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
@@ -794,7 +794,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: Mantenga configuraciones de recursos de Azure seguras
 
-**Instrucciones**: Utilice las directivas [deny] y [deploy if not exist] de Azure Policy para aplicar una configuración segura en los recursos de Azure.
+**Guía**: Utilice las directivas [deny] y [deploy if not exist] de Azure Policy para aplicar una configuración segura en los recursos de Azure.
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -816,7 +816,7 @@ Descripción de los efectos de Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Almacene de forma segura la configuración de los recursos de Azure
 
-**Instrucciones**: Si usa definiciones personalizadas de Azure Policy para los servidores de Azure Database for MariaDB y los recursos relacionados, use Azure Repos para almacenar y administrar el código de forma segura.
+**Guía**: Si usa definiciones personalizadas de Azure Policy para los servidores de Azure Database for MariaDB y los recursos relacionados, use Azure Repos para almacenar y administrar el código de forma segura.
 
 Cómo almacenar código en Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
@@ -836,7 +836,7 @@ Documentación de Azure Repos: https://docs.microsoft.com/azure/devops/repos/ind
 
 ### <a name="77-deploy-system-configuration-management-tools"></a>7.7: Implemente herramientas de administración de configuración del sistema
 
-**Guía**: Use alias de Azure Policy en el espacio de nombres "Microsoft.DBforMariaDB" para crear directivas personalizadas con el fin de auditar y aplicar las configuraciones del sistema y enviar alertas sobre ellas. Además, desarrolle un proceso y una canalización para administrar las excepciones de las directivas.
+**Instrucciones**: Use alias de Azure Policy en el espacio de nombres "Microsoft.DBforMariaDB" para crear directivas personalizadas con el fin de auditar y aplicar las configuraciones del sistema y enviar alertas sobre ellas. Además, desarrolle un proceso y una canalización para administrar las excepciones de las directivas.
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -856,7 +856,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: Implemente la supervisión de configuración automatizada para servicios de Azure
 
-**Instrucciones**: Use alias de Azure Policy en el espacio de nombres "Microsoft.DBforMariaDB" para crear directivas personalizadas con el fin de auditar y aplicar las configuraciones del sistema y enviar alertas sobre ellas. Use [audit], [deny] y [deployifnotexist] de Azure Policy para aplicar automáticamente las configuraciones de las instancias de Azure Database for MariaDB y los recursos relacionados.
+**Guía**: Use alias de Azure Policy en el espacio de nombres "Microsoft.DBforMariaDB" para crear directivas personalizadas con el fin de auditar y aplicar las configuraciones del sistema y enviar alertas sobre ellas. Use [audit], [deny] y [deployifnotexist] de Azure Policy para aplicar automáticamente las configuraciones de las instancias de Azure Database for MariaDB y los recursos relacionados.
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -876,7 +876,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="711-manage-azure-secrets-securely"></a>7.11: Administre los secretos de Azure de forma segura
 
-**Instrucciones**: En el caso de Azure Virtual Machines o aplicaciones web que se ejecutan en Azure App Service y se usan para tener acceso a los servidores de Azure Database for MariaDB, use Managed Service Identity junto con Azure Key Vault para simplificar y proteger la administración de secretos de Azure Database for MariaDB. Asegúrese de que la eliminación temporal de Key Vault esté habilitada.
+**Guía**: En el caso de Azure Virtual Machines o aplicaciones web que se ejecutan en Azure App Service y se usan para tener acceso a los servidores de Azure Database for MariaDB, use Managed Service Identity junto con Azure Key Vault para simplificar y proteger la administración de secretos de Azure Database for MariaDB. Asegúrese de que la eliminación temporal de Key Vault esté habilitada.
 
 Cómo integrar las identidades administradas de Azure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
@@ -931,7 +931,7 @@ Microsoft Antimalware está habilitado en el host subyacente que admite los serv
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2: Examine previamente los archivos que se van a cargar en recursos de Azure que no son de proceso
 
-**Guía**: Microsoft Antimalware está habilitado en el host subyacente que admite los servicios de Azure (por ejemplo, servidores de Azure Database for MariaDB), pero no se ejecuta en el contenido del cliente.
+**Instrucciones**: Microsoft Antimalware está habilitado en el host subyacente que admite los servicios de Azure (por ejemplo, servidores de Azure Database for MariaDB), pero no se ejecuta en el contenido del cliente.
 
 Examine previamente el contenido que se carga en recursos de Azure que no son de proceso, como App Service, Data Lake Storage, Blob Storage, servidores de Azure Database for MariaDB, etc. Microsoft no tiene acceso a los datos de estas instancias.
 
@@ -998,7 +998,7 @@ Descripción de la copia de seguridad y restauración en Azure Database for Mari
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantía de la protección de las copias de seguridad y las claves administradas del cliente
 
-**Instrucciones**: Azure Database for MariaDB realiza copias de seguridad completas, diferenciales y del registro de transacciones. Estas copias de seguridad permiten restaurar un servidor a un momento dado dentro del período de retención de copias de seguridad configurado. El período de retención predeterminado es siete días. Opcionalmente, puede configurarlo hasta 35 días. Todas las copias de seguridad se cifran mediante cifrado AES de 256 bits.
+**Guía**: Azure Database for MariaDB realiza copias de seguridad completas, diferenciales y del registro de transacciones. Estas copias de seguridad permiten restaurar un servidor a un momento dado dentro del período de retención de copias de seguridad configurado. El período de retención predeterminado es siete días. Opcionalmente, puede configurarlo hasta 35 días. Todas las copias de seguridad se cifran mediante cifrado AES de 256 bits.
 
 Descripción de la copia de seguridad y restauración en Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-backup
 
@@ -1014,19 +1014,10 @@ Descripción de la copia de seguridad y restauración en Azure Database for Mari
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Creación de una guía de respuesta ante incidentes
 
 **Instrucciones**: Cree una guía de respuesta a incidentes para su organización. Asegúrese de que haya planes de respuesta a incidentes escritos que definan todos los roles del personal, así como las fases de administración y gestión de los incidentes, desde la detección hasta la revisión posterior a la incidencia.
-    
 
-    Guidance on building your own security incident response process: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
-
-    
-
-    Microsoft Security Response Center's Anatomy of an Incident: https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/
-
-    
-
-    Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan: https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final 
-
-
+- Guía para crear su propio proceso de respuesta a incidentes de seguridad: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
+- Anatomía de un incidente del Centro de respuestas de seguridad de Microsoft: https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/
+- El cliente también puede utilizar la guía de control de incidentes de seguridad de equipos de NIST como referencia para la creación de su propio plan de respuesta a incidentes: https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final 
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -1035,17 +1026,12 @@ Descripción de la copia de seguridad y restauración en Azure Database for Mari
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2: Creación de un procedimiento de priorización y puntuación de incidentes
 
 **Instrucciones**: Security Center asigna una gravedad a cada alerta para ayudarle a priorizar aquellas que se deben investigar en primer lugar. La gravedad se basa en la confianza que tiene Security Center en la búsqueda o en el análisis utilizados para emitir la alerta, así como en el nivel de confianza de que ha habido un intento malintencionado detrás de la actividad que ha provocado la alerta. 
-    
 
-    Additionally, clearly mark subscriptions (for ex. production, non-prod) using tags and create a naming system to clearly identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
+Además, marque claramente las suscripciones (por ejemplo, producción, no producción) con etiquetas y cree un sistema de nomenclatura para identificar y clasificar claramente los recursos de Azure, especialmente los que procesan datos confidenciales.  Es su responsabilidad asignar prioridades a la corrección de las alertas en función de la importancia de los recursos y el entorno de Azure donde se produjo el incidente.
 
-    
+- Alertas de seguridad en Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-alerts-overview
 
-    Security alerts in Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-alerts-overview
-
-    
-
-Uso de etiquetas para organizar los recursos de Azure: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+- Uso de etiquetas para organizar los recursos de Azure: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -1053,12 +1039,9 @@ Uso de etiquetas para organizar los recursos de Azure: https://docs.microsoft.co
 
 ### <a name="103-test-security-response-procedures"></a>10.3: Prueba de los procedimientos de respuesta de seguridad
 
-**Guía**: Realice ejercicios para probar las funcionalidades de respuesta a los incidentes de los sistemas periódicamente; así, ayudará a proteger los recursos de Azure. Identifique puntos débiles y brechas y revise el plan según sea necesario.
-    
+**Instrucciones**: Realice ejercicios para probar las funcionalidades de respuesta a los incidentes de los sistemas periódicamente; así, ayudará a proteger los recursos de Azure. Identifique puntos débiles y brechas y revise el plan según sea necesario.
 
-    Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
-
-
+- Consulte la publicación de NIST: Guía para probar, entrenar y ejecutar programas para planes y capacidades de TI: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -1067,11 +1050,8 @@ Uso de etiquetas para organizar los recursos de Azure: https://docs.microsoft.co
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4: Provisión de detalles de contacto de incidentes de seguridad y configuración de notificaciones de alerta para incidentes de seguridad
 
 **Instrucciones**: La información de contacto del incidente de seguridad la utilizará Microsoft para ponerse en contacto con usted si Microsoft Security Response Center (MSRC) detecta que un tercero no autorizado o ilegal ha accedido a los datos. Revise los incidentes después del hecho para asegurarse de que se resuelven los problemas.
-    
 
-    How to set the Azure Security Center Security Contact: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
-
-
+- Cómo establecer el contacto de seguridad de Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -1080,15 +1060,9 @@ Uso de etiquetas para organizar los recursos de Azure: https://docs.microsoft.co
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: Incorporación de alertas de seguridad en el sistema de respuesta a incidentes
 
 **Guía**: Exporte las alertas y recomendaciones de Azure Security Center y mediante la característica de exportación continua para ayudar a identificar los riesgos para los recursos de Azure. La exportación continua le permite exportar alertas y recomendaciones de forma manual o continua. Puede usar el conector de datos de Azure Security Center para transmitir las alertas a Azure Sentinel.
-    
 
-    How to configure continuous export: https://docs.microsoft.com/azure/security-center/continuous-export
-
-    
-
-    How to stream alerts into Azure Sentinel: https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
-
-
+- Configuración de la exportación continua: https://docs.microsoft.com/azure/security-center/continuous-export
+- Transmisión de alertas a Azure Sentinel: https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
 **Supervisión de Azure Security Center**: No aplicable
 

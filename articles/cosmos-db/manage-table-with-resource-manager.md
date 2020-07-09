@@ -3,15 +3,15 @@ title: Plantillas de Resource Manager para Azure Cosmos DB Table API
 description: Use las plantillas de Azure Resource Manager para crear y configurar Table API de Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: 5e4e514a8d39679e5a1d07b0ea7100cf4837072e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c77c917cf6063b787dc2972f5ee7db3329e0e743
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684764"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028144"
 ---
 # <a name="manage-azure-cosmos-db-table-api-resources-using-azure-resource-manager-templates"></a>Administrar recursos de Table API de Azure Cosmos DB con plantillas de Azure Resource Manager
 
@@ -36,7 +36,7 @@ Para crear cualquiera de los siguientes recursos de Azure Cosmos DB, copie la s
 
 Esta plantilla creará una cuenta de Azure Cosmos para Table API con una tabla con rendimiento de escalabilidad automática. Esta plantilla también está disponible para implementar con un solo clic desde la galería de plantillas de inicio rápido de Azure.
 
-[![Implementación en Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-table-autoscale%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implementación en Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-table-autoscale%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-table-autoscale/azuredeploy.json":::
 
@@ -46,7 +46,7 @@ Esta plantilla creará una cuenta de Azure Cosmos para Table API con una tabla c
 
 Esta plantilla creará una cuenta de Azure Cosmos para Table API con una tabla con rendimiento estándar. Esta plantilla también está disponible para implementar con un solo clic desde la galería de plantillas de inicio rápido de Azure.
 
-[![Implementación en Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-table%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implementación en Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-table%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-table/azuredeploy.json":::
 

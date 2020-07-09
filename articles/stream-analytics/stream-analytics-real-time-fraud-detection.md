@@ -5,15 +5,15 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5e2ba749b64a6d44c9aa6b03352910ab24771084
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 3bfc03dd7a04bea7e69aa1b62cef267a81b650f1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835655"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037620"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introducción al uso de Azure Stream Analytics: Detección de fraudes en tiempo real
 
@@ -31,7 +31,7 @@ En este tutorial se usa el ejemplo de detección de fraudes en tiempo real basad
 
 Una empresa de telecomunicaciones tiene un gran volumen de datos en llamadas entrantes. La compañía quiere detectar llamadas fraudulentas en tiempo real para poder notificarlo a los clientes o cancelar el servicio para un número concreto. Un tipo de fraude de SIM implica varias llamadas desde la misma identidad aproximadamente a la misma hora, pero en distintas ubicaciones geográficas. Para detectar este tipo de fraude, la compañía ha de examinar los registros de llamadas entrantes y buscar patrones concretos (en este caso, llamadas realizadas aproximadamente a la misma hora en distintos países o regiones). Los registros de teléfono que entren en esta categoría se escriben en el almacenamiento para su análisis posterior.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este tutorial, simulará datos de llamadas telefónicas mediante una aplicación cliente que genera metadatos de llamada telefónica de muestra. Algunos de los registros que genera la aplicación parecen llamadas fraudulentas. 
 
@@ -47,7 +47,7 @@ Si quiere examinar los resultados del trabajo de análisis de Stream Analytics, 
 
 ## <a name="create-an-azure-event-hubs-to-ingest-events"></a>Creación de una instancia de Azure Event Hubs para la ingesta de eventos
 
-Para analizar un flujo de datos, debe *introducirlo* en Azure. Una forma habitual de ingesta de datos consiste en usar [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md), que permite la ingesta de millones de eventos por segundo y el procesamiento y almacenamiento de la información de los eventos. En este tutorial, creará un centro de eventos e indicará a la aplicación que genera eventos de llamada que envíe los datos de las llamadas a dicho centro. Para más información sobre Event Hubs, vea la [documentación de Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
+Para analizar un flujo de datos, debe *introducirlo* en Azure. Una forma habitual de ingesta de datos consiste en usar [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md), que permite la ingesta de millones de eventos por segundo y el procesamiento y almacenamiento de la información de los eventos. En este tutorial, creará un centro de eventos e indicará a la aplicación que genera eventos de llamada que envíe los datos de las llamadas a dicho centro.
 
 >[!NOTE]
 >Para obtener una versión más detallada de este procedimiento, vea [Creación de un espacio de nombres de Event Hubs y un centro de eventos con Azure Portal](../event-hubs/event-hubs-create.md). 
@@ -77,7 +77,7 @@ En este procedimiento, cree primero un espacio de nombres del centro de eventos 
 
    ![Botón Agregar centro de eventos para crear un centro de eventos](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
  
-8. Asigne al nuevo centro de eventos el nombre `asa-eh-frauddetection-demo`. Puede usar otro nombre. Si lo hace, tome nota del mismo, porque más adelante se necesita el nombre. No es preciso establecer otras opciones del centro de eventos ahora mismo.
+8. Asigne al nuevo centro de eventos el nombre `asa-eh-frauddetection-demo`. Puede usar otro nombre. Si lo hace, tome nota de él, porque más adelante se necesita el nombre. No es preciso establecer otras opciones del centro de eventos ahora mismo.
 
     <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="Name event hub in Azure portal" width="400px"/>
     
@@ -202,8 +202,8 @@ Ahora que tiene un flujo de eventos de llamada, puede configurar un trabajo de S
    |**Configuración**  |**Valor sugerido**  |**Descripción**  |
    |---------|---------|---------|
    |Alias de entrada  |  CallStream   |  Escriba un nombre para identificar la entrada del trabajo.   |
-   |Subscription   |  \<Su suscripción\> |  Seleccione la suscripción de Azure que tenga el centro de eventos que ha creado.   |
-   |Espacio de nombres del Centro de eventos  |  asa-eh-ns-demo |  Escriba el nombre del espacio de nombres del centro de eventos.   |
+   |Suscripción   |  \<Your subscription\> |  Seleccione la suscripción de Azure que tenga el centro de eventos que ha creado.   |
+   |Espacio de nombres del centro de eventos  |  asa-eh-ns-demo |  Escriba el nombre del espacio de nombres del centro de eventos.   |
    |Nombre del centro de eventos  | asa-eh-frauddetection-demo | Seleccione el nombre del centro de eventos.   |
    |Nombre de la directiva del centro de eventos  | asa-policy-manage-demo | Seleccione la directiva de acceso que ha creado.   |
 
@@ -221,7 +221,7 @@ Una consulta sencilla bastaría para leer todos los datos entrantes. Pero, a men
 
 Las consultas que se creen aquí solo mostrarán los datos transformados en la pantalla. En una sección posterior, configurará un receptor de salida y una consulta que escriba los datos transformados en ese receptor.
 
-Para obtener más información sobre el lenguaje, consulte la [Referencia de lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
+Para más información sobre el lenguaje, consulte la [Referencia de lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
 
 ### <a name="get-sample-data-for-testing-queries"></a>Obtención de datos de muestra para probar las consultas
 
@@ -372,7 +372,7 @@ Si ya tiene una cuenta de Blob Storage, puede utilizarla. En este tutorial, apre
    |**Configuración**  |**Valor sugerido**  |**Descripción**  |
    |---------|---------|---------|
    |Alias de salida  |  CallStream-FraudulentCalls   |  Escriba un nombre para identificar la salida del trabajo.   |
-   |Subscription   |  \<Su suscripción\> |  Seleccione la suscripción de Azure que tiene la cuenta de almacenamiento que creó. La cuenta de almacenamiento puede estar en la misma suscripción, o en otra diferente. En este ejemplo se da por supuesto que ha creado la cuenta de almacenamiento en la misma suscripción. |
+   |Suscripción   |  \<Your subscription\> |  Seleccione la suscripción de Azure que tiene la cuenta de almacenamiento que creó. La cuenta de almacenamiento puede estar en la misma suscripción, o en otra diferente. En este ejemplo se da por supuesto que ha creado la cuenta de almacenamiento en la misma suscripción. |
    |Cuenta de almacenamiento  |  asaehstorage |  Escriba el nombre de la cuenta de almacenamiento que ha creado. |
    |Contenedor  | asa-fraudulentcalls-demo | Elija Crear nuevo y escriba un nombre de contenedor. |
 
@@ -431,6 +431,6 @@ Puede seguir este tutorial con el artículo siguiente:
 Para más información sobre Stream Analytics en general, examine estos artículos:
 
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
-* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Escalado de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Referencia del lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

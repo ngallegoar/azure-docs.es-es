@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 5bde217601d27129e044b64d90184727ea717950
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 329db6b3fc0bd6d11e5fbac9472aa03899caec2a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67186123"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050415"
 ---
 Con el Administrador de recursos de Azure, se definen los parámetros de los valores que desea especificar al implementar la plantilla. La plantilla incluye una sección denominada Parámetros que contiene todos los valores de los parámetros.
 Debe definir un parámetro para los valores que variarán según el proyecto que vaya a implementar o según el entorno en el que vaya a realizar la implementación. No defina parámetros para valores que vayan a permanecer igual. Cada valor de parámetro se usa en la plantilla para definir los recursos que se implementan. 
@@ -21,56 +21,64 @@ Vamos a describir cada parámetro de la plantilla.
 ### <a name="sitename"></a>siteName
 El nombre de la aplicación web que desea crear.
 
-    "siteName":{
-      "type":"string"
-    }
+```config
+"siteName":{
+  "type":"string"
+}
+```
 
 ### <a name="hostingplanname"></a>hostingPlanName
 El nombre del plan de App Service que se va a crear para hospedar la aplicación web.
 
-    "hostingPlanName":{
-      "type":"string"
-    }
+```config
+"hostingPlanName":{
+  "type":"string"
+}
+```
 
 ### <a name="sku"></a>sku
 El nivel de precios del plan de hospedaje.
 
-    "sku": {
-      "type": "string",
-      "allowedValues": [
-        "F1",
-        "D1",
-        "B1",
-        "B2",
-        "B3",
-        "S1",
-        "S2",
-        "S3",
-        "P1",
-        "P2",
-        "P3",
-        "P4"
-      ],
-      "defaultValue": "S1",
-      "metadata": {
-        "description": "The pricing tier for the hosting plan."
-      }
-    }
+```config
+"sku": {
+  "type": "string",
+  "allowedValues": [
+    "F1",
+    "D1",
+    "B1",
+    "B2",
+    "B3",
+    "S1",
+    "S2",
+    "S3",
+    "P1",
+    "P2",
+    "P3",
+    "P4"
+  ],
+  "defaultValue": "S1",
+  "metadata": {
+    "description": "The pricing tier for the hosting plan."
+  }
+}
+```
 
 La plantilla define los valores que se permiten para este parámetro y asigna un valor predeterminado (S1) si no se especifica ningún valor.
 
 ### <a name="workersize"></a>workerSize
 El tamaño de la instancia del plan de hospedaje (pequeño, mediano o grande).
 
-    "workerSize":{
-      "type":"string",
-      "allowedValues":[
-        "0",
-        "1",
-        "2"
-      ],
-      "defaultValue":"0"
-    }
+```config
+"workerSize":{
+  "type":"string",
+  "allowedValues":[
+    "0",
+    "1",
+    "2"
+  ],
+  "defaultValue":"0"
+}
+```
 
 La plantilla define los valores que se permiten para este parámetro (0, 1 o 2) y asigna un valor predeterminado (0) si no se especifica ningún valor. Los valores corresponden a pequeño, mediano y grande.
 

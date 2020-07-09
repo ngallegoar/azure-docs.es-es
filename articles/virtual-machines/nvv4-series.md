@@ -1,18 +1,19 @@
 ---
-title: 'Serie NVv4: máquinas virtuales de Azure'
+title: Serie NVv4
 description: Especificaciones de las máquinas virtuales de la serie NVv4.
 services: virtual-machines
-author: vikancha
+ms.subservice: sizes
+author: vikancha-MSFT
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: 0295ed7d44d64fcc1aeb68e1beaa37987b177edb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: jushiman
+ms.openlocfilehash: e12124ee2d87a14c6e7cb1704fbe50c6300c1240
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273860"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045729"
 ---
 # <a name="nvv4-series"></a>Serie NVv4 
 
@@ -28,12 +29,12 @@ Migración en vivo: No compatible
 
 Actualizaciones con conservación de memoria: No compatible
 
-| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | GPU | Memoria de GPU: GiB | Discos de datos máx. | Nº máx. NIC |
+| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | GPU | Memoria de GPU: GiB | Discos de datos máx. | Nº máx. de NIC / ancho de banda de red esperado (MBps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 |
-| Standard_NV8as_v4 |8 |28 |176 | 1/4 | 4 | 8 | 4 |
-| Standard_NV16as_v4 |16 |56 |352 | 1/2 | 8 | 16 | 8 |
-| Standard_NV32as_v4 |32 |112 |704 | 1 | 16 | 32 | 8 |
+| Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 / 1000 |
+| Standard_NV8as_v4 |8 |28 |176 | 1/4 | 4 | 8 | 4 / 2000 |
+| Standard_NV16as_v4 |16 |56 |352 | 1/2 | 8 | 16 | 8 / 4000 |
+| Standard_NV32as_v4 |32 |112 |704 | 1 | 16 | 32 | 8 / 8000 |
 
 <sup>1</sup> las máquinas virtuales de la serie NVv4 incluyen tecnología multithreading simultánea de AMD
 

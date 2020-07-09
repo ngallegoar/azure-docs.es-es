@@ -4,12 +4,12 @@ description: Este artículo contiene respuestas a las preguntas más frecuentes 
 ms.topic: troubleshooting
 ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 15f2cf3c06e56656efd68d472cabd1da52c375cc
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: b45f3c43e70502b2734696a66d2a497c2213d1b9
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343547"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054872"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Preguntas más frecuentes de Language Understanding
 
@@ -43,7 +43,7 @@ Sí, es conveniente entrenar la intención **None** con más expresiones a medid
 Consulte el tutorial de [Bing Spell Check API V7](luis-tutorial-bing-spellcheck.md). LUIS aplica los límites impuestos por Bing Spell Check API V7.
 
 ### <a name="how-do-i-edit-my-luis-app-programmatically"></a>¿Cómo se edita la aplicación LUIS mediante programación?
-Para editar la aplicación LUIS mediante programación, use la [API de creación](https://go.microsoft.com/fwlink/?linkid=2092087). Consulte [Llamada a la API de creación de LUIS](./get-started-get-model-rest-apis.md) y [Build a LUIS app programmatically using Node.js](./luis-tutorial-node-import-utterances-csv.md) (Compilar la aplicación LUIS mediante programación con Node.js) para obtener ejemplos de cómo llamar a la API de creación. La API de creación requiere el uso de una [clave de creación](luis-concept-keys.md#azure-resources-for-luis) en lugar de una clave de punto de conexión. Crear mediante programación permite hasta 1 000 000 llamadas al mes y cinco transacciones por segundo. Para obtener más información sobre las claves que se utilizan con LUIS, consulte [Administrar claves](./luis-concept-keys.md).
+Para editar la aplicación LUIS mediante programación, use la [API de creación](https://go.microsoft.com/fwlink/?linkid=2092087). Consulte [Llamada a la API de creación de LUIS](./get-started-get-model-rest-apis.md) y [Build a LUIS app programmatically using Node.js](./luis-tutorial-node-import-utterances-csv.md) (Compilar la aplicación LUIS mediante programación con Node.js) para obtener ejemplos de cómo llamar a la API de creación. La API de creación requiere el uso de una [clave de creación](luis-how-to-azure-subscription.md#azure-resources-for-luis) en lugar de una clave de punto de conexión. Crear mediante programación permite hasta 1 000 000 llamadas al mes y cinco transacciones por segundo. Para obtener más información sobre las claves que se utilizan con LUIS, consulte [Administrar claves](./luis-how-to-azure-subscription.md).
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>¿Dónde está la característica de patrón que proporcionaba coincidencias con una expresión regular?
 La **característica de patrón** anterior está en desuso actualmente, y se reemplazó por **[Patrones](luis-concept-patterns.md)** .
@@ -123,7 +123,7 @@ Consulte los [procedimientos recomendados](luis-concept-best-practices.md) para 
 LUIS [acorta](luis-glossary.md#token) la expresión según la [referencia cultural](luis-language-support.md#tokenization). El valor original y el valor acortado están disponibles para la [extracción de datos](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>¿Cómo se crean y asignan las claves de punto de conexión para LUIS?
-[Cree la clave de punto de conexión](luis-how-to-azure-subscription.md) en Azure para su nivel de [servicio](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Asigne la clave](luis-how-to-azure-subscription.md) en la página de **[recursos de Azure](luis-how-to-azure-subscription.md)** . No hay ninguna API correspondiente a esta acción. Después, debe cambiar la solicitud HTTP al punto de conexión para [usar la nueva clave de punto de conexión](luis-concept-keys.md).
+[Cree la clave de punto de conexión](luis-how-to-azure-subscription.md) en Azure para su nivel de [servicio](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Asigne la clave](luis-how-to-azure-subscription.md) en la página de **[recursos de Azure](luis-how-to-azure-subscription.md)** . No hay ninguna API correspondiente a esta acción. Después, debe cambiar la solicitud HTTP al punto de conexión para [usar la nueva clave de punto de conexión](luis-how-to-azure-subscription.md).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>¿Cómo se interpretan las puntuaciones de LUIS?
 El sistema debe utilizar la intención de mayor puntuación independientemente de su valor. Por ejemplo, una puntuación menor a 0,5 (de menos del 50 %) no significa necesariamente que LUIS tiene un nivel de confiabilidad bajo. Proporcionar más datos de aprendizaje puede ayudar a aumentar la [puntuación](luis-concept-prediction-score.md) de la intención más probable.
@@ -144,10 +144,10 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ```
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>La aplicación LUIS funcionaba ayer, pero hoy recibo errores 403. No hice cambios en la aplicación. ¿Cómo puedo corregirlo?
-Siga estas [instrucciones](#how-do-i-create-and-assign-a-luis-endpoint-key) para crear una clave de punto de conexión de LUIS y asignarla a la aplicación. Después, debe cambiar la solicitud HTTP de la aplicación cliente al punto de conexión para [usar la nueva clave de punto de conexión](luis-concept-keys.md). Si ha creado un recurso nuevo en otra región, cambie también la región de la solicitud de cliente HTTP.
+Siga estas [instrucciones](#how-do-i-create-and-assign-a-luis-endpoint-key) para crear una clave de punto de conexión de LUIS y asignarla a la aplicación. Después, debe cambiar la solicitud HTTP de la aplicación cliente al punto de conexión para [usar la nueva clave de punto de conexión](luis-how-to-azure-subscription.md). Si ha creado un recurso nuevo en otra región, cambie también la región de la solicitud de cliente HTTP.
 
 ### <a name="how-do-i-secure-my-luis-endpoint"></a>¿Cómo se protege el punto de conexión de LUIS?
-Consulte [Securing the endpoint](luis-concept-keys.md#securing-the-endpoint) (Proteger el punto de conexión).
+Consulte [Securing the endpoint](luis-how-to-azure-subscription.md#securing-the-endpoint) (Proteger el punto de conexión).
 
 ## <a name="working-within-luis-limits"></a>Trabajo dentro de los límites de LUIS
 
@@ -206,7 +206,7 @@ Si la aplicación ya existía antes de que LUIS estuviera disponible con caráct
 
 ### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>¿Cómo puedo saber qué clave necesito, dónde obtenerla y qué hacer con ella?
 
-Consulte [Claves de creación y del punto de conexión de consulta de predicciones en LUIS](luis-concept-keys.md) para más información sobre las diferencias entre la claves de creación y la clave del runtime de predicción.
+Consulte [Claves de creación y del punto de conexión de consulta de predicciones en LUIS](luis-how-to-azure-subscription.md) para más información sobre las diferencias entre la claves de creación y la clave del runtime de predicción.
 
 ### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>He recibido un error que me indicaba que había superado la cuota. ¿Cómo puedo corregirlo?
 

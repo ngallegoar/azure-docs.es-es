@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 9fb2f3374d635d8086bac5fe02ecf3b7f819ea65
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: ebc6ff2c7c0d72dff318c7582d9ae5339682bc95
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100874"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028234"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Copia de seguridad y recuperación de los modelos de Form Recognizer
 
@@ -162,4 +162,4 @@ curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v
 ## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía, ha aprendido a usar la API de copia para realizar una copia de seguridad de los modelos personalizados en un recurso de Form Recognizer secundario. A continuación, consulte los documentos de referencia de la API para ver qué más puede hacer con Form Recognizer.
-* [Documentación de referencia de API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)
+* [Documentación de referencia de API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)

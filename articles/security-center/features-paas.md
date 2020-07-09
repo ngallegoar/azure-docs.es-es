@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2020
 ms.author: memildin
-ms.openlocfilehash: 85460724071347a768a924f34290a75d2383b4c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 539b663366cd2820eec62a18d1fc2989c6b3c9b0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78209263"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042363"
 ---
 # <a name="feature-coverage-for-azure-paas-services"></a>Cobertura de características para los servicios de PaaS de Azure <a name="paas-services"></a>
 
@@ -45,7 +45,8 @@ En esta tabla se muestra la disponibilidad de características de Azure Security
 |Azure Kubernetes Service|✔|✔|-|
 |Azure Load Balancer|✔|-|-|
 |Azure Logic Apps|✔|-|-|
-|Instancias de Azure SQL Database|✔|✔|✔|
+|Azure SQL Database|✔|✔|✔|
+|Instancia administrada de Azure SQL|✔|✔|✔|
 |Espacio de nombres de Azure Service Bus|✔|-|-|
 |Cuenta de Azure Service Fabric|✔|-|-|
 |Cuentas de Azure Storage|✔|-|-|

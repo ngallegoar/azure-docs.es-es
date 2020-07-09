@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: d579e7a4fd83c1a0ce335e0b2357dcbafb217398
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2689e81b089147dfc913fb119e0a499d60574b60
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67186260"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050304"
 ---
 En este paso, se probará el agente de escucha del grupo de disponibilidad mediante una aplicación de cliente que se ejecuta en la misma red.
 
@@ -20,7 +20,9 @@ La conectividad del cliente tiene los requisitos siguientes:
 
 Un ejemplo sería conectarse al agente de escucha desde una de las máquinas virtuales de la misma red virtual de Azure (pero no desde una que hospede una réplica). Una manera fácil de completar esta prueba consiste en intentar conectar SQL Server Management Studio al agente de escucha del grupo de disponibilidad. Otro método sencillo es ejecutar [SQLCMD.exe](https://technet.microsoft.com/library/ms162773.aspx) de la siguiente manera:
 
-    sqlcmd -S "<ListenerName>,<EndpointPort>" -d "<DatabaseName>" -Q "select @@servername, db_name()" -l 15
+```console
+sqlcmd -S "<ListenerName>,<EndpointPort>" -d "<DatabaseName>" -Q "select @@servername, db_name()" -l 15
+```
 
 > [!NOTE]
 > Si el valor de EndpointPort es *1433*, no es necesario especificarlo en la llamada. La llamada anterior también asume que el equipo cliente está unido al mismo dominio y que el llamador tiene concedidos los permisos en la base de datos mediante la autenticación de Windows.

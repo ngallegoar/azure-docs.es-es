@@ -4,12 +4,12 @@ ms.service: dns
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: victorh
-ms.openlocfilehash: 261ae22348cd82b129727261c619727917e19c96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8ca054b3a3d5147b7d98a021ce1e26d02d5581b0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73832052"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050399"
 ---
 ### <a name="record-names"></a>Nombres de registro
 
@@ -27,8 +27,10 @@ Azure DNS es compatible con todos los tipos de registro DNS comunes: A, AAAA, CA
 
 En ocasiones, tendrá que crear más de un registro DNS con un nombre y un tipo concretos. Por ejemplo, supongamos que el sitio web 'www.contoso.com' se hospeda en dos direcciones IP diferentes. En este caso, se requieren dos registros A distintos, uno para cada dirección IP. Este es un ejemplo de un conjunto de registros:
 
-    www.contoso.com.        3600    IN    A    134.170.185.46
-    www.contoso.com.        3600    IN    A    134.170.188.221
+```dns
+www.contoso.com.        3600    IN    A    134.170.185.46
+www.contoso.com.        3600    IN    A    134.170.188.221
+```
 
 Azure DNS administra todos los registros DNS con *conjuntos de registros*. Un conjunto de registros (también denominado conjunto de registros de *recurso*) es la colección de registros DNS de una zona con el mismo nombre y del mismo tipo. La mayoría de conjuntos de registros contienen un único registro. Sin embargo, es habitual encontrar ejemplos como el anterior, en el que un conjunto de registros contiene más de un registro.
 

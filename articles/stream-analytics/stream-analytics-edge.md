@@ -5,15 +5,15 @@ ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9d4df4efc6dbee88e80e620860487636cc9210dd
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 5213a13539ac028d3e2bfec3bc7476ac645f615b
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837219"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043485"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics en IoT Edge
  
@@ -43,13 +43,12 @@ ASA usa IoT Hub para implementar los trabajos perimetrales en los dispositivos. 
 
 ### <a name="installation-instructions"></a>Instrucciones de instalación
 Los valores posibles se describen en la tabla siguiente. En las secciones siguientes encontrará más información.
-
-|      |Paso   | Notas   |
-| ---   | ---   |  ---      |
-| 1   | **Creación de un contenedor de almacenamiento**   | Los contenedores de almacenamiento se utilizan para guardar la definición de trabajo donde pueden obtenerla sus dispositivos de IoT. <br>  Todos los contenedor de almacenamiento existente se pueden reutilizar.     |
-| 2   | **Creación de un trabajo perimetral de ASA**   |  Cree un nuevo trabajo y seleccione **Edge** como **entorno de hospedaje**. <br> Estos trabajos se crean o administran desde la nube y se ejecutan en sus propios dispositivos de IoT Edge.     |
-| 3   | **Configuración de un entorno de IoT Edge en los dispositivos**   | Instrucciones para [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) o [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
-| 4   | **Implementación de ASA en dispositivos de IoT Edge**   |  La definición del trabajo ASA se exporta al contenedor de almacenamiento que creó anteriormente.       |
+|Paso   | Notas   |
+| ---   |  ---      |
+| **Creación de un contenedor de almacenamiento**   | Los contenedores de almacenamiento se utilizan para guardar la definición de trabajo donde pueden obtenerla sus dispositivos de IoT. <br>  Todos los contenedor de almacenamiento existente se pueden reutilizar.     |
+| **Creación de un trabajo perimetral de ASA**   |  Cree un nuevo trabajo y seleccione **Edge** como **entorno de hospedaje**. <br> Estos trabajos se crean o administran desde la nube y se ejecutan en sus propios dispositivos de IoT Edge.     |
+| **Configuración de un entorno de IoT Edge en los dispositivos**   | Instrucciones para [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) o [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
+| **Implementación de ASA en dispositivos de IoT Edge**   |  La definición del trabajo ASA se exporta al contenedor de almacenamiento que creó anteriormente.       |
 
 Puede seguir [este tutorial paso a paso](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) para implementar su primer trabajo de ASA en IoT Edge. El vídeo siguiente debería ayudarle a entender el proceso para ejecutar un trabajo de Stream Analytics en un dispositivo con IoT Edge:  
 

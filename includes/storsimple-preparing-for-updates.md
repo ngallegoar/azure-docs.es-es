@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 4e262c9e5bb88e77bc9c09853c06f4cdb41eedaa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8c60e0275853f3c879db22f5414f0fbbbdb47b85
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "67186508"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050421"
 ---
 ## <a name="preparing-for-updates"></a>Preparación de las actualizaciones
 Deberá realizar los siguientes pasos antes de buscar y aplicar la actualización:
@@ -21,23 +21,25 @@ Deberá realizar los siguientes pasos antes de buscar y aplicar la actualizació
    
     **Salida de ejemplo para la conexión de prueba cuando los IP fijos pueden conectarse a Internet**
 
-        Controller0>Test-Connection -Source 10.126.173.91 -Destination bing.com
+    ```output
+    Controller0>Test-Connection -Source 10.126.173.91 -Destination bing.com
 
-        Source      Destination     IPV4Address      IPV6Address
-        ----------------- -----------  -----------
-        HCSNODE0  bing.com        204.79.197.200
-        HCSNODE0  bing.com        204.79.197.200
-        HCSNODE0  bing.com        204.79.197.200
-        HCSNODE0  bing.com        204.79.197.200
+    Source      Destination     IPV4Address      IPV6Address
+    ----------------- -----------  -----------
+    HCSNODE0  bing.com        204.79.197.200
+    HCSNODE0  bing.com        204.79.197.200
+    HCSNODE0  bing.com        204.79.197.200
+    HCSNODE0  bing.com        204.79.197.200
 
-        Controller0>Test-Connection -Source 10.126.173.91 -Destination  204.79.197.200
+    Controller0>Test-Connection -Source 10.126.173.91 -Destination  204.79.197.200
 
-        Source      Destination       IPV4Address    IPV6Address
-        ----------------- -----------  -----------
-        HCSNODE0  204.79.197.200  204.79.197.200
-        HCSNODE0  204.79.197.200  204.79.197.200
-        HCSNODE0  204.79.197.200  204.79.197.200
-        HCSNODE0  204.79.197.200  204.79.197.200
+    Source      Destination       IPV4Address    IPV6Address
+    ----------------- -----------  -----------
+    HCSNODE0  204.79.197.200  204.79.197.200
+    HCSNODE0  204.79.197.200  204.79.197.200
+    HCSNODE0  204.79.197.200  204.79.197.200
+    HCSNODE0  204.79.197.200  204.79.197.200
+    ```
 
 Después de haber completado correctamente estas comprobaciones previas manuales, puede buscar e instalar las actualizaciones.
 

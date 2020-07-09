@@ -5,13 +5,13 @@ ms.service: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.date: 4/11/2020
-ms.topic: conceptual
-ms.openlocfilehash: 25ece3174cd65df9c665888d913cf6b9029904b1
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.topic: how-to
+ms.openlocfilehash: df6e7435d072cc88e82f3dc9a323a5b21145c432
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393962"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037263"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>IntelliSense en las herramientas de Azure Stream Analytics para Visual Studio Code
 
@@ -34,13 +34,12 @@ IntelliSense se puede desencadenar en cualquier ventana del editor escribiendo u
 
 IntelliSense en las herramientas de Stream Analytics para VS Code ofrece distintos tipos de finalizaciones, como sugerencias de servidores de lenguaje, fragmentos de código y finalizaciones de texto simples basadas en palabras.
 
-|       |         |       |
-| ----- | ------- | ----- |
+|Completion     |  Tipo       |
+| ----- | ------- |
 | Palabras clave | `keyword`
 | Functions | `build-in function`, `user defined function`  |
 | Nombre de conjunto de datos| `input`, `output`, `intermediate result set`|
 | Nombre de columna de conjunto de datos|`input`, `intermediate result set`|
-|
 
 #### <a name="name-completion"></a>Finalización de nombres
 
