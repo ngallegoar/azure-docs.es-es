@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: a005b6cec811b8a584123dc4c8abab77766961e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 217be627f81406f671118d5290cd5f67f52c01d2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234332"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112119"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos de equipos en las consultas de registros de Azure Monitor
 Los grupos de equipos en Azure Monitor permiten limitar las [consultas de registros](../log-query/log-query-overview.md) a un conjunto concreto de equipos.  Cada grupo se rellena con equipos mediante una consulta que defina o a través de la importación de grupos de diferentes orígenes.  Cuando el grupo se incluye en una consulta de registros, los resultados se limitan a los registros que coinciden con los equipos del grupo.
@@ -34,7 +34,9 @@ Los grupos de equipos creados a partir de una consulta de registros contendrán 
 
 Puede usar cualquier consulta para un grupo de equipos, pero debe devolver un conjunto distinto de equipos mediante el uso de `distinct Computer`.  A continuación, se muestra una consulta de ejemplo típica que puede usar para un grupo de equipos.
 
-    Heartbeat | where Computer contains "srv" | distinct Computer
+```kusto
+Heartbeat | where Computer contains "srv" | distinct Computer
+```
 
 Utilice el procedimiento siguiente para crear un grupo de equipos a partir de una búsqueda de registros en Azure Portal.
 
@@ -94,26 +96,28 @@ Haga clic en la **x** de la columna **Quitar** para eliminar el grupo de equipos
 ## <a name="using-a-computer-group-in-a-log-query"></a>Uso de un grupo de equipos de una consulta de registros
 Puede utilizar un grupo de equipos creado a partir de una consulta de registros en una consulta tratando su alias como una función, normalmente con la sintaxis siguiente:
 
-  `Table | where Computer in (ComputerGroup)`
+```kusto
+Table | where Computer in (ComputerGroup)`
+```
 
 Por ejemplo, podría usar lo siguiente para devolver registros UpdateSummary solo para los equipos de un grupo de equipos llamado mycomputergroup.
- 
-  `UpdateSummary | where Computer in (mycomputergroup)`
 
+```kusto
+UpdateSummary | where Computer in (mycomputergroup)`
+```
 
 Los grupos de equipos importados y sus equipos incluidos se almacenan en la tabla **ComputerGroup**.  Por ejemplo, la siguiente consulta devolvería una lista de equipos en el grupo Equipos del dominio de Active Directory. 
 
-  `ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer`
+```kusto
+ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer
+```
 
 La siguiente consulta devolvería registros UpdateSummary solo para equipos del grupo Equipos del dominio.
 
-  ```
-  let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
+```kusto
+let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
   UpdateSummary | where Computer in (ADComputers)
-  ```
-
-
-
+```
 
 ## <a name="computer-group-records"></a>Registros de grupos de equipos
 En el área de trabajo de Log Analytics se crea un registro para cada pertenencia a grupos de equipos creada mediante Active Directory o WSUS.  Estos registros tienen el tipo **ComputerGroup** y sus propiedades son las que aparecen en la tabla siguiente.  Para los grupos de equipos basados en consultas de registros no se crean registros.
@@ -127,7 +131,7 @@ En el área de trabajo de Log Analytics se crea un registro para cada pertenenci
 | `GroupFullName` |Ruta de acceso completa al grupo, incluidos el origen y el nombre de origen. |
 | `GroupSource` |Origen desde el que se ha recopilado el grupo. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
 | `GroupSourceName` |Nombre del origen desde el que se recopiló el grupo.  En el caso de Active Directory, es el nombre del dominio. |
-| `ManagementGroupName` |Nombre del grupo de administración de agentes SCOM.  En el caso de los otros agentes, es AOI-\<id. de área de trabajo\>. |
+| `ManagementGroupName` |Nombre del grupo de administración de agentes SCOM.  En el caso de los otros agentes, es AOI-\<workspace ID\> |
 | `TimeGenerated` |Fecha y hora en la que se creó o actualizó el grupo de equipos. |
 
 ## <a name="next-steps"></a>Pasos siguientes
