@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 589dda80d68fba73a729da4b6e59270cc09c18cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6759b2c0f679a865d0bdcf8ea8cd39f258a9cf25
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73954389"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132113"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Acerca de la recuperación ante desastres de máquinas virtuales de VMware en Azure
 
@@ -21,7 +21,7 @@ En este artículo se proporciona información general acerca de la recuperación
 
 Una estrategia de continuidad empresarial y recuperación ante desastres (BCDR) le ayuda a mantener su negocio en funcionamiento. Durante el tiempo de inactividad planeado e interrupciones inesperadas, BCDR mantiene los datos protegidos y disponibles y garantiza que las aplicaciones sigan ejecutándose. Además de las características BCDR de la plataforma, como el emparejamiento regional y el almacenamiento de alta disponibilidad, Azure proporciona Recovery Services como una parte integral de la solución de BCDR. Recovery Services incluye: 
 
-- [Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) realiza una copia de seguridad de datos locales y de la máquina virtual de Azure. Puede realizar copias de seguridad de archivos y carpetas, cargas de trabajo específicas o toda una máquina virtual. 
+- [Azure Backup](../backup/backup-overview.md) realiza una copia de seguridad de datos locales y de la máquina virtual de Azure. Puede realizar copias de seguridad de archivos y carpetas, cargas de trabajo específicas o toda una máquina virtual. 
 - [Azure Site Recovery](site-recovery-overview.md) proporciona resistencia y recuperación ante desastres para aplicaciones y cargas de trabajo que se ejecutan en máquinas locales o máquinas virtuales de IaaS de Azure. Site Recovery organiza la replicación y controla la conmutación por error en Azure cuando se producen interrupciones. También controla la recuperación desde Azure a su sitio primario. 
 
 ## <a name="how-does-site-recovery-do-disaster-recovery"></a>¿Cómo realiza la recuperación ante desastres Site Recovery?

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: mayg
-ms.openlocfilehash: b8f0512f978f25ca196ad6e9a7a03243c47f0662
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11cc71a05fb95453553223dcb34839e8a5fc6a3a
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84691210"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130430"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configuración de la asignación de red y el direccionamiento IP para redes virtuales
 
@@ -94,5 +94,5 @@ La red de destino no es la red virtual de conmutación por error | - La direcci�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Revise la [Guía de redes](site-recovery-azure-to-azure-networking-guidance.md) para la recuperación ante desastres de máquinas virtuales de Azure.
+- Revise la [Guía de redes](./azure-to-azure-about-networking.md) para la recuperación ante desastres de máquinas virtuales de Azure.
 - [Más información](site-recovery-retain-ip-azure-vm-failover.md) sobre la conservación de direcciones IP después de una conmutación por error.

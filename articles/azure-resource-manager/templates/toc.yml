@@ -222,12 +222,6 @@
         - name: Uso de la comprobación de estado en el Administrador de implementaciones
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
-- name: Ejemplos
-  items:
-    - name: Plantillas de inicio rápido de Azure
-      href: 'https://azure.microsoft.com/resources/templates/'
-    - name: Ejemplos de plantillas
-      href: template-samples.md
 - name: Conceptos
   items:
     - name: Procedimientos recomendados para plantillas
@@ -299,16 +293,6 @@
             - name: Salidas
               displayName: 'iteration,copy'
               href: copy-outputs.md
-    - name: Uso de herramientas de creación
-      items:
-        - name: Código de VS
-          href: use-vs-code-to-create-template.md
-        - name: Visual Studio
-          href: create-visual-studio-deployment-project.md
-        - name: Actualización de un script en un módulo de Az frente a su implementación
-          href: update-visual-studio-deployment-script.md
-        - name: IntelliJ IDEA
-          href: create-templates-use-intellij.md
     - name: Detección de propiedades de plantilla
       items:
         - name: Exportación de la plantilla
@@ -344,6 +328,8 @@
           href: rollback-on-error.md
         - name: Protección de plantillas con un token de SAS
           href: secure-template-with-sas-token.md
+        - name: Visualización del historial de implementaciones
+          href: deployment-history.md
     - name: Implementaciones con ámbitos
       items:
         - name: Suscripción
@@ -367,8 +353,14 @@
           href: add-template-to-azure-pipelines.md
         - name: 'Implementación: Acciones de GitHub'
           href: deploy-github-actions.md
-    - name: Visualización del historial de implementaciones
-      href: deployment-history.md
+    - name: Uso de herramientas de creación
+      items:
+        - name: Visual Studio
+          href: create-visual-studio-deployment-project.md
+        - name: Actualización de un script en un módulo de Az frente a su implementación
+          href: update-visual-studio-deployment-script.md
+        - name: IntelliJ IDEA
+          href: create-templates-use-intellij.md
     - name: Solución de problemas de implementaciones
       items:
         - name: Solución de errores de implementación
@@ -441,6 +433,8 @@
       href: /python/api/overview/azure/resources?view=azure-python
 - name: Recursos
   items:
+    - name: Plantillas de inicio rápido de Azure
+      href: 'https://azure.microsoft.com/resources/templates/'
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
     - name: Calculadora de precios

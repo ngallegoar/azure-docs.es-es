@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: ab3ae45081ecc481cb90af8961174e23c86e84b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 83841349ec7563231653cd063791e19ae2af4857
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71056818"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130666"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Solución de problemas de conectividad entre máquinas virtuales de Azure
 
@@ -81,11 +81,15 @@ Puede usar alguno de los métodos siguientes para comprobar si la aplicación o 
 
 **Máquina virtual Windows**
 
-    netstat –ano
+```console
+netstat –ano
+```
 
 **Máquina virtual Linux**
 
-    netstat -l
+```console
+netstat -l
+```
 
 - Ejecute el comando **telnet** en la propia máquina virtual para probar el puerto. Si se produce un error en la prueba, la aplicación o servicio no está configurado para escuchar en ese puerto.
 

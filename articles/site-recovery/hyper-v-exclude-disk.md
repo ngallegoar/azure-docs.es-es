@@ -6,12 +6,12 @@ manager: rochakm
 ms.topic: conceptual
 ms.author: mayg
 ms.date: 11/12/2019
-ms.openlocfilehash: 50fb6da2905b2ae27547f25cce3d7a76ca7976b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 373cffe96119af4a2fc0d74e2090e6cc24dcaf8f
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75498137"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131244"
 ---
 # <a name="exclude-disks-from-replication"></a>Excluir discos de la replicación
 
@@ -41,7 +41,7 @@ Antes de empezar, tenga en cuenta lo siguiente:
 
 ## <a name="exclude-disks"></a>Exclusión de discos
 
-1. Para excluir discos cuando [habilita la replicación](site-recovery-hyper-v-site-to-azure.md) para una máquina virtual de Hyper-V, después de seleccionar las máquinas virtuales que quiere replicar, en la página **Habilitar replicación** > **Propiedades** > **Configurar propiedades**, revise la columna **Discos que se replicarán**. De forma predeterminada se seleccionan todos los discos para la replicación.
+1. Para excluir discos cuando [habilita la replicación](./hyper-v-azure-tutorial.md) para una máquina virtual de Hyper-V, después de seleccionar las máquinas virtuales que quiere replicar, en la página **Habilitar replicación** > **Propiedades** > **Configurar propiedades**, revise la columna **Discos que se replicarán**. De forma predeterminada se seleccionan todos los discos para la replicación.
 2. Si no quiere replicar un disco específico, en **Discos que se replicarán**, anule la selección de los discos que quiera excluir. 
 
     ![Excluir discos de la replicación](./media/hyper-v-exclude-disk/enable-replication6-with-exclude-disk.png)

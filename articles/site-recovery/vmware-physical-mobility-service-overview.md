@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
-ms.openlocfilehash: ec4d1cfbe0c76c8245c4beeaa7c044d76d917a7a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: d73e2776d0d9c86fe0331f9804bfeade3f1de676
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81259817"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131801"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Acerca de Mobility Service para máquinas virtuales VMware y servidores físicos
 
@@ -186,8 +186,8 @@ Sintaxis | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<
 
 ## <a name="azure-virtual-machine-agent"></a>Agente de máquina virtual de Azure
 
-- **Máquinas virtuales Windows**: desde la versión 9.7.0.0 de Mobility Service, el instalador de Mobility Service instala el [agente de máquina virtual de Azure](/azure/virtual-machines/extensions/features-windows#azure-vm-agent). De este forma se garantiza que, cuando un equipo conmuta por error a Azure, la máquina virtual de Azure cumple el requisito previo de instalación del agente para usar cualquier extensión de máquina virtual.
-- **Máquinas virtuales Linux**: [WALinuxAgent](/azure/virtual-machines/extensions/update-linux-agent) debe instalarse manualmente en la máquina virtual Azure después de la conmutación por error.
+- **Máquinas virtuales Windows**: desde la versión 9.7.0.0 de Mobility Service, el instalador de Mobility Service instala el [agente de máquina virtual de Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent). De este forma se garantiza que, cuando un equipo conmuta por error a Azure, la máquina virtual de Azure cumple el requisito previo de instalación del agente para usar cualquier extensión de máquina virtual.
+- **Máquinas virtuales Linux**: [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md) debe instalarse manualmente en la máquina virtual Azure después de la conmutación por error.
 
 ## <a name="locate-installer-files"></a>Búsqueda de archivos del instalador
 

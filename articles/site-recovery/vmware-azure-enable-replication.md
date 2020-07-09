@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 04/01/2020
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 6547bcf2061213cd01550367171d432900693ea5
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 74870d10348421bf726b9bdc58504a74cf4105a9
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80584148"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129931"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Habilitación de máquinas virtuales de VMware en Azure
 
@@ -106,9 +106,9 @@ Después, compruebe las propiedades de la máquina virtual de origen. Recuerde q
    :::image type="content" source="./media/vmware-azure-enable-replication/vmproperties.png" alt-text="Ventana Propiedades de proceso y red":::
 
    - **Nombre de la máquina virtual de Azure**: modifique el nombre en caso necesario para que cumpla los requisitos de Azure.
-   - **Tamaño de la VM de destino o Tipo de máquina virtual**: el tamaño predeterminado de la máquina virtual se elige según unos parámetros que incluyen el número de discos, el número de tarjetas NIC, el recuento de núcleos de CPU, la memoria y los tamaños de rol de máquina virtual disponibles en la región de Azure de destino. Azure Site Recovery elige el primer tamaño de máquina virtual disponible que satisface todos los criterios. Puede seleccionar otro tamaño de máquina virtual según sea necesario en cualquier momento anterior a la conmutación por error. El tamaño del disco de la máquina virtual también se basa en el tamaño del disco de origen y solo puede modificarse después de la conmutación por error. Obtenga más información sobre los tamaños de disco y las tasas de IOPS en [Objetivos de escalabilidad y rendimiento para discos de máquinas virtuales con Windows](/azure/virtual-machines/windows/disk-scalability-targets).
-   - **Grupo de recursos**: puede seleccionar un [grupo de recursos](/azure/azure-resource-manager/management/overview#resource-groups) desde el que la máquina virtual forme parte de una conmutación por error posterior. Puede cambiar este valor en cualquier momento antes de la conmutación por error. Después de la conmutación por error, si se migra la máquina virtual a otro grupo de recursos, la configuración de protección de dicha máquina virtual se interrumpe.
-   - **Conjunto de disponibilidad**: puede seleccionar un [conjunto de disponibilidad](/azure/virtual-machines/windows/tutorial-availability-sets) si la máquina debe formar parte de una conmutación por error posterior. Al seleccionar un conjunto de disponibilidad, tenga en cuenta la siguiente información:
+   - **Tamaño de la VM de destino o Tipo de máquina virtual**: el tamaño predeterminado de la máquina virtual se elige según unos parámetros que incluyen el número de discos, el número de tarjetas NIC, el recuento de núcleos de CPU, la memoria y los tamaños de rol de máquina virtual disponibles en la región de Azure de destino. Azure Site Recovery elige el primer tamaño de máquina virtual disponible que satisface todos los criterios. Puede seleccionar otro tamaño de máquina virtual según sea necesario en cualquier momento anterior a la conmutación por error. El tamaño del disco de la máquina virtual también se basa en el tamaño del disco de origen y solo puede modificarse después de la conmutación por error. Obtenga más información sobre los tamaños de disco y las tasas de IOPS en [Objetivos de escalabilidad y rendimiento para discos de máquinas virtuales con Windows](../virtual-machines/windows/disk-scalability-targets.md).
+   - **Grupo de recursos**: puede seleccionar un [grupo de recursos](../azure-resource-manager/management/overview.md#resource-groups) desde el que la máquina virtual forme parte de una conmutación por error posterior. Puede cambiar este valor en cualquier momento antes de la conmutación por error. Después de la conmutación por error, si se migra la máquina virtual a otro grupo de recursos, la configuración de protección de dicha máquina virtual se interrumpe.
+   - **Conjunto de disponibilidad**: puede seleccionar un [conjunto de disponibilidad](../virtual-machines/windows/tutorial-availability-sets.md) si la máquina debe formar parte de una conmutación por error posterior. Al seleccionar un conjunto de disponibilidad, tenga en cuenta la siguiente información:
      - Solo se muestran los conjuntos de disponibilidad que pertenecen al grupo de recursos especificado.
      - Las máquinas virtuales de distintas redes virtuales no pueden formar parte del mismo conjunto de disponibilidad.
      - Solo las máquinas virtuales del mismo tamaño pueden formar parte de un conjunto de disponibilidad.

@@ -7,12 +7,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: deef7bfdbc28d744cb81da59d3ffc13a1abee54d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7a2d21dcd8c9474bdf068d7940e497333f35115
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77048619"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130215"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configuración de la recuperación ante desastres de máquinas virtuales de Hyper-V en un sitio secundario con PowerShell (Resource Manager)
 
@@ -23,9 +23,9 @@ En este artículo se explica cómo automatizar los pasos necesarios para la repl
 ## <a name="prerequisites"></a>Prerrequisitos
 
 - Revise la [arquitectura del escenario y sus componentes](hyper-v-vmm-architecture.md).
-- Revise los [requisitos de compatibilidad](site-recovery-support-matrix-to-sec-site.md) de todos los componentes.
-- Asegúrese de que los servidores de Virtual Machine Manager y los hosts de Hyper-V cumplan los [requisitos de compatibilidad](site-recovery-support-matrix-to-sec-site.md).
-- Compruebe que las máquinas virtuales que desea replicar cumplen con la [compatibilidad con máquinas replicadas](site-recovery-support-matrix-to-sec-site.md).
+- Revise los [requisitos de compatibilidad](./vmware-physical-secondary-support-matrix.md) de todos los componentes.
+- Asegúrese de que los servidores de Virtual Machine Manager y los hosts de Hyper-V cumplan los [requisitos de compatibilidad](./vmware-physical-secondary-support-matrix.md).
+- Compruebe que las máquinas virtuales que desea replicar cumplen con la [compatibilidad con máquinas replicadas](./vmware-physical-secondary-support-matrix.md).
 
 ## <a name="prepare-for-network-mapping"></a>Preparar la asignación de red
 
@@ -37,10 +37,10 @@ La [asignación de red](hyper-v-vmm-network-mapping.md) funciona entre redes de 
 
 Prepare Virtual Machine Manager como sigue:
 
-- Asegúrese de que las [redes lógicas de Virtual Machine Manager](https://docs.microsoft.com/system-center/vmm/network-logical) estén en los servidores de Virtual Machine Manager de origen y de destino:
+- Asegúrese de que las [redes lógicas de Virtual Machine Manager](/system-center/vmm/network-logical) estén en los servidores de Virtual Machine Manager de origen y de destino:
   - La red lógica del servidor de origen se debe asociar con la nube de origen en la que se encuentran los hosts Hyper-V.
   - La red lógica del servidor de destino se debe asociar con la nube de destino.
-- Asegúrese de que las [redes de VM](https://docs.microsoft.com/system-center/vmm/network-virtual) estén en los servidores de Virtual Machine Manager de origen y de destino. Las redes de máquina virtual se deben vincular a la red lógica de cada ubicación.
+- Asegúrese de que las [redes de VM](/system-center/vmm/network-virtual) estén en los servidores de Virtual Machine Manager de origen y de destino. Las redes de máquina virtual se deben vincular a la red lógica de cada ubicación.
 - Conecte máquinas virtuales en los host Hyper-V de origen a la red de máquina virtual de origen.
 
 ## <a name="prepare-for-powershell"></a>Preparación para PowerShell

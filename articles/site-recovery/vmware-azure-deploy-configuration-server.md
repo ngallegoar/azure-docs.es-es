@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 5209dab5e0934cc98bb1334a1565cc13998a7d2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d6b912229b1365dd7bd8d466af18d1e81b5aa8e
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704444"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132145"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar un servidor de configuración
 
@@ -39,7 +39,7 @@ Necesita un usuario con uno de los siguientes permisos establecidos en Azure AD
 1. El usuario debe tener un rol de desarrollador de aplicaciones para crear una aplicación.
     - Para comprobarlo, inicie sesión en Azure Portal.</br>
     - Vaya a **Azure Active Directory** > **Roles y administradores**.</br>
-    - Compruebe si el rol de desarrollador de aplicaciones está asignado al usuario. Si no lo está, utilice un usuario con este permiso o póngase en contacto con un [administrador para que habilite el permiso](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
+    - Compruebe si el rol de desarrollador de aplicaciones está asignado al usuario. Si no lo está, utilice un usuario con este permiso o póngase en contacto con un [administrador para que habilite el permiso](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md#assign-roles).
     
 2. Si no se puede asignar el rol de desarrollador de aplicaciones, asegúrese de que la marca **Los usuarios pueden registrar aplicaciones** está establecida en **true** para que el usuario pueda crear la identidad. Para habilitar estos permisos, siga estos pasos:
     - Inicie sesión en Azure Portal.
@@ -49,7 +49,7 @@ Necesita un usuario con uno de los siguientes permisos establecidos en Azure AD
       ![AD_application_permission de Azure](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
-> Los Servicios de federación de Active Directory *no se admiten*. Use una cuenta administrada mediante [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
+> Los Servicios de federación de Active Directory *no se admiten*. Use una cuenta administrada mediante [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md).
 
 ## <a name="download-the-template"></a>Descarga de la plantilla
 

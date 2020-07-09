@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 7657d614645bb00235db2701773bc15fa260b70d
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 7679148e195bd67ab5da58636552a684c25c31b0
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835808"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131988"
 ---
 # <a name="troubleshoot-the-process-server"></a>Solucionar problemas del servidor de procesos
 
@@ -96,7 +96,7 @@ Si no hay ningún latido del servidor de procesos (código de error 806), realic
 
 ## <a name="step-4-verify-time-sync-on-source-machine"></a>Paso 4: Comprobar la sincronización de hora en la máquina de origen
 
-Asegúrese de que la fecha y hora del sistema de la máquina replicada están sincronizadas. [Más información](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)
+Asegúrese de que la fecha y hora del sistema de la máquina replicada están sincronizadas. [Más información](/windows-server/networking/windows-time-service/accurate-time)
 
 ## <a name="step-5-check-anti-virus-software-on-source-machine"></a>Paso 5: Comprobar el software antivirus en la máquina de origen
 
@@ -105,7 +105,7 @@ Compruebe que ningún software antivirus en la máquina replicada bloquee Site R
 ## <a name="step-6-check-connectivity-from-source-machine"></a>Paso 6: Comprobar la conectividad de la máquina de origen
 
 
-1. Instale el [cliente Telnet](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx) en la máquina de origen, si es necesario. No use Ping.
+1. Instale el [cliente Telnet](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771275(v=ws.10)) en la máquina de origen, si es necesario. No use Ping.
 2. En la máquina de origen, haga ping en el servidor de procesos en el puerto HTTPS con Telnet. De forma predeterminada, 9443 es el puerto HTTPS para el tráfico de replicación.
 
     `telnet <process server IP address> <port>`
@@ -246,7 +246,7 @@ Aumente el ancho de banda entre el servidor de procesos y Azure y, luego, compru
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si necesita más ayuda, puede publicar su pregunta en la [Página de preguntas y respuestas de Microsoft sobre Azure Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html). 
+Si necesita más ayuda, puede publicar su pregunta en la [Página de preguntas y respuestas de Microsoft sobre Azure Site Recovery](/answers/topics/azure-site-recovery.html). 
 
 [green]: ./media/vmware-physical-azure-troubleshoot-process-server/green.png
 [yellow]: ./media/vmware-physical-azure-troubleshoot-process-server/yellow.png

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 2f92c2b800c6d30cc5f365e6d24925a70d3db55a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3d4a2120f86a03508b91d4b2dea52e629dc0f79
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699913"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130186"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar la recuperación ante desastres para servidores físicos locales en Azure
 
@@ -119,7 +119,7 @@ Configure el servidor de configuración, regístrelo en el almacén y detecte m�
 Antes de empezar, haga lo siguiente: 
 
 #### <a name="verify-time-accuracy"></a>Verificación de la precisión de tiempo
-En la máquina del servidor de configuración, asegúrese de que el reloj del sistema está sincronizado con un [servidor horario](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). Deben ser iguales. Si hay una diferencia de 15 minutos, antes o después, se podría producir un error en la instalación.
+En la máquina del servidor de configuración, asegúrese de que el reloj del sistema está sincronizado con un [servidor horario](/windows-server/networking/windows-time-service/windows-time-service-top). Deben ser iguales. Si hay una diferencia de 15 minutos, antes o después, se podría producir un error en la instalación.
 
 #### <a name="verify-connectivity"></a>Verificación de la conectividad
 Asegúrese de que la máquina puede acceder a estas direcciones URL según el entorno: 

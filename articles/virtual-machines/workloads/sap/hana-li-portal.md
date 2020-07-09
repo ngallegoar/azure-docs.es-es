@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c14ff9c4f6d2bc2b1a62d1874d01950d09491c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8512675381f6163e66b6b838e8262dd7d2b12374
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70099812"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130883"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Control de instancias grandes de HANA en Azure mediante Azure Portal
 En este documento se describe la manera en que se presenta [HANA (instancias grandes)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) en [Azure Portal](https://portal.azure.com) y qué actividades se pueden realizar en este portal con las unidades de HANA (instancias grandes) que se implementan. La visibilidad de HANA (instancias grandes) en Azure Portal la proporciona un proveedor de recursos de Azure específico que actualmente está en versión preliminar pública.
@@ -31,7 +31,9 @@ Normalmente, la suscripción de Azure que estaba utilizando para las implementac
 ### <a name="register-through-cli-interface"></a>Registro mediante la interfaz de la CLI
 Debe haber iniciado sesión en la suscripción de Azure que se ha empleado para la implementación de HANA (instancias grandes) a través de la interfaz de la CLI de Azure. Puede volver a registrar el proveedor de recursos para HANA (instancias grandes) con este comando:
     
-    az provider register --namespace Microsoft.HanaOnAzure
+```azurecli
+az provider register --namespace Microsoft.HanaOnAzure
+```
 
 Para más información, consulte el artículo [Tipos y proveedores de recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-cli).
 

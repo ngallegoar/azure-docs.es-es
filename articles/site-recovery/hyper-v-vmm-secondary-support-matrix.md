@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 1126a85ed22ee17879767a93ca75dc76dd04b747
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: af7baf413c9054ef3e5bf527851ac06c113cdce7
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74132954"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131168"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de Hyper-V a un sitio secundario
 
@@ -36,8 +36,8 @@ En la tabla siguiente se resume la compatibilidad del sistema operativo con las 
 
 **Versión de Windows** | **Hyper-V (con VMM)**
 --- | ---
-Windows Server 2016 | Cualquier sistema operativo invitado [compatible con Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows) en Windows Server 2016 
-Windows Server 2012 R2 | Cualquier sistema operativo invitado [compatible con Hyper-V](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027%28v%3dws.11%29) en Windows Server 2012 R2
+Windows Server 2016 | Cualquier sistema operativo invitado [compatible con Hyper-V](/windows-server/virtualization/hyper-v/Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows) en Windows Server 2016 
+Windows Server 2012 R2 | Cualquier sistema operativo invitado [compatible con Hyper-V](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027%28v%3dws.11%29) en Windows Server 2012 R2
 
 ## <a name="linux-machine-storage"></a>Almacenamiento de máquinas Linux
 
@@ -114,5 +114,4 @@ El proveedor coordina las comunicaciones entre servidores VMM.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Replicar las máquinas virtuales de Hyper-V en nubes VMM en una nube secundaria](tutorial-vmm-to-vmm.md)
-
+[Replicar las máquinas virtuales de Hyper-V en nubes VMM en una nube secundaria](./hyper-v-vmm-disaster-recovery.md)

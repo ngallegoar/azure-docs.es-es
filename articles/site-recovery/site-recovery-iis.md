@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: dfed398124ca20771e169f6f9e7d08d4d799ee1e
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: aece41329d6481b8ad15090a834c8758f86abdc2
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478293"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131339"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configuración de la recuperación ante desastres para una aplicación web basada en IIS de niveles múltiples
 
@@ -31,7 +31,7 @@ En este artículo se describe cómo proteger una aplicación web basada en Inter
 Antes de comenzar, asegúrese de que sabe cómo realizar las tareas siguientes:
 
 * [Replicar una máquina virtual en Azure](vmware-azure-tutorial.md)
-* [Diseñar una red de recuperación](site-recovery-network-design.md)
+* [Diseñar una red de recuperación](./concepts-on-premises-to-azure-networking.md)
 * [Realizar una conmutación por error de prueba en Azure](site-recovery-test-failover-to-azure.md)
 * [Realizar una conmutación por error en Azure](site-recovery-failover.md)
 * [Replicar un controlador de dominio](site-recovery-active-directory.md)
@@ -92,7 +92,7 @@ Para más información, consulte cómo [personalizar el plan de recuperación](s
 
 
 ### <a name="add-a-script-to-the-recovery-plan"></a>Adición de un script al plan de recuperación
-Es posible que tenga que realizar algunas operaciones en las máquinas virtuales de Azure tras la conmutación por error o durante una conmutación por error de prueba. Algunas de las operaciones posteriores a la conmutación por error se pueden automatizar. Por ejemplo, puede actualizar la entrada DNS, cambiar un enlace de sitio o cambiar una cadena de conexión mediante la adición de los scripts correspondientes al plan de recuperación. En [Adición de scripts de VMM a los planes de recuperación](site-recovery-how-to-add-vmmscript.md) se describe cómo configurar tareas automatizadas mediante un script.
+Es posible que tenga que realizar algunas operaciones en las máquinas virtuales de Azure tras la conmutación por error o durante una conmutación por error de prueba. Algunas de las operaciones posteriores a la conmutación por error se pueden automatizar. Por ejemplo, puede actualizar la entrada DNS, cambiar un enlace de sitio o cambiar una cadena de conexión mediante la adición de los scripts correspondientes al plan de recuperación. En [Adición de scripts de VMM a los planes de recuperación](./hyper-v-vmm-recovery-script.md) se describe cómo configurar tareas automatizadas mediante un script.
 
 #### <a name="dns-update"></a>Actualización de DNS
 Si el DNS está configurado para que se actualice de forma dinámica, por lo general, las máquinas virtuales lo actualizarán con la nueva dirección IP al iniciarse. Si quiere incorporar un paso explícito para actualizar DNS con las nuevas direcciones IP de las máquinas virtuales, agregue un [script para actualizar direcciones IP en DNS](https://aka.ms/asr-dns-update) como una acción posterior a la conmutación por error en los grupos de planes de recuperación.  

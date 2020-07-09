@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: bbb2ddaa1fb84590f9dec1c84ac4bc87a8e03022
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
+ms.openlocfilehash: 91aaedba13dfd9c0a3ea06b3460beaa8ead20233
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82738123"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130456"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Solución de errores de replicación de máquinas virtuales de Azure en Azure
 
@@ -36,7 +36,7 @@ Replication couldn't be enabled for the virtual machine <VmName>.
 
 ### <a name="fix-the-problem"></a>Corrección del problema
 
-Para permitir que su suscripción cree máquinas virtuales de los tamaños necesarios en la ubicación de destino, póngase en contacto con el [soporte de facturación de Azure](/azure/azure-portal/supportability/resource-manager-core-quotas-request). Vuelva a intentar la operación con error.
+Para permitir que su suscripción cree máquinas virtuales de los tamaños necesarios en la ubicación de destino, póngase en contacto con el [soporte de facturación de Azure](../azure-portal/supportability/resource-manager-core-quotas-request.md). Vuelva a intentar la operación con error.
 
 Si la ubicación de destino tiene una restricción de capacidad, deshabilite la replicación en esa ubicación. A continuación, habilite la replicación en una ubicación diferente donde su suscripción tenga cuota suficiente para crear máquinas virtuales de los tamaños necesarios.
 
@@ -202,7 +202,7 @@ No se puede establecer una conexión con los puntos de conexión de autenticaci�
 #### <a name="fix-the-problem"></a>Corrección del problema
 
 Azure Site Recovery debe tener acceso a los intervalos de direcciones IP de Office 365 para la autenticación.
-Si usa un proxy que funcione como firewall o reglas de grupos de seguridad de red (NSG) de Azure para controlar la conectividad de salida de la red en la máquina virtual, asegúrese de usar una regla de NSG basada en [etiquetas de servicio de Azure Active Directory (AAD)](/azure/virtual-network/security-overview#service-tags) para permitir el acceso a AAD. Ya no se admiten las reglas de NSG basadas en direcciones IP.
+Si usa un proxy que funcione como firewall o reglas de grupos de seguridad de red (NSG) de Azure para controlar la conectividad de salida de la red en la máquina virtual, asegúrese de usar una regla de NSG basada en [etiquetas de servicio de Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) para permitir el acceso a AAD. Ya no se admiten las reglas de NSG basadas en direcciones IP.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problema 3: error de configuración de Site Recovery (151197)
 
@@ -260,8 +260,8 @@ Azure data disk <DiskName> <DiskURI> with logical unit number <LUN> <LUNValue> w
 
 Asegúrese de que se inicializan los discos de datos y, a continuación, vuelva a intentar la operación.
 
-- **Windows**: [adjunte e inicialice un disco nuevo](/azure/virtual-machines/windows/attach-managed-disk-portal).
-- **Linux**: [inicialice un nuevo disco de datos en Linux](/azure/virtual-machines/linux/add-disk).
+- **Windows**: [adjunte e inicialice un disco nuevo](../virtual-machines/windows/attach-managed-disk-portal.md).
+- **Linux**: [inicialice un nuevo disco de datos en Linux](../virtual-machines/linux/add-disk.md).
 
 Si el problema persiste, póngase en contacto con el soporte técnico.
 

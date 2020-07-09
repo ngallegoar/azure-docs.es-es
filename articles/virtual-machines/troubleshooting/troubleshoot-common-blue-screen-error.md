@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
-ms.openlocfilehash: beb1562738699bbcede58d8214e69342abbb7c93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30b4386c223240217096550330c0920ad9ab6871
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701905"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132922"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows muestra un error de pantalla azul al iniciar una máquina virtual de Azure.
 En este artículo se describen los errores de pantalla azul que pueden surgir al iniciar una máquina virtual (VM) de Windows en Microsoft Azure. Se proporcionan los pasos para ayudarle a recopilar datos de una incidencia de soporte técnico. 
@@ -91,12 +91,14 @@ Para habilitar el registro de volcado de memoria y Serial Console, ejecute el si
     1. Asegúrese de que hay suficiente espacio en disco para asignar tanta memoria como la RAM, que depende del tamaño que se seleccione para esta máquina virtual.
     2. Si no hay espacio suficiente o se trata de un máquina virtual de gran tamaño (serie G, GS o E), puede cambiar la ubicación en la que se creará este archivo y que haga referencia a cualquier otro disco de datos asociado a la máquina virtual. Para ello, deberá cambiar la clave siguiente:
 
-            reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
+    ```config-reg
+    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
 
-            REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "<DRIVE LETTER OF YOUR DATA DISK>:\MEMORY.DMP" /f
-            REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "<DRIVE LETTER OF YOUR DATA DISK>:\MEMORY.DMP" /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "<DRIVE LETTER OF YOUR DATA DISK>:\MEMORY.DMP" /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "<DRIVE LETTER OF YOUR DATA DISK>:\MEMORY.DMP" /f
 
-            reg unload HKLM\BROKENSYSTEM
+    reg unload HKLM\BROKENSYSTEM
+    ```
 
 3. [Desconecte el disco del sistema operativo y, a continuación, vuelva a adjuntarlo a la máquina virtual afectada](../windows/troubleshoot-recovery-disks-portal.md).
 4. Inicie la máquina virtual para reproducir el problema y, a continuación, se generará un archivo de volcado de memoria.

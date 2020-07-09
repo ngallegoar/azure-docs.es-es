@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: a3a2317554f02dc1f1198d8019bbfdb50e3cc71c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: d991b38c3f72b54f4564dd4847c8532b507286cc
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81409765"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131773"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configuración de recuperación ante desastres a escala para servidores físicos o máquinas virtuales de VMware
 
@@ -85,7 +85,7 @@ Queremos asegurarnos de que las cuotas disponibles en la suscripción de destino
 
 **Task** | **Detalles** | **Acción**
 --- | --- | ---
-**Comprobación de núcleos** | Si los núcleos de la cuota disponible no son iguales ni superiores al recuento de destino total en el momento de la conmutación por error, las conmutación por error generarán un error. | En el caso de las máquinas virtuales de VMware, compruebe que tiene los núcleos suficientes en la suscripción de destino para cumplir la recomendación de núcleos de Deployment Planner.<br/><br/> En el caso de los servidores físicos, compruebe que los núcleos de Azure cumplen con los cálculos manuales.<br/><br/> Para comprobar las cuotas, en Azure Portal > **Suscripción**, haga clic en **Uso y cuotas**.<br/><br/> [Obtenga más información](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) sobre cómo aumentar las cuotas.
+**Comprobación de núcleos** | Si los núcleos de la cuota disponible no son iguales ni superiores al recuento de destino total en el momento de la conmutación por error, las conmutación por error generarán un error. | En el caso de las máquinas virtuales de VMware, compruebe que tiene los núcleos suficientes en la suscripción de destino para cumplir la recomendación de núcleos de Deployment Planner.<br/><br/> En el caso de los servidores físicos, compruebe que los núcleos de Azure cumplen con los cálculos manuales.<br/><br/> Para comprobar las cuotas, en Azure Portal > **Suscripción**, haga clic en **Uso y cuotas**.<br/><br/> [Obtenga más información](../azure-portal/supportability/resource-manager-core-quotas-request.md) sobre cómo aumentar las cuotas.
 **Comprobación de los límites de conmutación por error** | El número de conmutaciones por error no debe superar los límites de conmutación por error de Site Recovery. |  Si las conmutaciones por error superan los límites, puede agregar suscripciones y conmutar por error a varias suscripciones, o bien puede aumentar la cuota para una suscripción. 
 
 
@@ -188,7 +188,7 @@ Después de iniciar la replicación del primer lote de máquinas virtuales, empi
 1. Asigne un administrador de recuperación ante desastres para supervisar el estado de mantenimiento de las máquinas replicadas.
 2. [Supervise los eventos](site-recovery-monitor-and-troubleshoot.md) de la infraestructura y los elementos replicados.
 3. [Supervise el estado](vmware-physical-azure-monitor-process-server.md) de los servidores de proceso de escalabilidad horizontal.
-4. Suscríbase para recibir [notificaciones por correo electrónico](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot#subscribe-to-email-notifications) de eventos para supervisarlos de manera más sencilla.
+4. Suscríbase para recibir [notificaciones por correo electrónico](./site-recovery-monitor-and-troubleshoot.md#subscribe-to-email-notifications) de eventos para supervisarlos de manera más sencilla.
 5. Realice [maniobras de recuperación ante desastres](site-recovery-test-failover-to-azure.md) de manera periódica para garantizar que todo funciona según lo esperado.
 
 
@@ -214,7 +214,7 @@ Para ejecutar una conmutación por error a gran escala, se recomienda lo siguien
     - [Obtenga más información](recovery-plan-overview.md) sobre los planes de recuperación.
 2. Agregue scripts de runbook de Azure Automation a los planes de recuperación para automatizar cualquier tarea manual en Azure. Las tareas típicas incluyen la configuración de los equilibradores de carga, la actualización de DNS, etc. [Más información](site-recovery-runbook-automation.md)
 2. Antes de realizar la conmutación por error, prepare las máquinas Windows para que puedan cumplir con el entorno de Azure. Los [límites de conmutación por error](#plan-azure-subscriptions-and-quotas) son más altos para las máquinas compatibles. [Obtenga más información](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) sobre los runbooks.
-4.  Desencadene la conmutación por error con el cmdlet [Start-AzRecoveryServicesAsrPlannedFailoverJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob?view=azps-2.0.0&viewFallbackFrom=azps-1.1.0) de PowerShell en conjunto con un plan de recuperación.
+4.  Desencadene la conmutación por error con el cmdlet [Start-AzRecoveryServicesAsrPlannedFailoverJob](/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob?view=azps-2.0.0&viewFallbackFrom=azps-1.1.0) de PowerShell en conjunto con un plan de recuperación.
 
 
 

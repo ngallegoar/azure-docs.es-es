@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1e42096e7ab950e5d8046ec6140c01b24643cb87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa6e3edf2c02cad34cbe9b1f9ac82517823caa8e
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82891471"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130550"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configuración de una aplicación de Java en Windows para Azure App Service
 
@@ -322,7 +322,7 @@ Los JDK compatibles se revisarán trimestralmente de manera automática en enero
 
 ### <a name="security-updates"></a>Actualizaciones de seguridad
 
-Las revisiones y correcciones de las vulnerabilidades de seguridad principales se publicarán en cuanto estén disponibles a través de Azul Systems. Una vulnerabilidad "principal" se define con una puntuación total de 9.0 o superior en el [CVSS (Common Vulnerability Scoring System), versión 2 del NIST](https://nvd.nist.gov/cvss.cfm).
+Las revisiones y correcciones de las vulnerabilidades de seguridad principales se publicarán en cuanto estén disponibles a través de Azul Systems. Una vulnerabilidad "principal" se define con una puntuación total de 9.0 o superior en el [CVSS (Common Vulnerability Scoring System), versión 2 del NIST](https://nvd.nist.gov/vuln-metrics/cvss).
 
 Tomcat 8.0 alcanzó el [fin de la vida útil el 30 de septiembre de 2018](https://tomcat.apache.org/tomcat-80-eol.html). Aunque el entorno en tiempo de ejecución sigue disponible en Azure App Service, Azure no aplicará actualizaciones de seguridad a Tomcat 8.0. Si es posible, migre las aplicaciones a Tomcat 8.5 o 9.0. Tanto Tomcat 8.5 como 9.0 están disponibles en Azure App Service. Para más información, consulte el [sitio oficial de Tomcat](https://tomcat.apache.org/whichversion.html). 
 

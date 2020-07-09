@@ -3,12 +3,12 @@ title: Replicar máquinas virtuales de Azure Stack en Azure con Azure Site Recov
 description: Aprenda a configurar la recuperación ante desastres en Azure para máquinas virtuales de Azure Stack con el servicio Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: ab35463ca8c3b29e6b4ae8abc781a7081091b214
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 873b9c5efc2a89d3cda1bfe14a7518e6786a6870
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478516"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131614"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicación de máquinas virtuales de Azure Stack en Azure
 
@@ -262,7 +262,7 @@ Antes de ejecutar una conmutación por error de prueba, compruebe las propiedade
 2. En el panel **Elemento replicado**, puede ver un resumen de la información de la máquina virtual, el estado de mantenimiento y los puntos de recuperación disponibles más recientes. Haga clic en **Propiedades** para ver más detalles.
 3. En **Compute and Network** (Proceso y red), modifique la configuración según sea necesario.
 
-    - Puede modificar el nombre de máquina virtual de Azure, el grupo de recursos, el tamaño de destino, el [conjunto de disponibilidad](/azure/virtual-machines/windows/tutorial-availability-sets) y la configuración de discos administrados.
+    - Puede modificar el nombre de máquina virtual de Azure, el grupo de recursos, el tamaño de destino, el [conjunto de disponibilidad](../virtual-machines/windows/tutorial-availability-sets.md) y la configuración de discos administrados.
     - También puede ver y modificar la configuración de red. Esta incluye la red y subred a la que se une la máquina virtual de Azure después de la conmutación por error y la dirección IP que se asignará a la máquina virtual.
 1. En **Discos**, puede ver información sobre los discos de datos y el sistema operativo de la máquina virtual.
 

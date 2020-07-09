@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: d2cc4133e52e7cab812413d23948da6ac2660e77
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 71176c87ee805eb4a634dd6c2f344922fc13c4f3
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80884875"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132714"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Solución de problemas de conectividad de red de máquinas virtuales de Azure en Azure
 
@@ -51,7 +51,7 @@ Intente acceder al servidor DNS desde la máquina virtual. Si no puede acceder a
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problema 2: error de configuración de Site Recovery (151196)
 
 > [!NOTE]
-> Si las máquinas virtuales están detrás de un equilibrador de carga interno **estándar**, de manera predeterminada, no tendría acceso a las direcciones IP de Office 365 como `login.microsoftonline.com`. Cámbielo al tipo de equilibrador de carga interno **básico** o cree un acceso saliente, tal como se menciona en el artículo [Configurar el equilibrio de carga y las reglas de salida en Standard Load Balancer mediante la CLI de Azure](/azure/load-balancer/configure-load-balancer-outbound-cli).
+> Si las máquinas virtuales están detrás de un equilibrador de carga interno **estándar**, de manera predeterminada, no tendría acceso a las direcciones IP de Office 365 como `login.microsoftonline.com`. Cámbielo al tipo de equilibrador de carga interno **básico** o cree un acceso saliente, tal como se menciona en el artículo [Configurar el equilibrio de carga y las reglas de salida en Standard Load Balancer mediante la CLI de Azure](../load-balancer/configure-load-balancer-outbound-cli.md).
 
 #### <a name="possible-cause"></a>Causa posible
 
@@ -60,7 +60,7 @@ No se puede establecer una conexión con los puntos de conexión de autenticaci�
 #### <a name="resolution"></a>Solución
 
 - Azure Site Recovery debe tener acceso a los intervalos IP de Office 365 para la autenticación.
-- Si utiliza un proxy que actúa como firewall o reglas de grupos de seguridad de red (NSG) de Azure para controlar la conectividad de salida de la red en la máquina virtual, no olvide permitir la comunicación con los intervalos IP de Office 365. Cree una regla de grupos de seguridad de red basada en la [etiqueta de servicio de Azure Active Directory (Azure AD)](/azure/virtual-network/security-overview#service-tags) que permite el acceso a todas las direcciones IP correspondientes a Azure AD.
+- Si utiliza un proxy que actúa como firewall o reglas de grupos de seguridad de red (NSG) de Azure para controlar la conectividad de salida de la red en la máquina virtual, no olvide permitir la comunicación con los intervalos IP de Office 365. Cree una regla de grupos de seguridad de red basada en la [etiqueta de servicio de Azure Active Directory (Azure AD)](../virtual-network/security-overview.md#service-tags) que permite el acceso a todas las direcciones IP correspondientes a Azure AD.
 - Si se agregan en el futuro nuevas direcciones a Azure AD, deberá crear nuevas reglas de NSG.
 
 ### <a name="example-nsg-configuration"></a>Configuración de NSG de ejemplo
@@ -143,7 +143,7 @@ La configuración de proxy personalizada no es válida y el agente del servicio 
 
 ### <a name="fix-the-problem"></a>Corrección del problema
 
-Para permitir [las direcciones URL necesarias](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) o los [intervalos IP necesarios](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags), siga los pasos del [documento de instrucciones para redes](site-recovery-azure-to-azure-networking-guidance.md).
+Para permitir [las direcciones URL necesarias](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) o los [intervalos IP necesarios](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags), siga los pasos del [documento de instrucciones para redes](./azure-to-azure-about-networking.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

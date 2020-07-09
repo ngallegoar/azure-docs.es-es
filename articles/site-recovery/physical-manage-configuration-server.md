@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: eb7e891c031be5ac01295905d5c3304dc6818737
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: ff612b7c052ead5658ea4bbfafd7aace51ba3c02
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478966"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132490"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Administración del servidor de configuración para la recuperación ante desastres del servidor físico
 
@@ -35,8 +35,8 @@ En esta tabla se resumen los requisitos previos para implementar la máquina del
 | Configuración regional del sistema operativo | Inglés (EE. UU.)|
 | Versión de VMware vSphere PowerCLI | No se requiere|
 | Roles de Windows Server | No habilite estos roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
-| Directivas de grupo| No habilite estas directivas de grupo: <br> - Impedir el acceso al símbolo del sistema <br> - Impedir el acceso a herramientas de edición del Registro <br> - Confiar en la lógica de datos adjuntos de archivos <br> - Activar la ejecución de scripts <br> [Más información](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
-| IIS | - Ningún sitio web predeterminado debe existir previamente <br> - Habilitar la [Autenticación anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Habilitar la configuración de [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> - Ningún sitio web o aplicación que escuche en el puerto 443 deben existir previamente<br>|
+| Directivas de grupo| No habilite estas directivas de grupo: <br> - Impedir el acceso al símbolo del sistema <br> - Impedir el acceso a herramientas de edición del Registro <br> - Confiar en la lógica de datos adjuntos de archivos <br> - Activar la ejecución de scripts <br> [Más información](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))|
+| IIS | - Ningún sitio web predeterminado debe existir previamente <br> - Habilitar la [Autenticación anónima](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> - Habilitar la configuración de [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10))  <br> - Ningún sitio web o aplicación que escuche en el puerto 443 deben existir previamente<br>|
 | Tipo de NIC | VMXNET3 (cuando se implementa como una máquina virtual VMware) |
 | Tipo de dirección IP | estática |
 | Acceso a Internet | El servidor necesita acceder a estas direcciones URL: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - `https://management.azure.com` <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (no se necesita para servidores de procesos de escalado horizontal) <br> - time.nist.gov <br> - time.windows.com |
@@ -267,7 +267,7 @@ Actualice el servidor como se indica a continuación:
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Eliminación o anulación del registro de un servidor de configuración (PowerShell)
 
-1. [Instale](https://docs.microsoft.com/powershell/azure/install-Az-ps) el módulo de Azure PowerShell.
+1. [Instale](/powershell/azure/install-Az-ps) el módulo de Azure PowerShell.
 2. Inicie sesión en su cuenta de Azure mediante el comando
     
     `Connect-AzAccount`
@@ -315,5 +315,4 @@ En lo que respecta a las implementaciones de servidores de configuración antes 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Revise los tutoriales para configurar la recuperación ante desastres de [servidores físicos](tutorial-physical-to-azure.md) en Azure.
-
+Revise los tutoriales para configurar la recuperación ante desastres de [servidores físicos](./physical-azure-disaster-recovery.md) en Azure.

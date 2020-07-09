@@ -6,12 +6,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: 6499c986bef965848303ee9833fd59f5e3f0889c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4140a0b22f7ca8164d50cf60fe57c861f826eb4
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710242"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132504"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurar la recuperación ante desastres en Azure para máquinas virtuales de Hyper-V mediante PowerShell y Azure Resource Manager
 
@@ -25,7 +25,7 @@ En este artículo se describe la forma de usar Windows PowerShell con Azure Reso
 
 Azure PowerShell ofrece comandos cmdlet para administrar Azure con Windows PowerShell. Los cmdlets de PowerShell de Site Recovery que están disponibles con Azure PowerShell para Azure Resource Manager le permiten proteger y recuperar los servidores en Azure.
 
-No es necesario ser un experto en PowerShell para leer este artículo, pero sí debe conocer conceptos básicos, como módulos, comandos cmdlet y sesiones. Para más información, consulte [Documentación de PowerShell](/powershell) y [Uso de Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md).
+No es necesario ser un experto en PowerShell para leer este artículo, pero sí debe conocer conceptos básicos, como módulos, comandos cmdlet y sesiones. Para más información, consulte [Documentación de PowerShell](/powershell) y [Uso de Azure PowerShell con Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
 
 > [!NOTE]
 > Los asociados de Microsoft que forman parte del programa Proveedor de soluciones en la nube (CSP) pueden configurar y administrar la protección de los servidores de sus clientes en sus suscripciones a CSP correspondientes (suscripciones de inquilino).

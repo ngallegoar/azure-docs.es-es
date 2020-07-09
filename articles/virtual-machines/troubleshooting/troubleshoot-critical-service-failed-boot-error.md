@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: 54ba87b681a055bb46b81ca81d2bcdd103491f27
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8c3e76f1a7edffefc8773dfa548773ec0932fae6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77921460"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129853"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows muestra el mensaje "Error crítico del servicio" en pantalla azul al arrancar una máquina virtual de Azure
 En este artículo se describe el error "Error crítico del servicio" que puede surgir al iniciar una máquina virtual Windows en Microsoft Azure. Proporciona pasos de solución de problemas para ayudar a resolver los problemas. 
@@ -84,11 +84,15 @@ Para habilitar los registros de volcado de memoria y la consola serie, ejecute e
 
 1. En la máquina virtual de recuperación, ejecute el siguiente comando en un símbolo del sistema con privilegios elevados. Este comando establece el disco del sistema operativo afectado para que inicie en modo seguro en el siguiente arranque:
 
-        bcdedit /store <OS DISK you attached>:\boot\bcd /set {default} safeboot minimal
+    ```console
+    bcdedit /store <OS DISK you attached>:\boot\bcd /set {default} safeboot minimal
+    ```
 
     Por ejemplo, si el disco del sistema operativo conectado es la unidad F, ejecute el siguiente comando:
 
-        bcdedit /store F: boot\bcd /set {default} safeboot minimal
+    ```console
+    bcdedit /store F: boot\bcd /set {default} safeboot minimal
+    ```
 
 2. [Desconecte el disco del sistema operativo y, a continuación, vuelva a conectarlo a la máquina virtual afectada](troubleshoot-recovery-disks-portal-windows.md). La máquina virtual arrancará en modo seguro. Si el error no desaparece, vaya al siguiente paso opcional.
 3. Abra el cuadro **Ejecutar** cuadro y ejecute el **Comprobador** para iniciar la herramienta Administrador del Comprobador de controladores.
@@ -98,7 +102,10 @@ Para habilitar los registros de volcado de memoria y la consola serie, ejecute e
 
 7. Elimine la configuración de arranque seguro:
 
-        bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
+    ```console
+    bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
+    ```
+
 8.  Reinicie la VM. 
 
 ### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Opcional: análisis de los registros de volcado de memoria en el modo de bloqueo de volcado de memoria

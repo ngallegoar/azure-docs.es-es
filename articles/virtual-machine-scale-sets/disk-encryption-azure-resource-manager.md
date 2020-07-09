@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: c2b49a7e7e14bfbefcca64133ff23fdfabe53e7b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4284e94f8d8d0effd160c5048f54fcbede417e38
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83198425"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129750"
 ---
 # <a name="encrypt-virtual-machine-scale-sets-with-azure-resource-manager"></a>Cifrado de conjuntos de escalado de máquinas virtuales con Azure Resource Manager
 
@@ -38,9 +38,9 @@ En primer lugar, seleccione la plantilla que se ajuste a su escenario.
 
 A continuación, siga estos pasos:
 
-     1. Click **Deploy to Azure**.
-     2. Fill in the required fields then agree to the terms and conditions.
-     3. Click **Purchase** to deploy the template.
+1. Haga clic en **Implementar en Azure**.
+2. Rellene los campos obligatorios y acepte los términos y condiciones.
+3. Haga clic en **Comprar** para implementar la plantilla.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: b1f3ffa6fc90fc0cab0217d1b71907342f2dbd0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01c2f61dcf024e8c9dbbd5b2ee11a479b3c16305
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712180"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130288"
 ---
 # <a name="set-up-public-ip-addresses-after-failover"></a>Configuración de direcciones IP públicas tras la conmutación por error
 
@@ -48,7 +48,7 @@ Lea más sobre los escenarios de conmutación por error con Traffic Manager:
 2. [Conmutación por error de Azure a Azure](../site-recovery/concepts-traffic-manager-with-site-recovery.md#azure-to-azure-failover) con Traffic Manager 
 
 La configuración es la siguiente:
-- Crear un [perfil de Traffic Manager](../traffic-manager/traffic-manager-create-profile.md).
+- Crear un [perfil de Traffic Manager](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 - Con el método de enrutamiento **prioridad** cree dos extremos: **Principal** para el origen y **Conmutación por error** para Azure. Al punto de conexión **Principal** se le asigna la Prioridad 1 y al de **Conmutación por error** la Prioridad 2.
 - El extremo **Principal** puede ser [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints) o [externo](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) dependiendo de si su entorno de origen está dentro o fuera de Azure.
 - El extremo **Conmutación por error** se crea como un extremo de **Azure**. Use una **dirección IP pública estática** que será el extremo orientado al exterior de Traffic Manager en el evento de desastre.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: 86938c582745cb0759eda9cd0693f407471a0529
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f80fbd803cbe4ae5c4ac381c8cdb2f72d0ede316
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77921494"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132941"
 ---
 # <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>Windows muestra el mensaje "comprobando el sistema de archivos" al iniciar una máquina virtual de Azure
 
@@ -38,9 +38,12 @@ Si se encuentra un error NTFS en el sistema de archivos, Windows comprobará y r
 ## <a name="solution"></a>Solución 
 
 Windows se iniciará normalmente después de que se complete el proceso de comprobación de disco. Si la máquina virtual está atascada en el proceso de comprobación de disco, intente ejecutar la operación Comprobar disco en la máquina virtual sin conexión:
-1.  Tome una instantánea del disco del sistema operativo de la máquina virtual afectada como copia de seguridad. Para obtener más información, consulte [Instantánea de un disco](../windows/snapshot-copy-managed-disk.md).
-2.  [Conecte el disco del sistema operativo a una máquina virtual de recuperación](troubleshoot-recovery-disks-portal-windows.md).  
-3.  En la máquina virtual de recuperación, ejecute la opción Comprobar disco en el disco del sistema operativo conectado. En el ejemplo siguiente, la letra de unidad del disco del sistema operativo conectado es E: 
-        
-        chkdsk E: /f
-4.  Una vez completada la comprobación de disco, desasocie el disco de la máquina virtual de recuperación y, a continuación, vuelva a asociarlo a la máquina virtual afectada como disco del sistema operativo. Para obtener más información, consulte [Solución de problemas de una máquina virtual Windows mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación](troubleshoot-recovery-disks-portal-windows.md).
+1. Tome una instantánea del disco del sistema operativo de la máquina virtual afectada como copia de seguridad. Para obtener más información, consulte [Instantánea de un disco](../windows/snapshot-copy-managed-disk.md).
+2. [Conecte el disco del sistema operativo a una máquina virtual de recuperación](troubleshoot-recovery-disks-portal-windows.md).  
+3. En la máquina virtual de recuperación, ejecute la opción Comprobar disco en el disco del sistema operativo conectado. En el ejemplo siguiente, la letra de unidad del disco del sistema operativo conectado es E: 
+
+    ```console
+    chkdsk E: /f
+    ```
+
+4. Una vez completada la comprobación de disco, desasocie el disco de la máquina virtual de recuperación y, a continuación, vuelva a asociarlo a la máquina virtual afectada como disco del sistema operativo. Para obtener más información, consulte [Solución de problemas de una máquina virtual Windows mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación](troubleshoot-recovery-disks-portal-windows.md).

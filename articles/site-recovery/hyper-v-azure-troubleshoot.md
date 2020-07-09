@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
-ms.openlocfilehash: 6ba1568e5fb05954313f50e63364a2e475dfbab7
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 1b3fdd93902709541f4a22e652c34973158ad9c7
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195275"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132444"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Solución de problemas de la replicación y la conmutación por error de Hyper-V en Azure
 
@@ -28,12 +28,12 @@ Si experimenta problemas al habilitar la protección para VM de Hyper-V, consult
 3. Compruebe que el servicio de administración de máquinas virtuales de Hyper-V se está ejecutando en los hosts de Hyper-V.
 4. Compruebe si hay problemas que aparecen en el inicio de sesión de Hyper-V-VMMS\Admin en la VM. Este registro se encuentra en **Registros de aplicaciones y servicios** > **Microsoft** > **Windows**.
 5. En la máquina virtual invitada, compruebe que WMI esté habilitado y accesible.
-   - [Información acerca de](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) pruebas básicas de WMI.
+   - [Información acerca de](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf) pruebas básicas de WMI.
    - [Solución de problemas](https://aka.ms/WMiTshooting) de WMI.
-   - [Solución de problemas](https://technet.microsoft.com/library/ff406382.aspx#H22) con los scripts y servicios de WMI.
+   - [Solución de problemas](/previous-versions/tn-archive/ff406382(v=msdn.10)#H22) con los scripts y servicios de WMI.
 6. En la máquina virtual invitada, asegúrese de que se está ejecutando la versión más reciente de Integration Services.
-    - [Compruebe](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) que dispone de la versión más reciente.
-    - [Mantenga](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integration Services actualizado.
+    - [Compruebe](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) que dispone de la versión más reciente.
+    - [Mantenga](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integration Services actualizado.
     
 ## <a name="replication-issues"></a>Problemas de replicación
 
@@ -66,7 +66,7 @@ Las limitaciones de ancho de banda de red pueden afectar a la replicación. Para
 3. Después de ejecutar el generador de perfiles, siga las recomendaciones sobre [ancho de banda](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) y [almacenamiento](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation).
 4. Compruebe [limitaciones de la modificación de datos](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits). Si observa una alta modificación datos en una máquina virtual, haga lo siguiente:
    - Compruebe si la máquina virtual está marcada para la resincronización.
-   - Siga [estos pasos](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/) para investigar el origen de la modificación.
+   - Siga [estos pasos](https://techcommunity.microsoft.com/t5/virtualization/bg-p/Virtualization) para investigar el origen de la modificación.
    - La modificación puede producirse cuando los archivos de registro HRL superan el 50 % del espacio en disco disponible. Si este es el problema, aprovisione más espacio de almacenamiento para todas las máquinas virtuales en las que se produce el problema.
    - Compruebe que la replicación no está en pausa. Si es así, la replicación continúa escribiendo los cambios en el archivo hrl, lo que puede contribuir a su aumento de tamaño.
  
@@ -115,8 +115,8 @@ Una instantánea coherente con la aplicación es una instantánea en un momento 
         - Contador: "Bytes de escritura/s"</br>
         - Esta tasa de modificación de datos aumentará o permanecer en un nivel alto, dependiendo de cómo de estén de ocupadas la máquina virtual o sus aplicaciones.
         - El promedio de modificación de datos del disco de origen es 2 MB/s de almacenamiento estándar para Site Recovery. [Más información](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
-    - Además, puede [comprobar los objetivos de escalabilidad de Storage](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets).
-8. Asegúrese de que, si usa un servidor basado en Linux, tiene habilitada en él la coherencia de la aplicación. [Más información](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication)
+    - Además, puede [comprobar los objetivos de escalabilidad de Storage](../storage/common/scalability-targets-standard-account.md).
+8. Asegúrese de que, si usa un servidor basado en Linux, tiene habilitada en él la coherencia de la aplicación. [Más información](./site-recovery-faq.md#replication)
 9. Ejecute [Deployment Planner](hyper-v-deployment-planner-run.md).
 10. Revise las recomendaciones para [red](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) y [almacenamiento](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
 
@@ -130,7 +130,7 @@ Una instantánea coherente con la aplicación es una instantánea en un momento 
 
 2. Para generar instantáneas VSS para la máquina virtual, compruebe que los servicios de integración de Hyper-V están instalados en la máquina virtual y que está habilitado el servicio de integración de copia de seguridad (VSS).
     - Asegúrese de que los servicios/demonios de VSS de Integration Services se ejecutan en el invitado y se encuentran en un estado **Aceptar**.
-    - Para comprobarlo, inicie una sesión de PowerShell con privilegios elevados en el host de Hyper-V con el comando **Get-VMIntegrationService -VMName\<VMName>-nombre VSS**. Otra manera de obtener esta información es iniciar sesión en la máquina virtual invitada. [Más información](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
+    - Para comprobarlo, inicie una sesión de PowerShell con privilegios elevados en el host de Hyper-V con el comando **Get-VMIntegrationService -VMName\<VMName>-nombre VSS**. Otra manera de obtener esta información es iniciar sesión en la máquina virtual invitada. [Más información](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
     - Asegúrese de que los servicios de integración de VSS/copia de seguridad en la máquina virtual se están ejecutando y se encuentran en buen estado. Si no es así, reinicie estos servicios y el servicio de solicitante de instantáneas de volumen de Hyper-V en el servidor host de Hyper-V.
 
 ### <a name="common-errors"></a>Errores comunes
@@ -138,7 +138,7 @@ Una instantánea coherente con la aplicación es una instantánea en un momento 
 **Código de error** | **Mensaje** | **Detalles**
 --- | --- | ---
 **0x800700EA** | "Hyper-V failed to generate VSS snapshot set for virtual machine: More data is available (Hyper-V no pudo generar el conjunto de instantáneas de VSS para la máquina virtual: hay más datos disponibles). (0x800700EA). VSS snapshot set generation can fail if backup operation is in progress. Replication operation for virtual machine failed: More data is available" (La generación de un conjunto de instantáneas VSS puede producir un error si la operación de copia de seguridad está en curso).<br/><br/> Replication operation for virtual machine failed: More data is available" (Error en la operación de replicación de la máquina virtual: hay más datos disponibles) | Compruebe si la máquina virtual tiene habilitado un disco dinámico. No es una opción admitida.
-**0x80070032** | "Hyper-V Volume Shadow Copy Requestor failed to connect to virtual machine <./VMname> because the version does not match the version expected by Hyper-V" (El solicitante de instantáneas de volumen de Hyper-V no ha podido conectar con la máquina virtual <./VMname> porque la versión no coincide con la versión esperada por Hyper-V) | Compruebe que las actualizaciones más recientes de Windows están instaladas.<br/><br/> [Actualice](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) a la versión más reciente de Integration Services.
+**0x80070032** | "Hyper-V Volume Shadow Copy Requestor failed to connect to virtual machine <./VMname> because the version does not match the version expected by Hyper-V" (El solicitante de instantáneas de volumen de Hyper-V no ha podido conectar con la máquina virtual <./VMname> porque la versión no coincide con la versión esperada por Hyper-V) | Compruebe que las actualizaciones más recientes de Windows están instaladas.<br/><br/> [Actualice](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) a la versión más reciente de Integration Services.
 
 
 
@@ -170,4 +170,3 @@ Estas herramientas pueden ayudar a la solución de problemas avanzada:
 
 -   Para VMM, realice la recopilación de registros de Site Recovery mediante la [herramienta de la plataforma de diagnóstico de soporte técnico (SDP)](https://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx).
 -   Para Hyper-V sin VMM [descargue esta herramienta](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab) y ejecútela en el host de Hyper-V para recopilar los registros.
-
