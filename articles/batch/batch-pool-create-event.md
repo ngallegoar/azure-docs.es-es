@@ -3,12 +3,12 @@ title: Evento de creación de grupo de Azure Batch
 description: Referencia del evento de creación de grupo de Batch, que se emite después de crear un grupo. El contenido del registro va a exponer información general acerca del grupo.
 ms.topic: reference
 ms.date: 04/20/2017
-ms.openlocfilehash: d8e4537e0074b7af1e65ea5f13a9668483abc45e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: eee512bbeed223269c43bde77435fbff2b67b533
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962499"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147322"
 ---
 # <a name="pool-create-event"></a>Evento de creación del grupo
 
@@ -53,7 +53,7 @@ ms.locfileid: "85962499"
 |-------------|----------|-----------|
 |`id`|String|El identificador del grupo.|
 |`displayName`|String|El nombre para mostrar del grupo.|
-|`vmSize`|String|El tamaño de las máquinas virtuales que se usan en el grupo. Todas las máquinas virtuales de un grupo son del mismo tamaño. <br/><br/> Para obtener información sobre los tamaños disponibles de máquinas virtuales para los grupos de Cloud Services (grupos creados con cloudServiceConfiguration), consulte [Tamaños para Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Batch admite todas las VM de Cloud Services excepto `ExtraSmall`.<br/><br/> Para obtener información sobre los tamaños de VM disponibles para grupos con imágenes del Virtual Machines Marketplace (grupos creados con virtualMachineConfiguration), consulte [Tamaños de máquinas virtuales](/azure/virtual-machines/linux/sizes?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json) (Linux) o [Tamaños de máquinas virtuales](/azure/virtual-machines/windows/sizes?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) (Windows). Batch admite todos los tamaños de máquina virtual de Azure excepto `STANDARD_A0` y aquellos con Premium Storage (series `STANDARD_GS`, `STANDARD_DS` y `STANDARD_DSV2`).|
+|`vmSize`|String|El tamaño de las máquinas virtuales que se usan en el grupo. Todas las máquinas virtuales de un grupo son del mismo tamaño. <br/><br/> Para obtener información sobre los tamaños disponibles de máquinas virtuales para los grupos de Cloud Services (grupos creados con cloudServiceConfiguration), consulte [Tamaños para Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Batch admite todas las VM de Cloud Services excepto `ExtraSmall`.<br/><br/> Para obtener información sobre los tamaños de VM disponibles para grupos con imágenes del Virtual Machines Marketplace (grupos creados con virtualMachineConfiguration), consulte [Tamaños de máquinas virtuales](../virtual-machines/linux/sizes.md?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json) (Linux) o [Tamaños de máquinas virtuales](../virtual-machines/windows/sizes.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) (Windows). Batch admite todos los tamaños de máquina virtual de Azure excepto `STANDARD_A0` y aquellos con Premium Storage (series `STANDARD_GS`, `STANDARD_DS` y `STANDARD_DSV2`).|
 |`imageType`|String|El método de implementación de la imagen. Estos son los valores que se admiten: `virtualMachineConfiguration` o `cloudServiceConfiguration`|
 |[`cloudServiceConfiguration`](#bk_csconf)|Tipo complejo|La configuración del servicio en la nube para el grupo.|
 |[`virtualMachineConfiguration`](#bk_vmconf)|Tipo complejo|La configuración de la máquina virtual para el grupo.|

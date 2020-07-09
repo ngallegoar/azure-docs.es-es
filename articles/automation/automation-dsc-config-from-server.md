@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 775fae09c4d618551327669362cd28a0ae2cc801
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 8f376fb383e50a39f0f12d45cf9b5ae47ad6fcbb
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837015"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186510"
 ---
 # <a name="create-configurations-from-existing-servers"></a>Creación de configuraciones desde servidores existentes
 
@@ -38,8 +38,8 @@ La versión más reciente tiene varios [modos de extracción](https://github.com
 
 El resultado de usar la solución es la generación de [datos de configuración](https://github.com/Microsoft/sharepointDSC.reverse#configuration-data) que se usarán con los scripts de configuración de SharePointDSC.
 
-Una vez que se han generado los archivos de datos, puede usarlos con [scripts de configuración de DSC](/powershell/scripting/dsc/overview/overview) para generar archivos MOF y [cargarlos en Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
-A continuación, registre los servidores desde una [ubicación local](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) o [en Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms) para extraer las configuraciones.
+Una vez que se han generado los archivos de datos, puede usarlos con [scripts de configuración de DSC](/powershell/scripting/dsc/overview/overview) para generar archivos MOF y [cargarlos en Azure Automation](./tutorial-configure-servers-desired-state.md#create-and-upload-a-configuration-to-azure-automation).
+A continuación, registre los servidores desde una [ubicación local](./automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines) o [en Azure](./automation-dsc-onboarding.md#enable-azure-vms) para extraer las configuraciones.
 
 Para probar ReverseDSC, visite la [Galería de PowerShell](https://www.powershellgallery.com/packages/ReverseDSC/) y descargue la solución o haga clic en "Project Site" (Sitio del proyecto) para ver la [documentación](https://github.com/Microsoft/sharepointDSC.reverse).
 

@@ -9,12 +9,12 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: 1cb70109657343f41a1b3a19f3426377d97e261e
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 7d59ca60c7f90c227885927086511bd1f8ac7ca1
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830130"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185847"
 ---
 # <a name="encryption-of-secure-assets-in-azure-automation"></a>Cifrado de recursos seguros en Azure Automation
 
@@ -52,12 +52,12 @@ Antes de habilitar las claves administradas por el cliente para una cuenta de Au
 
  - La clave administrada por el cliente se almacena en Azure Key Vault. 
  - Habilite las propiedades **Eliminación temporal** y **No purgar** en el almacén de claves. Estas características son necesarias para permitir la recuperación de claves en caso de que se eliminen accidentalmente.
- - Solo se admiten claves RSA con para el cifrado de Azure Automation. Para obtener más información acerca de las claves, consulte [Información acerca de claves, secretos y certificados de Azure Key Vault](../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+ - Solo se admiten claves RSA con para el cifrado de Azure Automation. Para obtener más información acerca de las claves, consulte [Información acerca de claves, secretos y certificados de Azure Key Vault](../key-vault/general/about-keys-secrets-certificates.md).
 - La cuenta de Automation y el almacén de claves pueden estar en distintas suscripciones, pero deben estar en el mismo inquilino de Azure Active Directory.
 
 ### <a name="assignment-of-an-identity-to-the-automation-account"></a>Asignación de una identidad a la cuenta de Automation
 
-Para usar las claves administradas por el cliente con una cuenta de Automation, la cuenta de Automation debe autenticarse en el almacén de claves que contiene las claves administradas por el cliente. Azure Automation usa identidades administradas asignadas por el sistema para autenticar la cuenta con Azure Key Vault. Para más información sobre las identidades administradas, consulte el artículo sobre [Qué son las identidades administradas para recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Para usar las claves administradas por el cliente con una cuenta de Automation, la cuenta de Automation debe autenticarse en el almacén de claves que contiene las claves administradas por el cliente. Azure Automation usa identidades administradas asignadas por el sistema para autenticar la cuenta con Azure Key Vault. Para más información sobre las identidades administradas, consulte el artículo sobre [Qué son las identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 Configure una identidad administrada asignada por el sistema a la cuenta de Automation mediante la siguiente llamada a la API REST:
 
@@ -185,7 +185,7 @@ La rotación de la clave no desencadena un nuevo cifrado de los recursos seguros
 
 ## <a name="revocation-of-access-to-a-customer-managed-key"></a>Revocación del acceso de una clave administrada por el cliente
 
-Para revocar el acceso a las claves administradas por el cliente, use PowerShell o la CLI de Azure. Para más información, consulte la referencia de [PowerShell para Azure Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault/) o la referencia de la [CLI para Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). La revocación del acceso bloquea de manera eficaz el acceso a todos los recursos seguros de la cuenta de Automation, ya que Azure Automation no puede acceder a la clave de cifrado.
+Para revocar el acceso a las claves administradas por el cliente, use PowerShell o la CLI de Azure. Para más información, consulte la referencia de [PowerShell para Azure Key Vault](/powershell/module/az.keyvault/) o la referencia de la [CLI para Azure Key Vault](/cli/azure/keyvault). La revocación del acceso bloquea de manera eficaz el acceso a todos los recursos seguros de la cuenta de Automation, ya que Azure Automation no puede acceder a la clave de cifrado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

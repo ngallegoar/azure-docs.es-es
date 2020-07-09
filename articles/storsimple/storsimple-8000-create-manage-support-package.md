@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: f8f84542cd52d8ad4affd64627637d4e95b1fb10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4332f3e5a1ca6d434671d3a2cfe100a5d12795d
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514048"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86182022"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Crear y administrar un paquete de soporte para la serie StorSimple 8000
 
@@ -98,9 +98,11 @@ Para editar un paquete de soporte antes de cargarlo en el sitio de soporte técn
     ![Edición del paquete de soporte](./media/storsimple-8000-create-manage-support-package/IC750706.png)
 5. Cuando se le solicite la frase de contraseña de cifrado, escriba la frase de contraseña utilizada al crear el paquete de soporte.
    
-        cmdlet Open-HcsSupportPackage at command pipeline position 1
-   
-        Supply values for the following parameters:EncryptionPassphrase: ****
+    ```powershell
+    cmdlet Open-HcsSupportPackage at command pipeline position 1
+
+    Supply values for the following parameters:EncryptionPassphrase: ****
+    ```
 6. Vaya a la carpeta que contiene los archivos de registro. Puesto que los archivos de registro ahora están descomprimidos y descifrados, tendrán sus extensiones de archivo originales. Modifique estos archivos para quitar cualquier información específica del cliente, como los nombres de los volúmenes y las direcciones IP de los dispositivos, y guarde los archivos.
 7. Al cerrar los archivos para comprimirlos con Gzip y cifrarlos con AES-256. Esto es por seguridad y para acelerar la transferencia del paquete de soporte por la red. Para comprimir y cifrar los archivos, escriba lo siguiente:
    
@@ -109,33 +111,37 @@ Para editar un paquete de soporte antes de cargarlo en el sitio de soporte técn
     ![Edición del paquete de soporte](./media/storsimple-8000-create-manage-support-package/IC750707.png)
 8. Cuando se le solicite, proporcione una frase de contraseña de cifrado para el paquete de soporte modificado.
    
-        cmdlet Close-HcsSupportPackage at command pipeline position 1
-        Supply values for the following parameters:EncryptionPassphrase: ****
+    ```powershell
+    cmdlet Close-HcsSupportPackage at command pipeline position 1
+    Supply values for the following parameters:EncryptionPassphrase: ****
+    ```
 9. Anote la nueva frase de contraseña para poder compartirla con el servicio de soporte técnico de Microsoft cuando se le solicite.
 
 ### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Ejemplo: Edición de archivos de un paquete de soporte en un recurso compartido protegido por contraseña
 
 A continuación se muestra un ejemplo que muestra cómo descifrar, editar y volver a cifrar un paquete de soporte.
 
-        PS C:\WINDOWS\system32> Import-module C:\Users\Default\StorSimple\SupportPackage\HCSSupportPackageTools.psm1
+```powershell
+PS C:\WINDOWS\system32> Import-module C:\Users\Default\StorSimple\SupportPackage\HCSSupportPackageTools.psm1
 
-        PS C:\WINDOWS\system32> Open-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
+PS C:\WINDOWS\system32> Open-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
 
-        cmdlet Open-HcsSupportPackage at command pipeline position 1
+cmdlet Open-HcsSupportPackage at command pipeline position 1
 
-        Supply values for the following parameters:
+Supply values for the following parameters:
 
-        EncryptionPassphrase: ****
+EncryptionPassphrase: ****
 
-        PS C:\WINDOWS\system32> Close-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
+PS C:\WINDOWS\system32> Close-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
 
-        cmdlet Close-HcsSupportPackage at command pipeline position 1
+cmdlet Close-HcsSupportPackage at command pipeline position 1
 
-        Supply values for the following parameters:
+Supply values for the following parameters:
 
-        EncryptionPassphrase: ****
+EncryptionPassphrase: ****
 
-        PS C:\WINDOWS\system32>
+PS C:\WINDOWS\system32>
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

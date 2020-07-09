@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
-ms.openlocfilehash: f30d15615e4f3c738d969d068bf2864df23e7cdb
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ae268534a18a921cca012881fa172261c7ba1063
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836913"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186408"
 ---
 # <a name="enable-azure-automation-state-configuration"></a>Habilitar Azure Automation State Configuration
 
@@ -57,7 +57,7 @@ Puede usar el cmdlet [Register-AzAutomationDscNode](/powershell/module/az.automa
 
 ### <a name="register-vms-across-azure-subscriptions"></a>Registro de máquinas virtuales en suscripciones de Azure
 
-La mejor manera de registrar máquinas virtuales desde otras suscripciones de Azure consiste en usar la extensión DSC en una plantilla de implementación de Azure Resource Manager. Los ejemplos se proporcionan en [Extensión Desired State Configuration con plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template).
+La mejor manera de registrar máquinas virtuales desde otras suscripciones de Azure consiste en usar la extensión DSC en una plantilla de implementación de Azure Resource Manager. Los ejemplos se proporcionan en [Extensión Desired State Configuration con plantillas de Azure Resource Manager](../virtual-machines/extensions/dsc-template.md).
 
 Para buscar la clave y la dirección URL de registro que se van a usar como parámetros en esta plantilla, vea [Habilitar máquinas de manera segura con un protocolo de registro](#enable-machines-securely-using-registration).
 
@@ -73,7 +73,7 @@ Los servidores de Windows que se ejecutan en el entorno local o en otros entorno
    Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2
    ```
 
-1. Si no puede aplicar las metaconfiguraciones de DSC de PowerShell de forma remota, copie la carpeta de **metaconfiguraciones** del paso 2 en las máquinas que vaya a habilitar. A continuación, agregue código para llamar a [Set-DscLocalConfigurationManager](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager?view=powershell-5.1) localmente en las máquinas.
+1. Si no puede aplicar las metaconfiguraciones de DSC de PowerShell de forma remota, copie la carpeta de **metaconfiguraciones** del paso 2 en las máquinas que vaya a habilitar. A continuación, agregue código para llamar a [Set-DscLocalConfigurationManager](/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager?view=powershell-5.1) localmente en las máquinas.
 1. Mediante Azure Portal o con cmdlets, compruebe que las máquinas que se van a habilitar aparecen ahora como nodos de State Configuration registrados en la cuenta de Azure Automation.
 
 ## <a name="enable-physicalvirtual-linux-machines"></a>Habilitación de máquinas físicas o virtuales con Linux
@@ -123,7 +123,7 @@ Para habilitar cualquier máquina a State Configuration, puede generar una [meta
 > [!NOTE]
 > Las metaconfiguraciones de DSC contienen los secretos necesarios para habilitar una máquina en una cuenta de Automation para su administración. Asegúrese de proteger adecuadamente cualquier metaconfiguración de DSC que cree o elimínelos tras su uso.
 
-La compatibilidad de proxy de las metaconfiguraciones se controla a través del [Configuration Manager local](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaconfig?view=powershell-7), que es el motor de DSC de Windows PowerShell. LCM se ejecuta en todos los nodos de destino, y es el responsable de llamar a los recursos de configuración que se incluyen en un script de metaconfiguración de DSC. Para incluir compatibilidad de proxy en una metaconfiguración, incluya definiciones de `ProxyURL` y propiedades `ProxyCredential` según sea necesario en los bloques `ConfigurationRepositoryWeb`,`ResourceRepositoryWeb` y`ReportServerWeb`. Un ejemplo de la configuración de la dirección URL es `ProxyURL = "http://172.16.3.6:3128";`. La propiedad `ProxyCredential` se establece en un objeto `PSCredential`, tal y como se describe en [Administración de credenciales en Azure Automation](shared-resources/credentials.md). 
+La compatibilidad de proxy de las metaconfiguraciones se controla a través del [Configuration Manager local](/powershell/scripting/dsc/managing-nodes/metaconfig?view=powershell-7), que es el motor de DSC de Windows PowerShell. LCM se ejecuta en todos los nodos de destino, y es el responsable de llamar a los recursos de configuración que se incluyen en un script de metaconfiguración de DSC. Para incluir compatibilidad de proxy en una metaconfiguración, incluya definiciones de `ProxyURL` y propiedades `ProxyCredential` según sea necesario en los bloques `ConfigurationRepositoryWeb`,`ResourceRepositoryWeb` y`ReportServerWeb`. Un ejemplo de la configuración de la dirección URL es `ProxyURL = "http://172.16.3.6:3128";`. La propiedad `ProxyCredential` se establece en un objeto `PSCredential`, tal y como se describe en [Administración de credenciales en Azure Automation](shared-resources/credentials.md). 
 
 ### <a name="generate-dsc-metaconfigurations-using-a-dsc-configuration"></a>Generación de metaconfiguraciones de DSC con una configuración de DSC
 
@@ -260,7 +260,7 @@ La compatibilidad de proxy de las metaconfiguraciones se controla a través del 
 Si los valores predeterminados de LCM de DSC de PowerShell coinciden con su caso de uso, y quiere habilitar máquinas de modo que extraigan de Azure Automation State Configuration y también notifiquen allí, puede usar cmdlets de Azure Automation para generar las metaconfiguraciones de DSC necesarias de forma más sencilla.
 
 1. Abra la consola de PowerShell o VSCode como administrador en una máquina de su entorno local.
-2. Conéctese a Azure Resource Manager mediante [Connect-AzAccount](https://docs.microsoft.com/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0).
+2. Conéctese a Azure Resource Manager mediante [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0).
 3. Descargue las metaconfiguraciones de DSC de PowerShell de las máquinas que quiera habilitar desde la cuenta de Automation en la que esté configurando los nodos.
 
    ```powershell
@@ -325,8 +325,7 @@ Para ver el estado de la extensión de Desired State Configuration de la máquin
 
 - Para dar los primeros pasos, consulte [Introducción a Azure Automation State Configuration](automation-dsc-getting-started.md).
 - Para aprender a compilar configuraciones de DSC para poder asignarlas a los nodos de destino, consulte [Compilación de configuraciones de DSC en Azure Automation State Configuration](automation-dsc-compile.md).
-- Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+- Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
 - Para obtener información de precios, consulte [Precios de State Configuration de Azure Automation](https://azure.microsoft.com/pricing/details/automation/).
 - Para ver un ejemplo del uso de Azure Automation State Configuration en una canalización de implementación continua, consulte [Configuración de la implementación continua con Chocolatey](automation-dsc-cd-chocolatey.md).
 - Para obtener información sobre la solución de problemas, vea [Solucionar problemas de Azure Automation State Configuration](./troubleshoot/desired-state-configuration.md).

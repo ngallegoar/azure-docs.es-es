@@ -4,12 +4,12 @@ description: Batch admite Azure AD para la autenticación desde el servicio de B
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: ed2bfb8e0fbaff0b7ad0ded734e33512c82a4040
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: a8601c69c37e973118a7ec9521070864caffb101
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958215"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170316"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticación de soluciones de servicio de Batch con Active Directory
 
@@ -63,7 +63,7 @@ Una vez registrada la aplicación, verá el identificador de la aplicación:
 
 ![Registro de la aplicación de Batch con Azure AD](./media/batch-aad-auth/app-registration-data-plane.png)
 
-Para más información sobre el registro de una aplicación, consulte [Escenarios de autenticación para Azure AD](../active-directory/develop/authentication-scenarios.md).
+Para más información sobre el registro de una aplicación, consulte [Escenarios de autenticación para Azure AD](../active-directory/develop/authentication-vs-authorization.md).
 
 ## <a name="get-the-tenant-id-for-your-active-directory"></a>Obtención del identificador de inquilino para Active Directory
 
@@ -427,8 +427,8 @@ Utilice las credenciales del servicio principal para abrir un objeto **BatchServ
 
 - Para obtener un ejemplo de Python de cómo crear un cliente de Batch que se autentica utilizando un token de Azure AD, consulte el ejemplo [Deploying Azure Batch Custom Image with a Python Script](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md) (Implementación de una imagen personalizada de Azure Batch con un script de Python).
 
-[aad_about]:../active-directory/fundamentals/active-directory-whatis.md "¿Qué es Azure Active Directory?"
-[aad_adal]: ../active-directory/active-directory-authentication-libraries.md
-[aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Escenarios de autenticación para Azure AD"
-[aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integración de aplicaciones con Azure Active Directory"
+[aad_about]: ../active-directory/fundamentals/active-directory-whatis.md "¿Qué es Azure Active Directory?"
+[aad_adal]: ../active-directory/azuread-dev/active-directory-authentication-libraries.md
+[aad_auth_scenarios]: ../active-directory/develop/authentication-vs-authorization.md "Escenarios de autenticación para Azure AD"
+[aad_integrate]: ../active-directory/develop/quickstart-register-app.md "Integración de aplicaciones con Azure Active Directory"
 [azure_portal]: https://portal.azure.com

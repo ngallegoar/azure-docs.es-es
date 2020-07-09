@@ -4,12 +4,12 @@ description: Aprenda a usar la biblioteca de convenciones de archivo para .NET d
 ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba1b35bd8f2a4cc58558607581d10b598d23058c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 2e06bc90c95f9951895e0434ec8a8a7defaa6156
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965202"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147162"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Guardar datos de trabajos y tareas en Azure Storage con la biblioteca de convenciones de archivo para .NET
 
@@ -55,7 +55,7 @@ Para guardar los datos de salida en Azure Storage mediante la biblioteca de conv
 
 Para guardar los datos de salida de trabajos y tareas con la biblioteca de convenciones de archivo, cree un contenedor en Azure Storage y, a continuación, guarde la salida en el contenedor. Use la [biblioteca de cliente de Azure Storage para .NET](https://www.nuget.org/packages/WindowsAzure.Storage) en el código de tarea para cargar la salida de la tarea en el contenedor.
 
-Para más información sobre el trabajo con contenedores y blobs en Azure Storage, consulte [Introducción al Almacenamiento de blobs de Azure mediante .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+Para más información sobre el trabajo con contenedores y blobs en Azure Storage, consulte [Introducción al Almacenamiento de blobs de Azure mediante .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
 > [!WARNING]
 > Todas las salidas de trabajos y tareas guardados con la biblioteca de convenciones de archivo se almacenan en el mismo contenedor. Si un gran número de tareas intenta guardar archivos al mismo tiempo, se pueden aplicar los límites de almacenamiento de Azure Storage. Para más información sobre las limitaciones, consulte [Lista de comprobación de escalabilidad y rendimiento para Blob Storage](../storage/blobs/storage-performance-checklist.md).

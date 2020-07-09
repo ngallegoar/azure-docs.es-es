@@ -4,12 +4,12 @@ description: Cree, elimine y modifique recursos de cuenta de Azure Batch con la 
 ms.topic: how-to
 ms.date: 04/24/2017
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 1e372ebca9edf1fcbd72edd4f070ba26f87e9e67
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 1684a177f139a3acff8a4957c0c1e89f46d8848d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961632"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145025"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Administración de cuentas y cuotas de Batch con la biblioteca cliente de administración de Batch para .NET
 
@@ -165,7 +165,7 @@ Para ejecutar la aplicación de ejemplo correctamente, primero debe registrarla 
 
 
 [aad_about]:../active-directory/fundamentals/active-directory-whatis.md "¿Qué es Azure Active Directory?"
-[aad_adal]: ../active-directory/active-directory-authentication-libraries.md
+[aad_adal]: ../active-directory/azuread-dev/active-directory-authentication-libraries.md
 [aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Escenarios de autenticación para Azure AD"
 [aad_integrate]:../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md "Integración de aplicaciones con Azure Active Directory"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement

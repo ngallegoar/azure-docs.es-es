@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 53a7e113d64ea4cf7018d51a44f9488342f1470f
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: bb8fa53fa07d666693ae545c193faaf3d6d0a30c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715637"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187156"
 ---
 # <a name="troubleshoot-startstop-vms-during-off-hours-issues"></a>Solución de problemas de la característica Start/Stop VMs during off-hours
 
@@ -99,7 +99,7 @@ Este error puede deberse a alguna de las siguientes razones:
 
 Revise la siguiente lista de posibles resoluciones:
 
-* Compruebe que ha configurado correctamente una programación para Start/Stop VMs during off-hours. Para más información sobre cómo configurar una programación, consulte [Programaciones](../automation-schedules.md).
+* Compruebe que ha configurado correctamente una programación para Start/Stop VMs during off-hours. Para más información sobre cómo configurar una programación, consulte [Programaciones](../shared-resources/schedules.md).
 
 * Compruebe los [flujos de trabajo](../automation-runbook-execution.md#job-statuses) para buscar errores. Busque los trabajos de alguno de los siguientes runbooks:
 

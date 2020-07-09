@@ -3,12 +3,12 @@ title: Ejemplos de plantillas de Azure Resource Manager
 description: Busque ejemplos de plantillas de Azure Resource Manager para implementar Azure Container Instances en distintas configuraciones.
 ms.topic: article
 ms.date: 03/07/2019
-ms.openlocfilehash: 7208e1b4b67879979507cc451d40a188a84373de
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 6c487087b39244178643fd81364150ceb3ac4a63
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299764"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169653"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Plantillas de Azure Resource Manager para Azure Container Instances
 
@@ -18,7 +18,7 @@ Para opciones de implementación, consulte la sección [Implementación](#deploy
 
 ## <a name="sample-templates"></a>Plantillas de ejemplo
 
-| | |
+| Plantilla | Descripción |
 |-|-|
 | **Aplicaciones** ||
 | [WordPress][app-wp] | Crea un sitio web de WordPress y su base de datos MySQL en un grupo de contenedores. El contenido del sitio de WordPress y la base de datos MySQL se conservan en un recurso compartido de Azure Files. También crea una instancia de puerta de enlace para exponer el acceso a la red pública de WordPress. |

@@ -2,13 +2,13 @@
 title: Configuración del sondeo de preparación en la instancia de contenedor
 description: Aprenda a configurar un sondeo para asegurarse de que los contenedores de Azure Container Instances reciben solicitudes solo cuando están listos.
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 64bb4a3e429ce820835abbf8e235600e592f7868
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/02/2020
+ms.openlocfilehash: 3e89086d66f284df35e36dc8f1d68bb09264843f
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76935678"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169670"
 ---
 # <a name="configure-readiness-probes"></a>Configuración de sondeos de preparación
 
@@ -26,7 +26,7 @@ Azure Container Instances también admite [sondeos de ejecución](container-inst
 Por ejemplo, cree un archivo `readiness-probe.yaml` con el siguiente fragmento de código que incluya un sondeo de preparación. Este archivo define un grupo de contenedores que consta de un contenedor que ejecuta una aplicación web pequeña. La aplicación se implementa desde la imagen `mcr.microsoft.com/azuredocs/aci-helloworld` pública. Esta aplicación en contenedor también se muestra en [Implementación de una instancia de contenedor en Azure mediante la CLI de Azure](container-instances-quickstart.md) y otros inicios rápidos.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: readinesstest
 properties:

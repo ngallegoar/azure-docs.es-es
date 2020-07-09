@@ -4,12 +4,12 @@ description: Utilice la característica paquetes de aplicación de Azure Batch p
 ms.topic: how-to
 ms.date: 04/26/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cebb7bf001d16e1024ed466268758f0b1bc92c6c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 328b08acbc6d13dd03956bb501b4d4a51310c9c0
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955037"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147223"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch
 
@@ -57,7 +57,7 @@ Los paquetes de aplicaciones se pueden especificar a niveles de grupo y de tarea
 ### <a name="benefits-of-application-packages"></a>Ventajas de los paquetes de aplicación
 Los paquetes de aplicación pueden simplificar el código de su solución de Batch y reducir la sobrecarga requerida para administrar las aplicaciones que ejecutan las tareas.
 
-Con los paquetes de aplicación, la tarea de inicio del grupo no tiene que especificar una larga lista de archivos de recursos individuales que se deben instalar en los nodos. No es preciso administrar manualmente varias versiones de los archivos de la aplicación en Azure Storage ni en los nodos. Y tampoco es preciso preocuparse de generar [direcciones URL de SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md) para proporcionar acceso a los archivos de su cuenta de Almacenamiento. Batch funciona en segundo plano con Azure Storage para almacenar paquetes de aplicación e implementarlos en los nodos de proceso.
+Con los paquetes de aplicación, la tarea de inicio del grupo no tiene que especificar una larga lista de archivos de recursos individuales que se deben instalar en los nodos. No es preciso administrar manualmente varias versiones de los archivos de la aplicación en Azure Storage ni en los nodos. Y tampoco es preciso preocuparse de generar [direcciones URL de SAS](../storage/common/storage-sas-overview.md) para proporcionar acceso a los archivos de su cuenta de Almacenamiento. Batch funciona en segundo plano con Azure Storage para almacenar paquetes de aplicación e implementarlos en los nodos de proceso.
 
 > [!NOTE] 
 > El tamaño total de una tarea de inicio debe ser menor o igual a 32 768 caracteres, incluidos los archivos de recursos y las variables de entorno. Si la tarea de inicio supera este límite, en este caso usar paquetes de aplicación es otra opción. Puede crear también un archivo comprimido que contiene los archivos de recursos, cargarlo como un blob en Azure Storage y. después, descomprímalo en línea de comandos de la tarea de inicio. 

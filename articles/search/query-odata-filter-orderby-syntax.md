@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f3a1be435e297ab4a9ba7f8bfbd5f3ce3451d8a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 07f3e270e799753a582227abe53223bd05755eb5
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77153883"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165216"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Introducción a `$filter`, `$orderby` y `$select` del lenguaje OData en Azure Cognitive Search
 
@@ -83,7 +83,9 @@ El significado de una ruta de acceso de campo varía según el contexto. En los 
 
 Considere la ruta de acceso de campo `Address/City`. En un filtro, esta ruta hacer referencia a una única ciudad del documento actual, como "San Francisco". En cambio, `Rooms/Type` hace referencia al subcampo `Type` para muchas habitaciones (por ejemplo, "standard" para la primera habitación, "deluxe" para la segunda, etc.). Puesto que `Rooms/Type` no hace referencia a una *única instancia* del subcampo `Type`, no se puede usar directamente en un filtro. Así que, para filtrar por el tipo de habitación, usaría una [expresión lambda](search-query-odata-collection-operators.md) con una variable de rango, como esta:
 
-    Rooms/any(room: room/Type eq 'deluxe')
+```odata
+Rooms/any(room: room/Type eq 'deluxe')
+```
 
 En este ejemplo, la variable de rango `room` aparece en la ruta de acceso de campo `room/Type`. De este modo, `room/Type` hace referencia al tipo de habitación actual en el documento actual. Como es una única instancia del subcampo `Type`, se puede usar directamente en el filtro.
 

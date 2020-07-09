@@ -5,12 +5,12 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 2728964d5bbf83b42251068ffbdea223ff6bd85e
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 92149289c6c422179ddb3562274020acf779f10b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171096"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186289"
 ---
 # <a name="enable-change-tracking-and-inventory-from-a-runbook"></a>Habilitación de Change Tracking e Inventario desde un runbook
 
@@ -22,7 +22,7 @@ En este artículo se describe cómo puede usar un runbook para habilitar la cara
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción de Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Una [cuenta de Automation](automation-offering-get-started.md) para administrar máquinas.
+* Una [cuenta de Automation](./index.yml) para administrar máquinas.
 * Una [máquina virtual](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="enable-change-tracking-and-inventory"></a>Habilitación de Change Tracking e Inventario 
@@ -51,7 +51,7 @@ Con Change Tracking e Inventario habilitado, puede agregar una máquina virtual 
 
 ## <a name="install-and-update-modules"></a>Instalar y actualizar módulos
 
-Para habilitar de forma correcta Change Tracking e Inventario, es necesario actualizar a los módulos de Azure más recientes e importar el módulo [Az.OperationalInsights](https://docs.microsoft.com/powershell/module/az.operationalinsights/?view=azps-3.7.0).
+Para habilitar de forma correcta Change Tracking e Inventario, es necesario actualizar a los módulos de Azure más recientes e importar el módulo [Az.OperationalInsights](/powershell/module/az.operationalinsights/?view=azps-3.7.0).
 
 1. En la cuenta de Automation, seleccione **Módulos** en **Recursos compartidos**. 
 2. Seleccione **Actualizar módulos de Azure** para actualizar los módulos de Azure a la versión más reciente. 

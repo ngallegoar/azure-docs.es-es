@@ -5,16 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 03/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: d08afc6e501fd76167e0939633442213958f0d49
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: a2d16bdca18b7fc0afab2a3deb325d1a75be3bb8
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834635"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185184"
 ---
 # <a name="manage-updates-for-multiple-vms"></a>Administración de actualizaciones de varias máquinas virtuales
 
-Puede usar Update Management en Azure Automation para administrar las actualizaciones y las revisiones de las máquinas virtuales Windows y Linux. Desde la cuenta de [Azure Automation](automation-offering-get-started.md), puede:
+Puede usar Update Management en Azure Automation para administrar las actualizaciones y las revisiones de las máquinas virtuales Windows y Linux. Desde la cuenta de [Azure Automation](./index.yml), puede:
 
 - Habilitar máquinas virtuales para Update Management.
 - Evaluar el estado de las actualizaciones disponibles.

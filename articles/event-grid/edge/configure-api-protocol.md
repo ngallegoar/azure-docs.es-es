@@ -4,17 +4,15 @@ description: Configure los protocolos de API expuestos por Event Grid en IoT Edg
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
-ms.reviewer: ''
-ms.date: 10/03/2019
+ms.reviewer: spelluru
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 908bc941ee7379de067621e10adf5fd6ee6df559
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 801a320fbd66b4b8a46757ba90881da54b2721de
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76841817"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171727"
 ---
 # <a name="configure-event-grid-api-protocols"></a>Configuración de protocolos de API en Event Grid
 

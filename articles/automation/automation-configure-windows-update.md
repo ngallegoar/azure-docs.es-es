@@ -5,16 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: ea05e75c0d1db1ef27ae2e8e9364327528a7c8ed
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: e30d1606a3928f421d2155e2d1abac0c8a6872aa
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837168"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186646"
 ---
 # <a name="configure-windows-update-settings-for-azure-automation-update-management"></a>Configuración de los parámetros de Windows Update para Azure Automation Update Management
 
-Azure Automation Update Management se basa en el [cliente de Windows Update](https://docs.microsoft.com//windows/deployment/update/windows-update-overview) para descargar e instalar las actualizaciones de Windows. Hay configuraciones específicas que el cliente de Windows Update utiliza al conectarse a Windows Server Update Services (WSUS) o Windows Update. Muchas de estas configuraciones se pueden administrar con:
+Azure Automation Update Management se basa en el [cliente de Windows Update](/windows/deployment/update/windows-update-overview) para descargar e instalar las actualizaciones de Windows. Hay configuraciones específicas que el cliente de Windows Update utiliza al conectarse a Windows Server Update Services (WSUS) o Windows Update. Muchas de estas configuraciones se pueden administrar con:
 
 - Editor de directivas de grupo local
 - Directiva de grupo
@@ -23,7 +23,7 @@ Azure Automation Update Management se basa en el [cliente de Windows Update](htt
 
 Update Management respeta muchas de las configuraciones especificadas para controlar el cliente de Windows Update. Si usa la configuración para habilitar las actualizaciones que no son de Windows, Update Management también administrará dichas actualizaciones. Si quiere habilitar la descarga de actualizaciones antes de que se lleve a cabo una implementación de actualizaciones, las implementaciones de actualizaciones pueden ejecutarse de manera más rápida y eficaz, con menos probabilidades de exceder la ventana de mantenimiento.
 
-Para encontrar recomendaciones adicionales sobre cómo configurar WSUS en la suscripción de Azure y mantener actualizadas las máquinas virtuales de Windows de forma segura, revise [Planeamiento de la implementación para actualizar máquinas virtuales Windows en Azure con WSUS](https://docs.microsoft.com/azure/architecture/example-scenario/wsus/).
+Para encontrar recomendaciones adicionales sobre cómo configurar WSUS en la suscripción de Azure y mantener actualizadas las máquinas virtuales de Windows de forma segura, revise [Planeamiento de la implementación para actualizar máquinas virtuales Windows en Azure con WSUS](/azure/architecture/example-scenario/wsus/).
 
 ## <a name="pre-download-updates"></a>Actualizaciones previas a la descarga
 
@@ -58,7 +58,7 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 Update Management es compatible con la configuración de WSUS. Puede especificar orígenes para examinar y descargar actualizaciones mediante las instrucciones de [Ubicación del servicio Microsoft Update en la intranet](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location). De forma predeterminada, el cliente de Windows Update está configurado para descargar las actualizaciones desde Windows Update. Cuando se especifica un servidor de WSUS como origen para las máquinas, si las actualizaciones no se aprueban en WSUS, se produce un error en la implementación de la actualización. 
 
-Para restringir las máquinas al servicio de actualización interno, establezca [No conectar a ubicaciones de Internet de Windows Update](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations). 
+Para restringir las máquinas al servicio de actualización interno, establezca [No conectar a ubicaciones de Internet de Windows Update](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

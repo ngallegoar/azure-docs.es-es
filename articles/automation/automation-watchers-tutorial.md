@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 3369a807410e9e959e8091d5b16c8480803d26bb
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 38963a8e1bfdbde50439ed871aa33e9aaa830d35
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830589"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185660"
 ---
 # <a name="track-updated-files-with-a-watcher-task"></a>Seguimiento de archivos actualizados con una tarea de monitor
 
@@ -20,7 +20,7 @@ Azure Automation usa una tarea de monitor para buscar eventos y desencadenar acc
 > No se admiten tareas de monitor en Azure China 21Vianet.
 
 > [!IMPORTANT]
-> A partir de mayo de 2020, el uso de Azure Logic Apps es la forma admitida de supervisar eventos, programar tareas periódicas y desencadenar acciones. Consulte [Programación y ejecución de tareas, procesos y flujos de trabajo automatizados y periódicos con Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows).
+> A partir de mayo de 2020, el uso de Azure Logic Apps es la forma admitida de supervisar eventos, programar tareas periódicas y desencadenar acciones. Consulte [Programación y ejecución de tareas, procesos y flujos de trabajo automatizados y periódicos con Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Este tutorial lo guía en la creación de una tarea de monitor para supervisar cuándo se agrega un nuevo archivo a un directorio. Aprenderá a:
 
@@ -37,7 +37,7 @@ Este tutorial lo guía en la creación de una tarea de monitor para supervisar c
 Los siguientes requisitos son necesarios para completar este tutorial:
 
 * Suscripción de Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Cuenta de Automation](automation-offering-get-started.md) para contener los runbooks de monitor y de acción y la tarea de monitor.
+* [Cuenta de Automation](./index.yml) para contener los runbooks de monitor y de acción y la tarea de monitor.
 * [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) donde se ejecuta la tarea de monitor.
 * Runbooks de PowerShell. Los runbooks de flujo de trabajo de PowerShell no son compatibles con las tareas de monitor.
 
@@ -61,7 +61,7 @@ También puede importar este runbook a su cuenta de Automation desde el portal m
 
 ## <a name="create-an-automation-variable"></a>Creación de una variable de Automation
 
-Se usa una [variable de Automation](automation-variables.md) para almacenar las marcas de tiempo que el runbook anterior lee y almacena de cada archivo.
+Se usa una [variable de Automation](./shared-resources/variables.md) para almacenar las marcas de tiempo que el runbook anterior lee y almacena de cada archivo.
 
 1. Seleccione **Variables** en **Recursos compartidos** y haga clic en **+ Agregar una variable**.
 1. Escriba Watch-NewFileTimestamp en el nombre.

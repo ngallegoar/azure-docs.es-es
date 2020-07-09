@@ -2,14 +2,14 @@
 title: Montar un volumen de Azure Files en el grupo de contenedores
 description: Obtenga información sobre cómo montar un volumen de Azure Files para conservar el estado con Azure Container Instances
 ms.topic: article
-ms.date: 12/30/2019
+ms.date: 07/02/2020
 ms.custom: mvc
-ms.openlocfilehash: f66890c503de8de9160f11fb28795012ae57daeb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 593400f67db5018f1533dd37eed88ece7fd596c6
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75561344"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169585"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montaje de un recurso compartido de archivos de Azure en Azure Container Instances
 
@@ -103,7 +103,7 @@ La siguiente plantilla de YAML define un grupo de contenedores con un contenedor
 Al igual que en el ejemplo de la CLI, el valor `dnsNameLabel` debe ser único dentro de la región de Azure en la que se crea la instancia de contenedor. Si es necesario, actualice el valor en el archivo YAML.
 
 ```yaml
-apiVersion: '2018-10-01'
+apiVersion: '2019-12-01'
 location: eastus
 name: file-share-demo
 properties:
@@ -168,7 +168,7 @@ Al igual que en los ejemplos anteriores, el valor `dnsNameLabel` debe ser único
     {
       "name": "file-share-demo",
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2018-10-01",
+      "apiVersion": "2019-12-01",
       "location": "[resourceGroup().location]",
       "properties": {
         "containers": [

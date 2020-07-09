@@ -4,12 +4,12 @@ description: Aprenda a usar la API del servicio Batch para guardar datos de sali
 ms.topic: how-to
 ms.date: 03/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: c9d8eab5b4f4b89a613f5ffc3a7f9c9d9d53dcfc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 24e9f242b3c71965984534ac986031757bbc8420
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965134"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143508"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Almacenamiento de datos de tareas en Azure Storage con la API del servicio Batch
 
@@ -43,7 +43,7 @@ await container.CreateIfNotExists();
 
 ## <a name="get-a-shared-access-signature-for-the-container"></a>Obtención de una firma de acceso compartido para el contenedor
 
-Después de crear el contenedor, obtenga una firma de acceso compartido (SAS) con acceso de escritura en el contenedor. Una SAS proporciona acceso delegado al contenedor. La SAS concede acceso con un conjunto de permisos y durante un intervalo de tiempo que puede especificar. El servicio Batch necesita una SAS con permisos de escritura para escribir la salida de la tarea en el contenedor. Para más información sobre las firmas de acceso compartido, consulte [Uso de firmas de acceso compartido \(SAS\) en Azure Storage](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Después de crear el contenedor, obtenga una firma de acceso compartido (SAS) con acceso de escritura en el contenedor. Una SAS proporciona acceso delegado al contenedor. La SAS concede acceso con un conjunto de permisos y durante un intervalo de tiempo que puede especificar. El servicio Batch necesita una SAS con permisos de escritura para escribir la salida de la tarea en el contenedor. Para más información sobre las firmas de acceso compartido, consulte [Uso de firmas de acceso compartido \(SAS\) en Azure Storage](../storage/common/storage-sas-overview.md).
 
 Cuando se obtiene una SAS mediante las API de Azure Storage, la API devuelve una cadena de token de SAS. Esta cadena de token incluye todos los parámetros de la SAS, incluidos los permisos y el intervalo durante el que la SAS es válida. Para usar la SAS para acceder a un contenedor de Azure Storage, es necesario anexar la cadena de token de SAS al URI del recurso. El identificador URI del recurso, junto con el token de SAS anexado, proporciona acceso autenticado a Azure Storage.
 

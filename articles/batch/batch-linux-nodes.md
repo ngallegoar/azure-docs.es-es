@@ -4,12 +4,12 @@ description: Obtenga información acerca de cómo procesar las cargas de trabajo
 ms.topic: how-to
 ms.date: 06/01/2018
 ms.custom: H1Hack27Feb2017, tracking-python
-ms.openlocfilehash: 1a87b72b16c1d41e5569c4ce9e5e1a6e2c51a2e0
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 05e23093a00eab70db683c10eae59ef27152d2f7
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960085"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145043"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Aprovisionamiento de nodos de proceso de Linux en grupos de Batch
 
@@ -29,7 +29,7 @@ Cuando crea un grupo de nodos de proceso en el servicio Batch, tiene dos opcione
 
 ### <a name="virtual-machine-image-reference"></a>Referencia de imagen de máquina virtual
 
-El servicio Batch usa [conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para proporcionar nodos de ejecución en la configuración de la máquina virtual. Puede especificar una imagen de [Azure Marketplace][vm_marketplace] o proporcionar una imagen personalizada que haya preparado. Para más detalles sobre las imágenes personalizadas, consulte [Creación de un grupo con Shared Image Gallery](batch-sig-images.md).
+El servicio Batch usa [conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/overview.md) para proporcionar nodos de ejecución en la configuración de la máquina virtual. Puede especificar una imagen de [Azure Marketplace][vm_marketplace] o proporcionar una imagen personalizada que haya preparado. Para más detalles sobre las imágenes personalizadas, consulte [Creación de un grupo con Shared Image Gallery](batch-sig-images.md).
 
 Al configurar una referencia de la imagen de máquina virtual, especifique las propiedades de la imagen de máquina virtual. Las propiedades siguientes son necesarias cuando se crea una referencia de la imagen de máquina virtual:
 

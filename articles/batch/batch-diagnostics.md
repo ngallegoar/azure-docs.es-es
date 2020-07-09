@@ -4,12 +4,12 @@ description: Registre y analice los eventos de registro de diagnóstico de los r
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6e10a4fc6cd13854682f094274c975931b056365
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: abf9ef53d3f2e3ffeffabfe9b7c77dc5c5debec3
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960731"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145086"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas y registros de Batch para evaluación de diagnóstico y supervisión
  
@@ -87,8 +87,8 @@ Un escenario común consiste en seleccionar una cuenta de Azure Storage como des
 
 Como alternativa, puede:
 
-- Transmita los eventos de registro de diagnóstico de Batch a un [centro de eventos de Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs puede ingerir millones de eventos por segundo, que posteriormente se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real. 
-- Envíe los registros de diagnóstico a los [registros de Azure Monitor](../log-analytics/log-analytics-overview.md), donde puede analizarlos o exportarlos para su análisis en Power BI o Excel.
+- Transmita los eventos de registro de diagnóstico de Batch a un [centro de eventos de Azure](../event-hubs/event-hubs-about.md). Event Hubs puede ingerir millones de eventos por segundo, que posteriormente se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real. 
+- Envíe los registros de diagnóstico a los [registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md), donde puede analizarlos o exportarlos para su análisis en Power BI o Excel.
 
 > [!NOTE]
 > Es posible que el almacenamiento o el procesamiento de datos de registro de diagnóstico con servicios de Azure conlleve costos adicionales. 
@@ -135,7 +135,7 @@ A continuación se muestra un ejemplo de una entrada `PoolResizeCompleteEvent` e
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
 ```
 
-Para más información sobre el esquema de registros de diagnóstico en la cuenta de almacenamiento, consulte [Archivado de registros de recurso de Azure en la cuenta de almacenamiento](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-platform-logs-in-storage-account). Para acceder a los registros de la cuenta de almacenamiento mediante programación, use las API de Storage.
+Para más información sobre el esquema de registros de diagnóstico en la cuenta de almacenamiento, consulte [Archivado de registros de recurso de Azure en la cuenta de almacenamiento](../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Para acceder a los registros de la cuenta de almacenamiento mediante programación, use las API de Storage.
 
 ### <a name="service-log-events"></a>Eventos de registro del servicio
 
@@ -178,4 +178,3 @@ Los eventos de registro de servicio emitidos por el servicio Batch incluyen los 
 
 - Obtenga información acerca de las [API y herramientas de Batch](batch-apis-tools.md) disponibles para la creación de soluciones de Batch.
 - Más información sobre la [supervisión de soluciones de Batch](monitoring-overview.md).
-

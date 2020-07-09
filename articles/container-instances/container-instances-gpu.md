@@ -2,13 +2,13 @@
 title: Implementación de una instancia de contenedor habilitada para GPU
 description: Aprenda a implementar instancias de contenedor de Azure para ejecutar aplicaciones de contenedor de uso intensivo de proceso utilizando recursos de GPU.
 ms.topic: article
-ms.date: 02/19/2020
-ms.openlocfilehash: 0f1d21c62be5d7ae099faa2c6fcc440829bb451f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/02/2020
+ms.openlocfilehash: 78b67843978583dd6b0f0aee2c1d8ad0e5a7ca77
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77525296"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169755"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implementación de instancias de contenedor que usan recursos de GPU
 
@@ -73,7 +73,7 @@ Una forma de agregar los recursos de GPU es implementar un grupo de contenedores
 
 ```YAML
 additional_properties: {}
-apiVersion: '2018-10-01'
+apiVersion: '2019-12-01'
 name: gpucontainergroup
 properties:
   containers:
@@ -139,7 +139,7 @@ Otra manera de implementar un grupo de contenedores con recursos de GPU es usar 
       {
         "name": "[parameters('containerGroupName')]",
         "type": "Microsoft.ContainerInstance/containerGroups",
-        "apiVersion": "2018-10-01",
+        "apiVersion": "2019-12-01",
         "location": "[resourceGroup().location]",
         "properties": {
             "containers": [
@@ -168,10 +168,10 @@ Otra manera de implementar un grupo de contenedores con recursos de GPU es usar 
 }
 ```
 
-Implemente la plantilla con el comando [az group deployment create][az-group-deployment-create]. Deberá proporcionar el nombre de un grupo de recursos que se creó en una región como *eastus* que admite recursos de GPU.
+Implemente la plantilla con el comando [az deployment group create][az-deployment-group-create]. Deberá proporcionar el nombre de un grupo de recursos que se creó en una región como *eastus* que admite recursos de GPU.
 
 ```azurecli-interactive
-az group deployment create --resource-group myResourceGroup --template-file gpudeploy.json
+az deployment group create --resource-group myResourceGroup --template-file gpudeploy.json
 ```
 
 La implementación tarda varios minutos en completarse. A continuación, el contenedor se inicia y ejecuta el trabajo de TensorFlow. Ejecute el comando [az container logs][az-container-logs] para ver la salida del registro:
@@ -240,4 +240,4 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 [az-container-show]: /cli/azure/container#az-container-show
 [az-container-logs]: /cli/azure/container#az-container-logs
 [az-container-show]: /cli/azure/container#az-container-show
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create

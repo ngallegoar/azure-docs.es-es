@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 06/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0eebd626013614bb6240fc0e6530a358a2b86d1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eab509e389c074232526aa93fcebb72f3bc986c0
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781198"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185609"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Administración de Change Tracking e Inventario
 
@@ -79,10 +79,10 @@ Use los pasos siguientes para configurar el seguimiento de archivos en equipos L
 
 ## <a name="track-file-contents"></a>Seguimiento del contenido de archivos
 
-El seguimiento del contenido de archivos le permite ver el contenido de un archivo antes y después de que se produzca un cambio del que se realiza el seguimiento. La característica guarda el contenido del archivo en una [cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-account-overview) después de que se produzca cada cambio. Estas son algunas reglas que deben seguirse para el seguimiento del contenido de archivos:
+El seguimiento del contenido de archivos le permite ver el contenido de un archivo antes y después de que se produzca un cambio del que se realiza el seguimiento. La característica guarda el contenido del archivo en una [cuenta de almacenamiento](../storage/common/storage-account-overview.md) después de que se produzca cada cambio. Estas son algunas reglas que deben seguirse para el seguimiento del contenido de archivos:
 
 * Para almacenar el contenido del archivo se requiere una cuenta de almacenamiento estándar que use el modelo de implementación de Resource Manager. 
-* No use cuentas de almacenamiento de modelos de implementación prémium y clásica. Consulte [Acerca de las cuentas de Azure Storage](../storage/common/storage-create-storage-account.md).
+* No use cuentas de almacenamiento de modelos de implementación prémium y clásica. Consulte [Acerca de las cuentas de Azure Storage](../storage/common/storage-account-create.md).
 * Solo puede conectar la cuenta de almacenamiento a una cuenta de Automation.
 * [Change Tracking e Inventario](change-tracking.md) se deben habilitar en la cuenta de Automation.
 
@@ -170,7 +170,7 @@ Vamos a usar este ejemplo para describir los pasos para crear alertas sobre un c
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener información sobre las configuraciones de ámbito, consulte [Limitación del ámbito de implementación de Change Tracking e Inventario](automation-scope-configurations-change-tracking.md).
-* Si necesita buscar en los registros almacenados en el área de trabajo de Log Analytics, consulte [Introducción a las consultas de registro en Azure Monitor](../log-analytics/log-analytics-log-searches.md).
+* Si necesita buscar en los registros almacenados en el área de trabajo de Log Analytics, consulte [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 * Si ya ha terminado con las implementaciones, consulte [Desvinculación de un área de trabajo de una cuenta de Automation para Change Tracking e Inventario](automation-unlink-workspace-change-tracking.md).
 * Para eliminar las máquinas virtuales de Change Tracking e Inventario, consulte [Eliminación de máquinas virtuales de Change Tracking e Inventario](automation-remove-vms-from-change-tracking.md).
 * Para solucionar problemas de la característica, consulte [Solución de problemas de Change Tracking e Inventario](troubleshoot/change-tracking.md).

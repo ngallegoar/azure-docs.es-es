@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 32ad34bcfb42bf8fc45ba7fdb7fba5e797ee6106
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 03d4c2e0685ea165cbad524360a3db6e6c809733
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262441"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146138"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Búsqueda aproximada para corregir errores ortográficos y tipográficos
 
@@ -86,37 +86,49 @@ Suponga que existe la siguiente cadena en un campo `"Description"` de un documen
 
 Comience con una búsqueda aproximada de "especial" y agregue el resaltado de referencias al campo de descripción:
 
-    search=special~&highlight=Description
+```console
+search=special~&highlight=Description
+```
 
 En la respuesta, como ha agregado el resaltado de referencias, el formato se aplica a "especial" como término coincidente.
 
-    "@search.highlights": {
-        "Description": [
-            "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
-        ]
+```output
+"@search.highlights": {
+    "Description": [
+        "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
+    ]
+```
 
 Vuelva a intentar la solicitud, escribiendo incorrectamente "especial" quitando varias letras (en este ejemplo, "pe"):
 
-    search=scial~&highlight=Description
+```console
+search=scial~&highlight=Description
+```
 
 Hasta el momento, no hay ningún cambio en la respuesta. Si se usa el valor predeterminado de 2 grados de distancia, la eliminación de dos caracteres como "pe" en el caso de "especial" sigue permitiendo una coincidencia correcta en ese término.
 
-    "@search.highlights": {
-        "Description": [
-            "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
-        ]
+```output
+"@search.highlights": {
+    "Description": [
+        "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
+    ]
+```
 
 Vuelta a intentar otra solicitud, modificando aún más el término de búsqueda quitando un último carácter hasta un total de tres eliminaciones (por ejemplo, pasar de "especial" a "escal"):
 
-    search=scal~&highlight=Description
+```console
+search=scal~&highlight=Description
+```
 
 Observe que se devuelve la misma respuesta, pero ahora, en lugar de buscar coincidencias de "especial", la coincidencia aproximada es para "SQL".
 
-            "@search.score": 0.4232868,
-            "@search.highlights": {
-                "Description": [
-                    "Mix of special characters, plus strings for MSFT, <em>SQL</em>, 2019, Linux, Java."
-                ]
+```output
+        "@search.score": 0.4232868,
+        "@search.highlights": {
+            "Description": [
+                "Mix of special characters, plus strings for MSFT, <em>SQL</em>, 2019, Linux, Java."
+            ]
+```
 
 El objetivo de este ejemplo expandido es ilustrar la claridad que el resaltado de referencias puede aportar a resultados ambiguos. En todos los casos, se devuelve el mismo documento. Si hubiera confiado en los identificadores de documento para comprobar una coincidencia, podría haberse perdido el cambio de "especial" a "SQL".
 

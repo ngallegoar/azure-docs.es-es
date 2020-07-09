@@ -2,14 +2,14 @@
 title: Recopilar y analizar registros de recursos
 description: Obtenga información sobre cómo enviar registros de recursos y datos de eventos de grupos de contenedores en Azure Container Instances a los registros de Azure Monitor.
 ms.topic: article
-ms.date: 04/07/2020
+ms.date: 07/02/2020
 ms.author: danlep
-ms.openlocfilehash: bd21a511641d5ea027c18bedb4dce47749110bcb
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: c76d8a2e7e468c511f0df47ebb240a787f40e026
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80892400"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169738"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Registro de instancias y grupos de contenedores con registros de Azure Monitor
 
@@ -68,7 +68,7 @@ az container create \
 Utilice este método si prefiere implementar grupos de contenedores con YAML. El siguiente fragmento de código YAML define un grupo de contenedores con un solo contenedor. Copie el código YAML en un nuevo archivo y sustituya `LOG_ANALYTICS_WORKSPACE_ID` y `LOG_ANALYTICS_WORKSPACE_KEY` por los valores que obtuvo en el paso anterior. Guarde el archivo con el nombre **deploy-aci.yaml**.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: mycontainergroup001
 properties:

@@ -2,13 +2,13 @@
 title: Habilitación de TLS con un contenedor sidecar
 description: Crear un punto de conexión SSL o TLS para un grupo de contenedores que se ejecute en Azure Container Instances mediante la ejecución de Nginx en un contenedor sidecar
 ms.topic: article
-ms.date: 02/14/2020
-ms.openlocfilehash: b9ea9367219db694b89d6bf4a1e52efb373c71c4
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.date: 07/02/2020
+ms.openlocfilehash: f7f5d8e8136f4357067888f5a39fa0c3635122d1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984613"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169857"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>Habilitación de un punto de conexión TLS en un contenedor sidecar
 
@@ -147,7 +147,7 @@ code deploy-aci.yaml
 Escriba el contenido de los archivos con codificación Base64 donde se indique en `secret`. Por ejemplo, aplique `cat` en cada uno de los archivos con codificación Base64 para ver su contenido. Durante la implementación, estos archivos se agregan a un [volumen secreto](container-instances-volume-secret.md) del grupo de contenedores. En este ejemplo, el volumen secreto se monta en el contenedor de Nginx.
 
 ```YAML
-api-version: 2018-10-01
+api-version: 2019-12-01
 location: westus
 name: app-with-ssl
 properties:

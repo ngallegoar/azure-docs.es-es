@@ -2,13 +2,13 @@
 title: Configuración del sondeo de ejecución en la instancia de contenedor
 description: Información sobre cómo configurar los sondeos de ejecución para reiniciar contenedores incorrectos en Azure Container Instances
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 11c6c9d39067c536bf4325f74eb24b2ab64ef515
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/02/2020
+ms.openlocfilehash: befe9693be1413abf455d915814c53aab20db53c
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76934158"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169704"
 ---
 # <a name="configure-liveness-probes"></a>Configuración de sondeos de ejecución
 
@@ -26,7 +26,7 @@ Azure Container Instances también admite [sondeos de preparación](container-
 Cree un archivo `liveness-probe.yaml` con el siguiente fragmento de código. Este archivo define un grupo de contenedores que consta de un contenedor NGNIX que, con el tiempo, se vuelve incorrecto.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: livenesstest
 properties:

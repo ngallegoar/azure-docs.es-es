@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/15/2019
-ms.openlocfilehash: 56fb677ca80c047fb90c58a3e0aedb41e6d4a3f2
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 175abe54ce5476bece309bbfaf7858cd2e214f52
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045100"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187666"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Uso del paquete NuGet de CI/CD de Azure Stream Analytics para la integración y el desarrollo 
 En este artículo se describe cómo usar el paquete NuGet de CI/CD de Azure Stream Analytics para configurar un proceso de integración e implementación continuas.
@@ -36,15 +36,11 @@ Cuando un proyecto de Stream Analytics para Visual Studio se compila correctamen
 
 * Archivo de plantilla de Resource Manager
 
-   ```
-   [ProjectName].JobTemplate.json 
-   ```
+   `[ProjectName].JobTemplate.json`
 
 * Archivo de parámetros de Resource Manager
    
-   ```
-   [ProjectName].JobTemplate.parameters.json
-   ```
+   `[ProjectName].JobTemplate.parameters.json`
 
 Los parámetros predeterminados en el archivo parameters.json provienen de la configuración del proyecto de Visual Studio. Si quiere implementar en otro entorno, reemplace los parámetros según corresponda.
 
