@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
-ms.openlocfilehash: 5cf1986711479f7330b0cd477744d9f4e2ac6459
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d8dd9aaeaadf13fa48577cf2853e7bcf58badb41
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76548941"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079299"
 ---
 # <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Uso de las características extendidas del Servidor de historial de Apache Spark para depurar y diagnosticar aplicaciones Spark
 
@@ -130,7 +130,7 @@ Seleccione el identificador del trabajo y, a continuación, seleccione **Data** 
     ![Icono de tarea con desfase en la página Spark Application & Job Graph (Gráfico de la aplicación Spark y el trabajo).](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
 + El nodo del gráfico del trabajo mostrará la siguiente información de cada fase:
-  + id
+  + ID
   + Nombre o descripción
   + Número total de tareas
   + Datos leídos: suma del tamaño de entrada y el tamaño de lectura aleatorio
@@ -328,6 +328,6 @@ Si desea actualizar con una revisión, use el siguiente script, que actualizará
 + [Administración de recursos de un clúster Apache Spark en Azure HDInsight](apache-spark-resource-manager.md)
 + [Configuración de opciones de Apache Spark](apache-spark-settings.md)
 
-## <a name="feedback"></a>Comentarios
+## <a name="suggestions"></a>Sugerencias
 
 Si tiene algún comentario o si experimenta algún problema al usar esta herramienta, envíe un correo electrónico a ([hdivstool@microsoft.com](mailto:hdivstool@microsoft.com)).
