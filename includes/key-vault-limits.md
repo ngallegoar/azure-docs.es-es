@@ -1,15 +1,15 @@
 ---
 author: rothja
-ms.service: cost-management-billing
+ms.service: key-vault
 ms.topic: include
 ms.date: 04/21/2020
 ms.author: jroth
-ms.openlocfilehash: 8247b1cedc2c5ebc8577af6be485aed0fcd5d6af
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 01b3c9584f3ecddbcdcc6938f5eb469510a47a4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81768742"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85839035"
 ---
 ### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Transacciones clave (n.º máximo de transacciones permitidas en 10 segundos, por almacén y región<sup>1</sup>):
 
@@ -46,7 +46,10 @@ Vea la [Guía de las limitaciones de Azure Key Vault](../articles/key-vault/key-
 
 ### <a name="azure-private-link-integration"></a>Integración de Azure Private Link
 
-| Resource | Límite |
+> [!NOTE]
+> El número de almacenes de claves con puntos de conexión privados habilitados por suscripción es un límite ajustable. El límite que se muestra a continuación es el límite predeterminado. Si desea solicitar un aumento del límite para su servicio, envíe un correo electrónico a akv-privatelink@microsoft.com. Estas solicitudes se aprobarán caso por caso.
+
+| Recurso | Límite |
 | -------- | ----- |
 | Puntos de conexión privados por almacén de claves | 64 |
-| Almacenes de claves con puntos de conexión privados por suscripción | 64 |
+| Almacenes de claves con puntos de conexión privados por suscripción | 400 |

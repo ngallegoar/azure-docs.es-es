@@ -4,20 +4,18 @@ ms.author: memildin
 manager: rkarlin
 ms.date: 02/24/2020
 ms.topic: include
-ms.openlocfilehash: 78bf29a170152666d82ec26504ee8f61ed90636a
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 5efa8b845952c8ab5b66b781fb534c3754239b4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82616097"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677444"
 ---
 ## <a name="attack-scenario"></a>Escenario de ataque
 
 Normalmente, los ataques por fuerza bruta tienen como destino los puertos de administración para obtener acceso a una máquina virtual. Si un atacante tiene éxito, puede tomar el control de la máquina virtual y establecer un punto de apoyo en su entorno.
 
 Una manera de reducir el riesgo de sufrir un ataque por fuerza bruta consiste en limitar el tiempo que está abierto un puerto. No es necesario que los puertos de administración estén abiertos en todo momento. Solo deben estar abiertos mientras se está conectado a la máquina virtual, por ejemplo, para realizar tareas de administración o mantenimiento. Cuando se habilita Just-In-Time, Security Center usa las reglas del [grupo de seguridad de red](../articles/virtual-network/security-overview.md#security-rules) (NSG) y Azure Firewall, que restringen el acceso a los puertos de administración para que no puedan ser objeto de ataques.
-
-![Escenario de Just-in-time](../articles/security-center/media/security-center-just-in-time/just-in-time-scenario.png)
 
 ## <a name="how-does-jit-access-work"></a>¿Cómo funciona el acceso JIT?
 

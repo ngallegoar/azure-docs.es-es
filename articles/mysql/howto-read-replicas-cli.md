@@ -4,14 +4,14 @@ description: Aprenda a crear y administrar réplicas de lectura en Azure Databa
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: ed57003c7a9a5a1a9d87aa2e8934af8c48b1d819
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.date: 6/10/2020
+ms.openlocfilehash: 1df590bcec4dfed08dea81c60738a40ca9be8bee
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80063330"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108743"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>Creación y administración de réplicas de lectura en Azure Database for MySQL mediante la CLI de Azure y API REST
 
@@ -20,7 +20,7 @@ En este artículo aprenderá a crear y administrar réplicas de lectura en el se
 ## <a name="azure-cli"></a>Azure CLI
 Puede crear y administrar réplicas de lectura mediante la CLI de Azure.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Requisitos previos
 
 - [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - Un [servidor de Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-portal.md) que se usará como servidor maestro. 
@@ -29,6 +29,9 @@ Puede crear y administrar réplicas de lectura mediante la CLI de Azure.
 > La característica de réplica de lectura solo está disponible para servidores de Azure Database for MySQL en los planes de tarifa De uso general u Optimizada para memoria. Asegúrese de que el servidor maestro está en uno de estos planes de tarifa.
 
 ### <a name="create-a-read-replica"></a>Creación de una réplica de lectura
+
+> [!IMPORTANT]
+> Cuando se crea una réplica para un servidor maestro que no tiene réplicas existentes, el maestro se reiniciará en primer lugar para prepararse para la replicación. Téngalo en cuenta y realice estas operaciones durante un período de poca actividad.
 
 Un servidor de réplica de lectura se puede crear mediante el comando siguiente:
 

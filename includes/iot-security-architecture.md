@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: a2eafd6bb34b897f3492ddcffd6841f0fabc4ca7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73034553"
 ---
 Cuando se diseña un sistema, es importante conocer las posibles amenazas a las que puede estar expuesto y agregar las defensas adecuadas según corresponda durante su diseño y arquitectura. Es importante diseñar el producto desde el principio teniendo en cuenta la seguridad, ya que conocer la forma en que un atacante podría poner en peligro un sistema ayuda a tomar las medidas pertinentes desde el principio.
@@ -167,7 +167,7 @@ En esta sección se explora la arquitectura esbozada anteriormente a través de 
 
 En cada una de las categorías esbozadas en la arquitectura de IoT de Azure, en este ejemplo se intentan mitigar varias amenazas diferentes en las distintas fases en que existen información o datos: proceso, comunicación y almacenamiento. A continuación, se ofrece información general de las más comunes para la categoría de "proceso", seguida de información general de cuál sería la mejor forma de mitigar estas amenazas:
 
-**Suplantación de identidad (S)** : un atacante puede extraer material criptográfico clave de un dispositivo en el nivel de hardware o en el de software y, posteriormente, tener acceso al sistema con un dispositivo físico o virtual diferente bajo la identidad del dispositivo del que se ha tomado el material clave. Un buen ejemplo son los mandos a distancia que pueden encender cualquier televisor y que son herramientas populares para gastar bromas.
+**Suplantación de identidad (S)** : un atacante puede extraer material de la clave criptográfica de un dispositivo, en el nivel de hardware o en el de software y posteriormente acceder al sistema con un dispositivo físico o virtual diferente bajo la identidad del dispositivo del que se ha tomado el material de la clave. Un buen ejemplo son los mandos a distancia que pueden encender cualquier televisor y que son herramientas populares para gastar bromas.
 
 **Denegación de servicio (D)** : un dispositivo se puede representar como incapaz de funcionar o comunicarse al interferir con frecuencias de radio o cortar hilos. Por ejemplo, una cámara de vigilancia cuya alimentación o conexión de red se ha interrumpido intencionadamente no puede notificar datos.
 
@@ -202,7 +202,7 @@ Estos son algunos ejemplos de las amenazas de esta categoría:
 
 **Divulgación de información**: si el dispositivo ejecuta software manipulado, dicho software puede proporcionar datos a partes no autorizadas.
 
-**Divulgación de información**: un atacante puede usar el material clave extraído para inyectarse a sí mismo en la ruta de acceso de comunicación entre el dispositivo y un controlador o la puerta de enlace del campo o la puerta de enlace en la nube para desviar información.
+**Divulgación de información**: un atacante puede sacar provecho del material clave extraído para inyectarse a sí mismo en la ruta de acceso de comunicación entre el dispositivo y un controlador o la puerta de enlace del campo o la puerta de enlace en la nube para desviar información.
 
 **Denegación de servicio**: el dispositivo se puede desactivar o activar en un modo en el que la comunicación no sea posible (lo que es intencionado en muchas máquinas industriales).
 

@@ -9,14 +9,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: 253c391b222c757a367bd5cd39939052cc697b00
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 459ab7a254994929174e4f81ad25f0729f43fa0b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588426"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108977"
 ---
-Para ejecutar el contenedor *Análisis de sentimiento v3*, ejecute el siguiente comando `docker run`.
+Para ejecutar el contenedor *Análisis de sentimiento v3*, ejecute el siguiente comando `docker run`. Reemplace los marcadores de posición por sus propios valores:
+
+| Marcador de posición | Value | Formato o ejemplo |
+|-------------|-------|---|
+| **{CLAVE_API}** | Clave del recurso de Text Analytics. Puede encontrarla en la página **Clave y punto de conexión** del recurso en Azure Portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| **{URI_PUNTODECONEXIÓN}** | Punto de conexión para acceder a Text Analytics API. Puede encontrarla en la página **Clave y punto de conexión** del recurso en Azure Portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 1 \

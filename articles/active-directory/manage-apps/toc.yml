@@ -105,12 +105,8 @@
       items:
         - name: Incorporación de una aplicación en la nube
           items:
-            - name: Incorporación de una aplicación de la galería
-              href: add-gallery-app.md
             - name: Incorporación de una aplicación que no es de la galería
               href: add-non-gallery-app.md
-            - name: Cambio del nombre o logotipo de la aplicación
-              href: change-name-or-logo-portal.md
         - name: Configurar inicio de sesión único
           items:
             - name: Configuración del inicio de sesión único basado en SAML

@@ -4,20 +4,20 @@ description: Aprenda a crear y administrar réplicas de lectura en Azure Databa
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 0aab6957f6078a59aafd0c9967b0d88e97e50cda
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.topic: how-to
+ms.date: 6/10/2020
+ms.openlocfilehash: a3342a626a104dc5eb77ef4b01146a8943dae2d2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849440"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108080"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Procedimiento para crear y administrar réplicas de lectura en Azure Database for MySQL mediante Azure Portal
 
 En este artículo, obtendrá información sobre cómo crear y administrar las réplicas de lectura en el servicio Azure Database for MySQL mediante Azure Portal.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Un [servidor de Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-portal.md) que se usará como servidor maestro.
 
@@ -25,6 +25,9 @@ En este artículo, obtendrá información sobre cómo crear y administrar las r�
 > La característica de réplica de lectura solo está disponible para servidores de Azure Database for MySQL en los planes de tarifa De uso general u Optimizada para memoria. Asegúrese de que el servidor maestro está en uno de estos planes de tarifa.
 
 ## <a name="create-a-read-replica"></a>Creación de una réplica de lectura
+
+> [!IMPORTANT]
+> Cuando se crea una réplica para un servidor maestro que no tiene réplicas existentes, el maestro se reiniciará en primer lugar para prepararse para la replicación. Téngalo en cuenta y realice estas operaciones durante un período de poca actividad.
 
 Para crear un servidor de réplica de lectura, puede seguir estos siguientes pasos:
 

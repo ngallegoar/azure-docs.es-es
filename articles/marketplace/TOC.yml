@@ -216,8 +216,8 @@
               href: ./partner-center-portal/commercial-marketplace-co-sell-countries.md
             - name: Códigos de estado
               href: ./partner-center-portal/commercial-marketplace-co-sell-states.md
-    - name: Estado de publicación
-      href: ./partner-center-portal/publishing-status.md
+    - name: Revisión y publicación
+      href: review-publish-offer.md
     - name: Actualización de oferta existente
       href: ./partner-center-portal/update-existing-offer.md
     - name: Activación de ventajas

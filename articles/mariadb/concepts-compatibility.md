@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: a0cee198f028fd90e04dac15e98d7cd33aee9201
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79c91fff837e3869eda0f45ce892e63b6611a1d0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79532355"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107213"
 ---
 # <a name="mariadb-drivers-and-management-tools-compatible-with-azure-database-for-mariadb"></a>Herramientas de administración y controladores de MariaDB compatibles con Azure Database for MariaDB
 
@@ -37,7 +37,7 @@ Java | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 y a
 
 La ventaja de compatibilidad se amplía también a las herramientas de administración de base de datos. Sus herramientas actuales deben continuar funcionando con Azure Database for MariaDB, siempre y cuando la manipulación de la base de datos tenga lugar dentro de los límites establecidos por los permisos de usuario. En la tabla siguiente se indican las tres herramientas comunes de administración de base de datos que se han demostrado ser compatibles con Azure Database for MariaDB 10.2:
 
-| | **MySQL Workbench 6.x y superiores** | **Navicat 12** | **PHPMyAdmin 4.x y superiores**
+| Acción | **MySQL Workbench 6.x y superiores** | **Navicat 12** | **PHPMyAdmin 4.x y superiores**
 ---|---|---|---
 Crear, actualizar, leer, escribir, eliminar | X | X | X
 Conexión SSL | X | X | X

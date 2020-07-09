@@ -5,15 +5,15 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 06/30/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4860dcac666f790fed199536338e50a967113c20
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f707ccaaf150f4dbd799ca56bf823968a6889a4b
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76748983"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856563"
 ---
 En este artículo proporciona una visión general de las características de disponibilidad de las máquinas virtuales (VM) de Azure.
 
@@ -48,17 +48,6 @@ Este enfoque garantiza que al menos una instancia de la aplicación sigue ejecut
 ## <a name="virtual-machines-scale-sets"></a>Conjuntos de escalado de máquinas virtuales 
 
 Los conjuntos de escalado de máquinas virtuales de Azure permiten crear y administrar un grupo de máquinas virtuales con equilibrio de carga. El número de instancias de máquina virtual puede aumentar o disminuir automáticamente según la demanda, o de acuerdo a una programación definida. Los conjuntos de escalado proporcionan una alta disponibilidad a las aplicaciones y le permiten administrar, configurar y actualizar de forma centralizada muchas máquinas virtuales. Se recomienda la creación de dos o más máquinas virtuales en un conjunto de escalado para proporcionar una aplicación de alta disponibilidad y para cumplir el [99,95 % del Acuerdo de Nivel de Servicio de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). No hay ningún costo asociado con el conjunto de escalado propiamente dicho, solo se paga por cada instancia de máquina virtual que cree. Cuando una sola máquina virtual usa [discos SSD Premium de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd), se aplica el Acuerdo de Nivel de Servicio de Azure para los eventos de mantenimiento no planeados. Las máquinas virtuales de un conjunto de escalado se pueden implementar en varios dominios de actualización y dominios de error para maximizar la disponibilidad y la resistencia a las interrupciones debidas a interrupciones del centro de datos y a eventos de mantenimiento planeados o no planeados. Las máquinas virtuales de un conjunto de escalado también se pueden implementar en una sola zona de disponibilidad o en regiones. Las opciones de implementación de zona de disponibilidad pueden diferir según el modo de orquestación.
-
-### <a name="preview-orchestration-mode-preview"></a>Vista previa: versión preliminar del modo de orquestación
-Los conjuntos de escalado de máquinas virtuales permiten especificar el modo de orquestación.  Con el modo de orquestación del conjunto de escalado de máquinas virtuales (versión preliminar), ahora puede elegir si el conjunto de escalado debe orquestar las máquinas virtuales que se crean explícitamente fuera de un modelo de configuración de conjunto de escalado o las instancias de máquina virtual creadas de manera implícita en función del modelo de configuración. Elija el modo de orquestación de máquina virtual que le permite agrupar máquinas virtuales definidas de manera explícita en una región o en una zona de disponibilidad. Las máquinas virtuales implementadas en una zona de disponibilidad proporcionan aislamiento de zonas a las máquinas virtuales a las que están enlazadas en el límite de la zona de disponibilidad y no están sujetas a errores que puedan producirse en otra zona de disponibilidad de la región. 
-
-|   | "orchestrationMode": "VM" (VirtualMachine)| "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
-|----|----|----|
-| Modelo de configuración de máquina virtual| Ninguno. VirtualMachineProfile no se define en el modelo del conjunto de escalado. | Necesario. VirtualMachineProfile se rellena en el modelo del conjunto de escalado. |
-| Incorporación de una máquina virtual nueva a un conjunto de escalado| Las máquinas virtuales se agregan de manera explícita al conjunto de escalado cuando se crea la máquina virtual. | Las máquinas virtuales se crean de manera implícita y se agregan al conjunto de escalado según el modelo de configuración de la máquina virtual, el recuento de instancias y las reglas de escalado automático. |
-| Zonas de disponibilidad| Admite la implementación regional o las máquinas virtuales en una zona de disponibilidad| Admite la implementación regional o varias zonas de disponibilidad. Puede definir la estrategia de equilibrio de zona. |
-| Dominios de error| Puede definir el recuento de dominios de error. 2 o 3 según la compatibilidad regional y 5 para la zona de disponibilidad. El dominio de error de VM asignado se conservará con el ciclo de vida de la máquina virtual, incluida la desasignación y el reinicio. | Puede definir 1, 2 o 3 dominios de error para implementaciones sin zonas y 5 para implementaciones de zonas de disponibilidad. El dominio de error de VM asignado no se conserva con el ciclo de vida de la máquina virtual, a las máquinas virtuales se les asigna un dominio de error en el momento de la asignación. |
-| Dominios de actualización| N/D Los dominios de actualización se asignan automáticamente a los dominios de error| N/D Los dominios de actualización se asignan automáticamente a los dominios de error |
 
 **Dominios de error y dominios de actualización**
 
