@@ -3,11 +3,12 @@ title: Índice de ejemplos de planos técnicos
 description: Índice de ejemplos de cumplimiento y estándar para implementar entornos, directivas y las bases de Cloud Adoption Framework con Azure Blueprints.
 ms.date: 07/01/2020
 ms.topic: sample
-ms.openlocfilehash: 7e45cbbbf7cf6c2e267156dbb0087a19d8288aa2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef85ef0615fa0817a574240e65b7670daeaff33b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85832328"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181563"
 ---
 # <a name="azure-blueprints-samples"></a>Ejemplos de Azure Blueprints
 
@@ -15,7 +16,7 @@ En la tabla siguiente se incluyen vínculos a ejemplos de Azure Blueprints. Cada
 
 ## <a name="standards-based-blueprint-samples"></a>Ejemplos de planos técnicos basados en estándares
 
-|  |  |
+| Muestra | Descripción |
 |---------|---------|
 | [Australian Government ISM PROTECTED](./ism-protected/control-mapping.md) | Proporciona límites de protección para el cumplimiento de Australian Government ISM PROTECTED. |
 | [Azure Security Benchmark](./azure-security-benchmark.md) | Proporciona protección para garantizar el cumplimiento de [Azure Security Benchmark](../../../security/benchmarks/overview.md). |
