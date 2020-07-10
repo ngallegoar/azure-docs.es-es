@@ -4,6 +4,8 @@
   items:
     - name: ¿Qué es Azure Load Balancer?
       href: load-balancer-overview.md
+    - name: Novedades
+      href: whats-new.md
     - name: Preguntas más frecuentes
       href: load-balancer-faqs.md
 - name: Guía de inicio rápido
