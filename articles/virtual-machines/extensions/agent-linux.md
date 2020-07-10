@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5f22fbd77069488e7aaf490f93f42cde747444a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4143e049f0a89d1218d9442eaebc1c5ebaf4cc77
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74073864"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186833"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Información y uso del agente de Linux de Azure
 
@@ -107,12 +107,12 @@ Consulte la documentación en el [repositorio de agente Linux de Azure en GitHub
 
 ## <a name="command-line-options"></a>Opciones de la línea de comandos
 ### <a name="flags"></a>Marcas
-* verbose: Aumenta el nivel de detalle de un comando específico
-* force: Omite la confirmación interactiva de algunos comandos
+* verbose: aumenta el nivel de detalle de un comando específico.
+* force: omite la confirmación interactiva de algunos comandos.
 
 ### <a name="commands"></a>Comandos:
-* help: Enumera los comandos y las marcas compatibles.
-* deprovision: Intenta limpiar el sistema y prepararlo para un reaprovisionamiento. La operación siguiente elimina:
+* help: enumera los comandos y las marcas compatibles.
+* deprovision: intenta limpiar el sistema y prepararlo para un reaprovisionamiento. La operación siguiente elimina:
   
   * Todas las claves de host de SSH (si Provisioning.RegenerateSshHostKeyPair es "y" en el archivo de configuración)
   * Configuración de Nameserver en /etc/resolv.conf
@@ -125,45 +125,45 @@ Consulte la documentación en el [repositorio de agente Linux de Azure en GitHub
 > 
 > 
 
-* deprovision+user: realiza todo según -deprovision (arriba) y también elimina la última cuenta de usuario aprovisionada (obtenida de /var/lib/waagent) y los datos asociados. Este parámetro está presente cuando se desaprovisiona una imagen que se estaba aprovisionando anteriormente en Azure de modo que se pueda capturar y volver a usar.
-* version: Muestra la versión de waagent
-* serialconsole:Configura GRUB para marcar ttyS0 (el primer puerto serie) como la consola de arranque. Esto asegura que los registros de arranque del kernel se envíen al puerto serie y queden disponibles para su depuración.
-* daemon: Ejecuta waagent como un daemon para administrar la interacción con la plataforma. Este argumento se especifica en waagent en el script init de waagent.
-* start: Ejecución de waagent como proceso en segundo plano
+* deprovision+user: realiza todo de -deprovision (arriba) y también elimina la última cuenta de usuario aprovisionada (obtenida de /var/lib/waagent) y los datos asociados. Este parámetro está presente cuando se desaprovisiona una imagen que se estaba aprovisionando anteriormente en Azure de modo que se pueda capturar y volver a usar.
+* version: muestra la versión de waagent.
+* serialconsole: configura GRUB para marcar ttyS0 (el primer puerto serie) como la consola de arranque. Esto asegura que los registros de arranque del kernel se envíen al puerto serie y queden disponibles para su depuración.
+* daemon: ejecuta waagent como un demonio para administrar la interacción con la plataforma. Este argumento se especifica en waagent en el script init de waagent.
+* start: ejecuta waagent como proceso en segundo plano.
 
 ## <a name="configuration"></a>Configuración
 Un archivo de configuración (/etc/waagent.conf) controla las acciones de waagent. A continuación se muestra un archivo de configuración de ejemplo:
 
-    ```
-    Provisioning.Enabled=y
-    Provisioning.DeleteRootPassword=n
-    Provisioning.RegenerateSshHostKeyPair=y
-    Provisioning.SshHostKeyPairType=rsa
-    Provisioning.MonitorHostName=y
-    Provisioning.DecodeCustomData=n
-    Provisioning.ExecuteCustomData=n
-    Provisioning.AllowResetSysUser=n
-    Provisioning.PasswordCryptId=6
-    Provisioning.PasswordCryptSaltLength=10
-    ResourceDisk.Format=y
-    ResourceDisk.Filesystem=ext4
-    ResourceDisk.MountPoint=/mnt/resource
-    ResourceDisk.MountOptions=None
-    ResourceDisk.EnableSwap=n
-    ResourceDisk.SwapSizeMB=0
-    LBProbeResponder=y
-    Logs.Verbose=n
-    OS.RootDeviceScsiTimeout=300
-    OS.OpensslPath=None
-    HttpProxy.Host=None
-    HttpProxy.Port=None
-    AutoUpdate.Enabled=y
-    ```
+```config
+Provisioning.Enabled=y
+Provisioning.DeleteRootPassword=n
+Provisioning.RegenerateSshHostKeyPair=y
+Provisioning.SshHostKeyPairType=rsa
+Provisioning.MonitorHostName=y
+Provisioning.DecodeCustomData=n
+Provisioning.ExecuteCustomData=n
+Provisioning.AllowResetSysUser=n
+Provisioning.PasswordCryptId=6
+Provisioning.PasswordCryptSaltLength=10
+ResourceDisk.Format=y
+ResourceDisk.Filesystem=ext4
+ResourceDisk.MountPoint=/mnt/resource
+ResourceDisk.MountOptions=None
+ResourceDisk.EnableSwap=n
+ResourceDisk.SwapSizeMB=0
+LBProbeResponder=y
+Logs.Verbose=n
+OS.RootDeviceScsiTimeout=300
+OS.OpensslPath=None
+HttpProxy.Host=None
+HttpProxy.Port=None
+AutoUpdate.Enabled=y
+```
 
 A continuación se describen varias opciones de configuración. Las opciones de configuración son de tres tipos: Boolean, String o Integer. Las opciones de configuración booleana se pueden especificar como "y" o "n". La palabra clave especial "None" se puede usar para algunas entradas de la configuración tipo cadena como se detalla a continuación:
 
 **Provisioning.Enabled:**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
@@ -175,14 +175,14 @@ Esta opción permite que el usuario habilite o deshabilite la funcionalidad de a
 > 
 
 **Provisioning.DeleteRootPassword:**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Si se establece, se borra la contraseña raíz en el archivo /etc/shadow durante el proceso de aprovisionamiento.
 
 **Provisioning.RegenerateSshHostKeyPair:**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
@@ -191,137 +191,137 @@ Si se establece, se eliminan todos los pares de clave de host de SSH (ecdsa, dsa
 El tipo de cifrado para el par de clave nuevo se puede configurar mediante la entrada Provisioning.SshHostKeyPairType. Algunas distribuciones vuelven a crear los pares de clave de SSH para los tipos de cifrado que faltan cuando el demonio de SSH se reinicia (por ejemplo, en un nuevo arranque del equipo).
 
 **Provisioning.SshHostKeyPairType:**  
-```
+```txt
 Type: String  
 Default: rsa
 ```
 Esta opción se puede establecer en un tipo de algoritmo de cifrado que es compatible con el demonio de SSH en la máquina virtual. Los valores generalmente admitidos son "rsa", "dsa" y "ecdsa". "putty.exe" en Windows no admite "ecdsa". Por lo tanto, si pretende usar putty.exe en Windows para conectarse a una implementación de Linux, use "rsa" o "dsa".
 
 **Provisioning.MonitorHostName:**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
 Si se configura, waagent supervisa la máquina virtual de Linux en busca de cambios en el nombre de host (según los devuelve el comando "hostname") y actualiza automáticamente la configuración de red en la imagen para reflejar el cambio. Para insertar el cambio de nombre en los servidores DNS, la red se reinicia en la máquina virtual. Esta acción tiene como resultado una breve pérdida de la conectividad con Internet.
 
 **Provisioning.DecodeCustomData**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Si se establece, waagent descodifica CustomData desde Base64.
 
 **Provisioning.ExecuteCustomData**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Si se establece, waagent ejecuta CustomData después del aprovisionamiento.
 
 **Provisioning.AllowResetSysUser**
-```
+```txt
 Type: Boolean
 Default: n
 ```
 Esta opción permite restablecer la contraseña del usuario SYS; de forma predeterminada, está deshabilitada.
 
 **Provisioning.PasswordCryptId**  
-```
+```txt
 Type: String  
 Default: 6
 ```
-Algoritmo usado por el cifrado al generar el hash de contraseña.   
+Algoritmo usado por el cifrado al generar el hash de contraseña.  
  1 - MD5  
  2a - Blowfish  
  5 - SHA-256  
  6 - SHA-512  
 
 **Provisioning.PasswordCryptSaltLength**  
-```
+```txt
 Type: String  
 Default: 10
 ```
 Longitud del valor salt aleatorio usado al generar el hash de contraseña.
 
 **ResourceDisk.Format:**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
 Si se establece, el disco de recursos proporcionado por la plataforma se formatea y se monta a través de waagent si el tipo de sistema de archivos solicitado por el usuario en "ResourceDisk.Filesystem" es cualquiera, salvo "ntfs". Se deja disponible una sola partición de tipo Linux (83) en el disco. Esta partición no se formatea si se puede montar correctamente.
 
 **ResourceDisk.Filesystem:**  
-```
+```txt
 Type: String  
 Default: ext4
 ```
 De esta manera se especifica el tipo de sistema de archivos para el disco de recursos. Los valores admitidos varían según la distribución de Linux. Si la cadena es X, entonces mkfs.X debe estar presente en la imagen de Linux. Las imágenes de SLES 11 deben usar generalmente "ext3". Las imágenes de FreeBSD deben usar "ufs2".
 
 **ResourceDisk.MountPoint:**  
-```
+```txt
 Type: String  
 Default: /mnt/resource 
 ```
 Esta opción especifica la ruta en la cual se monta el disco de recursos. El disco de recursos es un disco *temporal* que podría vaciarse cuando la máquina virtual se desaprovisiona.
 
 **ResourceDisk.MountOptions**  
-```
+```txt
 Type: String  
 Default: None
 ```
 Especifica las opciones de montaje de disco que se pasarán al comando -o de montaje. Esta es una lista de valores separados por comas, por ejemplo, 'nodev,nosuid'. Consulte mount(8) para obtener detalles.
 
 **ResourceDisk.EnableSwap:**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Si se establece, se crea un archivo de intercambio (/swapfile) en el disco de recursos y se agrega al espacio de intercambio del sistema.
 
 **ResourceDisk.SwapSizeMB:**  
-```
+```txt
 Type: Integer  
 Default: 0
 ```
 El tamaño del archivo de intercambio en megabytes.
 
 **Logs.Verbose:**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Si se establece, se aumenta el nivel de detalle del registro. Waagent crea los registros en /var/log/waagent.log y usa la funcionalidad logrotate del sistema para alternar los registros.
 
 **OS.EnableRDMA**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Si se establece, el agente intenta instalar y cargar un controlador de kernel RDMA que coincida con la versión del firmware del hardware subyacente.
 
 **OS.RootDeviceScsiTimeout:**  
-```
+```txt
 Type: Integer  
 Default: 300
 ```
 Esta opción configura el tiempo de espera SCSI en segundos en el disco del sistema operativo y las unidades de datos. Si no se establece, se usan los valores predeterminados del sistema.
 
 **OS.OpensslPath:**  
-```
+```txt
 Type: String  
 Default: None
 ```
 Esta opción se puede usar para especificar una ruta alternativa para que el binario openssl la use para las operaciones criptográficas.
 
 **HttpProxy.Host, HttpProxy.Port**  
-```
+```txt
 Type: String  
 Default: None
 ```
 Si se establece, el agente usa este servidor proxy para tener acceso a Internet. 
 
 **AutoUpdate.Enabled**
-```
+```txt
 Type: Boolean
 Default: y
 ```
@@ -343,6 +343,6 @@ Las imágenes de tipo Ubuntu Cloud Images usan [cloud-init](https://launchpad.ne
 
 * Para más información, vea los recursos siguientes para configurar el punto de montaje del disco de recursos e intercambiar espacio en Ubuntu Cloud Images durante el aprovisionamiento:
   
-  * [Ubuntu Wiki: Configure Swap Partitions (Configuración de particiones de intercambio)](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+  * [Ubuntu Wiki: Configure Swap Partitions](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409) (Configuración de particiones de intercambio)
   * [Inyección de datos personalizados en una máquina virtual de Azure](../windows/classic/inject-custom-data.md)
 

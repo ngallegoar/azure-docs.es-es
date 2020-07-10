@@ -3,12 +3,12 @@ title: Supervisar el rendimiento de Azure App Services | Microsoft Docs
 description: Supervisión del rendimiento de aplicaciones de Azure App Services. Carga y tiempo de respuesta de gráfico, información de dependencia y establecer alertas en el rendimiento.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 0f4d4dedab30839db56cb47ac7ac103413f2d4be
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 574aefa4d554be7b0027c921289d8d15cffb8e49
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82733471"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169942"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Supervisar el rendimiento de Azure App Service
 
@@ -58,7 +58,7 @@ Hay dos maneras de habilitar la supervisión de aplicaciones para las aplicacion
  
  A continuación se muestra un resumen de los datos recopilados para cada ruta:
         
-|  | Recopilación básica de .NET | Recopilación recomendada de .NET |
+| data | Recopilación básica de .NET | Recopilación recomendada de .NET |
 | --- | --- | --- |
 | Agrega las tendencias de uso de CPU, memoria y E/S. |Sí |Sí |
 | Recopila las tendencias de uso y habilita la correlación entre los resultados de disponibilidad y las transacciones. | Sí |Sí |

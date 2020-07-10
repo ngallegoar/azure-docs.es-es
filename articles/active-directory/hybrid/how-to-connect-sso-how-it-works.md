@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af5a9b5b5dd8eb6b6bec8440287918d1f8610064
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bde937adba8d2469390a6cf404f6cce8c5008e87
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357926"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144698"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Inmersión técnica profunda
 
@@ -45,6 +45,9 @@ SSO de conexión directa se habilita a través de Azure AD Connect tal como se m
 
 >[!IMPORTANT]
 > La cuenta de equipo `AZUREADSSOACC` precisa de una gran protección por motivos de seguridad. Solo los administradores de dominio deben poder administrar la cuenta de equipo. Asegúrese de que la delegación de Kerberos de la cuenta de equipo está deshabilitada y de que ninguna otra cuenta de Active Directory tiene permisos de delegación en la cuenta de equipo `AZUREADSSOACC`. Almacene la cuenta de equipo en una unidad organizativa (OU) donde esté a salvo de eliminaciones accidentales y donde solo los administradores de dominio tengan acceso. La clave de descifrado de Kerberos de la cuenta de equipo también debe considerarse como confidencial. Se recomienda encarecidamente [sustituir la clave de descifrado de Kerberos](how-to-connect-sso-faq.md) de la cuenta de equipo de `AZUREADSSOACC` al menos cada 30 días.
+
+>[!IMPORTANT]
+> El inicio de sesión único de conexión directa admite los tipos de cifrado AES256_HMAC_SHA1, AES128_HMAC_SHA1 y RC4_HMAC_MD5 para Kerberos. Se recomienda que el tipo de cifrado de la cuenta AzureADSSOAcc$ se establezca en AES256_HMAC_SHA1 o uno de los tipos AES en lugar de RC4, para mayor seguridad. El tipo de cifrado se almacena en el atributo msDS-SupportedEncryptionTypes de la cuenta en Active Directory.  Si el tipo de cifrado de la cuenta AzureADSSOAcc$ está establecido en RC4_HMAC_MD5 y desea cambiarlo a uno de los tipos de cifrado AES, asegúrese de revertir primero la clave de descifrado de Kerberos de dicha cuenta, tal como se explica en la pregunta correspondiente del [documento de preguntas más frecuentes](how-to-connect-sso-faq.md); de lo contrario, no se producirá el inicio de sesión único de conexión directa.
 
 Una vez que se completa la instalación, SSO de conexión directa funcionan del mismo modo que cualquier otro inicio de sesión que usa la autenticación integrada de Windows (IWA).
 

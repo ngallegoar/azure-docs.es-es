@@ -3,12 +3,12 @@ title: 'Referencia de YAML: ACR Tasks'
 description: Referencia para definir tareas en YAML para ACR Tasks, como propiedades de tareas, tipos de pasos, propiedades de pasos y variables integradas.
 ms.topic: article
 ms.date: 10/23/2019
-ms.openlocfilehash: 9558f698b4a9dbca46431fc02ced6ae30de29121
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11771c32db3b3d7c975c0262bda228903a58978f
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225780"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171064"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referencia de ACR Tasks: YAML
 
@@ -141,7 +141,7 @@ El tipo de paso `build` admite los parámetros de la tabla siguiente. El tipo de
 
 El tipo de paso `build` admite las siguientes propiedades. Encuentre detalles de estas propiedades en la sección [Propiedades de pasos de tareas](#task-step-properties) de este artículo.
 
-| | | |
+| Propiedades | Tipo | Obligatorio |
 | -------- | ---- | -------- |
 | `detach` | bool | Opcional |
 | `disableWorkingDirectoryOverride` | bool | Opcional |
@@ -213,7 +213,7 @@ steps:
 
 El tipo de paso `push` admite las siguientes propiedades. Encuentre detalles de estas propiedades en la sección [Propiedades de pasos de tareas](#task-step-properties) de este artículo.
 
-| | | |
+| Propiedad | Tipo | Obligatorio |
 | -------- | ---- | -------- |
 | `env` | [string, string, ...] | Opcional |
 | `id` | string | Opcional |
@@ -258,7 +258,7 @@ steps:
 
 El tipo de paso `cmd` admite las siguientes propiedades:
 
-| | | |
+| Propiedad | Tipo | Obligatorio |
 | -------- | ---- | -------- |
 | `detach` | bool | Opcional |
 | `disableWorkingDirectoryOverride` | bool | Opcional |

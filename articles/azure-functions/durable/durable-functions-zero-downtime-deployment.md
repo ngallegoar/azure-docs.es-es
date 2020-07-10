@@ -5,12 +5,13 @@ author: tsushi
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8e12d58c0077084c181d111b0b017665b74b9157
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 45f87898f7da432e5bdd09061e74c33a1a8fe41b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74231252"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165709"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Implementación sin tiempo de inactividad en Durable Functions
 
@@ -19,9 +20,6 @@ El [modelo de ejecución confiable](durable-functions-checkpointing-and-replay.m
 Para evitar que se produzcan estos errores, tiene dos opciones: 
 - Retrasar la implementación hasta que se hayan completado todas las instancias de orquestación en ejecución.
 - Asegurarse de que todas las instancias de orquestación en ejecución usan las versiones existentes de las funciones. 
-
-> [!NOTE]
-> En este artículo se ofrecen instrucciones sobre aplicaciones de funciones que tengan como destino Durable Functions 1.x. No se ha actualizado para tener en cuenta los cambios introducidos en Durable Functions 2.x. Para obtener más información sobre las diferencias entre versiones de extensión, consulte [Versiones de Durable Functions](durable-functions-versions.md).
 
 En el gráfico siguiente se comparan las tres estrategias principales para lograr una implementación sin tiempo de inactividad en Durable Functions: 
 
@@ -97,7 +95,7 @@ Configure la canalización de CI/CD para que se implemente solo cuando la aplica
 [FunctionName("StatusCheck")]
 public static async Task<IActionResult> StatusCheck(
     [HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestMessage req,
-    [OrchestrationClient] DurableOrchestrationClient client,
+    [DurableClient] IDurableOrchestrationClient client,
     ILogger log)
 {
     var runtimeStatus = new List<OrchestrationRuntimeStatus>();
@@ -105,8 +103,8 @@ public static async Task<IActionResult> StatusCheck(
     runtimeStatus.Add(OrchestrationRuntimeStatus.Pending);
     runtimeStatus.Add(OrchestrationRuntimeStatus.Running);
 
-    var status = await client.GetStatusAsync(new DateTime(2015,10,10), null, runtimeStatus);
-    return (ActionResult) new OkObjectResult(new Status() {HasRunning = (status.Count != 0)});
+    var result = await client.ListInstancesAsync(new OrchestrationStatusQueryCondition() { RuntimeStatus = runtimeStatus }, CancellationToken.None);
+    return (ActionResult)new OkObjectResult(new { HasRunning = result.DurableOrchestrationState.Any() });
 }
 ```
 

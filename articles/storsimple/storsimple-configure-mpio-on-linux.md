@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: c9978be9182bbb2923fa5db0b4e5ada422ef0da9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05a67ab33c12e9f2bdbc0cd0098c39252db37e8e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85511590"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187088"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configuración de MPIO en un host de StorSimple que ejecuta CentOS
 Este artículo explica los pasos necesarios para configurar E/S de múltiples rutas (MPIO) en el servidor host de Centos 6.6. El servidor host está conectado al dispositivo de Microsoft Azure StorSimple para una alta disponibilidad a través de los iniciadores iSCSI. Describe detalladamente la detección automática de dispositivos de múltiples rutas de acceso y el programa de instalación específico solo para los volúmenes de StorSimple.
@@ -60,7 +60,7 @@ Un dispositivo de StorSimple conectado a un host Linux puede configurarse para a
 
 Con el siguiente procedimiento explicamos cómo configurar las múltiples rutas cuando un dispositivo StorSimple con dos interfaces de red está conectado a un host con dos interfaces de red.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 En esta sección se detallan los requisitos previos de configuración para el servidor CentOS y el dispositivo de StorSimple.
 
 ### <a name="on-centos-host"></a>En el host CentOS
@@ -70,35 +70,37 @@ En esta sección se detallan los requisitos previos de configuración para el se
    
     En el ejemplo siguiente se muestra la salida cuando dos interfaces de red (`eth0` y `eth1`) están presentes en el host.
    
-        [root@centosSS ~]# ifconfig
-        eth0  Link encap:Ethernet  HWaddr 00:15:5D:A2:33:41  
-          inet addr:10.126.162.65  Bcast:10.126.163.255  Mask:255.255.252.0
-          inet6 addr: 2001:4898:4010:3012:215:5dff:fea2:3341/64 Scope:Global
-          inet6 addr: fe80::215:5dff:fea2:3341/64 Scope:Link
-          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-         RX packets:36536 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:6312 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000
-          RX bytes:13994127 (13.3 MiB)  TX bytes:645654 (630.5 KiB)
-   
-        eth1  Link encap:Ethernet  HWaddr 00:15:5D:A2:33:42  
-          inet addr:10.126.162.66  Bcast:10.126.163.255  Mask:255.255.252.0
-          inet6 addr: 2001:4898:4010:3012:215:5dff:fea2:3342/64 Scope:Global
-          inet6 addr: fe80::215:5dff:fea2:3342/64 Scope:Link
-          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:25962 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:11 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000
-          RX bytes:2597350 (2.4 MiB)  TX bytes:754 (754.0 b)
-   
-        loLink encap:Local Loopback  
-          inet addr:127.0.0.1  Mask:255.0.0.0
-          inet6 addr: ::1/128 Scope:Host
-          UP LOOPBACK RUNNING  MTU:65536  Metric:1
-          RX packets:12 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:12 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:0
-          RX bytes:720 (720.0 b)  TX bytes:720 (720.0 b)
+    ```output
+    [root@centosSS ~]# ifconfig
+    eth0  Link encap:Ethernet  HWaddr 00:15:5D:A2:33:41  
+        inet addr:10.126.162.65  Bcast:10.126.163.255  Mask:255.255.252.0
+        inet6 addr: 2001:4898:4010:3012:215:5dff:fea2:3341/64 Scope:Global
+        inet6 addr: fe80::215:5dff:fea2:3341/64 Scope:Link
+        UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+        RX packets:36536 errors:0 dropped:0 overruns:0 frame:0
+        TX packets:6312 errors:0 dropped:0 overruns:0 carrier:0
+        collisions:0 txqueuelen:1000
+        RX bytes:13994127 (13.3 MiB)  TX bytes:645654 (630.5 KiB)
+
+    eth1  Link encap:Ethernet  HWaddr 00:15:5D:A2:33:42  
+        inet addr:10.126.162.66  Bcast:10.126.163.255  Mask:255.255.252.0
+        inet6 addr: 2001:4898:4010:3012:215:5dff:fea2:3342/64 Scope:Global
+        inet6 addr: fe80::215:5dff:fea2:3342/64 Scope:Link
+        UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+        RX packets:25962 errors:0 dropped:0 overruns:0 frame:0
+        TX packets:11 errors:0 dropped:0 overruns:0 carrier:0
+        collisions:0 txqueuelen:1000
+        RX bytes:2597350 (2.4 MiB)  TX bytes:754 (754.0 b)
+
+    loLink encap:Local Loopback  
+        inet addr:127.0.0.1  Mask:255.0.0.0
+        inet6 addr: ::1/128 Scope:Host
+        UP LOOPBACK RUNNING  MTU:65536  Metric:1
+        RX packets:12 errors:0 dropped:0 overruns:0 frame:0
+        TX packets:12 errors:0 dropped:0 overruns:0 carrier:0
+        collisions:0 txqueuelen:0
+        RX bytes:720 (720.0 b)  TX bytes:720 (720.0 b)
+    ```
 1. Instale *iSCSI-initiator-utils* en el servidor CentOS. Realice los pasos siguientes para instalar *iSCSI-initiator-utils*.
    
    1. Inicie sesión como `root` en el host CentOS.
@@ -119,8 +121,10 @@ En esta sección se detallan los requisitos previos de configuración para el se
       
        A continuación se muestra una salida de ejemplo.
       
-           iscsi   0:off   1:off   2:on3:on4:on5:on6:off
-           iscsid  0:off   1:off   2:on3:on4:on5:on6:off
+        ```output
+        iscsi   0:off   1:off   2:on3:on4:on5:on6:off
+        iscsid  0:off   1:off   2:on3:on4:on5:on6:off
+        ```
       
        En el ejemplo anterior, puede ver que el entorno iSCSI se ejecutará en tiempo de arranque en los niveles de ejecución 2, 3, 4 y 5.
 1. Instale *device-mapper-multipath*. Escriba:
@@ -149,9 +153,11 @@ El dispositivo de StorSimple debe disponer de:
 * Las interfaces de iSCSI en el dispositivo de StorSimple deben ser accesibles desde el servidor CentOS.
       Para comprobarlo, debe proporcionar las direcciones IP de las interfaces de red habilitadas para iSCSI de StorSimple en el servidor host. A continuación se muestran los comandos usados y la salida correspondiente con DATA2 (10.126.162.25) y DATA3 (10.126.162.26):
   
-        [root@centosSS ~]# iscsiadm -m discovery -t sendtargets -p 10.126.162.25:3260
-        10.126.162.25:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g44mt-target
-        10.126.162.26:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g44mt-target
+    ```console
+    [root@centosSS ~]# iscsiadm -m discovery -t sendtargets -p 10.126.162.25:3260
+    10.126.162.25:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g44mt-target
+    10.126.162.26:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g44mt-target
+    ```
 
 ### <a name="hardware-configuration"></a>Configuración de hardware
 Se recomienda conectar las dos interfaces de red iSCSI en rutas de acceso independientes para redundancia. La siguiente ilustración muestra la configuración de hardware recomendada para múltiples rutas de alta disponibilidad y equilibrio de carga para el servidor CentOS y el dispositivo StorSimple.
@@ -197,11 +203,13 @@ Se pueden detectar y configurar automáticamente los dispositivos compatibles co
    
     Esto modificará la sección de valores predeterminados de `multipath.conf` , tal como se muestra a continuación:
    
-        defaults {
-        find_multipaths yes
-        user_friendly_names yes
-        path_grouping_policy multibus
-        }
+    ```config
+    defaults {
+    find_multipaths yes
+    user_friendly_names yes
+    path_grouping_policy multibus
+    }
+    ```
 
 ### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Paso 2: Configuración de múltiples rutas para volúmenes de StorSimple
 De forma predeterminada, todos los dispositivos se encuentran en la lista negra del archivo multipath.conf y se omitirán. Deberá crear excepciones de la lista negra para permitir las múltiples rutas para volúmenes de dispositivos StorSimple.
@@ -211,16 +219,18 @@ De forma predeterminada, todos los dispositivos se encuentran en la lista negra 
     `vi /etc/multipath.conf`
 1. Busque la sección de blacklist_exceptions en el archivo multipath.conf. El dispositivo StorSimple debe mostrarse como una excepción de la lista negra de esta sección. Puede quitar el comentario de las líneas pertinentes en este archivo para modificarlo, tal como se muestra a continuación (use solo el modelo específico del dispositivo que esté usando):
    
-        blacklist_exceptions {
-            device {
-                       vendor  "MSFT"
-                       product "STORSIMPLE 8100*"
-            }
-            device {
-                       vendor  "MSFT"
-                       product "STORSIMPLE 8600*"
-            }
-           }
+    ```config
+    blacklist_exceptions {
+        device {
+                    vendor  "MSFT"
+                    product "STORSIMPLE 8100*"
+        }
+        device {
+                    vendor  "MSFT"
+                    product "STORSIMPLE 8600*"
+        }
+    }
+    ```
 
 ### <a name="step-3-configure-round-robin-multipathing"></a>Paso 3: Configuración de múltiples rutas por round-robin
 Este algoritmo de equilibrio de carga usa todas las múltiples rutas disponibles en el controlador activo de forma equilibrada y por round-robin.
@@ -230,10 +240,12 @@ Este algoritmo de equilibrio de carga usa todas las múltiples rutas disponibles
     `vi /etc/multipath.conf`
 1. En la sección `defaults`, establezca `path_grouping_policy` en `multibus`. `path_grouping_policy` especifica la directiva de agrupación de rutas de acceso predeterminada se aplique a múltiples rutas no especificadas. La sección de valores predeterminados será como se muestra a continuación.
    
-        defaults {
-                user_friendly_names yes
-                path_grouping_policy multibus
-        }
+    ```config
+    defaults {
+            user_friendly_names yes
+            path_grouping_policy multibus
+    }
+    ```
 
 > [!NOTE]
 > Los valores más comunes de `path_grouping_policy` incluyen:
@@ -249,21 +261,21 @@ Este algoritmo de equilibrio de carga usa todas las múltiples rutas disponibles
     `service multipathd restart`
 1. La salida será como se muestra a continuación:
    
-        [root@centosSS ~]# service multipathd start
-        Starting multipathd daemon:  [OK]
+    ```output
+    [root@centosSS ~]# service multipathd start
+    Starting multipathd daemon:  [OK]
+    ```
 
 ### <a name="step-5-verify-multipathing"></a>Paso 5: Comprobación de múltiples rutas
 1. En primer lugar asegúrese de que la conexión iSCSI se establece con el dispositivo StorSimple como sigue:
    
    a. Detecte su dispositivo StorSimple. Escriba:
       
-    ```
-    iscsiadm -m discovery -t sendtargets -p  <IP address of network interface on the device>:<iSCSI port on StorSimple device>
-    ```
+    `iscsiadm -m discovery -t sendtargets -p  <IP address of network interface on the device>:<iSCSI port on StorSimple device>`
     
     La salida cuando la dirección IP de DATA0 es 10.126.162.25 y el puerto 3260 está abierto en el dispositivo StorSimple para el tráfico iSCSI saliente es como se muestra a continuación:
     
-    ```
+    ```output
     10.126.162.25:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target
     10.126.162.26:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target
     ```
@@ -272,13 +284,11 @@ Este algoritmo de equilibrio de carga usa todas las múltiples rutas disponibles
 
    b. Conecte con el dispositivo mediante el IQN de destino. El dispositivo StorSimple aquí es el destino de iSCSI. Escriba:
 
-    ```
-    iscsiadm -m node --login -T <IQN of iSCSI target>
-    ```
+      `iscsiadm -m node --login -T <IQN of iSCSI target>`
 
     En el ejemplo siguiente se muestra la salida con un IQN de destino de `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target`. La salida indica que ha conectado correctamente a las dos interfaces de red habilitadas para iSCSI en el dispositivo.
 
-    ```
+    ```output
     Logging in to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] (multiple)
     Logging in to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] (multiple)
     Logging in to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] (multiple)
@@ -295,33 +305,31 @@ Este algoritmo de equilibrio de carga usa todas las múltiples rutas disponibles
 
 1. Compruebe las rutas de acceso disponibles. Escriba:
 
-      ```
-      multipath -l
-      ```
+    `multipath -l`
 
       En el ejemplo siguiente se muestra la salida de dos interfaces de red en un dispositivo StorSimple conectado a una interfaz de red de host única con dos rutas de acceso disponibles.
 
-        ```
-        mpathb (36486fd20cc081f8dcd3fccb992d45a68) dm-3 MSFT,STORSIMPLE 8100
-        size=100G features='0' hwhandler='0' wp=rw
-        `-+- policy='round-robin 0' prio=0 status=active
-        |- 7:0:0:1 sdc 8:32 active undef running
-        `- 6:0:0:1 sdd 8:48 active undef running
-        ```
+    ```output
+    mpathb (36486fd20cc081f8dcd3fccb992d45a68) dm-3 MSFT,STORSIMPLE 8100
+    size=100G features='0' hwhandler='0' wp=rw
+    `-+- policy='round-robin 0' prio=0 status=active
+    |- 7:0:0:1 sdc 8:32 active undef running
+    `- 6:0:0:1 sdd 8:48 active undef running
+    ```
 
-        The following example shows the output for two network interfaces on a StorSimple device connected to two host network interfaces with four available paths.
+    En el ejemplo siguiente se muestra la salida de dos interfaces de red en un dispositivo StorSimple conectado a dos interfaces de red de host con cuatro rutas de acceso disponibles.
 
-        ```
-        mpathb (36486fd27a23feba1b096226f11420f6b) dm-2 MSFT,STORSIMPLE 8100
-        size=100G features='0' hwhandler='0' wp=rw
-        `-+- policy='round-robin 0' prio=0 status=active
-        |- 17:0:0:0 sdb 8:16 active undef running
-        |- 15:0:0:0 sdd 8:48 active undef running
-        |- 14:0:0:0 sdc 8:32 active undef running
-        `- 16:0:0:0 sde 8:64 active undef running
-        ```
+    ```output
+    mpathb (36486fd27a23feba1b096226f11420f6b) dm-2 MSFT,STORSIMPLE 8100
+    size=100G features='0' hwhandler='0' wp=rw
+    `-+- policy='round-robin 0' prio=0 status=active
+    |- 17:0:0:0 sdb 8:16 active undef running
+    |- 15:0:0:0 sdd 8:48 active undef running
+    |- 14:0:0:0 sdc 8:32 active undef running
+    `- 16:0:0:0 sde 8:64 active undef running
+    ```
 
-        After the paths are configured, refer to the specific instructions on your host operating system (Centos 6.6) to mount and format this volume.
+    Una vez configuradas las rutas de acceso, consulte las instrucciones específicas de su sistema operativo del host (Centos 6.6) para montar y dar formato a este volumen.
 
 ## <a name="troubleshoot-multipathing"></a>Solución de problemas de múltiples rutas
 En esta sección se proporcionan algunos consejos útiles si surge algún problema durante la configuración de múltiples rutas.
@@ -330,7 +338,7 @@ Q. No puedo ver que los cambios en el archivo `multipath.conf` surtan efecto.
 
 A. Si ha realizado algún cambio en el archivo `multipath.conf` , tendrá que reiniciar el servicio de múltiples rutas. Escriba el siguiente comando:
 
-    service multipathd restart
+`service multipathd restart`
 
 Q. He habilitado dos interfaces de red en el dispositivo StorSimple y dos interfaces de red en el host. Al mostrar las rutas de acceso disponibles, veo solo dos rutas de acceso. Esperaba ver cuatro rutas de acceso disponibles.
 
@@ -362,52 +370,54 @@ También sería conveniente comprobar que realmente puede ver algunos discos des
 
 Una causa menos probable pero posible también podría ser iscsid pid desusado. Use el comando siguiente para cerrar las sesiones de iSCSI:
 
-    iscsiadm -m node --logout -p <Target_IP>
+`iscsiadm -m node --logout -p <Target_IP>`
 
 Repita este comando para todas las interfaces de red conectada en el destino iSCSI, que es el dispositivo StorSimple. Una vez cerrada la sesión de todas las sesiones de iSCSI, use el IQN de destino de iSCSI para restablecer la sesión de iSCSI. Escriba el siguiente comando:
 
-    iscsiadm -m node --login -T <TARGET_IQN>
+`iscsiadm -m node --login -T <TARGET_IQN>`
 
 
 Q. No estoy seguro de si el dispositivo está en la lista blanca.
 
 A. Para comprobar si el dispositivo se encuentra en la lista blanca, use el siguiente comando interactivo para solucionar problemas:
 
-    multipathd -k
-    multipathd> show devices
-    available block devices:
-    ram0 devnode blacklisted, unmonitored
-    ram1 devnode blacklisted, unmonitored
-    ram2 devnode blacklisted, unmonitored
-    ram3 devnode blacklisted, unmonitored
-    ram4 devnode blacklisted, unmonitored
-    ram5 devnode blacklisted, unmonitored
-    ram6 devnode blacklisted, unmonitored
-    ram7 devnode blacklisted, unmonitored
-    ram8 devnode blacklisted, unmonitored
-    ram9 devnode blacklisted, unmonitored
-    ram10 devnode blacklisted, unmonitored
-    ram11 devnode blacklisted, unmonitored
-    ram12 devnode blacklisted, unmonitored
-    ram13 devnode blacklisted, unmonitored
-    ram14 devnode blacklisted, unmonitored
-    ram15 devnode blacklisted, unmonitored
-    loop0 devnode blacklisted, unmonitored
-    loop1 devnode blacklisted, unmonitored
-    loop2 devnode blacklisted, unmonitored
-    loop3 devnode blacklisted, unmonitored
-    loop4 devnode blacklisted, unmonitored
-    loop5 devnode blacklisted, unmonitored
-    loop6 devnode blacklisted, unmonitored
-    loop7 devnode blacklisted, unmonitored
-    sr0 devnode blacklisted, unmonitored
-    sda devnode whitelisted, monitored
-    dm-0 devnode blacklisted, unmonitored
-    dm-1 devnode blacklisted, unmonitored
-    dm-2 devnode blacklisted, unmonitored
-    sdb devnode whitelisted, monitored
-    sdc devnode whitelisted, monitored
-    dm-3 devnode blacklisted, unmonitored
+```console
+multipathd -k
+multipathd> show devices
+available block devices:
+ram0 devnode blacklisted, unmonitored
+ram1 devnode blacklisted, unmonitored
+ram2 devnode blacklisted, unmonitored
+ram3 devnode blacklisted, unmonitored
+ram4 devnode blacklisted, unmonitored
+ram5 devnode blacklisted, unmonitored
+ram6 devnode blacklisted, unmonitored
+ram7 devnode blacklisted, unmonitored
+ram8 devnode blacklisted, unmonitored
+ram9 devnode blacklisted, unmonitored
+ram10 devnode blacklisted, unmonitored
+ram11 devnode blacklisted, unmonitored
+ram12 devnode blacklisted, unmonitored
+ram13 devnode blacklisted, unmonitored
+ram14 devnode blacklisted, unmonitored
+ram15 devnode blacklisted, unmonitored
+loop0 devnode blacklisted, unmonitored
+loop1 devnode blacklisted, unmonitored
+loop2 devnode blacklisted, unmonitored
+loop3 devnode blacklisted, unmonitored
+loop4 devnode blacklisted, unmonitored
+loop5 devnode blacklisted, unmonitored
+loop6 devnode blacklisted, unmonitored
+loop7 devnode blacklisted, unmonitored
+sr0 devnode blacklisted, unmonitored
+sda devnode whitelisted, monitored
+dm-0 devnode blacklisted, unmonitored
+dm-1 devnode blacklisted, unmonitored
+dm-2 devnode blacklisted, unmonitored
+sdb devnode whitelisted, monitored
+sdc devnode whitelisted, monitored
+dm-3 devnode blacklisted, unmonitored
+```
 
 
 Para más información, consulte el artículo acerca de la [solución de problemas para múltiples rutas](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot).
