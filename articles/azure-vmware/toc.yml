@@ -44,9 +44,19 @@
           href: set-up-mabs-for-avs.md
         - name: Copia de seguridad de máquinas virtuales de AVS con Azure Backup Server
           href: backup-avs-vms-with-mabs.md
+    - name: Integración nativa de Azure
+      items:
+        - name: API Management
+          href: concepts-api-management.md
+        - name: En estrella tipo hub-and-spoke
+          href: concepts-avs-hub-and-spoke-integration.md
 - name: Referencia
   items: null
 - name: Recursos
   items:
+    - name: Solución de problemas
+      items:
+        - name: Obtención de ayuda con los errores de implementación o aprovisionamiento de AVS
+          href: fix-deployment-provisioning-failures.md
     - name: Preguntas más frecuentes
       href: faq.md
