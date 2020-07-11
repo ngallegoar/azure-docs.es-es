@@ -5,16 +5,14 @@ author: arduppal
 manager: brymat
 ms.author: arduppal
 ms.reviewer: spelluru
-ms.date: 12/13/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 3360b92a1b71adcbf0364a16c197aecdab5700db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9389e0aff04baa18cb216f2a7ab6da42eb7031f2
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77086613"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171438"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Tutorial: Reacción a eventos de Blob Storage en IoT Edge (versión preliminar)
 En este artículo se muestra cómo implementar Azure Blob Storage en el módulo IoT, que actuaría como publicador Event Grid para enviar eventos en la creación de blobs y la eliminación de blobs a Event Grid.  

@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 56c53b9e2388cc0594076a5ef35b072216aec20d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83535fde7f577c4cd5d0b3866afcc0a916c16337
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80672732"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134830"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Administración del servidor de configuración para la recuperación ante desastres del servidor físico o VM de VMware
 
@@ -22,7 +22,7 @@ Se configura un servidor de configuración local cuando se usa [Azure Site Recov
 
 ## <a name="update-windows-license"></a>Actualización de la licencia de Windows
 
-La licencia que se proporciona con la plantilla de OVF es una licencia de evaluación válida durante 180 días. Para el uso ininterrumpido, debe activar Windows con una licencia adquirida. La actualización de la licencia se puede realizar mediante una clave independiente o una clave estándar de KMS. Hay instrucciones disponibles en la [línea de comandos de DISM Windows para el sistema operativo en ejecución](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options). Para obtener las claves, consulte la [configuración del cliente KMS](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys).
+La licencia que se proporciona con la plantilla de OVF es una licencia de evaluación válida durante 180 días. Para el uso ininterrumpido, debe activar Windows con una licencia adquirida. La actualización de la licencia se puede realizar mediante una clave independiente o una clave estándar de KMS. Hay instrucciones disponibles en la [línea de comandos de DISM Windows para el sistema operativo en ejecución](/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options). Para obtener las claves, consulte la [configuración del cliente KMS](/windows-server/get-started/kmsclientkeys).
 
 ## <a name="access-configuration-server"></a>Acceso al servidor de configuración
 
@@ -266,7 +266,7 @@ ProxyPassword="Password"
 
 También puede eliminar el servidor de configuración con PowerShell.
 
-1. [Instale](https://docs.microsoft.com/powershell/azure/install-Az-ps) el módulo de Azure PowerShell.
+1. [Instale](/powershell/azure/install-Az-ps) el módulo de Azure PowerShell.
 2. Inicie sesión en su cuenta de Azure mediante este comando:
 
     `Connect-AzAccount`

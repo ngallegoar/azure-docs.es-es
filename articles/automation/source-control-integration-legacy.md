@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: e550489f34d84946d0a9e3df641a1484b85a60f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1e4e288b5b95f355221188a45f1e6c764fde77c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83828940"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187343"
 ---
 # <a name="use-source-control-integration-in-azure-automation---legacy"></a>Uso de la integración del control de código fuente en Azure Automation: heredado
 
@@ -56,7 +56,7 @@ Si ya tiene una cuenta de GitHub y un repositorio que desea vincular a Azure Aut
 5. Al hacer clic en **Aceptar**, la integración del control de código fuente estará configurada para la cuenta de Automation y debe actualizarse con la información de GitHub. Ahora puede hacer clic en este elemento para ver todo el historial de trabajos de sincronización del control de código fuente.  
 
     ![Valores para la configuración del control de código fuente configurado actual](media/source-control-integration-legacy/automation-RepoValues.png)
-6. Después de configurar el control de código fuente, se crean dos [recursos de variables](automation-variables.md) en la cuenta de Automation. Además, una aplicación autorizada se agrega a la cuenta de GitHub.
+6. Después de configurar el control de código fuente, se crean dos [recursos de variables](./shared-resources/variables.md) en la cuenta de Automation. Además, una aplicación autorizada se agrega a la cuenta de GitHub.
 
    * La variable **Microsoft.Azure.Automation.SourceControl.Connection** contiene los valores de la cadena de conexión, tal como se muestra a continuación.  
 
@@ -84,7 +84,7 @@ Si ya tiene una cuenta de GitHub y un repositorio que desea vincular a Azure Aut
 
 La inserción de runbooks en el repositorio permite insertar los cambios realizados en un runbook de Azure Automation en el repositorio de control de código fuente. A continuación se muestran los pasos necesarios para insertar un runbook en el repositorio:
 
-1. Desde su cuenta de Automation, [cree un nuevo runbook textual](automation-first-runbook-textual.md) o [edite un runbook textual existente](automation-edit-textual-runbook.md). Este runbook puede ser un flujo de trabajo de PowerShell o un runbook de scripts de PowerShell.  
+1. Desde su cuenta de Automation, [cree un nuevo runbook textual](./learn/automation-tutorial-runbook-textual.md) o [edite un runbook textual existente](automation-edit-textual-runbook.md). Este runbook puede ser un flujo de trabajo de PowerShell o un runbook de scripts de PowerShell.  
 2. Después de editar el runbook, guárdelo y haga clic en **Insertar en el repositorio** en la página Editar.  
 
     ![Una ventana que muestra el botón Check-in to GitHub (Inserción en el repositorio en GitHub)](media/source-control-integration-legacy/automation-CheckinButton.png)

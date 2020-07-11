@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 6f104fc6513874bfef5f4bf9fe7f536c3e3d69cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 763e948f58dfc76c3aa7ba67f461438fc752c689
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71057540"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135276"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extensión de máquina virtual de diagnóstico de rendimiento de Azure para Windows
 
@@ -253,6 +253,6 @@ También puede descargar el archivo ZIP directamente del portal seleccionando la
     Este problema puede omitirse de forma segura siempre que el estado de la extensión indique que la extensión se ha aprovisionado correctamente.
 - Puede solucionar algunos problemas durante la instalación mediante los registros de extensión. El resultado de la ejecución de las extensiones se registra en los archivos que se encuentran en el siguiente directorio:
 
-        C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\<version>
+    `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\<version>`
 
 Si necesita más ayuda con cualquier aspecto de este artículo, puede ponerse en contacto con los expertos de Azure en los [foros de MSDN Azure o Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Obtener soporte técnico**. Para más información sobre el uso del soporte técnico de Azure, lea las [preguntas más frecuentes](https://azure.microsoft.com/support/faq/).

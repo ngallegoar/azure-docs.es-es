@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
-ms.openlocfilehash: 1afd931249d4dbeda2b4b25f822837e2a564f959
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04b4feb1219f6a51a1f0a7ac0d19fc3fd70029c6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80656315"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133527"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Solución de problemas de instalación de inserción del servicio de movilidad
 
@@ -170,7 +170,7 @@ También puede habilitar el tráfico de WMI a través del firewall en el símbol
 
 Se pueden encontrar otros artículos de solución de problemas de WMI en los siguientes artículos:
 
-* [Basic WMI Testing](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) (Pruebas básicas de WMI)
+* [Basic WMI Testing](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf) (Pruebas básicas de WMI)
 * [WMI Troubleshooting](/windows/win32/wmisdk/wmi-troubleshooting) (Solución de problemas de WMI)
 * [Troubleshooting problems with WMI scripts and WMI Services](/previous-versions/tn-archive/ff406382(v=msdn.10)) (Solución de problemas con los scripts y servicios de WMI)
 

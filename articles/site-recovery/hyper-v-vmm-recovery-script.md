@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 14c2a9a2ad818cc358535a91f9a6813ec7b91a6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb690dfb90c0f7b8216368cb6b26a9af7d895d18
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83826288"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130127"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Incorporación de un script de VMM a un plan de recuperación
 
 En este artículo se describe cómo crear un script de System Center Virtual Machine Manager (VMM) y agregarlo a un plan de recuperación en [Azure Site Recovery](site-recovery-overview.md).
 
-Publique cualquier comentario o pregunta que tenga al final del artículo o bien en la [Página de preguntas y respuestas de Microsoft sobre Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
+Publique cualquier comentario o pregunta que tenga al final del artículo o bien en la [Página de preguntas y respuestas de Microsoft sobre Azure Recovery Services](/answers/topics/azure-site-recovery.html).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -38,7 +38,7 @@ Puede usar scripts de PowerShell en los planes de recuperación. Para que sea po
 
     `Import-Module -Name virtualmachinemanager`
 
-    Para más información, consulte [Introducción a Windows PowerShell y VMM](https://technet.microsoft.com/library/hh875013.aspx).
+    Para más información, consulte [Introducción a Windows PowerShell y VMM](/previous-versions/system-center/system-center-2012-R2/hh875013(v=sc.12)).
 * Asegúrese de que tiene al menos un servidor de biblioteca en la implementación de VMM. De manera predeterminada, la ruta de acceso del recurso compartido de biblioteca para un servidor VMM se encuentra localmente en el servidor VMM. El nombre de la carpeta es MSCVMMLibrary.
 
   Si la ruta de acceso del recurso compartido de biblioteca es remota (o si es local, pero no se comparte con MSCVMMLibrary), configure el recurso compartido como se indica a continuación, con \\libserver2.contoso.com\share\ como ejemplo:
@@ -51,7 +51,7 @@ Puede usar scripts de PowerShell en los planes de recuperación. Para que sea po
 
      a. Abra la consola de **Windows PowerShell de 64 bits** como administrador.
      
-     b. Escriba **Set-executionpolicy bypass**. Para más información, consulte [Uso del cmdlet Set-ExecutionPolicy](https://technet.microsoft.com/library/ee176961.aspx).
+     b. Escriba **Set-executionpolicy bypass**. Para más información, consulte [Uso del cmdlet Set-ExecutionPolicy](/previous-versions/windows/it-pro/windows-powershell-1.0/ee176961(v=technet.10)).
 
      > [!IMPORTANT]
      > Establezca **Set-executionpolicy bypass** solo en la consola PowerShell de 64 bits. Si lo establece en la consola PowerShell de 32 bits, los scripts no se ejecutarán.
