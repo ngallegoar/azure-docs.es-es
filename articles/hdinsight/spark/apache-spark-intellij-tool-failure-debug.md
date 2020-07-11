@@ -10,17 +10,17 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
 ms.openlocfilehash: 052b12817b788ff38f0fab72a5420896b062c732
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857418"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Error de depuración de trabajos de Spark con Azure Toolkit for IntelliJ (versión preliminar)
 
 En este artículo se proporcionan instrucciones paso a paso sobre cómo usar las herramientas de HDInsight de [Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij) para ejecutar aplicaciones de **depuración de errores de Spark**.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * [Kit de desarrollo de Oracle Java](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). En este tutorial se usa la versión 8.0.202 de Java.
   
@@ -90,7 +90,7 @@ Cree una aplicación Scala o Java de Spark, y después ejecútela en un clúster
 
 Si se produce un error al enviar el trabajo, puede descargar el perfil de trabajo con errores en el equipo local para depurarlo más.
 
-1. Abra el **Explorador de Microsoft Azure Storage**, busque la cuenta de HDInsight del clúster del trabajo con errores, descargue los recursos de trabajo con errores desde la ubicación correspondiente: **\hdp\spark2-events\\.spark-failures\\\<Id. de la aplicación>** a una carpeta local. En la ventana **activities** (actividades) se mostrará el progreso de la descarga.
+1. Abra el **Explorador de Microsoft Azure Storage**, busque la cuenta de HDInsight del clúster del trabajo con errores, descargue los recursos del trabajo con errores desde la ubicación correspondiente: **\hdp\spark2-events\\.spark-failures\\\<application ID>** en una carpeta local. En la ventana **activities** (actividades) se mostrará el progreso de la descarga.
 
    ![Fallo de descarga del Explorador de Azure Storage](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
 

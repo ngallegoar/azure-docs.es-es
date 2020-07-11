@@ -8,10 +8,10 @@ ms.date: 03/02/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 3ea304d038618fc428f20e7ad72b398f593d09a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78247990"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalabilidad horizontal de Azure Analysis Services
@@ -172,7 +172,7 @@ Puede cambiar el plan de tarifa en un servidor con varias réplicas. El mismo pl
 
 ## <a name="troubleshoot"></a>Solución de problemas
 
-**Problema:** los usuarios ven la instancia de error **No se puede encontrar el servidor "\<Nombre del servidor >" en el modo de conexión "ReadOnly".**
+**Problema:** los usuarios ven la instancia de error **No se puede encontrar el servidor "\<Name of the server>" en el modo de conexión "ReadOnly".**
 
 **Solución:** al seleccionar la opción **Separar el servidor de procesamiento del grupo de consultas**, las conexiones del cliente que usan la cadena de conexión predeterminada (sin `:rw`) se redirigen a las réplicas del grupo de consultas. Si las réplicas en el grupo de consultas no están en línea porque la sincronización aún no se ha completado, es posible que se produzca un error en las conexiones de cliente redirigidas. Para evitar errores de conexión, debe haber al menos dos servidores en el grupo de consultas al realizar una sincronización. Cada servidor se sincroniza individualmente mientras que otros siguen en línea. Si decide no incluir el servidor de procesamiento en el grupo de consultas durante el procesamiento, puede quitarlo del grupo para el procesamiento y agregarlo de nuevo una vez completado el procesamiento, pero antes de la sincronización. Use las métricas de memoria y QPU para supervisar el estado de sincronización.
 

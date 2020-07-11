@@ -8,17 +8,17 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.openlocfilehash: e7986add466bc42b092763acfeceebc8a6523bbe
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80473989"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Inicio rápido: Administración de blobs con el SDK de Java v8
 
 En este inicio rápido, se aprende a administrar blobs mediante Java. Los blobs son objetos que pueden contener grandes cantidades de datos de texto o binarios, como imágenes, documentos, elementos multimedia de streaming y datos de archivo. Va a cargar, descargar y enumerar blobs. También va a crear y eliminar contenedores y a establecer sus permisos.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Una cuenta de Azure Storage. [Crear una cuenta de almacenamiento](../common/storage-account-create.md).
@@ -53,7 +53,7 @@ public static final String storageConnectionString =
 
 ## <a name="run-the-sample"></a>Ejecución del ejemplo
 
-En esta aplicación de ejemplo se crea un archivo de prueba en el directorio predeterminado (*C:\Usuarios\<usuario>\AppData\Local\Temp*, para usuarios de Windows), se carga en Blob Storage, se enumeran los blobs del contenedor y luego se descarga el archivo con un nombre nuevo para poder comparar los archivos antiguos y nuevos.
+En esta aplicación de ejemplo se crea un archivo de prueba en el directorio predeterminado (*C:\Users\<user>\AppData\Local\Temp*, para usuarios de Windows), se carga en Blob Storage, se enumeran los blobs del contenedor y luego se descarga el archivo con un nombre nuevo para que se puedan comparar los archivos antiguos y los nuevos.
 
 Ejecute el ejemplo con Maven en la línea de comandos. Abra un shell y vaya a **blobAzureApp** dentro del directorio clonado. A continuación, escriba `mvn compile exec:java`.
 
@@ -72,7 +72,7 @@ Deleting the container
 Deleting the source, and downloaded files
 ```
 
-Antes de continuar, compruebe el directorio predeterminado (*C:\Usuarios\<usuario>\AppData\Local\Temp*, para usuarios de Windows) del archivo de ejemplo. Copie la dirección URL para el blob fuera de la ventana de consola y péguela en un explorador para ver el contenido del archivo de Blob Storage. Si el archivo de ejemplo en el directorio se compara con el contenido almacenado en Blob Storage, verá que son los mismos.
+Antes de continuar, revise el directorio predeterminado (*C:\Users\<user>\AppData\Local\Temp*, para usuarios de Windows) del archivo de ejemplo. Copie la dirección URL para el blob fuera de la ventana de consola y péguela en un explorador para ver el contenido del archivo de Blob Storage. Si el archivo de ejemplo en el directorio se compara con el contenido almacenado en Blob Storage, verá que son los mismos.
 
   >[!NOTE]
   >También puede usar una herramienta como [Explorador de Azure Storage](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para ver los archivos de Blob Storage. El Explorador de Azure Storage es una herramienta gratuita multiplataforma que permite acceder a la información de la cuenta de almacenamiento.

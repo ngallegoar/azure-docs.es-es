@@ -3,12 +3,12 @@ title: Acerca de los planes de recuperación en Azure Site Recovery
 description: Obtenga información acerca de los planes de recuperación en Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 01/23/2020
-ms.openlocfilehash: beb92bd62d011ef8aaf304dbb769e7694e6d7e60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d191781cacc37242dd1be31d6cb87ef196e5e7a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229100"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343921"
 ---
 # <a name="about-recovery-plans"></a>Acerca de los planes de recuperación
 
@@ -17,7 +17,7 @@ En este artículo se proporciona información general sobre los planes de recupe
 Un plan de recuperación agrupa máquinas en grupos de recuperación, para la conmutación por error. Un plan de recuperación ayudar a definir un proceso de recuperación sistemático mediante la creación de unidades pequeñas e independientes que puede conmutar por error. Normalmente, una unidad representa una aplicación en el entorno.
 
 - Un plan de recuperación define cómo conmutan por error las máquinas y la secuencia en la que se inician después de la conmutación por error.
-- Los planes de recuperación se usan para la conmutación por error en Azure, pero no se pueden usar para la conmutación por recuperación desde Azure.
+- Los planes de recuperación se pueden usar para la conmutación por error a Azure y la conmutación por recuperación desde Azure.
 - Se pueden agregar hasta 100 instancias protegidas a un plan de recuperación.
 - Puede personalizar un plan agregándole un orden, instrucciones y tareas.
 - Cuando un plan está definido, puede ejecutar una conmutación por error en él.

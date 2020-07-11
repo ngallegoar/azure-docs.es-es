@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 0b0ece8adf58d894d9ccafbbc97dea9fba2b3c5d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 01e1c63a4cfea367a0f721ac33986abade8b5b35
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84033616"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343836"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Uso del procesamiento por lotes para mejorar el rendimiento de las aplicaciones de Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 El procesamiento de operaciones por lotes para Azure SQL Database e Instancia administrada de Azure SQL mejora notablemente el rendimiento y la escalabilidad de las aplicaciones. Para comprender las ventajas, la primera parte de este artículo trata algunos resultados de pruebas de ejemplo que comparan solicitudes por lotes y secuenciales a una base de datos de Azure SQL Database o Instancia administrada de Azure SQL. El resto del artículo muestra las técnicas, los escenarios y las consideraciones para ayudarlo a usar el procesamiento por lotes correctamente en las aplicaciones de Azure.
 
-## <a name="why-is-batching-important-for-azure-sql-database-and-azure-sql-managed-instance"></a>¿Por qué es importante el procesamiento por lotes para Azure SQL Database e Instancia administrada de Azure SQL?
+## <a name="why-is-batching-important-for-azure-sql-database-and-azure-sql-managed-instance"></a>Importancia del procesamiento por lotes para Azure SQL Database y Azure SQL Managed Instance
 
 El procesamiento por lotes de las llamadas a un servicio remoto es una estrategia conocida para aumentar el rendimiento y la escalabilidad. Existen costos fijos de procesamiento para cualquier interacción con un servicio remoto, como la serialización, la transferencia de red y la deserialización. El empaquetado de muchas transacciones diferentes en un único lote minimiza estos costos.
 
@@ -97,7 +97,7 @@ Realmente, se usan transacciones en ambos ejemplos. En el primer ejemplo, cada l
 
 En la tabla siguiente se muestran algunos resultados de pruebas ad hoc. En las pruebas se realizaron las mismas inserciones secuenciales con y sin transacciones. Para obtener más perspectiva, el primer conjunto de pruebas se ejecutó de forma remota de un equipo portátil a la base de datos de Microsoft Azure. El segundo conjunto de pruebas se ejecutó desde un servicio en la nube y una base de datos que residían en el mismo centro de datos de Microsoft Azure (Oeste de EE. UU.). En la tabla siguiente se muestra la duración en milisegundos de las inserciones secuenciales con y sin transacciones.
 
-**De local a Azure**:
+**Local a Azure**:
 
 | Operaciones | Ninguna transacción (ms) | Transacción (ms) |
 | --- | --- | --- |
@@ -195,7 +195,7 @@ En la mayoría de los casos, los parámetros con valores de tabla tienen un rend
 
 En la tabla siguiente se muestran los resultados de pruebas ad hoc para el uso de parámetros con valores de tabla, expresados en milisegundos.
 
-| Operaciones | De local a Azure (ms) | Azure en el mismo centro de datos (ms) |
+| Operaciones | Local a Azure (ms) | Azure en el mismo centro de datos (ms) |
 | --- | --- | --- |
 | 1 |124 |32 |
 | 10 |131 |25 |
@@ -233,7 +233,7 @@ Hay algunos casos en que la copia masiva es preferible a los parámetros con val
 
 Los resultados de pruebas ad hoc siguientes muestran el rendimiento del procesamiento por lotes con **SqlBulkCopy** en milisegundos.
 
-| Operaciones | De local a Azure (ms) | Azure en el mismo centro de datos (ms) |
+| Operaciones | Local a Azure (ms) | Azure en el mismo centro de datos (ms) |
 | --- | --- | --- |
 | 1 |433 |57 |
 | 10 |441 |32 |
@@ -331,7 +331,7 @@ En nuestras pruebas, normalmente dividir los lotes grandes en fragmentos menores
 > [!NOTE]
 > Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este artículo](#note-about-timing-results-in-this-article).
 
-Es obvio que el mejor rendimiento para 1000 filas es enviarlas todas a la vez. En otras pruebas (no mostradas aquí), hubo una pequeña mejora de rendimiento al dividir un lote de 10 000 filas en dos lotes de 5000. Pero el esquema de tabla para estas pruebas es relativamente simple, por lo que debería realizar pruebas con sus datos y tamaños de lote específicos para verificar estos hallazgos.
+Es obvio que el mejor rendimiento para 1000 filas es enviarlas todas a la vez. En otras pruebas (no mostradas aquí), hubo una pequeña mejora de rendimiento al dividir un lote de 10 000 filas en dos lotes de 5000. Pero el esquema de tabla para estas pruebas es relativamente simple, por lo que debería realizar pruebas con sus datos y tamaños de lote específicos para verificar estos hallazgos.
 
 Otro factor que se debe considerar es que, si el lote total es demasiado grande, es posible que Azure SQL Database o Instancia administrada de Azure SQL imponga limitaciones y no confirme el lote. Para obtener resultados óptimos, pruebe su escenario concreto para determinar si existe un tamaño de lote ideal. Haga que el tamaño de lote sea configurable en tiempo de ejecución para permitir ajustes rápidos en función del rendimiento o la presencia de errores.
 

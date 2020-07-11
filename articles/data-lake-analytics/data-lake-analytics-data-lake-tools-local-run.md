@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: 42e58125fcbc3ab411c0d7503c42c14c28178428
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "62113942"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>Ejecución de scripts U-SQL en la máquina local
@@ -57,7 +57,7 @@ Herramientas de Azure Data Lake para Visual Studio tiene un motor de ejecución 
  
 ## <a name="local-runs-with-a-local-machine-account"></a>Ejecuciones locales con una cuenta Local-machine
 
-Una cuenta **Local-machine** es una cuenta de proceso local compartida con una sola carpeta raíz de datos local como cuenta de almacén local. De forma predeterminada, la carpeta raíz de datos se encuentra en **C:\Users\<nombreDeUsuario>\AppData\Local\USQLDataRoot**. También es configurable mediante **Tools** > **Data Lake** > **Options and Settings** (Herramientas > Data Lake > Opciones y configuración).
+Una cuenta **Local-machine** es una cuenta de proceso local compartida con una sola carpeta raíz de datos local como cuenta de almacén local. De forma predeterminada, la carpeta raíz de datos se encuentra en **C:\Users\<username>\AppData\Local\USQLDataRoot**. También es configurable mediante **Tools** > **Data Lake** > **Options and Settings** (Herramientas > Data Lake > Opciones y configuración).
 
 ![Configuración de una carpeta raíz de datos local](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-configure-local-data-root.png)
   

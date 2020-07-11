@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
 ms.openlocfilehash: 1afd931249d4dbeda2b4b25f822837e2a564f959
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656315"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Solución de problemas de instalación de inserción del servicio de movilidad
@@ -362,7 +362,7 @@ Este problema provoca que se produzca un error en la instalación del agente de 
 
 ### <a name="to-identify-the-issue"></a>Para identificar el problema
 
-En el registro que se encuentra en el servidor de configuración en _C:\ProgramData\ASRSetupLogs\UploadedLogs\<fecha-hora>UA_InstallLogFile.log_, encontrará la siguiente excepción:
+En el registro que se encuentra en el servidor de configuración en _C:\ProgramData\ASRSetupLogs\UploadedLogs\<date-time>UA_InstallLogFile.log_, se encuentra la siguiente excepción:
 
 ```plaintext
 COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator (Exception from HRESULT: 0x8004E00F)

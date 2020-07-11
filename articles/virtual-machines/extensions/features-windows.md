@@ -16,10 +16,10 @@ ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cd6439bf1b1f52b8e63819e8e519fc4971d1bc2a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80066852"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Características y extensiones de las máquinas virtuales para Windows
@@ -42,7 +42,7 @@ Varias extensiones de máquina virtual de Azure diferentes están disponibles, c
 
 Además de las extensiones específicas de proceso, una extensión de script personalizado está disponible tanto para máquinas virtuales Windows como para máquinas virtuales Linux. La extensión de script personalizado para Windows permite que se ejecute cualquier script de PowerShell en una máquina virtual. Los scripts personalizados resultan útiles para diseñar implementaciones de Azure que requieren una configuración más allá de lo que las herramientas de Azure nativas pueden proporcionar. Para obtener más información, consulte la sección sobre la [extensión de script personalizado de máquina virtual Windows](custom-script-windows.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para controlar la extensión en la VM, debe tener instalado el Agente Windows de Azure. Algunas extensiones individuales tienen requisitos previos, como el acceso a los recursos o las dependencias.
 
@@ -140,7 +140,7 @@ Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Nam
 El comando `Set-AzVMExtension` se puede usar para iniciar cualquier extensión de máquina virtual. Para más información, consulte la [referencia de Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
 
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure portal
 
 Las extensiones de máquina virtual se pueden aplicar a una máquina virtual existente a través de Azure Portal. Seleccione la máquina virtual en el portal, elija **Extensiones** y, luego, **Agregar**. Elija la extensión que quiera en la lista de extensiones disponibles y siga las instrucciones del asistente.
 
@@ -252,7 +252,7 @@ Al moverse la propiedad **command to execute** a la configuración **protegida**
 }
 ```
 
-En una máquina virtual de IaaS de Azure que use extensiones, en la consola de certificados, es posible que vea certificados que tienen el asunto **_Generador de certificados CRP de Windows Azure_** . En una máquina virtual de RDFE clásica, estos certificados tienen el nombre de asunto **_Administración de servicios de Windows Azure para extensiones_** .
+En una máquina virtual de IaaS de Azure que use extensiones, en la consola de certificados, es posible que vea certificados que tienen el asunto **_Generador de certificados CRP de Windows Azure_**. En una máquina virtual de RDFE clásica, estos certificados tienen el nombre de asunto **_Administración de servicios de Windows Azure para extensiones_**.
 
 Estos certificados protegen la comunicación entre la máquina virtual y su host durante la transferencia de los valores protegidos (contraseña y otras credenciales) que usan las extensiones. Los certificados se compilan mediante el controlador de tejido de Azure y se pasan al agente de máquina virtual. Si detiene e inicia la máquina virtual cada día, el controlador de tejido podría crear un nuevo certificado. El certificado se almacena en el almacén de certificados personales del equipo. Estos certificados se pueden eliminar. El agente de máquina virtual puede volver a crear certificados si es necesario.
 
@@ -355,7 +355,7 @@ Los pasos de solución de problemas siguientes se aplican a todas las extensione
 
 1. Para comprobar el registro de Windows Guest Agent, examine la actividad cuando la extensión se aprovisionó en *C:\WindowsAzure\Logs\WaAppAgent.log*.
 
-2. Revise los registros reales de la extensión para ver más detalles en *C:\WindowsAzure\Logs\Plugins\<NombreDeLaExtensión>*
+2. Revise los registros reales de la extensión para obtener más detalles en *C:\WindowsAzure\Logs\Plugins\<extensionName>*
 
 3. Revise las secciones de solución de problemas de la documentación específica de la extensión para ver los códigos de errores, los problemas conocidos, etc.
 

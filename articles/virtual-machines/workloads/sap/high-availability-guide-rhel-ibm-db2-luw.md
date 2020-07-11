@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.openlocfilehash: 1a00a3c1e0d34a8c7abbcd5bfc7a6771d9e2a4c3
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82983047"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Alta disponibilidad de IBM Db2 LUW en máquinas virtuales de Azure en Red Hat Enterprise Linux Server
@@ -336,8 +336,8 @@ Los siguientes elementos tienen los siguiente prefijos:
 - **[2]** : Aplicable solo al nodo 2
 
 **[A]**  Requisito previo para la configuración de Pacemaker:
-1. Apague ambos servidores de base de datos con user db2\<sid> con db2stop.
-1. Cambie el entorno de shell para el usuario db2\<sid> por */bin/ksh*.
+1. Apague ambos servidores de bases de datos con el usuario db2\<sid> con db2stop.
+1. Cambie el entorno de shell del usuario db2\<sid> por */bin/ksh*:
 <pre><code># Install korn shell:
 sudo yum install ksh
 # Change users shell:
@@ -557,7 +557,7 @@ El estado original en un sistema SAP se documenta en Transaction DBACOCKPIT > Co
 > Antes de iniciar la prueba, asegúrese de lo siguiente:
 > * Pacemaker no tiene acciones con error (pcs status).
 > * No hay limitaciones de ubicación (restos de la prueba de migración).
-> * La sincronización de HADR de IBM Db2 funciona. Comprobar con user db2\<sid>. <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> * La sincronización de HADR de IBM Db2 funciona. Comprobación con el usuario db2\<sid> <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 Migre el nodo que ejecuta la base de datos principal de Db2. Para ello, ejecute el comando siguiente:
@@ -710,7 +710,7 @@ La instancia de Db2 se reinicia en el rol secundario que tenía asignado anterio
 
 ### <a name="stop-db-via-db2stop-force-on-the-node-that-runs-the-hadr-primary-database-instance"></a>Detener la base de datos a través de db2stop force en el nodo que ejecuta la instancia de base de datos principal de HADR
 
-Como user db2\<sid>, ejecute el comando db2stop force:
+Como usuario db2\<sid>, ejecute el comando db2stop force:
 <pre><code>az-idb01:db2ptr> db2stop force</code></pre>
 
 Se detectó un error:

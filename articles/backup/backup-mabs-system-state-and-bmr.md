@@ -4,10 +4,10 @@ description: Use Azure Backup Server para realizar una copia de seguridad del es
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: bab55ca607e0641ea0cc597de686f3abbb387598
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82192372"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Realizar una copia de seguridad del estado del sistema y restaurar a una reconstrucción completa con Azure Backup Server
@@ -23,7 +23,7 @@ Azure Backup Server realiza una copia de seguridad del estado del sistema y prop
 
 En la tabla siguiente se resumen los elementos de los que se pueden realizar copias de seguridad y que se pueden recuperar. Para obtener información sobre las versiones de las aplicaciones que se pueden proteger con el estado del sistema y BMR, consulte [¿De qué se puede realizar una copia de seguridad con Azure Backup Server?](backup-mabs-protection-matrix.md).
 
-|Copia de seguridad|Problema|Recuperación a partir de una copia de seguridad de Azure Backup Server|Recuperación a partir de una copia de seguridad del estado de sistema|BMR|
+|Copia de seguridad|Incidencia|Recuperación a partir de una copia de seguridad de Azure Backup Server|Recuperación a partir de una copia de seguridad del estado de sistema|BMR|
 |----------|---------|---------------------------|------------------------------------|-------|
 |**Datos de archivo**<br /><br />Copia de seguridad de datos normal<br /><br />BMR/Copia de seguridad del estado del sistema|Datos de archivo perdidos|Y|N|N|
 |**Datos de archivo**<br /><br />Copia de seguridad de Azure Backup Server de los datos de archivo<br /><br />BMR/Copia de seguridad del estado del sistema|Sistema operativo dañado o perdido|N|Y|Y|
@@ -49,7 +49,7 @@ Puede personalizar la unidad que usa Backup Server para la copia de seguridad de
 
 1. En el servidor protegido, vaya a *C:\Program Files\Microsoft Data Protection Manager\MABS\Datasources*.
 1. Abra el archivo *PSDataSourceConfig.xml* para editarlo.
-1. Cambie el valor de \<FilesToProtect\> de la letra de unidad.
+1. Cambie el valor \<FilesToProtect\> por la letra de unidad.
 1. Guarde y cierre el archivo.
 
 Si se ha establecido un grupo de protección para proteger el estado del sistema del equipo, ejecute una comprobación de coherencia. Si se genera una alerta, seleccione **Modificar grupo de protección** en la alerta y complete las páginas del asistente. Después, ejecute otra comprobación de coherencia.

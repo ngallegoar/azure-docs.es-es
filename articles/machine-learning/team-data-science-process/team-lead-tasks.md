@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d099d7c233c3f4b5e65bfdb7d4b875a0e4098499
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75864288"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Tareas del responsable de equipo en el equipo de proceso de ciencia de datos en equipo
@@ -49,7 +49,7 @@ En el siguiente tutorial se explican los pasos en detalle.
 > [!NOTE] 
 > En este artículo se utilizan Azure DevOps y DSVM para configurar un entorno de equipo de TDSP, ya que se explica cómo implementar TDSP en Microsoft. Si el equipo usa otras plataformas de desarrollo o hospedaje de código, las tareas del responsable de equipo son las mismas, pero la manera de completarlas puede ser diferente.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este tutorial se da por supuesto que los siguientes recursos y permisos están configurados por el [administrador de grupo](group-manager-tasks.md):
 
@@ -77,7 +77,7 @@ Los nombres especificados para los directorios y repositorios de este tutorial a
 - Un grupo de ciencia de datos pequeño que no tiene varios equipos de ciencia de datos. 
 - Un grupo de ciencia de datos grande con varios equipos de ciencia de datos que, sin embargo, desea optimizar la colaboración entre equipos con actividades como el planeamiento de sprint en el nivel de grupo. 
 
-Si los equipos optan por tener los repositorios específicos del equipo en un único proyecto de grupo, los responsables de equipo deben crear los repositorios con nombres como *\<TeamName>Template* y *\<TeamName>Utilities*. Por ejemplo: *TeamATemplate* y *TeamAUtilities*. 
+Si los equipos optan por tener los repositorios específicos del equipo en un único proyecto de grupo, los responsables del equipo deben crear los repositorios con nombres como *\<TeamName>Template* y *\<TeamName>Utilities*. Por ejemplo: *TeamATemplate* y *TeamAUtilities*. 
 
 En cualquier caso, los responsables de equipo deben permitir que los miembros del equipo sepan qué repositorios de plantillas y utilidades tienen que configurar y clonar. Los responsables de proyecto deben seguir las [tareas del responsable de equipo en un equipo de ciencia de datos](project-lead-tasks.md) para crear repositorios de proyectos, bien dentro de proyectos independientes o en un único proyecto. 
 
@@ -85,7 +85,7 @@ En cualquier caso, los responsables de equipo deben permitir que los miembros de
 
 Para crear un proyecto independiente para su equipo:
 
-1. En el explorador web, vaya a la página principal de la organización de Azure DevOps de su grupo en la URL *https:\//\<nombreDeServidor>/\<nombreDeOrganización>* y seleccione **Nuevo proyecto**. 
+1. En el explorador web, vaya a la página principal de la organización de Azure DevOps del grupo en la dirección URL *https:\//\<server name>/\<organization name>* y seleccione **Nuevo proyecto**. 
    
    ![Selección de Nuevo proyecto](./media/team-lead-tasks/team-leads-2-create-new-team.png)
    
@@ -95,7 +95,7 @@ Para crear un proyecto independiente para su equipo:
    
    ![Crear proyecto](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
    
-Se abre la página **Resumen** del proyecto de equipo con la dirección URL de la página *https:\//\<nombreDeServidor>/\<nombreDeOrganización>/\<nombreDeEquipo>* .
+Se abre la página **Resumen** del proyecto del equipo, con la dirección URL *https:\//\<server name>/\<organization name>/\<team name>* .
 
 ### <a name="rename-the-myteam-default-repository-to-teamutilities"></a>Cambie el nombre del repositorio de MyTeam predeterminado a TeamUtilities.
 
@@ -140,7 +140,7 @@ Para rellenar los repositorios de equipo con el contenido de los repositorios co
    
    ![Seleccionar Importar](./media/team-lead-tasks/import-repo.png)
    
-1. En el cuadro de diálogo **Importar un repositorio GIT**, seleccione **Git** como **Tipo de origen** y escriba la dirección URL del repositorio de plantillas comunes del grupo en **Dirección URL de clonación**. La dirección URL es *https:\//\<nombreDeServidor>/\<nombreDeOrganización>/_git/\<nombreDeRepositorio>* . Por ejemplo: *https:\//dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
+1. En el cuadro de diálogo **Importar un repositorio GIT**, seleccione **Git** como **Tipo de origen** y escriba la dirección URL del repositorio de plantillas comunes del grupo en **Dirección URL de clonación**. La dirección URL es *https:\//\<server name>/\<organization name>/_git/\<repository name>* . Por ejemplo: *https:\//dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
    
 1. Seleccione **Import** (Importar). El contenido del repositorio de plantillas de grupo se importa en el repositorio de plantillas de equipo. 
    
@@ -199,7 +199,7 @@ Para clonar repositorios:
    
 1. Cambie al directorio que ha creado.
    
-1. En Git Bash, ejecute el comando `git clone <clone URL>`, donde \<URLDeClonación> es la dirección URL que ha copiado del cuadro de diálogo **Clonar**.
+1. En Git Bash, ejecute el comando `git clone <clone URL>`, donde \<clone URL> es la dirección URL que ha copiado del cuadro de diálogo **Clonar**.
    
    Por ejemplo, use uno de los siguientes comandos para clonar el repositorio **TeamUtilities** en el directorio *MyTeam* en el equipo local. 
    

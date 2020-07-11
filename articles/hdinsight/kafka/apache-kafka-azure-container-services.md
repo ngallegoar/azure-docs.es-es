@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
 ms.openlocfilehash: 55373f71c78b6d45b9c78c52dea61a37b89b4a00
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81383057"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Usar Azure Kubernetes Service con Apache Kafka en HDInsight
@@ -92,9 +92,9 @@ Si aún no dispone de un clúster AKS, use uno de los siguientes documentos para
 
     |Propiedad |Value |
     |---|---|
-    |Nombre del emparejamiento de \<esta VN> a la red virtual remota|escriba un nombre único para esta configuración de emparejamiento.|
+    |Nombre del emparejamiento de \<this VN> con la red virtual remota|escriba un nombre único para esta configuración de emparejamiento.|
     |Virtual network|Seleccione la red virtual para el **clúster de AKS**.|
-    |Nombre del emparejamiento de la \<VN de AKS> a \<esta VN>|Escriba un nombre único.|
+    |Nombre del emparejamiento de \<AKS VN> con \<this VN>|Escriba un nombre único.|
 
     Deje todos los demás campos en el valor predeterminado y, luego, seleccione __Aceptar__ para configurar el emparejamiento.
 

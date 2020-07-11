@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/04/2019
 ms.openlocfilehash: 0789a866ebda270f3e5e8b150e072c7aedea7f04
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82790616"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Uso de un equilibrador de carga interno con Azure Kubernetes Service (AKS)
@@ -54,7 +54,7 @@ kubectl apply -f internal-lb.yaml
 
 Se crea una instancia de Azure Load Balancer en el grupo de recursos del nodo, y se conecta a la misma red virtual que el clúster de AKS.
 
-Cuando visualiza los detalles del servicio, la dirección IP del equilibrador de carga interno se muestra en la columna *EXTERNAL-IP*. En este contexto, *externo* es en relación con la interfaz externa del equilibrador de carga, no es que reciba una dirección IP pública externa. La dirección IP puede tardar uno o dos minutos en cambiar de *\<pendiente\>* a una dirección IP interna real, tal como se muestra en el ejemplo siguiente:
+Cuando visualiza los detalles del servicio, la dirección IP del equilibrador de carga interno se muestra en la columna *EXTERNAL-IP*. En este contexto, *externo* es en relación con la interfaz externa del equilibrador de carga, no es que reciba una dirección IP pública externa. La dirección IP puede tardar uno o dos minutos en cambiar de *\<pending\>* a una dirección IP interna real, como se muestra en el ejemplo siguiente:
 
 ```
 $ kubectl get service internal-app

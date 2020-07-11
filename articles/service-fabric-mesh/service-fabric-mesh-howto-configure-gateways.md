@@ -7,10 +7,10 @@ ms.date: 11/28/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: ec408403d4baa0f211c6bfe867a15c96513693cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75461956"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Configuración de un recurso de puerta de enlace para enrutar solicitudes
@@ -219,8 +219,8 @@ Este es un ejemplo del aspecto de la configuración de un recurso de puerta de e
 ```
 
 Esta puerta de enlace está configurada para una aplicación Linux, "meshAppLinux", que consta de al menos dos servicios: "helloWorldService" y "counterService", y que escucha en el puerto 80. En función de la estructura de la dirección URL de la solicitud de entrada, enrutará la solicitud a uno de estos servicios. 
-* "\<DirecciónIP>:80/helloWorld/\<solicitud\>" dirigiría una solicitud a "helloWorldListener" en helloWorldService. 
-* "\<DirecciónIP>:80/counter/\<solicitud\>" dirigiría la solicitud a "counterListener" en counterService. 
+* "\<IPAddress>:80/helloWorld/\<request\>" dirigiría una solicitud a "helloWorldListener" en helloWorldService. 
+* "\<IPAddress>:80/counter/\<request\>" dirigiría una solicitud a "counterListener" en counterService. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Implemente el [ejemplo de entrada](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/ingress) para ver la puerta de enlace en acción.

@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
 ms.openlocfilehash: b201200ebf6807d7301dfd8c52e3137a29784eb9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82187218"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Implementación local del acelerador de soluciones de supervisión remota: IntelliJ
@@ -23,7 +23,7 @@ En este artículo, se explica cómo implementar el acelerador de soluciones de s
 
 Si quiere ejecutar el acelerador de soluciones de supervisión remota en Docker en el equipo local, consulte [Deploy the Remote Monitoring solution accelerator locally - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md) (Implementación local del acelerador de soluciones de supervisión remota: Docker).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para implementar los servicios de Azure que usa el acelerador de soluciones de supervisión remota, necesita una suscripción de Azure activa.
 
@@ -98,7 +98,7 @@ Si aún no ha creado los recursos de Azure necesarios, siga estos pasos:
    El script también agrega un conjunto de variables de entorno en el equipo local. Todos los nombres de variable tienen el prefijo **PCS**. Estas variables de entorno proporcionan detalles que permiten a Supervisión remota leer los valores de configuración de un recurso de Azure Key Vault.
 
    > [!TIP]
-   > Cuando el script finaliza, guarda las variables de entorno en un archivo llamado **\<carpeta principal\>\\.pcs\\\<nombre de la solución\>.env**. Podrá utilizarlas en futuras implementaciones del acelerador de soluciones. Tenga en cuenta que cualquier variable de entorno establecida en el equipo local invalidará los valores del archivo **services\\scripts\\local\\.env** al ejecutar **docker-compose**.
+   > Cuando el script finaliza, guarda las variables de entorno en un archivo denominado **\<your home folder\>\\.pcs\\\<solution name\>.env**. Podrá utilizarlas en futuras implementaciones del acelerador de soluciones. Tenga en cuenta que cualquier variable de entorno establecida en el equipo local invalidará los valores del archivo **services\\scripts\\local\\.env** al ejecutar **docker-compose**.
 
 1. Cierre el entorno de la línea de comandos.
 
@@ -109,7 +109,7 @@ Si ya ha creado los recursos de Azure necesarios, establezca las variables de en
 * **PCS_AAD_APPID**: identificador de la aplicación Azure Active Directory (Azure AD).
 * **PCS_AAD_APPSECRET**: secreto de la aplicación Azure AD.
 
-Los valores de configuración se leerán desde este recurso de Key Vault. Estas variables de entorno pueden guardarse en el archivo **\<carpeta principal\>\\.pcs\\\<nombre de la solución\>.env** de la implementación. Tenga en cuenta que las variables de entorno establecidas en el equipo local invalidan los valores del archivo **services\\scripts\\local\\.env** al ejecutar **docker-compose**.
+Los valores de configuración se leerán desde este recurso de Key Vault. Estas variables de entorno pueden guardarse en el archivo **\<your home folder\>\\.pcs\\\<solution name\>.env** de la implementación. Tenga en cuenta que las variables de entorno establecidas en el equipo local invalidan los valores del archivo **services\\scripts\\local\\.env** al ejecutar **docker-compose**.
 
 Parte de la configuración necesaria para el microservicio se almacena en una instancia de Key Vault que se ha creado en la implementación inicial. Las variables correspondientes del almacén de claves deben modificarse según sea necesario.
 

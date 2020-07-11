@@ -4,10 +4,10 @@ description: En este artículo se describe cómo crear alertas personalizadas ba
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: 5d73f4399d10683597fb2a2e8a3a2ab4ba0d1165
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75730932"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Cómo configurar alertas para problemas de rendimiento en Azure Monitor para contenedores
@@ -100,7 +100,7 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 >[!IMPORTANT]
->En las consultas siguientes se utilizan los valores de marcador de posición \<your-cluster-name> y \< your-controller-name> para representar el clúster y el controlador. Reemplácelos por valores específicos del entorno al configurar las alertas.
+>En las consultas siguientes se usan los valores de marcador de posición \<your-cluster-name> y \<your-controller-name> para representar el clúster y el controlador. Reemplácelos por valores específicos del entorno al configurar las alertas.
 
 En la siguiente consulta se calcula el uso medio de CPU de todos los contenedores en un controlador como la media de uso de CPU de cada instancia de contenedor en un controlador, cada minuto. La medida es un porcentaje del límite configurado para un contenedor.
 
@@ -289,7 +289,7 @@ Siga estos pasos para crear una alerta de registro en Azure Monitor mediante el 
 4. En el panel de la izquierda, seleccione **Registros** para abrir la página de registros de Azure Monitor. Utilice esta página para escribir y ejecutar consultas de Azure Log Analytics.
 5. En la página **Registros**, pegue una de las [consultas](#resource-utilization-log-search-queries) proporcionadas anteriormente en el campo **Consulta de búsqueda** y luego seleccione **Ejecutar** para validar los resultados. Si no realiza este paso, la opción **Nueva alerta** no está disponible para la selección.
 6. Seleccione **Nueva alerta** para crear una alerta de registro.
-7. En la sección **Condición**, seleccione la condición de registro personalizada predefinida **Cada vez que la búsqueda de registros personalizadas sea \<lógica sin definir>** . El tipo de señal de **búsqueda de registros personalizada** se selecciona automáticamente porque estamos creando una regla de alertas directamente desde la página de registros de Azure Monitor.  
+7. En la sección **Condición**, seleccione la condición de registro personalizada predefinida **Cada vez que la búsqueda de registros personalizada sea \<logic undefined>** . El tipo de señal de **búsqueda de registros personalizada** se selecciona automáticamente porque estamos creando una regla de alertas directamente desde la página de registros de Azure Monitor.  
 8. Pegue cualquiera de las [consultas](#resource-utilization-log-search-queries) proporcionadas con anterioridad en el campo **Consulta de búsqueda**.
 9. Configure la alerta de la manera siguiente:
 

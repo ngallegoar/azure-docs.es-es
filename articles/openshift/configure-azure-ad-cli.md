@@ -9,10 +9,10 @@ ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
 ms.openlocfilehash: 45da3034891e5a82fb8423adb6bcd5e867f9d4e2
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82204801"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-cli"></a>Configuración de la autenticación de Azure Active Directory para un clúster de Red Hat OpenShift 4 en Azure (CLI)
@@ -36,7 +36,7 @@ oauthCallbackURL=https://oauth-openshift.apps.$domain.$location.aroapp.io/oauth2
 
 ## <a name="create-an-azure-active-directory-application-for-authentication"></a>Creación de una aplicación de Azure Active Directory para autenticación
 
-Cree una aplicación de Azure Active Directory y recupere el identificador de la aplicación creado. Reemplace **\<ClientSecret >** por una contraseña segura.
+Cree una aplicación de Azure Active Directory y recupere el identificador de la aplicación creado. Reemplace **\<ClientSecret>** por una contraseña segura.
 
 ```azurecli-interactive
 az ad app create \
@@ -148,13 +148,13 @@ En la siguiente salida de ejemplo se muestra que la contraseña estará en `kube
 }
 ```
 
-Inicie sesión en el servidor de API del clúster de OpenShift mediante el siguiente comando. La variable `$apiServer` se estableció [anteriormente](). Reemplace **\<contraseña de kubeadmin>** por la contraseña recuperada.
+Inicie sesión en el servidor de API del clúster de OpenShift mediante el siguiente comando. La variable `$apiServer` se estableció [anteriormente](). Reemplace **\<kubeadmin password>** por la contraseña que ha recuperado.
 
 ```azurecli-interactive
 oc login $apiServer -u kubeadmin -p <kubeadmin password>
 ```
 
-Cree un secreto de OpenShift para almacenar el secreto de aplicación de Azure Active Directory, reemplazando **\<ClientSecret>** por el secreto que recuperó anteriormente.
+Cree un secreto de OpenShift para almacenar el secreto de aplicación de Azure Active Directory y reemplace **\<ClientSecret>** por el secreto que ha recuperado anteriormente.
 
 ```azurecli-interactive
 oc create secret generic openid-client-secret-azuread \
@@ -162,7 +162,7 @@ oc create secret generic openid-client-secret-azuread \
   --from-literal=clientSecret=<ClientSecret>
 ```    
 
-Cree un archivo **oidc.yaml** para configurar la autenticación OpenID de OpenShift en Azure Active Directory. Reemplace **\<AppID>** y **\<TenantId>** por los valores que recuperó anteriormente.
+Cree un archivo **oidc.yaml** para configurar la autenticación OpenID de OpenShift en Azure Active Directory. Reemplace **\<AppID>** y **\<TenantId>** por los valores que ha recuperado anteriormente.
 
 ```bash
 cat > oidc.yaml<< EOF

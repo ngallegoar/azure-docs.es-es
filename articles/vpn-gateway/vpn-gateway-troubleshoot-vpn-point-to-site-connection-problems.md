@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
 ms.openlocfilehash: 5a273ccad0d30ede3f0ed4ee532d61161074d304
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82188300"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solución de problemas: Problemas de conexión de punto a sitio de Azure
@@ -44,7 +44,7 @@ Para solucionar este problema, siga estos pasos:
     | AzureClient.pfx  | Usuario actual\Personal\Certificados |
     | AzureRoot.cer    | Equipo local\Entidades de certificación raíz de confianza|
 
-3. Vaya a C:\Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, instale manualmente el certificado (archivo *.cer) en el usuario y en el almacén del equipo.
+3. Vaya a C:\Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID> e instale manualmente el certificado (archivo *.cer) en el almacén del usuario y el equipo.
 
 Para más información sobre cómo instalar el certificado de cliente, consulte [Generación y exportación de certificados para conexiones de punto a sitio](vpn-gateway-certificates-point-to-site.md).
 
@@ -272,7 +272,7 @@ Se quita la conexión VPN de punto a sitio y luego se vuelve a instalar el clien
 
 ### <a name="solution"></a>Solución
 
-Para resolver el problema, elimine los archivos de configuración antiguos del cliente VPN de **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>** y luego ejecute de nuevo el instalador de clientes VPN.
+Para resolver el problema, elimine los archivos de configuración antiguos del cliente VPN de **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>** y vuelva a ejecutar el instalador del cliente VPN.
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>El cliente VPN de punto a sitio no puede resolver el FQDN de los recursos en el dominio local
 

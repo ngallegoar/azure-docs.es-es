@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
 ms.openlocfilehash: 655a3acc44a1418778b37fbef85e5df75d042317
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78206243"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Procedimientos para desencadenar acciones complejas con alertas de Azure Monitor
@@ -110,7 +110,7 @@ El proceso es similar si quiere que la aplicación lógica lleve a cabo otra acc
 
 12. Configure la acción de Microsoft Teams. El **diseñador de Logic Apps** le pide que se autentique en su cuenta de Office 365. Elija el **Id. de equipo** y el **Id. de canal** para enviar el mensaje.
 
-13. Configure el mensaje con una combinación de texto estático y referencias a los \<campos\> en el contexto dinámico. Corte y pegue el texto siguiente en el campo **Mensaje**:
+13. Configure el mensaje con una combinación de texto estático y referencias a los \<fields\> del contexto dinámico. Corte y pegue el texto siguiente en el campo **Mensaje**:
 
     ```text
       Activity Log Alert: <eventSource>
@@ -119,7 +119,7 @@ El proceso es similar si quiere que la aplicación lógica lleve a cabo otra acc
       resourceId: <resourceId>
     ```
 
-    Luego busque y reemplace los \<campos\> por etiquetas de contenido dinámico con el mismo nombre.
+    Luego busque y reemplace los \<fields\> por etiquetas de contenido dinámico con el mismo nombre.
 
     > [!NOTE]
     > Hay dos campos dinámicos denominados **status**. Agregue ambos campos al mensaje. Use el campo del contenedor de propiedades **activityLog** y elimine el otro. Si pasa el puntero sobre el campo **status**, verá la referencia de campo completa como se muestra en la captura de pantalla siguiente:

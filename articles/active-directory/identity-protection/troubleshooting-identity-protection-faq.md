@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 140ad45d9c4f6b6f49a4ea4aefb9298e58a2cf10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75443569"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Preguntas más frecuentes sobre Identity Protection en Azure Active Directory
@@ -24,7 +24,7 @@ ms.locfileid: "75443569"
 
 **Descartar el riesgo del usuario** en la versión clásica de Identity Protection establece el actor en el historial de riesgo del usuario de Identity Protection en **Azure AD**.
 
-**Descartar el riesgo del usuario** en Identity Protection establece el actor del historial de riesgo del usuario en Identity Protection en **\<Admin’s name with a hyperlink pointing to user’s blade\>** (Nombre del administrador con un hipervínculo que apunta a la hoja del usuario).
+**Descartar el riesgo del usuario** en Identity Protection establece el actor en el historial de riesgo del usuario de Identity Protection en **\<Admin’s name with a hyperlink pointing to user’s blade\>** .
 
 Actualmente hay un problema conocido que provoca latencia en el flujo de descarte de riesgo de usuario. Si tiene una "directiva de riesgo de usuario", esta directiva dejará de aplicarse a los usuarios descartados a los pocos minutos de hacer clic en "Descartar el riesgo de usuario". Sin embargo, se han constatado retrasos en la experiencia de usuario al actualizar el "Estado de riesgo" de los usuarios descartados. Como alternativa, actualice la página a nivel del explorador para ver el "Estado de riesgo" más reciente del usuario.
 

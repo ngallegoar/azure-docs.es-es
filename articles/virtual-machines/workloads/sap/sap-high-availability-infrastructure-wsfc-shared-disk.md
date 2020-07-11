@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f5e0eda72f39a70f02b596a8fd69728336eac333
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82594821"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Preparación de la infraestructura de Azure para alta disponibilidad de SAP con un clúster de conmutación por error de Windows y un disco compartido para ASCS/SCS de SAP
@@ -164,7 +164,7 @@ ms.locfileid: "82594821"
 
 Este artículo describe los pasos a seguir para preparar la infraestructura de Azure para instalar y configurar un sistema SAP de alta disponibilidad en un clúster de conmutación por error de Windows mediante el uso de un *disco compartido de clúster* como una opción de agrupación en clústeres de una instancia de ASCS de SAP.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar la instalación, consulte este artículo:
 
@@ -194,14 +194,14 @@ _**Ilustración 1:** Configuración de los parámetros de Azure Resource Manage
   Las plantillas crean:
 
   * **Máquinas virtuales**:
-    * Máquinas virtuales del servidor de aplicaciones de SAP: \<SAPSystemSID\>-di-\<Número\>
-    * Máquinas virtuales del clúster de ASCS/SCS: \<SAPSystemSID\>-ascs-\<Número\>
-    * Clúster de DBMS: \<SAPSystemSID\>-db-\<Número\>
+    * Máquinas virtuales del servidor de aplicaciones de SAP: \<SAPSystemSID\>-di-\<Number\>
+    * Máquinas virtuales del clúster de ASCS/SCS: \<SAPSystemSID\>-ascs-\<Number\>
+    * Clúster de DBMS: \<SAPSystemSID\>-db-\<Number\>
 
   * **Tarjetas de red para todas las máquinas virtuales con direcciones IP asociadas**:
-    * \<SID del sistema SAP\>-nic-di-\<Número\>
-    * \<SID del sistema SAP\>-nic-ascs-\<Número\>
-    * \<SID del sistema SAP\>-nic-db-\<Número\>
+    * \<SAPSystemSID\>-nic-di-\<Number\>
+    * \<SAPSystemSID\>-nic-ascs-\<Number\>
+    * \<SAPSystemSID\>-nic-db-\<Number\>
 
   * **Cuentas de Azure Storage (solo discos no administrados)** :
 
@@ -211,11 +211,11 @@ _**Ilustración 1:** Configuración de los parámetros de Azure Resource Manage
     * Máquinas virtuales del clúster de DBMS: \<SAPSystemSID\>-avset-db
 
   * **Equilibrador de carga interno de Azure**:
-    * Con todos los puertos para la dirección IP y la instancia de ASCS/SCS \<SID del sistema SAP\>-lb-ascs
-    * Con todos los puertos para la dirección IP y DBMS de SQL Server \<SID del sistema SAP\>-lb-db
+    * Con todos los puertos para la dirección IP y la instancia de ASCS/SCS \<SAPSystemSID\>-lb-ascs
+    * Con todos los puertos para la dirección IP y DBMS de SQL Server \<SAPSystemSID\>-lb-db
 
   * **Grupo de seguridad de red**: \<SAPSystemSID\>-nsg-ascs-0  
-    * Con un puerto de Protocolo de escritorio remoto (RDP) externo abierto para la máquina virtual \<SID del sistema SAP\>-ascs-0
+    * Con un puerto de Protocolo de escritorio remoto (RDP) externo abierto para la máquina virtual \<SAPSystemSID\>-ascs-0
 
 > [!NOTE]
 > De manera predeterminada, todas las direcciones IP de las tarjetas de red y de los equilibradores de carga internos de Azure son dinámicas. Cámbielas a direcciones IP estáticas. Esto se describe más adelante en el artículo.
@@ -305,7 +305,7 @@ Para configurar la plantilla de varios SID de ASCS/SCS, en la [plantilla de vari
 - **Subred nueva o existente**: determine si es necesario crear una red virtual y una subred o si se debe usar una subred ya existente. Si ya tiene una red virtual conectada a la red local, seleccione la **existente**.
 - **Identificador de subred**: Si quiere implementar la máquina virtual en una red virtual existente en la que tiene una subred definida a la que se debe asignar la máquina virtual, asigne un nombre al identificador de esa subred específica. Normalmente, el identificador tiene este aspecto:
 
-  /subscriptions/\<identificador de suscripción\>/resourceGroups/\<nombre del grupo de recursos\>/providers/Microsoft.Network/virtualNetworks/\<nombre de red virtual\>/subnets/\<nombre de subred\>
+  /subscriptions/\<subscription id\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/virtualNetworks/\<virtual network name\>/subnets/\<subnet name\>
 
 La plantilla implementa una instancia de Azure Load Balancer que admite varios sistemas SAP:
 
@@ -479,15 +479,15 @@ Para crear estos puntos de conexión de equilibrio de carga interno necesarios, 
 
 | Nombre de regla de equilibrio de carga/servicio | Números de puerto predeterminados | Puertos concretos para (instancia de ASCS con el número de instancia 00) (ERS con 10) |
 | --- | --- | --- |
-| Servidor de colas / *lbrule3200* |32\<Número de instancia\> |3200 |
-| Servidor de mensajes de ABAP / *lbrule3600* |36\<Número de instancia\> |3600 |
-| Mensaje de ABAP interno / *lbrule3900* |39\<Número de instancia\> |3900 |
-| Servidor de mensajes HTTP / *Lbrule8100* |81\<Número de instancia\> |8100 |
-| Servicio de inicio de SAP ASCS HTTP/ *Lbrule50013* |5\<Número de instancia\>13 |50013 |
-| Servicio de inicio de SAP ASCS HTTP / *Lbrule50014* |5\<Número de instancia\>14 |50014 |
-| Replicación de colas / *Lbrule50016* |5\<Número de instancia\>16 |50016 |
-| Servicio de inicio de SAP ERS HTTP/ *Lbrule51013* |5\<Número de instancia\>13 |51013 |
-| Servicio de inicio de SAP ERS HTTP/ *Lbrule51014* |5\<Número de instancia\>14 |51014 |
+| Servidor de colas / *lbrule3200* |32\<InstanceNumber\> |3200 |
+| Servidor de mensajes de ABAP / *lbrule3600* |36\<InstanceNumber\> |3600 |
+| Mensaje de ABAP interno / *lbrule3900* |39\<InstanceNumber\> |3900 |
+| Servidor de mensajes HTTP / *Lbrule8100* |81\<InstanceNumber\> |8100 |
+| Servicio de inicio de SAP ASCS HTTP/ *Lbrule50013* |5\<InstanceNumber\>13 |50013 |
+| Servicio de inicio de SAP ASCS HTTP / *Lbrule50014* |5\<InstanceNumber\>14 |50014 |
+| Replicación de colas / *Lbrule50016* |5\<InstanceNumber\>16 |50016 |
+| Servicio de inicio de SAP ERS HTTP/ *Lbrule51013* |5\<InstanceNumber\>13 |51013 |
+| Servicio de inicio de SAP ERS HTTP/ *Lbrule51014* |5\<InstanceNumber\>14 |51014 |
 | Administración remota de Windows (WinRM) *Lbrule5985* | |5985 |
 | Recurso compartido de archivos *Lbrule445* | |445 |
 
@@ -497,15 +497,15 @@ Luego, cree estos puntos de conexión de equilibrio de carga interno para los pu
 
 | Nombre de regla de equilibrio de carga/servicio | Números de puerto predeterminados | Puertos concretos para (instancia de SCS con el número de instancia 01) (ERS con 11) |
 | --- | --- | --- |
-| Servidor de colas / *lbrule3201* |32\<Número de instancia\> |3201 |
-| Servidor de puerta de enlace / *lbrule3301* |33\<Número de instancia\> |3301 |
-| Servidor de mensajes de Java / *lbrule3900* |39\<Número de instancia\> |3901 |
-| Servidor de mensajes HTTP/ *Lbrule8101* |81\<Número de instancia\> |8101 |
-| Servicio de inicio de SAP SCS HTTP/ *Lbrule50113* |5\<Número de instancia\>13 |50113 |
-| Servicio de inicio de SAP SCS HTTPS/ *Lbrule50114* |5\<Número de instancia\>14 |50114 |
-| Replicación de colas / *Lbrule50116* |5\<Número de instancia\>16 |50116 |
-| Servicio de inicio de SAP ERS HTTP *Lbrule51113* |5\<Número de instancia\>13 |51113 |
-| Servicio de inicio de SAP ERS HTTPS/ *Lbrule51114* |5\<Número de instancia\>14 |51114 |
+| Servidor de colas / *lbrule3201* |32\<InstanceNumber\> |3201 |
+| Servidor de puerta de enlace / *lbrule3301* |33\<InstanceNumber\> |3301 |
+| Servidor de mensajes de Java / *lbrule3900* |39\<InstanceNumber\> |3901 |
+| Servidor de mensajes HTTP/ *Lbrule8101* |81\<InstanceNumber\> |8101 |
+| Servicio de inicio de SAP SCS HTTP/ *Lbrule50113* |5\<InstanceNumber\>13 |50113 |
+| Servicio de inicio de SAP SCS HTTPS/ *Lbrule50114* |5\<InstanceNumber\>14 |50114 |
+| Replicación de colas / *Lbrule50116* |5\<InstanceNumber\>16 |50116 |
+| Servicio de inicio de SAP ERS HTTP *Lbrule51113* |5\<InstanceNumber\>13 |51113 |
+| Servicio de inicio de SAP ERS HTTPS/ *Lbrule51114* |5\<InstanceNumber\>14 |51114 |
 | WinRM/ *Lbrule5985* | |5985 |
 | Recurso compartido de archivos *Lbrule445* | |445 |
 
@@ -521,7 +521,7 @@ Establezca la dirección IP del equilibrador de carga pr1-lb-dbms en la direcci�
 
 Si desea usar otros números para las instancias de ASCS o SCS de SAP, debe actualizar los nombres y valores de sus puertos a partir de los predeterminados.
 
-1. En Azure Portal, seleccione **\<SID\>-lb-ascs equilibrador de carga** > **Reglas de equilibrio de carga**.
+1. En Azure Portal, seleccione **\<SID\>equilibrador de carga -lb-ascs** > **Reglas de equilibrio de carga**.
 2. Cambie estos valores para todas las reglas de equilibrio de carga que pertenezcan a la instancia de ASCS o SCS de SAP:
 
    * Nombre

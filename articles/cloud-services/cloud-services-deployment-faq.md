@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 63a219078927e9001a8eb4085c722e7ec8d2fac9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75980629"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de implementación de Azure Cloud Services: Preguntas más frecuentes (P+F)
@@ -54,7 +54,7 @@ Para comprobar los tamaños disponibles en su región, consulte [Microsoft Azure
 ## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>¿Por qué implementar un servicio en la nube en ocasiones produce errores por límites, cuotas o restricciones en la suscripción o el servicio?
 La implementación de un servicio en la nube puede producir un error si los recursos que deben asignarse superan la cuota máxima o permitida o predeterminada para su servicio en el nivel de región/centro de datos. Para más información, consulte [Límites de Cloud Services](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cloud-services-limits).
 
-También puede realizar el seguimiento del uso o la cuota actual de la suscripción en el portal: Azure Portal => Suscripciones => \<suscripción correspondiente> => "Usage + quota" (Uso y cuota).
+También puede realizar el seguimiento del uso o la cuota actual de la suscripción en el portal: Azure Portal = > Suscripciones = > \<appropriate subscription> = > "Uso + cuota".
 
 También se puede recuperar la información de consumo y del uso de recursos a través de las API de facturación de Azure. Consulte [API de uso de recursos de Azure (versión preliminar)](../cost-management-billing/manage/usage-rate-card-overview.md#azure-resource-usage-api-preview).
 

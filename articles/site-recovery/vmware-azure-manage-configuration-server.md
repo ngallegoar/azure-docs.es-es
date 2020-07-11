@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 56c53b9e2388cc0594076a5ef35b072216aec20d
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80672732"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Administración del servidor de configuración para la recuperación ante desastres del servidor físico o VM de VMware
@@ -138,7 +138,7 @@ Si lo necesita, puede volver a registrar el servidor de configuración en el mis
    ```
 
     >[!NOTE]
-    >Para **extraer los últimos certificados** del servidor de configuración y escalar horizontalmente el servidor de procesos, ejecute el comando *"\<Unidad de instalación\Microsoft Azure Site Recovery\agent\cdpcli.exe>"--registermt*
+    >Para **extraer los últimos certificados** del servidor de configuración y escalar horizontalmente el servidor de procesos, ejecute el comando *"\<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe>"--registermt*
 
 8. Por último, reinicie el servicio OBEngine con la ejecución del siguiente comando.
    ```

@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 0708e395eff90ff5b889c05f0fd5e7a98205c5bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721904"
 ---
 # <a name="collaborative-coding-with-git"></a>Codificación colaborativa con GIT
@@ -39,7 +39,7 @@ También puede crear una nueva rama con el siguiente comando de bash de Git en W
 git checkout -b <new branch name> <base branch name>
 
 ```
-Si no especifica un valor para \<base branch name> (nombre de rama de base), la nueva rama se basa en `master`. 
+Si no especifica un valor para \<base branch name>, la nueva rama se basa en `master`. 
 
 Para cambiar a la rama de trabajo, ejecute el siguiente comando: 
 

@@ -16,17 +16,17 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 602eed65745eea1fd9096508c442a27ea79bcba9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77057741"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Tutorial: Configuración de Jive para aprovisionar usuarios automáticamente
 
 El objetivo de este tutorial es explicar los pasos que debe realizar en Jive y Azure AD para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure AD para Jive.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -80,7 +80,7 @@ Como parte de este procedimiento, es necesario proporcionar un token de segurida
       
       > [!NOTE]
       > La dirección URL del inquilino de Jive es la que se usa en su organización para iniciar sesión en Jive.  
-      > Normalmente, la dirección URL tiene el formato siguiente: **www.\<organización\>.jive.com**.          
+      > Normalmente, la dirección URL tiene el formato siguiente: **www.\<organization\>.jive.com**.          
 
 1. En Azure Portal, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación de Jive.
 

@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
 ms.openlocfilehash: 72cfdf172e4524e302ef2e22826d4f78ce32daf0
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80582726"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Puntos de conexión de streaming (origen) en Azure Media Services
@@ -95,7 +95,7 @@ En esta sección se proporcionan detalles sobre algunas de las propiedades del p
 - `crossSiteAccessPolicies`: Se usa para especificar las directivas de acceso entre sitios para varios clientes. Para obtener más información, consulte [Cross-domain policy file specification](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) (Especificación del archivo de directivas entre dominios) y [Making a Service Available Across Domain Boundaries](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx) (Hacer que un servicio esté disponible a través de los límites del dominio). La configuración se aplica solo a Smooth Streaming.
 - `customHostNames`: se usa para configurar un punto de conexión de streaming para que acepte el tráfico dirigido a un nombre de host personalizado. Esta propiedad es válida para los puntos de conexión de streaming Estándar y Premium y se puede establecer cuando `cdnEnabled`: false.
 
-    Media Services debe confirmar la propiedad del nombre de dominio. Media Services comprueba la propiedad del nombre de dominio mediante la solicitud de un registro `CName` que contenga el identificador de cuenta de Media Services como un componente para agregarlo al dominio en uso. Por ejemplo, para que "sports.contoso.com" se use como nombre de host personalizado para el punto de conexión de streaming, se debe configurar un registro para `<accountId>.contoso.com` que apunte a uno de los nombres de host de comprobación de Media Services. El nombre de host de comprobación está formado por verifydns.\<zona-dns-mediaservices>.
+    Media Services debe confirmar la propiedad del nombre de dominio. Media Services comprueba la propiedad del nombre de dominio mediante la solicitud de un registro `CName` que contenga el identificador de cuenta de Media Services como un componente para agregarlo al dominio en uso. Por ejemplo, para que "sports.contoso.com" se use como nombre de host personalizado para el punto de conexión de streaming, se debe configurar un registro para `<accountId>.contoso.com` que apunte a uno de los nombres de host de comprobación de Media Services. El nombre de host de comprobación está formado por verifydns.\<mediaservices-dns-zone>.
 
     Las siguientes son las zonas DNS esperadas que se van a usar en el registro de comprobación para diferentes regiones de Azure.
   

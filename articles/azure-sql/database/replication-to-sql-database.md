@@ -1,6 +1,6 @@
 ---
-title: Replicación de SQL Server en Azure SQL Database
-description: Puede configurar una instancia de Azure SQL Database como suscriptor de inserción en una topología de replicación transaccional o de instantáneas unidireccional.
+title: Replicación de Azure SQL Server en Azure SQL Database
+description: Puede configurar una base de datos de Azure SQL Database como suscriptor de inserción en una topología de replicación transaccional o de instantáneas unidireccional.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: ec0aebc10d47b3e9945e63e818240da7bf2451e4
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 6f1eb48655c4e38e2cf0520409e5e2b38750baf5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84192964"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84324154"
 ---
 # <a name="replication-to-azure-sql-database"></a>Replicación en Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,13 +29,13 @@ Puede configurar una instancia de Azure SQL Database como suscriptor de inserci�
 ## <a name="supported-configurations"></a>Configuraciones admitidas
   
 - Azure SQL Database solo puede ser el suscriptor de inserción de un publicador y distribuidor de SQL Server.  
-- Cuando SQL Server funciona como publicador o distribuidor puede ser una instancia de [SQL Server en ejecución en el entorno local](https://www.microsoft.com/sql-server/sql-server-downloads), una [instancia administrada de Azure SQL](../managed-instance/instance-create-quickstart.md) o una [instancia de SQL Server en ejecución en una máquina virtual de Azure en la nube](../virtual-machines/windows/sql-vm-create-portal-quickstart.md). 
-- La base de datos de distribución y los agentes de replicación no pueden colocarse en una instancia de Azure SQL Database.  
+- La instancia de SQL Server que actúa como publicador o distribuidor puede ser una instancia de [SQL Server en ejecución en el entorno local](https://www.microsoft.com/sql-server/sql-server-downloads), una instancia de [Azure SQL Managed Instance](../managed-instance/instance-create-quickstart.md) o una [instancia de SQL Server en ejecución en una máquina virtual de Azure en la nube](../virtual-machines/windows/sql-vm-create-portal-quickstart.md). 
+- La base de datos de distribución y los agentes de replicación no pueden colocarse en una base de datos de Azure SQL Database.  
 - Se admiten replicaciones de [instantánea](/sql/relational-databases/replication/snapshot-replication) y [transaccionales unidireccionales](/sql/relational-databases/replication/transactional/transactional-replication). La replicación transaccional punto a punto y la replicación de mezcla no se admiten.
 
 ### <a name="versions"></a>Versiones  
 
-Para realizar la replicación correctamente en una instancia de Azure SQL Database, los publicadores y distribuidores de SQL Server local deben usar (como mínimo) una de las siguientes versiones: 
+Para realizar la replicación correctamente en una base de datos de Azure SQL Database, los publicadores y distribuidores de SQL Server deben usar (como mínimo) una de las siguientes versiones:
 
 La publicación en instancias de Azure SQL Database desde una base de datos de SQL Server se admite en las siguientes versiones de SQL Server:
 
@@ -116,7 +116,6 @@ Las siguientes opciones no se admiten para las suscripciones de Azure SQL Databa
 - Convertir HierarchyId en tipos de datos MAX  
 - Convertir una instancia espacial en tipos de datos MAX  
 - Copiar propiedades extendidas  
-- Copiar permisos  
 
 ### <a name="limitations-to-be-determined"></a>Limitaciones que se deben determinar
 

@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c097c14406349d973e905fadb806cc159d9b16d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76722108"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Desarrollo de Agile de proyectos de ciencia de datos
@@ -39,7 +39,7 @@ En la plataforma de planeamiento de sprint de TDSP, hay cuatro tipos de *element
 
 Las siguientes son las definiciones de los tipos de elementos de trabajo:
 
-- **Característica**: una característica se corresponde a una interacción de proyecto. Las diferentes interacciones con un cliente son distintas características, y es mejor considerar las diversas fases de un proyecto como características diferentes. Si elige un esquema como *\<ClientName>-\<EngagementName>* para denominar las características, podrá reconocer fácilmente el contexto del proyecto e interacción mediante los propios nombres.
+- **Característica**: una característica se corresponde a una interacción de proyecto. Las diferentes interacciones con un cliente son distintas características, y es mejor considerar las diversas fases de un proyecto como características diferentes. Si elige un esquema como *\<ClientName>-\<EngagementName>* para denominar las características, puede reconocer fácilmente el contexto del proyecto y la involucración a partir de los propios nombres.
   
 - **Caso de usuario**: los casos de usuario son elementos de trabajo necesarios para completar íntegramente una característica. Los siguientes son algunos ejemplos de casos de usuario:
   - Obtener datos 

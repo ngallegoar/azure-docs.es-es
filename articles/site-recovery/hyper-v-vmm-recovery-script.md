@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 14c2a9a2ad818cc358535a91f9a6813ec7b91a6f
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83826288"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Incorporación de un script de VMM a un plan de recuperación
@@ -20,7 +20,7 @@ En este artículo se describe cómo crear un script de System Center Virtual Mac
 
 Publique cualquier comentario o pregunta que tenga al final del artículo o bien en la [Página de preguntas y respuestas de Microsoft sobre Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Puede usar scripts de PowerShell en los planes de recuperación. Para que sea posible acceder al script desde el plan de recuperación, debe crearlo y colocarlo en la biblioteca de VMM. Cuando escriba el script, tenga en mente las consideraciones siguientes:
 
@@ -60,9 +60,9 @@ Puede usar scripts de PowerShell en los planes de recuperación. Para que sea po
 
 Si tiene un sitio de origen de VMM, puede crear un script en el servidor VMM. Luego, incluya el script en el plan de recuperación.
 
-1. En el recurso compartido de biblioteca, cree una carpeta nueva. Por ejemplo, \<Nombre del servidor VMM>\MSSCVMMLibrary\RPScripts. Coloque la carpeta en los servidores VMM de origen y de destino.
+1. En el recurso compartido de biblioteca, cree una carpeta nueva. Por ejemplo, \<VMM server name>\MSSCVMMLibrary\RPScripts. Coloque la carpeta en los servidores VMM de origen y de destino.
 1. Cree el script. Por ejemplo, asígnele al script el nombre RPScript. Compruebe que el script funciona según lo previsto.
-1. Coloque el script en la carpeta \<Nombre del servidor VMM>\MSSCVMMLibrary en los servidores VMM de origen y de destino.
+1. Coloque el script en la carpeta \<VMM server name>\MSSCVMMLibrary en los servidores VMM de origen y de destino.
 
 ## <a name="add-the-script-to-a-recovery-plan"></a>Adición del script a un plan de recuperación
 

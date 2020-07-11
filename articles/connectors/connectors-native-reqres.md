@@ -5,45 +5,56 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 05/29/2020
 tags: connectors
-ms.openlocfilehash: a44e0e9f2427fc5fcb44a78fb0a1798b219f9200
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 9f3f361b3e9fafdb350f943c0a8adcd87fa06c78
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84249168"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84325140"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Recepción y respuesta de solicitudes HTTPS entrantes en Azure Logic Apps
 
 Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el desencadenador de solicitud y la acción de respuesta integrados, puede crear tareas y flujos de trabajo automatizados que reciben solicitudes HTTP entrantes y responden a ellas. Por ejemplo, puede hacer que la aplicación lógica:
 
 * Reciba una solicitud HTTP de datos en una base de datos local, y responda a ella.
+
 * Desencadene un flujo de trabajo cuando se produzca un evento de webhook externo.
+
 * Reciba una llamada HTTPS de otra aplicación lógica, y responda e ella.
 
 El desencadenador de solicitud admite [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) para autorizar llamadas entrantes a la aplicación lógica. Para obtener más información sobre la habilitación de esta autenticación, vea [Proteger el acceso y los datos en Azure Logic Apps - Habilitación de la autenticación Azure AD OAuth](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
-
-> [!NOTE]
-> El desencadenador de solicitud admite *solo* la seguridad de la capa de transporte (TLS) 1.2 para las llamadas entrantes. Las llamadas salientes son compatibles con TLS 1.0, 1.1 y 1.2. Para más información, consulte [Solución del problema de TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
->
-> Si obtiene errores de protocolo de enlace TLS, asegúrese de usar TLS 1.2. 
-> En el caso de las llamadas entrantes, estos son los conjuntos de cifrado compatibles:
->
-> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
-> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si no tiene una suscripción, puede [registrarse para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 
 * Conocimientos básicos sobre [aplicaciones lógicas](../logic-apps/logic-apps-overview.md). Si es la primera vez que interactúa con las aplicaciones lógicas, consulte el artículo sobre [cómo crear la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+<a name="tls-support"></a>
+
+## <a name="transport-layer-security-tls"></a>Seguridad de la capa de transporte (TLS)
+
+* Las llamadas de entrada *solo* admiten Seguridad de la capa de transporte (TLS) 1.2. Si obtiene errores de protocolo de enlace TLS, asegúrese de usar TLS 1.2. Para más información, consulte [Solución del problema de TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem). Las llamadas de salida admiten TLS 1.0, 1.1 y 1.2, en función de la capacidad del punto de conexión de destino.
+
+* Las llamadas de entrada admiten estos conjuntos de cifrado:
+
+  * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+
+  * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+
+  * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+
+  * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+
+  * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+
+  * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+
+  * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+
+  * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 <a name="add-request"></a>
 

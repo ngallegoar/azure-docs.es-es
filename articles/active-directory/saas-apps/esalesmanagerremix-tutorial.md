@@ -17,10 +17,10 @@ ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 167d682bb5ce1266ba6b677f6223c38dd34af9bb
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82202403"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integración de Azure Active Directory con E Sales Manager Remix
@@ -35,7 +35,7 @@ La integración de Azure AD con E Sales Manager Remix proporciona las siguientes
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con E Sales Manager Remix, necesita los siguientes elementos:
 
@@ -101,9 +101,9 @@ Haga lo siguiente para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Información de dominio y direcciones URL de inicio de sesión único de E Sales Manager Remix](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
 
-    a. En el cuadro **Sign-on URL** (Dirección URL de registro), escriba una dirección URL con el siguiente formato: *https://\<URL-basada-en-servidor>/\<subdominio>/esales-pc*.
+    a. En el cuadro **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente formato: *https://\<Server-Based-URL>/\<sub-domain>/esales-pc*.
 
-    b. En el cuadro **Identifier** (Identificador), escriba una dirección URL con el siguiente formato: *https://\<URL-basada-en-servidor>/\<subdominio>* .
+    b. En el cuadro **Identificador**, escriba una dirección URL con el siguiente formato: *https://\<Server-Based-URL>/\<sub-domain>/* .
 
     c. Anote el valor del **identificador** para usarlo más adelante en este tutorial.
     

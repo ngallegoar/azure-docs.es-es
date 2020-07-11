@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 3360b92a1b71adcbf0364a16c197aecdab5700db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77086613"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Tutorial: Reacción a eventos de Blob Storage en IoT Edge (versión preliminar)
@@ -348,7 +348,7 @@ El objeto data tiene las siguientes propiedades:
 | contentType | string | Tipo de contenido especificado para el blob. |
 | contentLength | integer | Tamaño del blob en bytes. |
 | blobType | string | El tipo de blob. Los valores válidos son "BlockBlob" o "PageBlob". |
-| url | string | Ruta de acceso al blob. <br>Si el cliente utiliza una API REST de Blob, la dirección URL tiene esta estructura: *\<nombre-de-la-cuenta-de-almacenamiento\>.blob.core.windows.net/\<nombre-del-contenedor\>/\<nombre-de-archivo\>* . <br>Si el cliente utiliza una API REST de Data Lake Store, la dirección URL tiene esta estructura: *\<nombre-de-la-cuenta-de-almacenamiento\>.dfs.core.windows.net/\<nombre-del-sistema-de-archivos\>/\<nombre-de-archivo\>* . |
+| url | string | Ruta de acceso al blob. <br>Si el cliente usa una API de REST de Blob, la dirección URL tiene esta estructura: *\<storage-account-name\>.blob.core.windows.net/\<container-name\>/\<file-name\>* . <br>Si el cliente usa una API de REST de Data Lake Storage, la dirección URL tiene esta estructura: *\<storage-account-name\>.dfs.core.windows.net/\<file-system-name\>/\<file-name\>* . |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

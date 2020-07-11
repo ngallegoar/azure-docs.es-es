@@ -9,10 +9,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
 ms.openlocfilehash: 5e27cf51d50b3094adca6ce8d3846ef358f78482
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83201528"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualización de datos del sensor en tiempo real desde Azure IoT Hub en una aplicación web
@@ -198,7 +198,7 @@ En esta sección, aprovisiona una aplicación web en App Service e implementa el
    az webapp deployment source config-local-git -n <your web app name> -g <your resource group name>
    ```
 
-7. Agregue un control remoto para el clon que hace referencia al repositorio de Git para la aplicación web en App Service. En \<URL de clonación de Git\>, use la dirección URL devuelta en el paso anterior. Ejecute el siguiente comando desde la ventana de comandos.
+7. Agregue un control remoto para el clon que hace referencia al repositorio de Git para la aplicación web en App Service. En \<Git clone URL\>, use la dirección URL devuelta en el paso anterior. Ejecute el siguiente comando desde la ventana de comandos.
 
    ```cmd
    git remote add webapp <Git clone URL>

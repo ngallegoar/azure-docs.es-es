@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cf85632ff062bff5b71451379f37c14830bf6b68
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982962"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un disco compartido de clúster en Azure
@@ -32,7 +32,7 @@ Los clústeres de conmutación por error de Windows Server son la base de una in
 
 Un clúster de conmutación por error es un grupo de 1+n servidores independientes (nodos) que colaboran para aumentar la disponibilidad de aplicaciones y servicios. Si se produce un error de nodo, los clústeres de conmutación por error de Windows Server calculan el número de errores que se pueden producir y mantiene un clúster en buen estado para proporcionar aplicaciones y servicios. Para conseguir clústeres de conmutación por error, puede elegir entre distintos modos de cuórum.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de comenzar las tareas de este artículo, consulte el siguiente artículo:
 
 * [Escenarios y arquitectura de alta disponibilidad de Azure Virtual Machines para SAP NetWeaver][sap-high-availability-architecture-scenarios]
@@ -60,8 +60,8 @@ En Windows, una instancia de ASCS/SCS de SAP contiene servicios centrales de SAP
 Una instancia de ASCS/SCS de SAP tiene los siguientes componentes:
 
 * Servicios centrales de SAP:
-    * Dos procesos, un servidor de mensajes y colas y un \<nombre de host virtual ASCS/SCS > que se usa para tener acceso a estos dos procesos.
-    * Estructura de archivos: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<número de instancia\>
+    * Dos procesos, un servidor de mensajes y colas y un \<ASCS/SCS virtual host name> que se usa para acceder a estos dos procesos.
+    * Estructura de archivos: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<instance number\>
 
 
 * Archivos de host global de SAP :
@@ -83,7 +83,7 @@ _**Ilustración 3:** Arquitectura de alta disponibilidad de ASCS/SCS de SAP con
 
 > [!IMPORTANT]
 > Estos dos componentes se ejecutan en la misma instancia de ASCS/SCS de SAP:
->* Se usa el mismo \<nombre de host virtual ASCS/SCS> para acceder a los procesos de mensajes y del servidor de colas de SAP y los archivos de host globales de SAP mediante el recurso compartido de archivos sapmnt.
+>* Se usa el mismo \<ASCS/SCS virtual host name> para acceder a los procesos del servidor de mensajes y colas de SAP y los archivos de host globales de SAP mediante el recurso compartido de archivos sapmnt.
 >* Comparten la misma unidad de disco compartido de clúster S.
 >
 

@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 02/18/2020
 ms.author: yelevin
 ms.openlocfilehash: 87ca322cbdfdd8a53a3ecefcb120a961ea1bb936
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77587930"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Detección avanzada de ataques de varias fases en Azure Sentinel
@@ -89,7 +89,7 @@ En la detección avanzada de ataques de varias fases, Azure Sentinel admite los 
 
 Debe tener el [conector de datos de Azure AD Identity Protection](connect-azure-ad-identity-protection.md) y los conectores de [Cloud App Security](connect-cloud-app-security.md) configurados.
 
-En las descripciones siguientes, Azure Sentinel mostrará el valor real de los datos que se representan en esta página como variables entre corchetes. Por ejemplo, el nombre para mostrar real de una cuenta en lugar de \<*nombreDeCuenta*> y el número real en lugar de \<*número*>.
+En las descripciones siguientes, Azure Sentinel mostrará el valor real de los datos que se representan en esta página como variables entre corchetes. Por ejemplo, el nombre para mostrar real de una cuenta en lugar de \<*account name*> y el número real en lugar de \<*number*>.
 
 ### <a name="impossible-travel-to-atypical-location-followed-by-anomalous-office-365-activity"></a>Viaje imposible a una ubicación inusual seguido de una actividad anómala de Office 365
 
@@ -97,45 +97,45 @@ Hay siete posibles incidentes de Azure Sentinel que combinan alertas de viaje im
 
 - **Viaje imposible a ubicaciones inusuales que conducen a la filtración de los buzones de Office 365**
     
-    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde un viaje imposible a \<*location*>, una ubicación inusual, seguido de una regla de reenvío sospechosa de la bandeja de entrada que se estableció en una bandeja de entrada del usuario.
+    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde un viaje imposible a \<*location*>, una ubicación inusual, seguido de una regla de reenvío de bandeja de entrada sospechosa que se ha establecido en la bandeja de entrada de un usuario.
     
-    Esto puede indicar que la cuenta está en peligro y que el buzón se usa para la filtración de información de su organización. El usuario \<*nombreDeCuenta*> ha creado o actualizado una regla de reenvío de bandeja de entrada que reenvía el correo electrónico entrante a la dirección externa \<*direcciónCorreoElectrónico*>.
+    Esto puede indicar que la cuenta está en peligro y que el buzón se usa para la filtración de información de su organización. El usuario \<*account name*> ha creado o actualizado una regla de reenvío de bandeja de entrada que reenvía todos los correos electrónicos entrantes a la dirección externa \<*email address*>.
 
 - **Viaje imposible a ubicaciones inusuales que conducen a una actividad de administración de aplicaciones en la nube sospechosa**
     
     Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde un viaje imposible a \<*location*>, una ubicación inusual.
     
-    A continuación, la cuenta \<*nombreDeCuenta*> realizó \<*número*> actividades de administración en una única salida.
+    Luego, la cuenta \<*account name*> ha realizado más de \<*number*> actividades de administración en una única sesión.
 
 - **Viaje imposible a ubicaciones inusuales que conducen a una eliminación de archivos masiva**
     
-    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*nombreDeCuenta*> en \<*ubicación*>, una ubicación inusual. 
+    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> en \<*location*>, una ubicación inusual. 
     
-    A continuación, la cuenta \<*nombreDeCuenta*> eliminó \<*númeroDe*> archivos únicos en una sola sesión.
+    Luego, la cuenta \<*account name*> ha eliminado \<*number of*> archivos únicos en una sola sesión.
 
 - **Viaje imposible a ubicaciones inusuales que conducen a una descarga de archivos masiva**
     
     Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde un viaje imposible a \<*location*>, una ubicación inusual. 
     
-    A continuación, la cuenta \<*nombreDeCuenta*> descargó \<*númeroDe*> archivos únicos en una sola sesión.
+    Luego, la cuenta \<*account name*> ha descargado más de \<*number of*> archivos únicos en una sola sesión.
 
 - **Viaje imposible a ubicaciones inusuales que conducen a la suplantación de Office 365**
     
     Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde un viaje imposible a \<*location*>, una ubicación inusual. 
     
-    A continuación, la cuenta \<*nombreDeCuenta*> realizó una cantidad inusual (\<*númeroDeActividades*>) de actividades de suplantación en una sola sesión.
+    Luego, la cuenta \<*account name*> ha realizado una cantidad inusual (\<*number of activities*>) de actividades de suplantación en una sola sesión.
 
 - **Viaje imposible a ubicaciones inusuales que conducen a un uso compartido de archivos masivo**
     
     Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde un viaje imposible a \<*location*>, una ubicación inusual. 
     
-    A continuación, la cuenta \<*nombreDeCuenta*> compartió \<*númeroDe*> archivos únicos en una sola sesión.
+    Luego, la cuenta \<*account name*> ha compartido más de \<*number of*> archivos únicos en una sola sesión.
 
 - **Viaje imposible a ubicaciones inusuales que conducen a ransomware en las aplicaciones en la nube**
     
     Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde un viaje imposible a \<*location*>, una ubicación inusual. 
     
-    A continuación, la cuenta \<*nombreDeCuenta*> descargó \<*númeroDe*> archivos y eliminó un total de \<*númeroDe*> archivos. 
+    Luego, la cuenta \<*account name*> ha cargado \<*number of*> archivos y ha eliminado un total de \<*number of*> archivos. 
     
     Este patrón de actividad es indicativo de un posible ataque por ransomware.
 
@@ -146,45 +146,45 @@ Hay siete posibles incidentes de Azure Sentinel que combinan alertas de activida
 
 - **Evento de inicio de sesión desde una ubicación desconocida que conduce a la filtración de buzones de Exchange Online**
     
-    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*nombreDeCuenta*> desde \<*ubicación*>, una ubicación desconocida, seguido de una regla de reenvío sospechosa de la bandeja de entrada que se estableció en una bandeja de entrada del usuario.
+    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde \<*location*>, una ubicación desconocida, seguido de una regla de reenvío de bandeja de entrada sospechosa que se ha establecido en la bandeja de entrada de un usuario.
     
-    Esto puede indicar que la cuenta está en peligro y que el buzón se usa para la filtración de información de su organización. El usuario \<*nombreDeCuenta*> ha creado o actualizado una regla de reenvío de bandeja de entrada que reenvía el correo electrónico entrante a la dirección externa \<*direcciónCorreoElectrónico*>. 
+    Esto puede indicar que la cuenta está en peligro y que el buzón se usa para la filtración de información de su organización. El usuario \<*account name*> ha creado o actualizado una regla de reenvío de bandeja de entrada que reenvía todos los correos electrónicos entrantes a la dirección externa \<*email address*>. 
 
 - **Evento de inicio de sesión desde una ubicación desconocida que conduce a una actividad de administración de aplicaciones en la nube sospechosa**
     
-    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*nombreDeCuenta*> desde \<*ubicación*>, una ubicación desconocida. 
+    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde \<*location*>, una ubicación desconocida. 
     
-    A continuación, la cuenta \<*nombreDeCuenta*> realizó \<*númeroDe*> actividades de administración en una única salida.
+    Luego, la cuenta \<*account name*> ha realizado más de \<*number of*> actividades de administración en una única sesión.
 
 - **Evento de inicio de sesión desde una ubicación desconocida que conduce a una eliminación de archivos masiva**
     
-    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*nombreDeCuenta*> desde \<*ubicación*>, una ubicación desconocida. 
+    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde \<*location*>, una ubicación desconocida. 
     
-    A continuación, la cuenta \<*nombreDeCuenta*> eliminó \<*númeroDe*> archivos únicos en una sola sesión.
+    Luego, la cuenta \<*account name*> ha eliminado \<*number of*> archivos únicos en una sola sesión.
 
 - **Evento de inicio de sesión desde una ubicación desconocida que conduce a una descarga de archivos masiva**
     
-    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*nombreDeCuenta*> desde \<*ubicación*>, una ubicación desconocida. 
+    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde \<*location*>, una ubicación desconocida. 
     
-    A continuación, la cuenta \<*nombreDeCuenta*> descargó \<*númeroDe*> archivos únicos en una sola sesión.
+    Luego, la cuenta \<*account name*> ha descargado más de \<*number of*> archivos únicos en una sola sesión.
 
 - **Evento de inicio de sesión desde una ubicación desconocida que conduce a una suplantación de Office 365**
     
-    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*nombreDeCuenta*> desde \<*ubicación*>, una ubicación desconocida.
+    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde \<*location*>, una ubicación desconocida.
     
-    A continuación, la cuenta \<*nombreDeCuenta*> suplantó \<*númeroDe*> cuentas diferentes en una sola sesión.
+    Luego, la cuenta \<*account name*> ha suplantado a más de \<*number of*> cuentas diferentes en una única sesión.
 
 - **Evento de inicio de sesión desde una ubicación desconocida que conduce a un uso compartido de archivos masivo**
     
-    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*nombreDeCuenta*> desde \<*ubicación*>, una ubicación desconocida. 
+    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde \<*location*>, una ubicación desconocida. 
     
-    A continuación, la cuenta \<*nombreDeCuenta*> compartió \<*númeroDe*> archivos únicos en una sola sesión.
+    Luego, la cuenta \<*account name*> ha compartido más de \<*number of*> archivos únicos en una sola sesión.
 
 - **Evento de inicio de sesión desde una ubicación desconocida que conducen a ransomware en las aplicaciones en la nube**
     
-    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*nombreDeCuenta*> desde \<*ubicación*>, una ubicación desconocida. 
+    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde \<*location*>, una ubicación desconocida. 
     
-    A continuación, la cuenta \<*nombreDeCuenta*> descargó \<*númeroDe*> archivos y eliminó un total de \<*númeroDe*> archivos. 
+    Luego, la cuenta \<*account name*> ha cargado \<*number of*> archivos y ha eliminado un total de \<*number of*> archivos. 
     
     Este patrón de actividad es indicativo de un posible ataque por ransomware.
 
@@ -194,45 +194,45 @@ Hay siete posibles incidentes de Azure Sentinel que combinan alertas de activida
 
 - **Evento de inicio de sesión desde un dispositivo infectado que conduce a la filtración de buzones de Office 365**
     
-    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde un dispositivo posiblemente infectado con malware, seguido de una regla de reenvío sospechosa de la bandeja de entrada que se estableció en una bandeja de entrada del usuario.
+    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde un dispositivo posiblemente infectado con malware, seguido de una regla de reenvío de bandeja de entrada sospechosa que se ha establecido en la bandeja de entrada de un usuario.
     
-    Esto puede indicar que la cuenta está en peligro y que el buzón se usa para la filtración de información de su organización. El usuario \<*nombreDeCuenta*> ha creado o actualizado una regla de reenvío de bandeja de entrada que reenvía el correo electrónico entrante a la dirección externa \<*direcciónCorreoElectrónico*>. 
+    Esto puede indicar que la cuenta está en peligro y que el buzón se usa para la filtración de información de su organización. El usuario \<*account name*> ha creado o actualizado una regla de reenvío de bandeja de entrada que reenvía todos los correos electrónicos entrantes a la dirección externa \<*email address*>. 
 
 - **Evento de inicio de sesión desde un dispositivo infectado que conduce a una actividad de administración de aplicaciones en la nube sospechosa**
     
-    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*nombreDeCuenta*> desde un dispositivo posiblemente infectado con malware.
+    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde un dispositivo posiblemente infectado con malware.
     
-    A continuación, la cuenta \<*nombreDeCuenta*> realizó \<*númeroDe*> actividades de administración en una única salida.
+    Luego, la cuenta \<*account name*> ha realizado más de \<*number of*> actividades de administración en una única sesión.
 
 - **Evento de inicio de sesión desde un dispositivo infectado que conduce a una eliminación de archivos masiva**
     
-    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*nombreDeCuenta*> desde un dispositivo posiblemente infectado con malware. 
+    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde un dispositivo posiblemente infectado con malware. 
     
-    A continuación, la cuenta \<*nombreDeCuenta*> eliminó \<*númeroDe*> archivos únicos en una sola sesión.
+    Luego, la cuenta \<*account name*> ha eliminado \<*number of*> archivos únicos en una sola sesión.
 
 - **Evento de inicio de sesión desde un dispositivo infectado que conduce a una descarga de archivos masiva**
     
-    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*nombreDeCuenta*> desde un dispositivo posiblemente infectado con malware. 
+    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde un dispositivo posiblemente infectado con malware. 
     
-    A continuación, la cuenta \<*nombreDeCuenta*> descargó \<*númeroDe*> archivos únicos en una sola sesión.
+    Luego, la cuenta \<*account name*> ha descargado más de \<*number of*> archivos únicos en una sola sesión.
 
 - **Evento de inicio de sesión desde un dispositivo infectado que conduce a una suplantación de Office 365**
     
-    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*nombreDeCuenta*> desde un dispositivo posiblemente infectado con malware. 
+    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde un dispositivo posiblemente infectado con malware. 
     
-    A continuación, la cuenta \<*nombreDeCuenta*> suplantó \<*númeroDe*> cuentas diferentes en una sola sesión.
+    Luego, la cuenta \<*account name*> ha suplantado a más de \<*number of*> cuentas diferentes en una única sesión.
 
 - **Evento de inicio de sesión desde un dispositivo infectado que conduce a un uso compartido de archivos masivo**
     
-    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*nombreDeCuenta*> desde un dispositivo posiblemente infectado con malware. 
+    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde un dispositivo posiblemente infectado con malware. 
     
-    A continuación, la cuenta \<*nombreDeCuenta*> compartió \<*númeroDe*> archivos únicos en una sola sesión.
+    Luego, la cuenta \<*account name*> ha compartido más de \<*number of*> archivos únicos en una sola sesión.
 
 - **Evento de inicio de sesión desde un dispositivo infectado que conduce a ransomware en las aplicaciones en la nube**
     
-    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*nombreDeCuenta*> desde un dispositivo posiblemente infectado con malware. 
+    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde un dispositivo posiblemente infectado con malware. 
     
-    A continuación, la cuenta \<*nombreDeCuenta*> descargó \<*númeroDe*> archivos y eliminó un total de \<*númeroDe*> archivos. 
+    Luego, la cuenta \<*account name*> ha cargado \<*number of*> archivos y ha eliminado un total de \<*number of*> archivos. 
     
     Este patrón de actividad es indicativo de un posible ataque por ransomware.
 
@@ -242,45 +242,45 @@ Hay siete posibles incidentes de Azure Sentinel que combinan alertas de activida
 
 - **Evento de inicio de sesión desde una dirección IP anónima que conduce a la filtración de buzones de Office 365**
     
-    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*nombreDeCuenta*> desde una dirección IP de proxy anónima \<*direcciónIP*>, seguido de una regla de reenvío sospechosa de la bandeja de entrada que se estableció en una bandeja de entrada del usuario.
+    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde una dirección IP de proxy anónima \<*IP address*>, seguido de una regla de reenvío de bandeja de entrada sospechosa que se ha establecido en la bandeja de entrada de un usuario.
     
-    Esto puede indicar que la cuenta está en peligro y que el buzón se usa para la filtración de información de su organización. El usuario \<*nombreDeCuenta*> ha creado o actualizado una regla de reenvío de bandeja de entrada que reenvía el correo electrónico entrante a la dirección externa \<*direcciónCorreoElectrónico*>. 
+    Esto puede indicar que la cuenta está en peligro y que el buzón se usa para la filtración de información de su organización. El usuario \<*account name*> ha creado o actualizado una regla de reenvío de bandeja de entrada que reenvía todos los correos electrónicos entrantes a la dirección externa \<*email address*>. 
 
 - **Evento de inicio de sesión desde una dirección IP anónima que conduce a una actividad de administración de aplicaciones en la nube sospechosa**
     
-    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*nombreDeCuenta*> desde una dirección IP de proxy anónima \<*direcciónIP*>. 
+    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde una dirección IP de proxy anónima \<*IP address*>. 
     
-    A continuación, la cuenta \<*nombreDeCuenta*> realizó \<*númeroDe*> actividades de administración en una única salida.
+    Luego, la cuenta \<*account name*> ha realizado más de \<*number of*> actividades de administración en una única sesión.
 
 - **Evento de inicio de sesión desde una dirección IP anónima que conduce a una eliminación de archivos masiva**
     
-    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*nombreDeCuenta*> desde una dirección IP de proxy anónima \<*direcciónIP*>. 
+    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde una dirección IP de proxy anónima \<*IP address*>. 
     
-    A continuación, la cuenta \<*nombreDeCuenta*> eliminó \<*númeroDe*> archivos únicos en una sola sesión.
+    Luego, la cuenta \<*account name*> ha eliminado \<*number of*> archivos únicos en una sola sesión.
 
 - **Evento de inicio de sesión desde una dirección IP anónima que conduce a una descarga de archivos masiva**
     
-    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*nombreDeCuenta*> desde una dirección IP de proxy anónima \<*direcciónIP*>. 
+    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde una dirección IP de proxy anónima \<*IP address*>. 
     
-    A continuación, la cuenta \<*nombreDeCuenta*> descargó \<*númeroDe*> archivos únicos en una sola sesión.
+    Luego, la cuenta \<*account name*> ha descargado más de \<*number of*> archivos únicos en una sola sesión.
 
 - **Evento de inicio de sesión desde una dirección IP anónima que conduce a una suplantación de Office 365**
     
-    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*nombreDeCuenta*> desde una dirección IP de proxy anónima \<*direcciónIP*>. 
+    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde una dirección IP de proxy anónima \<*IP address*>. 
     
-    A continuación, la cuenta \<*nombreDeCuenta*> suplantó \<*númeroDe*> cuentas diferentes en una sola sesión.
+    Luego, la cuenta \<*account name*> ha suplantado a más de \<*number of*> cuentas diferentes en una única sesión.
 
 - **Evento de inicio de sesión desde una dirección IP anónima que conduce a un uso compartido de archivos masivo**
     
-    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*nombreDeCuenta*> desde una dirección IP de proxy anónima \<*direcciónIP*>. 
+    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde una dirección IP de proxy anónima \<*IP address*>. 
     
-    A continuación, la cuenta \<*nombreDeCuenta*> compartió \<*númeroDe*> archivos únicos en una sola sesión.
+    Luego, la cuenta \<*account name*> ha compartido más de \<*number of*> archivos únicos en una sola sesión.
 
 - **Evento de inicio de sesión desde una dirección IP anónima que conduce a ransomware en las aplicaciones en la nube**
     
-    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*nombreDeCuenta*> desde una dirección IP de proxy anónima \<*direcciónIP*>. 
+    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*account name*> desde una dirección IP de proxy anónima \<*IP address*>. 
     
-    A continuación, la cuenta \<*nombreDeCuenta*> descargó \<*númeroDe*> archivos y eliminó un total de \<*númeroDe*> archivos. 
+    Luego, la cuenta \<*account name*> ha cargado \<*number of*> archivos y ha eliminado un total de \<*number of*> archivos. 
     
     Este patrón de actividad es indicativo de un posible ataque por ransomware.
 
@@ -290,45 +290,45 @@ Hay siete posibles incidentes de Azure Sentinel que combinan alertas de activida
 
 - **Evento de inicio de sesión desde un usuario con credenciales filtradas que conduce a la filtración de buzones de Office 365**
     
-    Esta alerta constituye un indicador de un evento de inicio de sesión de \<*nombreDeCuenta*> desde un usuario con credenciales filtradas, seguido de una regla de reenvío sospechosa de la bandeja de entrada que se estableció en una bandeja de entrada del usuario. 
+    Esta alerta constituye un indicador de que el evento de inicio de sesión de \<*account name*> ha usado credenciales filtradas, seguido de una regla de reenvío de bandeja de entrada sospechosa que se ha establecido en la bandeja de entrada de un usuario. 
     
-    Esto puede indicar que la cuenta está en peligro y que el buzón se usa para la filtración de información de su organización. El usuario \<*nombreDeCuenta*> ha creado o actualizado una regla de reenvío de bandeja de entrada que reenvía el correo electrónico entrante a la dirección externa \<*direcciónCorreoElectrónico*>. 
+    Esto puede indicar que la cuenta está en peligro y que el buzón se usa para la filtración de información de su organización. El usuario \<*account name*> ha creado o actualizado una regla de reenvío de bandeja de entrada que reenvía todos los correos electrónicos entrantes a la dirección externa \<*email address*>. 
 
 - **Evento de inicio de sesión desde un usuario con credenciales filtradas que conduce a una actividad de administración de aplicaciones en la nube sospechosa**
     
-    Esta alerta constituye un indicador de que el evento de inicio de sesión de \<*nombreDeCuenta*> utilizó credenciales filtradas.
+    Esta alerta constituye un indicador de que el evento de inicio de sesión de \<*account name*> ha usado credenciales filtradas.
     
-    A continuación, la cuenta \<*nombreDeCuenta*> realizó \<*númeroDe*> actividades de administración en una única salida.
+    Luego, la cuenta \<*account name*> ha realizado más de \<*number of*> actividades de administración en una única sesión.
 
 - **Evento de inicio de sesión desde un usuario con credenciales filtradas que conduce a una eliminación de archivos masiva**
     
-    Esta alerta constituye un indicador de que el evento de inicio de sesión de \<*nombreDeCuenta*> utilizó credenciales filtradas.
+    Esta alerta constituye un indicador de que el evento de inicio de sesión de \<*account name*> ha usado credenciales filtradas.
     
-    A continuación, la cuenta \<*nombreDeCuenta*> eliminó \<*númeroDe*> archivos únicos en una sola sesión.
+    Luego, la cuenta \<*account name*> ha eliminado \<*number of*> archivos únicos en una sola sesión.
 
 - **Evento de inicio de sesión desde un usuario con credenciales filtradas que conduce a una descarga de archivos masiva**
     
-    Esta alerta constituye un indicador de que el evento de inicio de sesión de \<*nombreDeCuenta*> utilizó credenciales filtradas.
+    Esta alerta constituye un indicador de que el evento de inicio de sesión de \<*account name*> ha usado credenciales filtradas.
     
-    A continuación, la cuenta \<*nombreDeCuenta*> descargó \<*númeroDe*> archivos únicos en una sola sesión.
+    Luego, la cuenta \<*account name*> ha descargado más de \<*number of*> archivos únicos en una sola sesión.
 
 - **Evento de inicio de sesión desde un usuario con credenciales filtradas que conduce a la suplantación de Office 365**
     
-    Esta alerta constituye un indicador de que el evento de inicio de sesión de \<*nombreDeCuenta*> utilizó credenciales filtradas. 
+    Esta alerta constituye un indicador de que el evento de inicio de sesión de \<*account name*> ha usado credenciales filtradas. 
     
-    A continuación, la cuenta \<*nombreDeCuenta*> suplantó \<*númeroDe*> cuentas diferentes en una sola sesión.
+    Luego, la cuenta \<*account name*> ha suplantado a más de \<*number of*> cuentas diferentes en una única sesión.
 
 - **Evento de inicio de sesión desde un usuario con credenciales filtradas que conduce a un uso compartido de archivos masivo**
     
-    Esta alerta constituye un indicador de que el evento de inicio de sesión de \<*nombreDeCuenta*> utilizó credenciales filtradas.
+    Esta alerta constituye un indicador de que el evento de inicio de sesión de \<*account name*> ha usado credenciales filtradas.
     
-    A continuación, la cuenta \<*nombreDeCuenta*> compartió \<*númeroDe*> archivos únicos en una sola sesión.
+    Luego, la cuenta \<*account name*> ha compartido más de \<*number of*> archivos únicos en una sola sesión.
 
 - **Evento de inicio de sesión desde un usuario con credenciales filtradas que conduce a ransomware en las aplicaciones en la nube**
     
-    Esta alerta constituye un indicador de que el evento de inicio de sesión de \<*nombreDeCuenta*> utilizó credenciales filtradas. 
+    Esta alerta constituye un indicador de que el evento de inicio de sesión de \<*account name*> ha usado credenciales filtradas. 
     
-    A continuación, la cuenta \<*nombreDeCuenta*> descargó \<*númeroDe*> archivos y eliminó un total de \<*númeroDe*> archivos. 
+    Luego, la cuenta \<*account name*> ha cargado \<*number of*> archivos y ha eliminado un total de \<*number of*> archivos. 
     
     Este patrón de actividad es indicativo de un posible ataque por ransomware.
 

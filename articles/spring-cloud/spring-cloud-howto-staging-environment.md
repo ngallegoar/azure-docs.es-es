@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: brendm
 ms.openlocfilehash: 2e29f6a75b303518ac34ecf9b570bd7638cf0c3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79471037"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Configuración de un entorno de ensayo en Azure Spring Cloud
 
 En este artículo se aborda cómo configurar una implementación de ensayo con el patrón de implementación azul-verde en Azure Spring Cloud. La implementación azul/verde es un patrón de entrega continua de Azure DevOps que se basa en mantener una versión existente (azul) activa mientras se implementa una nueva (verde). En este artículo se muestra cómo llevar la implementación de ensayo a producción sin cambiar directamente la implementación de producción.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se da por hecho que ya ha implementado la aplicación PiggyMetrics, para lo que ha usado el [tutorial en el que se explica cómo iniciar una aplicación en Azure Spring Cloud](spring-cloud-quickstart-launch-app-portal.md). PiggyMetrics consta de tres aplicaciones: "gateway", "account-service" y "auth-service".  
 
@@ -67,10 +67,10 @@ Vaya a la instancia de servicio en Azure Portal y seleccione **Administración d
 
 >[!TIP]
 > * Confirme que el punto de conexión de prueba termina con una barra diagonal (/), con el fin de asegurarse de que el archivo CSS se ha cargado correctamente.  
-> * Si el explorador requiere que escriba las credenciales de inicio de sesión para ver la página, use [Descodificar como dirección URL ](https://www.urldecoder.org/) para descodificar el punto de conexión de prueba. Esta operación devuelve una dirección URL con el formato "https://\<nombreDeUsuario>:\<contraseña>@\<nombreDeClúster >.test.azureapps.io/gateway/green".  Use este formulario para acceder al punto de conexión.
+> * Si el explorador requiere que escriba las credenciales de inicio de sesión para ver la página, use [Descodificar como dirección URL ](https://www.urldecoder.org/) para descodificar el punto de conexión de prueba. La descodificación de URL devuelve una dirección URL con el formato "https://\<username>:\<password>@\<cluster-name>.test.azureapps.io/gateway/green".  Use este formulario para acceder al punto de conexión.
 
 >[!NOTE]    
-> Los valores del servidor de configuración se aplican tanto al entorno de ensayo como al de producción. Por ejemplo, si establece la ruta de acceso del contexto (`server.servlet.context-path`) para la puerta de enlace de aplicaciones en el servidor de configuración como *unaRuta*, la ruta de acceso a implementación green cambia a "https://\<nombreDeUsuario>:\<contraseña>@\<nombreDeClúster>.test.azureapps.io/gateway/green/unaRuta/…".
+> Los valores del servidor de configuración se aplican tanto al entorno de ensayo como al de producción. Por ejemplo, si establece la ruta de acceso del contexto (`server.servlet.context-path`) para la puerta de enlace de aplicaciones en el servidor de configuración como *somepath*, la ruta de acceso a la implementación green cambia a "https://\<username>:\<password>@\<cluster-name>.test.azureapps.io/gateway/green/somepath/...".
  
  Si va a la puerta de enlace de aplicaciones pública en este momento, debería ver la página anterior sin el nuevo cambio.
     

@@ -13,10 +13,10 @@ ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
 ms.openlocfilehash: 6c93f34068cd296cb2d3a59f208fa644cdbf2260
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83745731"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Una su dispositivo de trabajo a la red de su organización
@@ -61,7 +61,7 @@ Puede asegurarse de que se ha unido fijándose en su configuración.
 
     ![Cuentas en la pantalla Configuración](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Seleccione **Obtener acceso a trabajo o escuela** y asegúrese de que ve texto que dice algo como **Conectado a Azure AD de *\<su_organización>*** .
+2. Seleccione **Obtener acceso a trabajo o escuela** y asegúrese de que ve texto que indica algo como **Conectado a Azure AD de *\<your_organization>***.
 
     ![Pantalla Obtener acceso a trabajo o escuela con cuenta Contoso conectada](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -106,7 +106,7 @@ Puede asegurarse de que se ha unido fijándose en su configuración.
 
     ![Cuentas en la pantalla Configuración](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Seleccione **Obtener acceso a trabajo o escuela** y asegúrese de que ve texto que dice algo como **Conectado a Azure AD de *\<su_organización>*** .
+2. Seleccione **Obtener acceso a trabajo o escuela** y asegúrese de que ve texto que indica algo como **Conectado a Azure AD de *\<your_organization>***.
 
     ![Pantalla Obtener acceso a trabajo o escuela con cuenta Contoso conectada](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 

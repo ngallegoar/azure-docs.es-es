@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: f1b194f2c65f95ad4daff0353d05ca589db9ce51
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477670"
 ---
 # <a name="convert-to-indicator-values"></a>Convertir en valores de indicador
@@ -63,7 +63,7 @@ A continuación se muestra el funcionamiento de la conversión:
 
 -   En la columna **Puntuación de error** que describe el riesgo, solo hay tres valores posibles (alta, media y baja) y no falta ningún valor. Por lo tanto, se crean exactamente tres columnas nuevas.  
 
--   Los nombres de las nuevas columnas de indicador se basan en los encabezados de columna, así como en los valores de la columna de origen con este patrón: *\<columna de origen> -\<valor de datos>* .  
+-   Los nombres de las nuevas columnas de indicador se basan en los encabezados de columna y en los valores de la columna de origen, con este patrón: *\<source column>- \<data value>* .  
 
 -   Debe haber un número 1 en exactamente una columna de indicador, y un número 0 en todas las demás columnas de indicador, ya que cada servidor solo puede tener una clasificación de riesgo.  
 
@@ -98,13 +98,13 @@ Esta sección contiene detalles de implementación, sugerencias y respuestas a l
 
 -   Solamente las columnas que están marcadas como categorías se pueden convertir en columnas de indicador. Si se muestra el siguiente error, es probable que una de las columnas seleccionadas no sea una categoría:  
 
-     Error 0056: La columna denominada \<nombre de columna> no tiene una categoría permitida.  
+     Error 0056: La columna con nombre \<column name> no pertenece a una categoría permitida.  
 
      De forma predeterminada, la mayoría de las columnas de cadena se tratan como características de cadena, por lo que debe marcarlas de forma explícita como categorías a través de [Editar metadatos](edit-metadata.md).  
 
 -   No hay ningún límite para el número de columnas que se pueden convertir en columnas de indicador. No obstante, dado que cada columna de valores puede generar varias columnas de indicador, debería convertir y revisar solo algunas columnas cada vez.  
 
--   Si la columna contiene valores que faltan, se crea una columna de indicador independiente para la categoría faltante con este nombre: *\<columna de origen> -Missing*.  
+-   Si la columna contiene valores ausentes, se crea una columna de indicador independiente para la categoría que falta con este nombre: *\<source column>- Missing*  
 
 -   Si la columna que va a convertir en valores de indicador contiene números, se deben marcar como categorías como cualquier otra columna de características. Una vez marcados, los números se tratan como valores discretos. Por ejemplo, si tiene una columna numérica con valores de MPG entre 25 y 30, se creará una nueva columna de indicador para cada valor discreto:  
 

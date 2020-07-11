@@ -9,10 +9,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/31/2019
 ms.openlocfilehash: 1903c2faab865152d1f3666f3c9dadd745058b56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75612298"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Desarrollo de topologías de C# para Apache Storm con Herramientas de Azure Data Lake para Visual Studio
@@ -686,7 +686,7 @@ Aunque es fácil implementar una topología en un clúster, en algunos casos, pu
 
 1. Guarde los cambios y luego presione **F5** o seleccione **Depurar** > **Iniciar depuración** para iniciar el proyecto. Debe aparecer una ventana de consola y el estado del registro a medida que progresen las pruebas. Cuando aparezca `Tests finished`, seleccione cualquier tecla para cerrar la ventana.
 
-1. Use el **Explorador de Windows** para buscar el directorio que contiene el proyecto. (Por ejemplo: *C:\\Usuarios\\\<nombre de usuario>\\source\\repos\\WordCount\\WordCount*). A continuación, en este directorio, abra *Bin* y seleccione *Depurar*. Debería ver los archivos de texto que se generaron cuando se ejecutaron las pruebas: *sentences.txt*, *counter.txt* y *splitter.txt*. Abra cada archivo de texto e inspeccione los datos.
+1. Use el **Explorador de Windows** para buscar el directorio que contiene el proyecto. (Por ejemplo: *C:\\Users\\\<your_user_name>\\source\\repos\\WordCount\\WordCount*). A continuación, en este directorio, abra *Bin* y seleccione *Depurar*. Debería ver los archivos de texto que se generaron cuando se ejecutaron las pruebas: *sentences.txt*, *counter.txt* y *splitter.txt*. Abra cada archivo de texto e inspeccione los datos.
 
    > [!NOTE]  
    > Los datos de cadena se guardan como persistentes como una matriz de valores decimales en estos archivos. Por ejemplo, `[[97,103,111]]` en el archivo **splitter.txt** representa la palabra *ago*.

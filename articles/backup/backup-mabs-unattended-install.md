@@ -4,10 +4,10 @@ description: Use un script de PowerShell para realizar una instalación silencio
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: 1539089e713bcf8e959707c6ff4a608f062a7c00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74172239"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Ejecución de una instalación desatendida de Azure Backup Server
@@ -20,7 +20,7 @@ Estos pasos no se aplican si va a instalar Azure Backup Server V1.
 
 1. En el servidor que hospeda Azure Backup Server v2 o posterior, cree un archivo de texto. (Puede crear el archivo en el Bloc de notas o en otro editor de texto). Guarde el archivo como MABSSetup.ini.
 
-2. Pegue el código siguiente en el archivo MABSSetup.ini. Reemplace el texto entre corchetes (\<\>) por los valores de su entorno. A continuación se muestra un texto de ejemplo:
+2. Pegue el código siguiente en el archivo MABSSetup.ini. Reemplace el texto entre corchetes (\< \>) por los valores del entorno. A continuación se muestra un texto de ejemplo:
 
    ```text
    [OPTIONS]

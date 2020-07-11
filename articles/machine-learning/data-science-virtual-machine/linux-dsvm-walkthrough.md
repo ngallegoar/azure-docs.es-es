@@ -10,10 +10,10 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 04/02/2020
 ms.openlocfilehash: dec9d7d6f4676c3550bb6c0be79e25d907e5b3da
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83682481"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Ciencia de datos con una instancia de Data Science Virtual Machine de Linux en Azure
@@ -24,7 +24,7 @@ En las tareas de ciencias de datos que se demuestran en este tutorial se siguen 
 
 En este tutorial analizamos el conjunto de datos [spambase](https://archive.ics.uci.edu/ml/datasets/spambase). Spambase es un conjunto de correos electrónicos que se marcan como correo no deseado o ham (no es correo no deseado). Spambase también contiene algunas estadísticas sobre el contenido de los correos electrónicos. Hablaremos sobre las estadísticas más adelante en el tutorial.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de usar una instancia de DSVM de Linux, debe cumplir los siguientes requisitos previos:
 
@@ -313,7 +313,7 @@ predictSpam.service(1, 1, 1)
 
 ### <a name="jupyterhub"></a>JupyterHub
 
-La distribución Anaconda en DSVM viene con Jupyter Notebook, un entorno multiplataforma para compartir código y análisis de Python, R o Julia. Se accede a Jupyter Notebook mediante JupyterHub. Para iniciar sesión, se usa el nombre de usuario local y la contraseña de Linux en https://\<nombre DNS o dirección IP de DSVM\>:8000/. Todos los archivos de configuración de JupyterHub se encuentran en /etc/jupyterhub.
+La distribución Anaconda en DSVM viene con Jupyter Notebook, un entorno multiplataforma para compartir código y análisis de Python, R o Julia. Se accede a Jupyter Notebook mediante JupyterHub. Inicie sesión con el nombre de usuario y la contraseña de Linux local en https://\<DSVM DNS name or IP address\>:8000/. Todos los archivos de configuración de JupyterHub se encuentran en /etc/jupyterhub.
 
 > [!NOTE]
 > Para usar el Administrador de paquetes de Python (con el comando `pip`) de Jupyter Notebook en el kernel actual, use este comando en la celda de código:

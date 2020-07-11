@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: guybo
 ms.openlocfilehash: f700dec6486bad9e7024d7c908a70dd0ff2b342c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80066758"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Información para las distribuciones no aprobadas
@@ -64,7 +64,7 @@ El mecanismo para volver a generar la imagen initrd o initramfs puede variar dep
 ### <a name="resizing-vhds"></a>Cambio de tamaño de los discos duros virtuales
 Las imágenes VHD en Azure deben tener un tamaño virtual alineado con 1 MB.  Normalmente, los discos duros virtuales creados con Hyper-V se alinean correctamente.  Si el disco duro virtual no está alineado correctamente, recibirá un mensaje de error similar al siguiente cuando intente crear una imagen desde el disco duro virtual.
 
-* El disco duro virtual http:\//\<micuentadealmacenamiento>.blob.core.windows.net/vhds/MyLinuxVM.vhd tiene un tamaño virtual no admitido de 21 475 270 656 bytes. El tamaño debe ser un número entero (en MB).
+* El disco duro virtual http:\//\<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd tiene un tamaño virtual no admitido de 21475270656 bytes. El tamaño debe ser un número entero (en MB).
 
 En este caso, puede cambiar el tamaño de la VM mediante la consola de administrador de Hyper-V o el del cmdlet de PowerShell [Resize-VHD](https://technet.microsoft.com/library/hh848535.aspx).  Si no está trabajando en un entorno de Windows, se recomienda usar `qemu-img` para convertir (si es necesario) y cambiar el tamaño del disco duro virtual.
 

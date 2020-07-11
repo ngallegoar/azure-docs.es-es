@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/19/2019
 ms.openlocfilehash: 39179c9b6d02d810561485f6a4af0102711ad0ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186641"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: Errores de creación de clúster
@@ -26,7 +26,7 @@ En este artículo se describen las soluciones a errores que pueden surgir al cre
 
 ### <a name="error"></a>Error
 
-"Script Action location cannot be accessed URI (No se puede acceder a la ubicación de la acción de script con el URI):\<SCRIPT ACTION URL\>"
+"No se puede acceder a la ubicación de la acción de script con el URI: \<SCRIPT ACTION URL\>"
 
 #### <a name="error-message"></a>Mensaje de error
 
@@ -36,7 +36,7 @@ En este artículo se describen las soluciones a errores que pueden surgir al cre
 
 El servicio HDInsight no puede acceder a la dirección URL de la acción de script que proporcionó como parte de la solicitud de creación del clúster. El servicio recibe el mensaje de error anterior cuando intenta acceder a la acción de script.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 - En el caso de una dirección URL HTTP o HTTPS, compruebe la dirección URL; para ello, intente ir a ella desde una ventana del explorador de incógnito.
 - Si es una dirección URL de WASB, asegúrese de que el script existe en la cuenta de almacenamiento que se especifica en la solicitud. Además, asegúrese de que la clave de almacenamiento de esta cuenta de almacenamiento sea correcta.
@@ -48,17 +48,17 @@ El servicio HDInsight no puede acceder a la dirección URL de la acción de scri
 
 ### <a name="error"></a>Error
 
-"Script Action location cannot be accessed URI (No se puede acceder a la ubicación de la acción de script con el URI): \<SCRIPT_ACTION_URL\>"
+"No se puede acceder a la ubicación de la acción de script con el URI: \<SCRIPT_ACTION_URL\>"
 
 #### <a name="error-message"></a>Mensaje de error
 
-"The given script URI \<SCRIPT_URI\> is in ADLS, but this cluster has no data lake storage principal" (El URI de script especificado <SCRIPT_URI> está en ADLS, pero este clúster no tiene ninguna entidad de seguridad de Data Lake Storage)
+"El URI de script especificado \<SCRIPT_URI\> está en ADLS, pero este clúster no tiene ninguna entidad de seguridad de Data Lake Storage"
 
 ### <a name="cause"></a>Causa
 
 El servicio HDInsight no puede acceder a la dirección URL de la acción de script que proporcionó como parte de la solicitud de creación del clúster. El servicio recibe el mensaje de error anterior cuando intenta acceder a la acción de script.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Agregue al clúster la cuenta de Azure Data Lake Storage Gen 1 correspondiente. Agregue también al clúster la entidad de servicio que tiene acceso a la cuenta de Data Lake Storage Gen 1.
 
@@ -68,13 +68,13 @@ Agregue al clúster la cuenta de Azure Data Lake Storage Gen 1 correspondiente. 
 
 ### <a name="error"></a>Error
 
-"VM size '\<CUSTOMER_SPECIFIED_VM_SIZE\>' provided in the request is invalid or not supported for role '\<ROLE\>' (El tamaño de la máquina virtual <CUSTOMER_SPECIFIED_VM_SIZE> proporcionado en la solicitud no es válido o no se admite para el rol <ROLE>). Los valores válidos son: \<VALID_VM_SIZE_FOR_ROLE\>".
+"El tamaño de la máquina virtual \<CUSTOMER_SPECIFIED_VM_SIZE\> proporcionado en la solicitud no es válido o no se admite para el rol \<ROLE\>. Los valores válidos son: \<VALID_VM_SIZE_FOR_ROLE\>".
 
 ### <a name="cause"></a>Causa
 
 El tamaño de la máquina virtual que especificó no está permitido para el rol. Este error puede producirse porque el valor de tamaño de la máquina virtual no funciona como se esperaba o no es adecuado para el rol de equipo.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 El mensaje de error muestra los valores válidos de tamaño de máquina virtual. Seleccione uno de estos valores e intente realizar de nuevo la solicitud de creación del clúster.
 
@@ -84,13 +84,13 @@ El mensaje de error muestra los valores válidos de tamaño de máquina virtual.
 
 ### <a name="error"></a>Error
 
-"The VirtualNetworkId is not valid. VirtualNetworkId "\<USER_VIRTUALNETWORKID\>"*" (El parámetro VirtualNetworkId no es válido. VirtualNetworkId <USER_VIRTUALNETWORKID>*)
+"The VirtualNetworkId is not valid. VirtualNetworkId '\<USER_VIRTUALNETWORKID\>'*"
 
 ### <a name="cause"></a>Causa
 
 El valor de **VirtualNetworkId** especificado durante la creación del clúster no tiene el formato correcto.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Asegúrese de que los valores de **VirtualNetworkId** y de la subred tengan el formato correcto. Para obtener el valor de **VirtualNetworkId**:
 
@@ -108,13 +108,13 @@ Este es un ejemplo de identificador de red virtual:
 
 ### <a name="error"></a>Error
 
-"Cluster deployment failed due to an error in the custom script action. Failed Actions: \<SCRIPT_NAME\>. Please go to Ambari UI to further debug the failure". (No se pudo realizar la implementación del clúster debido a un error en la acción del script personalizado. Acciones con error: <SCRIPT_NAME>. Vaya a la interfaz de usuario de Ambari para seguir depurando el error)
+"Cluster deployment failed due to an error in the custom script action. Acciones con error: \<SCRIPT_NAME\>. Vaya a la interfaz de usuario de Ambari para seguir depurando el error".
 
 ### <a name="cause"></a>Causa
 
-El script personalizado que se proporcionó durante la solicitud de creación del clúster se ejecuta después de que el clúster se haya implementado correctamente. Este código de error indica que surgió un error durante la ejecución del script personalizado denominado \<SCRIPT_NAME\>.
+El script personalizado que se proporcionó durante la solicitud de creación del clúster se ejecuta después de que el clúster se haya implementado correctamente. Este código de error indica que se ha producido un error durante la ejecución del script personalizado denominado \<SCRIPT_NAME\>.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Dado que el script es el script personalizado, le recomendamos que solucione el problema y, si es necesario, vuelva a ejecutarlo. Para solucionar el error del script, examine los registros de la carpeta /var/lib/ambari-agent/*. También puede abrir la página de **operaciones** de la interfaz de usuario de Ambari y seleccionar la operación **run_customscriptionaction** para ver los detalles del error.
 
@@ -124,13 +124,13 @@ Dado que el script es el script personalizado, le recomendamos que solucione el 
 
 ### <a name="error"></a>Error
 
-"The \<META_STORE_TYPE\> Metastore schema version \<METASTORE_MAJOR_VERSION\> in database \<DATABASE_NAME\> is incompatible with cluster version \<CLUSTER_VERSION\>" (La versión de esquema de Metastore de <META_STORE_TYPE> <METASTORE_MAJOR_VERSION> en la base de datos <DATABASE_NAME> no es compatible con la versión del clúster <CLUSTER_VERSION>)
+"La versión del esquema de metastore de \<META_STORE_TYPE\> \<METASTORE_MAJOR_VERSION\> de la base de datos \<DATABASE_NAME\> no es compatible con la versión del clúster \<CLUSTER_VERSION\>"
 
 ### <a name="cause"></a>Causa
 
 El repositorio metastore personalizado es incompatible con la versión de clúster de HDInsight seleccionada. Actualmente, los clústeres de HDInsight 4.0 solo admiten la versión 3.0 de Metastore y posterior, mientras que los clústeres de HDInsight 3.6 no admiten la versión 3.0 y posterior de Metastore.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Use solo las versiones de Metastore que admita la versión del clúster de HDInsight. Si no se especifica un almacén de metadatos personalizado, HDInsight crea internamente uno y, luego, lo elimina tras la eliminación del clúster.
 
@@ -146,7 +146,7 @@ Use solo las versiones de Metastore que admita la versión del clúster de HDIns
 
 Tiene una regla de firewall en el grupo de seguridad de red (NSG) que está bloqueando la comunicación del clúster con los servicios críticos de mantenimiento y administración de Azure.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Si tiene previsto usar grupos de seguridad de red para controlar el tráfico de red, realice las siguientes acciones antes de instalar HDInsight:
 
@@ -161,13 +161,13 @@ Si tiene previsto usar grupos de seguridad de red para controlar el tráfico de 
 
 ### <a name="error"></a>Error
 
-"The Managed Identity does not have permissions on the storage account. Compruebe que el rol "Propietario de datos de Storage Blob" está asignado a la identidad administrada en la cuenta de almacenamiento. Storage: /subscriptions/ \<Subscription ID\> /resourceGroups/\< Resource Group Name\> /providers/Microsoft.Storage/storageAccounts/ \<Storage Account Name\>, Managed Identity: /subscriptions/ \<Subscription ID\> /resourceGroups/ /\< Resource Group Name\> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/ \<User Managed Identity Name\>" (La identidad administrada no tiene permisos en la cuenta de almacenamiento. Compruebe que el rol "Propietario de datos de Storage Blob" está asignado a la identidad administrada en la cuenta de almacenamiento. Almacenamiento: /subscriptions/ <identificador de suscripción> /resourceGroups/<nombre del grupo de recursos> /providers/Microsoft.Storage/storageAccounts/ <nombre de la cuenta de almacenamiento>, identidad administrada: /subscriptions/ <identificador de suscripción> /resourceGroups/ /<nombre del grupo de recursos> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/ <nombre de la identidad administrada por el usuario>)
+"The Managed Identity does not have permissions on the storage account. Compruebe que el rol "Propietario de datos de Storage Blob" está asignado a la identidad administrada en la cuenta de almacenamiento. Storage: /subscriptions/ \<Subscription ID\> /resourceGroups/\< Resource Group Name\> /providers/Microsoft.Storage/storageAccounts/ \<Storage Account Name\>, Managed Identity: /subscriptions/ \<Subscription ID\> /resourceGroups/ /\< Resource Group Name\> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/ \<User Managed Identity Name\>"
 
 ### <a name="cause"></a>Causa
 
 No proporcionó los permisos necesarios para administrar la identidad. La identidad administrada asignada por el usuario no tiene el rol de colaborador de Blob Storage en la cuenta de almacenamiento de Azure Data Lake Storage Gen2.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 1. Abra Azure Portal.
 1. Vaya a la cuenta de almacenamiento.
@@ -182,13 +182,13 @@ Para más información, vea [Configuración de permisos para la identidad admini
 
 ### <a name="error"></a>Error
 
-"The security rules in the Network Security Group /subscriptions/\<SubscriptionID\>/resourceGroups/<Resource Group name\> default/providers/Microsoft.Network/networkSecurityGroups/\<Network Security Group Name\> configured with subnet /subscriptions/\<SubscriptionID\>/resourceGroups/\<Resource Group name\> RG-westeurope-vnet-tomtom-default/providers/Microsoft.Network/virtualNetworks/\<Virtual Network Name\>/subnets/\<Subnet Name\> does not allow required inbound and/or outbound connectivity. For more information, please visit [Plan a virtual network for Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment), or contact support". (Las reglas de seguridad del grupo de seguridad de red /subscriptions/<SubscriptionID>/resourceGroups/<nombre del grupo de recursos> default/providers/Microsoft.Network/networkSecurityGroups/<nombre del grupo de seguridad de red> configurado con la subred /subscriptions/<SubscriptionID>/resourceGroups/<nombre del grupo de recursos> RG-westeurope-vnet-tomtom-default/providers/Microsoft.Network/virtualNetworks/<nombre de la red virtual>/subnets/<nombre de subred> no permite la conectividad de entrada o salida requerida. Para más información, visite <Planificación de una red virtual para Azure HDInsight> o póngase en contacto con el servicio de soporte técnico)
+"Las reglas de seguridad del grupo de seguridad de red /subscriptions/\<SubscriptionID\>/resourceGroups/<Nombre del grupo de recursos\> default/providers/Microsoft.Network/networkSecurityGroups/\<Network Security Group Name\> configurado con la subred subnet /subscriptions/\<SubscriptionID\>/resourceGroups/\<Resource Group name\> RG-westeurope-vnet-tomtom-default/providers/Microsoft.Network/virtualNetworks/\<Virtual Network Name\>/subnets/\<Subnet Name\> no permiten la conectividad entrante o saliente necesaria. For more information, please visit [Plan a virtual network for Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment), or contact support". (Las reglas de seguridad del grupo de seguridad de red /subscriptions/<SubscriptionID>/resourceGroups/<nombre del grupo de recursos> default/providers/Microsoft.Network/networkSecurityGroups/<nombre del grupo de seguridad de red> configurado con la subred /subscriptions/<SubscriptionID>/resourceGroups/<nombre del grupo de recursos> RG-westeurope-vnet-tomtom-default/providers/Microsoft.Network/virtualNetworks/<nombre de la red virtual>/subnets/<nombre de subred> no permite la conectividad de entrada o salida requerida. Para más información, visite <Planificación de una red virtual para Azure HDInsight> o póngase en contacto con el servicio de soporte técnico)
 
 ### <a name="cause"></a>Causa
 
 Si grupos de seguridad de red o rutas definidas por el usuario (UDR) controlan el tráfico entrante al clúster de HDInsight, asegúrese de que el clúster pueda comunicarse con los servicios críticos de mantenimiento y administración de Azure.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Si tiene previsto usar grupos de seguridad de red para controlar el tráfico de red, realice las siguientes acciones antes de instalar HDInsight:
 
@@ -208,7 +208,7 @@ Si tiene previsto usar grupos de seguridad de red para controlar el tráfico de 
 
 Este error se genera normalmente cuando hay un problema transitorio o una interrupción de Azure.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Consulte la página [Estado de Azure](https://status.azure.com) para ver las interrupciones de Azure que podrían afectar a la implementación del clúster. Si no existen interrupciones, intente implementar el clúster de nuevo.
 
@@ -224,7 +224,7 @@ No se puede conectar con el punto de conexión de administración de clúster. I
 
 El servicio HDInsight no se puede conectar al clúster mientras se intenta crear el clúster
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Si usa rutas de grupo de seguridad de red (NSG) de VNet y por el usuario (UDR) personalizadas, asegúrese de que el clúster puede comunicarse con los servicios de administración de HDInsight. Para obtener información adicional, consulte [Direcciones IP de administración de HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
 
@@ -242,7 +242,7 @@ Normalmente, las siguientes directivas afectan a la creación del clúster:
 * Directiva que impide la creación de cuentas de almacenamiento.
 * Directiva que impide la eliminación de recursos de red, como direcciones IP o equilibradores de carga.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Elimine o deshabilite la asignación de Azure Policy basada en suscripciones al crear el clúster de HDInsight.
 

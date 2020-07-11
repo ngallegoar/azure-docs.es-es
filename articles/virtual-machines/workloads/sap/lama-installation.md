@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
 ms.openlocfilehash: fda62ff0af29c7cf681d9438b02420d299535701
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80293944"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector de SAP LaMa para Azure
@@ -153,7 +153,7 @@ Se recomienda usar una subred independiente para todas las máquinas virtuales q
 > [!NOTE]
 > Si es posible, quite todas las extensiones de máquina virtual, ya que podrían provocar tiempos de ejecución largos por desconectar discos de una máquina virtual.
 
-Asegúrese de que el usuario \<hanasid>adm, \<sapsid>adm y el grupo sapsys existan en la máquina de destino con el mismo identificador y GID o use LDAP. Habilite e inicie el servidor NFS en las máquinas virtuales que se deben usar para ejecutar (A)SCS de SAP NetWeaver.
+Asegúrese de que el usuario \<hanasid>adm, \<sapsid>adm y el grupo sapsys existen en el equipo de destino con el mismo identificador y GID o use LDAP. Habilite e inicie el servidor NFS en las máquinas virtuales que se deben usar para ejecutar (A)SCS de SAP NetWeaver.
 
 ### <a name="manual-deployment"></a>Implementación manual
 
@@ -163,7 +163,7 @@ SAP LaMa se comunica con la máquina virtual mediante el agente de host SAP. Si 
 
 Cree una máquina virtual con uno de los sistemas operativos admitidos que se indican en la nota de SAP [2343511]. Agregue configuraciones IP adicionales para las instancias de SAP. Cada instancia necesita al menos una dirección IP y debe instalarse con un nombre de host virtual.
 
-La instancia de ASCS de SAP NetWeaver necesita discos para /sapmnt/\<SAPSID>, /usr/sap/\<SAPSID>, /usr/sap/trans, and /usr/sap/\<sapsid>adm. Los servidores de aplicaciones de SAP NetWeaver no necesitan discos adicionales. Todo lo relacionado con la instancia de SAP se debe almacenar en ASCS y exportarse por medio de NFS. En caso contrario, actualmente no resulta posible agregar servidores de aplicaciones adicionales mediante SAP LaMa.
+La instancia de ASCS de SAP NetWeaver necesita discos para /sapmnt/\<SAPSID>, /usr/sap/\<SAPSID>, /usr/sap/trans y /usr/sap/\<sapsid>adm. Los servidores de aplicaciones de SAP NetWeaver no necesitan discos adicionales. Todo lo relacionado con la instancia de SAP se debe almacenar en ASCS y exportarse por medio de NFS. En caso contrario, actualmente no resulta posible agregar servidores de aplicaciones adicionales mediante SAP LaMa.
 
 ![ASCS de SAP NetWeaver en Linux](media/lama/sap-lama-ascs-app-linux.png)
 
@@ -212,7 +212,7 @@ Los componentes son necesarios para implementar la plantilla. La manera más fá
 
 Las plantillas tienen los siguientes parámetros:
 
-* sapSystemId: el identificador del sistema SAP. Se usa para crear el diseño de disco (por ejemplo, /usr/sap/\<sapsid>).
+* sapSystemId: el identificador del sistema SAP. Se usa para crear el diseño del disco (por ejemplo, /usr/sap/\<sapsid>).
 
 * computerName: el nombre del equipo de la nueva máquina virtual. Este parámetro se usa también en SAP LaMa. Cuando se usa esta plantilla para aprovisionar una nueva máquina virtual como parte de una copia del sistema, SAP LaMa espera hasta que es posible la comunicación con el host que tiene este nombre de equipo.
 
@@ -319,7 +319,7 @@ Dentro de la cuenta de NetApp, el grupo de capacidad especifica el tamaño y el 
 
 ![SAP LaMa Grupo de capacidad de NetApp creado ](media/lama/sap-lama-capacitypool-list.png)
 
-Ahora se pueden definir los volúmenes NFS. Dado que habrá volúmenes para varios sistemas en un grupo, se debe elegir un esquema de nomenclatura autodescriptivo. Agregar el SID ayuda a agrupar los volúmenes relacionados. En el caso de ASCS y la instancia de AS, se necesitan los siguientes montajes: */sapmnt/\<SID\>* , */usr/sap/\<SID\>* y */home/\<sid\>adm*. De forma opcional, se necesita */usr/sap/trans* para el directorio central de transporte, que se utiliza, como mínimo, en todos los sistemas de un escenario.
+Ahora se pueden definir los volúmenes NFS. Dado que habrá volúmenes para varios sistemas en un grupo, se debe elegir un esquema de nomenclatura autodescriptivo. Agregar el SID ayuda a agrupar los volúmenes relacionados. En el caso de la instancia de ASCS y AS, se necesitan los siguientes montajes: */sapmnt/\<SID\>* , */usr/sap/\<SID\>* y */home/\<sid\>adm*. De forma opcional, se necesita */usr/sap/trans* para el directorio central de transporte, que se utiliza, como mínimo, en todos los sistemas de un escenario.
 
 > [!NOTE]
 > Durante la fase BETA, el nombre de los volúmenes debe ser único dentro de la suscripción.
@@ -545,12 +545,12 @@ Use *as1-di-0* para *PAS Instance Host Name* (Nombre de host de la instancia de 
     Para solucionar este problema, establezca el parámetro del perfil OS_UNICODE=uc en el perfil predeterminado de su sistema SAP.
 
 * Error al ejecutar el paso SAPinst: dCheckGivenServer
-  * Error al ejecutar el paso SAPinst: dCheckGivenServer" version="1.0" ERROR: (Último error notificado por el paso: \<p> Instalación cancelada por el usuario. \</p>
+  * Error al ejecutar el paso SAPinst: dCheckGivenServer" version="1.0" ERROR: (Último error notificado por el paso: \<p> El usuario canceló la instalación. \</p>
   * Solución  
     Asegúrese de que se está ejecutando SWPM con un usuario que tenga acceso al perfil. Este usuario se puede configurar en el Asistente para instalación del servidor de aplicaciones.
 
 * Error al ejecutar el paso SAPinst: checkClient
-  * Error al ejecutar el paso SAPinst: checkClient" version="1.0" ERROR: (Último error notificado por el paso: \<p> Instalación cancelada por el usuario. \</p>
+  * Error al ejecutar el paso SAPinst: checkClient" version="1.0" ERROR: (Último error notificado por el paso: \<p> El usuario canceló la instalación. \</p>)
   * Solución  
     Asegúrese de que el controlador ODBC de Microsoft para SQL Server está instalado en la máquina virtual en la que quiere instalar el servidor de aplicaciones.
 

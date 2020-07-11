@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: victorh
 ms.openlocfilehash: e1afc389508eb75313d046b759bcc9c03a50daad
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83648411"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Información general sobre la supervisión de estado de la puerta de enlace de aplicaciones
@@ -69,7 +69,7 @@ Una vez que se especifican los criterios de coincidencia, se pueden asociar a la
 > [!NOTE]
 > El puerto es el mismo que la configuración de HTTP del back-end.
 
-El sondeo predeterminado solo examina http:\///127.0.0.1:\<puerto\> para determinar el estado de mantenimiento. Si necesita configurar el sondeo de estado para ir a una dirección URL personalizada o modificar alguna otra configuración, debe usar sondeos personalizados. Para obtener más información sobre los sondeos HTTP, consulte [Introducción a la terminación TLS y a TLS de extremo a extremo con Application Gateway](ssl-overview.md#for-probe-traffic).
+El sondeo predeterminado solo examina http:\//127.0.0.1:\<port\> para determinar el estado de mantenimiento. Si necesita configurar el sondeo de estado para ir a una dirección URL personalizada o modificar alguna otra configuración, debe usar sondeos personalizados. Para obtener más información sobre los sondeos HTTP, consulte [Introducción a la terminación TLS y a TLS de extremo a extremo con Application Gateway](ssl-overview.md#for-probe-traffic).
 
 ### <a name="probe-intervals"></a>Intervalos de sondeo
 
@@ -97,7 +97,7 @@ La siguiente tabla proporciona definiciones de las propiedades de un sondeo de m
 
 > [!IMPORTANT]
 > Si la instancia de Puerta de enlace de aplicaciones está configurada para un único sitio, de forma predeterminada, el nombre de host debe especificarse como 127.0.0.1, salvo que se configure de otra manera en la sonda personalizada.
-> A modo de referencia se envía un sondeo personalizado a \<protocolo\>://\<host\>:\<puerto\>\<ruta de acceso\>. El puerto usado será el definido en la configuración de HTTP del back-end.
+> Como referencia, se envía un sondeo personalizado a \<protocol\>://\<host\>:\<port\>\<path\>. El puerto usado será el definido en la configuración de HTTP del back-end.
 
 ## <a name="nsg-considerations"></a>Consideraciones sobre NSG
 

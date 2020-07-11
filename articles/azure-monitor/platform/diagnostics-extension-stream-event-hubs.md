@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/18/2020
 ms.openlocfilehash: 979535b1f9a237f6975908178fb1e5ed819181b0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82233472"
 ---
 # <a name="send-data-from-windows-azure-diagnostics-extension-to-azure-event-hubs"></a>Envío de datos de Windows Azure Diagnostics Extension a Azure Event Hubs
@@ -25,7 +25,7 @@ Los datos recopilados del sistema operativo invitado que pueden enviarse a Event
 * Registros de eventos de Windows, incluidos los registros de aplicaciones en el registro de eventos de Windows
 * Registros de infraestructura de diagnóstico de Azure
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Windows Diagnostics Extension 1.6 o versiones posteriores. Consulte el historial de versiones en [Historial y versiones de esquemas de configuración de Azure Diagnostics Extension](diagnostics-extension-versions.md) y los recursos admitidos en la [introducción a Azure Diagnostics Extension](diagnostics-extension-overview.md).
 * Siempre debe aprovisionarse un espacio de nombres de Event Hubs. Consulte la [introducción a Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) para más información.
@@ -39,7 +39,7 @@ Azure Diagnostics siempre envía registros y métricas a una cuenta de Azure Sto
 | Propiedad | Descripción |
 |:---|:---|
 | Nombre | Nombre descriptivo del receptor. Se utiliza en la configuración para especificar qué orígenes de datos van a enviar información al receptor. |
-| Url  | Dirección URL del centro de eventos con el formato \<espacio de nombres-centro de eventos\>.servicebus.windows.net/\<nombre-centro de eventos\>.          |
+| Url  | Dirección URL del centro de eventos con el formato \<event-hubs-namespace\>.servicebus.windows.net/\<event-hub-name\>.          |
 | SharedAccessKeyName | Nombre de la directiva de acceso compartido del centro de eventos que tiene, como mínimo, el permiso **Enviar**. |
 | SharedAccessKey     | Clave principal o secundaria de la directiva de acceso compartido del centro de eventos. |
 

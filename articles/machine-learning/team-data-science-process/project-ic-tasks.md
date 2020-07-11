@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d9942c31b63de77196b8b51b88376cb8ef74b990
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721258"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Tareas para un colaborador individual en el proceso de ciencia de datos en equipos
@@ -32,7 +32,7 @@ En el diagrama siguiente se muestran las tareas que los colaboradores individual
 > [!NOTE] 
 > En este artículo se utiliza Azure Repos y una instancia de Data Science Virtual Machine (DSVM) para configurar un entorno de TDSP, ya que se explica cómo implementar TDSP en Microsoft. Si el equipo usa otras plataformas de desarrollo u hospedaje de código, las tareas del colaborador individual serán las mismas, pero la manera de realizarlas puede ser diferente.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este tutorial se da por supuesto que los siguientes recursos y permisos están configurados por el [administrador de grupo](group-manager-tasks.md), el [responsable de equipo](team-lead-tasks.md) y el [responsable de proyecto](project-lead-tasks.md):
 
@@ -55,7 +55,7 @@ Para clonar los repositorios y modificar su contenido en la máquina local o en 
 
 Para trabajar con repositorios de forma local e insertar los cambios en los repositorios compartidos de proyecto y de equipo, primero debe copiar o *clonar* los repositorios en la máquina local. 
 
-1. En Azure DevOps, vaya a la página Resumen del proyecto de equipo en *https:\//\<nombreDeServidor>/\<nombreDeOrganización>/\<nombreDeEquipo>* , por ejemplo, **https:\//dev.azure.com/DataScienceUnit/MyTeam**.
+1. En Azure DevOps, vaya a la página Resumen del proyecto del equipo en *https:\//\<server name>/\<organization name>/\<team name>* , por ejemplo, **https:\//dev.azure.com/DataScienceUnit/MyTeam**.
    
 1. Seleccione **Repos** en el panel de navegación izquierdo y, en la parte superior de la página, seleccione el repositorio que desea clonar.
    

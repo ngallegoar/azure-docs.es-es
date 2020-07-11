@@ -8,10 +8,10 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 2/25/2020
 ms.openlocfilehash: bf97a1eae758778efc8d800666af4a5fcb574429
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80056836"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integración con identidades administradas de Azure
@@ -33,7 +33,7 @@ En este artículo aprenderá a:
 > * Configurar la aplicación para usar una identidad administrada al conectarse a App Configuration.
 > * También puede configurar la aplicación para que use una identidad administrada cuando se conecte a Key Vault mediante una referencia de Key Vault de App Configuration.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para realizar este tutorial, necesitará lo siguiente:
 
@@ -218,7 +218,7 @@ Este comando genera algo similar a la salida siguiente:
 
 ### <a name="deploy-your-project"></a>Implementación del proyecto
 
-En la _ventana del terminal local_, agregue una instancia remota de Azure al repositorio de Git local. Reemplace _\<url>_ con la dirección URL del Git remoto que obtuvo en [Habilitación de GIT local con Kudu](#enable-local-git-with-kudu).
+En la _ventana del terminal local_, agregue una instancia remota de Azure al repositorio de Git local. Reemplace _\<url>_ por la dirección URL del Git remoto que ha obtenido en [Habilitación de GIT local con Kudu](#enable-local-git-with-kudu).
 
 ```bash
 git remote add azure <url>

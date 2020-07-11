@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4ec7f4242e5046e90fdf0eb8c6c0579f402e4f55
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721360"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>Tareas del administrador de grupo de control de proceso de ciencia de datos en equipo
@@ -57,7 +57,7 @@ En el siguiente tutorial se explican los pasos en detalle.
    
    ![Crear proyecto](./media/group-manager-tasks/create-project.png)
 
-Se abre la página **Resumen** del proyecto **GroupCommon**. La dirección URL de la página es *https:\//\<nombreServidor>/\<nombre-organización/GroupCommon*.
+Se abre la página **Resumen** del proyecto **GroupCommon**. La dirección URL de la página es *https:\//\<servername>/\<organization-name>/GroupCommon*.
 
 ![Página de resumen del proyecto](./media/group-manager-tasks/project-summary.png)
 

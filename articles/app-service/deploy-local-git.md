@@ -7,17 +7,17 @@ ms.date: 06/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: efe4c07a6231e0b2c95b049db056a4e5d055db98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77152999"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implementación de Git local en Azure App Service
 
 En esta guía se muestra cómo implementar la aplicación en [Azure App Service](overview.md) desde un repositorio Git en la máquina local.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para seguir los pasos de esta guía:
 
@@ -45,7 +45,7 @@ La manera más fácil de habilitar la implementación de Git local para la aplic
 
 ### <a name="get-the-deployment-url"></a>Obtener la dirección URL de implementación
 
-Para obtener la URL para habilitar la implementación de Git local de una aplicación existente, ejecute [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) en Cloud Shell. Reemplace \<app-name> y \<group-name> con los nombres de la aplicación y el grupo de recursos de Azure.
+Para obtener la URL para habilitar la implementación de Git local de una aplicación existente, ejecute [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) en Cloud Shell. Reemplace \<app-name> y \<group-name> por los nombres de la aplicación y su grupo de recursos de Azure.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
@@ -54,7 +54,7 @@ az webapp deployment source config-local-git --name <app-name> --resource-group 
 > Si usa un plan de servicio de aplicaciones de Linux, debe agregar este parámetro:--runtime python|3.7
 
 
-Igualmente, para crear una aplicación habilitada para Git, ejecute [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) en Cloud Shell con el parámetro `--deployment-local-git`. Reemplace \<app-name>, \<group-name> y \<plan-name> con los nombres de la nueva aplicación de Git, el grupo de recursos de Azure y el plan de Azure App Service.
+Igualmente, para crear una aplicación habilitada para Git, ejecute [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) en Cloud Shell con el parámetro `--deployment-local-git`. Reemplace \<app-name>, \<group-name> y \<plan-name> por los nombres de la nueva aplicación de Git, su grupo de recursos de Azure y su plan de Azure App Service.
 
 ```azurecli-interactive
 az webapp create --name <app-name> --resource-group <group-name> --plan <plan-name> --deployment-local-git
@@ -64,7 +64,7 @@ Cualquiera de los comandos devuelve una dirección URL como: `https://<deploymen
 
 En lugar de usar esta dirección URL de nivel de cuenta, también puede habilitar la instancia de Git local con las credenciales del nivel de aplicación. Azure App Service genera automáticamente estas credenciales para cada aplicación. 
 
-Puede obtener las credenciales de la aplicación ejecutando el siguiente comando en Cloud Shell. Reemplace \<app-name> y \<group-name> con el nombre de la aplicación y el nombre del grupo de recursos de Azure.
+Puede obtener las credenciales de la aplicación ejecutando el siguiente comando en Cloud Shell. Reemplace \<app-name> y \<group-name> por el nombre de la aplicación y el nombre del grupo de recursos de Azure.
 
 ```azurecli-interactive
 az webapp deployment list-publishing-credentials --name <app-name> --resource-group <group-name> --query scmUri --output tsv
@@ -74,7 +74,7 @@ Use la dirección URL que vuelve a implementar la aplicación en el siguiente pa
 
 ### <a name="deploy-the-web-app"></a>Implementación de la aplicación web
 
-1. Abra una ventana del terminal local en su repositorio de Git local y agregue una instancia remota de Azure. En el siguiente comando, reemplace \<url> con la dirección URL específica del usuario de la implementación o la dirección URL específica de la aplicación que obtuvo en el paso anterior.
+1. Abra una ventana del terminal local en su repositorio de Git local y agregue una instancia remota de Azure. En el siguiente comando, reemplace \<url> por la dirección URL específica del usuario de la implementación o la dirección URL específica de la aplicación que ha obtenido en el paso anterior.
    
    ```bash
    git remote add azure <url>
@@ -125,7 +125,7 @@ Para habilitar la implementación de Git local para la aplicación con Azure Pip
    
    ![Copie la dirección URL del repositorio de Git.](media/app-service-deploy-local-git/vsts-repo-ready.png)
 
-1. En la ventana del terminal local, agregue una instancia remota de Azure al repositorio de Git local. En el comando, reemplace \<url> con la dirección URL del repositorio de Git que recibió en el paso anterior.
+1. En la ventana del terminal local, agregue una instancia remota de Azure al repositorio de Git local. En el comando, reemplace \<url> por la dirección URL del repositorio de Git que ha obtenido en el paso anterior.
    
    ```bash
    git remote add azure <url>
@@ -145,7 +145,7 @@ Para habilitar la implementación de Git local para la aplicación con Azure Pip
 
 Puede ver los siguientes mensajes de error comunes cuando usa Git para publicar en una aplicación de App Service en Azure:
 
-|Message|Causa|Solución
+|Message|Causa|Resolución
 ---|---|---|
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|La aplicación no está funcionando.|inicie la aplicación en Azure Portal. La implementación de GIT no está disponible cuando la aplicación web está detenida.|
 |`Couldn't resolve host 'hostname'`|La información de dirección del repositorio remoto de "azure" es incorrecta.|use el comando `git remote -v` para obtener un listado de todos los remotos, junto con la dirección URL asociada. Compruebe que la URL para el repositorio correcto "azure" es correcta. Si lo necesita, suprima y vuelva a crear este repositorio remoto utilizando la URL correcta.|

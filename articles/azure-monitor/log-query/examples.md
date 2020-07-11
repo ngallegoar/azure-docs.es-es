@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/16/2020
 ms.openlocfilehash: 18cd74ac9298b7dd058de2b224f677ec0d8f2d64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480290"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Ejemplos de consultas de registro de Azure Monitor
@@ -229,7 +229,7 @@ protection_data | join (heartbeat_data) on Computer, round_time
 ### <a name="count-security-events-by-activity-id"></a>Número de eventos de seguridad por identificador de actividad
 
 
-Este ejemplo se basa en la estructura fija de la columna **Activity**: \<ID\>-\<Nombre\>.
+Este ejemplo se basa en la estructura fija de la columna **Activity**: \<ID\>-\<Name\>.
 Analiza el valor de **Activity** en dos nuevas columnas y hace un recuento de las apariciones de cada **activityID**.
 
 ```Kusto
@@ -270,7 +270,7 @@ SecurityEvent
 ```
 
 ### <a name="parse-activity-name-and-id"></a>Análisis del nombre y el identificador de la actividad
-Los dos ejemplos siguientes se basan en la estructura fija de la columna **Activity**: \<ID\>-\<Nombre\>. El primer ejemplo utiliza el operador **parse** para asignar valores a dos nuevas columnas: **activityID** y **activityDesc**.
+Los dos ejemplos siguientes se basan en la estructura fija de la columna **Activity**: \<ID\>-\<Name\>. El primer ejemplo utiliza el operador **parse** para asignar valores a dos nuevas columnas: **activityID** y **activityDesc**.
 
 ```Kusto
 SecurityEvent
@@ -389,7 +389,7 @@ Usage
 | summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution | render barchart
 ```
 
-Tenga en cuenta que la cláusula `where IsBillable = true` filtra los tipos de datos de determinadas soluciones para las que no hay ningún cargo de ingesta.  Además, la cláusula con `TimeGenerated` solo se utiliza para asegurarse de que la experiencia de consulta en Azure Portal examine más allá del periodo predeterminado de 24 horas. Al utilizar el tipo de datos de uso, `StartTime` y `EndTime` representan los períodos de tiempo de los que se presentan resultados. 
+Tenga en cuenta que la cláusula `where IsBillable = true` filtra los tipos de datos de determinadas soluciones para las que no hay ningún cargo de ingesta.  Además, la cláusula con `TimeGenerated` solo se utiliza para asegurarse de que la experiencia de consulta en Azure Portal examine más allá del periodo predeterminado de 24 horas. Al utilizar el tipo de datos de uso, `StartTime` y `EndTime` representan los periodos de tiempo de los que se presentan resultados. 
 
 #### <a name="data-volume-by-type"></a>Volumen de datos por tipo
 

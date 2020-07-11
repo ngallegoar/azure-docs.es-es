@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: b4595a63613afa3c6fef2fa2a85647d8b70b1388
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81534472"
 ---
 # <a name="application-configuration-options"></a>Opciones de configuración de aplicaciones
@@ -35,7 +35,7 @@ En el código, se inicializa una nueva aplicación cliente pública o confidenci
 
 La autoridad es una dirección URL que indica un directorio desde el que MSAL puede solicitar tokens. Las autoridades comunes son:
 
-- https\://login.microsoftonline.com/\<inquilino\>/, donde &lt;inquilino&gt; es el identificador del inquilino de Azure Active Directory (Azure AD) o un dominio asociado a este inquilino de Azure AD. Se usa solo para iniciar sesión en los usuarios de una organización específica.
+- https\://login.microsoftonline.com/\<tenant\>/, donde &lt;tenant&gt; es el identificador de inquilino del inquilino de Azure Active Directory (Azure AD) o un dominio asociado a este inquilino de Azure AD. Se usa solo para iniciar sesión en los usuarios de una organización específica.
 - https\://login.microsoftonline.com/common/. Se usa para el inicio de sesión de los usuarios con cuentas profesionales y educativas o cuentas personales de Microsoft.
 - https\://login.microsoftonline.com/organizations/. Se usa para el inicio de sesión de los usuarios con cuentas profesionales y educativas.
 - https\://login.microsoftonline.com/consumers/. Se usa para el inicio de sesión de los usuarios que solo tienen cuentas personales de Microsoft (anteriormente conocidas como cuentas de Windows Live ID).

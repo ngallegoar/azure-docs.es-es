@@ -13,10 +13,10 @@ ms.date: 04/02/2019
 tags: ''
 keywords: ''
 ms.openlocfilehash: 67af4eae03b773fad9cf38964152c1fb9d623bd5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72025939"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Instalación del entorno de desarrollo y pruebas de IBM zD&T en Azure
@@ -39,7 +39,7 @@ Para más información, consulte la [introducción a zD&T](https://www.ibm.com/s
 
 En este artículo se muestra cómo configurar la versión Enterprise Edition del entorno de desarrollo y pruebas de Z (zD&T) en Azure. Luego, puede usar el servidor web de zD&T Enterprise Edition para crear y administrar entornos basados en Z en Azure.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 > [!NOTE]
 > IBM permite la instalación de zD&T Enterprise Edition únicamente en entornos de desarrollo y pruebas, *no* en entornos de producción.
@@ -62,7 +62,7 @@ En este artículo se muestra cómo configurar la versión Enterprise Edition del
 
 3. Obtenga las credenciales SSH que se muestran en la hoja **Información general** de la máquina virtual mediante el botón **Conectar**. Seleccione la pestaña **SSH** y copie el comando de inicio de sesión SSH en el Portapapeles.
 
-4. Inicie sesión en un [shell de Bash](/azure/cloud-shell/quickstart) desde su equipo local y pegue el comando. Tendrá el formato **ssh\<id. de usuario\>\@\<Dirección IP\>** . Cuando se le soliciten las credenciales, escríbalas para establecer una conexión con el directorio de inicio.
+4. Inicie sesión en un [shell de Bash](/azure/cloud-shell/quickstart) desde su equipo local y pegue el comando. El formato es **ssh\<user id\>\@\<IP Address\>** . Cuando se le soliciten las credenciales, escríbalas para establecer una conexión con el directorio de inicio.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>Copia del archivo de instalación en el servidor
 
