@@ -13,12 +13,12 @@ ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: b8f97bb27b3eb45c731b20ad51e35fde9b6a394a
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 252e7b8d13cf53a98ea1f25b207740c0e623f92c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126907"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242974"
 ---
 # <a name="api-management-policy-samples"></a>Ejemplos de directivas de API Management
 
@@ -34,7 +34,7 @@ Las [directivas](../api-management-howto-policies.md) constituyen una funcionali
 | [Autorización de solicitudes mediante un autorizador externo](./authorize-request-using-external-authorizer.md)                                                   | Muestra cómo utilizar un autorizador externo para proteger el acceso de una API.                                                                                                                                                               |
 | [Autorización de acceso con el token de OAuth de Google](./use-google-as-oauth-token-provider.md)                                            | Muestra cómo autorizar el acceso a los puntos de conexión con Google como proveedor de tokens de OAuth.                                                                                                                                    |
 | [Filtrado de direcciones IP al usar una instancia de Application Gateway](./filter-ip-addresses-when-using-appgw.md) | Muestra cómo filtrar direcciones IP en las directivas cuando se accede a la instancia de API Management mediante una instancia de Application Gateway.
-| [Generación de la firma de acceso compartido y reenvío de la solicitud a Azure Storage](./generate-shared-access-signature.md)                  | Muestra cómo generar una [firma de acceso compartido](../../storage/storage-dotnet-shared-access-signature-part-1.md) mediante expresiones y reenviar la solicitud a Azure Storage con la directiva de reescritura del identificador URI. |
+| [Generación de la firma de acceso compartido y reenvío de la solicitud a Azure Storage](./generate-shared-access-signature.md)                  | Muestra cómo generar una [firma de acceso compartido](../../storage/common/storage-sas-overview.md) mediante expresiones y reenviar la solicitud a Azure Storage con la directiva de reescritura del identificador URI. |
 | [Obtención del token de acceso de OAuth2 desde AAD y reenvío al back-end](./use-oauth2-for-authorization.md)                             | Proporciona un ejemplo de uso de OAuth2 para la autorización entre la puerta de enlace y un back-end. Muestra cómo obtener un token de acceso en AAD y reenviarlo al back-end.                                                    |
 | [Obtención del token de X-CSRF en la puerta de enlace de SAP mediante la directiva de solicitud de envío](./get-x-csrf-token-from-sap-gateway.md)                           | Muestra cómo implementar el patrón X-CSRF que utilizan muchas API. Este ejemplo es específico de puerta de enlace de SAP.                                                                                                                           |
 | [Enrutamiento de la solicitud en función del tamaño de su cuerpo](./route-requests-based-on-size.md)                                            | Muestra cómo enrutar las solicitudes en función del tamaño de su cuerpo.                                                                                                                                                       |
