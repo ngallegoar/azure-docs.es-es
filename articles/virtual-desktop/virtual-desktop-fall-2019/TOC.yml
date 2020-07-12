@@ -24,6 +24,8 @@
   items:
     - name: Conexión a recursos de Windows Virtual Desktop
       items:
+        - name: Conexión con el cliente de Escritorio de Windows
+          href: connect-windows-7-10-2019.md
         - name: Conexión con el cliente web
           href: connect-web-2019.md
         - name: Conexión con el cliente de Android
