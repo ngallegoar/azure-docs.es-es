@@ -211,12 +211,18 @@
                   href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
                 - name: Azure CLI
                   href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Habilitación del cifrado de infraestructura en una cuenta de almacenamiento
+          href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json
         - name: Configuración de firewalls y redes virtuales
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Requerir transferencia segura
           href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Habilitación de la conexión TLS segura para el cliente de Azure Storage
-          href: ../common/storage-security-tls.md
+        - name: Configuración de seguridad de la capa de transporte (TLS)
+          items:
+            - name: Configuración de la versión mínima de TLS para una cuenta de almacenamiento
+              href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Configuración de TLS para una aplicación cliente
+              href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Transferencia
       items:
         - name: 'Introducción: AzCopy'
