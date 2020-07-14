@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
 ms.date: 10/13/2019
-ms.openlocfilehash: d274160cc2ed1102dfc8fd11df358b34e40d9923
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 937be72bfec96119474e7effe9ba88a2cf253444
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "84870304"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081850"
 ---
 # <a name="add-data-to-audit-logs-by-using-custom-http-headers"></a>Incorporación de datos a los registros de auditoría mediante encabezados HTTP personalizados
 
@@ -36,7 +36,7 @@ Puede usar los encabezados personalizados para capturar varios tipos de informac
 > [!IMPORTANT]
 > Tenga en cuenta que la información enviada en los encabezados personalizados se almacena en un sistema de registro interno de Microsoft durante los 30 días siguientes a estar disponible en la supervisión de registros de Azure. Se recomienda cifrar cualquier información antes de agregarla a los encabezados personalizados. No debe pasar ninguna información médica protegida (PHI) a través de los encabezados de cliente.
 
-Tiene que usar la siguiente convención de nomenclatura para los encabezados HTTP: X-MS-AZUREFHIR-AUDIT-AUDIT-\<nombre>.
+Tiene que usar la siguiente convención de nomenclatura para los encabezados HTTP: X-MS-AZUREFHIR-AUDIT-\<name>.
 
 Estos encabezados HTTP se incluyen en un contenedor de propiedades que se agrega al registro. Por ejemplo:
 
@@ -63,7 +63,7 @@ Cuando se agregan al registro, los valores se combinan con una lista delimitada 
  
 Puede Agregar un máximo de 10 encabezados únicos (las repeticiones del mismo encabezado con valores diferentes cuentan solo como uno). La longitud total máxima del valor de cualquier encabezado es de 2048 caracteres.
 
-Si usa la biblioteca de la API de cliente de C#, el código tiene un aspecto similar al siguiente:
+Si usa la biblioteca de la API de cliente de Firefly C#, el código tiene un aspecto similar al siguiente:
 
 ```C#
 FhirClient client;

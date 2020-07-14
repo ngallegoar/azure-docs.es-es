@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 05/14/2020
+ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 8bdba64445212c564a3d4762bc8497be15f7d9a0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: bae8fa97d075784bba1d2f75cc06cfa3f801c052
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657013"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027212"
 ---
 # <a name="about-azure-virtual-wan"></a>Acerca de Azure Virtual WAN
 
@@ -64,7 +64,7 @@ Para configurar una red Virtual WAN de extremo a otro, debe crear los siguientes
 
 **Recursos adicionales de Virtual WAN**
 
-  * **Sitio:** este recurso se usa solo para las conexiones de sitio a sitio. El recurso del sitio es **vpnsite**. Representa el dispositivo VPN local y su configuración. Al trabajar con un asociado de Virtual WAN, tiene una solución integrada para exportar automáticamente esta información a Azure.
+* **Sitio:** este recurso se usa solo para las conexiones de sitio a sitio. El recurso del sitio es **vpnsite**. Representa el dispositivo VPN local y su configuración. Al trabajar con un asociado de Virtual WAN, tiene una solución integrada para exportar automáticamente esta información a Azure.
 
 ## <a name="types-of-connectivity"></a><a name="connectivity"></a>Tipos de conectividad
 
@@ -72,21 +72,9 @@ Virtual WAN permite dos tipos de conectividad: VPN de sitio a sitio, VPN de usua
 
 ### <a name="site-to-site-vpn-connections"></a><a name="s2s"></a>Conexión VPN de sitio a sitio
 
-![Diagrama de Virtual WAN](./media/virtual-wan-about/virtualwan.png)
+Puede conectarse a los recursos de Azure por medio de una conexión IPsec/IKE (IKEv2) de sitio a sitio. Para más información, consulte [Creación de una conexión de sitio a sitio mediante Virtual WAN](virtual-wan-site-to-site-portal.md). 
 
-Cuando se crea una conexión de sitio a sitio en Virtual WAN, se puede trabajar con un asociado disponible. Si no desea usar un asociado, puede configurar la conexión manualmente. Para más información, consulte [Creación de una conexión de sitio a sitio mediante Virtual WAN](virtual-wan-site-to-site-portal.md).
-
-#### <a name="virtual-wan-partner-workflow"></a><a name="s2spartner"></a>Flujo de trabajo de asociados de Virtual WAN
-
-Cuando se trabaja con un asociado de Virtual WAN, el flujo de trabajo es el siguiente:
-
-1. El controlador del dispositivo de rama (VPN/SDWAN) se autentica para exportar información centrada en el sitio en Azure mediante el uso de una [entidad de servicio de Azure](../active-directory/develop/howto-create-service-principal-portal.md).
-2. El controlador de dispositivo (VPN/SDWAN) de rama obtiene la configuración de conectividad de Azure y actualiza el dispositivo local. De esta forma se automatiza la descarga de la configuración, la edición y la actualización del dispositivo VPN local.
-3. Una vez que el dispositivo tiene la configuración de Azure correcta, se establece una conexión de sitio a sitio (dos túneles activos) a Azure WAN. Azure admite tanto IKEv1 como IKEv2. BGP es opcional.
-
-#### <a name="partners-for-site-to-site-virtual-wan-connections"></a><a name="partners"></a>Asociados para conexiones de sitio a sitio de Virtual WAN
-
-Para ver una lista de los asociados y las ubicaciones disponibles, consulte el artículo acerca [asociados y ubicaciones de Virtual WAN](virtual-wan-locations-partners.md).
+Este tipo de conexión requiere un dispositivo VPN o un dispositivo de asociado de Virtual WAN. Los asociados de Virtual WAN proporcionan automatización de la conectividad, que es la capacidad de exportar la información del dispositivo a Azure, descargar la configuración de Azure y establecer conectividad con el centro de conectividad de Azure Virtual WAN. Para ver una lista de los asociados y las ubicaciones disponibles, consulte el artículo acerca [asociados y ubicaciones de Virtual WAN](virtual-wan-locations-partners.md). Si el proveedor de dispositivos VPN/SD-WAN no aparece en el vínculo mencionado, puede simplificar la operación mediante el uso de las instrucciones detalladas que se proporcionan en [Creación de una conexión de sitio a sitio mediante Azure Virtual WAN](virtual-wan-site-to-site-portal.md) para configurar la conexión.
 
 ### <a name="user-vpn-point-to-site-connections"></a><a name="uservpn"></a>Conexiones de VPN de usuario (de punto a sitio)
 
@@ -95,9 +83,50 @@ Puede conectarse a los recursos en Azure por medio de una conexión de IPsec/IKE
 ### <a name="expressroute-connections"></a><a name="er"></a>Conexiones de ExpressRoute
 ExpressRoute permite conectar una red local a Azure mediante una conexión privada. Para crear la conexión, consulte [Create an ExpressRoute connection using Virtual WAN](virtual-wan-expressroute-portal.md) (Creación de una conexión de ExpressRoute mediante Virtual WAN).
 
+### <a name="hub-to-vnet-connections"></a><a name="hub"></a>Conexiones de centro de conectividad a red virtual
+
+Conexión de una red virtual de Azure a un centro de conectividad virtual. Para más información, consulte [Conexión de una red virtual a un centro de conectividad](virtual-wan-site-to-site-portal.md#vnet).
+
+### <a name="transit-connectivity"></a><a name="transit"></a>Conectividad de tránsito
+
+#### <a name="transit-connectivity-between-vnets"></a><a name="transit-vnet"></a>Conectividad de tránsito entre redes virtuales
+
+Virtual WAN permite la conectividad de tránsito entre redes virtuales. Las redes virtuales se conectan a un centro virtual a través de una conexión de red virtual. La conectividad de tránsito entre las redes virtuales de **Virtual WAN Estándar** se habilita debido a la presencia de un enrutador en cada centro virtual. Se crea una instancia de este enrutador la primera vez que se crea el centro virtual.
+
+El enrutador puede tener cuatro estados de enrutamiento: Provisioned, Provisioning, Failed o None. El **estado del enrutamiento** se encuentra en Azure Portal. Solo hay que ir a la página del centro virtual.
+
+* El estado **None** indica que el centro virtual no ha aprovisionado el enrutador. Esto puede ocurrir si la instancia de Virtual WAN es del tipo *Básico* o si el centro virtual se ha implementado antes de que el servicio estuviera disponible.
+* El estado **Failed** indica un error durante la creación de instancias. Para crear una instancia del enrutador o restablecerlo, puede encontrar la opción **Reset Router** (Restablecer enrutador) en la página de información general del centro virtual en Azure Portal.
+
+Todos los enrutadores del centro virtual admiten un rendimiento agregado de hasta 50 Gbps. La conectividad entre las conexiones de la red virtual asume una carga de trabajo total de 2000 máquinas virtuales en todas las redes virtuales de una WAN virtual.
+
+#### <a name="transit-connectivity-between-vpn-and-expressroute"></a><a name="transit-er"></a>Conectividad de tránsito entre VPN y ExpressRoute
+
+Virtual WAN permite la conectividad de tránsito entre VPN y ExpressRoute. Esto implica que los sitios conectados mediante VPN o los usuarios remotos pueden comunicarse con sitios conectados mediante ExpressRoute. También se supone de forma implícita que la opción **Branch-to-branch flag** (Marca de rama a rama) está habilitada. Esta marca se puede encontrar en la configuración de Azure Virtual WAN en Azure Portal. La administración de todas las rutas la proporciona el enrutador del centro virtual, que también permite la conectividad de tránsito entre las redes virtuales.
+
+### <a name="custom-routing"></a><a name="routing"></a>Enrutamiento personalizado
+
+Virtual WAN proporciona mejoras de enrutamiento avanzadas. La capacidad para configurar tablas de rutas personalizadas, optimizar el enrutamiento de redes virtuales con la asociación y propagación de rutas, agrupar lógicamente tablas de rutas con etiquetas y simplificar numerosos escenarios de enrutamiento de dispositivos virtuales de red o de servicios compartidos.
+
+### <a name="global-vnet-peering"></a><a name="global"></a>Emparejamiento de red virtual global
+
+El emparejamiento de red virtual global proporciona un mecanismo para conectar dos redes virtuales de diferentes regiones. En Virtual WAN, las conexiones de red virtual conectan redes virtuales a centros virtuales. El usuario no necesita configurar el emparejamiento global de redes virtuales de forma explícita. Las redes virtuales conectadas a un centro virtual de la misma región incurren en cargos de emparejamiento de red virtual. Las redes virtuales conectadas a un centro virtual de otra región incurren en cargos de emparejamiento de red virtual global.
+
+### <a name="expressroute-traffic-encryption"></a><a name="encryption"></a>Cifrado del tráfico de ExpressRoute
+
+Azure Virtual WAN proporciona la capacidad de cifrar el tráfico de ExpressRoute. La técnica proporciona un tránsito cifrado entre las redes locales y las redes virtuales de Azure a través de ExpressRoute, sin necesidad de pasar por la red pública de Internet ni utilizar direcciones IP públicas. Para más información, consulte [IPsec sobre ExpressRoute para Virtual WAN](vpn-over-expressroute.md).
+
 ## <a name="locations"></a><a name="locations"></a>Ubicaciones
 
 Para obtener información de las ubicaciones, consulte el de ubicación, consulte el artículo acerca de los [asociados y ubicaciones de Virtual WAN](virtual-wan-locations-partners.md).
+
+## <a name="route-tables-in-basic-and-standard-virtual-wans"></a><a name="route"></a>Tablas de rutas en las versiones Básico y Estándar de Virtual WAN
+
+Las tablas de rutas ahora tienen características para la asociación y propagación. Una tabla de rutas preexistente es una tabla de enrutamiento que no tiene estas características. Si tiene rutas preexistentes en el enrutamiento del centro y desea usar las nuevas funcionalidades, tenga en cuenta lo siguiente:
+
+* **Clientes de la versión Estándar de Virtual WAN con rutas preexistentes en un centro virtual**: Para usar las nuevas funcionalidades de tabla de rutas, espere hasta la semana del 3 de agosto a que se complete la implementación en Azure. Si tiene rutas preexistentes en la sección de enrutamiento del centro de conectividad en Azure Portal, debe eliminarlas primero y, después, intentar crear tablas de rutas nuevas (disponibles en la sección Tablas de rutas del centro de conectividad en Azure Portal).
+
+* **Clientes de la versión Básica de Virtual WAN con rutas preexistentes en un centro virtual**: Para usar las nuevas funcionalidades de tabla de rutas, espere hasta la semana del 3 de agosto a que se complete la implementación en Azure. Si tiene rutas preexistentes en la sección de enrutamiento del centro de conectividad en Azure Portal, debe eliminarlas primero y, después, **actualizar** la versión Básica de Virtual WAN a la versión Estándar. Consulte [Actualización de una virtual WAN de Básica a Estándar](upgrade-virtual-wan.md).
 
 ## <a name="faq"></a><a name="faq"></a>P+F
 

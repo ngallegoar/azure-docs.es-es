@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb9135873b61abf5a5ebd0d9c4d7f52ae314ee12
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 17d0c91d31f7746c53d62af87670c40e9902554c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84675384"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026838"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Akamai
 
@@ -79,7 +79,7 @@ La aplicación Akamai EAA se configura de forma individual en el portal de Azure
 
 • Puede definir directivas de CA individuales.
 
-• Todas las aplicaciones se representan en el panel de myApps.microsoft.com y 0365 Waffle.
+• Todas las aplicaciones se representan en el panel de myApps.microsoft.com y O365 Waffle.
 
 **Inconvenientes**:
 
@@ -102,7 +102,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 #### <a name="important"></a>Importante
 
-Toda la configuración que se muestra a continuación es la misma para el **escenario de integración 1** y el **escenario 2**. En el **escenario de integración 2**, ha configurado un IDP individual en Akamai EAA y la propiedad URL debe modificarse para que apunte a la dirección URL de la aplicación.
+Toda la configuración que se muestra a continuación es la misma para el **escenario de integración 1** y el **escenario 2**. En el **escenario de integración 2**, ha configurado un IDP individual en Akamai EAA. La propiedad URL debe modificarse para que apunte a la dirección URL de la aplicación.
 
 ![Importante](./media/header-akamai-tutorial/important.png)
 

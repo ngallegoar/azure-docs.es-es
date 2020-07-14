@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c922b95154f16a199660bcd5e58f792e46eade7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d4fbfe9222971ccd1d28ceaddc91b137c6106e12
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360612"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146736"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Tutorial: Integración de un único bosque con un único inquilino de Azure AD
 
@@ -26,7 +26,7 @@ Este tutorial le guía en la creación de un entorno de identidad híbrida media
 
 El entorno que se crea en este tutorial se puede usar para realizar pruebas o para familiarizarse con el aprovisionamiento en la nube.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 ### <a name="in-the-azure-active-directory-admin-center"></a>En el Centro de administración de Azure Active Directory
 
 1. Cree una cuenta de administrador global solo en la nube en el inquilino de Azure AD. De esta manera, puede administrar la configuración del inquilino en caso de que los servicios locales fallen o no estén disponibles. Información acerca de la [incorporación de una cuenta de administrador global que está solo en la nube](../active-directory-users-create-azure-portal.md). Realizar este paso es esencial para garantizar que no queda bloqueado fuera de su inquilino.
@@ -55,7 +55,7 @@ El entorno que se crea en este tutorial se puede usar para realizar pruebas o pa
 2. Inicie sesión en Azure Portal con credenciales de administrador global solo en la nube.
 3. A la izquierda, seleccione **Azure Active Directory**, haga clic en **Azure AD Connect** y, en el centro, seleccione **Administrar aprovisionamiento (versión preliminar)** .
 
-   ![Portal de Azure](media/how-to-install/install6.png)
+   ![Azure portal](media/how-to-install/install6.png)
 
 4. Haga clic en **Descargar agente**.
 5. Ejecute el agente de aprovisionamiento de Azure AD Connect.
@@ -108,13 +108,13 @@ Para comprobar que el agente se ejecuta, siga estos pasos:
 2.  Haga clic en **Azure Active Directory**.
 3.  Haga clic en **Azure AD Connect**.
 4.  Seleccione **Administración del aprovisionamiento (versión preliminar)** 
-![](media/how-to-configure/manage1.png).
+![Captura de pantalla que muestra el vínculo "Administración del aprovisionamiento (versión preliminar)".](media/how-to-configure/manage1.png)
 5.  Haga clic en **Nueva configuración**
-![](media/tutorial-single-forest/configure1.png).
+![Captura de pantalla de "Aprovisionamiento de Azure AD (versión preliminar)" con el vínculo "Nueva configuración" resaltado.](media/tutorial-single-forest/configure1.png)
 7.  En la pantalla de configuración, escriba un **correo electrónico de notificación**, mueva el selector a **Habilitar** y haga clic en **Guardar**.
-![](media/tutorial-single-forest/configure2.png)
+![Captura de la pantalla de configuración con un correo electrónico de notificación rellenado y Habilitar seleccionado.](media/tutorial-single-forest/configure2.png)
 1.  El estado de configuración ahora debería ser **Correcto**.
-![](media/how-to-configure/manage4.png)
+![Captura de pantalla de "Aprovisionamiento de Azure AD (versión preliminar)" que muestra un estado correcto.](media/how-to-configure/manage4.png)
 
 ## <a name="verify-users-are-created-and-synchronization-is-occurring"></a>Comprobación de la creación y sincronización de los usuarios
 Ahora comprobaremos que los usuarios que tenía en el directorio local se han sincronizado y que ya existen en el inquilino de Azure AD.  Tenga en cuenta que esta acción puede tardar unas horas en completarse.  Para comprobar que los usuarios están sincronizados, haga lo siguiente:

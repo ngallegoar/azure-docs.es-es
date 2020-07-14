@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 061907783d21372f0e926e529730e9e82b7a4ddb
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 632071c2a9597fc11ab4ffc0971493ef5b52d807
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488773"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083566"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en Azure Portal
 > [!div class="op_single_selector"]
@@ -150,7 +150,7 @@ El **explorador de Search** está equipado solo para administrar [solicitudes de
 
    ![Comando del explorador de búsqueda](media/search-get-started-portal/search-explorer-cmd.png)
 
-2. En la lista desplegable **Índice**, elija *hotels-sample-index*. Haga clic en la lista desplegable **Versión de API** para ver las API REST que están disponibles. Con las siguientes consultas, use la versión disponible con carácter general (2019-05-06).
+2. En la lista desplegable **Índice**, elija *hotels-sample-index*. Haga clic en la lista desplegable **Versión de API** para ver las API REST que están disponibles. Para las siguientes consultas, use la versión disponible con carácter general (2020-06-30).
 
    ![Comandos de índice y API](media/search-get-started-portal/search-explorer-changeindex.png)
 
@@ -275,4 +275,9 @@ Si está usando un servicio gratuito, recuerde que está limitado a tres índice
 Use un asistente del portal para generar una aplicación web lista para usar que se ejecute en un explorador. Puede probar este asistente en el pequeño índice que acaba de crear, o bien usar uno de los conjuntos de datos de ejemplo integrados, ya que la búsqueda mejorará.
 
 > [!div class="nextstepaction"]
-> [Creación de una aplicación de búsqueda en el portal](search-create-app-portal.md)
+> [Creación de una aplicación de demostración en el portal](search-create-app-portal.md)
+
+¿Quiere optimizar y ahorrar en el gasto en la nube?
+
+> [!div class="nextstepaction"]
+> [Comience a analizar los costos con Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

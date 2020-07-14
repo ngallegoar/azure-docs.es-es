@@ -1,5 +1,5 @@
 ---
-title: 'Inicio de sesión único en aplicaciones: Azure Active Directory | Microsoft Docs'
+title: ¿Qué es el inicio de sesión único de Azure?
 description: Aprenda a elegir un método de inicio de sesión único al configurar aplicaciones en Azure Active Directory (Azure AD). Use el inicio de sesión único, para que los usuarios no necesiten recordar las contraseñas de todas las aplicaciones y para simplificar la administración de cuentas.
 services: active-directory
 author: kenwith
@@ -12,14 +12,14 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd8b20d7d285f30eb0aa9ba5ac22739b57856d6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a50f2cf6fc00189c8cc764a132b550153b80b52e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479715"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144603"
 ---
-# <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Inicio de sesión único en aplicaciones de Azure Active Directory
+# <a name="what-is-single-sign-on-sso"></a>¿Qué es el inicio de sesión único (SSO)?
 
 El inicio de sesión único (SSO) agrega seguridad y comodidad cuando los usuarios inician sesión en aplicaciones en Azure Active Directory (Azure AD). Este artículo describe los métodos del inicio de sesión único y le ayuda a elegir el más apropiado al configurar las aplicaciones.
 
@@ -99,8 +99,8 @@ Se admite el inicio de sesión único basado en contraseñas para cualquier apli
 - Microsoft Edge en Windows 10 Anniversary Edition o versión posterior
 - Microsoft Edge para iOS y Android
 - Explorador administrado con Intune
-- Chrome en Windows 7 o posterior, y en Mac OS X o posterior
-- Firefox 26.0 o posterior en Windows XP SP2 o posterior, y en Mac OS X 10.6 o posterior
+- Chrome en Windows 7 o versiones posteriores y en MacOS X o versiones posteriores.
+- Firefox 26.0 o versiones posteriores: en Windows XP SP2 o versiones posteriores y en Mac OS X 10.6 o versiones posteriores.
 
 Para configurar una aplicación en la nube para el inicio de sesión único basado en contraseñas, consulte [Configuración del inicio de sesión único con contraseña](configure-password-single-sign-on-non-gallery-applications.md).
 

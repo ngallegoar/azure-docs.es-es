@@ -1,25 +1,25 @@
 ---
-title: 'Tutorial: Configuración de una instancia de Config Server en Azure Spring Cloud'
-description: En este tutorial aprenderá a configurar una instancia de Config Server para Azure Spring Cloud en Azure Portal
+title: Configuración de una instancia de Config Server en Azure Spring Cloud
+description: Aprenda a configurar una instancia de Config Server para Azure Spring Cloud en Azure Portal
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
-ms.openlocfilehash: 4c8b2e92cd7e88dde434e42971d091db689bfbc9
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: bfce1ce54da9d9e8e7feaa8e8eb5cd676866a1cb
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791306"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142194"
 ---
-# <a name="tutorial-set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Tutorial: Configuración de una instancia de Config Server en Spring Cloud para su servicio
+# <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configuración de una instancia de Config Server en Spring Cloud para su servicio
 
 En este tutorial se muestra cómo conectar una instancia de Config Server en Spring Cloud con el servicio Azure Spring Cloud.
 
 Spring Cloud Config ofrece soporte técnico para servidor y cliente para las configuraciones externalizadas de un sistema distribuido. La instancia de Config Server es un lugar centralizado donde puede administrar las propiedades externas de las aplicaciones de todos los entornos. Para más información al respecto, consulte la [Guía de referencia de Config Server en Spring Cloud](https://spring.io/projects/spring-cloud-config).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 * Un servicio de Azure Spring Cloud aprovisionado y en ejecución. Para configurar e iniciar el servicio Azure Spring Cloud, consulte [Inicio rápido: Inicio de una aplicación Java Spring mediante la CLI de Azure](spring-cloud-quickstart-launch-app-cli.md).
 
@@ -190,7 +190,4 @@ Una vez guardado un archivo de configuración, aparece el botón **Delete app co
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a habilitar y configurar una instancia de Config Server de Spring Cloud. Para más información sobre la administración de aplicaciones, consulte el tutorial en el que se explica el escalado manual de aplicaciones.
-
-> [!div class="nextstepaction"]
-> [Tutorial: Escalado de una aplicación en Azure Spring Cloud](spring-cloud-tutorial-scale-manual.md)
+En este artículo, ha aprendido a habilitar y configurar una instancia de Config Server de Spring Cloud. Para más información sobre la administración de la aplicación, consulte [Escalado de una aplicación en Azure Spring Cloud](spring-cloud-tutorial-scale-manual.md).
