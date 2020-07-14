@@ -23,7 +23,7 @@
     - name: Conexión a recursos de Windows Virtual Desktop
       items:
         - name: Conexión con el cliente de Escritorio de Windows
-          href: connect-windows-7-and-10.md
+          href: connect-windows-7-10.md
         - name: Conexión con el cliente web
           href: connect-web.md
         - name: Conexión con el cliente de Android
@@ -38,6 +38,8 @@
       items:
         - name: PowerShell
           href: create-host-pools-powershell.md
+        - name: "Implementación de una máquina virtual con Windows\_7"
+          href: deploy-windows-7-virtual-machine.md
         - name: Implementación de un host de sesión basado en GPU
           href: configure-vm-gpu.md
         - name: Expansión de un grupo de hosts existente
@@ -90,6 +92,8 @@
       href: language-packs.md
 - name: Conceptos
   items:
+    - name: Lista de direcciones URL seguras
+      href: safe-url-list.md
     - name: Entorno de Windows Virtual Desktop
       href: environment-setup.md
     - name: Determinación de la latencia de la conexión del usuario

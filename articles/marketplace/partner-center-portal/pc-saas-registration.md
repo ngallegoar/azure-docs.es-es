@@ -1,125 +1,113 @@
 ---
 title: 'Registro de una aplicación SaaS: Azure Marketplace'
 description: Aprenda a usar Azure Portal para registrar una aplicación SaaS y recibir un token de seguridad de Azure Active Directory.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.author: dsindona
-ms.openlocfilehash: b3c20d25917d66cba8ae3d811eddaa6455b87722
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.date: 06/10/2020
+ms.openlocfilehash: 85bd6f4192f5c1f47856851ab53521a101340007
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792962"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109270"
 ---
 # <a name="register-a-saas-application"></a>Registro de una aplicación SaaS
 
-En este artículo se explica cómo registrar una aplicación SaaS mediante Microsoft [Azure Portal](https://portal.azure.com/).  Después de un registro correcto, recibirá un token de seguridad de Azure Active Directory (Azure AD) que puede usar para acceder a las API de suministro SaaS.  Para más información sobre Azure AD, consulte [¿Qué es la autenticación?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)
+En este artículo se explica cómo registrar una aplicación SaaS mediante [Azure Portal](https://portal.azure.com/) de Microsoft y cómo obtener el token de acceso del editor (token de acceso de Azure Active Directory). El editor usará este token para autenticar la aplicación SaaS mediante una llamada a las API de suministro de SaaS.  Las API de suministro usan las credenciales de cliente de OAuth 2.0 para conceder flujo en los puntos de conexión de Azure Active Directory (versión 1.0) con el fin de crear una solicitud de token de acceso de servicio a servicio.
 
-## <a name="service-to-service-authentication-flow"></a>Flujo de autenticación de servicio a servicio
+Azure Marketplace no impone ninguna restricción en el método de autenticación que el servicio SaaS use para los usuarios finales. El flujo siguiente solo es necesario para autenticar el servicio de SaaS en Azure Marketplace.
 
-El siguiente diagrama muestra el flujo de suscripción de un nuevo cliente y cuándo se utilizan estas API:
-
-![Flujo de la API de la oferta de SaaS](./media/saas-offer-publish-api-flow-v1.png)
-
-Azure no impone ninguna restricción en la autenticación que el servicio SaaS expone a los usuarios finales. Sin embargo, la autenticación con las API de suministro SaaS se realiza con un token de seguridad de Azure AD, normalmente obtenido al registrar la aplicación SaaS a través de Azure Portal. 
+Para obtener más información sobre Azure AD (Active Directory), vea [¿Qué es la autenticación?](../../active-directory/develop/authentication-scenarios.md)
 
 ## <a name="register-an-azure-ad-secured-app"></a>Registrar una aplicación con protección de Azure AD
 
-Cualquier aplicación que quiera usar las funciones de Azure AD debe registrarse primero en un inquilino de Azure AD. Este proceso de registro implica proporcionar a Azure AD los detalles de la aplicación, como la dirección URL donde se encuentra, la dirección URL para enviar respuestas cuando se autentica un usuario, el identificador URI que identifica la aplicación, etc.  Para registrar una aplicación nueva mediante Azure Portal, realice los pasos siguientes:
+Cualquier aplicación que quiera usar las funciones de Azure AD debe registrarse primero en un inquilino de Azure AD. Este proceso de registro implica proporcionar a Azure AD algunos detalles sobre la aplicación. Para registrar una aplicación nueva mediante Azure Portal, realice los pasos siguientes:
 
-1.  Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2.  Si la cuenta proporciona acceso a más de uno, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
-3.  En el panel de navegación izquierdo, haga clic en el servicio **Azure Active Directory**, haga clic en **Registros de aplicaciones** y haga clic en **Nuevo registro de aplicación**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+2. Si la cuenta proporciona acceso a más de uno, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
+3. En el panel de navegación izquierdo, haga clic en el servicio **Azure Active Directory**, haga clic en **Registros de aplicaciones** y haga clic en **Nuevo registro de aplicación**.
 
     ![Registros de aplicaciones SaaS de AD](./media/saas-offer-app-registration-v1.png)
 
-4.  En la página Crear, escriba la información de registro de la aplicación:
+4. En la página Crear, escriba la información de registro de la aplicación:
     -   **Name**: Especifique un nombre de aplicación significativo.
-    -   **Tipo de aplicación**: 
-        - Seleccione **Nativo** para las [aplicaciones cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) que están instaladas localmente en un dispositivo. Esta configuración se utiliza para [clientes nativos](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) públicos de OAuth.
-        - Seleccione **Aplicación web/API** para las [aplicaciones cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) y las [aplicaciones de recursos/API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) que están instaladas en un servidor seguro. Esta configuración se utiliza para [clientes web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) confidenciales de OAuth y [clientes basados en agente de usuario](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client) públicos.
+    -   **Tipo de aplicación**:  
+        
+        Seleccione **Aplicación web/API** para las [aplicaciones cliente](../../active-directory/develop/active-directory-dev-glossary.md#client-application) y las [aplicaciones de recursos/API](../../active-directory/develop/active-directory-dev-glossary.md#resource-server) que están instaladas en un servidor seguro. Esta configuración se usa para [clientes web](../../active-directory/develop/active-directory-dev-glossary.md#web-client) confidenciales de OAuth y [clientes basados en agente de usuario](../../active-directory/develop/active-directory-dev-glossary.md#user-agent-based-client) públicos.
         La misma aplicación también puede exponer tanto un cliente como un recurso o API.
-    -   **URL de inicio de sesión**: Para aplicaciones web o aplicaciones de la API, proporcione la dirección URL base de la aplicación. Por ejemplo, **http://localhost:31544** podría ser la dirección URL de una aplicación web que se ejecuta en la máquina local. Los usuarios utilizan esta dirección URL para iniciar sesión en una aplicación cliente web.
-    -   **URI de redirección**: Para aplicaciones nativas, proporcione el identificador URI que utiliza Azure AD para devolver las respuestas de los tokens. Escriba un valor específico para la aplicación, por ejemplo, **http://MyFirstAADApp** .
 
-        ![Registros de aplicaciones SaaS de AD](./media/saas-offer-app-registration-v1-2.png)
+        Para obtener ejemplos específicos de aplicaciones web, consulte las guías de inicio rápido de configuraciones que están disponibles en la sección [Introducción](../../active-directory/develop/quickstart-create-new-tenant.md) de la [Guía de desarrolladores de Azure AD](../../active-directory/develop/index.yml).
 
-        Para obtener ejemplos específicos para aplicaciones web o aplicaciones nativas, consulte las guías de inicio rápido de configuraciones que están disponibles en la sección *Introducción* de la [Guía de desarrolladores de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+5. Cuando termine, haga clic en **Registrar**.  Azure AD asigna un *identificador de aplicación* único a la nueva aplicación. Se recomienda registrar una aplicación que acceda solo a la API y como inquilino único.
 
-5.  Cuando haya terminado, haga clic en **Crear**. Azure AD asigna un *identificador de aplicación* único a la aplicación y le lleva a la página de registro principal de la aplicación. En función de que se trate de una aplicación web o nativa, se proporcionan opciones diferentes para agregar funcionalidades adicionales a la aplicación.
+6. Para crear un secreto de cliente, vaya a la página **Certificados y secretos** y haga clic en **+ Nuevo secreto de cliente**.  Asegúrese de copiar el valor del secreto para usarlo en el código.
+
+El **identificador de aplicación de Azure AD** está asociado al identificador del editor, por lo que debe asegurarse de que en todas las ofertas se use el mismo *identificador de aplicación*.
 
 >[!Note]
->De forma predeterminada, la aplicación recién registrada está configurada para permitir solo el inicio de sesión en la aplicación a los usuarios del mismo inquilino.
+>Si un editor tiene dos cuentas diferentes en el Centro de partners, deben usarse dos identificadores de aplicación de Azure AD diferentes.  Cada cuenta de partner en el Centro de partners debe usar un identificador de aplicación de Azure AD único para todas las ofertas de SaaS publicadas a través de esta cuenta.
 
-## <a name="using-the-azure-ad-security-token"></a>Usar el token de seguridad de Azure AD
+## <a name="how-to-get-the-publishers-authorization-token"></a>Cómo obtener el token de autorización del editor
 
-Una vez que se ha registrado la aplicación, puede solicitar un token de seguridad de Azure AD mediante programación.  Se espera que el anunciante use este token y haga una solicitud para resolverlo.  Al usar las distintas API de suministro, el parámetro de consulta del token se encuentra en la dirección URL cuando se redirige al usuario al sitio web SaaS desde Azure.  Este token es válido durante una hora únicamente.  Además, debe descodificar como dirección URL el valor del token del explorador antes de usarlo.
+Una vez que haya registrado la aplicación, puede solicitar mediante programación el token de autorización del editor (token de acceso de Azure AD, mediante el punto de conexión V1 de Azure AD). El editor debe usar este token al llamar a las distintas API de suministro de SaaS. Este token es válido durante una hora únicamente. 
 
-Para más información sobre estos tokens, consulte [Tokens de acceso de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
+Para más información sobre estos tokens, consulte [Tokens de acceso de Azure Active Directory](../../active-directory/develop/access-tokens.md).  Tenga en cuenta que, en el flujo siguiente, se usa el token del punto de conexión V1.
 
+### <a name="get-the-token-with-an-http-post"></a>Obtención del token con una solicitud HTTP POST
 
-### <a name="get-a-token-based-on-the-azure-ad-app"></a>Obtención de un token basado en la aplicación de Azure AD
+#### <a name="http-method"></a>Método HTTP
 
-Método HTTP
+Post<br>
 
-`POST`
+##### <a name="request-url"></a>*Request URL* (URL de la solicitud) 
 
-*Request URL* (URL de la solicitud)
+`https://login.microsoftonline.com/*{tenantId}*/oauth2/token`
 
-**https://login.microsoftonline.com/ *{tenantId}* /oauth2/token**
+##### <a name="uri-parameter"></a>*Parámetro de URI*
 
-*Parámetro de URI*
+|  Nombre de parámetro    |  Obligatorio         |  Descripción |
+|  ---------------   |  ---------------  | ------------ |
+|  `tenantId`        |  True      |  Identificador de inquilino de la aplicación de AAD registrada. |
 
-|  **Nombre de parámetro**  | **Obligatorio**  | **Descripción**                               |
-|  ------------------  | ------------- | --------------------------------------------- |
-| tenantId             | True          | Identificador de inquilino de la aplicación de AAD registrada   |
-|  |  |  |
+##### <a name="request-header"></a>*Encabezado de solicitud*
 
+|  Nombre de encabezado       |  Obligatorio         |  Descripción |
+|  ---------------   |  ---------------  | ------------ |
+|  `content-type`    |  True      |  Tipo de contenido asociado a la solicitud. El valor predeterminado es `application/x-www-form-urlencoded`. |
 
-*Encabezado de solicitud*
+##### <a name="request-body"></a>*Cuerpo de la solicitud*
 
-|  **Nombre de encabezado**  | **Obligatorio** |  **Descripción**                                   |
-|  --------------   | ------------ |  ------------------------------------------------- |
-|  Content-Type     | True         | Tipo de contenido asociado a la solicitud. El valor predeterminado es `application/x-www-form-urlencoded`.  |
-|  |  |  |
+|  Nombre de propiedad     |  Obligatorio         |  Descripción |
+|  ---------------   |  ---------------  | ------------ |
+|  `grant-type`      |  True      |  Tipo de concesión. Mediante `"client_credentials"`. |
+|  `client_id`       |  True      |  Identificador de cliente o aplicación asociado a la aplicación de Azure AD. |
+|  `client_secret`   |  True      |  Secreto asociado a la aplicación de Azure AD. |
+|  `resource`        |  True      |  Recurso de destino para el que se solicita el token. Use `20e940b3-4c77-4b0b-9a53-9e16a1b010a7` porque la API de SaaS de Marketplace es siempre el recurso de destino en este caso. |
 
+##### <a name="response"></a>*Respuesta*
 
-*Cuerpo de la solicitud*
+|  Nombre     |  Tipo         |  Descripción |
+|  ------   |  ---------------  | ------------ |
+|  200 OK   |  TokenResponse    |  La solicitud se realizó correctamente. |
 
-| **Nombre de propiedad**   | **Obligatorio** |  **Descripción**                                                          |
-| -----------------   | -----------  | ------------------------------------------------------------------------- |
-|  Grant_type         | True         | Tipo de concesión. El valor predeterminado es `client_credentials`.                    |
-|  Client_id          | True         |  Identificador de cliente o aplicación asociado a la aplicación de Azure AD.                  |
-|  client_secret      | True         |  Contraseña asociada a la aplicación de Azure AD.                               |
-|  Resource           | True         |  Recurso de destino para el que se solicita el token. El valor predeterminado es `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
-|  |  |  |
+##### <a name="tokenresponse"></a>*TokenResponse*
 
+Respuesta de ejemplo:
 
-*Respuesta*
-
-|  **Nombre**  | **Tipo**       |  **Descripción**    |
-| ---------- | -------------  | ------------------- |
-| 200 OK    | TokenResponse  | La solicitud se realizó correctamente   |
-|  |  |  |
-
-*TokenResponse*
-
-Ejemplo de token de respuesta:
-
-``` json
-  {
+```json
+{
       "token_type": "Bearer",
       "expires_in": "3600",
       "ext_expires_in": "0",
       "expires_on": "15251…",
       "not_before": "15251…",
-      "resource": "62d94f6c-d599-489b-a797-3e10e42fbe22",
+      "resource": "20e940b3-4c77-4b0b-9a53-9e16a1b010a7",
       "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
-  }               
+  }
 ```
+
+El valor del campo `"access_token"` en la respuesta es el `<access_token>` que pasará como parámetro de autorización al llamar a todas las API de suministro de SaaS y de medición de Marketplace.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

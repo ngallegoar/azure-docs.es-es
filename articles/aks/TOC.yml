@@ -257,6 +257,8 @@
           href: private-clusters.md
         - name: BYOK para discos
           href: azure-disk-customer-managed-keys.md
+        - name: Habilitación del cifrado basado en host
+          href: enable-host-encryption.md
     - name: Supervisión y registro
       items:
         - name: Azure Monitor para contenedores
@@ -282,9 +284,9 @@
         - name: Uso del panel de Kubernetes
           href: kubernetes-dashboard.md
         - name: Creación de archivos Dockerfile para contenedores de Windows Server
-          href: 'https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context'
+          href: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
         - name: Optimización de archivos Dockerfile para contenedores de Windows Server
-          href: 'https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context'
+          href: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
     - name: Desarrollo y ejecución de aplicaciones
       items:
         - name: "Uso de Proceso local con Kubernetes con Visual\_Studio Code (versión preliminar)"

@@ -1,6 +1,6 @@
 ---
 title: Copia de datos de HDFS mediante Azure Data Factory
-description: Obtenga información sobre cómo copiar datos desde un origen HDFS —en la nube o en un entorno local— a almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
+description: Obtenga información sobre cómo copiar datos desde un origen HDFS en la nube o en un entorno local a almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,43 +11,43 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/15/2020
 ms.author: jingwang
-ms.openlocfilehash: f39fb50c5044cacb04b3b147a0160dd23c9eb2d0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8041ce07c08c3b6063e2a1b3c7b55b1cec59b19a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657094"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087765"
 ---
-# <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Copia de datos de HDFS mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
+# <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copia de datos desde un servidor HDFS mediante Azure Data Factory
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que está usando:"]
 > * [Versión 1](v1/data-factory-hdfs-connector.md)
 > * [Versión actual](connector-hdfs.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se describe cómo copiar datos desde el servidor HDFS. Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
+En este artículo se describe cómo copiar datos desde el servidor del sistema de archivos distribuido de Hadoop (HDFS). Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
-Este conector HDFS es compatible con las actividades siguientes:
+El conector HDFS es compatible con las actividades siguientes:
 
-- [Actividad de copia](copy-activity-overview.md) con [matriz de origen o receptor compatible](copy-activity-overview.md)
+- [Actividad de copia](copy-activity-overview.md) con [matriz de origen y receptor compatible](copy-activity-overview.md)
 - [Actividad de búsqueda](control-flow-lookup-activity.md)
 
-En concreto, este conector HDFS admite las siguientes funcionalidades:
+En concreto, el conector HDFS admite las siguientes funcionalidades:
 
-- Copiar los archivos mediante la autenticación de **Windows** (Kerberos) o **anónima**.
-- Copiar los archivos mediante el protocolo **webhdfs** o la herramienta **DistCp integrada**.
-- Copiar los archivos tal cual, o bien analizarlos o generarlos, con los [códecs de compresión y los formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md).
+- Copiar los archivos mediante la autenticación de *Windows* (Kerberos) o *anónima*.
+- Copiar los archivos mediante el protocolo *webhdfs* o la compatibilidad con *DistCp integrada*.
+- La copia de archivos tal cual, o bien el análisis o generación de archivos con los [códecs de compresión y los formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 > [!NOTE]
-> Asegúrese de que Integration Runtime puede obtener acceso a **TODOS** los [servidor de nodo de nombres]:[puerto de nodo de nombres] y [servidores de nodos de datos]:[puerto de nodo de datos] del clúster de Hadoop. El [puerto de nodo de nombres] predeterminado es 50070 y el [puerto de nodo de datos] es 50075.
+> Asegúrese de que el entorno de ejecución de integración puede acceder a *todos* los [servidor de nodo de nombres]:[puerto de nodo de nombres] y [servidores de nodos de datos]:[puerto de nodo de datos] del clúster de Hadoop. El [puerto de nodo de nombres] predeterminado es 50070 y el [puerto de nodo de datos] es 50075.
 
-## <a name="getting-started"></a>Introducción
+## <a name="get-started"></a>Introducción
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -59,12 +59,12 @@ Las siguientes propiedades son compatibles con el servicio vinculado de HDFS:
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **Hdfs**. | Sí |
+| type | La propiedad *type* debe establecerse en *Hdfs*. | Sí |
 | url |Dirección URL a HDFS |Sí |
-| authenticationType | Los valores permitidos son: **Anónima** o **Windows**. <br><br> Para usar la **autenticación Kerberos** para el conector HDFS, consulte [esta sección](#use-kerberos-authentication-for-hdfs-connector) a fin de configurar el entorno local en consecuencia. |Sí |
-| userName |Nombre de usuario para la autenticación de Windows Para la autenticación Kerberos, especifique `<username>@<domain>.com`. |Sí (para la autenticación de Windows) |
-| password |Contraseña para la autenticación de Windows Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí (para la autenticación de Windows) |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usará Azure Integration Runtime. |No |
+| authenticationType | Los valores permitidos son *Anónima* o *Windows*. <br><br> Para configurar el entorno local, consulte la sección [Uso de la autenticación Kerberos para el conector HDFS](#use-kerberos-authentication-for-the-hdfs-connector). |Sí |
+| userName |Nombre de usuario para la autenticación de Windows. Para la autenticación Kerberos, especifique **\<username>@\<domain>.com**. |Sí (para la autenticación de Windows) |
+| password |Contraseña para la autenticación de Windows. Marque este campo como SecureString para almacenarlo de forma segura en la factoría de datos, o bien [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí (para la autenticación de Windows) |
+| connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Para más información, consulte la sección [Requisitos previos](#prerequisites). Si no se especifica el entorno de ejecución de integración, el servicio usa la instancia predeterminada de Azure Integration Runtime. |No |
 
 **Ejemplo: Uso de autenticación anónima**
 
@@ -112,7 +112,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de HDFS:
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
-Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). 
+Si quiere ver una lista completa de las secciones y propiedades que están disponibles para definir conjuntos de datos, consulte [Conjuntos de datos en Azure Data Factory](concepts-datasets-linked-services.md). 
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
@@ -120,9 +120,9 @@ Las propiedades siguientes se admiten para HDFS en la configuración `location` 
 
 | Propiedad   | Descripción                                                  | Obligatorio |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | La propiedad type de `location` en el conjunto de datos se debe establecer en **HdfsLocation**. | Sí      |
-| folderPath | Ruta de acceso a la carpeta. Si quiere usar el carácter comodín para filtrar la carpeta, omita este valor y especifique la configuración del origen de actividad. | No       |
-| fileName   | Nombre de archivo en la propiedad folderPath indicada. Si quiere usar el carácter comodín para filtrar los archivos, omita este valor y especifique la configuración del origen de actividad. | No       |
+| type       | La propiedad *type* de `location` del conjunto de datos se debe establecer en *HdfsLocation*. | Sí      |
+| folderPath | Ruta de acceso a la carpeta. Si quiere usar un carácter comodín para filtrar la carpeta, omita este valor y especifique la ruta de acceso en la configuración del origen de actividad. | No       |
+| fileName   | Nombre de archivo en la propiedad folderPath especificada. Si quiere usar un carácter comodín para filtrar archivos, omita este valor y especifique el nombre de archivo en la configuración del origen de actividad. | No       |
 
 **Ejemplo**:
 
@@ -152,7 +152,7 @@ Las propiedades siguientes se admiten para HDFS en la configuración `location` 
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
 
-Si desea ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo sobre [canalizaciones](concepts-pipelines-activities.md). En esta sección se proporciona una lista de las propiedades que admite el origen HDFS.
+Para ver una lista completa de las secciones y propiedades que están disponibles para definir actividades, consulte [Canalizaciones y actividades en Azure Data Factory](concepts-pipelines-activities.md). En esta sección se proporciona una lista de las propiedades que el origen HDFS admite.
 
 ### <a name="hdfs-as-source"></a>HDFS como origen
 
@@ -162,20 +162,20 @@ Las propiedades siguientes se admiten para HDFS en la configuración `storeSetti
 
 | Propiedad                 | Descripción                                                  | Obligatorio                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | La propiedad type de `storeSettings` se debe establecer en **HdfsReadSettings**. | Sí                                           |
-| ***Busque los archivos que se van a copiar:*** |  |  |
+| type                     | La propiedad *type* de `storeSettings` se debe establecer en **HdfsReadSettings**. | Sí                                           |
+| ***Buscar los archivos para copiar*** |  |  |
 | OPCIÓN 1: ruta de acceso estática<br> | Copia de la ruta de acceso de archivo o carpeta especificada en el conjunto de datos. Si quiere copiar todos los archivos de una carpeta, especifique también `wildcardFileName` como `*`. |  |
-| OPCIÓN 2: carácter comodín<br>- wildcardFolderPath | Ruta de acceso de carpeta con caracteres comodín para filtrar las carpetas de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro. <br>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | No                                            |
-| OPCIÓN 2: carácter comodín<br>- wildcardFileName | Nombre de archivo con caracteres comodín en la propiedad folderPath o wildcardFolderPath indicada para filtrar los archivos de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro.  Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sí |
-| OPCIÓN 3: una lista de archivos<br>- fileListPath | Indica que se copie un conjunto de archivos determinado. Apunte a un archivo de texto que incluya una lista de archivos que quiera copiar, un archivo por línea que constituye la ruta de acceso relativa a la ruta de acceso configurada en el conjunto de datos.<br/>Al utilizar esta opción, no especifique el nombre de archivo en el conjunto de datos. Ver más ejemplos en [Ejemplos de lista de archivos](#file-list-examples). |No |
-| ***Configuración adicional:*** |  | |
-| recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establece en true y el receptor es un almacén basado en archivos, no se crea una carpeta o una subcarpeta vacía en el receptor. <br>Los valores permitidos son: **True** (valor predeterminado) y **False**.<br>Esta propiedad no se aplica al configurar `fileListPath`. |No |
-| modifiedDatetimeStart    | Filtro de archivos basado en el atributo: Última modificación. <br>Los archivos se seleccionarán si la hora de su última modificación está dentro del intervalo de tiempo entre `modifiedDatetimeStart` y `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato "2018-12-01T05:00:00Z". <br> Las propiedades pueden ser NULL, lo que significa que no se aplicará ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene el valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora.<br/>Esta propiedad no se aplica al configurar `fileListPath`. | No                                            |
-| maxConcurrentConnections | Número de conexiones para conectarse al almacén de almacenamiento de forma simultánea. Solo se especifica cuando se quiere limitar la conexión simultánea al almacén de datos. | No                                            |
-| ***Configuración de DistCp:*** |  | |
-| distcpSettings | Grupo de propiedades al utilizar la herramienta DistCp de HDFS. | No |
-| resourceManagerEndpoint | Punto de conexión del administrador de recursos de Yarn | Sí, se utiliza DistCp |
-| tempScriptPath | Una ruta de acceso de carpeta que se usa para almacenar el script del comando DistCp. Data Factory se encarga de crear el archivo de script que se eliminará después de que haya finalizado el trabajo de copia. | Sí, se utiliza DistCp |
+| OPCIÓN 2: carácter comodín<br>- wildcardFolderPath | Ruta de acceso de carpeta con caracteres comodín para filtrar las carpetas de origen. <br>Los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter). Use `^` como escape si el nombre real de la carpeta contiene un carácter comodín o este carácter de escape. <br>Para ver más ejemplos, consulte [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | No                                            |
+| OPCIÓN 2: carácter comodín<br>- wildcardFileName | Nombre de archivo con caracteres comodín en la propiedad folderPath o wildcardFolderPath especificada para filtrar los archivos de origen. <br>Los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro.  Para ver más ejemplos, consulte [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sí |
+| OPCIÓN 3: una lista de archivos<br>- fileListPath | Indica que se copie un conjunto de archivos especificado. Apunte a un archivo de texto que incluya una lista de archivos que quiera copiar (un archivo por línea, con la ruta de acceso relativa a la ruta de acceso configurada en el conjunto de datos).<br/>Al usar esta opción, no especifique un nombre de archivo en el conjunto de datos. Para ver más ejemplos, consulte [Ejemplos de lista de archivos](#file-list-examples). |No |
+| ***Configuración adicional*** |  | |
+| recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Cuando `recursive` se establece en *true* y el receptor es un almacén basado en archivos, no se copia ni crea ninguna carpeta o subcarpeta vacías en el receptor. <br>Los valores permitidos son: *True* (valor predeterminado) y *False*.<br>Esta propiedad no se aplica al configurar `fileListPath`. |No |
+| modifiedDatetimeStart    | Los archivos se filtran en función del atributo *Last Modified*. <br>Los archivos se seleccionan si la hora de su última modificación está dentro del intervalo de `modifiedDatetimeStart` a `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato *2018-12-01T05:00:00Z*. <br> Las propiedades pueden ser NULL, lo que significa que no se aplica ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene un valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora.<br/>Esta propiedad no se aplica al configurar `fileListPath`. | No                                            |
+| maxConcurrentConnections | Número de conexiones que se pueden conectar al almacén de almacenamiento de forma simultánea. Especifique un valor solamente cuando desee limitar la conexión simultánea al almacén de datos. | No                                            |
+| ***Configuración de DistCp*** |  | |
+| distcpSettings | Grupo de propiedades que se va a usar al utilizar HDFS DistCp. | No |
+| resourceManagerEndpoint | Punto de conexión de YARN (Yet Another Resource Negotiator) | Sí, si se utiliza DistCp |
+| tempScriptPath | Ruta de acceso de carpeta que se usa para almacenar el script del comando DistCp temporal. Data Factory se encarga de crear el archivo de script que se eliminará después de que haya finalizado el trabajo de copia. | Sí, si se utiliza DistCp |
 | distcpOptions | Opciones adicionales que se proporcionan al comando DistCp. | No |
 
 **Ejemplo**:
@@ -224,7 +224,7 @@ Las propiedades siguientes se admiten para HDFS en la configuración `storeSetti
 
 ### <a name="folder-and-file-filter-examples"></a>Ejemplos de filtros de carpetas y archivos
 
-Esta sección describe el comportamiento resultante de la ruta de acceso de la carpeta y el nombre de archivo con los filtros de carácter comodín.
+En esta sección se describe el comportamiento resultante si se usa un filtro de carácter comodín con la ruta de acceso de carpeta y el nombre de archivo.
 
 | folderPath | fileName             | recursive | Resultado de estructura de carpeta de origen y filtro (se recuperan los archivos en **negrita**) |
 | :--------- | :------------------- | :-------- | :----------------------------------------------------------- |
@@ -235,200 +235,216 @@ Esta sección describe el comportamiento resultante de la ruta de acceso de la c
 
 ### <a name="file-list-examples"></a>Ejemplos de lista de archivos
 
-En esta sección se describe el comportamiento resultante de usar la ruta de acceso de la lista de archivos en el origen de la actividad de copia.
+En esta sección se describe el comportamiento resultante de usar una ruta de acceso de la lista de archivos en el origen de la actividad de copia. Se asume que tiene la siguiente estructura de carpetas de origen y quiere copiar los archivos que están en negrita:
 
-Suponga que tiene la siguiente estructura de carpetas de origen y quiere copiar los archivos en negrita:
-
-| Estructura de origen de ejemplo                                      | Contenido de FileListToCopy.txt                             | Configuración de ADF                                            |
+| Estructura de origen de ejemplo                                      | Contenido de FileListToCopy.txt                             | Configuración de Azure Data Factory                                            |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
-| root<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadatos<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **En el conjunto de datos:**<br>- Ruta de acceso a la carpeta: `root/FolderA`<br><br>**En origen de la actividad de copia:**<br>- Ruta de acceso de la lista de archivos: `root/Metadata/FileListToCopy.txt` <br><br>La ruta de acceso de la lista de archivos apunta a un archivo de texto en el mismo almacén de datos que incluye una lista de archivos que se quiere copiar, un archivo por línea con la ruta de acceso relativa a la ruta de acceso configurada en el conjunto de datos. |
+| root<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadatos<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **El conjunto de datos:**<br>- Ruta de acceso de la carpeta: `root/FolderA`<br><br>**En el origen de la actividad de copia:**<br>- Ruta de acceso de la lista de archivos: `root/Metadata/FileListToCopy.txt` <br><br>La ruta de acceso de la lista de archivos apunta a un archivo de texto en el mismo almacén de datos que incluye una lista de archivos que se quiere copiar (un archivo por línea, con la ruta de acceso relativa a la ruta de acceso configurada en el conjunto de datos). |
 
 ## <a name="use-distcp-to-copy-data-from-hdfs"></a>Uso de DistCp para copiar datos desde HDFS
 
-[DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) es una herramienta de línea de comandos nativa de Hadoop para realizar copias distribuidas en un clúster de Hadoop. Al ejecutar un comando Distcp, primero se enumerarán todos los archivos que se copiarán, se crearán varios trabajos de asignación en el clúster de Hadoop y cada uno de estos hará una copia binaria del origen al receptor.
+[DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) es una herramienta de línea de comandos nativa de Hadoop para realizar una copia distribuida en un clúster de Hadoop. Al ejecutar un comando en DistCp, dicho comando primero enumera todos los archivos que se van a copiar y luego crea varios trabajos de asignación en el clúster de Hadoop. Cada trabajo de asignación realiza una copia binaria desde el origen al receptor.
 
-La actividad de copia permite usar DistCp para copiar archivos tal cual están en Azure Blob (incluidas las [copias almacenadas provisionalmente](copy-activity-performance.md)) o Azure Data Lake Store, lo que permite aprovechar la capacidad del clúster, en lugar de ejecutarse en el entorno de ejecución de integración autohospedado. De este modo, el rendimiento de la copia será mayor, sobre todo si el clúster es muy eficaz. Según la configuración de Azure Data Factory, la actividad de copia crea automáticamente un comando Distcp, lo envía al clúster de Hadoop y supervisa el estado de la copia.
+La actividad de copia admite el uso de DistCp para copiar archivos tal cual en Azure Blob Storage (incluida la [copia almacenada provisionalmente](copy-activity-performance.md)) o en Azure Data Lake Store. En este caso, DistCp puede aprovechar la versatilidad del clúster en lugar de ejecutarse en el entorno de ejecución de integración autohospedado. El uso de DistCp proporciona el mejor rendimiento de la copia, sobre todo si el clúster es muy eficaz. En función de la configuración de la factoría de datos, la actividad de copia crea automáticamente un comando DistCp, lo envía a un clúster de Hadoop y supervisa el estado de la copia.
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 Para usar DistCp con el fin de copiar los archivos tal cual desde HDFS a Azure Blob (incluida la copia almacenada provisionalmente) o Azure Data Lake Store, asegúrese de que el clúster de Hadoop cumpla los siguientes requisitos:
 
-1. Los servicios de MapReduce y Yarn están habilitados.
-2. La versión de Yarn es la 2.5 o una superior.
-3. El servidor HDFS está integrado con el almacén de datos de destino: Azure Blob o Azure Data Lake Store:
+* Los servicios de MapReduce y YARN están habilitados.  
+* La versión de YARN es la 2.5 o una posterior.  
+* El servidor HDFS se integra con el almacén de datos de destino: Azure Blob Storage o Azure Data Lake Store:  
 
-    - El sistema de archivos de Azure Blob se admite de forma nativa en Hadoop 2.7 o superior. Solo debe especificar la ruta de acceso del archivo .jar en env-config de Hadoop.
-    - El sistema de archivos de Azure Data Lake Store se empaqueta a partir de Hadoop 3.0.0-alpha1. Si la versión del clúster de Hadoop es inferior, debe importar manualmente los paquetes .jar relacionados de ADLS (azure-datalake-store.jar) en el clúster desde [aquí](https://hadoop.apache.org/releases.html), y especificar la ruta de acceso del archivo .jar en env config de Hadoop.
+    - El sistema de archivos de Azure Blob se admite de forma nativa en Hadoop 2.7 o superior. Solo necesita especificar la ruta de acceso de JAR en la configuración del entorno de Hadoop.
+    - El sistema de archivos de Azure Data Lake Store se empaqueta a partir de Hadoop 3.0.0-alpha1. Si la versión del clúster de Hadoop es anterior a esa versión, debe importar manualmente los paquetes JAR relacionados con Azure Data Lake Storage Gen2 (azure-datalake-store.jar) en el clúster desde [aquí](https://hadoop.apache.org/releases.html) y especificar la ruta de acceso del archivo JAR en la configuración del entorno de Hadoop.
 
-4. Prepare una carpeta temporal en HDFS. Esta carpeta temporal se usa para almacenar el script de shell de DistCp, por lo que ocupa varios kilobytes de espacio.
-5. Asegúrese de que la cuenta de usuario proporcionada en el servicio vinculado de HDFS tiene permiso para a) enviar la aplicación de Yarn; b) crear la subcarpeta, y leer y escribir archivos en la carpeta temporal.
+* Prepare una carpeta temporal en HDFS. Esta carpeta temporal se usa para almacenar un script de shell de DistCp, por lo que ocupa varios kilobytes de espacio.
+* Asegúrese de que la cuenta de usuario que se proporciona en el servicio vinculado de HDFS tiene permiso para:
+   * Enviar una aplicación en YARN.
+   * Crear una subcarpeta y archivos de lectura y escritura en la carpeta temporal.
 
 ### <a name="configurations"></a>Configurations
 
-Vea configuraciones y ejemplos relacionados con DistCp en la sección [HDFS como origen](#hdfs-as-source).
+Para configuraciones y ejemplos relacionados con DistCp, vaya a la sección [HDFS como origen](#hdfs-as-source).
 
-## <a name="use-kerberos-authentication-for-hdfs-connector"></a>Uso de autenticación Kerberos para el conector HDFS
+## <a name="use-kerberos-authentication-for-the-hdfs-connector"></a>Uso de la autenticación Kerberos para el conector HDFS
 
-Existen dos opciones para configurar el entorno local para usar la autenticación Kerberos en el conector HDFS. Puede elegir la que mejor se adapte en su caso.
-* Opción 1: [Unir la máquina Integration Runtime (autohospedado) en el dominio Kerberos](#kerberos-join-realm)
+Existen dos opciones para configurar el entorno local para usar la autenticación Kerberos para el conector HDFS. Puede elegir la que mejor se adapte a su situación.
+* Opción 1: [Unir una máquina del entorno de ejecución de integración autohospedado en el dominio Kerberos](#kerberos-join-realm)
 * Opción 2: [Habilitar la confianza mutua entre el dominio de Windows y el dominio Kerberos](#kerberos-mutual-trust)
 
-### <a name="option-1-join-self-hosted-integration-runtime-machine-in-kerberos-realm"></a><a name="kerberos-join-realm"></a>Opción 1: Unir la máquina Integration Runtime (autohospedado) en el dominio Kerberos
+### <a name="option-1-join-a-self-hosted-integration-runtime-machine-in-the-kerberos-realm"></a><a name="kerberos-join-realm"></a>Opción 1: Unir una máquina del entorno de ejecución de integración autohospedado en el dominio Kerberos
 
 #### <a name="requirements"></a>Requisitos
 
-* La máquina Integration Runtime (autohospedado) debe unirse al dominio Kerberos y no a ninguno de Windows.
+* La máquina del entorno de ejecución de integración autohospedado debe unirse al dominio Kerberos y no a ninguno de Windows.
 
 #### <a name="how-to-configure"></a>Cómo se configura
 
-**Máquina Integration Runtime (autohospedado):**
+**En la máquina del entorno de ejecución de integración autohospedado:**
 
-1.  Ejecute la utilidad **Ksetup** para configurar el dominio y el servidor KDC de Kerberos.
+1.  Ejecute la utilidad Ksetup para configurar el dominio y el servidor del Centro de distribución de claves (KDC) de Kerberos.
 
-    La máquina debe configurarse como miembro de un grupo de trabajo dado que un dominio Kerberos es diferente de un dominio de Windows. Para ello, establezca el dominio Kerberos y agregue un servidor KDC de la manera siguiente: Reemplace *REALM.COM* por su dominio Kerberos propio correspondiente, según sea necesario.
+    La máquina debe configurarse como miembro de un grupo de trabajo, porque un dominio Kerberos es diferente a un dominio de Windows. Para lograr esta configuración, establezca el dominio Kerberos y agregue un servidor KDC mediante la ejecución de los siguientes comandos. Reemplace *REALM.COM* por su propio nombre de dominio.
 
-            C:> Ksetup /setdomain REALM.COM
-            C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+    ```console
+    C:> Ksetup /setdomain REALM.COM
+    C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+    ```
 
-    **Reinicie** la máquina después de ejecutar estos 2 comandos.
+    Después de ejecutar estos comandos, reinicie el equipo.
 
-2.  Compruebe la configuración con el comando **Ksetup**. La salida debe ser como la siguiente:
+2.  Compruebe la configuración con el comando `Ksetup`. La salida debe ser como la siguiente:
 
-            C:> Ksetup
-            default realm = REALM.COM (external)
-            REALM.com:
-                kdc = <your_kdc_server_address>
+    ```output
+    C:> Ksetup
+    default realm = REALM.COM (external)
+    REALM.com:
+        kdc = <your_kdc_server_address>
+    ```
 
-**En Azure Data Factory:**
+**En la factoría de datos:**
 
-* Configure el conector HDFS mediante la **autenticación de Windows** junto con el nombre y la contraseña de la entidad de seguridad de Kerberos para conectarse al origen de datos de HDFS. Compruebe la sección [HDFS Linked Service properties](#linked-service-properties) (Propiedades de servicio vinculado de HDFS) en los detalles de configuración.
+* Configure el conector HDFS mediante la autenticación de Windows junto con el nombre y la contraseña de la entidad de seguridad de Kerberos para conectarse al origen de datos de HDFS. Para conocer los detalles de la configuración, consulte la sección [Propiedades del servicio vinculado](#linked-service-properties).
 
-### <a name="option-2-enable-mutual-trust-between-windows-domain-and-kerberos-realm"></a><a name="kerberos-mutual-trust"></a>Opción 2: Habilitar la confianza mutua entre el dominio de Windows y el dominio Kerberos
+### <a name="option-2-enable-mutual-trust-between-the-windows-domain-and-the-kerberos-realm"></a><a name="kerberos-mutual-trust"></a>Opción 2: Habilitar la confianza mutua entre el dominio de Windows y el dominio Kerberos
 
 #### <a name="requirements"></a>Requisitos
 
-*   La máquina Integration Runtime (autohospedado) debe unirse a un dominio Windows.
+*   La máquina del entorno de ejecución de integración autohospedado debe unirse a un dominio de Windows.
 *   Necesita permiso para actualizar la configuración del controlador de dominio.
 
 #### <a name="how-to-configure"></a>Cómo se configura
 
 > [!NOTE]
-> Reemplace REALM.COM y AD.COM en el siguiente tutorial por su dominio Kerberos y controlador de dominio propios correspondientes, según sea necesario.
+> Reemplace REALM.COM y AD.COM en el siguiente tutorial por su nombre de dominio y controlador de dominio.
 
 **En el servidor KDC:**
 
-1. Edite la configuración de KDC en el archivo **krb5.conf** para permitir que KDC confíe en el dominio de Windows que hace referencia a la siguiente plantilla de configuración. La configuración se encuentra de forma predeterminada en **/etc/krb5.conf**.
+1. Edite la configuración de KDC en el archivo *krb5.conf* para permitir que KDC confíe en el dominio de Windows; para ello, remítase a la siguiente plantilla de configuración. La configuración se encuentra de forma predeterminada en */etc/krb5.conf*.
 
-           [logging]
-            default = FILE:/var/log/krb5libs.log
-            kdc = FILE:/var/log/krb5kdc.log
-            admin_server = FILE:/var/log/kadmind.log
+   ```config
+   [logging]
+    default = FILE:/var/log/krb5libs.log
+    kdc = FILE:/var/log/krb5kdc.log
+    admin_server = FILE:/var/log/kadmind.log
             
-           [libdefaults]
-            default_realm = REALM.COM
-            dns_lookup_realm = false
-            dns_lookup_kdc = false
-            ticket_lifetime = 24h
-            renew_lifetime = 7d
-            forwardable = true
+   [libdefaults]
+    default_realm = REALM.COM
+    dns_lookup_realm = false
+    dns_lookup_kdc = false
+    ticket_lifetime = 24h
+    renew_lifetime = 7d
+    forwardable = true
             
-           [realms]
-            REALM.COM = {
-             kdc = node.REALM.COM
-             admin_server = node.REALM.COM
-            }
-           AD.COM = {
-            kdc = windc.ad.com
-            admin_server = windc.ad.com
-           }
+   [realms]
+    REALM.COM = {
+     kdc = node.REALM.COM
+     admin_server = node.REALM.COM
+    }
+   AD.COM = {
+    kdc = windc.ad.com
+    admin_server = windc.ad.com
+   }
             
-           [domain_realm]
-            .REALM.COM = REALM.COM
-            REALM.COM = REALM.COM
-            .ad.com = AD.COM
-            ad.com = AD.COM
+   [domain_realm]
+    .REALM.COM = REALM.COM
+    REALM.COM = REALM.COM
+    .ad.com = AD.COM
+    ad.com = AD.COM
             
-           [capaths]
-            AD.COM = {
-             REALM.COM = .
-            }
+   [capaths]
+    AD.COM = {
+     REALM.COM = .
+    }
+    ```
 
-   **Reinicie** el servicio KDC después de la configuración.
+   Después de configurar el archivo, reinicie el servicio KDC.
 
-2. Prepare una entidad de seguridad llamada **krbtgt/REALM.COM\@AD.COM** en el servidor KDC con el comando siguiente:
+2. Prepare una entidad de seguridad llamada *krbtgt/REALM.COM\@AD.COM* en el servidor KDC con el comando siguiente:
 
-           Kadmin> addprinc krbtgt/REALM.COM@AD.COM
+    ```cmd
+    Kadmin> addprinc krbtgt/REALM.COM@AD.COM
+    ```
 
-3. En el archivo de configuración de servicio de HDFS **hadoop.security.auth_to_local**, agregue `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//`.
+3. En el archivo de configuración del servicio de HDFS *hadoop.security.auth_to_local*, agregue `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//`.
 
 **En el controlador de dominio:**
 
-1.  Ejecute los siguientes comandos **Ksetup** para agregar una entrada de dominio Kerberos:
+1.  Ejecute los siguientes comandos `Ksetup` para agregar una entrada de dominio:
 
-            C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-            C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+    ```cmd
+    C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+    C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+    ```
 
-2.  Establezca la confianza entre el dominio de Windows y el dominio Kerberos. [contraseña] es la contraseña de la entidad de seguridad **krbtgt/REALM.COM\@AD.COM**.
+2.  Establezca una confianza entre el dominio de Windows y el dominio Kerberos. [contraseña] es la contraseña de la entidad de seguridad *krbtgt/REALM.COM\@AD.COM*.
 
-            C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
+    ```cmd
+    C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /password:[password]
+    ```
 
-3.  Seleccione el algoritmo de cifrado usado en Kerberos.
+3.  Seleccione el algoritmo de cifrado que se usó en Kerberos.
 
-    1. Vaya a Administrador de servidores > Administración de directivas de grupo > Dominio > Objetos de directiva de grupo > Default or Active Domain Policy (Directiva de dominio predeterminada o activa) y haga clic en Editar.
+    a. Vaya a **Administrador de servidores** > **Administración de directivas de grupo** > **Dominio** > **Objetos de directiva de grupo** > **Default or Active Domain Policy (Directiva de dominio predeterminada o activa)** y haga clic en **Editar**.
 
-    2. En la ventana emergente **Editor de administración de directivas de grupo**, vaya a Configuración del equipo > Directivas > Configuración de Windows > Configuración de seguridad > Directivas locales > Opciones de seguridad, y configure **Seguridad de red: Configurar tipos de cifrado permitidos para Kerberos**.
+    b. En el panel **Editor de administración de directivas de grupo**, seleccione **Configuración del equipo** > **Directivas** > **Configuración de Windows** > **Configuración de seguridad** > **Directivas locales** > **Opciones de seguridad** y configure **Seguridad de red: Configure los tipos de cifrado permitidos para Kerberos**.
 
-    3. Seleccione el algoritmo de cifrado que quiere usar al conectarse a KDC. Normalmente, puede seleccionar todas las opciones.
+    c. Seleccione el algoritmo de cifrado que quiere usar cuando se conecte al servidor KDC. Puede seleccionar todas las opciones.
 
-        ![Configuración de tipos de cifrado para Kerberos](media/connector-hdfs/config-encryption-types-for-kerberos.png)
+    ![Captura de pantalla de "Seguridad de red: Configurar tipos de cifrado permitidos para Kerberos"](media/connector-hdfs/config-encryption-types-for-kerberos.png)
 
-    4. Use el comando **Ksetup** para especificar el algoritmo de cifrado que se usará en el dominio específico.
+    d. Use el comando `Ksetup` para especificar el algoritmo de cifrado que se usará en el dominio específico.
 
-                C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
+    ```cmd
+    C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
+    ```
 
-4.  Cree la asignación entre la cuenta de dominio y la entidad de seguridad de Kerberos, a fin de usar la entidad de seguridad de Kerberos en el dominio de Windows.
+4.  Cree una asignación entre la cuenta de dominio y la entidad de seguridad de Kerberos para que pueda usar la entidad de seguridad de Kerberos en el dominio de Windows.
 
-    1. Inicie las herramientas administrativas > **Usuarios y equipos de Active Directory**.
+    a. Seleccione **Herramientas administrativas** > **Equipos y usuarios de Active Directory**.
 
-    2. Configure características avanzadas; para ello, haga clic en **Ver** > **Características avanzadas**.
+    b. Configure las características avanzadas; para ello, seleccione **Ver** > **Características avanzadas**.
 
-    3. Busque la cuenta a la que quiere crear asignaciones y haga clic con el botón derecho para ver **Asignaciones de nombres** > haga clic en la pestaña **Nombres de Kerberos**.
+    c. En el panel **Características avanzadas**, haga clic con el botón derecho en la cuenta con la que quiera crear las asignaciones y, en el panel **Asignaciones de nombres**, seleccione la pestaña **Nombres Kerberos**.
 
-    4. Agregue una entidad de seguridad del dominio Kerberos.
+    d. Agregue una entidad de seguridad del dominio Kerberos.
 
-        ![Asignación de la identidad de seguridad](media/connector-hdfs/map-security-identity.png)
+       ![Panel "Asignación de identidad de seguridad"](media/connector-hdfs/map-security-identity.png)
 
-**Máquina Integration Runtime (autohospedado):**
+**En la máquina del entorno de ejecución de integración autohospedado:**
 
-* Ejecute los siguientes comandos **Ksetup** para agregar una entrada de dominio Kerberos.
+* Ejecute los siguientes comandos `Ksetup` para agregar una entrada de dominio.
 
-            C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-            C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+   ```cmd
+   C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+   C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+   ```
 
-**En Azure Data Factory:**
+**En la factoría de datos:**
 
-* Configure el conector de HDFS mediante la **autenticación de Windows** en combinación con la cuenta de dominio o la entidad de seguridad de Kerberos para conectarse al origen de datos de HDFS. Compruebe la sección [HDFS Linked Service properties](#linked-service-properties) (Propiedades de servicio vinculado de HDFS) en los detalles de configuración.
+* Configure el conector de HDFS mediante la autenticación de Windows en combinación con la cuenta de dominio o la entidad de seguridad de Kerberos para conectarse al origen de datos de HDFS. Para conocer los detalles de la configuración, consulte la sección [Propiedades del servicio vinculado](#linked-service-properties).
 
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
 
-Para obtener información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
+Para obtener información sobre las propiedades de la actividad de búsqueda, consulte [Actividad de búsqueda en Azure Data Factory](control-flow-lookup-activity.md).
 
 ## <a name="legacy-models"></a>Modelos heredados
 
 >[!NOTE]
->Estos modelos siguen siendo compatibles con versiones anteriores. Se recomienda usar el nuevo modelo mencionado en la sección anterior de ahora en adelante; además, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
+>Estos modelos siguen siendo compatibles tal cuales con versiones anteriores. Se recomienda usar el nuevo modelo descrito anteriormente, ya que la UI de creación de Azure Data Factory ha cambiado para generar el nuevo modelo.
 
 ### <a name="legacy-dataset-model"></a>Modelo de conjunto de datos heredado
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **FileShare** |Sí |
-| folderPath | Ruta de acceso a la carpeta. Se admite el filtro de comodín, los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real del archivo tiene un carácter comodín o este carácter de escape dentro. <br/><br/>Ejemplos: rootfolder/subfolder/ver más en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). |Sí |
-| fileName |  **Filtro de nombre o de comodín** para los archivos de la ruta "folderPath" especificada. Si no especifica ningún valor para esta propiedad, el conjunto de datos apunta a todos los archivos de la carpeta. <br/><br/>Para filtrar, los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter).<br/>- Ejemplo 1: `"fileName": "*.csv"`<br/>- Ejemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` como escape si el nombre real de la carpeta contiene un carácter comodín o este carácter de escape. |No |
-| modifiedDatetimeStart | Filtro de archivos basado en el atributo: Última modificación. Los archivos se seleccionarán si la hora de su última modificación está dentro del intervalo de tiempo entre `modifiedDatetimeStart` y `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato "2018-12-01T05:00:00Z". <br/><br/> Tenga en cuenta que el rendimiento general del movimiento de datos se ve afectado si habilita esta configuración cuando quiera filtrar archivos de grandes cantidades de archivos. <br/><br/> Las propiedades pueden ser NULL, lo que significa que no se aplica ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene el valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora.| No |
-| modifiedDatetimeEnd | Filtro de archivos basado en el atributo: Última modificación. Los archivos se seleccionarán si la hora de su última modificación está dentro del intervalo de tiempo entre `modifiedDatetimeStart` y `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato "2018-12-01T05:00:00Z". <br/><br/> Tenga en cuenta que el rendimiento general del movimiento de datos se ve afectado si habilita esta configuración cuando quiera filtrar archivos de grandes cantidades de archivos. <br/><br/> Las propiedades pueden ser NULL, lo que significa que no se aplica ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene el valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora.| No |
-| format | Si desea **copiar los archivos tal cual** entre los almacenes basados en archivos (copia binaria), omita la sección de formato en las definiciones de los conjuntos de datos de entrada y salida.<br/><br/>Si quiere analizar archivos con un formato concreto, se admiten los siguientes tipos de formato de archivo: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Establezca la propiedad **type** de formato en uno de los siguientes valores. Para más información, consulte las secciones [Formato de texto](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Formato Json](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Formato Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Formato Orc](supported-file-formats-and-compression-codecs-legacy.md#orc-format) y [Formato Parquet](supported-file-formats-and-compression-codecs-legacy.md#parquet-format). |No (solo para el escenario de copia binaria) |
-| compression | Especifique el tipo y el nivel de compresión de los datos. Para más información, consulte el artículo sobre [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Estos son los tipos que se admiten: **GZip**, **Deflate**, **BZip2** y **ZipDeflate**.<br/>Estos son los niveles que se admiten: **Optimal** y **Fastest**. |No |
+| type | La propiedad *type* del conjunto de datos debe establecerse en *FileShare*. |Sí |
+| folderPath | Ruta de acceso a la carpeta. Se admite un filtro con caracteres comodín. Los caracteres comodín permitidos son `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter); use `^` como carácter de escape si el nombre de archivo real tiene un carácter comodín o este carácter de escape dentro. <br/><br/>Ejemplos: rootfolder/subfolder/ver más en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). |Sí |
+| fileName |  Filtro de nombre o de comodín para los archivos de la ruta "folderPath" especificada. Si no especifica ningún valor para esta propiedad, el conjunto de datos apunta a todos los archivos de la carpeta. <br/><br/>Para filtrar, los caracteres comodín permitidos son `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter).<br/>- Ejemplo 1: `"fileName": "*.csv"`<br/>- Ejemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` como escape si el nombre real de la carpeta contiene un carácter comodín o este carácter de escape. |No |
+| modifiedDatetimeStart | Los archivos se filtran en función del atributo *Last Modified*. Los archivos se seleccionan si la hora de su última modificación está dentro del intervalo de `modifiedDatetimeStart` a `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato *2018-12-01T05:00:00Z*. <br/><br/> Tenga en cuenta que el rendimiento general del movimiento de datos se ve afectado si habilita esta configuración cuando desea aplicar un filtro de archivo a grandes cantidades de archivos. <br/><br/> Las propiedades pueden ser NULL, lo que significa que no se aplica ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene un valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora.| No |
+| modifiedDatetimeEnd | Los archivos se filtran en función del atributo *Last Modified*. Los archivos se seleccionan si la hora de su última modificación está dentro del intervalo de `modifiedDatetimeStart` a `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato *2018-12-01T05:00:00Z*. <br/><br/> Tenga en cuenta que el rendimiento general del movimiento de datos se ve afectado si habilita esta configuración cuando desea aplicar un filtro de archivo a grandes cantidades de archivos. <br/><br/> Las propiedades pueden ser NULL, lo que significa que no se aplica ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene un valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora.| No |
+| format | Si desea copiar los archivos tal cual entre los almacenes basados en archivos (copia binaria), omita la sección de formato en las definiciones de los conjuntos de datos de entrada y salida.<br/><br/>Si quiere analizar archivos con un formato concreto, se admiten los siguientes tipos de formato de archivo: *TextFormat*, *JsonFormat*, *AvroFormat*, *OrcFormat*, *ParquetFormat*. Establezca la propiedad *type* de formato en uno de los siguientes valores. Para más información, consulte las secciones [Formato de texto](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Formato Json](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Formato Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Formato ORC](supported-file-formats-and-compression-codecs-legacy.md#orc-format) y [Formato Parquet](supported-file-formats-and-compression-codecs-legacy.md#parquet-format). |No (solo para el escenario de copia binaria) |
+| compression | Especifique el tipo y el nivel de compresión de los datos. Para más información, consulte el artículo sobre [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Estos son los tipos que se admiten: *Gzip*, *Deflate*, *Bzip2* y *ZipDeflate*.<br/>Estos son los niveles que se admiten: *Optimal* y *Fastest*. |No |
 
 >[!TIP]
 >Para copiar todos los archivos en una carpeta, especifique solo **folderPath**.<br>Para copiar un único archivo con un nombre determinado, especifique **folderPath** con el elemento de carpeta y **fileName** con el nombre de archivo.<br>Para copiar un subconjunto de archivos en una carpeta, especifique **folderPath** con el elemento de carpeta y **fileName** con el filtro de comodín.
@@ -467,13 +483,13 @@ Para obtener información detallada sobre las propiedades, consulte [Actividad d
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **HdfsSource** |Sí |
-| recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establezca en true y el receptor sea un almacén basado en archivos, la carpeta o subcarpeta vacías no se copiarán ni crearán en el receptor.<br/>Los valores permitidos son: **True** (valor predeterminado) y **False** | No |
-| distcpSettings | Grupo de propiedades al utilizar la herramienta DistCp de HDFS. | No |
-| resourceManagerEndpoint | Punto de conexión del administrador de recursos de Yarn | Sí, se utiliza DistCp |
-| tempScriptPath | Una ruta de acceso de carpeta que se usa para almacenar el script del comando DistCp. Data Factory se encarga de crear el archivo de script que se eliminará después de que haya finalizado el trabajo de copia. | Sí, se utiliza DistCp |
-| distcpOptions | Opciones adicionales que se proporcionan al comando DistCp. | No |
-| maxConcurrentConnections | Número de conexiones para conectarse al almacén de almacenamiento de forma simultánea. Solo se especifica cuando se quiere limitar la conexión simultánea al almacén de datos. | No |
+| type | La propiedad *type* del origen de la actividad de copia debe establecerse en: *HdfsSource*. |Sí |
+| recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Cuando recursive se establece en *true* y el receptor es un almacén basado en archivos, no se copiará ni creará una subcarpeta o carpeta vacía en el receptor.<br/>Los valores permitidos son: *True* (valor predeterminado) y *False*. | No |
+| distcpSettings | Grupo de propiedades cuando se usa la herramienta DistCp de HDFS. | No |
+| resourceManagerEndpoint | Punto de conexión de Resource Manager de YARN | Sí, si se utiliza DistCp |
+| tempScriptPath | Ruta de acceso de carpeta que se usa para almacenar el script del comando DistCp temporal. Data Factory se encarga de crear el archivo de script que se eliminará después de que haya finalizado el trabajo de copia. | Sí, si se utiliza DistCp |
+| distcpOptions | Se proporcionan opciones adicionales para el comando DistCp. | No |
+| maxConcurrentConnections | Número de conexiones que se pueden conectar al almacén de almacenamiento de forma simultánea. Especifique un valor solamente cuando desee limitar la conexión simultánea al almacén de datos. | No |
 
 **Ejemplo: Origen HDFS de la actividad de copia mediante DistCp**
 

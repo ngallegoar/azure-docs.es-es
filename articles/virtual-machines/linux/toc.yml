@@ -477,6 +477,8 @@
                   items:
                     - name: Desde una máquina virtual
                       href: ../image-version-vm-cli.md
+                    - name: Desde un disco duro virtual o una instantánea
+                      href: ../image-version-snapshot-cli.md
                     - name: Migración desde una imagen administrada
                       href: ../image-version-managed-image-cli.md
                     - name: Copia desde otra galería
@@ -499,6 +501,8 @@
                   items:
                     - name: Desde una máquina virtual
                       href: ../image-version-vm-powershell.md
+                    - name: Desde un disco duro virtual o una instantánea
+                      href: ../image-version-snapshot-powershell.md
                     - name: Migración desde una imagen administrada
                       href: ../image-version-managed-image-powershell.md
                     - name: Copia desde otra galería
@@ -547,6 +551,8 @@
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Búsqueda y uso de imágenes
           href: cli-ps-findimage.md
+        - name: Información sobre el plan de compra
+          href: ../marketplace-images.md
         - name: Captura de una máquina virtual en una imagen administrada
           href: capture-image.md
         - name: Creación de una imagen con Packer
@@ -945,6 +951,16 @@
           href: disks-incremental-snapshots-portal.md
         - name: Copia de seguridad de discos no administrados
           href: incremental-snapshots.md
+        - name: Cifrado
+          items:
+            - name: 'Habilitación del cifrado en el host: CLI'
+              href: disks-enable-host-based-encryption-cli.md
+            - name: 'Habilitación de claves administradas por el cliente: CLI'
+              href: disks-enable-customer-managed-keys-cli.md
+            - name: 'Habilitación de claves administradas por el cliente: Portal'
+              href: disks-enable-customer-managed-keys-portal.md
+            - name: Habilitación del cifrado doble de datos en reposo
+              href: disks-enable-double-encryption-at-rest-cli.md
         - name: Migración y conversión
           items:
             - name: Migración a Premium Storage con Azure Site Recovery
