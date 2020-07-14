@@ -10,18 +10,22 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs
 ms.date: 05/28/2020
-ms.openlocfilehash: 127a8550b7f4ca89b8b3a8e61880b295a806e5d0
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: b7217df7fe7ccedf2419480b1114fa1ef6c8e24a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449369"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043553"
 ---
-# <a name="quickstart-create-an-azure-stream-analytics-job-by-using-the-azure-resource-manager-template"></a>Inicio rápido: Creación de un trabajo de Azure Stream Analytics mediante la plantilla de Azure Resource Manager
+# <a name="quickstart-create-an-azure-stream-analytics-job-by-using-an-arm-template"></a>Inicio rápido: Creación de un trabajo de Azure Stream Analytics mediante una plantilla de ARM
 
-En este inicio rápido, va a usar una plantilla de Azure Resource Manager para crear un trabajo de Azure Stream Analytics. Una vez creado el trabajo, se valida la implementación.
+En este inicio rápido, va a usar una plantilla de Azure Resource Manager (plantilla de ARM) para crear un trabajo de Azure Stream Analytics. Una vez creado el trabajo, se valida la implementación.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-streamanalytics-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -29,9 +33,7 @@ Para completar este artículo, necesitará lo siguiente:
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/).
 
-## <a name="create-an-azure-stream-analytics-job"></a>Creación de un trabajo de Azure Stream Analytics
-
-### <a name="review-the-template"></a>Revisión de la plantilla
+## <a name="review-the-template"></a>Revisión de la plantilla
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-streamanalytics-create/).
 
@@ -39,9 +41,9 @@ La plantilla usada en este inicio rápido forma parte de las [plantillas de inic
 
 El recurso de Azure definido en la plantilla es [Microsoft.StreamAnalytics/StreamingJobs](/azure/templates/microsoft.streamanalytics/streamingjobs): cree un trabajo de Azure Stream Analytics.
 
-### <a name="deploy-the-template"></a>Implementación de la plantilla
+## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-En esta sección, creará un trabajo de Azure Stream Analytics mediante la plantilla de Azure Resource Manager.
+En esta sección, creará un trabajo de Azure Stream Analytics mediante la plantilla de ARM.
 
 1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla. La plantilla crea un trabajo de Azure Stream Analytics.
 
@@ -108,7 +110,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha creado un trabajo de Azure Stream Analytics mediante una plantilla de Azure Resource Manager y ha validado la implementación. Avance al siguiente artículo para aprender a exportar una plantilla de Azure Resource Manager para un trabajo existente mediante VS Code.
+En este inicio rápido, ha creado un trabajo de Azure Stream Analytics mediante una plantilla de ARM y ha validado la implementación. Avance al siguiente artículo para aprender a exportar una plantilla de ARM para un trabajo existente mediante VS Code.
 
 > [!div class="nextstepaction"]
-> [Exportación de plantillas de Azure Resource Manager para trabajos de Azure Stream Analytics](resource-manager-export.md)
+> [Exportación de la plantilla de ARM de un trabajo de Azure Stream Analytics](resource-manager-export.md)

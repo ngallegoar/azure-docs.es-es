@@ -6,19 +6,19 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.topic: conceptual
+ms.topic: overview
 ms.workload: identity
 ms.date: 10/24/2018
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: ade350c91ebd2f3a68b52011e598f739a14c220f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db158a50cfc164a0fc839e858cc6e7c46558eb77
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80154498"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551593"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>Introducción a Azure Active Directory para desarrolladores (v1.0)
 
@@ -29,11 +29,8 @@ Azure Active Directory (Azure AD) es un servicio de identidad en la nube que per
 > [!NOTE]
 > La mayoría del contenido de esta página se centra en el punto de conexión y la plataforma v1.0, que solo admite cuentas profesionales o educativas de Microsoft. Si quiere iniciar sesión con cuentas personales o de consumidor de Microsoft, consulte la información sobre el [punto de conexión y la plataforma v2.0](../develop/v2-overview.md). El punto de conexión v2.0 ofrece una experiencia de desarrollo unificada para las aplicaciones que quieren iniciar sesión en todas las identidades de Microsoft.
 
-| | |
-| --- | --- |
-|[Conceptos básicos sobre autenticación](v1-authentication-scenarios.md) | Una introducción a la autenticación con Azure AD. |
-|[Tipos de aplicaciones](app-types.md) | Una introducción a los escenarios de autenticación que se admiten en Azure AD. |
-| | |
+- [Conceptos básicos sobre la autenticación](v1-authentication-scenarios.md) Introducción a la autenticación con Azure AD.
+- [Tipos de aplicaciones](app-types.md) Introducción a los escenarios de autenticación que se admiten en Azure AD.
 
 ## <a name="get-started"></a>Introducción
 
@@ -47,12 +44,9 @@ Consulte las **guías de procedimientos de v1.0** para encontrar información de
 
 En los siguientes artículos se proporciona información detallada sobre las API, los mensajes de protocolo y los términos que se usan en Azure AD.
 
-|                                                                                   | |
-| ----------------------------------------------------------------------------------| --- |
-| [Bibliotecas de autenticación (ADAL)](active-directory-authentication-libraries.md)   | Una introducción a las bibliotecas y los SDK que se proporcionan en Azure AD. |
-| [Ejemplos de código](sample-v1-code.md)                                  | Una lista de todos los ejemplos de código de Azure AD. |
-| [Glosario](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)                                      | Terminología y definiciones de palabras que se usan en esta documentación. |
-|  |  |
+- [Bibliotecas de autenticación (ADAL)](active-directory-authentication-libraries.md) Introducción a las bibliotecas y los SDK que se proporcionan en Azure AD.
+- [Ejemplos de código](sample-v1-code.md) Lista de todos los ejemplos de código de Azure AD.
+- [Glosario](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) Terminología y definiciones de palabras que se usan en esta documentación.
 
 ## <a name="videos"></a>Vídeos
 

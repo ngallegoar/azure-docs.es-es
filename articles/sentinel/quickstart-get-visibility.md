@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Introducción a Azure Sentinel'
-description: 'Inicio rápido de Azure Sentinel: introducción a Azure Sentinel'
+description: Use este inicio rápido para aprender a ver y supervisar rápidamente lo que sucede en su entorno mediante Azure Sentinel. 
 services: sentinel
 author: yelevin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 4bd01b737c4a80ff286458c122f3b0ab9573a40b
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 60e3529e68183488016e40211730412da8e3e0bb
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798674"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85564605"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Inicio rápido: Introducción a Azure Sentinel
 

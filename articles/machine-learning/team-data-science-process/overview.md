@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 1/10/2020
 ms.author: tdsp
 ms.custom: previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 10d6e562301e089700940ac5dfb212bcc4e09653
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4ffe00c3df4abd924fca202d2bcdd0ec458dd3eb
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79088075"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85355342"
 ---
 # <a name="what-is-the-team-data-science-process"></a>¿Qué es el Proceso de ciencia de datos en equipo (TDSP)?
 
@@ -26,12 +26,12 @@ En este artículo se proporciona una introducción a TDSP y sus componentes prin
 
 ## <a name="key-components-of-the-tdsp"></a>Principales componentes del TDSP
 
-El TDSP consta de los siguientes componentes clave:
+El TDSP presenta los siguientes componentes clave:
 
 - Una definición de **ciclo de vida de ciencia de datos**
 - Una **estructura de proyecto estandarizada**
-- **Infraestructura y recursos** para proyectos de ciencia de datos
-- **Herramientas y utilidades** para la ejecución de proyectos
+- **Infraestructura y recursos** recomendados para proyectos de ciencia de datos
+- **Herramientas y utilidades** recomendadas para la ejecución de proyectos
 
 
 ## <a name="data-science-lifecycle"></a>Ciclo de vida de ciencia de datos
@@ -48,7 +48,6 @@ El ciclo de vida describe las fases principales por las que pasan normalmente lo
 * **Adquisición y comprensión de los datos**
 * **Modelado**
 * **Implementación**
-* **Aceptación del cliente**
 
 Esta es una representación visual del **ciclo de vida del proceso de ciencia de datos en equipo**. 
 
@@ -58,7 +57,9 @@ En el tema [Team Data Science Process lifecycle](lifecycle.md) (Ciclo de vida de
 
 - Arquitecto de soluciones
 - Jefe de proyecto
+- Ingeniero de datos
 - Científico de datos
+- Desarrollador de aplicaciones
 - Responsable de proyecto 
 
 En el siguiente diagrama se proporciona una vista de cuadrícula de las tareas (en azul) y los artefactos (en verde) asociados con cada fase del ciclo de vida (eje horizontal) de estos roles (eje vertical). 
@@ -87,7 +88,7 @@ TDSP proporciona recomendaciones para administrar análisis compartido e infraes
 
 - sistemas de archivos en la nube para almacenar conjuntos de datos 
 - databases
-- clústeres de macrodatos (Hadoop o Spark) 
+- clústeres de macrodatos (SQL o Spark) 
 - servicio de aprendizaje automático 
 
 La infraestructura de análisis y almacenamiento, donde se almacenan los conjuntos de datos sin procesar y los procesados, puede estar en la nube o en un entorno local. Esta infraestructura permite un análisis reproducible. También evita la duplicación, lo que puede llevar a incoherencias y costos de infraestructura innecesarios. Se proporcionan herramientas para aprovisionar los recursos compartidos, realizar un seguimiento de ellos y permitir que cada miembro del equipo se conecte a dichos recursos de forma segura. También es una buena práctica pedir a los miembros del proyecto que creen un entorno de proceso coherente. Luego, diferentes miembros del equipo pueden replicar y validar los experimentos.
@@ -104,4 +105,4 @@ En la mayoría de las organizaciones la introducción de procesos presenta ciert
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En [Team Data Science Process: Roles and tasks](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) (Proceso de ciencia de datos en equipo: roles y tareas) se subrayan los roles y sus tareas asociadas en un equipo de ciencia de datos que se estandariza en este proceso. 
+En el artículo [Roles y tareas del proceso de ciencia de datos en equipo](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) se subrayan los roles y sus tareas asociadas en un equipo de ciencia de datos que se estandariza en este proceso. 

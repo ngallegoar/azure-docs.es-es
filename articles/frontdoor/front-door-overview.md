@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2019
 ms.author: sharadag
-ms.openlocfilehash: b2ee41324cfaefa4d5aec3aa02b2d0d8c75da78f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 081305170020aa35511ad574bd8c5575c192d577
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879129"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322287"
 ---
 # <a name="what-is-azure-front-door"></a>¿Qué es Azure Front Door?
-Azure Front Door permite definir, administrar y supervisar el enrutamiento global para el tráfico web mediante la optimización para obtener el mejor rendimiento y la conmutación por error global instantánea para alta disponibilidad. Con Front Door, las aplicaciones empresariales y de consumidor globales (de varias regiones) se pueden transformar en aplicaciones modernas personalizadas, sólidas y de alto rendimiento, API y contenido que lleguen a un público global mediante Azure.
+Azure Front Door permite definir, administrar y supervisar el enrutamiento global para el tráfico web mediante la optimización para obtener el mejor rendimiento y la conmutación por error global rápida para alta disponibilidad. Con Front Door, las aplicaciones empresariales y de consumidor globales (de varias regiones) se pueden transformar en aplicaciones modernas personalizadas, sólidas y de alto rendimiento, API y contenido que lleguen a un público global mediante Azure.
 
 Front Door funciona en la capa 7 o la capa HTTP/HTTPS, y usa el protocolo de difusión por proximidad con división TCP y la red global de Microsoft para mejorar la conectividad global. Por tanto, según la selección del método de enrutamiento en la configuración, puede asegurarse de que Front Door enruta las solicitudes de cliente al back-end de aplicación más rápido y disponible. Un back-end de aplicación es cualquier servicio accesible desde Internet hospedado dentro o fuera de Azure. Front Door proporciona una serie de [métodos de enrutamiento del tráfico](front-door-routing-methods.md) y [opciones de seguimiento de estado del back-end](front-door-health-probes.md) para satisfacer las distintas necesidades de las aplicaciones y los modelos de conmutación automática por error. Al igual que [Traffic Manager](../traffic-manager/traffic-manager-overview.md), Front Door es resistente a errores, incluidos los que afectan a una región completa de Azure.
 
@@ -36,7 +36,7 @@ Mediante el protocolo de difusión por proximidad basado en división TCP, Front
 
 ## <a name="increase-application-availability-with-smart-health-probes"></a>Aumento de la disponibilidad de la aplicación con sondeos de estado inteligentes
 
-Front Door ofrece alta disponibilidad para las aplicaciones críticas mediante sus sondeos de estado inteligentes, la supervisión de la latencia y disponibilidad de los back-ends, y proporcionando conmutación automática por error instantánea cuando un back-end deja de funcionar. Por tanto, puede realizar operaciones de mantenimiento planeado en las aplicaciones sin tiempo de inactividad. Front Door dirige el tráfico a back-ends alternativos mientras el mantenimiento está en curso.
+Front Door ofrece alta disponibilidad para las aplicaciones críticas mediante sus sondeos de estado inteligentes, la supervisión de la latencia y disponibilidad de los back-ends, y proporcionando conmutación automática por error rápida cuando un back-end deja de funcionar. Por tanto, puede realizar operaciones de mantenimiento planeado en las aplicaciones sin tiempo de inactividad. Front Door dirige el tráfico a back-ends alternativos mientras el mantenimiento está en curso.
 
 ## <a name="url-based-routing"></a>Enrutamiento basado en dirección URL
 El enrutamiento basado en dirección URL permite enrutar el tráfico a los grupos de back-end en función de las rutas de acceso de dirección URL de la solicitud. Uno de los escenarios es el enrutamiento de solicitudes de diferentes tipos de contenido a diferentes grupos de back-end.

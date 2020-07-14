@@ -1,24 +1,22 @@
 ---
-title: Información general sobre la implementación de Azure Firewall Manager (versión preliminar)
-description: Conozca los pasos de implementación de alto nivel necesarios para Azure Firewall Manager (versión preliminar)
+title: Información general sobre la implementación de Azure Firewall Manager
+description: Conozca los pasos de implementación de alto nivel necesarios para Azure Firewall Manager
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 02/18/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: c3a94cea838609f65511a21ee2f64e8782a6adea
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 90f817ac3bbd475d8a84df44bc284f09fcd19ce3
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77443132"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565809"
 ---
-# <a name="azure-firewall-manager-preview-deployment-overview"></a>Información general sobre la implementación de Azure Firewall Manager (versión preliminar)
+# <a name="azure-firewall-manager-deployment-overview"></a>Información general sobre la implementación de Azure Firewall Manager
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
-Hay más de una forma de implementar la versión preliminar de Azure Firewall Manager, pero se recomienda el siguiente proceso general.
+Hay más de una forma de implementar Azure Firewall Manager, pero se recomienda el siguiente proceso general.
 
 ## <a name="general-deployment-process"></a>Proceso de implementación general
 
@@ -70,4 +68,4 @@ Hay más de una forma de implementar la versión preliminar de Azure Firewall Ma
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Tutorial: Protección de una red en la nube con la versión preliminar de Azure Firewall Manager en Azure Portal](secure-cloud-network.md)
+- [Tutorial: Protección de una red en la nube con Azure Firewall Manager mediante Azure Portal](secure-cloud-network.md)

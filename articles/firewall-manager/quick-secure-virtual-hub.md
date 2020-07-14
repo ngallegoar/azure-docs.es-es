@@ -1,27 +1,27 @@
 ---
-title: 'Inicio rápido: Protección de un centro virtual mediante la versión preliminar de Azure Firewall Manager (plantilla de Azure Resource Manager)'
-description: Aprenda a proteger un centro virtual mediante la versión preliminar de Azure Firewall Manager.
+title: 'Inicio rápido: Protección del centro de conectividad virtual mediante Azure Firewall Manager (plantilla de Resource Manager)'
+description: Aprenda a proteger su centro de conectividad virtual mediante Azure Firewall Manager.
 services: firewall-manager
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 05/19/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 9c51fdb5142159e390ac4fcf59a04aa3dd747469
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 6641cc29025d39ddff33e706dd9b1b0da517b884
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167203"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563701"
 ---
 # <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---resource-manager-template"></a>Inicio rápido: Protección de un centro virtual mediante Azure Firewall Manager (plantilla de Resource Manager)
 
-En este inicio rápido, usará una plantilla de Resource Manager para proteger el centro virtual mediante la versión preliminar de Azure Firewall Manager. El firewall implementado tiene una regla de aplicación que permite conexiones a `www.microsoft.com`. Para probar el firewall, se implementan dos máquinas virtuales con Windows Server 2019. Para realizar la conexión al servidor de cargas de trabajo, se usa un servidor de saltos. Desde el servidor de cargas de trabajo, solo puede conectarse a `www.microsoft.com`.
+En este inicio rápido, usará una plantilla de Resource Manager para proteger el centro virtual mediante Azure Firewall Manager. El firewall implementado tiene una regla de aplicación que permite conexiones a `www.microsoft.com`. Para probar el firewall, se implementan dos máquinas virtuales con Windows Server 2019. Para realizar la conexión al servidor de cargas de trabajo, se usa un servidor de saltos. Desde el servidor de cargas de trabajo, solo puede conectarse a `www.microsoft.com`.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Para más información sobre la versión preliminar de Azure Firewall Manager, consulte [¿Qué es Azure Firewall Manager (versión preliminar)?](overview.md)
+Para más información sobre Azure Firewall Manager, consulte [¿Qué es Azure Firewall Manager?](overview.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -29,7 +29,7 @@ Para más información sobre la versión preliminar de Azure Firewall Manager, c
 
 ## <a name="create-a-secured-virtual-hub"></a>Crear un centro virtual protegido
 
-Esta plantilla crea un centro virtual protegido mediante la versión preliminar de Azure Firewall Manager, junto con los recursos necesarios para admitir el escenario.
+Esta plantilla crea un centro virtual protegido mediante Azure Firewall Manager, junto con los recursos necesarios para admitir el escenario.
 
 ### <a name="review-the-template"></a>Revisión de la plantilla
 
@@ -101,4 +101,4 @@ Remove-AzResourceGroup -Name "<your resource group name>"
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Más información sobre los asociados de seguridad de confianza](trusted-security-partners.md)
+> [Más información sobre los proveedores de seguridad asociados](trusted-security-partners.md)

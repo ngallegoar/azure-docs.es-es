@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door | Microsoft Docs
-description: En este artículo se ofrece información general sobre Azure Front Door. Averigüe si es la elección correcta para equilibrar la carga de tráfico de usuario de la aplicación.
+title: Azure Front Door
+description: En este artículo se proporciona una lista de las distintas condiciones de coincidencia disponibles con el motor de reglas de Azure Front Door.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: 77c0d68f507e09b315c912d1d91fdf9cf63db6fa
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: d42b6b56f0cdd1f6ef2ea45b21a027f1b4c56b1c
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82515770"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321996"
 ---
 # <a name="azure-front-door-rules-engine-match-conditions"></a>Condiciones de coincidencia del motor de reglas de Azure Front Door
 
-En el [motor de reglas de Azure Front Door](front-door-rules-engine.md) una regla consta de cero o más condiciones de coincidencia y de una acción. En este artículo se muestran descripciones detalladas de las condiciones de coincidencia que puede usar en el motor de reglas de Azure Front Door. 
+En el [motor de reglas de Azure Front Door](front-door-rules-engine.md) una regla consta de cero o más condiciones de coincidencia y de una acción. En este artículo se muestran descripciones detalladas de las condiciones de coincidencia que puede usar en el motor de reglas de Azure Front Door.
 
-La primera parte de una regla es una condición de coincidencia o un conjunto de condiciones de coincidencia. Una regla puede contener hasta 10 condiciones de coincidencia. Una condición de coincidencia identifica tipos específicos de solicitudes para los que se realizan las acciones definidas. Si usa varias condiciones de coincidencia, estas se agruparán mediante la lógica AND. Para todas las condiciones de coincidencia que admiten varios valores (que se indican a continuación como "separadas por espacios"), se supone el operador "OR". 
+La primera parte de una regla es una condición de coincidencia o un conjunto de condiciones de coincidencia. Una regla puede contener hasta 10 condiciones de coincidencia. Una condición de coincidencia identifica tipos específicos de solicitudes para los que se realizan las acciones definidas. Si usa varias condiciones de coincidencia, estas se agruparán mediante la lógica AND. Para todas las condiciones de coincidencia que admiten varios valores (que se indican a continuación como "separadas por espacios"), se supone el operador "OR".
 
 Por ejemplo, puede usar una condición de coincidencia para:
 
@@ -142,7 +142,7 @@ Operator | URL de la solicitud | Transformación de mayúsculas y minúsculas
 
 #### <a name="key-information"></a>Información importante
 
-- Cuando use esta condición de regla, asegúrese de incluir la información del protocolo. Por ejemplo: *https://www.\<yourdomain\>.com* .
+- Cuando use esta condición de regla, asegúrese de incluir la información del protocolo. Por ejemplo, *https://www.\<yourdomain\>.com*.
 
 ## <a name="request-file-extension"></a>Solicitar extensión de archivo
 

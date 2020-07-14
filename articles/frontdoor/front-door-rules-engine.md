@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door | Microsoft Docs
-description: En este artículo se ofrece información general sobre Azure Front Door. Averigüe si es la elección correcta para equilibrar la carga de tráfico de usuario de la aplicación.
+title: Azure Front Door
+description: En este artículo se ofrece información general sobre la característica Motor de reglas de Azure Front Door.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -12,27 +12,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: 19deb763c8e750490854892c90d0293d3e209c09
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: ee981d08e53765003e88870d35b291a5802e6848
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82515800"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322016"
 ---
 # <a name="what-is-rules-engine-for-azure-front-door"></a>¿Qué es el motor de reglas de Azure Front Door? 
 
 El motor de reglas permite personalizar el modo en que se administran las solicitudes HTTP en el perímetro y proporciona un mayor control sobre el comportamiento de la aplicación web. El motor de reglas de Azure Front Door consta de varias características clave, entre las que se incluyen:
 
-- Enrutamiento basado en encabezados: se enrutan las solicitudes según los patrones del contenido de los encabezados de solicitud, las cookies y las cadenas de consulta.
-- Enrutamiento basado en parámetros: se aprovecha una serie de condiciones de coincidencia entre las que se incluyen argumentos POST, cadenas de consulta, cookies y métodos de solicitud, para enrutar solicitudes basándose en los parámetros de la solicitud HTTP. 
-- Invalidaciones de las configuraciones de enrutamiento: 
-    - Use las funcionalidades de redireccionamiento para devolver los redireccionamientos 301/302/307/308 al cliente y redirigir a nuevos nombres de host, rutas de acceso y protocolos. 
-    - Use las funcionalidades de reenvío para volver a escribir la ruta de la dirección URL de la solicitud sin realizar un redireccionamiento tradicional y reenviar la solicitud al back-end adecuado del grupo de back-ends configurado. 
-    - Personalice la configuración de almacenamiento en caché y cambie dinámicamente una ruta del método de reenvío al de almacenamiento en caché en función de las condiciones de coincidencia. 
-
-> [!IMPORTANT]
-> Esta versión preliminar pública se proporciona sin un acuerdo de nivel de servicio y no debe usarse para cargas de trabajo de producción. Puede que algunas características no se admitan, que tengan funcionalidades limitadas o que no estén disponibles en todas las ubicaciones de Azure. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
+- Aplique HTTPS y asegúrese de que todos los usuarios finales interactúan con el contenido a través de una conexión segura.
+- Implemente encabezados de seguridad para evitar vulnerabilidades basadas en explorador como HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy y X-Frame-Options, así como encabezados Access-Control-Allow-Origin para escenarios de uso compartido de recursos entre orígenes (CORS). Los atributos basados en seguridad también se pueden definir con cookies.
+- Enrute las solicitudes a las versiones de escritorio o móviles de la aplicación en función de los patrones del contenido de los encabezados de solicitud, las cookies o las cadenas de consulta.
+- Use las funcionalidades de redireccionamiento para devolver los redireccionamientos 301, 302, 307 y 308 al cliente para el redireccionamiento a nuevos nombres de host, rutas de acceso y protocolos.
+- Modifique de forma dinámica la configuración de almacenamiento en caché de la ruta en función de las solicitudes entrantes.
+- Vuelva a escribir la ruta de acceso de la dirección URL de la solicitud y reenvíe la solicitud al back-end adecuado del grupo de back-end configurado.
 
 ## <a name="architecture"></a>Architecture 
 
@@ -52,7 +48,7 @@ En ambos ejemplos, si no se cumple ninguna de las condiciones de coincidencia, s
 
 Con el motor de reglas de Azure Front Door, puede crear una serie de configuraciones para dicho motor, cada una de las cuales se compone de un conjunto de reglas. A continuación se describen ciertos términos útiles que se utilizarán al configurar el motor de reglas. 
 
-- *Configuración del motor de reglas*: Conjunto de reglas que se aplican a una única regla de enrutamiento. Cada configuración se limita a 5 reglas. Puede crear hasta 10 configuraciones. 
+- *Configuración del motor de reglas*: Conjunto de reglas que se aplican a una única regla de enrutamiento. Cada configuración se limita a 25 reglas. Puede crear hasta 10 configuraciones. 
 - *Regla del motor de reglas*: Una regla compuesta de un máximo de 10 condiciones de coincidencia y 5 acciones.
 - *Condición de coincidencia*: Existen numerosas condiciones de coincidencia que se pueden usar para analizar las solicitudes entrantes. Una regla puede contener hasta 10 condiciones de coincidencia. Las condiciones de coincidencia se evalúan con un operador **AND**. [Aquí](front-door-rules-engine-match-conditions.md) encontrará una lista completa de las condiciones de coincidencia. 
 - *Acción*: Las acciones indican lo que ocurre en las solicitudes entrantes: en la actualidad hay disponibles acciones de encabezado de solicitud o respuesta, reenvío, redireccionamientos y reescrituras. Una regla puede contener hasta 5 acciones; sin embargo, una regla puede contener solo una invalidación de la configuración de enrutamiento.  [Aquí](front-door-rules-engine-actions.md) encontrará una lista completa de las acciones.

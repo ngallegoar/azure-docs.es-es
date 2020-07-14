@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/27/2020
+ms.date: 07/07/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 70baddf86207c490d3b85e0f584525592f8a7ad7
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 64b4b0bd8c1e387229144e02293b573062ab196c
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735828"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087833"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Roles de administrador de la suscripción clásica, roles de Azure y roles de Azure AD
 
@@ -120,7 +120,7 @@ En un nivel superior, los roles de Azure controlan los permisos para administrar
 
 ### <a name="do-azure-roles-and-azure-ad-roles-overlap"></a>¿Se superponen los roles de Azure y los de Azure AD?
 
-De forma predeterminada, los roles de Azure y los de Azure AD no abarcan Azure y Azure AD. Sin embargo, si un administrador global eleva su acceso mediante la elección del modificador **El administrador global puede administrar las suscripciones a Azure y los grupos de administración** en Azure Portal, se le otorgará el rol [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator) (un rol de Azure) en todas las suscripciones para un inquilino en particular. El rol de administrador de accesos de usuario permite conceder a otros usuarios acceso a recursos de Azure. Este modificador puede ser útil para recuperar el acceso a una suscripción. Para más información, consulte [Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure](elevate-access-global-admin.md).
+De forma predeterminada, los roles de Azure y los de Azure AD no abarcan Azure y Azure AD. Sin embargo, si un administrador global eleva su acceso mediante la elección del modificador **Administración del acceso para los recursos de Azure** en Azure Portal, se le otorgará el rol [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator) (un rol de Azure) en todas las suscripciones para un inquilino en particular. El rol de administrador de accesos de usuario permite conceder a otros usuarios acceso a recursos de Azure. Este modificador puede ser útil para recuperar el acceso a una suscripción. Para más información, consulte [Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure](elevate-access-global-admin.md).
 
 Varios roles de Azure AD abarcan Azure AD y Microsoft Office 365, como los roles de administrador global y administrador de usuarios. Por ejemplo, si es miembro del rol de administrador global, tiene funcionalidades de administrador global en Azure AD y Office 365, como realizar cambios en Microsoft Exchange y Microsoft SharePoint. Sin embargo, de forma predeterminada, el administrador global no tiene acceso a los recursos de Azure.
 

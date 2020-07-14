@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door | Microsoft Docs
-description: En este artículo se ofrece información general sobre Azure Front Door. Averigüe si es la elección correcta para equilibrar la carga de tráfico de usuario de la aplicación.
+title: Azure Front Door
+description: En este artículo se proporciona una lista de las diversas acciones que puede realizar con el motor de reglas de Azure Front Door.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: 3e7c9606a17736ea45b09a4d6981b4d55fa6dee6
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: e11555e883a323bcb5b0be1c62b2825bce77524e
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82515810"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85314002"
 ---
 # <a name="azure-front-door-rules-engine-actions"></a>Acciones del motor de reglas de Azure Front Door
 
 En el [motor de reglas de Azure Front Door](front-door-rules-engine.md) una regla consta de cero o más condiciones y acciones de coincidencia. En este artículo se muestran descripciones detalladas de las acciones que puede usar en el motor de reglas de Azure Front Door.
 
-Una acción define el comportamiento que se aplica al tipo de solicitud que identifica una condición de coincidencia o un conjunto de condiciones de coincidencia. En el motor de reglas de Azure Front Door, una regla puede contener hasta cinco acciones, solo una de las cuales puede ser una acción de invalidación de la configuración de enrutamiento (reenvío o redireccionamiento). 
+Una acción define el comportamiento que se aplica al tipo de solicitud que identifica una condición de coincidencia o un conjunto de condiciones de coincidencia. En el motor de reglas de Azure Front Door, una regla puede contener hasta cinco acciones, solo una de las cuales puede ser una acción de invalidación de la configuración de enrutamiento (reenvío o redireccionamiento).
 
 Las siguientes acciones están disponibles para su uso en el motor de reglas de Azure Front Door.  
 

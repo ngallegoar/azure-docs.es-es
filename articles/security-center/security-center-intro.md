@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: f437205ae76feb36596b05ee0e320aaed0a37184
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: e9ed36971e157e67ede6573b9fdf9ff1fc6e05a0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83846672"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044284"
 ---
 # <a name="what-is-azure-security-center"></a>¿Qué es el Centro de seguridad de Azure?
 
@@ -47,7 +47,7 @@ Para ayudarlo a protegerse contra estos desafíos, Security Center le brinda las
 
 ## <a name="architecture"></a>Architecture
 
-Como Security Center forma parte nativa de Azure, los servicios de PaaS en Azure (como Service Fabric, bases de datos SQL y cuentas de almacenamiento) los supervisa y protege Security Center sin necesidad de realizar ninguna implementación.
+Dado que Security Center forma parte nativa de Azure, los servicios de PaaS en Azure (como Service Fabric, SQL Database, Instancia administrada de SQL y las cuentas de almacenamiento) los supervisa y protege Security Center sin necesidad de realizar ninguna implementación.
 
 Además, Security Center protege las máquinas virtuales y los servidores que no son de Azure en la nube y en el entorno local, tanto servidores Windows como Linux, al instalar en ellos el agente de Log Analytics. Las máquinas virtuales de Azure se aprovisionan automáticamente en Security Center.
 
@@ -111,7 +111,7 @@ La protección contra amenazas de Security Center incluye el análisis de la cad
 
 Security Center incluye integración nativa automática con Advanced Threat Protection de Microsoft Defender. Esto significa que, sin ninguna configuración, los servidores y las máquinas virtuales Windows y Linux están completamente integrados con las recomendaciones y evaluaciones de Security Center.
 
-Además, Security Center le permite automatizar las directivas de control de las aplicaciones en los entornos de servidor. Los controles de aplicaciones adaptables de Security Center permiten la creación de una lista blanca de aplicaciones integral en todos los servidores Windows. No necesita crear reglas ni comprobar las infracciones: todo se hace de manera automática.
+Además, Security Center le permite automatizar las directivas de control de las aplicaciones en los entornos de servidor. Los controles de aplicaciones adaptables de Security Center permiten la creación de una lista de aprobación de aplicaciones integral en todos los servidores Windows. No necesita crear reglas ni comprobar las infracciones: todo se hace de manera automática.
 
 ### <a name="protect-paas"></a>Protección de PaaS
 

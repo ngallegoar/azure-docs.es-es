@@ -11,12 +11,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/05/2020
 ms.author: kumud
-ms.openlocfilehash: 1a1593566b8bdb72f322d64c1ee99c7018f49329
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: dfeb9c6bc3dbe33881fc51ccb08a776b827dfe9c
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84707419"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082444"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Inicio rápido: Creación de una red virtual mediante el Portal de Azure
 
@@ -223,3 +223,6 @@ Cuando haya terminado de usar la red virtual y las VM, elimine el grupo de recur
 Para más información sobre la configuración de red virtual, consulte [Crear, cambiar o eliminar una red virtual](manage-virtual-network.md).
 
 De forma predeterminada, Azure permite una comunicación segura entre las máquinas virtuales. Azure solo permite conexiones de Escritorio remoto entrantes a las máquinas virtuales Windows desde Internet. Para más información sobre los tipos de comunicaciones de red de máquinas virtuales, consulte el artículo sobre el [filtrado del tráfico de red](tutorial-filter-network-traffic.md).
+
+> [!NOTE] 
+> Los servicios de Azure cuestan dinero. Azure Cost Management le ayuda a establecer presupuestos y a configurar alertas para mantener el gasto bajo control. Analice, administre y optimice sus costos de Azure con Cost Management. Para obtener más información, consulte el [inicio rápido sobre el análisis de los costos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

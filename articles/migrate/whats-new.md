@@ -4,12 +4,12 @@ description: Obtenga información sobre las novedades y actualizaciones reciente
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: be617590ce0c96c3ec8ea705732534c8395ac0ce
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 58c77dccd1e43ed497cd56b2831eb2ab914d8d5d
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052322"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85556925"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novedades de Azure Migrate
 
@@ -17,6 +17,7 @@ ms.locfileid: "85052322"
 
 ## <a name="update-june-2020"></a>Actualización (junio de 2020)
 
+- Ahora se admiten las evaluaciones para migrar VM de VMware locales a [Azure VMware Solution (AVS)](https://go.microsoft.com/fwlink/?linkid=2132637). [Más información](how-to-create-azure-vmware-solution-assessment.md)
 - Compatibilidad con varias credenciales en el dispositivo para la detección de servidores físicos.
 - Compatibilidad para permitir el inicio de sesión de Azure desde el dispositivo para el inquilino en el que se ha configurado la restricción de inquilino.
 - Las nuevas versiones de la aplicación Azure Migrate que se enumeran a continuación.

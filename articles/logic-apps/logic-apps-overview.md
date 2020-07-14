@@ -3,16 +3,16 @@ title: Tareas automatizadas para la integración empresarial
 description: Aprenda a automatizar flujos de trabajo que integran aplicaciones, datos, servicios y sistemas con un código mínimo para la integración empresarial mediante el uso de Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: overview
 ms.custom: mvc
 ms.date: 03/11/2020
-ms.openlocfilehash: 789ddf39e4493d11d63a07f2341ab36ac161f32d
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 08b3863ac9a03cda2659cf4934b781eeb9330e17
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659600"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563804"
 ---
 # <a name="overview---what-is-azure-logic-apps"></a>Introducción: ¿Qué es Azure Logic Apps?
 
@@ -32,7 +32,7 @@ Para compilar soluciones de integración empresarial con Azure Logic Apps, puede
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 
-## <a name="how-does-logic-apps-work"></a>¿Cómo funciona Logic Apps? 
+## <a name="how-do-logic-apps-work"></a>¿Cómo funcionan Logic Apps? 
 
 Todos los flujos de trabajo de Logic Apps comienzan con un desencadenador, que se activa cuando sucede un evento específico o cuando hay nuevos datos disponibles que cumplen determinados criterios. Muchos desencadenadores proporcionados por los conectores de Logic Apps incluyen funcionalidades de programación básicas que permiten configurar con qué frecuencia se ejecutan las cargas de trabajo. Para una programación más compleja o periodicidades avanzadas, puede utilizar un desencadenador de periodicidad como primer paso en cualquier flujo de trabajo. Obtenga más información sobre cómo [programar flujos de trabajo basados en programación](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9006a70ae941abb700412a7c596627939c994028
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1c45aae35c7c1cf2fbde436303a2ac000dfdd5ec
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587517"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339600"
 ---
 # <a name="compare-solutions-for-external-identities-in-azure-active-directory"></a>Comparación de soluciones para External Identities en Azure Active Directory
 
@@ -36,11 +36,11 @@ En la tabla siguiente se proporciona una comparación detallada de los diferente
 
 | Aplicaciones multiinquilino  | Colaboración de usuario externo (B2B) | Aplicaciones para consumidores o clientes (B2C)  |
 | ---- | --- | --- |
-| Escenario principal: Software como servicio(SaaS) de empresa | Escenario principal: colaboración con aplicaciones de Microsoft (Office 365, Teams...) o su propio software de colaboración.  | Escenario principal: aplicaciones transaccionales mediante aplicaciones de desarrollo personalizado.   |
+| Escenario principal: Software como servicio(SaaS) de empresa | Escenario principal: colaboración con aplicaciones de Microsoft (Microsoft 365, Teams...) o su propio software de colaboración.  | Escenario principal: aplicaciones transaccionales mediante aplicaciones de desarrollo personalizado.   |
 | Destinado a: organizaciones que quieren proporcionar software a muchos clientes empresariales.    | Destinado a: organizaciones que desean poder autenticar a los usuarios desde una organización asociada, independientemente del proveedor de identidades.    | Destinado a: invitar a los clientes de sus aplicaciones web y para dispositivos móviles, independientemente de que sean personas, instituciones u organizaciones, a un directorio de Azure AD independiente del directorio de su propia organización. |
 | Identidades que se admiten: empleados con cuentas de Azure AD. | Identidades que se admiten: empleados con cuentas profesionales o educativas, asociados con cuentas profesionales o educativas, o cualquier dirección de correo electrónico. Pronto se admitirá la federación directa.      | Identidades que se admiten: usuarios consumidores con cuentas de aplicación local (cualquier dirección de correo electrónico o nombre de usuario) o cualquier identidad social compatible con federación directa.       |
 | Los usuarios externos se administran en su propio directorio, aislados del directorio en el que se registró la aplicación.    | Los usuarios externos se administran en el mismo directorio que los empleados, pero tienen una anotación especial. Pueden administrarse del mismo modo que los empleados, pueden agregarse a los mismos grupos, etc.    | Los usuarios externos se administran en el directorio de la aplicación. Se administran de manera independiente del directorio de asociados y de empleados de la organización (si existe).  |
-| Inicio de sesión único: se admite SSO en todas las aplicaciones conectadas a Azure AD.          | Inicio de sesión único: se admite SSO en todas las aplicaciones conectadas a Azure AD. Por ejemplo, puede proporcionar acceso a Office 365, o bien a aplicaciones locales y a otras aplicaciones SaaS como Salesforce o Workday.    | Inicio de sesión único: Se admite el inicio de sesión único para aplicaciones propiedad de los clientes dentro de los inquilinos de Azure AD B2C. No se admite el inicio de sesión único en Office 365 ni en otras aplicaciones SaaS de Microsoft.    |
+| Inicio de sesión único: se admite SSO en todas las aplicaciones conectadas a Azure AD.          | Inicio de sesión único: se admite SSO en todas las aplicaciones conectadas a Azure AD. Por ejemplo, puede proporcionar acceso a Microsoft 365, o bien a aplicaciones locales y a otras aplicaciones SaaS como Salesforce o Workday.    | Inicio de sesión único: Se admite el inicio de sesión único para aplicaciones propiedad de los clientes dentro de los inquilinos de Azure AD B2C. No se admite el inicio de sesión único en Microsoft 365 ni en otras aplicaciones SaaS de Microsoft.    |
 | Ciclo de vida de cliente: administrado por la organización principal del usuario.      | Ciclo de vida de asociado: lo administra la organización anfitriona o que realiza la invitación.    | Ciclo de vida de cliente: mediante autoservicio o administrado por la aplicación.      |
 | Directiva de seguridad y cumplimiento: los administra la organización anfitriona o que realiza la invitación (por ejemplo, con [directivas de acceso condicional](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)).           | Directiva de seguridad y cumplimiento: los administra la organización anfitriona o que realiza la invitación (por ejemplo, con [directivas de acceso condicional](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)). | Directiva de seguridad y cumplimiento: las administra la aplicación.        |
 | Personalización de marca: se utiliza la marca de la organización anfitriona o que realiza la invitación.   | Personalización de marca: se utiliza la marca de la organización anfitriona o que realiza la invitación.    | Personalización de marca: la administra la aplicación. Normalmente suele tratarse de productos con marca, y la organización pasa a un segundo plano.   |

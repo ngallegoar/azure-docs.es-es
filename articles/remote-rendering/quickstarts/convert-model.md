@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 7ba8d201c29b5e3835fec52d8c479a388ca07f71
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: d457e911dec481e2b1a8bdae1ca05f80452bb883
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312989"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557183"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>Inicio rápido: Conversión de un modelo para su representación
 
@@ -24,7 +24,7 @@ Aprenderá a:
 > * Cargar y convertir un modelo 3D para su uso con Azure Remote Rendering
 > * Incluir el modelo 3D convertido en una aplicación para su representación
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Realizar el tutorial [Quickstart: Representación de un modelo con Unity](render-model.md)
 * Instalación de Azure PowerShell [(documentación)](https://docs.microsoft.com/powershell/azure/)
@@ -157,7 +157,7 @@ Cambie **inputAssetPath** a la ruta de acceso del modelo que se va a convertir: 
 
 Una vez convertido el modelo, se volverá a escribir en el contenedor de almacenamiento proporcionado por **blobOutputContainerName**. Se puede especificar un subtrazado proporcionando el valor de **outputFolderPath** opcional. En el ejemplo anterior, el valor de "robot.arrAsset" resultante se copiará en el contenedor de blobs de salida en "converted/robot".
 
-El valor de configuración **outputAssetFileName** determina el nombre del recurso convertido. El parámetro es opcional y el nombre de archivo de salida se deducirá del nombre del archivo de entrada en caso contrario. 
+El valor de configuración **outputAssetFileName** determina el nombre del recurso convertido. El parámetro es opcional y el nombre de archivo de salida se deducirá del nombre del archivo de entrada en caso contrario.
 
 Abra una instancia de PowerShell, asegúrese de que ha instalado *Azure PowerShell* como se mencionó en los [requisitos previos](#prerequisites). Después, inicie sesión en la suscripción con el siguiente comando y siga las instrucciones de la pantalla:
 
@@ -175,6 +175,8 @@ Cambie al directorio `azure-remote-rendering\Scripts` y ejecute el script de con
 ```
 
 Puede ver algo así: ![Conversion.ps1](./media/successful-conversion.png)
+
+## <a name="insert-new-model-into-quickstart-sample-app"></a>Inserción de un nuevo modelo en la aplicación Inicio rápido de ejemplo
 
 El script de conversión genera un identificador URI de *Firma de acceso compartido (SAS)* para el modelo convertido. Ahora puede copiar este identificador URI como el **nombre de modelo** en la aplicación de ejemplo del artículo de inicio rápido (consulte [Inicio rápido: Representación de un modelo con Unity](render-model.md)).
 
@@ -198,4 +200,4 @@ Ahora que conoce los conceptos básicos, consulte nuestros tutoriales para obten
 Si desea obtener información detallada sobre la conversión de modelos, consulte [la API REST de conversión de modelos](../how-tos/conversion/conversion-rest-api.md).
 
 > [!div class="nextstepaction"]
-> [Tutorial: Configuración de un proyecto de Unity desde cero](../tutorials/unity/project-setup.md)
+> [Tutorial: Visualización de modelos representados de forma remota](../tutorials/unity/view-remote-models/view-remote-models.md)

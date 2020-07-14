@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 084083a704a007e6675234883c62350d1d9a0849
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 22bf7e85a48e0d138bfdbca82cf032287d982899
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536155"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339588"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-protected-by-microsoft-identity-platform"></a>Inicio rápido: Llamada a una instancia de ASP.NET Web API protegida por una plataforma de identidad de Microsoft
 
@@ -24,13 +24,13 @@ En este inicio rápido se expone una API web y se protegerá, con el fin de que 
 
 El ejemplo también incluye un cliente de aplicación de escritorio de Windows (WPF) que muestra cómo se puede solicitar un token de acceso para acceder a una API web.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para ejecutar este ejemplo, necesitará lo siguiente:
 
 * Visual Studio 2017 o 2019.  Descargue [Visual Studio de forma gratuita](https://www.visualstudio.com/downloads/).
 
-* Una [cuenta de Microsoft](https://www.outlook.com) o del [programa de desarrolladores de Office 365](/office/developer-program/office-365-developer-program).
+* Una [cuenta de Microsoft](https://www.outlook.com) o el [programa de desarrolladores de Microsoft 365](/office/developer-program/office-365-developer-program).
 
 ## <a name="download-or-clone-this-sample"></a>Descarga o clonación de este ejemplo
 

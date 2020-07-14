@@ -7,26 +7,28 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: edoyle
 ms.date: 04/24/2020
-ms.openlocfilehash: 2db3dffbbf0f6d98fe6da7a0cec5400f7f2c03da
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 1cb6dc56a5d4fa975f68c1dea08920a7c7db3904
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722463"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119504"
 ---
-# <a name="quickstart-create-a-service-fabric-cluster-using-resource-manager-template"></a>Inicio rápido: Creación de un clúster de Service Fabric mediante una plantilla de Resource Manager
+# <a name="quickstart-create-a-service-fabric-cluster-using-arm-template"></a>Inicio rápido: Creación de un clúster de Service Fabric mediante una plantilla de ARM
 
-Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetado, la implementación y la administración de microservicios y contenedores escalables y confiables. Un *clúster* de Service Fabric es un conjunto de máquinas virtuales conectadas a la red, en las que se implementan y administran los microservicios.
+Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetado, la implementación y la administración de microservicios y contenedores escalables y confiables. Un *clúster* de Service Fabric es un conjunto de máquinas virtuales conectadas a la red, en las que se implementan y administran los microservicios. En este artículo se describe cómo implementar un clúster de prueba de Service Fabric en Azure mediante una plantilla de Azure Resource Manager (plantilla de ARM).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-En este artículo se describe cómo implementar un clúster de prueba de Service Fabric en Azure mediante Resource Manager. Este clúster de Windows de cinco nodos está protegido con un certificado autofirmado y, por lo tanto, solo se debe usar con fines instructivos (en lugar de cargas de trabajo de producción).
+Este clúster de Windows de cinco nodos está protegido con un certificado autofirmado y, por lo tanto, solo se debe usar con fines instructivos (en lugar de cargas de trabajo de producción). Usaremos Azure PowerShell para implementar la plantilla. Además de Azure PowerShell, también puede usar Azure Portal, la CLI de Azure y API REST. Para obtener información sobre otros métodos de implementación, consulte [Implementación de plantillas](../azure-resource-manager/templates/deploy-portal.md).
 
-Usaremos Azure PowerShell para implementar la plantilla. Además de Azure PowerShell, también puede usar Azure Portal, la CLI de Azure y API REST. Para obtener información sobre otros métodos de implementación, consulte [Implementación de plantillas](../azure-resource-manager/templates/deploy-portal.md).
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-secure-cluster-5-node-1-nodetype%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
-
-## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="install-service-fabric-sdk-and-powershell-modules"></a>Instalación del SDK de Service Fabric y de los módulos de PowerShell
 
@@ -87,9 +89,7 @@ $certUrlValue = "<Certificate URL>"
 $certThumbprint = "<Certificate Thumbprint>"
 ```
 
-## <a name="create-a-service-fabric-cluster"></a>Creación de un clúster de Service Fabric
-
-### <a name="review-the-template"></a>Revisión de la plantilla
+## <a name="review-the-template"></a>Revisión de la plantilla
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/). La plantilla de este artículo es demasiado larga para mostrarse aquí. Para ver la plantilla, examine el archivo [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json).
 
@@ -144,7 +144,7 @@ Por ejemplo:
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-Almacene las rutas de acceso de la plantilla de Resource Manager y los archivos de parámetro en las variables y, a continuación, implemente la plantilla.
+Almacene las rutas de acceso de la plantilla de ARM y los archivos de parámetro en las variables y, a continuación, implemente la plantilla.
 
 ```powershell
 $templateFilePath = "<full path to azuredeploy.json>"

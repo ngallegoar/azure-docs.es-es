@@ -1,24 +1,22 @@
 ---
-title: ¿Qué es Azure Firewall Manager (versión preliminar)?
+title: ¿Qué es Azure Firewall Manager?
 description: Más información sobre las características de Azure Firewall Manager
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 06/11/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: bef948def487e2b60764641e6cf38a3e122e2f87
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 8b457198655af50427545a0e93e2cfe6903131c8
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84792171"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563737"
 ---
-# <a name="what-is-azure-firewall-manager-preview"></a>¿Qué es Azure Firewall Manager (versión preliminar)?
+# <a name="what-is-azure-firewall-manager"></a>¿Qué es Azure Firewall Manager?
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
-Azure Firewall Manager (versión preliminar) es un servicio de administración de seguridad que proporciona una directiva de seguridad central y administración de rutas para perímetros de seguridad basados en la nube. 
+Azure Firewall Manager es un servicio de administración de seguridad que proporciona una directiva de seguridad central y administración de rutas para perímetros de seguridad basados en la nube. 
 
 Firewall Manager puede proporcionar administración de seguridad para dos tipos de arquitectura de red:
 
@@ -33,9 +31,9 @@ Para ver una comparación detallada entre los tipos de arquitectura de *centro v
 
 ![firewall-manager](media/overview/trusted-security-partners.png)
 
-## <a name="azure-firewall-manager-preview-features"></a>Características de Azure Firewall Manager (versión preliminar)
+## <a name="azure-firewall-manager-features"></a>Características de Azure Firewall Manager
 
-Azure Firewall Manager (versión preliminar) ofrece las siguientes características:
+Azure Firewall Manager ofrece las siguientes características:
 
 ### <a name="central-azure-firewall-deployment-and-configuration"></a>Implementación y configuración centralizadas de Azure Firewall
 
@@ -43,7 +41,7 @@ Puede implementar y configurar de forma centralizada varias instancias de Azure 
 
 ### <a name="hierarchical-policies-global-and-local"></a>Directivas jerárquicas (globales y locales)
 
-Puede usar Azure Firewall Manager (versión preliminar) para administrar de forma centralizada las directivas de Azure Firewall en varios centros virtuales protegidos. Los equipos de TI centrales pueden crear directivas de firewall globales para aplicar la directiva de firewall a los equipos de toda la organización. Las directivas de firewall creadas localmente permiten un modelo de autoservicio de DevOps, lo que aumenta la agilidad.
+Puede usar Azure Firewall Manager para administrar de forma centralizada las directivas de Azure Firewall en varios centros de conectividad virtuales protegidos. Los equipos de TI centrales pueden crear directivas de firewall globales para aplicar la directiva de firewall a los equipos de toda la organización. Las directivas de firewall creadas localmente permiten un modelo de autoservicio de DevOps, lo que aumenta la agilidad.
 
 ### <a name="integrated-with-third-party-security-as-a-service-for-advanced-security"></a>Integración con seguridad como servicio de terceros para la seguridad avanzada
 
@@ -60,7 +58,7 @@ Esta característica solo está disponible en implementaciones de centros virtua
 
    Aproveche la conectividad de Azure y la distribución global para agregar fácilmente el filtrado de terceros para escenarios de rama a Internet.
 
-Para más información acerca de los proveedores de seguridad de confianza, consulte [¿Qué son los asociados de seguridad de confianza de Azure Firewall Manager (versión preliminar)?](trusted-security-partners.md)
+Para más información acerca de los proveedores de seguridad asociados, consulte [¿Qué son los proveedores de seguridad asociados de Azure Firewall Manager?](trusted-security-partners.md)
 
 ### <a name="centralized-route-management"></a>Administración de rutas centralizada
 
@@ -76,20 +74,17 @@ Las directivas de Azure Firewall se pueden usar en diferentes regiones. Por ejem
 
 ## <a name="known-issues"></a>Problemas conocidos
 
-Azure Firewall Manager (versión preliminar) presenta los siguientes problemas conocidos:
+Azure Firewall Manager presenta los siguientes problemas conocidos:
 
 |Incidencia  |Descripción  |Mitigación  |
 |---------|---------|---------|
-|Limitaciones del filtrado de terceros.|El filtrado de tráfico V2I con proveedores de terceros no es compatible con Azure Firewall B2V y V2V.|Investigando|
 |Actualmente no se admite la división del tráfico.|Actualmente no se admite la división del tráfico de PaaS público de Azure y de Office 365. Como tal, la selección de un proveedor de terceros para V2I o B2I también envía todo el tráfico de PaaS público de Azure y de Office 365 a través del servicio de asociados.|La división del tráfico en el centro de conectividad se está investigando.
 |Un centro virtual protegido por región.|No se puede tener más de un centro virtual protegido por región.|Cree varias WAN virtuales en una región.|
 |Las directivas base deben estar en la misma región que la directiva local.|Cree todas las directivas locales en la misma región que la directiva de base. Puede seguir aplicando una directiva que se creó en una región de un centro seguro desde otra región.|Investigando|
 |La comunicación entre centros no funciona con los centros virtuales protegidos|Aún no se admite la comunicación entre centros virtuales protegidos.|Investigando|
 |Todos los centros virtuales protegidos que comparten la misma WAN virtual deben estar en el mismo grupo de recursos.|Este comportamiento ya se alinea con los centros WAN virtuales en la actualidad.|Cree varias WAN virtuales para permitir que se creen centros virtuales protegidos en grupos de recursos diferentes.|
-|No se admiten grupos de IP en la directiva de firewall.|Los grupos de direcciones IP se encuentran en versión preliminar pública y, actualmente, solo se admiten en las reglas de firewall tradicionales.|Corrección en curso.
-|Suscripciones del Proveedor de soluciones en la nube (CSP) no admitidas.|Actualmente, no se admiten [suscripciones de CSP](https://azure.microsoft.com/offers/ms-azr-0145p/).|Investigando
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte [Información general sobre la implementación de Azure Firewall Manager (versión preliminar)](deployment-overview.md)
+- Consulte [Información general sobre la implementación de Azure Firewall Manager](deployment-overview.md).
 - Información sobre [centros de conectividad virtuales protegidos](secured-virtual-hub.md).

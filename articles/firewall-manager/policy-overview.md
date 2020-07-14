@@ -1,22 +1,20 @@
 ---
-title: Información general sobre las directivas de Azure Firewall Manager (versión preliminar)
+title: Información general sobre la directiva de Azure Firewall Manager
 description: Más información sobre las directivas de Azure Firewall Manager
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 02/18/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 1308f4ba3335f2fd2633f6e39a679cd6477a4b5c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 88b7dc60b865325ef7dcd9e79015fdee10b4f9a2
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77444955"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563717"
 ---
-# <a name="azure-firewall-manager-preview-policy-overview"></a>Información general sobre las directivas de Azure Firewall Manager (versión preliminar)
-
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
+# <a name="azure-firewall-manager-policy-overview"></a>Información general sobre la directiva de Azure Firewall Manager
 
 Directiva de firewall es un recurso de Azure que contiene NAT, red y colecciones de reglas de aplicación así como valores de inteligencia sobre amenazas. Es un recurso global que se puede utilizar en varias instancias de Azure Firewall en centros virtuales protegidos y redes virtuales de centros. Las directivas funcionan entre regiones y suscripciones.
 
@@ -26,7 +24,7 @@ Directiva de firewall es un recurso de Azure que contiene NAT, red y colecciones
 
 Una directiva se puede crear y administrar de varias maneras, entre las que se incluyen Azure Portal, API REST, plantillas, Azure PowerShell y CLI.
 
-También puede migrar las reglas existentes de Azure Firewall mediante el portal o mediante Azure PowerShell para crear las directivas. Para más información, consulte [Cómo migrar configuraciones de Azure Firewall a la directiva de Azure Firewall (versión preliminar)](migrate-to-policy.md). 
+También puede migrar las reglas existentes de Azure Firewall mediante el portal o mediante Azure PowerShell para crear las directivas. Para más información, consulte [Cómo migrar configuraciones de Azure Firewall a la directiva de Azure Firewall](migrate-to-policy.md). 
 
 Las directivas se pueden asociar a uno o varios centros o redes virtuales. El firewall puede estar en cualquier suscripción asociada a su cuenta y en cualquier región.
 
@@ -37,6 +35,8 @@ Las nuevas directivas se pueden crear desde cero o heredar de directivas ya exis
 Las directivas creadas con directivas primarias no vacías heredan todas las colecciones de reglas de la directiva primaria. Las colecciones de reglas de red heredadas de una directiva primaria siempre se priorizan por encima de las colecciones de reglas de red definidas como parte de una nueva directiva. La misma lógica también se aplica a las colecciones de reglas de aplicación. Las colecciones de reglas de red siempre se procesan antes que las colecciones de reglas de aplicación independientemente de la herencia.
 
 El modo de inteligencia sobre amenazas también se hereda de la directiva primaria. Puede establecer el modo de inteligencia sobre amenazas en un valor diferente para invalidar este comportamiento, pero no puede desactivarlo. Solo es posible invalidarlo con un valor más estricto. Por ejemplo, si la directiva primaria está establecida en **solo Alerta**, puede configurar esta directiva local para **Alertar y denegar**.
+
+Igual que en el modo de inteligencia sobre amenazas, la lista de permitidos de inteligencia sobre amenazas se hereda de la directiva primaria. La directiva secundaria puede agregar direcciones IP adicionales a la lista de permitidos.
 
 Las colecciones de reglas NAT no se heredan porque son específicas de un firewall determinado.
 
@@ -49,13 +49,12 @@ Azure Firewall admite las reglas y las directivas tradicionales. En la siguiente
 
 |         |Directiva  |Reglas  |
 |---------|---------|---------|
-|Contains     |Configuración de NAT, red, reglas de aplicación e inteligencia sobre amenazas|Reglas de NAT, red y aplicación |
+|Contains     |Reglas de NAT, red y aplicación, configuración de proxy DNS y DNS personalizado, grupos de direcciones IP y configuración de inteligencia sobre amenazas (incluida la lista de permitidos)|Reglas de NAT, red y aplicación, configuración de proxy DNS y DNS personalizado, grupos de direcciones IP y configuración de inteligencia sobre amenazas (incluida la lista de permitidos)|
 |Protege     |Centros virtuales y redes virtuales|Solo redes virtuales|
 |Experiencia del portal     |Administración centralizada mediante Firewall Manager|Experiencia de firewall independiente|
 |Compatibilidad con varios firewalls     |La directiva de firewall es un recurso independiente que se puede usar entre firewalls.|Exporte e importe manualmente reglas o use soluciones de administración de terceros |
 |Precios     |Facturado en función de la asociación del firewall. Consulte [Precios](#pricing).|Gratuito|
 |Mecanismos de implementación admitidos     |Portal, API REST, plantillas, Azure PowerShell y CLI|Portal, API REST, plantillas, PowerShell y CLI. |
-|Estado de la versión     |Vista previa pública|Disponibilidad general|
 
 ## <a name="pricing"></a>Precios
 
@@ -63,4 +62,4 @@ Las directivas se facturan en función de las asociaciones del firewall. Una dir
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información sobre cómo implementar una instancia de Azure Firewall, consulte [Tutorial: Protección de una red en la nube con la versión preliminar de Azure Firewall Manager en Azure Portal](secure-cloud-network.md).
+Para obtener información sobre cómo implementar una instancia de Azure Firewall, consulte [Tutorial: Proteja su red en la nube con la versión preliminar de Azure Firewall Manager en Azure Portal](secure-cloud-network.md).

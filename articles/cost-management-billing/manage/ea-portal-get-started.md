@@ -3,16 +3,16 @@ title: Introducción a Azure Enterprise Portal
 description: En este artículo se explica cómo los clientes de Contrato Enterprise de Azure (Azure EA) usan Azure Enterprise Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/29/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 6b31f3cd8ca6baa2d20d0281de51ed83424eca17
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 2d4fbf90afa93f3dbde12a3bc5ce02f9a60b6c5d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560365"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044964"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Introducción a Azure Enterprise Portal
 
@@ -372,7 +372,7 @@ Si el Contrato Enterprise no tiene una suscripción de soporte técnico, y usted
 
 ## <a name="view-usage-summary-and-download-reports"></a>Visualización de resumen de uso e informes de las descargas
 
-Los administradores de empresa pueden ver un resumen de sus datos de uso, el compromiso monetario consumido y los cargos asociados con el uso adicional en Azure Enterprise Portal. Los cargos se presentan en el nivel de resumen en todas las cuentas y suscripciones.
+Los administradores de empresa pueden ver un resumen de sus datos de uso, el pago por adelantado de Azure consumido y los cargos asociados con el uso adicional en Azure Enterprise Portal. Los cargos se presentan en el nivel de resumen en todas las cuentas y suscripciones.
 
 Para ver el uso detallado para cuentas específicas, descargue el informe de detalles de uso:
 
@@ -390,7 +390,7 @@ Para ver los informes y gráficos del resumen de uso:
 
 1. Inicie sesión en Azure Enterprise Portal.
 
-1. Seleccione un plazo de compromiso.
+1. Seleccione un plazo de pago por adelantado.
 
    Para cambiar el rango de fechas de **Resumen de uso**, puede alternar entre **M** (mensual) y **C** (personalizado) en la parte superior derecha de la página y, a continuación, especificar fechas de inicio y de finalización personalizadas.
 
@@ -455,7 +455,7 @@ Azure Enterprise Portal filtra las inscripciones inactivas para excluirlas. Tend
 - **Cuenta**: Unidad organizativa en Azure Enterprise Portal. Se utiliza para administrar las suscripciones y para los informes.
 - **Propietario de la cuenta**: Persona que administra las suscripciones y los administradores de servicios en Azure. Pueden ver los datos de uso de esta cuenta y sus suscripciones asociadas.
 - **Suscripción de enmienda**: Suscripción de un año o coincidente de la enmienda de la inscripción.
-- **Compromiso**: Compromiso de una cantidad monetaria anual de servicios de Azure con una tasa comprometida de descuento por el uso de este pago por adelantado.
+- **Pago por adelantado**: pago por adelantado de una cantidad monetaria anual por los servicios de Azure con una tasa de prepago con descuento por el uso de este pago por adelantado.
 - **Administrador de departamento**: Persona que administra departamentos, crea cuentas nuevas y propietarios de cuentas, ve los detalles de uso de los departamentos que administra y ve los costos cuando se le conceden permisos.
 - **Número de inscripción**: Identificador único proporcionado por Microsoft para identificar la inscripción específica asociada a un Contrato Enterprise.
 - **Administrador de empresa**: Persona que administra departamentos, propietarios de departamentos, cuentas y propietarios de cuentas en Azure. Tienen la capacidad de administrar los administradores de empresa, así como ver los datos de uso, las cantidades facturadas y los cargos no facturados en todas las cuentas y suscripciones asociadas a la inscripción de la empresa.
@@ -478,7 +478,7 @@ Azure Enterprise Portal filtra las inscripciones inactivas para excluirlas. Tend
 
    Antes de que la inscripción de Azure EA alcance la fecha de finalización del Contrato Enterprise, el administrador de inscripciones debe decidir entre las opciones siguientes:
 
-  - Renovar la inscripción al agregar un compromiso monetario adicional.
+  - Renovar la inscripción mediante la adición de un pago por adelantado adicional.
   - Transferirla a una nueva inscripción.
   - Migrar al Programa de suscripción en línea de Microsoft (MOSP).
   - Confirmar la deshabilitación de todos los servicios asociados con la inscripción.
