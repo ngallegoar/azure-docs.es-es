@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.author: raynew
-ms.openlocfilehash: 99204657b7604250826ff0a4a870ad92fdb4df32
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: b48dfba6fa5dc270a4d711864d15e9128f4beb98
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84249151"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132402"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales locales de Hyper-V en Azure
 
@@ -32,9 +32,13 @@ Hyper-V sin Virtual Machine Manager | Ahora puede realizar la recuperación ante
 
 **Server** | **Requisitos** | **Detalles**
 --- | --- | ---
-Hyper-V en ejecución sin Virtual Machine Manager |  Windows Server 2019, Windows Server 2016 (incluida la instalación básica del servidor), Windows Server 2012 R2 con las actualizaciones más recientes | Si ya ha configurado Windows Server 2012 R2 o SCVMM 2012 R2 con Azure Site Recovery, y va a actualizar el sistema operativo, siga las instrucciones de la [documentación.](upgrade-2012R2-to-2016.md) <br/><br/> Nota: La conmutación por recuperación no se admite en la versión principal de Windows Server 2019.
-Hyper-V en ejecución con Virtual Machine Manager | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Si se usa Virtual Machine Manager, los hosts de Windows Server 2019 deben administrarse en Virtual Machine Manager 2019. De manera similar, los hosts de Windows Server 2016 se deben administrar en Virtual Machine Manager 2016.<br/><br/> Nota: No se admite la conmutación por recuperación a una ubicación alternativa para los hosts de Windows Server 2019.
+Hyper-V en ejecución sin Virtual Machine Manager |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 con las actualizaciones más recientes (incluida la instalación de Server Core de estos sistemas operativos, excepto Windows Server 2019) | Si ya ha configurado Windows Server 2012 R2 o SCVMM 2012 R2 con Azure Site Recovery, y va a actualizar el sistema operativo, siga las instrucciones de la [documentación.](upgrade-2012R2-to-2016.md)
+Hyper-V en ejecución con Virtual Machine Manager | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 (incluida la instalación de Server Core de estos sistemas operativos, excepto Virtual Machine Manager 2019) | Si se usa Virtual Machine Manager, los hosts de Windows Server 2019 deben administrarse en Virtual Machine Manager 2019. De manera similar, los hosts de Windows Server 2016 se deben administrar en Virtual Machine Manager 2016.
 
+> [!NOTE]
+>
+> - Asegúrese de que .NET Framework 4.6.2 o superior esté presente en el servidor local.
+> - La conmutación por error y por recuperación a una ubicación alternativa u original, en ejecución con o sin Virtual Machine Manager, no se admite para la versión de Server Core de Windows Server 2019.
 
 ## <a name="replicated-vms"></a>Máquinas virtuales replicadas
 
@@ -44,7 +48,7 @@ En la tabla siguiente se resume la compatibilidad de las máquinas virtuales. Si
  **Componente** | **Detalles**
 --- | ---
 Configuración de VM | Las máquinas virtuales que se replican en Azure deben cumplir con los [requisitos de Azure](#azure-vm-requirements).
-Sistema operativo invitado | Cualquier sistema operativo invitado [compatible con Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases).<br/><br/> No se admite Windows Server 2016 Nano Server.
+Sistema operativo invitado | Cualquier sistema operativo invitado [compatible con Azure](../cloud-services/cloud-services-guestos-update-matrix.md#family-5-releases).<br/><br/> No se admite Windows Server 2016 Nano Server.
 
 
 ## <a name="vmdisk-management"></a>Administración de máquinas virtuales o discos
@@ -133,6 +137,7 @@ Blobs en bloques | No | No
 Cifrado en reposo (SSE)| Sí | Sí
 Cifrado en reposo (CMK) <br></br> (Solo para conmutación por error en discos administrados)| Sí (a través del módulo PowerShell Az 3.3.0 en adelante) | Sí (a través del módulo PowerShell Az 3.3.0 en adelante)
 Premium Storage | Sí | Sí
+Standard Storage | Sí | Sí
 Servicio Import/Export | No | No
 Cuentas de Azure Storage con firewall habilitado | Sí. Para almacenamiento de destino y en caché. | Sí. Para almacenamiento de destino y en caché.
 Modificar cuenta de almacenamiento | No. No se puede modificar la cuenta de Azure Storage de destino después de habilitar la replicación. Para modificarla, deshabilite la recuperación ante desastres y vuelva a habilitarla. | No
@@ -152,7 +157,7 @@ Las máquinas virtuales locales que se replican en Azure deben cumplir con los r
 
 **Componente** | **Requisitos** | **Detalles**
 --- | --- | ---
-Sistema operativo invitado | Site Recovery es compatible con todos los sistemas operativos [admitidos por Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
+Sistema operativo invitado | Site Recovery es compatible con todos los sistemas operativos [admitidos por Azure](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868(v=ws.10)).  | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 Arquitectura del sistema operativo invitado | 32 bits (Windows Server 2008) y 64 bits | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 Tamaño del disco del sistema operativo | Hasta 2048 GB para máquinas virtuales de generación 1.<br/><br/> Hasta 300 GB para máquinas virtuales de generación 2.  | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 Número de discos del sistema operativo | 1 | Se producirá un error en la comprobación de los requisitos previos si no es compatible.

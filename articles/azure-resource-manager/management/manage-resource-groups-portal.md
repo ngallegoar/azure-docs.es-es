@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: 622c0cb8d58dddcdb13c7dc9412ada3f2e2d93e4
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: a6788651928b631d9298867a140f29b273f14734
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632990"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057558"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Administración de grupos de recursos de Azure Resource Manager mediante Azure Portal
 
@@ -86,7 +86,7 @@ Puede mover los recursos de un grupo a otro grupo de recursos. Para obtener más
 
 Los bloqueos impiden que otros usuarios de la organización eliminen o modifiquen por error recursos esenciales, como una suscripción de Azure, un grupo de recursos o un recurso. 
 
-1. Abra el grupo de recursos que quiera eliminar.  Vea [Abrir grupos de recursos](#open-resource-groups).
+1. Abra el grupo de recursos que quiera bloquear.  Vea [Abrir grupos de recursos](#open-resource-groups).
 2. En el panel izquierdo, seleccione **Bloqueos**.
 3. Seleccione **Agregar** para agregar un bloqueo al grupo de recursos.
 4. Especifique un **Nombre del bloqueo**, un **Tipo de bloqueo** y **Notas**. Los tipos de bloqueo son **Solo lectura** y **Eliminar**.
@@ -111,5 +111,5 @@ El [control de acceso basado en rol (RBAC)](../../role-based-access-control/over
 
 - Para obtener información sobre Azure Resource Manager, consulte [Información general de Azure Resource Manager](overview.md).
 - Para obtener información sobre la sintaxis de las plantillas de Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../templates/template-syntax.md).
-- Para obtener información sobre cómo desarrollar plantillas, consulte los [tutoriales paso a paso](/azure/azure-resource-manager/).
+- Para obtener información sobre cómo desarrollar plantillas, consulte los [tutoriales paso a paso](../index.yml).
 - Para ver los esquemas de plantilla de Azure Resource Manager, vea la [referencia de plantilla](/azure/templates/).

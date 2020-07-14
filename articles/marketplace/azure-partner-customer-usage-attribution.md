@@ -1,18 +1,18 @@
 ---
 title: Atribución de uso de partners y clientes de marketplace comercial
 description: Obtenga información general sobre el seguimiento del uso de clientes de las soluciones de Azure Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 04/14/2020
-ms.author: dsindona
-ms.openlocfilehash: 9c70f8d728786e8aff8da33f9a39b8c2cfaafdc4
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 6997c1aaab8cbe635ccef21967a0fce1f735c1ab
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295633"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103048"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Atribución de uso de partners y clientes de marketplace comercial
 
@@ -66,7 +66,7 @@ Después de agregar un GUID a la plantilla o en el agente de usuario, y registra
 
 1. Regístrese como [publicador comercial de Marketplace](https://aka.ms/JoinMarketplace).
 
-   * Los partners deben [tener un perfil en el Centro de partners](https://docs.microsoft.com/azure/marketplace/become-publisher). Le recomendamos que vea la oferta en Azure Marketplace o AppSource.
+   * Los partners deben [tener un perfil en el Centro de partners](become-publisher.md). Le recomendamos que vea la oferta en Azure Marketplace o AppSource.
    * Los asociados pueden registrar varios identificadores únicos globales.
    * Los partners pueden registrar los GUID para las plantillas de solución que no son de marketplace y las ofertas.
 
@@ -74,7 +74,7 @@ Después de agregar un GUID a la plantilla o en el agente de usuario, y registra
 
 1. En la **página de configuración de la cuenta**, seleccione **Add Tracking GUID** (Agregar GUID de seguimiento).
 
-1. En el cuadro **GUID**, escriba su identificador único global de seguimiento. Escriba solo el GUID, sin el prefijo **pid -** . En el cuadro **Descripción**, escriba el nombre o la descripción de la oferta.
+1. En el cuadro **GUID**, escriba su identificador único global de seguimiento. Escriba solo el GUID, sin el prefijo `pid-`. En el cuadro **Descripción**, escriba el nombre o la descripción de la oferta.
 
 1. Para registrar varios identificadores únicos globales, vuelva a seleccionar **Add Tracking GUID** (Agregar GUID de seguimiento). Aparecen más cuadros en la página.
 
@@ -85,7 +85,7 @@ Muchas soluciones de partners se implementan mediante plantillas de Azure Resour
 
 > [!NOTE]
 > Para más información sobre la creación y publicación de plantillas de solución, consulte
-> * [Creación e implementación de plantillas de Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+> * [Creación e implementación de plantillas de Resource Manager](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 >* [Oferta de aplicación de Azure](./partner-center-portal/create-new-azure-apps-offer.md).
 >* Vídeo: [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) (Creación de plantillas de soluciones y aplicaciones administradas para Azure Marketplace).
 
@@ -98,7 +98,7 @@ Para agregar un identificador único global (GUID), se realizas una modificació
 
 1. Agregue un nuevo recurso en el archivo de plantilla principal. El recurso solo debe estar en los archivos **mainTemplate.json** o **azuredeploy.json**, no en ninguna de las plantillas vinculadas o anidadas.
 
-1. Escriba el valor de GUID después del prefijo **pid -** (por ejemplo, pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. Escriba el valor del GUID después del prefijo `pid-` (por ejemplo, pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
 
 1. Compruebe si la plantilla tiene errores.
 
@@ -137,12 +137,12 @@ Si usa una plantilla de Resource Manager, para etiquetar la solución debe segui
 
 ### <a name="tag-a-deployment-with-the-resource-manager-apis"></a>Etiquetado de una implementación con las API de Resource Manager
 
-Para habilitar la atribución de uso del cliente, al diseñar las llamadas API, se incluye un identificador único global en el encabezado del agente de usuario de la solicitud. Agregue el identificador único global a cada oferta o SKU. Dé formato a la cadena con el prefijo **pid -** e incluya el identificador único global generado por el asociado. Este es un ejemplo del formato del identificador único global para la inserción en el agente de usuario:
+Para habilitar la atribución de uso del cliente, al diseñar las llamadas API, se incluye un identificador único global en el encabezado del agente de usuario de la solicitud. Agregue el identificador único global a cada oferta o SKU. Dé formato a la cadena con el prefijo `pid-` e incluya el GUID generado por el asociado. Este es un ejemplo del formato del identificador único global para la inserción en el agente de usuario:
 
 ![Formato de GUID de ejemplo](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
 
 > [!NOTE]
-> El formato de la cadena es importante. Si no se incluye el prefijo **pid-** , no es posible consultar los datos. El seguimiento de los distintos SDK se hace de forma diferente. Para implementar este método, revise la compatibilidad y el enfoque del seguimiento de su SDK de Azure preferido.
+> El formato de la cadena es importante. Si no se incluye el prefijo `pid-`, no es posible consultar los datos. El seguimiento de los distintos SDK se hace de forma diferente. Para implementar este método, revise la compatibilidad y el enfoque del seguimiento de su SDK de Azure preferido.
 
 #### <a name="example-the-python-sdk"></a>Ejemplo: SDK de Python
 
@@ -168,7 +168,7 @@ Cuando use la CLI de Azure para anexar un identificador único global, establezc
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
-Para más información, consulte [Azure SDK para Go](https://docs.microsoft.com/azure/go/).
+Para más información, consulte [Azure SDK para Go](https://docs.microsoft.com/azure/developer/go/).
 
 ## <a name="use-terraform"></a>Uso de Terraform
 
@@ -257,7 +257,7 @@ Existen dos canales de soporte técnico según los problemas que se encuentre.
 
 Si tiene algún problema en el Centro de asociados, como consultar un informe de atribución de uso del cliente o iniciar sesión, cree una solicitud de soporte técnico para el equipo de soporte técnico del Centro de asociados aquí: [https://partner.microsoft.com/support](https://partner.microsoft.com/support)
 
-![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
+![Captura de pantalla de la página para obtener soporte técnico](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
 Si necesita ayuda para la atribución de uso de del cliente o la incorporación a Marketplace, por ejemplo, cómo configurar la primera, siga estos pasos:
 
@@ -332,7 +332,7 @@ El formulario del generador de GUID de Azure Storage garantiza la generación de
 
 **¿Puedo usar un disco duro virtual privado personalizado para una oferta de plantilla de solución en Azure Marketplace?**
 
-Lamentablemente, no. La imagen de máquina virtual debe proceder de Azure Marketplace; consulte [https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines).
+Lamentablemente, no. La imagen de máquina virtual debe proceder de Azure Marketplace; consulte: [Guía de publicación de ofertas de máquinas virtuales en Azure Marketplace](marketplace-virtual-machines.md).
 
 Puede crear una oferta de máquina virtual en Marketplace mediante el disco duro virtual personalizado y marcarla como privada para que nadie la vea y hacer referencia a esta máquina virtual en la plantilla de solución.
 

@@ -3,12 +3,12 @@ title: Solución de problemas de copia de seguridad de recursos compartidos de a
 description: Este artículo contiene información para solución de problemas que se producen al proteger recursos compartidos de archivos de Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 3d04a60b8bab5ba764818eab341ac08836b0dfd1
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: d09c89433be17e16ad768e2d28305819146e6b5e
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116728"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079894"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Solución de problemas al realizar copias de seguridad de recursos compartidos de archivos de Azure
 
@@ -25,6 +25,7 @@ En este artículo se proporciona información de solución de problemas para cua
   >Todos los recursos compartidos de archivos de una cuenta de almacenamiento solo se pueden proteger en un almacén de Recovery Services. Puede usar [este script](scripts/backup-powershell-script-find-recovery-services-vault.md) para encontrar el almacén de Recovery Services donde está registrada la cuenta de almacenamiento.
 
 - Asegúrese de que el recurso compartido de archivos no esté presente en ninguna de las cuentas de almacenamiento no admitidas. Puede consultar la [Matriz de compatibilidad de copia de seguridad de recursos compartidos de archivos de Azure](azure-file-share-support-matrix.md) para encontrar las cuentas de almacenamiento admitidas.
+- Asegúrese de que la longitud combinada del nombre de la cuenta de almacenamiento y el nombre del grupo de recursos no supere los 84 caracteres en el caso de nuevas cuentas de almacenamiento y 77 caracteres en caso de cuentas de almacenamiento clásicas. 
 - Compruebe la configuración del firewall de la cuenta de almacenamiento para asegurarse de que está habilitada la opción de permitir que los servicios de Microsoft de confianza accedan a la cuenta de almacenamiento.
 
 ### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>Error en la detección de estados del portal de las cuentas de almacenamiento
@@ -276,8 +277,6 @@ Código de error: BMSUserErrorObjectLocked
 Mensaje de error: Hay otra operación en curso en el elemento seleccionado.
 
 Espere a que la otra operación en curso termine y vuelva a intentarlo en otro momento.
-
-Del archivo: troubleshoot-azure-files.md
 
 ## <a name="common-soft-delete-related-errors"></a>Errores comunes relacionados con la eliminación temporal
 

@@ -1,18 +1,18 @@
 ---
 title: 'Certificación de una máquina virtual de Azure: Azure Marketplace'
 description: Obtenga información sobre cómo probar y enviar una oferta de máquina virtual en Marketplace comercial.
-author: emuench
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: emuench
+ms.author: mingshen
 ms.date: 04/09/2020
-ms.openlocfilehash: fe04cb12dc1afea78b023eab623927a07224888c
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: d3b89945c077b9c26bab1709bd6d1def20959e33
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726152"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110052"
 ---
 # <a name="azure-virtual-machine-vm-image-certification"></a>Certificación de imágenes de máquinas virtuales (VM) de Azure
 
@@ -649,4 +649,4 @@ Por último, seleccione **Generar informe** para descargar los resultados de las
 
 ## <a name="next-step"></a>Paso siguiente
 
-- [Generar un identificador uniforme de recursos (URI) para cada disco duro virtual](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri)
+- [Problemas comunes y correcciones de los identificadores URI de SAS](common-sas-uri-issues.md)

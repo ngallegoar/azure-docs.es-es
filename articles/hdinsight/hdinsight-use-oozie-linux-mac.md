@@ -5,15 +5,15 @@ author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 27cc1052a2f35382b2d6a93482b7af219a9a187a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 1e88fc64ea297f70f56478588312675fb233f221
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015172"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085946"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Uso de Apache Oozie con Apache Hadoop para definir y ejecutar un flujo de trabajo en Azure HDInsight basado en Linux
 
@@ -35,7 +35,7 @@ Oozie también puede usarse para programar trabajos específicos de un sistema, 
 
 * **Un cliente SSH**. Consulte [Conexión a HDInsight (Apache Hadoop) mediante SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-* **Una instancia de Azure SQL Database**.  Consulte [Creación de una base de datos de Azure SQL en Azure Portal](../sql-database/sql-database-get-started.md).  En este artículo se usa una base de datos denominada **oozietest**.
+* **Una instancia de Azure SQL Database**.  Consulte [Creación de una base de datos en Azure SQL Database en Azure Portal](../sql-database/sql-database-get-started.md).  En este artículo se usa una base de datos denominada **oozietest**.
 
 * El esquema de URI para el almacenamiento principal de clústeres. `wasb://` para Azure Storage, `abfs://` para Azure Data Lake Storage Gen2 o `adl://` para Azure Data Lake Storage Gen1. Si se habilita la transferencia segura para Azure Storage, el identificador URI sería `wasbs://`. Consulte también el artículo acerca de la [transferencia segura](../storage/common/storage-require-secure-transfer.md).
 
@@ -47,9 +47,11 @@ El flujo de trabajo usado en este documento contiene dos acciones. Las acciones 
 
 1. Una acción de Hive ejecuta un script de HiveQL para extraer los registros de `hivesampletable` que se incluye con HDInsight. Cada fila de datos describe una visita de un dispositivo móvil específico. El formato de registro es similar al texto siguiente:
 
-        8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-        23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-        23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+    ```output
+    8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+    23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+    23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+    ```
 
     El script de Hive utilizado en este documento cuenta el número total de visitas a cada plataforma (por ejemplo, Android o iPhone) y almacena los recuentos en una nueva tabla de Hive.
 
@@ -240,11 +242,13 @@ Las definiciones de flujo de trabajo de Oozie se escriben en lenguaje de definic
 
     Recibirá una salida como el texto siguiente:
 
-        locale is "en_US.UTF-8"
-        locale charset is "UTF-8"
-        using default charset "UTF-8"
-        Default database being set to oozietest
-        1>
+    ```output
+    locale is "en_US.UTF-8"
+    locale charset is "UTF-8"
+    using default charset "UTF-8"
+    Default database being set to oozietest
+    1>
+    ```
 
 3. En el símbolo del sistema `1>` , introduzca las líneas siguientes:
 
@@ -268,8 +272,10 @@ Las definiciones de flujo de trabajo de Oozie se escriben en lenguaje de definic
 
     El resultado debe ser parecido al texto siguiente:
 
-        TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
-        oozietest       dbo             mobiledata      BASE TABLE
+    ```output
+    TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
+    oozietest       dbo             mobiledata      BASE TABLE
+    ```
 
 4. Para salir de la utilidad tsql, escriba `exit` en el símbolo `1>`.
 
@@ -424,20 +430,22 @@ Los pasos siguientes usan el comando Oozie para enviar y administrar flujos de t
 
     Esto devuelve información similar al siguiente texto:
 
-        Job ID : 0000005-150622124850154-oozie-oozi-W
-        ------------------------------------------------------------------------------------------------------------------------------------
-        Workflow Name : useooziewf
-        App Path      : wasb:///tutorials/useoozie
-        Status        : PREP
-        Run           : 0
-        User          : USERNAME
-        Group         : -
-        Created       : 2015-06-22 15:06 GMT
-        Started       : -
-        Last Modified : 2015-06-22 15:06 GMT
-        Ended         : -
-        CoordAction ID: -
-        ------------------------------------------------------------------------------------------------------------------------------------
+    ```output
+    Job ID : 0000005-150622124850154-oozie-oozi-W
+    ------------------------------------------------------------------------------------------------------------------------------------
+    Workflow Name : useooziewf
+    App Path      : wasb:///tutorials/useoozie
+    Status        : PREP
+    Run           : 0
+    User          : USERNAME
+    Group         : -
+    Created       : 2015-06-22 15:06 GMT
+    Started       : -
+    Last Modified : 2015-06-22 15:06 GMT
+    Ended         : -
+    CoordAction ID: -
+    ------------------------------------------------------------------------------------------------------------------------------------
+    ```
 
     Este trabajo tiene un estado de `PREP`. Este estado indica que el trabajo se creó, pero no se inició.
 
@@ -464,14 +472,16 @@ Los pasos siguientes usan el comando Oozie para enviar y administrar flujos de t
 
     La información devuelta es similar al texto siguiente:
 
-        deviceplatform  count
-        Android 31591
-        iPhone OS       22731
-        proprietary development 3
-        RIM OS  3464
-        Unknown 213
-        Windows Phone   1791
-        (6 rows affected)
+    ```output
+    deviceplatform  count
+    Android 31591
+    iPhone OS       22731
+    proprietary development 3
+    RIM OS  3464
+    Unknown 213
+    Windows Phone   1791
+    (6 rows affected)
+    ```
 
 Para más información acerca del comando Oozie, consulte [Herramienta de línea de comandos de Apache Oozie](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
 

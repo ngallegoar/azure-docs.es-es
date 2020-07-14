@@ -6,18 +6,31 @@ author: Daya-Patil
 manager: carmonm
 ms.topic: article
 ms.service: site-recovery
-ms.date: 10/16/2019
+ms.date: 6/4/2020
 ms.author: dapatil
-ms.openlocfilehash: bf32809f426f3bfcabd08ec3bd95e76202aa8f84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: feb4f6a24653aca8da825af90341c8016255e8b6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72433416"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133810"
 ---
 # <a name="azure-site-recovery-deployment-planner-version-history"></a>Historial de versiones de Azure Site Recovery Deployment Planner
 
 En este artículo se proporciona el historial de todas las versiones de Azure Site Recovery Deployment Planner, junto con las correcciones y limitaciones conocidas de cada una de ellas, así como sus fechas de lanzamiento.
+
+## <a name="version-252"></a>Versión 2.52
+
+**Fecha de lanzamiento: 4 de junio de 2020**
+
+**Correcciones:**
+
+- Se agregó compatibilidad para vCenter 7.0.
+- Se agregó compatibilidad para los siguientes sistemas operativos:
+
+    - SUSE Linux Enterprise 15 (con todas las versiones secundarias)
+    - Red Hat Enterprise Linux 8 (con todas las versiones secundarias)
+
 
 ## <a name="version-251"></a>Versión 2.51
 
@@ -156,7 +169,7 @@ Para más información, consulte [Compatibilidad con discos de gran tamaño en A
 
 **Limitaciones conocidas:**
 
-- Se admite solo para los escenarios de recuperación ante desastres de VMware a Azure. En los escenarios de recuperación ante desastres de Hyper-V a Azure, use la [herramienta de planeamiento de la capacidad de Hyper-V](./site-recovery-capacity-planning-for-hyper-v-replication.md).
+- Se admite solo para los escenarios de recuperación ante desastres de VMware a Azure. En los escenarios de recuperación ante desastres de Hyper-V a Azure, use la [herramienta de planeamiento de la capacidad de Hyper-V](./hyper-v-deployment-planner-overview.md).
 - No se admite la operación GetThroughput en las regiones de Microsoft Azure US Government y China.
 - La herramienta no puede generar perfiles de máquinas virtuales si el servidor vCenter tiene dos, o más, máquinas virtuales con el mismo nombre o dirección IP entre los distintos hosts de ESXi.
 En esta versión, la herramienta omite la generación de perfiles de los nombres o direcciones IP de máquinas virtuales duplicados de VMListFile. La solución alternativa consiste en generar perfiles de las máquinas virtuales mediante un host de ESXi, en lugar del servidor vCenter. Asegúrese de ejecutar una instancia para cada host de ESXi.

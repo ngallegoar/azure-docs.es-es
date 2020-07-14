@@ -3,12 +3,12 @@ title: 'Tutorial: Creación de una definición de directiva personalizada'
 description: En este tutorial, creará una definición de directiva personalizada para Azure Policy para aplicar reglas de negocio personalizadas a los recursos de Azure.
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: f8702e84923762b2f417eee882a473228d6bafb8
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 5eee969257f5cf640ce82fbda9877974207c87af
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888153"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044624"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Creación de una definición de directiva personalizada
 
@@ -53,7 +53,7 @@ En función de las necesidades de la organización, el recurso de Azure que se v
 Hay muchas maneras de determinar las propiedades de un recurso de Azure. Se analizará cada una de ellas en este tutorial:
 
 - Extensión de Azure Policy para VS Code
-- Plantillas de Resource Manager
+- Plantillas de Azure Resource Manager (plantillas de ARM)
   - Exportar un recurso existente
   - Experiencia de creación
   - Plantillas de inicio rápido (GitHub)
@@ -64,9 +64,9 @@ Hay muchas maneras de determinar las propiedades de un recurso de Azure. Se anal
 
 La [extensión de VS Code](../how-to/extension-for-vscode.md#search-for-and-view-resources) se puede usar para examinar los recursos de su entorno y ver las propiedades de Resource Manager en cada recurso.
 
-### <a name="resource-manager-templates"></a>Plantillas de Resource Manager
+### <a name="arm-templates"></a>Plantillas de ARM
 
-Hay varias maneras de examinar una [plantilla de Resource Manager](../../../azure-resource-manager/templates/template-tutorial-create-encrypted-storage-accounts.md) que incluye la propiedad que quiere administrar.
+Hay varias maneras de examinar una [plantilla de Resource Manager](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) que incluye la propiedad que quiere administrar.
 
 #### <a name="existing-resource-in-the-portal"></a>Recurso existente en el portal
 
@@ -148,8 +148,7 @@ Las [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quick
 
 #### <a name="resource-reference-docs"></a>Documentos de referencia de recursos
 
-Para validar que **supportsHttpsTrafficOnly** es la propiedad correcta, compruebe la referencia de la plantilla de Resource Manager correspondiente al [recurso de cuenta de almacenamiento](/azure/templates/microsoft.storage/2018-07-01/storageaccounts) en el proveedor de almacenamiento.
-El objeto de propiedades tiene una lista de parámetros válidos. Al seleccionar el vínculo [StorageAccountPropertiesCreateParameters-object](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) se muestra una tabla de propiedades aceptables. **supportsHttpsTrafficOnly** existe y la descripción coincide con lo que se busca para satisfacer los requisitos empresariales.
+Para validar que **supportsHttpsTrafficOnly** es la propiedad correcta, compruebe la referencia de la plantilla de Resource Manager correspondiente al [recurso de cuenta de almacenamiento](/azure/templates/microsoft.storage/2018-07-01/storageaccounts) en el proveedor de almacenamiento. El objeto de propiedades tiene una lista de parámetros válidos. Al seleccionar el vínculo [StorageAccountPropertiesCreateParameters-object](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) se muestra una tabla de propiedades aceptables. **supportsHttpsTrafficOnly** existe y la descripción coincide con lo que se busca para satisfacer los requisitos empresariales.
 
 ### <a name="azure-resource-explorer"></a>Azure Resource Explorer
 

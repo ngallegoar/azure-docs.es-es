@@ -103,6 +103,8 @@
       href: howto-import-export-data.md
     - name: Enrutamiento de eventos a un punto de conexión personalizado
       href: howto-app-configuration-event.md
+    - name: Copia de seguridad automática del almacén de configuración
+      href: howto-backup-config-store.md
     - name: Procedimientos recomendados
       href: howto-best-practices.md
 - name: Referencia

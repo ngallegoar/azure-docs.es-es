@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: 1c6b7cfbf193f02598052b6922efec17fb16ec83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3a1ac6dd940ea5d31adae45a435c5425497362b1
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75973689"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135779"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replicación de máquinas virtuales de Azure en otra región de Azure
 
@@ -50,7 +50,7 @@ Habilite la replicación. En este procedimiento se supone que la región princip
        - Si el grupo de recursos creado por Site Recovery ya existe, se vuelve a usar.
        - Puede personalizar la configuración del grupo de recursos.
        - La ubicación del grupo de recursos de destino puede ser cualquier región de Azure excepto la región en la que se hospedan las máquinas virtuales de origen.
-   - **Red virtual de destino**: De forma predeterminada, Site Recovery crea una nueva red virtual en la región de destino con un sufijo "asr" en el nombre. Esta se asigna a la red de origen y se usa para todas las protecciones futuras. [más información](site-recovery-network-mapping-azure-to-azure.md) sobre la asignación de red.
+   - **Red virtual de destino**: De forma predeterminada, Site Recovery crea una nueva red virtual en la región de destino con un sufijo "asr" en el nombre. Esta se asigna a la red de origen y se usa para todas las protecciones futuras. [más información](./azure-to-azure-network-mapping.md) sobre la asignación de red.
    - **Cuentas de almacenamiento de destino (la máquina virtual de origen no usa discos administrados)** : de forma predeterminada, Site Recovery crea una cuenta de almacenamiento de destino mediante la imitación de la configuración de almacenamiento de la máquina virtual de origen. En caso de que ya exista una cuenta de almacenamiento, esta se vuelve a usar.
    - **Discos administrados de réplica (la máquina virtual de origen usa discos administrados)** : Site Recovery crea nuevos discos administrados de réplica en la región de destino para reflejar los discos administrados de la máquina virtual de origen con el mismo tipo de almacenamiento (Estándar o Premium) que el disco administrado de la máquina virtual de origen.
    - **Cuentas de almacenamiento en caché**: Site Recovery necesita una cuenta de almacenamiento adicional denominada almacenamiento en caché en la región de origen. Todos los cambios que se producen en las máquinas virtuales de origen se siguen y se envían a la cuenta de almacenamiento en caché antes de su replicación en la ubicación de destino. Esta cuenta de almacenamiento debe ser Estándar.
@@ -117,8 +117,9 @@ Puede modificar la configuración de destino predeterminada utilizada por Site R
 6. Después de que las máquinas virtuales están habilitadas para la replicación, puede comprobar el estado de mantenimiento de las máquinas virtuales en **Elementos replicados**.
 
 >[!NOTE]
->Durante la replicación inicial, el estado de la máquina virtual puede tardar un tiempo en actualizarse, sin ningún progreso. Haga clic en el botón **Actualizar** para ver el estado más reciente.
 >
+> - Durante la replicación inicial, el estado de la máquina virtual puede tardar un tiempo en actualizarse, sin ningún progreso. Haga clic en el botón **Actualizar** para ver el estado más reciente.
+> - Si no se ha generado ningún punto de recuperación en los últimos 60 minutos, el mantenimiento de replicación de la máquina virtual será crítico.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

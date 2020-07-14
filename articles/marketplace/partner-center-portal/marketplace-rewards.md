@@ -2,18 +2,16 @@
 title: 'Marketplace Rewards: las ventajas de Marketplace comercial | Azure'
 description: Marketplace Rewards está diseñado para ayudarle en su fase específica de crecimiento.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
-author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 01/18/2019
-ms.author: evansma
-ms.openlocfilehash: 3d250ce3960bdc7687babb08ee6a6c52bb2cd15d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e393b6a499ad2b84f25ca1a1c062ca4ef2eec21c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195767"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120745"
 ---
 # <a name="marketplace-rewards"></a>Recompensas de Marketplace
 
@@ -21,7 +19,7 @@ Las Recompensas de Marketplace están diseñadas para ayudarlo en su fase de cre
 
 El programa crea un bucle de retroalimentación positivo: las ventajas de cada fase de crecimiento están diseñadas para llevarle hasta la fase siguiente, lo que le permite llevar el negocio a los clientes de Microsoft, con el campo de Microsoft, y a través del canal de Microsoft mediante el aprovechamiento de Marketplace comercial como plataforma. 
 
-Sus ventajas se diferencian en función de si la oferta es de [Lista, Prueba o Transacción](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#choose-a-publishing-option).
+Sus ventajas se diferencian en función de si la oferta es de [Lista, Prueba o Transacción](../determine-your-listing-type.md#choose-a-publishing-option).
 
 Un miembro del equipo de Recompesas se pondrá en contacto con usted cuando se publique la oferta, en función de su idoneidad. 
 

@@ -1,20 +1,20 @@
 ---
-title: Obtener soporte técnico para el portal de Marketplace comercial en el Centro de partners
+title: Obtención de soporte técnico para el portal de marketplace comercial en el Centro de partners
 description: Obtenga información acerca de las opciones de soporte técnico en el Centro de partners, incluida la forma de presentar una solicitud de soporte técnico.
-author: qianw211
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/07/2020
-ms.openlocfilehash: fd7582877a74aa998de3a6d0a0f38e56c3c3af91
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 01c93c046a78db70a237ddf1d4514938fd4e40ac
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81733112"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109100"
 ---
-# <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Soporte técnico para el programa Marketplace comercial en el Centro de partners
+# <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Soporte técnico para el programa de marketplace comercial en el Centro de partners
 
 Microsoft ofrece soporte para una amplia variedad de productos y servicios. Encontrar el equipo de soporte técnico correcto es importante para garantizar una respuesta oportuna y adecuada. Considere los siguientes escenarios que le ayudarán a dirigir su consulta al equipo adecuado: 
 
@@ -40,7 +40,7 @@ Microsoft ofrece soporte para una amplia variedad de productos y servicios. Enco
 
 5. Seleccione **[Foro de la Comunidad de partners de Marketplace](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** para responder sus preguntas aprovechando el conocimiento de otros anunciantes de Microsoft. 
 
-6. Seleccione **[Ayuda adicional](https://partner.microsoft.com/support/v2/?stage=1)** para abrir un vale **Nueva solicitud de soporte técnico**.  
+6. Seleccione **[Ayuda adicional](https://aka.ms/marketplacepublishersupport)** para abrir un vale **Nueva solicitud de soporte técnico**.  
 
 ## <a name="how-to-open-a-support-ticket"></a>Cómo abrir una incidencia de soporte técnico
 

@@ -5,14 +5,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.date: 05/06/2020
-ms.openlocfilehash: cbc2104ae3c55ae3670867b7a253d812f3a4be0e
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.topic: how-to
+ms.date: 06/30/2020
+ms.openlocfilehash: 805be8d5c9ab4f6316251adbb9bce3e99f4fa01d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82868281"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086677"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Configuración de una aplicación virtual de red en Azure HDInsight
 
@@ -21,13 +21,14 @@ ms.locfileid: "82868281"
 
 Azure Firewall está configurado automáticamente para permitir el tráfico para muchos de los escenarios comunes más importantes. Si usa otra aplicación virtual de red, tendrá que configurar algunas características adicionales. Tenga en cuenta los siguientes factores al configurar la aplicación virtual de red:
 
-* Los servicios compatibles con puntos de conexión de servicio deben configurarse con puntos de conexión de servicio.
+* Los servicios que admiten puntos de conexión de servicio pueden configurarse con puntos de conexión de servicio, lo que provoca la omisión de NVA, normalmente para consideraciones de costos o rendimiento.
 * Las dependencias de dirección IP son para tráfico que no sea HTTP/HTTPS (tráfico TCP y UDP).
-* Los puntos de conexión HTTP/HTTPS de FQDN se pueden colocar en el dispositivo NVA.
-* Los puntos de conexión HTTP/HTTPS de carácter comodín son dependencias que pueden variar en función de varios calificadores.
+* Los puntos de conexión HTTP/HTTPS de FQDN se pueden incluir en la lista blanca del dispositivo NVA.
 * Asigne la tabla de rutas que creó a la subred de HDInsight.
 
 ## <a name="service-endpoint-capable-dependencies"></a>Dependencias compatibles con los puntos de conexión de servicio
+
+Opcionalmente, puede habilitar uno o varios de los siguientes puntos de conexión de servicio, lo que provocará que se omita el NVA. Esta opción puede ser útil para grandes cantidades de transferencias de datos con el fin de ahorrar costos y también para optimizar el rendimiento. 
 
 | **Punto de conexión** |
 |---|
@@ -39,33 +40,19 @@ Azure Firewall está configurado automáticamente para permitir el tráfico para
 
 | **Punto de conexión** | **Detalles** |
 |---|---|
-| \*:123 | Comprobación de reloj NTP. El tráfico se comprueba en varios puntos de conexión en el puerto 123. |
-| Las direcciones IP se publican [aquí](hdinsight-management-ip-addresses.md) | Estas direcciones IP son el servicio HDInsight |
-| Direcciones IP privadas de AAD-DS para clústeres de ESP |
-| \*:16800 para la activación de Windows de KMS |
-| \*12000 para Log Analytics |
+| Las direcciones IP se publican [aquí](hdinsight-management-ip-addresses.md) | Estas direcciones IP sirven para el plano de control de HDInsight y deben incluirse en el UDR para evitar el enrutamiento asimétrico. |
+| Direcciones IP privadas de AAD-DS | Solo es necesario para los clústeres de ESP.|
+
 
 ### <a name="fqdn-httphttps-dependencies"></a>Dependencias HTTP/HTTPS de FQDN
 
 > [!Important]
-> La lista siguiente proporciona solo algunos de los FQDN más importantes. Puede obtener FQDN adicionales (principalmente, Azure Storage y Azure Service Bus) para configurar NVA [en este archivo](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
+> La lista siguiente proporciona solo algunos de los FQDN más importantes. Puede obtener la lista completa de FQDN (principalmente, Azure Storage y Azure Service Bus) para configurar NVA [en este archivo](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json). Estas dependencias las usan las operaciones del plano de control de HDInsight para crear un clúster correctamente.
 
 | **Punto de conexión**                                                          |
 |---|
 | azure.archive.ubuntu.com:80                                           |
 | security.ubuntu.com:80                                                |
-| ocsp.msocsp.com:80                                                    |
-| ocsp.digicert.com:80                                                  |
-| wawsinfraprodbay063.blob.core.windows.net:443                         |
-| registry-1.docker.io:443                                              |
-| auth.docker.io:443                                                    |
-| production.cloudflare.docker.com:443                                  |
-| download.docker.com:443                                               |
-| us.archive.ubuntu.com:80                                              |
-| download.mono-project.com:80                                          |
-| packages.treasuredata.com:80                                          |
-| security.ubuntu.com:80                                                |
-| azure.archive.ubuntu.com:80                                           |
 | ocsp.msocsp.com:80                                                    |
 | ocsp.digicert.com:80                                                  |
 

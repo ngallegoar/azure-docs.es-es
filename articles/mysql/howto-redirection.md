@@ -4,21 +4,27 @@ description: En este artículo se describe cómo puede configurar la aplicación
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 608206ed1c1ffe1015f579d69868385ebd32208c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.topic: how-to
+ms.date: 6/8/2020
+ms.openlocfilehash: be660101a28d5ef289de1b25f8f7d33fbe9f617b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660279"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107825"
 ---
 # <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Conexión a Azure Database for MySQL con redireccionamiento
 
 En este tema se explica cómo conectar una aplicación del servidor de Azure Database for MySQL con modo de redireccionamiento. El redireccionamiento pretende reducir la latencia de red entre las aplicaciones cliente y los servidores MySQL al permitir que las aplicaciones se conecten directamente a los nodos del servidor back-end.
 
 ## <a name="before-you-begin"></a>Antes de empezar
-Inicie sesión en [Azure Portal](https://portal.azure.com). Cree un servidor de Azure Database for MySQL con la versión de motor 5.6, 5.7 u 8.0. Para obtener más información, consulte [Creación de un servidor de Azure Database for MySQL con Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md) o [Creación de un servidor de Azure Database for MySQL con la CLI de Azure](quickstart-create-mysql-server-database-using-azure-cli.md).
+Inicie sesión en [Azure Portal](https://portal.azure.com). Cree un servidor de Azure Database for MySQL con la versión de motor 5.6, 5.7 u 8.0. 
+
+Para obtener información detallada sobre cómo crear un servidor de Azure Database for MySQL mediante [Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md) o la [CLI de Azure](quickstart-create-mysql-server-database-using-azure-cli.md).
+
+## <a name="enable-redirection"></a>Habilitación del redireccionamiento
+
+En el servidor de Azure Database for MySQL, configure el parámetro `redirect_enabled` en `ON` para permitir conexiones con el modo de redireccionamiento. Para actualizar este parámetro del servidor, use [Azure Portal](howto-server-parameters.md) o la [CLI de Azure](howto-configure-server-parameters-using-cli.md).
 
 ## <a name="php"></a>PHP
 
@@ -48,7 +54,7 @@ En las secciones siguientes del documento se describe cómo instalar la extensi�
 
 ### <a name="ubuntu-linux"></a>Ubuntu Linux
 
-#### <a name="prerequisites"></a>Prerrequisitos 
+#### <a name="prerequisites"></a>Requisitos previos 
 - Versiones de PHP 7.2.15 y posterior y 7.3.2 y posterior.
 - PHP PEAR 
 - php-mysql
@@ -87,7 +93,7 @@ En las secciones siguientes del documento se describe cómo instalar la extensi�
 
 ### <a name="windows"></a>Windows
 
-#### <a name="prerequisites"></a>Prerrequisitos 
+#### <a name="prerequisites"></a>Requisitos previos 
 - Versiones de PHP 7.2.15 y posterior y 7.3.2 y posterior.
 - php-mysql
 - Servidor de Azure Database for MySQL

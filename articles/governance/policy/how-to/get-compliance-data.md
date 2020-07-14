@@ -3,12 +3,12 @@ title: Obtención de datos de cumplimiento de directiva
 description: Las evaluaciones y los efectos de Azure Policy determinan el cumplimiento. Obtenga información sobre cómo obtener los detalles de cumplimiento de los recursos de Azure.
 ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: e4d63355b793f69ccc2ed7aaa44bfb60a3a8440e
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 53c946c59862451859616cb87d1101ae8fd5f15b
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204844"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045202"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtención de datos de cumplimiento de los recursos de Azure
 
@@ -34,7 +34,7 @@ Las evaluaciones de directivas asignadas e iniciativas se producen como resultad
 
 - Una directiva o iniciativa que ya está asignada a un ámbito se actualiza. El ciclo de evaluación y control de tiempo en este escenario es el mismo que para una nueva asignación a un ámbito.
 
-- Un recurso se implementa en un ámbito con una asignación a través del Administrador de recursos, REST, CLI de Azure o Azure PowerShell. En este escenario, el evento de efecto (anexar, auditar, denegar, implementar) y la información de estado de cumplimiento para el recurso individual están disponibles en el portal y en los SDK unos 15 minutos más tarde. Este evento no causa una evaluación de otros recursos.
+- Un recurso se implementa en un ámbito con una asignación a través de Azure Resource Manager, REST, la CLI de Azure o Azure PowerShell. En este escenario, el evento de efecto (anexar, auditar, denegar, implementar) y la información de estado de cumplimiento para el recurso individual están disponibles en el portal y en los SDK unos 15 minutos más tarde. Este evento no causa una evaluación de otros recursos.
 
 - Ciclo de evaluación de cumplimiento estándar. Una vez cada 24 horas, las asignaciones se vuelven a evaluar automáticamente. Una directiva o iniciativa grande de muchos recursos puede tardar bastante tiempo, por lo que no hay una predicción de cuándo se completará el ciclo de evaluación. Una vez completado, los resultados de cumplimiento actualizados están disponibles en el portal y en los SDK.
 
@@ -87,7 +87,7 @@ En cada identificador URI de la API REST, hay variables usadas que se deben reem
 
 El examen admite la evaluación de recursos de una suscripción o de un grupo de recursos. Inicie un examen para el ámbito con un comando **POST** de API REST mediante las siguientes estructuras de URI:
 
-- Subscription
+- Suscripción
 
   ```http
   POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2019-10-01
@@ -429,7 +429,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Registros de Azure Monitor
 
-Si tiene un [área de trabajo de Log Analytics](../../../log-analytics/log-analytics-overview.md) con `AzureActivity` de la [solución Activity Log Analytics](../../../azure-monitor/platform/activity-log-collect.md) vinculada a su suscripción, también puede ver los resultados de no cumplimiento del ciclo de evaluación mediante consultas sencillas de Kusto y la tabla `AzureActivity`. Con los detalles de los registros de Azure Monitor, se pueden configurar alertas para comprobar la opción de no compatibilidad.
+Si tiene un [área de trabajo de Log Analytics](../../../azure-monitor/log-query/log-query-overview.md) con `AzureActivity` de la [solución Activity Log Analytics](../../../azure-monitor/platform/activity-log.md) vinculada a su suscripción, también puede ver los resultados de no cumplimiento del ciclo de evaluación mediante consultas sencillas de Kusto y la tabla `AzureActivity`. Con los detalles de los registros de Azure Monitor, se pueden configurar alertas para comprobar la opción de no compatibilidad.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Cumplimiento de Azure Policy mediante registros de Azure Monitor" border="false":::
 

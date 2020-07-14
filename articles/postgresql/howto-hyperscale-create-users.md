@@ -5,14 +5,14 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 1/8/2019
-ms.openlocfilehash: 684116f92544e61a892b3653f8539f9f8f03e0c9
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 85366b8b3e3ba7d612373e6b754aa9805d00f8f5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584087"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116971"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Crear usuarios en Azure Database for PostgreSQL - Hiperescala (Citus)
 
@@ -66,16 +66,11 @@ Por ejemplo, para permitir que `db_user` lea `mytable`, conceda el permiso:
 GRANT SELECT ON mytable TO db_user;
 ```
 
-Hiperescala (Citus) propaga las instrucciones GRANT de tabla única a través de todo el clúster y las aplica a todos los nodos de trabajo. Sin embargo, las instrucciones GRANT que abarcan todo el sistema (por ejemplo, todas las tablas de un esquema) deben ejecutarse en cada nodo de fecha.  Use la función auxiliar `run_command_on_workers()`:
+Hiperescala (Citus) propaga las instrucciones GRANT de tabla única a través de todo el clúster y las aplica a todos los nodos de trabajo. También propaga instrucciones GRANT que están en todo el sistema (por ejemplo, para todas las tablas de un esquema):
 
 ```sql
--- applies to the coordinator node
+-- applies to the coordinator node and propagates to workers
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
-
--- make it apply to workers as well
-SELECT run_command_on_workers(
-  'GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;'
-);
 ```
 
 ## <a name="how-to-delete-a-user-role-or-change-their-password"></a>Cómo eliminar un rol de usuario o cambiar su contraseña

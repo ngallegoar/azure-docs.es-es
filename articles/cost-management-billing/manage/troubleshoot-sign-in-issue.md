@@ -6,15 +6,15 @@ author: v-miegge
 manager: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/12/2020
+ms.topic: troubleshooting
+ms.date: 06/05/2020
 ms.author: v-miegge
-ms.openlocfilehash: e424a3d0e46f0dc154809eba501d2339bc94b1f5
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 15dc25c3092f0bbf1a79f107f9d5ca87fa896bee
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85806710"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102521"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Solución de problemas de inicio de sesión en la suscripción a Azure
 
@@ -32,12 +32,12 @@ Si la página del explorador de Internet se bloquea, pruebe cada uno de los sigu
 - Use el modo de exploración privado en el explorador:
 
    - **Edge:** abra **Configuración** (los tres puntos que están al lado de la imagen del perfil), seleccione **Ventana InPrivate nueva**y, después, busque e inicie sesión en [Azure Portal](https://portal.azure.com/) o en el [Centro de cuentas de Azure](https://account.azure.com/Subscriptions). 
-   - **Chrome:** Elija el modo**Incógnito**.
+   - **Chrome:** elija el modo**Incógnito**.
    - **Safari:** Elija **File** (Archivo) y, después, **New Private Window** (Nueva ventana privada).
 
 - Borre la memoria caché y elimine las cookies de Internet:
 
-   - **Edge:** Abra **Configuración** y seleccione **Privacidad y servicios**. Siga los pasos descritos en **Borrar datos de exploración**. Compruebe que las casillas **Historial de exploración**, **Historial de descargas**e **Imágenes y archivos en caché** están seleccionadas y, después, seleccione **Eliminar**.
+   - **Edge:** abra **Configuración** y seleccione **Privacidad y servicios**. Siga los pasos descritos en **Borrar datos de exploración**. Compruebe que las casillas **Historial de exploración**, **Historial de descargas**e **Imágenes y archivos en caché** están seleccionadas y, después, seleccione **Eliminar**.
    - **Chrome:** Elija **Settings** (Configuración) y seleccione **Clear browsing data** (Borrar datos de exploración) en **Privacy and Security** (Privacidad y seguridad).
 
 ## <a name="you-are-automatically-signed-in-as-a-different-user"></a>Inicia sesión automáticamente con un usuario diferente

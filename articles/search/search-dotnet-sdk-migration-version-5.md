@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 32749037ac0abe3c55878c3adaaeff48183ae685
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81159b1d19c4c5d46b223158df3ba2c81665c7d7
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080413"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171914"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-5"></a>Actualización a la versión 5 del SDK de .NET para Azure Search
 
@@ -48,7 +48,9 @@ Una vez que NuGet ha descargado los nuevos paquetes y sus dependencias, recompil
 
 Si se produce un error en la compilación, verá un mensaje similar al siguiente:
 
-    The name 'SuggesterSearchMode' does not exist in the current context
+```output
+The name 'SuggesterSearchMode' does not exist in the current context
+```
 
 El paso siguiente consiste en corregir los errores de compilación. Consulte [Cambios importantes en la versión 5](#ListOfChanges) para más información sobre las causas del error y cómo corregirlo.
 

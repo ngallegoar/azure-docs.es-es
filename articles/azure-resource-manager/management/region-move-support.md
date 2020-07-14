@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 05/31/2020
 ms.author: raynew
-ms.openlocfilehash: 2f59bbb4711d79fdcb59e39378c25c031ac68af8
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 0510df504c8de70cfb6a486f394db6da65dbfce2
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84249066"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057694"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Compatibilidad con el movimiento de recursos de Azure entre regiones
 
@@ -249,14 +249,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimiento de región | 
 > | ------------- | ----------- |
-> | batchaccounts |  Sí (con una plantilla)<br/><br/> [Movimiento de cuentas de Batch entre regiones](../../batch/best-practices.md#moving-batch-accounts-across-regions) |
+> | batchaccounts |  Las cuentas de Batch no se pueden migrar directamente de una región a otra, pero puede usar una plantilla para exportar una plantilla, modificarla e implementarla en la nueva región. <br/><br/> Más información sobre [cómo mover una cuenta de Batch entre regiones](../../batch/best-practices.md#moving-batch-accounts-across-regions). |
 
 ## <a name="microsoftbatchai"></a>Microsoft.BatchAI
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimiento de región | 
 > | ------------- | ----------- |
-> | clusters | No | 
+> | clusters | No <br/><br/> El servicio Azure Batch AI se ha [retirado](/previous-versions/azure/batch-ai/overview-what-happened-batch-ai).
 > | fileservers | No | 
 > | jobs | No | 
 > | workspaces | No | 
@@ -280,7 +280,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimiento de región | 
 > | ------------- | ----------- |
-> | blockchainmembers | No |
+> | blockchainmembers | No <br/><br/> La red de cadena de bloques no puede tener nodos en regiones diferentes. 
 > | watchers | No | 
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
@@ -327,7 +327,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimiento de región | 
 > | ------------- | ----------- |
-> | domainnames | No |  
+> | domainnames | No se prevé ningún trabajo para los servicios clásicos.
 > | virtualmachines | No | 
 
 
@@ -337,7 +337,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimiento de región | 
 > | ------------- | ----------- |
-> | networksecuritygroups | No |
+> | networksecuritygroups | No se prevé ningún trabajo para los servicios clásicos.
 > | reservedips | No | 
 > | virtualnetworks | No | 
 
@@ -355,7 +355,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Movimiento de región | 
 > | ------------- | ----------- |
 > | accounts | No | 
-> | Cognitive Search | Sí (con una plantilla)<br/><br/> [Traslado del servicio Azure Cognitive Search a otra región de Azure](../../search/search-howto-move-across-regions.md)
+> | Cognitive Search | Se admite con pasos manuales.<br/><br/> Más información sobre cómo [mover el servicio Azure Cognitive Search a otra región](../../search/search-howto-move-across-regions.md).
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
@@ -410,7 +410,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimiento de región | 
 > | ------------- | ----------- |
-> | containerservices | No | 
+> | containerservices | No.<br/><br/> El servicio se ha [retirado](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/).
 > | managedclusters | No | 
 > | openshiftmanagedclusters | No | 
 
@@ -543,7 +543,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimiento de región | 
 > | ------------- | ----------- |
-> | servers | No |  
+> | servers | Si el servicio se aprovisiona con almacenamiento de copia de seguridad con redundancia geográfica, puede usar la restauración geográfica para restaurar en otras regiones. [Más información](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage)
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
@@ -578,9 +578,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimiento de región | 
 > | ------------- | ----------- |
-> | elasticpools | No | 
-> | elasticpools/iothubtenants | No | 
-> | iothubs | Sí | 
+> | elasticpools | No. El recurso no está expuesto.
+> | elasticpools/iothubtenants | No. El recurso no está expuesto.
+> | iothubs | Sí. [Más información](../../iot-hub/iot-hub-how-to-clone.md)
 > | provisioningservices | No | 
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
@@ -715,7 +715,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimiento de región | 
 > | ------------- | ----------- |
-> | checknameavailability |  No
+> | checknameavailability |  No.<br/><br/> IoT Central funciona con zonas geográficas y no con regiones.
 > | graph | No
 
 ## <a name="microsoftiothub"></a>Microsoft.IoTHub
@@ -768,7 +768,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimiento de región | 
 > | ------------- | ----------- |
-> | accounts | No | 
+> | accounts | No, es un servicio global.
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
@@ -842,14 +842,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimiento de región | 
 > | ------------- | ----------- |
-> | accounts |  No |  
+> | accounts |  No, Azure Maps es un servicio geoespacial. 
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimiento de región | 
 > | ------------- | ----------- |
-> | classicdevservices | No | 
+> | classicdevservices | No se prevé ningún trabajo para los servicios clásicos 
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
 
@@ -1011,7 +1011,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimiento de región | 
 > | ------------- | ----------- |
-> | vaults | No. [Deshabilite el almacén y vuelva a crearlo](https://docs.microsoft.com/azure/site-recovery/move-vaults-across-regions) para Site Recovery  | 
+> | vaults | No.<br/><br/> No se admite la migración de almacenes de Recovery Services para Azure Backup entre regiones de Azure.<br/><br/> En almacenes de Recovery Services para Azure Site Recovery, puede [deshabilitar y volver a crear el almacén](../../site-recovery/move-vaults-across-regions.md) en la región de destino. | 
 
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay

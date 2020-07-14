@@ -1,18 +1,18 @@
 ---
 title: 'Detalles de la política de pago: Azure Marketplace'
 description: Detalles relativos a las políticas de pago, incluidas las programaciones y la recuperación.
-author: mingshen
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: mingshen
+ms.author: mingshen
 ms.date: 04/24/2020
-ms.openlocfilehash: 6aa40d0914237a28c7bbd32b15bf0d8d02140192
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: f26e006998b0818ba84fa23ee1941a1033ef205b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82782561"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118297"
 ---
 # <a name="payout-policy-details"></a>Detalles de la política de pago
 
@@ -25,7 +25,7 @@ En el Centro de partners, seleccione **Pago** en la parte superior derecha del p
 ![Se muestra el icono de Pago en la parte superior derecha del portal del Centro de partners.](./media/payout-overview.png)
 
 > [!TIP]
-> No todos los roles de cuenta tienen acceso a la información de pago. Para más información, consulte [Roles y permisos para acceder al informe de pago](./payout-summary.md).
+> No todos los roles de cuenta tienen acceso a la información de pago. Para más información, consulte [Roles y permisos para acceder al informe de pago](./payout-summary-overview.md#roles-and-permissions).
 
 ## <a name="payment-schedules"></a>Programaciones de pago
 
@@ -102,12 +102,12 @@ A continuación, se muestra una programación de ejemplo:
 | Ejemplo de fecha de pago | 15/10/2020 | Se marca como **Enviado** en el historial de transacciones y en la sección de pagos del panel de pago. |
 | <font color="red">Si el cliente no paga a Microsoft</font> | 2/12/2020 – 5/12/2020 | Sin cambios, igual que antes. |
 | El cliente recibe el primer correo electrónico de pago atrasado. | 12/6/2020 | None |
-| El cliente recibe mensajes de correo electrónico periódicos cada vez más urgentes. | 7/12/2020 – 31/1/2020 | None |
-| Es probable que el anunciante reciba una notificación de una probable cancelación. | 7/01/2020 | Notificación por correo electrónico enviada al anunciante de que su cliente aún no ha enviado el pago. Se incluyen el identificador de la transacción y el importe en dólares. |
-| El cliente recibe el aviso de cancelación. | 1/2/2020 | None |
-| El proceso de cobro finaliza o los fondos se cancelan. | 15/2/2020 | Notificación por correo electrónico enviada al anunciante de que los fondos se han cancelado. Se incluyen el identificador de la transacción y el importe en dólares. |
-| El pago se deduce. | 1/3/2020 | El anunciante verá una transacción negativa en la declaración de pago del Centro de partners. |
-| El pago se retiene. | 15/3/2020 | Los pagos futuros se mostrarán en la declaración de pago del Centro de partners. El anunciante no recibirá ningún pago hasta que el saldo deje de ser negativo.  |
+| El cliente recibe mensajes de correo electrónico periódicos cada vez más urgentes. | 07/12/2020 – 31/01/2021 | None |
+| Es probable que el anunciante reciba una notificación de una probable cancelación. | 07/01/2021 | Notificación por correo electrónico enviada al anunciante de que su cliente aún no ha enviado el pago. Se incluyen el identificador de la transacción y el importe en dólares. |
+| El cliente recibe el aviso de cancelación. | 01/02/2021 | None |
+| El proceso de cobro finaliza o los fondos se cancelan. | 15/02/2021 | Notificación por correo electrónico enviada al anunciante de que los fondos se han cancelado. Se incluyen el identificador de la transacción y el importe en dólares. |
+| El pago se deduce. | 01/03/2021 | El anunciante verá una transacción negativa en la declaración de pago del Centro de partners. |
+| El pago se retiene. | 15/03/2021 | Los pagos futuros se mostrarán en la declaración de pago del Centro de partners. El anunciante no recibirá ningún pago hasta que el saldo deje de ser negativo.  |
 |||
 
 ## <a name="next-step"></a>siguiente paso

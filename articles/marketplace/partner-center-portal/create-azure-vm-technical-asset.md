@@ -1,18 +1,18 @@
 ---
 title: Creación de recursos técnicos para máquinas virtuales de Azure
 description: Obtenga información sobre cómo crear y configurar recursos técnicos para una oferta de máquina virtual (VM) en Azure Marketplace.
-author: dannyevers
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: dannyevers
+ms.author: mingshen
 ms.date: 04/13/2020
-ms.openlocfilehash: e126ee2bd4133281195d4a86c5cb6f1c47bbd6ac
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: aee2016b422dcf447dbae047c8a77ae93bf79ab7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266923"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107162"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Creación de recursos técnicos para máquinas virtuales de Azure
 
@@ -48,7 +48,7 @@ Considere la posibilidad de usar uno de los siguientes entornos de scripting par
 
 Además, considere la posibilidad de agregar las herramientas siguientes al entorno de desarrollo:
 
-* [Explorador de Azure Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* [Explorador de Azure Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Visual Studio Code](https://code.visualstudio.com/)
   * Extensión: [Herramientas de Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
   * Extensión: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -63,10 +63,10 @@ Revise las herramientas disponibles en la página [Herramientas de desarrollo de
 
 En esta sección se describen varios aspectos relativos al uso de una base aprobada, como el uso del Protocolo de escritorio remoto (RDP), la selección de un tamaño para la máquina virtual, la instalación de las actualizaciones de Windows más recientes y cómo generalizar la imagen de disco duro virtual.
 
-Las secciones siguientes se centran principalmente en los discos duros virtuales basados en Windows. Para más información sobre cómo crear un VHD basado en Linux, vea [Distribuciones de Linux aprobadas en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+Las secciones siguientes se centran principalmente en los discos duros virtuales basados en Windows. Para más información sobre cómo crear un VHD basado en Linux, vea [Distribuciones de Linux aprobadas en Azure](../../virtual-machines/linux/endorsed-distros.md).
 
 > [!WARNING]
-> Siga las instrucciones de este tema para usar Azure para crear una máquina virtual que contenga un sistema operativo preconfigurado y aprobado. Si esto no es compatible con la solución, es posible crear y configurar una máquina virtual de manera local mediante un sistema operativo aprobado. Después, puede configurarlo y prepararlo para la carga, como se describe en [Preparación de un VHD o un VHDX de Windows antes de cargarlo en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+> Siga las instrucciones de este tema para usar Azure para crear una máquina virtual que contenga un sistema operativo preconfigurado y aprobado. Si esto no es compatible con la solución, es posible crear y configurar una máquina virtual de manera local mediante un sistema operativo aprobado. Después, puede configurarlo y prepararlo para la carga, como se describe en [Preparación de un VHD o un VHDX de Windows antes de cargarlo en Azure](../../virtual-machines/windows/prepare-for-upload-vhd-image.md).
 
 ### <a name="select-an-approved-base"></a>Selección de una base aprobada
 
@@ -77,22 +77,22 @@ Seleccione el sistema operativo Windows o Linux como base.
 El VHD del sistema operativo para su imagen de máquina virtual basada en Windows debe basarse en una imagen base aprobada para Azure que contenga Windows Server o SQL Server. Para comenzar, cree una máquina virtual a partir de alguna de las imágenes de Azure Portal:
 
 * Windows Server ([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 Datacenter](https://www.microsoft.com/cloud-platform/windows-server-pricing), [2012 Datacenter](https://www.microsoft.com/cloud-platform/windows-server-pricing), [2008 R2 SP1](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview))
-* [SQL Server 2014](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, Standard, Web)
-* [SQL Server 2012 SP2](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, Standard, Web)
+* [SQL Server 2014](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md) (Enterprise, Standard, Web)
+* [SQL Server 2012 SP2](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md) (Enterprise, Standard, Web)
 
 > [!NOTE]
 > Si usa la versión actual de Azure Portal o Azure PowerShell, las imágenes de Windows Server publicadas a partir del 8 de septiembre de 2014 están aprobadas.
 
 #### <a name="linux"></a>Linux
 
-Azure ofrece una gama de distribuciones de Linux aprobadas. Para obtener una lista actual, vea [Linux en distribuciones aprobadas por Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+Azure ofrece una gama de distribuciones de Linux aprobadas. Para obtener una lista actual, vea [Linux en distribuciones aprobadas por Azure](../../virtual-machines/linux/endorsed-distros.md).
 
 ### <a name="create-vm-in-the-azure-portal"></a>Creación de la máquina virtual en Azure Portal
 
 Siga estos pasos para crear una imagen base de máquina virtual en [Azure Portal](https://ms.portal.azure.com/):
 
 1. Inicie sesión en [Azure Portal](https://ms.portal.azure.com/) con la cuenta Microsoft asociada con la suscripción de Azure que quiera usar para publicar la oferta de máquina virtual.
-2. Cree un grupo de recursos y proporcione el **Nombre del grupo de recursos**, la **Suscripción** y la **Ubicación del grupo de recursos**. Para conocer los detalles, vea [Administrar recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
+2. Cree un grupo de recursos y proporcione el **Nombre del grupo de recursos**, la **Suscripción** y la **Ubicación del grupo de recursos**. Para conocer los detalles, vea [Administrar recursos](../../azure-resource-manager/resource-group-portal.md).
 3. Seleccione **Máquinas virtuales** a la izquierda para mostrar la página de detalles Máquinas virtuales.
 4. Seleccione **+ Agregar** para abrir la **experiencia Crear una máquina virtual**.
 5. Seleccione la imagen en la lista desplegable o haga clic en **Examinar todas las imágenes públicas y privadas** para buscar o examinar todas las imágenes de máquina virtual disponibles.
@@ -106,7 +106,7 @@ Siga estos pasos para crear una imagen base de máquina virtual en [Azure Portal
 
 Azure comienza el aprovisionamiento de la máquina virtual especificada. Puede seguir su progreso si selecciona la pestaña **Máquinas virtuales** de la izquierda. Una vez creada, el estado cambiará a **En ejecución**.
 
-Si tiene dificultades para crear el disco duro virtual basado en Azure, vea [Problemas comunes durante la creación de discos duros virtuales (preguntas frecuentes)](https://docs.microsoft.com/azure/marketplace/partner-center-portal/common-issues-during-vhd-creation).
+Si tiene dificultades para crear el disco duro virtual basado en Azure, vea [Problemas comunes durante la creación de discos duros virtuales (preguntas frecuentes)](common-issues-during-vhd-creation.md).
 
 ### <a name="connect-to-your-azure-vm"></a>Conexión a una máquina virtual de Azure
 
@@ -116,7 +116,7 @@ En esta sección se explica cómo conectarse a las máquinas virtuales (VM) crea
 
 Para conectarse a la máquina virtual basada en Windows hospedada en Azure, use el cliente de escritorio remoto. La mayoría de las versiones de Windows incluyen compatibilidad de forma nativa con el Protocolo de escritorio remoto (RDP). Para otros sistemas operativos, puede encontrar más información sobre los clientes en [Clientes de escritorio remoto](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).
 
-En este artículo se detalla cómo usar la compatibilidad integrada de Windows RDP para conectarse a una VM: [Conexión a una máquina virtual de Azure donde se ejecuta Windows e inicio de sesión en ella](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
+En este artículo se detalla cómo usar la compatibilidad integrada de Windows RDP para conectarse a una VM: [Conexión a una máquina virtual de Azure donde se ejecuta Windows e inicio de sesión en ella](../../virtual-machines/windows/connect-logon.md).
 
 > [!TIP]
 > Puede obtener advertencias de seguridad durante el proceso. Por ejemplo, advertencias como "El archivo .rdp procede de un publicador desconocido" o "No se pueden verificar sus credenciales de usuario". Es seguro hacer caso omiso de estas advertencias.
@@ -130,7 +130,7 @@ Para conectarse a una máquina virtual basada en Linux, necesita un cliente de p
 3. Seleccione el nombre de la máquina virtual a la que quiere conectarse.
 4. Inicie la máquina virtual si aún no se está ejecutando.
 5. Seleccione el nombre de la máquina virtual para abrir su página **Información general**.
-6. Tenga en cuenta la dirección IP pública y el nombre DNS de la máquina virtual (si no se establecen estos valores, debe [Crear una interfaz de red](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#create-a-network-interface)).
+6. Tenga en cuenta la dirección IP pública y el nombre DNS de la VM (si no se establecen estos valores, debe [Crear una interfaz de red](../../virtual-network/virtual-network-network-interface.md#create-a-network-interface)).
 7. Abra la aplicación PuTTY.
 8. En el cuadro de diálogo Configuración de PuTTY, escriba la dirección IP o el nombre DNS de la máquina virtual.
 
@@ -141,7 +141,7 @@ Para conectarse a una máquina virtual basada en Linux, necesita un cliente de p
 
 Si tiene problemas de conexión, vea la documentación del cliente SSH. Por ejemplo, [Capítulo 10: Mensajes de error habituales](https://www.ssh.com/ssh/putty/putty-manuals).
 
-Para obtener información detallada, por ejemplo, cómo agregar un escritorio a una máquina virtual Linux aprovisionada, vea [Instalación y configuración del escritorio remoto para conectarse a una máquina virtual Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop).
+Para obtener información detallada, por ejemplo, cómo agregar un escritorio a una máquina virtual Linux aprovisionada, vea [Instalación y configuración del escritorio remoto para conectarse a una máquina virtual Linux en Azure](../../virtual-machines/linux/use-remote-desktop.md).
 
 ## <a name="create-a-vm-using-your-own-image"></a>Creación de una máquina virtual con su propia imagen
 
@@ -170,7 +170,7 @@ Cree la imagen mediante Azure Portal o Azure PowerShell.
 
     :::image type="content" source="media/avm-custom-deployment.png" alt-text="Se muestra la página Implementación personalizada":::.
 
-3. Pegue esta [plantilla JSON](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-json-template) en el editor y seleccione **Guardar**.
+3. Pegue esta [plantilla JSON](../partner-center-portal/azure-vm-image-certification.md) en el editor y seleccione **Guardar**.
 4. Proporcione los valores de parámetro de las páginas de propiedades **Implementación personalizada** que se muestran.
 
     | Parámetro | Descripción |
@@ -183,7 +183,7 @@ Cree la imagen mediante Azure Portal o Azure PowerShell.
     | Tipo de SO | Sistema operativo de la máquina virtual: Windows o Linux |
     | Id. de suscripción | Identificador de la suscripción seleccionada |
     | Location | Ubicación geográfica de la implementación |
-    | Tamaño de VM | [Tamaño de la máquina virtual de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes); por ejemplo, Standard_A2 |
+    | Tamaño de VM | [Tamaño de la máquina virtual de Azure](../../virtual-machines/windows/sizes.md); por ejemplo, Standard_A2 |
     | Nombre de dirección IP pública | Nombre de la dirección IP pública |
     | Nombre de la máquina virtual | Nombre de la nueva máquina virtual |
     | El nombre de la red virtual | Nombre de la red virtual que usa la máquina virtual |
@@ -209,8 +209,8 @@ Azure comenzará la implementación. Crea una máquina virtual con el VHD no adm
 
 Use las instrucciones siguientes que se correspondan con su enfoque:
 
-* Azure PowerShell: [Captura de una imagen administrada de una máquina virtual generalizada en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)
-* CLI de Azure: [Creación de una imagen de una máquina virtual o un disco duro virtual](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image)
+* Azure PowerShell: [Captura de una imagen administrada de una máquina virtual generalizada en Azure](../../virtual-machines/windows/capture-image-resource.md)
+* CLI de Azure: [Creación de una imagen de una máquina virtual o un disco duro virtual](../../virtual-machines/linux/capture-image.md)
 * API: [Virtual Machines - Capture](https://docs.microsoft.com/rest/api/compute/virtualmachines/capture) (Máquinas virtuales: Capture)
 
 ## <a name="configure-the-virtual-machine"></a>Configuración de la máquina virtual
@@ -238,7 +238,7 @@ En distribuciones Linux, las actualizaciones se suelen descargar e instalar medi
 
 ### <a name="perform-additional-security-checks"></a>Realizar comprobaciones de seguridad adicionales
 
-Mantenga un alto nivel de seguridad para las imágenes de la solución en Azure Marketplace. En el siguiente artículo se proporciona una lista de comprobación de las configuraciones y los procedimientos de seguridad para ayudarle: [Recomendaciones de seguridad para imágenes de Azure Marketplace](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images). Algunas de estas recomendaciones son específicas de imágenes basadas en Linux, pero la mayoría se aplica a cualquier imagen de máquina virtual.
+Mantenga un alto nivel de seguridad para las imágenes de la solución en Azure Marketplace. En el siguiente artículo se proporciona una lista de comprobación de las configuraciones y los procedimientos de seguridad para ayudarle: [Recomendaciones de seguridad para imágenes de Azure Marketplace](../../security/security-recommendations-azure-marketplace-images.md). Algunas de estas recomendaciones son específicas de imágenes basadas en Linux, pero la mayoría se aplica a cualquier imagen de máquina virtual.
 
 ### <a name="perform-custom-configuration-and-scheduled-tasks"></a>Realizar una configuración personalizada y tareas programadas
 
@@ -247,7 +247,7 @@ Si es necesaria alguna configuración adicional, use una tarea programada que se
 * Si es una tarea de una ejecución, la tarea debe eliminarse a sí misma una vez que se realice correctamente.
 * Las configuraciones no deben basarse en unidades distintas de C o D, ya que solo se garantiza la existencia continua de estas dos unidades (la unidad C es el disco del sistema operativo y la unidad D es el disco local temporal).
 
-Para obtener más información sobre las personalizaciones de Linux, vea [Características y extensiones de las máquinas virtuales para Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/features-linux).
+Para obtener más información sobre las personalizaciones de Linux, vea [Características y extensiones de las máquinas virtuales para Linux](../../virtual-machines/extensions/features-linux.md).
 
 ## <a name="generalize-the-image"></a>Generalizar la imagen
 
@@ -258,11 +258,11 @@ Todas las imágenes de Azure Marketplace deben ser reutilizables de forma genér
 Los discos de sistema operativo Windows se generalizan con la [herramienta sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview). Si posteriormente actualiza o vuelve a configurar el sistema operativo, debe volver a ejecutar sysprep.
 
 > [!WARNING]
-> Dado que las actualizaciones se pueden ejecutar automáticamente, una vez que ejecute sysprep, desactive la máquina virtual hasta que se implemente. Este apagado evita que las actualizaciones posteriores realicen cambios específicos de la instancia en el sistema operativo o los servicios instalados. Para más información sobre la ejecución de sysprep, vea [Pasos para generalizar un disco duro virtual](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep).
+> Dado que las actualizaciones se pueden ejecutar automáticamente, una vez que ejecute sysprep, desactive la máquina virtual hasta que se implemente. Este apagado evita que las actualizaciones posteriores realicen cambios específicos de la instancia en el sistema operativo o los servicios instalados. Para más información sobre la ejecución de sysprep, vea [Pasos para generalizar un disco duro virtual](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep).
 
 ### <a name="linux"></a>Linux
 
-El siguiente proceso generaliza una máquina virtual Linux y la vuelve a implementar como una máquina virtual independiente. Para obtener información detallada, vea [Creación de una imagen de una máquina virtual o un disco duro virtual](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image). Puede detenerse cuando llegue a la sección "Crear una máquina virtual a partir de la imagen capturada".
+El siguiente proceso generaliza una máquina virtual Linux y la vuelve a implementar como una máquina virtual independiente. Para obtener información detallada, vea [Creación de una imagen de una máquina virtual o un disco duro virtual](../../virtual-machines/linux/capture-image.md). Puede detenerse cuando llegue a la sección "Crear una máquina virtual a partir de la imagen capturada".
 
 1. **Quitar el agente de Linux de Azure**
 
@@ -278,8 +278,8 @@ El siguiente proceso generaliza una máquina virtual Linux y la vuelve a impleme
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si tiene dificultades para crear el disco duro virtual basado en Azure, vea [Common issues during VHD creation](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues) (Problemas comunes durante la creación de discos duros virtuales).
+Si tiene dificultades para crear el disco duro virtual basado en Azure, vea [Common issues during VHD creation](common-issues-during-vhd-creation.md) (Problemas comunes durante la creación de discos duros virtuales).
 
 De lo contrario:
 
-* [Certifique su imagen de máquina virtual](https://docs.microsoft.com/azure/marketplace/partner-center-portal/get-sas-uri): se explica cómo probar y enviar una imagen de máquina virtual para la certificación de Azure Marketplace, incluido dónde obtener la *herramienta de prueba de certificación para la herramienta Azure Certified* y cómo usarla para certificar la imagen de máquina virtual.
+* [Certifique su imagen de máquina virtual](get-sas-uri.md): se explica cómo probar y enviar una imagen de máquina virtual para la certificación de Azure Marketplace, incluido dónde obtener la *herramienta de prueba de certificación para la herramienta Azure Certified* y cómo usarla para certificar la imagen de máquina virtual.

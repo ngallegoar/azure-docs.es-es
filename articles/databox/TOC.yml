@@ -14,30 +14,52 @@
               href: data-box-quickstart-portal.md
         - name: Tutoriales
           items:
-            - name: 1 - Pedido
-              href: data-box-deploy-ordered.md
-            - name: 2 - Configuración
-              href: data-box-deploy-set-up.md
-            - name: 3 - Conexión y copia
+            - name: Importación de datos en Azure
               items:
-                - name: A través de SMB
-                  href: data-box-deploy-copy-data.md
-                - name: A través de NFS
-                  href: data-box-deploy-copy-data-via-nfs.md
-                - name: A través de REST
-                  href: data-box-deploy-copy-data-via-rest.md
-                - name: A través del servicio de copia de datos
-                  href: data-box-deploy-copy-data-via-copy-service.md
-                - name: A discos administrados
-                  href: data-box-deploy-copy-data-from-vhds.md
-            - name: '4 - Devolución, carga y comprobación'
-              href: data-box-deploy-picked-up.md
+                - name: 1 - Pedido
+                  href: data-box-deploy-ordered.md
+                - name: 2 - Configuración
+                  href: data-box-deploy-set-up.md
+                - name: 3 - Conexión y copia
+                  items:
+                    - name: A través de SMB
+                      href: data-box-deploy-copy-data.md
+                    - name: A través de NFS
+                      href: data-box-deploy-copy-data-via-nfs.md
+                    - name: A través de REST
+                      href: data-box-deploy-copy-data-via-rest.md
+                    - name: A través del servicio de copia de datos
+                      href: data-box-deploy-copy-data-via-copy-service.md
+                    - name: A discos administrados
+                      href: data-box-deploy-copy-data-from-vhds.md
+                - name: '4 - Devolución, carga y comprobación'
+                  href: data-box-deploy-picked-up.md
+            - name: Exportar datos de Azure
+              items:
+                - name: 1 - Pedido
+                  href: data-box-deploy-export-ordered.md
+                - name: 2 - Configuración
+                  href: data-box-deploy-set-up.md
+                - name: 3 - Conexión y copia
+                  items:
+                    - name: A través de SMB
+                      href: data-box-deploy-export-copy-data.md
+                    - name: A través de NFS
+                      href: data-box-deploy-export-copy-data-via-nfs.md
+                - name: 4 - Vuelta
+                  href: data-box-deploy-export-picked-up.md
         - name: Conceptos
           items:
             - name: Lectura de las directrices de seguridad
               href: data-box-safety.md
             - name: Revisión del seguimiento y registro
-              href: data-box-logs.md
+              items:
+                - name: Para pedidos de importación
+                  href: data-box-logs.md
+                - name: Para pedidos de exportación
+                  href: data-box-export-logs.md
+            - name: Visualización de registros de auditoría
+              href: data-box-audit-logs.md
             - name: Revisión de los requisitos
               items:
                 - name: Para Data Box
@@ -64,6 +86,8 @@
               href: data-box-portal-customer-managed-shipping.md
             - name: Habilitación de clave administrada por el cliente
               href: data-box-customer-managed-encryption-key-portal.md
+            - name: Uso de la caja de seguridad del cliente
+              href: data-box-customer-lockbox.md
             - name: Traslado de datos a un nivel de blob
               href: data-box-how-to-set-data-tier.md
             - name: Cableado del dispositivo

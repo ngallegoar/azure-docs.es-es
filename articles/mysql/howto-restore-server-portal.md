@@ -4,21 +4,21 @@ description: En este artículo se describe cómo restaurar un servidor en Azure 
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 3/27/2020
-ms.openlocfilehash: 619dc05d709f41941d16764bf32b49a0d2a11958
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: how-to
+ms.date: 6/30/2020
+ms.openlocfilehash: 1a10d61c5dc35a19a8b02769a517d9f1c7aac601
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80372987"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119232"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Copia de seguridad y restauración de un servidor en Azure Database for MySQL mediante Azure Portal
 
 ## <a name="backup-happens-automatically"></a>Las copias de seguridad se realizan automáticamente
 Periódicamente, se realizan copias de seguridad de los servidores de Azure Database for MySQL para habilitar las características de restauración. Con esta característica, puede restaurar el servidor y todas sus bases de datos en un servidor nuevo a un momento dado anterior.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Para completar esta guía, necesita:
 - Un [servidor de Azure Database for MySQL y una base de datos](quickstart-create-mysql-server-database-using-azure-portal.md)
 
@@ -80,16 +80,39 @@ Si ha configurado el servidor para copias de seguridad con redundancia geográfi
 
 1. Seleccione el botón **Crear un recurso** (+) de la esquina superior izquierda del portal. Seleccione **Bases de datos** > **Azure Database for MySQL**.
 
-   ![Opción "Azure Database for MySQL"](./media/howto-restore-server-portal/2_navigate-to-mysql.png)
+   :::image type="content" source="./media/howto-restore-server-portal/1_navigate-to-mysql.png" alt-text="Desplazamiento a Azure Database for MySQL.":::
+ 
+2. Proporcione la suscripción, el grupo de recursos y el nombre del nuevo servidor. 
 
-2. En el menú desplegable **Seleccionar origen** del formulario, elija **Copia de seguridad**. Esta acción carga una lista de servidores que tienen habilitadas copias de seguridad con redundancia geográfica. Seleccione una de las copias de seguridad como origen del nuevo servidor.
-   ![Seleccionar origen: Azure Backup y lista de copias de seguridad con redundancia geográfica](./media/howto-restore-server-portal/2-georestore.png)
-
+3. Seleccione **Copia de seguridad** como el **Origen de datos**. Esta acción carga un menú desplegable en el que se proporciona una lista de servidores que tienen habilitadas copias de seguridad con redundancia geográfica.
+   
+   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Seleccione el origen de datos.":::
+    
    > [!NOTE]
    > Al crear por primera vez un servidor, puede que no esté disponible para la restauración geográfica inmediatamente. Los metadatos pueden tardar unas horas en rellenarse.
    >
 
-3. Rellene el resto del formulario con sus preferencias. Puede seleccionar cualquier valor en **Ubicación**. Después de seleccionar la ubicación, seleccione un valor en **Plan de tarifa**. De forma predeterminada, se muestran los parámetros del servidor existente que se va a restaurar. Puede hacer clic en **Aceptar** sin realizar ningún cambio para heredar esa configuración. O bien, puede cambiar los valores de **Generación de procesos** (si está disponible en la región que haya elegido), **Núcleos virtuales**, **Período de retención de copia de seguridad** y **Opciones de redundancia de copia de seguridad**. No se permite cambiar el **Plan de tarifa** (Básico, Uso general o Memoria optimizada) ni el tamaño de **Almacenamiento** durante la restauración.
+4. Seleccione la lista desplegable **Copia de seguridad**.
+   
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="Selección de la lista desplegable Copia de seguridad.":::
+
+5. Seleccione el servidor de origen desde el que se va a restaurar.
+   
+   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Selección de la copia de seguridad.":::
+
+6. El servidor usará de forma predeterminada los valores para el número de **Núcleos virtuales**, **Período de retención de copia de seguridad**, la opción **Redundancia de copia de seguridad**, la **versión del motor** y las **credenciales de administrador**. Seleccione **Continuar**. 
+   
+   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Continuación con la copia de seguridad.":::
+
+7. Rellene el resto del formulario con sus preferencias. Puede seleccionar cualquier valor en **Ubicación**.
+
+    Después de seleccionar la ubicación, puede seleccionar **Configurar servidor** para actualizar **Generación de procesos** (si está disponible en la región que ha elegido), el número de **Núcleos virtuales**, **Período de retención de copia de seguridad** y la opción  **Redundancia de copia de seguridad**. No se permite cambiar el **Plan de tarifa** (Básico, Uso general o Memoria optimizada) ni el tamaño de **Almacenamiento** durante la restauración.
+
+   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Cumplimentación del formulario."::: 
+
+8. Seleccione **Review + create** (Revisar y crear) para revisar las selecciones. 
+
+9. Seleccione **Crear** para realizar el aprovisionamiento del servidor. Esta operación puede tardar algunos minutos.
 
 El nuevo servidor creado mediante restauración geográfica tiene el mismo nombre de inicio de sesión y contraseña de administrador del servidor que el servidor existente tenía cuando se inició la restauración. La contraseña se puede cambiar en la página **Información general** del nuevo servidor.
 

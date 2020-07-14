@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 07/06/2020
 ms.author: diberry
-ms.openlocfilehash: 0545be9ebe067a62b398c6c89b79a8484f0b48d4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 560a7d9106b9eaef0f82766615253715deb9238a
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683112"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057881"
 ---
 # <a name="iterative-app-design-for-luis"></a>Diseño iterativo de aplicaciones para LUIS
 
@@ -107,11 +107,22 @@ Puede publicar en los espacios de ensayo o de producción. Cada espacio puede te
 
 Las versiones entrenadas no están disponibles automáticamente en el [punto de conexión](luis-glossary.md#endpoint) de la aplicación de LUIS. Debe [publicar](luis-how-to-publish-app.md) o volver a publicar una versión para que esté disponible en el punto de conexión de la aplicación de LUIS. Puede publicar en la fase de **ensayo** o de **producción**, lo que le ofrece dos versiones de la aplicación disponibles en el punto de conexión. Si tienen que estar disponibles más versiones de la aplicación en un punto de conexión, debe exportar la versión y volver a importarla a una aplicación nueva. La nueva aplicación tiene un identificador de aplicación diferente.
 
-### <a name="import-and-export-a-version"></a>Importar y exportar una versión
+### <a name="import-a-version"></a>Importación de una versión
 
-Una versión se puede importar en el nivel de la aplicación. Esa versión se convertirá en la versión activa y usará el identificador de versión en la propiedad `versionId` del archivo de la aplicación. También puede importar en una aplicación existente, en el nivel de versión. La versión nueva se convertirá en la versión activa.
+Una versión se puede **importar** como una nueva:
+* Aplicación, con un id. de la aplicación nuevo
+* Versión de una aplicación existente
 
-También se puede exportar una versión en el nivel de aplicación o de versión. La única diferencia es que la versión exportada en el nivel de aplicación es la versión activa, mientras que en el nivel de versión puede elegir cualquier versión para exportarla en la página **[Configuración](luis-how-to-manage-versions.md)** .
+Esa versión se convertirá en la versión activa y usará el identificador de versión en la propiedad `versionId` del archivo de la aplicación.
+
+### <a name="export-a-version"></a>Exportación de una versión
+
+Una versión se puede **exportar** desde el portal de LUIS en el nivel de aplicación o de versión:
+
+* Nivel de aplicación: seleccione la aplicación en la página **Mis aplicaciones** y, después, seleccione **Exportar**.
+* Nivel de versión: seleccione el vínculo de la aplicación en la página **Mis aplicaciones**, después **Administrar** y luego **Versiones**.
+
+La única diferencia es que, en el nivel de aplicación, la versión exportada es la versión activa, mientras que en el nivel de versión puede elegir en la página **[Configuración](luis-how-to-manage-versions.md)** cualquier versión para exportarla.
 
 El archivo exportado **no** contiene:
 
@@ -132,7 +143,7 @@ Comience con [clonación](luis-how-to-manage-versions.md#clone-a-version), desde
 
 Cada autor efectúa cambios en su propia versión de la aplicación. Cuando esté satisfecho con el modelo, debe exportar las versiones nuevas a archivos JSON.
 
-Se pueden comparar los cambios de las aplicaciones exportadas y los archivos .json o .lu. Combine los archivos para crear un único archivo de la nueva versión. Cambie la propiedad `versionId` para indicar la nueva versión combinada. Importe esa versión en la aplicación original.
+Se pueden comparar los cambios de las aplicaciones exportadas y los archivos `.json` o `.lu`. Combine los archivos para crear un único archivo de la nueva versión. Cambie la propiedad `versionId` para indicar la nueva versión combinada. Importe esa versión en la aplicación original.
 
 Este método permite tener una versión activa, una versión de ensayo y una versión publicada. Puede comparar los resultados de la versión activa con una versión publicada (fase o producción) en el [panel de pruebas interactivas](luis-interactive-test.md).
 
@@ -150,4 +161,4 @@ Cuando haya terminado con un ciclo de iteración, puede repetir el proceso. Empi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre conceptos relativos a la [colaboración](luis-concept-keys.md).
+Obtenga información sobre conceptos relativos a la [colaboración](luis-how-to-azure-subscription.md).

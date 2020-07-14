@@ -1,18 +1,18 @@
 ---
 title: 'Administración de clientes potenciales con Azure Table Storage: marketplace comercial de Microsoft'
 description: Aprenda a usar Azure Table Storage para administrar clientes potenciales de Microsoft AppSource y Azure Marketplace.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
-ms.openlocfilehash: c115859c24b2c26ab2c221c4fdc35cb442d652b1
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 485da8549175af8813a9d0c3052d1e77f336e619
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848028"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120847"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Uso de Azure Table Storage para administrar clientes potenciales de marketplace comercial
 
@@ -26,11 +26,11 @@ Si el sistema de administración de relaciones con clientes (CRM) no es una opci
 
     1. En la barra de menús de la izquierda, seleccione **+ Crear un recurso**. Aparece el panel **Nuevo** a la derecha.
     1. Seleccione **Almacenamiento** en el panel **Nuevo**. Aparece una lista **Destacados** a la derecha.
-    1. Seleccione **Cuenta de almacenamiento** para comenzar a crear la cuenta. Siga las instrucciones que se indican en [Creación de una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+    1. Seleccione **Cuenta de almacenamiento** para comenzar a crear la cuenta. Siga las instrucciones que se indican en [Creación de una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
 
         ![Pasos para crear una cuenta de Azure Storage](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png)
 
-        Para más información sobre las cuentas de almacenamiento, consulte el [tutorial de inicio rápido](https://docs.microsoft.com/azure/storage/). Para más información sobre los precios de almacenamiento, consulte [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
+        Para más información sobre las cuentas de almacenamiento, consulte el [tutorial de inicio rápido](../../storage/index.yml). Para más información sobre los precios de almacenamiento, consulte [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
 1. Espere hasta que se aprovisione la cuenta de almacenamiento. Este proceso acostumbra a tardar unos minutos. 
 
@@ -107,7 +107,7 @@ En este ejemplo se crea un flujo que envía automáticamente una notificación p
 
    Después de seleccionar **Crear**, aparece la ventana **Obtener entidades**. Aquí, seleccione **Mostrar opciones avanzadas** y proporcione información en los cuadros siguientes:
 
-   * **Tabla**: seleccione el nombre de la tabla (desde [Crear una tabla](#create-a-table-in-your-storage-account)). En la captura de pantalla siguiente se muestra el símbolo del sistema cuando se selecciona la tabla "marketplaceleads" en este ejemplo.
+   * **Tabla**: seleccione el nombre de la tabla (desde [Crear una tabla](#create-a-table-in-your-storage-account)). En la captura de pantalla siguiente se muestra el símbolo del sistema cuando se selecciona la tabla `marketplaceleads` en este ejemplo.
 
      ![Ventana Obtener entidades](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 

@@ -1,16 +1,16 @@
 ---
 title: 'Introducción a la administración de Azure: Gobernanza de Azure'
 description: Información general de las áreas de administración para las aplicaciones y los recursos de Azure con vínculos a contenido sobre las herramientas de administración de Azure.
-ms.date: 05/22/2020
+ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: e293ab743b7c3b49a13cab97200c136a9bd044f5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 81d655db706a7330fc541724d490a4885cc2fe8b
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828154"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041921"
 ---
-# <a name="overview-of-management-services-in-azure"></a>Información general de los servicios de administración de Azure
+# <a name="what-are-the-azure-management-areas"></a>¿Qué son las áreas de administración de Azure?
 
 La gobernanza de Azure es uno de los aspectos de la administración de Azure. En este artículo se describen las distintas áreas de administración para implementar y mantener los recursos de Azure.
 
@@ -26,7 +26,7 @@ En las secciones siguientes se describen sucintamente las distintas áreas de ad
 
 ## <a name="monitor"></a>Supervisión
 
-La supervisión es el acto de recopilar y analizar datos para auditar el rendimiento, el mantenimiento y la disponibilidad de los recursos. Una estrategia de supervisión eficaz le permite entender el funcionamiento de los componentes y aumentar el tiempo de actividad con las notificaciones. Lea la información general de la supervisión, donde se analizan los distintos servicios usados, en [Supervisión de aplicaciones y recursos de Azure](../monitoring/monitoring-overview.md).
+La supervisión es el acto de recopilar y analizar datos para auditar el rendimiento, el mantenimiento y la disponibilidad de los recursos. Una estrategia de supervisión eficaz le permite entender el funcionamiento de los componentes y aumentar el tiempo de actividad con las notificaciones. Lea la información general de la supervisión, donde se analizan los distintos servicios usados, en [Supervisión de aplicaciones y recursos de Azure](../azure-monitor/overview.md).
 
 ## <a name="configure"></a>Configuración
 
@@ -46,9 +46,16 @@ Administre la seguridad de los recursos y los datos. Un programa de seguridad im
 
 ## <a name="protect"></a>Protección
 
-La protección se refiere a mantener disponibles aplicaciones y datos, incluso si se producen interrupciones que escapan de todo control. En Azure, la protección se proporciona mediante dos servicios. [Azure Backup](../backup/backup-introduction-to-azure-backup.md) proporciona copias de seguridad y recuperación de los datos, tanto los de la nube como los de un entorno local. [Azure Site Recovery](../site-recovery/site-recovery-overview.md) ofrece continuidad empresarial y la recuperación inmediata durante un desastre.
+La protección se refiere a mantener disponibles aplicaciones y datos, incluso si se producen interrupciones que escapan de todo control. En Azure, la protección se proporciona mediante dos servicios. [Azure Backup](../backup/backup-overview.md) proporciona copias de seguridad y recuperación de los datos, tanto los de la nube como los de un entorno local. [Azure Site Recovery](../site-recovery/site-recovery-overview.md) ofrece continuidad empresarial y la recuperación inmediata durante un desastre.
 
 ## <a name="migrate"></a>Migrar
 
 La migración hace referencia a la transición de las cargas de trabajo que se ejecutan de forma local a la nube de Azure.
-[Azure Migrate](../migrate/migrate-overview.md) es un servicio que ayuda a evaluar la idoneidad de la migración de máquinas virtuales locales a Azure. Azure Site Recovery migra máquinas virtuales [desde el entorno local](../site-recovery/migrate-tutorial-on-premises-azure.md) o [desde Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md). [Azure Database Migration](../dms/dms-overview.md) lo ayuda a realizar la migración de orígenes de bases de datos a plataformas de datos de Azure.
+[Azure Migrate](../migrate/migrate-services-overview.md) es un servicio que ayuda a evaluar la idoneidad de la migración de máquinas virtuales locales a Azure. Azure Site Recovery migra máquinas virtuales [desde el entorno local](../site-recovery/migrate-tutorial-on-premises-azure.md) o [desde Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md). [Azure Database Migration](../dms/dms-overview.md) lo ayuda a realizar la migración de orígenes de bases de datos a plataformas de datos de Azure.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Para más información acerca de la gobernanza en Azure, consulte estos artículos:
+
+- Vea el [centro de gobernanza en Azure](./index.yml).
+- Consulte [Gobernanza en Cloud Adoption Framework para Azure](/azure/cloud-adoption-framework/govern/)

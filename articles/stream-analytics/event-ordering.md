@@ -5,18 +5,18 @@ author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2019
-ms.openlocfilehash: c0a108565a6a0f62c6252113f984e8b10967c5db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e9617018b06d4f62b49946ae5593bd51805355e0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75461198"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044573"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configuración de las directivas de ordenación de eventos para Azure Stream Analytics
 
-En este artículo se describe cómo configurar y utilizar las directivas de eventos desordenados y de llegada tardía en Azure Stream Analytics. Estas directivas se aplican solo cuando se usa la cláusula [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) en la consulta.
+En este artículo se describe cómo configurar y utilizar las directivas de eventos desordenados y de llegada tardía en Azure Stream Analytics. Estas directivas se aplican solo cuando se usa la cláusula [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) en la consulta y solo se aplican para orígenes de entrada de nube.
 
 ## <a name="event-time-and-arrival-time"></a>Hora del evento y hora de llegada
 

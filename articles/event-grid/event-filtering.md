@@ -1,18 +1,14 @@
 ---
 title: Filtrado de eventos para Azure Event Grid
 description: Se describe cómo filtrar eventos al crear una suscripción de Azure Event Grid.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/28/2020
-ms.author: spelluru
-ms.openlocfilehash: 0f503b21d5a7d0fdfbee79354c198775789c0b91
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.date: 07/07/2020
+ms.openlocfilehash: 837209d4197c271598155776b8d171a705e1f454
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82888778"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120099"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Descripción del filtrado de eventos para suscripciones de Event Grid
 
@@ -125,7 +121,7 @@ Todas las comparaciones de cadenas **no** distinguen mayúsculas de minúsculas.
 
 Para los eventos en el esquema de Event Grid, use los siguientes valores para la clave:
 
-* id
+* ID
 * Tema
 * Asunto
 * EventType
@@ -155,7 +151,7 @@ Los valores pueden ser:
 
 El filtrado avanzado tiene las siguientes limitaciones:
 
-* 5 filtros avanzados por suscripción de Event Grid
+* 5 filtros avanzados y 25 valores de filtro en todos los filtros por suscripción de Event Grid
 * 512 caracteres por valor de cadena
 * 5 valores para los operadores **in** y **not in**
 * Claves que incluyen el carácter **`.` (punto)** . Por ejemplo, `http://schemas.microsoft.com/claims/authnclassreference` o `john.doe@contoso.com`. Actualmente, las claves no admiten caracteres de escape. 

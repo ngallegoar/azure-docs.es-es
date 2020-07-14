@@ -5,14 +5,14 @@ keywords: postgresql connection,connection string,connectivity issues,transient 
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: cf051da4e2976ca54c95b54cd6ac89cb6f6cc1b1
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: c97e8e0d55a99e0b022bdc6e97edc778d7b6588a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562226"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107604"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Solución de problemas de conexión a Azure Database for PostgreSQL (único servidor)
 
@@ -50,6 +50,7 @@ Si la aplicación no se puede conectar a Azure Database for PostgreSQL de forma 
 * Configuración del firewall del cliente: El firewall en el cliente debe permitir las conexiones con el servidor de bases de datos. Las direcciones IP y los puertos del servidor se deben permitir, así como los nombres de aplicación como PostgreSQL en algunos firewalls.
 * Error del usuario: Es posible que haya escrito incorrectamente los parámetros de conexión, como el nombre del servidor en la cadena de conexión o un sufijo *\@nombreServidor*que falte en el nombre de usuario.
 * Si ve el error _El servidor no está configurado para permitir las conexiones IPv6_, tenga en cuenta que el nivel Básico no admite los puntos de conexión de servicio de red virtual. Tiene que quitar el punto de conexión Microsoft.Sql de la subred que intenta conectarse al servidor básico.
+* Si se muestra el error de conexión _Valor de sslmode "* * *" no válido cuando no se compila la compatibilidad con SSL_, significa que el cliente de PostgreSQL no es compatible con SSL. Lo más probable es que el archivo libpq del lado cliente no se haya compilado con la marca "--with-openssl". Intente conectarse con un cliente de PostgreSQL que sea compatible con SSL. 
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Pasos para resolver los problemas de conectividad persistentes
 

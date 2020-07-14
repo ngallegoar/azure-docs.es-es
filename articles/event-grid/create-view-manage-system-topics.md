@@ -1,35 +1,23 @@
 ---
-title: Creación, visualización y administración de temas del sistema en Azure Event Grid
+title: Creación, visualización y administración de temas del sistema en Azure Event Grid (Portal)
 description: En este artículo se muestra cómo ver el tema del sistema existente y crear temas del sistema de Azure Event Grid mediante Azure Portal.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.author: spelluru
-ms.openlocfilehash: ac22afb351973397960e66c2a8fe86031e0b213a
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.date: 07/07/2020
+ms.openlocfilehash: 2dbb0893668d72cfebf2d64e6515ff6ab6fed9bc
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84316346"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115118"
 ---
-# <a name="create-view-and-manage-system-topics-in-azure-event-grid"></a>Creación, visualización y administración de temas del sistema en Azure Event Grid
-En este artículo se muestra cómo realizar las tareas siguientes:
-
-- Creación de un tema del sistema
-- Visualización de todos los temas del sistema existentes 
-- Elimina un tema del sistema.
-- Creación de una suscripción de eventos para un tema del sistema
-
+# <a name="create-view-and-manage-event-grid-system-topics-in-the-azure-portal"></a>Creación, visualización y administración de temas del sistema de Event Grid en Azure Portal
+En este artículo se muestra cómo crear y administrar temas del sistema en Azure Portal. Para ver un resumen de los temas del sistema, consulte [Temas del sistema](system-topics.md).
 
 ## <a name="create-a-system-topic"></a>Creación de un tema del sistema
-Puede crear un tema del sistema para un recurso de Azure de dos maneras:
+Puede crear un tema del sistema para un recurso de Azure (cuenta de almacenamiento, espacio de nombres de Event Hubs, etc.) de dos maneras:
 
-- Mediante la página del recurso, por ejemplo, la página de la cuenta de almacenamiento o la página del espacio de nombres de Event Hubs. 
-- Mediante la página **Event Grid System Topics** (Temas del sistema de Event Grid). 
-
-Consulte [este inicio rápido](blob-event-quickstart-portal.md) para ver un ejemplo de cómo crear un tema del sistema mediante una página de recursos (pestaña **Eventos** de una página de recursos de Azure Portal). Los siguientes pasos son para crear un tema del sistema mediante la página **Event Grid System Topics** (Temas del sistema de Event Grid). 
+- Mediante la página **Eventos** de un recurso, por ejemplo, la cuenta de almacenamiento o el espacio de nombres de Event Hubs. Cuando use la página **Eventos** en Azure Portal para crear una suscripción de eventos para un evento generado por un origen de Azure (por ejemplo: cuenta de Azure Storage), el portal crea un tema del sistema para el recurso de Azure y, después, crea una suscripción para el tema del sistema. Especifique el nombre del tema del sistema si va a crear una suscripción de eventos en el recurso de Azure por primera vez. A partir de la segunda vez en adelante, el nombre del tema del sistema se muestra automáticamente en modo de solo lectura. Consulte [Quickstart: Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado con Azure Portal](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage) para ver los pasos detallados.
+- Mediante la página **Event Grid System Topics** (Temas del sistema de Event Grid). Los siguientes pasos son para crear un tema del sistema mediante la página **Event Grid System Topics** (Temas del sistema de Event Grid). 
 
 1. Inicie sesión en el [portal de Azure](https://portal.azure.com).
 2. En el cuadro de búsqueda de la parte superior, escriba **Event Grid System Topics** (Temas del sistema de Event Grid) y, luego, presione **Entrar**. 
@@ -57,11 +45,9 @@ Consulte [este inicio rápido](blob-event-quickstart-portal.md) para ver un ejem
 
         ![Página del tema del sistema](./media/create-view-manage-system-topics/system-topic-page.png)
 
+
 ## <a name="view-all-system-topics"></a>Visualización de todos los temas del sistema
 Siga estos pasos para ver todos los temas del sistema de Event Grid. 
-
-> [!NOTE]
-> Anteriormente, cuando creaba una suscripción para un evento generado por orígenes de Azure, el servicio Event Grid creaba automáticamente un tema del sistema con un nombre generado de forma aleatoria. Ahora, puede especificar un nombre para el tema del sistema al crear el tema. Este recurso de tema del sistema se puede usar para detectar métricas y registros de diagnóstico.
 
 1. Inicie sesión en el [portal de Azure](https://portal.azure.com).
 2. En el cuadro de búsqueda de la parte superior, escriba **Event Grid System Topics** (Temas del sistema de Event Grid) y, luego, presione **Entrar**. 
@@ -100,7 +86,6 @@ Siga estos pasos para ver todos los temas del sistema de Event Grid.
 3. Confirme que los campos **Topic Type** (Tipo de tema), **Source Resource** (Recurso de origen) y **Topic Name** (Nombre del tema) se rellenan automáticamente. Escriba un nombre, seleccione un valor para **Endpoint Type** (Tipo de punto de conexión) y especifique el **punto de conexión**. Seleccione **Create** (Crear) para guardar la suscripción de eventos. 
 
     ![Tema del sistema: creación de suscripciones de eventos](./media/create-view-manage-system-topics/create-event-subscription.png)
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los [temas del sistema de Azure Event Grid](system-topics.md) para más información sobre los temas del sistema y los tipos de temas admitidos en Azure Event Grid. 

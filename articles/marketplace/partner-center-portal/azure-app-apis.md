@@ -1,18 +1,16 @@
 ---
 title: API de envío del Centro de partners para incorporar aplicaciones de Azure en marketplace comercial de Microsoft
 description: Conozca los requisitos previos para usar la API de envío del Centro de partners para aplicaciones de Azure en marketplace comercial en el Centro de partners de Microsoft.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: e50534639f5f46b1675ba5c074fb8fdd843ac87e
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: c8343f0954f02423fc48347911f10cf5b9ddee96
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83770064"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86122003"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>API de envío del Centro de partners para incorporar aplicaciones de Azure en el centro de Partners
 
@@ -29,7 +27,7 @@ Para usar la API del Centro de partners para los productos de Azure necesita alg
 
 Antes de empezar a escribir código para llamar a la API de envío del Centro de partners, asegúrese de que ha completado los requisitos previos a continuación.
 
-- Usted (o su organización) tiene que tener un directorio de Azure AD y el permiso de [Administrador global](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para el directorio. Si usa Office 365 u otros servicios empresariales de Microsoft, ya tiene el directorio de Azure AD. De lo contrario, puede [crear un nuevo Azure AD en el Centro de partners](https://docs.microsoft.com/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account) sin cargo adicional.
+- Usted (o su organización) tiene que tener un directorio de Azure AD y el permiso de [Administrador global](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) para el directorio. Si usa Microsoft 365 u otros servicios empresariales de Microsoft, ya tiene el directorio de Azure AD. De lo contrario, puede [crear un nuevo Azure AD en el Centro de partners](https://docs.microsoft.com/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account) sin cargo adicional.
 
 - Tiene que [asociar una aplicación Azure AD a su cuenta del Centro de partners](https://docs.microsoft.com/windows/uwp/monetize/create-and-manage-submissions-using-windows-store-services#associate-an-azure-ad-application-with-your-windows-partner-center-account) y obtener el identificador de inquilino, el identificador de cliente y la clave. Necesitará estos valores para obtener un token de acceso de Azure AD, que usará en las llamadas a la API de envío de Microsoft Store.
 

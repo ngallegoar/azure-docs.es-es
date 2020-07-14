@@ -4,14 +4,14 @@ description: En este artículo se describe cómo restaurar un servidor en Azure 
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: fb13e4f062976e39c3cec607001e6982db228873
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.date: 6/30/2020
+ms.openlocfilehash: 7683d3472d382707de538874035c8448f589bf82
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74765637"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110817"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Copia de seguridad y restauración de un servidor en Azure Database for PostgreSQL con un único servidor mediante Azure Portal
 
@@ -58,8 +58,8 @@ Los siguientes pasos restauran el servidor de ejemplo a un momento dado:
 3. Rellene el formulario Restaurar con la información necesaria:
 
    ![Azure Database for PostgreSQL - Información sobre restauración](./media/howto-restore-server-portal/3-restore.png)
-   - **Punto de restauración**: seleccione el momento que desea restaurar.
-   - **Servidor de destino**: especifique el nombre del nuevo servidor.
+   - **Punto de restauración**: seleccione el momento al que desea restaurar.
+   - **Servidor de destino:** : proporcione un nombre para el nuevo servidor.
    - **Ubicación**: no se puede seleccionar la región. De manera predeterminada, es el mismo que el del servidor de origen.
    - **Plan de tarifa**: estos parámetros no se pueden cambiar al realizar una restauración a un momento dado. Es el mismo que el del servidor de origen. 
 
@@ -71,24 +71,49 @@ El nuevo servidor creado mediante restauración a un momento dado tiene el mismo
 
 El servidor creado durante una restauración no tiene las reglas de firewall o los puntos de conexión de servicio VNet que existían en el servidor original. Estas reglas deben configurarse por separado para este nuevo servidor.
 
-
 ## <a name="geo-restore"></a>Restauración geográfica
 
 Si ha configurado el servidor para copias de seguridad con redundancia geográfica, se puede crear un nuevo servidor a partir de la copia de seguridad de ese servidor existente. Este nuevo servidor puede crearse en cualquier región en la que Azure Database for PostgreSQL esté disponible.  
 
 1. Seleccione el botón **Crear un recurso** (+) de la esquina superior izquierda del portal. Seleccione **Bases de datos** > **Azure Database for PostgreSQL**.
 
-   ![Opción "Azure Database for PostgreSQL"](./media/howto-restore-server-portal/1-navigate-to-postgres.png)
+   :::image type="content" source="./media/howto-restore-server-portal/1-navigate-to-postgres.png" alt-text="Navegación a Azure Database for PostgreSQL.":::
 
-2. En el menú desplegable **Seleccionar origen** del formulario, elija **Copia de seguridad**. Esta acción carga una lista de servidores que tienen habilitadas copias de seguridad con redundancia geográfica. Seleccione una de las copias de seguridad como origen del nuevo servidor.
-   ![Seleccionar origen: Copia de seguridad y lista de copias de seguridad con redundancia geográfica](./media/howto-restore-server-portal/2-georestore.png)
+2. Seleccione la opción de implementación de **servidor único**.
 
+   :::image type="content" source="./media/howto-restore-server-portal/2-select-deployment-option.png" alt-text="Seleccione la opción de implementación Azure Database for PostgreSQL: servidor único.":::
+ 
+3. Proporcione la suscripción, el grupo de recursos y el nombre del nuevo servidor. 
+
+4. Seleccione **Copia de seguridad** como el **Origen de datos**. Esta acción carga un menú desplegable en el que se proporciona una lista de servidores que tienen habilitadas copias de seguridad con redundancia geográfica.
+   
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore.png" alt-text="Seleccione el origen de datos.":::
+    
    > [!NOTE]
    > Al crear por primera vez un servidor, puede que no esté disponible para la restauración geográfica inmediatamente. Los metadatos pueden tardar unas horas en rellenarse.
    >
 
-3. Rellene el resto del formulario con sus preferencias. Puede seleccionar cualquier valor en **Ubicación**. Después de seleccionar la ubicación, seleccione un valor en **Plan de tarifa**. De forma predeterminada, se muestran los parámetros del servidor existente que se va a restaurar. Puede hacer clic en **Aceptar** sin realizar ningún cambio para heredar esa configuración. O bien, puede cambiar los valores de **Generación de procesos** (si está disponible en la región que haya elegido), **Núcleos virtuales**, **Período de retención de copia de seguridad** y **Opciones de redundancia de copia de seguridad**. No se permite cambiar el **Plan de tarifa** (Básico, Uso general o Memoria optimizada) ni el tamaño de **Almacenamiento** durante la restauración.
+5. Seleccione la lista desplegable **Copia de seguridad**.
+   
+   :::image type="content" source="./media/howto-restore-server-portal/5-geo-restore-backup.png" alt-text="Selección de la lista desplegable Copia de seguridad.":::
 
+6. Seleccione el servidor de origen desde el que se va a restaurar.
+   
+   :::image type="content" source="./media/howto-restore-server-portal/6-select-backup.png" alt-text="Selección de la copia de seguridad.":::
+
+7. El servidor usará de forma predeterminada los valores para el número de **Núcleos virtuales**, **Período de retención de copia de seguridad**, la opción **Redundancia de copia de seguridad**, la **versión del motor** y las **credenciales de administrador**. Seleccione **Continuar**. 
+   
+   :::image type="content" source="./media/howto-restore-server-portal/7-accept-backup.png" alt-text="Continuación con la copia de seguridad.":::
+
+8. Rellene el resto del formulario con sus preferencias. Puede seleccionar cualquier valor en **Ubicación**.
+
+    Después de seleccionar la ubicación, puede seleccionar **Configurar servidor** para actualizar **Generación de procesos** (si está disponible en la región que ha elegido), el número de **Núcleos virtuales**, **Período de retención de copia de seguridad** y la opción  **Redundancia de copia de seguridad**. No se permite cambiar el **Plan de tarifa** (Básico, Uso general o Memoria optimizada) ni el tamaño de **Almacenamiento** durante la restauración.
+
+   :::image type="content" source="./media/howto-restore-server-portal/8-create.png" alt-text="Cumplimentación del formulario."::: 
+
+9. Seleccione **Review + create** (Revisar y crear) para revisar las selecciones. 
+
+10. Seleccione **Crear** para realizar el aprovisionamiento del servidor. Esta operación puede tardar algunos minutos.
 
 El nuevo servidor creado mediante restauración geográfica tiene el mismo nombre de inicio de sesión y contraseña de administrador del servidor que el servidor existente tenía cuando se inició la restauración. La contraseña se puede cambiar en la página **Información general** del nuevo servidor.
 

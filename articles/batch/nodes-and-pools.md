@@ -3,12 +3,12 @@ title: Nodos y grupos en Azure Batch
 description: Obtenga información sobre los grupos y nodos de proceso, y cómo se usan en un flujo de trabajo de Azure Batch desde el punto de vista del desarrollo.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: f71be75c0358dbc7f76a61680df2c54f44bc4173
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 5707d834a7d99e147a81ee2b39952863a63ed695
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964049"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144920"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nodos y grupos en Azure Batch
 
@@ -111,7 +111,7 @@ Para obtener información sobre los precios de los nodos de prioridad baja y ded
 
 ## <a name="node-size"></a>Tamaño del nodo
 
-Cuando se crea un grupo de Azure Batch, puede elegir entre casi todas las familias y tamaños de máquinas virtuales disponibles en Azure. Azure ofrece varios tamaños de máquina virtual apropiados para las distintas cargas de trabajo, entre los que se incluyen los tamaños de máquina virtual especializados con [HPC](../virtual-machines/linux/sizes-hpc.md) o [Habilitados para GPU](../virtual-machines/linux/sizes-gpu.md). 
+Cuando se crea un grupo de Azure Batch, puede elegir entre casi todas las familias y tamaños de máquinas virtuales disponibles en Azure. Azure ofrece varios tamaños de máquina virtual apropiados para las distintas cargas de trabajo, entre los que se incluyen los tamaños de máquina virtual especializados con [HPC](../virtual-machines/sizes-hpc.md) o [Habilitados para GPU](../virtual-machines/sizes-gpu.md). 
 
 Para más información, consulte [Choose a VM size for compute nodes in an Azure Batch pool](batch-pool-vm-sizes.md) (Elección de un tamaño de máquina virtual para nodos de proceso en un grupo de Azure Batch).
 

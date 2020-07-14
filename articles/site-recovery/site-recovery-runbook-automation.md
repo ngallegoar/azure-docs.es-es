@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: ecfe993a137ca63c84438870ec54ac1e6d6707da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 25290a66da3d5c8325513b2bea6d27d12ca7da70
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229012"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134811"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Incorporación de runbooks de Azure Automation a los planes de recuperación
 
@@ -56,6 +56,9 @@ Cuando se ejecuta un script, este inserta un contexto del plan de recuperación 
 | CloudServiceName |Nombre del servicio en la nube de Azure en el que se ha creado la máquina virtual. |
 | RoleName |El nombre de la máquina virtual de Azure. |
 | RecoveryPointId|La marca de tiempo de la recuperación de la máquina virtual. |
+
+>[!Note]
+>El valor de la variable "FailoverDirection" será "PrimaryToSecondary" en caso de conmutación por error y "SecondaryToPrimary" en caso de conmutación por recuperación.
 
 El ejemplo siguiente muestra una variable de contexto:
 
@@ -126,7 +129,7 @@ El blog de Aman Sharma en [Harvesting Clouds](http://harvestingclouds.com) inclu
 
 Puede usar un solo script de runbook en varios planes de recuperación gracias a las variables externas. 
 
-- Puede usar las [variables de Azure Automation](../automation/automation-variables.md) para almacenar los parámetros para la ejecución de un plan de recuperación.
+- Puede usar las [variables de Azure Automation](../automation/shared-resources/variables.md) para almacenar los parámetros para la ejecución de un plan de recuperación.
 - Al agregar el nombre del plan de recuperación como prefijo a la variable, puede crear variables individuales para cada plan de recuperación. Luego, use las variables como parámetros.
 - Puede cambiar un parámetro sin cambiar el script y aun así cambiar la forma en que el script funciona.
 
@@ -196,7 +199,7 @@ En algunos escenarios, es posible que no pueda crear variables independientes pa
 - Por ejemplo, una recuperación de SharePoint tiene dos servidores front-end. Una aplicación básica de línea de negocio (LOB) tiene solo un servidor front-end.
 - En este escenario, no puede crear variables independientes para cada plan de recuperación.
 
-En el siguiente ejemplo se crea una [variable compleja](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureautomationvariable) en la cuenta de Azure Automation.
+En el siguiente ejemplo se crea una [variable compleja](/powershell/module/servicemanagement/azure/set-azureautomationvariable) en la cuenta de Azure Automation.
 
 Para ello se especifican varios valores mediante Azure PowerShell.
 
@@ -261,9 +264,6 @@ Este vídeo proporciona otro ejemplo. En él se muestra cómo recuperar una apli
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre una [cuenta de ejecución de Azure Automation](../automation/automation-create-runas-account.md)
+- Más información sobre una [cuenta de ejecución de Azure Automation](../automation/manage-runas-account.md)
 - Revise los [ejemplos de scripts de Azure Automation](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=User&f%5B0%5D.Value=SC%20Automation%20Product%20Team&f%5B0%5D.Text=SC%20Automation%20Product%20Team).
 - [Aprenda más](site-recovery-failover.md) sobre la ejecución de conmutaciones por error.
-
-
-

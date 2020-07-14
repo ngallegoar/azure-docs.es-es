@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 3114c19ecff1a8ae70012592592078302d4a6222
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 2d919640431ce014d34372812d9c07bb84d750b2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800030"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184062"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Preguntas más frecuentes (P+F) sobre Bing Image Search API
 
@@ -25,7 +25,7 @@ Encuentre respuestas a preguntas habituales sobre conceptos, código y escenario
 
 Los encabezados siguientes pueden producirse en respuestas de Bing Image Search API.
 
-| `Attribute`         | `Description` |
+| Atributo           | Descripción   |
 | ------------------- | ------------- |
 | `X-MSEdge-ClientID` |El identificador único que Bing ha asignado al usuario |
 | `BingAPIs-Market`   |El mercado que se usó para cumplir la solicitud |

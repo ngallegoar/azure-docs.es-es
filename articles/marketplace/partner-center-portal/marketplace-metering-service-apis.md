@@ -1,76 +1,102 @@
 ---
 title: 'API del servicio de medición: marketplace comercial de Microsoft'
 description: La API de eventos de uso permite emitir eventos de uso para las ofertas de SaaS en Microsoft AppSource y Azure Marketplace.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 95eba648219413923ce27d433a5236877c4953f3
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.date: 05/26/2020
+ms.openlocfilehash: 8a6636b0fc6c3e67ec171d738efb3fd8a93de30c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725472"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120779"
 ---
-# <a name="marketplace-metering-service-apis"></a>API del servicio de medición de Marketplace
+# <a name="marketplace-metered-billing-apis"></a>API de facturación según uso de Marketplace
 
-La API de eventos de uso permite emitir eventos de uso para una entidad específica que haya comprado. La solicitud de evento de uso hace referencia a la dimensión de servicios de medición que define el publicador al lanzar la oferta.
+Las API de facturación según uso deben usarse cuando el publicador crea dimensiones de medición personalizadas para que una oferta se publique en el Centro de partners. La integración con las API de facturación según uso es necesaria para cualquier oferta comprada que tenga uno o más planes con dimensiones personalizadas para emitir eventos de uso.
 
-## <a name="usage-event"></a>Evento de uso
+Para obtener más información sobre cómo crear dimensiones de medición personalizadas para SaaS, consulte [Facturación según uso de SaaS](saas-metered-billing.md).
+
+Para obtener más información sobre cómo crear dimensiones de medición personalizadas para una oferta de aplicación de Azure con un plan de aplicación administrada, consulte la [sección de configuración técnica sobre cómo crear una nueva oferta de Azure Apps](create-new-azure-apps-offer.md#technical-configuration)).
+
+## <a name="enforcing-tls-12-note"></a>Nota sobre la aplicación de TLS 1.2
+
+La versión 1.2 de TLS se aplica como versión mínima para las comunicaciones HTTPS. Asegúrese de usar esta versión de TLS en el código. Las versiones 1.0 y 1.1 están en desuso y se rechazarán los intentos de conexión.
+
+## <a name="metered-billing-single-usage-event"></a>Evento de uso único de facturación según uso
+
+El publicador debe llamar a la API de eventos de uso para emitir eventos de uso en un recurso activo (suscrito) para el plan adquirido por el cliente específico. El evento de uso se emite por separado para cada dimensión personalizada del plan definido por el publicador al publicar la oferta.
+
+Solo se puede emitir un evento de uso durante cada hora de un día natural. Por ejemplo, hoy a las 8:15 puede emitir un evento de uso. Si se acepta este evento, se aceptará el siguiente evento de uso desde hoy a las 9:00. Si envía un evento adicional hoy entre las 8:15 y las 8:59:59, se rechazará como duplicado. Debe acumular todas las unidades consumidas en una hora y, a continuación, proceder a su emisión en un solo evento.
+
+Solo se puede emitir un evento de uso durante cada hora de un día natural por recurso. Si se consume más de una unidad en una hora, acumule todas las unidades consumidas en la hora y, a continuación, proceda a su emisión en un solo evento. Los eventos de uso solo se pueden emitir durante las últimas 24 horas. Si emite un evento de uso en cualquier momento entre las 8:00 y las 8:59:59 (y se acepta) y envía un evento adicional durante el mismo día entre las 8:00 y las 8:59:59, se rechazará como duplicado.
 
 **POST**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
 *Parámetros de consulta*:
 
-|            |          |
+| Parámetro | Recomendación          |
 | ---------- | ---------------------- |
-| `ApiVersion` | Versión de la operación que se usará para esta solicitud. La versión de API más reciente es 2018-08-31. |
+| `ApiVersion` | Use 2018-08-31. |
+| | |
 
 *Encabezados de la solicitud*:
 
-| Content-type       | `application/json`    |
+| Content-type       | Use `application/json`  |
 | ------------------ | ---------------------------- |
 | `x-ms-requestid`     | Valor de cadena único para el seguimiento de la solicitud del cliente, preferiblemente un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
 | `x-ms-correlationid` | Valor de cadena único para la operación en el cliente. Este parámetro pone en correlación todos los eventos de la operación del cliente con los eventos del servidor. Si este valor no se proporciona, se generará uno y se proporcionará en los encabezados de respuesta. |
-| `authorization`   | [Obtener un token de portador JSON Web Token (JWT)](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app). Nota: Al hacer la solicitud HTTP, agregue el prefijo `Bearer` al token obtenido del vínculo al que se hace referencia. |
+| `authorization`   | Token de acceso único que identifica al ISV que realiza esta llamada API. El formato es `"Bearer <access_token>"` cuando el publicador recupera el valor del token, tal como se explica para <br> <ul> <li> SaaS en [Obtención del token con una solicitud HTTP POST](./pc-saas-registration.md#get-the-token-with-an-http-post). </li> <li> Aplicación administrada en [Estrategias de autenticación](./marketplace-metering-service-authentication.md). </li> </ul> |
+| | |
 
->[!Note]
->En el caso de los planes de las aplicaciones administradas de Aplicación de Azure, `resourceId` es el elemento `resourceUsageId` que se encuentra en el elemento `billingDetails` del objeto de metadatos de la aplicación administrada.  Se puede encontrar un script de ejemplo de captura en [uso del token de identidades administradas por Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token).  En el caso de las ofertas de SaaS, `resourceId` es el id. de suscripción de SaaS.  Para obtener más información sobre las suscripciones de SaaS, consulte [lista de suscripciones](./pc-saas-fulfillment-api-v2.md#list-subscriptions).
-
-*Solicitud:*
+*Ejemplo de cuerpo de la solicitud:*
 
 ```json
 {
-  "resourceId": "Identifier of the resource against which usage is emitted",
-  "quantity": 5.0,
-  "dimension": "Dimension identifier",
-  "effectiveStartTime": "Time in UTC when the usage event occurred",
-  "planId": "Plan associated with the purchased offer"
+  "resourceId": <guid>, // unique identifier of the resource against which usage is emitted. 
+  "quantity": 5.0, // how many units were consumed for the date and hour specified in effectiveStartTime, must be greater than 0, can be integer or float value
+  "dimension": "dim1", // custom dimension identifier
+  "effectiveStartTime": "2018-12-01T08:30:14", // time in UTC when the usage event occurred, from now and until 24 hours back
+  "planId": "plan1", // id of the plan purchased for the offer
 }
 ```
+
+>[!NOTE]
+>`resourceId` tiene un significado diferente para la aplicación SaaS y para la aplicación administrada que emite el medidor personalizado. 
+
+En el caso de los planes de las aplicaciones administradas de Aplicación de Azure, `resourceId` es el elemento `resourceUsageId` que se encuentra en el elemento `billingDetails` del objeto de metadatos de la aplicación administrada. Se puede encontrar un script de ejemplo de captura en [uso del token de identidades administradas por Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
+
+En el caso de las ofertas de SaaS, `resourceId` es el id. de suscripción de SaaS. Para obtener más información sobre las suscripciones de SaaS, consulte [lista de suscripciones](./pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
 
 ### <a name="responses"></a>Respuestas
 
 Código: 200<br>
-Aceptar 
+Aceptar. La emisión de uso se aceptó y registró en el lado de Microsoft para su posterior procesamiento y facturación.
+
+Ejemplo de carga de respuesta: 
 
 ```json
 {
-  "usageEventId": "Unique identifier associated with the usage event",
-  "status": "Accepted",
-  "messageTime": "Time this message was created in UTC",
-  "resourceId": "Identifier of the resource against which usage is emitted",
-  "quantity": 5.0,
-  "dimension": "Dimension identifier",
-  "effectiveStartTime": "Time in UTC when the usage event occurred",
-  "planId": "Plan associated with the purchased offer"
+  "usageEventId": <guid>, // unique identifier associated with the usage event in Microsoft records
+  "status": "Accepted" // this is the only value in case of single usage event
+  "messageTime": "2020-01-12T13:19:35.3458658Z", // time in UTC this event was accepted
+  "resourceId": <guid>, // unique identifier of the resource against which usage is emitted. For SaaS it's the subscriptionId.
+  "quantity": 5.0, // amount of emitted units as recorded by Microsoft
+  "dimension": "dim1", // custom dimension identifier
+  "effectiveStartTime": "2018-12-01T08:30:14", // time in UTC when the usage event occurred, as sent by the ISV
+  "planId": "plan1", // id of the plan purchased for the offer
 }
 ```
 
 Código: 400 <br>
-La solicitud es incorrecta, faltan datos o los datos proporcionados no son válidos o han expirado.
+Solicitud incorrecta.
+
+* Datos de la solicitud no válidos proporcionados o que faltan.
+* `effectiveStartTime` es más de 24 horas en el pasado. El evento ha expirado.
+* La suscripción de SaaS no se encuentra en el estado Suscrito.
+
+Ejemplo de carga de respuesta: 
 
 ```json
 {
@@ -88,108 +114,130 @@ La solicitud es incorrecta, faltan datos o los datos proporcionados no son váli
 ```
 
 Código: 403<br>
-La solicitud es incorrecta, faltan datos o los datos proporcionados no son válidos o han expirado.
 
-```json
-{
-  "code": "Forbidden",
-  "message": "User is not allowed authorized to call this"
-}
-```
+Prohibido. El token de autorización no se ha proporcionado, no es válido o ha expirado,  o bien la solicitud intenta acceder a una suscripción para una oferta que se publicó con un identificador de aplicación de Azure AD diferente del que se usó para crear el token de autorización.
 
 Código: 409<br>
-Conflicto cuando se recibe la llamada de uso para el identificador del recurso de uso y el uso real, que ya existe. La respuesta contendrá el campo `additionalInfo`, con información sobre el mensaje aceptado.
+Conflicto. Ya se ha notificado correctamente un evento de uso para el id. de recurso especificado, la fecha y la hora de entrada en vigor del uso.
+
+Ejemplo de carga de respuesta: 
 
 ```json
 {
-  "code": "Conflict",
   "additionalInfo": {
-    "usageEventId": "Unique identifier associated with the usage event",
-    "status": "Accepted|NotProcessed|Expired",
-    "messageTime": "Time this message was created in UTC",
-    "resourceId": "Identifier of the resource against which usage is emitted",
-    "quantity": 5.0,
-    "dimension": "Dimension identifier",
-    "effectiveStartTime": "Time in UTC when the usage event occurred",
-    "planId": "Plan associated with the purchased offer"
-  }
+    "acceptedMessage": {
+      "usageEventId": "<guid>", //unique identifier associated with the usage event in Microsoft records
+      "status": "Duplicate",
+      "messageTime": "2020-01-12T13:19:35.3458658Z",
+      "resourceId": "<guid>", //unique identifier of the resource against which usage is emitted.
+      "quantity": 1.0,
+      "dimension": "dim1",
+      "effectiveStartTime": "2020-01-12T11:03:28.14Z",
+      "planId": "plan1"
+    }
+  },
+  "message": "This usage event already exist.",
+  "code": "Conflict"
 }
 ```
 
-## <a name="batch-usage-event"></a>Evento de uso por lotes
+## <a name="metered-billing-batch-usage-event"></a>Evento de uso por lotes de facturación según uso
 
-La API de eventos de uso por lotes permite emitir a la vez eventos de uso para más de una entidad específica que haya comprado. La solicitud de evento de uso por lotes hace referencia a la dimensión de servicios de medición que define el publicador al lanzar la oferta.
-
->[!Note]
->Puede registrar varias ofertas de SaaS en el programa Marketplace comercial de Microsoft. Cada oferta de SaaS registrada tiene una aplicación de Azure AD única que se registra con fines de autenticación y autorización. Los eventos emitidos por lotes deben pertenecer a ofertas con la misma aplicación de Azure AD en el momento en que se registra la oferta.
+La API de eventos de uso por lotes permite emitir a la vez eventos de uso para más de un recurso específico que haya comprado. También permite emitir varios eventos de uso para el mismo recurso, siempre que tengan lugar durante horas del calendario diferentes. El número máximo de eventos en un solo lote es 25.
 
 **POST:** `https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
 
 *Parámetros de consulta*:
 
-|            |     |
+| Parámetro  | Recomendación     |
 | ---------- | -------------------- |
-| `ApiVersion` | Versión de la operación que se usará para esta solicitud. La versión de API más reciente es 2018-08-31. |
+| `ApiVersion` | Use 2018-08-31. |
 
 *Encabezados de la solicitud*:
 
-| Content-type       | `application/json`       |
+| Content-type       | Use `application/json`       |
 | ------------------ | ------ |
 | `x-ms-requestid`     | Valor de cadena único para el seguimiento de la solicitud del cliente, preferiblemente un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
 | `x-ms-correlationid` | Valor de cadena único para la operación en el cliente. Este parámetro pone en correlación todos los eventos de la operación del cliente con los eventos del servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
-| `authorization`      | [Obtener un token de portador JSON Web Token (JWT)](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app). Nota: Al hacer la solicitud HTTP, agregue el prefijo `Bearer` al token obtenido del vínculo al que se hace referencia.  |
+| `authorization`      | Token de acceso único que identifica al ISV que realiza esta llamada API. El formato es `Bearer <access_token>` cuando el publicador recupera el valor del token, tal como se explica para <br> <ul> <li> SaaS en [Obtención del token con una solicitud HTTP POST](./pc-saas-registration.md#get-the-token-with-an-http-post). </li> <li> Aplicación administrada en [Estrategias de autenticación](./marketplace-metering-service-authentication.md). </li> </ul> |
+| | |
 
-*Solicitud:*
+
+*Ejemplo de cuerpo de la solicitud:*
+
 ```json
 {
-  "request": [
-    {
-      "resourceId": "Identifier of the resource against which usage is emitted",
-      "quantity": 5.0,
-      "dimension": "Dimension identifier",
-      "effectiveStartTime": "Time in UTC when the usage event occurred",
-      "planId": "Plan associated with the purchased offer"
+  "request": [ // list of usage events for the same or different resources of the publisher
+    { // first event
+      "resourceId": "<guid1>", // Unique identifier of the resource against which usage is emitted. 
+      "quantity": 5.0, // how many units were consumed for the date and hour specified in effectiveStartTime, must be greater than 0, can be integer or float value
+      "dimension": "dim1", //Custom dimension identifier
+      "effectiveStartTime": "2018-12-01T08:30:14",//Time in UTC when the usage event occurred, from now and until 24 hours back
+      "planId": "plan1", // id of the plan purchased for the offer
     },
-    {
-      "resourceId": "Identifier of the resource against which usage is emitted",
-      "quantity": 5.0,
-      "dimension": "Dimension identifier",
-      "effectiveStartTime": "Time in UTC when the usage event occurred",
-      "planId": "Plan associated with the purchased offer"
+    { // next event
+      "resourceId": "<guid2>", 
+      "quantity": 39.0, 
+      "dimension": "email", 
+      "effectiveStartTime": "2018-11-01T23:33:10
+      "planId": "gold", // id of the plan purchased for the offer
     }
   ]
 }
 ```
+
+>[!NOTE]
+>`resourceId` tiene un significado diferente para la aplicación SaaS y para la aplicación administrada que emite el medidor personalizado. 
+
+En el caso de los planes de las aplicaciones administradas de Aplicación de Azure, `resourceId` es el elemento `resourceUsageId` que se encuentra en el elemento `billingDetails` del objeto de metadatos de la aplicación administrada. Se puede encontrar un script de ejemplo de captura en [uso del token de identidades administradas por Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
+
+En el caso de las ofertas de SaaS, `resourceId` es el id. de suscripción de SaaS. Para obtener más información sobre las suscripciones de SaaS, consulte [lista de suscripciones](./pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
+
 ### <a name="responses"></a>Respuestas
 
 Código: 200<br>
-Aceptar
+Aceptar. La emisión de uso por lotes se aceptó y registró en el lado de Microsoft para su posterior procesamiento y facturación. La lista de respuestas se devuelve con el estado de cada evento individual del lote. Debe recorrer en iteración la carga de respuesta para comprender las respuestas de cada evento de uso individual que se envía como parte del evento por lotes.
+
+Ejemplo de carga de respuesta: 
 
 ```json
 {
-  "count": 2,
+  "count": 2, // number of records in the response
   "result": [
-    {
-      "usageEventId": "Unique identifier associated with the usage event",
-      "status": "Accepted|Expired|Duplicate|Error|ResourceNotFound|ResourceNotAuthorized|InvalidDimension|BadArgument",
-      "messageTime": "Time this message was created in UTC",
-      "resourceId": "Identifier of the resource against which usage is emitted",
-      "quantity": 5.0,
-      "dimension": "Dimension identifier",
-      "effectiveStartTime": "Time in UTC when the usage event occurred",
-      "planId": "Plan associated with the purchased offer",
-      "error": "Error object (optional)"
+    { // first response
+      "usageEventId": "<guid>", // unique identifier associated with the usage event in Microsoft records
+      "status": "Accepted" // see list of possible statuses below,
+      "messageTime": "2020-01-12T13:19:35.3458658Z", // Time in UTC this event was accepted by Microsoft,
+      "resourceId": "<guid1>", // unique identifier of the resource against which usage is emitted.
+      "quantity": 5.0, // amount of emitted units as recorded by Microsoft 
+      "dimension": "dim1", // custom dimension identifier
+      "effectiveStartTime": "2018-12-01T08:30:14",// time in UTC when the usage event occurred, as sent by the ISV
+      "planId": "plan1", // id of the plan purchased for the offer
     },
-    {
-      "usageEventId": "Unique identifier associated with the usage event",
-      "status": "Accepted|Expired|Duplicate|Error|ResourceNotFound|ResourceNotAuthorized|InvalidDimension|BadArgument",
-      "messageTime": "Time this message was created in UTC",
-      "resourceId": "Identifier of the resource against which usage is emitted",
-      "quantity": 5.0,
-      "dimension": "Dimension identifier",
-      "effectiveStartTime": "Time in UTC when the usage event occurred",
-      "planId": "Plan associated with the purchased offer",
-      "error": "Error object (optional)"
+    { // second response
+      "status": "Duplicate",
+      "messageTime": "0001-01-01T00:00:00",
+      "error": {
+        "additionalInfo": {
+          "acceptedMessage": {
+            "usageEventId": "<guid>",
+            "status": "Duplicate",
+            "messageTime": "2020-01-12T13:19:35.3458658Z",
+            "resourceId": "<guid2>",
+            "quantity": 1.0,
+            "dimension": "email",
+            "effectiveStartTime": "2020-01-12T11:03:28.14Z",
+            "planId": "gold"
+          }
+        },
+        "message": "This usage event already exist.",
+        "code": "Conflict"
+      },
+      "resourceId": "<guid2>",
+      "quantity": 1.0,
+      "dimension": "email",
+      "effectiveStartTime": "2020-01-12T11:03:28.14Z",
+      "planId": "gold"
     }
   ]
 }
@@ -199,43 +247,32 @@ Descripción del código de estado al que se hace referencia en respuesta de la 
 
 | status code  | Descripción |
 | ---------- | -------------------- |
-| `Accepted` | Código aceptado. |
+| `Accepted` | Accepted. |
 | `Expired` | Uso expirado. |
 | `Duplicate` | Se ha proporcionado un uso duplicado. |
 | `Error` | Código de error. |
 | `ResourceNotFound` | El recurso de uso proporcionado no es válido. |
 | `ResourceNotAuthorized` | No está autorizado a proporcionar el uso de este recurso. |
 | `InvalidDimension` | La dimensión para la que se ha pasado el uso no es válida para esta oferta o plan. |
-| `InvalidQuantity` | La cantidad pasada es <0. |
+| `InvalidQuantity` | La cantidad pasada es menor o igual que 0. |
 | `BadArgument` | Falta la entrada o tiene un formato incorrecto. |
 
 Código: 400<br>
-La solicitud es incorrecta, faltan datos o los datos proporcionados no son válidos o han expirado.
+Solicitud incorrecta. El lote contenía más de 25 eventos de uso.
 
-```json
-{
-  "message": "One or more errors have occurred.",
-  "target": "usageEventRequest",
-  "details": [
-    {
-      "message": "Invalid data format.",
-      "target": "usageEventRequest",
-      "code": "BadArgument"
-    }
-  ],
-  "code": "BadArgument"
-}
-```
 Código: 403<br>
-El usuario no está autorizado a hacer esta llamada.
+Prohibido. El token de autorización no se ha proporcionado, no es válido o ha expirado,  o bien la solicitud intenta acceder a una suscripción para una oferta que se publicó con un identificador de aplicación de Azure AD diferente del que se usó para crear el token de autorización.
 
-```json
-{
-  "code": "Forbidden",
-  "message": "User is not allowed to call this"
-}
-```
+## <a name="development-and-testing-best-practices"></a>Procedimientos recomendados de desarrollo y pruebas
+
+Para probar la emisión del medidor personalizada, implemente la integración con la API de medición y cree un plan para la oferta de SaaS publicada con dimensiones personalizadas definidas en él con un precio de cero por unidad. Además, publique esta oferta como versión preliminar. De este modo, solo los usuarios limitados podrán acceder a la integración y probarla.
+
+También puede usar el plan privado para que una oferta activa existente limite el acceso a este plan durante las pruebas a una audiencia limitada.
+
+## <a name="get-support"></a>Obtención de soporte técnico
+
+Siga las instrucciones de [Soporte técnico para el programa de marketplace comercial en el Centro de partners](./support.md) para conocer las opciones de soporte técnico para publicadores y abrir una incidencia de soporte técnico con Microsoft.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información, consulte [Facturación según uso de SaaS](./saas-metered-billing.md).
+Para obtener más información sobre las API del servicio de medición, consulte las [preguntas más frecuentes de las API del servicio de medición de Marketplace](./marketplace-metering-service-apis-faq.md).

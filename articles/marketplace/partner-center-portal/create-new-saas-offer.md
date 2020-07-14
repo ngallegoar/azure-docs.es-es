@@ -1,18 +1,16 @@
 ---
 title: Creación de una nueva oferta de SaaS en el marketplace comercial de Microsoft
 description: Cómo crear una oferta de software como servicio (SaaS) para mostrarla o venderla en Azure Marketplace, Microsoft AppSource o bien mediante el programa Proveedor de soluciones en la nube (CSP) mediante el portal del marketplace comercial de Microsoft Partner Center.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/01/2020
-ms.openlocfilehash: 3c922675619fc877d9d97a43b69a15f5ca4f393e
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 06/17/2020
+ms.openlocfilehash: a233f3594ace74a6bfeca90ffccfbcb233e5d890
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849117"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121899"
 ---
 # <a name="create-a-new-saas-offer-in-the-commercial-marketplace"></a>Creación de una oferta de SaaS en marketplace comercial
 
@@ -76,15 +74,15 @@ La venta a través de Microsoft ofrece a los clientes una mejor experiencia de h
 Para enumerar las ofertas de software como servicio (SaaS) con Marketplace comercial en el Centro de partners, se deben cumplir los siguientes criterios:
 
 - La oferta debe usar [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) para la administración y autenticación de identidades.
-- La oferta debe usar las [API de suministro de SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) para integrarse en Azure Marketplace.
+- La oferta debe usar las [API de suministro de SaaS](pc-saas-fulfillment-api-v2.md) para integrarse en Azure Marketplace.
 
 #### <a name="saas-pricing-and-billing-options"></a>Precios de SaaS y opciones de facturación
 
-Con las soluciones de SaaS que se ejecutan en la suscripción de Azure del editor, los honorarios de licencias que pagan los clientes incluyen el costo de la infraestructura en la que se implementa el software. El uso de la infraestructura de Azure se administra y se factura directamente al asociado. El cliente no ve los honorarios de uso de infraestructura reales. Los publicadores deben agrupar los honorarios de uso de la infraestructura de Azure en los precios de las licencias de software. 
+Con las soluciones de SaaS que se ejecutan en la suscripción de Azure del editor, los honorarios de licencias que pagan los clientes incluyen el costo de la infraestructura en la que se implementa el software. El uso de la infraestructura de Azure se administra y se factura directamente al asociado. El cliente no ve los honorarios de uso de infraestructura reales. Los publicadores deben agrupar los honorarios de uso de la infraestructura de Azure en los precios de las licencias de software.
 
 Las ofertas de SaaS admiten la facturación mensual o anual en función de una cuota fija, por usuario, o cargos por consumo mediante el servicio de facturación medido. Marketplace comercial de Microsoft opera según un modelo de agencia, en el que los editores establecen los precios, Microsoft factura a los clientes y Microsoft paga los ingresos al editor, a la vez que retiene una cuota correspondiente a la agencia.
 
-Este es un ejemplo de desglose de costos y pagos para demostrar el modelo de agencia:
+Este es un desglose de ejemplo de los costos y pagos para demostrar el modelo de agencia (los precios que se muestran son solo para fines de ejemplo y no para reflejar los costos reales):
 
 |**Costo de su licencia**|**100 USD al mes**|
 |:---|:---|
@@ -96,10 +94,9 @@ Este es un ejemplo de desglose de costos y pagos para demostrar el modelo de age
 |Microsoft le paga el 80 % del costo de licencia <br>**En el caso de las aplicaciones SaaS aptas, Microsoft paga el 90 % del costo de la licencia*|80,00 USD al mes <br>*$* 90,00 al mes*|
 
 - En este ejemplo, Microsoft factura USD 100 al cliente por su licencia de software y paga USD 80 al editor.
-- Los asociados que se sean aptos para el **precio reducido del servicio Marketplace** verán un precio de transacción reducido en las ofertas de SaaS desde mayo de 2019 hasta junio de 2020. En este escenario, Microsoft factura 100,00 USD por su licencia de software y paga 90,00 USD al anunciante.
 
 > [!NOTE]
-> **Precio reducido del servicio Marketplace**: Para determinadas ofertas de SaaS que haya publicado en nuestro Marketplace comercial, Microsoft reducirá su precio del servicio Marketplace del 20 % (como se describe en el Acuerdo para anunciantes de Microsoft) al 10 %. Para que su oferta sea apta, Microsoft debe haber designado que al menos una de sus ofertas esté lista para realizar una venta conjunta por IP o esté clasificada orden de prioridad para realizar una venta conjunta por IP. Para recibir este precio reducido del servicio Marketplace durante el mes, se deben cumplir los criterios de idoneidad al menos cinco (5) días hábiles antes del final de cada mes natural.  El precio reducido del servicio Marketplace no se aplica a las máquinas virtuales, las aplicaciones administradas ni cualquier otro producto que esté disponible a través de nuestro Marketplace comercial. El precio reducido del servicio Marketplace solo estará disponible para las ofertas aptas para los cargos de licencia recaudados por Microsoft entre el 1 de mayo de 2019 y el 30 de junio de 2020. Transcurrido este tiempo, la tarifa del servicio Marketplace volverá a su importe normal.
+> **Precio reducido del servicio Marketplace**: para determinadas ofertas de SaaS que haya publicado en nuestro Marketplace comercial, Microsoft reducirá su precio del servicio Marketplace del 20 % (como se describe en el Acuerdo para anunciantes de Microsoft) al 10 %. Para que su oferta sea apta, Microsoft debe haber designado sus ofertas como listas para realizar una venta conjunta por IP o clasificadas orden de prioridad para realizar una venta conjunta por IP. Para recibir el precio reducido del servicio Marketplace durante el mes, se deben cumplir los criterios de idoneidad al menos cinco (5) días hábiles antes del final de cada mes natural. El precio reducido del servicio Marketplace no se aplica a las VM, las aplicaciones administradas ni ningún otro producto que esté disponible a través de marketplace comercial.
 
 ### <a name="list-through-microsoft"></a>Listas a través de Microsoft
 
@@ -109,11 +106,11 @@ La creación de una lista en Marketplace promocionará su negocio. Si selecciona
 
 #### <a name="get-it-now-free"></a>Obténgalo ahora (de forma gratuita)
 
-Publique la oferta para los clientes de manera gratuita proporcionando una dirección válida (que empiece por *http* o *https*), en la que pueda obtener una evaluación mediante [autenticación con un solo clic con Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials). Por ejemplo, `https://contoso.com/saas-app`.
+Para publicar la oferta para los clientes de manera gratuita, proporcione una dirección válida (que empiece por *http* o *https*), en la que pueda obtener una evaluación mediante [autenticación con un solo clic con Azure Active Directory (Azure AD)](../marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials). Por ejemplo, `https://contoso.com/saas-app`.
 
 #### <a name="free-trial-listing"></a>Evaluación gratuita (anuncio)
 
-Publique la oferta para los clientes con un vínculo a una evaluación gratuita proporcionando una dirección válida (que empiece por *http* o *https*), en la que pueda obtener una evaluación mediante [autenticación con un solo clic con Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials). Por ejemplo, `https://contoso.com/trial/saas-app`. Las ofertas que incluyen evaluaciones gratuitas se crean, administran y configuran desde su servicio y no tienen suscripciones administradas por Microsoft.
+Para publicar la oferta para los clientes con un vínculo a una evaluación gratuita, proporcione una dirección válida (que empiece por *http* o *https*), en la que pueda obtener una evaluación mediante [autenticación con un solo clic con Azure Active Directory (Azure AD)](../marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials). Por ejemplo, `https://contoso.com/trial/saas-app`. Las ofertas que incluyen evaluaciones gratuitas se crean, administran y configuran desde su servicio y no tienen suscripciones administradas por Microsoft.
 
 > [!NOTE]
 > Los tokens que la aplicación recibirá a través del vínculo de evaluación gratuita solo se pueden usar para obtener información de usuario mediante Azure AD para automatizar la creación de cuentas en la aplicación. No se admiten las cuentas de Microsoft (MSA) para la autenticación con este token.
@@ -124,19 +121,48 @@ Recopile información de contacto de los clientes mediante la conexión de su si
 
 #### <a name="example-marketplace-offer-listing"></a>Descripción de la oferta de Marketplace de ejemplo
 
-![Descripción de la oferta de Marketplace de ejemplo con notas](./media/marketplace-offer.svg)
+<!-- ![Example marketplace offer listing with notes](./media/marketplace-offer.svg) -->
+
+Este es un ejemplo de cómo aparece la información de la oferta en Microsoft AppSource:
+
+:::image type="content" source="media/example-appsource-saas.png" alt-text="Ilustración de cómo aparece esta oferta en Microsoft AppSource.":::
+
+#### <a name="call-out-descriptions"></a>Descripciones destacadas
+
+1. Logotipo grande
+2. Categorías
+3. Industrias
+4. Dirección de soporte técnico (vínculo)
+5. Términos de uso
+6. Directiva de privacidad
+7. Nombre de la oferta
+8. Resumen
+9. Descripción
+10. Capturas de pantallas o vídeos
+11. Documentos
+
+<br>Este es un ejemplo de cómo aparece la información de la oferta en Azure Portal:
+
+:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Portal.":::
+
+#### <a name="call-out-descriptions"></a>Descripciones destacadas
+
+1. Título
+2. Descripción
+3. Vínculos útiles
+4. Capturas de pantalla
 
 ## <a name="enable-a-test-drive"></a>Habilitación de una versión de prueba
 
-Una versión de prueba es una excelente manera de presentar la oferta a clientes potenciales, ya que se les brinda la oportunidad de "probarla antes de comprarla", lo que aumenta la conversión y la generación de clientes potenciales altamente cualificados. [Más información sobre las versiones de prueba](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
+Una versión de prueba es una excelente manera de presentar la oferta a clientes potenciales, ya que se les brinda la oportunidad de "probarla antes de comprarla", lo que aumenta la conversión y la generación de clientes potenciales altamente cualificados. [Más información sobre las versiones de prueba](../what-is-test-drive.md).
 
 Para habilitar una versión de prueba durante un período de tiempo determinado, seleccione la casilla **Habilitar una versión de prueba**. Para eliminar la versión de prueba de la oferta, desactive esta casilla.
 
-Para obtener más información, consulte [Versión de prueba de la oferta en el marketplace comercial](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive).
+Para obtener más información, consulte [Versión de prueba de la oferta en el marketplace comercial](test-drive.md).
 
 ### <a name="test-drive-resources"></a>Recursos de la versión de prueba
 
-- [Procedimientos recomendados de marketing](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
+- [¿Qué es una versión de prueba?](../what-is-test-drive.md)
 - [Procedimientos técnicos recomendados](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Información general](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF, asegúrese de que el bloqueador de elementos emergentes está desactivado)
 
@@ -145,8 +171,8 @@ Para obtener más información, consulte [Versión de prueba de la oferta en el 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management-a.md)]
 
 #### <a name="additional-lead-management-resources"></a>Recursos adicionales de la administración de clientes potenciales
-- [Preguntas frecuentes de la administración de clientes potenciales](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Errores comunes de la configuración de clientes potenciales](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Preguntas frecuentes de la administración de clientes potenciales](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
+- [Errores comunes de la configuración de clientes potenciales](../lead-management-for-cloud-marketplace.md#publishing-config-errors)
 - [Póster Introducción a la administración de clientes potenciales](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
 
 Seleccione **Guardar borrador** antes de continuar.
@@ -157,11 +183,18 @@ En esta página se le pide que defina las categorías y los sectores que se usan
 
 ### <a name="category"></a>Category
 
-Seleccione entre una categoría, como mínimo, y tres categorías, como máximo, para agrupar la oferta en las áreas de búsqueda apropiadas de marketplace. Describa la forma en que la oferta admite estas categorías en la descripción de la oferta.
+La oferta se publicará en AppSource o Azure Marketplace en función de las funcionalidades de transacción asociadas a su oferta y a la selección de categorías. Consulte [Comparación de Microsoft AppSource y Azure Marketplace](../comparing-appsource-azure-marketplace.md) para obtener más información. Seleccione las categorías y subcategorías que mejor se alineen con su oferta y con la audiencia prevista. Seleccione:
+
+- Al menos una y un máximo de dos categorías, incluidas una categoría principal y una secundaria (opcional).
+- Hasta dos subcategorías para cada categoría principal o secundaria. Si no hay ninguna subcategoría aplicable a la oferta, seleccione **No aplicable**.
+
+Vea la lista completa de categorías y subcategorías aplicables a cada escaparate en [Procedimientos recomendados para la publicación de ofertas](../gtm-offer-listing-best-practices.md).
 
 ### <a name="industries"></a>Industrias
 
 [!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
+
+La selección del sector solo se aplica a las ofertas publicadas en AppSource.
 
 ### <a name="app-version"></a>Versión de la aplicación
 
@@ -223,7 +256,7 @@ Especifique los detalles que se muestran en Marketplace, lo que incluye descripc
 
 - **Nombre** (obligatorio): El nombre que se defina aquí aparecerá como título de la descripción de la oferta en los marketplace que haya elegido. El nombre se rellena previamente en función de lo que se haya escrito en **Nueva oferta**. El nombre puede ser una marca comercial. No puede contener emojis (a menos que sean símbolos de marca comercial y copyright), y no puede tener más de 50 caracteres.
 - **Resumen** (obligatorio): Especifique una descripción breve de la oferta que se va a usar en los resultados de búsqueda en las descripciones del marketplace. En este campo se puede escribir hasta 100 caracteres de texto.
-- **Descripción** (obligatorio): Escriba una descripción de la oferta que se va a mostrar en la información general de las descripciones del marketplace. Considere la posibilidad de incluir una propuesta de valor, los beneficios clave, todas las asociaciones de la categoría o sector, las oportunidades de compra en la aplicación, todas las divulgaciones necesarias y un vínculo para obtener más información. En este campo se puede escribir hasta 3000 caracteres de texto, incluido el marcado. Consulte [Escribir una excelente descripción de la aplicación](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description) para encontrar más sugerencias.
+- **Descripción** (obligatorio): Escriba una descripción de la oferta que se va a mostrar en la información general de las descripciones del marketplace. Considere la posibilidad de incluir una propuesta de valor, los beneficios clave, todas las asociaciones de la categoría o sector, las oportunidades de compra en la aplicación, todas las divulgaciones necesarias y un vínculo para obtener más información. En este campo se puede escribir hasta 3000 caracteres de texto, incluido el marcado. Consulte [Escribir una excelente descripción de la aplicación](/windows/uwp/publish/write-a-great-app-description) para encontrar más sugerencias.
 - **Palabras clave de búsqueda**: Escriba un máximo de tres palabras clave de búsqueda que los clientes puedan usar para buscar su oferta en los marketplaces.
 - **Instrucciones para las Tareas iniciales**  (obligatorio): Se explica cómo configurar y empezar a usar la aplicación para los clientes potenciales.  Este tutorial de inicio rápido puede contener vínculos a documentación en línea más detallada. En este campo se puede escribir hasta 3000 caracteres de texto.
 
@@ -238,7 +271,7 @@ Este campo es obligatorio.
 #### <a name="links"></a>Vínculos
 
 - **Directiva de privacidad** (obligatorio): Vínculo a la directiva de privacidad de su organización. Usted es el responsable no solo de garantizar que la aplicación cumple la normativa y la legislación en lo tocante a la privacidad, sino también de proporcionar una directiva de privacidad válida
-- **Materiales de marketing del programa CSP** (opcional): Si decide ampliar su oferta al programa [Proveedor de soluciones en la nube (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers), debe incluir un vínculo a los materiales de marketing. CSP amplía su oferta a una rango mayor clientes aptos, ya que permite que los asociados de CSP incluyan su oferta en paquetes, la comercialicen y la distribuyan. Los revendedores necesitarán acceder a estos materiales para comercializar su oferta. Para más información, consulte [Servicios de comercialización](https://partner.microsoft.com/reach-customers/gtm).
+- **Materiales de marketing del programa CSP** (opcional): Si decide ampliar su oferta al programa [Proveedor de soluciones en la nube (CSP)](../cloud-solution-providers.md), debe incluir un vínculo a los materiales de marketing. CSP amplía su oferta a una rango mayor clientes aptos, ya que permite que los asociados de CSP incluyan su oferta en paquetes, la comercialicen y la distribuyan. Los revendedores necesitarán acceder a estos materiales para comercializar su oferta. Para más información, consulte [Servicios de comercialización](https://partner.microsoft.com/reach-customers/gtm).
 - **Vínculos útiles** (opcional): Documentos en línea complementarios opcionales acerca de la aplicación o de servicios relacionados que se muestran tras escribir un **Título** y una **Dirección URL**. Para agregar más vínculos útiles, haga clic en **+ Agregar una dirección URL** .
 
 #### <a name="contact-information"></a>Información de contacto
@@ -251,16 +284,15 @@ Este campo es obligatorio.
 
 #### <a name="files-and-images"></a>Archivos e imágenes
 
-- **Documentos** (obligatorio): Agregue a su oferta documentos de marketing relacionados, en formato PDF. Incluya un proporciona un mínimo de un (1) documento por oferta y un máximo de tres (3).
+- **Documentos** (obligatorio): agregue a su oferta documentos de marketing relacionados en formato PDF. Incluya un mínimo de un (1) documento por oferta y un máximo de tres (3).
 - **Imágenes** (opcional): En todos los marketplaces, hay varios lugares en los que pueden aparecer imágenes del logotipo de su oferta, que requieren los siguientes tamaños en formato PNG:
 
     - **Pequeño** (48×48, obligatorio)
     - **Mediano** (90×90, obligatorio)
     - **Grande** (216×216, obligatorio)
     - **Ancho (255 x 115)**
-    - **Principal** (815×290)
 
-- **Capturas de pantalla** (obligatorio): Agregue capturas de pantalla que muestren la oferta. Se pueden agregar hasta cinco (5) y deben ser de 1280 x 720 píxeles. Todas las imágenes deben estar en formato .PNG.
+- **Capturas de pantallas** (obligatorio): agregue un máximo de cinco capturas de pantallas que muestren la oferta, con un tamaño de 1280 x 720 píxeles. Todas las imágenes deben estar en formato .PNG.
 - **Vídeos** (opcional): Agregue vínculos a vídeos en que se muestre la oferta. Puede usar vínculos a vídeos de YouTube o Vimeo para que acompañen a la oferta para los clientes. También tendrá que incluir una imagen en miniatura del vídeo con un tamaño de 1280 x 720 píxeles y en formato PNG. Puede mostrar un máximo de cuatro vídeos por oferta.
 
 >[!NOTE]
@@ -268,7 +300,7 @@ Este campo es obligatorio.
 
 #### <a name="additional-marketplace-listing-resources"></a>Recursos adicionales de la descripción de Marketplace
 
-- [Procedimientos recomendados la descripción de ofertas en Marketplace](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+- [Procedimientos recomendados la descripción de ofertas en Marketplace](../gtm-offer-listing-best-practices.md)
 
 Seleccione **Guardar borrador** antes de continuar.
 
@@ -290,18 +322,26 @@ Seleccione **Guardar borrador** antes de continuar.
 
 ## <a name="technical-configuration"></a>Configuración técnica
 
-En esta página se definen los detalles técnicos (ruta de acceso de la dirección URL, webhook, identificador de inquilino e identificador de aplicación) que se usan para conectarse a su oferta. Esta conexión nos permite aprovisionar su oferta para el cliente final, en caso de que este elija adquirirla. En la documentación de las [API de suministro de SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) hay diagramas que describen el uso de los campos recopilados.
-
-- **URL de página de aterrizaje** (obligatorio): Defina la dirección URL del sitio adonde se dirigirá a los clientes después de adquirir la oferta en el marketplace. Dicha URL será el punto de conexión que reciba un token cuando un cliente se enrute a la página. Dicho token se puede intercambiar para aprovisionar detalles mediante el uso de resolver en las API de suministro. Tanto estos detalles como otros que recopile pueden utilizarse como parte de una página web interactiva con los clientes basada en su experiencia para completar el registro y activar su compra.
-
-- **Webhook de conexión** (obligatorio): Para todos los eventos asincrónicos que Microsoft tiene que enviarle en nombre del cliente (por ejemplo, si la suscripción a SaaS ya no es válida), le exigimos que nos proporcione un webhook de conexión. Si todavía no tiene un sistema de webhooks activo, la configuración más sencilla es una aplicación de lógica de punto de conexión HTTP que escuche los eventos que se publiquen en ella y que, después, los gestione de la forma adecuada (por ejemplo, https:\//prod-1westus.logic.azure.com:443/work). Para obtener más información, consulte [Llamada, desencadenamiento o anidamiento de flujos de trabajo con puntos de conexión HTTP en aplicaciones lógicas](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
-
-- **Id. de inquilino de Azure AD** (obligatorio): En Azure Portal, es preciso que [cree una aplicación de Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para que podamos validar que la conexión entre nuestros dos servicios está detrás de una comunicación autenticada. Para buscar el [identificador de inquilino](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), vaya a Azure Active Directory, seleccione **Propiedades** y, después, busque el número de **identificador de directorio** que aparece (por ejemplo, 50c464d3-4930-494c-963c-1e951d15360e).
-
-- **Id. de aplicación de Azure AD** (obligatorio): También necesita su [identificador de la aplicación](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) y una clave de autenticación. Para obtener esos valores, vaya a Azure Active Directory, seleccione **Registros de aplicaciones** y, después, busque el número de **identificador de la aplicación** que se muestra (por ejemplo, 50c464d3-4930-494c-963c-1e951d15360e). Para buscar la clave de autenticación, vaya a **Configuración** y seleccione **Claves**. Deberá proporcionar una descripción y una duración y, después, se proporcionara un valor numérico.
+En la pestaña **Configuración técnica** se definen los detalles técnicos usados en marketplace para comunicarse con el servicio SaaS. Esta conexión nos permite aprovisionar su oferta para el cliente final, en caso de que este elija adquirirla y administrarla. 
 
 >[!Note]
->El identificador de aplicación de Azure está asociado al identificador de anunciante, por lo que debe asegurarse de que en todas las ofertas se use el mismo identificador de aplicación.
+>Debe implementar la integración con las [API de cumplimiento de SaaS](./pc-saas-fulfillment-api-v2.md) antes de configurar estos detalles en los detalles de la oferta.
+
+En la documentación de las [API](./pc-saas-fulfillment-api-v2.md) hay diagramas y explicaciones detalladas que describen el uso de los campos recopilados.
+
+- **URL de la página de aterrizaje** (obligatorio): defina la dirección URL del sitio de SaaS (por ejemplo: `https://contoso.com/signup`) en la que los clientes finales aterrizarán después de adquirir la oferta de marketplace y de desencadenar el proceso de configuración desde la suscripción de SaaS recién creada.  Se llamará a esta dirección URL con el parámetro del token de identificación de compra de marketplace que identifica de forma única la compra de SaaS del cliente final específico.  Debe intercambiar este token para los detalles de la suscripción de SaaS correspondiente mediante la API de [resolución](./pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription).  Tanto estos detalles como otros que desee recopilar deben usarse como parte de una página web interactiva con los clientes basada en su experiencia para completar el registro del cliente final y activar su compra.  En esta página, el usuario debe registrarse a través de la autenticación con un solo clic mediante Azure Active Directory (Azure AD). <br> <br> También se llamará a esta dirección URL con el parámetro de token de identificación de compra de marketplace cuando el cliente final inicie la experiencia de SaaS administrada desde Azure Portal o el Centro de administración de M365. Debe controlar ambos flujos, cuando el token se proporciona por primera vez después de la compra para nuevos clientes y cuando se proporciona a un cliente existente que administra su oferta de SaaS. <br> <br> La página de aterrizaje que configure aquí debe estar activa y en ejecución de forma ininterrumpida. Esta es la única manera en que se le notificarán nuevas compras de las ofertas de SaaS realizadas en marketplace o las solicitudes de configuración de una suscripción activa a una oferta.
+
+- **Webhook de conexión** (obligatorio): para todos los eventos asincrónicos que Microsoft tiene que enviarle (por ejemplo, si la suscripción a SaaS se ha cancelado), le exigimos que nos proporcione una URL de webhook de conexión. Se llamará a esta dirección URL para notificarle sobre el evento. <br> <br> El webhook que proporcione debe estar activo y en ejecución de forma ininterrumpida, ya que esta es la única manera en que se le notificará acerca de las actualizaciones de las suscripciones de SaaS de sus clientes adquiridas a través de marketplace.  Si aún no tiene un sistema de webhooks activo, la configuración más sencilla es una aplicación de lógica de punto de conexión HTTP que escuchará los eventos que se publiquen y los gestionará adecuadamente (por ejemplo, `https://prod-1westus.logic.azure.com:443/work`). Para obtener más información, consulte [Llamada, desencadenamiento o anidamiento de flujos de trabajo con puntos de conexión HTTP en aplicaciones lógicas](../../logic-apps/logic-apps-http-endpoint.md).
+
+- **Id. de inquilino de Azure AD** (obligatorio): en Azure Portal, es preciso que [cree una aplicación de Azure Active Directory (AD)](../../active-directory/develop/howto-create-service-principal-portal.md) para que podamos validar que la conexión entre nuestros dos servicios está detrás de una comunicación autenticada. Para buscar el [identificador de inquilino](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), vaya a Azure Active Directory y seleccione **Propiedades** y, después, busque el número de **identificador de directorio** que aparece (por ejemplo, 50c464d3-4930-494c-963c-1e951d15360e).
+
+- **Id. de aplicación de Azure AD** (obligatorio): también necesita su [identificador de la aplicación](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in). Para obtener su valor, vaya a Azure Active Directory, seleccione **Registros de aplicaciones** y, después, busque el número de **Id. de la aplicación** que se muestra (por ejemplo, `50c464d3-4930-494c-963c-1e951d15360e`).
+
+>[!Note]
+>El id. de la aplicación de Azure AD está asociado a su identificador de publicador de la cuenta del Centro de partners.  Asegúrese de que se usa el mismo id. de la aplicación en todas las ofertas.
+
+>[!Note]
+>Si el publicador tiene dos o más cuentas diferentes en el Centro de partners, deben usarse dos o más id. de la aplicación de Azure AD diferentes, uno para cada cuenta. Cada cuenta de partner del Centro de partners debe usar un id. de la aplicación de Azure AD único para todas las ofertas de SaaS publicadas a través de esta cuenta.
 
 Seleccione **Guardar borrador** antes de continuar.
 
@@ -350,7 +390,7 @@ Antes de continuar, seleccione **Guardar**.
 
 ##### <a name="pricing-model"></a>Modelo de precios
 
-**Tarifa plana**: Habilite el acceso a su oferta con un única tarifa plana mensual o anual. A veces esto se denomina precios basados en puesto. Con este modelo de precios, opcionalmente, puede definir planes limitados que usan la API del servicio de medición de Marketplace para cobrar a los clientes según las unidades no estándar.  Para obtener más información sobre la facturación limitada, consulte [facturación limitada mediante el servicio de medición de Marketplace](./saas-metered-billing.md).
+**Tarifa plana**: Habilite el acceso a su oferta con un única tarifa plana mensual o anual. A veces esto se denomina precios basados en puesto. Con este modelo de precios, opcionalmente, puede definir planes limitados que usan la API del servicio de medición de Marketplace para cobrar a los clientes según las unidades no estándar.  Para obtener más información sobre la facturación limitada, consulte [facturación limitada mediante el servicio de medición de Marketplace](./saas-metered-billing.md).  También debe usar esta opción si el comportamiento de uso presenta ráfagas para su servicio SaaS.  No se recomienda que el cliente cambie a menudo los planes cada día o cada hora.
 
 **Por usuario**: Habilite el acceso a su oferta con el precio en función del número de usuarios que acceden a la oferta u que ocupan los puestos. Este modelo basado en usuarios le permite establecer el número mínimo y máximo de usuarios permitido en función del precio. De esta forma, se pueden configurar diferentes puntos de precio en función del número de usuarios mediante la configuración de varios planes.  Estos campos son opcionales. Si no se selecciona, se interpretará que el número de usuarios no tiene límite (el mínimo es 1 y el máximo es tantos como el sistema puede admitir). Estos campos se pueden editar como parte de una actualización del plan.
 
@@ -375,7 +415,7 @@ Revise los precios cuidadosamente antes de la publicación, ya que hay algunas r
 
 #### <a name="free-trial"></a>Versión de prueba gratuita
 
-Las ofertas de SaaS a través del Marketplace comercial le permiten proporcionar una evaluación gratuita de un mes al vender a través de Microsoft. Las evaluaciones gratuitas se admiten para todos los modelos y términos de facturación, excepto los planes limitados. Esta opción facilita a los clientes la entrada mediante un mes de acceso gratuito.  Si decide habilitar una evaluación gratuita para los planes dentro de la oferta, el cliente no podrá convertirla en una suscripción de pago antes de que finalice el período inicial de un mes.  Durante este tiempo, los clientes que compren su oferta pueden probar cualquiera de los planes admitidos que tengan la evaluación gratuita habilitada y convertirlos entre ellos.  La conversión a una suscripción de pago se realiza automáticamente al final del período.
+Las ofertas de SaaS a través del marketplace comercial le permiten proporcionar una evaluación gratuita de un mes al vender a través de Microsoft. Las evaluaciones gratuitas se admiten para todos los modelos y términos de facturación, excepto los planes limitados. Esta opción facilita a los clientes la entrada mediante un mes de acceso gratuito.  Si decide habilitar una evaluación gratuita para los planes dentro de la oferta, el cliente no podrá convertirla en una suscripción de pago antes de que finalice el período inicial de un mes.  Durante este tiempo, los clientes que compren su oferta pueden probar cualquiera de los planes admitidos que tengan la evaluación gratuita habilitada y convertirlos entre ellos.  La conversión a una suscripción de pago se realiza automáticamente al final del período.
 
 >[!NOTE]
 >Si el cliente decide convertir a un plan sin evaluaciones gratuitas, se producirá la conversión, pero la evaluación gratuita se perderá de inmediato. Además, una vez que un cliente empieza a pagar un plan, ya no puede volver a obtener una evaluación gratuita de la misma suscripción, aunque lo convierta a una SKU que admita evaluaciones gratuitas.
@@ -387,7 +427,7 @@ Aquí puede configurar una evaluación gratuita para cada plan de su oferta. Sel
 >[!NOTE]
 >Una vez que se haya publicado la oferta de transacciones con una evaluación gratuita, no se puede deshabilitar para ese plan. Asegúrese de que esta configuración sea correcta para la primera publicación para evitar tener que volver a crear el plan.
 
-Para obtener información sobre las suscripciones de clientes que actualmente participan en una evaluación gratuita, use la nueva propiedad de API `isFreeTrial`, que se marcará como true o false. Para más información, vea la [API para obtener suscripción de SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription).
+Para obtener información sobre las suscripciones de clientes que actualmente participan en una evaluación gratuita, use la nueva propiedad de API `isFreeTrial`, que se marcará como true o false. Para más información, vea la [API para obtener suscripción de SaaS](pc-saas-fulfillment-api-v2.md#get-subscription).
 
 >[!NOTE]
 >Las evaluaciones gratuitas no se admiten para los planes que usan el servicio de medición de Marketplace.
@@ -415,7 +455,14 @@ Seleccione **Guardar borrador** antes de continuar.
 
 ## <a name="example-list-of-plans-within-a-marketplace-offer"></a>Lista de planes de ejemplo en una oferta de Marketplace
 
-![Descripción de plan de Marketplace de ejemplo con notas](./media/marketplace-plan.svg)
+:::image type="content" source="media/marketplace-plan.png" alt-text="Descripción del plan de Marketplace de ejemplo con notas.":::
+
+#### <a name="call-out-descriptions"></a>Descripciones destacadas
+
+1. Nombre del plan
+2. Description del plan
+
+<br>
 
 ## <a name="cloud-solution-provider-csp-reseller-audience"></a>Audiencia de revendedores de Proveedor de soluciones en la nube (CSP)
 
@@ -434,7 +481,7 @@ Si es la primera vez que publica esta oferta, puede:
     - **Incompleta**: La sección tiene errores que deben corregirse o se requiere más información. Tendrá que volver a la sección anterior y actualizarla.
     - **Completa**: La sección está completa, se han proporcionado todos los datos necesarios y no hay ningún error. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
 - Envíe instrucciones para la realización de pruebas al equipo de certificación para asegurarse de que la aplicación se prueba correctamente, además de todas las notas adicionales que pueden resultar útiles para conocer la aplicación.
-- Enviar la oferta para su publicación, para lo que debe seleccionar **Enviar**. Le enviaremos un correo electrónico que le avise cuando haya una versión preliminar de la oferta disponible para su revisión y aprobación. Debe volver al Centro de partners y seleccionar **Transmitir** la oferta para publicar la oferta para el público (o si es una privada, al público privado).
+- Enviar la oferta para su publicación, para lo que debe seleccionar **Enviar**. Le enviaremos un correo electrónico que le avise cuando haya una versión preliminar de la oferta disponible para su revisión y aprobación. Vuelva al Centro de partners y seleccionar **Transmitir** para publicar la oferta para el público (o si es una oferta privada, al público privado).
 
 ## <a name="next-step"></a>Paso siguiente
 

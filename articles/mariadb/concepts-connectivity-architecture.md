@@ -5,13 +5,13 @@ author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: b4333513d2ba210f6a472638732cc2781b8d5c0b
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.date: 6/8/2020
+ms.openlocfilehash: d082417fc5b4df7540973d5f6e146030aaad5380
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300842"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107196"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Arquitectura de la conectividad en Azure Database for MariaDB
 En este artículo se explica la arquitectura de la conectividad de Azure Database for MariaDB y cómo se dirige el tráfico a la instancia de Azure Database for MariaDB desde los clientes de dentro y de fuera de Azure.
@@ -43,7 +43,7 @@ En la siguiente tabla se enumeran las direcciones IP principales y secundarias d
 | Norte de China | 139.219.15.17    |
 | Norte de China 2 | 40.73.50.0     |
 | Este de Asia | 191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21     |
-| Este de EE. UU. | 40.121.158.30, 191.238.6.43  |
+| Este de EE. UU. | 40.121.158.30, 191.238.6.43, 40.71.8.203, 40.71.83.113   |
 | Este de EE. UU. 2 |40.79.84.180, 191.239.224.107, 52.177.185.181, 40.70.144.38, 52.167.105.38  |
 | Centro de Francia | 40.79.137.0, 40.79.129.1  |
 | Sur de Francia | 40.79.177.0     |
@@ -64,13 +64,24 @@ En la siguiente tabla se enumeran las direcciones IP principales y secundarias d
 | Sudeste de Asia | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     |
 | Centro de Emiratos Árabes Unidos | 20.37.72.64  |
 | Norte de Emiratos Árabes Unidos | 65.52.248.0    |
-| Sur de Reino Unido 2 | 51.140.184.11   |
+| Sur de Reino Unido | 51.140.184.11   |
 | Oeste de Reino Unido | 51.141.8.11  |
 | Centro-Oeste de EE. UU. | 13.78.145.25     |
 | Oeste de Europa | 40.68.37.158, 191.237.232.75, 13.69.105.208  |
 | Oeste de EE. UU. | 104.42.238.205, 23.99.34.75  |
 | Oeste de EE. UU. 2 | 13.66.226.202  |
 ||||
+
+## <a name="connection-redirection"></a>Redirección de conexiones
+
+Azure Database for MariaDB admite una directiva de conexión adicional, **redireccionamiento**, que ayuda a reducir la latencia de red entre las aplicaciones cliente y los servidores MariaDB. Con esta característica, una vez establecida la sesión TCP inicial en el servidor de Azure Database for MariaDB, el servidor devuelve al cliente la dirección de back-end del nodo que hospeda al servidor MariaDB. En adelante, todos los paquetes posteriores fluyen directamente al servidor y omiten la puerta de enlace. Dado que los paquetes van directamente al servidor, mejoran la latencia y el rendimiento.
+
+Esta característica se admite en servidores de Azure Database for MariaDB con las versiones de motor 10.2 y 10.3.
+
+La compatibilidad con el redireccionamiento está disponible en la extensión [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) de PHP, desarrollada por Microsoft, y está disponible en [PECL](https://pecl.php.net/package/mysqlnd_azure). Consulte el artículo de [configuración del redireccionamiento](./howto-redirection.md) para obtener más información sobre cómo usar el redireccionamiento en sus aplicaciones.
+
+> [!IMPORTANT]
+> La compatibilidad con el redireccionamiento en la extensión [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) de PHP se encuentra actualmente en versión preliminar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -5,14 +5,14 @@ author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 03/27/2020
-ms.openlocfilehash: 40b57af95f9ea4d4212756634c721ddd55f85d7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: troubleshooting
+ms.date: 06/18/2020
+ms.openlocfilehash: 2fb1f22fd555e8ddbdc04842906cddb990956fb5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127750"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044522"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Solución de problemas de Azure Stream Analytics mediante registros de recursos
 
@@ -59,23 +59,23 @@ Los registros de actividad están activados de forma predeterminada y proporcion
 
 Es muy recomendable activar los registros de recursos y enviarlos a los registros de Azure Monitor. De forma predeterminada están **desactivados**. Para activarlos, siga estos pasos:
 
-1.  Inicie sesión en Azure Portal y vaya al trabajo de Stream Analytics. En **Supervisión**, seleccione **Registros de diagnóstico**. Después, seleccione **Activar diagnósticos**.
+1.  [Cree un área de trabajo de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) si no tiene ya una. Se recomienda disponer de un área de trabajo de Log Analytics en la misma región que el trabajo de Stream Analytics.
+
+2.  Inicie sesión en Azure Portal y vaya al trabajo de Stream Analytics. En **Supervisión**, seleccione **Registros de diagnóstico**. Después, seleccione **Activar diagnósticos**.
 
     ![Exploración de los registros de recursos en la hoja](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Cree un **Nombre** en **Configuración de diagnóstico** y active la casilla junto a **Enviar a Log Analytics**. Luego, agregue un **área de trabajo de Log Analytics** existente o cree una. Active las casillas de **Ejecución** y **Creación** en **LOG**, y **AllMetrics** en **MÉTRICA**. Haga clic en **Save**(Guardar). Para evitar costes adicionales, se recomienda usar un área de trabajo de Log Analytics en la misma región de Azure que el trabajo de Stream Analytics.
+2.  Proporcione un **nombre** en el campo **Nombre de configuración de diagnóstico** y active las casillas **Ejecución** y **Creación** en **registro**, y **AllMetrics** en **métrica**. Después, seleccione **Enviar a Log Analytics** y elija su área de trabajo. Haga clic en **Save**(Guardar).
 
-    ![Configuración de registros de recursos](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
+    ![Configuración de registros de recursos](./media/stream-analytics-job-diagnostic-logs/logs-setup.png)
 
 3. Cuando se inicia el trabajo de Stream Analytics, los registros de recursos se enrutan a su área de trabajo de Log Analytics. Para ver los registros de recursos del trabajo, seleccione **Registros** en la sección **Supervisión**.
 
    ![Registros de recursos en Supervisión](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
 
-4. Stream Analytics proporciona consultas predefinidas que le permiten buscar fácilmente los registros que le interesan. Las tres categorías son **General**, **Errores de los datos de entrada** y **Errores de los datos de salida**. Por ejemplo, para ver un resumen de todos los errores del trabajo de los últimos 7 días, puede seleccionar la opción **Ejecutar** de la consulta predefinida adecuada. 
+4. Stream Analytics proporciona consultas predefinidas que le permiten buscar fácilmente los registros que le interesan. Puede seleccionar las consultas predefinidas en el panel izquierdo y, a continuación, seleccionar **Ejecutar**. Verá los resultados de la consulta en el panel inferior. 
 
-   ![Registros de recursos en Supervisión](./media/stream-analytics-job-diagnostic-logs/logs-categories.png)
-
-   ![Resultados de los registros](./media/stream-analytics-job-diagnostic-logs/logs-result.png)
+   ![Registros de recursos en Supervisión](./media/stream-analytics-job-diagnostic-logs/logs-example.png)
 
 ## <a name="resource-log-categories"></a>Categorías del registro de recursos
 

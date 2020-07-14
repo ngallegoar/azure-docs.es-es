@@ -3,18 +3,18 @@ title: 'Inicio rápido: Creación de un plano técnico en Azure Portal'
 description: En este inicio rápido, se usa Azure Blueprints para crear, definir e implementar artefactos mediante Azure Portal.
 ms.date: 03/25/2020
 ms.topic: quickstart
-ms.openlocfilehash: dd50b1833f16d364a4494483fcccfee017bb982b
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: dfd0aeb22801776fc9effdf8d0418a9c9b6ab802
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381902"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045219"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Inicio rápido: Definición y asignación de un plano técnico en Azure Portal
 
-Cuando aprenda a crear y asignar planos técnicos podrá definir patrones comunes para desarrollar configuraciones reutilizables y de implementación rápida basadas en plantillas de Azure Resource Manager, directivas, seguridad y mucho más. En este tutorial, aprenderá a usar planos técnicos de Azure Blueprints para realizar algunas de las tareas más comunes relacionadas con la creación, publicación y asignación de planos técnicos en toda la organización. Estas tareas incluyen:
+Cuando aprenda a crear y asignar planos técnicos podrá definir patrones comunes para desarrollar configuraciones reutilizables y de implementación rápida basadas en plantillas de Azure Resource Manager, directivas, seguridad, etc. En este tutorial, aprenderá a usar planos técnicos de Azure Blueprints para realizar algunas de las tareas más comunes relacionadas con la creación, publicación y asignación de planos técnicos en toda la organización. Estas tareas incluyen:
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
 
@@ -85,8 +85,7 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
 
    1. Seleccione **Plantilla de Azure Resource Manager** para **Tipo de artefacto**, establezca **Nombre para mostrar del artefacto** en **StorageAccount** y deje **Descripción** en blanco.
 
-   1. En la pestaña **Plantilla** en el cuadro del editor, pegue la siguiente plantilla de Resource Manager.
-      Después de pegar la plantilla, seleccione la pestaña **Parámetros** y observe que se han detectado los parámetros de plantilla **storageAccountType** y **location**. Los parámetros se detectaron y se rellenaron automáticamente, pero se configuraron como parámetro dinámico.
+   1. En la pestaña **Plantilla** del cuadro del editor, pegue la siguiente plantilla de Resource Manager. Después de pegar la plantilla, seleccione la pestaña **Parámetros** y observe que se han detectado los parámetros de plantilla **storageAccountType** y **location**. Los parámetros se detectaron y se rellenaron automáticamente, pero se configuraron como parámetro dinámico.
 
       > [!IMPORTANT]
       > Si importa la plantilla, asegúrese de que el archivo es JSON solo y no incluye HTML. Cuando apunte a una dirección URL en GitHub, asegúrese de que ha seleccionado **RAW** para obtener el archivo JSON puro y no el que está encapsulado con HTML para mostrarse en GitHub. Si la plantilla importada no tiene formato JSON puro, se producirá un error.
@@ -140,7 +139,7 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
       }
       ```
 
-   1. Quite la marca de la casilla **storageAccountType** y observe que la lista desplegable solo contiene los valores incluidos en la plantilla de Resource Manager en **allowedValues**. Seleccione la casilla para volver a establecer un parámetro dinámico.
+   1. Anule la selección de la casilla **storageAccountType** y observe que la lista desplegable solo contiene los valores incluidos en la plantilla de Resource Manager en **allowedValues**. Seleccione la casilla para volver a establecer un parámetro dinámico.
 
    1. Seleccione **Agregar** para agregar este artefacto al plano técnico.
 
@@ -207,7 +206,7 @@ Una vez que se publica un plano técnico, se puede asignar a una suscripción. A
 
 1. En la página **Asignar plano técnico**, en la lista desplegable **Suscripción**, seleccione las suscripciones en las que desee implementar este plano técnico.
 
-   Si no hay ofertas de Enterprise admitidas desde la [facturación de Azure](../../billing/index.md), un vínculo **Crear** se activa en el cuadro **Suscripción**. Siga estos pasos:
+   Si no hay ofertas de Enterprise admitidas desde la [facturación de Azure](../../cost-management-billing/index.yml), un vínculo **Crear** se activa en el cuadro **Suscripción**. Siga estos pasos:
 
    1. Seleccione el vínculo **Crear** para crear una suscripción en lugar de seleccionar las existentes.
 

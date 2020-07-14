@@ -7,15 +7,15 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: b035be727df2dfecb613da79681affd740c69bec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd696539cda5b24d801da692822b13de143249dd
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60333883"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121527"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Procedimiento para configurar una canalización de CI/CD para Azure Data Lake Analytics  
 
@@ -79,11 +79,11 @@ msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL
 
 La definición de los argumentos y los valores son los siguientes:
 
-* **USQLSDKPath=\<paquete Nuget U-SQL>\build\runtime**. Este parámetro hace referencia a la ruta de instalación del paquete NuGet para el servicio de lenguaje de U-SQL.
+* **USQLSDKPath=\<U-SQL Nuget package>\build\runtime**. Este parámetro hace referencia a la ruta de instalación del paquete NuGet para el servicio de lenguaje de U-SQL.
 * **USQLTargetType=Merge o SyntaxCheck**:
     * **Merge**. El modo Merge compila los archivos de código subyacente. Algunos ejemplos son los archivos **.cs**, **.py** y **.r**. Incorpora la biblioteca de código definido por el usuario resultante en el script U-SQL. Algunos ejemplos son un archivo binario .dll, Python o código de R.
     * **SyntaxCheck**. El modo SyntaxCheck primero combina los archivos de código subyacente en el script U-SQL. A continuación, compila el script U-SQL para validar el código.
-* **DataRoot=\<ruta de acceso de DataRoot>** . DataRoot solo se necesita para el modo SyntaxCheck. Al compilar el script con el modo SyntaxCheck, MSBuild comprueba las referencias a objetos de base de datos en el script. Antes de compilar, configure un entorno local coincidente que contenga los objetos a los que se hace referencia desde la base de datos U-SQL en la carpeta DataRoot del equipo en que se realiza compilación. Para administrar estas dependencias de la base de datos, también se puede [hacer referencia a un proyecto de base de datos de U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild solo comprueba la referencia de los objetos de base de datos, no los archivos.
+* **DataRoot=\<DataRoot path>** . DataRoot solo se necesita para el modo SyntaxCheck. Al compilar el script con el modo SyntaxCheck, MSBuild comprueba las referencias a objetos de base de datos en el script. Antes de compilar, configure un entorno local coincidente que contenga los objetos a los que se hace referencia desde la base de datos U-SQL en la carpeta DataRoot del equipo en que se realiza compilación. Para administrar estas dependencias de la base de datos, también se puede [hacer referencia a un proyecto de base de datos de U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild solo comprueba la referencia de los objetos de base de datos, no los archivos.
 * **EnableDeployment=true** o **false**. EnableDeployment indica si se permite implementar bases de datos U-SQL de referencia durante el proceso de compilación. Si hace referencia al proyecto de base de datos U-SQL y consume los objetos de base de datos en el script U-SQL, establezca este parámetro en **true**.
 
 ### <a name="continuous-integration-through-azure-pipelines"></a>Integración continua mediante Azure Pipelines
@@ -313,9 +313,9 @@ Para agregar dicha referencia al paquete NuGet, haga clic con el botón derecho 
 
 ### <a name="build-u-sql-a-database-project-with-the-msbuild-command-line"></a>Compilación de un proyecto de base de datos U-SQL con la línea de comandos de MSBuild
 
-Para compilar un proyecto de base de datos U-SQL, llame a la línea de comandos de MSBuild estándar y pase la referencia del paquete NuGet del SDK de U-SQL como argumento adicional. Vea el ejemplo siguiente: 
+Para compilar un proyecto de base de datos U-SQL, llame a la línea de comandos de MSBuild estándar y pase la referencia del paquete NuGet del SDK de U-SQL como argumento adicional. Observe el ejemplo siguiente: 
 
-```
+```console
 msbuild DatabaseProject.usqldbproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL.SDK.1.3.180615\build\runtime
 ```
 
@@ -325,8 +325,7 @@ El argumento `USQLSDKPath=<U-SQL Nuget package>\build\runtime` hace referencia a
 
 Además de la línea de comandos, puede utilizar Visual Studio Build o una tarea de MSBuild para compilar proyectos de base de datos U-SQL en Azure Pipelines. Para configurar una tarea de compilación, asegúrese de agregar dos tareas en la canalización de compilación: una tarea de restauración de NuGet y una tarea de MSBuild.
 
-   ![Tarea de MSBuild de CI/CD para un proyecto de U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
-
+   ![Tarea de MSBuild de CI/CD para un proyecto de U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png)
 
 1. Agregue una tarea de restauración de NuGet para obtener el paquete NuGet al que hace referencia la solución que incluye `Azure.DataLake.USQL.SDK`, con el fin de que MSBuild pueda encontrar los destinos del lenguaje de U-SQL. Establezca **Opciones avanzadas** > **Directorio de destino** en `$(Build.SourcesDirectory)/packages` si desea usar el ejemplo de argumentos de MSBuild directamente en el paso 2.
 
@@ -334,12 +333,12 @@ Además de la línea de comandos, puede utilizar Visual Studio Build o una tarea
 
 2. Establezca los argumentos de MSBuild en herramientas de compilación de Visual Studio o en una tarea de MSBuild como se muestra en el ejemplo siguiente. O bien, puede definir variables para estos argumentos en la canalización de compilación de Azure Pipelines.
 
-   ![Definición de variables de MSBuild de CI/CD para un proyecto de base de datos U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables-database-project.png) 
+   ![Definición de variables de MSBuild de CI/CD para un proyecto de base de datos U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables-database-project.png)
 
-   ```
+   ```console
    /p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime
    ```
- 
+
 ### <a name="u-sql-database-project-build-output"></a>Salida de compilación de un proyecto de base de datos de U-SQL
 
 La salida de compilación del proyecto de base de datos U-SQL es un paquete de implementación de la base de datos U-SQL, denominado con el sufijo `.usqldbpack`. El paquete `.usqldbpack` es un archivo ZIP que incluye todas las instrucciones DDL de un único script U-SQL en una carpeta DDL. Incluye todos los archivos **.dll** y adicionales para el ensamblado en una carpeta temporal.
@@ -369,7 +368,7 @@ Siga estos pasos para configurar una tarea de implementación de la base de dato
     <#
         This script is used for getting dependencies and SDKs for U-SQL database deployment.
         PowerShell command line support for deploying U-SQL database package(.usqldbpack file) will come soon.
-        
+
         Example :
             GetUSQLDBDeploymentSDK.ps1 -AzureSDK "AzureSDKFolderPath" -DBDeploymentTool "DBDeploymentToolFolderPath"
     #>

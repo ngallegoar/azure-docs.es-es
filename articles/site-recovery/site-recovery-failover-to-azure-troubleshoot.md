@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 9ef38829a18f9e43f38cbdb291a799110d710cd7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 09a4700ce794458ee4dcad2291a93e0b13ca5feb
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834737"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133762"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Solución de problemas cuando se conmuta por error una máquina física o una máquina virtual de VMware en Azure
 
@@ -74,6 +74,10 @@ Para cambiar manualmente el tipo de inicio de los controladores para el **sistem
 
 ## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>No se puede conectar/RDP/SSH a la máquina virtual que conmutó por error debido a que el botón Conectar de la máquina virtual no está disponible.
 
+Para obtener instrucciones detalladas para la solución de problemas de RDP, consulte la documentación que encontrará [aquí](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md).
+
+Para obtener instrucciones detalladas para la solución de problemas de SSH, consulte la documentación que encontrará [aquí](../virtual-machines/troubleshooting/troubleshoot-ssh-connection.md).
+
 Si el botón **Conectar** de la máquina virtual conmutada por error de Azure no está disponible y no está conectado a Azure a través de una conexión VPN Express Route o de sitio a sitio, entonces:
 
 1. Vaya a la **Máquina virtual** > **Red**, y haga clic en el nombre de la interfaz de red necesaria.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
@@ -86,7 +90,7 @@ Si el botón **Conectar** de la máquina virtual conmutada por error de Azure no
 
 ## <a name="unable-to-connectrdpssh---vm-connect-button-available"></a>No se puede conectar/RDP/botón de conexión SSH con la máquina virtual disponible
 
-Si el botón **Conectar** de la máquina virtual conmutada por error de Azure está disponible, compruebe **Diagnósticos de arranque** en su máquina virtual, así como los errores enumerados en [este artículo](../virtual-machines/windows/boot-diagnostics.md).
+Si el botón **Conectar** de la máquina virtual conmutada por error de Azure está disponible, compruebe **Diagnósticos de arranque** en su máquina virtual, así como los errores enumerados en [este artículo](../virtual-machines/troubleshooting/boot-diagnostics.md).
 
 1. Si la máquina virtual no se ha iniciado, realice la conmutación por error a un punto de recuperación anterior.
 2. Si la aplicación dentro de la máquina virtual no aparece, realice la conmutación por error a un punto de recuperación coherente con la aplicación.
@@ -170,7 +174,7 @@ Para resolver el problema:
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Solucionar problemas de [conexión RDP con una máquina virtual Windows](../virtual-machines/windows/troubleshoot-rdp-connection.md)
-- Solucionar problemas de [conexión SSH a una máquina virtual Linux](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
+- Solucionar problemas de [conexión RDP con una máquina virtual Windows](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md)
+- Solucionar problemas de [conexión SSH a una máquina virtual Linux](../virtual-machines/troubleshooting/detailed-troubleshoot-ssh-connection.md)
 
-Si necesita más ayuda, publique la consulta en la [página de preguntas y respuestas de Microsoft para Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html) o deje un comentario al final de este documento. Tenemos una comunidad activa que debería poder ayudarle.
+Si necesita más ayuda, publique la consulta en la [página de preguntas y respuestas de Microsoft para Site Recovery](/answers/topics/azure-site-recovery.html) o deje un comentario al final de este documento. Tenemos una comunidad activa que debería poder ayudarle.

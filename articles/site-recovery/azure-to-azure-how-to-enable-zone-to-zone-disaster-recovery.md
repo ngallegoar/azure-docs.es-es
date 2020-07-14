@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 367ca77b0f3a142d8aa36143052993d1ed96f052
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 1a522193e9e704dce967daeeef70f82a6c0b1378
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996506"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135716"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Habilitación de la recuperación ante desastres de zona a zona para máquinas virtuales de Azure
 
@@ -20,7 +20,7 @@ En este artículo se describe cómo replicar, conmutar por error y conmutar por 
 
 >[!NOTE]
 >
->- Actualmente, Site Recovery no admite planes de recuperación para la recuperación ante desastres de zona a zona. 
+>- Actualmente, Site Recovery no admite planes de recuperación para la recuperación ante desastres de zona a zona a través del portal. Use PowerShell o la API de REST para aprovechar los planes de recuperación para la recuperación ante desastres de zona a zona. 
 >- La compatibilidad para la recuperación ante desastres de zona a zona está limitada actualmente a dos regiones: Sudeste de Asia y Sur de Reino Unido.  
 
 El servicio Site Recovery contribuye a la estrategia de continuidad empresarial y recuperación ante desastres al mantener sus aplicaciones empresariales al día y disponibles durante interrupciones planeadas y no planeadas. Es la opción recomendada de recuperación ante desastres para mantener sus aplicaciones en funcionamiento si hay interrupciones regionales.
@@ -98,7 +98,7 @@ Inicie sesión en Azure Portal.
 
 5. Si desea realizar cambios en la configuración de replicación, haga clic en "Siguiente: Configuración avanzada".
 
-6. Cambie la configuración del valor predeterminado siempre que sea adecuado. En el caso de los usuarios de recuperación ante desastres de Azure a Azure, es posible que esta página le resulte familiar. [Aquí](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) puede encontrar más información sobre las opciones que se presentan en esta hoja.
+6. Cambie la configuración del valor predeterminado siempre que sea adecuado. En el caso de los usuarios de recuperación ante desastres de Azure a Azure, es posible que esta página le resulte familiar. [Aquí](./azure-to-azure-tutorial-enable-replication.md) puede encontrar más información sobre las opciones que se presentan en esta hoja.
 
     ![Página Configuración avanzada](./media/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery/zonal-disaster-recovery-advanced-settings-blade.png)
 
@@ -116,7 +116,7 @@ El SLA de RTO es el mismo que para Site Recovery en general. Prometemos un RTO d
 El equipo de Site Recovery y el equipo de administración de la capacidad de Azure planean que haya una capacidad de infraestructura suficiente. Cuando se inicia una conmutación por error, los equipos también ayudan a garantizar que las instancias que están protegidas mediante Site Recovery se implementarán en la zona de destino.
 
 **4. ¿Qué sistemas operativos se admiten?**
-La recuperación ante desastres de zona a zona admite los mismos sistemas operativos que la recuperación ante desastres de Azure a Azure. Consulte la matriz de compatibilidad [aquí](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
+La recuperación ante desastres de zona a zona admite los mismos sistemas operativos que la recuperación ante desastres de Azure a Azure. Consulte la matriz de compatibilidad [aquí](./azure-to-azure-support-matrix.md).
 
 **5. ¿Pueden los grupos de recursos de origen y de destino ser los mismos?**
 No, debe conmutar por error a otro grupo de recursos.
@@ -125,8 +125,8 @@ No, debe conmutar por error a otro grupo de recursos.
 
 Los pasos que deben seguirse para ejecutar un simulacro de recuperación ante desastres, conmutación por error, reprotección y conmutación por recuperación son los mismos que los del escenario de recuperación ante desastres de Azure en Azure.
 
-Para realizar un simulacro de recuperación ante desastres, siga los pasos descritos [aquí](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-dr-drill).
+Para realizar un simulacro de recuperación ante desastres, siga los pasos descritos [aquí](./azure-to-azure-tutorial-dr-drill.md).
 
-Para realizar una conmutación por error y volver a proteger las VM de la zona secundaria, siga los pasos descritos [aquí](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback).
+Para realizar una conmutación por error y volver a proteger las VM de la zona secundaria, siga los pasos descritos [aquí](./azure-to-azure-tutorial-failover-failback.md).
 
-Para conmutar por recuperación a la zona principal, siga los pasos descritos [aquí](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failback).
+Para conmutar por recuperación a la zona principal, siga los pasos descritos [aquí](./azure-to-azure-tutorial-failback.md).

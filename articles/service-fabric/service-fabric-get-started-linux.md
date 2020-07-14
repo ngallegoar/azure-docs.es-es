@@ -3,12 +3,12 @@ title: Configuración de su entorno de desarrollo en Linux
 description: Instale el SDK y el motor en tiempo de ejecución, y cree un clúster de desarrollo local en Linux. Después de completar esta instalación, estará listo para compilar aplicaciones.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: cfc97a540ed8c4c17ca4030c45b16021b926d7c5
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 8610feb68e16646c73c132c0577fd3ff198d74b8
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85854798"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186901"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparación del entorno de desarrollo en Linux
 > [!div class="op_single_selector"]
@@ -161,8 +161,8 @@ El sistema en tiempo de ejecución de Service Fabric que viene con la instalaci�
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | Implícito de npm | latest |
-RHEL | - | 1\.8 OpenJDK | Implícito de npm | latest |
+**Ubuntu** | 2.0.0 | AzulJDK 1.8 | Implícito de npm | latest |
+**RHEL** | - | 1\.8 OpenJDK | Implícito de npm | latest |
 
 ## <a name="set-up-a-local-cluster"></a>Instalación de un clúster local
 Inicie un clúster local una vez finalizada la instalación.

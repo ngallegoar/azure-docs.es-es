@@ -11,12 +11,12 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8328750849f5466c8754499694a41615776ff3da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 036cb15cf16b5f90dc17ccdce378a073a398d403
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85201708"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181342"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Instrucciones de diseño para el uso de tablas replicadas en un grupo de Synapse SQL
 
@@ -149,9 +149,9 @@ Al cargar datos en las tablas replicadas, intente reducir las recompilaciones pr
 
 Por ejemplo, en este modelo de carga se cargan datos de cuatro orígenes y se invocan cuatro recompilaciones.
 
-        Load from source 1.
+- Carga desde el origen 1.
 - La instrucción de selección desencadena la recompilación 1.
-        Carga desde el origen 2.
+- Carga desde el origen 2.
 - La instrucción de selección desencadena la recompilación 2.
 - Carga desde el origen 3.
 - La instrucción de selección desencadena la recompilación 3.

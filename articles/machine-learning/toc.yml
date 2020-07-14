@@ -443,6 +443,9 @@
     - name: Administración de cuotas de recursos
       displayName: limits
       href: how-to-manage-quotas.md
+    - name: "Administración de VS\_Code para los recursos"
+      displayName: 'vscode,resources'
+      href: how-to-manage-resources-vscode.md
     - name: Exportación y eliminación de datos
       displayName: GDPR
       href: how-to-export-delete-data.md
@@ -495,3 +498,6 @@
     - name: Características de accesibilidad del diseñador
       displayName: 'accessibility, designer, visual interface, screen reader, keyboard shortcuts'
       href: designer-accessibility.md
+    - name: Entornos mantenidos
+      displayName: 'environments, curated environments'
+      href: resource-curated-environments.md

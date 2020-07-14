@@ -1,18 +1,16 @@
 ---
 title: Servicios de consultoría en marketplace comercial de Microsoft
 description: En este artículo se describen los criterios de idoneidad y los requisitos de publicación para nuevas ofertas de servicios de consultoría en Microsoft AppSource y Azure Marketplace.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/08/2020
-ms.author: dsindona
-ms.openlocfilehash: da2588125b455deaf18110687d54adc04a7dd4c0
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.date: 06/08/2020
+ms.openlocfilehash: 4a45239836779fc83aa2e3927c6e3ff752c87182
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799856"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103762"
 ---
 # <a name="consulting-service-offers"></a>Ofertas de servicio de consultoría
 
@@ -22,20 +20,11 @@ Las ofertas de servicios de consultoría son interacciones específicas del clie
 
 ## <a name="compare-consulting-services"></a>Comparar servicios de consultoría
 
-Los escaparates de marketplace comercial, Microsoft AppSource y Azure Marketplace se organizan de acuerdo con las audiencias y los productos en la nube para ayudar a los clientes a encontrar exactamente lo que necesitan. Cada escaparate tiene opciones de publicación especializadas que le ayudan a maximizar la inversión en publicación. En la tabla siguiente se resumen estas opciones:
-
-|         |Azure Marketplace  |Microsoft AppSource |
-|---------|---------|---------|
-|Público      |Profesionales de TI y desarrolladores de la nube|Usuarios de negocios y responsables de línea de negocio|
-|Relevancia de la solución      |Aplicaciones técnicas integradas o desarrolladas para Azure|Aplicaciones empresariales que usan o amplían Dynamics 365, Power BI, Office 365 y Azure (complemento o complementos de aplicaciones terminadas)|
-|Opciones de publicación      |Ponerse en contacto conmigo, versión de prueba, transacción o servicios para Azure|Ponerse en contacto conmigo, versión de prueba, transacción o servicios para Dynamics 365 y Power BI|
-|Experiencia dentro del producto      |Azure Portal|Aplicaciones cliente de Dynamics 365, Office 365 y Office| 
-|Otros      |Publicación local mediante Azure Stack, servicios de consultoría para Azure, servicios administrados para Azure|Servicios de consultoría de Dynamics 365 y Power BI|
-||
+Los escaparates de marketplace comercial, Microsoft AppSource y Azure Marketplace se organizan de acuerdo con las audiencias y los productos en la nube para ayudar a los clientes a encontrar exactamente lo que necesitan. Cada escaparate tiene opciones de publicación especializadas que le ayudan a maximizar la inversión en publicación. Para obtener más información sobre la diferencia entre los dos escaparates, consulte [Comparación de Microsoft AppSource y Azure Marketplace](comparing-appsource-azure-marketplace.md).
 
 Las ofertas de servicios de consultoría basadas en Dynamics 365, Power Apps y Power BI son aptas para publicarse en AppSource. Para más información, descargue el archivo PDF de [instrucciones de publicación de servicios consultoría de Microsoft AppSource](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409).
 
-Las ofertas de servicios de consultoría y servicios administrados que se basan en Microsoft Azure son aptas para publicarse en Azure Marketplace. Para más información, consulte [Publicación de una oferta de servicio de consultoría de Azure](./partner-center-portal/create-consulting-service-offer.md) y [Publicación de una oferta de servicios administrados en Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
+Las ofertas de servicios de consultoría y servicios administrados que se basan en Microsoft Azure son aptas para publicarse en Azure Marketplace. Para más información, consulte [Publicación de una oferta de servicio de consultoría de Azure](./partner-center-portal/create-consulting-service-offer.md) y [Publicación de una oferta de servicios administrados en Azure Marketplace](../lighthouse/how-to/publish-managed-services-offers.md).
 
 > [!Note]
 > Los servicios de consultoría en Azure Marketplace deben centrarse en ofertas orientadas a una audiencia técnica y hacer hincapié en las soluciones y servicios técnicos de Azure.
@@ -79,21 +68,20 @@ Soporte técnico y recursos adicionales:
 
 Para más información acerca de las competencias, vaya a la página [Competencias de Microsoft Partner Network](https://partner.microsoft.com/membership/competencies).
 
-Los asociados integradores de sistemas pueden enviar ofertas de servicios de consultoría para los siguientes veintiún países o regiones:
+Los asociados integradores de sistemas pueden enviar ofertas de servicios de consultoría para los siguientes veinte países o regiones:
 
-|   |   |   |   |
+| Países  | (continuación)   | (continuación)  | (continuación)  |
 |---------|----------|----------|----------|
 | Australia | Bélgica | Canadá | Dinamarca |
 | Finlandia  | Francia | Alemania  | India   |
 | Italia    | Japón  |  México  |  Países Bajos  |
 |  Nueva Zelanda  |  Noruega  |  Polonia  | Sudáfrica |
-|  España  | Suecia  | Suiza  |  Estados Unidos  |
-| Reino Unido  |
+|  Suecia  | Suiza  |  Estados Unidos  | Reino Unido  |
 ||
 
 ## <a name="register-for-consulting-services-in-the-commercial-marketplace"></a>Registro de servicios de consultoría en marketplace comercial
 
-Empiece por [registrar](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) la información de su empresa en Marketplace. Consulte [Conviértase en anunciante en los escaparates de Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher) para obtener una lista de comprobación completa de los requisitos de registro. 
+Empiece por [registrar](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) la información de su empresa en Marketplace. Consulte [Conviértase en anunciante en los escaparates de Marketplace](become-publisher.md) para obtener una lista de comprobación completa de los requisitos de registro. 
 
 ## <a name="prepare-your-publishing-artifacts"></a>Preparación de los artefactos de publicación
 Antes del registro, puede empezar a recopilar y preparar el contenido que ayudará a que su anuncio exprese el valor de su servicio y solución para el cliente objetivo. 

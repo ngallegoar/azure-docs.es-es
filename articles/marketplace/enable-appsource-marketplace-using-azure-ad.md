@@ -1,18 +1,18 @@
 ---
 title: Integración de su oferta de marketplace comercial de Microsoft con Azure Active Directory
 description: Use Azure Active Directory para autenticar sus ofertas de Microsoft AppSource y Azure Marketplace.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/15/2020
-ms.author: dsindona
-ms.openlocfilehash: 17cbfe92744ad96f2b5651b7e2f47a6443337068
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: eab7b556dc45d03bf440a3bc63aa6bf2d799face
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658047"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103630"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Integre su listado de marketplace comercial con Azure Active Directory
 
@@ -29,11 +29,10 @@ Los clientes de Microsoft AppSource y Azure Marketplace usan las experiencias de
 
 ## <a name="offers-that-require-azure-ad"></a>Ofertas que requieren Azure AD
 
-Las distintas [opciones de listado y tipos de ofertas](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) de marketplace comercial tienen requisitos distintos para implementarse en Azure AD. Consulte la tabla siguiente para más detalles.
+Las distintas [opciones de listado y tipos de ofertas](determine-your-listing-type.md) de marketplace comercial tienen requisitos distintos para implementarse en Azure AD. Consulte la tabla siguiente para más detalles.
 
-| **Tipo de oferta**    | **¿Se requiere el SSO de Azure AD?**  |  |   |  |
+| Tipo de oferta    | ¿Es necesario el SSO de Azure AD para ponerse en contacto conmigo?  | ¿Se requiere el SSO de Azure AD para la evaluación gratuita? | ¿Se requiere el SSO de Azure AD para la versión de prueba?  | El SSO de Azure AD se requiere para Transact |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
-|  | Ponerse en contacto conmigo | Versión de prueba | Versión de prueba | Transacción |
 | Máquina virtual | N/D | No | No | No |
 | Azure Apps (plantilla de solución)  | N/D | N/D | N/D | N/D |
 | Aplicaciones administradas  | N/D | N/D | N/D | No |
@@ -41,18 +40,18 @@ Las distintas [opciones de listado y tipos de ofertas](https://docs.microsoft.co
 | Contenedores  | N/D | N/D | N/D | No |
 | Servicios de consultoría  | No | N/D | N/D | N/D |
 
-Para obtener más información acerca de los requisitos técnicos de SaaS, consulte la [Guía de publicación de ofertas de aplicaciones de SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
+Para obtener más información acerca de los requisitos técnicos de SaaS, consulte la [Guía de publicación de ofertas de aplicaciones de SaaS](marketplace-saas-applications-technical-publishing-guide.md).
 
 ## <a name="azure-ad-integration"></a>Integración de Azure AD
 
-- Para obtener información sobre cómo habilitar el inicio de sesión único mediante la integración de Azure AD en su descripción, consulte [Azure Active Directory para desarrolladores]( https://docs.microsoft.com/azure/active-directory/develop/).
-- Para conocer más detalles sobre el inicio de sesión único de Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+- Para obtener información sobre cómo habilitar el inicio de sesión único mediante la integración de Azure AD en su descripción, consulte [Azure Active Directory para desarrolladores](../active-directory/develop/index.yml).
+- Para conocer más detalles sobre el inicio de sesión único de Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../active-directory/manage-apps/what-is-single-sign-on.md).
 
 ## <a name="enable-a-trial-listing"></a>Habilitar una descripción de prueba
 
 Automatizar la instalación de cliente puede aumentar la probabilidad de conversión. Cuando el cliente selecciona la descripción de prueba y se redirecciona al entorno de prueba, usted puede configurar el cliente directamente, sin necesidad de pasos de inicio de sesión adicionales.
 
-Durante la autenticación, Azure AD envía un token a la aplicación u oferta. La información de usuario proporcionada por el token permite crear una cuenta de usuario en la aplicación u oferta. Para obtener más información, consulte los [tokens de ejemplo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Durante la autenticación, Azure AD envía un token a la aplicación u oferta. La información de usuario proporcionada por el token permite crear una cuenta de usuario en la aplicación u oferta. Para obtener más información, consulte los [tokens de ejemplo](../active-directory/develop/id-tokens.md).
 
 Cuando usa Azure AD para habilitar la autenticación con un solo clic en la aplicación o en la descripción de prueba, obtiene las siguientes ventajas:
 
@@ -67,20 +66,20 @@ Cuando usa Azure AD para habilitar la autenticación con un solo clic en la apli
 
 Use Azure AD para admitir las acciones siguientes:
 
-- Registre la aplicación en uno de los escaparates de Marketplace. Consulte el vínculo sobre el [registro de una aplicación](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) o la [obtención de un certificado de AppSource](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified) para obtener más información.
+- Registre la aplicación en uno de los escaparates de Marketplace. Consulte el vínculo sobre el [registro de una aplicación](../active-directory/develop/quickstart-register-app.md) o la [obtención de un certificado de AppSource](../active-directory/azuread-dev/howto-get-appsource-certified.md) para obtener más información.
 - Habilite la característica de compatibilidad multiinquilino en Azure AD para obtener una experiencia de evaluación con un clic.
 
 Si no está familiarizado con el uso del inicio de sesión único federado de Azure AD, siga estos pasos:
 
 1. Registre la aplicación en Marketplace.
-1. Desarrolle el SSO con Azure AD mediante el uso de [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) u [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).
+1. Desarrolle el SSO con Azure AD mediante el uso de [OAuth 2.0](../active-directory/azuread-dev/v1-protocols-oauth-code.md) u [OpenID Connect](../active-directory/azuread-dev/v1-protocols-openid-connect-code.md).
 1. Habilite la característica de compatibilidad multiinquilino en Azure AD para proporcionar una experiencia de evaluación con un clic.
 
 ### <a name="single-tenant-solutions"></a>Soluciones de un solo inquilino
 
 Use Azure AD para admitir alguna de las acciones siguientes:
 
-- Agregue usuarios al directorio como invitados con [B2B de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- Agregue usuarios al directorio como invitados con [B2B de Azure AD](../active-directory/b2b/what-is-b2b.md).
 - Configure manualmente las versiones de evaluación de los clientes mediante la opción de publicación **Ponerse en contacto conmigo**.
 - Desarrolle una versión de prueba por cliente.
 - Cree una aplicación de demostración de ejemplo para varios inquilinos que use el inicio de sesión único.

@@ -3,12 +3,12 @@ title: Referencia para desarrolladores de Java para Azure Functions
 description: Aprenda a desarrollar funciones con Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 6ce886fd0ca47d728a115427b354442fd259e714
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 339615ac99f231fd293a7ea15c853d43da8f998a
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648240"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057609"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guía de Azure Functions para desarrolladores de Java
 
@@ -50,20 +50,6 @@ mvn archetype:generate \
 
 Para empezar a usar este arquetipo, consulte el [inicio rápido de Java](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java). 
 
-## <a name="create-kotlin-functions-preview"></a>Creación de funciones de Kotlin (versión preliminar)
-
-También existe un arquetipo Maven para generar funciones de Kotlin. Este arquetipo, actualmente en versión preliminar, se publica en _groupId_:_artifactId_: [com.microsoft.azure:azure-functions-kotlin-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/). 
-
-El siguiente comando genera un nuevo proyecto de función de Java con este arquetipo:
-
-```
-mvn archetype:generate \
-    -DarchetypeGroupId=com.microsoft.azure \
-    -DarchetypeArtifactId=azure-functions-kotlin-archetype
-```
-
-Para empezar a usar este arquetipo, consulte [Inicio rápido de Kotlin](functions-create-first-kotlin-maven.md).
-
 ## <a name="folder-structure"></a>Estructura de carpetas
 
 Esta es la estructura de carpetas de un proyecto de Java de Azure Functions:
@@ -89,8 +75,6 @@ FunctionsProject
  | | | | - lib
  | - pom.xml
 ```
-
-_* El proyecto de Kotlin tiene un aspecto muy similar porque todavía sigue en Maven_.
 
 Puede usar un archivo [host.json](functions-host-json.md) compartido para configurar la aplicación de funciones. Cada función tiene su propio archivo de código (.java) y archivo de configuración de enlace (function.json).
 
@@ -162,7 +146,7 @@ Puede proporcionar argumentos adicionales en una configuración de la aplicació
 > [!IMPORTANT]  
 > En el plan de consumo, también debe agregar el valor WEBSITE_USE_PLACEHOLDER con un valor de 0 para que funcione la personalización. Esta configuración aumenta los tiempos de arranque en frío de las funciones Java.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 En [Azure Portal](https://portal.azure.com), utilice la pestaña [Configuración de la aplicación](functions-how-to-use-azure-function-app-settings.md#settings) para agregar la configuración `JAVA_OPTS`.
 
@@ -391,7 +375,7 @@ En el ejemplo anterior, el elemento `queryValue` está enlazado al parámetro de
 
 ## <a name="execution-context"></a>Contexto de ejecución
 
-El elemento `ExecutionContext` definido en `azure-functions-java-library` contiene métodos de ayuda que le permitirán comunicarse con las funciones en tiempo de ejecución.
+El elemento `ExecutionContext` definido en `azure-functions-java-library` contiene métodos de ayuda que le permitirán comunicarse con las funciones en tiempo de ejecución. Para obtener más información, consulte [el artículo de referencia sobre ExecutionContext](/java/api/com.microsoft.azure.functions.executioncontext).
 
 ### <a name="logger"></a>Registrador
 
