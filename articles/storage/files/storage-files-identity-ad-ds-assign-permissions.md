@@ -4,15 +4,15 @@ description: Obtenga información sobre cómo asignar permisos a una identidad d
 author: roygara
 ms.service: storage
 ms.subservice: files
-ms.topic: conceptual
-ms.date: 05/29/2020
+ms.topic: how-to
+ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: eda083265d94888a4ccfd466f084982614770c41
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 3335bfbed592c9e13d5be437e8013a89ae86e970
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268393"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510634"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>Parte 2: Asignación de permisos de nivel de recurso compartido a una identidad
 
@@ -77,5 +77,7 @@ az role assignment create --role "<role-name>" --assignee <user-principal-name> 
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+Ahora que ha asignado los permisos de nivel de recurso compartido, debe configurar los permisos de nivel de archivo y de directorio. Continúe con el artículo siguiente.
 
 [Parte tres: Configuración de permisos de nivel de directorio y de archivo en SMB](storage-files-identity-ad-ds-configure-permissions.md)

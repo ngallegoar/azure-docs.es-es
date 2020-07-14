@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: ed93d24bc06a6622a8ace2b0ab6b44582da001c0
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82782621"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas habituales y soluciones para Azure IoT Edge
@@ -222,7 +222,7 @@ Cuando vea este error, puede resolverlo configurando el nombre DNS de la máquin
    ![Configuración del nombre DNS de la máquina virtual](./media/troubleshoot/configure-dns.png)
 
 3. Proporcione un valor para **Etiqueta de nombre DNS** y seleccione **Guardar**.
-4. Copie el nuevo nombre DNS, que debe tener el formato **\<etiquetanombreDNS\>.\< ubicaciónvm\>.cloudapp.azure.com**.
+4. Copie el nuevo nombre DNS, que debe tener el formato **\<DNSnamelabel\>.\<vmlocation\>.cloudapp.azure.com**.
 5. Dentro de la máquina virtual, use el comando siguiente para configurar el tiempo de ejecución de IoT Edge con el nombre DNS:
 
    * En Linux:

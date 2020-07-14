@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 9262d01e35bd03a9116a30b070b023f578f0b15a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/03/2020
+ms.openlocfilehash: 402fae5622219b14cfdab921ebe1a78ad5dd111e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74112564"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84462845"
 ---
 # <a name="set-rbac-roles-for-administrative-access-to-azure-cognitive-search"></a>Configuración de roles RBAC para el acceso administrativo a Azure Cognitive Search
 
@@ -34,6 +34,21 @@ Para Azure Cognitive Search, los roles están asociados a los niveles de permiso
 | Lector |Ver métricas e información esencial del servicio. Los miembros de este rol no pueden ver el índice, el indizador, el origen de datos ni la información de la clave.  |
 
 Los roles no otorgan derechos de acceso al punto de conexión de servicio. Las operaciones del servicio Search, como la administración de índices, el rellenado del índice y las consultas en datos de búsqueda, se controlan mediante claves de API, no a través de roles. Para más información, consulte [Administración de claves de API](search-security-api-keys.md).
+
+## <a name="permissions-table"></a>Tabla de permisos
+
+En la tabla siguiente se resumen las operaciones permitidas en Azure Cognitive Search y la clave que desbloquea el acceso a una operación determinada.
+
+| Operación | Permisos |
+|-----------|-------------------------|
+| Crear un servicio | Titular de la suscripción de Azure |
+| Escalar un servicio | Clave de administración, RBAC propietario o colaborador en el recurso  |
+| Eliminar un servicio | Clave de administración, RBAC propietario o colaborador en el recurso |
+| Crear, modificar y eliminar objetos en el servicio: <br>Índices y partes de componentes (incluidas las definiciones del analizador, los perfiles de puntuación y las opciones de CORS), indexadores, orígenes de datos, sinónimos, proveedores de sugerencias | Clave de administración, RBAC propietario o colaborador en el recurso |
+| Consultar un índice | Clave de administrador o de consulta (RBAC no es aplicable) |
+| Consultar la información del sistema, como devolver estadísticas, recuentos y listas de objetos | Clave de administración, RBAC en el recurso (propietario, colaborador y lector) |
+| Administrar claves de administración | Clave de administración, RBAC propietario o colaborador en el recurso |
+| Administrar claves de consulta |  Clave de administración, RBAC propietario o colaborador en el recurso  |
 
 ## <a name="see-also"></a>Consulte también
 

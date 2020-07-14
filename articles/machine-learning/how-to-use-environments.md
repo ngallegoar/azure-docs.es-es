@@ -8,14 +8,15 @@ ms.author: roastala
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/18/2020
-ms.openlocfilehash: dc30318027962247f7504b734385d7642550ec87
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.custom: tracking-python
+ms.openlocfilehash: 7cfcb42093aeb9e323527dea7def7a5b65d2dce2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536359"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558415"
 ---
 # <a name="reuse-environments-for-training-and-deployment-by-using-azure-machine-learning"></a>Reutilización de entornos para entrenamiento e implementación con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,7 +34,7 @@ En los ejemplos de este artículo se muestran los siguientes procedimientos:
 
 Para obtener información general de alto nivel sobre cómo funcionan los entornos en Azure Machine Learning, consulte [¿Qué son los entornos de ML?](concept-environments.md)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * El [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
 * Un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).

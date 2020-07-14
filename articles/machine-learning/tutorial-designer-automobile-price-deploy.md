@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 41b6fb38798e9aa7264000676d81101db1c83236
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e10e5050912788732128a8b765716c22fe9e576e
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656523"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517488"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Tutorial: Implementación de un modelo de Machine Learning con el diseñador (versión preliminar)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -28,7 +28,7 @@ Puede implementar el modelo predictivo desarrollado en la [parte uno del tutoria
 > * Implementación del punto de conexión en tiempo real.
 > * Prueba del punto de conexión en tiempo real.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Complete la [parte uno del tutorial](tutorial-designer-automobile-price-train-score.md) para aprender a entrenar y puntuar un modelo de Machine Learning en el diseñador.
 
@@ -40,7 +40,7 @@ Para implementar la canalización, antes debe convertir la canalización de entr
 
 1. Seleccione, encima del lienzo de la canalización, **Create inference pipeline** > **Real-time inference pipeline** (Crear canalización de inferencia > Canalización de inferencia en tiempo real).
 
-    ![Captura de pantalla que muestra dónde encontrar el botón Crear canalización](./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png"alt-text="Captura de pantalla que muestra dónde encontrar el botón Crear canalización":::
 
     La canalización debería tener este aspecto: 
 
@@ -72,7 +72,7 @@ En el cuadro de diálogo que aparece, puede seleccionar entre los clústeres de 
 1. En la cinta de opciones de navegación, seleccione **Inference Clusters** (Clústeres de inferencia) >  **+ Nuevo**.
 
     ![Captura de pantalla que muestra cómo ir al panel del nuevo clúster de inferencia](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
-
+   
 1. En el panel del clúster de inferencia, configure un nuevo servicio de Kubernetes.
 
 1. Escriba *aks-compute* en **Compute name** (Nombre de proceso).
@@ -96,8 +96,8 @@ Después de que el servicio AKS haya terminado de aprovisionarse, vuelva a la ca
 1. Seleccione el clúster de AKS que ha creado.
 
 1. Seleccione **Implementar**.
-
-    ![Captura de pantalla que muestra cómo configurar un nuevo punto de conexión en tiempo real](./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png)
+    
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Captura de pantalla que muestra cómo configurar un nuevo punto de conexión en tiempo real":::
 
     Aparece una notificación de finalización correcta en la parte superior del lienzo una vez que termina la implementación. Esto puede llevar unos minutos.
 

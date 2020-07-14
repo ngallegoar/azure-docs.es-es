@@ -1,14 +1,14 @@
 ---
 title: Permisos a repositorios en Azure Container Registry
-description: Cree un token con permisos orientados a repositorios específicos de un registro para extraer o insertar imágenes, o realizar otras acciones.
+description: Cree un token con permisos orientados a repositorios específicos de un registro Premium para extraer o insertar imágenes, o realizar otras acciones.
 ms.topic: article
 ms.date: 05/27/2020
-ms.openlocfilehash: 8534c62db862f5c929d0145948fc4049c036d412
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 8661ff2e320788d3899ae16dd3bee7d3ff662caa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142229"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84509413"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Creación de un token con permisos orientados al repositorio
 
@@ -20,7 +20,7 @@ Los escenarios para crear un token son:
 * Proporcionar a una organización externa permisos a un repositorio específico. 
 * Limitar el acceso del repositorio a diferentes grupos de usuarios de la organización. Por ejemplo, proporcione acceso de lectura y escritura a los desarrolladores que compilan imágenes destinadas a repositorios específicos, y acceso de lectura a los equipos que realizan implementaciones desde estos repositorios.
 
-Esta característica está disponible en registros de contenedor **Premium**. Para obtener información sobre los límites y los niveles de servicio de los registros, vea [Niveles de servicio de Azure Container Registry](container-registry-skus.md).
+Esta característica está disponible en el nivel de servicio de un registro de contenedor **Premium**. Para obtener información sobre los límites y los niveles de servicio de los registros, vea [Niveles de servicio de Azure Container Registry](container-registry-skus.md).
 
 > [!IMPORTANT]
 > Esta funcionalidad actualmente está en su versión preliminar y se [aplican algunas limitaciones](#preview-limitations). Las versiones preliminares están a su disposición con la condición de que acepte los [términos de uso adicionales][terms-of-use]. Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.

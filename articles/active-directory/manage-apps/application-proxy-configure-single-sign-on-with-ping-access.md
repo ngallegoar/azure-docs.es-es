@@ -3,25 +3,25 @@ title: Autenticación basada en encabezados con PingAccess para el proxy de la a
 description: Publique aplicaciones con PingAccess y el proxy de la aplicación que admitan la autenticación basada en encabezados.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/24/2019
-ms.author: celested
-ms.reviewer: harshja
+ms.author: kenwith
+ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3fb94629262519f8cfa5da72ee343726aa7d1c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 53f644203b494e5baf087241e2a4fe669b7db07b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77367984"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85077899"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticación basada en el encabezado para el inicio de sesión único con el proxy de aplicación y PingAccess
 
@@ -100,7 +100,7 @@ Para publicar su propia aplicación local:
 
 Ahora, designe a un usuario para probar la aplicación y elija un inicio de sesión único basado en encabezado:
 
-1. En la barra lateral de la aplicación, seleccione **Usuarios y grupos** > **Agregar usuario** > **Usuarios y grupos (\<número> seleccionados)** . Aparece una lista de usuarios y grupos para su selección.
+1. En la barra lateral de la aplicación, seleccione **Usuarios y grupos** > **Agregar usuario** > **Usuarios y grupos (\<Number> seleccionado)** . Aparece una lista de usuarios y grupos para su selección.
 
    ![Pantalla con la lista de usuarios y grupos](./media/application-proxy-configure-single-sign-on-with-ping-access/users-and-groups.png)
 
@@ -119,7 +119,7 @@ Luego, asegúrese de que la dirección URL de redireccionamiento está estableci
 
 1. En la barra lateral del **Centro de administración de Azure Active Directory**, seleccione **Azure Active Directory** > **Registros de aplicaciones**. Aparece una lista de aplicaciones.
 1. Seleccione la aplicación.
-1. Seleccione el vínculo junto a **URI de redirección**, que muestra el número de URI de redirección configurados para clientes públicos y de web. Se abre la página **\<nombre de la aplicación>: Autenticación**.
+1. Seleccione el vínculo junto a **URI de redirección**, que muestra el número de URI de redirección configurados para clientes públicos y de web. Se muestra la página **\<application name>Autenticación**.
 1. Compruebe si la dirección URL externa que asignó a la aplicación anteriormente está incluida en la lista **URI de redirección**. Si no lo está, agregue la dirección URL externa ahora (con el tipo de URI de redirección **Web**) y seleccione **Guardar**.
 
 Por último, configure la aplicación local para que los usuarios tengan acceso de lectura y otras aplicaciones tengan acceso de lectura/escritura:
@@ -131,7 +131,7 @@ Por último, configure la aplicación local para que los usuarios tengan acceso 
 1. Seleccione **Permisos delegados** > **Usuario** > **User.Read**.
 1. Seleccione **Permisos de la aplicación** > **Aplicación** > **Application.ReadWrite.All**.
 1. Seleccione **Agregar permisos**.
-1. En la página **Permisos de API**, seleccione **Conceder consentimiento de administrador para \<nombre del directorio>** .
+1. En la página **Permisos de API**, seleccione **Conceder consentimiento de administrador para \<your directory name>** .
 
 #### <a name="collect-information-for-the-pingaccess-steps"></a>Recopilación de información para los pasos de PingAccess
 
@@ -218,7 +218,7 @@ Cuando configure PingAccess en el paso siguiente, la sesión web que cree en Set
 
 Ahora que ha completado todos los pasos de instalación de Azure Active Directory, puede pasar a configurar PingAccess.
 
-Los pasos detallados de la parte de PingAccess de este escenario se pueden encontrar en la documentación de Ping Identity. Siga las instrucciones sobre cómo [configurar PingAccess para Azure AD para proteger las aplicaciones publicadas mediante Microsoft Azure AD Application Proxy](https://support.pingidentity.com/s/document-item?bundleId=pingaccess-52&topicId=agents/azure/pa_c_PAAzureSolutionOverview.html) en el sitio web de Ping Identity.
+Los pasos detallados de la parte de PingAccess de este escenario se pueden encontrar en la documentación de Ping Identity. Siga las instrucciones sobre cómo [configurar PingAccess para Azure AD para proteger las aplicaciones publicadas mediante Microsoft Azure AD Application Proxy](https://support.pingidentity.com/s/document-item?bundleId=pingaccess-52&topicId=agents/azure/pa_c_PAAzureSolutionOverview.html) en el sitio web de Ping Identity y descargue la [versión más reciente de PingAccess](https://www.pingidentity.com/en/lp/azure-download.html?).
 
 Esos pasos le permiten instalar PingAccess y configurar una cuenta de PingAccess (si aún no tiene una). Luego, para crear una conexión de Azure AD OpenID Connect (OIDC), configure un proveedor de tokens con el valor de **Id. de directorio (inquilino)** que copió desde el portal de Azure AD. Tras ello, para crear una sesión web en PingAccess, utilice los valores de **Id. de la aplicación (cliente)** y `PingAccess key`. Después, puede configurar la asignación de identidades y crear un host virtual, un sitio y una aplicación.
 

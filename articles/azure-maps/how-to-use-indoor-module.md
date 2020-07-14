@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9b2a47cde4d79671aada7c280c2bffd9bb8fe759
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c0b043bdb20cad508950a11853403958340acadf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594034"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84434203"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Uso del módulo de mapas de Azure Maps Indoor
 
 El SDK web de Azure Maps incluye el módulo de *Azure Maps Indoor*. El módulo de *Azure Maps Indoor* permite representar planos interiores creados en Azure Maps Creator.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 1. [Cree una cuenta de Azure Maps](quick-demo-map-app.md#create-an-account-with-azure-maps).
 2. [Cree un recurso de Creator](how-to-manage-creator.md).
@@ -33,12 +33,12 @@ Puede instalar e insertar el módulo de *Azure Maps Indoor* de una de estas dos 
 
 Para usar la versión de Azure Content Delivery Network hospedada globalmente del módulo de *Azure Maps Indoor*, consulte las siguientes referencias de la hoja de estilos y JavaScript en el elemento `<head>` del archivo HTML:
 
-  ```html
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
-    <script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css"/>
-  ```
+```html
+<script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+<script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
+<link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
+<link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css"/>
+```
 
  También puede descargar el módulo de *Azure Maps Indoor*. El módulo de *Azure Maps Indoor* contiene una biblioteca cliente para tener acceso a los servicios de Azure Maps. Siga los pasos que se indican a continuación para instalar y cargar el módulo de *Indoor* en la aplicación web.  
   
@@ -47,8 +47,8 @@ Para usar la versión de Azure Content Delivery Network hospedada globalmente de
   2. Instale el paquete de npm. Asegúrese de usar privilegios de administrador en la consola:
 
       ```powershell
-        >npm install azure-maps-control
-        >npm install azure-maps-indoor
+      >npm install azure-maps-control
+      >npm install azure-maps-indoor
       ```
 
   3. Haga referencia a la hoja de estilos y JavaScript del módulo de *Azure Maps Indoor* en el elemento `<head>` del archivo HTML:
@@ -63,16 +63,20 @@ Para usar la versión de Azure Content Delivery Network hospedada globalmente de
 En primer lugar, cree un *objeto de mapa*. El *objeto de mapa* se usará en el paso siguiente para crear una instancia del objeto de *Indoor Manager*.  En el código siguiente se muestra cómo crear una instancia del *objeto de mapa*:
 
 ```javascript
-  const subscriptionKey = "<your Azure Maps Primary Subscription Key>";
+const subscriptionKey = "<Your Azure Maps Primary Subscription Key>";
 
-  const map = new atlas.Map("map-id", {
-    //use your facility's location
-    center: [-122.13315, 47.63637],
-    //or, you can use bounds: [#,#,#,#] and replace # with your map's bounds
-    style: "blank",
-    subscriptionKey,
-    zoom: 19,
-  });
+const map = new atlas.Map("map-id", {
+  //use your facility's location
+  center: [-122.13315, 47.63637],
+  //or, you can use bounds: [# west, # south, # east, # north] and replace # with your map's bounds
+  style: "blank",
+  view: 'Auto',
+  authOptions: { 
+      authType: 'subscriptionKey',
+      subscriptionKey: subscriptionKey
+  },
+  zoom: 19,
+});
 ```
 
 ## <a name="instantiate-the-indoor-manager"></a>Creación de una instancia de Indoor Manager
@@ -92,7 +96,6 @@ const indoorManager = new atlas.indoor.IndoorManager(map, {
 Para habilitar el sondeo de los datos de estado que facilite, debe proporcionar `statesetId` y llamar a `indoorManager.setDynamicStyling(true)`. El sondeo de los datos de estado le permite actualizar dinámicamente el estado de las propiedades dinámicas o los *estados*. Por ejemplo, una característica como una sala puede tener una propiedad dinámica (*estado*) denominada `occupancy`. Es posible que la aplicación quiera sondear los cambios de *estado* para reflejar el cambio en el mapa visual. En el código siguiente se muestra cómo habilitar el sondeo de estado:
 
 ```javascript
-
 const tilesetId = "";
 const statesetId = "";
 
@@ -104,7 +107,6 @@ const indoorManager = new atlas.indoor.IndoorManager(map, {
 if (statesetId.length > 0) {
     indoorManager.setDynamicStyling(true);
 }
-
 ```
 
 ## <a name="indoor-level-picker-control"></a>Control de selector de nivel de Indoor
@@ -123,14 +125,14 @@ indoorManager.setOptions({ levelControl });
 ```javascript
 map.events.add("levelchanged", indoorManager, (eventData) => {
 
-    //code that you want to run after a level has been changed
-    console.log("The level has changed: ", eventData);
-
+  //code that you want to run after a level has been changed
+  console.log("The level has changed: ", eventData);
 });
+
 map.events.add("facilitychanged", indoorManager, (eventData) => {
 
-    //code that you want to run after a facility has been changed
-    console.log("The facility has changed: ", eventData);
+  //code that you want to run after a facility has been changed
+  console.log("The facility has changed: ", eventData);
 });
 ```
 
@@ -149,7 +151,7 @@ En este ejemplo se muestra cómo usar el módulo de *Azure Maps Indoor* en la ap
 4. Inicialice un *objeto de mapa*. El *objeto de mapa* admite las siguientes opciones:
     - `Subscription key` es la clave de suscripción principal de Azure Maps.
     - `center` define la latitud y la longitud de la ubicación del centro del plano interior. Proporcione un valor para `center` si no quiere proporcionar un valor para `bounds`. El formato debe mostrarse como `center`: [-122.13315, 47.63637].
-    - `bounds` es la forma rectangular más pequeña que incluye los datos del mapa de conjunto de mosaicos. Establezca un valor para `bounds` si no quiere establecer un valor para `center`. Puede buscar los límites del mapa mediante una llamada a [Tileset List API](https://docs.microsoft.com/rest/api/maps/tileset/listpreview). Tileset List API devuelve `bbox`, que puede analizar y asignar a `bounds`. El formato debe mostrarse como `bounds`: [#,#,#,#].
+    - `bounds` es la forma rectangular más pequeña que incluye los datos del mapa de conjunto de mosaicos. Establezca un valor para `bounds` si no quiere establecer un valor para `center`. Puede buscar los límites del mapa mediante una llamada a [Tileset List API](https://docs.microsoft.com/rest/api/maps/tileset/listpreview). Tileset List API devuelve `bbox`, que puede analizar y asignar a `bounds`. El formato debe aparecer como `bounds`: [# west, # south, # east, # north].
     - `style` le permite establecer el color del fondo. Para mostrar un fondo blanco, defina `style` como "en blanco".
     - `zoom` permite especificar los niveles mínimo y máximo de zoom para el mapa.
 
@@ -168,10 +170,13 @@ Ahora el archivo debería ser similar al HTML siguiente.
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, user-scalable=no" />
       <title>Indoor Maps App</title>
-       <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
-        <script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css"/>
+      
+      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
+      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css"/>
+
+      <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+      <script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
+        
       <style>
         html,
         body {
@@ -191,16 +196,20 @@ Ahora el archivo debería ser similar al HTML siguiente.
     <body>
       <div id="map-id"></div>
       <script>
-        const subscriptionKey = "<your Azure Maps Primary Subscription Key>";
+        const subscriptionKey = "<Your Azure Maps Primary Subscription Key>";
         const tilesetId = "<your tilesetId>";
         const statesetId = "<your statesetId>";
 
         const map = new atlas.Map("map-id", {
           //use your facility's location
           center: [-122.13315, 47.63637],
-          //or, you can use bounds: [ # , # , # , # ] and replace # with your Map bounds
+          //or, you can use bounds: [# west, # south, # east, # north] and replace # with your Map bounds
           style: "blank",
-          subscriptionKey,
+          view: 'Auto',
+          authOptions: { 
+              authType: 'subscriptionKey',
+              subscriptionKey: subscriptionKey
+          },
           zoom: 19,
         });
 

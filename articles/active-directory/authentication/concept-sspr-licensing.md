@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 06/02/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45ca11af061e37cf4f804ce2d7ceed72a9448294
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 608c8206227a129a320a560e752cf31a4843dca3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393079"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84321689"
 ---
 # <a name="licensing-requirements-for-azure-active-directory-self-service-password-reset"></a>Requisitos de licencias del autoservicio de restablecimiento de contraseña de Azure Active Directory
 
-Para reducir las llamadas al departamento de soporte técnico y la pérdida de productividad cuando un usuario no puede iniciar sesión en su dispositivo o en una aplicación, las cuentas de usuario de Azure Active Directory (Azure AD) se pueden habilitar para el autoservicio de restablecimiento de contraseña (SSPR). Entre las características que componen SSPR se incluyen el cambio, restablecimiento, desbloqueo y escritura diferida de contraseñas en un directorio local. Las características básicas de SSPR están disponibles para Office 365 y para todos los usuarios de Azure AD sin costo.
+Para reducir las llamadas al departamento de soporte técnico y la pérdida de productividad cuando un usuario no puede iniciar sesión en su dispositivo o en una aplicación, las cuentas de usuario de Azure Active Directory (Azure AD) se pueden habilitar para el autoservicio de restablecimiento de contraseña (SSPR). Entre las características que componen SSPR se incluyen el cambio, restablecimiento, desbloqueo y escritura diferida de contraseñas en un directorio local. Las características básicas de SSPR están disponibles en Microsoft 365 Empresa Estándar o superior y en todas las SKU de Azure AD Premium sin costo alguno.
 
 En este artículo se detallan las diferentes formas en las que se puede obtener la licencia del autoservicio de restablecimiento de contraseña y cómo se puede usar. Para obtener información específica sobre precios y facturación, consulte [Página de precios de Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -30,14 +30,14 @@ Se otorgan licencias de SSPR por usuario. Para garantizar el cumplimiento, se re
 
 En la tabla siguiente se describen los distintos escenarios de SSPR para el cambio, restablecimiento o escritura diferida local de contraseñas y las SKU que proporcionan la característica.
 
-| Característica | Azure AD Free | Office 365 Empresa Premium | Microsoft 365 Empresa | Azure AD Premium (P1 o P2) |
+| Característica | Azure AD Free | Microsoft 365 Empresa Estándar | Microsoft 365 Empresa Premium | Azure AD Premium (P1 o P2) |
 | --- |:---:|:---:|:---:|:---:|
 | **Cambio de la contraseña del usuario solo en la nube**<br />Cuando un usuario de Azure AD conoce su contraseña y desea cambiarla por una nueva. | ● | ● | ● | ● |
 | **Restablecimiento de la contraseña del usuario solo en la nube**<br />Cuando un usuario de Azure AD ha olvidado su contraseña y necesita restablecerla. | | ● | ● | ● |
 | **Cambio de contraseña de usuario híbrido o restablecimiento con escritura diferida local**<br />Cuando un usuario de Azure AD que se sincroniza desde un directorio local mediante Azure AD Connect desea cambiar o restablecer su contraseña y también volver a escribir la nueva contraseña en el entorno local. | | | ● | ● |
 
 > [!WARNING]
-> Los planes de licencias independientes de Office 365 no admiten SSPR con escritura diferida local. Los planes de licencias de Office 365 requieren Azure AD Premium P1, Premium P2 o Microsoft 365 Empresa para que esta funcionalidad funcione.
+> Los planes de licencias independientes de Microsoft Office 365 Básico y Estándar no admiten SSPR con escritura diferida local. La característica de escritura diferida local requiere Azure AD Premium P1, Premium P2 o Microsoft 365 Empresa Premium.
 
 Para obtener información adicional sobre licencias, incluidos los costos, consulte las siguientes páginas:
 

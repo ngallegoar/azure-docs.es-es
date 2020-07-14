@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 67b476b2ec6ec0c841639f7aa1d94a0d9d3d3304
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: d670ee0cb2396858d908ac13f70819efd57d7f63
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262362"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391832"
 ---
 # <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>Exploración de Azure Digital Twins con una aplicación cliente de ejemplo
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 En este tutorial se presenta una aplicación de ejemplo que implementa una aplicación cliente de línea de comandos, para interactuar con una instancia de Azure Digital Twins. La aplicación cliente es similar a la escrita en el [Tutorial: Programación de una aplicación cliente](tutorial-code.md).
 
@@ -43,7 +40,7 @@ El primer paso para crear una solución de Azure Digital Twins es definir los [*
 Los modelos son parecidos a las clases de los lenguajes de programación orientados a objetos en el sentido de que proporcionan plantillas definidas por el usuario para [gemelos digitales](concepts-twins-graph.md), las cuales se siguen. Más tarde también se crean instancias de estas plantillas. Se escriben en un lenguaje tipo JSON llamado **lenguaje de definición de gemelos digitales (DTDL)** y pueden definir las *propiedades*, la *telemetría*, las *relaciones* y los *componentes* de un gemelo.
 
 > [!NOTE]
-> DTDL también permite la definición de *comandos* en gemelos digitales. Sin embargo, en este momento no se admiten comandos en el servicio Azure Digital Twins.
+> DTDL también permite la definición de *comandos* en digital twins. Sin embargo, en este momento no se admiten comandos en el servicio Azure Digital Twins.
 
 En la ventana de Visual Studio donde está abierto el proyecto _**AdtE2ESample**_, use el panel *Explorador de soluciones* para ir a la carpeta *AdtSampleApp\SampleClientApp\Models*. Esta carpeta contiene modelos de ejemplo.
 
@@ -131,7 +128,8 @@ Vuelva a ejecutar el comando `CreateModels` para intentar volver a cargar uno de
 CreateModels Room
 ```
 
-Dado que los modelos no se pueden sobrescribir, ahora se devolverá un error de servicio:
+Dado que los modelos no se pueden sobrescribir, esto le devolverá un error de servicio.
+Para obtener información detallada sobre cómo eliminar modelos existentes, consulte [Procedimientos: Administración de modelos personalizados](how-to-manage-model.md).
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)

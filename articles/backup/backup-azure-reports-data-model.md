@@ -3,12 +3,12 @@ title: Modelo de datos para eventos de diagnóstico de Azure Backup
 description: Este modelo de datos es en referencia al modo específico del recurso de enviar eventos de diagnóstico a Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 0713db1cee9d6737ce69cb108f3cb8f81d1eb2ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af1e4159ff2794f8d4dd11480eb7f1789e034c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183575"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484499"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Modelo de datos para eventos de diagnóstico de Azure Backup
 
@@ -118,13 +118,13 @@ Esta tabla proporciona detalles acerca de los campos relacionados con los trabaj
 
 | **Campo**                      | **Tipo de datos** | **Descripción**                                              |
 | ------------------------------ | ------------- | ------------------------------------------------------------ |
-| ResourceId                     | Texto          | Identificador de recursos de datos que se recopilan. Por ejemplo, el id. de recurso del almacén de Recovery Services. |
+| ResourceId                     | Texto          | Identificador de recursos de datos que se recopilan. Por ejemplo, el identificador del recurso del almacén de Recovery Services. |
 | OperationName                  | Texto          | Este campo representa el nombre de la operación actual: Job    |
-| Category                       | Texto          | Este campo representa la categoría de datos de diagnóstico insertados en los registros de Azure Monitor; es AzureBackupReport. |
+| Category                       | Texto          | Este campo representa la categoría de datos de diagnóstico insertados en los registros de Azure Monitor (AddonAzureBackupJobs) |
 | AdhocOrScheduledJob            | Texto          | Campo para especificar si el trabajo es ad hoc o programado.           |
-| BackupItemUniqueId             | Texto          | Id. exclusivo que se usa para identificar el elemento de copia de seguridad relacionado con la entidad de almacenamiento. |
-| BackupManagementServerUniqueId | Texto          | Id. exclusivo que se usa para identificar el servidor de administración de copia de seguridad relacionado con la entidad de almacenamiento. |
-| BackupManagementType           | Texto          | Tipo de proveedor para realizar la copia de seguridad, por ejemplo, IaaSVM o FileFolder al que pertenece esta alerta. |
+| BackupItemUniqueId             | Texto          | Identificador único del elemento de copia de seguridad relacionado con la entidad de almacenamiento. |
+| BackupManagementServerUniqueId | Texto          | Identificador único del servidor de administración de copia de seguridad relacionado con la entidad de almacenamiento. |
+| BackupManagementType           | Texto          | Tipo de proveedor para realizar la copia de seguridad, por ejemplo, IaaSVM o FileFolder al que pertenece este trabajo |
 | DataTransferredInMB            | Number        | Datos transferidos en MB para este trabajo                          |
 | JobDurationInSecs              | Number        | Duración del trabajo total en segundos                                |
 | JobFailureCode                 | Texto          | Cadena del código de error por el que produjo el error del trabajo    |
@@ -133,14 +133,14 @@ Esta tabla proporciona detalles acerca de los campos relacionados con los trabaj
 | JobStartDateTime               | DateTime      | Fecha y hora en las que comenzó la ejecución del trabajo                       |
 | Estado del trabajo                      | Texto          | Estado del trabajo terminado, por ejemplo, Completed o Failed   |
 | JobUniqueId                    | Texto          | Identificador único que identifica el trabajo.                                |
-| ProtectedContainerUniqueId     | Texto          | Id. exclusivo del servidor protegido asociado a la alerta. |
+| ProtectedContainerUniqueId     | Texto          | Identificador único del servidor protegido asociado al trabajo |
 | RecoveryJobDestination         | Texto          | Destino de un trabajo de recuperación, donde se recuperan los datos.   |
 | RecoveryJobRPDateTime          | DateTime      | La fecha y hora en que se creó el punto de recuperación que se va a recuperar. |
 | RecoveryJobLocation            | Texto          | La ubicación donde se almacenó el punto de recuperación que se va a recuperar. |
 | RecoveryLocationType           | Texto          | Tipo de la ubicación de recuperación.                                |
 | SchemaVersion                  | Texto          | Versión actual del esquema, por ejemplo **V2**.            |
-| State                          | Texto          | Estado actual del objeto de la alerta, por ejemplo, Active o Deleted. |
-| VaultUniqueId                  | Texto          | Id. exclusivo del almacén protegido asociado a la alerta. |
+| State                          | Texto          | Estado actual del objeto del trabajo, por ejemplo, Active o Deleted |
+| VaultUniqueId                  | Texto          | Identificador único del almacén protegido asociado al trabajo |
 | SourceSystem                   | Texto          | Sistema de origen de los datos actuales: Azure                    |
 
 ## <a name="addonazurebackuppolicy"></a>AddonAzureBackupPolicy
@@ -205,7 +205,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con el almacen
 | BackupManagementServerUniqueId | Texto          | Campo para identificar de forma única el servidor de administración de copia de seguridad mediante el que se protege el elemento de copia de seguridad, si procede. |
 | BackupManagementType           | Texto          | Tipo de proveedor para el servidor que realiza el trabajo de copia de seguridad. Por ejemplo, IaaSVM o FileFolder. |
 | PreferredWorkloadOnVolume      | Texto          | Carga de trabajo para la que este volumen es el almacenamiento preferido.      |
-| ProtectedContainerUniqueId     | Texto          | Id. exclusivo del servidor protegido asociado a la alerta. |
+| ProtectedContainerUniqueId     | Texto          | Identificador único del contenedor protegido asociado al elemento de copia de seguridad. |
 | SchemaVersion                  | Texto          | Versión del esquema. Por ejemplo, **V2**.                   |
 | State                          | Texto          | Estado del objeto del elemento de copia de seguridad. Por ejemplo, Active o Deleted. |
 | StorageAllocatedInMBs          | Number        | Tamaño de almacenamiento asignado por el elemento de copia de seguridad correspondiente en el almacenamiento correspondiente del tipo de disco. |

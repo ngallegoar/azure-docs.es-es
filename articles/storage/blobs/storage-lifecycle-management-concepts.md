@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 255e440586af2a5c9115023f45fbf02e25c57ab6
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 789d70f77558bbade854ba31fd10ecd2b8e7b853
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692141"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85194712"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Administración del ciclo de vida de Azure Blob Storage
 
@@ -357,7 +357,7 @@ En este ejemplo se muestra cómo realizar la transición de blobs en bloques con
 Algunos datos permanecen inactivos en la nube y, una vez almacenados, no se accede a ellos prácticamente nunca. La siguiente directiva del ciclo de vida está configurada para archivar los datos poco después de que se ingieran. En este ejemplo se realiza la transición de los blobs en bloques en la cuenta de almacenamiento en el contenedor `archivecontainer` a un nivel de archivo. La transición se realiza al actuar en los blobs 0 días después de la hora de la última modificación:
 
 > [!NOTE] 
-> Se recomienda cargar los blobs directamente en el nivel de archivo para que sea más eficaz. Puede usar el encabezado x-ms-acess-tier para [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) o [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) con la versión de REST 2018-11-09 y versiones más recientes o las bibliotecas de cliente de blob storage más recientes. 
+> Se recomienda cargar los blobs directamente en el nivel de archivo para que sea más eficaz. Puede usar el encabezado x-ms-access-tier para [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) o [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) con la versión de REST 2018-11-09 y versiones más recientes o las bibliotecas de cliente de Blob Storage más recientes. 
 
 ```json
 {

@@ -7,16 +7,23 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 38fb45fd339b5e2c7cab6f66a1ed6c0df73fb29e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e1da26d9067427734d407451bdb53e51ba1e6243
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74069626"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609172"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Servicios de alta disponibilidad admitidos en Azure HDInsight
 
  Con el fin de proporcionarle niveles óptimos de disponibilidad para los componentes de análisis, HDInsight se desarrolló con una arquitectura única que garantiza la alta disponibilidad (HA) de los servicios críticos. Microsoft desarrolló algunos componentes de esta arquitectura para proporcionar conmutación automática por error. Otros son componentes de Apache estándar que se implementan para la compatibilidad con servicios específicos. En este artículo se explica la arquitectura del modelo de servicio de alta disponibilidad en HDInsight, el modo en que HDInsight admite la conmutación por error de los servicios de alta disponibilidad y los procedimientos recomendados para recuperarse de otras interrupciones del servicio.
+ 
+> [!NOTE]
+> Comunicación sin prejuicios
+>
+> Microsoft admite un entorno diverso e inclusivo. En este artículo se incluyen referencias a la palabra _esclavo_. En la [guía de estilo para la comunicación sin prejuicios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) de Microsoft se reconoce que se trata de una palabra excluyente. Se usa en este artículo por coherencia, ya que actualmente es la palabra que aparece en el software. Cuando se actualice el software para quitarla, este artículo se actualizará para que esté alineado.
+>
+
 
 ## <a name="high-availability-infrastructure"></a>Infraestructura de alta disponibilidad
 

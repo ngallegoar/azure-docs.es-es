@@ -3,18 +3,18 @@ title: 'Conceptos: interconectividad de red'
 description: Conozca los aspectos clave y los casos de uso de redes e interconectividad en la solución de VMware en Azure (AVS)
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 82e5497c30bf02313e5ff8ad24167af569a153c2
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 35d886fe0f6a68e522d7f2cf20b450b5d9afc199
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82739956"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84629205"
 ---
 # <a name="azure-vmware-solution-avs-preview-networking-and-interconnectivity-concepts"></a>Conceptos de interconectividad y redes de la versión preliminar de la solución de VMware en Azure (AVS)
 
 La interconectividad de red entre las nubes privadas de la solución de VMware en Azure (AVS) y los entornos locales o las redes virtuales de Azure le permite acceder a su nube privada y utilizarla. En este artículo se describen algunos conceptos fundamentales de redes y de interconectividad que establecen la base de la interconectividad.
 
-Una perspectiva útil de la interconectividad consiste en considerar los dos tipos de implementaciones de nube privada de AVS. Las implementaciones con una interconectividad básica solo de Azure y las implementaciones con una interconectividad completa del entorno local a la nube privada.
+Una perspectiva útil sobre la interconectividad es tener en cuenta los dos tipos de implementaciones de la nube privada de AVS: implementaciones con interconectividad básica solo de Azure e implementaciones con interconectividad completa del entorno local a la nube privada.
 
 Los casos de uso de nubes privadas de AVS incluyen:
 - nuevas cargas de trabajo de máquinas virtuales de VMware en la nube
@@ -25,7 +25,7 @@ Los casos de uso de nubes privadas de AVS incluyen:
 
  Todos los casos de uso del servicio AVS se habilitan con conectividad del entorno local a la nube privada. El modelo de interconectividad básica es más adecuado para las evaluaciones o implementaciones de AVS que no requieren acceso desde entornos locales.
 
-Los dos tipos de interconectividad de nube privada de AVS se describen en las secciones siguientes.  La interconectividad más básica se muestra en "Conectividad de la red virtual de Azure", y le permite administrar y usar su nube privada con una sola red virtual en Azure. La interconectividad descrita en "Interconectividad local" amplía la conectividad de la red virtual para incluir igualmente la interconectividad entre los entornos locales y las nubes privadas de AVS.
+Los dos tipos de interconectividad de nube privada de AVS se describen en las secciones siguientes.  La interconectividad más básica se muestra en "Conectividad de la red virtual de Azure" y le permite administrar y usar su nube privada con una sola red virtual en Azure. La interconectividad descrita en "Interconectividad local" amplía la conectividad de la red virtual para incluir igualmente la interconectividad entre los entornos locales y las nubes privadas de AVS.
 
 ## <a name="azure-virtual-network-interconnectivity"></a>Conectividad de la red virtual de Azure
 
@@ -58,7 +58,7 @@ Se requiere un circuito de ExpressRoute desde el entorno local a la red virtual 
 Una vez vinculados con Global Reach, los dos circuitos de ExpressRoute enrutarán el tráfico de red entre los entornos locales y su nube privada. La interconectividad desde entornos locales a una nube privada se muestra en el diagrama anterior. La interconectividad representada en el diagrama habilita los siguientes casos de uso:
 
 - Cross-vCenter vMotion frecuente/poco frecuente
-- Acceso de administración desde el entorno local a la nube privada de AVS
+- Acceso de administración desde los entornos locales a la nube privada de AVS
 
 Para habilitar la conectividad completa, se puede solicitar una clave de autorización y un identificador de emparejamiento privado para Global Reach en Azure Portal. Utilice la clave y el identificador para establecer Global Reach entre un circuito de ExpressRoute en su suscripción y el circuito de ExpressRoute para su nueva nube privada. En el [tutorial para crear una nube privada](tutorial-create-private-cloud.md) se indican los procedimientos para solicitar y usar la clave y el identificador.
 

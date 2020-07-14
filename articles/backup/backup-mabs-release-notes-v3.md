@@ -2,14 +2,14 @@
 title: Notas de la versión de Microsoft Azure Backup Server v3
 description: En este artículo se proporciona la información sobre los problemas conocidos y las soluciones alternativas para Microsoft Azure Backup Server (MABS) v3.
 ms.topic: conceptual
-ms.date: 11/22/2018
+ms.date: 06/03/2020
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: a5c99bcb95fde39bddc9e9db9ab000881c89081a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2f67b73612bd970c903b179a4a02c787ee0320b0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185632"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84629178"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Notas de la versión de Microsoft Azure Backup Server
 
@@ -71,6 +71,40 @@ Este artículo describe los problemas conocidos y las soluciones alternativas pa
 
 9. Inicie el servicio MSDPM.
 
+## <a name="after-installing-ur1-the-mabs-reports-arent-updated-with-new-rdl-files"></a>Después de instalar UR1, los informes de MABS no se actualizan con los nuevos archivos RDL
+
+**Descripción**: Con UR1, el problema de formato del informe de MABS se corrige con los archivos RDL actualizados. Los nuevos archivos RDL no se reemplazan automáticamente con los archivos existentes.
+
+**Solución alternativa**: Para reemplazar los archivos RDL, siga estos pasos:
+
+1. En el equipo de MABS, abra la dirección URL del portal web de SQL Reporting Services.
+1. En la dirección URL del portal web, la carpeta DPMReports tiene el formato **`DPMReports_<GUID>`**
+
+    >[!NOTE]
+    >Siempre hay solamente una carpeta con esta convención de nomenclatura. Si MABS se actualiza a partir de una versión anterior, es posible que también haya otra carpeta anterior, pero no podrá abrirla.
+
+    ![Carpeta DPMReports](./media/backup-mabs-release-notes-v3/dpm-reports-folder.png)
+
+1. Seleccione y abra la carpeta **`DPMReports_<GUID>`** . Los archivos de informe individuales se enumerarán como se muestra a continuación.
+
+    ![Lista de archivos de informe individuales](./media/backup-mabs-release-notes-v3/individual-report-files.png)
+
+1. Seleccione los archivos de informe que no terminan con **Report**, haga clic con el botón derecho en **Opción** y seleccione **Administrar**.
+
+    ![Selección de Administrar para archivos de informe](./media/backup-mabs-release-notes-v3/manage-files.png)
+
+1. En la página nuevo, seleccione la opción **Reemplazar** para reemplazar los archivos por los archivos de informe más recientes.
+
+    Los archivos de informe más recientes pueden encontrarse en la ruta de acceso `<MABS Installation Directory>\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`.
+
+    Por ejemplo: `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
+
+    ![Reemplazo de los archivos por los archivos de informe más recientes](./media/backup-mabs-release-notes-v3/replace-files.png)
+
+    Una vez reemplazados los archivos, asegúrese de que los campos **Nombre** y **Descripción** están intactos y no están vacíos.
+
+1. Una vez reemplazados los archivos, reinicie los servicios de MABS y use los archivos de informe.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Novedades de MABS v3](backup-mabs-whats-new-mabs.md)
+[Novedades de MABS](backup-mabs-whats-new-mabs.md)

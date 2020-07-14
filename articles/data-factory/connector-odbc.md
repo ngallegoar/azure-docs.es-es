@@ -1,6 +1,6 @@
 ---
-title: Copia de datos desde orígenes ODBC mediante Azure Data Factory
-description: Obtenga información sobre cómo copiar datos desde orígenes OData a almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
+title: Copia de datos con almacenes de datos ODBC como origen y destino mediante Azure Data Factory
+description: Obtenga información sobre cómo copiar datos con almacenes de datos de ODBC como origen y destino mediante una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: jingwang
-ms.openlocfilehash: 71b05d8607c174dbe9298a1c02f4927ed2218374
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: c92428666f0766f78475be16416027cdc6e71f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891413"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506538"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copia de datos con almacenes de datos ODBC como origen y destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -37,7 +37,7 @@ Puede copiar datos desde un origen ODBC a cualquier almacén de datos de recepto
 
 En concreto, este conector ODBC admite copiar datos con **cualquier almacén de datos compatible con ODBC** como origen o destino mediante la autenticación **básica** o **anónima**. Se requiere un **controlador ODBC de 64 bits**. En el caso del receptor ODBC, ADF es compatible con la versión 2.0 de ODBC.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para usar este conector ODBC, necesitará lo siguiente:
 

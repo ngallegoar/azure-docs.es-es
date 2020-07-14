@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 06/09/2020
-ms.openlocfilehash: 766a41b61f32804c7d7f59c946530f8e1a7b869a
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 3f84cd92a4c4f96831d39cac783df6710c5ea5f4
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85296277"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513413"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-sql-pool-by-using-an-arm-template"></a>Inicio rápido: Creación de un grupo de SQL de Azure Synapse Analytics mediante una plantilla de Resource Manager
 
-Esta plantilla creará un grupo de SQL de Azure Synapse Analytics con la tecnología Cifrado de datos transparente habilitada. El grupo de SQL de Synapse hace referencia a las características de almacenamiento de datos empresariales que están disponibles con carácter general en Azure Synapse.
+Esta plantilla de Azure Resource Manager creará un grupo de SQL de Azure Synapse Analytics con la tecnología Cifrado de datos transparente habilitada. El grupo de SQL de Synapse hace referencia a las características de almacenamiento de datos empresariales que están disponibles con carácter general en Azure Synapse.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -107,8 +107,8 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha creado un grupo de SQL de Azure Synapse Analytics mediante una plantilla de Azure Resource Manager y ha validado la implementación. Para más información sobre Azure Synapse Analytics y Azure Resource Manager, continúe con los artículos siguientes.
+En este inicio rápido, ha creado un grupo de SQL de Azure Synapse Analytics mediante una plantilla de Resource Manager y ha validado la implementación. Para más información sobre Azure Synapse Analytics y Azure Resource Manager, consulte los artículos siguientes.
 
 - Lea la [introducción a Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md)
 - Obtenga más información sobre [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
-- [Crear e implementar su primera plantilla de Azure Resource Manager](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+- [Creación e implementación de la primera plantilla de Resource Manager](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)

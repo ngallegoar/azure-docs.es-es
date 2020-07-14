@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 03/25/2020
+ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 3f341271c208cc56a704c836433c33af0129a4ac
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: d6560f11d26200bdd9f39c4cbae643022872d362
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758368"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506079"
 ---
 # <a name="deploy-spot-vms-using-the-azure-cli"></a>Implementación de máquinas virtuales de Spot con la CLI de Azure
 
@@ -23,7 +23,7 @@ Los precios de las máquinas virtuales de Spot varían en función de la región
 
 Puede establecer el precio máximo por hora que esté dispuesto por la máquina virtual. El precio máximo de una máquina virtual de Spot se puede establecer en dólares estadounidenses (USD), con un máximo de 5 decimales. Por ejemplo, el valor `0.98765` correspondería a un precio máximo de 0,98765 USD por hora. Si establece el precio máximo en `-1`, la máquina virtual no se expulsará por precio. El precio de la máquina virtual será el actual de Spot o el de una máquina virtual estándar, el menor de los dos, siempre que haya capacidad y cuota disponibles. Para más información sobre la configuración del precio máximo, consulte [Máquinas virtuales de Spot - Precios](spot-vms.md#pricing).
 
-El proceso de creación de una máquina virtual con la CLI de Azure es el mismo que el que se detalla en el [artículo de inicio rápido](/azure/virtual-machines/linux/quick-create-cli). Solo tiene que agregar el parámetro "--priority Spot" y proporcionar un precio máximo o el valor `-1`.
+El proceso de creación de una máquina virtual con la CLI de Azure es el mismo que el que se detalla en el [artículo de inicio rápido](/azure/virtual-machines/linux/quick-create-cli). Tan solo agregue el parámetro "--priority Spot", establezca `--eviction-policy` en Desasignar (este es el valor predeterminado) o en `Delete` e indique un precio máximo o `-1`. 
 
 
 ## <a name="install-azure-cli"></a>Instalación de la CLI de Azure
@@ -38,7 +38,7 @@ az login
 
 ## <a name="create-a-spot-vm"></a>Creación de una máquina virtual de Spot
 
-En este ejemplo se muestra cómo implementar una máquina virtual de Spot en Linux que no se expulse por precio. 
+En este ejemplo se muestra cómo implementar una máquina virtual de Spot en Linux que no se expulse por precio. La directiva de expulsión se establece para desasignar la VM, de modo que se pueda reiniciar en otro momento. Si quiere eliminar la VM y el disco subyacente cuando se expulsa la VM, establezca `--eviction-policy` en `Delete`.
 
 ```azurecli
 az group create -n mySpotGroup -l eastus
@@ -49,8 +49,11 @@ az vm create \
     --admin-username azureuser \
     --generate-ssh-keys \
     --priority Spot \
-    --max-price -1
+    --max-price -1 \
+    --eviction-policy Deallocate
 ```
+
+
 
 Una vez creada la máquina virtual, puede realizar una consulta para ver el precio máximo de facturación de todas las máquinas virtuales del grupo de recursos.
 
@@ -63,6 +66,6 @@ az vm list \
 
 **Pasos siguientes**
 
-También puede crear una máquina virtual de Spot con [Azure PowerShell](../windows/spot-powershell.md) o una [plantilla](spot-template.md).
+También puede crear una VM de Spot con [Azure PowerShell](../windows/spot-powershell.md), el [portal](../windows/spot-portal.md) o una [plantilla](spot-template.md).
 
 Si se produce un error, consulte [Códigos de error](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

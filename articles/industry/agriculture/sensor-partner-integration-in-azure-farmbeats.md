@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 37a387b93f1c6b3796b66993405787cf43990bc4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83684009"
 ---
 # <a name="sensor-partner-integration"></a>Integración de partners de sensores
@@ -101,7 +101,7 @@ Accept | El formato de respuesta. En el caso de las API de centro de datos de Fa
 
 **Solicitudes de API**
 
-Para realizar una solicitud de API REST, combine el método HTTP (GET, POST o PUT), la dirección URL al servicio de API y el URI (identificador uniforme de recursos) de un recurso para consultar, actualizar, eliminar o enviarle datos, y uno o varios encabezados de solicitud HTTP. La dirección URL del servicio de API es el punto de conexión de API que proporciona. Por ejemplo: https://\<sucentrodedatos-sitioweb-nombre>.azurewebsites.net
+Para realizar una solicitud de API REST, combine el método HTTP (GET, POST o PUT), la dirección URL al servicio de API y el URI (identificador uniforme de recursos) de un recurso para consultar, actualizar, eliminar o enviarle datos, y uno o varios encabezados de solicitud HTTP. La dirección URL del servicio de API es el punto de conexión de API que proporciona. Este es un ejemplo: https://\<yourdatahub-website-name>.azurewebsites.net
 
 También se pueden incluir parámetros de consulta en las llamadas GET para filtrar y ordenar los datos en las respuestas y limitar su tamaño.
 

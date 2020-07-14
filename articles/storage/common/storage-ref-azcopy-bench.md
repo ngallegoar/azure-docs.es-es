@@ -8,20 +8,20 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 331d0cd4a20cb4351a1bc9a204c500386c499ada
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 40ff6c6c76e255945681e678ef296ffcf9978f61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220144"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485189"
 ---
-# <a name="azcopy-bench"></a>azcopy bench
+# <a name="azcopy-benchmark"></a>azcopy benchmark
 
 Este comando ejecuta una prueba comparativa de rendimiento mediante la carga de datos de prueba en un destino especificado. Los datos de prueba se generan automáticamente.
 
 El comando de prueba comparativa ejecuta el mismo proceso de carga que "copy", con las siguientes excepciones:
 
-  - No tiene ningún parámetro de origen.  El comando solo requiere una dirección URL de destino. En la versión actual, esta dirección URL de destino debe hacer referencia a un contenedor de blobs.
+  - No tiene ningún parámetro de origen.  El comando solo requiere una dirección URL de destino. 
   
   - La carga útil se describe mediante parámetros de la línea de comandos, que controlan el número de archivos que se generan automáticamente y su tamaño. El proceso de generación se realiza por completo en la memoria. No se utiliza el disco.
   
@@ -38,7 +38,7 @@ Se admiten todos los tipos de autenticación habituales. Sin embargo, suele ser 
 ## <a name="examples"></a>Ejemplos
 
 ```azcopy
-azcopy bench [destination] [flags]
+azcopy benchmark [destination] [flags]
 ```
 
 Ejecución de una prueba comparativa con parámetros predeterminados (adecuada para las pruebas comparativas de redes de hasta 1 Gbps):'
@@ -47,9 +47,9 @@ Ejecución de una prueba comparativa con parámetros predeterminados (adecuada p
 
 Ejecución de una prueba comparativa que carga 100 archivos, cada uno con 2 GiB de tamaño (adecuada para las pruebas comparativas en una red rápida; por ejemplo, 10 Gbps):'
 
-- azcopy bench "https://[cuenta].blob.core.windows.net/[contenedor]?<SAS>" --file-count 100 --size-per-file 2G
+- azcopy bench "https://[cuenta].blob.core.windows.net/[contenedor]?<SAS>"--file-count 100 --size-per-file 2G
 
-Igual que la anterior, pero usa 50 000 archivos, cada uno con 8 MiB de tamaño, y procesa sus códigos hash MD5 (de la misma forma que la marca --put-md5 lo hace en el comando copy). El propósito de --put-md5 al realizar pruebas comparativas es comprobar si el cálculo de MD5 afecta a la capacidad de proceso del número y tamaño de archivos seleccionados:
+Ejecute una prueba comparativa, pero usa 50 000 archivos, cada uno con 8 MiB de tamaño, y procesa sus códigos hash MD5 (de la misma forma que la marca `--put-md5` lo hace en el comando copy). El propósito de `--put-md5` al realizar pruebas comparativas es comprobar si el cálculo de MD5 afecta a la capacidad de proceso del número y tamaño de archivos seleccionados:
 
 - azcopy bench "https://[cuenta].blob.core.windows.net/[contenedor]?<SAS>" --file-count 50000 --size-per-file 8M --put-md5
 

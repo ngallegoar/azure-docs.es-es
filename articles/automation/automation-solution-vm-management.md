@@ -3,20 +3,23 @@ title: Introducción a la característica Start/Stop VMs during off-hours de Azu
 description: En este artículo se describe la característica Start/Stop VMs during off-hours, que inicia o detiene las máquinas virtuales según una programación y las supervisa de forma proactiva desde los registros de Azure Monitor.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/28/2020
+ms.date: 06/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7c0cc2b4996c1002aae0656234c356c805923811
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 3b4358651b811ba5c1e7644333a1e9f5a8da2990
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84205133"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84424081"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Introducción a la característica Start/Stop VMs during off-hours
 
 La característica Start/Stop VMs during off-hours inicia o detiene las máquinas virtuales de Azure habilitadas. Inicia o detiene las máquinas en las programaciones definidas por el usuario, proporciona información mediante los registros de Azure Monitor y envía mensajes de correo electrónico, si se desea, mediante [grupos de acciones](../azure-monitor/platform/action-groups.md). La característica se puede habilitar en la mayoría de los escenarios tanto en máquinas virtuales clásicas como de Azure Resource Manager. 
 
-Esta característica usa el cmdlet [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0) para iniciar las máquinas virtuales. Usa [Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Stop-AzureRmVM?view=azurermps-6.13.0) para detener las máquinas virtuales.
+Esta característica usa el cmdlet [Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm) para iniciar las máquinas virtuales. Usa [Stop-AzVm](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) para detener las máquinas virtuales.
+
+> [!NOTE]
+> Aunque los runbooks se hayan actualizado para usar los nuevos cmdlets del módulo Az de Azure, usan el alias de prefijo AzureRM.
 
 > [!NOTE]
 > La característica Start/Stop VMs during off-hours se ha actualizado para admitir las versiones de los módulos de Azure más recientes disponibles. La versión actualizada de esta característica, disponible en Marketplace, no es compatible con los módulos de AzureRM porque hemos migrado de los módulos de AzureRM a los de Az.
@@ -73,7 +76,7 @@ Para permitir la característica Start/Stop VMs during off-hours en las máquina
 
 Puede habilitar la característica Start/Stop VMs during off-hours en las máquinas virtuales mediante una cuenta de Automation y un área de trabajo de Log Analytics nuevas. En este caso, necesita los permisos definidos en la sección anterior, así como los definidos en esta. También necesita los siguientes roles:
 
-- Coadministrador de la suscripción. Este rol es necesario para crear la cuenta de ejecución clásica si va a administrar máquinas virtuales clásicas. Las [cuentas de ejecución clásicas](automation-create-standalone-account.md#create-a-classic-run-as-account) ya no se crean de forma predeterminada.
+- Coadministrador en la suscripción. Este rol es necesario para crear la cuenta de ejecución clásica si va a administrar máquinas virtuales clásicas. Las [cuentas de ejecución clásicas](automation-create-standalone-account.md#create-a-classic-run-as-account) ya no se crean de forma predeterminada.
 - Pertenencia al rol de desarrollador de aplicaciones de [Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md). Para obtener más información sobre cómo configurar las cuentas de ejecución, consulte [Permisos para configurar cuentas de ejecución](manage-runas-account.md#permissions).
 - Colaborador de la suscripción o los siguientes permisos.
 
@@ -132,7 +135,7 @@ En la tabla siguiente se enumeran las variables creadas en su cuenta de Automati
 |External_AutoStop_TimeAggregationOperator | El operador de agregación de tiempo aplicado al tamaño de la ventana seleccionada para evaluar la condición. Los valores aceptables son `Average`, `Minimum`, `Maximum`, `Total` y `Last`.|
 |External_AutoStop_TimeWindow | El tamaño de la ventana en la que Azure analiza la métrica seleccionada para desencadenar una alerta. Este parámetro acepta la entrada en formato timespan. Los valores posibles son de 5 minutos a 6 horas.|
 |External_EnableClassicVMs| Valor que especifica si la característica tiene como destino las máquinas virtuales clásicas. El valor predeterminado es True. Establezca esta variable en False para las suscripciones del Proveedor de soluciones en la nube (CSP) de Azure. Las máquinas virtuales clásicas requieren una [cuenta de ejecución clásica](automation-create-standalone-account.md#create-a-classic-run-as-account).|
-|External_ExcludeVMNames | Lista separada por comas de los nombres de máquina virtual que se van a excluir, limitado a 140. Si agrega más de 140 máquinas virtuales a esta lista separada por comas, las establecidas para excluirse pueden iniciarse o detenerse accidentalmente.|
+|External_ExcludeVMNames | Lista separada por comas de los nombres de máquina virtual que se van a excluir, limitado a 140. Si agrega más de 140 máquinas virtuales a la lista, las especificadas para exclusión pueden iniciarse o detenerse accidentalmente.|
 |External_Start_ResourceGroupNames | Lista separada por comas de uno o varios grupos de recursos destinados a las acciones de inicio.|
 |External_Stop_ResourceGroupNames | Lista separada por comas de uno o varios grupos de recursos destinados a las acciones de detención.|
 |External_WaitTimeForVMRetrySeconds |Tiempo de espera en segundos para que las acciones se realicen en las máquinas virtuales del runbook **SequencedStartStop_Parent**. Esta variable permite que el runbook espere a las operaciones secundarias durante el número de segundos especificado antes de continuar con la siguiente acción. El tiempo de espera máximo es de 10 800 o tres horas. El valor predeterminado es 2 100 segundos.|

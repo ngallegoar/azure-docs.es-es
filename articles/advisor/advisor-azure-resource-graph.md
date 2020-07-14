@@ -4,18 +4,18 @@ description: Creación de consultas para datos de Advisor en Azure Resource Grap
 ms.topic: article
 ms.date: 03/12/2020
 ms.author: sagupt
-ms.openlocfilehash: f8ad8fd450bc004d9caa2699922717f38d38b482
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c0786d1d09ff61ddd9c375c68b7199521e319a4f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79503916"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117842"
 ---
 # <a name="query-for-advisor-data-in-resource-graph-explorer-azure-resource-graph"></a>Consulta de datos de Advisor en Resource Graph Explorer (Azure Resource Graph)
 
 Los recursos de Advisor ahora están incorporados en [Azure Resource Graph](https://azure.microsoft.com/features/resource-graph/). Esta es la base de muchos escenarios de clientes a escala para las recomendaciones de Advisor. Los siguientes son algunos de los escenarios que no eran posibles antes de hacerlo a escala y que ahora se pueden lograr con Resource Graph:
 * Proporciona la capacidad de realizar consultas complejas para todas las suscripciones en Azure Portal.
-* Recomendaciones resumidas por tipos de categoría (como alta disponibilidad, rendimiento) y tipos de impacto (alto, medio, bajo).
+* Recomendaciones resumidas por tipos de categoría (como alta confiabilidad, rendimiento) y tipos de impacto (alto, medio, bajo)
 * Todas las recomendaciones para un tipo de recomendación concreto.
 * Recuento de recursos afectados por categoría de recomendación.
 
@@ -38,6 +38,7 @@ Para más información acerca de las recomendaciones de Advisor, consulte:
 * [Introducción a Azure Advisor](advisor-overview.md)
 * [Introducción a Advisor](advisor-get-started.md)
 * [Recomendaciones sobre el costo de Advisor](advisor-cost-recommendations.md)
+* [Recomendaciones de confiabilidad de Advisor](advisor-high-availability-recommendations.md)
 * [Recomendaciones sobre rendimiento de Advisor](advisor-performance-recommendations.md)
 * [Recomendaciones sobre seguridad de Advisor](advisor-security-recommendations.md)
 * [Recomendaciones de excelencia operativa de Advisor](advisor-operational-excellence-recommendations.md)

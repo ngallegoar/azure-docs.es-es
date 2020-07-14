@@ -6,17 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 6f3418d73496ae25782b57a43e3357dc0bc7131a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8328750849f5466c8754499694a41615776ff3da
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660027"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201708"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Instrucciones de diseño para el uso de tablas replicadas en un grupo de Synapse SQL
 
@@ -24,7 +24,7 @@ En este artículo se proporcionan recomendaciones para el diseño de tablas repl
 
 > [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se da por supuesto que está familiarizado con los conceptos de distribución y movimiento de datos en el grupo de SQL.  Para obtener más información, consulte el artículo [Arquitectura](massively-parallel-processing-mpp-architecture.md).
 
@@ -126,7 +126,7 @@ Se vuelve a crear `DimDate` y `DimSalesTerritory` como tablas replicadas y se ej
 
 El grupo de SQL implementa una tabla replicada mediante el mantenimiento de una versión principal de la tabla. Copia la versión maestra a la primera base de datos de distribución en todos los nodos de ejecución. Cuando se produce un cambio, primero se actualiza la versión maestra y, después, se vuelven a generar las tablas de todos los nodos de ejecución. Una recompilación de una tabla replicada incluye copiar la tabla en todos los nodos de ejecución y, a continuación, compilar los índices.  Por ejemplo, una tabla replicada de un nivel DW2000c tiene cinco copias de los datos.  Una copia maestra y una copia completa en cada nodo de ejecución.  Todos los datos se almacenan en bases de datos de distribución. El grupo de SQL usa este modelo para admitir instrucciones de modificación de datos más rápidas y operaciones de escalado flexibles.
 
-Las recompilaciones son necesarias después de que:
+La primera consulta de la tabla replicada desencadena las recompilaciones asincrónicas después de que:
 
 - Se carguen o modifiquen datos.
 - La instancia de Synapse SQL se escala a un nivel diferente.

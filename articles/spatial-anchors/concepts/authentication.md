@@ -1,19 +1,19 @@
 ---
 title: Autenticación y autorización
 description: Obtenga información sobre las distintas formas en que puede autenticar una aplicación o servicio para Azure Spatial Anchors y los niveles de control para los que tiene que obtener acceso para Azure Spatial Anchors.
-author: julianparismorgan
+author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
-ms.author: pmorgan
+ms.author: crtreasu
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9a3b326f97246ffac386ad43cfa08ce413eea899
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: baf5252a6b158855739546c2a03e63dceee6701e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653361"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84456511"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticación y autorización en Azure Spatial Anchors
 
@@ -39,7 +39,6 @@ Los tokens de autenticación de Azure AD pueden obtenerse de dos maneras:
 El uso de claves de cuenta para tener acceso a la cuenta de Azure Spatial Anchors es la manera más sencilla de comenzar. Encontrará las claves de cuenta en Azure Portal. Vaya a la cuenta y seleccione la pestaña "Claves".
 
 ![Introducción a la autenticación y autorización en Azure Spatial Anchors](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
-
 
 Se ponen a disposición dos claves, ambas válidas simultáneamente para tener acceso a la cuenta de Spatial Anchors. Se recomienda que actualice periódicamente la clave que usa para tener acceso a la cuenta, que tenga dos claves válidas independientes como actualizaciones sin tiempo de inactividad y que solo deba actualizar la clave principal y la clave secundaria de manera alternativa.
 
@@ -175,13 +174,14 @@ El token de acceso de Azure AD se recupera mediante la [biblioteca de MSAL](../
         1.  En Azure Portal, vaya a **Azure Active Directory** y seleccione **Registros de aplicaciones**.
         2.  Seleccione **Nuevo registro de aplicaciones**.
         3.  Escriba el nombre de la aplicación, seleccione **Aplicación web o API** como tipo de aplicación y escriba la dirección URL de autenticación para el servicio. A continuación, presione **Crear**.
-        4.  En esa aplicación, presione **Configuración** y, a continuación, seleccione la pestaña **Claves**. Escriba el nombre de la clave, seleccione una duración y presione **Guardar**. Asegúrese de guardar el valor de clave que se muestra en ese momento, ya que lo necesitará para incluirlo en el código del servicio web.
+        4.  En esa aplicación, presione **Configuración** y, a continuación, seleccione la pestaña **Certificates and secrets** (Certificados y servicios). Cree un nuevo secreto de cliente, seleccione una duración y presione **Agregar**. Asegúrese de guardar el valor de secreto, ya que lo necesitará para incluirlo en el código del servicio web.
     2.  Conceda acceso a la aplicación o a los usuarios para el recurso:
         1.  Vaya al recurso de Spatial Anchors en Azure Portal.
         2.  Cambie a la pestaña **Control de acceso (IAM)** .
         3.  Presione **Agregar asignación de roles**.
         1.  [Seleccionar un rol](#role-based-access-control).
         2.  En el campo **Seleccionar**, escriba el nombre de las aplicaciones que ha creado y a las que quiere asignar acceso. Si quiere que los usuarios de la aplicación tengan distintos roles en la cuenta de Spatial Anchors, debe registrar varias aplicaciones en Azure AD y asignar a cada una un rol independiente. A continuación, implemente la lógica de autorización para usar el rol correcto para los usuarios.
+        3.  Nota: En la selección **Agregar asignación de roles**, **Asignar acceso a** se debe establecer en "Usuario, grupo o entidad de servicio de Azure AD".
     3.  Presione **Guardar**.
 2.  En el código (nota: puede usar el servicio de ejemplo incluido en GitHub):
     1.  Asegúrese de usar el Id. de aplicación, el secreto de aplicación y el URI de redirección de la propia aplicación de Azure AD como parámetros de Id. de cliente, secreto y RedirectUri de MSAL.

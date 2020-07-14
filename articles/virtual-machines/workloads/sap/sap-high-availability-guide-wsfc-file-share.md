@@ -17,10 +17,10 @@ ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2df092d49f2dfe9153b52be677e8ee6314dd9b60
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982979"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un recurso compartido de archivos en Azure
@@ -32,7 +32,7 @@ Los clústeres de conmutación por error de Windows Server son la base de una in
 
 Un clúster de conmutación por error es un grupo de 1+n servidores independientes (nodos) que colaboran para aumentar la disponibilidad de aplicaciones y servicios. Si se produce un error de nodo, los clústeres de conmutación por error de Windows Server calculan el número de errores que se pueden producir y mantiene un clúster en buen estado para proporcionar aplicaciones y servicios. Para conseguir clústeres de conmutación por error, puede elegir entre distintos modos de cuórum.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de comenzar las tareas que se describen en este artículo, consulte este otro artículo:
 
 * [Escenarios y arquitectura de alta disponibilidad de Azure Virtual Machines para SAP NetWeaver][sap-high-availability-architecture-scenarios]
@@ -70,10 +70,10 @@ Esta arquitectura es específica de las maneras siguientes:
 
 * Los servicios centrales de SAP (con su propia estructura de archivos y procesos de mensajería y puesta en cola) están separados de los archivos del host global de SAP.
 * Los servicios centrales de SAP se ejecutan en una instancia de ASCS/SCS de SAP.
-* La instancia de ASCS/SCS de SAP está en clúster y es accesible mediante el nombre de host virtual \<nombre de host virtual ASCS/SCS\>.
-* Los archivos globales de SAP se colocan en el recurso compartido de archivos SMB y son accesibles mediante el nombre de host del \<host global de SAP\>: \\\\&lt;host global de SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\..
+* La instancia de ASCS/SCS de SAP está en clúster y es accesible mediante el nombre de host virtual \<ASCS/SCS virtual host name\>.
+* Los archivos globales de SAP se colocan en el recurso compartido de archivos SMB y son accesibles mediante el nombre de host \<SAP global host\>: \\\\&lt;host global de SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\..
 * La instancia de ASCS/SCS de SAP está instalada en un disco local en ambos nodos del clúster.
-* El nombre de red \<nombre de host virtual ASCS/SCS\> es diferente del &lt;host global de SAP&gt;.
+* El nombre de red \<ASCS/SCS virtual host name\> es diferente del &lt;host global de SAP&gt;.
 
 ![Ilustración 2: Arquitectura de alta disponibilidad de ASCS/SCS de SAP con recurso compartido de archivos SMB][sap-ha-guide-figure-8004]
 
@@ -137,11 +137,11 @@ Para usar un recurso compartido de archivos de escalabilidad horizontal, el sist
 * Para un buen rendimiento de red entre las máquinas virtuales, lo cual es necesario para la sincronización de disco de los espacios de almacenamiento directo, utilice un tipo de máquina virtual con un ancho de banda de red "alto" como mínimo.
     Para más información, consulte las especificaciones de la [serie DSv2][dv2-series] y la [serie DS][ds-series].
 * Se recomienda reservar cierta capacidad sin asignar en el grupo de almacenamiento. Dejar cierta capacidad sin asignar en el grupo de almacenamiento da espacio a los volúmenes para una reparación "in situ" si se produce un error en una unidad. Esto mejora el rendimiento y seguridad de los datos.  Para obtener más información, vea [Elección del tamaño del volumen][choosing-the-size-of-volumes-s2d].
-* No es necesario configurar el equilibrador de carga interno de Azure para el nombre de red del recurso compartido de archivos de escalabilidad horizontal, como para el \<host global de SAP\>. Esto se hace para el \<nombre de host virtual ASCS/SCS\> de la instancia de ASCS/SCS de SAP o para el DBMS. Un recurso compartido de archivos de escalabilidad horizontal escala horizontalmente la carga entre todos los nodos del clúster. El \<host global de SAP\> usa la dirección IP local para todos los nodos del clúster.
+* No es necesario configurar el equilibrador de carga interno de Azure para el nombre de red del recurso compartido de archivos de escalabilidad horizontal, como para el \<SAP global host\>. Esto se hace para el \<ASCS/SCS virtual host name\> de la instancia de ASCS/SCS de SAP o para el DBMS. Un recurso compartido de archivos de escalabilidad horizontal escala horizontalmente la carga entre todos los nodos del clúster. El \<SAP global host\> usa la dirección IP local para todos los nodos del clúster.
 
 
 > [!IMPORTANT]
-> No se puede cambiar el nombre del recurso compartido de archivos SAPMNT, que apunta al \<host global de SAP\>. SAP admite únicamente el nombre de recurso compartido "sapmnt."
+> No se puede cambiar el nombre del recurso compartido de archivos SAPMNT, que apunta al \<SAP global host\>. SAP admite únicamente el nombre de recurso compartido "sapmnt."
 >
 > Para obtener más información, vea [Nota de SAP 2492395: ¿Se puede cambiar el nombre de recurso compartido sapmnt?][2492395]
 

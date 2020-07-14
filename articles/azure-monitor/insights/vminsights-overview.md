@@ -5,17 +5,17 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/11/2020
-ms.openlocfilehash: 6f65ba96f768a4b88aa13c073cc66920b8c5e049
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/25/2020
+ms.openlocfilehash: f058ce1ae5b7328c6864684994a74f2fd118ca6e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79480494"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506997"
 ---
 # <a name="what-is-azure-monitor-for-vms"></a>¿Qué es Azure Monitor para máquinas virtuales?
 
-Azure Monitor para VM supervisa las máquinas virtuales (VM) y los conjuntos de escalado de máquinas virtuales de Azure. El servicio analiza el rendimiento y el estado de las VM Windows y Linux, y supervisa sus procesos y dependencias en otros recursos y procesos externos. Permite supervisar el rendimiento y las dependencias de las aplicaciones en máquinas virtuales que están hospedadas en el entorno local o en otro proveedor de servicios en la nube. Las siguientes características clave ofrecen información detallada:
+Azure Monitor para VM supervisa las máquinas virtuales, los conjuntos de escalado de máquinas virtuales y las máquinas de Azure Arc a gran escala. El servicio analiza el rendimiento y el estado de las VM Windows y Linux, y supervisa sus procesos y dependencias en otros recursos y procesos externos. Permite supervisar el rendimiento y las dependencias de las aplicaciones en máquinas virtuales que están hospedadas en el entorno local o en otro proveedor de servicios en la nube. Las siguientes características clave ofrecen información detallada:
 
 - **Gráficos de rendimiento de tendencias previamente definidos**: Muestra las principales métricas de rendimiento del sistema operativo de la VM.
 

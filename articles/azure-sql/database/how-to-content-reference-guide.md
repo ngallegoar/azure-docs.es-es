@@ -11,14 +11,14 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 01/14/2020
-ms.openlocfilehash: 6f7c90791025f14e743a83693503fe235792c603
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e5fd842e47c606c8f41aafe72253c1c4a1e885f3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84040986"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84324407"
 ---
-# <a name="configure--manage-content-reference---azure-sql-database"></a>Configuración y administración de una referencia de contenido: Azure SQL Database
+# <a name="configure-and-manage-content-reference---azure-sql-database"></a>Configuración y administración de la referencia de contenido: Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 En este artículo puede encontrar una referencia de contenido de varias guías, scripts y explicaciones que pueden ayudarle a administrar y configurar su instancia de Azure SQL Database. 
@@ -26,7 +26,7 @@ En este artículo puede encontrar una referencia de contenido de varias guías, 
 ## <a name="load-data"></a>Cargar datos
 
 - [Migración a SQL Database](migrate-to-database-from-sql-server.md)
-- Aprenda cómo [administrar SQL Database después de la migración](manage-data-after-migrating-to-database.md).
+- Aprenda a [administrar SQL Database después de la migración](manage-data-after-migrating-to-database.md).
 - [Copia de una base de datos](database-copy.md)
 - [Importación de una base de datos desde un archivo BACPAC](database-import.md)
 - [Exportación de una base de datos a un archivo BACPAC](database-export.md)
@@ -35,10 +35,10 @@ En este artículo puede encontrar una referencia de contenido de varias guías, 
 
 ## <a name="configure-features"></a>Configuración de características
 
-- [Configuración de la autenticación de Azure AD](authentication-aad-configure.md)
+- [Configuración de la autenticación de Azure Active Directory (Azure AD)](authentication-aad-configure.md)
 - [Configuración del acceso condicional](conditional-access-configure.md)
-- [Multi-factor Authentication para AAD](authentication-mfa-ssms-overview.md)
-- [Configuración de Multi-factor Authentication](authentication-mfa-ssms-configure.md)
+- [Autenticación multifactor de Azure AD](authentication-mfa-ssms-overview.md)
+- [Configuración de Multi-Factor Authentication](authentication-mfa-ssms-configure.md)
 - [Configuración temporal de la directiva de retención](temporal-tables-retention-policy.md)
 - [Configuración de TDE con BYOK](transparent-data-encryption-byok-configure.md)
 - [Rotación de claves BYOK de TDE](transparent-data-encryption-byok-key-rotation.md)
@@ -128,11 +128,12 @@ En este artículo puede encontrar una referencia de contenido de varias guías, 
 - [Diseño para grupos elásticos](disaster-recovery-strategies-for-applications-with-elastic-pool.md)
 - [Diseño para actualización de aplicaciones](manage-application-rolling-upgrade.md)
 
-### <a name="design-multi-tenant-saas-applications"></a>Diseño de aplicaciones SaaS multiinquilino
+### <a name="design-multi-tenant-software-as-a-service-saas-applications"></a>Diseño de aplicaciones de software como servicio (SaaS) multiinquilino
 
 - [Patrones de diseño SaaS](saas-tenancy-app-design-patterns.md)
 - [Video Indexer SaaS](saas-tenancy-video-index-wingtip-brk3120-20171011.md)
 - [Seguridad de aplicaciones SaaS](saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Obtenga más información sobre el [Procedimiento para Instancia administrada de SQL](../managed-instance/how-to-content-reference-guide.md).
+
+- Más información sobre las [guías paso a paso de Azure SQL Managed Instance](../managed-instance/how-to-content-reference-guide.md).

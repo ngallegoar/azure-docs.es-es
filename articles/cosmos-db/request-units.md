@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: a0058bf309e0ff4fbe687731d676e907d1c3fd82
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3378b442c80758c4a5dca02b33f92ba3823f33ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225660"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85113658"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de solicitud en Azure Cosmos DB
 
@@ -25,7 +25,7 @@ El costo de leer un elemento de 1 KB es una unidad de solicitud (o 1 RU). Se r
 
 En la siguiente imagen se muestra el concepto de unidades de solicitud a grandes rasgos:
 
-![Unidades de solicitud consumidas por operaciones de base de datos](./media/request-units/request-units.png)
+:::image type="content" source="./media/request-units/request-units.png" alt-text="Unidades de solicitud consumidas por operaciones de base de datos" border="false":::
 
 Para administrar y planear la capacidad, Azure Cosmos DB garantiza que el número de RU para una operación de base de datos determinada en un conjunto de datos concreto sea determinista. Puede examinar el encabezado de respuesta para realizar un seguimiento del número de RU consumidas por cualquier operación de base de datos. Una vez comprendidos los [factores que afectan a los cargos de unidad de solicitud](request-units.md#request-unit-considerations) y los requisitos de rendimiento de la aplicación, se puede ejecutar la aplicación de forma rentable.
 

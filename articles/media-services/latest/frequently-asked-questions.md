@@ -11,18 +11,24 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: juliako
-ms.openlocfilehash: 713acbd098255af2869d7a462c9990f3d7e10bf1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e54944c0c10fb773a4a3141c0d3fb6524f288ae2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81309186"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987239"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Preguntas más frecuentes sobre Media Services v3
 
 En este artículo se ofrecen respuestas a preguntas frecuentes sobre Azure Media Services v3.
 
 ## <a name="general"></a>General
+
+### <a name="what-are-the-azure-portal-limitations-for-media-services-v3"></a>¿Qué son las limitaciones de Azure Portal para Media Services v3?
+
+Puede usar [Azure Portal](https://portal.azure.com/) para administrar los eventos en directo de la versión 3, ver los recursos y trabajos de la versión 3, obtener información sobre el acceso a las API y cifrar contenido. <br/>Para las tareas de administración restantes (por ejemplo, administración de transformaciones y trabajos o análisis de contenido de la versión 3), use la [API REST](https://aka.ms/ams-v3-rest-ref), la [CLI](https://aka.ms/ams-v3-cli-ref), o uno de los [SDK](media-services-apis-overview.md#sdks) compatibles.
+
+Si el vídeo se ha cargado previamente en la cuenta de Media Services con la API de Media Services v3 o si el contenido se ha generado a partir de una salida en directo, no verá los botones **Codificar**, **Analizar** o **Cifrar** en Azure Portal. Use las API de Media Services v3 para realizar estas tareas.  
 
 ### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>¿Qué roles de Azure pueden realizar acciones en recursos de Azure Media Services? 
 

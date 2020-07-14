@@ -4,12 +4,12 @@ description: En este artículo se obtiene información sobre las funcionalidades
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 8c72c192f3bd12169703b70cbee76599b15eb560
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: f4b91302723119e707d12a86480bbaff2eb4bec5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84247060"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485100"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Supervisión de cargas de trabajo de Azure Backup
 
@@ -77,7 +77,7 @@ Estas excepciones están diseñadas bajo el supuesto de que el resultado de esta
 Se pueden definir tres tipos alertas, según la gravedad:
 
 - **Crítico**: en principio, cualquier error en una copia de seguridad o una recuperación (sea programada o desencadenada por el usuario) daría lugar a la generación de una alerta, que se mostraría como una alerta crítica junto con operaciones de destrucción como eliminar la copia de seguridad.
-- **Advertencia**: si la operación de copia de seguridad se realiza correctamente, pero con algunas advertencias, estas se muestran como alertas de advertencia.
+- **Advertencia**: si la operación de copia de seguridad se realiza correctamente, pero con algunas advertencias, estas se muestran como alertas de advertencia. Las alertas de advertencia solo están disponibles actualmente para las copias de seguridad del agente de Azure Backup.
 - **Informativo**: actualmente, el servicio de Azure Backup aún no ha generado ninguna alerta informativa.
 
 ## <a name="notification-for-backup-alerts"></a>Notificación de alertas de copia de seguridad

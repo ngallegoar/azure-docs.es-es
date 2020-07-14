@@ -1,14 +1,14 @@
 ---
 title: Configuración de vínculo privado
-description: Configure un punto de conexión privado en un registro de contenedor y habilite un vínculo privado en una red virtual local
+description: Configure un punto de conexión privado en un registro de contenedor y habilite un vínculo privado en una red virtual local. El acceso de vínculo privado es una característica del nivel de servicio Premium.
 ms.topic: article
 ms.date: 05/19/2020
-ms.openlocfilehash: da51a35b66b793294f146c5a0a30b6a91d8aa01b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: f25f7b94a3008b829340cdaaed247d7ab1203c19
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83850052"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84509345"
 ---
 # <a name="configure-azure-private-link-for-an-azure-container-registry"></a>Configuración de Azure Private Link para un registro de contenedor de Azure 
 
@@ -22,7 +22,7 @@ Esta característica está disponible en el nivel de servicio de un registro de 
 
 * Actualmente, el análisis de imágenes mediante Azure Security Center no está disponible en un registro configurado con un punto de conexión privado.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Para usar los pasos de la CLI de Azure de este artículo, se recomienda la versión 2.6.0 o posterior de la CLI de Azure. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli]. O bien ejecute en [Azure Cloud Shell](../cloud-shell/quickstart.md).
 * Si aún no tiene un registro de contenedor, créelo (se requiere un nivel Premium) e [importe](container-registry-import-images.md) una imagen de ejemplo, como `hello-world` desde Docker Hub. Por ejemplo, use [Azure Portal][quickstart-portal] o la [CLI de Azure][quickstart-cli] para crear un registro.
@@ -212,7 +212,7 @@ Configure un vínculo privado al crear un registro o agregue un vínculo privado
 
     | Configuración | Value |
     | ------- | ----- |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Escriba el nombre de un grupo existente o cree uno nuevo.|
     | Nombre | Escriba un nombre único. |
     | Subrecurso |Seleccione **registro**.|
@@ -237,7 +237,7 @@ Configure un vínculo privado al crear un registro o agregue un vínculo privado
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Escriba el nombre de un grupo existente o cree uno nuevo.|
     | **Detalles de instancia** |  |
     | Nombre | Escriba un nombre. |
@@ -249,9 +249,9 @@ Configure un vínculo privado al crear un registro o agregue un vínculo privado
     | Configuración | Value |
     | ------- | ----- |
     |Método de conexión  | Seleccione **Conectarse a un recurso de Azure en mi directorio**.|
-    | Subscription| Seleccione su suscripción. |
+    | Suscripción| Seleccione su suscripción. |
     | Tipo de recurso | Seleccione **Microsoft.ContainerRegistry/registries**. |
-    | Resource |Seleccione el nombre del registro.|
+    | Recurso |Seleccione el nombre del registro.|
     |Subrecurso de destino |Seleccione **registro**.|
     |||
 7. Seleccione **Siguiente: Configuration** (Siguiente: Configuración).

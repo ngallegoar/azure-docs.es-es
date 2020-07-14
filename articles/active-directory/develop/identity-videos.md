@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/19/2020
+ms.date: 06/05/2020
 ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
-ms.openlocfilehash: 232b166d667996f2138224dc6ecbbc925d0ebe9e
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 9e2f4eccb725bfac2229fa1471673a121c77f648
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712662"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84448524"
 ---
 # <a name="microsoft-identity-platform-videos"></a>Vídeos de la plataforma de identidad de Microsoft
 
@@ -32,38 +32,38 @@ ___
 
 :::row:::
     :::column:::
-        1: Información general sobre la Plataforma de identidad de Microsoft para desarrolladores (33:55)
+        1\. <a href="https://www.youtube.com/watch?v=zjezqZPPOfc&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=1" target="_blank">Información general sobre la Plataforma de identidad de Microsoft para desarrolladores <span class="docon docon-navigate-external x-hidden-focus"></span></a> (33:55)
     :::column-end:::
     :::column:::
-        >[!VIDEO https://www.youtube.com/embed/zjezqZPPOfc]
+        <a href="https://www.youtube.com/watch?v=zjezqZPPOfc" target="_blank"> <img src="./media/identity-videos/id-for-devs-01.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
      :::column:::
-        2: Procedimientos para autenticar a los usuarios de sus aplicaciones con la Plataforma de identidad de Microsoft (29:09)
+        2\. <a href="https://www.youtube.com/watch?v=Mtpx_lpfRLs&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=2" target="_blank">Procedimientos para autenticar a los usuarios de sus aplicaciones con la Plataforma de identidad de Microsoft <span class="docon docon-navigate-external x-hidden-focus"></span></a> (29:09)
     :::column-end:::
     :::column:::
-        >[!VIDEO https://www.youtube.com/embed/Mtpx_lpfRLs]
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        3: Marco de los permisos y consentimiento de la Plataforma de identidad de Microsoft (45:08)
-    :::column-end:::
-    :::column:::
-        >[!VIDEO https://www.youtube.com/embed/toAWRNqqDL4]
-    :::column-end:::
-    :::column:::
-        4: Procedimientos para proteger las API mediante la Plataforma de identidad de Microsoft (33:17)
-    :::column-end:::
-    :::column:::
-        >[!VIDEO https://www.youtube.com/embed/IIQ7QW4bYqA]
+        <a href="https://www.youtube.com/watch?v=Mtpx_lpfRLs" target="_blank"> <img src="./media/identity-videos/id-for-devs-02.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        5: Roles de aplicación y grupos de seguridad en la Plataforma de identidad de Microsoft (15:52)
+        3\. <a href="https://www.youtube.com/watch?v=toAWRNqqDL4&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=3" target="_blank">Marco de los permisos y consentimiento de la Plataforma de identidad de Microsoft <span class="docon docon-navigate-external x-hidden-focus"></span></a> (45:08)
     :::column-end:::
     :::column:::
-        >[!VIDEO https://www.youtube.com/embed/-BK2iBDrmNo]
+        <a href="https://www.youtube.com/watch?v=toAWRNqqDL4" target="_blank"> <img src="./media/identity-videos/id-for-devs-03.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+    :::column:::
+        4\. <a href="https://www.youtube.com/watch?v=IIQ7QW4bYqA&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=4" target="_blank">Procedimientos para proteger las API mediante la Plataforma de identidad de Microsoft <span class="docon docon-navigate-external x-hidden-focus"></span></a> (33:17)
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=IIQ7QW4bYqA" target="_blank"> <img src="./media/identity-videos/id-for-devs-04.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        5\. <a href="https://www.youtube.com/watch?v=-BK2iBDrmNo&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=5" target="_blank">Roles de aplicación y grupos de seguridad en la Plataforma de identidad de Microsoft <span class="docon docon-navigate-external x-hidden-focus"></span></a> (15:52)
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=-BK2iBDrmNo" target="_blank"> <img src="./media/identity-videos/id-for-devs-05.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
         <!-- BLANK TITLE CELL -->
@@ -73,6 +73,20 @@ ___
     :::column-end:::
 :::row-end:::
 
+<!-- IMAGES -->
+[id-plat-01-img]: ./media/identity-videos/id-for-devs-01.jpg
+[id-plat-02-img]: ./media/identity-videos/id-for-devs-02.jpg
+[id-plat-03-img]: ./media/identity-videos/id-for-devs-03.jpg
+[id-plat-04-img]: ./media/identity-videos/id-for-devs-04.jpg
+[id-plat-05-img]: ./media/identity-videos/id-for-devs-05.jpg
+
+<!-- VIDEOS -->
+[id-plat-01-vid]: https://www.youtube.com/watch?v=zjezqZPPOfc&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=1
+[id-plat-02-vid]: https://www.youtube.com/watch?v=Mtpx_lpfRLs&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=2
+[id-plat-03-vid]: https://www.youtube.com/watch?v=toAWRNqqDL4&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=3
+[id-plat-04-vid]: https://www.youtube.com/watch?v=IIQ7QW4bYqA&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=4
+[id-plat-05-vid]: https://www.youtube.com/watch?v=-BK2iBDrmNo&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=5
+
 ## <a name="authentication-fundamentals"></a>Aspectos básicos de la autenticación
 
 Si no está familiarizado con conceptos como proveedores de identidades, tokens de seguridad, notificaciones y audiencias, esta serie de vídeos puede ayudar para aclarar los conceptos y componentes de la autenticación moderna.
@@ -80,46 +94,62 @@ ___
 
 :::row:::
     :::column:::
-        1\. Aspectos básicos: conceptos de la autenticación moderna (4:33)
+        1 - <a href="https://www.youtube.com/watch?v=fbSVgC8nGz4&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=1" target="_blank">Aspectos básicos: conceptos de la autenticación moderna <span class="docon docon-navigate-external x-hidden-focus"></span></a> (4:33)
     :::column-end:::
     :::column:::
-        >[!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+        <a href="https://www.youtube.com/watch?v=fbSVgC8nGz4" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-01.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
      :::column:::
-        2\. Autenticación moderna para aplicaciones web (6:02)
+        2 - <a href="https://www.youtube.com/watch?v=tCNcG1lcCHY&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=2" target="_blank">Autenticación moderna para aplicaciones web <span class="docon docon-navigate-external x-hidden-focus"></span></a> (6:02)
     :::column-end:::
     :::column:::
-        >[!VIDEO https://www.youtube.com/embed/tCNcG1lcCHY?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+        <a href="https://www.youtube.com/watch?v=tCNcG1lcCHY" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-02.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        3\. Inicio de sesión único web (4:13)
+        3 - <a href="https://www.youtube.com/watch?v=51B-jSOBF8U&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=3" target="_blank">Inicio de sesión único web <span class="docon docon-navigate-external x-hidden-focus"></span></a> (4:13)
     :::column-end:::
     :::column:::
-        >[!VIDEO https://www.youtube.com/embed/51B-jSOBF8U?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+        <a href="https://www.youtube.com/watch?v=51B-jSOBF8U" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-03.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
-        4\. Autenticación web federada (6:19)
+        4\. <a href="https://www.youtube.com/watch?v=CjarTgjKcX8&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=4" target="_blank">Autenticación web federada <span class="docon docon-navigate-external x-hidden-focus"></span></a> (6:19)
     :::column-end:::
     :::column:::
-        >[!VIDEO https://www.youtube.com/embed/CjarTgjKcX8?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+        <a href="https://www.youtube.com/watch?v=CjarTgjKcX8" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-04.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        5\. Aplicaciones cliente nativas: parte 1 (8:12)
+        5\. <a href="https://www.youtube.com/watch?v=OGMDnuDrAcQ&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=5" target="_blank">Aplicaciones cliente nativas: parte 1 <span class="docon docon-navigate-external x-hidden-focus"></span></a> (8:12)
     :::column-end:::
     :::column:::
-        >[!VIDEO https://www.youtube.com/embed/OGMDnuDrAcQ?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+        <a href="https://www.youtube.com/watch?v=OGMDnuDrAcQ" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-05.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
-        6\. Aplicaciones cliente nativas: parte 2 (5:33)
+        6\. <a href="https://www.youtube.com/watch?v=2RE6IhXfmHY&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=6" target="_blank">Aplicaciones cliente nativas: parte 2 <span class="docon docon-navigate-external x-hidden-focus"></span></a> (5:33)
     :::column-end:::
     :::column:::
-        >[!VIDEO https://www.youtube.com/embed/2RE6IhXfmHY?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+        <a href="https://www.youtube.com/watch?v=2RE6IhXfmHY" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-06.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
+
+<!-- IMAGES -->
+[auth-fund-01-img]: ./media/identity-videos/aad-auth-fund-01.jpg
+[auth-fund-02-img]: ./media/identity-videos/aad-auth-fund-02.jpg
+[auth-fund-03-img]: ./media/identity-videos/aad-auth-fund-03.jpg
+[auth-fund-04-img]: ./media/identity-videos/aad-auth-fund-04.jpg
+[auth-fund-05-img]: ./media/identity-videos/aad-auth-fund-05.jpg
+[auth-fund-06-img]: ./media/identity-videos/aad-auth-fund-06.jpg
+
+<!-- VIDEOS -->
+[auth-fund-01-vid]: https://www.youtube.com/watch?v=fbSVgC8nGz4&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=1
+[auth-fund-02-vid]: https://www.youtube.com/watch?v=tCNcG1lcCHY&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=2
+[auth-fund-03-vid]: https://www.youtube.com/watch?v=51B-jSOBF8U&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=3
+[auth-fund-04-vid]: https://www.youtube.com/watch?v=CjarTgjKcX8&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=4
+[auth-fund-05-vid]: https://www.youtube.com/watch?v=OGMDnuDrAcQ&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=5
+[auth-fund-06-vid]: https://www.youtube.com/watch?v=2RE6IhXfmHY&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=6
 
 ## <a name="microsoft-identity-platform-basics"></a>Conceptos básicos de la plataforma de identidad de Microsoft
 
@@ -128,84 +158,84 @@ ___
 
 :::row:::
     :::column:::
-        Introducción a la plataforma de identidad de Microsoft
+        <a href="https://www.youtube.com/watch?v=bNlcFuIo3r8" target="_blank">Introducción a la Plataforma de identidad de Microsoft <span class="docon docon-navigate-external x-hidden-focus"></span></a>
     :::column-end:::
     :::column:::
-        >[!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8]
+        <a href="https://www.youtube.com/watch?v=bNlcFuIo3r8" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
     :::column-end:::
     :::column:::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        Introducción a las bibliotecas MSAL
-    :::column-end:::
-    :::column:::
-        >[!VIDEO https://www.youtube.com/embed/apbbx2n4tnU]
-    :::column-end:::
-    :::column:::
-        Cómo facilita MSAL la autenticación
-    :::column-end:::
-    :::column:::
-        >[!VIDEO https://www.youtube.com/embed/yLVEBU9Z96Q]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        Explicación de los ámbitos
+        <a href="https://www.youtube.com/watch?v=apbbx2n4tnU" target="_blank">Microsoft Graph y Biblioteca de autenticación de Microsoft (MSAL) <span class="docon docon-navigate-external x-hidden-focus"></span></a>
     :::column-end:::
     :::column:::
-        >[!VIDEO https://www.youtube.com/embed/eiPHOoLmGJs]
+        <a href="https://www.youtube.com/watch?v=apbbx2n4tnU" target="_blank"> <img src="./media/identity-videos/graph-and-msal.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
-        Qué son los agentes
+        <a href="https://www.youtube.com/watch?v=yLVEBU9Z96Q" target="_blank">¿Qué es la familia de bibliotecas MSAL? <span class="docon docon-navigate-external x-hidden-focus"></span></a>
     :::column-end:::
     :::column:::
-        >[!VIDEO https://www.youtube.com/embed/Zd_Uubnu0U0]
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        Qué hacen los URI de redirección
-    :::column-end:::
-    :::column:::
-        >[!VIDEO https://www.youtube.com/embed/znSN_3JAuoU]
-    :::column-end:::
-    :::column:::
-        Explicación de los inquilinos
-    :::column-end:::
-    :::column:::
-        >[!VIDEO https://www.youtube.com/embed/mDhT4Zv1fZU]
+        <a href="https://www.youtube.com/watch?v=yLVEBU9Z96Q" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        Rol de Azure AD
+        <a href="https://www.youtube.com/watch?v=eiPHOoLmGJs" target="_blank">Explicación de los ámbitos <span class="docon docon-navigate-external x-hidden-focus"></span></a>
     :::column-end:::
     :::column:::
-        >[!VIDEO https://www.youtube.com/embed/zDEC7A5ZS2Q]
+        <a href="https://www.youtube.com/watch?v=eiPHOoLmGJs" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
-        Rol de los objetos de aplicación de Azure AD
+        <a href="https://www.youtube.com/watch?v=Zd_Uubnu0U0" target="_blank">¿Qué son los agentes? <span class="docon docon-navigate-external x-hidden-focus"></span></a>
     :::column-end:::
     :::column:::
-        >[!VIDEO https://www.youtube.com/embed/HEpq_YSmuWw]
+        <a href="https://www.youtube.com/watch?v=Zd_Uubnu0U0" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        Diferencias entre las cuentas de Microsoft personales y de la organización
+        <a href="https://www.youtube.com/watch?v=znSN_3JAuoU" target="_blank">¿Qué hacen los URI de redirección? <span class="docon docon-navigate-external x-hidden-focus"></span></a>
     :::column-end:::
     :::column:::
-        >[!VIDEO https://www.youtube.com/embed/E2OUluQQKSk]
+        <a href="https://www.youtube.com/watch?v=znSN_3JAuoU" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
-        Diferencias entre las aplicaciones web y SPA
+        <a href="https://www.youtube.com/watch?v=mDhT4Zv1fZU" target="_blank">Explicación de los inquilinos <span class="docon docon-navigate-external x-hidden-focus"></span></a>
     :::column-end:::
     :::column:::
-        >[!VIDEO https://www.youtube.com/embed/ZJirt7eTVw8?t=5]
+        <a href="https://www.youtube.com/watch?v=mDhT4Zv1fZU" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=zDEC7A5ZS2Q" target="_blank">Rol de Azure AD <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=zDEC7A5ZS2Q" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=HEpq_YSmuWw" target="_blank">Rol de los objetos de aplicación de Azure AD <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=HEpq_YSmuWw" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=E2OUluQQKSk" target="_blank">Diferencias entre las cuentas de Microsoft personales y de la organización <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=E2OUluQQKSk" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=ZJirt7eTVw8" target="_blank">Diferencias entre las aplicaciones web y SPA <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=ZJirt7eTVw8" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
 
@@ -216,29 +246,29 @@ ___
 
 :::row:::
     :::column:::
-        Puntos de conexión y ventajas de pasar a la versión 2.0
+        <a href="https://www.youtube.com/watch?v=qpdC45tZYDg" target="_blank">Motivos para migrar de ADAL a MSAL <span class="docon docon-navigate-external x-hidden-focus"></span></a>
     :::column-end:::
     :::column:::
-        >[!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
+        <a href="https://www.youtube.com/watch?v=qpdC45tZYDg" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
      :::column:::
-        Migración del código base de ADAL a MSAL
+        <a href="https://www.youtube.com/watch?v=xgL_z9yCnrE" target="_blank">Migración del código base de ADAL a MSAL <span class="docon docon-navigate-external x-hidden-focus"></span></a>
     :::column-end:::
     :::column:::
-        >[!VIDEO https://www.youtube.com/embed/xgL_z9yCnrE]
+        <a href="https://www.youtube.com/watch?v=xgL_z9yCnrE" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        Motivos para migrar de ADAL a MSAL
+        <a href="https://www.youtube.com/watch?v=q-TDszj2O-4" target="_blank">Ventajas de MSAL sobre ADAL <span class="docon docon-navigate-external x-hidden-focus"></span></a>
     :::column-end:::
     :::column:::
-        >[!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
+        <a href="https://www.youtube.com/watch?v=q-TDszj2O-4" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
-        Ventajas de MSAL sobre ADAL
+        <!-- BLANK TITLE CELL -->
     :::column-end:::
     :::column:::
-        >[!VIDEO https://www.youtube.com/embed/q-TDszj2O-4]
+        <!-- BLANK VIDEO CELL -->
     :::column-end:::
 :::row-end:::

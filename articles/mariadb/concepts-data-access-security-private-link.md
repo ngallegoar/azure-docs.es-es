@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: b05a202537492fe54a76cf40a3b15987e099a7e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6f2043b91f8345a638d6fc773230cd182fb0fead
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79367727"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84508852"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Private Link para Azure Database for MariaDB
 
@@ -20,7 +20,7 @@ Private Link le permite crear puntos de conexión privados para Azure Database f
 Para una lista de los servicios PaaS que admiten la funcionalidad Private Link, consulte la página de [documentación](https://docs.microsoft.com/azure/private-link/index) de Private Link. Un punto de conexión privado es una dirección IP privada dentro de una [red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) y una subred específicas.
 
 > [!NOTE]
-> Esta característica está disponible en todas las regiones de Azure donde Azure Database for MariaDB admita los planes de tarifa de uso general y optimizado para memoria.
+> Esta característica está disponible en todas las regiones de Azure donde Azure Database for MariaDB admite los planes de tarifa De uso general y Optimizada para memoria.
 
 ## <a name="data-exfiltration-prevention"></a>Prevención de la filtración de datos
 
@@ -46,6 +46,10 @@ Con Private Link, ahora puede configurar controles de acceso a la red como grupo
 Cuando se conecta al punto de conexión público desde máquinas locales, es necesario agregar su dirección IP al firewall basado en IP mediante una regla de firewall a nivel de servidor. Aunque este modelo funciona bien para permitir el acceso a equipos individuales para las cargas de trabajo de desarrollo o de prueba, es difícil de administrar en los entornos de producción.
 
 Con Private Link, puede habilitar el acceso entre locales al punto de conexión privado mediante [ExpressRoute](https://azure.microsoft.com/services/expressroute/), el emparejamiento privado o el [túnel de VPN](https://docs.microsoft.com/azure/vpn-gateway/). Posteriormente, puede deshabilitar todo el acceso a través de un punto de conexión público y no usar el firewall basado en IP.
+
+> [!NOTE]
+> En algunos casos, Azure Database for MariaDB y la subred de red virtual se encuentran en distintas suscripciones. En estos casos debe garantizar las siguientes configuraciones:
+> - Asegúrese de que ambas suscripciones tengan el proveedor de recursos **Microsoft.DBforMariaDB** registrado. Para más información, consulte [resource-manager-registration][resource-manager-portal].
 
 ## <a name="configure-private-link-for-azure-database-for-mariadb"></a>Configuración de Private Link para Azure Database for MariaDB
 
@@ -112,7 +116,7 @@ Las situaciones y resultados que se muestran a continuación son posibles cuando
 
 Si desea depender completamente de puntos de conexión privados para acceder a sus instancias de Azure Database for MariaDB, puede deshabilitar la configuración de todos los puntos de conexión públicos ([reglas de firewall](concepts-firewall-rules.md) y [puntos de conexión de servicio de red virtual](concepts-data-access-security-vnet.md)). Para ello, configure **Deny Public Network Access** (Denegar el acceso a la red pública) en el servidor de base de datos. 
 
-Si esta opción está establecida en *SÍ*, solo se permiten las conexiones mediante puntos de conexión privados a su instancia de Azure Database for MariaDB. Si esta opción está establecida en *NO*, los clientes pueden conectarse a su instancia de Azure Database for MariaDB en función de la configuración del firewall o del servicio de red virtual. Además, una vez establecido el valor de acceso a la red privada, no se pueden agregar ni actualizar las reglas de punto de conexión de servicio de firewall y red virtual existentes.
+Si esta opción está establecida en *SÍ*, solo se permiten las conexiones mediante puntos de conexión privados a su instancia de Azure Database for MariaDB. Si esta opción está establecida en *NO*, los clientes pueden conectarse a su instancia de Azure Database for MariaDB en función de la configuración del firewall o del servicio de red virtual. Además, una vez establecido el valor de acceso a la red privada, los clientes no pueden agregar ni actualizar las "reglas de firewall" ni la "regla de punto de conexión de servicio de red virtual" existentes.
 
 > [!Note]
 > Esta característica está disponible en todas las regiones de Azure donde Azure Database for PostgreSQL: servidor único admite los planes de tarifa de uso general y optimizados para memoria.
@@ -130,3 +134,6 @@ Para obtener más información sobre las características de seguridad de Azure 
 * Para aprender a configurar un punto de conexión de servicio de red virtual para su instancia de Azure Database for MariaDB, consulte [Configuración del acceso desde redes virtuales](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet).
 
 * Para obtener información general sobre la conectividad de Azure Database for MariaDB, consulte [Arquitectura de la conectividad en Azure Database for MariaDB](https://docs.microsoft.com/azure/MariaDB/concepts-connectivity-architecture).
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

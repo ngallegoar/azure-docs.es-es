@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: abbf5d79da033a696890566d85bd24bb54577d2c
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 6101e80131aca94e44bb4e85ee51fe607f47c10f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715705"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85118957"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Modelos de diseño de la fuente de cambios de Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Azure Cosmos DB es adecuado para IoT, juegos y aplicaciones de registro de opera
 
 La fuente de cambios en Azure Cosmos DB le permite crear soluciones eficientes y escalables para cada uno de estos patrones, como se muestra en la imagen siguiente:
 
-![Uso de la fuente de cambios de Azure Cosmos DB para aumentar la eficacia de los escenarios de informática orientada a eventos y análisis en tiempo real](./media/change-feed/changefeedoverview.png)
+:::image type="content" source="./media/change-feed/changefeedoverview.png" alt-text="Uso de la fuente de cambios de Azure Cosmos DB para aumentar la eficacia de los escenarios de informática orientada a eventos y análisis en tiempo real" border="false":::
 
 ## <a name="event-computing-and-notifications"></a>Procesamiento de eventos y notificaciones
 
@@ -38,7 +38,7 @@ También puede desencadenar una notificación de forma selectiva o enviar una ll
 La fuente de cambios de Azure Cosmos DB se puede usar para el procesamiento de secuencias en tiempo real para IoT o el procesamiento de estadísticas sobre datos operativos en tiempo real.
 Por ejemplo, puede recibir y almacenar datos de eventos de dispositivos, sensores, infraestructura y aplicaciones, y luego procesarlos en tiempo real con [Spark](../hdinsight/spark/apache-spark-overview.md). En la siguiente imagen se muestra cómo puede implementar la arquitectura lambda mediante Azure Cosmos DB a través de la fuente de cambios:
 
-![Canalización Lambda basada en Azure Cosmos DB para ingesta y consulta](./media/change-feed/lambda.png)
+:::image type="content" source="./media/change-feed/lambda.png" alt-text="Canalización Lambda basada en Azure Cosmos DB para ingesta y consulta" border="false":::
 
 En muchos casos, las implementaciones de procesamiento de secuencias reciben primero un gran volumen de datos entrantes en una cola de mensajes temporal, como Azure Event Hub o Apache Kafka. La fuente de cambios es una alternativa excelente debido a la capacidad de Azure Cosmos DB para admitir una alta tasa de ingesta de datos con una latencia de lectura y escritura baja garantizada. Las ventajas de la fuente de cambios de Azure Cosmos DB en una cola de mensajes incluyen:
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: rohink
-ms.openlocfilehash: ad6acbad57df24e5cd78c72c9d00bcd32a83219a
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 28453af7eb38f4195774d70c5960eacc8467dedd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731584"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84417011"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) sobre Traffic Manager
 
@@ -306,7 +306,7 @@ El precio de Traffic View se basa en el número de puntos de datos usados para c
 
 No se pueden usar puntos de conexión de varias suscripciones con Azure Web Apps. Azure Web Apps requiere que cualquier nombre de dominio personalizado usado con Web Apps se use únicamente en una suscripción. No es posible usar Web Apps desde varias suscripciones con el mismo nombre de dominio.
 
-Para otros tipos de punto de conexión, es posible usar el Administrador de tráfico con puntos de conexión de más de una suscripción. En Resource Manager, pueden agregarse puntos de conexión de cualquier suscripción al Administrador de tráfico, siempre y cuando la persona que configura el perfil de este servicio tenga acceso de lectura al punto de conexión. Estos permisos pueden concederse mediante la funcionalidad de [control de acceso basado en rol (RBAC) de Azure Resource Manager](../role-based-access-control/role-assignments-portal.md).
+Para otros tipos de punto de conexión, es posible usar el Administrador de tráfico con puntos de conexión de más de una suscripción. En Resource Manager, pueden agregarse puntos de conexión de cualquier suscripción al Administrador de tráfico, siempre y cuando la persona que configura el perfil de este servicio tenga acceso de lectura al punto de conexión. Estos permisos pueden concederse mediante la funcionalidad de [control de acceso basado en rol (RBAC) de Azure Resource Manager](../role-based-access-control/role-assignments-portal.md). Los puntos de conexión de otras suscripciones se pueden agregar mediante [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) o la [CLI de Azure](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create).
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>¿Puedo usar Traffic Manager con espacios de ensayo de servicio en la nube?
 
@@ -385,10 +385,10 @@ En el caso de perfiles con cualquier método de enrutamiento que no sea de vario
 |Solicitud de consulta entrante|     Tipo de punto de conexión|     Respuesta proporcionada|
 |--|--|--|
 |ANY |    A / AAAA / CNAME |    Punto de conexión de destino| 
-|Un |    A / CNAME |    Punto de conexión de destino|
-|Un |    AAAA |    NODATA |
+|A |    A / CNAME |    Punto de conexión de destino|
+|A |    AAAA |    NODATA |
 |AAAA |    AAAA / CNAME |    Punto de conexión de destino|
-|AAAA |    Un |    NODATA |
+|AAAA |    A |    NODATA |
 |CNAME |    CNAME |    Punto de conexión de destino|
 |CNAME     |A / AAAA |    NODATA |
 |
@@ -398,7 +398,7 @@ En el caso de los perfiles con el método de enrutamiento establecido en varios 
 |Solicitud de consulta entrante|     Tipo de punto de conexión |    Respuesta proporcionada|
 |--|--|--|
 |ANY |    Combinación de A y AAAA |    Extremos de destino|
-|Un |    Combinación de A y AAAA |    Solo puntos de conexión de destino de tipo A|
+|A |    Combinación de A y AAAA |    Solo puntos de conexión de destino de tipo A|
 |AAAA    |Combinación de A y AAAA|     Solo puntos de conexión de destino de tipo AAAA|
 |CNAME |    Combinación de A y AAAA |    NODATA |
 

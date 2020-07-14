@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 19ca17f66f6818ed4c3ef532e2030cc03f0e73ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9b8d7f241f79b087f318c9c416dcadf92838b084
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062961"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85126219"
 ---
 # <a name="security-alerts-schemas"></a>Esquemas de las alertas de seguridad
 
@@ -171,7 +171,7 @@ Para ver los eventos de las alertas de seguridad en el registro de actividad, bu
 
 ### <a name="ms-graph-api"></a>[MS Graph API](#tab/schema-graphapi)
 
-Microsoft Graph es la puerta de enlace a los datos y la inteligencia en Microsoft 365. Proporciona un modelo de programación unificado que puede usar para acceder a la ingente cantidad de datos en Office 365, Windows 10 y Enterprise Mobility + Security. Use la riqueza de datos de Microsoft Graph para crear aplicaciones para organizaciones y consumidores que interactúen con millones de usuarios.
+Microsoft Graph es la puerta de enlace a los datos y la inteligencia en Microsoft 365. Proporciona un modelo de programación unificado que puede usar para acceder a la ingente cantidad de datos en Microsoft 365, Windows 10 y Enterprise Mobility + Security. Use la riqueza de datos de Microsoft Graph para crear aplicaciones para organizaciones y consumidores que interactúen con millones de usuarios.
 
 El esquema y una representación JSON de las alertas de seguridad enviadas a MS Graph, están disponibles en [la documentación de Microsoft Graph](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0).
 

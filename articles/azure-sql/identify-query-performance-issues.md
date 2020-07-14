@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: edf22c7f1086c1d13717adaff514c42aab3a4cfd
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b33d8db9d43b151cb0405ea24e0bea87e21cbdc9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84033796"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84345349"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Tipos de cuellos de botella en el rendimiento de las consultas que se pueden detectar en Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -153,11 +153,11 @@ Por lo general, tanto el rendimiento lento de las consultas no relacionado con l
 - Detección de límites de recursos mediante [Intelligent Insights](database/intelligent-insights-troubleshoot-performance.md#reaching-resource-limits)
 - Detección de problemas de los recursos mediante [DMV](database/monitoring-with-dmvs.md):
 
-  - [sys.dm_db_resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) devuelve el consumo de CPU, E/S y memoria de una instancia de SQL Database. Hay una fila por cada intervalo de 15 segundos, incluso si no hay ninguna actividad en la base de datos. Los datos históricos se conservan durante una hora.
+  - La DMV [sys.dm_db_resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) devuelve el consumo de CPU, de E/S y de memoria de la base de datos. Hay una fila por cada intervalo de 15 segundos, incluso si no hay ninguna actividad en la base de datos. Los datos históricos se conservan durante una hora.
   - [sys.resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) devuelve datos de almacenamiento y uso de CPU para Azure SQL Database. Los datos se recopilan y agregan en intervalos de cinco minutos.
   - [Muchas consultas individuales que consumen mucha CPU de forma acumulativa](database/monitoring-with-dmvs.md#many-individual-queries-that-cumulatively-consume-high-cpu)
 
-Si identifica que el problema es que el número de recursos es insuficiente, puede actualizar los recursos para aumentar la capacidad de la base de datos SQL para absorber los requisitos de la CPU. Para más información, consulte [Escalar recursos de base de datos única en Azure SQL Database](database/single-database-scale.md) y [Escalar recursos de grupos elásticos en Azure SQL Database](database/elastic-pool-scale.md). Para obtener información sobre cómo escalar una instancia administrada, consulte [Límites de recursos de nivel de servicio](managed-instance/resource-limits.md#service-tier-characteristics).
+Si identifica que el problema es que el número de recursos es insuficiente, puede actualizar los recursos para aumentar la capacidad de la base de datos a fin de absorber los requisitos de la CPU. Para más información, consulte [Escalar recursos de base de datos única en Azure SQL Database](database/single-database-scale.md) y [Escalar recursos de grupos elásticos en Azure SQL Database](database/elastic-pool-scale.md). Para obtener información sobre cómo escalar una instancia administrada, consulte [Límites de recursos de nivel de servicio](managed-instance/resource-limits.md#service-tier-characteristics).
 
 ## <a name="performance-problems-caused-by-increased-workload-volume"></a>Problemas de rendimiento causados por un mayor volumen de carga de trabajo
 

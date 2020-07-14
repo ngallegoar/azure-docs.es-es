@@ -9,10 +9,10 @@ ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 ms.openlocfilehash: 10c8008d73390174c44ec503f708c1e2c0011e09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78944312"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Uso de Visual Studio Code para desarrollar y depurar módulos para Azure IoT Edge
@@ -28,7 +28,7 @@ En este artículo se proporcionan instrucciones para desarrollar y depurar módu
 >[!NOTE]
 >El soporte técnico del desarrollo y depuración para dispositivos ARM64 de Linux está en [versión preliminar pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para más información, consulte [Desarrollo y depuración de módulos ARM64 IoT Edge en Visual Studio Code (versión preliminar)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Puede usar un equipo o máquina virtual con Windows, macOS o Linux como equipo de desarrollo. En equipos Windows, puede desarrollar módulos de Windows o Linux. Para desarrollar módulos de Windows, use un equipo Windows que ejecute la versión 1809, la compilación 17763 o una más reciente. Para desarrollar módulos de Linux, use un equipo Windows que cumpla los [requisitos de Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
@@ -92,7 +92,7 @@ En los siguientes pasos se muestra cómo crear un módulo de IoT Edge en su leng
 
 1. Escriba un nombre para el módulo. Elija un nombre que sea único dentro del registro de contenedor.
 
-1. Proporcione el nombre del repositorio de imágenes del módulo. Visual Studio Code completa automáticamente el nombre del módulo como **localhost:5000 /<el nombre del módulo\>** . Reemplácelo por su propia información de registro. Si usa un registro de Docker local para realizar pruebas, **localhost** puede valer. Si va a usar Azure Container Registry, utilice el servidor de inicio de sesión de la configuración del registro. El servidor de inicio de sesión se parece a **_\<nombre del registro\>_ .azurecr.io**. Reemplace solo la sección **localhost:5000** de la cadena para que el resultado final se parezca a **\<*nombre del registro*\>.azurecr.io/ _\<nombre del módulo\>_** .
+1. Proporcione el nombre del repositorio de imágenes del módulo. Visual Studio Code completa automáticamente el nombre del módulo como **localhost:5000 /<el nombre del módulo\>** . Reemplácelo por su propia información de registro. Si usa un registro de Docker local para realizar pruebas, **localhost** puede valer. Si va a usar Azure Container Registry, utilice el servidor de inicio de sesión de la configuración del registro. El servidor de inicio de sesión se parece a **_\<registry name\>_ .azurecr.io**. Reemplace solo la sección **localhost:5000** de la cadena para que el resultado final se parezca a **\<*registry name*\>.azurecr.io/ _\<your module name\>_**.
 
    ![Especificación del repositorio de imágenes de Docker](./media/how-to-develop-csharp-module/repository.png)
 

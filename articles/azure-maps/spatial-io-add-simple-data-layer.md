@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8862c33b7660b8130f692dc4beea89a7b6b5f5ad
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: 61272bee350fc7c7dd7d0e17adc55c436f4706ef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804493"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84885961"
 ---
 # <a name="add-a-simple-data-layer"></a>Adición de una capa de datos simple
 
@@ -85,11 +85,11 @@ Por ejemplo, al analizar fuentes de distribución de datos XML, es posible que n
 
 Como se mencionó anteriormente, la capa de datos simple encapsula varias de las capas de representación básicas: burbuja, símbolo, línea, polígono y polígono extruido. A continuación, utiliza expresiones para buscar propiedades de estilo válidas en características individuales.
 
-Las propiedades de estilo de Azure Maps y GitHub son los dos conjuntos principales de nombres de propiedad admitidos. La mayoría de los nombres de propiedades de las diferentes opciones de capa de Azure Maps se admiten como propiedades de estilo de las características de la capa de datos simple. Se han agregado expresiones a algunas opciones de capa para admitir nombres de propiedades de estilo utilizadas habitualmente en GitHub. Estos nombres de propiedades se definen en [Compatibilidad de mapas GeoJSON de GitHub](https://help.github.com/en/github/managing-files-in-a-repository/mapping-geojson-files-on-github) y se usan para aplicar estilo a los archivos GeoJSON que se almacenan y representan en la plataforma. Se admiten todas las propiedades de estilo de GitHub en la capa de datos simple, excepto en las propiedades de estilo `marker-symbol`.
+Las propiedades de estilo de Azure Maps y GitHub son los dos conjuntos principales de nombres de propiedad admitidos. La mayoría de los nombres de propiedades de las diferentes opciones de capa de mapa de Azure se admiten como propiedades de estilo de las características de la capa de datos simple. Se han agregado expresiones a algunas opciones de capa para admitir nombres de propiedades de estilo utilizadas habitualmente en GitHub. Estos nombres de propiedades se definen en [Compatibilidad de mapas GeoJSON de GitHub](https://help.github.com/en/github/managing-files-in-a-repository/mapping-geojson-files-on-github) y se usan para aplicar estilo a los archivos GeoJSON que se almacenan y representan en la plataforma. Se admiten todas las propiedades de estilo de GitHub en la capa de datos simple, excepto en las propiedades de estilo `marker-symbol`.
 
 Si el lector se encuentra con una propiedad de estilo menos habitual, la convertirá en la propiedad de estilo de Azure Maps más parecida. Además, las expresiones de estilo predeterminadas se pueden invalidar mediante el uso de la función `getLayers` de la capa de datos simple y la actualización de las opciones de cualquiera de las capas.
 
-En las siguientes secciones se proporcionan detalles sobre las propiedades de estilo predeterminadas que admite la capa de datos simple. El orden del nombre de propiedad admitido también es la prioridad de la propiedad. Si se definen dos propiedades de estilo para la misma opción de capa, la primera de la lista tendrá mayor precedencia.
+En las siguientes secciones se proporcionan detalles sobre las propiedades de estilo predeterminadas que admite la capa de datos simple. El orden del nombre de propiedad admitido también es la prioridad de la propiedad. Si se definen dos propiedades de estilo para la misma opción de capa, la primera de la lista tendrá mayor precedencia. Los colores pueden ser cualquier valor de color CSS3; como HEX, RGB, RGBA, HSL, HSLA o el valor de color con nombre.
 
 ### <a name="bubble-layer-style-properties"></a>Propiedades de estilo de la capa de burbujas
 

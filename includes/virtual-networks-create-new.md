@@ -9,10 +9,10 @@ ms.date: 03/01/2020
 ms.author: allensu
 ms.custom: include file
 ms.openlocfilehash: 81db46b52c9b4fe800f2fbfeadad966995d66e12
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78244969"
 ---
 ## <a name="create-the-virtual-network"></a>Crear la red virtual
@@ -26,11 +26,11 @@ En esta sección, creará una red virtual y una subred.
     | **Configuración**          | **Valor**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **Detalles del proyecto**  |                                                                 |
-    | Subscription     | Selección de su suscripción a Azure                                  |
-    | Grupo de recursos   | Seleccione **Crear nuevo**, escriba **\<resource-group-name>** , seleccione Aceptar o un **\<resource-group-name>** existente en función de los parámetros. |
+    | Suscripción     | Selección de su suscripción a Azure                                  |
+    | Grupo de recursos   | Seleccione **Crear nuevo**, escriba **\<resource-group-name>** , seleccione Aceptar o seleccione un **\<resource-group-name>** existente basado en parámetros. |
     | **Detalles de instancia** |                                                                 |
-    | Nombre             | Especifique **\<virtual-network-name>** .                                    |
-    | Region           | Seleccione **\<region-name>** . |
+    | Nombre             | Escriba **\<virtual-network-name>**                                    |
+    | Region           | Selección de **\<region-name>** |
 
 3. Seleccione la pestaña **Direcciones IP** o el botón **Siguiente: Direcciones IP** situado en la parte inferior de la página.
 
@@ -38,7 +38,7 @@ En esta sección, creará una red virtual y una subred.
 
     | Configuración            | Value                      |
     |--------------------|----------------------------|
-    | Espacio de direcciones IPv4 | Indique **\<IPv4-address-space>** . |
+    | Espacio de direcciones IPv4 | Escriba **\<IPv4-address-space>** |
 
 5. En **Nombre de subred**, seleccione la palabra **predeterminada**.
 
@@ -46,8 +46,8 @@ En esta sección, creará una red virtual y una subred.
 
     | Configuración            | Value                      |
     |--------------------|----------------------------|
-    | Nombre de subred | Indique **\<subnet-name>** |
-    | Intervalo de direcciones de subred | Especifique **\<subnet-address-range>**
+    | Nombre de subred | Escriba **\<subnet-name>** |
+    | Intervalo de direcciones de subred | Escriba **\<subnet-address-range>**
 
 7. Seleccione **Guardar**.
 

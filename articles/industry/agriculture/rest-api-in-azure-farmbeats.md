@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: 717a09d8377a7b95fe24300cc65222f307e7419f
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: c3a70ed905edfcf1dc60e0a12f50aca19060230f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437519"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488042"
 ---
 # <a name="references"></a>Referencias
 
@@ -82,7 +82,7 @@ Accept | El formato de respuesta. En el caso de las API de centro de datos de Az
 
 Para realizar una solicitud de API REST, se combina el método HTTP (GET, POST, PUT o DELETE), la dirección URL del servicio de API, el URI a un recurso para consultar, enviar datos, actualizar o eliminar, y, a continuación, se agregan uno o más encabezados de solicitud HTTP.
 
-La dirección URL al servicio de API es la dirección URL del centro de datos, por ejemplo, https://\<sucentrodedatos-sitioweb-nombre>.azurewebsites.net.
+La dirección URL al servicio de API es la dirección URL del centro de datos, por ejemplo, https://\<yourdatahub-website-name>.azurewebsites.net.
 
 También se pueden incluir parámetros de consulta en las llamadas GET para filtrar y ordenar los datos en las respuestas y limitar su tamaño.
 
@@ -165,6 +165,15 @@ Se puede acceder a las API de Azure FarmBeats mediante un usuario o un registro 
 4. Vaya a la instancia de Datahub Swagger (https://<yourdatahub>.azurewebsites.net/swagger/index.html) y haga lo siguiente:
     - Vaya a **RoleAssignment API**.
     - Realice una operación POST con el fin de crear un objeto **RoleAssignment** para el **Id. de objeto** que se acaba de crear.
+ 
+```json
+{
+  "roleDefinitionId": "a400a00b-f67c-42b7-ba9a-f73d8c67e433",
+  "objectId": "objectId from step 3 above",
+  "objectIdType": "ServicePrincipalId",
+  "tenantId": "tenant id of your Azure subscription"
+}
+```
 
   > [!NOTE]
   > Para más información sobre cómo agregar usuarios y registro de Active Directory, vea [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).

@@ -4,14 +4,14 @@ description: Obtenga información sobre la cláusula ORDER BY de SQL para Azure 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/17/2020
+ms.date: 06/06/2020
 ms.author: tisande
-ms.openlocfilehash: 70702ee4a77e8b3c46de4354f3394bca4080d837
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4ae66884602989284a427bdc33de7612bd9a8df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641395"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484338"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Cláusula ORDER BY en Azure Cosmos DB
 
@@ -215,6 +215,11 @@ Los resultados son:
     }
 ]
 ```
+
+> [!Note]
+> Solo la versión 3.4.0 o posterior del SDK de .NET admite ORDER BY con tipos mixtos. Por lo tanto, si quiere ordenar por una combinación de valores definidos y sin definir, debe usar esta versión (o una posterior).
+
+No se puede controlar el orden en el que aparecen los distintos tipos en los resultados. En el ejemplo anterior, se muestra cómo se ordenaron los valores sin definir antes de los valores de cadena. Si, por ejemplo, prefiere más control sobre el criterio de ordenación de los valores sin definir, puede asignar a cualquier propiedad sin definir un valor de cadena "aaaaaaaaa" o "zzzzzzzz" para asegurarse de que sea la primera o la última.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 2e399c1a7b0f9bbc2aac375fe8af969a2b9e0e48
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 962d0d6dd51bb30f5df9ca0b609acf932777ebcf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80877634"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887517"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Ejecución de trabajos de Apache Spark en AKS
 
-[Apache Spark][apache-spark] es un motor rápido para el procesamiento de datos a gran escala. Desde la [versión de Spark 2.3.0][spark-latest-release], Apache Spark admite la integración nativa con clústeres de Kubernetes. Azure Kubernetes Service (AKS) es un entorno de Kubernetes administrado que se ejecuta en Azure. Este documento detalla la preparación y ejecución de trabajos de Apache Spark en un clúster de Azure Kubernetes Service (AKS).
+[Apache Spark][apache-spark] es un motor rápido para el procesamiento de datos a gran escala. Desde la [versión de Spark 2.3.0][spark-kubernetes-earliest-version], Apache Spark admite la integración nativa con clústeres de Kubernetes. Azure Kubernetes Service (AKS) es un entorno de Kubernetes administrado que se ejecuta en Azure. Este documento detalla la preparación y ejecución de trabajos de Apache Spark en un clúster de Azure Kubernetes Service (AKS).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar los pasos de este artículo, necesita lo siguiente.
 
@@ -25,6 +25,7 @@ Para completar los pasos de este artículo, necesita lo siguiente.
 * Una cuenta de [Docker Hub][docker-hub] o un registro de [Azure Container Registry][acr-create].
 * La CLI de Azure [instalada][azure-cli] en el sistema de desarrollo.
 * [JDK 8][java-install] instalado en el sistema.
+* [Apache Maven][maven-install] instalado en el sistema.
 * SBT ([Scala Build Tool][sbt-install]) instalado en el sistema.
 * Herramientas de línea de comandos GIT instaladas en el sistema.
 
@@ -340,9 +341,10 @@ Consulte la documentación de Spark para más detalles.
 [apache-spark]: https://spark.apache.org/
 [docker-hub]: https://docs.docker.com/docker-hub/
 [java-install]: https://aka.ms/azure-jdks
+[maven-install]: https://maven.apache.org/install.html
 [sbt-install]: https://www.scala-sbt.org/1.0/docs/Setup.html
 [spark-docs]: https://spark.apache.org/docs/latest/running-on-kubernetes.html
-[spark-latest-release]: https://spark.apache.org/releases/spark-release-2-3-0.html
+[spark-kubernetes-earliest-version]: https://spark.apache.org/releases/spark-release-2-3-0.html
 [spark-quickstart]: https://spark.apache.org/docs/latest/quick-start.html
 
 

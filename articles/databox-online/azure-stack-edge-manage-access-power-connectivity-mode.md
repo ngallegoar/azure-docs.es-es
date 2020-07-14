@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 939296b1cf606401a801dd72eccbad23da766018
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 6e46d1a923eec5244bf77c201ff0b3189699c9ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82568701"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84339729"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge"></a>Administración del acceso, el encendido y el modo de conectividad de Azure Stack Edge
 
@@ -72,15 +72,15 @@ Para más información sobre cómo proporcionar a los usuarios acceso a Microsof
 
 ### <a name="register-resource-providers"></a>Registro de proveedores de recursos
 
-Para aprovisionar un recurso de Azure (en el modelo de Azure Resource Manager), necesita un proveedor de recursos que sea compatible con la creación de ese recurso. Por ejemplo, para aprovisionar una máquina virtual, debe tener un proveedor de recursos "Microsoft.Compute" disponible en la suscripción.
+Para aprovisionar un recurso de Azure (en el modelo de Azure Resource Manager), necesita un proveedor de recursos que sea compatible con la creación de ese recurso. Por ejemplo, para aprovisionar una máquina virtual, debe tener un proveedor de recursos de "Microsoft.Compute" disponible en la suscripción.
  
-Los proveedores de recursos se registran en el nivel de la suscripción. De forma predeterminada, cualquier nueva suscripción a Azure se registra previamente con una lista de proveedores de recursos usados con frecuencia. El proveedor de recursos para "Microsoft.DataBoxEdge" no se incluye en esta lista.
+Los proveedores de recursos se registran en el nivel de la suscripción. De forma predeterminada, cualquier nueva suscripción a Azure se registra previamente con una lista de proveedores de recursos usados con frecuencia. El proveedor de recursos de "Microsoft.DataBoxEdge" no está incluido en esta lista.
 
-No necesita conceder permisos de acceso en el nivel de suscripción para que los usuarios puedan crear recursos como "Microsoft.DataBoxEdge" dentro de los grupos de recursos para los que tienen derechos de propietario, siempre y cuando los proveedores de recursos de estos recursos ya estén registrados.
+No necesita conceder permisos de acceso en el nivel de suscripción para que los usuarios puedan crear recursos como "Microsoft.DataBoxEdge" dentro de los grupos de recursos en los que tienen derechos de propietario, siempre y cuando los proveedores de estos recursos ya estén registrados.
 
 Antes de que intente crear cualquier recurso, asegúrese de que el proveedor de recursos está registrado en la suscripción. Si el proveedor de recursos no está registrado, deberá asegurarse de que el usuario que crea el nuevo recurso tiene derechos suficientes para registrar al proveedor de recursos necesarios en el nivel de suscripción. Si aún no lo ha hecho, verá el siguiente error:
 
-*La suscripción \<nombre de suscripción> no tiene permisos para registrar el proveedor de recursos: Microsoft.DataBoxEdge.*
+*La suscripción \<Subscription name> no tiene permisos para registrar los siguientes proveedores de recursos: Microsoft.DataBoxEdge.*
 
 
 Para obtener una lista de los proveedores de recursos registrados en la suscripción actual, ejecute el siguiente comando:
@@ -89,7 +89,7 @@ Para obtener una lista de los proveedores de recursos registrados en la suscripc
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-En el dispositivo de Azure Stack Edge, se debe registrar `Microsoft.DataBoxEdge`. Para registrar `Microsoft.DataBoxEdge`, el administrador de suscripciones debe ejecutar el siguiente comando:
+Es necesario que `Microsoft.DataBoxEdge` esté registrado en el dispositivo de Azure Stack Edge. Para registrar `Microsoft.DataBoxEdge`, el administrador de suscripciones debe ejecutar el siguiente comando:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge

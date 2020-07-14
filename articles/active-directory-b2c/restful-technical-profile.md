@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/26/2020
+ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 410f413fc8450c0ee33c3ca95e860a3e8de34107
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8486241d4de0025603b22b591f4a8f62901bd7f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80332606"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203663"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de RESTful en una directiva personalizada en Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ El atributo **Name** del elemento **Protocol** tiene que establecerse en `Propri
 
 En el ejemplo siguiente se muestra un perfil técnico de RESTful:
 
-```XML
+```xml
 <TechnicalProfile Id="REST-UserMembershipValidator">
   <DisplayName>Validate user input data and return loyaltyNumber claim</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -41,7 +41,7 @@ En el ejemplo siguiente se muestra un perfil técnico de RESTful:
 
 El elemento **InputClaims** contiene una lista de notificaciones para enviar a la API REST. También se puede asignar el nombre de la notificación al nombre definido en la API REST. En el ejemplo siguiente se muestra la asignación entre la directiva y la API REST. La notificación **givenName** se envía a la API REST como **firstName**, mientras que **surname** se envía como **lastName**. La notificación **email** se establece tal cual.
 
-```XML
+```xml
 <InputClaims>
   <InputClaim ClaimTypeReferenceId="email" />
   <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
@@ -66,7 +66,7 @@ Para enviar una carga de JSON compleja:
 
 En el siguiente ejemplo, `TechnicalProfile` envía un correo electrónico de verificación mediante un servicio de correo electrónico de terceros (en este caso, SendGrid).
 
-```XML
+```xml
 <TechnicalProfile Id="SendGrid">
   <DisplayName>Use SendGrid's email API to send the code the the user</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -75,6 +75,7 @@ En el siguiente ejemplo, `TechnicalProfile` envía un correo electrónico de ver
     <Item Key="AuthenticationType">Bearer</Item>
     <Item Key="SendClaimsIn">Body</Item>
     <Item Key="ClaimUsedForRequestPayload">sendGridReqBody</Item>
+    <Item Key="DefaultUserMessageIfRequestFailed">Cannot process your request right now, please try again later.</Item>
   </Metadata>
   <CryptographicKeys>
     <Key Id="BearerAuthenticationToken" StorageReferenceId="B2C_1A_SendGridApiKey" />
@@ -119,16 +120,27 @@ El perfil técnico también devuelve notificaciones, que no son devueltas por el
 | SendClaimsIn | No | Especifica cómo se envían las notificaciones de entrada al proveedor de notificaciones RESTful. Valores posibles: `Body` (predeterminado), `Form`, `Header` o `QueryString`. El valor `Body` es la notificación de entrada que se envía en el cuerpo de la solicitud en formato JSON. El valor `Form` es la notificación de entrada que se envía en el cuerpo de la solicitud en un formato de valor de clave separado por "&" (Y comercial). El valor `Header` es la notificación de entrada que se envía en el cuerpo de la solicitud. El valor `QueryString` es la notificación de entrada que se envía en la cadena de consulta de la solicitud. Los verbos HTTP invocados por cada uno de ellos son los siguientes:<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: GET</li><li>`QueryString`: GET</li></ul> |
 | ClaimsFormat | No | No se usa actualmente, se puede omitir. |
 | ClaimUsedForRequestPayload| No | Nombre de una notificación de cadena que contiene la carga que se va a enviar a la API REST. |
-| DebugMode | No | Ejecuta el perfil técnico en modo de depuración. Valores posibles: `true` o `false` (valor predeterminado). En el modo de depuración, la API REST puede devolver más información. consulte la sección [Devolución de mensajes de error](#returning-error-message). |
+| DebugMode | No | Ejecuta el perfil técnico en modo de depuración. Valores posibles: `true` o `false` (valor predeterminado). En el modo de depuración, la API REST puede devolver más información. consulte la sección [Devolución de mensajes de error](#returning-validation-error-message). |
 | IncludeClaimResolvingInClaimsHandling  | No | En el caso de las notificaciones de entrada y salida, especifica si se incluye la [resolución de notificaciones](claim-resolver-overview.md) en el perfil técnico. Valores posibles: `true` o `false`  (valor predeterminado). Si desea utilizar un solucionador de notificaciones en el perfil técnico, establézcalo en `true`. |
 | ResolveJsonPathsInJsonTokens  | No | Indica si el perfil técnico resuelve las rutas de acceso JSON. Valores posibles: `true` o `false` (valor predeterminado). Use estos metadatos para leer datos de un elemento JSON anidado. En un objeto [OutputClaim](technicalprofiles.md#outputclaims), establezca `PartnerClaimType` en el elemento de la ruta de acceso JSON que quiere generar. Por ejemplo: `firstName.localized` o `data.0.to.0.email`.|
 | UseClaimAsBearerToken| No| Nombre de la notificación que contiene el token de portador.|
+
+## <a name="error-handling"></a>Control de errores
+
+Los metadatos siguientes se pueden usar para configurar los mensajes de error que se muestran cuando se produce un error de API REST. Los mensajes de error se pueden [localizar](localization-string-ids.md#restful-service-error-messages).
+
+| Atributo | Obligatorio | Descripción |
+| --------- | -------- | ----------- |
+| DefaultUserMessageIfRequestFailed | No | Mensaje de error personalizado predeterminado para todas las excepciones de la API REST.|
+| UserMessageIfCircuitOpen | No | Mensaje de error cuando no se puede acceder a la API REST. Si no se especifica, se devolverá el atributo DefaultUserMessageIfRequestFailed. |
+| UserMessageIfDnsResolutionFailed | No | Mensaje de error para la excepción de resolución DNS. Si no se especifica, se devolverá el atributo DefaultUserMessageIfRequestFailed. | 
+| UserMessageIfRequestTimeout | No | Mensaje de error cuando se agota el tiempo de espera de la conexión. Si no se especifica, se devolverá el atributo DefaultUserMessageIfRequestFailed. | 
 
 ## <a name="cryptographic-keys"></a>Claves de cifrado
 
 Si el tipo de autenticación se establece en `None`, no se usa el elemento **CryptographicKeys**.
 
-```XML
+```xml
 <TechnicalProfile Id="REST-API-SignUp">
   <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -149,7 +161,7 @@ Si el tipo de autenticación se establece en `Basic`, el elemento **Cryptographi
 
 En el ejemplo siguiente se muestra un perfil técnico con autenticación básica:
 
-```XML
+```xml
 <TechnicalProfile Id="REST-API-SignUp">
   <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -171,7 +183,7 @@ Si el tipo de autenticación se establece en `ClientCertificate`, el elemento **
 | --------- | -------- | ----------- |
 | ClientCertificate | Sí | El certificado X509 (conjunto de claves RSA) que se va a usar para la autenticación. |
 
-```XML
+```xml
 <TechnicalProfile Id="REST-API-SignUp">
   <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -192,7 +204,7 @@ Si el tipo de autenticación se establece en `Bearer`, el elemento **Cryptograph
 | --------- | -------- | ----------- |
 | BearerAuthenticationToken | No | El token de portador de OAuth 2.0. |
 
-```XML
+```xml
 <TechnicalProfile Id="REST-API-SignUp">
   <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -207,11 +219,11 @@ Si el tipo de autenticación se establece en `Bearer`, el elemento **Cryptograph
 </TechnicalProfile>
 ```
 
-## <a name="returning-error-message"></a>Devolución de mensajes de error
+## <a name="returning-validation-error-message"></a>Devolución del mensaje de error de validación
 
 Es posible la API REST tenga que devolver un mensaje de error, como "No se encuentra el usuario en el sistema CRM". Si se produce un error, la API de REST debe devolver un mensaje de error HTTP 4xx, como los códigos de estado de respuesta 400 (solicitud incorrecta) o 409 (conflicto). El cuerpo de la respuesta contiene un mensaje de error con formato JSON:
 
-```JSON
+```json
 {
   "version": "1.0.0",
   "status": 409,

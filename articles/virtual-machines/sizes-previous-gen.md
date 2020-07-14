@@ -1,25 +1,19 @@
 ---
-title: 'Tamaños de máquina virtual Linux de Azure: generaciones anteriores | Microsoft Docs'
-description: Se enumeran las generaciones anteriores de tamaños disponibles para máquinas virtuales Linux en Azure. Se proporciona información sobre el número de unidades vCPU, discos de datos y NIC, así como sobre el rendimiento de almacenamiento y el ancho de banda de red para los tamaños de esta serie.
-services: virtual-machines-linux
-documentationcenter: ''
+title: 'Tamaños de máquina virtual de Azure: generaciones anteriores | Microsoft Docs'
+description: Se enumeran las generaciones anteriores de tamaños disponibles para máquinas virtuales en Azure. Se proporciona información sobre el número de unidades vCPU, discos de datos y NIC, así como sobre el rendimiento de almacenamiento y el ancho de banda de red para los tamaños de esta serie.
+services: virtual-machines
+ms.subservice: sizes
 author: mimckitt
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
-ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
-ms.author: jonbeck
-ms.openlocfilehash: ac49d2da9d05c9677dbb6f5328874ab3a45ff661
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.author: jushiman
+ms.openlocfilehash: 6ebd13317940d131facfb36987fb37358260ec05
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82081547"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85119229"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Generaciones anteriores de tamaños de máquina virtual
 
@@ -175,7 +169,7 @@ Los tamaños A8-A11 los de la serie H también se conocen como *instancias de pr
 
 ### <a name="d-series"></a>Serie D  
 
-**Recomendación de tamaño más reciente**: [Serie Dv3](dv3-dsv3-series.md)
+**Recomendación de tamaño más reciente**: [Serie Dav4](dav4-dasv4-series.md), [serie Dv4](dv4-dsv4-series.md) y [serie Ddv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -196,7 +190,7 @@ Almacenamiento en caché de Premium Storage:  No compatible
 
 ### <a name="d-series---memory-optimized"></a>Serie D: con optimización para memoria  
 
-**Recomendación de tamaño más reciente**: [Serie Dv3](dv3-dsv3-series.md)
+**Recomendación de tamaño más reciente**: [Serie Dav4](dav4-dasv4-series.md), [serie Dv4](dv4-dsv4-series.md) y [serie Ddv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -237,7 +231,7 @@ La serie DC usa la última generación de procesadores Intel XEON E-2176G de 3,7
 
 ### <a name="ds-series"></a>Serie DS  
 
-**Recomendación de tamaño más reciente**: [Serie Dsv3](dv3-dsv3-series.md)
+**Recomendación de tamaño más reciente**: [Serie Dasv4](dav4-dasv4-series.md), [serie Dsv4](dv4-dsv4-series.md) y [serie Ddsv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -258,7 +252,7 @@ Almacenamiento en caché de Premium Storage:  Compatible
 
 ### <a name="ds-series---memory-optimized"></a>Serie DS: con optimización para memoria  
 
-**Recomendación de tamaño más reciente**: [Serie Dsv3](dv3-dsv3-series.md)
+**Recomendación de tamaño más reciente**: [Serie Dasv4](dav4-dasv4-series.md), [serie Dsv4](dv4-dsv4-series.md) y [serie Ddsv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1,2</sup>
 
@@ -279,6 +273,8 @@ Almacenamiento en caché de Premium Storage:  Compatible
 <br>
 
 ### <a name="ls-series"></a>Serie Ls
+
+**Recomendación de tamaño más reciente**: [Serie Lsv2](lsv2-series.md)
 
 La serie LS ofrece hasta 32 vCPU, con el [procesador Intel® Xeon® de la familia E5 v3](https://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). La serie LS obtiene el mismo rendimiento de CPU que las series G/GS y viene con 8 GiB de memoria por vCPU.
 
@@ -303,6 +299,8 @@ El rendimiento máximo de disco que es posible con una VM de la serie Ls puede e
 
 ### <a name="gs-series"></a>Serie GS
 
+**Recomendación de tamaño más reciente**: [Serie Easv4](eav4-easv4-series.md), [serie Esv4](ev4-esv4-series.md), [serie Edsv4](edv4-edsv4-series.md) y [serie M](m-series.md)
+
 ACU: 180 - 240 <sup>1</sup>
 
 Premium Storage:  Compatible
@@ -326,6 +324,8 @@ Almacenamiento en caché de Premium Storage:  Compatible
 <br>
 
 ### <a name="g-series"></a>Serie G
+
+**Recomendación de tamaño más reciente**: [Serie Eav4](eav4-easv4-series.md), [serie Ev4](ev4-esv4-series.md), [serie Edv4](edv4-edsv4-series.md) y [serie M](m-series.md)
 
 ACU: 180 - 240
 

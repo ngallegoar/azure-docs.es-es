@@ -2,13 +2,13 @@
 title: Creación de archivo de parámetros
 description: Creación de un archivo de parámetros para pasar valores durante la implementación de una plantilla de Azure Resource Manager
 ms.topic: conceptual
-ms.date: 04/20/2020
-ms.openlocfilehash: a9845bbb9e14288a01fb7836db260a2baf484395
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.date: 06/19/2020
+ms.openlocfilehash: 7c03e161c7b3a18020de6a06d356720f5e4c31fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873079"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117512"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Creación de un archivo de parámetros de Resource Manager
 
@@ -182,12 +182,18 @@ En el ejemplo siguiente se muestran los formatos de distintos tipos de parámetr
 }
 ```
 
+## <a name="deploy-template-with-parameter-file"></a>Implementación de la plantilla con el archivo de parámetros
+
+Consulte:
+
+- [Implementación de recursos con plantillas de ARM y la CLI de Azure](./deploy-powershell.md#pass-parameter-values)
+- [Implementación de recursos con las plantillas de ARM y Azure PowerShell](./deploy-cli.md#parameters)
+
 ## <a name="file-name"></a>Nombre de archivo
 
 La convención general para asignar un nombre al archivo de parámetros consisten en agregar **.parameters** al nombre de la plantilla. Por ejemplo, si la plantilla se denomina **azuredeploy.json**, el archivo de parámetros se denomina **azuredeploy.parameters.json**. Esta convención de nomenclatura le ayuda a ver la conexión entre la plantilla y los parámetros.
 
 Para realizar la implementación en entornos diferentes, cree más de un archivo de parámetros. Cuando asigne un nombre al archivo de parámetros, agregue una forma de identificar su uso. Por ejemplo, use **azuredeploy.parameters-dev.json** y **azuredeploy.parameters-prod.json**.
-
 
 ## <a name="parameter-precedence"></a>Prioridad de parámetros
 
@@ -198,6 +204,7 @@ Es posible usar un archivo de parámetros externo proporcionando el URI al archi
 ## <a name="parameter-name-conflicts"></a>Conflictos de nombres de parámetro
 
 Si la plantilla incluye un parámetro con el mismo nombre que uno de los parámetros del comando de PowerShell, PowerShell presenta el parámetro de la plantilla con el postfijo **FromTemplate**. Por ejemplo, un parámetro denominado **ResourceGroupName** de su plantilla entra en conflicto con el parámetro **ResourceGroupName** del cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) nuevo. Se le pedirá que proporcione un valor para **ResourceGroupNameFromTemplate**. Puede evitar esta confusión mediante el uso de nombres de parámetros que no se usan para los comandos de implementación.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

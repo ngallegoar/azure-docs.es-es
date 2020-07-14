@@ -1,6 +1,6 @@
 ---
 title: Resolución de diferencias de T-SQL durante la migración
-description: Instrucciones de Transact-SQL que no son totalmente compatibles con Azure SQL Database
+description: Instrucciones de Transact-SQL que no son totalmente compatibles con Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -11,21 +11,20 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/03/2018
-ms.openlocfilehash: a1db4c1548fa7f878075e557fc637d3558467680
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: c4c340282becf34ae34bf9e48bceeb86d68f237b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84037776"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84345332"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolución de diferencias de Transact-SQL durante la migración a SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Cuando se [migra la base de datos](migrate-to-database-from-sql-server.md) de SQL Server a Azure SQL Database, es posible que descubra que la base de datos requiere cierta reingeniería antes de que se pueda migrar el servidor SQL Server. En este artículo se proporcionan instrucciones para ayudarle a realizar esta reingeniería y entender las razones subyacentes por las que es necesaria. Para detectar incompatibilidades, utilice el [Asistente para migración de datos (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
+Cuando se [migra la base de datos](migrate-to-database-from-sql-server.md) de SQL Server a Azure SQL Database, es posible que descubra que la base de datos de SQL Server requiere cierta reingeniería antes de que se pueda migrar. En este artículo se proporcionan instrucciones para ayudarle a realizar esta reingeniería y entender las razones subyacentes por las que es necesaria. Para detectar incompatibilidades, utilice el [Asistente para migración de datos (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 
 ## <a name="overview"></a>Información general
 
-La mayoría de las características de Transact-SQL que usan las aplicaciones se admiten en Microsoft SQL Server y Azure SQL Database. Por ejemplo, los componentes principales de SQL, como tipos de datos, operadores, funciones de cadena, aritméticas, lógicas y de cursor, funcionan de la misma forma en SQL Server y SQL Database. Pero hay algunas diferencias de T-SQL en los elementos DDL (lenguaje de definición de datos) y DML (lenguaje de manipulación de datos) que generan instrucciones y consultas de T-SQL que solo se admiten parcialmente (como se describe más adelante en este artículo).
+La mayoría de las características de Transact-SQL que usan las aplicaciones se admiten en Microsoft SQL Server y Azure SQL Database. Por ejemplo, los componentes principales de SQL, como los tipos de datos, los operadores, las funciones de cadena, aritméticas, lógicas y de cursor, funcionan de la misma forma en SQL Server y SQL Database. Pero hay algunas diferencias de T-SQL en los elementos DDL (lenguaje de definición de datos) y DML (lenguaje de manipulación de datos) que generan instrucciones y consultas de T-SQL que solo se admiten parcialmente (como se describe más adelante en este artículo).
 
 Además, hay algunas características y sintaxis que no se admiten en absoluto porque Azure SQL Database se diseñó para aislar las características de cualquier dependencia de la base de datos maestra y el sistema operativo. Por eso, muchas actividades de nivel de servidor no son apropiadas para SQL Database. Las instrucciones y opciones de T-SQL no están disponibles si configuran opciones de nivel de servidor y componentes del sistema operativo, o especifican la configuración del sistema de archivos. Cuando se necesitan estas capacidades, suele estar disponible una alternativa adecuada en alguna otra manera de SQL Database o de otra función o servicio de Azure.
 
@@ -46,7 +45,7 @@ Las instrucciones DDL (lenguaje de definición de datos) principales están disp
 Además de las instrucciones de Transact-SQL relacionadas con las funciones no admitidas descritas en  [Comparación de características de Azure SQL Database](features-comparison.md), no se admiten las instrucciones y grupos de instrucciones siguientes. Por tanto, si la base de datos que se va a migrar usa alguna de las siguientes características, vuelva a diseñar el código de T-SQL para eliminar estas características e instrucciones de T-SQL.
 
 - Intercalación de objetos del sistema
-- Conexión relacionada: instrucciones del punto de conexión. SQL Database no admite la autenticación de Windows, pero admite la autenticación de Azure Active Directory similar. Algunos tipos de autenticación requieren la versión más reciente de SSMS. Para obtener más información, vea [Conexión a SQL Database o a SQL Data Warehouse mediante autenticación de Azure Active Directory](authentication-aad-overview.md).
+- Conexión relacionada: instrucciones del punto de conexión. SQL Database no admite la autenticación de Windows, pero admite la autenticación de Azure Active Directory similar. Algunos tipos de autenticación requieren la versión más reciente de SSMS. Para obtener más información, vea [Conexión a SQL Database o a Azure SQL Data Warehouse mediante autenticación de Azure Active Directory](authentication-aad-overview.md).
 - Consultas entre bases de datos con tres o cuatro nombres de partes. (Las consultas entre bases de datos de solo lectura se admiten mediante el uso de [consultas de base de datos elástica](elastic-query-overview.md)).
 - Encadenamiento de propiedad entre bases de datos, configuración `TRUSTWORTHY`
 - `EXECUTE AS LOGIN` Use "EXECUTE AS USER" en su lugar.
@@ -54,7 +53,7 @@ Además de las instrucciones de Transact-SQL relacionadas con las funciones no a
 - Eventos: eventos, notificaciones de eventos, notificaciones de consulta
 - Ubicación del archivo: Sintaxis relacionada con la ubicación de los archivos de las bases de datos, el tamaño y los archivos de las bases de datos que Microsoft Azure administra automáticamente.
 - Alta disponibilidad: Sintaxis relacionada con la alta disponibilidad que se administra mediante su cuenta de Microsoft Azure. Esto incluye la sintaxis de las copias de seguridad, restauración, Siempre activado, creación de reflejos de las bases de datos, trasvase de registros, modos de recuperación.
-- Registro del LOG: sintaxis que se basa en el registro del LOG que no está disponible en SQL Database: replicación de inserción y captura de datos modificados. SQL Database puede estar suscrito a un artículo de replicación de inserción.
+- Registro del LOG: sintaxis que se basa en el lector del registro que no está disponible en SQL Database: replicación de inserción y captura de datos modificados. SQL Database puede estar suscrito a un artículo de replicación de inserción.
 - Funciones: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes`
 - Hardware: sintaxis relacionada con la configuración del servidor relativa al hardware: memoria, subprocesos de trabajo, afinidad de CPU, marcas de seguimiento. Use niveles de servicio y tamaños de proceso en su lugar.
 - `KILL STATS JOB`

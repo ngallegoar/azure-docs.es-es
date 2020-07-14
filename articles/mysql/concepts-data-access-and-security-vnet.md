@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 2c0714bf27897de72246461ae3ad3250c55390e1
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 045b938e2612aa7e5b366f93c22669412f2d98e8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170671"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85100804"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Uso de reglas y puntos de conexión de servicio de red virtual para Azure Database for MySQL
 
@@ -102,7 +102,7 @@ Si quiere, puede optar por usar el [control de acceso basado en rol (RBAC)][rbac
 > En algunos casos, Azure Database for MySQL y la subred de red virtual se encuentran en distintas suscripciones. En estos casos debe garantizar las siguientes configuraciones:
 > - Ambas suscripciones deben estar en el mismo inquilino de Azure Active Directory.
 > - El usuario tiene los permisos necesarios para iniciar operaciones como habilitar los puntos de conexión de servicio y agregar una subred de red virtual al servidor especificado.
-> - Asegúrese de que ambas suscripciones tengan el proveedor de recursos **Microsoft.Sql** registrado. Para más información, consulte [resource-manager-registration][resource-manager-portal].
+> - Asegúrese de que ambas suscripciones tengan los proveedores de recursos **Microsoft.Sql** y **Microsoft.DBforMySQL** registrados. Para más información, consulte [resource-manager-registration][resource-manager-portal].
 
 ## <a name="limitations"></a>Limitaciones
 

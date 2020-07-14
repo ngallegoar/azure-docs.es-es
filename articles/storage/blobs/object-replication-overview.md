@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: efb873f8e66c3ab71b5b7345d776629fbe603af3
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 2d8d4c369cef8bf996628e8c89a424f04dcdbe71
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193414"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888066"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>Replicación de objetos para blobs en bloques (versión preliminar)
 
@@ -44,7 +44,7 @@ Después de configurar la replicación de objetos, Azure Storage comprueba peri�
 
 Al configurar la replicación de objetos, se crea una directiva de replicación tanto en la cuenta de origen como en la de destino a través del proveedor de recursos de Azure Storage. La directiva de replicación se identifica mediante un id. de directiva. La directiva en las cuentas de origen y de destino debe tener el mismo id. de directiva para que tenga lugar la replicación.
 
-Una cuenta de almacenamiento puede servir como cuenta de origen para un máximo dos cuentas de destino. Las cuentas de origen y destino pueden estar en diferentes regiones. Puede configurar directivas de replicación independientes para replicar los datos en cada una de las cuentas de destino.
+Una cuenta de almacenamiento puede servir como cuenta de origen para un máximo dos cuentas de destino. Y una cuenta de destino puede tener como máximo dos cuentas de origen. Las cuentas de origen y destino pueden estar en diferentes regiones. Puede configurar directivas de replicación independientes para replicar los datos en cada una de las cuentas de destino.
 
 ### <a name="replication-rules"></a>Reglas de replicación
 

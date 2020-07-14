@@ -17,10 +17,10 @@ ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1de9c07c99666ed4011214bd9b426eac8f494991
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82978185"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Alta disponibilidad con varios identificadores de seguridad de instancia SAP ASCS/SCS para los clústeres de conmutación por error de Windows Server y los recursos compartidos de archivos en Azure
@@ -47,7 +47,7 @@ En este artículo nos centraremos en cómo pasar de una sola instalación ASCS/S
 
 Para más información sobre los límites del equilibrador de carga, consulte la sección sobre la dirección IP privada de front-end por equilibrador de carga en [Límites de redes: Azure Resource Manager][networking-limits-azure-resource-manager]. Considere también el uso de la [SKU de Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) en lugar de la SKU básica de Azure Load Balancer.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Ya ha configurado un clúster de WSFC que se utiliza para una instancia de ASCS/SCS de SAP con un **recurso compartido de archivos**, tal y como se muestra en este diagrama.
 
@@ -76,11 +76,11 @@ La instalación de un sistema **SAP \<SID2>** adicional es idéntica a la de un 
 
 ### <a name="prepare-the-infrastructure-on-the-domain-controller"></a>Preparación de la infraestructura en el controlador de dominio
 
-Cree el grupo de dominio **\<Dominio>\SAP_\<SID2>_GlobalAdmin**, por ejemplo, con \<SID2> = PR2. El nombre del grupo de dominio es \<Dominio>\SAP_PR2_GlobalAdmin.
+Cree el grupo de dominio **\<Domain>\SAP_\<SID2>_GlobalAdmin**, por ejemplo, con \<SID2> = PR2. El nombre del grupo de dominio es \<Domain>\SAP_PR2_GlobalAdmin.
 
 ### <a name="prepare-the-infrastructure-on-the-ascsscs-cluster"></a>Preparación de la infraestructura en el clúster de ASCS/SCS
 
-Debe preparar la infraestructura del clúster de ASCS/SCS existente para un segundo \<SID> de SAP:
+Debe preparar la infraestructura del clúster de ASCS/SCS existente para un segundo SAP \<SID>:
 
 * Cree un nombre de host virtual para la instancia de ASCS/SCS de SAP en clúster en el servidor DNS.
 * Añada una dirección IP a un equilibrador de carga interno de Azure existente con PowerShell.
@@ -90,20 +90,20 @@ Estos pasos se describen en [Preparación de la infraestructura para un escenari
 
 ### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>Preparación de la infraestructura en un clúster de SOFS mediante el host global de SAP existente
 
-Puede reutilizar \<SAPGlobalHost> y Volume1 existentes del primer sistema SAP \<SID1>.
+Puede reutilizar el elemento \<SAPGlobalHost> existente y Volume1 del primer sistema SAP \<SID1>.
 
 ![Ilustración 3: SOFS con varios identificadores de seguridad es lo mismo que el nombre de host global de SAP][sap-ha-guide-figure-8014]
 
 _**Ilustración 3:** SOFS con varios identificadores de seguridad es lo mismo que el nombre de host global de SAP_
 
 > [!IMPORTANT]
->Para el segundo sistema **SAP \<SID2>** , se usan los mismos Volume1 y nombre de red **\<SAPGlobalHost>** .
->Dado que ya ha definido **SAPMNT** como nombre del recurso compartido para los distintos sistemas de SAP, para volver a usar el nombre de red **\<SAPGlobalHost>** , debe utilizar el mismo **Volume1**.
+>Con el segundo sistema **SAP \<SID2>** , se usan el mismo elemento Volume1 y la misma red **\<SAPGlobalHost>** .
+>Dado que ya ha definido **SAPMNT** como nombre del recurso compartido para los distintos sistemas de SAP, para volver a usar el nombre de red **\<SAPGlobalHost>** , debe usar el mismo elemento **Volume1**.
 >
->La ruta de acceso de archivo para el host global de \<SID2> es: C:\ClusterStorage\\**Volume1**\usr\sap\<SID2>\SYS\\.
+>La ruta de acceso de archivo del host global de \<SID2> es C:\ClusterStorage\\**Volume1**\usr\sap\<SID2>\SYS\..
 >
 
-Para el sistema \<SID2>, debe preparar la carpeta ..\SYS\.. del host global de SAP en el clúster de SOFS.
+En el caso del sistema \<SID2>, debe preparar el host global de SAP ..\SYS\.. del host global de SAP en el clúster de SOFS.
 
 Para preparar el host global de SAP para la instancia de \<SID2>, ejecute el siguiente script de PowerShell:
 
@@ -156,7 +156,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ### <a name="prepare-the-infrastructure-on-the-sofs-cluster-by-using-a-different-sap-global-host"></a>Preparación de la infraestructura en un clúster de SOFS mediante otro host global de SAP
 
-Puede configurar el segundo SOFS (por ejemplo, el rol del clúster de SOFS con **\<SAPGlobalHost2>** y diferentes **Volume2** para el segundo **\<SID2>** ).
+Puede configurar el segundo SOFS (por ejemplo, el segundo rol del clúster de SOFS con **\<SAPGlobalHost2>** y un elemento **Volume2** diferente para el segundo **\<SID2>** ).
 
 ![Ilustración 4: SOFS con varios identificadores de seguridad es lo mismo que el nombre de host global de SAP 2][sap-ha-guide-figure-8015]
 
@@ -180,7 +180,7 @@ New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_
 
 _**Ilustración 5:** Segundo Volume2 en el Administrador de clústeres de conmutación por error_
 
-Cree una carpeta de SAP Global para el segundo \<SID2> y establezca la seguridad de archivo.
+Cree una carpeta SAP Global para el segundo \<SID2> y establezca la seguridad del archivo.
 
 Ejecute este script de PowerShell:
 
@@ -223,7 +223,7 @@ $Acl.SetAccessRule($Ar)
 Set-Acl $UsrSAPFolder $Acl -Verbose
 ```
 
-Para crear el recurso compartido de archivos SAPMNT en Volume2 con el nombre de host *\<SAPGlobalHost2>* , para el segundo sistema SAP \<SID2>, inicie el asistente **Agregar recurso compartido de archivos** del Administrador de clústeres de conmutación por error.
+Para crear un recurso compartido de archivos SAPMNT en Volume2 con el nombre de host *\<SAPGlobalHost2>* , para el segundo sistema SAP \<SID2>, inicie el asistente para **agregar recursos compartido de archivos** del Administrador de clústeres de conmutación por error.
 
 Haga clic con el botón derecho en el grupo de clústeres de SOFS **saoglobal2** y seleccione **Agregar recurso compartido de archivos**.
 
@@ -258,7 +258,7 @@ _**Figura 10:** Deshabilitación de toda la configuración_
 <br>
 
 Asigne permisos de *Control total* en los archivos y el recurso compartido de sapmnt para:
-* El grupo de usuarios del dominio **SAP_\<SID>_GlobalAdmin**
+* El grupo de usuarios del dominio **SAP_\<SID>_GlobalAdmin**.
 * El objeto de equipo de los nodos del clúster de ASCS/SCS **ascs-1$** y **ascs-2$**
 
 ![Figura 11: Asignación de permisos de Control total a grupos de usuarios y cuentas de equipo][sap-ha-guide-figure-8022]
@@ -281,9 +281,9 @@ _**Figura 13:** El segundo enlace sapmnt al host sapglobal2 y se crea Volume2_
 
 ## <a name="install-sap-netweaver-multi-sid"></a>Instalación de varios identificadores de seguridad para SAP NetWeaver
 
-### <a name="install-sap-sid2-ascsscs-and-ers-instances"></a>Instalación de las instancias \<SID2> de SAP ASCS/SCS y ERS
+### <a name="install-sap-sid2-ascsscs-and-ers-instances"></a>Instalación de instancias de ASCS/SCS y ERS de SAP \<SID2>
 
-Siga los mismos pasos de instalación y configuración descritos anteriormente para un \<SID> de SAP.
+Siga los mismos pasos de instalación y configuración descritos anteriormente para un SAP \<SID>.
 
 ### <a name="install-dbms-and-sap-application-servers"></a>Instalación de DBMS y los servidores de aplicaciones de SAP
 Instale DBMS y los servidores de aplicaciones de SAP como se describió anteriormente.

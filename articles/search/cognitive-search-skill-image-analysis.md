@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 4ff6972e2f7ea219a1c8c8dbabbf9fe12a8fa59e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/17/2020
+ms.openlocfilehash: d535866881fa6ed73b51eb6039baa9d515b770b2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369473"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080827"
 ---
 # <a name="image-analysis-cognitive-skill"></a>Aptitud cognitiva de análisis de imágenes
 
@@ -22,7 +22,7 @@ La aptitud de **Análisis de imágenes** extrae un amplio conjunto de caracterí
 > [!NOTE]
 > Los volúmenes pequeños (menos de 20 transacciones) se pueden ejecutar gratis en Búsqueda cognitiva de Azure, pero las cargas de trabajo más grandes requieren la [asociación de un recurso de Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y por la extracción de imágenes como parte de la fase de descifrado de documentos de Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.
 >
-> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Búsqueda cognitiva de Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
+> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Búsqueda cognitiva de Azure](https://azure.microsoft.com/pricing/details/search/).
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -34,15 +34,15 @@ Los parámetros distinguen mayúsculas de minúsculas.
 
 | Nombre de parámetro     | Descripción |
 |--------------------|-------------|
-| defaultLanguageCode   |  Cadena que indica el idioma que se devolverá. Este servicio devuelve los resultados de reconocimiento en un idioma concreto. Si esta no se especifica este parámetro, se usa el valor predeterminado "en". <br/><br/>Estos son los idiomas admitidos: <br/>*en*: inglés (predeterminado) <br/> *es*: español <br/> *ja*: japonés <br/> *pt*: portugués <br/> *zh*: chino simplificado|
-| visualFeatures |  Matriz de cadenas que indica los tipos de características visual que se devolverán. Los tipos de características visuales válidos incluyen:  <ul><li>*adult*: detecta si la imagen es de naturaleza pornográfica (representa desnudez o un acto sexual) o cruenta (muestra sangre o violencia extrema). También se detecta contenido provocativo (esto es, contenido subido de tono).</li><li>*brands*: detecta varias marcas en una imagen, incluida la ubicación aproximada. La característica visual *brands* solo está disponible en inglés.</li><li> *categories*: clasifica el contenido de la imagen según una taxonomía definida en la [documentación de Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) de Cognitive Services. </li><li>*description*: describe el contenido de la imagen con una oración completa en los idiomas que se admiten.</li><li>*faces*: detecta si hay caras presentes. Si las hay, indica las coordenadas, el género y la edad.</li><li> *objects*: detecta varios objetos en una imagen, incluida la ubicación aproximada. La característica visual *objects* solo está disponible en inglés.</li><li> *Etiquetas*: etiquetas de la imagen con una lista detallada de palabras relacionadas con el contenido de la imagen.</li></ul> Los nombres de las características visuales distinguen entre mayúsculas y minúsculas. Tenga en cuenta que las características visuales *color* y *imageType* han quedado en desuso, pero todavía se puede acceder a esta funcionalidad mediante una [aptitud personalizada](https://go.microsoft.com/fwlink/?linkid=2121117).|
-| detalles   | Matriz de cadenas que indica qué detalles específicos del dominio que se devolverán. Los tipos de características visuales válidos incluyen: <ul><li>*celebrities*: identifica celebridades si se detectan en la imagen.</li><li>*landmarks*: identifica puntos de referencia si se detectan en la imagen. </li></ul> |
+| `defaultLanguageCode` |  Cadena que indica el idioma que se devolverá. Este servicio devuelve los resultados de reconocimiento en un idioma concreto. Si esta no se especifica este parámetro, se usa el valor predeterminado "en". <br/><br/>Estos son los idiomas admitidos: <br/>*en*: inglés (predeterminado) <br/> *es*: español <br/> *ja*: japonés <br/> *pt*: portugués <br/> *zh*: chino simplificado|
+| `visualFeatures` |    Matriz de cadenas que indica los tipos de características visual que se devolverán. Los tipos de características visuales válidos incluyen:  <ul><li>*adult*: detecta si la imagen es de naturaleza pornográfica (representa desnudez o un acto sexual) o cruenta (muestra sangre o violencia extrema). También se detecta contenido provocativo (esto es, contenido subido de tono).</li><li>*brands*: detecta varias marcas en una imagen, incluida la ubicación aproximada. La característica visual *brands* solo está disponible en inglés.</li><li> *categories*: clasifica el contenido de la imagen según una taxonomía definida en la [documentación de Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) de Cognitive Services. </li><li>*description*: describe el contenido de la imagen con una oración completa en los idiomas que se admiten.</li><li>*faces*: detecta si hay caras presentes. Si las hay, indica las coordenadas, el género y la edad.</li><li>   *objects*: detecta varios objetos en una imagen, incluida la ubicación aproximada. La característica visual *objects* solo está disponible en inglés.</li><li> *Etiquetas*: etiquetas de la imagen con una lista detallada de palabras relacionadas con el contenido de la imagen.</li></ul> Los nombres de las características visuales distinguen entre mayúsculas y minúsculas. Tenga en cuenta que las características visuales *color* y *imageType* han quedado en desuso, pero todavía se puede acceder a esta funcionalidad mediante una [aptitud personalizada](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface).|
+| `details` | Matriz de cadenas que indica qué detalles específicos del dominio que se devolverán. Los tipos de características visuales válidos incluyen: <ul><li>*celebrities*: identifica celebridades si se detectan en la imagen.</li><li>*landmarks*: identifica puntos de referencia si se detectan en la imagen. </li></ul> |
 
 ## <a name="skill-inputs"></a>Entradas de la aptitud
 
 | Nombre de entrada      | Descripción                                          |
 |---------------|------------------------------------------------------|
-| imagen         | Tipo complejo. Actualmente, solo funciona con el campo "/document/normalized_images", que crea el indexador de Azure Blob cuando ```imageAction``` está establecido en un valor diferente a ```none```. Para obtener más información, consulte este [ejemplo](#sample-output).|
+| `image`         | Tipo complejo. Actualmente, solo funciona con el campo "/document/normalized_images", que crea el indexador de Azure Blob cuando ```imageAction``` está establecido en un valor diferente a ```none```. Para obtener más información, consulte este [ejemplo](#sample-output).|
 
 
 
@@ -514,13 +514,13 @@ En los siguientes casos de error, no se extrae ningún elemento.
 
 | Código de error | Descripción |
 |------------|-------------|
-| NotSupportedLanguage | El idioma proporcionado no se admite. |
-| InvalidImageUrl | La dirección URL de la imagen tiene un formato que no se admite o no es accesible.|
-| InvalidImageFormat | Los datos de entrada no son una imagen válida. |
-| InvalidImageSize | La imagen de entrada es demasiado grande. |
-| NotSupportedVisualFeature  | El tipo de característica especificado no es válido. |
-| NotSupportedImage | La imagen no se admite como, por ejemplo, pornografía infantil. |
-| InvalidDetails | El modelo específico del dominio no se admite. |
+| `NotSupportedLanguage` | El idioma proporcionado no se admite. |
+| `InvalidImageUrl` | La dirección URL de la imagen tiene un formato que no se admite o no es accesible.|
+| `InvalidImageFormat` | Los datos de entrada no son una imagen válida. |
+| `InvalidImageSize` | La imagen de entrada es demasiado grande. |
+| `NotSupportedVisualFeature`  | El tipo de característica especificado no es válido. |
+| `NotSupportedImage` | La imagen no se admite como, por ejemplo, pornografía infantil. |
+| `InvalidDetails` | El modelo específico del dominio no se admite. |
 
 Si recibe el error similar a `"One or more skills are invalid. Details: Error in skill #<num>: Outputs are not supported by skill: Landmarks"`, compruebe la ruta de acceso. Tanto las celebridades como los puntos de referencia son propiedades en `detail`.
 

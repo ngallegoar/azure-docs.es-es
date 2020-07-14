@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/03/2020
 ms.author: tisande
-ms.openlocfilehash: cd96f440c4e8c971d1f1473f667d31e60edef137
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: b06a8737c1ceb538417f966a989ccb39069f4d4c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839219"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85116305"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indexación de datos geoespaciales con Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Puede alternar entre el tipo espacial **geografía** y **geometría** en Azure P
 
 Aquí se muestra cómo establecer la **Configuración geoespacial** en el **Explorador de datos** en Azure Portal:
 
-![Establecimiento de la configuración geoespacial](./media/sql-query-geospatial-index/geospatial-configuration.png)
+:::image type="content" source="./media/sql-query-geospatial-index/geospatial-configuration.png" alt-text="Establecimiento de la configuración geoespacial":::
 
 También puede configurar `geospatialConfig` en el SDK de .NET para ajustar la **Configuración geoespacial**:
 

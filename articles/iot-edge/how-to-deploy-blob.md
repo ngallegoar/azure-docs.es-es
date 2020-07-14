@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
 ms.openlocfilehash: da163e902d06bd98ac47a24256cb809cb222173b
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80804629"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Implementación del módulo de Azure Blob Storage en IoT Edge en el dispositivo
 
 Hay varias maneras de implementar módulos en un dispositivo de IoT Edge, y todas ellas funcionan en los módulos de Azure Blob Storage en IoT Edge. Los dos métodos más sencillos son usar Azure Portal o las plantillas de Visual Studio Code.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una instancia de [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) en la suscripción de Azure.
 - Un [dispositivo de IoT Edge](how-to-register-device.md) que tenga instalado el entorno de ejecución de Azure IoT Edge.
@@ -88,10 +88,10 @@ Un manifiesto de implementación es un documento JSON que describe qué módulos
 
    - Reemplace `<storage mount>` según el sistema operativo del contenedor. Especifique el nombre de un [volumen](https://docs.docker.com/storage/volumes/) o la ruta de acceso absoluta a un directorio del dispositivo de IoT Edge donde el módulo del blob almacenará sus datos. El montaje de almacenamiento asigna una ubicación del dispositivo proporcionada a una ubicación establecida del módulo.
 
-     - En el caso de contenedores Linux, el formato es **\<la ruta de acceso o el volumen de almacenamiento:/blobroot**. Por ejemplo:
+     - En el caso de los contenedores Linux, el formato es **\<your storage path or volume>:/blobroot**. Por ejemplo:
          - use [montaje de volumen](https://docs.docker.com/storage/volumes/): `my-volume:/blobroot`
          - use [montaje de enlace](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot` Asegúrese de seguir los pasos para [conceder acceso al directorio al usuario del contenedor](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux).
-     - En el caso de contenedores Windows, el formato es **\<la ruta de acceso o el volumen de almacenamiento>:C:/BlobRoot**. Por ejemplo:
+     - En el caso de los contenedores Windows, el formato es **\<your storage path or volume>:C:/BlobRoot**. Por ejemplo:
          - use [montaje de volumen](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot`.
          - use [montaje de enlace](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot`.
          - En lugar de usar la unidad local, puede asignar la ubicación de red de SMB. Para más información, consulte [Uso del recurso compartido de SMB como almacenamiento local](how-to-store-data-blob.md#using-smb-share-as-your-local-storage).
@@ -200,10 +200,10 @@ Azure IoT Edge proporciona plantillas de Visual Studio Code que facilitan el des
 
 1. Reemplace `<storage mount>` según el sistema operativo del contenedor. Especifique el nombre de un [volumen](https://docs.docker.com/storage/volumes/) o la ruta de acceso absoluta a un directorio del dispositivo de IoT Edge en el que desea que el módulo del blob almacene sus datos. El montaje de almacenamiento asigna una ubicación del dispositivo proporcionada a una ubicación establecida del módulo.  
 
-     - En el caso de contenedores Linux, el formato es **\<la ruta de acceso o el volumen de almacenamiento:/blobroot**. Por ejemplo:
+     - En el caso de los contenedores Linux, el formato es **\<your storage path or volume>:/blobroot**. Por ejemplo:
          - use [montaje de volumen](https://docs.docker.com/storage/volumes/): `my-volume:/blobroot`
          - use [montaje de enlace](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot` Asegúrese de seguir los pasos para [conceder acceso al directorio al usuario del contenedor](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux).
-     - En el caso de contenedores Windows, el formato es **\<la ruta de acceso o el volumen de almacenamiento>:C:/BlobRoot**. Por ejemplo
+     - En el caso de los contenedores Windows, el formato es **\<your storage path or volume>:C:/BlobRoot**. Por ejemplo
          - use [montaje de volumen](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot`.
          - use [montaje de enlace](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot`.
          - En lugar de usar la unidad local, puede asignar la ubicación de red de SMB. Para obtener más información, consulte [uso del recurso compartido de SMB como almacenamiento local](how-to-store-data-blob.md#using-smb-share-as-your-local-storage).

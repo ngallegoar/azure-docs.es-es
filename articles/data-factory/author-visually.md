@@ -10,12 +10,12 @@ ms.author: daperlov
 ms.reviewer: ''
 manager: anandsub
 ms.date: 05/15/2020
-ms.openlocfilehash: 79b89c6a6a7598dd3fbdfc5030fd59fe1aab6625
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ac51fd63adcc0328ff67f5fbe13dbfdb768f4bfe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832794"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343127"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Creación visual de Azure Data Factory
 
@@ -42,6 +42,12 @@ En el caso de los recursos de nivel superior, como canalizaciones, conjuntos de 
 ![Lienzo de creación](media/author-visually/properties-pane.png)
 
 El panel Propiedades solo se abre de forma predeterminada en la creación de recursos. Para editarlo, haga clic en el icono del panel Propiedades situado en la esquina superior derecha del lienzo.
+
+## <a name="management-hub"></a>Centro de administración
+
+El centro de administración, al que accede la pestaña *Administrar* en la experiencia de usuario de Azure Data Factory, es un portal que hospeda acciones de administración globales para Data Factory. Aquí puede administrar las conexiones a almacenes de datos y procesos externos, la configuración del control de código fuente y la configuración del desencadenador. Para obtener más información, consulte las capacidades del [centro de administración](author-management-hub.md).
+
+![Administración de servicios vinculados](media/author-management-hub/management-hub-linked-services.png)
 
 ## <a name="expressions-and-functions"></a>Expresiones y funciones
 

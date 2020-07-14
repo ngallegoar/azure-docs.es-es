@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: kgremban
-ms.openlocfilehash: e95f68610f8469a829255d6a16115dcf728ef612
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: ba3e8b9d7649d56d1639f7f608d85a2da04ff74a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856740"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465565"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Instalación del entorno de ejecución de Azure IoT Edge en Windows
 
@@ -33,7 +33,7 @@ En la configuración de producción de Azure IoT Edge, no se recomienda ni se pe
 
 Para obtener información acerca de lo que se incluye en la versión más reciente de IoT Edge, vea las [versiones de Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Utilice esta sección para revisar si el dispositivo Windows puede admitir IoT Edge y para prepararlo para un motor de contenedor antes de la instalación.
 
@@ -42,7 +42,7 @@ Utilice esta sección para revisar si el dispositivo Windows puede admitir IoT E
 IoT Edge para Windows requiere la versión de Windows 1809/compilación 17763, que es la [compilación de compatibilidad con Windows a largo plazo más reciente](https://docs.microsoft.com/windows/release-information/). En cuanto a la compatibilidad con la SKU de Windows, vea qué se admite en función de si está preparando escenarios de producción o escenarios de desarrollo y pruebas:
 
 * **Producción**: para la información más reciente sobre qué sistemas operativos se admiten actualmente en los escenarios de producción, consulte [Sistemas compatibles con Azure IoT Edge](support.md#operating-systems).
-* **Desarrollo y pruebas**: en los escenarios de desarrollo y pruebas, Azure IoT Edge con contenedores Windows puede instalarse en cualquier versión de Windows 10 o Windows Server 2019 que admita la característica de contenedores.
+* **Desarrollo y pruebas**: En los escenarios de desarrollo y pruebas, Azure IoT Edge con contenedores Windows puede instalarse en cualquier SKU (Pro, Enterprise, Server etc.) de la compilación 17763 de Windows que admita la característica de contenedores.
 
 Los dispositivos IoT Core deben incluir la característica opcional de contenedores de Windows IoT Core para admitir el entorno de ejecución de Azure IoT Edge. Use el siguiente comando en una [sesión remota de PowerShell](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell) para comprobar que los contenedores de Windows son compatibles con el dispositivo:
 

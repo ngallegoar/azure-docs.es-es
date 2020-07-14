@@ -9,16 +9,16 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 1125bafa43ce1752c58d1cce0bba66a6bbd32c32
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 58f41742519effc3959a3868345ed77c64db6341
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81685433"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85508510"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Administración de claves de cuenta de almacenamiento con Key Vault y la CLI de Azure
 
-Una cuenta de Azure Storage usa credenciales que constan de un nombre de cuenta y una clave. La clave se genera automáticamente y actúa como una contraseña y no como una clave criptográfica. Para administrar las claves de cuenta de almacenamiento, Key Vault las guarda como secretos de Key Vault. 
+Una cuenta de Azure Storage usa credenciales que constan de un nombre de cuenta y una clave. La clave se genera automáticamente y actúa como una contraseña y no como una clave criptográfica. Key Vault, para administrar las claves de la cuenta de almacenamiento, las regenera periódicamente en una cuenta de almacenamiento y proporciona tokens de firma de acceso compartido para el acceso delegado a los recursos de la cuenta de almacenamiento.
 
 Puede usar la característica de clave de cuenta de almacenamiento administrada de Key Vault para mostrar (sincronizar) las claves con una cuenta de almacenamiento de Azure y volver a generar (girar) las claves periódicamente. Puede administrar claves para las cuentas de almacenamiento y las cuentas de almacenamiento clásicas.
 
@@ -48,7 +48,7 @@ Key Vault es una aplicación de Microsoft que previamente se ha registrado en to
 | Azure AD | Pública de Azure | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 | Otros  | Any | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar esta guía, antes debe completar los pasos siguientes:
 
@@ -125,11 +125,11 @@ Después de que la operación se ejecute correctamente, copie la salida.
 "se=2020-01-01&sp=***"
 ```
 
-Esta salida se pasará al parámetro `--template-id` en el paso siguiente.
+Esta salida se pasará al parámetro `--template-uri` en el paso siguiente.
 
 ### <a name="generate-a-shared-access-signature-definition"></a>Generación de una definición de firma de acceso compartido
 
-Use el comando de la CLI de Azure [az keyvault storage sas-definition create](/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#az-keyvault-storage-sas-definition-create) para pasar el resultado del paso anterior al parámetro `--template-id` para crear una definición de firma de acceso compartido.  Puede proporcionar el nombre que elija al parámetro `-n`.
+Use el comando de la CLI de Azure [az keyvault storage sas-definition create](/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#az-keyvault-storage-sas-definition-create) para pasar el resultado del paso anterior al parámetro `--template-uri` para crear una definición de firma de acceso compartido.  Puede proporcionar el nombre que elija al parámetro `-n`.
 
 ```azurecli-interactive
 az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --account-name <YourStorageAccountName> -n <YourSASDefinitionName> --validity-period P2D --sas-type account --template-uri <OutputOfSasTokenCreationStep>

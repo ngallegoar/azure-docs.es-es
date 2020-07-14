@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
 ms.openlocfilehash: 0761db6b73c6fcfeb1ef6fda729a68c9644bbc72
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79479566"
 ---
 # <a name="install-azure-farmbeats"></a>Instalación de Azure FarmBeats
@@ -35,7 +35,7 @@ Al instalar Azure FarmBeats, se aprovisionan los siguientes recursos en la suscr
 | Plan de servicio de aplicación   | Centro de datos y acelerador  |
 | API Connection    |  Centro de datos       |
 | Azure Cache for Redis       | Centro de datos      |
-| Azure Cosmos DB   |  Centro de datos       |
+| Azure Cosmos DB   |  Centro de datos       |
 | Azure Data Factory V2       |     Centro de datos y acelerador      |
 | Cuenta de Azure Batch    | Centro de datos   |
 | Azure Key Vault |  Centro de datos y acelerador        |
@@ -71,7 +71,7 @@ Actualmente, Azure FarmBeats se admite en entornos de nube pública en las sigui
 
 La configuración completa de Azure FarmBeats, incluidas la preparación y la instalación, tardará menos de una hora.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para iniciar la instalación real de Azure FarmBeats, debe completar los pasos siguientes:
 
@@ -168,9 +168,9 @@ Ya está preparado para instalar FarmBeats. Siga los pasos siguientes para inici
 
 8. Una vez validados los detalles especificados, seleccione **Aceptar**. Aparece la página Términos de uso. Revise los términos y seleccione **Crear** para iniciar la instalación. Se le redirige a la página en la que puede seguir el progreso de la instalación.
 
-Una vez completada la instalación, puede comprobarla y empezar a usar el portal de FarmBeats. Para ello, vaya al nombre del sitio web proporcionado durante la instalación: https://\<FarmBeats-website-name>.azurewebsites.net. Debería ver la interfaz de usuario de FarmBeats con una opción para crear granjas.
+Finalizada la instalación, puede comprobarla y empezar a usar el portal de FarmBeats. Para ello, vaya al nombre del sitio web proporcionado durante la instalación: https://\<FarmBeats-website-name>.azurewebsites.net. Debería ver la interfaz de usuario de FarmBeats con una opción para crear granjas.
 
-El **Centro de datos** se encuentra en https://\<FarmBeats-website-name>-api.azurewebsites.net/swagger. En él se ven los distintos objetos de la API de FarmBeats y se realizan operaciones REST en las API.
+**Datahub** se puede encontrar en https://\<FarmBeats-website-name>-api.azurewebsites.net/swagger. En él se ven los distintos objetos de la API de FarmBeats y se realizan operaciones REST en las API.
 
 ## <a name="upgrade"></a>Actualizar
 

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: 770187693e5bac6e059dfd20455099fcc695b74b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ef746186717f3eb6bb93263c7f86c26606f65ea9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76715031"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84322522"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Enlaces de Microsoft Graph para Azure Functions
 
@@ -40,11 +40,11 @@ El enlace de entrada del token de autenticación se proporciona en el paquete Nu
 
 Los enlaces de Microsoft Graph están disponibles a través de las _extensiones de enlace_. Las extensiones de enlace son componentes opcionales del tiempo de ejecución de Azure Functions. En esta sección se muestra cómo configurar las extensiones del token de autenticación y Microsoft Graph.
 
-### <a name="enabling-functions-20-preview"></a>Habilitar la versión preliminar de Functions 2.0
+### <a name="enabling-functions-20"></a>Habilitación de Functions 2.0
 
-Las extensiones de enlace solo están disponibles para la versión preliminar de Azure Functions 2.0. 
+Las extensiones de enlace solo están disponibles para Azure Functions 2.0. 
 
-Para obtener información acerca de cómo establecer una aplicación de función para usar la versión preliminar 2.0 del runtime de Functions, consulte [Selección de destino de las versiones del runtime de Functions](set-runtime-version.md).
+Para obtener información sobre cómo establecer una aplicación de función para usar la versión 2.0 del tiempo de ejecución de Functions, consulte [Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions](set-runtime-version.md).
 
 ### <a name="installing-the-extension"></a>Instalación de la extensión
 
@@ -357,7 +357,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 Este enlace requiere los siguientes permisos de Azure AD:
 
-|Resource|Permiso|
+|Recurso|Permiso|
 |--------|--------|
 |Microsoft Graph|Leer los archivos de usuario|
 
@@ -520,7 +520,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 Este enlace requiere los siguientes permisos de Azure AD:
 
-|Resource|Permiso|
+|Recurso|Permiso|
 |--------|--------|
 |Microsoft Graph|Tener acceso completo a los archivos del usuario|
 
@@ -663,7 +663,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 Este enlace requiere los siguientes permisos de Azure AD:
 
-|Resource|Permiso|
+|Recurso|Permiso|
 |--------|--------|
 |Microsoft Graph|Leer los archivos de usuario|
 
@@ -811,7 +811,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 Este enlace requiere los siguientes permisos de Azure AD:
 
-|Resource|Permiso|
+|Recurso|Permiso|
 |--------|--------|
 |Microsoft Graph|Tener acceso completo a los archivos del usuario|
 
@@ -961,7 +961,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 Este enlace requiere los siguientes permisos de Azure AD:
 
-|Resource|Permiso|
+|Recurso|Permiso|
 |--------|--------|
 |Microsoft Graph|Enviar correo como usuario|
 

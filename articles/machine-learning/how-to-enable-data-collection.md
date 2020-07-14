@@ -5,25 +5,22 @@ description: Aprenda a recopilar datos de modelos de entrada de Azure Machine Le
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: laobri
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 44acc81df9eb6dc6a6af28b5b0f4730aa93adffc
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 75402c71316f7cc7d068c12a240f3123569a00ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475433"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84432998"
 ---
 # <a name="collect-data-for-models-in-production"></a>Recopilar datos de modelos en producción
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
-
->[!IMPORTANT]
-> El SDK de supervisión de Azure Machine Learning se retirará pronto. Sin embargo, aún es adecuado para los desarrolladores que usan actualmente el SDK para supervisar el desfase de datos en los modelos. No obstante, para los nuevos clientes, se recomienda usar la [supervisión de datos simplificada con Application Insights](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights).
 
 En este artículo se muestra cómo recopilar datos de modelos de entrada de Azure Machine Learning. También se muestra cómo implementar los datos de entrada en un clúster de Azure Kubernetes Service (AKS) y cómo almacenar los datos de salida en Azure Blob Storage.
 
@@ -58,7 +55,7 @@ La ruta de acceso a los datos de salida en el blob sigue esta sintaxis:
 >[!NOTE]
 > En las versiones del SDK de Azure Machine Learning para Python anteriores a la versión 0.1.0 A16, el argumento `designation` se denomina `identifier`. Si desarrolló el código con una versión anterior, debe actualizarlo en consecuencia.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree) antes de empezar.
 

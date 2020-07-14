@@ -1,14 +1,14 @@
 ---
 title: Restricción del acceso mediante puntos de conexión de servicio
-description: Restricción del acceso a un registro de contenedor de Azure mediante un punto de conexión de servicio en una red virtual de Azure
+description: Restricción del acceso a un registro de contenedor de Azure mediante un punto de conexión de servicio en una red virtual de Azure. El acceso de punto de conexión de servicio es una característica del nivel de servicio Premium.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 5a3cc9638fb12853e0e26f3806c17dc47f522249
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 0f320bb86549c801711cafdbce4500ff7737cb89
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685044"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84509294"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Restricción del acceso a un registro de contenedor mediante un punto de conexión de servicio en una red virtual de Azure
 
@@ -28,7 +28,7 @@ La configuración de un punto de conexión de servicio de registro está disponi
 * Para acceder a un registro de contenedor en un punto de conexión de servicio, solo se pueden usar como host un clúster de [Azure Kubernetes Service](../aks/intro-kubernetes.md) o una [máquina virtual](../virtual-machines/linux/overview.md) de Azure. *No se admiten otros servicios de Azure, como Azure Container Instances.*
 * Cada registro admite un máximo de 100 reglas de acceso de red.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Para usar los pasos de la CLI de Azure de este artículo, se requieren la versión 2.0.58 de la CLI de Azure, o cualquier versión posterior. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli].
 

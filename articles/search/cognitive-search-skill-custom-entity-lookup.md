@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/30/2020
-ms.openlocfilehash: 3659070d4ffd4346a8827d2748e67db436fc15b3
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.date: 06/17/2020
+ms.openlocfilehash: 00192ab3663944908f282f601396651cdd319df2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82085746"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987469"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Aptitud cognitiva de búsqueda de entidades personalizadas (versión preliminar)
 
@@ -38,17 +38,17 @@ Los parámetros distinguen mayúsculas de minúsculas.
 
 | Nombre de parámetro     | Descripción |
 |--------------------|-------------|
-| entitiesDefinitionUri    | Ruta de acceso a un archivo JSON o CSV que contiene todo el texto de destino con el que debe coincidir. Esta definición de entidad se lee al principio de una ejecución del indexador; las actualizaciones en medio de la ejecución de este archivo no se realizarán hasta posteriores ejecuciones. Esta configuración debe ser accesible mediante HTTPS. Consulte [Formato de definición de entidad personalizada](#custom-entity-definition-format) que aparece más adelante para ver el esquema CSV o JSON esperado.|
-|inlineEntitiesDefinition | Definiciones de entidades JSON insertadas. Este parámetro reemplaza al parámetro entitiesDefinitionUri si existe. No se pueden proporcionar más de 10 KB de configuración en línea. Consulte [Definición de entidad personalizada](#custom-entity-definition-format) que aparece más adelante para ver el esquema JSON esperado. |
-|defaultLanguageCode |    (Opcional) Código de idioma del texto de entrada que se utiliza para dividir en tokens y definir el texto de entrada. Se admiten los siguientes idiomas: `da, de, en, es, fi, fr, it, ko, pt`. El idioma predeterminado es inglés (`en`). Si se pasa un formato “código de idioma-código de país”, solo se usa la parte “código de idioma” del formato.  |
+| `entitiesDefinitionUri`    | Ruta de acceso a un archivo JSON o CSV que contiene todo el texto de destino con el que debe coincidir. Esta definición de entidad se lee al principio de una ejecución del indexador; las actualizaciones en medio de la ejecución de este archivo no se realizarán hasta posteriores ejecuciones. Esta configuración debe ser accesible mediante HTTPS. Consulte [Formato de definición de entidad personalizada](#custom-entity-definition-format) que aparece más adelante para ver el esquema CSV o JSON esperado.|
+|`inlineEntitiesDefinition` | Definiciones de entidades JSON insertadas. Este parámetro reemplaza al parámetro entitiesDefinitionUri si existe. No se pueden proporcionar más de 10 KB de configuración en línea. Consulte [Definición de entidad personalizada](#custom-entity-definition-format) que aparece más adelante para ver el esquema JSON esperado. |
+|`defaultLanguageCode` |    (Opcional) Código de idioma del texto de entrada que se utiliza para dividir en tokens y definir el texto de entrada. Se admiten los siguientes idiomas: `da, de, en, es, fi, fr, it, ko, pt`. El idioma predeterminado es inglés (`en`). Si se pasa un formato “código de idioma-código de país”, solo se usa la parte “código de idioma” del formato.  |
 
 
 ## <a name="skill-inputs"></a>Entradas de la aptitud
 
 | Nombre de entrada      | Descripción                   |
 |---------------|-------------------------------|
-| text          | Texto que se analizará.          |
-| languageCode    | Opcional. El valor predeterminado es `"en"`.  |
+| `text`          | Texto que se analizará.          |
+| `languageCode`    | Opcional. El valor predeterminado es `"en"`.  |
 
 
 ## <a name="skill-outputs"></a>Salidas de la aptitud
@@ -56,7 +56,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 
 | Nombre de salida      | Descripción                   |
 |---------------|-------------------------------|
-| entities | Matriz de objetos que contiene información sobre las coincidencias encontradas y los metadatos relacionados. Cada una de las entidades identificadas puede contener los campos siguientes:  <ul> <li> *name*: La entidad de nivel superior identificada. La entidad representa el formulario "normalizado". </li> <li> *id*:  Un identificador único para la entidad tal y como lo define el usuario en el "formato de definición de entidad personalizada".</li> <li> *description*: Descripción de la entidad tal y como la define el usuario en el "formato de definición de entidad personalizada". </li> <li> *type:* Tipo de entidad tal y como la define el usuario en el "formato de definición de entidad personalizada".</li> <li> *subtype:* Subtipo de entidad tal y como la define el usuario en el "formato de definición de entidad personalizada".</li>  <li> *matches*: Colección que describe cada una de las coincidencias para esa entidad en el texto de origen. Cada coincidencia tendrá los siguientes miembros: </li> <ul> <li> *text*: Coincidencia de texto sin formato del documento de origen. </li> <li> *offset*: La ubicación en la que se encontró la coincidencia en el texto. </li> <li> *length*:  La longitud del texto coincidente. </li> <li> *matchDistance*: El número de caracteres que diferencia a esta coincidencia del nombre o alias de la entidad original.  </li> </ul> </ul>
+| `entities` | Matriz de objetos que contiene información sobre las coincidencias encontradas y los metadatos relacionados. Cada una de las entidades identificadas puede contener los campos siguientes:  <ul> <li> *name*: La entidad de nivel superior identificada. La entidad representa el formulario "normalizado". </li> <li> *id*:  Un identificador único para la entidad tal y como lo define el usuario en el "formato de definición de entidad personalizada".</li> <li> *description*: Descripción de la entidad tal y como la define el usuario en el "formato de definición de entidad personalizada". </li> <li> *type:* Tipo de entidad tal y como la define el usuario en el "formato de definición de entidad personalizada".</li> <li> *subtype:* Subtipo de entidad tal y como la define el usuario en el "formato de definición de entidad personalizada".</li>  <li> *matches*: Colección que describe cada una de las coincidencias para esa entidad en el texto de origen. Cada coincidencia tendrá los siguientes miembros: </li> <ul> <li> *text*: Coincidencia de texto sin formato del documento de origen. </li> <li> *offset*: La ubicación en la que se encontró la coincidencia en el texto. </li> <li> *length*:  La longitud del texto coincidente. </li> <li> *matchDistance*: El número de caracteres que diferencia a esta coincidencia del nombre o alias de la entidad original.  </li> </ul> </ul>
   |
 
 ## <a name="custom-entity-definition-format"></a>Formato de definición de entidad personalizada
@@ -145,22 +145,22 @@ En las tablas siguientes se describe más detalladamente los distintos parámetr
 
 |  Nombre del campo  |        Descripción  |
 |--------------|----------------------|
-| name | El descriptor de entidad de nivel superior. Las coincidencias en la salida de la aptitud se agruparán por este nombre y este debe representar la forma "normalizada" del texto que se encuentra.  |
-| description  | (Opcional) Este campo se puede usar como paso a través de los metadatos personalizados acerca de los textos coincidentes. El valor de este campo aparecerá con cada coincidencia de su entidad en la salida de la aptitud. |
-| type | (Opcional) Este campo se puede usar como paso a través de los metadatos personalizados acerca de los textos coincidentes. El valor de este campo aparecerá con cada coincidencia de su entidad en la salida de la aptitud. |
-| subtype | (Opcional) Este campo se puede usar como paso a través de los metadatos personalizados acerca de los textos coincidentes. El valor de este campo aparecerá con cada coincidencia de su entidad en la salida de la aptitud. |
-| id | (Opcional) Este campo se puede usar como paso a través de los metadatos personalizados acerca de los textos coincidentes. El valor de este campo aparecerá con cada coincidencia de su entidad en la salida de la aptitud. |
-| caseSensitive | (Opcional) El valor predeterminado es "false". Valor booleano que indica si las comparaciones con el nombre de la entidad deben distinguir entre mayúsculas y minúsculas. Las coincidencias de "Microsoft" de ejemplo que no distinguen mayúsculas de minúsculas podrían ser: microsoft, microSoft, MICROSOFT |
-| fuzzyEditDistance | (Opcional) El valor predeterminado es 0. El valor máximo es 5. Indica el número aceptable de caracteres diferentes que seguirán constituyendo una coincidencia con el nombre de la entidad. Se devuelve el valor mínimo de coincidencia aproximada posible para cualquier coincidencia determinada.  Por ejemplo, si la distancia de edición se establece en 3, "Windows 10" todavía coincidiría con "Windows", "Windows10" y "Windows 7". <br/> Si la distinción entre mayúsculas y minúsculas está establecida en false, las diferencias entre mayúsculas y minúsculas NO cuentan para la tolerancia con la coincidencia aproximada. En caso contrario, sí lo hacen. |
-| defaultCaseSensitive | (Opcional) Cambia el valor predeterminado de distinción entre mayúsculas y minúsculas para esta entidad. Se utiliza para cambiar el valor predeterminado de todos los valores caseSensitive de los alias. |
-| defaultFuzzyEditDistance | (Opcional) Cambia el valor predeterminado de la distancia de edición de la coincidencia aproximada para esta entidad. Se puede utilizar para cambiar el valor predeterminado de todos los valores fuzzyEditDistance de los alias. |
-| aliases | (Opcional) Matriz de objetos complejos que se pueden usar para especificar ortografías o sinónimos alternativos al nombre de la entidad raíz. |
+| `name` | El descriptor de entidad de nivel superior. Las coincidencias en la salida de la aptitud se agruparán por este nombre y este debe representar la forma "normalizada" del texto que se encuentra.  |
+| `description`  | (Opcional) Este campo se puede usar como paso a través de los metadatos personalizados acerca de los textos coincidentes. El valor de este campo aparecerá con cada coincidencia de su entidad en la salida de la aptitud. |
+| `type` | (Opcional) Este campo se puede usar como paso a través de los metadatos personalizados acerca de los textos coincidentes. El valor de este campo aparecerá con cada coincidencia de su entidad en la salida de la aptitud. |
+| `subtype` | (Opcional) Este campo se puede usar como paso a través de los metadatos personalizados acerca de los textos coincidentes. El valor de este campo aparecerá con cada coincidencia de su entidad en la salida de la aptitud. |
+| `id` | (Opcional) Este campo se puede usar como paso a través de los metadatos personalizados acerca de los textos coincidentes. El valor de este campo aparecerá con cada coincidencia de su entidad en la salida de la aptitud. |
+| `caseSensitive` | (Opcional) El valor predeterminado es "false". Valor booleano que indica si las comparaciones con el nombre de la entidad deben distinguir entre mayúsculas y minúsculas. Las coincidencias de "Microsoft" de ejemplo que no distinguen mayúsculas de minúsculas podrían ser: microsoft, microSoft, MICROSOFT |
+| `fuzzyEditDistance` | (Opcional) El valor predeterminado es 0. El valor máximo es 5. Indica el número aceptable de caracteres diferentes que seguirán constituyendo una coincidencia con el nombre de la entidad. Se devuelve el valor mínimo de coincidencia aproximada posible para cualquier coincidencia determinada.  Por ejemplo, si la distancia de edición se establece en 3, "Windows 10" todavía coincidiría con "Windows", "Windows10" y "Windows 7". <br/> Si la distinción entre mayúsculas y minúsculas está establecida en false, las diferencias entre mayúsculas y minúsculas NO cuentan para la tolerancia con la coincidencia aproximada. En caso contrario, sí lo hacen. |
+| `defaultCaseSensitive` | (Opcional) Cambia el valor predeterminado de distinción entre mayúsculas y minúsculas para esta entidad. Se utiliza para cambiar el valor predeterminado de todos los valores caseSensitive de los alias. |
+| `defaultFuzzyEditDistance` | (Opcional) Cambia el valor predeterminado de la distancia de edición de la coincidencia aproximada para esta entidad. Se puede utilizar para cambiar el valor predeterminado de todos los valores fuzzyEditDistance de los alias. |
+| `aliases` | (Opcional) Matriz de objetos complejos que se pueden usar para especificar ortografías o sinónimos alternativos al nombre de la entidad raíz. |
 
 | Propiedades de alias | Descripción |
 |------------------|-------------|
-| text  | Ortografía o representación alternativa de algún nombre de entidad de destino.  |
-| caseSensitive | (Opcional) Actúa igual que el parámetro "caseSensitive" de la entidad raíz anterior, pero solo se aplica a este alias. |
-| fuzzyEditDistance | (Opcional) Actúa igual que el parámetro "fuzzyEditDistance" de la entidad raíz anterior, pero solo se aplica a este alias. |
+| `text`  | Ortografía o representación alternativa de algún nombre de entidad de destino.  |
+| `caseSensitive` | (Opcional) Actúa igual que el parámetro "caseSensitive" de la entidad raíz anterior, pero solo se aplica a este alias. |
+| `fuzzyEditDistance` | (Opcional) Actúa igual que el parámetro "fuzzyEditDistance" de la entidad raíz anterior, pero solo se aplica a este alias. |
 
 
 ### <a name="inline-format"></a>Formato en línea
@@ -188,7 +188,7 @@ A continuación se muestra un ejemplo de definición de aptitud con un formato e
       }, 
       { 
         "name" : "Xbox One", 
-        "type": "Harware",
+        "type": "Hardware",
         "subtype" : "Gaming Device",
         "id" : "4e36bf9d-5550-4396-8647-8e43d7564a76",
         "description" : "The Xbox One product"
@@ -208,7 +208,7 @@ A continuación se muestra un ejemplo de definición de aptitud con un formato e
     ]
   }
 ```
-Opcionalmente, si decide proporcionar un puntero al archivo de definición de entidades, puede ver a continuación una definición de aptitud de ejemplo con el formato entitiesDefinitionUri:
+Si decide proporcionar un puntero al archivo de definición de entidades, también puede ver a continuación una definición de aptitud de ejemplo con el formato `entitiesDefinitionUri`:
 
 ```json
   {
@@ -240,7 +240,7 @@ Opcionalmente, si decide proporcionar un puntero al archivo de definición de en
         "recordId": "1",
         "data":
            {
-             "text": "The company microsoft was founded by Bill Gates. Microsoft's gaming console is called Xbox",
+             "text": "The company, Microsoft, was founded by Bill Gates. Microsoft's gaming console is called Xbox",
              "languageCode": "en"
            }
       }

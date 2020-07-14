@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: 541c6f4a6c728844524af794f5e2063f4e352cce
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: fb3dda7a2f33fa76ab78a67f86fb015430c64099
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592141"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85114782"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Cifrado de datos de Azure Cosmos DB 
 
@@ -24,7 +24,7 @@ Como servicio de PaaS, Azure Cosmos DB es muy sencillo de usar. Dato que todos l
 
 El cifrado en reposo se implementa mediante una serie de tecnologías de seguridad, como sistemas seguros de almacenamiento de claves, redes cifradas y API criptográficas. Los sistemas que descifran y procesan datos tienen que comunicarse con los sistemas que administran claves. En el diagrama se muestra cómo se separan el almacenamiento de datos cifrados y la administración de claves. 
 
-![Diagrama de diseño](./media/database-encryption-at-rest/design-diagram.png)
+:::image type="content" source="./media/database-encryption-at-rest/design-diagram.png" alt-text="Diagrama de diseño" border="false":::
 
 El flujo básico de una solicitud de usuario es el siguiente:
 - La cuenta de la base de datos del usuario se prepara y las claves de almacenamiento se recuperan a través de una solicitud al proveedor de recursos del servicio de administración.
@@ -46,7 +46,7 @@ A. Las administra Microsoft.
 A. Microsoft cuenta con un conjunto de directrices internas para la rotación de claves de cifrado y Cosmos DB las sigue. Estas directrices específicas no se han publicado. Microsoft sí que publica el [Ciclo de vida de desarrollo de seguridad (SDL) de Microsoft](https://www.microsoft.com/sdl/default.aspx), que se considera un subconjunto de orientaciones internas e incluye procedimientos recomendados para desarrolladores de gran utilidad.
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>P: ¿Puedo usar mis propias claves de cifrado?
-A. Sí, esta característica está ahora disponible para las nuevas cuentas de Cosmos y esto debe realizarse en el momento de la creación de la cuenta. Para más información, consulte el documento sobre las [Claves administradas por el cliente](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk).
+A. Sí, esta característica ahora está disponible para las cuentas nuevas de Azure Cosmos DB y esto debe realizarse en el momento de la creación de la cuenta. Para más información, consulte el documento sobre las [Claves administradas por el cliente](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk).
 
 ### <a name="q-what-regions-have-encryption-turned-on"></a>P: ¿Qué regiones tienen activado el cifrado?
 A. Todas las regiones de Azure Cosmos DB tienen activado el cifrado de todos los datos de usuario.

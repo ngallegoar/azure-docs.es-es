@@ -4,19 +4,19 @@ description: Obtenga información sobre la función del sistema SQL ENDSWITH en 
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 06/02/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 0cd927af50eca04aa8162d9d8f292077d9e4165c
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 3d37786c7364b07228d1d8d6540e7b6d8a174eb5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844971"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84322693"
 ---
 # <a name="endswith-azure-cosmos-db"></a>ENDSWITH (Azure Cosmos DB)
 
- Devuelve un valor booleano que indica si la primera expresión de cadena finaliza con la segunda.  
+Devuelve un valor booleano que indica si la primera expresión de cadena finaliza con la segunda.  
   
 ## <a name="syntax"></a>Sintaxis
   
@@ -64,7 +64,7 @@ Esta función del sistema se beneficiará de un [índice de intervalo](index-pol
 
 El consumo de RU de Contains aumentará a medida que se incremente la cardinalidad de la propiedad en la función del sistema. En otras palabras, si está comprobando si un valor de propiedad contiene una cadena determinada, el cargo de la consulta RU dependerá del número de valores posibles para esa propiedad.
 
-Por ejemplo, considere dos propiedades: ciudad y país. La cardinalidad de ciudad es 5000 y la de país es 200. Aquí se muestran dos consultas de ejemplo:
+Por ejemplo, considere dos propiedades: ciudad y país. La cardinalidad de ciudad es 5000 y la de país es 200. Aquí se muestran dos consultas de ejemplo:
 
 ```sql
     SELECT * FROM c WHERE ENDSWITH(c.town, "York", false)
@@ -75,6 +75,8 @@ Por ejemplo, considere dos propiedades: ciudad y país. La cardinalidad de ciuda
 ```
 
 La primera consulta probablemente usará más RU que la segunda porque la cardinalidad de ciudad es mayor que la de país.
+
+Si el tamaño de la propiedad en EndsWith es superior a 1 KB para algunos documentos, el motor de consulta tendrá que cargar esos documentos. En este caso, el motor de consulta no podrá evaluar totalmente EndsWith con un índice. El cargo de RU para EndsWith será alto si tiene un gran número de documentos con tamaños de propiedad superiores a 1 KB.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,12 +3,12 @@ title: Refuerzo de la seguridad de los recursos con Azure Advisor
 description: Utilice Azure Advisor para mejorar la seguridad de las implementaciones de Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 5a4b7e9a9d9a7919155db361fd2c96ed98e6e5a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bf7a316c893600bed18b9392404af5792e2e31f7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443035"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85113864"
 ---
 # <a name="make-resources-more-secure-with-azure-advisor"></a>Refuerzo de la seguridad de los recursos con Azure Advisor
 
@@ -30,8 +30,8 @@ Para aprender más sobre las recomendaciones de Advisor, consulte:
 * [Introducción a Advisor](advisor-overview.md)
 * [Introducción a Advisor](advisor-get-started.md)
 * [Recomendaciones sobre el costo de Advisor](advisor-cost-recommendations.md)
-* [Recomendaciones sobre rendimiento de Advisor](advisor-performance-recommendations.md)
-* [Recomendaciones sobre alta disponibilidad de Advisor](advisor-high-availability-recommendations.md)
+* [Recomendaciones sobre el rendimiento de Advisor](advisor-performance-recommendations.md)
+* [Recomendaciones de confiabilidad de Advisor](advisor-high-availability-recommendations.md)
 * [Recomendaciones de excelencia operativa de Advisor](advisor-operational-excellence-recommendations.md)
-
+* [API REST de Advisor](https://docs.microsoft.com/rest/api/advisor/)
  

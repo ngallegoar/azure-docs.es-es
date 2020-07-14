@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: c4043702bd27bb9a37fca70475ef254bbd1f7372
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 98431e7a451aa54dfdee2126d4ce94b8b0b0fb84
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561345"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84339219"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Administración del acceso, encendido y modo de conectividad de Azure Data Box Gateway
 
@@ -22,6 +22,7 @@ En este artículo se describe cómo administrar el acceso, encendido y modo de c
 En este artículo aprenderá a:
 
 > [!div class="checklist"]
+>
 > * Administración del acceso al dispositivo
 > * Administración del modo de conectividad
 > * Administración del encendido
@@ -79,7 +80,7 @@ No necesita conceder permisos de acceso en el nivel de suscripción para que los
 
 Antes de que intente crear cualquier recurso, asegúrese de que el proveedor de recursos está registrado en la suscripción. Si el proveedor de recursos no está registrado, deberá asegurarse de que el usuario que crea el nuevo recurso tiene derechos suficientes para registrar al proveedor de recursos necesarios en el nivel de suscripción. Si aún no lo ha hecho, verá el siguiente error:
 
-*La suscripción \<nombre de la suscripción> no tiene permisos para registrar el proveedor de recursos: Microsoft.DataBoxEdge.*
+*La suscripción \<Subscription name> no tiene permisos para registrar los siguientes proveedores de recursos: Microsoft.DataBoxEdge.*
 
 
 Para obtener una lista de los proveedores de recursos registrados en la suscripción actual, ejecute el siguiente comando:

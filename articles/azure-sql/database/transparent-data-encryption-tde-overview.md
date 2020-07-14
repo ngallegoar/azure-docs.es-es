@@ -1,7 +1,7 @@
 ---
 title: Cifrado de datos transparente
-titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse
-description: Información general sobre el cifrado de datos transparente para Azure SQL Database, Instancia administrada de Azure SQL y Azure Synapse. Este documento explica sus ventajas y las opciones de configuración, que incluye cifrado de datos transparente administrado por el servicio y Bring Your Own Key.
+titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
+description: Información general sobre el cifrado de datos transparente para Azure SQL Database, Azure SQL Managed Instance y Azure Synapse Analytics. Este documento explica sus ventajas y las opciones de configuración, que incluye cifrado de datos transparente administrado por el servicio y Bring Your Own Key.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,25 +11,25 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 04/10/2020
-ms.openlocfilehash: 05bd4b83a6387eefb243ed8058c3fe833615cfb4
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 06/15/2020
+ms.openlocfilehash: 8bf1a19c8756e8c51b79ec63f10822efa7816d32
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84188285"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84986959"
 ---
-# <a name="transparent-data-encryption-for-sql-database-sql-managed-instance--azure-synapse"></a>Cifrado de datos transparente para SQL Database, Instancia administrada de SQL y Azure Synapse
+# <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Cifrado de datos transparente para SQL Database, SQL Managed Instance y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-El [cifrado de datos transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) ayuda a proteger Azure SQL Database, Instancia administrada de Azure SQL y SQL de Synapse en Azure Synapse Analytics frente a la amenaza de actividades malintencionadas sin conexión, ya que cifra los datos en reposo. También realiza cifrado y descifrado de la base de datos en tiempo real, copias de seguridad asociadas y archivos de registro de transacciones en reposo sin necesidad de efectuar cambios en la aplicación. El TDE se habilita de manera predeterminada para todas las bases de datos recién implementadas, y es preciso habilitarlo manualmente para las bases de datos anteriores de Azure SQL Database, Instancia administrada de Azure SQL o Azure Synapse.
+El [cifrado de datos transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) ayuda a proteger Azure SQL Database, Azure SQL Managed Instance y Azure Synapse Analytics frente a la amenaza de actividad malintencionada sin conexión, ya que cifra los datos en reposo. También realiza cifrado y descifrado de la base de datos en tiempo real, copias de seguridad asociadas y archivos de registro de transacciones en reposo sin necesidad de efectuar cambios en la aplicación. El TDE se habilita de manera predeterminada para todas las instancias de SQL Database recién implementadas, y es preciso habilitarlo manualmente para las bases de datos anteriores de Azure SQL Database y Azure SQL Managed Instance. TDE debe habilitarse manualmente para Azure Synapse Analytics.
 
 El TDE efectúa el cifrado y descifrado de E/S en tiempo real de los datos en el nivel de página. Todas las páginas se descifran cuando se leen en la memoria y, a continuación, se cifran antes de escribirse en el disco. El TDE cifra el almacenamiento de una base de datos completa mediante una clave simétrica denominada clave de cifrado de base de datos (DEK). Al iniciarse la base de datos, la DEK cifrada se descifra y luego se usa para descifrar y volver a cifrar los archivos de base de datos en el proceso del motor de base de datos de SQL Server. A la clave de cifrado se le aplica el protector de TDE. El protector de TDE es un certificado administrado por el servicio (cifrado de datos transparentes administrado por el servicio) o una clave asimétrica almacenada en [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) (cifrado de datos transparentes administrado por el cliente).
 
 En el caso de Azure SQL Database y Azure Synapse, el protector del TDE se establece en el nivel de [servidor](logical-servers.md) y lo heredan todas las bases de datos asociadas a ese servidor. En el caso de Instancia administrada de Azure SQL Database (la característica BYOK está en versión preliminar), el protector de TDE se establece en el nivel de instancia y lo heredan todas las bases de datos cifradas que se encuentran en dicha instancia. El término *servidor* hace referencia tanto a servidor como a instancia a lo largo de este documento, a menos que se indique lo contrario.
 
 > [!IMPORTANT]
-> Todas las bases de datos creadas en SQL Database y Azure Synapse se cifran de forma predeterminada mediante el cifrado de datos transparente administrado por el servicio. Las bases de datos SQL existentes creadas antes de mayo de 2017 y las bases de datos SQL creadas mediante restauración, replicación geográfica y copia de base de datos no se cifran de forma predeterminada. Las bases de datos de Instancia administrada existentes creadas antes de febrero de 2019 no se cifran de forma predeterminada. Las bases de datos de Instancia administrada creadas mediante restauración heredan el estado de cifrado del origen.
+> Todas las bases de datos recién creadas en SQL Database se cifran de forma predeterminada mediante el cifrado de datos transparente administrado por el servicio. Las bases de datos SQL existentes creadas antes de mayo de 2017 y las bases de datos SQL creadas mediante restauración, replicación geográfica y copia de base de datos no se cifran de forma predeterminada. Las bases de datos de SQL Managed Instance existentes que se crearon antes de febrero de 2019 no se cifran de forma predeterminada. Las bases de datos de SQL Managed Instance que se crearon mediante restauración heredan el estado de cifrado del origen.
 
 > [!NOTE]
 > TDE no se puede usar para cifrar la base de datos **maestra** en SQL Database.  La base de datos **maestra** contiene objetos que son necesarios para realizar las operaciones de TDE en las bases de datos de usuario.
@@ -61,17 +61,17 @@ No es necesario descifrar las bases de datos para las operaciones dentro de Azur
 - Restauración de archivo de copia de seguridad a la Instancia administrada de Azure SQL Database
 
 > [!IMPORTANT]
-> En Instancia administrada de Azure SQL Database no se permite realizar copias de seguridad manuales de una base de datos cifrada por TDE administrada por el servicio, ya que el certificado que se usa para el cifrado no es accesible. Use la característica de restauración de punto en el tiempo para mover este tipo de base de datos a otra Instancia administrada de SQL.
+> En Azure SQL Managed Instance no se permite realizar copias de seguridad manuales de una base de datos cifrada por TDE administrada por el servicio, ya que el certificado que se usa para el cifrado no es accesible. Use la característica de restauración de punto en el tiempo para mover este tipo de base de datos a otra instancia de SQL Managed Instance o cambie a una clave administrada por el cliente.
 
 Si exporta una base de datos protegida mediante TDE, el contenido exportado de la base de datos no se cifra. Este contenido exportado se almacena en archivos BACPAC no cifrados. Asegúrese de proteger adecuadamente los archivos BACPAC y de habilitar el TDE cuando haya finalizado la importación de la nueva base de datos.
 
 Por ejemplo, si el archivo BACPAC se exporta desde una instancia de SQL Server, el contenido importado de la nueva base de datos no se cifra automáticamente. Del mismo modo, si el archivo BACPAC se importa a una instancia de SQL Server, la base de datos nueva tampoco se cifra automáticamente.
 
-La única excepción es cuando se exporta a y desde una instancia de SQL Database. El TDE se habilita en la nueva base de datos, pero el propio archivo BACPAC sigue sin estar cifrado.
+La única excepción es cuando se exporta una base de datos con una instancia de SQL Database como origen y destino. El TDE se habilita en la nueva base de datos, pero el propio archivo BACPAC sigue sin estar cifrado.
 
 ## <a name="manage-transparent-data-encryption"></a>Administración del cifrado de datos transparente
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="the-azure-portal"></a>[Portal de Azure](#tab/azure-portal)
 
 Administre TDE en Azure Portal.
 

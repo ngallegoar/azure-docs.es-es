@@ -1,19 +1,20 @@
 ---
-title: Administración de la autenticación | Microsoft Azure Maps
+title: Administración de la autenticación
+titleSuffix: Azure Maps
 description: Utilice Azure Portal para administrar la autenticación en Microsoft Azure Maps.
 author: philmea
 ms.author: philmea
-ms.date: 01/29/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: dfe73971f29ea362fdd0ddd654e705b622ab1866
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 174606b4b070b69aba94f438a3f7177f0d5897f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335536"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84981731"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Administración de la autenticación en Azure Maps
 
@@ -25,97 +26,65 @@ Después de crear la cuenta de Azure Maps, se generan las claves principal y sec
 
 Puede ver los datos de autenticación en Azure Portal. Una vez allí, vaya a su cuenta y seleccione **Autenticación** en el menú **Configuración**.
 
-![Detalles de la autenticación](./media/how-to-manage-authentication/how-to-view-auth.png)
+> [!div class="mx-imgBorder"]
+> ![Detalles de la autenticación](./media/how-to-manage-authentication/how-to-view-auth.png)
 
+## <a name="discover-category-and-scenario"></a>Detección de categoría y escenario
 
-## <a name="register-and-configure-an-azure-ad-app"></a>Registro y configuración de una aplicación de Azure AD
+Dependiendo de las necesidades de la aplicación, hay rutas específicas para protegerla. Azure AD define categorías para admitir una amplia gama de flujos de autenticación. Consulte las [categorías de aplicación](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios#application-categories) para saber qué categoría se adapta a la aplicación.
 
-1. En Azure Portal, en la lista de servicios de Azure, seleccione **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro**.  
+> [!NOTE]
+> Incluso si usa la autenticación de clave compartida, la descripción de las categorías y los escenarios le ayudará a proteger la aplicación.
 
-    ![Registro de aplicación](./media/how-to-manage-authentication/app-registration.png)
+## <a name="determine-authentication-and-authorization"></a>Definición de la autenticación y autorización
 
-1. Si ya ha registrado la aplicación, continúe en el siguiente paso. Si no la ha registrado, especifique un **nombre**, seleccione el **tipo de cuenta admitido** y haga clic en **Registrar**.  
+En la tabla siguiente se describen los escenarios comunes de autenticación y autorización en Azure Maps. La tabla proporciona una comparación de los tipos de protección que ofrece cada escenario.
 
-    ![Detalles de registro de la aplicación](./media/how-to-manage-authentication/app-create.png)
+> [!IMPORTANT]
+> Microsoft recomienda implementar Azure Active Directory (Azure AD) con el control de acceso basado en rol (RBAC) para las aplicaciones de producción.
 
-1. Para asignar permisos de API delegados a Azure Maps, vaya a la aplicación. A continuación, en **Registros de aplicaciones**, seleccione **Permisos de API** > **Add a permission** (Agregar un permiso). En **API usadas en mi organización**, busque y seleccione **Azure Maps**.
+| Escenario                                                                                    | Authentication | Authorization | Esfuerzo para desarrollo | Esfuerzo operativo |
+| ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
+| [Demonio de confianza o aplicación cliente no interactiva](./how-to-secure-daemon-app.md)        | Clave compartida     | N/D           | Media             | Alto               |
+| [Demonio de confianza o aplicación cliente no interactiva](./how-to-secure-daemon-app.md)        | Azure AD       | Alto          | Bajo                | Media             |
+| [Aplicación de una sola página web con inicio de sesión único interactivo](./how-to-secure-spa-users.md) | Azure AD       | Alto          | Media             | Media             |
+| [Aplicación de una sola página web con inicio de sesión no interactivo](./how-to-secure-spa-app.md)      | Azure AD       | Alto          | Media             | Media             |
+| [Aplicación web con inicio de sesión único interactivo](./how-to-secure-webapp-users.md)          | Azure AD       | Alto          | Alto               | Media             |
+| [Dispositivo IoT/dispositivo restringido de entrada](./how-to-secure-device-code.md)                     | Azure AD       | Alto          | Media             | Media             |
 
-    ![Agregar permisos de API a la aplicación](./media/how-to-manage-authentication/app-permissions.png)
+Los vínculos de la tabla muestran información de configuración detallada para cada escenario.
 
-1. Active la casilla situada junto a **Access Azure Maps** (Acceder a Azure Maps) y seleccione **Agregar permisos**.
-
-    ![Selección de permisos de API de aplicación](./media/how-to-manage-authentication/select-app-permissions.png)
-
-1. Siga uno de los pasos que se indican a continuación, en función del método de autenticación utilizado. 
-
-    * Si la aplicación utiliza la autenticación basada en tokens de usuario con el SDK web de Azure Maps, habilite `oauth2AllowImplicitFlow`. Para ello, en la sección **Manifiesto** del registro de la aplicación, establezca `oauth2AllowImplicitFlow` en True. 
-    
-       ![Manifiesto de aplicación](./media/how-to-manage-authentication/app-manifest.png)
-
-    * Si la aplicación utiliza la autenticación del servidor o de la aplicación, en la página de registro de la aplicación, vaya a **Certificates & secrets** (Certificados y secretos). Cargue un certificado de clave pública o cree una contraseña seleccionando **Nuevo secreto de cliente**. 
-    
-       ![Creación de un secreto de cliente](./media/how-to-manage-authentication/app-keys.png)
-
-        Si crea una contraseña, después de seleccionar **Agregar**, copie la contraseña y guárdela en un lugar seguro. Esta contraseña se utilizará después para obtener los tokens de Azure AD.
-
-       ![Agregar un secreto de cliente](./media/how-to-manage-authentication/add-key.png)
-
-
-## <a name="grant-role-based-access-control-to-azure-maps"></a>Concesión a Azure Maps del control de acceso basado en roles
-
-Después de asociar una cuenta de Azure Maps a su inquilino de Azure AD, puede conceder el control de acceso. El *control de acceso basado en roles* (RBAC) se concede asignando un usuario, grupo o aplicación a uno o varios roles de control de acceso de Azure Maps. 
-
-1. Vaya a su **cuenta de Azure Maps**. Seleccione **Control de acceso (IAM)**  > **Asignación de roles**.
-
-    ![Concesión de RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
-
-1. En la pestaña **Asignación de roles**, en **Rol**, seleccione **Azure Maps Data Reader (versión preliminar)** . En **Asignar acceso a**, seleccione **Usuario, grupo o entidad de servicio de Azure AD**. Seleccione el usuario o la aplicación. Después, seleccione **Guardar**.
-
-    ![Agregar asignación de roles](./media/how-to-manage-authentication/add-role-assignment.png)
-
-## <a name="view-available-azure-maps-rbac-roles"></a>Visualización de los roles de RBAC de Azure Maps disponibles
+## <a name="view-role-definitions"></a>Visualización de definiciones de roles
 
 Para ver los roles RBAC que están disponibles para Azure Maps, vaya a **Control de acceso (IAM)** . Seleccione **Roles** y busque los roles que comienzan con *Azure Maps*. Esos son los roles de Azure Maps a los que puede conceder acceso.
 
-![Visualización de roles disponibles](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
+> [!div class="mx-imgBorder"]
+> ![Visualización de roles disponibles](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
-
-## <a name="view-azure-maps-rbac"></a>Ver RBAC de Azure Maps
-
-RBAC proporciona control de acceso pormenorizado.
+## <a name="view-role-assignments"></a>Visualización de asignaciones de roles
 
 Para ver los usuarios y las aplicaciones a los que se han concedido roles RBAC para Azure Maps, vaya a **Control de acceso (IAM)** . Una vez allí, seleccione **Asignaciones de rol** y filtre los resultados por **Azure Maps**.
 
-![Visualización de los usuarios y aplicaciones a los que se les han concedido roles RBAC](./media/how-to-manage-authentication/how-to-view-amrbac.png)
-
+> [!div class="mx-imgBorder"]
+> ![Visualización de los usuarios y aplicaciones a los que se les han concedido roles RBAC](./media/how-to-manage-authentication/how-to-view-amrbac.png)
 
 ## <a name="request-tokens-for-azure-maps"></a>Solicitud de tokens de Azure Maps
 
-Después de registrar la aplicación y asociarla a Azure Maps, puede solicitar los tokens de acceso.
+Solicite un token del punto de conexión de token de Azure AD. Use los siguientes datos en la solicitud de Azure AD:
 
-Si la aplicación utiliza la autenticación basada en tokens de usuario con el SDK web de Azure Maps, debe configurar la página HTML con el identificador de cliente de Azure Maps y el identificador de aplicación de Azure AD.
+| Entorno de Azure      | Punto de conexión del token de Azure AD             | Identificador de recurso de Azure              |
+| ---------------------- | ----------------------------------- | ------------------------------ |
+| Nube pública de Azure     | `https://login.microsoftonline.com` | `https://atlas.microsoft.com/` |
+| Nube de Azure Government | `https://login.microsoftonline.us`  | `https://atlas.microsoft.com/` |
 
-Si la aplicación usa la autenticación del servidor o de la aplicación, solicite un token desde el punto de conexión del token de Azure AD `https://login.microsoftonline.com`. Utilice los siguientes datos en la solicitud: 
-
-* Identificador de recurso de Azure AD `https://atlas.microsoft.com/`
-* Identificador de cliente de Azure Maps
-* Identificador de aplicación de Azure AD
-* Contraseña o certificado de registro de la aplicación de Azure AD
-
-| Entorno de Azure   | Punto de conexión del token de Azure AD | Identificador de recurso de Azure |
-| --------------------|-------------------------|-------------------|
-| Nube pública de Azure        | `https://login.microsoftonline.com` | `https://atlas.microsoft.com/` |
-| Nube de Azure Government   | `https://login.microsoftonline.us`  | `https://atlas.microsoft.com/` | 
-
-Para obtener más información sobre la solicitud de tokens de acceso de Azure AD para usuarios y entidades de servicio, consulte el artículo sobre los [escenarios de autenticación de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
-
+Para obtener más información sobre la solicitud de tokens de acceso de Azure AD para usuarios y entidades de servicio, consulte [Escenarios de autenticación de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios) y consulte los escenarios específicos en la tabla [Escenarios](./how-to-manage-authentication.md#determine-authentication-and-authorization).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información, consulte el artículo sobre el [SDK web de Azure AD y Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
 
 Descubra las métricas de uso de API de la cuenta de Azure Maps:
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Visualización de métricas de uso](how-to-view-api-usage.md)
 
 Explore ejemplos acerca de cómo integrar Azure AD con Azure Maps:

@@ -6,20 +6,23 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 06/24/2019
 ms.author: banders
-ms.openlocfilehash: e65637f20d14b93c212b1af2f20695ff5dfeb350
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e238a409adda674e1182c0ffd40a4f666d362731
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199694"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361513"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Seguimiento del saldo del crédito de Azure para el contrato de cliente de Microsoft
 
 Puede consultar el saldo del crédito de Azure para la cuenta de facturación de un Contrato de cliente de Microsoft en Azure Portal o mediante las API REST.
 
 En la cuenta de facturación de un contrato de cliente de Microsoft, los créditos se asignan a un perfil de facturación. Cada perfil de facturación tiene sus propios créditos que se aplican automáticamente a los cargos de su factura. Debe tener un rol de propietario, colaborador, lector o administrador de facturación en el perfil de facturación o el rol de propietario, colaborador o lector en la cuenta de facturación para ver el saldo del crédito de Azure para un perfil de facturación. Para más información sobre los roles, consulte [Descripción de los roles administrativos del contrato de cliente de Microsoft en Azure](understand-mca-roles.md).
+
+> [!NOTE]
+> El nuevo crédito puede tardar hasta 24 horas en aparecer en Azure Portal. Si obtiene un nuevo crédito y no lo ve en el portal, tenga en cuenta que existe la posibilidad de que tarde 24 horas en aparecer.
 
 Este artículo se aplica a una cuenta de facturación para un contrato de cliente de Microsoft. [Compruebe si tiene acceso a un contrato de cliente de Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
@@ -73,7 +76,7 @@ Este artículo se aplica a una cuenta de facturación para un contrato de client
    | Fecha de expiración | Cuando expira el crédito |
    | Saldo actual | El saldo desde la última factura |
    | Importe original | El importe original del crédito |
-   | Status | El estado actual del crédito. El estado puede ser activo, usado, expirado o en proceso de expiración |
+   | Estado | El estado actual del crédito. El estado puede ser activo, usado, expirado o en proceso de expiración |
 
    #### <a name="transactions"></a>Transacciones
 

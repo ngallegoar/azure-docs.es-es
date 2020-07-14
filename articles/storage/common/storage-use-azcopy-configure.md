@@ -3,17 +3,17 @@ title: Configuración, optimización y solución de problemas de AzCopy con Azur
 description: Configure, optimice y solucione problemas de AzCopy.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: c3ee0f335741c171c3a7ee1df3eea6dea9c4b728
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: acfe868f26d7509d1dd06554482b4fb3b29a5b22
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176165"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504362"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configuración, optimización y solución de problemas de AzCopy
 
@@ -38,6 +38,17 @@ Para configurar las opciones de proxy para AzCopy, establezca la variable de ent
 
 En la actualidad, AzCopy no admite servidores proxy que requieren autenticación con NTLM o Kerberos.
 
+### <a name="bypassing-a-proxy"></a>Omisión de un proxy ###
+
+Si está ejecutando AzCopy en Windows y desea indicarle que _no_ use ningún proxy en absoluto (en lugar de detectar automáticamente la configuración), use estos comandos. Con esta configuración, AzCopy no buscará ni intentará usar ningún proxy.
+
+| Sistema operativo | Entorno | Comandos:  |
+|--------|-----------|----------|
+| **Windows** | Símbolo del sistema (CMD) | `set HTTPS_PROXY=dummy.invalid` <br>`set NO_PROXY=*`|
+| **Windows** | PowerShell | `$env:HTTPS_PROXY="dummy.invalid"` <br>`$env:NO_PROXY="*"`<br>|
+
+En otros sistemas operativos, simplemente deje la variable HTTPS_PROXY sin establecer si no desea usar ningún proxy.
+
 ## <a name="optimize-performance"></a>Optimización del rendimiento
 
 Puede realizar un banco de pruebas de rendimiento y, después, usar comandos y variables de entorno para encontrar un equilibrio óptimo entre el rendimiento y el consumo de recursos.
@@ -52,27 +63,27 @@ Esta sección le ayuda a realizar estas tareas de optimización:
 
 ### <a name="run-benchmark-tests"></a>Ejecución de pruebas del banco de pruebas
 
-Puede ejecutar una prueba del banco de pruebas de rendimiento en contenedores de blobs específicos para ver las estadísticas generales de rendimiento y para identificar los cuellos de botella de rendimiento. 
+Puede ejecutar una prueba del banco de pruebas de rendimiento en contenedores de blobs o recursos compartidos de archivos específicos para ver las estadísticas generales de rendimiento y para identificar los cuellos de botella de rendimiento. 
 
 Utilice el siguiente comando para ejecutar un banco de pruebas de rendimiento.
 
 |    |     |
 |--------|-----------|
-| **Sintaxis** | `azcopy bench 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
-| **Ejemplo** | `azcopy bench 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
+| **Sintaxis** | `azcopy benchmark 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
+| **Ejemplo** | `azcopy benchmark 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
 > [!TIP]
 > En este ejemplo los argumentos de ruta de acceso se encierran entre comillas simples ('). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
 
 Este comando ejecuta un banco de pruebas de rendimiento mediante la carga los datos de prueba en un destino especificado. Los datos de prueba se generan en la memoria, se cargan en el destino y, a continuación, se eliminan del destino una vez completada la prueba. Puede especificar el número de archivos que se van a generar y el tamaño que desea que se utilicen mediante parámetros de comando opcionales.
 
-Para ver documentos de referencia detallados, consulte [azcopy bench](storage-ref-azcopy-bench.md).
+Para ver documentos de referencia detallados, consulte [azcopy benchmark](storage-ref-azcopy-bench.md).
 
-Para ver una guía de ayuda detallada para este comando, escriba `azcopy bench -h` y, después, presione la tecla ENTRAR.
+Para ver una guía de ayuda detallada para este comando, escriba `azcopy benchmark -h` y, después, presione la tecla ENTRAR.
 
 ### <a name="optimize-throughput"></a>Optimización del rendimiento
 
-Puede usar la marca `cap-mbps` en los comandos para colocar un límite superior en la velocidad de datos de rendimiento. Por ejemplo, el siguiente comando reanuda un trabajo y limita el rendimiento a `10` megabytes (MB) por segundo. 
+Puede usar la marca `cap-mbps` en los comandos para colocar un límite superior en la velocidad de datos de rendimiento. Por ejemplo, el siguiente comando reanuda un trabajo y limita el rendimiento a `10` megabits (MB) por segundo. 
 
 ```azcopy
 azcopy jobs resume <job-id> --cap-mbps 10
@@ -182,7 +193,7 @@ Use cualquiera de estos comandos.
 
 | Sistema operativo | Get-Help  |
 |--------|-----------|
-| **Windows** | `set AZCOPY_JOB_PLAN_LOCATION=<value>` |
+| **Windows** | PowerShell:`$env:AZCOPY_JOB_PLAN_LOCATION="<value>"` <br> En un símbolo del sistema, use: `set AZCOPY_JOB_PLAN_LOCATION=<value>` |
 | **Linux** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
 | **macOS** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
 
@@ -194,7 +205,7 @@ Use cualquiera de estos comandos.
 
 | Sistema operativo | Get-Help  |
 |--------|-----------|
-| **Windows** | `set AZCOPY_LOG_LOCATION=<value>` |
+| **Windows** | PowerShell:`$env:AZCOPY_LOG_LOCATION="<value>"` <br> En un símbolo del sistema, use: `set AZCOPY_LOG_LOCATION=<value>`|
 | **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
 | **macOS** | `export AZCOPY_LOG_LOCATION=<value>` |
 

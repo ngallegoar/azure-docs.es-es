@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
 ms.openlocfilehash: 551fb0cb9f3745a62d5d84f2c4878bbbbe5ad9a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79137329"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Señalización de metadatos con tiempo en streaming en vivo 
@@ -766,7 +766,7 @@ La etiqueta EXT-X-CUE "heredada" se define como se indica a continuación y tamb
 | ------------------ | ----------------------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | CUE                | cadena entrecomillada                 | Obligatorio                                  | Mensaje codificado como una cadena en base 64 tal y como se describe en [RFC4648]. En el caso de los mensajes [SCTE-35], es la sección splice_info_section() codificada en base 64.                                                                                                                                      |
 | TYPE               | cadena entrecomillada                 | Obligatorio                                  | Un URN o una dirección URL que identifiquen el esquema del mensaje. En el caso de los mensajes [SCTE-35], el tipo tiene el valor especial "scte35".                                                                                                                                                                          |
-| id                 | cadena entrecomillada                 | Obligatorio                                  | Un identificador único para el evento. Si no se especifica el identificador cuando se ingiere el mensaje, Azure Media Services generará un identificador exclusivo.                                                                                                                                              |
+| ID                 | cadena entrecomillada                 | Obligatorio                                  | Un identificador único para el evento. Si no se especifica el identificador cuando se ingiere el mensaje, Azure Media Services generará un identificador exclusivo.                                                                                                                                              |
 | DURATION           | número de punto flotante decimal | Obligatorio                                  | Duración del evento. Si no se conoce, el valor **DEBERÍA** ser 0. Las unidades son fracciones de segundos.                                                                                                                                                                                           |
 | ELAPSED            | número de punto flotante decimal | Opcional, pero obligatorio para la ventana deslizante | Cuando se repite la señal para que admita una ventana de presentación deslizante, este campo **DEBE** ser la cantidad de tiempo de la presentación que ha transcurrido desde que comenzó el evento. Las unidades son fracciones de segundos. Este valor puede superar la duración original especificada de la inserción o segmentación. |
 | TIME               | número de punto flotante decimal | Obligatorio                                  | El tiempo de presentación del evento. Las unidades son fracciones de segundos.                                                                                                                                                                                                                        |

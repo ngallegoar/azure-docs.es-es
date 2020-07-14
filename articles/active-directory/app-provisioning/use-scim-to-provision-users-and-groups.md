@@ -2,21 +2,21 @@
 title: Desarrollo de un punto de conexión SCIM para el aprovisionamiento de usuarios en aplicaciones desde Azure AD
 description: System for Cross-domain Identity Management (SCIM) normaliza el aprovisionamiento automático de usuarios. Aprenda a desarrollar un punto de conexión SCIM, integre la API de SCIM con Azure Active Directory y comience a automatizar el aprovisionamiento de usuarios y grupos en las aplicaciones en la nube.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/07/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 926c3315035534f393eba72cd1d3910bf6135347
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: b08509bed6b26cb56caebd4dc47fc3b7ac84ce27
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83994466"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117325"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Creación de un punto de conexión SCIM y configuración del aprovisionamiento de usuarios con Azure AD
 
@@ -745,11 +745,7 @@ Barra mínima de conjuntos de cifrado TLS 1.2:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Intervalos IP
-El servicio de aprovisionamiento de Azure AD actualmente funciona en los intervalos IP siguientes. 
-
-13.86.239.205; 52.188.178.195; 13.86.61.156; 40.67.254.206; 51.105.237.71; 20.44.38.166; 40.81.88.68; 52.184.94.250; 20.43.180.59; 20.193.16.105; 20.40.167.232; 13.86.3.57; 52.188.72.113; 13.88.140.233; 52.142.121.156; 51.124.0.213; 40.81.92.36; 20.44.39.175; 20.189.114.130; 20.44.193.163; 20.193.23.17; 20.40.173.237; 13.86.138.128; 52.142.29.23; 13.86.2.238; 40.127.246.167; 51.136.72.4; 20.44.39.244; 40.81.92.186; 20.189.114.131; 20.44.193.210; 20.193.2.21; 20.40.174.46; 13.86.219.18; 40.71.13.10; 20.44.16.38; 13.89.174.16; 13.69.66.182; 13.69.229.118; 104.211.147.176; 40.78.195.176; 13.67.9.240; 13.75.38.48; 13.70.73.48; 13.77.52.176;
-
-
+Actualmente, el servicio de aprovisionamiento de Azure AD puede funcionar con cualquier intervalo de direcciones IP de Azure. Estamos trabajando para consolidar el conjunto de intervalos IP en los que opera el servicio. Este documento se actualizará una vez que la lista de intervalos IP esté consolidada. 
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Paso 3: Cree un punto de conexión SCIM
 
@@ -1198,7 +1194,8 @@ La especificación SCIM no define un esquema específico de SCIM para la autenti
 |Concesión de código de autorización de OAuth|Los tokens de acceso tienen una duración muy inferior a las contraseñas y tienen un mecanismo de actualización automatizado que los tokens de portador de larga duración no tienen.  Un usuario real debe estar presente durante la autorización inicial, lo que añade un nivel de responsabilidad. |Requiere que haya un usuario presente. Si el usuario deja la organización, el token no es válido y será necesario volver a realizar la autorización.|Compatible con las aplicaciones de la galería. Está en curso la compatibilidad con aplicaciones que no son de la galería.|
 |Concesión de credenciales del cliente de OAuth|Los tokens de acceso tienen una duración muy inferior a las contraseñas y tienen un mecanismo de actualización automatizado que los tokens de portador de larga duración no tienen. Tanto la concesión de código de autorización como la concesión de credenciales de cliente crean el mismo tipo de token de acceso, por lo que el cambio entre estos métodos es transparente para la API.  El aprovisionamiento se puede automatizar completamente y los nuevos tokens se pueden solicitar silenciosamente sin la interacción del usuario. ||No compatible con las aplicaciones de la galería y las que no forman parte de ella. La compatibilidad se encuentra en nuestro trabajo pendiente.|
 
-[!NOTE] No se recomienda dejar en blanco el campo de token en la interfaz de usuario de la aplicación personalizada de la configuración de aprovisionamiento de Azure AD. El token generado está disponible principalmente para fines de prueba.
+> [!NOTE]
+> No se recomienda dejar en blanco el campo de token en la interfaz de usuario de la aplicación personalizada de la configuración de aprovisionamiento de Azure AD. El token generado está disponible principalmente para fines de prueba.
 
 **Flujo de concesión de código de autorización OAuth:** el servicio de aprovisionamiento admite la [concesión de código de autorización](https://tools.ietf.org/html/rfc6749#page-24). Después de enviar la solicitud para publicar la aplicación en la galería, nuestro equipo trabajará con usted para recopilar la información siguiente:
 *  Dirección URL de autorización: una dirección URL del cliente para obtener la autorización del propietario del recurso a través de la redirección del agente de usuario. Se redirige al usuario a esta dirección URL para autorizar el acceso. Tenga en cuenta que esta dirección URL no es actualmente configurable por inquilino.

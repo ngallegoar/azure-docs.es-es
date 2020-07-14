@@ -4,21 +4,19 @@ description: Obtenga información sobre cómo configurar permisos de ACL de Wind
 author: roygara
 ms.service: storage
 ms.subservice: files
-ms.topic: conceptual
-ms.date: 05/29/2020
+ms.topic: how-to
+ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 6e49201b0574e0a1235cc9e2cb313b40b0563f93
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 38168db9706bd168b3edc2e740eaea40b23d4b0b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268383"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510571"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Parte 3: Configuración de permisos de nivel de directorio y de archivo en SMB 
 
-Antes de comenzar este artículo, asegúrese de completar el anterior, [Asignación de permisos de nivel de recurso compartido a una identidad](storage-files-identity-ad-ds-assign-permissions.md), ya que así se asegurará de que dispone de los permisos de nivel de recurso compartido necesarios.
-
-Tras asignar permisos de nivel de recurso compartido con RBAC, debe asignar las ACL de Windows adecuadas (también conocidas como permisos NTFS) a los niveles de raíz, de directorio o de archivo para sacar partido del control de acceso granular. Considere los permisos de nivel de recurso compartido de RBAC como el equipo selector de alto nivel que determina si un usuario puede acceder al recurso compartido, mientras que las ACL de Windows actúan en un nivel más granular para determinar qué operaciones puede realizar el usuario en el directorio o archivo.
+Antes de comenzar este artículo, asegúrese de completar el anterior, [Asignación de permisos de nivel de recurso compartido a una identidad](storage-files-identity-ad-ds-assign-permissions.md), para garantizar la vigencia de los permisos de nivel de recurso compartido.
 
 Tras asignar permisos de nivel de recurso compartido con RBAC, debe configurar las ACL de Windows adecuadas a los niveles de raíz, de directorio o de archivo para sacar partido del control de acceso granular. Considere los permisos de nivel de recurso compartido de RBAC como el equipo selector de alto nivel que determina si un usuario puede acceder al recurso compartido, Las ACL de Windows funcionan en un nivel más granular para determinar qué operaciones puede realizar el usuario en el directorio o archivo. Los permisos tanto de nivel de recurso compartido como de nivel de archivo o de directorio se aplican cuando un usuario intenta acceder a un archivo o directorio, de modo que, si existe alguna una diferencia entre alguno de ellos, solo se aplicará el más restrictivo. Por ejemplo, si un usuario tiene acceso de lectura y escritura en el nivel de archivo, pero solo de lectura en un nivel de recurso compartido, solo podrá leer ese archivo. Y lo mismo sucede a la inversa: si un usuario tuviera acceso de lectura y escritura en el nivel de recurso compartido, pero solo de lectura en el nivel de archivo, solo podría leer el archivo.
 
@@ -31,12 +29,22 @@ Para configurar ACL con permisos de superusuario, debe montar el recurso compart
 Los siguientes permisos están incluidos en el directorio raíz de un recurso compartido de archivos:
 
 - BUILTIN\Administrators:(OI)(CI)(F)
-- NT AUTHORITY\SYSTEM:(OI)(CI)(F)
 - BUILTIN\Users:(RX)
 - BUILTIN\Users:(OI)(CI)(IO)(GR,GE)
 - NT AUTHORITY\Authenticated Users:(OI)(CI)(M)
+- NT AUTHORITY\SYSTEM:(OI)(CI)(F)
 - NT AUTHORITY\SYSTEM:(F)
 - CREATOR OWNER:(OI)(CI)(IO)(F)
+
+|Usuarios|Definición|
+|---|---|
+|BUILTIN\Administrators|Todos los usuarios que son administradores de dominio del entorno de AD DS local.
+|BUILTIN\Users|Grupo de seguridad integrado en AD. Incluye NT AUTHORITY\Authenticated Users de forma predeterminada. En el caso de un servidor de archivos tradicional, puede configurar la definición de pertenencia por servidor. Para Azure Files, no hay un servidor de hospedaje, por lo tanto, BUILTIN\Users incluye el mismo conjunto de usuarios que NT AUTHORITY\Authenticated Users.|
+|NT AUTHORITY\SYSTEM|La cuenta de servicio del sistema operativo del servidor de archivos. Esta cuenta de servicio no se aplica en el contexto de Azure Files. Se incluye en el directorio raíz para ser coherente con la experiencia del servidor de archivos de Windows para escenarios híbridos.|
+|NT AUTHORITY\Authenticated Users|Todos los usuarios de AD que pueden obtener un token de Kerberos válido.|
+|CREATOR OWNER|Cada objeto del directorio o archivo tiene un propietario para ese objeto. Si hay ACL asignadas a "CREATOR OWNER" en ese objeto, el usuario que es propietario de este objeto tiene los permisos para el objeto definido por la ACL.|
+
+
 
 ## <a name="mount-a-file-share-from-the-command-prompt"></a>Montar un recurso compartido de archivos de Azure desde el símbolo del sistema
 

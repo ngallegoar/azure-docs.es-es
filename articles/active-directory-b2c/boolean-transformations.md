@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/01/2020
+ms.date: 06/06/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 007d613a1f170a0ee278a838c92ade2fce9c6dec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7c292f939339add06168c55236f8666651e4aace
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80529197"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201283"
 ---
 # <a name="boolean-claims-transformations"></a>Transformaciones de notificaciones booleanas
 
@@ -36,7 +36,7 @@ Realiza una operación And de dos inputClaims booleanos y establece el elemento 
 
 La siguiente transformación de notificaciones explica cómo aplicar And a dos argumentos ClaimType booleanos: `isEmailNotExist` y `isSocialAccount`. La notificación de salida `presentEmailSelfAsserted` está establecida en `true` si el valor de ambas notificaciones de entrada es `true`. En un paso de orquestación, puede usar una condición previa para preestablecer una página autoafirmada solo si la dirección de correo electrónico de la cuenta de redes sociales está vacía.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="AndClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isEmailNotExist" TransformationClaimType="inputClaim1" />
@@ -48,7 +48,7 @@ La siguiente transformación de notificaciones explica cómo aplicar And a dos a
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Ejemplo
+### <a name="example-of-andclaims"></a>Ejemplo de AndClaims
 
 - Notificaciones de entrada:
     - **inputClaim1**: true
@@ -72,7 +72,7 @@ La transformación de notificaciones **AssertBooleanClaimIsEqualToValue** siempr
 
 La siguiente transformación de notificaciones explica cómo comprobar el valor de un argumento ClaimType booleano con un valor `true`. Si el valor del ClaimType `accountEnabled` es false, se desencadena un mensaje de error.
 
-```XML
+```xml
 <ClaimsTransformation Id="AssertAccountEnabledIsTrue" TransformationMethod="AssertBooleanClaimIsEqualToValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="accountEnabled" TransformationClaimType="inputClaim" />
@@ -85,7 +85,8 @@ La siguiente transformación de notificaciones explica cómo comprobar el valor 
 
 
 El perfil técnico de validación `login-NonInteractive` llama a la transformación de notificaciones `AssertAccountEnabledIsTrue`.
-```XML
+
+```xml
 <TechnicalProfile Id="login-NonInteractive">
   ...
   <OutputClaimsTransformations>
@@ -96,7 +97,7 @@ El perfil técnico de validación `login-NonInteractive` llama a la transformaci
 
 El perfil técnico autoafirmado llama al perfil técnico **login-NonInteractive** de validación.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
   <Metadata>
     <Item Key="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Custom error message if account is disabled.</Item>
@@ -107,7 +108,7 @@ El perfil técnico autoafirmado llama al perfil técnico **login-NonInteractive*
 </TechnicalProfile>
 ```
 
-### <a name="example"></a>Ejemplo
+### <a name="example-of-assertbooleanclaimisequaltovalue"></a>Ejemplo de AssertBooleanClaimIsEqualToValue
 
 - Notificaciones de entrada:
     - **inputClaim**: false
@@ -124,10 +125,9 @@ Comprueba que el valor booleano de una notificación es igual a `true` o `false`
 | InputParameter |valueToCompareTo | boolean | El valor que se va a comparar (true o false). |
 | OutputClaim | compareResult | boolean | El valor ClaimType que se genera después de que se haya invocado esta ClaimsTransformation. |
 
-
 La siguiente transformación de notificaciones explica cómo comprobar el valor de un argumento ClaimType booleano con un valor `true`. Si el valor de ClaimType `IsAgeOver21Years` es igual a `true`, la transformación de notificación devuelve `true`. De lo contrario, `false`.
 
-```XML
+```xml
 <ClaimsTransformation Id="AssertAccountEnabled" TransformationMethod="CompareBooleanClaimToValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="IsAgeOver21Years" TransformationClaimType="inputClaim" />
@@ -141,7 +141,7 @@ La siguiente transformación de notificaciones explica cómo comprobar el valor 
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Ejemplo
+### <a name="example-of-comparebooleanclaimtovalue"></a>Ejemplo de CompareBooleanClaimToValue
 
 - Notificaciones de entrada:
     - **inputClaim**: false
@@ -149,8 +149,6 @@ La siguiente transformación de notificaciones explica cómo comprobar el valor 
     - **valueToCompareTo**: true
 - Notificaciones de salida:
     - **compareResult**: false
-
-
 
 ## <a name="notclaims"></a>NotClaims
 
@@ -163,7 +161,7 @@ Realiza una operación Not del inputClaim booleano y establece el elemento outpu
 
 Use esta transformación de notificaciones para realizar la negación lógica en una notificación.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="NotClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userExists" TransformationClaimType="inputClaim" />
@@ -174,7 +172,7 @@ Use esta transformación de notificaciones para realizar la negación lógica en
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Ejemplo
+### <a name="example-of-notclaims"></a>Ejemplo de NotClaims
 
 - Notificaciones de entrada:
     - **inputClaim**: false
@@ -193,7 +191,7 @@ Procesa una operación Or de dos inputClaims booleanos y establece el elemento o
 
 La siguiente transformación de notificaciones explica cómo aplicar `Or` a dos argumentos ClaimType booleanos. En el paso de orquestación, puede usar una condición previa para preestablecer una página autoafirmada si el valor de una de las notificaciones es `true`.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="OrClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isLastTOSAcceptedNotExists" TransformationClaimType="inputClaim1" />
@@ -205,7 +203,7 @@ La siguiente transformación de notificaciones explica cómo aplicar `Or` a dos 
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Ejemplo
+### <a name="example-of-orclaims"></a>Ejemplo de OrClaims
 
 - Notificaciones de entrada:
     - **inputClaim1**: true

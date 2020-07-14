@@ -7,13 +7,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
-ms.openlocfilehash: b2f533e8bd9199025260aaca9cff587b13adce64
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.date: 06/05/2020
+ms.openlocfilehash: e106f5b615cd667551ef3d597a45b522320eed6e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606319"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84610198"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Transformación de origen en flujo de datos de asignación 
 
@@ -23,20 +23,34 @@ Una transformación de origen configura el origen de datos para el flujo de dato
 
 Cada flujo de datos requiere al menos una transformación de origen, pero puede agregar tantos orígenes como sea necesario para completar las transformaciones de datos. Puede combinar esos orígenes con una transformación de combinación, búsqueda o unión.
 
-Cada transformación de origen se asocia exactamente con un conjunto de datos de Data Factory. El conjunto de datos define la forma y la ubicación de los datos que quiere escribir o leer. Si va a utilizar un conjunto de datos basado en archivos, puede usar caracteres comodín y listas de archivos en el origen para trabajar con más de un archivo a la vez.
+Cada transformación de origen se asocia exactamente con un conjunto de datos o servicio vinculado. El conjunto de datos define la forma y la ubicación de los datos que quiere escribir o leer. Si va a utilizar un conjunto de datos basado en archivos, puede usar caracteres comodín y listas de archivos en el origen para trabajar con más de un archivo a la vez.
 
-## <a name="supported-source-connectors-in-mapping-data-flow"></a>Conectores de origen compatibles en el flujo de datos de asignación
+## <a name="inline-datasets"></a>Conjuntos de datos en línea
+
+La primera decisión que se toma al crear una transformación de origen es si la información de origen se define dentro de un objeto de conjunto de datos o dentro de la transformación de origen. La mayoría de los formatos solo están disponibles en una opción o en la otra. Consulte el documento adecuado del conector para obtener información sobre cómo usar un conector específico.
+
+Cuando un formato se admita tanto en la opción en línea como en un objeto de conjunto de datos, existen ventajas para ambos. Los objetos de conjunto de datos son entidades reutilizables que se pueden aprovechar en otros flujos de datos y actividades, como en la copia. Son especialmente útiles cuando se usa un esquema protegido. Los conjuntos de datos no se basan en Spark y, en ocasiones, es posible que necesite reemplazar determinados valores o la proyección del esquema en la transformación de origen.
+
+Se recomiendan los conjuntos de datos en línea cuando se usan esquemas flexibles, instancias de origen único u orígenes con parámetros. Si el origen contiene muchos parámetros, los conjuntos de datos en línea permiten no crear un objeto "ficticio". Los conjuntos de datos en línea se basan en Spark y sus propiedades son nativas para el flujo de datos.
+
+Para usar un conjunto de datos en línea, seleccione el formato deseado en el selector **Tipo de origen**. En lugar de seleccionar un conjunto de datos de origen, seleccione el servicio vinculado al que desea conectarse.
+
+![Conjunto de datos en línea](media/data-flow/inline-selector.png "Conjunto de datos en línea")
+
+##  <a name="supported-source-types"></a><a name="supported-sources"></a> Tipos de orígenes admitidos
 
 Mapping Data Flow sigue un enfoque de extracción, carga y transformación (ELT) y funciona con conjuntos de datos de un *almacenamiento provisional* que están todos en Azure. Actualmente, se pueden usar los siguientes conjuntos de datos en una transformación de origen:
-    
-* [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) (JSON, Avro, Text, Parquet)
-* [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) (JSON, Avro, Text, Parquet)
-* [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) (JSON, Avro, Text, Parquet)
-* [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties)
-* [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties)
-* [Azure CosmosDB](connector-azure-cosmos-db.md#mapping-data-flow-properties)
 
-La configuración específica de estos conectores se encuentra en la pestaña **Opciones de origen**. La información sobre esta configuración se encuentra en la documentación del conector. 
+| Conector | Formato | Conjunto de datos/en línea |
+| --------- | ------ | -------------- |
+| [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties)  | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties)  <br> [Common Data Model (versión preliminar)](format-common-data-model.md#source-properties) | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- <br> -/✓ |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure Cosmos DB (SQL API)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+
+La configuración específica de estos conectores se encuentra en la pestaña **Source options** (Opciones de origen). La información y algunos ejemplos de script de flujo de datos sobre esta configuración se encuentran en la documentación del conector. 
 
 Azure Data Factory tiene acceso a más de [90 conectores nativos](connector-overview.md). Para incluir datos de esos otros orígenes en el flujo de datos, use la herramienta de actividad de copia para cargar esos datos en una de las áreas de almacenamiento provisional compatibles.
 
@@ -46,6 +60,10 @@ Una vez que haya agregado un origen, configúrelo mediante la pestaña **Configu
 
 ![Pestaña de configuración de origen](media/data-flow/source1.png "Pestaña de configuración de origen")
 
+**Nombre de la secuencia de salida:** El nombre de la transformación de origen.
+
+**Tipo de origen:** Elija si desea utilizar un conjunto de datos en línea o un objeto de conjunto de datos existente.
+ 
 **Probar conexión:** pruebe si el servicio Spark del flujo de datos puede conectarse correctamente al servicio vinculado que se usa en el conjunto de datos de origen. El modo de depuración debe estar activado para habilitar esta característica.
 
 **Desfase de esquema:** El [desfase de esquema](concepts-data-flow-schema-drift.md) es la capacidad de Data Factory de administrar de forma nativa los esquemas flexibles en los flujos de datos sin necesidad de definir explícitamente los cambios en las columnas.
@@ -60,12 +78,14 @@ Una vez que haya agregado un origen, configúrelo mediante la pestaña **Configu
 
 **Muestreo:** Habilite el muestreo para limitar el número de filas del origen. Use esta configuración al probar o muestrear datos del origen con fines de depuración.
 
-**Filas de varias líneas:** seleccione las filas de varias líneas si el archivo de texto de origen contiene valores de cadena que abarcan varias filas; es decir, nuevas líneas dentro de un valor. Esta opción solo está disponible en conjuntos de datos de DelimitedText.
-
 Para validar si el origen está configurado correctamente, active el modo de depuración y capture una vista previa de los datos. Para más información, consulte [Modo de depuración](concepts-data-flow-debug-mode.md).
 
 > [!NOTE]
 > Cuando se activa el modo de depuración, el valor del límite de filas de la configuración de depuración sobrescribirá el valor de muestreo en el origen durante la vista previa de los datos.
+
+## <a name="source-options"></a>Opciones de origen
+
+La pestaña de opciones de origen contiene la configuración específica del conector y el formato elegidos. Para obtener más información y ejemplos, consulte la [documentación pertinente del conector](#supported-sources).
 
 ## <a name="projection"></a>Proyección
 
@@ -83,26 +103,18 @@ Puede modificar los tipos de datos de columna en una transformación de columna 
 
 El botón **Import Schema** (Importar esquema) de la pestaña **Proyección** permite usar un clúster de depuración activo para crear una proyección de esquema. Disponible en cada tipo de origen, la importación del esquema aquí invalidará la proyección definida en el conjunto de datos. El objeto del conjunto de datos no se cambiará.
 
-Resulta útil en los conjuntos de datos como Avro y CosmosDB, que admiten estructuras de datos complejas y no requieren la existencia de definiciones de esquemas en el conjunto de datos.
+Resulta útil en los conjuntos de datos como Avro y CosmosDB, que admiten estructuras de datos complejas y no requieren la existencia de definiciones de esquemas en el conjunto de datos. Para los conjuntos de datos en línea, esta es la única manera de hacer referencia a los metadatos de columna sin desfase de esquema.
 
 ## <a name="optimize-the-source-transformation"></a>Optimización de la transformación de origen
 
-En la pestaña **Optimizar** de la transformación de origen, es posible que vea un tipo de partición de **origen**. Esta opción solo está disponible cuando el origen es Azure SQL Database. Esto se debe a que Data Factory intenta establecer conexiones en paralelo para ejecutar consultas grandes en el origen de SQL Database.
+La pestaña **Optimizar** permite la edición de la información de partición en cada paso de la transformación. En la mayoría de los casos, **Use current partitioning** (Usar la creación de particiones actual) optimizará la estructura de la creación de particiones ideal para un origen.
+
+Si va a leer un origen de Azure SQL Database, la creación de particiones de **Origen** personalizada probablemente leerá los datos con mayor rapidez. ADF leerá las consultas grandes realizando conexiones a la base de datos en paralelo. Esta creación de particiones de origen se puede realizar en una columna o mediante una consulta.
 
 ![Configuración de la partición de origen](media/data-flow/sourcepart3.png "creación de particiones")
-
-No es necesario que cree particiones de los datos en el origen de SQL Database, pero las particiones son útiles para consultas grandes. Puede basar la partición en una columna o una consulta.
-
-### <a name="use-a-column-to-partition-data"></a>Uso de una columna para crear particiones de datos
-
-En la tabla de origen, seleccione una columna en la que crear una partición. También debe establecer el número de particiones.
-
-### <a name="use-a-query-to-partition-data"></a>Uso de una consulta para crear particiones de datos
-
-Puede elegir crear una partición de las conexiones según una consulta. Escriba el contenido de un predicado WHERE. Por ejemplo, escriba año > 1980.
 
 Para más información sobre la optimización en Mapping Data Flow, consulte la [pestaña de optimización](concepts-data-flow-overview.md#optimize).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Comience a compilar una [transformación de columna derivada](data-flow-derived-column.md) y una [transformación de selección](data-flow-select.md).
+Comience a compilar el flujo de datos con una [transformación de columna derivada](data-flow-derived-column.md) y una [transformación de selección](data-flow-select.md).

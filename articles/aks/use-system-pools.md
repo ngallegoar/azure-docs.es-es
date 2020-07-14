@@ -3,17 +3,18 @@ title: Uso de grupos de nodos del sistema en Azure Kubernetes Service (AKS)
 description: Aprenda a crear y administrar grupos de nodos del sistema en Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 04/28/2020
-ms.openlocfilehash: 85cc699d6ef8c632663775e91f2b5cad6ca7a7b6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/18/2020
+ms.author: mlearned
+ms.openlocfilehash: 9b6270f81e7af8bd508d29510698e6cf9a5a2010
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125254"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85052648"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Administración de grupos de nodos del sistema en Azure Kubernetes Service (AKS)
 
-En Azure Kubernetes Service, los nodos de la misma configuración se agrupan en *grupos de nodos*. Los grupos de nodos contienen las máquinas virtuales subyacentes que ejecutan las aplicaciones. Los grupos de nodos del sistema y los grupos de nodos del usuario son dos modos de grupos de nodos diferentes para los clústeres de AKS. Los grupos de nodos del sistema tienen el propósito principal de hospedar los pods críticos del sistema, como CoreDNS y tunnelfront. Los grupos de nodos de usuario tienen el propósito principal de hospedar los pods de aplicación. Sin embargo, se pueden programar pods de aplicación en grupos de nodos del sistema si quiere tener solo un grupo en el clúster de AKS. Cada clúster de AKS debe contener al menos un grupo de nodos del sistema con al menos un nodo. 
+En Azure Kubernetes Service, los nodos de la misma configuración se agrupan en *grupos de nodos*. Los grupos de nodos contienen las máquinas virtuales subyacentes que ejecutan las aplicaciones. Los grupos de nodos del sistema y los grupos de nodos del usuario son dos modos de grupos de nodos diferentes para los clústeres de AKS. Los grupos de nodos del sistema tienen el propósito principal de hospedar los pods críticos del sistema, como CoreDNS y tunnelfront. Los grupos de nodos de usuario tienen el propósito principal de hospedar los pods de aplicación. Sin embargo, se pueden programar pods de aplicación en grupos de nodos del sistema si quiere tener solo un grupo en el clúster de AKS. Cada clúster de AKS debe contener al menos un grupo de nodos del sistema con al menos un nodo.
 
 > [!Important]
 > Si ejecuta un único grupo de nodos del sistema para el clúster de AKS en un entorno de producción, se recomienda usar al menos tres nodos para el grupo de nodos.
@@ -29,7 +30,7 @@ Se aplican las siguientes limitaciones cuando crea y administra clústeres de AK
 * Consulte [Cuotas, restricciones de tamaño de máquinas virtuales y disponibilidad de regiones en Azure Kubernetes Service (AKS)][quotas-skus-regions].
 * El clúster de AKS se debe crear con conjuntos de escalado de máquinas virtuales como tipo de máquina virtual.
 * El nombre de un grupo de nodos solo puede contener caracteres alfanuméricos en minúsculas y debe comenzar con una letra minúscula. En el caso de los grupos de nodos de Linux, la longitud debe estar comprendida entre 1 y 12 caracteres. En el caso de los grupos de nodos de Windows, la longitud debe estar comprendida entre 1 y 6 caracteres.
-* Se debe usar una versión de API de 2020-03-01 o superior para establecer un modo de grupo de nodos.
+* Se debe usar una versión de API de 2020-03-01 o superior para establecer un modo de grupo de nodos. Los clústeres creados con versiones de API anteriores a la 2020-03-01 solo contienen grupos de nodos de usuario, pero se pueden migrar para que contengan grupos de nodos del sistema si sigue las [instrucciones del actualización del modo de grupo](#update-existing-cluster-system-and-user-node-pools).
 * El modo de un grupo de nodos es una propiedad obligatoria y se debe establecer explícitamente cuando se usan plantillas de Resource Manager o llamadas API directas.
 
 ## <a name="system-and-user-node-pools"></a>Grupos de nodos del sistema y del usuario
@@ -115,7 +116,10 @@ Un modo del tipo **sistema** se define para los grupos de nodos del sistema y un
 }
 ```
 
-## <a name="update-system-and-user-node-pools"></a>Actualización de los grupos de nodos del sistema y del usuario
+## <a name="update-existing-cluster-system-and-user-node-pools"></a>Actualización de los grupos de nodos de usuario y del sistema en clústeres existentes
+
+> [!NOTE]
+> Se debe usar la versión de API 2020-03-01 o posterior para configurar el modo de grupo de nodos del sistema. Como resultado, los clústeres creados en versiones de API anteriores a la 2020-03-01 solo contienen grupos de nodos de usuario. Para obtener la funcionalidad y las ventajas del grupo de nodos del sistema en clústeres anteriores, actualice el modo de los grupos de nodos existentes con los siguientes comandos en la última versión de la CLI de Azure.
 
 Puede cambiar los modos para los grupos de nodos del sistema y del usuario. Solo puede cambiar un grupo de nodos del sistema para que sea uno del usuario si ya existe otro grupo de nodos del sistema en el clúster de AKS.
 

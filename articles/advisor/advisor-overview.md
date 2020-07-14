@@ -3,30 +3,30 @@ title: Introducción a Azure Advisor
 description: Utilice Azure Advisor para optimizar las implementaciones de Azure.
 ms.topic: article
 ms.date: 02/01/2019
-ms.openlocfilehash: 74048073677cdf0f9f57d84469959a84e78cd6c7
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 0c6c79dd764f92475b3b0121ae46706c0dfc0bcb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854437"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117784"
 ---
 # <a name="introduction-to-azure-advisor"></a>Introducción a Azure Advisor
 
 Obtenga información sobre las funcionalidades clave de Azure Advisor y obtenga respuesta a las preguntas más frecuentes.
 
 ## <a name="what-is-advisor"></a>¿Qué es Advisor?
-Advisor es un consultor personalizado en la nube que lo ayuda a seguir procedimientos recomendados para optimizar las implementaciones de Azure. Analiza la configuración de recursos y la telemetría de uso, y recomienda soluciones que pueden ayudar a mejoran la rentabilidad, el rendimiento, la alta disponibilidad y la seguridad de los recursos de Azure.
+Advisor es un consultor personalizado en la nube que lo ayuda a seguir procedimientos recomendados para optimizar las implementaciones de Azure. Analiza la configuración de recursos y la telemetría de uso, y recomienda soluciones que pueden ayudar a mejorar la rentabilidad, el rendimiento, la confiabilidad (antes conocida como alta disponibilidad) y la seguridad de los recursos de Azure.
 
 Con Advisor, puede:
 * Obtener sugerencias de procedimientos recomendados proactivas, prácticas y personalizadas, 
-* Mejorar el rendimiento, la seguridad y la alta disponibilidad de los recursos, al mismo tiempo que identifica oportunidades para reducir el gasto general de Azure, y
+* Mejorar el rendimiento, la seguridad y la confiabilidad de los recursos, al mismo tiempo que identifica oportunidades para reducir el gasto general de Azure, y
 * Obtener recomendaciones con acciones propuestas en línea.
 
 Puede acceder a Advisor mediante [Azure Portal](https://aka.ms/azureadvisordashboard). Inicie sesión en el [portal](https://portal.azure.com), busque **Asesor** en el menú de navegación o búsquelo en el menú **Todos los servicios**.
 
 El panel de Advisor muestra recomendaciones personalizadas para todas las suscripciones.  Puede aplicar filtros para mostrar las recomendaciones para determinadas suscripciones y tipos de recursos.  Las recomendaciones se dividen en cinco categorías: 
 
-* **Alta disponibilidad**: para garantizar y mejorar la continuidad de las aplicaciones empresariales críticas. Para obtener más información, consulte las [recomendaciones sobre alta disponibilidad de Advisor](advisor-high-availability-recommendations.md).
+* **Confiabilidad (anteriormente denominada alta disponibilidad)** : para garantizar y mejorar la continuidad de las aplicaciones empresariales críticas. Para obtener más información, consulte las [recomendaciones de confiabilidad de Advisor](advisor-high-availability-recommendations.md).
 * **Seguridad**: ayuda a detectar amenazas y vulnerabilidades que podrían dar lugar a infracciones de seguridad. Para obtener más información, consulte las [recomendaciones sobre seguridad de Advisor](advisor-security-recommendations.md).
 * **Rendimiento**: ayuda a mejorar la velocidad de las aplicaciones. Para obtener más información, consulte las [recomendaciones sobre rendimiento de Advisor](advisor-performance-recommendations.md).
 * **Costo**: ayuda a optimizar y reducir el gasto general de Azure. Para obtener más información, consulte las [recomendaciones sobre el costo de Advisor](advisor-cost-recommendations.md).
@@ -68,7 +68,7 @@ Para posponer o descartar una recomendación, haga clic en el vínculo **Postpon
 Para aprender más sobre las recomendaciones de Advisor, consulte:
 
 * [Introducción a Advisor](advisor-get-started.md)
-* [Recomendaciones sobre alta disponibilidad de Advisor](advisor-high-availability-recommendations.md)
+* [Recomendaciones de confiabilidad de Advisor](advisor-high-availability-recommendations.md)
 * [Recomendaciones sobre seguridad de Advisor](advisor-security-recommendations.md)
 * [Recomendaciones sobre rendimiento de Advisor](advisor-performance-recommendations.md)
 * [Recomendaciones sobre el costo de Advisor](advisor-cost-recommendations.md)

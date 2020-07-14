@@ -8,16 +8,18 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 0945743fb2cf3e37345ff562250e48511944cee6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: e55dfc692bdd625de8873f6e61c9969ed7fbf2df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125560"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84466177"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Creación de un punto de conexión privado para una conexión segura a Azure Cognitive Search
 
 En este artículo, usará Azure Portal para crear una nueva instancia del servicio Azure Cognitive Search a la que no se pueda obtener acceso a través de Internet. A continuación, configurará una máquina virtual de Azure en la misma red virtual y la usará para obtener acceso al servicio de búsqueda a través de un punto de conexión privado.
+
+Los puntos de conexión privados se proporcionan mediante [Azure Private Link](../private-link/private-link-overview.md), como un servicio independiente. Para más información sobre los costos, consulte la [página de precios](https://azure.microsoft.com/pricing/details/private-link/).
 
 > [!Important]
 > El soporte técnico del punto de conexión privado de Azure Cognitive Search se puede configurar con Azure Portal o la [API REST de administración, versión 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/). Cuando el punto de conexión de servicio es privado, se deshabilitan algunas características del portal. Podrá ver y administrar información de nivel de servicio, pero, por motivos de seguridad, se ha restringido el acceso del portal a los datos del índice y de los distintos componentes de este servicio, como índice, indizador y definiciones del conjunto de aptitudes.
@@ -42,7 +44,7 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
 
     | Configuración | Value |
     | ------- | ----- |
-    | Subscription | Seleccione su suscripción.|
+    | Suscripción | Seleccione su suscripción.|
     | Resource group | Seleccione **Crear nuevo**, escriba *myResourceGroup* y, después, seleccione **Aceptar**. |
     | Nombre | Escriba *MyVirtualNetwork*. |
     | Region | Seleccione la región que quiera. |
@@ -61,7 +63,7 @@ En esta sección, creará un nuevo servicio Azure Cognitive Search con un punto 
     | Configuración | Value |
     | ------- | ----- |
     | **DETALLES DEL PROYECTO** | |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.|
     | **DETALLES DE INSTANCIA** |  |
     | URL | Escriba un nombre único. |
@@ -81,7 +83,7 @@ En esta sección, creará un nuevo servicio Azure Cognitive Search con un punto 
 
     | Configuración | Value |
     | ------- | ----- |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.|
     | Location | Seleccione **Oeste de EE. UU.**|
     | Nombre | Escriba  *myPrivateEndpoint*.  |
@@ -115,7 +117,7 @@ En esta sección, creará un nuevo servicio Azure Cognitive Search con un punto 
     | Configuración | Value |
     | ------- | ----- |
     | **DETALLES DEL PROYECTO** | |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.  |
     | **DETALLES DE INSTANCIA** |  |
     | Nombre de la máquina virtual | Escriba *myVm*. |

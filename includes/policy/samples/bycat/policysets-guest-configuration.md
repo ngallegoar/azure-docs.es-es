@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: e47dee10e00340f04afd4a9807501bf83d25f9ec
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: f16f9b3fe6cd17b9fb6eb1cb2bd3ef1f42824701
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84709180"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85312760"
 ---
 |Nombre |Descripción |Directivas |Versión |
 |---|---|---|---|
@@ -37,3 +37,4 @@ ms.locfileid: "84709180"
 |[Auditar las VM Windows que tienen instaladas las aplicaciones especificadas](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_NotInstalledApp.json) |Esta iniciativa implementa los requisitos de la directiva y realiza una auditoría de las máquinas virtuales Windows que tienen instaladas las aplicaciones especificadas. Para más información sobre las directivas de configuración de invitados, visite [https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.0.0 |
 |[Auditar las VM Windows con un reinicio pendiente](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_WindowsPendingReboot.json) |Esta iniciativa implementa los requisitos de directiva y audita las máquinas virtuales Windows con un reinicio pendiente. Para más información sobre las directivas de configuración de invitados, visite [https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.0.0 |
 |[Auditoría de los servidores web de Windows que no estén usando los protocolos de comunicación segura](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_TLS.json) |Esta iniciativa implementa los requisitos de la directiva y realiza una auditoría de los servidores web de Windows que no usan protocolos de comunicación segura (TLS 1.1 o TLS 1.2). Para más información sobre las directivas de configuración de invitados, visite [https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.0.0 |
+|[Implementar los requisitos previos para habilitar directivas de configuración de invitado en máquinas virtuales](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_Prerequisites.json) |Esta iniciativa agrega una identidad administrada asignada por el sistema e implementa la extensión de configuración de invitado adecuada para la plataforma en las máquinas virtuales que se puedan supervisar mediante directivas de configuración de invitado. Este es un requisito previo para todas las directivas de configuración de invitado y se debe agregar al ámbito de asignación de directivas antes de usar cualquier directiva de configuración de invitado. Para más información sobre la configuración de invitado, visite [https://aka.ms/gcpol](https://aka.ms/gcpol). |4 |1.0.0-preview |

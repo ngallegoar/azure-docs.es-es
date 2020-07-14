@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Operaciones ETL con Interactive Query en Azure HDInsight'
-description: 'Tutorial: Aprenda cómo extraer datos de un conjunto de datos CSV sin formato. Transfórmelos mediante Interactive Query en HDInsight. A continuación, cargue los datos transformados en Azure SQL Database con Apache Sqoop.'
+description: 'Tutorial: Aprenda cómo extraer datos de un conjunto de datos CSV sin formato. Transfórmelos mediante Interactive Query en HDInsight. A continuación, cargue los datos transformados en Azure SQL Database con Apache Sqoop.'
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 07/02/2019
-ms.openlocfilehash: 431cd5efbb1087d99fc8521cec7a5c604856dac5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5c5a3c9e66a4d25a84d7940f49ec332d57f4c818
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021745"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319198"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Tutorial: Extracción, transformación y carga de datos mediante Interactive Query en Azure HDInsight
 
-En este tutorial, descargará un archivo de datos CSV sin formato con datos de vuelos disponibles públicamente. Impórtelo en el almacenamiento del clúster de HDInsight y, a continuación, transforme los datos mediante Interactive Query en Azure HDInsight. Una vez que los datos se han transformado, se cargan en una base de datos de Azure SQL mediante [Apache Sqoop](https://sqoop.apache.org/).
+En este tutorial, descargará un archivo de datos CSV sin formato con datos de vuelos disponibles públicamente. Impórtelo en el almacenamiento del clúster de HDInsight y, a continuación, transforme los datos mediante Interactive Query en Azure HDInsight. Una vez que los datos se han transformado, se cargan en Azure SQL Database mediante [Apache Sqoop](https://sqoop.apache.org/).
 
 En este tutorial se describen las tareas siguientes:
 
@@ -25,14 +25,14 @@ En este tutorial se describen las tareas siguientes:
 > * Descarga de datos de vuelos de ejemplo
 > * Carga de datos en un clúster de HDInsight
 > * Transformación de los datos mediante Interactive Query
-> * Creación de una tabla en una base de datos de Azure SQL
-> * Uso de Sqoop para exportar datos a la base de datos de Azure SQL
+> * Creación de una base de datos en Azure SQL Database.
+> * Uso de Sqoop para exportar datos a la base de datos de Azure SQL Database
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Un clúster de Interactive Query en HDInsight. Consulte el artículo [Creación de clústeres de Apache Hadoop mediante Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) y seleccione **Interactive Query** como **Tipo de clúster**.
 
-* Una base de datos de Azure SQL. Use una base de datos de Azure SQL como almacén de datos de destino. Si aún no tiene ninguna, consulte [Creación de una base de datos de Azure SQL en Azure Portal](/azure/sql-database/sql-database-single-database-get-started).
+* una base de datos de Azure SQL Database. La base de datos se usa como almacén de datos de destino. Si no tiene ninguna base de datos en Azure SQL Database, consulte el artículo [Creación de una base de datos de Azure SQL Database en Azure Portal](/azure/sql-database/sql-database-single-database-get-started).
 
 * Un cliente SSH. Para más información, consulte [Conexión a través de SSH con HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -250,9 +250,9 @@ Hay muchas maneras de conectarse a SQL Database y crear una tabla. En los siguie
 
 4. Entrar `exit` at the `1>` .
 
-## <a name="export-data-to-sql-database-using-apache-sqoop"></a>Exportación de datos a una base de datos SQL mediante Apache Sqoop
+## <a name="export-data-to-sql-database-using-apache-sqoop"></a>Exportación de datos a SQL Database mediante Apache Sqoop
 
-En las secciones anteriores, copió los datos transformados en `/tutorials/flightdelays/output`. En esta sección, va a usar Sqoop para exportar los datos de `/tutorials/flightdelays/output` a la tabla que creó en la base de datos de Azure SQL.
+En las secciones anteriores, copió los datos transformados en `/tutorials/flightdelays/output`. En esta sección, va a usar Sqoop para exportar los datos de `/tutorials/flightdelays/output` a la tabla que creó en Azure SQL Database.
 
 1. Compruebe que Sqoop puede ver la base de datos SQL con el siguiente comando:
 

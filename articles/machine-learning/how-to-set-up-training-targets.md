@@ -8,15 +8,15 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.date: 03/13/2020
-ms.custom: seodec18
-ms.openlocfilehash: 7fccd60ef0312748287d4103d8754bce944d4df6
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.topic: how-to
+ms.date: 06/11/2020
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 253d2c80f5a6ff96ba9249eddd127abb74f79a33
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266464"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515808"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configuración y uso de destinos de proceso para el entrenamiento del modelo 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -42,7 +42,7 @@ Azure Machine Learning tiene distintas modalidades de soporte técnico en los di
 
 
 > [!NOTE]
-> Proceso de Azure Machine Learning puede crearse como recurso persistente o crearse dinámicamente al solicitar una ejecución. La creación basada en ejecución quita el destino de proceso después de que se completa la ejecución de entrenamiento, por lo que no puede reutilizar los destinos de proceso creados de esta manera.
+> Los clústeres de Proceso de Azure Machine Learning pueden crearse como recurso persistente o crearse dinámicamente al solicitar una ejecución. La creación basada en ejecución quita el destino de proceso después de que se completa la ejecución de entrenamiento, por lo que no puede reutilizar los destinos de proceso creados de esta manera.
 
 ## <a name="whats-a-run-configuration"></a>¿En qué consiste una configuración de ejecución?
 
@@ -76,7 +76,8 @@ Aunque las canalizaciones de ML pueden entrenar modelos, también pueden prepara
 Use las secciones siguientes para configurar estos destinos de proceso:
 
 * [Equipo local](#local)
-* [Proceso de Azure Machine Learning](#amlcompute)
+* [Clúster de proceso de Azure Machine Learning](#amlcompute)
+* [Instancia de proceso de Azure Machine Learning](#instance)
 * [Máquinas virtuales remotas](#vm)
 * [HDInsight de Azure](#hdinsight)
 
@@ -91,9 +92,9 @@ Use las secciones siguientes para configurar estos destinos de proceso:
 
 Ahora que ha asociado el proceso y ha configurado la ejecución, el siguiente paso es [enviar la ejecución de entrenamiento](#submit).
 
-### <a name="azure-machine-learning-compute"></a><a id="amlcompute"></a>Proceso de Azure Machine Learning
+### <a name="azure-machine-learning-compute-cluster"></a><a id="amlcompute"></a>Clúster de Proceso de Azure Machine Learning
 
-Proceso de Azure Machine Learning es una infraestructura de proceso administrado que permite al usuario crear fácilmente un proceso de uno o varios nodos. El proceso se crea dentro de la región de su área de trabajo y es un recurso que se puede compartir con otros usuarios del área de trabajo. El proceso se escala verticalmente de forma automática cuando se envía un trabajo y se puede colocar en una instancia de Azure Virtual Network. El proceso se ejecuta en un entorno con contenedores y empaqueta las dependencias del modelo en un [contenedor de Docker](https://www.docker.com/why-docker).
+El clúster de Proceso de Azure Machine Learning es una infraestructura de proceso administrado que permite al usuario crear fácilmente un proceso de uno o varios nodos. El proceso se crea dentro de la región de su área de trabajo y es un recurso que se puede compartir con otros usuarios del área de trabajo. El proceso se escala verticalmente de forma automática cuando se envía un trabajo y se puede colocar en una instancia de Azure Virtual Network. El proceso se ejecuta en un entorno con contenedores y empaqueta las dependencias del modelo en un [contenedor de Docker](https://www.docker.com/why-docker).
 
 Proceso Azure Machine Learning Compute para distribuir el proceso de entrenamiento en un clúster de nodos de proceso de CPU o GPU de la nube. Para más información sobre los tamaños de máquina virtual que incluyen GPU, consulte [Tamaños de máquinas virtuales optimizadas para GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
 
@@ -127,6 +128,41 @@ Se puede reutilizar una instancia de Proceso de Azure Machine Learning entre tra
 Ahora que ha asociado el proceso y ha configurado la ejecución, el siguiente paso es [enviar la ejecución de entrenamiento](#submit).
 
 
+### <a name="azure-machine-learning-compute-instance"></a><a id="instance"></a>Instancia de Proceso de Azure Machine Learning
+
+La [instancia de Proceso de Azure Machine Learning](concept-compute-instance.md) es una infraestructura de proceso administrado que permite al usuario crear fácilmente una única VM. El proceso se crea dentro de la región de su área de trabajo, pero, a diferencia de un clúster de proceso, no se puede compartir una instancia con otros usuarios del área de trabajo. Además, la instancia no se reduce verticalmente de manera automática.  Debe detenerse el recurso para evitar que se apliquen cargos continuos.
+
+Una instancia de proceso puede ejecutar varios trabajos en paralelo y tiene una cola de trabajos. 
+
+Las instancias de proceso pueden ejecutar trabajos de manera segura en un [entorno de red virtual](how-to-enable-virtual-network.md#compute-instance), sin necesidad de que las empresas abran puertos SSH. El trabajo se ejecuta en un entorno con contenedores y empaqueta las dependencias del modelo en un contenedor de Docker. 
+
+1. **Crear y adjuntar**: 
+    
+    [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb?name=create_instance)]
+
+1. **Configurar**: Creación de una configuración de ejecución.
+    
+    ```python
+    
+    from azureml.core import ScriptRunConfig
+    from azureml.core.runconfig import DEFAULT_CPU_IMAGE
+    
+    src = ScriptRunConfig(source_directory='', script='train.py')
+    
+    # Set compute target to the one created in previous step
+    src.run_config.target = instance
+    
+    # Set environment
+    src.run_config.environment = myenv
+     
+    run = experiment.submit(config=src)
+    ```
+
+Para obtener más comandos útiles para la instancia de proceso, consulte el cuaderno [train-on-computeinstance](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb). Este cuaderno también está disponible en la carpeta **Samples** de Studio en *training/train-on-computeinstance*.
+
+Ahora que ha asociado el proceso y ha configurado la ejecución, el siguiente paso es [enviar la ejecución de entrenamiento](#submit).
+
+
 ### <a name="remote-virtual-machines"></a><a id="vm"></a>Máquinas virtuales remotas
 
 Azure Machine Learning también admite la posibilidad de que traiga su propio recurso de proceso y lo adjunte a su área de trabajo. Uno de estos tipos de recursos es una máquina virtual remota arbitraria, siempre que se pueda acceder desde Azure Machine Learning. El recurso puede ser una máquina virtual de Azure, un servidor remoto de la organización o local. En concreto, dada la dirección IP y las credenciales (nombre de usuario y contraseña o clave SSH), puede usar cualquier máquina virtual a la que se pueda acceder para las ejecuciones remotas.
@@ -155,13 +191,6 @@ Use Azure Data Science Virtual Machine (DSVM) como máquina virtual de Azure pre
                                                    ssh_port=22,
                                                    username='<username>',
                                                    password="<password>")
-
-   # If you authenticate with SSH keys instead, use this code:
-   #                                                  ssh_port=22,
-   #                                                  username='<username>',
-   #                                                  password=None,
-   #                                                  private_key_file="<path-to-file>",
-   #                                                  private_key_passphrase="<passphrase>")
 
    # Attach the compute
    compute = ComputeTarget.attach(ws, compute_target_name, attach_config)
@@ -193,7 +222,7 @@ Azure HDInsight es una plataforma popular para el análisis de macrodatos. La pl
 
 1. **Adjuntar**: para asociar un clúster de HDInsight como destino de proceso, debe proporcionar el nombre de host, el nombre de usuario y la contraseña del clúster de HDInsight. El identificador de recurso del clúster de HDInsight se puede construir con el identificador de la suscripción, el nombre del grupo de recursos y el nombre del clúster de HDInsight con el siguiente formato de cadena: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`.
 
-   ```python
+    ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
    from azureml.exceptions import ComputeTargetException
 

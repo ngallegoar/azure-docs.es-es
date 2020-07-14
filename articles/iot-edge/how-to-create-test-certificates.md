@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 921a9c5f7136713f278d9c50bf67f02d9742a470
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: e2ded81c3525de6f9c49d774594c73f9da2b5696
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309142"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84430665"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Creación de certificados de demostración para probar las características de dispositivo IoT Edge
 
@@ -272,7 +272,7 @@ Sin embargo, es conveniente evitar usar el mismo nombre.
 ## <a name="create-downstream-device-certificates"></a>Creación de certificados de dispositivo de bajada
 
 Si está configurando un dispositivo IoT de bajada para un escenario de puerta de enlace y quiere usar la autenticación X.509, puede generar certificados de demostración para el dispositivo de bajada.
-Si desea usar la autenticación de clave simétrica, no necesita ningún certificado para el dispositivo de bajada.
+Si desea usar la autenticación de clave simétrica, no necesita crear ningún certificado adicional para el dispositivo de bajada.
 Hay dos maneras de autenticar un dispositivo IoT mediante certificados X.509: mediante certificados autofirmados o mediante certificados firmados por una entidad de certificación (CA).
 Para la autenticación de X.509 autofirmada, en ocasiones denominada autenticación de huella digital, tendrá que crear certificados para el dispositivo IoT.
 Estos certificados contienen una huella digital que se comparte con IoT Hub para la autenticación.

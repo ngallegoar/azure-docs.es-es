@@ -10,17 +10,17 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: dea5b3fb6cf20924666668e59e370399664d6b28
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: d95c0fc9baf1e53e6643660726c72660719908ba
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684748"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483387"
 ---
-# <a name="tutorial-use-r-to-create-a-machine-learning-model"></a>Tutorial: Uso de R para crear un modelo de Machine Learning
+# <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Tutorial: Uso de R para crear un modelo de Machine Learning (versión preliminar)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-En este tutorial usará el SDK de R de Azure Machine Learning para crear un modelo de regresión logística que prediga la probabilidad de que se produzca una muerte en un accidente de coche. Verá cómo funcionan los recursos en la nube de Azure Machine Learning con R para proporcionar un entorno escalable para entrenar e implementar un modelo.  
+En este tutorial usará el SDK para R de Azure Machine Learning (versión preliminar) para crear un modelo de regresión logística que prediga la probabilidad de que se produzca una muerte en un accidente de coche. Verá cómo funcionan los recursos en la nube de Azure Machine Learning con R para proporcionar un entorno escalable para entrenar e implementar un modelo.  
 
 En este tutorial se realizan las siguientes tareas:
 > [!div class="checklist"]
@@ -73,7 +73,7 @@ Complete los siguientes pasos de configuración y ejecución del experimento en 
 
 1. Aparece una lista de las carpetas que muestran los usuarios con acceso al área de trabajo.  Seleccione la carpeta donde se va a clonar la carpeta **vignettes**.
 
-## <a name="a-nameopenopen-rstudio"></a><a name="open">Apertura de RStudio
+## <a name="open-rstudio"></a><a name="open"></a>Apertura de RStudio
 
 Use RStudio en una máquina virtual de instancia de proceso o de cuaderno para llevar a cabo este tutorial.  
 

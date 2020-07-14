@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 5de9fe7c81059c56c99a55ca066e186cbf83c50f
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: e1b260b1249af25ac5a8364798c532dcb3885cb9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793960"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887875"
 ---
 # <a name="create-a-scale-set-using-a-specialized-image-version-with-the-azure-cli"></a>Creación de un conjunto de escalado mediante una versión de imagen especializada con la CLI de Azure
 
-Cree un conjunto de escalado a partir de una [versión de imagen especializada](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) que esté almacenada en una instancia de Shared Image Gallery. Si quiere crear un conjunto de escalado con una versión de imagen generalizada, consulte [Creación de una máquina virtual a partir de una versión de imagen generalizada](instance-generalized-image-version-cli.md).
+Cree un conjunto de escalado a partir de una [versión de imagen especializada](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) que esté almacenada en una instancia de Shared Image Gallery. Si quiere crear un conjunto de escalado con una versión de imagen generalizada, consulte [Creación de u conjunto de escalado a partir de una imagen generalizada](instance-generalized-image-version-cli.md).
 
 Si decide instalar y usar la CLI de forma local, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.4.0, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
@@ -38,7 +38,7 @@ az sig image-definition list \
 
 Cree un conjunto de escalado mediante [`az vmss create`](/cli/azure/vmss#az-vmss-create) con el parámetro `--specialized` para indicar que se trata de una imagen especializada.
 
-Use el id. de definición de imagen para el parámetro `--image`; así, se crearán las instancias del conjunto de escalado a partir de la versión más reciente de la imagen que está disponible. También puede crear las instancias del conjunto de escalado a partir de una versión específica si proporciona el id. de la versión de la imagen en el parámetro `--image`. Tenga en cuenta que el uso de una versión de imagen específica significa que Automation podría producir un error si dicha versión no está disponible porque se eliminó o se quitó de la región. Se recomienda usar el id. de definición de la imagen para crear la nueva máquina virtual, a menos que se requiera una versión de imagen específica.
+Use el id. de definición de imagen para el parámetro `--image`; así, se crearán las instancias del conjunto de escalado a partir de la versión más reciente de la imagen que está disponible. También puede crear las instancias del conjunto de escalado a partir de una versión específica si proporciona el identificador de la versión de la imagen en el parámetro `--image`. Tenga en cuenta que el uso de una versión de imagen específica significa que la automatización podría producir un error si dicha versión no está disponible porque se eliminó o se quitó de la región. Se recomienda usar el identificador de definición de la imagen para crear la nueva máquina virtual, a menos que se requiera una versión de imagen específica.
 
 En este ejemplo, se crearán instancias a partir de la versión más reciente de la imagen *myImageDefinition*.
 

@@ -1,26 +1,27 @@
 ---
-title: 'Definición de una directiva de acceso almacenada con .NET: Azure Storage'
-description: Obtenga información sobre cómo definir una directiva de acceso almacenada mediante la biblioteca cliente de .NET.
+title: Creación de una directiva de acceso almacenada con .NET
+titleSuffix: Azure Storage
+description: Obtenga información sobre cómo crear una directiva de acceso almacenada mediante la biblioteca cliente de .NET.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 08/06/2019
+ms.topic: how-to
+ms.date: 06/16/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 272d676d0a5a55262b1c68d0bae9a9ab229df72c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4a0d69f3687f0dcc174a2d8a1275a2bf55d9ecf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68990608"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504396"
 ---
-# <a name="define-a-stored-access-policy-with-net"></a>Definición de una directiva de acceso almacenada con .NET
+# <a name="create-a-stored-access-policy-with-net"></a>Creación de una directiva de acceso almacenada con .NET
 
 Una directiva de acceso almacenada proporciona un nivel de control adicional sobre las firmas de acceso compartido (SAS) de nivel de servicio en el lado del servidor. La definición de una directiva de acceso almacenada sirve para agrupar firmas de acceso compartido y proporcionar restricciones adicionales para las firmas de acceso compartido que están enlazadas por la directiva. Puede usar una directiva de acceso almacenada para cambiar la hora de inicio, la hora de expiración, los permisos de una SAS ni para revocarla una vez se ha emitido.
   
- Los siguientes recursos de almacenamiento admiten directivas de acceso almacenadas:  
+Los siguientes recursos de Azure Storage admiten directivas de acceso almacenadas:  
   
 - Contenedores de blobs  
 - Recursos compartidos de archivos  
@@ -32,9 +33,73 @@ Una directiva de acceso almacenada proporciona un nivel de control adicional sob
 >
 > Las directivas de acceso almacenadas son compatibles para una SAS de servicio únicamente. Las directivas de acceso almacenadas no son compatibles para SAS de cuenta ni de delegación de usuarios.  
 
+Para obtener más información sobre las directivas de acceso almacenadas, consulte [Definición de una directiva de acceso almacenada](/rest/api/storageservices/define-stored-access-policy).
+
 ## <a name="create-a-stored-access-policy"></a>Crear una directiva de acceso almacenada
 
-El código siguiente crea una directiva de acceso almacenada en un contenedor. Puede usar la directiva de acceso para especificar restricciones para una SAS de servicio en el contenedor o sus blobs.
+La operación de REST subyacente para crear una directiva de acceso almacenada es [Set Container ACL](/rest/api/storageservices/set-container-acl). Debe autorizar la operación para crear una directiva de acceso almacenada a través de la clave compartida mediante las claves de acceso de la cuenta en una cadena de conexión. No se admite la autorización de la operación **Set Container ACL** con credenciales de Azure AD. Para obtener más información, consulte [Permisos para llamar a operaciones de datos de blobs y colas](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+
+Los ejemplos de código siguientes crean una directiva de acceso almacenada en un contenedor. Puede usar la directiva de acceso para especificar restricciones para una SAS de servicio en el contenedor o sus blobs.
+
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
+
+Para crear una directiva de acceso almacenada en un contenedor con la versión 12 de la biblioteca cliente de .NET para Azure Storage, llame a uno de los métodos siguientes:
+
+- [BlobContainerClient.SetAccessPolicy](/dotnet/api/azure.storage.blobs.blobcontainerclient.setaccesspolicy)
+- [BlobContainerClient.SetAccessPolicyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.setaccesspolicyasync)
+
+En el ejemplo siguiente se crea una directiva de acceso almacenada que está en vigor durante un día y que concede permisos de lectura y escritura:
+
+```csharp
+async static Task CreateStoredAccessPolicyAsync(string containerName)
+{
+    string connectionString = "";
+
+    // Use the connection string to authorize the operation to create the access policy.
+    // Azure AD does not support the Set Container ACL operation that creates the policy.
+    BlobContainerClient containerClient = new BlobContainerClient(connectionString, containerName);
+
+    try
+    {
+        await containerClient.CreateIfNotExistsAsync();
+
+        // Create one or more stored access policies.
+        List<BlobSignedIdentifier> signedIdentifiers = new List<BlobSignedIdentifier>
+        {
+            new BlobSignedIdentifier
+            {
+                Id = "mysignedidentifier",
+                AccessPolicy = new BlobAccessPolicy
+                {
+                    StartsOn = DateTimeOffset.UtcNow.AddHours(-1),
+                    ExpiresOn = DateTimeOffset.UtcNow.AddDays(1),
+                    Permissions = "rw"
+                }
+            }
+        };
+        // Set the container's access policy.
+        await containerClient.SetAccessPolicyAsync(permissions: signedIdentifiers);
+    }
+    catch (RequestFailedException e)
+    {
+        Console.WriteLine(e.ErrorCode);
+        Console.WriteLine(e.Message);
+    }
+    finally
+    {
+        await containerClient.DeleteAsync();
+    }
+}
+```
+
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
+
+Para crear una directiva de acceso almacenada en un contenedor con la versión 12 de la biblioteca cliente de .NET para Azure Storage, llame a uno de los métodos siguientes:
+
+- [CloudBlobContainer.SetPermissions](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissions)
+- [CloudBlobContainer.SetPermissionsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissionsasync)
+
+En el ejemplo siguiente se crea una directiva de acceso almacenada que está en vigor durante un día y que concede permisos de lectura, escritura y enumeración:
 
 ```csharp
 private static async Task CreateStoredAccessPolicyAsync(CloudBlobContainer container, string policyName)
@@ -46,7 +111,7 @@ private static async Task CreateStoredAccessPolicyAsync(CloudBlobContainer conta
         // When the start time for the SAS is omitted, the start time is assumed to be the time when Azure Storage receives the request.
         SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
         Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.List |
-            SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Create | SharedAccessBlobPermissions.Delete
+            SharedAccessBlobPermissions.Write
     };
 
     // Get the container's existing permissions.
@@ -58,8 +123,10 @@ private static async Task CreateStoredAccessPolicyAsync(CloudBlobContainer conta
 }
 ```
 
+---
+
 ## <a name="see-also"></a>Consulte también
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md) (Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido [SAS])
 - [Definición de una directiva de acceso almacenada](/rest/api/storageservices/define-stored-access-policy)
-
+- [Configuración de las cadenas de conexión de Azure Storage](storage-configure-connection-string.md)

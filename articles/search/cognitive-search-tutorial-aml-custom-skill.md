@@ -8,24 +8,24 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: 1ff29be9cde4a2bd53f0edbe57f3eab603c1796f
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: f673fd4b49a33c2faf6bc8b489520f2a877b0689
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84739499"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513814"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Tutorial: Creación e implementación de una aptitud personalizada con Azure Machine Learning 
 
-En este tutorial, usará el [conjunto de datos de reseñas de hoteles](https://www.kaggle.com/datafiniti/hotel-reviews) (que se distribuye con la licencia de Creative Commons [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) para crear una [aptitud personalizada](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface) mediante Azure Machine Learning y extraer opiniones basadas en aspectos de las reseñas. De esta forma, se podrá atribuir correctamente la asignación de opiniones positivas y negativas dentro de la misma reseña a las entidades identificadas, como personal, habitación, vestíbulo o piscina.
+En este tutorial, usará el [conjunto de datos de reseñas de hoteles](https://www.kaggle.com/datafiniti/hotel-reviews) (que se distribuye con la licencia de Creative Commons [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) para crear una [aptitud personalizada](https://docs.microsoft.com/azure/search/cognitive-search-aml-skill) mediante Azure Machine Learning y extraer opiniones basadas en aspectos de las reseñas. De esta forma, se podrá atribuir correctamente la asignación de opiniones positivas y negativas dentro de la misma reseña a las entidades identificadas, como personal, habitación, vestíbulo o piscina.
 
-Para entrenar el modelo de opinión basada en aspectos, usará el [repositorio nlp-recipes](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). A continuación, el modelo se implementará como un punto de conexión en un clúster de Azure Kubernetes. Una vez implementado, el modelo se agrega a la canalización de enriquecimiento como una aptitud personalizada para su uso por parte del servicio Cognitive Search.
+Para entrenar el modelo de opinión basada en aspectos de Azure Machine Learning, usará el [repositorio nlp-recipes](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). A continuación, el modelo se implementará como un punto de conexión en un clúster de Azure Kubernetes. Una vez implementado, el punto de conexión se agrega a la canalización de enriquecimiento como una aptitud de Azure Machine Learning para su uso por parte del servicio Cognitive Search.
 
 Se proporcionan dos conjuntos de datos. Si quiere entrenar el modelo por su cuenta, se necesita el archivo hotel_reviews_1000.csv. ¿Prefiere omitir el paso de entrenamiento? Descargue el archivo hotel_reviews_100.csv.
 
 > [!div class="checklist"]
 > * Creación de una instancia de Azure Cognitive Search
-> * Creación de un área de trabajo de Azure Machine Learning
+> * Creación de un área de trabajo de Azure Machine Learning (el servicio de búsqueda y el área de trabajo deben estar en la misma suscripción)
 > * Entrenamiento e implementación de un modelo en un clúster de Azure Kubernetes
 > * Vinculación de una canalización de enriquecimiento con IA al modelo implementado
 > * Ingesta de la salida del modelo implementado como una aptitud personalizada

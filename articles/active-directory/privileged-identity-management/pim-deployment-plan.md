@@ -14,12 +14,12 @@ ms.date: 04/28/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51a60d307ca7dac139db0097283fc08e9e41624c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ac3f9adbb3b83345fe14df39014c6119e97ba7f9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233540"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84886100"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implementación de Azure AD Privileged Identity Management (PIM)
 
@@ -52,7 +52,8 @@ Para usar Privileged Identity Management, el directorio debe tener una de las si
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5
-- Microsoft 365 M5
+- Microsoft 365 Education A5
+- Microsoft 365 Enterprise E5
 
 Para más información, consulte [Requisitos de licencia para usar Privileged Identity Management](subscription-requirements.md).
 

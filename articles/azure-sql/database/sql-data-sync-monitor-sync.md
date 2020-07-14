@@ -11,15 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: b7c801d75d778deccae645e0945fba557dbc6782
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 307e501743d01b94cfca3692cc09c05cc90ed3ce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84188790"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343241"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Supervisión de SQL Data Sync con registros de Azure Monitor 
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Antes, para consultar el registro de actividad de SQL Data Sync y detectar errores y advertencias, había que hacerlo manualmente en el Azure Portal, o bien recurrir a PowerShell o a la API de REST. Siga los pasos descritos en este artículo para configurar una solución personalizada que mejora la experiencia de supervisión de Data Sync. Esta solución se puede personalizar para adaptarse a su escenario.
 
@@ -28,11 +27,11 @@ Antes, para consultar el registro de actividad de SQL Data Sync y detectar error
 Para información general sobre SQL Data Sync, consulte [Sincronización de datos entre varias bases de datos locales y en la nube con SQL Data Sync en Azure](sql-data-sync-data-sql-server-sql-database.md).
 
 > [!IMPORTANT]
-> SQL Data Sync **no** admite en este momento Instancia administrada de Azure SQL.
+> SQL Data Sync **no** admite en este momento la Instancia administrada de Azure SQL.
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Panel de supervisión de todos los grupos de sincronización 
 
-Ya no es necesario buscar por todos los registros de cada grupo de sincronización individualmente para dar con algún problema. Ahora, todos los grupos de sincronización de cualquiera de sus suscripciones se pueden supervisar en un solo lugar, con una vista de Azure Monitor personalizada. Esta vista presenta la información que es importante para los clientes de SQL Data Sync.
+Ya no es necesario buscar por todos los registros de cada grupo de sincronización para dar con algún problema. Ahora, todos los grupos de sincronización de cualquiera de sus suscripciones se pueden supervisar en un solo lugar, con una vista de Azure Monitor personalizada. Esta vista presenta la información que es importante para los clientes de SQL Data Sync.
 
 ![Panel de supervisión de Data Sync](./media/sql-data-sync-monitor-sync/sync-monitoring-dashboard.png)
 
@@ -80,7 +79,7 @@ Para más información sobre cómo crear un runbook, vea [Mi primer runbook de P
 
 1.  En la cuenta de Azure Automation, seleccione la pestaña **Runbooks** en Automatización de procesos.
 
-2.  Seleccione **Agregar un Runbook** en la esquina superior izquierda de la página Runbooks.
+2.  Seleccione **Agregar un runbook** en la esquina superior izquierda de la página Runbooks.
 
 3.  Seleccione **Importar un Runbook existente**.
 
@@ -188,7 +187,7 @@ En la mayoría de los casos, esta solución es gratuita.
 
 **Azure Automation**: se puede incurrir en costos en función del uso que haga de la cuenta de Azure Automation. Los primeros 500 minutos de tiempo de ejecución del trabajo al mes son gratuitos. Esta solución casi nunca suele superar los 500 minutos al mes. Para no incurrir en gastos, programe el runbook para que se ejecute en un intervalo de dos horas o más. Para más información, vea [Precios de Automation](https://azure.microsoft.com/pricing/details/automation/).
 
-**Registros de Azure Monitor:** se puede incurrir en un costo asociado a los registros de Azure Monitor en función del uso que haga. El nivel gratuito incluye 500 MB de datos introducidos por día. Esta solución casi nunca suele superar los 500 MB de datos introducidos al mes. Para reducir el uso, use el filtro de solo errores incluido en el runbook. Si usa más de 500 MB al día, actualice al nivel de pago para no arriesgarse a que Log Analytics se detenga cuando se alcance la limitación. Para más información, consulte [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Registros de Azure Monitor:** se puede incurrir en un costo asociado a los registros de Azure Monitor en función del uso que haga. El nivel gratuito incluye 500 MB de datos introducidos por día. Esta solución casi nunca suele superar los 500 MB de datos introducidos al mes. Para reducir el uso, use el filtro de solo errores incluido en el runbook. Si usa más de 500 MB al día, actualice al nivel de pago para no arriesgarse a que se detenga el análisis cuando se alcance la limitación. Para más información, consulte [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## <a name="code-samples"></a>Ejemplos de código
 
@@ -203,15 +202,15 @@ Para más información sobre SQL Data Sync, consulte:
 
 -   Introducción: [Sincronización de datos entre varias bases de datos locales y en la nube con SQL Data Sync en Azure](sql-data-sync-data-sql-server-sql-database.md)
 -   Configuración de Data Sync
-    - En el portal, [Tutorial: Configuración de SQL Data Sync para sincronizar datos entre Azure SQL Database y SQL Server](sql-data-sync-sql-server-configure.md)
+    - En el portal, [Tutorial: Configuración de SQL Data Sync para sincronizar datos entre Azure SQL Database y SQL Server](sql-data-sync-sql-server-configure.md)
     - Con PowerShell
-        -  [Uso de PowerShell para sincronizar varias bases de datos de Azure SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases.md)
-        -  [Uso de PowerShell para sincronizar una base de datos de Azure SQL Database y una base de datos de una instancia de SQL Server](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
--   Data Sync Agent: [Data Sync Agent para SQL Data Sync en Azure](sql-data-sync-agent-overview.md)
+        -  [Uso de PowerShell para sincronizar varias bases de datos de Azure SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases.md)
+        -  [Uso de PowerShell para sincronizar una base de datos de Azure SQL Database y una base de datos de una instancia de SQL Server](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
+-   Data Sync Agent: [Data Sync Agent para Azure SQL Data Sync](sql-data-sync-agent-overview.md)
 -   Procedimientos recomendados: [Procedimientos recomendados para SQL Data Sync en Azure](sql-data-sync-best-practices.md)
 -   Solución de problemas: [Solución de problemas con SQL Data Sync en Azure](sql-data-sync-troubleshoot.md)
 -   Actualización del esquema de sincronización
-    -   Con Transact-SQL: [Automatización de la replicación de los cambios de esquema en SQL Data Sync en Azure](sql-data-sync-update-sync-schema.md)
+    -   Con Transact-SQL: [Automatización de la replicación de los cambios de esquema en SQL Data Sync en Azure](sql-data-sync-update-sync-schema.md)
     -   Con PowerShell: [Usar PowerShell para actualizar el esquema de sincronización en un grupo de sincronización existente](scripts/update-sync-schema-in-sync-group.md)
 
 Para más información sobre SQL Database, consulte:

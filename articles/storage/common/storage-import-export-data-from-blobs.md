@@ -4,22 +4,22 @@ description: Aprenda a crear trabajos de exportación en Azure Portal para trans
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: fe58f59147db43b1c15298f83a2945b50766f8a8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: c9ce265707743d98f6c93d3facca33e16d1b75ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169209"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513508"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Uso del servicio Azure Import/Export para exportar datos de Azure Blob Storage
 
 Este artículo proporciona instrucciones paso a paso sobre cómo usar el servicio Azure Import/Export para exportar de forma segura grandes cantidades de datos desde Azure Blob Storage. El servicio requiere que envíe unidades de disco vacías al centro de datos de Azure. El servicio exporta datos de la cuenta de almacenamiento a las unidades de disco y luego envía de vuelta las unidades de disco.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de crear un trabajo de exportación para transferir datos fuera de Azure Blob Storage, revise con cuidado y complete la siguiente lista de requisitos previos para este servicio.
 Debe:
@@ -39,7 +39,7 @@ Debe:
 
 Siga estos pasos para crear un trabajo de exportación en Azure Portal.
 
-1. Inicie sesión en https://portal.azure.com/.
+1. Inicie sesión en <https://portal.azure.com/>.
 2. Vaya a **Todos los servicios > Almacenamiento > Trabajos de importación o exportación**.
 
     ![Ir a trabajos de importación o exportación](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
@@ -129,7 +129,11 @@ La exportación se ha terminado.
 
 Si usa la versión 1.4.0.300 de la herramienta WAImportExport, utilice el siguiente comando para desbloquear la unidad:
 
-   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file> /driveLetter:<Drive letter>`  
+
+Este es un ejemplo de la entrada.
+
+   `WAImportExport.exe Unlock /bk:CAAcwBoAG8AdQBsAGQAIABiAGUAIABoAGkAZABkAGUAbgA= /driveLetter:e`
 
 Si usa versiones anteriores de la herramienta, use el cuadro de diálogo BitLocker para desbloquear la unidad.
 
@@ -143,11 +147,11 @@ Este paso *opcional* le ayuda a determinar el número de unidades necesarias par
 2. Descomprima en la carpeta predeterminada `waimportexportv1`. Por ejemplo, `C:\WaImportExportV1`.
 3. Abra una ventana de PowerShell o de línea de comandos con privilegios administrativos. Para cambiar el directorio a la carpeta descomprimida, ejecute el siguiente comando:
 
-    `cd C:\WaImportExportV1`
+   `cd C:\WaImportExportV1`
 
 4. Para comprobar el número de discos necesarios para los blobs seleccionados, ejecute el siguiente comando:
 
-    `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
+   `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
 
     Los parámetros se describen en la tabla siguiente:
 

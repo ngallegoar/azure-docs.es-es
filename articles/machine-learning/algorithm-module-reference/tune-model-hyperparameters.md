@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/11/2020
-ms.openlocfilehash: ff0ccbf201f2b83dd446859d8054d115a70f402e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/17/2020
+ms.openlocfilehash: 01e33f7b0133eb5d081e6e8f3c3c9497c11bae95
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064155"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84983417"
 ---
 # <a name="tune-model-hyperparameters"></a>Optimizar los hiperparámetros del modelo
 
@@ -43,33 +43,35 @@ En esta sección se describe cómo realizar un barrido de parámetros básico, q
 
 2.  Conecte un modelo no entrenado a la entrada que se encuentra más a la izquierda. 
 
+    > [!NOTE] 
+    > **Tune Model Hyperparameters** (Optimizar hiperparámetros del modelo) solo se puede conectar a los módulos de algoritmo de aprendizaje automático integrados y no es compatible con el modelo personalizado integrado **Crear modelo de Python**.
 
 
-4.  Agregue el conjunto de datos que desea usar para el entrenamiento y conéctelo a la entrada central de Tune Model Hyperparameters (Optimizar hiperparámetros del modelo).  
+3.  Agregue el conjunto de datos que desea usar para el entrenamiento y conéctelo a la entrada central de Tune Model Hyperparameters (Optimizar hiperparámetros del modelo).  
 
     Opcionalmente, si tiene un conjunto de datos etiquetado, puede conectarlo al puerto de entrada situado más a la derecha (**Conjunto de datos de validación opcional**). Esto le permite medir la precisión durante el entrenamiento y la optimización.
 
-5.  En el panel derecho de Optimizar hiperparámetros del modelo, elija un valor para **Parameter sweeping mode** (Modo de barrido de parámetros). Esta opción controla la manera en la que se seleccionan los parámetros.
+4.  En el panel derecho de Optimizar hiperparámetros del modelo, elija un valor para **Parameter sweeping mode** (Modo de barrido de parámetros). Esta opción controla la manera en la que se seleccionan los parámetros.
 
     - **Cuadrícula completa**: Al seleccionar esta opción, el módulo recorre en bucle una cuadrícula predefinida por el sistema para probar diferentes combinaciones e identificar el mejor aprendizaje. Esta opción es útil si no sabe cuál podría ser la mejor configuración de parámetros y desea probar todas las combinaciones posibles de valores.
 
     - **Barrido aleatorio**: Cuando seleccione esta opción, el módulo elegirá aleatoriamente los valores de parámetro en un intervalo definido por el sistema. Debe especificar el número máximo de ejecuciones que desea que realice el módulo. Esta opción es útil si desea aumentar el rendimiento del modelo con las métricas de su elección pero conservando los recursos de computación.    
 
-6.  En **Label column** (Columna de etiqueta), abra el selector de columnas para elegir una sola columna de etiqueta.
+5.  En **Label column** (Columna de etiqueta), abra el selector de columnas para elegir una sola columna de etiqueta.
 
-7.  Elija el número de ejecuciones:
+6.  Elija el número de ejecuciones:
 
-    1. **Máximo número de ejecuciones en el barrido aleatorio**: si elige un barrido aleatorio, puede especificar el número de veces que se debe entrenar el modelo con una combinación aleatoria de valores de parámetros.
+    - **Máximo número de ejecuciones en el barrido aleatorio**: si elige un barrido aleatorio, puede especificar el número de veces que se debe entrenar el modelo con una combinación aleatoria de valores de parámetros.
 
-8.  En **Ranking** (Clasificación), elija una sola métrica que se usará para clasificar los modelos.
+7.  En **Ranking** (Clasificación), elija una sola métrica que se usará para clasificar los modelos.
 
     Al ejecutar un barrido de parámetros, el módulo calcula todas las métricas aplicables para el tipo de modelo y las devuelve en el informe **Sweep results** (Resultados de barrido). El módulo usa métricas independientes para los modelos de regresión y de clasificación.
 
     Sin embargo, la métrica que se elija determinará la clasificación de los modelos. Solo el modelo superior, clasificado por la métrica elegida, se genera como un modelo entrenado que se usará para la puntuación.
 
-9.  En **Random seed** (Inicialización aleatoria), escriba el número que se usará para iniciar el barrido de parámetros. 
+8.  En **Random seed** (Inicialización aleatoria), escriba el número que se usará para iniciar el barrido de parámetros. 
 
-10. Envíe la canalización.
+9. Envíe la canalización.
 
 ## <a name="results-of-hyperparameter-tuning"></a>Resultados de la optimización de hiperparámetros
 

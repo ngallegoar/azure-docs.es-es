@@ -4,12 +4,12 @@ description: Aprenda a crear rápidamente un clúster de Kubernetes y a implemen
 services: container-service
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 28925961ea3b99f939ac650d54b5dcece2551f59
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 29ee22cb4b28726b25ead6ff78d90de99847666b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926636"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84886955"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Creación de un contenedor de Windows Server en un clúster de Azure Kubernetes Service (AKS) mediante la CLI de Azure
 
@@ -67,24 +67,35 @@ En la siguiente salida de ejemplo se muestra que los recursos se crearon correct
 
 ## <a name="create-an-aks-cluster"></a>Creación de un clúster de AKS
 
-Para ejecutar un clúster de AKS que admita grupos de nodos para contenedores de Windows Server, el clúster debe utilizar una directiva de red que use el complemento de red (avanzado) de [Azure CNI][azure-cni-about]. Para más información que le ayude a planear los intervalos de subred necesarios y las consideraciones de red, vea [Configuración de redes de Azure CNI][use-advanced-networking]. Use el comando [az aks create][az-aks-create] siguiente para crear un clúster de AKS denominado *myAKSCluster*. Este comando creará los recursos de red necesarios en caso de que no existan.
+Para ejecutar un clúster de AKS que admita grupos de nodos para contenedores de Windows Server, el clúster debe utilizar una directiva de red que use el complemento de red (avanzado) de [Azure CNI][azure-cni-about]. Para más información que le ayude a planear los intervalos de subred necesarios y las consideraciones de red, vea [Configuración de redes de Azure CNI][use-advanced-networking]. Use el comando [az aks create][az-aks-create] para crear un clúster de AKS denominado *myAKSCluster*. Este comando creará los recursos de red necesarios en caso de que no existan.
+
+* El clúster se configura con dos nodos.
+* Los parámetros *windows-admin-password* y *windows-admin-username* establecen las credenciales de administrador de todos los contenedores de Windows Server creados en el clúster.
+* El grupo de nodos usa `VirtualMachineScaleSets`.
 
 > [!NOTE]
 > Para asegurarse de que el clúster funcione de forma confiable, debe ejecutar al menos 2 (dos) nodos del grupo de nodos predeterminado.
 
+Proporcione su *PASSWORD_WIN* seguro propio (recuerde que los comandos de este artículo se han agregado a un shell de BASH):
+
 ```azurecli-interactive
+PASSWORD_WIN="P@ssw0rd1234"
+
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --node-count 2 \
     --enable-addons monitoring \
-    --kubernetes-version 1.16.7 \
     --generate-ssh-keys \
+    --windows-admin-password $PASSWORD_WIN \
+    --windows-admin-username azureuser \
+    --vm-set-type VirtualMachineScaleSets \
     --network-plugin azure
 ```
 
-> [!Note]
-> Si no puede crear el clúster de AKS porque la versión no se admite en esta región, puede usar el comando[az aks get-versions --location eastus] para encontrar la lista de versiones admitidas en esta región.
+> [!NOTE]
+> Si recibe un error de validación de contraseña, intente crear el grupo de recursos en otra región.
+> A continuación, intente crear el clúster con el nuevo grupo de recursos.
 
 Transcurridos unos minutos, el comando se completa y devuelve información en formato JSON sobre el clúster. En ocasiones, el clúster puede tardar más de unos minutos en aprovisionarse. Espere hasta 10 minutos en estos casos.
 
@@ -98,8 +109,7 @@ az aks nodepool add \
     --cluster-name myAKSCluster \
     --os-type Windows \
     --name npwin \
-    --node-count 1 \
-    --kubernetes-version 1.16.7
+    --node-count 1
 ```
 
 El comando anterior crea un nuevo grupo de nodos denominado *npwin* y lo agrega a *myAKSCluster*. Al crear un grupo de nodos para ejecutar contenedores de Windows Server, el valor predeterminado para *node-vm-size* es *Standard_D2s_v3*. Si decide establecer el parámetro *node-vm-size*, compruebe la lista de [tamaños de máquina virtual restringidos][restricted-vm-sizes]. El tamaño mínimo recomendado es *Standard_D2s_v3*. El comando anterior también usa la subred predeterminada en la red virtual predeterminada que se crea al ejecutar `az aks create`.
@@ -128,8 +138,8 @@ La siguiente salida de ejemplo muestra todos los nodos del clúster. Asegúrese 
 
 ```output
 NAME                                STATUS   ROLES   AGE    VERSION
-aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.16.7
-aksnpwin987654                      Ready    agent   108s   v1.16.7
+aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.16.9
+aksnpwin987654                      Ready    agent   108s   v1.16.9
 ```
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación

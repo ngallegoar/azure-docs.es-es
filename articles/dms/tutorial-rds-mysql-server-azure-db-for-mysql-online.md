@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/08/2020
-ms.openlocfilehash: c34de48d0184057f42d1b779abee56e1fa9ac169
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/09/2020
+ms.openlocfilehash: 8cfe8d1a87b8b52c21927696101704bd01b7641a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78255164"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609257"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migración de RDS MySQL a Azure Database for MySQL en línea mediante DMS
 
@@ -42,7 +42,7 @@ En este tutorial, aprenderá a:
 
 En este artículo se describe cómo realizar una migración en línea de una instancia de RDS MySQL a Azure Database for MySQL.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, necesita:
 
@@ -67,6 +67,7 @@ Para completar este tutorial, necesita:
 
 1. Para crear un nuevo grupo de parámetros, siga las instrucciones proporcionadas por AWS en el artículo [MySQL Database Log Files](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.html) (Archivos de registro de la base de datos MySQL), en la sección **Binary Logging Format** (Formato de registro binario).
 2. Cree un nuevo grupo de parámetros con la siguiente configuración:
+    * log_bin = ON
     * binlog_format = row
     * binlog_checksum = NONE
 3. Guarde el nuevo grupo de parámetros.

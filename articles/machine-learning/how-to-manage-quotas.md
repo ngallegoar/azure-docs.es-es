@@ -5,31 +5,34 @@ description: Obtenga información sobre las cuotas de los recursos de Azure Mach
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 05/08/2020
 ms.custom: contperfq4
-ms.openlocfilehash: c5862ee90a12240e7293647fae6af4f18f30c164
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: df636ce1200d8c3744681a60532b22c409dd81dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680396"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84430470"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Administración y aumento de las cuotas de los recursos con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-En este artículo se proporciona a los usuarios de [Azure Machine Learning](overview-what-is-azure-ml.md) detalles sobre los límites preconfigurados en los recursos de Azure para su suscripción. También se incluyen instrucciones sobre cómo solicitar mejoras de cuota para cada tipo de recurso. Estos límites se establecen para evitar salirse del presupuesto debido a fraudes y para respetar las restricciones de capacidad de Azure.
+En este artículo, obtendrá información sobre los límites preconfigurados en los recursos de Azure para la suscripción a [Azure Machine Learning](overview-what-is-azure-ml.md) y las cuotas que puede administrar. Estos límites se establecen para evitar salirse del presupuesto debido a fraudes y para respetar las restricciones de capacidad de Azure. 
 
 Al igual que en otros servicios de Azure, existen límites en determinados recursos asociados con Azure Machine Learning. Dichos límites oscilan entre un extremo en el número de [áreas de trabajo](concept-workspace.md) y los límites en el proceso subyacente real que se usa para entrenar modelos o para la puntuación o inferencia de modelos. 
 
 Tenga en cuenta estos límites al diseñar y escalar sus recursos de Azure Machine Learning para cargas de trabajo de producción. Por ejemplo, si su clúster no alcanza el número objetivo de nodos, es posible que se haya alcanzado el límite de núcleos del Proceso de Azure Machine Learning para la suscripción. Si desea aumentar el límite o la cuota por encima del límite predeterminado, abra una solicitud de soporte técnico al cliente en línea sin cargo alguno. Los límites no se pueden subir por encima del valor de Límite máximo que se muestra en las tablas siguientes debido a las restricciones de capacidad de Azure. Si la columna Límite máximo no existe, el recurso no tiene límites ajustables.
 
+
+Además de administrar cuotas, también puede aprender a [planear y administrar los costos de Azure Machine Learning](concept-plan-manage-cost.md).
+
 ## <a name="special-considerations"></a>Consideraciones especiales
 
-+ Una cuota es un límite de crédito, no una garantía de capacidad. Si tiene necesidades de capacidad a gran escala, póngase en contacto con el soporte técnico de Azure.
++ Una cuota es un límite de crédito, no una garantía de capacidad. Si tiene necesidades de capacidad a gran escala, póngase en contacto con el soporte técnico de Azure. También puede [aumentar las cuotas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors).
 
 + La cuota se comparte en todos los servicios de las suscripciones, incluso en Azure Machine Learning. La única excepción es el Proceso de Azure Machine Learning, el que tiene una cuota independiente de la cuota de procesos principales. Al evaluar las necesidades de capacidad, asegúrese de calcular el uso de la cuota entre todos los servicios.
 

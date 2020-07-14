@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/19/2019
-ms.openlocfilehash: 0285520c2733cd6e190f9055824cdfed0ce4b842
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/18/2020
+ms.openlocfilehash: 59a335e41116818e41579488cc6931ed1534c9ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189861"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84984896"
 ---
 # <a name="create-python-model-module"></a>Módulo Create Python Model (Crear modelo de Python)
 
@@ -25,7 +25,7 @@ Aprenda a usar el módulo Create Python Model (Crear modelo de Python) para crea
 Después de crear el modelo, puede usar [Train model](train-model.md) (Entrenar modelo) para entrenar el modelo en un conjunto de datos, al igual que cualquier otro aprendiz en Azure Machine Learning. El modelo entrenado puede pasarse a [Score Model](score-model.md) (Puntuar modelo) para hacer predicciones. Después, puede guardar el modelo entrenado y publicar el flujo de trabajo de puntuación como un servicio web.
 
 > [!WARNING]
-> Actualmente no es posible pasar los resultados puntuados de un modelo de Python a [Evaluate Model](evaluate-model.md) (Evaluar modelo). Si tiene que evaluar un modelo, puede escribir un script de Python personalizado y ejecutarlo mediante el módulo [Execute Python Script](execute-python-script.md) (Ejecutar script de Python).  
+> Actualmente, no se puede conectar este módulo al módulo **Tune Model Hyperparameters** (Optimizar hiperparámetros del modelo), ni pasar los resultados puntuados de un modelo de Python a [Evaluate model](evaluate-model.md). Si tiene que optimizar los hiperparámetros de un modelo o evaluarlo, puede escribir un script de Python personalizado mediante el módulo [Execute Python Script](execute-python-script.md) (Ejecutar script de Python).
 
 
 ## <a name="configure-the-module"></a>Configuración del módulo

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ddcd95356f9b70fec5a74f36f5b80e55ea56b477
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 529e79abbd7fa8f9733254d207af570237044305
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744011"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080826"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Aptitud cognitiva para la extracción de frases clave
 
@@ -24,7 +24,7 @@ Esta capacidad es útil si necesita identificar rápidamente los principales pun
 > [!NOTE]
 > A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y por la extracción de imágenes como parte de la fase de descifrado de documentos de Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.
 >
-> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Búsqueda cognitiva de Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
+> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Búsqueda cognitiva de Azure](https://azure.microsoft.com/pricing/details/search/).
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -39,24 +39,35 @@ Los parámetros distinguen mayúsculas de minúsculas.
 
 | Entradas                | Descripción |
 |---------------------|-------------|
-| defaultLanguageCode | (Opcional) Es el código de idioma que se aplicará a los documentos que no especifiquen el lenguaje de forma explícita.  Si no se especifica el código de idioma predeterminado, se usará el inglés (en) como código de idioma predeterminado. <br/> Vea [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) (Lista completa de idiomas admitidos). |
-| maxKeyPhraseCount   | (Opcional) Es el número máximo de frases clave para producir. |
+| `defaultLanguageCode` | (Opcional) Es el código de idioma que se aplicará a los documentos que no especifiquen el lenguaje de forma explícita.  Si no se especifica el código de idioma predeterminado, se usará el inglés (en) como código de idioma predeterminado. <br/> Vea [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) (Lista completa de idiomas admitidos). |
+| `maxKeyPhraseCount`   | (Opcional) Es el número máximo de frases clave para producir. |
 
 ## <a name="skill-inputs"></a>Entradas de la aptitud
 
 | Entrada  | Descripción |
 |--------------------|-------------|
-| text | Texto que se va a analizar.|
-| languageCode  |  Cadena que indica el idioma de los registros. Si no se especifica este parámetro, el código de idioma predeterminado se utilizará para analizar los registros. <br/>Vea [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) (Lista completa de idiomas admitidos).|
+| `text` | Texto que se va a analizar.|
+| `languageCode`    |  Cadena que indica el idioma de los registros. Si no se especifica este parámetro, el código de idioma predeterminado se utilizará para analizar los registros. <br/>Vea [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) (Lista completa de idiomas admitidos).|
 
 ## <a name="skill-outputs"></a>Salidas de la aptitud
 
-| Salida  | Descripción |
+| Output     | Descripción |
 |--------------------|-------------|
-| keyPhrases | Una lista de frases clave extraídas del texto de entrada. Las frases clave se devuelven por orden de importancia. |
+| `keyPhrases` | Una lista de frases clave extraídas del texto de entrada. Las frases clave se devuelven por orden de importancia. |
 
 
 ##  <a name="sample-definition"></a>Definición de ejemplo
+
+Considere un registro de SQL que tiene los siguientes campos:
+
+```json
+{
+    "content": "Glaciers are huge rivers of ice that ooze their way over land, powered by gravity and their own sheer weight. They accumulate ice from snowfall and lose it through melting. As global temperatures have risen, many of the world’s glaciers have already started to shrink and retreat. Continued warming could see many iconic landscapes – from the Canadian Rockies to the Mount Everest region of the Himalayas – lose almost all their glaciers by the end of the century.",
+    "language": "en"
+}
+```
+
+Después, la definición de habilidad puede tener el siguiente aspecto:
 
 ```json
  {
@@ -68,7 +79,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
       },
       {
         "name": "languageCode",
-        "source": "/document/languagecode" 
+        "source": "/document/language" 
       }
     ],
     "outputs": [
@@ -80,33 +91,12 @@ Los parámetros distinguen mayúsculas de minúsculas.
   }
 ```
 
-##  <a name="sample-input"></a>Entrada de ejemplo
-
-```json
-{
-    "values": [
-      {
-        "recordId": "1",
-        "data":
-           {
-             "text": "Glaciers are huge rivers of ice that ooze their way over land, powered by gravity and their own sheer weight. They accumulate ice from snowfall and lose it through melting. As global temperatures have risen, many of the world’s glaciers have already started to shrink and retreat. Continued warming could see many iconic landscapes – from the Canadian Rockies to the Mount Everest region of the Himalayas – lose almost all their glaciers by the end of the century.",
-             "language": "en"
-           }
-      }
-    ]
-```
-
-
 ##  <a name="sample-output"></a>Salida de ejemplo
 
+En el ejemplo anterior, el resultado de su aptitud se escribirá en un nuevo nodo en el árbol enriquecido denominado "document/myKeyPhrases", ya que es el `targetName` que se ha especificado. Si no especifica un `targetName`, sería "document/keyPhrases".
+
+#### <a name="documentmykeyphrases"></a>document/myKeyPhrases 
 ```json
-{
-    "values": [
-      {
-        "recordId": "1",
-        "data":
-           {
-            "keyPhrases": 
             [
               "world’s glaciers", 
               "huge rivers of ice", 
@@ -115,12 +105,9 @@ Los parámetros distinguen mayúsculas de minúsculas.
               "Mount Everest region",
               "Continued warming"
             ]
-           }
-      }
-    ]
-}
 ```
 
+Puede usar "document/myKeyPhrases" como entrada en otras aptitudes o como origen de una [asignación de campos de salida](cognitive-search-output-field-mapping.md).
 
 ## <a name="errors-and-warnings"></a>Errores y advertencias
 Si proporciona un código de idioma no admitido, se generará un error y no se extraerán las frases clave.
@@ -131,3 +118,4 @@ Si el texto tiene más de 50 000 caracteres, solo se analizarán los primeros 50
 
 + [Aptitudes integradas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
++ [Definición de asignaciones de campos de salida](cognitive-search-output-field-mapping.md)

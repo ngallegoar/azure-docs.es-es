@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 16aac5c765c36c49919685ee58e8034786ddf1ae
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 208f0d73b4c8bb11adc9c73796ebc6a622f5ed50
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797356"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85118175"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-etcd-api-preview"></a>Introducción a la API de etcd en Azure Cosmos DB (versión preliminar)
 
@@ -31,7 +31,7 @@ Azure Cosmos DB implementa el protocolo de transferencia de etcd versión 3 y p
 
 El siguiente diagrama muestra los componentes del clúster de Kubernetes. En el patrón de clúster, el servidor de la API usa la API de etcd de Azure Cosmos DB, en lugar del etcd instalado localmente. 
 
-![Azure Cosmos DB implementando el protocolo de conexión etcd](./media/etcd-api-introduction/etcd-api-wire-protocol.png)
+:::image type="content" source="./media/etcd-api-introduction/etcd-api-wire-protocol.png" alt-text="Azure Cosmos DB implementando el protocolo de conexión etcd" border="false":::
 
 ## <a name="key-benefits"></a>Ventajas principales
 

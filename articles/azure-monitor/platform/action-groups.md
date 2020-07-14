@@ -3,15 +3,15 @@ title: Creación y administración de grupos de acciones en Azure Portal
 description: Obtenga información acerca de cómo crear y administrar grupos de acciones en Azure Portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 4/17/2020
+ms.date: 6/5/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: b88b6d1ea4b9d9fc2b33849157968ee1c2f8c620
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: dbc810ad7227d9d47099fe85e89a92c8fa750302
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170467"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465259"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 Un grupo de acciones es una colección de las preferencias de notificación que el propietario de una suscripción de Azure define. Las alertas de Azure Monitor y Service Health usan grupos de acciones para notificar a los usuarios que se ha desencadenado una alerta. Varias alertas pueden usar el mismo grupo de acciones o distintos grupos de acciones en función de los requisitos del usuario. Puede configurar un máximo de 2000 grupos de acciones en una suscripción.
@@ -217,7 +217,12 @@ En un grupo de acciones puede tener un número limitado de acciones de voz.
 Los precios de los países o regiones admitidos se muestran en la [página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### <a name="webhook"></a>webhook
-Los webhooks se reintentan utilizando las siguientes reglas. La llamada de webhook se vuelve a intentar un máximo de 2 veces cuando se devuelven los siguientes códigos de estado HTTP: 408, 429, 503, 504 o el punto de conexión HTTP no responda. El primer reintento se produce transcurridos 10 segundos. El segundo reintento se produce transcurridos 100 segundos. Después de dos errores, ningún grupo de acciones llamará al punto de conexión durante 30 minutos. 
+Los webhooks se procesan utilizando las siguientes reglas:
+- Una llamada de webhook se intenta un máximo de 3 veces.
+- Se volverá a intentar la llamada si no se recibe una respuesta dentro del período de tiempo de espera o se devuelve uno de los siguientes códigos de estado HTTP: 408, 429, 503 o 504.
+- La primera llamada esperará diez segundos para obtener una respuesta.
+- El segundo y el tercer intento esperarán treinta segundos para obtener una respuesta.
+- Después de que los tres intentos de llamada al webhook no se hayan realizado, ningún grupo de acciones llamará al punto de conexión durante quince minutos.
 
 Rangos de direcciones IP de origen
  - 13.72.19.232

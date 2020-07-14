@@ -3,12 +3,12 @@ title: Acerca de la copia de seguridad de máquina virtual de Azure
 description: En este artículo, aprenderá cómo el servicio Azure Backup realiza copias de seguridad de las máquinas virtuales de Azure y cómo seguir los procedimientos recomendados.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: f4b36f57362607a13c09896cd7109596aba0a852
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9838f4993e71f2991500af0e152abee36f996050
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79415978"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84322916"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Información general sobre la copia de seguridad de máquinas virtuales de Azure
 
@@ -89,7 +89,7 @@ En la siguiente tabla se explica los diferentes tipos de coherencia de instantá
 **Disco** | La copia de seguridad de los disco de VM se realiza en paralelo. Por ejemplo, si una VM tiene cuatro discos, el servicio intenta hacer una copia de seguridad de los cuatro en paralelo. La copia de seguridad es incremental (solo los datos modificados).
 **Programación** |  Para reducir el tráfico de copia de seguridad, haga una copia de seguridad diferentes VM en distintos momentos del día y asegúrese de que los horarios no se superpongan. La copia de seguridad de máquinas virtuales al mismo tiempo causa atascos del tráfico.
 **Preparación de copias de seguridad** | Tenga en cuenta el tiempo necesario para preparar la copia de seguridad. El tiempo de preparación incluye la instalación o actualización de la extensión de copia de seguridad y el desencadenamiento de una instantánea según la programación de copia de seguridad.
-**Transferencia de datos** | Tenga en cuenta el tiempo necesario para que Azure Backup identifique los cambios incrementales desde la copia de seguridad anterior.<br/><br/> En una copia de seguridad incremental, Azure Backup determina los cambios al calcular la suma de comprobación del bloque. Si un bloque cambia, se marca para su transferencia al almacén. El servicio analiza los bloques identificados para intentar aún más minimizar la cantidad de datos que se van a transferir. Después de evaluar todos los bloques cambiados, Azure Backup transfiere los cambios al almacén.<br/><br/> Puede haber un retraso entre la realización de la instantánea y la copia en el almacén.<br/><br/> En horas punta, el procesamiento de las copias de seguridad puede tardar hasta ocho horas. El tipo de copia de seguridad de una máquina virtual será inferior a 24 horas para las copias de seguridad diarias.
+**Transferencia de datos** | Tenga en cuenta el tiempo necesario para que Azure Backup identifique los cambios incrementales desde la copia de seguridad anterior.<br/><br/> En una copia de seguridad incremental, Azure Backup determina los cambios al calcular la suma de comprobación del bloque. Si un bloque cambia, se marca para su transferencia al almacén. El servicio analiza los bloques identificados para intentar aún más minimizar la cantidad de datos que se van a transferir. Después de evaluar todos los bloques cambiados, Azure Backup transfiere los cambios al almacén.<br/><br/> Puede haber un retraso entre la realización de la instantánea y la copia en el almacén. En horas punta, las instantáneas pueden tardar hasta ocho horas en transferirse al almacén. El tipo de copia de seguridad de una máquina virtual será inferior a 24 horas para las copias de seguridad diarias.
 **Copia de seguridad inicial** | Aunque el tiempo total de copia de seguridad para copias de seguridad incrementales es menor que 24 horas, es posible que esto no sea el caso para la primera copia de seguridad. El tiempo necesario para la copia de seguridad inicial dependerá del tamaño de los datos y el momento de procesamiento de la copia de seguridad.
 **Restaurar cola** | Azure Backup procesa los trabajos de restauración desde varias cuentas de almacenamiento al mismo tiempo y coloca las solicitudes de restauración en una cola.
 **Restaurar copia** | Durante el proceso de restauración, los datos se copian desde el almacén en la cuenta de almacenamiento.<br/><br/> El tiempo total de restauración depende de las operaciones de E/S por segundo (IOPS) y el rendimiento de la cuenta de almacenamiento.<br/><br/> Para reducir el tiempo de copia, seleccione una cuenta de almacenamiento que no esté cargada con otras lecturas y escrituras de aplicaciones.

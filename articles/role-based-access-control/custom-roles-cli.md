@@ -8,18 +8,18 @@ manager: mtillman
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/18/2020
+ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: cac0116cf7a068e63cb54698f7273b8c063ff854
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 8fa77f13b99564246c048e7b7a8129f9fc141c47
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734848"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84984176"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-cli"></a>Creación o actualización de roles personalizados de Azure mediante la CLI de Azure
 
@@ -32,7 +32,7 @@ Si los [roles integrados de Azure](built-in-roles.md) no cumplen las necesidades
 
 Para ver un tutorial paso a paso sobre cómo crear un rol personalizado, consulte [Tutorial: Creación de un rol personalizado para los recursos de Azure con la CLI de Azure](tutorial-custom-role-cli.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para crear roles personalizados, necesita:
 
@@ -41,31 +41,27 @@ Para crear roles personalizados, necesita:
 
 ## <a name="list-custom-roles"></a>Lista de roles personalizados
 
-Para enumerar los roles personalizados que están disponibles para la asignación, use [az role definition list](/cli/azure/role/definition#az-role-definition-list). En los siguientes ejemplos se enumeran todos los roles personalizados de la suscripción actual.
+Para enumerar los roles personalizados que están disponibles para la asignación, use [az role definition list](/cli/azure/role/definition#az-role-definition-list). En el siguiente ejemplo se enumeran todos los roles personalizados de la suscripción actual.
 
 ```azurecli
-az role definition list --custom-role-only true --output json | jq '.[] | {"roleName":.roleName, "roleType":.roleType}'
+az role definition list --custom-role-only true --output json --query '[].{roleName:roleName, roleType:roleType}'
 ```
 
-```azurecli
-az role definition list --output json | jq '.[] | if .roleType == "CustomRole" then {"roleName":.roleName, "roleType":.roleType} else empty end'
-```
-
-```Output
-{
-  "roleName": "My Management Contributor",
-  "type": "CustomRole"
-}
-{
-  "roleName": "My Service Reader Role",
-  "type": "CustomRole"
-}
-{
-  "roleName": "Virtual Machine Operator",
-  "type": "CustomRole"
-}
-
-...
+```json
+[
+  {
+    "roleName": "My Management Contributor",
+    "type": "CustomRole"
+  },
+  {
+    "roleName": "My Service Reader Role",
+    "type": "CustomRole"
+  },
+  {
+    "roleName": "Virtual Machine Operator",
+    "type": "CustomRole"
+  }
+]
 ```
 
 ## <a name="list-a-custom-role-definition"></a>Enumeración de definiciones de roles personalizadas
@@ -73,7 +69,7 @@ az role definition list --output json | jq '.[] | if .roleType == "CustomRole" t
 Para enumerar una definición de roles personalizada, use [az role definition list](/cli/azure/role/definition#az-role-definition-list). Este es el mismo comando que se usaría para un rol integrado.
 
 ```azurecli
-az role definition list --name <role_name>
+az role definition list --name {roleName}
 ```
 
 En el ejemplo siguiente se muestra la definición de roles *Operador de máquina virtual*:
@@ -82,14 +78,14 @@ En el ejemplo siguiente se muestra la definición de roles *Operador de máquina
 az role definition list --name "Virtual Machine Operator"
 ```
 
-```Output
+```json
 [
   {
     "assignableScopes": [
-      "/subscriptions/11111111-1111-1111-1111-111111111111"
+      "/subscriptions/{subscriptionId}"
     ],
     "description": "Can monitor and restart virtual machines.",
-    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000",
+    "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000",
     "name": "00000000-0000-0000-0000-000000000000",
     "permissions": [
       {
@@ -121,22 +117,24 @@ az role definition list --name "Virtual Machine Operator"
 En el ejemplo siguiente se muestran solo las acciones del rol *Operador de máquina virtual*:
 
 ```azurecli
-az role definition list --name "Virtual Machine Operator" --output json | jq '.[] | .permissions[0].actions'
+az role definition list --name "Virtual Machine Operator" --output json --query '[].permissions[0].actions'
 ```
 
-```Output
+```json
 [
-  "Microsoft.Storage/*/read",
-  "Microsoft.Network/*/read",
-  "Microsoft.Compute/*/read",
-  "Microsoft.Compute/virtualMachines/start/action",
-  "Microsoft.Compute/virtualMachines/restart/action",
-  "Microsoft.Authorization/*/read",
-  "Microsoft.ResourceHealth/availabilityStatuses/read",
-  "Microsoft.Resources/subscriptions/resourceGroups/read",
-  "Microsoft.Insights/alertRules/*",
-  "Microsoft.Insights/diagnosticSettings/*",
-  "Microsoft.Support/*"
+  [
+    "Microsoft.Storage/*/read",
+    "Microsoft.Network/*/read",
+    "Microsoft.Compute/*/read",
+    "Microsoft.Compute/virtualMachines/start/action",
+    "Microsoft.Compute/virtualMachines/restart/action",
+    "Microsoft.Authorization/*/read",
+    "Microsoft.ResourceHealth/availabilityStatuses/read",
+    "Microsoft.Resources/subscriptions/resourceGroups/read",
+    "Microsoft.Insights/alertRules/*",
+    "Microsoft.Insights/diagnosticSettings/*",
+    "Microsoft.Support/*"
+  ]
 ]
 ```
 
@@ -145,7 +143,7 @@ az role definition list --name "Virtual Machine Operator" --output json | jq '.[
 Para crear un rol personalizado, use [az role definition create](/cli/azure/role/definition#az-role-definition-create). La definición de roles puede ser una descripción JSON o una ruta de acceso a un archivo que contenga esta descripción.
 
 ```azurecli
-az role definition create --role-definition <role_definition>
+az role definition create --role-definition {roleDefinition}
 ```
 
 En el ejemplo siguiente, se crea un rol personalizado llamado *Operador de máquina virtual*. El rol personalizado asigna acceso a todas las operaciones de lectura de los proveedores de recursos *Microsoft.Compute*, *Microsoft.Storage* y *Microsoft.Network*, y asigna acceso para iniciar, reiniciar y supervisar las máquinas virtuales. El rol personalizado se puede usar en dos suscripciones. En este ejemplo, se usa un archivo JSON como entrada.
@@ -173,8 +171,8 @@ vmoperator.json
 
   ],
   "AssignableScopes": [
-    "/subscriptions/11111111-1111-1111-1111-111111111111",
-    "/subscriptions/33333333-3333-3333-3333-333333333333"
+    "/subscriptions/{subscriptionId1}",
+    "/subscriptions/{subscriptionId2}"
   ]
 }
 ```
@@ -188,7 +186,7 @@ az role definition create --role-definition ~/roles/vmoperator.json
 Para actualizar un rol personalizado, primero use [az role definition list](/cli/azure/role/definition#az-role-definition-list) para recuperar la definición de roles. Después, haga los cambios que desee en la definición de rol. Por último, use [az role definition update](/cli/azure/role/definition#az-role-definition-update) para guardar la definición de roles actualizada.
 
 ```azurecli
-az role definition update --role-definition <role_definition>
+az role definition update --role-definition {roleDefinition}
 ```
 
 En el siguiente ejemplo, se agrega la operación *Microsoft.Insights/diagnosticSettings/* a `Actions` y se agrega un grupo de administración a `AssignableScopes` del rol personalizado de *Operador de máquina virtual*. La adición de un grupo de administración a `AssignableScopes` está actualmente en versión preliminar.
@@ -217,8 +215,8 @@ vmoperator.json
 
   ],
   "AssignableScopes": [
-    "/subscriptions/11111111-1111-1111-1111-111111111111",
-    "/subscriptions/33333333-3333-3333-3333-333333333333",
+    "/subscriptions/{subscriptionId1}",
+    "/subscriptions/{subscriptionId2}",
     "/providers/Microsoft.Management/managementGroups/marketing-group"
   ]
 }
@@ -233,7 +231,7 @@ az role definition update --role-definition ~/roles/vmoperator.json
 Para eliminar un rol personalizado, use [az role definition delete](/cli/azure/role/definition#az-role-definition-delete). Para especificar el rol que desea eliminar, use el nombre del rol o el identificador. Para determinar el identificador del rol, use [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
 ```azurecli
-az role definition delete --name <role_name or role_id>
+az role definition delete --name {roleNameOrId}
 ```
 
 En el ejemplo siguiente se elimina el rol personalizado *Operador de máquina virtual*.

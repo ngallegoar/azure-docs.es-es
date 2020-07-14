@@ -3,15 +3,15 @@ title: Referencia de esquema para los tipos de desencadenador y de acción
 description: Guía de referencia de esquema para los tipos de desencadenador y de acción del lenguaje de definición de flujo de trabajo en Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 01/19/2020
-ms.openlocfilehash: 7e14cc00d1bd716b3e4880e585b05447d2e55e2b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.date: 06/10/2020
+ms.openlocfilehash: 7c220ff2882e12f5239dbd5abc5f87b900cb3807
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257443"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609423"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guía de referencia de esquema para los tipos de desencadenador y de acción en Azure Logic Apps
 
@@ -73,7 +73,7 @@ Cada tipo de desencadenador tiene una interfaz distinta y entradas que definen e
 
 | Tipo de desencadenador | Descripción | 
 |--------------|-------------| 
-| [**HTTP**](#http-trigger) | Comprueba o *sondea* cualquier punto de conexión. El punto de conexión debe ajustarse a un contrato de desencadenamiento específico, ya sea mediante un patrón asincrónico "202" o devolviendo una matriz. | 
+| [**HTTP**](#http-trigger) | Comprueba o *sondea* cualquier punto de conexión. El punto de conexión debe ajustarse a un contrato de desencadenamiento específico, ya sea mediante un patrón asincrónico `202` o devolviendo una matriz. | 
 | [**HTTPWebhook**](#http-webhook-trigger) | Crea un punto de conexión invocable para la aplicación lógica pero llama a la dirección URL especificada para registrar o anular el registro. |
 | [**Recurrence**](#recurrence-trigger) | Se desencadena en función de una programación definida. Puede establecer una fecha y hora futuras para activar este desencadenador. Según la frecuencia, también puede especificar las horas y días para ejecutar el flujo de trabajo. | 
 | [**Request**](#request-trigger)  | Crea un punto de conexión invocable para la aplicación lógica, también conocido como desencadenador "manual". Por ejemplo, consulte [Llamada, desencadenamiento o anidamiento de flujos de trabajo con puntos de conexión HTTP en aplicaciones lógicas](../logic-apps/logic-apps-http-endpoint.md). | 
@@ -224,15 +224,15 @@ Este desencadenador envía una solicitud de suscripción a un punto de conexión
 |-------|------|-------------| 
 | <*connection-name*> | String | El nombre de la conexión a la API administrada que utiliza el flujo de trabajo | 
 | <*body-content*> | Objeto JSON | Cualquier contenido de mensaje para enviar como carga a la API administrada | 
-|||| 
+||||
 
 *Opcional*
 
-| Value | Tipo | Descripción | 
-|-------|------|-------------| 
-| <*retry-behavior*> | Objeto JSON | Personaliza el comportamiento de reintento para errores intermitentes, que tienen el código de estado 408, 429 y 5XX, y todas las excepciones de conectividad. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
-| <*query-parameters*> | Objeto JSON | Cualquier parámetro de consulta que desee incluir con la llamada API <p>Por ejemplo, el objeto `"queries": { "api-version": "2018-01-01" }` agrega `?api-version=2018-01-01` a la llamada. | 
-| <*max-runs*> | Entero | De forma predeterminada, las instancias del flujo de trabajo se ejecutan al mismo tiempo (de manera simultánea o en paralelo) hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency). | 
+| Value | Tipo | Descripción |
+|-------|------|-------------|
+| <*retry-behavior*> | Objeto JSON | Personaliza el comportamiento de reintento para errores intermitentes, que tienen el código de estado 408, 429 y 5XX, y todas las excepciones de conectividad. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md#retry-policies). |
+| <*query-parameters*> | Objeto JSON | Cualquier parámetro de consulta que desee incluir con la llamada API <p>Por ejemplo, el objeto `"queries": { "api-version": "2018-01-01" }` agrega `?api-version=2018-01-01` a la llamada. |
+| <*max-runs*> | Entero | De forma predeterminada, las instancias del flujo de trabajo se ejecutan al mismo tiempo (de manera simultánea o en paralelo) hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency). |
 | <*max-runs-queue*> | Entero | Cuando el flujo de trabajo ya ejecuta el número máximo de instancias, que puede cambiar en función de la propiedad `runtimeConfiguration.concurrency.runs`, todas las ejecuciones nuevas se pondrán en esta cola hasta alcanzar el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | 
 | <*splitOn-expression*> | String | Para los desencadenadores que devuelven matrices, esta expresión hace referencia a la matriz que se usará para que pueda crear y ejecutar una instancia de flujo de trabajo para cada elemento de la matriz, en lugar de usar un bucle "foreach". <p>Por ejemplo, esta expresión representa un elemento de la matriz devuelto en el contenido del cuerpo del desencadenador: `@triggerbody()?['value']` |
 | <*operation-option*> | String | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
@@ -269,7 +269,7 @@ Esta definición del desencadenador se suscribe a la API de Office 365 Outlook, 
 
 ### <a name="http-trigger"></a>Desencadenador HTTP
 
-Este desencadenador envía una solicitud al punto de conexión HTTP o HTTPS especificado según la programación de periodicidad especificada. El desencadenador luego comprueba la respuesta para determinar si el flujo de trabajo se ejecuta.
+Este desencadenador envía una solicitud al punto de conexión HTTP o HTTPS especificado según la programación de periodicidad especificada. El desencadenador luego comprueba la respuesta para determinar si el flujo de trabajo se ejecuta. Para más información, consulte [Llamada a puntos de conexión de servicio mediante HTTP o HTTPS desde Azure Logic Apps](../connectors/connectors-native-http.md).
 
 ```json
 "HTTP": {
@@ -326,21 +326,21 @@ Este desencadenador envía una solicitud al punto de conexión HTTP o HTTPS espe
 *Salidas*
 
 | Elemento | Tipo | Descripción |
-|---------|------|-------------| 
-| headers | Objeto JSON | Encabezados de la respuesta | 
-| body | Objeto JSON | Cuerpo de la respuesta | 
-| status code | Entero | El código de estado de la respuesta | 
-|||| 
+|---------|------|-------------|
+| `headers` | Objeto JSON | Encabezados de la respuesta |
+| `body` | Objeto JSON | Cuerpo de la respuesta |
+| `status code` | Entero | El código de estado de la respuesta |
+||||
 
 *Requisitos de las solicitudes entrantes*
 
-Para que funcione bien con la aplicación lógica, el punto de conexión debe cumplir con un patrón de desencadenador específico o un contrato y reconocer estas propiedades:  
-  
-| Response | Obligatorio | Descripción | 
-|----------|----------|-------------| 
-| status code | Sí | El código de estado "200 OK" inicia una ejecución. Cualquier otro código de estado no inicia una ejecución. | 
-| Encabezado Retry-after | No | Número de segundos hasta que la aplicación lógica sondea de nuevo el punto de conexión | 
-| Encabezado Location | No | La dirección URL para llamar en el siguiente intervalo de sondeo. Si no se especifica, se usa la dirección URL original. | 
+Para que funcione bien con la aplicación lógica, el punto de conexión debe cumplir con un patrón de desencadenador específico o un contrato y reconocer estas propiedades de respuesta:
+
+| Propiedad | Obligatorio | Descripción |
+|----------|----------|-------------|
+| status code | Sí | El código de estado "200 OK" inicia una ejecución. Cualquier otro código de estado no inicia una ejecución. |
+| Encabezado Retry-after | No | Número de segundos hasta que la aplicación lógica sondea de nuevo el punto de conexión |
+| Encabezado Location | No | La dirección URL para llamar en el siguiente intervalo de sondeo. Si no se especifica, se usa la dirección URL original. |
 |||| 
 
 *Comportamientos de ejemplo para solicitudes distintas*
@@ -1086,7 +1086,7 @@ Para el atributo `includeTrigger`, puede especificar valores `true` o `false`.
 
 *Ejemplo 1*
 
-Esta acción ejecuta código que obtiene el nombre de la aplicación lógica y devuelve el texto "Hola mundo de \<nombre_de_la_aplicación_lógica>" como resultado. En este ejemplo, el código hace referencia al nombre del flujo de trabajo mediante el acceso a la propiedad `workflowContext.workflow.name` a través del objeto `workflowContext` de solo lectura. Para más información sobre el uso del objeto `workflowContext`, vea [Referencia a los resultados de desencadenadores y acciones en el código](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext).
+Esta acción ejecuta código que obtiene el nombre de la aplicación lógica y devuelve el texto "Hola mundo de \<logic-app-name>" como resultado. En este ejemplo, el código hace referencia al nombre del flujo de trabajo mediante el acceso a la propiedad `workflowContext.workflow.name` a través del objeto `workflowContext` de solo lectura. Para más información sobre el uso del objeto `workflowContext`, vea [Referencia a los resultados de desencadenadores y acciones en el código](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext).
 
 ```json
 "Execute_JavaScript_Code": {
@@ -1201,7 +1201,7 @@ Esta definición de acción llama a la función "GetProductID" creada anteriorme
 
 ### <a name="http-action"></a>Acción HTTP
 
-Esta acción envía una solicitud al punto de conexión especificado y comprueba la respuesta para determinar si el flujo de trabajo se ejecuta.
+Esta acción envía una solicitud al punto de conexión especificado y comprueba la respuesta para determinar si el flujo de trabajo se ejecuta. Para más información, consulte [Llamada a puntos de conexión de servicio mediante HTTP o HTTPS desde Azure Logic Apps](../connectors/connectors-native-http.md).
 
 ```json
 "HTTP": {
@@ -1637,7 +1637,7 @@ Esta acción crea una tabla CSV o HTML a partir de una matriz. Para las matrices
 
 | Value | Tipo | Descripción | 
 |-------|------|-------------| 
-| \<CSV *o* HTML>| String | El formato de la tabla que desea crear | 
+| \<CSV *or* HTML>| String | El formato de la tabla que desea crear | 
 | <*array*> | Array | La matriz o expresión que proporciona los elementos de origen de la tabla. <p>**Nota**: Si la matriz de origen está vacía, la acción creará una tabla vacía. | 
 |||| 
 
@@ -1695,7 +1695,7 @@ Esta definición de acción crea una tabla HTML a partir de la variable "myItemA
 
 Esta es la tabla HTML que esta acción crea: 
 
-<table><thead><tr><th>id</th><th>Product_Name</th></tr></thead><tbody><tr><td>0</td><td>Apples (Manzanas)</td></tr><tr><td>1</td><td>Oranges</td></tr></tbody></table>
+<table><thead><tr><th>ID</th><th>Product_Name</th></tr></thead><tbody><tr><td>0</td><td>Apples (Manzanas)</td></tr><tr><td>1</td><td>Oranges</td></tr></tbody></table>
 
 *Ejemplo 3*
 
@@ -2395,7 +2395,7 @@ Puede cambiar el comportamiento predeterminado de los desencadenadores y accione
 
 | Opción de operación | Tipo | Descripción | Desencadenador o acción | 
 |------------------|------|-------------|-------------------| 
-| `DisableAsyncPattern` | String | Ejecuta acciones basadas en HTTP sincrónicamente en lugar de hacerlo de forma asincrónica. <p><p>Para establecer esta opción, consulte [Ejecutar acciones sincrónicamente](#asynchronous-patterns). | Acciones: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Respuesta](#response-action) | 
+| `DisableAsyncPattern` | String | Ejecuta acciones basadas en HTTP sincrónicamente en lugar de hacerlo de forma asincrónica. <p><p>Para establecer esta opción, consulte [Ejecutar acciones sincrónicamente](#disable-asynchronous-pattern). | Acciones: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Respuesta](#response-action) | 
 | `OptimizedForHighThroughput` | String | Cambia el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) del número de ejecuciones de acciones por cada 5 minutos al [límite máximo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>Para establecer esta opción, consulte [Ejecutar en modo de alto rendimiento](#run-high-throughput-mode). | Todas las acciones | 
 | `Sequential` | String | Ejecuta iteraciones de bucles "for each" una a una, en lugar de todas al mismo tiempo en paralelo. <p>Esta opción funciona de la misma manera que establecer la propiedad `runtimeConfiguration.concurrency.repetitions` en `1`. Puede establecer una propiedad u otra, pero no ambas. <p><p>Para más información, consulte [Ejecución secuencial de bucles "for each"](#sequential-for-each).| Acción: <p>[Foreach](#foreach-action) | 
 | `SingleInstance` | String | Ejecuta secuencialmente el desencadenador de cada instancia de aplicación lógica y espera a que termine la ejecución anteriormente activa antes de desencadenar la siguiente instancia de aplicación lógica. <p><p>Esta opción funciona de la misma manera que establecer la propiedad `runtimeConfiguration.concurrency.runs` en `1`. Puede establecer una propiedad u otra, pero no ambas. <p>Para establecer esta opción, consulte [Desencadenamiento secuencial de instancias](#sequential-trigger). | Todos los desencadenadores | 
@@ -2653,13 +2653,52 @@ Para más información, consulte [Opciones de configuración del entorno en tiem
 
 1. Arrastre el control deslizante **Grado de paralelismo** al número `1`.
 
-<a name="asynchronous-patterns"></a>
+<a name="disable-asynchronous-pattern"></a>
 
-### <a name="run-actions-synchronously"></a>Ejecutar acciones sincrónicamente
+### <a name="run-actions-in-a-synchronous-operation-pattern"></a>Ejecución de acciones en un modelo de operación sincrónica
 
-De forma predeterminada, todas las acciones basadas en HTTP siguen el patrón estándar de operación asincrónica. Este patrón especifica que cuando una acción basada en HTTP envía una solicitud al punto de conexión especificado, el servidor remoto devuelve una respuesta "202-Aceptado". Esta respuesta significa que el servidor aceptó la solicitud para su procesamiento. El motor de Logic Apps sigue comprobando la dirección URL especificada por el encabezado de ubicación de la respuesta hasta que se detiene el procesamiento, es decir, cuando se recibe cualquier respuesta que no sea la 202.
+De forma predeterminada, la acción HTTP y las acciones APIConnection de Azure Logic Apps siguen el [*modelo de operación asincrónica*](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) estándar, mientras que la acción de respuesta sigue el *modelo de operación sincrónica*. El modelo asincrónico especifica que, después de que una acción llame a o envíe una solicitud al punto de conexión, servicio, sistema o API especificados, el receptor devolverá inmediatamente una respuesta ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3). Este código confirma que el receptor aceptó la solicitud, pero no ha finalizado el procesamiento. La respuesta puede incluir un encabezado `location` que especifica la dirección URL y un id. de actualización que el autor de la llamada puede usar para sondear o comprobar continuamente el estado de la solicitud asincrónica hasta que el receptor detenga el procesamiento y devuelva una respuesta de operación correcta ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) u otra respuesta que no sea 202. Para más información, vea [La integración de microservicio asincrónico aplica la autonomía de microservicios](https://docs.microsoft.com/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
 
-No obstante, las solicitudes tienen un límite de tiempo de espera, por lo que para las acciones de larga ejecución puede deshabilitar el comportamiento asincrónico agregando y estableciendo la propiedad `operationOptions` en `DisableAsyncPattern` en las entradas de la acción.
+* En el Diseñador de aplicación lógica, la acción HTTP, las acciones APIConnection y la acción de respuesta tienen la configuración **Modelo asincrónico**. Cuando está habilitada, esta configuración especifica que el autor de la llamada no espera a que finalice el procesamiento y puede pasar a la siguiente acción, pero continúa comprobando el estado hasta que se detiene el procesamiento. Si está deshabilitada, esta configuración especifica que el autor de la llamada espera a que finalice el procesamiento antes de pasar a la siguiente acción. Para buscar esta configuración, siga estos pasos:
+
+  1. En la barra de título de la acción HTTP, seleccione el botón de puntos suspensivos ( **...** ), que abre la configuración de la acción.
+
+  1. Busque la configuración **Modelo asincrónico**.
+
+     ![Configuración "Modelo asincrónico"](./media/logic-apps-workflow-actions-triggers/asynchronous-pattern-setting.png)
+
+* En la definición de notación de objetos JavaScript (JSON) subyacente de la acción, la acción HTTP y las acciones APIConnection siguen implícitamente el modelo de operación asincrónica.
+
+En algunos escenarios, puede que desee que una acción siga el modelo sincrónico en su lugar. Por ejemplo, cuando se utiliza la acción HTTP, es posible que desee:
+
+* [Evitar los tiempos de espera de HTTP para las tareas de ejecución prolongada](../connectors/connectors-native-http.md#avoid-http-timeouts)
+* [Deshabilitar la comprobación de encabezados de ubicación](../connectors/connectors-native-http.md#disable-location-header-check)
+
+En estos casos, puede hacer que una acción se ejecute de forma sincrónica mediante estas opciones:
+
+* Reemplace la versión de sondeo de esa acción por una versión de webhook, si está disponible.
+
+* Deshabilite el comportamiento asincrónico de la acción mediante cualquiera de las opciones siguientes:
+
+  * En el Diseñador de aplicación lógica, [desactive la configuración **Modelo asincrónico**](#turn-off-asynchronous-pattern-setting).
+
+  * En la definición JSON subyacente de la acción, [agregue la opción de operación `"DisableAsyncPattern"`](#add-disable-async-pattern-option).
+
+<a name="turn-off-asynchronous-pattern-setting"></a>
+
+#### <a name="turn-off-asynchronous-pattern-setting"></a>Desactivación de la configuración **Modelo asincrónico**
+
+1. En el Diseñador de aplicación lógica, en la barra de título de la acción, seleccione el botón de puntos suspensivos ( **...** ), que abre la configuración de la acción.
+
+1. Busque la configuración **Modelo asincrónico**, establézcala en **Desactivada** si está habilitada y seleccione **Listo**.
+
+   ![Desactivación de la configuración "Modelo asincrónico"](./media/logic-apps-workflow-actions-triggers/disable-asynchronous-pattern-setting.png)
+
+<a name="add-disable-async-pattern-option"></a>
+
+#### <a name="disable-asynchronous-pattern-in-actions-json-definition"></a>Deshabilitación del modelo asincrónico en la definición JSON de la acción
+
+En la definición JSON subyacente de la acción, agregue y establezca la [propiedad "operationOptions"](#operation-options) en `"DisableAsyncPattern"` en la sección `"inputs"` de la acción. Por ejemplo:
 
 ```json
 "<some-long-running-action>": {
@@ -2669,8 +2708,6 @@ No obstante, las solicitudes tienen un límite de tiempo de espera, por lo que p
    "runAfter": {}
 }
 ```
-
-Para más información, consulte [Opciones de operación](#operation-options).
 
 <a name="run-high-throughput-mode"></a>
 

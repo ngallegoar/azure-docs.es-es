@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 3fef5db90c3ae63a8fa48835646e09f9dfe6f023
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/08/2020
+ms.openlocfilehash: 92c054b42a83d9753e2fcc9c02646c381da795b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225320"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510861"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Sugerencias para el enriquecimiento con IA en Azure Cognitive Search
 
@@ -49,7 +49,16 @@ En ese caso, le puede indicar al indexador que ignore los errores. Para ello, es
    }
 }
 ```
-## <a name="tip-4-looking-at-enriched-documents-under-the-hood"></a>Sugerencia 4: Examine los documentos enriquecidos en segundo plano. 
+> [!NOTE]
+> Como procedimiento recomendado, establezca maxFailedItems, maxFailedItemsPerBatch en 0 para cargas de trabajo de producción.
+
+## <a name="tip-4-use-debug-sessions-to-identify-and-resolve-issues-with-your-skillset"></a>Sugerencia 4: Usar sesiones de depuración para identificar y resolver problemas con el conjunto de aptitudes 
+
+Sesiones de depuración es un editor visual que funciona con un conjunto de aptitudes existente en Azure Portal. En una sesión de depuración, puede identificar y resolver errores, validar cambios y confirmar cambios en un conjunto de aptitudes en la canalización de enriquecimiento con IA. Se trata de una característica de vista previa [leer la documentación](https://docs.microsoft.com/azure/search/cognitive-search-debug-session). Para obtener más información sobre los conceptos y la introducción, vea [Sesiones de depuración](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-debug-sessions).
+
+Las sesiones de depuración que funcionan en un único documento son una excelente manera de crear de forma iterativa canalizaciones de enriquecimiento más complejas.
+
+## <a name="tip-5-looking-at-enriched-documents-under-the-hood"></a>Sugerencia 5: Examine los documentos enriquecidos en segundo plano. 
 Los documentos enriquecidos son estructuras temporales que se crean durante el enriquecimiento, y que se eliminan cuando se completa el proceso.
 
 Para capturar una instantánea del documento enriquecido creado durante la indexación, agregue un campo denominado ```enriched``` al índice. El indexador vuelca automáticamente en el campo una representación de cadena del enriquecimiento del documento.
@@ -77,15 +86,15 @@ Agregue un campo ```enriched``` como parte de la definición del índice para fi
 }
 ```
 
-## <a name="tip-5-expected-content-fails-to-appear"></a>Sugerencia 5: El contenido esperado no aparece.
+## <a name="tip-6-expected-content-fails-to-appear"></a>Sugerencia 6: El contenido esperado no aparece.
 
 Si falta contenido, esto puede deberse a que se descartaron documentos durante la indexación. Los niveles Gratuito y Básico tienen límites bajos en lo que respecta al tamaño de los documentos. Cualquier archivo que exceda el límite se descarta durante la indexación. Puede comprobar si hay documentos descartados en Azure Portal. En el panel del servicio de búsqueda, haga doble clic en el icono Indexadores. Revise la proporción de documentos que se indexaron con éxito. Si no es del 100 %, puede hacer clic en la proporción para obtener más detalles. 
 
-Si el problema está relacionado con el tamaño del archivo, es posible que vea un error como este: "El blob \<file-name> tiene un tamaño de \<file-size> bytes, lo cual excede el tamaño máximo para la extracción de documentos de su nivel de servicio actual". Para obtener más información, consulte los [límites del servicio](search-limits-quotas-capacity.md).
+Si el problema está relacionado con el tamaño del archivo, es posible que vea un error como este: "El blob \<file-name> tiene un tamaño de \<file-size> bytes, lo cual excede el tamaño máximo para la extracción de documentos de su nivel de servicio actual". Para obtener más información, consulte los [límites del servicio](search-limits-quotas-capacity.md).
 
 Una segunda razón por la que el contenido no aparece, puede deberse errores de asignación de entradas y salidas relacionadas. Por ejemplo, el nombre de destino de salida es "Personas", pero el nombre del campo de índice es "personas" en minúsculas. El sistema puede devolver 201 mensajes de éxito de toda la canalización y hacerle creer que la indexación tuvo éxito, cuando en realidad uno de los campos está vacío. 
 
-## <a name="tip-6-extend-processing-beyond-maximum-run-time-24-hour-window"></a>Sugerencia 6: Amplíe el procesamiento más allá del tiempo máximo de ejecución (periodo de 24 horas).
+## <a name="tip-7-extend-processing-beyond-maximum-run-time-24-hour-window"></a>Sugerencia 7: Amplíe el procesamiento más allá del tiempo máximo de ejecución (periodo de 24 horas).
 
 El análisis de imágenes es un proceso intensivo a nivel computacional, incluso cuando se trata de casos simples; debido a ello, cuando las imágenes son especialmente grandes o complejas, los tiempos de procesamiento pueden exceder el tiempo máximo permitido. 
 
@@ -98,7 +107,7 @@ En cuanto a los indexadores programados, la indexación se reanuda según la pro
 
 Si realiza una indexación basada en el portal (tal como se describe en la guía de inicio rápido), la elección de la opción del indexador "ejecutar una vez" limita el procesamiento a 1 hora (`"maxRunTime": "PT1H"`). Es posible que quiera extender el período de procesamiento para que sea algo más largo.
 
-## <a name="tip-7-increase-indexing-throughput"></a>Sugerencia 7: Aumente el rendimiento de la indexación.
+## <a name="tip-8-increase-indexing-throughput"></a>Sugerencia 8: Aumente el rendimiento de la indexación.
 
 Para realizar una [indexación paralela](search-howto-large-index.md), coloque los datos en varios contenedores o carpetas virtuales múltiples dentro del mismo contenedor. A continuación, cree varios pares de orígenes de datos e indexadores. Todos los indexadores pueden usar el mismo conjunto de aptitudes y escribir en el mismo índice de búsqueda de destino, por lo que la aplicación de búsqueda no necesita conocer esta partición.
 Para obtener más información, consulte [Indexing Large Datasets](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets) (Indexar grandes conjuntos de datos).

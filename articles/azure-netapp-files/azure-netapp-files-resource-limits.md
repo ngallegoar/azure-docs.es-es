@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 06/08/2020
 ms.author: b-juche
-ms.openlocfilehash: ac660b20d519e49e832e979603f763fa672757a5
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 8b417559a17dc05a07467a28d37fec9b9a7c12cb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637401"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84553470"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Límites de recursos para Azure NetApp Files
 
@@ -29,7 +29,7 @@ Entender los límites de recursos de Azure NetApp Files ayuda a administrar los 
 
 En la tabla siguiente se describen los límites de recursos de Azure NetApp Files:
 
-|  Resource  |  Límite predeterminado  |  Ajustable a través de la solicitud de soporte técnico  |
+|  Recurso  |  Límite predeterminado  |  Ajustable a través de la solicitud de soporte técnico  |
 |----------------|---------------------|--------------------------------------|
 |  Número de cuentas de NetApp por región de Azure   |  10    |  Sí   |
 |  Número de grupos de capacidad por cuenta de NetApp   |    25     |   Sí   |
@@ -42,7 +42,7 @@ En la tabla siguiente se describen los límites de recursos de Azure NetApp File
 |  Tamaño mínimo de un único volumen    |    100 GiB    |    No    |
 |  Tamaño máximo de un único volumen     |    100 TiB    |    No    |
 |  Tamaño máximo de un archivo individual     |    16 TiB    |    No    |    
-|  Tamaño máximo de un solo directorio      |    320 MB    |    No    |    
+|  Tamaño máximo de los metadatos de directorio en un solo directorio      |    320 MB    |    No    |    
 |  Número máximo de archivos ([maxfiles](#maxfiles)) por volumen     |    100 millones    |    Sí    |    
 
 Para más información, consulte [Preguntas más frecuentes sobre la administración de la capacidad](azure-netapp-files-faqs.md#capacity-management-faqs).
@@ -79,7 +79,7 @@ Desde el plano de navegación de Azure Portal:
 4. Haga clic en la pestaña Detalles:
     1. En el cuadro Descripción, proporcione la siguiente información para el tipo de recurso correspondiente:
 
-        |  Resource  |    Recursos primarios      |    Nuevos límites solicitados     |    Motivo de aumento de cuota       |
+        |  Recurso  |    Recursos primarios      |    Nuevos límites solicitados     |    Motivo de aumento de cuota       |
         |----------------|------------------------------|---------------------------------|------------------------------------------|
         |  Cuenta |  *Subscription ID*   |  *Nuevo número máximo de **cuentas** solicitado*    |  *¿Qué escenario o caso de uso motivó la solicitud?*  |
         |  grupo    |  *Identificador de suscripción y URI de la cuenta*  |  *Nuevo número máximo de **grupos** solicitado*   |  *¿Qué escenario o caso de uso motivó la solicitud?*  |

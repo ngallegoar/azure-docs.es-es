@@ -3,12 +3,12 @@ title: Creación y personalización de planes de recuperación en Azure Site Rec
 description: Aprenda a crear y personalizar planes de recuperación para la recuperación ante desastres mediante el servicio Azure Site Recovery.
 ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: 6540317324a9f0d9bccc046ecf95824d4128bd09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0dcde98e8dcaef12896c18c25429f0ba7b1b27d4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76705843"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485336"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Creación y personalización de los planes de recuperación
 
@@ -22,16 +22,16 @@ En este artículo se describe cómo crear y personalizar un plan de recuperació
 
     **Conmutación por error** | **Origen** | **Destino** 
    --- | --- | ---
-   Azure a Azure | Seleccione la región de Azure | Seleccione la región de Azure
+   De Azure a Azure | Seleccione la región de Azure | Seleccione la región de Azure
    VMware en Azure | Seleccione el servidor de configuración | Seleccione Azure
    Máquinas físicas a Azure | Seleccione el servidor de configuración | Seleccione Azure   
-   Hyper-V en Azure | Seleccione el nombre del sitio de Hyper-V | Seleccione Azure
+   De Hyper-V a Azure | Seleccione el nombre del sitio de Hyper-V | Seleccione Azure
    Hyper-V (administrado por VMM) a Azure  | Seleccione el servidor VMM | Seleccione Azure
   
     Tenga en cuenta lo siguiente:
-    -  Solo puede usar un plan de recuperación para la conmutación por error desde la ubicación de origen a Azure. No puede usar un plan de recuperación para la conmutación por recuperación desde Azure.
-    - La ubicación de origen debe tener máquinas habilitadas para conmutación por error y recuperación. 
-    - Un plan de recuperación puede contener máquinas que tengan el mismo origen y destino. 
+    - Puede usar un plan de recuperación para la conmutación por error a Azure y la conmutación por recuperación desde Azure.
+    - La ubicación de origen debe tener máquinas habilitadas para conmutación por error y recuperación.
+    - Un plan de recuperación puede contener máquinas que tengan el mismo origen y destino.
     - Puede incluir las VM de VMware y VM de Hyper-V administradas por VMM en el mismo plan.
     - Las VM de VMware y los servidores físicos pueden estar en el mismo plan.
 
@@ -62,8 +62,8 @@ Puede personalizar un plan de recuperación si agrega un script o una acción ma
     
     **Escenario** | **Conmutación por error** | **Conmutación por recuperación**
     --- | --- | --- 
-    Azure a Azure  | Runbook | Runbook
-    VMware en Azure | Runbook | N/D 
+    De Azure a Azure  | Runbook | Runbook
+    De VMware a Azure | Runbook | N/D 
     Hyper-V con VMM en Azure | Runbook | Script
     Sitio de Hyper-V a Azure | Runbook | N/D
     VMM en VMM secundario | Script | Script

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7981a28db23ab8c0aed05013dd260ffd97a11c07
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 5f6f7fc52a186117afcb92f6a2f80bf068e50ab9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758731"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84509209"
 ---
 # <a name="entities"></a>Entidades
 
@@ -25,6 +25,33 @@ El aspecto más importante de la propia entidad es la jerarquía y la transforma
 Una entidad es propiedad exclusiva de su elemento primario, lo que significa que cuando el elemento primario se destruye con `Entity.Destroy()`, lo mismo ocurre con sus elementos secundarios y todos los [componentes](components.md) conectados. Por lo tanto, para quitar un modelo de la escena se realiza una llamada a `Destroy` en el nodo raíz de un modelo, devuelto por `AzureSession.Actions.LoadModelAsync()` o su variante `AzureSession.Actions.LoadModelFromSASAsync()` de SAS.
 
 Las entidades se crean cuando el servidor carga el contenido o cuando el usuario desea agregar un objeto a la escena. Por ejemplo, si un usuario desea agregar un plano de corte para visualizar el interior de una malla, el usuario puede crear una entidad donde debe existir el plano y, a continuación, agregarle el componente de plano de corte.
+
+## <a name="create-an-entity"></a>Crear una entidad
+
+Para agregar una nueva entidad a la escena, por ejemplo, para pasarla como objeto raíz para cargar modelos o para adjuntarle componentes, use el código siguiente:
+
+```cs
+Entity CreateNewEntity(AzureSession session)
+{
+    Entity entity = session.Actions.CreateEntity();
+    entity.Position = new LocalPosition(1, 2, 3);
+    return entity;
+}
+```
+
+```cpp
+ApiHandle<Entity> CreateNewEntity(ApiHandle<AzureSession> session)
+{
+    ApiHandle<Entity> entity(nullptr);
+    if (auto entityRes = session->Actions()->CreateEntity())
+    {
+        entity = entityRes.value();
+        entity->Position(Double3{ 1, 2, 3 });
+        return entity;
+    }
+    return entity;
+}
+```
 
 ## <a name="query-functions"></a>Funciones de consulta
 

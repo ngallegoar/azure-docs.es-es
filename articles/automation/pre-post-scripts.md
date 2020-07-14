@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7fa2dd335e457307dd6d7e4ecdc787015b742b32
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: f05e705f351d75fdf772d3197b94fcece40d43fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148283"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85100388"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Administración de scripts previos y posteriores
 
@@ -90,6 +90,9 @@ Se puede encontrar un ejemplo completo con todas las propiedades en: [Get softwa
 
 > [!NOTE]
 > El objeto `SoftwareUpdateConfigurationRunContext` puede contener entradas duplicadas para las máquinas. Esto puede hacer que los scripts previos y posteriores se ejecuten varias veces en la misma máquina. Para solucionar este comportamiento, use `Sort-Object -Unique` para seleccionar solo nombres de VM únicos.
+
+> [!NOTE]
+> Actualmente solo se admiten los runbooks de PowerShell como scripts anteriores o posteriores. Otros tipos de runbook, como los de Python, gráficos, flujo de trabajo de PowerShell o el flujo de trabajo de PowerShell gráfico no se admiten actualmente como scripts anteriores o posteriores.
 
 ## <a name="use-a-pre-script-or-post-script-in-a-deployment"></a>Uso de un script previo o posterior en una implementación
 

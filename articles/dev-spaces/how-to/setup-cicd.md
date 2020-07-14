@@ -9,10 +9,10 @@ manager: gwallace
 description: Aprenda a configurar la integración y la implementación continuas mediante Azure DevOps con Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contenedores
 ms.openlocfilehash: f2eb9449518b32ab74f2dbbca6b5489aed325db7
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81685629"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Uso de CI/CD con Azure Dev Spaces
@@ -23,7 +23,7 @@ En este artículo se le guía a través de la implementación continua y la inte
 
 Aunque en este artículo se le guiará por Azure DevOps, son de aplicación los mismos conceptos a sistemas de CI/CD como Jenkins, TeamCity, etc.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 * [Clúster de Azure Kubernetes Service (AKS) con Azure Dev Spaces habilitado](../get-started-netcore.md)
 * [CLI de Azure Dev Spaces instalada](upgrade-tools.md)
 * [Organización de Azure DevOps con un proyecto](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
@@ -41,7 +41,7 @@ Cree un espacio llamado _dev_ con el comando `azds space select`. El espacio _de
 azds space select -n dev
 ```
 
-Cuando se le pida que seleccione un espacio de desarrollo principal, seleccione _\<ninguno\>_ .
+Cuando se le pida que seleccione un espacio de desarrollo principal, elija _\<none\>_ .
 
 Una vez creado el espacio de desarrollo, deberá determinar el sufijo del host. Use el comando `azds show-context` para mostrar el sufijo del host del controlador de entrada de Azure Dev Spaces.
 

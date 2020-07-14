@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 36706372f4b49150aad5511e3d8c6c23f5be12ec
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b2729975db154fbaf4569afc5aa9b5eaab358146
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84039866"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84321363"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector"></a>Rotación del protector de Cifrado de datos transparente (TDE)
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -35,7 +35,7 @@ En esta guía se describen dos opciones para rotar el protector de TDE en el ser
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- En esta guía de procedimientos se asume que ya utiliza una clave de Azure Key Vault como protector de TDE para Azure SQL Database o Azure Synapse. Consulte [Cifrado de datos transparente con compatibilidad con BYOK](transparent-data-encryption-byok-overview.md).
+- En esta guía de procedimientos se asume que ya utiliza una clave de Azure Key Vault como protector de TDE para Azure SQL Database o Azure Synapse Analytics. Consulte [Cifrado de datos transparente con compatibilidad con BYOK](transparent-data-encryption-byok-overview.md).
 - Es preciso tener instalado y en ejecución Azure PowerShell.
 - [Recomendado pero opcional] Cree primero el material de clave para el protector de TDE en un módulo de seguridad de hardware (HSM) o en un almacén local de claves e importe el material de clave a Azure Key Vault. Siga las [instrucciones para usar un módulo de seguridad de hardware (HSM) y Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started) para más información.
 
@@ -46,7 +46,7 @@ Para obtener instrucciones sobre la instalación del módulo Az, consulte [Insta
 > [!IMPORTANT]
 > El módulo de Azure Resource Manager (RM) para PowerShell todavía es compatible, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. El módulo de AzureRM continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo.  Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos. Para obtener más información sobre la compatibilidad, vea [Presentación del nuevo módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[La CLI de Azure](#tab/azure-cli)
 
 Para la instalación, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
@@ -75,7 +75,7 @@ Set-AzSqlServerTransparentDataEncryptionProtector -Type AzureKeyVault -KeyId <ke
    -ServerName <logicalServerName> -ResourceGroup <SQLDatabaseResourceGroupName>
 ```
 
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[La CLI de Azure](#tab/azure-cli)
 
 Use los comandos [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create), [az sql server key create](/cli/azure/sql/server/key#az-sql-server-key-create) y [az sql server tde-key set](/cli/azure/sql/server/tde-key#az-sql-server-tde-key-set).
 
@@ -110,7 +110,7 @@ az sql server tde-key set --server-key-type AzureKeyVault --kid <keyVaultKeyId> 
        -ServerName <logicalServerName> -ResourceGroup <SQLDatabaseResourceGroupName>
    ```
 
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[La CLI de Azure](#tab/azure-cli)
 
 En los ejemplos siguientes se usa [az sql server tde-key set](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector).
 
@@ -130,6 +130,6 @@ En los ejemplos siguientes se usa [az sql server tde-key set](/powershell/module
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- En caso de riesgo de seguridad, aprenda a quitar un protector de TDE potencialmente comprometido: [Eliminación de una clave potencialmente comprometida](transparent-data-encryption-byok-remove-tde-protector.md)
+- En caso de riesgo de seguridad, aprenda a quitar un protector de TDE potencialmente comprometido: [Eliminación de una clave potencialmente comprometida](transparent-data-encryption-byok-remove-tde-protector.md).
 
-- Introducción a la integración de Azure Key Vault y compatibilidad con Bring Your Own Key para TDE: [Activar TDE con su propia clave de Key Vault mediante PowerShell](transparent-data-encryption-byok-configure.md)
+- Introducción a la integración de Azure Key Vault y compatibilidad con Bring Your Own Key para TDE: [Habilitación de TDE con su propia clave de Key Vault mediante PowerShell](transparent-data-encryption-byok-configure.md).

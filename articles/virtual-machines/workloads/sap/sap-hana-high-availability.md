@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 05/11/2020
 ms.author: radeltch
 ms.openlocfilehash: 501d49feef877addd2f3e5364a06caf1d273ca83
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83196862"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidad de SAP HANA en máquinas virtuales de Azure en SUSE Linux Enterprise Server
@@ -112,7 +112,7 @@ Para implementar la plantilla, siga estos pasos:
     - **Disponibilidad del sistema**: Seleccione **Alta disponibilidad**.
     - **Nombre de usuario y contraseña del administrador**: Se crea un usuario nuevo que se puede usar para iniciar sesión en la máquina.
     - **Subred nueva o existente**: Determina si es necesario crear una red virtual y subred nuevas o usar una subred existente. Si ya tiene una red virtual conectada a la red local, seleccione **Existing** (Existente).
-    - **Identificador de subred**: Si quiere implementar la máquina virtual en una red virtual existente en la que tiene una subred definida a la que se debe asignar la máquina virtual, asigne un nombre al identificador de esa subred específica. El identificador suele tener este aspecto: **/subscriptions/\<Id. de suscripción/resourceGroups/\<nombre del grupo de recursos>/providers/Microsoft.Network/virtualNetworks/\<nombre de red virtual>/subnets/\<nombre de subred>** .
+    - **Identificador de subred**: Si quiere implementar la máquina virtual en una red virtual existente en la que tiene una subred definida a la que se debe asignar la máquina virtual, asigne un nombre al identificador de esa subred específica. Normalmente, el identificador se parece a **/subscriptions/\<subscription ID>/resourceGroups/\<resource group name>/providers/Microsoft.Network/virtualNetworks/\<virtual network name>/subnets/\<subnet name>** .
 
 ### <a name="manual-deployment"></a>Implementación manual
 

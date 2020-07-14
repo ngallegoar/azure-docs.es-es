@@ -6,12 +6,12 @@ ms.author: paelaz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 2249dbdebecc52a8f5d6decccb83d3b1fc0777f7
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: a1b1c01f7cf720690decd9c7aac5fb14b92121ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747375"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84431991"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Uso de Azure Policy para implementar la gobernanza y los controles de recursos de Azure Cosmos DB
 
@@ -79,21 +79,24 @@ Estos comandos generan la lista de nombres de alias de propiedad para propiedade
 
 Puede usar cualquiera de estos nombres de alias de propiedad en las [reglas de definición de directiva personalizada](../governance/policy/tutorials/create-custom-policy-definition.md#policy-rule).
 
-El siguiente es un ejemplo de definición de directiva que comprueba si el rendimiento aprovisionado de una base de datos de Azure Cosmos DB es mayor que el límite máximo permitido de 400 RU/s. Una definición de directiva personalizada incluye dos reglas: una para comprobar el tipo específico de alias de propiedad y la otra para la propiedad específica del tipo. Ambas reglas usan los nombres de alias.
+El siguiente es un ejemplo de definición de directiva que comprueba si una cuenta de Azure Cosmos DB está configurada para varias ubicaciones de escritura. Una definición de directiva personalizada incluye dos reglas: una para comprobar el tipo específico de alias de propiedad y la otra para la propiedad específica del tipo, en este caso el campo que almacena la configuración de varias ubicaciones de escritura. Ambas reglas usan los nombres de alias.
 
 ```json
 "policyRule": {
   "if": {
     "allOf": [
       {
-      "field": "type",
-      "equals": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/throughputSettings"
+        "field": "type",
+        "equals": "Microsoft.DocumentDB/databaseAccounts"
       },
       {
-      "field": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/throughputSettings/default.resource.throughput",
-      "greater": 400
+        "field": "Microsoft.DocumentDB/databaseAccounts/enableMultipleWriteLocations",
+        "notEquals": true
       }
     ]
+  },
+  "then": {
+    "effect": "Audit"
   }
 }
 ```
@@ -106,21 +109,26 @@ Una vez creadas las asignaciones de directiva, Azure Policy evalúa los recursos
 
 Puede revisar los resultados de cumplimiento y los detalles de corrección en [Azure Portal](../governance/policy/how-to/get-compliance-data.md#portal), la [CLI de Azure](../governance/policy/how-to/get-compliance-data.md#command-line) o los [registros de Azure Monitor](../governance/policy/how-to/get-compliance-data.md#azure-monitor-logs).
 
-En la captura de pantalla siguiente se muestran dos ejemplos de asignaciones de directiva. Una asignación se basa en una definición de directiva integrada, que comprueba que los recursos de Azure Cosmos DB se implementan solo en las regiones de Azure permitidas. La otra asignación se basa en una definición de directiva personalizada. Esta asignación comprueba que el rendimiento aprovisionado en los recursos de Azure Cosmos DB no supera un límite máximo especificado.
+En la captura de pantalla siguiente se muestran dos ejemplos de asignaciones de directiva.
 
-Una vez implementadas las asignaciones de directiva, el panel de cumplimiento muestra los resultados de la evaluación. Tenga en cuenta que esta operación puede tardar hasta 30 minutos después de implementar una asignación de directiva.
+Una asignación se basa en una definición de directiva integrada, que comprueba que los recursos de Azure Cosmos DB se implementan solo en las regiones de Azure permitidas. La compatibilidad de recursos muestra el resultado de la evaluación de las directivas (compatible o no compatible) para los recursos del ámbito.
 
-En la captura de pantalla se muestran los siguientes resultados de la evaluación de cumplimiento:
+La otra asignación se basa en una definición de directiva personalizada. Esta asignación comprueba que las cuentas de Cosmos DB están configuradas para varias ubicaciones de escritura.
 
-- Cero de una cuenta de Azure Cosmos DB del ámbito especificado son compatibles con la asignación de directiva para comprobar que los recursos se implementaron en regiones permitidas.
-- Uno de dos recursos de base de datos o colección de Azure Cosmos DB del ámbito especificado es compatible con la asignación de directiva para comprobar que el rendimiento aprovisionado supera el límite máximo especificado.
+Una vez implementadas las asignaciones de directiva, el panel de cumplimiento muestra los resultados de la evaluación. Tenga en cuenta que esta operación puede tardar hasta 30 minutos después de implementar una asignación de directiva. Además, los [análisis de evaluación de directivas se pueden iniciar a petición](../governance/policy/how-to/get-compliance-data.md#on-demand-evaluation-scan) inmediatamente después de crear asignaciones de directivas.
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="Búsqueda de definiciones de directivas integradas de Azure Cosmos DB":::
+En la captura de pantalla se muestran los siguientes resultados de la evaluación de cumplimiento para las cuentas de Azure Cosmos DB del ámbito:
 
-Para corregir los recursos no compatibles, consulte el artículo [Corregir los recursos no conformes con Azure Policy](../governance/policy/how-to/remediate-resources.md).
+- Cero de dos cuentas cumple con una directiva por la que debe estar configurado el filtrado de Virtual Network (VNet).
+- Cero de dos cuentas cumple con una directiva que requiere que la cuenta esté configurada para varias ubicaciones de escritura.
+- Cero de dos cuentas cumple con una directiva por la que los recursos deben estar implementados en regiones de Azure permitidas.
+
+:::image type="content" source="./media/policy/compliance.png" alt-text="Resultados de cumplimiento de las asignaciones de Azure Policy enumeradas":::
+
+Para corregir los recursos no compatibles, consulte [Corregir los recursos no conformes con Azure Policy](../governance/policy/how-to/remediate-resources.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Revisión de definiciones de directivas personalizadas de ejemplo para Azure Cosmos DB](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB)
+- [Revise las definiciones de directivas personalizadas de ejemplo para Azure Cosmos DB](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB), incluidas las directivas de filtrado de VNet y de varias ubicaciones de escritura mostradas anteriormente.
 - [Creación de una asignación de directiva en Azure Portal](../governance/policy/assign-policy-portal.md)
 - [Revisión de las definiciones de directivas integradas de Azure Policy para Azure Cosmos DB](./policy-samples.md)

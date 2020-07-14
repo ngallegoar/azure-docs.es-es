@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.openlocfilehash: 3d27b6d96dfd6c815cedc6194e6bb6e8a101dec2
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83735928"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Solución de problemas de Azure Backup Server
@@ -62,7 +62,7 @@ Antes de empezar a solucionar problemas de Microsoft Azure Backup Server (MABS),
 
 | Operación | Detalles del error | Solución alternativa |
 | --- | --- | --- |
-| Insertar agentes en servidores protegidos | Error en la operación del agente debido a un error de comunicación con el servicio Coordinador de agentes DPM en \<nombreDelServidor>. | **Si no funciona la acción recomendada que se muestra en el producto, siga los pasos siguientes**: <ul><li> Si está conectando un equipo desde un dominio que no es de confianza, siga [estos pasos](https://docs.microsoft.com/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019). <br> O BIEN </li><li> Si está conectando un equipo desde un dominio de confianza, solucione el problema mediante los pasos descritos en [este blog](https://techcommunity.microsoft.com/t5/system-center-blog/data-protection-manager-agent-network-troubleshooting/ba-p/344726). <br>O BIEN</li><li> Pruebe a deshabilitar el antivirus como un paso para la solución de problemas. Si resuelve el problema, modifique la configuración del antivirus como se sugiere en [este artículo](https://docs.microsoft.com/system-center/dpm/run-antivirus-server?view=sc-dpm-2019).</li></ul> |
+| Insertar agentes en servidores protegidos | Error en la operación del agente debido a un error de comunicación con el servicio Coordinador de agentes DPM en \<ServerName>. | **Si no funciona la acción recomendada que se muestra en el producto, siga los pasos siguientes**: <ul><li> Si está conectando un equipo desde un dominio que no es de confianza, siga [estos pasos](https://docs.microsoft.com/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019). <br> O BIEN </li><li> Si está conectando un equipo desde un dominio de confianza, solucione el problema mediante los pasos descritos en [este blog](https://techcommunity.microsoft.com/t5/system-center-blog/data-protection-manager-agent-network-troubleshooting/ba-p/344726). <br>O BIEN</li><li> Pruebe a deshabilitar el antivirus como un paso para la solución de problemas. Si resuelve el problema, modifique la configuración del antivirus como se sugiere en [este artículo](https://docs.microsoft.com/system-center/dpm/run-antivirus-server?view=sc-dpm-2019).</li></ul> |
 
 ## <a name="setup-could-not-update-registry-metadata"></a>El programa de instalación no pudo actualizar los metadatos del Registro
 

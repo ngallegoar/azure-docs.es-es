@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: b8c4fd3804bfa02b86f62912641eb936ff8cd15e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 94022b9959b6a7f2bc30e31f918f2f5a916ccd8c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662933"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85116815"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Cómo elegir entre el rendimiento aprovisionado estándar (manual) y el de escalabilidad automática 
 
@@ -61,7 +61,7 @@ Con el tiempo, después de elegir el tipo de rendimiento, debe supervisar la apl
 
 Si usa la escalabilidad automática, use Azure Monitor para ver el máximo de RU/s de escalabilidad automática aprovisionado (**rendimiento máximo de escalabilidad automática**) y el valor de RU/s al que el sistema está escalado actualmente (**rendimiento aprovisionado**). A continuación se muestra un ejemplo de una carga de trabajo variable o imprevisible que usa la escalabilidad automática. Tenga en cuenta que, cuando no hay tráfico, el sistema escala las RU/s al mínimo del 10 % de la cantidad máxima de RU/s, que, en este caso, es de 5000 RU/s y 50 000 RU/s, respectivamente. 
 
-![Ejemplo de carga de trabajo con escalabilidad automática](media/how-to-choose-offer/autoscale-metrics-azure-monitor.png)
+:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Ejemplo de carga de trabajo con escalabilidad automática":::
 
 > [!NOTE]
 > Cuando se usa el rendimiento aprovisionado estándar (manual), la métrica de **rendimiento aprovisionado** hace referencia al valor que ha definido como usuario. Cuando se usa el rendimiento de escalabilidad automática, esta métrica se refiere a las RU/s a que se escala el sistema actualmente.

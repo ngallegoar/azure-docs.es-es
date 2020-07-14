@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/10/2019
 ms.author: raynew
-ms.openlocfilehash: b59f933fedd5f1d3ed3f7972b1a1fe653df31be2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a6e4b415a9fe8ea80a84e415879df9d2f359478
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75893912"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84434375"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Solución de problemas de actualización del proveedor de Microsoft Azure Site Recovery
 
@@ -65,4 +65,16 @@ Para resolver el problema:
 
 1. Use el administrador de tareas para supervisar el progreso de la instalación. Cuando el proceso para CX_THIRDPARTY_SETUP.EXE ya no esté visible en el administrador de tareas, continúe con el paso siguiente.
 1. Compruebe que C:\thirdparty existe y que la carpeta contiene las bibliotecas RRD.
-1. Vuelva a la carpeta donde descargó el programa de instalación unificada y ejecute MicrosoftAzureSiteRecoveryUnifiedSetup.exe para finalizar la actualización. 
+1. Vuelva a la carpeta donde descargó el programa de instalación unificada y ejecute MicrosoftAzureSiteRecoveryUnifiedSetup.exe para finalizar la actualización.
+
+## <a name="upgrade-failure-due-to-master-target-installation-failure"></a>Error de actualización debido a un error de instalación del destino maestro
+
+Al actualizar el proveedor de Microsoft Azure Site Recovery (DRA), se produce un error en la instalación del destino maestro con el error "La ubicación de instalación no existe, no tiene 1 GB de espacio disponible o no existe en una unidad de disco fija".
+
+Esto puede deberse a un valor NULL para un parámetro en la clave del Registro. Para resolver el problema:
+
+1. Inicie el Editor del Registro (regedit.exe) y abra la rama HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\InMage Systems\Installed Products\4.
+1. Inspeccione el valor de la clave "InstallDirectory". Si es NULL, agregue el valor del directorio de instalación actual.
+1. De forma similar, abra la rama HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\InMage Systems\Installed Products\5 en el Editor del Registro.
+1. Inspeccione el valor de clave "InstallDirectory" y agregue el valor del directorio de instalación actual.
+1. Vuelva a ejecutar el instalador de la instalación unificada.

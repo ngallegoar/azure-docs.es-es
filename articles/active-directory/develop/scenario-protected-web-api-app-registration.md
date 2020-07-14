@@ -13,10 +13,10 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 214d379525f2ee534415d713aa298ec858a84c92
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81868840"
 ---
 # <a name="protected-web-api-app-registration"></a>API web protegida: Registro de aplicación
@@ -141,7 +141,7 @@ Para agregar esta seguridad mejorada:
 
    > [!IMPORTANT]
    >
-   > Si establece **¿Asignación de usuarios?** en **Sí**, Azure AD comprueba las asignaciones de roles de aplicación de un cliente cuando solicita un token de acceso a la API web. Si el cliente no tiene asignado ningún rol de aplicación, Azure AD devolverá el mensaje de error "invalid_client: AADSTS501051: La aplicación \<nombre de aplicación\> no tiene asignado un rol para la \<API web\>".
+   > Si establece **¿Asignación de usuarios?** en **Sí**, Azure AD comprueba las asignaciones de roles de aplicación de un cliente cuando solicita un token de acceso a la API web. Si el cliente no tiene asignado ningún rol de aplicación, Azure AD devolverá el mensaje de error "invalid_client: AADSTS501051: A la aplicación \<application name\> no se le asigna un rol para la \<web API\>".
    >
    > Si mantiene **¿Asignación de usuarios?** establecido en **No**, Azure AD no comprobará las asignaciones de rol de la aplicación cuando un cliente solicite un token de acceso para la API web. Cualquier cliente de demonio (es decir, cualquier cliente que use el flujo de credenciales de cliente) puede obtener un token de acceso para la API con solo especificar su público. Cualquier aplicación puede acceder a la API sin tener que solicitar permiso para ello.
    >

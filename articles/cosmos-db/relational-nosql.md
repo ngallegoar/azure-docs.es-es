@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 1cd80fee51565f2a2c1afa38ed883c10f51a5ee3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6be74e5748d364fd9f56f4af96bb3229ddb61c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75898656"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85113696"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>Descripción de las diferencias entre las bases de datos relacionales y NoSQL
 
@@ -29,7 +29,7 @@ En estos casos, las [bases de datos distribuidas](https://en.wikipedia.org/wiki/
 
 Si los volúmenes transaccionales alcanzan niveles extremos (por ejemplo, varios miles de transacciones por segundo) considere la posibilidad de usar una base de datos NoSQL distribuida. Plantéese la posibilidad de usar Azure Cosmos DB para obtener la máxima eficacia, facilitar el mantenimiento y reducir el costo total de propiedad.
 
-![Back-end](./media/relational-or-nosql/backend-scaled.png)
+:::image type="content" source="./media/relational-or-nosql/backend-scaled.png" alt-text="Back-end" border="false":::
 
 ## <a name="hierarchical-data"></a>Datos jerárquicos
 
@@ -39,7 +39,7 @@ Sin embargo, hoy en día, la popularidad de las bases de datos con estilo de doc
 
 La aparición del [diseño orientado a objetos](https://en.wikipedia.org/wiki/Object-oriented_design) y la [adaptación de impedancias](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch) que surge al combinarlo con modelos relacionales, también resalta un antipatrón en las bases de datos relacionales para casos de uso concretos. Como resultado, pueden surgir costos de mantenimiento ocultos, aunque a menudo significativos. A pesar de que los [métodos de mapeo objeto-relacional](https://en.wikipedia.org/wiki/Object-relational_mapping) han evolucionado para mitigar parcialmente esta situación, las bases de datos orientadas a documentos se combinan mucho mejor con los métodos orientados a objetos. Con este método, los desarrolladores no se ven obligados a comprometerse con los controladores de mapeo objeto-relacional, ni con [motores de base de datos orientados a objetos](https://en.wikipedia.org/wiki/Object_database) personalizados que son específicos de un lenguaje. Si los datos contienen muchas relaciones de elementos primarios y secundarios y jerarquías internas, quizá quiera considerar la posibilidad de usar una base de datos de documentos NoSQL como la [API de SQL de Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction).
 
-![OrderDetails](./media/relational-or-nosql/order-orderdetails.jpg)
+:::image type="content" source="./media/relational-or-nosql/order-orderdetails.jpg" alt-text="OrderDetails":::
 
 ## <a name="complex-networks-and-relationships"></a>Redes y relaciones complejas
 
@@ -49,7 +49,7 @@ En la época en la que surgieron las bases de datos relacionales, también surgi
 
 Si va a mantener una red compleja de relaciones en la base de datos, debería plantearse la posibilidad de usar una base de datos de grafos como la [API de Gremlin de Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/graph-introduction) para administrar los datos.
 
-![Grafo](./media/relational-or-nosql/graph.png)
+:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="Graph":::
 
 Azure Cosmos DB es un servicio de base de datos con varios modelos, que ofrece una proyección de API para todos los tipos de modelos NoSQL principales: familia de columnas, documentos, grafos y pares clave-valor. Las capas de la API de documentos de [Gremlin (grafo)](https://docs.microsoft.com/azure/cosmos-db/gremlin-support) y SQL (Core) son completamente interoperables. Esto tiene ventajas para cambiar entre distintos modelos en el nivel de programación. Los almacenes de grafos se pueden consultar en términos de recorridos de red complejos, así como de transacciones modeladas como registros de documento en el mismo almacén.
 
@@ -76,7 +76,7 @@ Aunque la implementación de bases de datos NoSQL presenta algunas claras ventaj
 
 En el primer desafío, la regla general de las bases de datos NoSQL suele ser la desnormalización que, como se mencionó anteriormente, genera lecturas más eficaces en un sistema distribuido. Sin embargo, hay algunos desafíos de diseño que entran en juego con este método. El siguiente es un ejemplo de un producto relacionado con una categoría y varias etiquetas:
 
-![Combinaciones](./media/relational-or-nosql/many-joins.png)
+:::image type="content" source="./media/relational-or-nosql/many-joins.png" alt-text="Combinaciones":::
 
 Un método recomendado en una base de datos de documentos NoSQL sería desnormalizar el nombre de la categoría y los nombres de las etiquetas directamente en un "documento de producto". Sin embargo, para mantener sincronizadas las categorías, las etiquetas y los productos, las opciones de diseño que facilitan esta tarea han agregado complejidad al mantenimiento, ya que los datos se duplican en varios registros del producto, en lugar de ser una sencilla actualización de una relación de "uno a varios" y una combinación para recuperar los datos. 
 

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: b82d415d5e0cf18250123f3483e196aa040285dd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83656818"
 ---
 # <a name="troubleshoot"></a>Solución de problemas
@@ -110,7 +110,7 @@ Para saber cómo descargar registros, vaya a la sección ["Recopilación de regi
 > [!NOTE]
 > Identificador del asociado del sensor que le interesa.
 
-3. Vuelva a la API del asociado y seleccione **Get/\<ID>** (Obtener/Id.>).
+3. Vuelva a Partner API y seleccione **Get/\<ID>** (Obtener/).
 4. Especifique el identificador del asociado del paso 3 y, luego, seleccione **Execute** (Ejecutar).
 
    La respuesta de la API debe tener la cadena de conexión de Event Hubs.
@@ -250,7 +250,7 @@ este problema puede producirse si se realizan actividades de mantenimiento en el
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>Sentinel: se ha alcanzado el número máximo de conexiones
 
-**Mensaje de error del trabajo**: "El usuario '\<username>' ha alcanzado el número máximo de dos flujos de simultáneos".
+**Mensaje de error del trabajo**: "el usuario '\<username>' ha alcanzado el número máximo de dos flujos simultáneos".
 
 **Significado**: Si se produce un error en un trabajo porque se ha alcanzado el número máximo de conexiones, significa que se está usando la misma cuenta de Sentinel en varios trabajos.
 

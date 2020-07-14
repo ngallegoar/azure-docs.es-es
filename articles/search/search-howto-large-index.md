@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/05/2020
-ms.openlocfilehash: 915243fb4dbc6bb274e26261bc5741811ef24592
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: e544e720f024b265e957e67d5bd2ee8af91f5c7f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82925990"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484575"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Indexación de grandes conjuntos de datos en Azure Cognitive Search
 
@@ -52,7 +52,7 @@ En general, recomendamos agregar propiedades adicionales a los campos solo si pi
 
 Uno de los mecanismos más sencillos para la indización de un conjunto de datos más grande es enviar varios documentos o registros en una sola solicitud. Siempre y cuando la carga completa sea menor a 16 MB, una solicitud puede administrar hasta 1000 documentos en una operación de carga masiva. Estos límites se aplican tanto si usa la [API REST para agregar documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) como el [método Index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) del SDK de .NET. Con cualquier API, se empaquetarían 1000 documentos en el cuerpo de cada solicitud.
 
-El uso de lotes para indexar los documentos mejora significativamente el rendimiento de la indexación. Determinar el tamaño de lote óptimo para los datos es un aspecto fundamental de la optimización de las velocidades de indexación. Los dos factores principales que influyen en el tamaño de lote óptimo son:
+El uso de lotes para indexar los documentos mejora significativamente el rendimiento de la indexación. Determinar el tamaño de lote óptimo para los datos es un aspecto fundamental de la optimización de las velocidades de indexación. Los dos principales aspectos que influyen en el tamaño de lote óptimo son:
 + El esquema del índice
 + El tamaño de los datos
 
@@ -74,16 +74,16 @@ Puede modificar este ejemplo y probar con diferentes números de subprocesos par
 > [!NOTE]
 > A medida que aumente el nivel del servicio de búsqueda o el número de particiones, también debe aumentar el número de subprocesos simultáneos.
 
-A medida que aumenta las solicitudes que alcanzan el servicio de búsqueda, puede ver [códigos de estado HTTP](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) que indican que la solicitud no se completó correctamente. Durante la indexación, dos códigos de estado HTTP comunes son:
+A medida que aumenta las solicitudes que alcanzan el servicio de búsqueda, puede ver [códigos de estado HTTP](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) que indican que la solicitud no se completó correctamente. Durante la indexación, dos de los códigos de estado HTTP comunes son:
 
-+ **503 Servicio no disponible**: este error significa que el sistema está sobrecargado y la solicitud no se puede procesar en este momento.
++ **Servicio no disponible 503**: este error significa que el sistema está sobrecargado y la solicitud no se puede procesar en ese momento.
 + **207 Varios estados**: este error significa que algunos documentos se han procesado correctamente, pero al menos uno generó error.
 
 ### <a name="retry-strategy"></a>Estrategia de reintento 
 
 Si se produce un error, las solicitudes deberán reintentarse con una [estrategia de reintento de retroceso exponencial](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
 
-El SDK de .NET de Azure Cognitive Search reintenta automáticamente las solicitudes 503 y otras con errores, pero debe implementar su propia lógica para reintentar las solicitudes 207. También se pueden usar herramientas de código abierto como [Polly](https://github.com/App-vNext/Polly) para implementar una estrategia de reintento.
+El SDK de Azure Cognitive Search para .NET reintenta automáticamente las solicitudes 503 y otras con error, pero es preciso que implemente su propia lógica para reintentar las solicitudes 207. También se pueden usar herramientas de código abierto como [Polly](https://github.com/App-vNext/Polly) para implementar una estrategia de reintento.
 
 ### <a name="network-data-transfer-speeds"></a>Velocidades de transferencia de datos entre redes
 
@@ -139,7 +139,7 @@ En el caso de los indexadores, la capacidad de procesamiento se basa parcialment
 
 1. En [Azure Portal](https://portal.azure.com), en la página **Información general** del panel del servicio de búsqueda, compruebe el **plan de tarifa** para comprobar que puede permitir la indexación en paralelo. Los niveles Básico y Estándar ofrecen varias réplicas.
 
-2. En **Configuración** > **Escala**, [aumente las réplicas](search-capacity-planning.md) para el procesamiento paralelo: una réplica adicional para cada carga de trabajo de indexador. Deje un número suficiente para el volumen de consultas existente. No se recomienda sacrificar las cargas de trabajo por la indexación.
+2. Puede ejecutar tantos indexadores en paralelo como el número de unidades de búsqueda del servicio. En **Configuración** > **Escala**, [aumente las réplicas](search-capacity-planning.md) o las particiones para el procesamiento paralelo: una réplica o partición adicional para cada carga de trabajo de indexador. Deje un número suficiente para el volumen de consultas existente. No se recomienda sacrificar las cargas de trabajo por la indexación.
 
 3. Distribuya los datos en varios contenedores en un nivel que puedan alcanzar los indizadores de Azure Cognitive Search. Esto podría tratarse de varias tablas en Azure SQL Database, varios contenedores en Azure Blob Storage o varias colecciones. Defina un objeto de origen de datos para cada tabla o contenedor.
 

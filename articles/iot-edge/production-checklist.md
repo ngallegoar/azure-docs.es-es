@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e818de4885d3859199108d7d88e4cbcb215dc4cc
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 128504c59690476afef03aa82a03d69769968e99
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780749"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84431931"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparación para implementar la solución IoT Edge en producción
 
@@ -226,6 +226,10 @@ Esta lista de comprobación es un punto de partida para las reglas de firewall:
    | \*.docker.io  | 443 | Acceso a Docker Hub (opcional) |
 
 Algunas de estas reglas de firewall se heredan de Azure Container Registry. Para más información, consulte [Configuración de reglas para acceder a un registro de contenedor de Azure desde detrás de un firewall](../container-registry/container-registry-firewall-access-rules.md).
+
+> [!NOTE]
+> Para proporcionar un FQDN coherente entre los puntos de conexión de REST y de datos, a partir del **15 de junio de 2020** el punto de conexión de datos de Microsoft Container Registry cambiará de `*.cdn.mscr.io` a `*.data.mcr.microsoft.com`  
+> Para obtener más información, consulte [Configuración de las reglas de firewall de cliente de Microsoft Container Registry](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md)
 
 Si no quiere configurar el firewall para permitir el acceso a los registros de contenedores públicos, puede almacenar las imágenes en el registro de contenedor privado, como se describe en [Almacenar los contenedores del entorno de ejecución en el registro privado](#store-runtime-containers-in-your-private-registry).
 

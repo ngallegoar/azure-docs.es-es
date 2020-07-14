@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1ded745b5a734fd92a8ace851e3ecfc4a7a487d5
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: e8d68e5f2eeeb7363469535c027f258fbc9d7ed1
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636400"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480497"
 ---
 # <a name="tutorial-create-windows-vm-images-with-azure-powershell"></a>Tutorial: Creación de imágenes de máquina virtual Windows con Azure PowerShell
 
@@ -54,7 +54,7 @@ Para abrir Cloud Shell, seleccione **Pruébelo** en la esquina superior derecha 
 
 ## <a name="get-the-vm"></a>Obtención de la máquina virtual
 
-Puede ver una lista de máquinas virtuales disponibles en un grupo de recursos con [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Una vez que sepa el nombre de la máquina virtual y cuál es el grupo de recursos, puede usar `Get-AzVM` nuevamente para obtener el objeto de máquina virtual y almacenarlo en una variable para su uso posterior. En este ejemplo se obtiene una máquina virtual denominada *sourceVM* del grupo de recursos "myResourceGroup" y se asigna a la variable *$vm*. 
+Puede ver una lista de máquinas virtuales disponibles en un grupo de recursos con [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Una vez que sepa el nombre de la máquina virtual y cuál es el grupo de recursos, puede usar `Get-AzVM` nuevamente para obtener el objeto de máquina virtual y almacenarlo en una variable para su uso posterior. En este ejemplo se obtiene una máquina virtual denominada *sourceVM* del grupo de recursos "myResourceGroup" y se asigna a la variable *$sourceVM*. 
 
 ```azurepowershell-interactive
 $sourceVM = Get-AzVM `
@@ -131,7 +131,7 @@ New-AzGalleryImageVersion `
    -ResourceGroupName $resourceGroup.ResourceGroupName `
    -Location $resourceGroup.Location `
    -TargetRegion $targetRegions  `
-   -Source $vm.Id.ToString() `
+   -Source $sourceVM.Id.ToString() `
    -PublishingProfileEndOfLifeDate '2020-12-01'
 ```
 

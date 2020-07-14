@@ -9,10 +9,10 @@ ms.author: jasondel
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
 ms.openlocfilehash: 581587382c3bfd03ed329672e5c6ca065554d1c7
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83727443"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Creación de un clúster privado de la versión 4 de Red Hat OpenShift en Azure
@@ -262,7 +262,7 @@ apiServer=$(az aro show -g $RESOURCEGROUP -n $CLUSTER --query apiserverProfile.u
 >[!IMPORTANT]
 > Para conectarse a un clúster privado de Red Hat OpenShift en Azure, tendrá que realizar el siguiente paso desde un host que se encuentre en la red virtual que ha creado o en una red virtual que esté [emparejada](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) con la red virtual en la que se implementó el clúster.
 
-Inicie sesión en el servidor de API del clúster de OpenShift mediante el siguiente comando. Reemplace **\<contraseña de kubeadmin>** por la contraseña que acaba de recuperar.
+Inicie sesión en el servidor de API del clúster de OpenShift mediante el siguiente comando. Reemplace **\<kubeadmin password>** por la contraseña que acaba de recuperar.
 
 ```azurecli-interactive
 oc login $apiServer -u kubeadmin -p <kubeadmin password>

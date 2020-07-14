@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 7d071a98b8d82d6f11278b59e1dfc91882a9bfcc
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: f826113abc756654fbf02e7d643b8ac1f9d9f98a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84192855"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84338131"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Servicios vinculados en Azure Data Factory
 
@@ -95,7 +95,10 @@ El siguiente servicio vinculado no es un servicio vinculado de Azure Storage. Te
 
 ## <a name="create-linked-services"></a>Crear servicios vinculados
 
-Puede crear servicios vinculados mediante una de estas herramientas o SDK: [API de .NET](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [API REST](quickstart-create-data-factory-rest-api.md), plantilla de Azure Resource Manager y Azure Portal.
+Se pueden crear servicios vinculados en la experiencia de usuario de Azure Data Factory mediante el [centro de administración](author-management-hub.md) y cualquier actividad, conjunto de datos o flujo de datos que haga referencia a ellos.
+
+Los servicios vinculados se pueden crear mediante una de estas herramientas o SDK: [API de .NET](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [API REST](quickstart-create-data-factory-rest-api.md), plantilla de Azure Resource Manager y Azure Portal.
+
 
 ## <a name="data-store-linked-services"></a>Servicios vinculados con almacenes de datos
 

@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 05/21/2020
 ms.author: radeltch
 ms.openlocfilehash: ed53b77587e307926689b2c20d7223212f3394d4
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83800275"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Alta disponibilidad de SAP HANA en máquinas virtuales de Azure en Red Hat Enterprise Linux
@@ -108,7 +108,7 @@ Para implementar la plantilla, siga estos pasos:
     * **Tamaño del sistema SAP**: Escriba la cantidad de SAPS que va a proporcionar el nuevo sistema. Si no está seguro de cuántos SAPS necesita el sistema, consulte con el integrador de sistemas o el asociado tecnológico de SAP.
     * **Disponibilidad del sistema**: Seleccione **Alta disponibilidad**.
     * **Nombre de usuario administrador, contraseña del administrador o clave SSH**: Se crea un usuario nuevo que se puede usar para iniciar sesión en la máquina.
-    * **Identificador de subred**: Si quiere implementar la máquina virtual en una red virtual existente en la que tiene una subred definida a la que se debe asignar la máquina virtual, asigne un nombre al identificador de esa subred específica. El identificador suele tener este aspecto: **/subscriptions/\<Id. de suscripción/resourceGroups/\<nombre del grupo de recursos>/providers/Microsoft.Network/virtualNetworks/\<nombre de red virtual>/subnets/\<nombre de subred>** . Deje el identificador en blanco si quiere crear una nueva red virtual
+    * **Identificador de subred**: Si quiere implementar la máquina virtual en una red virtual existente en la que tiene una subred definida a la que se debe asignar la máquina virtual, asigne un nombre al identificador de esa subred específica. Generalmente, el identificador tiene un aspecto similar al siguiente **/subscriptions/\<subscription ID>/resourceGroups/\<resource group name>/providers/Microsoft.Network/virtualNetworks/\<virtual network name>/subnets/\<subnet name>** . Deje el identificador en blanco si quiere crear una nueva red virtual
 
 ### <a name="manual-deployment"></a>Implementación manual
 

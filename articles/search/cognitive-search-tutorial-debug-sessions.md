@@ -8,26 +8,24 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 14760eaef309ec5695b423b98e59a8ae1ab5cacb
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 35590fd8aefb8b6a90adeef52fabe773663403c2
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84886748"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510986"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Tutorial: Diagnóstico, reparación y confirmación de cambios en el conjunto de aptitudes
 
 En este artículo, usará Azure Portal para acceder a las sesiones de depuración y reparar incidencias con el conjunto de aptitudes proporcionado. El conjunto de aptitudes tiene algunos errores que deben solucionarse. Este tutorial le guiará a través de una sesión de depuración para identificar y resolver incidencias con las entradas y salidas de aptitudes.
 
 > [!Important]
-> La compatibilidad de las sesiones de depuración con Azure Cognitive Search está disponible [a petición](https://aka.ms/DebugSessions) como versión preliminar de acceso limitado. Las características de la versión preliminar se ofrecen sin Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Las sesiones de depuración constituyen una característica en versión preliminar que se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Una vez que se le haya concedido acceso a la versión preliminar, podrá acceder a las sesiones de depuración y utilizarlas para su servicio con Azure Portal.
->   
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 > [!div class="checklist"]
 > * Suscripción a Azure. Cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) o use su suscripción actual

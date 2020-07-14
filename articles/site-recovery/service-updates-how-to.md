@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
-ms.openlocfilehash: 3489f7f812798504d0c57a265a04e57344105419
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 483d2152f3af13c82830528ea73e837fe3788ca4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229116"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84629386"
 ---
 # <a name="service-updates-in-site-recovery"></a>Actualizaciones de servicio en Azure Site Recovery
 
@@ -90,14 +90,13 @@ En este escenario, es muy recomendable que [habilite las actualizaciones automá
 - Al habilitar el proceso de replicación.
 - Definiendo la configuración de actualización de la extensión dentro del almacén.
 
-Si desea administrar las actualizaciones manualmente, haga lo siguiente:
+Si desea administrar las actualizaciones manualmente, puede elegir una de las siguientes opciones:
 
-1. En el almacén > **Elementos replicados**, haga clic en esta notificación en la parte superior de la pantalla: 
+1. Cuando hay disponible una nueva actualización del agente, Site Recovery proporciona una notificación en el almacén hacia la parte superior de la página. En el almacén > **Elementos replicados**, haga clic en esta notificación en la parte superior de la pantalla: 
     
-    **Hay una nueva actualización del agente de replicación de Site Recovery disponible. Haga clic para instalarla ->**
+    **Hay una nueva actualización del agente de replicación de Site Recovery disponible. Haga clic para instalarla ->** <br/><br/>Seleccione las máquinas virtuales a las que desea aplicar la actualización y haga clic en **Aceptar**.
 
-4. Seleccione las máquinas virtuales a las que desea aplicar la actualización y haga clic en **Aceptar**.
-
+2. En la página de información general de recuperación ante desastres de la máquina virtual, encontrará el campo "Estado del agente", que indicará "Actualización crítica" si el agente va a expirar. Haga clic en él y siga las instrucciones posteriores para actualizar manualmente la máquina virtual.
 
 ## <a name="vmware-vmphysical-server-disaster-recovery-to-azure"></a>Recuperación ante desastres de un servidor físico/VM de VMware en Azure
 

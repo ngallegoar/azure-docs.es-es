@@ -1,7 +1,7 @@
 ---
 title: Eliminación del protector de TDE (PowerShell y CLI de Azure)
 titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Aprenda cómo responder a un protector de TDE potencialmente comprometido para una instancia de Azure SQL Database o Azure Synapse Analytics mediante TDE con compatibilidad con Bring Your Own Key (BYOK).
+description: Aprenda a responder a un protector de TDE potencialmente en peligro en Azure SQL Database o Azure Synapse Analytics mediante TDE con compatibilidad con Bring Your Own Key (BYOK).
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,18 +12,18 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: e0817e21369824769a9248d7ac7c947bcc98ace5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 9ffc2af0309f8a682db04b36675a3c29725c44fe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84039576"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84324460"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Eliminación de un protector de Cifrado de datos transparente (TDE) con PowerShell
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 
-En este tema se describe cómo responder a un protector de TDE potencialmente comprometido para una instancia de Azure SQL Database o Azure Synapse Analytics mediante TDE con claves administradas por el cliente en Azure Key Vault y compatibilidad con Bring Your Own Key (BYOK). Para más información sobre la compatibilidad con BYOK para TDE, consulte la [página de introducción](transparent-data-encryption-byok-overview.md).
+En este tema se describe cómo responder a un protector de TDE potencialmente en peligro en Azure SQL Database o Azure Synapse Analytics que usa TDE con claves administradas por el cliente en Azure Key Vault y compatibilidad con Bring Your Own Key (BYOK). Para más información sobre la compatibilidad con BYOK para TDE, consulte la [página de introducción](transparent-data-encryption-byok-overview.md).
 
 > [!CAUTION]
 > Los procedimientos que se detallan en este artículo deben realizarse únicamente en casos extremos o en entornos de prueba. Revise los pasos detenidamente, ya que si se eliminan de Azure Key Vault protectores de TDE que se usan activamente, la **base de datos dejará de estar disponible**.
@@ -34,14 +34,14 @@ Tenga en cuenta que una vez que el protector de TDE se elimina en Key Vault, en 
 
 Esta guía de procedimientos explica dos enfoques dependiendo del resultado deseado después de la respuesta a un incidente comprometido:
 
-- Para mantener **accesibles** las bases de datos en Azure SQL Database o Azure Synapse
-- Para que las bases de datos en Azure SQL Database y Data Warehouse estén **inaccesibles**
+- Hacer que las bases de datos de Azure SQL Database o Azure Synapse Analytics sean **inaccesibles**.
+- Hacer que las bases de datos de Azure SQL Database o Azure SQL Data Warehouse sean **inaccesibles**.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Debe tener una suscripción de Azure y ser un administrador en esa suscripción.
 - Es preciso tener instalado y en ejecución Azure PowerShell.
-- En esta guía de procedimientos se supone que ya utiliza una clave de Azure Key Vault como protector de TDE para una instancia de Azure SQL Database o Azure Synapse (antiguamente, SQL Data Warehouse). Para más información, consulte [Cifrado de datos transparente con compatibilidad con BYOK](transparent-data-encryption-byok-overview.md).
+- En esta guía paso a paso se supone que ya usa una clave de Azure Key Vault como protector de TDE en Azure SQL Database o Azure Synapse (antes SQL Data Warehouse). Para más información, consulte [Cifrado de datos transparente con compatibilidad con BYOK](transparent-data-encryption-byok-overview.md).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -50,7 +50,7 @@ Esta guía de procedimientos explica dos enfoques dependiendo del resultado dese
 > [!IMPORTANT]
 > El módulo de Azure Resource Manager (RM) para PowerShell todavía es compatible, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. El módulo de AzureRM continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo.  Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos. Para obtener más información sobre la compatibilidad, vea [Presentación del nuevo módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[La CLI de Azure](#tab/azure-cli)
 
 Para la instalación, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
@@ -81,7 +81,7 @@ Como alternativa, puede usar PowerShell o la CLI de Azure:
 
 El comando de PowerShell **Get-AzureRmSqlServerKeyVaultKey**  proporciona la huella digital del Protector de TDE usado en la consulta para que pueda ver qué claves conservar y qué claves eliminar en AKV. Solo las claves que ya no usa la base de datos se pueden eliminar de forma segura de Azure Key Vault.
 
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[La CLI de Azure](#tab/azure-cli)
 
 El comando de PowerShell **az sql server key show**  proporciona la huella digital del Protector de TDE usado en la consulta para que pueda ver qué claves conservar y qué claves eliminar en AKV. Solo las claves que ya no usa la base de datos se pueden eliminar de forma segura de Azure Key Vault.
 
@@ -132,7 +132,7 @@ El comando de PowerShell **az sql server key show**  proporciona la huella d
    Restore-AzKeyVaultKey -VaultName <KeyVaultName> -InputFile <BackupFilePath>
    ```
 
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[La CLI de Azure](#tab/azure-cli)
 
 Para ver la referencia de comandos, consulte el [almacén de claves de la CLI de Azure](/cli/azure/keyvault/key).
 

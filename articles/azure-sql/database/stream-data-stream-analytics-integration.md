@@ -1,5 +1,5 @@
 ---
-title: Transmisión de datos mediante la integración de Stream Analytics (versión preliminar)
+title: Transmisión de datos mediante la integración de Azure Stream Analytics (versión preliminar)
 description: Use la integración de Azure Stream Analytics para transmitir datos a Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,17 +11,16 @@ author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: ea129902e5ab30a5d7f7a70c3606d4aa73cd84a5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 90d3507a8867ad3556891f6001f0e15ebda8c4f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84030556"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84345366"
 ---
-# <a name="stream-data-into-azure-sql-database-using-stream-analytics-integration-preview"></a>Transmisión de datos en Azure SQL Database mediante la integración de Stream Analytics (versión preliminar)
-[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
+# <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Transmisión de datos en Azure SQL Database mediante la integración de Azure Stream Analytics (versión preliminar)
 
-Ahora los usuarios pueden ingerir, procesar, ver y analizar datos de transmisión en tiempo real en una tabla directamente desde una base de datos SQL en Azure Portal mediante [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md). Esta experiencia permite una amplia variedad de escenarios, como automóviles conectados, supervisión remota, detección de fraudes y muchos más. En Azure Portal, puede seleccionar un origen de eventos (Event Hub o IoT Hub), ver eventos entrantes en tiempo real y seleccionar una tabla para almacenar eventos. También puede escribir consultas de Lenguaje de consulta de Stream Analytics en el portal para transformar los eventos entrantes y almacenarlos en la tabla seleccionada. Este nuevo punto de entrada se suma a las experiencias de creación y configuración que ya existen en Stream Analytics. Esta experiencia se inicia en el contexto de la base de datos, lo que le permite configurar rápidamente un trabajo de Stream Analytics y navegar sin problemas entre las experiencias de Azure SQL Database y Stream Analytics.
+Ahora los usuarios pueden ingerir, procesar, ver y analizar datos de transmisión en tiempo real en una tabla directamente desde una base de datos en Azure SQL Database. Lo hacen en Azure Portal mediante [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md). Esta experiencia permite una amplia variedad de escenarios, como automóviles conectados, supervisión remota, detección de fraudes y muchos más. En Azure Portal, puede seleccionar un origen de eventos (Event Hub o IoT Hub), ver eventos entrantes en tiempo real y seleccionar una tabla para almacenar eventos. También puede escribir consultas de lenguaje de consulta de Azure Stream Analytics en el portal para transformar los eventos entrantes y almacenarlos en la tabla seleccionada. Este nuevo punto de entrada se suma a las experiencias de creación y configuración que ya existen en Stream Analytics. Esta experiencia se inicia en el contexto de la base de datos, lo que le permite configurar rápidamente un trabajo de Stream Analytics y navegar sin problemas entre la base de datos de Azure SQL Database y las experiencias de Stream Analytics.
 
 ![Flujo de Stream Analytics](./media/stream-data-stream-analytics-integration/stream-analytics-flow.png)
 
@@ -32,7 +31,7 @@ Ahora los usuarios pueden ingerir, procesar, ver y analizar datos de transmisió
 - Facilidad de uso adicional con vista previa de los datos: obtenga una vista previa de los datos entrantes desde el origen de eventos (Event Hub o IoT Hub) en el contexto de la tabla seleccionada
 
 > [!IMPORTANT]
-> Un trabajo de Azure Stream Analytics puede generar Azure SQL Database, Instancia administrada de Azure SQL o Azure Synapse (anteriormente Azure SQL Data Warehouse). Para más información, vea [Salidas](../../stream-analytics/stream-analytics-define-outputs.md#sql-database).
+> Un trabajo de Azure Stream Analytics puede generar Azure SQL Database, Azure SQL Managed Instance o Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse). Para más información, vea [Salidas](../../stream-analytics/stream-analytics-define-outputs.md#sql-database).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -49,7 +48,7 @@ Para completar los pasos de este artículo, necesitará los siguientes recursos:
 
     ![Stream Analytics](./media/stream-data-stream-analytics-integration/stream-analytics.png)
 
-3. Para empezar a ingerir los datos de transmisión en esta base de datos SQL, seleccione **Crear**, asigne un nombre al trabajo de transmisión y, después, seleccione **Siguiente: Entrada**.
+3. Para empezar a ingerir los datos de transmisión en esta base de datos, seleccione **Crear**, asigne un nombre al trabajo de transmisión y, después, seleccione **Siguiente: Entrada**.
 
     ![Creación del trabajo de Stream Analytics](./media/stream-data-stream-analytics-integration/create-job.png)
 
@@ -119,7 +118,7 @@ Para completar los pasos de este artículo, necesitará los siguientes recursos:
    - **Iniciar o detener el trabajo**: si el trabajo está en ejecución, lo puede detener. Si el trabajo está detenido, lo puede iniciar.
    - **Editar trabajo**: puede modificar la consulta. Si quiere realizar más cambios en el trabajo, agregar más entradas o salidas, y después abrirlo en Stream Analytics. La opción Editar está deshabilitada cuando el trabajo está en ejecución.
    - **Vista previa de la tabla de salida**: puede obtener una vista previa de la tabla en el editor de consultas SQL.
-   - **Abrir en Stream Analytics**: abra el trabajo en el servicio Stream Analytics para ver, supervisar y depurar los detalles del trabajo.
+   - **Abrir en Stream Analytics**: abra el trabajo en Stream Analytics para ver, supervisar y depurar los detalles del trabajo.
 
      ![Trabajos de Stream Analytics](./media/stream-data-stream-analytics-integration/jobs.png)
 
@@ -127,3 +126,4 @@ Para completar los pasos de este artículo, necesitará los siguientes recursos:
 
 - [Documentación de Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/)
 - [Patrones de soluciones de Azure Stream Analytics](../../stream-analytics/stream-analytics-solution-patterns.md)
+ 

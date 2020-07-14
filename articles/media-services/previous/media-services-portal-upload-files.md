@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 3ebeb3c601dd3f734265d49d60728056561928be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3327304916c30863bb4de4b4d18c41ba3c58270d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61127818"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84982568"
 ---
 # <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Carga de archivos en una cuenta de Media Services en Azure Portal 
 
@@ -30,7 +30,7 @@ ms.locfileid: "61127818"
 > 
 
 > [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. Para ver los archivos de carga actualizados con el portal, consulte [Uso del portal para cargar, codificar y transmitir contenido](../latest/manage-assets-quickstart.md).<br/>Consulte también: [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
 
 En Azure Media Services, cargue los archivos digitales en un recurso. El recurso puede contener vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y archivos de subtítulos (y los metadatos de estos archivos). Una vez cargados los archivos, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming.
 
@@ -64,6 +64,6 @@ Cuando haya finalizado la carga, el nuevo recurso se muestra en el panel **Recur
 ## <a name="next-steps"></a>Pasos siguientes
 * Aprenda a [codificar los recursos cargados](media-services-portal-encode.md).
 
-* También puede usar Azure Functions para desencadenar un trabajo de codificación cuando un archivo llegue al contenedor configurado. Para más información, consulte el ejemplo de [Media Services: integración de Azure Media Services con Azure Functions y Logic Apps](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/).
+* También puede usar Azure Functions para desencadenar un trabajo de codificación cuando un archivo llegue al contenedor configurado. Para más información, consulte el ejemplo en [Media Services: Integración de Azure Media Services con Azure Functions y Logic Apps](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/).
 
 

@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.openlocfilehash: e1157a695d34c75b237391427b37365421366ef8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dbacb6a5bbdead52750935c476f453423647fc0f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77523177"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84457140"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Desarrollo y configuración de Azure Functions con Azure SignalR Service
 
@@ -32,7 +32,7 @@ En Azure Portal, busque la página *Configuración* del recurso de SignalR Servi
 Una aplicación en tiempo real sin servidor creada con Azure Functions y Azure SignalR Service normalmente requiere dos funciones de Azure:
 
 * Una función "negotiate" que el cliente llama para obtener un token de acceso válido de SignalR Service y la dirección URL del punto de conexión de servicio.
-* Una o varias funciones que envían mensajes o que administran la pertenencia al grupo.
+* Una o más funciones que controlan los mensajes de Signalr Service y envían mensajes o administran la pertenencia a grupos.
 
 ### <a name="negotiate-function"></a>función de negociación
 
@@ -40,9 +40,17 @@ Una aplicación cliente requiere un token de acceso válido para conectarse a Az
 
 Use una función de Azure desencadenada por HTTP y el enlace de entrada *SignalRConnectionInfo* para generar el objeto de información de conexión. La función debe tener una ruta HTTP que termina en `/negotiate`.
 
+Con el [modelo basado en clases](#class-based-model) en C#, no necesita el enlace de entrada *SignalRConnectionInfo* y puede agregar notificaciones personalizadas mucho más fácilmente. Vea [Experiencia de negociación en el modelo basado en clases](#negotiate-experience-in-class-based-model).
+
 Para más información sobre cómo crear la función de negociación, consulte la [*SignalRConnectionInfo*de referencia del enlace de entrada](../azure-functions/functions-bindings-signalr-service-input.md)
 
 Para aprender a crear un token autenticado, consulte [Uso de la autenticación de App Service](#using-app-service-authentication).
+
+### <a name="handle-messages-sent-from-signalr-service"></a>Control de los mensajes enviados desde Signalr Service
+
+Use el enlace del *desencadenador de Signalr* para controlar los mensajes enviados desde Signalr Service. Se puede desencadenar cuando los clientes envían mensajes o los clientes se conectan o desconectan.
+
+Para más información, consulte [Referencia del enlace del *desencadenador de SignalR*](../azure-functions/functions-bindings-signalr-service-trigger.md).
 
 ### <a name="sending-messages-and-managing-group-membership"></a>Envío de mensajes y administración de la pertenencia a grupos
 
@@ -55,6 +63,111 @@ Para más información, consulte la [*SignalR* de referencia del enlace de salid
 ### <a name="signalr-hubs"></a>Concentradores de SignalR
 
 SignalR tiene un concepto de "concentradores". Cada conexión de cliente y cada mensaje enviado desde Azure Functions se limitan a un concentrador concreto. Puede usar concentradores como una manera de separar las conexiones y los mensajes en espacios de nombres lógicos.
+
+## <a name="class-based-model"></a>Modelo basado en clases
+
+El modelo basado en clases está dedicado a C#. Con el modelo basado en clases puede tener una experiencia coherente de programación del lado servidor de Signalr. Tiene las siguientes características.
+
+* La configuración de Less funciona de la siguiente manera: El nombre de clase se usa como `HubName`, el nombre del método se usa como `Event` y `Category` se decide automáticamente según el nombre del método.
+* Enlazado automático de parámetros: No se necesita `ParameterNames` ni el atributo `[SignalRParameter]`. Los parámetros se enlazan automáticamente a los argumentos del método de Azure Functions en orden.
+* Experiencia cómoda de salida y negociación.
+
+En los siguientes códigos se muestran estas características:
+
+```cs
+public class SignalRTestHub : ServerlessHub
+{
+    [FunctionName("negotiate")]
+    public SignalRConnectionInfo Negotiate([HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req)
+    {
+        return Negotiate(req.Headers["x-ms-signalr-user-id"], GetClaims(req.Headers["Authorization"]));
+    }
+
+    [FunctionName(nameof(OnConnected))]
+    public async Task OnConnected([SignalRTrigger]InvocationContext invocationContext, ILogger logger)
+    {
+        await Clients.All.SendAsync(NewConnectionTarget, new NewConnection(invocationContext.ConnectionId));
+        logger.LogInformation($"{invocationContext.ConnectionId} has connected");
+    }
+
+    [FunctionName(nameof(Broadcast))]
+    public async Task Broadcast([SignalRTrigger]InvocationContext invocationContext, string message, ILogger logger)
+    {
+        await Clients.All.SendAsync(NewMessageTarget, new NewMessage(invocationContext, message));
+        logger.LogInformation($"{invocationContext.ConnectionId} broadcast {message}");
+    }
+
+    [FunctionName(nameof(OnDisconnected))]
+    public void OnDisconnected([SignalRTrigger]InvocationContext invocationContext)
+    {
+    }
+}
+```
+
+Todas las funciones que quieran aprovechar el modelo basado en clases deben ser el método de clase que hereda de **ServerlessHub**. El nombre de clase `SignalRTestHub` en el ejemplo es el nombre del centro.
+
+### <a name="define-hub-method"></a>Definición del método del centro
+
+Todos los métodos del centro **deben** tener un atributo `[SignalRTrigger]` y **deben** usar un constructor sin parámetros. Entonces el **nombre del método** se trata como el parámetro **event**.
+
+De forma predeterminada, `category=messages` excepto si el nombre del método es uno de los siguientes:
+
+* **OnConnected**: Se trata como `category=connections, event=connected`
+* **OnDisconnected**: Se trata como `category=connections, event=disconnected`
+
+### <a name="parameter-binding-experience"></a>Experiencia de enlace de parámetros
+
+En el modelo basado en clases, `[SignalRParameter]` no es necesario porque todos los argumentos se marcan como `[SignalRParameter]` de forma predeterminada, salvo si se trata de alguna de las siguientes situaciones:
+
+* El argumento está decorado por un atributo de enlace.
+* El tipo del argumento es `ILogger` o `CancellationToken`.
+* El argumento está decorado por un atributo `[SignalRIgnore]`.
+
+### <a name="negotiate-experience-in-class-based-model"></a>Experiencia de negociación en el modelo basado en clases
+
+En lugar de utilizar el enlace de entrada de Signalr `[SignalR]`, la negociación en el modelo basado en clases puede ser más flexible. La clase base `ServerlessHub` tiene un método
+
+```cs
+SignalRConnectionInfo Negotiate(string userId = null, IList<Claim> claims = null, TimeSpan? lifeTime = null)
+```
+
+Este usuario de característica personaliza `userId` o `claims` durante la ejecución de la función.
+
+## <a name="use-signalrfilterattribute"></a>Use `SignalRFilterAttribute`
+
+Un filtro usuario puede heredar e implementar la clase abstracta `SignalRFilterAttribute`. Si se producen excepciones en `FilterAsync`, se devolverá `403 Forbidden` a los clientes.
+
+En el ejemplo siguiente se muestra cómo implementar un filtro de cliente que solo permite que `admin` invoque `broadcast`.
+
+```cs
+[AttributeUsage(AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
+internal class FunctionAuthorizeAttribute: SignalRFilterAttribute
+{
+    private const string AdminKey = "admin";
+
+    public override Task FilterAsync(InvocationContext invocationContext, CancellationToken cancellationToken)
+    {
+        if (invocationContext.Claims.TryGetValue(AdminKey, out var value) &&
+            bool.TryParse(value, out var isAdmin) &&
+            isAdmin)
+        {
+            return Task.CompletedTask;
+        }
+
+        throw new Exception($"{invocationContext.ConnectionId} doesn't have admin role");
+    }
+}
+```
+
+Aproveche el atributo para autorizar la función.
+
+```cs
+[FunctionAuthorize]
+[FunctionName(nameof(Broadcast))]
+public async Task Broadcast([SignalRTrigger]InvocationContext invocationContext, string message, ILogger logger)
+{
+}
+```
 
 ## <a name="client-development"></a>Desarrollo de cliente
 

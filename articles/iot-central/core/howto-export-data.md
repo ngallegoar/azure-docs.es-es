@@ -4,16 +4,16 @@ description: Cómo exportar datos desde la aplicación de Azure IoT Central a Az
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 04/07/2020
+ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: c83c97aab43b6978922202cc96ff92e1e046a7e2
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 6660f413c741b36f4dd28f6e1bcf83873e4f5c26
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811632"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85483931"
 ---
 # <a name="export-iot-data-to-destinations-in-azure"></a>Exportación de datos de IoT a destinos en Azure
 
@@ -27,7 +27,7 @@ En este artículo se describe cómo usar la característica de exportación de d
 > [!Note]
 > Cuando se activa la exportación de datos, solo se obtienen los datos a partir de ese momento. Actualmente, no se pueden recuperar los datos del tiempo durante el que la exportación de datos estaba desactivada. Para conservar más datos históricos, active la exportación de datos al principio.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Ser administrador en la aplicación de IoT Central o contar con permisos de exportación de datos.
 
@@ -82,27 +82,31 @@ Ahora que tiene un destino al que exportar los datos, siga estos pasos para conf
     > [!Tip]
     > Si no ve **Exportación de datos** en el panel izquierdo, no tiene permisos para configurar la exportación de datos en la aplicación. Hable con un administrador para configurar la exportación de datos.
 
-3. Seleccione el botón **+ Nuevo** en la esquina superior derecha. Elija **Azure Event Hubs**, **Azure Service Bus** o **Azure Blob Storage** como destino de la exportación. El número máximo de exportaciones por aplicación es cinco.
+3. Seleccione el botón **+ Nuevo**. Elija entre **Azure Blob Storage**, **Azure Event Hubs**, **Azure Service Bus Queue** o **Azure Service Bus Topic** como destino de la exportación. El número máximo de exportaciones por aplicación es cinco.
 
-    ![Creación de una exportación de datos nueva](media/howto-export-data/new-export-definition.png)
+4. Especifique un nombre para la exportación. En el cuadro de lista desplegable, seleccione el **espacio de nombres** o **Escriba una cadena de conexión**.
 
-4. En el cuadro de lista desplegable, seleccione su **espacio de nombres de Event Hubs**, **espacio de nombres de Service Bus**, **espacio de nombres de la cuenta de almacenamiento** o **escriba una cadena de conexión**.
-
-    - Solo verá las cuentas de almacenamiento, los espacios de nombres de Event Hubs y los espacios de nombres de Service Bus de la misma suscripción que la de la aplicación de IoT Central. Si quiere exportar a un destino fuera de esta suscripción, elija **Escriba una cadena de conexión** y vea el paso siguiente.
+    - Solo verá las cuentas de almacenamiento, los espacios de nombres de Event Hubs y los espacios de nombres de Service Bus de la misma suscripción que la de la aplicación de IoT Central. Si quiere exportar a un destino fuera de esta suscripción, elija **Escriba una cadena de conexión** y vea el paso 6.
     - Para las aplicaciones creadas con el plan de tarifas gratis, la única manera de configurar la exportación de datos es mediante una cadena de conexión. Las aplicaciones en el plan de tarifas gratis no tienen una suscripción a Azure asociada.
 
     ![Creación de un centro de eventos](media/howto-export-data/export-event-hub.png)
 
-5. (Opcional) Si eligió **Escriba una cadena de conexión**, aparece un nuevo cuadro para que pegue la cadena de conexión. Para obtener la cadena de conexión para su:
-    - Event Hubs o Service Bus, vaya al espacio de nombres en Azure Portal:
-        - En **Configuración**, seleccione **Directivas de acceso compartido**.
-        - Elija el valor predeterminado **RootManageSharedAccessKey** o cree uno.
-        - Copie la cadena de conexión principal o la secundaria.
-    - Cuenta de almacenamiento, vaya a la cuenta de almacenamiento en Azure Portal:
-        - En **Configuración**, seleccione **Claves de acceso**.
-        - Copie la cadena de conexión key1 o la cadena de conexión key2.
+5. Elija un centro de eventos, una cola, un tema o un contenedor del cuadro de lista desplegable.
 
-6. Elija un centro de eventos, una cola, un tema o un contenedor del cuadro de lista desplegable.
+6. (Opcional) Si eligió **Escriba una cadena de conexión**, aparece un nuevo cuadro para que pegue la cadena de conexión. Para obtener la cadena de conexión para su:
+
+    - Event Hubs o Service Bus, vaya al espacio de nombres en Azure Portal:
+        - Para usar una cadena de conexión para todo el espacio de nombres:
+            1. En **Configuración**, seleccione **Directivas de acceso compartido**.
+            2. Cree una nueva clave o elija una clave existente que tenga permisos de **envío**.
+            3. Copie la cadena de conexión principal o la secundaria.
+        - Para usar una cadena de conexión para una instancia específica del centro de eventos o cola o tema de Service Bus, vaya a **Entidades > Event Hubs** o **Entidades > Colas** o **Entidades > Temas**. Elija una instancia específica y siga los mismos pasos anteriores para obtener una cadena de conexión.
+    - Cuenta de almacenamiento, vaya a la cuenta de almacenamiento en Azure Portal:
+        - Solo se admiten las cadenas de conexión para toda la cuenta de almacenamiento. No se admiten las cadenas de conexión limitadas a un único contenedor.
+          1. En **Configuración**, seleccione **Claves de acceso**.
+          2. Copie la cadena de conexión key1 o la cadena de conexión key2.
+
+    Péguela en la cadena de conexión. Escriba la instancia o el **nombre del contenedor**, teniendo en cuenta que distingue mayúsculas de minúsculas.
 
 7. En **Datos para exportar**, elija los tipos de datos para exportar y establezca el tipo en **Activado**.
 
@@ -748,4 +752,4 @@ En el caso de **Plantillas de dispositivo**, las diferencias importantes entre e
 Ahora que sabe cómo exportar los datos a Azure Event Hubs, Azure Service Bus y Azure Blob Storage, vaya al paso siguiente:
 
 > [!div class="nextstepaction"]
-> [Procedimiento para crear webhooks](./howto-create-webhooks.md)
+> [Cómo ejecutar un análisis personalizado con Databricks](./howto-create-custom-analytics.md)

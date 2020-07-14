@@ -8,10 +8,10 @@ ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 7e1eab20a8e315b977c21de46dd4f6ea2fec9f5d
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83701496"
 ---
 # <a name="setup-diagnostic-logging"></a>Configuración del registro de diagnóstico
@@ -70,7 +70,7 @@ La categoría Métricas registra las mismas [métricas de servidor](analysis-ser
 
 ## <a name="setup-diagnostics-logging"></a>Configuración del registro de diagnósticos
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 1. En [Azure Portal](https://portal.azure.com) > servidor, haga clic en **Configuración de diagnóstico** en el panel de navegación izquierdo y luego en **Activar diagnóstico**.
 
@@ -90,7 +90,7 @@ La categoría Métricas registra las mismas [métricas de servidor](analysis-ser
 
 3. Haga clic en **Save**(Guardar).
 
-    Si recibe un error que indica que "no se pudieron actualizar los diagnósticos para \<nombre de área de trabajo>. La suscripción \<identificador de suscripción> no está registrada para usar microsoft.insights.", siga las instrucciones para [solucionar problemas de Azure Diagnostics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) a fin de registrar la cuenta; a continuación, vuelva a intentar este procedimiento.
+    Si recibe un error que indica que "No se pudo actualizar el diagnóstico de \<workspace name>. La suscripción \<subscription id> no está registrada para usar microsoft.insights", siga las instrucciones para [solucionar problemas de Azure Diagnostics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) a fin de registrar la cuenta; a continuación, vuelva a intentar este procedimiento.
 
     Si desea cambiar el modo en que se guardan los registros de recursos en algún momento, puede volver a esta página para modificar la configuración.
 
@@ -215,7 +215,7 @@ Existen cientos de consultas que puede utilizar. Para más información acerca d
 
 En este tutorial rápido, se crea una cuenta de almacenamiento en la misma suscripción y grupo de recursos que el servidor de Analysis Services. A continuación, se usa Set-AzDiagnosticSetting para activar el registro de diagnóstico y se envía la salida a la nueva cuenta de almacenamiento.
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 Para realizar este tutorial, necesitará los recursos siguientes:
 
 * Un servidor de Azure Analysis Services. Para obtener instrucciones sobre cómo crear un recurso de servidor, consulte [Creación de un servidor en Azure Portal](analysis-services-create-server.md) o [Creación de un servidor de Azure Analysis Services mediante PowerShell](analysis-services-create-powershell.md).
@@ -267,7 +267,7 @@ $account = Get-AzResource -ResourceGroupName awsales_resgroup `
 -ResourceName awsales -ResourceType "Microsoft.AnalysisServices/servers"
 ```
 
-### <a name="enable-logging"></a>Habilitación del registro
+### <a name="enable-logging"></a>Habilitar registro
 
 Para habilitar el registro, use el cmdlet Set-AzDiagnosticSetting, junto con las variables de la nueva cuenta de almacenamiento, la cuenta de servidor y la categoría. Ejecute el siguiente comando y establezca la marca **-Enabled** en **$true**:
 

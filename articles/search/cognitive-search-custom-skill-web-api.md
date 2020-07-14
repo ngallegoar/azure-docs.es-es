@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 29928d78c2cfc2f21def363341f8383c4efa89d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/17/2020
+ms.openlocfilehash: cb5ee7d3549e433fb184b8c55c28b9a28ed89272
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74484118"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84982125"
 ---
 # <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Aptitud API web personalizada en una canalización de enriquecimiento de Azure Cognitive Search
 
@@ -36,12 +36,12 @@ Los parámetros distinguen mayúsculas de minúsculas.
 
 | Nombre de parámetro     | Descripción |
 |--------------------|-------------|
-| uri | URI de la API web adonde se enviará la carga de _JSON_. Solo se permite el esquema de URI **https** |
-| httpMethod | Método que se usará al enviar la carga. Los métodos permitidos son `PUT` o `POST` |
-| httpHeaders | Colección de pares clave-valor donde las claves representan los nombres de encabezados y los valores representan los valores de encabezados que se enviarán a la API web junto con la carga. Estos encabezados no se permiten en esta colección: `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
-| timeout | (Opcional) Cuando se especifica, indica el tiempo de expiración del cliente http que hace la llamada API. Debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de [duración ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Por ejemplo, `PT60S` para 60 segundos. Si no se establece, se elige el valor predeterminado de 30 segundos. El tiempo de expiración se puede establecer en un máximo de 230 segundos y un mínimo de 1. |
-| batchSize | (Opcional) Indica cuántos "registros de datos" (consulte la estructura de la carga de _JSON_ que se muestra más adelante) se enviarán por llamada API. Si no se establece, se elige un valor predeterminado de 1000. Se recomienda usar este parámetro para lograr un equilibrio adecuado entre el rendimiento de la indexación y la carga en la API |
-| degreeOfParallelism | (Opcional) Cuando se especifica, indica el número de llamadas que realizará el indexador en paralelo al punto de conexión que ha proporcionado. Puede reducir este valor si el punto de conexión no puede con una carga demasiado elevada de solicitudes o aumentarlo si el punto de conexión es capaz de aceptar más solicitudes y desea un aumento en el rendimiento del indexador.  Si no se establece, se usa un valor predeterminado de 5. degreeOfParallelism se puede establecer en un máximo de 10 y un mínimo de 1. |
+| `uri` | URI de la API web adonde se enviará la carga de _JSON_. Solo se permite el esquema de URI **https** |
+| `httpMethod` | Método que se usará al enviar la carga. Los métodos permitidos son `PUT` o `POST` |
+| `httpHeaders` | Colección de pares clave-valor donde las claves representan los nombres de encabezados y los valores representan los valores de encabezados que se enviarán a la API web junto con la carga. Estos encabezados no se permiten en esta colección: `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
+| `timeout` | (Opcional) Cuando se especifica, indica el tiempo de expiración del cliente http que hace la llamada API. Debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de [duración ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Por ejemplo, `PT60S` para 60 segundos. Si no se establece, se elige el valor predeterminado de 30 segundos. El tiempo de expiración se puede establecer en un máximo de 230 segundos y un mínimo de 1. |
+| `batchSize` | (Opcional) Indica cuántos "registros de datos" (consulte la estructura de la carga de _JSON_ que se muestra más adelante) se enviarán por llamada API. Si no se establece, se elige un valor predeterminado de 1000. Se recomienda usar este parámetro para lograr un equilibrio adecuado entre el rendimiento de la indexación y la carga en la API |
+| `degreeOfParallelism` | (Opcional) Cuando se especifica, indica el número de llamadas que realizará el indexador en paralelo al punto de conexión que ha proporcionado. Puede reducir este valor si el punto de conexión no puede con una carga demasiado elevada de solicitudes o aumentarlo si el punto de conexión es capaz de aceptar más solicitudes y desea un aumento en el rendimiento del indexador.  Si no se establece, se usa un valor predeterminado de 5. `degreeOfParallelism` se puede establecer en un máximo de 10 y un mínimo de 1. |
 
 ## <a name="skill-inputs"></a>Entradas de la aptitud
 

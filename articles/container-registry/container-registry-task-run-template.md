@@ -4,10 +4,10 @@ description: Ponga en cola una tarea de ACR Tasks que desee ejecutar para compil
 ms.topic: article
 ms.date: 04/22/2020
 ms.openlocfilehash: 7ad40d2e925d5e1443af9bce4115d45b0e8c06e1
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82927775"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>Ejecución de ACR Tasks mediante plantillas de Resource Manager
@@ -26,7 +26,7 @@ Utilizar una plantilla de Resource Manager para poner en cola la ejecución de u
 * Debe especificar un contexto remoto (por ejemplo, un repositorio de GitHub) como [ubicación de origen](container-registry-tasks-overview.md#context-locations) para la ejecución de la tarea. No se puede usar un contexto de origen local.
 * En el caso de las ejecuciones de tareas en la que se utiliza una identidad administrada, solo se permite una identidad administrada *asignada por el usuario*.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Cuenta de GitHub**: Cree una cuenta en https://github.com si aún no tiene una. 
 * **Bifurcar el repositorio de ejemplo**: en los ejemplos de tareas que se mencionan aquí, utilice la interfaz de usuario de GitHub para bifurcar el siguiente repositorio de ejemplo en la cuenta de GitHub: https://github.com/Azure-Samples/acr-build-helloworld-node. Este repositorio contiene archivos Dockerfile y código fuente de ejemplo para compilar imágenes de contenedor pequeñas.
@@ -187,7 +187,7 @@ En este ejemplo, proporcione valores para los siguientes parámetros de la plant
 |userAssignedIdentity |Identificador de recurso de la identidad asignada por el usuario que se ha habilitado en la tarea.|
 |customRegistryIdentity | Identificador de cliente de la identidad asignada por el usuario que se ha habilitado en la tarea. Este identificador se usa en la autenticación del registro personalizado. |
 |customRegistry |Nombre del servidor de inicio de sesión del registro personalizado al que se accede en la tarea; por ejemplo, *mybaseregistry.azurecr.io*|
-|sourceLocation     |Contexto remoto de la tarea de compilación; por ejemplo, *https://github.com/\<your-GitHub-ID\>/acr-build-helloworld-node.* . |
+|sourceLocation     |Contexto remoto para la tarea de compilación, por ejemplo, *https://github.com/\<your-GitHub-ID\> /acr-build-helloworld-node.* |
 |dockerFilePath | Ruta de acceso del archivo Dockerfile en el contexto remoto, que se usa para compilar la imagen. |
 
 ### <a name="deploy-the-template"></a>Implementación de la plantilla

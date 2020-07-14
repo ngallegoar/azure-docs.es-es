@@ -2,13 +2,13 @@
 title: Recopilar y analizar registros de recursos
 description: Registre y analice los eventos del registro de recursos de Azure Container Registry como la autenticación, y el envío y la incorporación de cambios en imágenes.
 ms.topic: article
-ms.date: 01/03/2020
-ms.openlocfilehash: 00f9468721126bd166051df47cec1596356e9b54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/01/2020
+ms.openlocfilehash: b41b1001a669fe42721471bc196e7628eabff983
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409650"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343190"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Registros de Azure Container Registry para la evaluación y auditoría de diagnóstico
 
@@ -24,12 +24,14 @@ La colección de datos de registro de recursos mediante Azure Monitor puede inc
 
 Actualmente se registran los siguientes eventos de nivel de repositorio para imágenes y otros artefactos:
 
-* **Eventos de inserción**
-* **Eventos de extracción**
-* **Eventos de retirada de etiqueta**
-* **Eventos de eliminación** (incluidos los eventos de eliminación de repositorios)
+* **Inserción**
+* **Extracción**
+* **Quitar etiqueta**
+* **Eliminar** (se incluyen los eventos de eliminación del repositorio)
+* **Purgar etiqueta** y **Purgar manifiesto**
 
-Eventos de nivel de repositorio que no se registran actualmente: Eventos de purga.
+> [!NOTE]
+> Los eventos de purga solo se registran si se ha configurado una [directiva de retención](container-registry-retention-policy.md) del Registro.
 
 ## <a name="registry-resource-logs"></a>Registros de recursos del registro
 
@@ -83,16 +85,58 @@ Para obtener un tutorial sobre el uso de Log Analytics en Azure Portal, consul
 
 Para obtener más información sobre las consultas de registro, vea [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
-### <a name="additional-query-examples"></a>Ejemplos de consultas adicionales
+## <a name="query-examples"></a>Ejemplos de consultas
 
-#### <a name="100-most-recent-registry-events"></a>100 eventos de registro más recientes
+### <a name="error-events-from-the-last-hour"></a>Eventos de error de la última hora
+
+```Kusto
+union Event, Syslog // Event table stores Windows event records, Syslog stores Linux records
+| where TimeGenerated > ago(1h)
+| where EventLevelName == "Error" // EventLevelName is used in the Event (Windows) records
+    or SeverityLevel== "err" // SeverityLevel is used in Syslog (Linux) records
+```
+
+### <a name="100-most-recent-registry-events"></a>100 eventos de registro más recientes
 
 ```Kusto
 ContainerRegistryRepositoryEvents
 | union ContainerRegistryLoginEvents
 | top 100 by TimeGenerated
-| project TimeGenerated, LoginServer , OperationName , Identity , Repository , DurationMs , Region , ResultType
+| project TimeGenerated, LoginServer, OperationName, Identity, Repository, DurationMs, Region , ResultType
 ```
+
+### <a name="identity-of-user-or-object-that-deleted-repository"></a>Identidad del usuario u objeto que eliminó el repositorio
+
+```Kusto
+ContainerRegistryRepositoryEvents
+| where OperationName contains "Delete"
+| project LoginServer, OperationName, Repository, Identity, CallerIpAddress
+```
+
+### <a name="identity-of-user-or-object-that-deleted-tag"></a>Identidad del usuario u objeto que eliminó la etiqueta
+
+```Kusto
+ContainerRegistryRepositoryEvents
+| where OperationName contains "Untag"
+| project LoginServer, OperationName, Repository, Tag, Identity, CallerIpAddress
+```
+
+### <a name="reposity-level-operation-failures"></a>Errores de operación de nivel de repositorio
+
+```kusto
+ContainerRegistryRepositoryEvents 
+| where ResultDescription contains "40"
+| project TimeGenerated, OperationName, Repository, Tag, ResultDescription
+```
+
+### <a name="registry-authentication-failures"></a>Errores de autenticación del Registro
+
+```kusto
+ContainerRegistryLoginEvents 
+| where ResultDescription != "200"
+| project TimeGenerated, Identity, CallerIpAddress, ResultDescription
+```
+
 
 ## <a name="additional-log-destinations"></a>Destinos de registro adicionales
 

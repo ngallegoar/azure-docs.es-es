@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 512ad8f93da53afb618491cd1769645d8edb0b14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bee705e33267a765c1fb5300c0bfe2d04ff2015d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75965836"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85099646"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Uso de reglas y puntos de conexión de servicio de red virtual para Azure Database for PostgreSQL con un único servidor
 
@@ -45,7 +45,7 @@ Una regla de red virtual indica a su servidor de Azure Database for PostgreSQL q
 
 
 
-<a name="anch-benefits-of-a-vnet-rule-68b" />
+<a name="anch-details-about-vnet-rules-38q"></a>
 
 ## <a name="benefits-of-a-virtual-network-rule"></a>Ventajas de una regla de red virtual
 
@@ -69,7 +69,7 @@ Si su servidor de **Microsoft.Sql** fuera un nodo de una subred de la red virtua
 
 No obstante, a partir de agosto de 2018, el servicio de Azure Database for PostgreSQL aún no se encuentra entre los servicios que se pueden asignar directamente a una subred.
 
-<a name="anch-details-about-vnet-rules-38q" />
+<a name="anch-details-about-vnet-rules-38q"></a>
 
 ## <a name="details-about-virtual-network-rules"></a>Detalles sobre las reglas de red virtual
 
@@ -102,7 +102,7 @@ Si quiere, puede optar por usar el [control de acceso basado en rol (RBAC)][rbac
 > En algunos casos, Azure Database for PostgreSQL y la subred de red virtual se encuentran en distintas suscripciones. En estos casos debe garantizar las siguientes configuraciones:
 > - Ambas suscripciones deben estar en el mismo inquilino de Azure Active Directory.
 > - El usuario tiene los permisos necesarios para iniciar operaciones como habilitar los puntos de conexión de servicio y agregar una subred de red virtual al servidor especificado.
-> - Asegúrese de que ambas suscripciones tengan el proveedor de recursos **Microsoft.Sql** registrado. Para más información, consulte [resource-manager-registration][resource-manager-portal].
+> - Asegúrese de que ambas suscripciones tengan los proveedores de recursos **Microsoft.Sql** y **Microsoft.DBforPostgreSQL** registrados. Para más información, consulte [resource-manager-registration][resource-manager-portal].
 
 ## <a name="limitations"></a>Limitaciones
 

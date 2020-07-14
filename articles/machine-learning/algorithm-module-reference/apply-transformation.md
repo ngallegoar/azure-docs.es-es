@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 03/05/2020
-ms.openlocfilehash: ccf9d0c3eef50c7dfd838f1929e52506e8984879
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/05/2020
+ms.openlocfilehash: e2b4233f8f59a26e7da532fca48aecbb41857b66
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78395253"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488637"
 ---
 # <a name="apply-transformation-module"></a>Módulo Aplicar transformación
 
@@ -32,13 +32,13 @@ El diseñador le permite guardar transformaciones de datos como **conjuntos de d
 
 1. Seleccione la pestaña **Outputs + logs** (Resultados y registros).
 
-1. Seleccione el **icono de Guardar** para guardar la **transformación de resultado**.
+1. Busque la salida de la transformación y seleccione **Register dataset** (Registrar conjunto de datos) para guardarlo como un módulo en la categoría **Conjuntos de datos** de la paleta de módulos.
 
 ## <a name="how-to-use-apply-transformation"></a>Cómo se usa Aplicar transformación  
   
 1. Agregue el módulo **Apply Transformation** (Aplicar transformación) a la canalización. Puede encontrar este módulo en la sección **Model Scoring & Evaluation** (Puntuación y evaluación de modelos) de la paleta de módulos. 
   
-1. Busque la transformación guardada que quiera usar en **Datasets** > **My Datasets** (Conjuntos de datos > Mis conjuntos de datos) en la paleta de módulos.
+1. Busque la transformación guardada que quiera usar en **Conjunto de datos** en la paleta de módulos.
 
 1. Conecte la salida de la transformación guardada al puerto de entrada izquierdo del módulo **Apply Transformation** (Aplicar transformación).
 

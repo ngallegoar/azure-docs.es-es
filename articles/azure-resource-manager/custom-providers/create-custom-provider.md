@@ -3,26 +3,38 @@ title: Creación de un proveedor de recursos
 description: Se describe cómo crear un proveedor de recursos e implementar sus tipos de recursos personalizados.
 author: MSEvanhi
 ms.topic: tutorial
-ms.date: 06/19/2020
+ms.date: 06/24/2020
 ms.author: evanhi
-ms.openlocfilehash: ce547c010d3cc814d4e6f6182c19572248228fc3
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 541d140716e52b4fe1db4bc999682914a380a5f0
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125018"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85368114"
 ---
-# <a name="quickstart-create-custom-provider-and-deploy-custom-resources"></a>Inicio rápido: Creación de un proveedor de recursos e implementación de recursos personalizados
+# <a name="quickstart-create-a-custom-provider-and-deploy-custom-resources"></a>Inicio rápido: Creación de un proveedor de recursos e implementación de recursos personalizados
 
 En este inicio rápido, creará su propio proveedor de recursos e implementará distintos tipos de recursos personalizados para dicho proveedor de recursos. Para más información sobre los proveedores personalizados, vea la [introducción a los proveedores personalizados de Azure en versión preliminar](overview.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar los pasos de este inicio rápido, es preciso llamar a operaciones `REST`. Hay [distintas formas de enviar solicitudes REST](/rest/api/azure/).
+- Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+- Para completar los pasos de este inicio rápido, es preciso llamar a operaciones `REST`. Hay [distintas formas de enviar solicitudes REST](/rest/api/azure/).
 
-Para ejecutar comandos de la CLI de Azure, use [Bash en Azure Cloud Shell](/azure/cloud-shell/quickstart). Los comandos [custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) requieren una extensión. Para más información, consulte [Uso de extensiones con la CLI de Azure](/cli/azure/azure-cli-extensions-overview).
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para ejecutar comandos de PowerShell de forma local, use PowerShell 7 o posterior y los módulos de Azure PowerShell. Para más información, vea [Instalar Azure PowerShell](/powershell/azure/install-az-ps). Si no dispone de una herramienta para las operaciones `REST`, instale [ARMClient](https://github.com/projectkudu/ARMClient). Se trata de una herramienta de línea de comandos de código abierto que simplifica la invocación de la API de Azure Resource Manager.
+- Los comandos [custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) requieren una extensión. Para más información, consulte [Uso de extensiones con la CLI de Azure](/cli/azure/azure-cli-extensions-overview).
+- Los ejemplos de la CLI de Azure usan `az rest` para las solicitudes de `REST`. Para más información, consulte [az rest](/cli/azure/reference-index#az-rest).
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+- Los comandos de PowerShell se ejecutan de forma local con PowerShell 7 o posterior, y los módulos de Azure PowerShell. Para más información, vea [Instalar Azure PowerShell](/powershell/azure/install-az-ps).
+- Si no dispone de una herramienta para las operaciones `REST`, instale [ARMClient](https://github.com/projectkudu/ARMClient). Se trata de una herramienta de línea de comandos de código abierto que simplifica la invocación de la API de Azure Resource Manager.
+- Una vez instalado el **ARMClient**, puede mostrar la información de uso de un símbolo del sistema de PowerShell si escribe `armclient.exe`. O bien, vaya a la [wiki de ARMClient](https://github.com/projectkudu/ARMClient/wiki).
+
+---
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="deploy-custom-provider"></a>Implementación de un proveedor personalizado
 
@@ -30,14 +42,16 @@ Para configurar el proveedor personalizado, implemente una [plantilla de ejemplo
 
 Después de implementar la plantilla, la suscripción tiene los siguientes recursos:
 
-* Aplicación de función con las operaciones para los recursos y las acciones.
-* Cuenta de almacenamiento para almacenar los usuarios que se crean mediante el proveedor personalizado.
-* Proveedor personalizado que define las acciones y los tipos de recursos personalizados. Usa el punto de conexión de la aplicación de función para enviar las solicitudes.
-* Recurso personalizado del proveedor personalizado.
+- Aplicación de función con las operaciones para los recursos y las acciones.
+- Cuenta de almacenamiento para almacenar los usuarios que se crean mediante el proveedor personalizado.
+- Proveedor personalizado que define las acciones y los tipos de recursos personalizados. Usa el punto de conexión de la aplicación de función para enviar las solicitudes.
+- Recurso personalizado del proveedor personalizado.
 
-Para implementar el proveedor personalizado, use la CLI de Azure o PowerShell:
+Para implementar el proveedor personalizado, use la CLI de Azure, PowerShell o Azure Portal:
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+En este ejemplo se le pide que especifique un grupo de recursos, la ubicación y el nombre de la aplicación de función del proveedor. Los nombres se almacenan en variables que se usan en otros comandos. Los comandos [az group create](/cli/azure/group#az-group-create) y [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) implementan los recursos.
 
 ```azurecli-interactive
 read -p "Enter a resource group name:" rgName &&
@@ -52,6 +66,8 @@ read
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
+En este ejemplo se le pide que especifique un grupo de recursos, la ubicación y el nombre de la aplicación de función del proveedor. Los nombres se almacenan en variables que se usan en otros comandos. Los comandos [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) y [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) implementan los recursos.
+
 ```powershell
 $rgName = Read-Host -Prompt "Enter a resource group name"
 $location = Read-Host -Prompt "Enter the location (i.e. eastus)"
@@ -64,7 +80,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 ---
 
-También puede implementar la solución en Azure Portal con el siguiente botón:
+También puede implementar la solución desde Azure Portal. Haga clic en el botón **Implementar en Azure** para abrir la plantilla en Azure Portal.
 
 [![Implementación en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fcustom-providers%2Fcustomprovider.json)
 
@@ -252,7 +268,7 @@ Use los comandos [custom-providers](/cli/azure/ext/custom-providers/custom-provi
 
 ### <a name="list-custom-resource-providers"></a>Enumeración de los proveedores de recursos personalizados
 
-Enumere todos los proveedores de recursos personalizados de una suscripción. De forma predeterminada, se enumeran los proveedores de recursos personalizados de la suscripción actual, o puede especificar el parámetro `--subscription`. Para enumerar un grupo de recursos, use el parámetro `--resource-group`.
+Use el comando `list` para mostrar todos los proveedores de recursos personalizados en una suscripción. De forma predeterminada, se enumeran los proveedores de recursos personalizados de la suscripción actual, o puede especificar el parámetro `--subscription`. Para enumerar un grupo de recursos, use el parámetro `--resource-group`.
 
 ```azurecli-interactive
 az custom-providers resource-provider list --subscription $subID
@@ -289,7 +305,7 @@ az custom-providers resource-provider list --subscription $subID
 
 ### <a name="show-the-properties"></a>Presentación de las propiedades
 
-Muestre las propiedades de un proveedor de recursos personalizado. El formato de salida es similar a la salida de `list`.
+Use el comando `show` para mostrar las propiedades del proveedor de recursos personalizado. El formato de salida es similar a la salida de `list`.
 
 ```azurecli-interactive
 az custom-providers resource-provider show --resource-group $rgName --name $funcName

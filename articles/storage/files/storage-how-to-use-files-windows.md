@@ -3,16 +3,16 @@ title: Uso de un recurso compartido de archivos de Azure con Windows | Microsoft
 description: Aprenda a usar un recurso compartido de archivos de Azure con Windows y Windows Server.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
-ms.date: 06/07/2018
+ms.topic: how-to
+ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4fef6102ac2ee69926c1c56af338b6e92670dd71
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: bb9e7582317851d1968e104cd351a2b5e02b1e19
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773107"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509785"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Uso de un recurso compartido de archivos de Azure con Windows
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden usar sin problemas en Windows y Windows Server. En este artículo se describen los aspectos que se deben tener en cuenta al usar un recurso compartido de archivos de Azure con Windows y Windows Server.
@@ -40,42 +40,9 @@ Puede usar recursos compartidos de archivos de Azure en una instalación de Wind
 > [!Note]  
 > Siempre se recomienda disponer de la KB más reciente para su versión de Windows.
 
-## <a name="prerequisites"></a>Prerrequisitos 
-* **Nombre de la cuenta de almacenamiento**: para montar un recurso compartido de archivos de Azure, necesitará el nombre de la cuenta de almacenamiento.
+## <a name="prerequisites"></a>Requisitos previos 
 
-* **Clave de la cuenta de almacenamiento**: para montar un recurso compartido de archivos de Azure, necesitará la clave principal (o secundaria). Actualmente no se admiten claves SAS para el montaje.
-
-* **Asegúrese de que el puerto 445 está abierto**: el protocolo SMB requiere que esté abierto el puerto TCP 445; las conexiones producirán errores si el puerto 445 está bloqueado. Otra forma de comprobar si el firewall está bloqueando el puerto 445 es usar el cmdlet `Test-NetConnection`. Puede obtener información sobre [diversos métodos para solucionar el bloqueo del puerto 445 aquí](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
-
-    En el siguiente código de PowerShell se da por hecho que tiene instalado el módulo Azure PowerShell. Para más información, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). No olvide reemplazar `<your-storage-account-name>` y `<your-resource-group-name>` por los nombres correspondientes de su cuenta de almacenamiento.
-
-    ```powershell
-    $resourceGroupName = "<your-resource-group-name>"
-    $storageAccountName = "<your-storage-account-name>"
-
-    # This command requires you to be logged into your Azure account, run Login-AzAccount if you haven't
-    # already logged in.
-    $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-
-    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
-    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
-    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
-    Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
-    ```
-
-    Si la conexión se realizó correctamente, verá la siguiente salida:
-
-    ```
-    ComputerName     : <storage-account-host-name>
-    RemoteAddress    : <storage-account-ip-address>
-    RemotePort       : 445
-    InterfaceAlias   : <your-network-interface>
-    SourceAddress    : <your-ip-address>
-    TcpTestSucceeded : True
-    ```
-
-    > [!Note]  
-    > El comando anterior devuelve la dirección IP actual de la cuenta de almacenamiento. No se garantiza que esta dirección IP permanezca igual, podría cambiar en cualquier momento. No codifique de forma rígida esta dirección IP en los scripts o en una configuración de firewall. 
+Asegúrese de que el puerto 445 esté abierto: el protocolo SMB requiere que esté abierto el puerto TCP 445; las conexiones producirán errores si el puerto 445 está bloqueado. Puede comprobar si el firewall está bloqueando el puerto 445 con el cmdlet `Test-NetConnection`. Para obtener información sobre las formas de solucionar un puerto 445 bloqueado, vea la sección [Causa 1: el puerto 445 está bloqueado](storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked) de nuestra guía de solución de problemas de Windows.
 
 ## <a name="using-an-azure-file-share-with-windows"></a>Uso de un recurso compartido de archivos de Azure con Windows
 Para usar un recurso compartido de archivos de Azure con Windows, debe montarlo, lo que significa asignarle una letra de unidad o una ruta de acceso a un punto de montaje, o acceder a él mediante su [ruta de acceso UNC](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx). 
@@ -84,97 +51,31 @@ En este artículo se usa la clave de la cuenta de almacenamiento para tener acce
 
 Un patrón común para elevar y desplazar aplicaciones de línea de negocio (LOB) que esperan un recurso compartido de archivos de SMB es usar un recurso compartido de archivos de Azure como alternativa a ejecutar un servidor de archivos de Windows dedicado en una máquina virtual de Azure. Un aspecto importante que se debe tener en cuenta para migrar correctamente una aplicación de línea de negocio para usar un recurso compartido de archivos de Azure es que muchas de estas aplicaciones se ejecutan en el contexto de una cuenta de servicio dedicada con permisos de sistema limitados y no en la cuenta administrativa de la máquina virtual. Por lo tanto, debe asegurarse de montar o guardar las credenciales del recurso compartido de archivos de Azure desde el contexto de la cuenta de servicio y no de la cuenta administrativa.
 
-### <a name="persisting-azure-file-share-credentials-in-windows"></a>Persistencia de las credenciales del recurso compartido de archivos de Azure en Windows  
-La utilidad [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) le permite almacenar las credenciales de la cuenta de almacenamiento en Windows. Esto significa que al intentar acceder a un recurso compartido de archivos de Azure mediante su ruta de acceso UNC o montar el recurso compartido de archivos de Azure, no necesitará especificar las credenciales. Para guardar las credenciales de la cuenta de almacenamiento, ejecute los siguientes comandos de PowerShell, y sustituya `<your-storage-account-name>` y `<your-resource-group-name>` donde corresponda.
+### <a name="mount-the-azure-file-share"></a>Montaje del recurso compartido de archivos de Azure
 
-```powershell
-$resourceGroupName = "<your-resource-group-name>"
-$storageAccountName = "<your-storage-account-name>"
+Azure Portal proporciona un script que puede usar para montar el recurso compartido de archivos directamente en un host. Se recomienda usar este script proporcionado.
 
-# These commands require you to be logged into your Azure account, run Login-AzAccount if you haven't
-# already logged in.
-$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-$storageAccountKeys = Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
+Para obtener este script:
 
-# The cmdkey utility is a command-line (rather than PowerShell) tool. We use Invoke-Expression to allow us to 
-# consume the appropriate values from the storage account variables. The value given to the add parameter of the
-# cmdkey utility is the host address for the storage account, <storage-account>.file.core.windows.net for Azure 
-# Public Regions. $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign 
-# clouds or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
-Invoke-Expression -Command ("cmdkey /add:$([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) " + `
-    "/user:AZURE\$($storageAccount.StorageAccountName) /pass:$($storageAccountKeys[0].Value)")
-```
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+1. Vaya a la cuenta de almacenamiento que contiene el recurso compartido de archivos que le gustaría montar.
+1. Seleccione **Recursos compartidos de archivos**.
+1. Seleccione el recurso compartido de archivos que desea montar.
 
-Puede comprobar que la utilidad cmdkey ha almacenado la credencial de la cuenta de almacenamiento mediante el parámetro de lista:
+    :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="ejemplo":::
 
-```powershell
-cmdkey /list
-```
+1. Seleccione **Conectar**.
 
-Si las credenciales del recurso compartido de archivos de Azure están almacenadas correctamente, el resultado esperado es el siguiente (puede haber claves adicionales almacenadas en la lista):
+    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="Captura de pantalla del icono de conexión para el recurso compartido de archivos.":::
 
-```
-Currently stored credentials:
+1. Seleccione la letra de unidad en la que montar el recurso compartido.
+1. Copie el script proporcionado.
 
-Target: Domain:target=<storage-account-host-name>
-Type: Domain Password
-User: AZURE\<your-storage-account-name>
-```
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Texto de ejemplo":::
 
-Ahora podrá montar o acceder al recurso compartido sin tener que proporcionar credenciales adicionales.
+1. Pegue el script en un shell del host en el que desea montar el recurso compartido de archivos y ejecútelo.
 
-#### <a name="advanced-cmdkey-scenarios"></a>Escenarios avanzados de cmdkey
-Es necesario tener en cuenta dos escenarios adicionales con cmdkey: el almacenamiento de credenciales de otro usuario en la máquina, como una cuenta de servicio, y el almacenamiento de credenciales en una máquina remota con la comunicación remota de PowerShell.
-
-Almacenar las credenciales de otro usuario en la máquina es sencillo: cuando haya iniciado sesión en su cuenta, simplemente ejecute el siguiente comando de PowerShell:
-
-```powershell
-$password = ConvertTo-SecureString -String "<service-account-password>" -AsPlainText -Force
-$credential = New-Object System.Management.Automation.PSCredential -ArgumentList "<service-account-username>", $password
-Start-Process -FilePath PowerShell.exe -Credential $credential -LoadUserProfile
-```
-
-Se abre una nueva ventana de PowerShell en el contexto de usuario de la cuenta de servicio (o la cuenta de usuario). A continuación, puede usar la utilidad cmdkey tal como se ha descrito [anteriormente](#persisting-azure-file-share-credentials-in-windows).
-
-No obstante, almacenar las credenciales en una máquina remota mediante la comunicación remota de PowerShell no es posible, dado que cmdkey no permite el acceso, ni siquiera para agregar algo, a su almacén de credenciales cuando se inicia la sesión del usuario mediante la comunicación remota de PowerShell. Se recomienda iniciar sesión en la máquina con [Escritorio remoto](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windows).
-
-### <a name="mount-the-azure-file-share-with-powershell"></a>Montaje del recurso compartido de archivos de Azure con PowerShell
-Ejecute los siguientes comandos desde una sesión normal (sin privilegios elevados) de PowerShell para montar el recurso compartido de archivos de Azure. No olvide reemplazar `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>` y `<desired-drive-letter>` por la información adecuada.
-
-```powershell
-$resourceGroupName = "<your-resource-group-name>"
-$storageAccountName = "<your-storage-account-name>"
-$fileShareName = "<your-file-share-name>"
-
-# These commands require you to be logged into your Azure account, run Login-AzAccount if you haven't
-# already logged in.
-$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-$storageAccountKeys = Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
-$fileShare = Get-AzStorageShare -Context $storageAccount.Context | Where-Object { 
-    $_.Name -eq $fileShareName -and $_.IsSnapshot -eq $false
-}
-
-if ($fileShare -eq $null) {
-    throw [System.Exception]::new("Azure file share not found")
-}
-
-# The value given to the root parameter of the New-PSDrive cmdlet is the host address for the storage account, 
-# <storage-account>.file.core.windows.net for Azure Public Regions. $fileShare.StorageUri.PrimaryUri.Host is 
-# used because non-Public Azure regions, such as sovereign clouds or Azure Stack deployments, will have different 
-# hosts for Azure file shares (and other storage resources).
-$password = ConvertTo-SecureString -String $storageAccountKeys[0].Value -AsPlainText -Force
-$credential = New-Object System.Management.Automation.PSCredential -ArgumentList "AZURE\$($storageAccount.StorageAccountName)", $password
-New-PSDrive -Name <desired-drive-letter> -PSProvider FileSystem -Root "\\$($fileShare.StorageUri.PrimaryUri.Host)\$($fileShare.Name)" -Credential $credential -Persist
-```
-
-> [!Note]  
-> La opción `-Persist` del cmdlet `New-PSDrive` solo permitirá que se vuelva a montar el recurso compartido de archivos durante el arranque si las credenciales están guardadas. Puede guardar las credenciales mediante la utilidad cmdkey como [se ha descrito anteriormente](#persisting-azure-file-share-credentials-in-windows). 
-
-Si quiere, puede desmontar el recurso compartido de archivos de Azure con el siguiente cmdlet de PowerShell.
-
-```powershell
-Remove-PSDrive -Name <desired-drive-letter>
-```
+Ya ha montado el recurso compartido de archivos de Azure.
 
 ### <a name="mount-the-azure-file-share-with-file-explorer"></a>Montaje del recurso compartido de archivos de Azure con el Explorador de archivos
 > [!Note]  
@@ -182,7 +83,7 @@ Remove-PSDrive -Name <desired-drive-letter>
 
 1. Abra el Explorador de archivos. Para ello, puede abrir el menú Inicio o presionar el método abreviado Win+E.
 
-1. Vaya al elemento **Este PC** del lado izquierdo de la ventana. Esta operación cambiará los menús disponibles en la barra de herramientas. En el menú Equipo, seleccione **Conectar a unidad de red**.
+1. Vaya a **Este PC** en el lado izquierdo de la ventana. Esta operación cambiará los menús disponibles en la barra de herramientas. En el menú Equipo, seleccione **Conectar a unidad de red**.
     
     ![Captura de pantalla del menú desplegable "Conectar a unidad de red"](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
@@ -201,7 +102,7 @@ Remove-PSDrive -Name <desired-drive-letter>
 1. Cuando esté listo para desmontar el recurso compartido de archivos de Azure, puede hacerlo si hace clic con el botón derecho en la entrada del recurso compartido en **Ubicaciones de red** en el Explorador de archivos y selecciona **Desconectar**.
 
 ### <a name="accessing-share-snapshots-from-windows"></a>Acceso a instantáneas de recursos compartido de Windows
-Si ha realizado una instantánea de un recurso compartido, ya sea manualmente o automáticamente a través de un script o un servicio como Azure Backup, puede ver las versiones anteriores de un recurso compartido, un directorio o un archivo concreto desde el recurso compartido de archivos en Windows. Las instantáneas de recursos compartidos se pueden realizar desde [Azure Portal](storage-how-to-use-files-portal.md), [Azure PowerShell](storage-how-to-use-files-powershell.md) y la [CLI de Azure](storage-how-to-use-files-cli.md).
+Si ha realizado una instantánea de un recurso compartido, ya sea manualmente o automáticamente a través de un script o un servicio como Azure Backup, puede ver las versiones anteriores de un recurso compartido, un directorio o un archivo concreto desde el recurso compartido de archivos en Windows. Las instantáneas de recursos compartidos se pueden realizar desde [Azure Portal](storage-how-to-use-files-powershell.md), [Azure PowerShell](storage-how-to-use-files-cli.md) y la [CLI de Azure](storage-how-to-use-files-portal.md).
 
 #### <a name="list-previous-versions"></a>Enumeración de versiones anteriores
 Vaya al elemento o elemento principal que hay que restaurar. Haga doble clic para ir al directorio deseado. Haga clic con el botón derecho y seleccione **Propiedades** en el menú.

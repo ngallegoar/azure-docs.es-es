@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 65bbc9f66ceb732a8f773f0b49cd46f99750a7d5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 871ea665d23a5fba644448ddb6c596179d47bb3f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196303"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85106394"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-managed-instance"></a>Problemas conocidos o limitaciones con las migraciones en línea a Instancia administrada de Azure SQL
 
@@ -62,6 +62,6 @@ A continuación se describen los problemas conocidos y las limitaciones relacion
 
 - **Implementaciones**
 
-    Instancia administrada de SQL es un servicio PaaS con revisiones y actualizaciones de versiones automáticas. Durante la migración de Instancia administrada de SQL, las actualizaciones no críticas resultan de ayuda hasta 36 horas. Después (y para las actualizaciones críticas), si se interrumpe la migración, el proceso se restablece a un estado de restauración completa.
+    Instancia administrada de SQL es un servicio PaaS con revisiones y actualizaciones de versiones automáticas. Durante la migración de SQL Managed Instance, las actualizaciones no críticas se conservan por hasta 36 horas. Después (y para las actualizaciones críticas), si se interrumpe la migración, el proceso restablece el entorno a un estado de restauración completa.
 
     Solo se puede llamar a la migración total una vez se restaura la copia de seguridad completa y se pone al día con todas las copias de seguridad de registros. Si las migraciones totales de producción se ven afectadas, póngase en contacto con el [alias de comentarios de Azure DMS](mailto:dmsfeedback@microsoft.com).

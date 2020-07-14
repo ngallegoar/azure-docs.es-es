@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 06/05/2020
 ms.author: jingwang
-ms.openlocfilehash: 223b1b996b82acaa753eb55723e251dc5901bbec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ad0ccdabd0320d8821d0760ca9802db37049149
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417715"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84611070"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Formato Parquet en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -84,7 +84,65 @@ En la sección ***\*sink\**** de la actividad de copia se admiten las siguientes
 
 ## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de instancias de Data Flow
 
-Obtenga información detallada de la [transformación de origen](data-flow-source.md) y la [transformación de receptor](data-flow-sink.md) en la asignación de flujo de datos.
+En los flujos de datos de asignación, puede leer y escribir en formato Parquet en los siguientes almacenes de datos: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) y [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
+
+### <a name="source-properties"></a>Propiedades de origen
+
+En la tabla siguiente se enumeran las propiedades que un origen Parquet admite. Puede editar estas propiedades en la pestaña **Source options** (Opciones del origen).
+
+| Nombre | Descripción | Obligatorio | Valores permitidos | Propiedad de script de flujo de datos |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Formato | El formato debe ser `parquet`. | sí | `parquet` | format |
+| Rutas de acceso comodín | Se procesarán todos los archivos que coincidan con la ruta de acceso comodín. Reemplaza a la carpeta y la ruta de acceso del archivo establecidas en el conjunto de datos. | no | String[] | wildcardPaths |
+| Ruta de acceso raíz de la partición | En el caso de datos de archivos con particiones, puede especificar una ruta de acceso raíz de la partición para leer las carpetas con particiones como columnas. | no | String | partitionRootPath |
+| Lista de archivos | Si el origen apunta a un archivo de texto que enumera los archivos que se van a procesar. | no | `true` o `false` | fileList |
+| Columna para almacenar el nombre de archivo | Se crea una nueva columna con el nombre y la ruta de acceso del archivo de origen. | no | String | rowUrlColumn |
+| Después de finalizar | Se eliminan o mueven los archivos después del procesamiento. La ruta de acceso del archivo comienza en la raíz del contenedor. | no | Borrar: `true` o `false` <br> Mover: `[<from>, <to>]` | purgeFiles <br> moveFiles |
+| Filtrar por última modificación | Elija si desea filtrar los archivos en función de cuándo se modificaron por última vez. | no | Timestamp | modifiedAfter <br> modifiedBefore |
+
+### <a name="source-example"></a>Ejemplo de origen
+
+En la imagen siguiente se presenta un ejemplo de una configuración de origen Parquet en flujos de datos de asignación.
+
+![Origen Parquet](media/data-flow/parquet-source.png)
+
+El script de flujo de datos asociado es:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    rowUrlColumn: 'fileName',
+    format: 'parquet') ~> ParquetSource
+```
+
+### <a name="sink-properties"></a>Propiedades del receptor
+
+En la tabla siguiente se enumeran las propiedades que un origen Parquet admite. Puede editar estas propiedades en la pestaña **Source options** (Opciones del origen).
+
+| Nombre | Descripción | Obligatorio | Valores permitidos | Propiedad de script de flujo de datos |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Formato | El formato debe ser `parquet`. | sí | `parquet` | format |
+| Borrar la carpeta | Si la carpeta de destino se borra antes de escribir. | no | `true` o `false` | truncate |
+| Opción de nombre de archivo | El formato de nombre de los datos escritos. De forma predeterminada, un archivo por partición en formato `part-#####-tid-<guid>`. | no | Patrón: String <br> Por partición: String[] <br> Como datos de columna: String <br> Salida en un solo archivo: `['<fileName>']` | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+
+### <a name="sink-example"></a>Ejemplo de receptor
+
+En la imagen siguiente se presenta un ejemplo de una configuración de receptor Parquet en flujos de datos de asignación.
+
+![Receptor Parquet](media/data-flow/parquet-sink.png)
+
+El script de flujo de datos asociado es:
+
+```
+ParquetSource sink(
+    format: 'parquet',
+    filePattern:'output[n].parquet',
+    truncate: true,
+    allowSchemaDrift: true,
+    validateSchema: false,
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> ParquetSink
+```
 
 ## <a name="data-type-support"></a>Compatibilidad con tipos de datos
 

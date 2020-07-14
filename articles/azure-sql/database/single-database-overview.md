@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
-ms.openlocfilehash: f6b705da74fc939cab5f72e6335278207b98dc1a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8f92fe8e4a4ebbc2d970bf28e415859249b9f67c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84026436"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343326"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>¿Qué es una base de datos única en Azure SQL Database?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-El tipo de recurso de base de datos única crea una base de datos en Azure SQL Database con su propio conjunto de recursos y se administra a través de un [servidor](logical-servers.md). Con una base de datos única, cada base de datos está aislada de las demás y es portátil, ya que cada una tiene su propio nivel de servicio dentro del [modelo de compra basado en DTU](service-tiers-dtu.md) o el [modelo de compra basado en núcleo virtual](service-tiers-vcore.md) y un tamaño de proceso garantizado.
+El tipo de recurso de base de datos única crea una base de datos en Azure SQL Database con su propio conjunto de recursos y se administra a través de un [servidor](logical-servers.md). Con una sola base de datos, cada base de datos está aislada y se puede transportar. Cada una tiene su propio nivel de servicio en el [modelo de compra basado en DTU](service-tiers-dtu.md) o en el [modelo de compra basado en núcleo virtual](service-tiers-vcore.md) y un tamaño de proceso garantizado.
 
 > [!IMPORTANT]
 > Una base de datos única es un tipo de recurso en Azure SQL Database. El otro son los [grupos elásticos](elastic-pool-overview.md).
@@ -55,7 +55,7 @@ Para obtener más información, consulte [Resolución de diferencias de Transact
 SQL Database proporciona varias [características integradas de seguridad y cumplimiento](security-overview.md) que facilitan que su aplicación cumpla los distintos requisitos de seguridad y cumplimiento normativo.
 
 > [!IMPORTANT]
-> Azure SQL Database ha obtenido la certificación de diversas normas de cumplimiento. Para obtener más información, vea el [Centro de confianza de Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), donde encontrará la lista más reciente de certificaciones de cumplimiento de SQL Database.
+> Azure SQL Database ha obtenido la certificación de diversas normas de cumplimiento. Para más información, visite el [Centro de confianza de Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), donde encontrará la lista más reciente de certificaciones de cumplimiento de SQL Database.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

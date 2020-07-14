@@ -8,19 +8,19 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: 93b150d47f1703662ebda5b017e1824cf74b7ab0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e40eb9cc22cdc071381cc847b49a01d4d713653d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233710"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318631"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-starter"></a>Tutorial: Implementación de la aplicación de ASP.NET y el código de Azure SQL Database mediante Azure DevOps Starter
 
 Azure DevOps Starter ofrece una experiencia simplificada en la que puede usar su código existente y el repositorio de Git, o elegir una aplicación de ejemplo para crear una canalización de integración continua (CI) y entrega continua (CD) en Azure. 
 
 DevOps Starter también:
-* Crea automáticamente recursos de Azure, como una base de datos de Azure SQL.
+* Crea automáticamente recursos de Azure, como una base de datos de Azure SQL Database.
 * Crea y configura una canalización de versión en Azure Pipelines que incluye una canalización de compilación para integración continua.
 * Configura una canalización de versión para implementación continua. 
 * Crea un recurso de Azure Application Insights para la supervisión.
@@ -33,16 +33,16 @@ En este tutorial, aprenderá lo siguiente:
 > * Examen de la canalización de CI
 > * Examen de la canalización de CD
 > * Confirmación de los cambios en Azure Repos e implementación automática de los mismos en Azure
-> * A conectar a la base de datos de Azure SQL 
+> * Conexión a Azure SQL Database 
 > * Limpieza de recursos
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-## <a name="create-a-project-in-devops-projects-for-an-aspnet-app-and-an-azure-sql-database"></a>Creación de un proyecto en DevOps Projects para una aplicación ASP.NET y una base de datos de Azure SQL
+## <a name="create-a-project-in-devops-projects-for-an-aspnet-app-and-azure-sql-database"></a>Creación de un proyecto en DevOps Projects para una aplicación ASP.NET y una base de datos de Azure SQL Database
 
-DevOps Starter crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Starter también crea recursos de Azure, como una base de datos de Azure SQL, en la suscripción de Azure que prefiera.
+DevOps Starter crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Starter también crea recursos de Azure, como una base de datos de Azure SQL Database, en la suscripción de Azure que prefiera.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
@@ -140,11 +140,11 @@ A partir de ese momento ya puede empezar a colaborar con un equipo en una aplica
 
 1. Una vez que complete la versión, actualice la aplicación para comprobar los cambios.
 
-## <a name="connect-to-the-azure-sql-database"></a>A conectar a la base de datos de Azure SQL
+## <a name="connect-to-azure-sql-database"></a>Conexión a Azure SQL Database
 
-Necesita los permisos adecuados para conectarse a la base de datos de Azure SQL.
+Necesita los permisos adecuados para conectarse a Azure SQL Database.
 
-1. En el panel de DevOps Starter, seleccione **SQL Database** para ir a la página de administración de la base de datos SQL.
+1. En el panel de DevOps Starter, seleccione **SQL Database** para ir a la página de administración de SQL Database.
    
 1. Seleccione **Establecer el firewall del servidor** y, después, seleccione **Agregar IP de cliente**. 
 
@@ -156,7 +156,7 @@ Necesita los permisos adecuados para conectarse a la base de datos de Azure SQL.
 
 1. Seleccione **Restablecer contraseña**, escriba una contraseña para el inicio de sesión de administrador de SQL Server y seleccione **Guardar**. No olvide guardar esta contraseña para usarla más adelante en este tutorial.
 
-    Ahora tiene la opción de usar las herramientas de cliente, como SQL Server Management Studio o Visual Studio para conectarse a SQL Server y a la base de datos de Azure SQL. Use la propiedad de **nombre del servidor** para conectarse.
+    Ahora tiene la opción de usar las herramientas de cliente, como SQL Server Management Studio o Visual Studio, para conectarse a SQL Server y a Azure SQL Database. Use la propiedad de **nombre del servidor** para conectarse.
 
     Si no cambió el nombre de usuario de la base de datos cuando configuró inicialmente el proyecto en DevOps Projects, el nombre de usuario es la parte local de la dirección de correo electrónico. Por ejemplo, si la dirección de correo electrónico es *johndoe\@microsoft.com*, el nombre de usuario es *johndoe*.
 
@@ -165,7 +165,7 @@ Necesita los permisos adecuados para conectarse a la base de datos de Azure SQL.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si va a realizar pruebas, limpie los recursos para que no se acumulen costos de facturación. Cuando dejen de ser necesarios, puede eliminar la base de datos de Azure SQL y los recursos relacionados que ha creado en este tutorial. Para ello, use la funcionalidad **Eliminación** del panel de DevOps Starter.
+Si va a realizar pruebas, limpie los recursos para que no se acumulen costos de facturación. Cuando dejen de ser necesarios, puede eliminar Azure SQL Database y los recursos relacionados que ha creado en este tutorial. Para ello, use la funcionalidad **Eliminación** del panel de DevOps Starter.
 
 > [!IMPORTANT]
 > El siguiente procedimiento elimina permanentemente los recursos. La funcionalidad de *Eliminación* destruye los datos que crea el proyecto en DevOps Starter tanto en Azure como en Azure DevOps y no se podrán recuperar. Utilice este procedimiento cuando haya leído detenidamente las indicaciones.
@@ -184,7 +184,7 @@ Si lo desea, puede modificar estas canalizaciones de compilación y de versión 
 > * Examen de la canalización de CI
 > * Examen de la canalización de CD
 > * Confirmación de los cambios en Azure Repos e implementación automática de los mismos en Azure
-> * A conectar a la base de datos de Azure SQL 
+> * Conexión a Azure SQL Database 
 > * Limpieza de recursos
 
 Para más información acerca de la canalización de CI/CD, consulte:

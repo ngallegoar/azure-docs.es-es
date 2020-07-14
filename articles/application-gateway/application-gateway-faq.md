@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: e61ce629e723f56524ee22d8b127243f9568a835
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 578d674a197936c6222d4520893fdb1afa00161e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196502"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84982006"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -73,7 +73,13 @@ En SKU v2, abra el recurso de dirección IP pública y seleccione **Configuraci
 
 El *tiempo de espera de conexión persistente* rige cuánto tiempo esperará Application Gateway para que un cliente envíe otra solicitud HTTP en una conexión persistente antes de reutilizarla o cerrarla. El *tiempo de espera de inactividad de TCP* rige cuánto tiempo se mantiene abierta una conexión TCP en caso de que no haya ninguna actividad. 
 
-El *tiempo de espera de conexión persistente* en la SKU de Application Gateway v1 es 120 segundos, mientras que en la SKU v2 es 75 segundos. El *tiempo de espera de inactividad de TCP* es el valor predeterminado de 4 minutos en la IP virtual (VIP) de front-end tanto de la SKU v1 y v2 de Application Gateway. Estos valores no se pueden cambiar.
+El *tiempo de espera de conexión persistente* en la SKU de Application Gateway v1 es 120 segundos, mientras que en la SKU v2 es 75 segundos. El *tiempo de espera de inactividad de TCP* es el valor predeterminado de 4 minutos en la IP virtual (VIP) de front-end tanto de la SKU v1 y v2 de Application Gateway. Puede configurar el valor de tiempo de espera de inactividad de TCP en las instancias de Application Gateway v1 y v2 para que estén entre los 4 y 30 minutos. En el caso de las instancias de Application Gateway v1 y v2, debe ir a la dirección IP pública de la instancia de Application Gateway y cambiar el tiempo de espera de inactividad de TCP en la hoja "Configuración" de la dirección IP pública en el portal. Puede establecer el valor de tiempo de espera de inactividad de TCP de la dirección IP pública mediante PowerShell al ejecutar los siguientes comandos: 
+
+```azurepowershell-interactive
+$publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
+$publicIP.IdleTimeoutInMinutes = "15"
+Set-AzPublicIpAddress -PublicIpAddress $publicIP
+```
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>¿Cambia la dirección IP o el nombre DNS durante la vigencia de Application Gateway?
 
@@ -338,11 +344,31 @@ No, use solo caracteres alfanuméricos en la contraseña del archivo .pfx.
 Kubernetes permite la creación de los recursos `deployment` y `service` para exponer un grupo de pods internamente en el clúster. Para exponer el mismo servicio externamente, se define un recurso [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) que proporciona equilibrio de carga, terminación TLS y hospedaje virtual basado en nombres.
 Para satisfacer este recurso `Ingress`, se requiere un controlador de entrada que realice escuchas de los cambios en los recursos `Ingress` y que configure las directivas del equilibrador de carga.
 
-El controlador de entrada de Application Gateway permite que [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) se utilice como entrada para una instancia de [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) llamada "clúster de AKS".
+El controlador de entrada de Application Gateway (AGIC) permite que [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) se use como entrada para una instancia de [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) también llamada "clúster de AKS".
 
 ### <a name="can-a-single-ingress-controller-instance-manage-multiple-application-gateways"></a>¿Puede una única instancia del controlador de entrada administrar varias puertas de enlace de aplicaciones?
 
 Actualmente, una instancia del controlador de entrada solo se puede asociar a una puerta de enlace de aplicaciones.
+
+### <a name="why-is-my-aks-cluster-with-kubenet-not-working-with-agic"></a>¿Por qué el clúster de AKS con una red kubenet no funciona con AGIC?
+
+AGIC intenta asociar automáticamente el recurso de tabla de rutas a la subred de Application Gateway, pero podría no hacerlo debido a la falta de permisos de AGIC. Si AGIC no puede asociar la tabla de rutas a la subred de Application Gateway, se producirá un error en los registros de AGIC que lo especifiquen, en cuyo caso tendrá que asociar manualmente la tabla de rutas creada por el clúster de AKS a la subred de Application Gateway. Para obtener más información, consulte las instrucciones [aquí](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).
+
+### <a name="can-i-connect-my-aks-cluster-and-application-gateway-in-separate-virtual-networks"></a>¿Puedo conectar mi clúster de AKS y Application Gateway en redes virtuales independientes? 
+
+Sí, siempre que las redes virtuales estén emparejadas y no tengan espacios de direcciones superpuestos. Si ejecuta AKS con una red kubenet, asegúrese de asociar la tabla de rutas generada por AKS a la subred de Application Gateway. 
+
+### <a name="what-features-are-not-supported-on-the-agic-add-on"></a>¿Qué características no se admiten en el complemento de AGIC? 
+
+Consulte las diferencias entre una implementación de AGIC a través de Helm y una como complemento de AKS [aquí](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on)
+
+### <a name="when-should-i-use-the-add-on-versus-the-helm-deployment"></a>¿Cuándo debo usar el complemento en lugar de la implementación de Helm? 
+
+Consulte las diferencias entre una implementación de AGIC a través de Helm frente a una como complemento de AKS [aquí](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on), en particular las tablas que documentan qué escenarios son compatibles con una implementación de AGIC a través de Helm frente a una complemento de AKS. En general, la implementación a través de Helm le permitirá probar las características en versión beta y las versiones candidatas para lanzamiento antes de una versión oficial. 
+
+### <a name="can-i-control-which-version-of-agic-will-be-deployed-with-the-add-on"></a>¿Puedo controlar qué versión de AGIC se va a implementar con el complemento?
+
+No, el complemento de AGIC es un servicio administrado, por lo que Microsoft actualizará automáticamente el complemento a la versión estable más reciente. 
 
 ## <a name="diagnostics-and-logging"></a>Diagnósticos y registro
 

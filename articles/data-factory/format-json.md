@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/05/2020
 ms.author: jingwang
-ms.openlocfilehash: c488c57f8c755bfc062dc81a242fbfbb605406e0
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 7fd8fd35ee411d929843be81a1daaa512e0b3ca1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298574"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84611054"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -81,8 +81,8 @@ En la sección ***\*source\**** de la actividad de copia se admiten las siguient
 | Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | El tipo de formatSettings debe establecerse en **JsonReadSettings**. | Sí      |
-| compressionProperties | Grupo de propiedades sobre cómo descomprimir datos para un códec de compresión determinado. | No       |
-| preserveZipFileNameAsFolder<br>(*en `compressionProperties`* ) | Se aplica cuando el conjunto de datos de entrada se configura con compresión **ZipDeflate**. Indica si se debe conservar el nombre del archivo ZIP de origen como estructura de carpetas durante la copia. Cuando se establece en true (valor predeterminado), Data Factory escribe los archivos descomprimidos en `<path specified in dataset>/<folder named as source zip file>/`; cuando se establece en false, Data Factory escribe los archivos descomprimidos directamente en `<path specified in dataset>`.  | No |
+| compressionProperties | Un grupo de propiedades sobre cómo descomprimir datos para un códec de compresión determinado. | No       |
+| preserveZipFileNameAsFolder<br>(*en `compressionProperties`* ) | Se aplica cuando el conjunto de datos de entrada se configura con compresión **ZipDeflate**. Indica si se debe conservar el nombre del archivo ZIP de origen como estructura de carpetas durante la copia. Cuando se establece en true (valor predeterminado), Data Factory escribe los archivos descomprimidos en `<path specified in dataset>/<folder named as source zip file>/`; cuando se establece en false, Data Factory escribe los archivos descomprimidos directamente en `<path specified in dataset>`.  | No |
 
 ### <a name="json-as-sink"></a>JSON como receptor
 
@@ -194,73 +194,25 @@ Al copiar datos de archivos JSON, dicha actividad de copia puede detectar y anal
 
 ## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de instancias de Data Flow
 
-Los tipos de archivo JSON se pueden usar como receptor y origen en el flujo de datos de asignación.
+En los flujos de datos de asignación, puede leer y escribir en formato JSON en los siguientes almacenes de datos: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) y [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
 
-### <a name="creating-json-structures-in-a-derived-column"></a>Creación de estructuras JSON en una columna derivada
+### <a name="source-properties"></a>Propiedades de origen
 
-Puede agregar una columna compleja al flujo de datos mediante el generador de expresiones de columna derivada. En la transformación de columna derivada, agregue una nueva columna y abra el generador de expresiones haciendo clic en el cuadro azul. Para que una columna sea compleja, puede escribir la estructura JSON manualmente o usar la experiencia de usuario para agregar subcolumnas de forma interactiva.
+En la tabla siguiente se enumeran las propiedades que admite un origen JSON. Puede editar estas propiedades en la pestaña **Source options** (Opciones del origen).
 
-#### <a name="using-the-expression-builder-ux"></a>Uso de la experiencia de usuario del generador de expresiones
-
-En el panel lateral del esquema de salida, mantenga el puntero sobre una columna y haga clic en el icono de signo más. Seleccione **Agregar subcolumna** para convertir la columna en un tipo complejo.
-
-![Add subcolumn (Agregar subcolumna)](media/data-flow/addsubcolumn.png "Agregar subcolumna")
-
-Puede agregar columnas y subcolumnas adicionales de la misma manera. Para cada campo no complejo, se puede agregar una expresión en el editor de expresiones a la derecha.
-
-![Columna compleja](media/data-flow/complexcolumn.png "Columna compleja")
-
-#### <a name="entering-the-json-structure-manually"></a>Introducción manual de la estructura JSON
-
-Para agregar manualmente una estructura JSON, agregue una nueva columna y escriba la expresión en el editor. La expresión tiene el siguiente formato general:
-
-```
-@(
-    field1=0,
-    field2=@(
-        field1=0
-    )
-)
-```
-
-Si esta expresión se especificara para una columna denominada "complexColumn", se escribiría en el receptor como el siguiente JSON:
-
-```
-{
-    "complexColumn": {
-        "field1": 0,
-        "field2": {
-            "field1": 0
-        }
-    }
-}
-```
-
-#### <a name="sample-manual-script-for-complete-hierarchical-definition"></a>Script manual de ejemplo para una definición jerárquica completa
-```
-@(
-    title=Title,
-    firstName=FirstName,
-    middleName=MiddleName,
-    lastName=LastName,
-    suffix=Suffix,
-    contactDetails=@(
-        email=EmailAddress,
-        phone=Phone
-    ),
-    address=@(
-        line1=AddressLine1,
-        line2=AddressLine2,
-        city=City,
-        state=StateProvince,
-        country=CountryRegion,
-        postCode=PostalCode
-    ),
-    ids=[
-        toString(CustomerID), toString(AddressID), rowguid
-    ]
-)
-```
+| Nombre | Descripción | Obligatorio | Valores permitidos | Propiedad de script de flujo de datos |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Rutas de acceso comodín | Se procesarán todos los archivos que coincidan con la ruta de acceso comodín. Reemplaza a la carpeta y la ruta de acceso del archivo establecidas en el conjunto de datos. | no | String[] | wildcardPaths |
+| Ruta de acceso raíz de la partición | En el caso de datos de archivos con particiones, puede especificar una ruta de acceso raíz de la partición para leer las carpetas con particiones como columnas. | no | String | partitionRootPath |
+| Lista de archivos | Si el origen apunta a un archivo de texto que enumera los archivos que se van a procesar. | no | `true` o `false` | fileList |
+| Columna para almacenar el nombre de archivo | Se crea una nueva columna con el nombre y la ruta de acceso del archivo de origen. | no | String | rowUrlColumn |
+| Después de finalizar | Se eliminan o mueven los archivos después del procesamiento. La ruta de acceso del archivo comienza en la raíz del contenedor. | no | Borrar: `true` o `false` <br> Mover: `['<from>', '<to>']` | purgeFiles <br> moveFiles |
+| Filtrar por última modificación | Elija si desea filtrar los archivos en función de cuándo se modificaron por última vez. | no | Timestamp | modifiedAfter <br> modifiedBefore |
+| Documento único | Los flujos de datos de asignación leen un documento JSON de cada archivo. | no | `true` o `false` | singleDocument |
+| Nombres de columnas sin comillas | Si se selecciona **Nombres de columnas sin comillas**, los flujos de datos de asignación leen columnas JSON que no están entre comillas. | no | `true` o `false` |  unquotedColumnNames
+| Tiene comentarios | Seleccione **Tiene comentarios** si los datos JSON tienen comentarios de estilo C o C++. | no | `true` o `false` | asComments |
+| Con comillas simples | Lee las columnas JSON que no están entrecomilladas. | no | `true` o `false` | singleQuoted |
+| Barra diagonal inversa con escape | Seleccione **Barra diagonal inversa con escape** si se usan barras diagonales inversas como caracteres de escape en los datos JSON. | no | `true` o `false` | backslashEscape |
 
 ### <a name="source-format-options"></a>Opciones de formato de origen
 
@@ -337,6 +289,81 @@ Seleccione **Barra diagonal inversa con escape** si se usan barras diagonales in
 { "json": "record 1" }
 { "json": "\} \" \' \\ \n \\n record 2" }
 { "json": "record 3" }
+```
+
+### <a name="sink-properties"></a>Propiedades del receptor
+
+En la tabla siguiente se enumeran las propiedades que admite un receptor JSON. Puede editar estas propiedades en la pestaña **Configuración**.
+
+| Nombre | Descripción | Obligatorio | Valores permitidos | Propiedad de script de flujo de datos |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Borrar la carpeta | Si la carpeta de destino se borra antes de escribir. | no | `true` o `false` | truncate |
+| Opción de nombre de archivo | El formato de nombre de los datos escritos. De forma predeterminada, un archivo por partición en formato `part-#####-tid-<guid>`. | no | Patrón: String <br> Por partición: String[] <br> Como datos de columna: String <br> Salida en un solo archivo: `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+
+### <a name="creating-json-structures-in-a-derived-column"></a>Creación de estructuras JSON en una columna derivada
+
+Puede agregar una columna compleja al flujo de datos mediante el generador de expresiones de columna derivada. En la transformación de columna derivada, agregue una nueva columna y abra el generador de expresiones haciendo clic en el cuadro azul. Para que una columna sea compleja, puede escribir la estructura JSON manualmente o usar la experiencia de usuario para agregar subcolumnas de forma interactiva.
+
+#### <a name="using-the-expression-builder-ux"></a>Uso de la experiencia de usuario del generador de expresiones
+
+En el panel lateral del esquema de salida, mantenga el puntero sobre una columna y haga clic en el icono de signo más. Seleccione **Agregar subcolumna** para convertir la columna en un tipo complejo.
+
+![Add subcolumn (Agregar subcolumna)](media/data-flow/addsubcolumn.png "Agregar subcolumna")
+
+Puede agregar columnas y subcolumnas adicionales de la misma manera. Para cada campo no complejo, se puede agregar una expresión en el editor de expresiones a la derecha.
+
+![Columna compleja](media/data-flow/complexcolumn.png "Columna compleja")
+
+#### <a name="entering-the-json-structure-manually"></a>Introducción manual de la estructura JSON
+
+Para agregar manualmente una estructura JSON, agregue una nueva columna y escriba la expresión en el editor. La expresión tiene el siguiente formato general:
+
+```
+@(
+    field1=0,
+    field2=@(
+        field1=0
+    )
+)
+```
+
+Si esta expresión se especificara para una columna denominada "complexColumn", se escribiría en el receptor como el siguiente JSON:
+
+```
+{
+    "complexColumn": {
+        "field1": 0,
+        "field2": {
+            "field1": 0
+        }
+    }
+}
+```
+
+#### <a name="sample-manual-script-for-complete-hierarchical-definition"></a>Script manual de ejemplo para una definición jerárquica completa
+```
+@(
+    title=Title,
+    firstName=FirstName,
+    middleName=MiddleName,
+    lastName=LastName,
+    suffix=Suffix,
+    contactDetails=@(
+        email=EmailAddress,
+        phone=Phone
+    ),
+    address=@(
+        line1=AddressLine1,
+        line2=AddressLine2,
+        city=City,
+        state=StateProvince,
+        country=CountryRegion,
+        postCode=PostalCode
+    ),
+    ids=[
+        toString(CustomerID), toString(AddressID), rowguid
+    ]
+)
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

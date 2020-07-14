@@ -6,18 +6,18 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/10/2020
-ms.openlocfilehash: 16fad7f57d3054c193da2571f1b33cfd77fdd51c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 59feabce099087edb011df471561229bfa88a289
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663403"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85118736"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Aprovisionamiento del rendimiento de escalabilidad automática en una base de datos o un contenedor de Azure Cosmos DB.
 
 En este artículo se explica cómo aprovisionar el rendimiento de escalabilidad automática en una base de datos o un contenedor (colección, grafo, tabla) en Azure Cosmos DB. Puede habilitar la escalabilidad automática en un solo contenedor o aprovisionar el rendimiento de escalabilidad automática en una base de datos y compartirlo entre todos los contenedores de la base de datos. 
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 
 ### <a name="create-new-database-or-container-with-autoscale"></a>Creación de una base de datos o un contenedor con escalabilidad automática
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [explorador de Azure Cosmos DB](https://cosmos.azure.com/).
@@ -26,7 +26,7 @@ En este artículo se explica cómo aprovisionar el rendimiento de escalabilidad 
 
 1. Seleccione **Nuevo contenedor**. Escriba un nombre para la base de datos, el contenedor y una clave de partición. En **Rendimiento**, seleccione la opción **Escalabilidad automática** y elija el [rendimiento máximo (RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) al que desea escalar la base de datos o el contenedor.
 
-   ![Creación de un contenedor y configuración del rendimiento aprovisionado de escalabilidad automática](./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png)
+   :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="Creación de un contenedor y configuración del rendimiento aprovisionado de escalabilidad automática":::
 
 1. Seleccione **Aceptar**.
 
@@ -45,7 +45,7 @@ Para aprovisionar la escalabilidad automática en la base de datos de rendimient
 
 1. En **Escala**, seleccione la opción **Escalabilidad automática** y **Guardar**.
 
-   ![Habilitación de la escalabilidad automática en un contenedor existente](./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png)
+   :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Habilitación de la escalabilidad automática en un contenedor existente":::
 
 > [!NOTE]
 > Cuando se habilita la escalabilidad automática en una base de datos o un contenedor existente, el sistema determina el valor inicial para el número máximo de RU/s, en función de la configuración de rendimiento y el almacenamiento aprovisionados manualmente. Una vez completada la operación, puede cambiar el número máximo de RU/s si es necesario. [Más información.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
@@ -127,7 +127,7 @@ ThroughputProperties autoscaleThroughputProperties = ThroughputProperties.create
 CosmosAsyncDatabase database = client.createDatabase(databaseName, autoscaleThroughputProperties).block().getDatabase();
 ```
 
-#### <a name="sync"></a>[Sincrónico](#tab/api-sync)
+#### <a name="sync"></a>[Sincronizar](#tab/api-sync)
 
 ```java
 // Create instance of CosmosClient
@@ -164,7 +164,7 @@ CosmosAsyncContainer container = database.createContainer(autoscaleContainerProp
                                 .getContainer();
 ```
 
-#### <a name="sync"></a>[Sincrónico](#tab/api-sync)
+#### <a name="sync"></a>[Sincronizar](#tab/api-sync)
 
 ```java
 // Get reference to database that container will be created in
@@ -199,7 +199,7 @@ int autoscaleMaxThroughput = autoscaleContainerThroughput.getAutoscaleMaxThrough
 int currentThroughput = autoscaleContainerThroughput.Throughput;
 ```
 
-#### <a name="sync"></a>[Sincrónico](#tab/api-sync)
+#### <a name="sync"></a>[Sincronizar](#tab/api-sync)
 
 ```java
 // Get a reference to the resource
@@ -226,7 +226,7 @@ int currentThroughput = autoscaleContainerThroughput.Throughput;
 container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newAutoscaleMaxThroughput)).block();
 ```
 
-#### <a name="sync"></a>[Sincrónico](#tab/api-sync)
+#### <a name="sync"></a>[Sincronizar](#tab/api-sync)
 
 ```java
 // Change the autoscale max throughput (RU/s)

@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 05/12/2020
+ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 2fab23e9f765d9ab4908cc4be69d8b747c6856b9
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 7068c1e795e7a607776c48d1b026562a1be6b25d
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84790541"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517636"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Predicción del precio de un automóvil con el diseñador (versión preliminar)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -107,8 +107,8 @@ Puede visualizar los datos para comprender el conjunto de datos que va a usar.
 1. En el panel de detalles del módulo, situado a la derecha del lienzo, seleccione **Outputs + logs** (Salidas y registros).
 
 1. Seleccione el icono de gráfico para visualizar los datos.
-
-    ![Visualización de los datos](./media/tutorial-designer-automobile-price-train-score/visualize-data.png)
+    
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/visualize-data.png"alt-text="Texto alternativo aquí.":::
 
 1. Seleccione las diferentes columnas de la ventana de datos para ver información sobre cada una.
 
@@ -180,8 +180,8 @@ Después de quitar la columna **normalized-losses**, aún faltan valores en el c
 1. En el panel de detalles del módulo situado a la derecha del lienzo, seleccione el cuadro **Comentario** y escriba *Remove missing value rows* (Quitar filas de valores que faltan). 
 
     La canalización debe parecerse a esta:
-    
-    ![Selección de columna](./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png)
+
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png"alt-text="Selección de columna":::
 
 ## <a name="train-a-machine-learning-model"></a>Entrenar un modelo de Machine Learning
 
@@ -229,7 +229,7 @@ Para entrenar el modelo, proporciónele un conjunto de datos que incluya el prec
     > [!IMPORTANT]
     > Asegúrese de que el puerto de salida izquierdo de **Split Data** (Dividir datos) se conecta a **Train Model** (Entrenar modelo). El puerto izquierdo contiene el conjunto de entrenamiento. El puerto derecho contiene el conjunto de prueba.
 
-    ![Captura de pantalla que muestra la configuración correcta del módulo Train Model (Entrenar modelo). El módulo Linear Regression (Regresión lineal) se conecta al puerto izquierdo del módulo Train Model (Entrenar modelo) y el módulo Split Data (Dividir datos) se conecta al puerto derecho de Train Model (Entrenar modelo)](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Captura de pantalla que muestra la configuración correcta del módulo Train Model (Entrenar modelo). El módulo Linear Regression (Regresión lineal) se conecta al puerto izquierdo del módulo Train Model (Entrenar modelo) y el módulo Split Data (Dividir datos) se conecta al puerto derecho de Train Model (Entrenar modelo).":::
 
 1. Seleccione el módulo **Train Model** (Entrenar modelo).
 
@@ -244,7 +244,7 @@ Para entrenar el modelo, proporciónele un conjunto de datos que incluya el prec
 
     La canalización debe ser parecida a esta:
 
-    ![Captura de pantalla que muestra la configuración correcta de la canalización después de agregar el módulo Entrenar modelo.](./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Captura de pantalla que muestra la configuración correcta de la canalización después de agregar el módulo Train Model (Entrenar modelo).":::
 
 ### <a name="add-the-score-model-module"></a>Adición del módulo Score Model (Puntuar modelo)
 
@@ -264,7 +264,7 @@ Use el módulo **Evaluate Model** (Evaluar modelo) para evaluar la puntuación q
 
     La canalización final debe parecerse a esta:
 
-    ![Captura de pantalla que muestra la configuración correcta de la canalización.](./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Captura de pantalla que muestra la configuración correcta de la canalización.":::
 
 ## <a name="submit-the-pipeline"></a>Enviar la canalización
 
@@ -295,7 +295,7 @@ Una vez finalizada la ejecución, puede ver los resultados de la ejecución de l
 
     Aquí puede ver los precios previstos y los precios reales de los datos de prueba.
 
-    ![Captura de pantalla de la visualización de salida en la que aparece la columna Scored Label (Etiqueta puntuada) resaltada](./media/tutorial-designer-automobile-price-train-score/score-result.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Captura de pantalla de la visualización de salida en la que aparece la columna Scored Label (Etiqueta puntuada) resaltada":::
 
 ### <a name="evaluate-models"></a>Evaluación de modelos
 

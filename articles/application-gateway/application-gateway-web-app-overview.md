@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: a171dc795e685655b5a3c73d088d3963c2aaa4ae
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 308098bd1ac49510afccf0a7964face726906332
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312316"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84628687"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Compatibilidad de Application Gateway con back-ends multiinquilino como App Service
 
@@ -42,7 +42,7 @@ Con esta funcionalidad, los clientes especifican las opciones en la configuraci�
 
 ### <a name="tls-termination-and-end-to-end-tls-with-multi-tenant-services"></a>Terminaci처n TLS y TLS de un extremo a otro con servicios multiinquilino
 
-Tanto la terminaci처n TLS como el cifrado TLS de un extremo a otro son compatibles con los servicios multiinquilino. En el caso de la terminaci처n TLS en Application Gateway, sigue siendo necesario agregar el certificado TLS al cliente de escucha de Application Gateway. Sin embargo, en el caso de TLS de un extremo a otro, los servicios de Azure de confianza, como aplicaciones web de Azure App Service, no requieren crear listas blancas en los back-end de Application Gateway. Por lo tanto, no hay necesidad de agregar certificados de autenticaci처n. 
+Tanto la terminaci처n TLS como el cifrado TLS de un extremo a otro son compatibles con los servicios multiinquilino. En el caso de la terminaci처n TLS en Application Gateway, sigue siendo necesario agregar el certificado TLS al cliente de escucha de Application Gateway. Sin embargo, en el caso de TLS de un extremo a otro, los servicios de Azure de confianza, como aplicaciones web de Azure App Service, no requieren crear listas de permitidos en los back-end de Application Gateway. Por lo tanto, no hay necesidad de agregar certificados de autenticaci처n. 
 
 ![TLS de un extremo a otro](./media/application-gateway-web-app-overview/end-to-end-ssl.png)
 

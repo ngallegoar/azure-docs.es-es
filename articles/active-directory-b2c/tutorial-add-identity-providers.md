@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/08/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1f49061210ca8e3c106b0569f77a67d1f10757a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 746c406c4e6d458f699eb844156190e47d5c7a26
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78183523"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85384913"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Tutorial: Incorporación de proveedores de identidades a las aplicaciones en Azure Active Directory B2C
 
@@ -26,14 +26,14 @@ En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Crear las aplicaciones del proveedor de identidades
-> * Agregar los proveedores de identidades al inquilino
+> * Agregar los proveedores de identidades a su inquilino, tanto en Facebook como en Azure Active Directory
 > * Agregar los proveedores de identidades al flujo del usuario
 
 Por lo general, solo se usa un proveedor de identidades en las aplicaciones, pero existe la opción de agregar más. En este tutorial se muestra cómo agregar un proveedor de identidades de Azure AD y un proveedor de identidades de Facebook a la aplicación. Agregar ambos tipos de proveedores de identidades a la aplicación es opcional. También puede agregar otros proveedores de identidades, como [Amazon](identity-provider-amazon.md), [GitHub](identity-provider-github.md), [Google](identity-provider-google.md), [LinkedIn](identity-provider-linkedin.md), [Microsoft](identity-provider-microsoft-account.md) o [Twitter](identity-provider-twitter.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [Cree un flujo de usuario](tutorial-create-user-flows.md) para permitir a los usuarios registrarse e iniciar sesión en la aplicación.
 

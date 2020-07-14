@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/06/2018
+ms.date: 06/09/2020
 ms.author: genli
-ms.openlocfilehash: 4edeea749ba22bef173c15f3a0855679b784ce33
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 8861e850e168169762d95c44a54b6a88a036f396
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668575"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84628530"
 ---
-# <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>El certificado de servidor back-end no está incluido en la lista de permitidos en una puerta de enlace de aplicaciones que usa un equilibrador de carga interno con App Service Environment.
+# <a name="back-end-server-certificate-is-not-allow-listed-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>El certificado de servidor back-end no está incluido en la lista de permitidos en una puerta de enlace de aplicaciones que usa un equilibrador de carga interno con App Service Environment.
 
 En este artículo, se soluciona el problema siguiente: un certificado no se incluye en la lista blanca al crear una puerta de enlace de aplicaciones utilizando un equilibrador de carga interno (ILB) junto con una instancia de App Service Environment (ASE) en el back-end cuando se usa TLS de un extremo a otro en Azure.
 
@@ -41,7 +41,7 @@ Cuando se crea una puerta de enlace de aplicaciones mediante un ILB con ASE en e
 - **Puerto:** 443
 - **Sondeo personalizado:** nombre de host (test.appgwtestase.com)
 - **Certificado de autenticación:** .cer de test.appgwtestase.com
-- **Estado de back-end:** incorrecto, el certificado del servidor back-end no está incluido en la lista blanca de Application Gateway.
+- **Estado de back-end:** incorrecto, el certificado del servidor back-end no está incluido en la lista de permitidos de Application Gateway.
 
 **Configuración de ASE:**
 

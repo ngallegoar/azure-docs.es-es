@@ -4,16 +4,16 @@ description: Cómo instalar una herramienta de interfaz de usuario con una plant
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: abe9b060793983e42ab432924ca5d6d7f43d307d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 3c3e93cf711d4dadfdc2354a297b0588fb637c80
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614213"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514227"
 ---
 # <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Implementación de una herramienta de administración con una plantilla de Azure Resource Manager
 
@@ -40,7 +40,7 @@ Antes de implementar la herramienta de administración, necesitará que un usuar
 
 - Deshabilitar la autenticación multifactor (MFA) de Azure.
 - Tener los permisos para crear recursos en la suscripción de Azure.
-- Tener los permisos para crear una aplicación de Azure AD. Siga los pasos que se describen en la sección [Permisos necesarios](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) para comprobar si el usuario tiene los permisos que necesita.
+- Tener los permisos para crear una aplicación de Azure AD. Siga los pasos que se describen en la sección [Permisos necesarios](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app) para comprobar si el usuario tiene los permisos que necesita.
 
 Después de implementar y configurar la herramienta de administración, se recomienda pedir a un usuario que inicie la interfaz de usuario de administración para asegurarse de que todo funciona correctamente. El usuario que inicie la interfaz de usuario de administración deberá tener una asignación de roles que le permita ver o editar el inquilino de Windows Virtual Desktop.
 
@@ -52,7 +52,7 @@ Siga las instrucciones para implementar la plantilla de Azure Resource Manager:
 
 1. Vaya a la [página RDS-Templates de Azure de GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
 2. Implemente la plantilla en Azure.
-    - Si va a implementarla en una suscripción Enterprise, desplácese hacia abajo y seleccione **Implementar en Azure**. 
+    - Si va a implementarla en una suscripción Enterprise, desplácese hacia abajo y seleccione **Implementar en Azure**.
     - Si va a realizar la implementación en una suscripción de proveedor de soluciones en la nube, siga estas instrucciones para implementar en Azure:
         1. Desplácese hacia abajo, haga clic con el botón derecho en **Implementar en Azure** y, después, seleccione **Copy Link Location** (Copiar ubicación del vínculo).
         2. Abra un editor de texto como el Bloc de notas y pegue el vínculo ahí.
@@ -71,11 +71,13 @@ Después de completar la plantilla de Azure Resource Manager de GitHub, encontra
 
 Antes de iniciar sesión y usar la herramienta de administración, debe dar su consentimiento para la nueva aplicación de Azure AD asociada con la herramienta de administración. Al dar su consentimiento, la herramienta de administración puede realizar llamadas de administración a Windows Virtual Desktop en nombre del usuario que ha iniciado sesión en la herramienta.
 
-![Captura de pantalla que muestra los permisos proporcionados al dar su consentimiento a la herramienta de administración de la interfaz de usuario.](../media/management-ui-delegated-permissions.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla en la que se muestran los permisos proporcionados al dar su consentimiento a la herramienta de administración de la interfaz de usuario.](../media/management-ui-delegated-permissions.png)
 
 Para determinar qué usuario puede usarse para iniciar sesión en la herramienta, vaya a la [página de configuración de usuario de Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) y tome nota del valor de **Los usuarios pueden permitir que las aplicaciones accedan a los datos de la compañía en su nombre**.
 
-![Captura de pantalla que muestra si los usuarios pueden otorgar consentimiento a las aplicaciones solo para su usuario.](../media/management-ui-user-consent-allowed.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla en la que se muestra si los usuarios pueden otorgar consentimiento a las aplicaciones solo para su usuario.](../media/management-ui-user-consent-allowed.png)
 
 - Si el valor está establecido en **Sí**, puede iniciar sesión con cualquier cuenta de usuario en Azure Active Directory y dar su consentimiento solo para ese usuario. Sin embargo, si más adelante inicia sesión en la herramienta de administración con un usuario diferente, debe otorgar nuevamente el mismo consentimiento.
 - Si el valor está establecido en **No**, debe iniciar sesión como administrador global en Azure Active Directory y proporcionar el consentimiento del administrador para todos los usuarios en el directorio. Ningún otro usuario se encontrará con una petición de consentimiento.
@@ -86,8 +88,9 @@ Una vez que decida qué usuario usará para dar su consentimiento, siga estas in
 1. Vaya a los recursos de Azure, seleccione el recurso de Azure App Services con el nombre que especificó en la plantilla (por ejemplo, Apr3UX) y vaya a la dirección URL asociada a él; por ejemplo, <https://rdmimgmtweb-210520190304.azurewebsites.net>.
 2. Inicie sesión con la cuenta de usuario de Azure Active Directory adecuada.
 3. Si se ha autenticado con un administrador global, ahora puede marcar la casilla de verificación para otorgar su **Consentimiento en nombre de la organización**. Seleccione **Aceptar** para dar su consentimiento.
-   
-   ![Captura de pantalla que muestra la página completa de consentimiento que verá el usuario o administrador.](../media/management-ui-consent-page.png)
+
+   > [!div class="mx-imgBorder"]
+   > ![Captura de pantalla en la que se muestra la página completa de consentimiento que verá el usuario o administrador.](../media/management-ui-consent-page.png)
 
 Ahora se abrirá la herramienta de administración.
 
@@ -101,7 +104,7 @@ Siga estas instrucciones para iniciar la herramienta:
 2. Inicie sesión con sus credenciales de Windows Virtual Desktop.
 3. Cuando se le pida que elija un grupo de inquilinos, seleccione **Default Tenant Group** (grupo de inquilinos predeterminado) en la lista desplegable.
 4. Al seleccionar **Default Tenant Group** (grupo de inquilinos predeterminado), debería aparecer un menú en la parte izquierda de la ventana. En este menú, busque el nombre de su grupo de inquilinos y selecciónelo.
-  
+
   > [!NOTE]
   > Si tiene un grupo de inquilinos personalizado, escriba el nombre manualmente en lugar de elegirlo en la lista desplegable.
 

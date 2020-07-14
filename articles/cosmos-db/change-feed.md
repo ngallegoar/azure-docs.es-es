@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: cb3f7f3d641f33e4b4deb1775600595cc382f68e
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 223514e8e873d36f8551e18956aafc0a54243990
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873971"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85119382"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Fuente de cambios en Azure Cosmos DB
 
@@ -67,7 +67,7 @@ Puede trabajar con la fuente de cambios mediante las siguientes opciones:
 
 La fuente de cambios está disponible para cada clave de partición lógica dentro del contenedor y, por tanto, se puede distribuir entre uno o varios consumidores para el procesamiento en paralelo, tal y como se muestra en la imagen a continuación.
 
-![Procesamiento distribuido de la fuente de cambios de Azure Cosmos DB](./media/change-feed/changefeedvisual.png)
+:::image type="content" source="./media/change-feed/changefeedvisual.png" alt-text="Procesamiento distribuido de la fuente de cambios de Azure Cosmos DB" border="false":::
 
 ## <a name="features-of-change-feed"></a>Características de la fuente de cambios
 

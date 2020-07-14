@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: cb7f11f184ba8e19eb8786817da58edf8ddee44e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6b72d80f0be65af22bf334752052757346457a67
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137100"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84448638"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Módulo de regresión del árbol de decisión potenciado
 
@@ -82,7 +82,7 @@ El método de potenciación de gradientes también se puede usar para clasificar
 
     + Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), conecte un conjunto de datos etiquetado y el módulo [Entrenar modelo](train-model.md).  
   
-    + Si establece **Create trainer mode** (Crear el modo de entrenador) en **Parameter Range** (Intervalo de parámetros), conecte un conjunto de datos etiquetado y entrene el modelo mediante [Tune Model Hyperparameters](tune-model-hyperparameters.md) (Optimizar los hiperparámetros del modelo).  
+    + Si define **Create trainer mode** (Crear modo de entrenador) como **Parameter Range** (Rango de parámetros), conecte un conjunto de datos etiquetado y entrene el modelo mediante [Tune Model Hyperparameters](tune-model-hyperparameters.md) (Hiperparámetros de modelo de ajuste).  
   
     > [!NOTE]
     > 
@@ -99,7 +99,7 @@ El método de potenciación de gradientes también se puede usar para clasificar
 
 Una vez completado el entrenamiento:
 
-+ Para usar el modelo para la puntuación, conéctelo a [Score Model](./score-model.md) (Modelo de puntuación) para predecir los valores de ejemplos de nuevas entradas.
++ Para usar el modelo para la puntuación, conecte [Entrenamiento del modelo](train-model.md) a [Puntuación del modelo](./score-model.md) para predecir los valores de ejemplos de nuevas entradas.
 
 + Para guardar una instantánea del modelo entrenado, seleccione la pestaña **Outputs** (Salidas) en el panel derecho de **Trained model** (Modelo entrenado) y haga clic en el icono **Register dataset** (Registrar conjunto de datos). La copia del modelo entrenado se guardará como si fuera un módulo en el árbol de módulos y no se actualizará en las posteriores ejecuciones de la canalización.
 

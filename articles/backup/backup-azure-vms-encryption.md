@@ -3,12 +3,12 @@ title: Copia de seguridad y restauración de VM de Azure cifradas
 description: Se describe cómo realizar una copia de seguridad de máquinas virtuales de Azure cifradas, y cómo restaurarlas, con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: ea4d2830fb9db9f95ba8ab87626a79d94aaecb8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0800a15b215b37ceb75abc0d6480331d642dc746
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187943"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85124510"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Copia de seguridad y restauración de máquinas virtuales de Azure cifradas
 
@@ -131,6 +131,8 @@ Para establecer los permisos:
 8. Haga clic en **Guardar** para proporcionar a Azure Backup los permisos.
 
 ## <a name="restore-an-encrypted-vm"></a>Restauración de una máquina virtual cifrada
+
+Las máquinas virtuales cifradas solo se pueden restaurar restaurando el disco de la máquina virtual, tal como se explica a continuación. **Reemplazar el existente** y **Restaurar VM** no se admiten.
 
 Restaure las máquinas virtuales cifradas de la manera siguiente:
 

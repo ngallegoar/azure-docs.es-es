@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/02/2020
+ms.date: 06/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 310023893d25a484cf05dac00628c632a4421edb
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: d8f65236fee57b4dc3e2bb012d8cdd222f431ec0
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84719955"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482622"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smartkargo"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con SmartKargo
 
@@ -92,13 +92,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > [!NOTE]
     > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, la dirección URL de respuesta y el identificador reales. Póngase en contacto con el [equipo de soporte técnico al cliente de SmartKargo](https://www.smartkargo.com/company/contact-2/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En la sección **Certificado de firma de SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Certificado de firma de SAML**.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
-    ![Edición del certificado de firma de SAML](common/edit-certificate.png)
-
-1. En la sección **Certificado de firma de SAML**, copie el valor de **Huella digital** y guárdelo en el equipo.
-
-    ![Copia del valor de la huella digital](common/copy-thumbprint.png)
+    ![Vínculo de descarga del certificado](common/metadataxml.png)
 
 1. En la sección **Configurar SmartKargo**, copie las direcciones URL adecuadas según sus necesidades.
 
@@ -136,7 +132,7 @@ En esta sección, va a permitir que B.Simon acceda a SmartKargo mediante el inic
 
 ## <a name="configure-smartkargo-sso"></a>Configuración del inicio de sesión único de SmartKargo
 
-Para configurar el inicio de sesión único en **SmartKargo**, es preciso enviar el **valor de la huella digital** y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de la plataforma SmartKargo](https://www.smartkargo.com/company/contact-2/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **SmartKargo**, es preciso enviar el **archivo XML de metadatos de federación** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de la plataforma de SmartKargo](https://www.smartkargo.com/company/contact-2/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-smartkargo-test-user"></a>Creación de un usuario de prueba de SmartKargo
 

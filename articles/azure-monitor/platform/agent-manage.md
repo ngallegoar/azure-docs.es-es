@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
 ms.openlocfilehash: 4d0ceacd37748e9761903d02fd7e052d70b10e15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79234432"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Administrar y mantener el agente de Log Analytics para Windows y Linux
@@ -28,7 +28,7 @@ El agente de Log Analytics para Windows y Linux puede actualizarse a la versión
 
 ### <a name="upgrade-windows-agent"></a>Actualización del agente de Windows 
 
-Para actualizar el agente en una VM de Windows a la última versión que no se instaló con la extensión de VM de Log Analytics, puede realizar el proceso desde el símbolo del sistema, el script u otra solución de automatización, o mediante el Asistente de configuración MMASetup-\<platform\>.msi.  
+Para actualizar el agente de una máquina virtual Windows a la última versión que no se instaló con la extensión de máquina virtual de Log Analytics, realice el proceso desde el símbolo del sistema, un script u otra solución de automatización, o mediante el Asistente de instalación MMASetup-\<platform\>.msi.  
 
 Puede descargar la versión más reciente del agente de Windows desde el área de trabajo de Log Analytics, realizando los pasos siguientes.
 
@@ -236,7 +236,7 @@ Use uno de los procedimientos siguientes para desinstalar al agente de Windows o
 3. En **Programas y características**, haga clic en **Microsoft Monitoring Agent**, haga clic en **Desinstalar** y, después, haga clic en **Sí**.
 
 >[!NOTE]
->También se puede ejecutar el Asistente para instalación del agente; para ello, haga doble clic en **MMASetup-\<plataforma\>.exe**, que está disponible para descargar desde un área de trabajo de Azure Portal.
+>También se puede ejecutar el asistente para instalación del agente haciendo doble clic en **MMASetup-\<platform\>.exe**, que está disponible para su descarga desde un área de trabajo en Azure Portal.
 
 #### <a name="uninstall-from-the-command-line"></a>Desinstalar desde la línea de comandos
 El archivo descargado del agente es un paquete de instalación independiente creado con IExpress. El programa de instalación para el agente y los archivos auxiliares se encuentran en el paquete y deben extraerse para realizar la desinstalación correctamente con la línea de comandos que se muestra en el ejemplo siguiente.

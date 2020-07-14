@@ -8,18 +8,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: reference
 ms.date: 05/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4837b654e5b538dda6f55eae9b15ddf0c5604693
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 3bc1546566e5bb79a207899fab7418480e5cfab0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299475"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117886"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Roles de administrador por tarea de administrador en Azure Active Directory
 
@@ -38,7 +38,7 @@ Deshabilitar el proxy de aplicación | Administrador de aplicaciones |
 Descargar servicio de conector | Administrador de aplicaciones | 
 Leer toda la configuración | Administrador de aplicaciones | 
 
-## <a name="b2c"></a>B2C
+## <a name="external-identitiesb2c"></a>Identidades externas o B2C
 
 Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
@@ -47,11 +47,11 @@ Crear aplicaciones B2C | Administrador global |
 Crear aplicaciones empresariales | Administrador de aplicaciones en la nube | Administrador de aplicaciones
 Crear, leer, actualizar y eliminar directivas de B2C | Administrador de directivas B2C con IEF | 
 Crear, leer, actualizar y eliminar proveedores de identidades | Administrador de proveedor de identidades externo | 
-Crear, leer, actualizar y eliminar flujos de usuario de restablecimiento de contraseña | Administrador de flujos de usuario B2C | 
-Crear, leer, actualizar y eliminar flujos de usuario de edición de perfiles | Administrador de flujos de usuario B2C | 
-Crear, leer, actualizar y eliminar flujos de usuario de inicio de sesión | Administrador de flujos de usuario B2C | 
-Crear, leer, actualizar y eliminar flujos de usuario de registro |Administrador de flujos de usuario B2C | 
-Crear, leer, actualizar y eliminar atributos de usuario | Administrador de atributos de flujos de usuario B2C | 
+Crear, leer, actualizar y eliminar flujos de usuario de restablecimiento de contraseña | Administrador de flujos de usuarios con id. externo | 
+Crear, leer, actualizar y eliminar flujos de usuario de edición de perfiles | Administrador de flujos de usuarios con id. externo | 
+Crear, leer, actualizar y eliminar flujos de usuario de inicio de sesión | Administrador de flujos de usuarios con id. externo | 
+Crear, leer, actualizar y eliminar flujos de usuario de registro |Administrador de flujos de usuarios con id. externo | 
+Crear, leer, actualizar y eliminar atributos de usuario | Administrador de atributos de flujos de usuarios con id. externo | 
 Crear, leer, actualizar y eliminar usuarios | Administrador de usuarios
 Leer toda la configuración | Lector global | 
 Leer registros de auditoría de B2C | Lector global ([consulte la documentación](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
@@ -73,6 +73,14 @@ Tarea | Rol con privilegios mínimos | Roles adicionales
 Configurar propiedades de la empresa | Administrador global | 
 
 ## <a name="connect"></a>Conectar
+
+Tarea | Rol con privilegios mínimos | Roles adicionales
+---- | --------------------- | ----------------
+Autenticación de paso a través | Administrador global  | 
+Leer toda la configuración | Lector global | Administrador global  |
+Inicio de sesión único de conexión directa | Administrador global  | 
+
+## <a name="cloud-provisioning"></a>Aprovisionamiento en la nube
 
 Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
@@ -109,7 +117,7 @@ Leer toda la configuración | Lectores de directorios | Rol de usuario predeterm
 Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Crear una instancia de Azure AD Domain Services | Administrador global | 
-Realizar todas las tareas de Azure AD Domain Services | Grupo de administradores de DC de Azure AD ([consulte la documentación](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-an-azure-ad-ds-managed-domain)) | 
+Realizar todas las tareas de Azure AD Domain Services | Grupo de administradores de DC de Azure AD ([consulte la documentación](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
 Leer toda la configuración | Lector en la suscripción de Azure que contiene el servicio AD DS | 
 
 ## <a name="devices"></a>Dispositivos

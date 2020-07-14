@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 06/05/2020
 ms.author: jingwang
-ms.openlocfilehash: 931287fa2a4104069b101236bec9f76bb7193e8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32af8c1b19d57fdba58ce27700e5d1e7a34f9c64
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416347"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84604990"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Formato Avro en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -81,6 +81,34 @@ En la sección ***\*sink\**** de la actividad de copia se admiten las siguientes
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | La propiedad type del origen de la actividad de copia debe establecerse en **AvroSink**. | Sí      |
 | storeSettings | Un grupo de propiedades sobre cómo escribir datos en un almacén de datos. Cada conector basado en archivos tiene su propia configuración de escritura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | No       |
+
+
+## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de instancias de Data Flow
+
+En los flujos de datos de asignación, puede leer y escribir en formato Avro en los siguientes almacenes de datos: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) y [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
+
+### <a name="source-properties"></a>Propiedades de origen
+
+En la tabla siguiente se enumeran las propiedades que admite un origen Avro. Puede editar estas propiedades en la pestaña **Source options** (Opciones del origen).
+
+| Nombre | Descripción | Obligatorio | Valores permitidos | Propiedad de script de flujo de datos |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Rutas de acceso comodín | Se procesarán todos los archivos que coincidan con la ruta de acceso comodín. Reemplaza a la carpeta y la ruta de acceso del archivo establecidas en el conjunto de datos. | no | String[] | wildcardPaths |
+| Ruta de acceso raíz de la partición | En el caso de datos de archivos con particiones, puede especificar una ruta de acceso raíz de la partición para leer las carpetas con particiones como columnas. | no | String | partitionRootPath |
+| Lista de archivos | Si el origen apunta a un archivo de texto que enumera los archivos que se van a procesar. | no | `true` o `false` | fileList |
+| Columna para almacenar el nombre de archivo | Se crea una nueva columna con el nombre y la ruta de acceso del archivo de origen. | no | String | rowUrlColumn |
+| Después de finalizar | Se eliminan o mueven los archivos después del procesamiento. La ruta de acceso del archivo comienza en la raíz del contenedor. | no | Borrar: `true` o `false` <br> Mover: `['<from>', '<to>']` | purgeFiles <br> moveFiles |
+| Filtrar por última modificación | Elija si desea filtrar los archivos en función de cuándo se modificaron por última vez. | no | Timestamp | modifiedAfter <br> modifiedBefore |
+
+### <a name="sink-properties"></a>Propiedades del receptor
+
+En la tabla siguiente se enumeran las propiedades que admite un receptor Avro. Puede editar estas propiedades en la pestaña **Configuración**.
+
+| Nombre | Descripción | Obligatorio | Valores permitidos | Propiedad de script de flujo de datos |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Borrar la carpeta | Si la carpeta de destino se borra antes de escribir. | no | `true` o `false` | truncate |
+| Opción de nombre de archivo | El formato de nombre de los datos escritos. De forma predeterminada, un archivo por partición en formato `part-#####-tid-<guid>`. | no | Patrón: String <br> Por partición: String[] <br> Como datos de columna: String <br> Salida en un solo archivo: `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+| Entrecomillar todo | Incluye todos los valores entre comillas. | no | `true` o `false` | quoteAll |
 
 ## <a name="data-type-support"></a>Compatibilidad con tipos de datos
 

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: 69686cad20bc4ce70bff2a92a216c9430522c301
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dfb760477fc528575212d79d929661c2276effbb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235584"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85079064"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Administración de Azure Cache for Redis
 En este tema, se explica cómo realizar tareas de administración, como [reiniciar](#reboot) y [programar actualizaciones](#schedule-updates), en las instancias de Azure Cache for Redis.
@@ -36,8 +36,8 @@ Para reiniciar uno o varios nodos de la caché, seleccione los nodos que prefier
 El impacto en las aplicaciones cliente varía en función de los nodos que se reinicien.
 
 * **Master** (Maestro): cuando el nodo maestro se reinicia, Azure Cache for Redis conmuta por error en el nodo de la réplica y promueve este nodo para que se convierta en el maestro. Durante esta conmutación por error puede haber un breve intervalo en el que se puede producir un error de conexión a la memoria caché.
-* **Slave** (Subordinado): el reinicio de un nodo subordinado no suele afectar a las cachés cliente.
-* **Both master and slave** (Maestro y subordinado): cuando se reinician ambos nodos de la memoria caché se pierden todos los datos de la caché y las conexiones a la caché producen un error hasta que el nodo principal vuelve a estar en línea. Si ha configurado la [persistencia de los datos](cache-how-to-premium-persistence.md), se restaurará la copia de seguridad más reciente cuando la caché vuelva a estar en línea, pero se perderán las escrituras de caché producidas después de la copia de seguridad más reciente.
+* **Réplica**: el reinicio de un nodo de réplica no suele afectar a los clientes de caché.
+* **Ambos, principal y réplica**: cuando se reinician ambos nodos de la memoria caché, se pierden todos los datos de dicha memoria y las conexiones a esta producen un error hasta que el nodo principal vuelve a estar en línea. Si ha configurado la [persistencia de los datos](cache-how-to-premium-persistence.md), se restaurará la copia de seguridad más reciente cuando la caché vuelva a estar en línea, pero se perderán las escrituras de caché producidas después de la copia de seguridad más reciente.
 * **Nodes of a premium cache with clustering enabled** (Nodos de una caché premium con agrupamiento en clústeres habilitado): cuando reinicie uno o varios nodos de una caché premium con el agrupamiento en clústeres habilitado, el comportamiento de los nodos seleccionados es el mismo que al reiniciar el nodo o nodos correspondientes de una caché sin agrupar.
 
 ## <a name="reboot-faq"></a>Preguntas más frecuentes sobre el reinicio
@@ -47,7 +47,7 @@ El impacto en las aplicaciones cliente varía en función de los nodos que se re
 * [¿Puedo reiniciar la caché con PowerShell, CLI u otras herramientas de administración?](#can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools)
 
 ### <a name="which-node-should-i-reboot-to-test-my-application"></a>¿Qué nodo que debo reiniciar para probar mi aplicación?
-Para probar la resistencia de la aplicación frente a errores del nodo principal de la memoria caché, reinicie el nodo **Master** (Maestro). Para probar la resistencia de la aplicación frente a errores del nodo secundario, reinicie el nodo **Slave** (Subordinado). Para probar la resistencia de la aplicación frente a errores de toda la caché, reinicie ambos nodos, **Both** (Ambos).
+Para probar la resistencia de la aplicación frente a errores del nodo principal de la memoria caché, reinicie el nodo **Master** (Maestro). Para probar la resistencia de la aplicación frente a errores del nodo secundario, reinicie el nodo **Réplica**. Para probar la resistencia de la aplicación frente a errores de toda la caché, reinicie ambos nodos, **Both** (Ambos).
 
 ### <a name="can-i-reboot-the-cache-to-clear-client-connections"></a>¿Puedo reiniciar la memoria caché para borrar las conexiones de cliente?
 Sí, si reinicia la memoria caché se borran todas las conexiones de cliente. El reinicio puede resultar útil en caso de que estén agotadas todas las conexiones de cliente debido a un error lógico o a un error en la aplicación cliente. Cada plan de tarifa tiene diferentes [límites de conexión de clientes](cache-configure.md#default-redis-server-configuration) para los distintos tamaños y una vez alcanzados, no se aceptan más conexiones de cliente. Reiniciar la memoria caché es una forma de borrar todas las conexiones de cliente.
@@ -58,7 +58,7 @@ Sí, si reinicia la memoria caché se borran todas las conexiones de cliente. El
 > 
 
 ### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot"></a>¿Se pierden los datos de mi memoria caché si reinicio?
-Si reinicia los nodos **Maestro** y **Esclavo**, se pueden pierden todos los datos de la memoria caché (o de esa partición si utiliza una caché premium con el agrupamiento en clústeres habilitado), pero esto no está garantizado. Si ha configurado la [persistencia de los datos](cache-how-to-premium-persistence.md), se restaurará la copia de seguridad más reciente cuando la caché vuelva a estar en línea, pero se perderán las escrituras de caché producidas después de realizar la copia de seguridad.
+Si reinicia los nodos **Principal** y **Réplica**, se pueden perder todos los datos de la memoria caché (o de esa partición si utiliza una memoria premium con el agrupamiento en clústeres habilitado), pero esto no está garantizado. Si ha configurado la [persistencia de los datos](cache-how-to-premium-persistence.md), se restaurará la copia de seguridad más reciente cuando la caché vuelva a estar en línea, pero se perderán las escrituras de caché producidas después de realizar la copia de seguridad.
 
 Si reinicia solo uno de los nodos, no se suelen perder datos, pero podría pasar. Por ejemplo, si se reinicia el nodo maestro y se está escribiendo en la caché, los datos escritos se pierden. Otro escenario de pérdida de datos se produce al reiniciar un nodo y el otro nodo se dejar de funcionar debido a un error al mismo tiempo. Para obtener más información sobre las posibles causas de pérdida de datos, consulte [What happened to my data in Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) (¿Qué ha ocurrido con mis datos en Redis?).
 
@@ -66,7 +66,7 @@ Si reinicia solo uno de los nodos, no se suelen perder datos, pero podría pasar
 Sí. Para ver instrucciones de PowerShell, consulte [Reinicio de una instancia de Azure Cache for Redis](cache-how-to-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis).
 
 ## <a name="schedule-updates"></a>Programar actualizaciones
-La hoja **Programar actualizaciones** permite designar una ventana de mantenimiento para la instancia de caché. Cuando se especifica la ventana de mantenimiento, las actualizaciones del servidor Redis se realizan en ese período. 
+La hoja **Programar actualizaciones** permite designar una ventana de mantenimiento para la instancia de caché. Una ventana de mantenimiento le permite controlar los días y las horas de una semana durante los que se pueden actualizar las máquinas virtuales que hospedan la memoria caché. Azure Cache for Redis hará todo lo posible por iniciar y finalizar la actualización del software del servidor de Redis en el período de tiempo especificado que defina.
 
 > [!NOTE] 
 > El período de mantenimiento solo se aplica a las actualizaciones del servidor de Redis y no a las actualizaciones de Azure o del sistema operativo de las máquinas virtuales que hospedan la caché.

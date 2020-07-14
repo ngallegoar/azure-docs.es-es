@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: b398f739189232f39a2fee06fc6e6ff0d53348f0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ca4e79977132586c619f323015f9d915e04707f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656618"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84449522"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Preguntas más frecuentes sobre el rendimiento aprovisionado por Escalabilidad automática en Azure Cosmos DB
 
@@ -86,6 +86,10 @@ Sí, la escalabilidad automática es compatible con las bases de datos de rendim
 
 ### <a name="what-is-the-number-of-allowed-containers-per-shared-throughput-database-when-autoscale-is-enabled"></a>¿Cuál es el número de contenedores permitidos por base de datos de rendimiento compartido cuando está habilitada la escalabilidad automática?
 Azure Cosmos DB aplica un máximo de 25 contenedores en una base de datos de rendimiento compartido, que se aplica a las bases de datos con escalabilidad automática o rendimiento estándar (manual). 
+
+### <a name="what-is-the-impact-of-autoscale-on-database-consistency-level"></a>¿Cuál es el impacto de la escalabilidad automática en el nivel de coherencia de la base de datos?
+No se produce ningún impacto en la escalabilidad automática en el nivel de coherencia de la base de datos.
+Consulte el artículo sobre [niveles de coherencia](consistency-levels.md) para obtener más información sobre los niveles de coherencia disponibles.
 
 ### <a name="what-is-the-storage-limit-associated-with-each-max-rus-option"></a>¿Cuál es el límite de almacenamiento asociado a cada opción de RU por segundo máximas?  
 El límite de almacenamiento en GB por cada número máximo de RU/s es: Número máximo de RU/s para una base de datos o contenedor/100. Por ejemplo, si las RU por segundo máximas son 20 000 RU por segundo, el recurso puede admitir 200 GB de almacenamiento. Consulte el artículo sobre los [límites de Escalabilidad automática](provision-throughput-autoscale.md#autoscale-limits) para ver las opciones de almacenamiento y RU por segundo máximas disponibles. 

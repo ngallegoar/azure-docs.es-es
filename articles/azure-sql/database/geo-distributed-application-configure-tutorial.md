@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 415f76fc7c8b52a79bc864e61e1f85759e3f5d1f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 523fd3103585865a969f6463b3dc41fe362b9130
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84028736"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84324732"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Tutorial: Implementación de una base de datos distribuida geográficamente (Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,8 +42,8 @@ Para completar el tutorial, asegúrese de que instaló los elementos siguientes:
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 - Una base de datos única en Azure SQL Database. Para crear uno, use:
-  - [Portal](single-database-create-quickstart.md)
-  - [CLI](az-cli-script-samples-content-guide.md)
+  - [Azure Portal](single-database-create-quickstart.md)
+  - [La CLI de Azure](az-cli-script-samples-content-guide.md)
   - [PowerShell](powershell-script-content-guide.md)
 
   > [!NOTE]
@@ -92,7 +92,7 @@ Get-AzSqlDatabase -ResourceGroupName $resourceGroup -ServerName $server -Databas
     Add-AzSqlDatabaseToFailoverGroup -ResourceGroupName $resourceGroup -ServerName $server -FailoverGroupName $failoverGroup
 ```
 
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[La CLI de Azure](#tab/azure-cli)
 
 > [!IMPORTANT]
 > Ejecute `az login` para iniciar sesión en Azure.
@@ -344,7 +344,7 @@ Para probar una conmutación por error:
     -ServerName $server -FailoverGroupName $failoverGroup
    ```
 
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[La CLI de Azure](#tab/azure-cli)
 
 Puede comprobar el rol del servidor de recuperación ante desastres durante la prueba con el siguiente comando:
 
@@ -378,7 +378,7 @@ En este tutorial, ha configurado una base de datos de Azure SQL Database y una a
 > - Ejecutar una aplicación de Java para consultar una base de datos en SQL Database
 > - Conmutación por error de prueba
 
-Avance al siguiente tutorial sobre cómo agregar una instancia administrada de Azure SQL a un grupo de conmutación por error:
+Avance al siguiente tutorial sobre cómo agregar una instancia de Azure SQL Managed Instance a un grupo de conmutación por error:
 
 > [!div class="nextstepaction"]
-> [Adición de una instancia administrada de Azure SQL a un grupo de conmutación por error](../managed-instance/failover-group-add-instance-tutorial.md)
+> [Adición de una instancia de SQL Managed Instance a un grupo de conmutación por error](../managed-instance/failover-group-add-instance-tutorial.md)

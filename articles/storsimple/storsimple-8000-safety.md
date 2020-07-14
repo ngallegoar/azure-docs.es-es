@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 3c880cd18e7227a728d7e276e72a5ea8c1e421de
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 556a84acb3461fb39b3eb0390b54878254bafabf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396633"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514547"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Instalar y operar el dispositivo StorSimple de forma segura
 ![Icono Advertencia](./media/storsimple-safety/IC740879.png)
@@ -103,10 +103,11 @@ Para reducir la probabilidad de lesiones, descargas eléctricas o muerte:
 
 Para la refrigeración adecuada del sistema en bastidor:
 
-* Asegúrese de que el diseño del bastidor toma en consideración la temperatura ambiente máxima en operación del alojamiento de 35 grados Celsius (95 grados Fahrenheit).
+* Asegúrese de que el diseño del bastidor toma en consideración la temperatura ambiente máxima en operación del alojamiento de 35 grados Celsius (95 grados Fahrenheit). Mantenga refrigerada la sala en la que se encuentra el sistema de bastidores y compruebe que haya un flujo de aire acondicionado adecuado en el centro de datos.
 * El sistema se opera con una instalación de salida de aire posterior, de baja presión (la presión posterior creada por las puertas del bastidor y obstáculos no debe exceder de 5 pascales [0,5 mm del indicador de nivel de agua]).
 
 ## <a name="power-cooling-module-pcm-precautions"></a>Precauciones en el módulo de alimentación y refrigeración (PCM)
+
 El dispositivo está diseñado para operar con dos PCM. Cada uno de los PCM tiene una fuente de alimentación y un ventilador de dos ejes. Durante una condición crítica, el sistema permite que se produzca un error en una fuente de alimentación mientras continúa con las operaciones normales. Dos PCM (y por consiguiente dos fuentes de alimentación) deben estar siempre instalados. Un solo PCM no proporciona alimentación redundante. Por lo tanto, un error en uno de los PCM puede ocasionar inactividad o una posible pérdida de datos.
 
 ![Icono Advertencia](./media/storsimple-safety/IC740879.png) ![Icono Descarga eléctrica](./media/storsimple-safety/IC740882.png) **ADVERTENCIA**
@@ -123,6 +124,7 @@ Para una operación apropiada del equipo y evitar daños en el producto:
 * No quite un PCM a menos que pueda instalar su reemplazo inmediatamente. El alojamiento no puede operarse sin todos los módulos en su lugar.
 
 ## <a name="electrostatic-discharge-esd-precautions"></a>Precauciones en cuanto a las descargas electrostáticas (ESD)
+
 ![Icono Aviso](./media/storsimple-safety/IC740881.png) **AVISO:**
 
 Respete las siguientes precauciones relacionadas con ESD.
@@ -133,6 +135,7 @@ Respete las siguientes precauciones relacionadas con ESD.
 * Los daños por ESD no están cubiertos por la garantía.
 
 ## <a name="battery-disposal-precautions"></a>Precauciones al desechar la batería
+
 La fuente de alimentación usa una batería especial para proteger el contenido de la memoria durante interrupciones de alimentación temporales de corta duración. La batería está asentada en el PCM. Recuerde la siguiente información sobre la batería.
 
 ![Icono Advertencia](./media/storsimple-safety/IC740879.png) **ADVERTENCIA**
@@ -150,6 +153,6 @@ Cuando se envían o transportan las baterías por aire, siga el documento IATA L
 Después de revisar estos avisos de seguridad, el siguiente paso es desempaquetar, montar en bastidor y cablear su dispositivo.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Para un dispositivo 8100, vaya a [Instalación del dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md).
 * Para un dispositivo 8600, vaya a [Instalación del dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
-

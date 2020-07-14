@@ -1,6 +1,6 @@
 ---
-title: Copia de datos de orígenes de IBM Informix mediante Azure Data Factory
-description: Obtenga información sobre cómo copiar datos desde orígenes de IBM Informix a almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
+title: Copia de datos de IBM Informix como origen y destino mediante Azure Data Factory
+description: Obtenga información sobre cómo copiar datos con IBM Informix como origen o destino mediante una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -9,16 +9,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 06/28/2020
 ms.author: jingwang
-ms.openlocfilehash: b4fb6662491443db5d10825635cad8496e56e7f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 93f484bd30de1ba0ca0f7aa5db263243bebc5b09
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414974"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85508816"
 ---
-# <a name="copy-data-from-and-to-ibm-informix-data-stores-using-azure-data-factory"></a>Copia de datos con almacenes de datos de IBM Informix como origen y destino mediante Azure Data Factory
+# <a name="copy-data-from-and-to-ibm-informix-using-azure-data-factory"></a>Copia de datos de IBM Informix como origen y destino mediante Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se resume el uso de la actividad de copia de Azure Data Factory para copiar datos con un almacén de datos de IBM Informix como origen o destino. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
@@ -30,9 +30,9 @@ Este conector de Informix es compatible con las actividades siguientes:
 - [Actividad de copia](copy-activity-overview.md) con [matriz de origen o receptor compatible](copy-activity-overview.md)
 - [Actividad de búsqueda](control-flow-lookup-activity.md)
 
-Puede copiar datos desde un origen Informix a cualquier almacén de datos receptor compatible. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
+Puede copiar datos desde un origen de Informix a cualquier almacén de datos de receptor o viceversa. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para usar este conector de Informix, necesitará lo siguiente:
 
@@ -151,6 +151,48 @@ Para copiar datos de Informix, en la sección **source** (origen) de la activida
             },
             "sink": {
                 "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+### <a name="informix-as-sink"></a>Informix como receptor
+
+Para copiar datos a Informix, se admiten las siguientes propiedades en la sección **sink** de la actividad de copia:
+
+| Propiedad | Descripción | Obligatorio |
+|:--- |:--- |:--- |
+| type | La propiedad type del receptor de la actividad de copia debe establecerse en: **InformixSink** | Sí |
+| writeBatchTimeout |Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br/>Los valores permitidos son: intervalos de tiempo. Ejemplo: "00:30:00" (30 minutos). |No |
+| writeBatchSize |Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor writeBatchSize.<br/>Los valores permitidos son: enteros (número de filas). |No (el valor predeterminado es 0, detectado automáticamente) |
+| preCopyScript |Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en el almacén de datos en cada ejecución. Puede usar esta propiedad para limpiar los datos cargados previamente. |No |
+
+**Ejemplo**:
+
+```json
+"activities":[
+    {
+        "name": "CopyToInformix",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<Informix output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "InformixSink"
             }
         }
     }

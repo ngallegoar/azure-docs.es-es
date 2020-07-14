@@ -6,10 +6,10 @@ ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: c6f7c2422e043da6df498fe81da938576687b916
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83649128"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configuración de credenciales de implementación para Azure App Service
@@ -23,7 +23,7 @@ Puede configurar las credenciales de nivel de usuario en cualquier [página de r
 
 ### <a name="in-the-cloud-shell"></a>En Cloud Shell
 
-Para configurar el usuario de implementación en [Cloud Shell](https://shell.azure.com), ejecute el comando [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set). Reemplace \<username> y \<password> por su nombre de usuario y contraseña. 
+Para configurar el usuario de implementación en [Cloud Shell](https://shell.azure.com), ejecute el comando [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set). Reemplace \<username> y \<password> por un nombre de usuario y una contraseña de usuario de implementación. 
 
 - El nombre de usuario debe ser único dentro de Azure y no debe contener el símbolo "\@" para las inserciones de Git local. 
 - La contraseña debe tener al menos ocho caracteres y dos de los tres elementos siguientes: letras, números y símbolos. 
@@ -38,7 +38,7 @@ La salida JSON muestra la contraseña como `null`. Si se produce un error `'Conf
 
 En Azure Portal, debe tener al menos una aplicación para poder acceder a la página de credenciales de implementación. Para configurar las credenciales de nivel de usuario:
 
-1. En [Azure Portal](https://portal.azure.com), en el menú de la izquierda, haga clic en **App Services** >  **\<any_app>**  > **Centro de implementaciones** > **FTP** > **Panel de información**.
+1. En [Azure Portal](https://portal.azure.com), en el menú de la izquierda, seleccione **App Services** >  **\<any_app>**  > **Centro de implementación** > **FTP** > **Panel**.
 
     ![](./media/app-service-deployment-credentials/access-no-git.png)
 

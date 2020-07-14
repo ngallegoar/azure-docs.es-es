@@ -13,10 +13,10 @@ ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fceaa203944074b0c3fcf5cb6254f1e87ac16cba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480987"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integración de directorios entre Servidor Azure MFA y Active Directory
@@ -24,7 +24,7 @@ ms.locfileid: "79480987"
 Utilice la sección Integración de directorios del Servidor Azure MFA para integrarlo con Active Directory u otro directorio LDAP. Puede configurar los atributos para que coincidan con el esquema de directorios, así como la sincronización automática de los usuarios.
 
 > [!IMPORTANT]
-> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el Servidor MFA para implementaciones nuevas. Los clientes nuevos que quieran exigir la autenticación multifactor a sus usuarios deberán usar Azure Multi-Factor Authentication basado en la nube. Los clientes existentes que hayan activado el Servidor MFA antes del 1 de julio podrán descargar la versión más reciente y las actualizaciones futuras, así como generar credenciales de activación como de costumbre.
+> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el Servidor MFA para nuevas implementaciones. Los nuevos clientes que quieran exigir la autenticación multifactor a sus usuarios deberán usar Azure Multi-Factor Authentication basado en la nube. Los clientes existentes que hayan activado el Servidor MFA antes del 1 de julio podrán descargar la versión más reciente y las actualizaciones futuras, así como generar credenciales de activación como de costumbre.
 
 ## <a name="settings"></a>Configuración
 
@@ -80,7 +80,7 @@ Nota: Los atributos pueden especificarse manualmente y no tienen que coincidir c
 | --- | --- |
 | Identificador único |Escriba el nombre del atributo que actúa como identificador único de los registros de contenedor, de grupo de seguridad y de usuario.  En Active Directory, suele ser objectGUID. Otras implementaciones LDAP pueden usar entryUUID o similar.  El valor predeterminado es objectGUID. |
 | Tipo de identificador único |Seleccione el tipo de atributo de identificador único.  En Active Directory, el atributo objectGUID es de tipo GUID. Otras implementaciones LDAP pueden usar el tipo Matriz de bytes ASCII o Cadena.  El valor predeterminado es GUID. <br><br>Es importante establecer este tipo correctamente, ya que se hace referencia a Elementos de sincronización mediante su Identificador único. El tipo de identificador único se usa para buscar directamente el objeto en el directorio.  Si se establece este tipo en Cadena cuando el directorio almacena realmente el valor como matriz de bytes de caracteres ASCII, la sincronización no funcionará correctamente. |
-| Nombre distintivo |Escriba el nombre del atributo que contiene el nombre distintivo para cada registro.  En Active Directory, suele ser distinguishedName. Otras implementaciones LDAP pueden usar entryDN o similar.  El valor predeterminado es distinguishedName. <br><br>Si no existe ningún atributo que contenga solo el nombre distintivo, se puede utilizar el atributo adspath.  La parte "LDAP://\<servidor\>/" de la ruta de acceso se quita automáticamente y solo queda el nombre distintivo del objeto. |
+| Nombre distintivo |Escriba el nombre del atributo que contiene el nombre distintivo para cada registro.  En Active Directory, suele ser distinguishedName. Otras implementaciones LDAP pueden usar entryDN o similar.  El valor predeterminado es distinguishedName. <br><br>Si no existe ningún atributo que contenga solo el nombre distintivo, se puede utilizar el atributo adspath.  La parte "LDAP://\<server\>/" de la ruta de acceso se quita automáticamente y solo queda el nombre distintivo del objeto. |
 | Nombre del contenedor |Escriba el nombre del atributo que contiene el nombre en un registro de contenedor.  El valor de este atributo se muestra en la Jerarquía de contenedores al importar desde Active Directory o agregar elementos de sincronización.  El valor predeterminado es name. <br><br>Si distintos contenedores usan atributos diferentes para sus nombres, utilice punto y coma para separar varios atributos de nombres de contenedor.  Se utiliza el primer atributo de nombre de contenedor que se encuentra en un objeto de contenedor para mostrar su nombre. |
 | Nombre de grupo de seguridad |Escriba el nombre del atributo que contiene el nombre en un registro de grupo de seguridad.  El valor de este atributo se muestra en la lista de grupos de seguridad al importar desde Active Directory o agregar elementos de sincronización.  El valor predeterminado es name. |
 | Nombre de usuario |Escriba el nombre del atributo que contiene el nombre de usuario en un registro de usuario.  El valor de este atributo se usa como nombre de usuario del Servidor Multi-Factor Authentication.  Puede especificar un segundo atributo como copia de seguridad del primero.  El segundo atributo solo se usa si el primer atributo no contiene ningún valor para el usuario.  Los valores predeterminados son userPrincipalName y sAMAccountName. |

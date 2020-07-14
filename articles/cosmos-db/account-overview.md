@@ -6,14 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 06/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d29ed68b2945b2473b33aa88176e6f5d832a0fba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a68207b3e5390a26e8d62ee6b725b0768ea565a4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225756"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85116084"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Uso de la cuenta de Azure Cosmos
 
@@ -29,7 +29,7 @@ En Azure Cosmos, un contenedor es la unidad fundamental de escalabilidad. Práct
 
 Actualmente, puede crear un máximo de 100 cuentas de Azure Cosmos en una suscripción de Azure. Una sola cuenta de Azure Cosmos puede administrar una cantidad casi ilimitada de datos y rendimiento aprovisionado. Para administrar los datos y el rendimiento aprovisionado, puede crear una o varias bases de datos de Azure Cosmos en su cuenta y, dentro de esa base de datos, puede crear uno o varios contenedores. La siguiente imagen muestra la jerarquía de elementos en una cuenta de Azure Cosmos:
 
-![Jerarquía de una cuenta de Azure Cosmos](./media/account-overview/hierarchy.png)
+:::image type="content" source="./media/account-overview/hierarchy.png" alt-text="Jerarquía de una cuenta de Azure Cosmos" border="false":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

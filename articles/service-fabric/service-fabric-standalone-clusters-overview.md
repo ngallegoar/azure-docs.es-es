@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: e8912ef5bc0fd6009443b736031fc9af57ab6c5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6abe6fca77251a16bcb7663a5192f46fef3476b0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75465647"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080663"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Introducción a los clústeres de Service Fabric independientes
 
@@ -21,9 +21,16 @@ Un tipo de nodo define el tamaño, el número y las propiedades de un conjunto d
 El proceso de creación de un clúster local de Service Fabric es similar al proceso de creación de un clúster en cualquier nube que elija donde cuente con un conjunto de máquinas virtuales. Los pasos iniciales para aprovisionar las máquinas virtuales se regirán por el proveedor de la nube o el entorno local que use. Cuando tenga un conjunto de máquinas virtuales con la conectividad de red habilitada entre ellas, los pasos para configurar el paquete de Service Fabric, editar la configuración del clúster y ejecutar la creación del clúster y los scripts de administración son idénticos. Esto garantiza que sus conocimientos y su experiencia con respecto al uso y la administración de los clústeres de Service Fabric se puedan aplicar si decide cambiar a un nuevo entorno de hospedaje.
 
 ## <a name="cluster-security"></a>Seguridad de clúster
+
 Un clúster de Service Fabric es un recurso que usted posee.  Tiene la responsabilidad de proteger los clústeres para impedir que usuarios no autorizados se conecten a ellos. Proteger el clúster es especialmente importante si en él se ejecutan cargas de trabajo de producción.
 
+> [!NOTE]
+> La autenticación de Windows se basa en Kerberos. NTLM no se admite como tipo de autenticación.
+>
+> Siempre que sea posible, use la autenticación de certificados X.509 para los clústeres de Service Fabric.
+
 ### <a name="node-to-node-security"></a>Seguridad de nodo a nodo
+
 La seguridad de nodo a nodo protege la comunicación entre las máquinas virtuales o los equipos de un clúster. Este escenario de seguridad garantiza que solo los equipos autorizados a unirse al clúster pueden participar en el hospedaje de aplicaciones y servicios en el clúster. Service Fabric usa certificados X.509 para proteger un clúster y proporcionar características de seguridad de las aplicaciones.  Se necesita un certificado de clúster para proteger el tráfico de clúster y proporcionar autenticación de servidor y clúster.  Los certificados autofirmados se pueden usar para los clústeres de prueba, pero para proteger los de producción se debe utilizar un certificado de una entidad de certificación de confianza.
 
 También se puede habilitar la seguridad de Windows para un clúster independiente de Windows. Si tiene Windows Server 2012 R2 y Windows Active Directory, se recomienda que utilice la seguridad de Windows con las cuentas de servicio administradas de grupo. De lo contrario, use la seguridad de Windows con cuentas de Windows.
@@ -31,6 +38,7 @@ También se puede habilitar la seguridad de Windows para un clúster independien
 Para más información, lea [Seguridad de nodo a nodo](service-fabric-cluster-security.md#node-to-node-security)
 
 ### <a name="client-to-node-security"></a>Seguridad de cliente a nodo
+
 La seguridad de cliente a nodo autentica los clientes y ayuda a proteger la comunicación entre un cliente y los nodos individuales del clúster. Este tipo de seguridad ayuda a garantizar que solo los usuarios autorizados accedan al clúster y a las aplicaciones implementadas en él. Los clientes se identifican de forma exclusiva mediante sus credenciales de seguridad del certificado X.509. Puede utilizarse cualquier número de certificados de cliente opcionales para autenticar a los clientes administradores o usuarios con el clúster.
 
 Además de los certificados de cliente, Azure Active Directory también puede configurarse para autenticar a los clientes con el clúster.
@@ -38,7 +46,7 @@ Además de los certificados de cliente, Azure Active Directory también puede co
 Para más información, lea [Seguridad de cliente a nodo](service-fabric-cluster-security.md#client-to-node-security)
 
 ### <a name="role-based-access-control-rbac"></a>Control de acceso basado en rol (RBAC)
-Service Fabric también admite el control de acceso para limitar este a determinadas operaciones de clúster para los diferentes grupos de usuarios. Esto ayuda a que el clúster esté más protegido. Se admiten dos tipos de control de acceso para los clientes que se conectan a un clúster: rol de administrador y usuario.  
+Service Fabric también admite el control de acceso para limitar este a determinadas operaciones de clúster para los diferentes grupos de usuarios. Esto ayuda a que el clúster esté más protegido. Se admiten dos tipos de control de acceso para los clientes que se conectan a un clúster: Rol de administrador y rol de usuario.  
 
 Para más información, lea [Control de acceso basado en rol (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
 
@@ -55,6 +63,7 @@ Un clúster independiente es un recurso que es totalmente de su propiedad. Por t
 Para más información, lea [Actualización de clústeres independientes](service-fabric-cluster-upgrade-standalone.md).
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
+
 Podrá crear clústeres en VM o equipos que ejecuten estos sistemas operativos (aún no se admite Linux):
 
 * Windows Server 2012 R2
@@ -62,6 +71,7 @@ Podrá crear clústeres en VM o equipos que ejecuten estos sistemas operativos (
 * Windows Server 2019
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Obtenga información más detallada sobre [protección](service-fabric-cluster-security.md), [escalado](service-fabric-cluster-scaling-standalone.md) y [actualización](service-fabric-cluster-upgrade-standalone.md) de los clústeres independientes.
 
 Más información sobre las [opciones de soporte técnico de Service Fabric](service-fabric-support.md).

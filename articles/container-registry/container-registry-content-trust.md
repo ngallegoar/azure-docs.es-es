@@ -1,14 +1,14 @@
 ---
 title: Administrar imágenes firmadas
-description: Aprenda a habilitar la confianza en el contenido para Azure Container Registry y a insertar y extraer imágenes firmadas.
+description: Aprenda a habilitar la confianza en el contenido para Azure Container Registry y a insertar y extraer imágenes firmadas. La confianza de contenido es una característica del nivel de servicio Premium.
 ms.topic: article
 ms.date: 09/06/2019
-ms.openlocfilehash: 72d45301e1d8a5f29eda941bd39217082f5dc6ba
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 74bc61f71fc001d5333fcd3c9ac47fa4dd90218c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680498"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84509566"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Confianza en el contenido en Azure Container Registry
 
@@ -76,7 +76,7 @@ Solo los usuarios o sistemas a los que se ha concedido permiso pueden insertar i
 
 A continuación, puede ver los detalles de la concesión del rol `AcrImageSigner` en Azure Portal y la CLI de Azure.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Vaya al registro en Azure Portal y, a continuación, seleccione **Control de acceso (IAM)**  > **Agregar asignación de rol**. En **Agregar asignación de rol**, seleccione `AcrImageSigner` para el **Rol**, **seleccione** uno o más usuarios o entidades de servicio y, a continuación, **Guardar**.
 

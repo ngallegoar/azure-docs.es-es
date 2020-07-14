@@ -4,19 +4,19 @@ description: Obtenga información sobre cómo la función del sistema SQL CONTAI
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 06/02/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: a08fe47122d7e9ddd1c9038bb5f15ebbb0be30fa
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 4877272fc2db521977a4111317118380399d27c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848981"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84322710"
 ---
 # <a name="contains-azure-cosmos-db"></a>CONTAINS (Azure Cosmos DB)
 
- Devuelve un valor booleano que indica si la primera expresión de cadena contiene la segunda.  
+Devuelve un valor booleano que indica si la primera expresión de cadena contiene la segunda.  
   
 ## <a name="syntax"></a>Sintaxis
   
@@ -75,6 +75,8 @@ Por ejemplo, considere dos propiedades: ciudad y país. La cardinalidad de ciuda
 ```
 
 La primera consulta probablemente usará más RU que la segunda porque la cardinalidad de ciudad es mayor que la de país.
+
+Si el tamaño de la propiedad en Contains es superior a 1 KB para algunos documentos, el motor de consulta tendrá que cargar esos documentos. En este caso, el motor de consulta no podrá evaluar totalmente Contains con un índice. El cargo de RU para Contains será alto si tiene un gran número de documentos con tamaños de propiedad superiores a 1 KB.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

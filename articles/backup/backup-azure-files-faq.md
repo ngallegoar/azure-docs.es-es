@@ -3,12 +3,12 @@ title: Preguntas frecuentes sobre la copia de seguridad de archivos de Azure
 description: En este artículo, encontrará respuestas a preguntas habituales sobre cómo proteger los recursos compartidos de archivos de Azure con el servicio Azure Backup.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 70ed8594be09ab74478f4703aa632b9ce966b5ee
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: ded1551dad1be34c116e61b9bf59f372169bca5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118005"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488705"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Preguntas acerca de la copia de seguridad de archivos de Azure
 
@@ -56,7 +56,7 @@ En cualquier momento dado, puede tener hasta 200 instantáneas de un recurso com
 
 ### <a name="can-i-recover-from-a-deleted-azure-file-share"></a>¿Se pueden recuperar los recursos compartidos de archivos de Azure eliminados?
 
-Cuando se elimina un recurso compartido de archivos de Azure, se muestra la lista de copias de seguridad que se eliminarán y se solicita una confirmación. Actualmente, no se puede restaurar un recurso compartido de archivos de Azure eliminado.
+Si el estado del recurso compartido de archivos es eliminado temporalmente, primero debe recuperar el recurso compartido de archivos para poder realizar la operación de restauración. La operación de recuperación devolverá el recurso compartido de archivos al estado activo, donde puede realizar la restauración a cualquier momento dado. Para obtener información sobre cómo recuperar el recurso compartido de archivos, visite [este vínculo](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#restore-soft-deleted-file-share) o consulte [Script para recuperar un recurso compartido de archivos](./scripts/backup-powershell-script-undelete-file-share.md). Si el recurso compartido de archivos se eliminó de forma permanente, no podrá restaurar el contenido ni las instantáneas.
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share"></a>¿Puedo restaurar las copias de seguridad si detuve la protección en un recurso compartido de archivos de Azure?
 

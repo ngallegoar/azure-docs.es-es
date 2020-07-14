@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: da5211206c12f2fe3259fcbbf196a7728c026b26
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 6a1e301b63eee348f59a1b9570c2c3ffcd78ecef
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234119"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362397"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Tutorial: Creación de un inquilino en Windows Virtual Desktop
 
@@ -78,25 +78,34 @@ Para asignar el rol de aplicación TenantCreator:
 
 1. Vaya a [Azure Portal](https://portal.azure.com) para administrar el rol de aplicación TenantCreator. Busque **Aplicaciones empresariales** y selecciónelo. Si está trabajando con varios inquilinos de Azure Active Directory, es recomendable abrir una sesión privada del explorador y copiar y pegar las direcciones URL en la barra de direcciones.
 
-   ![Captura de pantalla de la búsqueda de aplicaciones empresariales en Azure Portal](../media/azure-portal-enterprise-applications.png)
+   > [!div class="mx-imgBorder"]
+   > ![Captura de pantalla de la búsqueda de aplicaciones empresariales en Azure Portal](../media/azure-portal-enterprise-applications.png)
+
 2. En **Aplicaciones empresariales**, busque **Windows Virtual Desktop**. Verá las dos aplicaciones para las que ha dado su consentimiento en la sección anterior. De estas dos aplicaciones, seleccione **Windows Virtual Desktop**.
    
-   ![Captura de pantalla de los resultados de búsqueda al buscar "Windows Virtual Desktop" en "Aplicaciones empresariales". Se resalta la aplicación denominada "Windows Virtual Desktop".](../media/tenant-enterprise-app.png)
+   > [!div class="mx-imgBorder"]
+   > ![Captura de pantalla de los resultados de búsqueda al buscar "Windows Virtual Desktop" en "Aplicaciones empresariales". Se resalta la aplicación denominada "Windows Virtual Desktop".](../media/tenant-enterprise-app.png)
+
 3. Seleccione **Usuarios y grupos**. Es posible que vea que el administrador que concedió consentimiento a la aplicación ya aparece con el rol **Acceso predeterminado** asignado. Esto no es suficiente para crear un inquilino de Windows Virtual Desktop. Siga con estas instrucciones para agregar el rol **TenantCreator** a un usuario.
    
-   ![Captura de pantalla de los usuarios y grupos asignados para administrar la aplicación empresarial "Windows Virtual Desktop". La captura de pantalla muestra solo una asignación que es para el "Acceso predeterminado".](../media/tenant-default-access.png)
+   > [!div class="mx-imgBorder"]
+   > ![Captura de pantalla de los usuarios y grupos asignados para administrar la aplicación empresarial "Windows Virtual Desktop". La captura de pantalla muestra solo una asignación que es para el "Acceso predeterminado".](../media/tenant-default-access.png)
+
 4. Seleccione **+ Agregar usuario** y, después, **Usuarios y grupos** en la pestaña **Agregar asignación**.
 5. Busque una cuenta de usuario que cree el inquilino de Windows Virtual Desktop. Para mayor sencillez, esta puede ser la cuenta de administrador global.
    - Si utiliza un proveedor de identidades de Microsoft como contosoadmin@live.com o contosoadmin@outlook.com, es posible que no pueda iniciar sesión en Windows Virtual Desktop. Se recomienda usar una cuenta específica de dominio como admin@contoso.com o admin@contoso.onmicrosoft.com en su lugar.
 
-   ![Captura de pantalla de la selección de un usuario para agregar como "TenantCreator".](../media/tenant-assign-user.png)
+   > [!div class="mx-imgBorder"]
+   > ![Captura de pantalla de la selección de un usuario para agregar como "TenantCreator"](../media/tenant-assign-user.png).
+
    > [!NOTE]
    > Debe seleccionar un usuario (o un grupo que contiene un usuario) que tenga su origen en esta instancia de Azure Active Directory. No puede elegir un usuario invitado (B2B) o una entidad de servicio.
 
 6. Seleccione la cuenta de usuario, haga clic en el botón **Seleccionar** y, a continuación, seleccione **Asignar**.
 7. En la página **Windows Virtual Desktop - Usuarios y grupos**, compruebe que ve una nueva entrada con el rol **TenantCreator** asignado al usuario que va a crear el inquilino de Windows Virtual Desktop.
 
-   ![Captura de pantalla de los usuarios y grupos asignados para administrar la aplicación empresarial "Windows Virtual Desktop". La captura de pantalla ahora incluye una segunda entrada de un usuario asignado al rol "TenantCreator".](../media/tenant-tenant-creator-added.png)
+   > [!div class="mx-imgBorder"]
+   > ![Captura de pantalla de los usuarios y grupos asignados para administrar la aplicación empresarial "Windows Virtual Desktop". La captura de pantalla ahora incluye una segunda entrada de un usuario asignado al rol "TenantCreator".](../media/tenant-tenant-creator-added.png)
 
 Antes de continuar para crear el inquilino de Windows Virtual Desktop, necesita dos datos más:
 
@@ -106,20 +115,26 @@ Antes de continuar para crear el inquilino de Windows Virtual Desktop, necesita 
 Para buscar su identificador de inquilino de Azure Active Directory (o **identificador de directorio**):
 1. En la misma sesión de [Azure Portal](https://portal.azure.com), busque y seleccione **Azure Active Directory**.
 
-   ![Captura de pantalla de los resultados de búsqueda para "Azure Active Directory" en Azure Portal. El resultado de búsqueda en "Servicios" aparece resaltado.](../media/tenant-search-azure-active-directory.png)
+   > [!div class="mx-imgBorder"]
+   > ![Captura de pantalla de los resultados de búsqueda para "Azure Active Directory" en Azure Portal. El resultado de búsqueda en "Servicios" aparece resaltado.](../media/tenant-search-azure-active-directory.png)
+
 2. Desplácese hacia abajo hasta que encuentre **Propiedades** y, a continuación, selecciónelo.
 3. Busque el **identificador de directorio** y seleccione luego el icono del Portapapeles. Péguelo en un una ubicación práctica para que pueda usarlo más adelante como **AadTenantId**.
 
-   ![Captura de pantalla de las propiedades de Azure Active Directory. El puntero del mouse se mantiene sobre el icono del Portapapeles para copiar y pegar el identificador de directorio.](../media/tenant-directory-id.png)
+   > [!div class="mx-imgBorder"]
+   > ![Captura de pantalla de las propiedades de Azure Active Directory. El puntero se mantiene sobre el icono del Portapapeles para copiar y pegar el identificador de directorio.](../media/tenant-directory-id.png)
 
 Para buscar el identificador de suscripción de Azure:
 1. En la misma sesión de [Azure Portal](https://portal.azure.com), busque y seleccione **Suscripciones**.
    
-   ![Captura de pantalla de los resultados de búsqueda para "Azure Active Directory" en Azure Portal. El resultado de búsqueda en "Servicios" aparece resaltado.](../media/tenant-search-subscription.png)
+   > [!div class="mx-imgBorder"]
+   > ![Captura de pantalla de los resultados de búsqueda para "Azure Active Directory" en Azure Portal. El resultado de búsqueda en "Servicios" aparece resaltado.](../media/tenant-search-subscription.png)
+
 2. Seleccione la suscripción de Azure que le gustaría usar para recibir las notificaciones del servicio Windows Virtual Desktop.
 3. Busque el **identificador de suscripción** y luego mantenga el puntero sobre el valor hasta que aparezca el icono del Portapapeles. Seleccione el icono del Portapapeles y péguelo en una ubicación práctica para que pueda usarlo más adelante como el valor de **AzureSubscriptionId**.
    
-   ![Captura de pantalla de las propiedades de la suscripción de Azure. El puntero del mouse se mantiene sobre el icono del Portapapeles para copiar y pegar el identificador de suscripción.](../media/tenant-subscription-id.png)
+   > [!div class="mx-imgBorder"]
+   > ![Captura de pantalla de las propiedades de la suscripción de Azure. El puntero se mantiene sobre el icono del Portapapeles para copiar y pegar el identificador de suscripción.](../media/tenant-subscription-id.png)
 
 ## <a name="create-a-windows-virtual-desktop-tenant"></a>Creación de un inquilino de Windows Virtual Desktop
 

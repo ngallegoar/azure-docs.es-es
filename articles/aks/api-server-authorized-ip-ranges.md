@@ -4,12 +4,12 @@ description: Aprenda a proteger el clúster mediante un intervalo de direcciones
 services: container-service
 ms.topic: article
 ms.date: 11/05/2019
-ms.openlocfilehash: 45f82d5a6531b2a9584140d6ff309a799656926a
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 4d9030e21c3b8f31c18c26fc54dc76d5b8d84a17
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299577"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85100064"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Protección del acceso al servidor de API con intervalos de direcciones IP autorizadas en Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,7 @@ En este artículo se muestra cómo usar los intervalos IP autorizados por el ser
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Los intervalos de direcciones IP autorizadas por el servidor de API solo funcionan para los clústeres nuevos de AKS que cree. En este artículo se muestra cómo utilizar la CLI de Azure para crear un clúster de AKS.
+En este artículo se muestra cómo utilizar la CLI de Azure para crear un clúster de AKS.
 
 Es preciso que esté instalada y configurada la versión 2.0.76 de la CLI de Azure, o cualquier otra posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
 
@@ -36,10 +36,10 @@ Para más información sobre el servidor de API y otros componentes del clúster
 
 ## <a name="create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled"></a>Creación de un clúster de AKS con la opción de intervalos IP autorizados por el servidor de API habilitada
 
-Los intervalos IP autorizados del servidor de API solo funcionan para los nuevos clústeres de AKS y no se admiten en los clústeres de AKS privados. Cree un clúster con el comando [az aks create][az-aks-create] y especifique el parámetro *--api-server-authorized-ip-ranges* para proporcionar una lista de intervalos IP autorizados. Estos intervalos IP suelen ser intervalos de direcciones que usan las redes locales o IP públicas. Al especificar un intervalo de CIDR, comience por la primera dirección IP del intervalo. Por ejemplo, *137.117.106.90/29* es un intervalo válido, pero asegúrese de especificar la primera dirección IP del intervalo, por ejemplo, *137.117.106.88/29*.
+Los intervalos IP autorizados del servidor de API solo funcionan para los nuevos clústeres de AKS y no se admiten en los clústeres de AKS privados. Cree un clúster con el comando [az aks create][az-aks-create] y especifique el parámetro *`--api-server-authorized-ip-ranges`* para proporcionar una lista de intervalos IP autorizados. Estos intervalos IP suelen ser intervalos de direcciones que usan las redes locales o IP públicas. Al especificar un intervalo de CIDR, comience por la primera dirección IP del intervalo. Por ejemplo, *137.117.106.90/29* es un intervalo válido, pero asegúrese de especificar la primera dirección IP del intervalo, por ejemplo, *137.117.106.88/29*.
 
 > [!IMPORTANT]
-> De forma predeterminada, el clúster usa el [equilibrador de carga de SKU estándar][standard-sku-lb], que se puede usar para configurar la puerta de enlace de salida. Cuando se habilitan intervalos IP autorizados por el servidor de API durante la creación del clúster, además de los intervalos especificados también se permite de forma predeterminada la dirección IP pública del clúster. Si especifica *""* o ningún valor para *--api-server-authorized-ip-ranges*, se deshabilitarán los intervalos IP autorizados por el servidor de API. Tenga en cuenta que si usa PowerShell, debe usar *--api-server-authorized-ip-ranges=""* (con el signo igual) para evitar problemas de análisis.
+> De forma predeterminada, el clúster usa el [equilibrador de carga de SKU estándar][standard-sku-lb], que se puede usar para configurar la puerta de enlace de salida. Cuando se habilitan intervalos IP autorizados por el servidor de API durante la creación del clúster, además de los intervalos especificados también se permite de forma predeterminada la dirección IP pública del clúster. Si especifica *""* o ningún valor para *`--api-server-authorized-ip-ranges`* , se deshabilitarán los intervalos IP autorizados por el servidor de API. Tenga en cuenta que si usa PowerShell, debe usar *`--api-server-authorized-ip-ranges=""`* (con el signo igual) para evitar problemas de análisis.
 
 En el siguiente ejemplo se crea un clúster de nodo único denominado *myAKSCluster* en el grupo de recursos denominado *myResourceGroup*, con la opción de intervalos IP autorizados por el servidor de API habilitada. Los intervalos de direcciones IP permitidos son *73.140.245.0/24*:
 
@@ -78,13 +78,13 @@ az aks create \
     --generate-ssh-keys
 ```
 
-En el ejemplo anterior, se permiten todas las direcciones IP incluidas en el parámetro *--load-balancer-outbound-ip-prefixes*, junto con las direcciones IP del parámetro *--api-server-authorized-ip-ranges*.
+En el ejemplo anterior, todas las direcciones IP proporcionadas en el parámetro *`--load-balancer-outbound-ip-prefixes`* están permitidas, junto con las direcciones IP en el parámetro *`--api-server-authorized-ip-ranges`* .
 
-Como alternativa, puede especificar el parámetro *--load-balancer-outbound-ip-prefixes* para permitir prefijos de direcciones IP del equilibrador de carga de salida.
+También puede especificar el parámetro *`--load-balancer-outbound-ip-prefixes`* para permitir prefijos de direcciones IP del equilibrador de carga de salida.
 
 ### <a name="allow-only-the-outbound-public-ip-of-the-standard-sku-load-balancer"></a>Permiso solo para la dirección IP pública de salida del equilibrador de carga de SKU estándar
 
-Cuando se habilitan intervalos IP autorizados por el servidor de API durante la creación del clúster, además de los intervalos especificados también se permite la dirección IP pública de salida para el equilibrador de carga de SKU estándar para el clúster. Para permitir solo la dirección IP pública de salida del equilibrador de carga de SKU estándar, use *0.0.0.0/32* al especificar el parámetro *--api-server-authorized-ip-ranges*.
+Cuando se habilitan intervalos IP autorizados por el servidor de API durante la creación del clúster, además de los intervalos especificados también se permite la dirección IP pública de salida para el equilibrador de carga de SKU estándar para el clúster. Para permitir solo la dirección IP pública de salida del equilibrador de carga de SKU estándar, use *0.0.0.0/32* al especificar el parámetro *`--api-server-authorized-ip-ranges`* .
 
 En el ejemplo siguiente, solo se permite la dirección IP pública de salida del equilibrador de carga de SKU estándar y solo se puede acceder al servidor de API desde los nodos del clúster.
 
@@ -101,7 +101,7 @@ az aks create \
 
 ## <a name="update-a-clusters-api-server-authorized-ip-ranges"></a>Actualización de los intervalos IP autorizados por el servidor de API de un clúster
 
-Para actualizar los intervalos IP autorizados por el servidor de API en un clúster existente, use el comando [az aks update][az-aks-update] y los parámetros *--api-server-authorized-ip-ranges*, *--load-balancer-outbound-ip-prefixes*, *--load-balancer-outbound-ips* o *--load-balancer-outbound-ip-prefixes*.
+Para actualizar los intervalos IP autorizados por el servidor de API en un clúster existente, use el comando [az aks update][az-aks-update] y los parámetros *`--api-server-authorized-ip-ranges`* ,--load-balancer-outbound-ip-prefixes *, *`--load-balancer-outbound-ips`* y or--load-balancer-outbound-ip-prefixes*.
 
 En el siguiente ejemplo se actualizan los intervalos IP autorizados por el servidor de API en el clúster denominado *myAKSCluster* del grupo de recursos denominado *myResourceGroup*. El intervalo de direcciones IP que se va a autorizar es *73.140.245.0/24*:
 
@@ -112,7 +112,7 @@ az aks update \
     --api-server-authorized-ip-ranges  73.140.245.0/24
 ```
 
-También puede usar *0.0.0.0/32* al especificar el parámetro *--api-server-authorized-ip-ranges* para permitir solo la dirección IP pública del equilibrador de carga de SKU estándar.
+También puede usar *0.0.0.0/32* al especificar el parámetro *`--api-server-authorized-ip-ranges`* para permitir solo la dirección IP pública del equilibrador de carga de SKU estándar.
 
 ## <a name="disable-authorized-ip-ranges"></a>Deshabilitación de los intervalos IP autorizados
 

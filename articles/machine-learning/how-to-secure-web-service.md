@@ -5,18 +5,18 @@ description: Más información sobre cómo habilitar HTTPS con el fin de protege
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: a58b0120feaba907c62bc646f4f85d9185227fed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb766a81cda822377eeda09cab75d19111523bef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80287346"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84432864"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Uso de TLS para proteger un servicio web con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -87,7 +87,7 @@ Cuando se implementa en AKS, puede crear un nuevo clúster de AKS o asociar uno 
 
 El método **enable_ssl** puede usar un certificado proporcionado por Microsoft o que adquiera.
 
-  * Cuando se usa un certificado de Microsoft, debe usar el parámetro *leaf_domain_label*. Este parámetro genera el nombre DNS para el servicio. Por ejemplo, el valor "contoso" crea el nombre de dominio "contoso\<seis-caracteres-aleatorios>.\<regiónAzure>.cloudapp.azure.com", donde \<regiónAzure> es la región que contiene el servicio. Si lo desea, puede usar el parámetro *overwrite_existing_domain* para sobrescribir el *leaf_domain_label* existente.
+  * Cuando se usa un certificado de Microsoft, debe usar el parámetro *leaf_domain_label*. Este parámetro genera el nombre DNS para el servicio. Por ejemplo, el valor "contoso" crea el nombre de dominio "contoso\<six-random-characters>.\<azureregion>.cloudapp.azure.com", donde \<azureregion> es la región que contiene el servicio. Si lo desea, puede usar el parámetro *overwrite_existing_domain* para sobrescribir el *leaf_domain_label* existente.
 
     Para implementar (o volver a implementar) el servicio con el protocolo TLS habilitado, establezca el parámetro *ssl_enabled* en "True", cuando proceda. Establezca el parámetro *ssl_certificate* en el valor del archivo *certificate*. Establezca *ssl_key* en el valor del archivo *key*.
 
@@ -172,6 +172,10 @@ Los certificados TLS/SSL expiran y se deben renovar. Normalmente esto sucede cad
 
 Si Microsoft generó el certificado originalmente (al utilizar *leaf_domain_label* para crear el servicio), use uno de los ejemplos siguientes para actualizar el certificado:
 
+> [!IMPORTANT]
+> * Si el certificado existente sigue siendo válido, use `renew=True` (SDK) o `--ssl-renew` (CLI) para forzar que la configuración lo renueve. Por ejemplo, si el certificado existente sigue siendo válido durante 10 días y no usa `renew=True`, es posible que el certificado no se renueve.
+> * Cuando el servicio se implementó originalmente, `leaf_domain_label` se usa para crear un nombre DNS con el patrón `<leaf-domain-label>######.<azure-region>.cloudapp.azure.net`. Para conservar el nombre existente (incluidos los 6 dígitos generados originalmente), use el valor `leaf_domain_label` original. No incluya los 6 dígitos que se generaron.
+
 **Uso del SDK**
 
 ```python
@@ -183,7 +187,7 @@ from azureml.core.compute.aks import SslConfiguration
 aks_target = AksCompute(ws, clustername)
 
 # Update the existing certificate by referencing the leaf domain label
-ssl_configuration = SslConfiguration(leaf_domain_label="myaks", overwrite_existing_domain=True)
+ssl_configuration = SslConfiguration(leaf_domain_label="myaks", overwrite_existing_domain=True, renew=True)
 update_config = AksUpdateConfiguration(ssl_configuration)
 aks_target.update(update_config)
 ```
@@ -191,7 +195,7 @@ aks_target.update(update_config)
 **Uso de la CLI**
 
 ```azurecli
-az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-leaf-domain-label "myaks" --ssl-overwrite-domain True
+az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-leaf-domain-label "myaks" --ssl-overwrite-domain True --ssl-renew
 ```
 
 Para más información, consulte los siguientes documentos de referencia:

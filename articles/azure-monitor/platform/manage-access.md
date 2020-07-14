@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 1e86317999a34e4ab4cb94f93fb788e3e7314cea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2fcf3b4c91e87453e2cf605eb717b75ed7d64d95
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193061"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85105932"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Administración del acceso a los datos de registro y las áreas de trabajo en Azure Monitor
 
@@ -20,14 +20,16 @@ Azure Monitor almacena datos de [registro](data-platform-logs.md) en un área de
 En este artículo se explica cómo administrar el acceso a los registros y cómo administrar las áreas de trabajo que los contienen, lo que incluye cómo conceder acceso a: 
 
 * El área de trabajo mediante los permisos del área de trabajo.
-* Los usuarios que necesitan acceder a los datos de registro desde recursos concretos mediante el control de acceso basado en rol (RBAC) de Azure.
+* Los usuarios que necesitan acceder a los datos de registro de recursos concretos mediante el control de acceso basado en rol (RBAC) de Azure, también conocido como [contexto del recurso](design-logs-deployment.md#access-mode).
 * Los usuarios que necesitan acceder a los datos de registro de una tabla específica del área de trabajo mediante Azure RBAC.
+
+Para comprender los conceptos de registros relacionados con las estrategias de acceso y RBAC, consulte [Diseño de la implementación de registros de Azure Monitor](design-logs-deployment.md)
 
 ## <a name="configure-access-control-mode"></a>Configuración del modo de control de acceso
 
 Puede ver el [modo de control de acceso](design-logs-deployment.md) configurado en un área de trabajo desde Azure Portal o con Azure PowerShell.  Puede cambiar esta configuración con uno de estos métodos compatibles:
 
-* Azure Portal
+* Azure portal
 
 * Azure PowerShell
 
@@ -268,6 +270,18 @@ Para crear un rol con acceso solo a la tabla _SecurityBaseline_, cree un rol per
     "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
 ],
 ```
+Los ejemplos anteriores definen una lista blanca de las tablas que están permitidas. En este ejemplo se muestra la definición de la lista negra cuando un usuario puede tener acceso a todas las tablas, salvo la tabla _SecurityAlert_:
+
+```
+"Actions":  [
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/*/read"
+],
+"notActions":  [
+    "Microsoft.OperationalInsights/workspaces/query/SecurityAlert/read"
+],
+```
 
 ### <a name="custom-logs"></a>Registros personalizados
 
@@ -290,7 +304,7 @@ A veces, los registros personalizados proceden de orígenes que no están direct
 
 * Si se concede a un usuario permiso de lectura global con los roles Lector o Colaborador estándar que incluyen la acción _\*/read_, invalidará el control de acceso por tabla y les otorgará acceso a todos los datos de registro.
 * Si se concede a un usuario el permiso de acceso para cada tabla, pero ningún otro, los usuarios podrían acceder a los datos de registro de la API, pero no desde Azure Portal. Para proporcionar acceso desde Azure Portal, use Lector de Log Analytics como su rol base.
-* Los administradores de la suscripción tendrán acceso a todos los tipos de datos, independientemente de cualquier otra configuración de permisos.
+* Los administradores y propietarios de la suscripción tendrán acceso a todos los tipos de datos, independientemente de cualquier otra configuración de permisos.
 * Los propietarios del área de trabajo son tratados como cualquier otro usuario para controlar el acceso por tabla.
 * Se recomienda asignar roles a los grupos de seguridad en lugar de usuarios individuales para reducir el número de asignaciones. Esto también le ayudará a usar las herramientas de administración de grupo existentes para configurar y comprobar el acceso.
 

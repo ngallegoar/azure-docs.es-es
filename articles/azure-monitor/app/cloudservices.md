@@ -4,10 +4,10 @@ description: Supervisión de los roles web y de trabajo de manera eficaz con App
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.openlocfilehash: 17813d17a1c40caac5587e37e279be6376992b90
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537600"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para Azure Cloud Services
@@ -15,7 +15,7 @@ ms.locfileid: "81537600"
 
 ![Panel de información general](./media/cloudservices/overview-graphs.png)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de comenzar, necesitará lo siguiente:
 
 * Una suscripción a [Azure](https://azure.com). Inicie sesión con una cuenta Microsoft para Windows, Xbox Live u otros servicios en la nube de Microsoft. 
@@ -82,7 +82,7 @@ Cada recurso se identifica con una clave de instrumentación. Podría necesitar 
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Configuración de Diagnósticos de Azure para cada rol
 Establezca esta opción para supervisar la aplicación con Application Insights. Para los roles web, esta opción permite la supervisión del rendimiento, alertas y diagnósticos, así como el análisis del uso. Para otros roles, puede buscar y supervisar Azure Diagnostics, como el reinicio, los contadores de rendimiento y las llamadas a System.Diagnostics.Trace. 
 
-1. En el Explorador de soluciones de Visual Studio, en **\<YourCloudService>**  > **Roles**, abra las propiedades de cada rol.
+1. En el Explorador de soluciones de Visual Studio, en **\<YourCloudService>**  > **Roles**, abra las propiedades de cada rol.
 
 1. En **Configuración**, seleccione la casilla **Enviar datos de diagnóstico a Application Insights** y seleccione el recurso de Application Insights adecuado que creó anteriormente.
 

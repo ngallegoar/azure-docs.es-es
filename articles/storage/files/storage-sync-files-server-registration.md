@@ -3,16 +3,16 @@ title: Administración de servidores registrados con Azure File Sync | Microsoft
 description: Aprenda a registrar y anular el registro de una instancia de Windows Server con un servicio de sincronización de almacenamiento de Azure File Sync.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2656716560b981481273c3032fc0c7b1a06be8a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c457dacd947c7af8a6be94205ed135ce04a49a06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228276"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509513"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Administración de servidores registrados con Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello, transforma los servidores de Windows Server en una caché rápida del recurso compartido de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
@@ -22,7 +22,7 @@ En el artículo siguiente se ilustra cómo registrar y administrar un servidor c
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Registro y anulación del registro de un servidor con el servicio de sincronización de almacenamiento
 Al registrar un servidor con Azure File Sync se establece una relación de confianza entre Windows Server y Azure. A continuación, se puede usar esta relación para crear *puntos de conexión de servidor* en el servidor, que representan carpetas concretas que deben sincronizarse con un recurso compartido de archivos de Azure (también conocido como *punto de conexión de nube*). 
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Requisitos previos
 Para registrar un servidor con un servicio de sincronización de almacenamiento, debe preparar el servidor con los requisitos previos necesarios:
 
 * El servidor debe ejecutar una versión compatible de Windows Server. Para más información, consulte [Requisitos del sistema de Azure File Sync e interoperabilidad](storage-sync-files-planning.md#windows-file-server-considerations).
@@ -76,9 +76,6 @@ Antes de usar un servidor como *punto de conexión del servidor* en un *grupo de
 > Si el servidor es miembro de un clúster de conmutación por error, el agente de Azure File Sync se deberá instalar en cada nodo del clúster.
 
 #### <a name="register-the-server-using-the-server-registration-ui"></a>Registro del servidor mediante la interfaz de usuario de registro del servidor
-> [!Important]  
-> Las suscripciones del proveedor de soluciones en la nube (CSP) no pueden utilizar la interfaz de usuario de registro del servidor. En su lugar, use PowerShell (debajo de esta sección).
-
 1. Si la interfaz de usuario de registro del servidor no se inició inmediatamente después de finalizar la instalación del agente de Azure File Sync, se puede iniciar manualmente ejecutando `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`.
 2. Haga clic en *Iniciar sesión* para acceder a la suscripción de Azure. 
 
@@ -96,7 +93,7 @@ Antes de usar un servidor como *punto de conexión del servidor* en un *grupo de
 > Si el servidor es miembro de un clúster de conmutación por error, cada servidor debe ejecutar el registro de servidor. Cuando ve los servidores registrados en Azure Portal, Azure File Sync reconoce automáticamente cada nodo como miembro del mismo clúster de conmutación por error y los agrupa de la manera adecuada.
 
 #### <a name="register-the-server-with-powershell"></a>Registro del servidor con PowerShell
-También puede realizar el registro del servidor a través de PowerShell. Esta es la única forma admitida de registrar el servidor para las suscripciones del proveedor de soluciones en la nube (CSP):
+También puede realizar el registro del servidor a través de PowerShell. 
 
 ```powershell
 Register-AzStorageSyncServer -ResourceGroupName "<your-resource-group-name>" -StorageSyncServiceName "<your-storage-sync-service-name>"
@@ -161,7 +158,7 @@ Puesto que Azure File Sync rara vez será el único servicio en ejecución en el
 Puede limitar el uso que hace Azure File Sync de la red mediante los cmdlets `StorageSyncNetworkLimit`.
 
 > [!Note]  
-> Los límites de red no se aplican cuando se accede a un archivo en niveles o se usa el cmdlet Invoke-StorageSyncFileRecall.
+> Los límites de red no se aplican cuando se tiene acceso a un archivo en capas.
 
 Por ejemplo, puede crear un nuevo límite del regulador de carga de trabajo para asegurarse de que Azure File Sync no utiliza más de 10 Mbps entre las 9 a. m. y las 5 p. m. (17:00 h) durante la semana laboral: 
 

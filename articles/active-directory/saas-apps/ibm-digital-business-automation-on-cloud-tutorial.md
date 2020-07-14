@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f33992c7aa205e503c7de150adad7180ff823881
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: c0a8185d81966932c17fd3b0590b5f8ef2f7b6df
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85099664"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85479800"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ibm-digital-business-automation-on-cloud"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con IBM Digital Business Automation on Cloud
 
@@ -93,7 +93,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > Si los valores **Identificador** y **Dirección URL de respuesta** no se rellenan automáticamente, hágalo manualmente según sus necesidades.
 
     > [!Note]
-    > Los clientes pueden obtener el archivo de metadatos de su suscripción de nube del [equipo de DBAoC DevOps](mailto:supportbpmoncloud@us.ibm.com).
+    > Los clientes pueden obtener el archivo de metadatos de su suscripción en la nube del [equipo de soporte técnico de IBM Digital Business Automation on Cloud](mailto:supportbpmoncloud@us.ibm.com).
 
 1. Si no tiene el **archivo de metadatos del proveedor de servicios** en la sección **Configuración básica de SAML** y desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
 

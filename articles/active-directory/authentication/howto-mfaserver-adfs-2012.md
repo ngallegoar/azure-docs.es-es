@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2777675d915d99b8c0e3c2a123b24ab60d41f672
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80653366"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Configuración del Servidor Azure Multi-Factor Authentication para trabajar con AD FS en Windows Server
@@ -84,7 +84,7 @@ En este punto, Servidor Multi-Factor Authentication está configurado para ser u
 Siga estos pasos para editar el archivo MultiFactorAuthenticationAdfsAdapter.config:
 
 1. Establezca el nodo **UseWebServiceSdk** en **true**.  
-2. Establezca el valor de **WebServiceSdkUrl** en la dirección URL del SDK del Servicio web Multi-Factor Authentication. Por ejemplo: *https:\/\/contoso.com/\<certificatename>/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, donde *\<certificatename>* es el nombre del certificado.  
+2. Establezca el valor de **WebServiceSdkUrl** en la dirección URL del SDK del Servicio web Multi-Factor Authentication. Por ejemplo, *https:\/\/contoso.com/\<certificatename>/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, donde *\<certificatename>* es el nombre del certificado.  
 3. Edite el script Register-MultiFactorAuthenticationAdfsAdapter.ps1 agregando `-ConfigurationFilePath &lt;path&gt;` al final del comando `Register-AdfsAuthenticationProvider`, donde *&lt;path&gt;* es la ruta de acceso completa al archivo MultiFactorAuthenticationAdfsAdapter.config.
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>Configuración del SDK del servicio web con nombre de usuario y contraseña

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: srchi
-ms.openlocfilehash: f00acf3580130d85d6eaeaee4d52eb748d20aa7b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a6f486f15fb5967dfb14508115e2340e4953be81
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656626"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85116033"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>¿Qué es el almacén analítico de Azure Cosmos DB (versión preliminar)?
 
@@ -44,7 +44,7 @@ En general, las cargas de trabajo analíticas implican agregaciones y exámenes 
 
 Por ejemplo, si las tablas operativas se encuentran en el formato siguiente:
 
-![Tabla operativa de ejemplo](./media/analytical-store-introduction/sample-operational-data-table.png)
+:::image type="content" source="./media/analytical-store-introduction/sample-operational-data-table.png" alt-text="Tabla operativa de ejemplo" border="false":::
 
 El almacén de filas conserva los datos anteriores en un formato serializado, por fila, en el disco. Este formato permite lecturas y escrituras transaccionales y consultas operativas más rápidas, como "Devolver información sobre Product1". Sin embargo, a medida que el conjunto de datos crece en gran medida y si desea ejecutar consultas analíticas complejas con los datos, esto puede ser caro. Por ejemplo, si desea obtener "las tendencias de ventas de un producto en la categoría denominada 'Equipment' en diferentes unidades de negocio y meses", debe ejecutar una consulta compleja. Los análisis de gran tamaño de este conjunto de datos pueden resultar caros en cuanto al rendimiento aprovisionado, además de poder afectar al rendimiento de las cargas de trabajo transaccionales que potencian sus aplicaciones y servicios en tiempo real.
 
@@ -52,7 +52,7 @@ El almacén analítico, que es un almacén de columnas, es más adecuado para es
 
 En la imagen siguiente se muestra el almacén de filas transaccional frente el almacén de columnas analítico en Azure Cosmos DB:
 
-![Almacén de filas transaccional frente al almacén de columnas analítico en Azure Cosmos DB](./media/analytical-store-introduction/transactional-analytical-data-stores.png)
+:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Almacén de filas transaccional frente al almacén de columnas analítico en Azure Cosmos DB" border="false":::
 
 ### <a name="decoupled-performance-for-analytical-workloads"></a>Rendimiento desacoplado para cargas de trabajo analíticas
 

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 63e00f3ce971e2c21e684d743429ee1b09497393
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 268295ce86a9323a1f7ae16bbfcbd4e78367c3a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82230790"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203629"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de proveedor de identidades de SAML en una directiva personalizada en Azure Active Directory B2C
 
@@ -72,7 +72,7 @@ Para cifrar la aserción de respuesta SAML:
 
 En el ejemplo siguiente se muestra la sección de cifrado del perfil técnico de Azure AD B2C de los metadatos:
 
-```XML
+```xml
 <KeyDescriptor use="encryption">
   <KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#">
     <X509Data>
@@ -97,7 +97,7 @@ Para leer la aserción SAML **NamedId** en **Subject** como si fuera una notific
 
 Aserción SAML: 
 
-```XML
+```xml
 <saml:Subject>
   <saml:NameID SPNameQualifier="http://your-idp.com/unique-identifier" Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient">david@contoso.com</saml:NameID>
     <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
@@ -109,7 +109,7 @@ Aserción SAML:
 
 Notificación de salida:
 
-```XML
+```xml
 <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="http://your-idp.com/unique-identifier" />
 ```
 
@@ -120,7 +120,7 @@ El ejemplo siguiente muestra las notificaciones devueltas por el proveedor de id
 - La notificación **issuerUserId** se asigna a la notificación **assertionSubjectName**.
 - La notificación **first_name** se asigna a la notificación **givenName**.
 - La notificación **last_name** se asigna a la notificación **surname**.
-- La notificación **displayName** sin asignación de nombre.
+- La notificación **displayName** se asigna a la notificación **name**.
 - La notificación **email** sin asignación de nombre.
 
 El perfil técnico también muestra la notificaciones no proporcionadas por el proveedor de identidades:

@@ -4,18 +4,18 @@ description: Más información sobre el impacto que tienen las directivas de pri
 services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
-ms.topic: article
-ms.date: 04/24/2020
-ms.openlocfilehash: 590ad6a52d768c7e59d8d97691e146205e43cadd
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.topic: conceptual
+ms.date: 06/05/2020
+ms.openlocfilehash: 384335898c7cd6b379c6107152b49e9931cf513a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628715"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85194982"
 ---
 # <a name="data-security-and-privacy-policies-for-google-connectors-in-azure-logic-apps"></a>Directivas de privacidad y seguridad de datos para conectores de Google en Azure Logic Apps
 
-A partir del **1 de mayo de 2020**, los cambios debidos a las [directivas de privacidad y seguridad de datos](https://www.blog.google/technology/safety-security/project-strobe/) de Google pueden afectar a los flujos de trabajo de aplicaciones lógicas que usan el [conector de Gmail](https://docs.microsoft.com/connectors/gmail/). Si las aplicaciones lógicas usan el conector de Gmail con una cuenta de consumidor de Gmail (dirección de correo electrónico que termina con @gmail.com o @googlemail.com), las aplicaciones lógicas solo pueden usar [desencadenadores, acciones y conectores aprobados por Google](#approved-connectors) concretos. 
+A partir del **1 de mayo de 2020**, los cambios debidos a las [directivas de privacidad y seguridad de datos](https://www.blog.google/technology/safety-security/project-strobe/) de Google pueden afectar a los flujos de trabajo de aplicaciones lógicas que usan el [conector de Gmail](https://docs.microsoft.com/connectors/gmail/). Si las aplicaciones lógicas usan el conector de Gmail con una cuenta de consumidor de Gmail (dirección de correo electrónico que termina con @gmail.com o @googlemail.com), las aplicaciones lógicas solo pueden usar [desencadenadores, acciones y conectores aprobados por Google](#approved-connectors) concretos.
 
 > [!NOTE]
 > Si las aplicaciones lógicas usan el conector de Gmail con una cuenta de negocio de G-Suite (dirección de correo con un dominio personalizado), las aplicaciones lógicas no se ven afectadas y no tienen restricciones en el uso del conector de Gmail.
@@ -36,11 +36,31 @@ En esta directiva, cuando se usa una cuenta de consumidor de Gmail, puede usar e
 
 * Desencadenadores y acciones integrados de Logic Apps: Batch, control, operaciones de datos, fecha y hora, archivo plano, Liquid, solicitud, programación, variables y XML.
 
+  Los desencadenadores y acciones integrados que no están aprobados por Google, como los de HTTP, Azure Functions, Azure Logic Apps y otros, hacen que una aplicación lógica no sea compatible con el conector de Gmail, ya que la aplicación puede enviar o recibir datos desde cualquier lugar.
+
 * Servicios de Google: Gmail, Google Calendar, Contactos de Google, Google Drive, Hojas de cálculo de Google y Tareas de Google.
 
 * Servicios de Microsoft aprobados: Dynamics 365, Excel Online, Microsoft Teams, Office 365, OneDrive y SharePoint Online.
 
 * Conectores para orígenes de datos administrados por el cliente: FTP, RSS, SFTP, SMTP y SQL Server.
+
+## <a name="non-compliant-examples"></a>Ejemplos no compatibles
+
+Estos son algunos ejemplos que usan el conector de Gmail con desencadenadores y acciones integrados o conectores administrados que no están aprobados por Google:
+
+* Esta aplicación lógica usa el conector de Gmail con el desencadenador integrado de HTTP:
+
+  ![Aplicación lógica no compatible: ejemplo 1](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-1.png)
+  
+  La aplicación lógica también usa el conector de Google Calendar, que está aprobado.
+
+* Esta aplicación lógica usa el conector de Gmail con el conector de Azure Blob Storage:
+
+  ![Aplicación lógica no compatible: ejemplo 2](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-2.png)
+
+* Esta aplicación lógica usa el conector de Gmail con el conector de Twitter:
+
+  ![Aplicación lógica no compatible: ejemplo 3](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-3.png)
 
 Para obtener la información más reciente, consulte la [documentación de referencia técnica del conector de Gmail](https://docs.microsoft.com/connectors/gmail/).
 

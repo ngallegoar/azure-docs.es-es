@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: apseth, divswa, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: f2a5ad78ecf4bf02e84b9bf2e37fea13c708e072
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: bd6b05489d13f835de4dce2aa3d885132285efca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142836"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987611"
 ---
 # <a name="send-related-messages-in-order-by-using-a-sequential-convoy-in-azure-logic-apps-with-azure-service-bus"></a>Envío de mensajes relacionados en orden mediante un convoy secuencial en Azure Logic Apps con Azure Service Bus
 
@@ -249,7 +249,7 @@ Este [bucle **Until**](../logic-apps/logic-apps-control-flow-loops.md#until-loop
 1. Proporcione el nombre de la cola de Service Bus en la acción de Service Bus **Get additional messages from session** (Obtener mensajes adicionales de la sesión). De lo contrario, mantenga todos los demás valores predeterminados de propiedad de la acción.
 
    > [!NOTE]
-   > De forma predeterminada, el número máximo de mensajes se establece en `175`, pero las propiedades de tamaño de mensaje y tamaño máximo de mensaje de Service Bus afectan este límite. Actualmente, este límite es de 256 KB para el nivel Estándar y 1 MB para el Premium.
+   > De forma predeterminada, el número máximo de mensajes se establece en `175`, pero las propiedades de tamaño de mensaje y tamaño máximo de mensaje de Service Bus afectan este límite. Para más información, consulte [Tamaño de mensaje para una cola](../service-bus-messaging/service-bus-quotas.md).
 
    ![Acción de Service Bus: "Get additional messages from session" (Obtener mensajes adicionales de la sesión)](./media/send-related-messages-sequential-convoy/get-additional-messages-from-session.png)
 

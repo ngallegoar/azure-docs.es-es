@@ -15,21 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 3acc2c271e590bddb13aaa01498f404da4340036
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a8aaa82a3913bcafbe8f86b85d63c39d44f08ac9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77058466"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84323763"
 ---
 # <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Tutorial: Configuración de Dropbox for Business para el aprovisionamiento automático de usuarios
 
 El objetivo de este tutorial es mostrar los pasos que se realizan en Dropbox Business y Azure Active Directory (Azure AD) para configurar Azure AD con el objetivo de aprovisionar y desaprovisionar automáticamente usuarios o grupos en Dropbox Business.
 
+> [!IMPORTANT]
+> Microsoft y Dropbox dejarán de usar la antigua integración de Dropbox, lo cual entrará en vigor el 4 de enero de 2021. Para evitar la interrupción del servicio, se recomienda migrar a la nueva integración de Dropbox que admite grupos. Para migrar a la nueva integración de Dropbox, agregue y configure una nueva instancia de Dropbox para el aprovisionamiento en el inquilino de Azure AD, siguiendo los pasos que se indican a continuación. Una vez configurada la nueva integración de Dropbox, deshabilite el aprovisionamiento en la integración de Dropbox antigua para evitar conflictos de aprovisionamiento.
+
 > [!NOTE]
 > Este tutorial describe un conector que se crea sobre el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 

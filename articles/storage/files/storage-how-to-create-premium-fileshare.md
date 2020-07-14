@@ -3,23 +3,23 @@ title: Creación de un recurso compartido de archivos de Azure premium
 description: En este artículo, obtendrá información sobre cómo crear un recurso compartido de archivos de Azure premium.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7680a28b165dc252159cf95311439508d3c867e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae40f94ca6c8c0b92c85a49e634aa02c81a98eff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79529114"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509989"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Procedimientos para crea un recurso compartido de archivos de Azure premium
 Los recursos compartidos de archivos Premium se ofrecen en medios de almacenamiento de discos de estado sólido (SSD) y son útiles para cargas de trabajo de E/S intensiva, incluido el hospedaje de bases de datos y de informática de alto rendimiento (HPC). Los recursos compartidos de archivos Premium se hospedan en un tipo de cuenta de almacenamiento de propósito especial denominada cuenta FileStorage. Los recursos compartidos de archivos Premium están diseñados para aplicaciones de alto rendimiento y escala empresarial, que proporcionan recursos compartidos coherentes de baja latencia, IOPS alta y alto rendimiento.
 
 En este artículo se muestra cómo crear este nuevo tipo de cuenta con [Azure Portal](https://portal.azure.com/), Azure PowerShell y la CLI de Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Para acceder a recursos de Azure, como los recursos compartidos de archivos de Azure Premium, necesitará una suscripción de Azure. Si todavía no tiene una suscripción, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -46,6 +46,9 @@ Cada cuenta de almacenamiento debe pertenecer a un grupo de recursos de Azure. U
 1. Después, escriba un nombre para la cuenta de almacenamiento. El nombre que elija debe ser único en Azure. El nombre debe tener también una longitud de entre 3 y 24 caracteres y solo puede contener números y letras minúsculas.
 1. Seleccione una ubicación para la cuenta de almacenamiento o utilice la ubicación predeterminada.
 1. En **Rendimiento**, seleccione **Premium**.
+
+    Debe seleccionar **Premium** para que **FileStorage** sea una opción disponible en la lista desplegable **Tipo de cuenta**.
+
 1. Seleccione **Tipo de cuenta** y elija **FileStorage**.
 1. Mantenga la opción **Replicación** establecida en su valor predeterminado de **Almacenamiento con redundancia local (LRS)** .
 

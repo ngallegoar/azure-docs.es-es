@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: bf69786f56f52874bd9358ae44a6b88b466e77f4
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81677455"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Proceso de ciencia de datos en equipos en acción: Uso de clústeres de Azure HDInsight Hadoop
@@ -88,11 +88,11 @@ Para copiar el conjunto de datos [NYC Taxi Trips](https://www.andresmh.com/nycta
 
 Aquí se describe cómo utilizar AzCopy para transferir los archivos que contienen datos. Para descargar e instalar AzCopy, siga las indicaciones de [Introducción a la utilidad de línea de comandos AzCopy](../../storage/common/storage-use-azcopy.md).
 
-1. Desde una ventana de símbolo del sistema, ejecute los siguientes comandos de AzCopy, reemplazando *\<ruta_a_carpeta_datos>* por el destino deseado:
+1. Desde una ventana de símbolo del sistema, ejecute los siguientes comandos de AzCopy, donde debe reemplazar *\<path_to_data_folder>* por el destino deseado:
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-1. Cuando se haya completado la copia, verá un total de 24 archivos comprimidos en la carpeta de datos elegida. Descomprima los archivos descargados en el mismo directorio del equipo local. Tome nota de la carpeta donde se encuentran los archivos sin comprimir. En lo sucesivo, se hará referencia a esta carpeta como *\<ruta\_a\_archivos_datos_sin\_comprimir\>* .
+1. Cuando se haya completado la copia, verá un total de 24 archivos comprimidos en la carpeta de datos elegida. Descomprima los archivos descargados en el mismo directorio del equipo local. Tome nota de la carpeta donde se encuentran los archivos sin comprimir. En lo sucesivo, esta carpeta se conoce como *\<path\_to\_unzipped_data\_files\>* .
 
 ## <a name="upload-the-data-to-the-default-container-of-the-hdinsight-hadoop-cluster"></a><a name="upload"></a>Carga de los datos en el contenedor predeterminado del clúster de Hadoop de HDInsight.
 > [!NOTE]
@@ -102,10 +102,10 @@ Aquí se describe cómo utilizar AzCopy para transferir los archivos que contien
 
 En los siguientes comandos de AzCopy, reemplace los siguientes parámetros con los valores reales que se especificó al crear el clúster de Hadoop y descomprimir los archivos de datos.
 
-* ***\<<ruta_a_carpeta_datos>***: el directorio (junto con la ruta de acceso) de la máquina que contiene los archivos de datos sin comprimir.  
-* ***\<nombre de la cuenta de almacenamiento del clúster de Hadoop>***: cuenta de almacenamiento asociada a su clúster de HDInsight.
-* ***\<contenedor predeterminado del clúster de Hadoop>***: contenedor predeterminado que usa el clúster. El nombre del contenedor predeterminado suele ser el mismo que el del propio clúster. Por ejemplo, si el clúster se llama "abc123.azurehdinsight.net", el contenedor predeterminado es abc123.
-* ***\<clave de la cuenta de almacenamiento>***: clave para la cuenta de almacenamiento usada por el clúster.
+* ***\<path_to_data_folder>***: el directorio (junto con la ruta de acceso) de la máquina que contiene los archivos de datos sin comprimir.  
+* ***\<storage account name of Hadoop cluster>***: cuenta de almacenamiento asociada al clúster de HDInsight.
+* ***\<default container of Hadoop cluster>***: contenedor predeterminado utilizado por el clúster. El nombre del contenedor predeterminado suele ser el mismo que el del propio clúster. Por ejemplo, si el clúster se llama "abc123.azurehdinsight.net", el contenedor predeterminado es abc123.
+* ***\<storage account key>***: clave para la cuenta de almacenamiento usada por el clúster.
 
 Desde un símbolo del sistema o una ventana de Windows PowerShell, ejecute los dos comandos siguientes de AzCopy.
 

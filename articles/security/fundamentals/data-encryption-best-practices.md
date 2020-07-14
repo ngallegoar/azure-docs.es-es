@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: c5bf62f434b2095f7200b5562c38c252a0195c5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1b6fcf38f9f69976e6ed8d64040cfbcf44f090e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79224708"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85124058"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Procedimientos recomendados de cifrado y seguridad de datos en Azure
 En este artículo se describen los procedimientos recomendados para el cifrado y la seguridad de datos.
@@ -121,7 +121,7 @@ Es recomendable controlar y proteger el correo electrónico, los documentos y lo
 
 Es posible identificar la clasificación en todo momento, independientemente de dónde se almacenan los datos o con quién se comparten. Las etiquetas incluyen distintivos visuales, como un encabezado, pie de página o marca de agua. Se agregan metadatos a los archivos y encabezados de correo electrónico en texto no cifrado. El texto no cifrado garantiza que otros servicios, como las soluciones para evitar la pérdida de datos, puedan identificar la clasificación y tomar las medidas adecuadas.
 
-La tecnología de protección usa Azure Rights Management (Azure RMS). Esta tecnología está integrada con otras aplicaciones y servicios en la nube de Microsoft, como Office 365 y Azure Active Directory. Esta tecnología de protección usa directivas de autorización, identidad y cifrado. La protección que se aplica mediante Azure RMS se mantiene con los documentos y correos electrónicos, independientemente de la ubicación, ya sea dentro o fuera de la organización, las redes, los servidores de archivos y las aplicaciones.
+La tecnología de protección usa Azure Rights Management (Azure RMS). Esta tecnología está integrada con otras aplicaciones y servicios en la nube de Microsoft, como Microsoft 365 y Azure Active Directory. Esta tecnología de protección usa directivas de autorización, identidad y cifrado. La protección que se aplica mediante Azure RMS se mantiene con los documentos y correos electrónicos, independientemente de la ubicación, ya sea dentro o fuera de la organización, las redes, los servidores de archivos y las aplicaciones.
 
 Esta solución de protección de información le ofrece control sobre sus datos, incluso cuando se comparten con otras personas. También puede usar Azure RMS con sus propias aplicaciones de línea de negocio y soluciones de protección de información de proveedores de software, tanto si estas aplicaciones y soluciones están en un entorno local como si están en la nube.
 

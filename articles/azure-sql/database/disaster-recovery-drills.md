@@ -11,14 +11,14 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
-ms.openlocfilehash: b2ba1d07983021e376a950fba789db0b51c11d4b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e32f2bf6f353e32fe96cd3c8b109d698cd3d40ef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84038806"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84344584"
 ---
-# <a name="performing-disaster-recovery-drill"></a>Obtención de detalles de la recuperación ante desastres
+# <a name="performing-disaster-recovery-drills"></a>Realización de maniobras de recuperación ante desastres
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Se recomienda validar periódicamente el flujo de trabajo de preparación de la aplicación para la recuperación. Comprobar el comportamiento de la aplicación y las implicaciones de las pérdidas de datos o de las interrupciones que conlleva la conmutación por error es una buena práctica de ingeniería. También es un requisito de la mayoría de estándares del sector como parte de la certificación de continuidad del negocio.

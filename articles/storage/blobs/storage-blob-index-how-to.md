@@ -5,15 +5,15 @@ author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 04/24/2020
 ms.service: storage
-ms.subservice: common
-ms.topic: conceptual
+ms.subservice: blobs
+ms.topic: how-to
 ms.reviewer: hux
-ms.openlocfilehash: cc82b6578b06323d8cf9a09644d50043dba8e554
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 6e3ce99211da35105fd9e118a850110dfd48ece1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774323"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84986285"
 ---
 # <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Uso de etiquetas de índice de blobs (versión preliminar) para administrar y buscar datos en Azure Blob Storage
 
@@ -22,9 +22,9 @@ Las etiquetas de índice de blobs clasifican los datos de la cuenta de almacenam
 Para más información sobre el índice de blobs, consulte [Administración y búsqueda de datos en Azure Blob Storage con el Índice de blobs (versión preliminar)](storage-manage-find-blobs.md).
 
 > [!NOTE]
-> El índice de blobs está en versión preliminar pública y se encuentra disponible en las regiones **Centro de Francia** y **Sur de Francia**. Para más información sobre esta característica junto con las limitaciones y los problemas conocidos, consulte [Administración y búsqueda de datos en Azure Blob Storage con el Índice de blobs (versión preliminar)](storage-manage-find-blobs.md).
+> El índice de blobs está en versión preliminar pública y se encuentra disponible en las regiones **Centro de Canadá**, **Este de Canadá**, **Centro de Francia** y **Sur de Francia**. Para más información sobre esta característica junto con las limitaciones y los problemas conocidos, consulte [Administración y búsqueda de datos en Azure Blob Storage con el Índice de blobs (versión preliminar)](storage-manage-find-blobs.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 - Suscripción registrada y aprobada para el acceso a la versión preliminar del índice de blobs
 - Acceso a [Azure Portal](https://portal.azure.com/)

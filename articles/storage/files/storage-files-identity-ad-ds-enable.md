@@ -4,41 +4,41 @@ description: Obtenga información sobre cómo habilitar la autenticación de Act
 author: roygara
 ms.service: storage
 ms.subservice: files
-ms.topic: conceptual
-ms.date: 05/29/2020
+ms.topic: how-to
+ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 5592a3c53a57e9cd96468bfca187e02faef28b05
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 4c374e62c0807269d1457bfe46d3df4260acd45c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268403"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510460"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Parte 1: Habilitación de la autenticación de AD DS para los recursos compartidos de archivos de Azure 
 
 Antes de habilitar la autenticación de Active Directory Domain Services (AD DS), asegúrese de leer el [artículo de información general](storage-files-identity-auth-active-directory-enable.md) para comprender los escenarios y requisitos admitidos.
 
-En este artículo se describe el proceso necesario para habilitar la autenticación de Active Directory Domain Services (AD DS) en la cuenta de almacenamiento. Después de habilitar la característica, tendrá que configurar la cuenta de almacenamiento y AD DS, con el fin de usar las credenciales de AD DS para autenticarse en el recurso compartido de archivos de Azure. Para habilitar la autenticación de AD DS en SMB para los recursos compartidos de archivos de Azure, debe registrar la cuenta de almacenamiento en AD DS y, luego, establecer las propiedades de dominio necesarias en la cuenta de almacenamiento. Cuando la característica está habilitada en la cuenta de almacenamiento, se aplica a todos los recursos compartidos de archivos nuevos y existentes de la cuenta.
+En este artículo se describe el proceso necesario para habilitar la autenticación de Active Directory Domain Services (AD DS) en la cuenta de almacenamiento. Después de habilitar la característica, tendrá que configurar la cuenta de almacenamiento y AD DS, con el fin de usar las credenciales de AD DS para autenticarse en el recurso compartido de archivos de Azure. Para habilitar la autenticación de AD DS en SMB para los recursos compartidos de archivos de Azure, debe registrar la cuenta de almacenamiento en AD DS y, luego, establecer las propiedades de dominio necesarias en la cuenta de almacenamiento.
 
-## <a name="option-one-recommended-use-the-script"></a>Opción 1 (recomendada): Uso del script
+Para registrar la cuenta de almacenamiento con AD DS, cree una cuenta que la represente en AD DS. Este proceso se puede considerar como si se tratara de la creación de una cuenta que represente un servidor de archivos de Windows local en AD DS. Cuando la característica está habilitada en la cuenta de almacenamiento, se aplica a todos los recursos compartidos de archivos nuevos y existentes de la cuenta.
 
-El script de este artículo realiza las modificaciones necesarias y habilita la característica de forma automática. Como algunas partes del script interactuarán con la instancia local de AD DS, se explicará lo que hace el script, para que pueda determinar si los cambios se alinean con las directivas de cumplimiento y seguridad, y asegurarse de que tiene los permisos adecuados para ejecutar el script. Aunque se recomienda usar el script, si no puede hacerlo, se proporcionan los pasos para que pueda seguirlos manualmente.
+## <a name="option-one-recommended-use-azfileshybrid-powershell-module"></a>Opción 1 (recomendada): Uso del módulo de PowerShell AzFilesHybrid
 
-### <a name="script-prerequisites"></a>Requisitos previos del script
+Los cmdlets del módulo AzFilesHybrid de PowerShell realizan las modificaciones necesarias y habilitan automáticamente la característica. Como algunas partes del cmdlet interactúan con la instancia local de AD DS, se explica lo que hacen los cmdlets, para que pueda determinar si los cambios se alinean con las directivas de cumplimiento y seguridad, y asegurarse de que tiene los permisos adecuados para ejecutar los cmdlets. Aunque se recomienda usar el módulo AzFilesHybrid, si no puede hacerlo, se proporcionan los pasos para que pueda seguirlos manualmente.
 
-- [Descarga y descompresión del módulo AzFilesHybrid](https://github.com/Azure-Samples/azure-files-samples/releases)
+### <a name="download-azfileshybrid-module"></a>Descarga del módulo AzFilesHybrid
+
+- [Descarga y descompresión del módulo AzFilesHybrid](https://github.com/Azure-Samples/azure-files-samples/releases) (módulo de disponibilidad general: v0.2.0+)
 - Instale y ejecute el módulo en un dispositivo que se haya unido a un dominio a AD DS local con credenciales de AD DS que tengan permisos para crear una cuenta de inicio de sesión de servicio o una cuenta de equipo en la instancia de destino.
 -  Ejecute el script con una credencial de AD DS local que esté sincronizada con su instancia de Azure AD. La credencial de AD DS local debe tener los permisos de la cuenta de propietario o del rol de RBAC de colaborador.
 
-### <a name="offline-domain-join"></a>Unión a un dominio sin conexión
+### <a name="run-join-azstorageaccountforauth"></a>Ejecución de Join-AzStorageAccountForAuth
 
-El cmdlet `Join-AzStorageAccountForAuth` realiza la acción equivalente a la unión a un dominio sin conexión en nombre de la cuenta de almacenamiento especificada. El script usa el cmdlet para crear una cuenta en el dominio de AD, bien una [cuenta de equipo](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (predeterminada) o una [cuenta de inicio de sesión de servicio](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts). Si decide ejecutar el comando manualmente, debe seleccionar la cuenta que mejor se adapte al entorno.
+El cmdlet `Join-AzStorageAccountForAuth` realiza la acción equivalente a la unión a un dominio sin conexión en nombre de la cuenta de almacenamiento especificada. El script usa el cmdlet para crear una [cuenta de equipo](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) en el dominio de AD. Si, por cualquier motivo, no puede usar una cuenta de equipo, puede modificar el script para crear una [cuenta de inicio de sesión de servicio](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) en su lugar. Si decide ejecutar el comando manualmente, debe seleccionar la cuenta que mejor se adapte al entorno.
 
 La cuenta de AD DS que crea el cmdlet representa la cuenta de almacenamiento. Si la cuenta de AD DS se crea en una unidad organizativa (OU) que aplica la expiración de contraseñas, debe actualizar la contraseña antes de su vigencia máxima. Si no actualiza la contraseña de la cuenta antes de esa vigencia, se producirán errores de autenticación al acceder a los recursos compartidos de archivos de Azure. Para saber cómo actualizar la contraseña, consulte [Actualización de la contraseña de la cuenta de AD DS](storage-files-identity-ad-ds-update-password.md).
 
-### <a name="use-the-script-to-enable-ad-ds-authentication"></a>Uso del script para habilitar la autenticación de AD DS
-
-No olvide reemplazar los valores de marcador de posición por los suyos propios en los parámetros siguientes antes de ejecutar el script en PowerShell.
+Reemplace los valores de marcador de posición por los suyos propios en los parámetros siguientes antes de ejecutar el script en PowerShell.
 > [!IMPORTANT]
 > El cmdlet de unión a un dominio creará una cuenta de AD para representar la cuenta de almacenamiento (recurso compartido de archivos) en AD. Puede optar por registrarla como una cuenta de equipo o una cuenta de inicio de sesión de servicio; consulte [Preguntas más frecuentes](https://docs.microsoft.com/azure/storage/files/storage-files-faq#security-authentication-and-access-control) para obtener más información. En el caso de las cuentas de equipo, se establece un tiempo de expiración de contraseña predeterminado en AD de 30 días. Del mismo modo, la cuenta de inicio de sesión de servicio puede tener establecido un tiempo de expiración de contraseña predeterminado en el dominio o la unidad organizativa (OU) de AD.
 > Para ambos tipos de cuenta, se recomienda comprobar cuál es el tiempo de expiración de la contraseña configurado en el entorno de AD y planear la [actualización de la contraseña de la identidad de la cuenta de almacenamiento](storage-files-identity-ad-ds-update-password.md) de la cuenta de AD antes el tiempo máximo. Puede considerar la posibilidad de [crear una unidad organizativa (UO) de AD en AD](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) y deshabilitar la directiva de expiración de contraseñas en las [cuentas de equipo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)?redirectedfrom=MSDN) o las cuentas de inicio de sesión de servicio, según corresponda. 
@@ -66,20 +66,20 @@ Select-AzSubscription -SubscriptionId $SubscriptionId
 
 # Register the target storage account with your active directory environment under the target OU (for example: specify the OU with Name as "UserAccounts" or DistinguishedName as "OU=UserAccounts,DC=CONTOSO,DC=COM"). 
 # You can use to this PowerShell cmdlet: Get-ADOrganizationalUnit to find the Name and DistinguishedName of your target OU. If you are using the OU Name, specify it with -OrganizationalUnitName as shown below. If you are using the OU DistinguishedName, you can set it with -OrganizationalUnitDistinguishedName. You can choose to provide one of the two names to specify the target OU.
-# You can choose to create the identity that represents the storage account as either a Service Logon Account or Computer Account, depends on the AD permission you have and preference. 
+# You can choose to create the identity that represents the storage account as either a Service Logon Account or Computer Account (default parameter value), depends on the AD permission you have and preference. 
 # Run Get-Help Join-AzStorageAccountForAuth for more details on this cmdlet.
 
 Join-AzStorageAccountForAuth `
         -ResourceGroupName $ResourceGroupName `
-        -Name $StorageAccountName `
-        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" ` #Default set to "ComputerAccount" if parameter is omitted
-        -OrganizationalUnitName "<ou-name-here>" #You can also use -OrganizationalUnitDistinguishedName "<ou-distinguishedname-here>" instead. If you don't provide the OU name as an input parameter, the AD identity that represents the storage account will be created under the root directory.
+        -StorageAccountName $StorageAccountName `
+        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" `
+        -OrganizationalUnitDistinguishedName "<ou-distinguishedname-here>" # If you don't provide the OU name as an input parameter, the AD identity that represents the storage account is created under the root directory.
 
 #You can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version. For more details on the checks performed in this cmdlet, see Azure Files Windows troubleshooting guide.
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 ```
 
-## <a name="option-2-manually-perform-the-script-actions"></a>Opción 2: Ejecución manual de las acciones del script
+## <a name="option-2-manually-perform-the-enablement-actions"></a>Opción 2: Realizar manualmente las acciones de habilitación
 
 Si ya ha ejecutado correctamente el script `Join-AzStorageAccountForAuth` anterior, vaya a la sección [Confirmación de que la característica está habilitada](#confirm-the-feature-is-enabled). No tendrá que realizar los siguientes pasos manuales.
 
@@ -89,7 +89,18 @@ En primer lugar, debe comprobar el estado del entorno. En concreto, compruebe si
 
 ### <a name="creating-an-identity-representing-the-storage-account-in-your-ad-manually"></a>Creación de una identidad que representa la cuenta de almacenamiento en AD manualmente
 
-Para crear esta cuenta manualmente, cree una clave Kerberos para la cuenta de almacenamiento mediante `New-AzStorageAccountKey -KeyName kerb1`. Luego, use esa clave de Kerberos como contraseña para la cuenta. Esta clave solo se usa durante la configuración y no se puede utilizar para las operaciones de control o de plano de datos en la cuenta de almacenamiento. Cuando tenga esa clave, cree una cuenta de servicio o de equipo en la unidad organizativa. Use la especificación siguiente (recuerde reemplazar el texto de ejemplo con el nombre de la cuenta de almacenamiento):
+Para crear esta cuenta manualmente, cree una clave Kerberos para la cuenta de almacenamiento. A continuación, use la clave Kerberos como contraseña para su cuenta con los cmdlets de PowerShell siguientes. Esta clave solo se usa durante la configuración y no se puede utilizar para las operaciones de control o de plano de datos en la cuenta de almacenamiento. 
+
+```PowerShell
+# Create the Kerberos key on the storage account and get the Kerb1 key as the password for the AD identity to represent the storage account
+$ResourceGroupName = "<resource-group-name-here>"
+$StorageAccountName = "<storage-account-name-here>"
+
+New-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -KeyName kerb1
+Get-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -ListKerbKey | where-object{$_.Keyname -contains "kerb1"}
+```
+
+Cuando tenga esa clave, cree una cuenta de servicio o de equipo en la unidad organizativa. Use la especificación siguiente (recuerde reemplazar el texto de ejemplo con el nombre de la cuenta de almacenamiento):
 
 SPN: "cifs/your-storage-account-name-here.file.core.windows.net" Contraseña: clave Kerberos de la cuenta de almacenamiento.
 
@@ -142,6 +153,6 @@ $storageAccount.AzureFilesIdentityBasedAuth.ActiveDirectoryProperties
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Llegados a este punto, ha habilitado correctamente la característica en la cuenta de almacenamiento. Para usarla, tendrá que configurarla y realizar cambios. Continúe con la sección siguiente.
+Ahora ha habilitado correctamente la característica en la cuenta de almacenamiento. Para usar la característica, debe asignar permisos de nivel de recurso compartido. Continúe con la sección siguiente.
 
 [Parte 2: Asignación de permisos de nivel de recurso compartido a una identidad](storage-files-identity-ad-ds-assign-permissions.md)

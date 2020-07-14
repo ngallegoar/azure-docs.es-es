@@ -5,17 +5,17 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/12/2020
-ms.openlocfilehash: 73c18d45136eea90ad29dc1bd40c4539dddc0ee6
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.date: 06/25/2020
+ms.openlocfilehash: 7d3c4e0f4bd34f996bb39426af39a692a6f79c5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81767258"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85507184"
 ---
 # <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Habilitación de Azure Monitor para VM mediante Azure Policy
 
-En este artículo se explica cómo habilitar Azure Monitor para VM para máquinas virtuales o conjuntos de escalado de máquinas virtuales de Azure mediante Azure Policy. Al final de este proceso, habrá configurado correctamente la habilitación de Log Analytics y los agentes de Dependency Agent e identificado las máquinas virtuales que no son compatibles.
+En este artículo se explica cómo habilitar Azure Monitor para VM para máquinas virtuales de Azure, conjuntos de escalado de máquinas virtuales de Azure y máquinas de Azure Arc mediante Azure Policy. Al final de este proceso, habrá configurado correctamente la habilitación de Log Analytics y los agentes de Dependency Agent e identificado las máquinas virtuales que no son compatibles.
 
 Para detectar, administrar y habilitar Azure Monitor para VM para todas las máquinas virtuales o conjuntos de escalado de máquinas virtuales puede usar Azure Policy o Azure PowerShell. Azure Policy es el método recomendado porque le permite administrar las definiciones de la directiva para controlar de forma eficaz sus suscripciones de forma que se garantice un cumplimiento coherente y se habiliten automáticamente las VM recién aprovisionadas. Estas definiciones de directivas:
 
@@ -25,7 +25,7 @@ Para detectar, administrar y habilitar Azure Monitor para VM para todas las máq
 
 Si está interesado en llevar a cabo estas tareas con Azure PowerShell o con una plantilla de Azure Resource Manager, vea [Habilitar Azure Monitor para VM mediante Azure PowerShell o una plantilla de Resource Manager](vminsights-enable-at-scale-powershell.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de usar la Directiva para incorporar las máquinas virtuales de Azure y los conjuntos de escalado de máquinas virtuales a Azure Monitor para VM, debe habilitar la solución VMInsights en el área de trabajo que usará para almacenar los datos de supervisión. Esta tarea se puede completar desde la página **Introducción** de Azure Monitor en la pestaña **Other onboarding options** (Otras opciones de incorporación).  Seleccione **Configurar un área de trabajo**; al elegir esta opción se le pedirá que seleccione el área de trabajo que se va a configurar.
 
 ![Configuración del área de trabajo](media/vminsights-enable-at-scale-policy/configure-workspace.png)
@@ -46,10 +46,7 @@ Desde aquí, puede comprobar y administrar la cobertura de la iniciativa a trav�
 
 Esta información es útil para ayudarle a planear y ejecutar el escenario de gobernanza de Azure Monitor para VM desde una ubicación central. Mientras que Azure Policy proporciona una vista de cumplimiento cuando se asigna una directiva o iniciativa a un ámbito, con esta nueva página puede detectar el lugar donde la directiva o iniciativa no está asignada y asignarla en su lugar. Todas las acciones, como asignar, ver y editar redirigen directamente a Azure Policy. La página **Azure Monitor for VMs Policy Coverage** (Cobertura de directiva de Azure Monitor para VM) es una experiencia integrada y expandida solo para la iniciativa **Habilitar Azure Monitor para VM**.
 
-Desde esta página, también puede configurar el área de trabajo de Log Analytics de Azure Monitor para VM, el cual:
-
-- Instala la solución Service Map.
-- Habilita los contadores de rendimiento del sistema operativo utilizados por los gráficos de rendimiento, los libros y las alertas y consultas del registro personalizado.
+Desde esta página, también puede configurar el área de trabajo de Log Analytics de Azure Monitor para VM, el cual instala la solución *VMInsights*.
 
 ![Configuración del área de trabajo de Azure Monitor para VM](media/vminsights-enable-at-scale-policy/manage-policy-page-02.png)
 
@@ -94,6 +91,21 @@ En la tabla siguiente se enumeran las definiciones de directiva para una VM de A
 |Implementar Dependency Agent en máquinas virtuales Windows |Se implementa Dependency Agent en las máquinas virtuales Windows si la imagen de la máquina virtual (SO) está en la lista definida y el agente no está instalado. |Directiva |
 |Implementar el agente de Log Analytics en máquinas virtuales de Linux |Se implementa el agente de Log Analytics en máquinas virtuales Linux si la imagen de la máquina virtual (SO) está en la lista definida y el agente no está instalado. |Directiva |
 |Implementar el agente de Log Analytics en máquinas virtuales Windows |Se implementa el agente de Log Analytics en máquinas virtuales Windows si la imagen de la máquina virtual (SO) está en la lista definida y el agente no está instalado. |Directiva |
+
+
+### <a name="policies-for-hybrid-azure-arc-machines"></a>Directivas para máquinas de Azure Arc híbridas
+
+En la tabla siguiente se enumeran las definiciones de directiva para las máquinas de Azure Arc híbridas.
+
+|Nombre |Descripción |Tipo |
+|-----|------------|-----|
+| [Versión preliminar]\: El agente de Log Analytics debe estar instalado en las máquinas Linux de Azure Arc |Informa las máquinas de Azure Arc híbridas como no compatibles con VM Linux si la imagen de la VM (SO) está definida en la lista y el agente no está instalado. |Directiva |
+| [Versión preliminar]\: El agente de Log Analytics debe estar instalado en las máquinas Windows de Azure Arc |Informa las máquinas de Azure Arc híbridas como no compatibles con VM Windows si la imagen de la VM (SO) está definida en la lista y el agente no está instalado. |Directiva |
+| [Versión preliminar]\: Implementar Dependency Agent en máquinas de Azure Arc híbridas con Linux |Implemente Dependency Agent en las máquinas de Azure Arc híbridas con Linux si la imagen de la VM (SO) está definida en la lista y el agente no está instalado. |Directiva |
+| [Versión preliminar]\: Implementar Dependency Agent en máquinas de Azure Arc híbridas con Windows |Implemente Dependency Agent en las máquinas de Azure Arc híbridas con Windows si la imagen de la VM (SO) está definida en la lista y el agente no está instalado. |Directiva |
+| [Versión preliminar]\: Implementar el agente de Log Analytics en máquinas de Azure Arc con Linux |Implemente el agente de Log Analytics en las máquinas de Azure Arc híbridas con Linux si la imagen de la VM (SO) está definida en la lista y el agente no está instalado. |Directiva |
+| [Versión preliminar]\: Implementar el agente de Log Analytics en máquinas de Azure Arc con Windows |Implemente el agente de Log Analytics en las máquinas de Azure Arc híbridas con Windows si la imagen de la VM (SO) está definida en la lista y el agente no está instalado. |Directiva |
+
 
 ### <a name="policies-for-azure-virtual-machine-scale-sets"></a>Directivas para conjuntos de escalado de máquinas virtuales de Azure
 

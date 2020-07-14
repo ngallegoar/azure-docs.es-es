@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8a20d7cb05f4529d5aa8a115b7d1db6e4d812be0
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 7c22ad844f0a543cfbf2e007ab2bfc8f0fe22ef7
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100857"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362941"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Creación de un grupo de hosts con Azure Portal
 
@@ -67,20 +67,23 @@ Para empezar a crear el grupo de hosts:
    
    La geografía de Azure asociada a las regiones seleccionadas es donde se almacenarán los metadatos de este grupo de hosts y sus objetos relacionados. Asegúrese de elegir las regiones dentro de la geografía en la que quiere que se almacenen los metadatos del servicio.
 
-     ![Captura de pantalla de Azure Portal que muestra el campo "Location" (Ubicación) con la ubicación East US (Este de EE. UU.) seleccionada. Junto al campo aparece texto que dice que los metadatos se almacenarán en el este de EE. UU.](media/portal-location-field.png)
+     > [!div class="mx-imgBorder"]
+     > ![Captura de pantalla de Azure Portal que muestra el campo "Location" (Ubicación) con la ubicación East US (Este de EE. UU.) seleccionada. Junto al campo aparece texto que dice que los metadatos se almacenarán en el este de EE. UU.](media/portal-location-field.png)
 
 8. En "Host pool type" (Tipo de grupo de hosts), seleccione si el grupo de hosts será **Personal** o **Pooled** (Agrupado).
 
     - Si elige **Personal**, seleccione **Automatic** (Automático) o **Direct** (Directo) en el campo Assignment Type (Tipo de asignación).
 
-      ![Captura de pantalla del menú desplegable del campo "Assignment Type" (Tipo de asignación). El usuario ha seleccionado "Automatic" (Automático).](media/assignment-type-field.png)
+      > [!div class="mx-imgBorder"]
+      > ![Captura de pantalla del menú desplegable del campo "Assignment Type" (Tipo de asignación). El usuario ha seleccionado "Automatic" (Automático).](media/assignment-type-field.png)
 
 9. Si elige **Pooled** (Agrupado), escriba la siguiente información:
 
      - En **Max session limit** (Límite máximo de sesiones), escriba el número máximo de usuarios entre los que desea que se equilibre la carga en un solo host de sesión.
      - En **Load balancing algorithm** (Algoritmo de equilibrio de carga), elija equilibrio de carga en amplitud o equilibrio de carga en profundidad, según el patrón de uso.
 
-       ![Captura de pantalla del campo "Assignment Type" (Tipo de asignación) con "Pooled" (Agrupado) seleccionado. El usuario está desplazando el cursor sobre "Breadth-first" (Equilibrio de carga en amplitud) en el menú desplegable "Load Balancing" (Equilibrio de carga).](media/pooled-assignment-type.png)
+       > [!div class="mx-imgBorder"]
+       > ![Captura de pantalla del campo "Assignment Type" (Tipo de asignación) con "Pooled" (Agrupado) seleccionado. El usuario está desplazando el cursor sobre "Breadth-first" (Equilibrio de carga en amplitud) en el menú desplegable "Load Balancing" (Equilibrio de carga).](media/pooled-assignment-type.png)
 
 10. Seleccione **Siguiente: VM details** (Detalles de VM).
 
@@ -117,11 +120,13 @@ Para configurar la máquina virtual en el proceso de configuración del grupo de
 
      Si no ve la imagen que quiere, seleccione **Browse all images and disks** (Examinar todas las imágenes y discos), lo que le permite seleccionar otra imagen de la galería o una imagen proporcionada por Microsoft y otros anunciantes.
 
-     ![Captura de pantalla de Marketplace que muestra una lista de imágenes de Microsoft.](media/marketplace-images.png)
+     > [!div class="mx-imgBorder"]
+     > ![Captura de pantalla de Marketplace que muestra una lista de imágenes de Microsoft.](media/marketplace-images.png)
 
      También puede ir a **My Items** (Mis elementos) y elegir una imagen personalizada que ya haya cargado.
 
-     ![Captura de pantalla de la pestaña "My Items" (Mis elementos).](media/my-items.png)
+     > [!div class="mx-imgBorder"]
+     > ![Captura de pantalla de la pestaña "My Items" (Mis elementos).](media/my-items.png)
 
     - Si elige **Storage Blob**, puede aprovechar su propia imagen creada mediante Hyper-V o en una máquina virtual de Azure. Todo lo que tiene que hacer es escribir la ubicación de la imagen en el blob de almacenamiento como un URI.
 
@@ -136,7 +141,8 @@ Para configurar la máquina virtual en el proceso de configuración del grupo de
     >[!NOTE]
     >Para mayor seguridad, se recomienda no abrir puertos de entrada públicos.
 
-    ![Captura de pantalla de la página del grupo de seguridad que muestra una lista de los puertos disponibles en un menú desplegable.](media/available-ports.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de la página del grupo de seguridad que muestra una lista de los puertos disponibles en un menú desplegable.](media/available-ports.png)
     
     Si elige **Advanced** (Avanzado), seleccione un grupo de seguridad de red existente que ya haya configurado.
 

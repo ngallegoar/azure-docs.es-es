@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 16e8f770445218e10ab7e7645a81325d11be55da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea1fec022227aba1be09e988b5802f0c1ecd4e8e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77505970"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85118940"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Optimización del costo con capacidad reservada en Azure Cosmos DB
 
@@ -52,7 +52,7 @@ Además, puede limitar el ámbito de las recomendaciones a un único grupo de re
 
 A continuación se muestra una recomendación de ejemplo:
 
-![Recomendaciones de capacidad reservada](./media/cosmos-db-reserved-capacity/reserved-capacity-recommendation.png)
+:::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-recommendation.png" alt-text="Recomendaciones de capacidad reservada":::
 
 Esta recomendación de comprar una reserva de 30 000 RU/s indica que, entre las reservas de 3 años, un tamaño de reserva de 30 000 RU/s maximizará el ahorro. En este caso, la recomendación se calcula en función de los últimos 30 días de uso de Azure Cosmos DB. Si este cliente espera que los últimos 30 días de uso de Azure Cosmos DB sea representativo del uso futuro, para maximizar el ahorro compraría una reserva de 30 000 RU/s.
 
@@ -66,12 +66,12 @@ Esta recomendación de comprar una reserva de 30 000 RU/s indica que, entre las
 
 4. Rellene los campos obligatorios tal como se describe en la tabla siguiente:
 
-   ![Cumplimentación del formulario de capacidad reservada](./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png)
+   :::image type="content" source="./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png" alt-text="Cumplimentación del formulario de capacidad reservada":::
 
    |Campo  |Descripción  |
    |---------|---------|
    |Ámbito   |   Opción que controla el número de suscripciones que pueden usar la ventaja de facturación asociada con la reserva. También controla cómo se aplica la reserva a suscripciones concretas. <br/><br/>  Si selecciona **Compartido**, el descuento de la reserva se aplica a las instancias de Azure Cosmos DB que se ejecutan en cualquier suscripción en el contexto de facturación. El contexto de facturación se basa en cómo se haya suscrito a Azure. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de pago por uso, el ámbito compartido incluye todas las suscripciones con tarifas de pago por uso creadas por el administrador de la cuenta.  <br/><br/>  Si selecciona **Suscripción única**, el descuento de reserva se aplica a las instancias de Azure Cosmos DB de la suscripción seleccionada. <br/><br/> Si selecciona **Grupo de recursos único**, el descuento de reserva se aplica a las instancias de Azure Cosmos DB de la suscripción seleccionada y al grupo de recursos seleccionado dentro de esa suscripción. <br/><br/> Puede cambiar el ámbito de reserva después de comprar la capacidad reservada.  |
-   |Subscription  |   Suscripción usada para pagar la capacidad reservada de Azure Cosmos DB. El método de pago en la suscripción seleccionada se usa al cargar los costos. La suscripción debe ser uno de los tipos siguientes: <br/><br/>  Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P): Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. <br/><br/> Suscripción individual con tarifas de pago por uso (números de la oferta: MS-AZR-0003P o MS-AZR-0023P): en una suscripción individual con tarifas de pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.    |
+   |Suscripción  |   Suscripción usada para pagar la capacidad reservada de Azure Cosmos DB. El método de pago en la suscripción seleccionada se usa al cargar los costos. La suscripción debe ser uno de los tipos siguientes: <br/><br/>  Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P): Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. <br/><br/> Suscripción individual con tarifas de pago por uso (números de la oferta: MS-AZR-0003P o MS-AZR-0023P): en una suscripción individual con tarifas de pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.    |
    | Grupo de recursos | Grupo de recursos al que se aplica el descuento de capacidad reservada. |
    |Término  |   Un año o tres años.   |
    |Tipo de rendimiento   |  El rendimiento se aprovisiona como unidades de solicitud. Puede comprar una reserva para el rendimiento aprovisionado con ambas configuraciones: escrituras de una sola región y escrituras de varias regiones. El tipo de rendimiento tiene dos valores para elegir: 100 RU/s por hora y 100 RU/s de arquitectura multimaestro por hora.|
@@ -82,7 +82,7 @@ Esta recomendación de comprar una reserva de 30 000 RU/s indica que, entre las
 
 6. En el panel **Comprar reservas**, revise el descuento y el precio de la reserva. Este precio de reserva se aplica a los recursos de Azure Cosmos DB con rendimiento aprovisionado en todas las regiones.  
 
-   ![Resumen de capacidad reservada](./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png)
+   :::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png" alt-text="Resumen de capacidad reservada":::
 
 7. Seleccione **Review + buy** (Revisar y comprar) y, luego, **Comprar ahora**. Cuando se realiza correctamente la compra, se muestra la siguiente página:
 

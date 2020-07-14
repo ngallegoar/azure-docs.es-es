@@ -7,15 +7,15 @@ manager: danielgi
 ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/23/2020
 ms.author: sohamnc
-ms.openlocfilehash: f4693cdac2d5d3a57987cc692797756314ded11e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: a2522eba17574246ab99a0d47a42f128d5f61ace
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747313"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888650"
 ---
 # <a name="azure-cdn-http-raw-logs"></a>Registros sin procesar de HTTP de Azure CDN
 Los registros sin procesar proporcionan información valiosa acerca de las operaciones y los errores que son importantes para la auditoría, así como para solucionar problemas. Los registros sin procesar son diferentes de los registros de actividad. Los registros de actividad proporcionan visibilidad sobre las operaciones llevadas a cabo en los recursos de Azure. Los registros sin procesar proporcionan un registro de las operaciones del recurso.
@@ -33,7 +33,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 Para configurar los registros sin procesar para Azure CDN desde el perfil de Microsoft: 
 
-1. En el menú de Azure Portal, seleccione **Todos los recursos** >>  **\<su-perfil-de-CDN>** .
+1. En el menú de Azure Portal, seleccione **Todos los recursos** >>  **\<your-CDN-profile>** .
 
 2. En **Supervisión**, seleccione **Configuración de diagnóstico**.
 

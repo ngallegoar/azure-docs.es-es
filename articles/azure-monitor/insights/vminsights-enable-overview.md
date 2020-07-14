@@ -5,23 +5,29 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/28/2020
-ms.openlocfilehash: 3c9c5e69eea72b20da485ffb1edf806f2c9f3b41
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 06/25/2020
+ms.openlocfilehash: 261e5f17e787fd96697b06a9b338e74ea0409454
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195314"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85507082"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Información general sobre la habilitación de Azure Monitor para VM
 
-En este artículo se proporciona información general sobre las opciones disponibles para habilitar Azure Monitor para VM en sus máquinas virtuales con el fin de supervisar el estado y el rendimiento. Detecte dependencias de aplicaciones que se ejecutan en máquinas virtuales (VM) de Azure y conjuntos de escalado de máquinas virtuales, máquinas virtuales locales o máquinas virtuales hospedadas en otro entorno de nube.  
+En este artículo se proporciona información general sobre las opciones disponibles para habilitar Azure Monitor para VM con el fin de supervisar el estado y el rendimiento de lo siguiente:
+
+- Azure Virtual Machines 
+- Conjuntos de escalado de máquinas virtuales de Azure
+- Máquinas virtuales híbridas conectadas con Azure Arc
+- Máquinas virtuales locales
+- Máquinas virtuales hospedadas en otro entorno de nube  
 
 Para configurar Azure Monitor para VM:
 
-* Habilite una sola máquina virtual de Azure o conjunto de escalado de máquinas virtuales, seleccionando **Insights** directamente desde la misma.
-* Habilite dos o más máquinas virtuales de Azure y conjuntos de escalado de máquinas virtuales mediante Azure Policy. Este método asegura que se instalan y configuran correctamente las dependencias necesarias en las máquinas virtuales y conjuntos de escalado nuevos y existentes. Se informa de las máquinas virtuales y conjuntos de escalado no compatibles para que pueda decidir si habilitarlas y cómo corregir las incompatibilidades.
-* Use PowerShell para habilitar dos o más máquinas virtuales o conjuntos de escalado de máquinas virtuales de Azure en una suscripción o grupo de recursos concreto.
+* Habilite una única VM de Azure, VMSS de Azure o máquina de Azure Arc; para ello, seleccione **Insights** directamente del menú de Azure Portal.
+* Habilite varias VM de Azure, VMSS de Azure o máquinas de Azure Arc mediante Azure Policy. Este método asegura que se instalan y configuran correctamente las dependencias necesarias en las máquinas virtuales y conjuntos de escalado nuevos y existentes. Se informa de las máquinas virtuales y conjuntos de escalado no compatibles para que pueda decidir si habilitarlas y cómo corregir las incompatibilidades.
+* Habilite varias VM de Azure, VM de Azure Arc, VMSS de Azure o máquinas de Azure Arc a través de una suscripción o un grupo de recursos especificado mediante PowerShell.
 * Habilite Azure Monitor para VM para supervisar las máquinas virtuales o equipos físicos hospedados en la red corporativa o en otro entorno de nube.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -43,6 +49,8 @@ Azure Monitor para VM admite un área de trabajo de Log Analytics en las siguien
 - Este de EE. UU. 2
 - Centro de EE. UU.
 - Centro-Norte de EE. UU
+- US Gov Az
+- US Gov Va
 - Centro de Canadá
 - Sur de Reino Unido
 - Norte de Europa
@@ -66,15 +74,13 @@ Si no tiene un área de trabajo de Log Analytics, puede crear una usando alguno 
 
 También puede crear un área de trabajo mientras está habilitando la supervisión en una sola máquina virtual de Azure o conjunto de escalado de máquinas virtuales desde Azure Portal.
 
-Para configurar un escenario a escala que use Azure Policy, Azure PowerShell o plantillas de Azure Resource Manager, haga lo siguiente en el área de trabajo de Log Analytics:
-
-* Instalación de las soluciones *ServiceMap* e *InfrastructureInsights*. Puede completar esta instalación mediante el uso de una plantilla proporcionada de Azure Resource Manager. O bien, en la pestaña **Introducción** de Azure Portal, seleccione **Configurar área de trabajo**.
-* Configure el área de trabajo de Log Analytics para que recopile contadores de rendimiento.
-
-Para configurar el área de trabajo para el escenario a escala, use uno de los métodos siguientes:
+Para configurar un escenario a escala que use Azure Policy, Azure PowerShell o plantillas de Azure Resource Manager, debe instalar la solución *VMInsights*. Para ello, emplee uno de los métodos siguientes:
 
 * Use [Azure PowerShell](vminsights-enable-at-scale-powershell.md#set-up-a-log-analytics-workspace).
 * En la página de la [**cobertura de la directiva**](vminsights-enable-at-scale-policy.md#manage-policy-coverage-feature-overview) de Azure Monitor para VM, seleccione **Configurar área de trabajo**. 
+
+### <a name="azure-arc-machines"></a>Máquinas de Azure Arc
+Azure Monitor para VM está disponible para los servidores habilitados para Azure Arc en las regiones donde el servicio de extensión de Arc está disponible. Los usuarios deben ejecutar la versión 0.9 o superior del agente de Arc para habilitar Azure Monitor para VM en sus servidores habilitados para Arc.
 
 ### <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
@@ -190,10 +196,10 @@ Azure Monitor para VM se habilita mediante alguno de los métodos que se describ
 
 | Estado de la implementación | Método | Descripción |
 |------------------|--------|-------------|
-| Máquina virtual de Azure única o conjunto de escalado de máquinas virtuales de Azure | [Habilitar desde la máquina virtual](vminsights-enable-single-vm.md) | Puede habilitar una sola máquina virtual de Azure, seleccionando **Insights** directamente desde la máquina virtual o el conjunto de escalado de máquinas virtuales. |
-| Varias máquinas virtuales de Azure o conjuntos de escalado de máquinas virtuales | [Habilitar a través de Azure Policy](vminsights-enable-at-scale-policy.md) | Puede habilitar varias máquinas virtuales de Azure con Azure Policy y las definiciones de directivas disponibles. |
-| Varias máquinas virtuales de Azure o conjuntos de escalado de máquinas virtuales | [Habilitar a través de Azure PowerShell o las plantillas de Azure Resource Manager](vminsights-enable-at-scale-powershell.md) | Use Azure PowerShell o plantillas de Azure Resource Manager para habilitar varias máquinas virtuales o conjuntos de escalado de máquinas virtuales de Azure en una suscripción o grupo de recursos concreto. |
-| Nube híbrida | [Habilitar para el entorno híbrido](vminsights-enable-hybrid-cloud.md) | Puede implementar en máquinas virtuales o equipos físicos que se hospedan en su centro de datos u otros entornos de nube. |
+| Única VM de Azure, VMSS de Azure o máquina de Azure Arc | [Habilitación desde el portal](vminsights-enable-single-vm.md) | Seleccione **Insights** directamente en el menú de Azure Portal. |
+| Varias VM de Azure, VMSS de Azure o máquinas de Azure Arc | [Habilitar a través de Azure Policy](vminsights-enable-at-scale-policy.md) | Use Azure Policy para habilitar automáticamente al crear una VM o VMSS. |
+| | [Habilitar a través de Azure PowerShell o las plantillas de Azure Resource Manager](vminsights-enable-at-scale-powershell.md) | Use Azure PowerShell o plantillas de Azure Resource Manager para habilitar varias VM de Azure, VM de Azure Arc o VMSS de Azure en una suscripción o grupo de recursos concreto. |
+| Nube híbrida | [Habilitar para el entorno híbrido](vminsights-enable-hybrid-cloud.md) | Implemente en VM o equipos físicos que se hospedan en su centro de datos u otros entornos de nube. |
 
 ## <a name="management-packs"></a>Módulos de administración
 

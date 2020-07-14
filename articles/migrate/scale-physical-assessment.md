@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/19/2020
 ms.author: hamusa
-ms.openlocfilehash: a19a1b6e7416667079ab07fc5440ee8828c26bf4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b84a7b88f700e2ba8e9fbe29099dfcbce8dbf3b7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76294838"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85081067"
 ---
 # <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Evaluación de grandes cantidades de servidores físicos para la migración a Azure
 
@@ -47,7 +47,7 @@ Use los límites resumidos en esta tabla para la planeación.
 **Planeamiento** | **Límites**
 --- | --- 
 **Proyectos de Azure Migrate** | Evalúe un máximo de 35 000 en un proyecto.
-**Dispositivo con Azure Migrate** | Un dispositivo puede detectar hasta 250 máquinas virtuales.<br/> Un dispositivo solo se puede asociar con un único proyecto de Azure Migrate.<br/> Se puede asociar cualquier número de dispositivos a un solo proyecto de Azure Migrate. <br/><br/> 
+**Dispositivo con Azure Migrate** | Un dispositivo puede detectar hasta 1000 servidores.<br/> Un dispositivo solo se puede asociar con un único proyecto de Azure Migrate.<br/> Se puede asociar cualquier número de dispositivos a un solo proyecto de Azure Migrate. <br/><br/> 
 **Grupo** | Puede agregar hasta 35 000 servidores en un solo grupo.
 **Evaluación de Azure Migrate** | Puede evaluar hasta 35 000 máquinas virtuales en una única evaluación.
 

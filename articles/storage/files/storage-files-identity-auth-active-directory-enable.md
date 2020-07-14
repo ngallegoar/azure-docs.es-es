@@ -4,15 +4,15 @@ description: Más información sobre la autenticación de Azure Active Directo
 author: roygara
 ms.service: storage
 ms.subservice: files
-ms.topic: conceptual
-ms.date: 05/29/2020
+ms.topic: how-to
+ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: f505f8222bd5959a9bb0213dc5c8c48092723bba
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 7999f042b8a67bed8ef01cccec5890b1a2d58ebb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266634"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510227"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Introducción: autenticación de Active Directory Domain Services local en SMB para recursos compartidos de archivos de Azure
 
@@ -57,7 +57,7 @@ Antes de habilitar la autenticación de AD DS para los recursos compartidos de 
 
 ## <a name="regional-availability"></a>Disponibilidad regional
 
-La autenticación de Azure Files con AD DS está disponible en [todas las regiones públicas y las regiones de Azure Government](https://azure.microsoft.com/global-infrastructure/locations/).
+La autenticación de Azure Files con AD DS está disponible en [todas las regiones públicas de Azure](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## <a name="overview"></a>Información general
 

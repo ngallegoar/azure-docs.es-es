@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 6e361d23860ce8f40abba5c246242cf345bb974c
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 5b7fe9cf6c751bfb96dff8aa911172ae91a17653
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606114"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84886629"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Desfase de esquema en el flujo de datos de asignación
 
@@ -37,7 +37,7 @@ En este vídeo se proporciona una introducción a algunas de las soluciones comp
 
 ## <a name="schema-drift-in-source"></a>Desfase de esquema en origen
 
-Las columnas que entran en el flujo de datos de la definición de origen se definen como "desplazadas" cuando no están presentes en la proyección de origen. Puede ver la proyección de origen desde la pestaña Proyección en la transformación de origen. Cuando se selecciona un conjunto de datos para el origen, Azure Data Factory toma automáticamente el esquema del conjunto de datos y crea un proyecto a partir de esa definición de esquema de conjunto de datos.
+Las columnas que entran en el flujo de datos de la definición de origen se definen como "desplazadas" cuando no están presentes en la proyección de origen. Puede ver la proyección de origen desde la pestaña Proyección en la transformación de origen. Cuando se selecciona un conjunto de datos para el origen, Azure Data Factory toma automáticamente el esquema del conjunto de datos y crea una proyección a partir de esa definición de esquema de conjunto de datos.
 
 En una transformación de origen, el desfase de esquema se define como columnas de lectura que no están definidas en el esquema del conjunto de los mismos. Para habilitar el desfase de esquema, elija **Allow Schema Drift** (Permitir desfase de esquema) en la transformación de origen.
 

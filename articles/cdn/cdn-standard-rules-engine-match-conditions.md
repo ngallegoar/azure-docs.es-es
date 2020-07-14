@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: allensu
 ms.openlocfilehash: b8050b973027ac91ede0ba98f4d1c76831da9828
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81259940"
 ---
 # <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Condiciones de coincidencia en el motor de reglas estándar de Azure CDN
@@ -170,7 +170,7 @@ Operator | URL de la solicitud | Transformación de mayúsculas y minúsculas
 
 #### <a name="key-information"></a>Información importante
 
-- Cuando use esta condición de regla, asegúrese de incluir la información del protocolo. Por ejemplo: *https://www.\<yourdomain\>.com* .
+- Cuando use esta condición de regla, asegúrese de incluir la información del protocolo. Por ejemplo, *https://www.\<yourdomain\>.com*.
 
 ### <a name="url-file-extension"></a>Extensión de archivo de la URL
 

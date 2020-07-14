@@ -6,10 +6,10 @@ ms.date: 11/04/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
 ms.openlocfilehash: d76bac60bae11f0843d81de523030154af62a373
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80811698"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Uso de un certificado TLS/SSL en el código de Azure App Service
@@ -20,7 +20,7 @@ Este enfoque para el uso de certificados en el código usa la funcionalidad TLS 
 
 Cuando permite que App Service administre los certificados TLS/SSL, puede mantener por separado los certificados y el código de la aplicación y proteger así la información confidencial.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar esta guía paso a paso, debe:
 
@@ -29,7 +29,7 @@ Para completar esta guía paso a paso, debe:
 
 ## <a name="find-the-thumbprint"></a>Busque la huella digital
 
-En <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, en el menú de la izquierda, seleccione **App Services** >  **\<nombre-de-aplicación>** .
+En <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, en el menú de la izquierda, seleccione **App Services** >  **\<app-name>** .
 
 En el panel izquierdo de la aplicación, seleccione **Configuración de TLS/SSL** y, posteriormente, seleccione **Certificados de clave privada (.pfx)** o **Certificados de clave pública (.cer)** .
 

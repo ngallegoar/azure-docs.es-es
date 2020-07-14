@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: f29a20ddeb93ec3d4aa98bbcb36f50456b543667
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: a002479375d835f7fafe031517e5b2fe61b77b5b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81452577"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84608696"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Información general del agente de máquina virtual de Azure
 El agente de máquina virtual de Microsoft Azure (agente VM) es un proceso ligero y seguro que administra la interacción de máquinas virtuales (VM) con el controlador de tejido de Azure. El agente de VM tiene un rol principal que consiste en habilitar y ejecutar extensiones de máquina virtual de Azure. Las extensiones de máquina virtual habilitan la configuración posterior a la implementación de máquinas virtuales, como la instalación y la configuración de software. Las extensiones de máquina virtual también habilitan características de recuperación, como el restablecimiento de la contraseña administrativa de una máquina virtual. Sin el agente de máquina virtual de Azure, no se pueden ejecutar extensiones de máquina virtual.
@@ -58,7 +58,7 @@ Para arrancar una máquina virtual debe tener el agente de aprovisionamiento ins
 Si no tiene instalados los agentes, no puede usar algunos servicios de Azure, como Azure Backup o Azure Security. Estos servicios requieren una extensión para instalarse. Si ha implementado una máquina virtual sin WinGA, puede instalar más tarde la versión más reciente del agente.
 
 ### <a name="manual-installation"></a>Instalación manual
-El agente de máquina virtual de Windows puede instalarse manualmente con un paquete de Windows Installer. Es posible que sea necesaria la instalación manual cuando se crea una imagen de máquina virtual personalizada que se implementa en Azure. Para instalar manualmente el agente de máquina virtual de Windows, [descargue el instalador del agente de máquina virtual](https://go.microsoft.com/fwlink/?LinkID=394789). El agente de máquina virtual solo se admite en Windows Server 2008 R2 y posterior.
+El agente de máquina virtual de Windows puede instalarse manualmente con un paquete de Windows Installer. Es posible que sea necesaria la instalación manual cuando se crea una imagen de máquina virtual personalizada que se implementa en Azure. Para instalar manualmente el agente de máquina virtual de Windows, [descargue el instalador del agente de máquina virtual](https://go.microsoft.com/fwlink/?LinkID=394789). El Agente de máquina virtual solo se admite en Windows Server 2008 (64 bits) y posterior.
 
 > [!NOTE]
 > Es importante actualizar la opción AllowExtensionOperations después de instalar manualmente VMAgent en una máquina virtual que se ha implementado a partir de una imagen sin ProvisionVMAgent habilitado.
@@ -68,8 +68,8 @@ $vm.OSProfile.AllowExtensionOperations = $true
 $vm | Update-AzVM
 ```
 
-### <a name="prerequisites"></a>Prerrequisitos
-- El agente de VM de Windows necesita como mínimo Windows Server 2008 R2 (64 bits) para ejecutarse, con .NET Framework 4.0. Consulte [Versión mínima admitida para los agentes de la máquina virtual en Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
+### <a name="prerequisites"></a>Requisitos previos
+- El Agente de máquina virtual de Windows necesita como mínimo Windows Server 2008 (64 bits) para ejecutarse, con .NET Framework 4.0. Consulte [Versión mínima admitida para los agentes de la máquina virtual en Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 - Asegúrese de que la máquina virtual tenga acceso a la dirección IP 168.63.129.16. Para más información, vea [¿Qué es la dirección IP 168.63.129.16?](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
 

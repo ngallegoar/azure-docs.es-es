@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: e02f6946ff6f520fec63ead7e14e94f33182357f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 3e6f94c3b44cd3316a25c356dc5e33835f8c9337
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682355"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85553797"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única (SPA) de JavaScript mediante un flujo de código de autorización
 
@@ -42,10 +42,7 @@ La aplicación que se crea en este tutorial permite que una aplicación de pági
 
 En este tutorial se usa la siguiente biblioteca:
 
-| | |
-|---|---|
-|[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)|Biblioteca de autenticación de Microsoft para el paquete del explorador de JavaScript v2.0|
-| | |
+[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) Biblioteca de autenticación de Microsoft para el paquete del explorador de JavaScript v2.0
 
 ## <a name="get-the-completed-code-sample"></a>Obtención del ejemplo de código completado
 
@@ -57,7 +54,7 @@ Después, para configurar el ejemplo de código antes de ejecutarlo, vaya al [pa
 
 Para continuar con el tutorial y crear la aplicación, vaya a la sección siguiente, [Prerrequisitos](#prerequisites).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * [Node.js](https://nodejs.org/en/download/) para ejecutar un servidor web local
 * [Visual Studio Code](https://code.visualstudio.com/download) u otro editor de código

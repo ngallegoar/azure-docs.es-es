@@ -4,12 +4,12 @@ description: Obtenga información sobre la administración de certificados en un
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: ecdeb5c9e30c176e2f3525f8efeb861d9210b202
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6be9cbe77ef5e64659e56447d0a5b6be30b05272
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195735"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84324749"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Administración de certificados en clústeres de Service Fabric
 
@@ -82,7 +82,8 @@ Este tema se trata con más detalle en la [documentación](../key-vault/create-c
     - Una vez que el emisor (la entidad de certificación) responde con el certificado firmado, el resultado se combina en el almacén y el certificado está disponible para las operaciones siguientes:
       - en {UriDelAlmacén}/certificates/{nombre}: el certificado, incluida la clave pública y los metadatos
       - en {UriDelAlmacén}/keys/{nombre}: la clave privada del certificado, disponible para las operaciones criptográficas (encapsular/desencapsular, firmar/verificar)
-      - en {UriDelAlmacén}/secrets/{nombre}: el certificado, incluida su clave privada, disponible para descargar como archivo PFX o PEM sin protección. Recuerde que un certificado del almacén es, de hecho, una línea cronológica de instancias de certificado, que comparten una directiva. Las versiones del certificado se crearán según los atributos de duración y renovación de la directiva. Se recomienda encarecidamente que los certificados del almacén no compartan firmantes ni dominios/nombres DNS; puede ser perjudicial en un clúster aprovisionar instancias de certificado de distintos certificados del almacén, con firmantes idénticos, pero con otros atributos sustancialmente diferentes, como el emisor, los usos de la clave, etc.
+      - en{vaultUri}/secrets/{name}: el certificado, incluida su clave privada, disponible para su descarga como un archivo PFX o PEM sin proteger  
+    Recuerde que un certificado de almacén es, en realidad, una línea cronológica de instancias de certificado que comparten una directiva. Las versiones del certificado se crearán según los atributos de duración y renovación de la directiva. Se recomienda encarecidamente que los certificados del almacén no compartan firmantes ni dominios/nombres DNS; puede ser perjudicial en un clúster aprovisionar instancias de certificado de distintos certificados del almacén, con firmantes idénticos, pero con otros atributos sustancialmente diferentes, como el emisor, los usos de la clave, etc.
 
 En este momento, existe un certificado en el almacén, listo para su consumo. Ahora veamos:
 

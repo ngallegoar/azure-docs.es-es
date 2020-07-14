@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: d4fed878e2c0b1430e963f43743fd772493d3270
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79471751"
 ---
 # <a name="caching-with-azure-front-door"></a>Almacenamiento en caché con Azure Front Door
@@ -102,7 +102,7 @@ La purga de la memoria caché en Front Door distingue mayúsculas de minúsculas
 El siguiente orden de encabezados se usa para determinar cuánto tiempo se almacenará un elemento en la memoria caché:</br>
 1. Cache-Control: s-maxage=\<seconds>
 2. Cache-Control: max-age=\<seconds>
-3. Expires: \<http-date>
+3. Expira: \<http-date>
 
 Los encabezados de respuesta Cache-Control que indican que la respuesta no se almacena en caché como Cache-Control: private, Cache-Control: no-cache y Cache-Control: no-store se respetan. Sin embargo, si hay varias solicitudes en lucha en un servidor POP por la misma dirección URL, es posible que compartan la respuesta. Si no hay ningún control de caché presente, el comportamiento predeterminado es que AFD almacenará en caché el recurso durante un tiempo X, donde X se elige aleatoriamente entre 1 y 3 días.
 

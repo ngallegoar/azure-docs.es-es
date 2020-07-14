@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/14/2020
-ms.openlocfilehash: 58b60a0eee8ab407709f33911d3c6b13ffbf301a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/18/2020
+ms.openlocfilehash: 96177686e78a0595ac4ad49b9969b22d862facd6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77498381"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85051739"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Cómo recompilar un índice en Azure Cognitive Search
 
@@ -21,7 +21,17 @@ En este artículo se explica cómo recompilar un índice de Azure Cognitive Sear
 
 Una *recompilación* se refiere a quitar y volver a crear las estructuras de datos físicas asociadas con un índice, incluidos todos los índices invertidos basados en campos. En Azure Cognitive Search, no se pueden quitar y volver a crear campos individuales. Para recompilar un índice, se debe eliminar todo el almacenamiento de campos, se debe volver a crear según un esquema de índice existente o revisado y, a continuación, se debe volver a completar con los datos insertados en el índice o extraídos de orígenes externos. 
 
-Es común recompilar los índices durante el desarrollo, pero también es posible que deba recompilar un índice de nivel de producción para dar cabida a cambios estructurales, como la adición de tipos complejos de campos a proveedores de sugerencias.
+Es común recompilar los índices durante el desarrollo mientras se itera por el diseño del índice, pero también es posible que deba recompilar un índice de nivel de producción para dar cabida a cambios estructurales, como la adición de tipos complejos o campos a los proveedores de sugerencias.
+
+## <a name="rebuild-versus-refresh"></a>"Recompilar" frente a "actualizar"
+
+La recompilación no se debe confundir con la actualización del contenido de un índice con documentos nuevos, modificados o eliminados. La actualización de una corpus de búsqueda es casi obligatorio en cada aplicación de búsqueda, con algunos escenarios que requieren actualizaciones al minuto (por ejemplo, cuando un corpus de búsqueda necesita reflejar cambios de inventario en una aplicación de ventas en línea).
+
+Siempre y cuando no cambie la estructura del índice, puede actualizarlo con las mismas técnicas que usó para cargarlo inicialmente:
+
+* Para la indexación de modo de inserción, realice una llamada para [agregar, actualizar o eliminar documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) con el fin de enviar los cambios a un índice.
+
+* En el caso de los indexadores, puede [programar la ejecución del indexador](search-howto-schedule-indexers.md) y usar las marcas de tiempo o el seguimiento de cambios para identificar la diferencia. Si las actualizaciones se deben reflejar más pronto de lo que puede hacerlo el programador, en su lugar puede usar la indexación del modo de inserción.
 
 ## <a name="rebuild-conditions"></a>Condiciones de recompilación
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18409f93ab50f7d031ec78a55b9eaf8ad1b85a49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 601af3a5e642b4bbda54f461b3139e72b01b21d6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70101409"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85193505"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One en Azure Virtual Machines
 En este documento se ofrecen instrucciones para implementar SAP Business One en Azure Virtual Machines. La documentación no es un sustituto de la documentación de instalación de Business One para SAP. La documentación debe cubrir las instrucciones básicas de planeación e implementación de la infraestructura de Azure en la que se ejecutan las aplicaciones de Business One.
@@ -31,7 +31,7 @@ Business One admite dos bases de datos diferentes:
 
 Con respecto a SQL Server, se aplican las consideraciones de implementación básicas documentadas en [Implementación de DBMS de Azure Virtual Machines para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide). Para SAP HANA, las consideraciones se mencionan en este documento.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 Para utilizar esta guía, necesita un conocimiento básico de los siguientes componentes de Azure:
 
 - [Máquinas virtuales de Azure en Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
@@ -67,13 +67,13 @@ Business One es una aplicación que tiene dos niveles:
 - Un nivel de cliente con un cliente "pesado".
 - Un nivel de base de datos que contiene el esquema de base de datos para un inquilino.
 
-Una mejor información general sobre qué componentes se ejecutan en la parte del cliente y cuáles se ejecutan en la parte del servidor se documenta en la [guía del administrador de SAP Business One](https://help.sap.com/http.svc/rc/879bd9289df34a47af838e67d74ea302/9.3/en-US/AdministratorGuide_SQL.pdf). 
+Una mejor información general sobre qué componentes se ejecutan en la parte del cliente y cuáles se ejecutan en la parte del servidor se documenta en la [guía del administrador de SAP Business One](https://help.sap.com/doc/601fbd9113be4240b81d74626439cfa9/10.0/en-US/AdministratorGuide_SQL.pdf). 
 
 Puesto que hay una interacción crítica de latencia elevada entre el nivel de cliente y el de DBMS, ambos niveles deben estar ubicados en Azure cuando se implementa en Azure. Es habitual que los usuarios utilicen RDS en una o varias máquinas virtuales que ejecutan un servicio RDS para los componentes de cliente de Business One.
 
 ### <a name="sizing-vms-for-sap-business-one"></a>Ajuste del tamaño de las máquinas virtuales para SAP Business One
 
-Con respecto al tamaño de las máquinas virtuales cliente, los requisitos de recursos están documentados por SAP en el documento [SAP Business One Hardware Requirements Guide](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf) (Guía de requisitos de hardware de SAP Business One). Para Azure, necesita centrarse y calcular los requisitos indicados en el capítulo 2.4 del documento.
+Con respecto al tamaño de las máquinas virtuales cliente, los requisitos de recursos están documentados por SAP en el documento [SAP Business One Hardware Requirements Guide](https://help.sap.com/doc/bfa9770d12284cce8509956dcd4c5fcb/9.3/en-US/B1_Hardware_Requirements_Guide.pdf) (Guía de requisitos de hardware de SAP Business One). Para Azure, necesita centrarse y calcular los requisitos indicados en el capítulo 2.4 del documento.
 
 Como máquinas virtuales de Azure para hospedar los componentes de cliente de Business One y el host DBMS, solo se permiten máquinas virtuales compatibles con SAP NetWeaver. Para obtener la lista de máquinas virtuales de Azure compatibles con SAP NetWeaver, lea la [nota de SAP 1928533](https://launchpad.support.sap.com/#/notes/1928533).
 
@@ -107,7 +107,7 @@ Una versión más sofisticada de una configuración de red de Azure se basa en l
 Para los casos donde los usuarios se conectan a través de Internet sin conectividad privada a Azure, el diseño de la red de Azure se debe alinear con los principios que se documentan en la referencia de arquitectura de Azure para [Red perimetral entre Internet y Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
 
 ### <a name="business-one-database-server"></a>Servidor de base de datos de Business One
-Para el tipo de base de datos, están disponibles SQL Server y SAP HANA. Con independencia del DBMS, debe leer el documento [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) para obtener una descripción general de las implementaciones de DBMS en máquinas virtuales de Azure y los temas relacionados de redes y almacenamiento.
+Para el tipo de base de datos, están disponibles SQL Server y SAP HANA. Con independencia del DBMS, debe leer el documento [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) a fin de obtener una descripción general de las implementaciones de DBMS en máquinas virtuales de Azure y los temas relacionados de redes y almacenamiento.
 
 Aunque ya se destaca en los documentos de base de datos genéricos y específicos, debería estar familiarizado con lo siguiente:
 

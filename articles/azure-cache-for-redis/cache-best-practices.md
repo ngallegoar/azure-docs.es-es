@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 105a3996753a1d1c2d71846cc8bad574e4498acf
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 6a1dddfbcdbf2bd49586238872db15f1da5d7ce1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478613"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84457310"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Procedimientos recomendados para Azure Cache for Redis 
 Si sigue estos procedimientos recomendados, puede maximizar el rendimiento y rentabilizar el uso de la instancia de Azure Cache for Redis.
@@ -38,6 +38,8 @@ Si sigue estos procedimientos recomendados, puede maximizar el rendimiento y ren
  * **Evite las operaciones caras**: algunas operaciones de Redis, como el comando [KEYS](https://redis.io/commands/keys), son *muy* caras y deben evitarse.  Para más información, consulte algunas opciones acerca de los [comandos de larga duración](cache-troubleshoot-server.md#long-running-commands).
 
  * **Use el cifrado TLS**: Redis Cache requiere comunicaciones cifradas TLS de forma predeterminada.  Actualmente se admiten las versiones de TLS 1.0, 1.1 y 1.2.  Sin embargo, TLS 1.0 y 1.1 están en proceso de desuso en todo el sector, por lo que se recomienda TLS 1.2 si es posible.  Si la biblioteca o la herramienta cliente no admiten TLS, se pueden habilitar las conexiones no cifradas [mediante Azure Portal](cache-configure.md#access-ports) o las [API de administración](https://docs.microsoft.com/rest/api/redis/redis/update).  En casos en los que no es posible establecer conexiones cifradas, se recomienda colocar la caché y la aplicación cliente en una red virtual.  Para más información sobre los puertos que se usan en el escenario de caché de la red virtual, consulte esta [tabla](cache-how-to-premium-vnet.md#outbound-port-requirements).
+ 
+ * **Tiempo de espera de inactividad**: actualmente, Azure Redis tiene un tiempo de espera de inactividad de 10 minutos para las conexiones, por lo que debe establecerse en menos de 10 minutos.
  
 ## <a name="memory-management"></a>Administración de memoria
 Es posible que quiera tener en cuenta varias cosas relacionadas con el uso de la memoria dentro de la instancia del servidor de Redis.  Estas son algunas:

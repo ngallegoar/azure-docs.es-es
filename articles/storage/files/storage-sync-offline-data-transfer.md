@@ -3,16 +3,16 @@ title: Migración de datos a Azure File Sync con Azure Data Box
 description: Migración masiva de datos con un procedimiento compatible con Azure File Sync.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d0331419de89775062f1309c5d854cd7325c68e4
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 438fe490bb241cbc42e53d8502e9065454ebcc4c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656759"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514384"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Migración de datos en masa a Azure File Sync con Azure DataBox
 Puede migrar datos de forma masiva a Azure File Sync de dos maneras:

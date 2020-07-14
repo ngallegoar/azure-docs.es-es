@@ -3,16 +3,16 @@ title: Configuración de una VPN de punto a sitio (P2S) en Linux para su uso con
 description: Cómo configurar una VPN de punto a sitio (P2S) en Linux para su uso con Azure Files
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: cfff05ed52258ee448d83a521b99dca7d356a0f9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 685373203da14a6aa83c608d90d6416ab2b30ae4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80061047"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515304"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-linux-for-use-with-azure-files"></a>Configuración de una VPN de punto a sitio (P2S) en Linux para su uso con Azure Files
 Puede usar una conexión VPN de punto a sitio (P2S) para montar los recursos compartidos de archivos de Azure a través de SMB desde fuera de Azure, sin necesidad de abrir el puerto 445. Una conexión VPN de punto a sitio es una conexión VPN entre Azure y un cliente individual. Para usar una conexión VPN de punto a sitio con Azure Files, se debe configurar una conexión VPN de punto a sitio para cada cliente que quiera conectarse. Si tiene muchos clientes que necesitan conectarse a sus recursos compartidos de archivos de Azure desde la red local, puede usar una conexión VPN de sitio a sitio (S2S) en lugar de una conexión de punto a sitio para cada cliente. Para obtener más información, consulte [Configuración de una VPN de sitio a sitio para su uso con Azure Files](storage-files-configure-s2s-vpn.md).
@@ -21,7 +21,7 @@ Se recomienda que lea [Introducción a las redes de Azure Files](storage-files-n
 
 En este artículo se detallan los pasos para configurar una VPN de punto a sitio en Linux para montar recursos compartidos de archivos de Azure directamente en el entorno local. Si quiere enrutar el tráfico de Azure File Sync a través de una VPN, consulte [Configuración del proxy y el firewall de Azure File Sync](storage-sync-files-firewall-and-proxy.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 - La versión más reciente de la CLI de Azure. Para obtener más información sobre cómo instalar la CLI de Azure, consulte [Instalación de la CLI de Azure PowerShell](https://docs.microsoft.com/cli/azure/install-azure-cli) y seleccione el sistema operativo. Si prefiere usar el módulo de Azure PowerShell en Linux, puede hacerlo. Sin embargo, las instrucciones siguientes son para la CLI de Azure.
 
 - Un recurso compartido de archivos de Azure que le gustaría montar en el entorno local. Los recursos compartidos de archivos de Azure se implementan en cuentas de almacenamiento, que son construcciones que representan un grupo compartido de almacenamiento en el que puede implementar varios recursos compartidos de archivos u otros recursos de almacenamiento, como contenedores de blobs o colas. Puede encontrar más información sobre cómo implementar cuentas de almacenamiento y recursos compartidos de archivos de Azure en [Creación de un recurso compartido de archivos de Azure](storage-how-to-create-file-share.md).
@@ -117,7 +117,9 @@ La puerta de enlace de red virtual de Azure es el servicio al que se conectarán
 No olvide reemplazar `<desired-vpn-name-here>` por el nombre que quiera para estos recursos.
 
 > [!Note]  
-> La implementación de una puerta de enlace de red virtual de Azure puede tardar hasta 45 minutos. Aunque este recurso va a implementarse, el script de Bash se bloqueará para que se complete la implementación. Se espera que esto sea así.
+> La implementación de una puerta de enlace de red virtual de Azure puede tardar hasta 45 minutos. Aunque este recurso va a implementarse, el script de Bash se bloqueará para que se complete la implementación.
+>
+> Las conexiones P2S IKEv2/OpenVPN no son compatibles con la SKU **básica**. Este script usa la SKU **VpnGw1** para la puerta de enlace de red virtual, según corresponda.
 
 ```bash
 vpnName="<desired-vpn-name-here>"

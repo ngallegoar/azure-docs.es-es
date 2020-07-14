@@ -3,14 +3,14 @@ title: Despliegue de plantillas hipotéticas (Vista previa)
 description: Determine los cambios que se producirán en los recursos antes de implementar una plantilla de Azure Resource Manager.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/16/2020
 ms.author: tomfitz
-ms.openlocfilehash: 31ef0f26043c416ff902fe792bae064c63f15b20
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 1e2c83167e7ccc1e3e98b23711fba567ef11ac23
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84218295"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888753"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Operación hipotética de la implementación de plantilla de Resource Manager (vista previa)
 
@@ -19,19 +19,23 @@ Antes de implementar una plantilla de Azure Resource Manager (ARM), puede obtene
 > [!NOTE]
 > La operación hipotética se encuentra actualmente en versión preliminar. Como versión preliminar, los resultados a veces pueden mostrar que un recurso cambiará cuando realmente no se produzca ningún cambio. Trabajamos para reducir estos problemas, pero necesitamos su ayuda. Informe de estos problemas en [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 
-Puede usar la operación what-if con Azure PowerShell, la CLI de Azure o las operaciones de la API REST.
+Puede usar la operación what-if con Azure PowerShell, la CLI de Azure o las operaciones de la API REST. La operación what-if se admite en las implementaciones de grupo de recursos y nivel de suscripción.
 
-## <a name="install-powershell-module"></a>Instalación del módulo de PowerShell
+## <a name="install-azure-powershell-module"></a>Instalación del módulo de Azure PowerShell
 
-Para usar what-if en PowerShell, debe instalar una versión preliminar del módulo Az.Resources desde la Galería de PowerShell. Sin embargo, antes de instalar el módulo, asegúrese de que tiene PowerShell Core (6.x o 7.x). Si tiene PowerShell 5.x o anterior, debe [actualizar la versión de PowerShell](/powershell/scripting/install/installing-powershell). No se puede instalar el módulo en versión preliminar en PowerShell 5.x o versiones anteriores.
+Para usar operaciones what-if en PowerShell, debe tener la versión **4.2 o posterior del módulo Az**.
 
-### <a name="install-preview-version"></a>Instalación de la versión preliminar
+Sin embargo, antes de instalar el módulo necesario, asegúrese de que tiene PowerShell Core (6.x o 7.x). Si tiene PowerShell 5.x o anterior, debe [actualizar la versión de PowerShell](/powershell/scripting/install/installing-powershell). No se puede instalar el módulo necesario en PowerShell 5.x o versiones anteriores.
 
-Para instalar el módulo de versión preliminar, use lo siguiente:
+### <a name="install-latest-version"></a>Instalación de la última versión
+
+Para instalar el módulo, use:
 
 ```powershell
-Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
+Install-Module -Name Az -Force
 ```
+
+Para más información sobre cómo instalar los módulos, consulte [Instalación de Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### <a name="uninstall-alpha-version"></a>Desinstalación de la versión alfa
 
@@ -97,11 +101,14 @@ Scope: /subscriptions/./resourceGroups/ExampleGroup
 Resource changes: 1 to modify.
 ```
 
+> [!NOTE]
+> La operación what-if no puede resolver la [función de referencia](template-functions-resource.md#reference). Cada vez que se establece una propiedad en una expresión de plantilla que incluye la función de referencia, la operación what-if informa que la propiedad cambiará. Este comportamiento se produce porque la operacióno what-if compara el valor actual de la propiedad (como `true` o `false` para un valor booleano) con la expresión de plantilla sin resolver. Obviamente, estos valores no coinciden. Cuando se implementa la plantilla, la propiedad solo cambia cuando la expresión de plantilla se resuelve en un valor diferente.
+
 ## <a name="what-if-commands"></a>Comandos what-if
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Para obtener una vista previa de los cambios antes de implementar una plantilla, agregue el parámetro de modificador `-Whatif` al comando de implementación.
+Para obtener una vista previa de los cambios antes de implementar una plantilla, use [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) o [New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment). Agregue el parámetro de modificador `-Whatif` al comando de implementación.
 
 * `New-AzResourceGroupDeployment -Whatif` para implementaciones de grupos de recursos
 * `New-AzSubscriptionDeployment -Whatif` y `New-AzDeployment -Whatif` para implementaciones de nivel de suscripción
@@ -111,19 +118,19 @@ Puede usar el parámetro de modificador `-Confirm` para obtener una vista previa
 * `New-AzResourceGroupDeployment -Confirm` para implementaciones de grupos de recursos
 * `New-AzSubscriptionDeployment -Confirm` y `New-AzDeployment -Confirm` para implementaciones de nivel de suscripción
 
-Los comandos anteriores devuelven un resumen de texto que puede inspeccionar manualmente. Para obtener un objeto en el que pueda inspeccionar los cambios mediante programación, use:
+Los comandos anteriores devuelven un resumen de texto que puede inspeccionar manualmente. Para obtener un objeto que se pueda inspeccionar mediante programación en busca de cambios, use [Get-AzResourceGroupDeploymentWhatIfResult](/powershell/module/az.resources/get-azresourcegroupdeploymentwhatifresult) o [Get-AzSubscriptionDeploymentWhatIfResult](/powershell/module/az.resources/get-azdeploymentwhatifresult).
 
 * `$results = Get-AzResourceGroupDeploymentWhatIfResult` para implementaciones de grupos de recursos
 * `$results = Get-AzSubscriptionDeploymentWhatIfResult` o `$results = Get-AzDeploymentWhatIfResult` para implementaciones de nivel de suscripción
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Para obtener una vista previa de los cambios antes de implementar una plantilla, use `what-if` con el comando de implementación.
+Para obtener una vista previa de los cambios antes de implementar una plantilla, use [az deployment group what-if](/cli/azure/deployment/group#az-deployment-group-what-if) o [az deployment sub what-if](/cli/azure/deployment/sub#az-deployment-sub-what-if).
 
 * `az deployment group what-if` para implementaciones de grupos de recursos
 * `az deployment sub what-if` para implementaciones de nivel de suscripción
 
-Puede usar el modificador `--confirm-with-what-if` (o su forma abreviada `-c`) para obtener una vista previa de los cambios y recibir un aviso para continuar con la implementación.
+Puede usar el modificador `--confirm-with-what-if` (o su forma abreviada `-c`) para obtener una vista previa de los cambios y recibir un aviso para continuar con la implementación. Agregue este modificador a [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) o [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create).
 
 * `az deployment group create --confirm-with-what-if` o `-c` para implementaciones de grupos de recursos
 * `az deployment sub create --confirm-with-what-if` o `-c` para implementaciones de nivel de suscripción
@@ -132,6 +139,8 @@ Los comandos anteriores devuelven un resumen de texto que puede inspeccionar man
 
 * `az deployment group what-if --no-pretty-print` para implementaciones de grupos de recursos
 * `az deployment sub what-if --no-pretty-print` para implementaciones de nivel de suscripción
+
+Si quiere devolver los resultados sin colores, abra el archivo de [configuración de la CLI de Azure](/cli/azure/azure-cli-configuration). Establezca **no_color** en **yes**.
 
 ### <a name="azure-rest-api"></a>API REST de Azure
 

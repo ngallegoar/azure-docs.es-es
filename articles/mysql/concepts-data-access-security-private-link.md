@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: c2cc4986542404281424286882c046dec39f5daf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f780bf946e81e9873a1828f9d697f69c81cef513
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79371297"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84509328"
 ---
 # <a name="private-link-for-azure-database-for-mysql"></a>Private Link para Azure Database for MySQL
 
@@ -46,6 +46,10 @@ Con Private Link, ahora puede configurar controles de acceso a la red como grupo
 Cuando se conecta al punto de conexión público desde máquinas locales, es necesario agregar su dirección IP al firewall basado en IP mediante una regla de firewall a nivel de servidor. Aunque este modelo funciona bien para permitir el acceso a equipos individuales para las cargas de trabajo de desarrollo o de prueba, es difícil de administrar en los entornos de producción.
 
 Con Private Link, puede habilitar el acceso entre locales al punto de conexión privado mediante [ExpressRoute](https://azure.microsoft.com/services/expressroute/), el emparejamiento privado o el [túnel de VPN](https://docs.microsoft.com/azure/vpn-gateway/). Posteriormente, puede deshabilitar todo el acceso a través de un punto de conexión público y no usar el firewall basado en IP.
+
+> [!NOTE]
+> En algunos casos, Azure Database for MySQL y la subred de red virtual se encuentran en distintas suscripciones. En estos casos debe garantizar las siguientes configuraciones:
+> - Asegúrese de que ambas suscripciones tengan el proveedor de recursos **Microsoft.DBforMySQL** registrado. Para más información, consulte [resource-manager-registration][resource-manager-portal].
 
 ## <a name="configure-private-link-for-azure-database-for-mysql"></a>Configuración de Private Link para Azure Database for MySQL
 
@@ -111,10 +115,10 @@ Las situaciones y resultados que se muestran a continuación son posibles cuando
 
 Si quiere depender únicamente de puntos de conexión privados para acceder a su instancia de Azure Database for MySQL, puede deshabilitar la configuración de todos los puntos de conexión públicos ([reglas de firewall](concepts-firewall-rules.md) y [puntos de conexión de servicio de red virtual](concepts-data-access-and-security-vnet.md)). Para ello, configure **Deny Public Network Access** (Denegar el acceso a la red pública) en el servidor de bases de datos. 
 
-Si esta opción está establecida en *YES* (SÍ), solo se permiten conexiones a la instancia de Azure Database for MySQL mediante puntos de conexión privados. Si esta opción está establecida en *NO*, los clientes pueden conectarse a su instancia de Azure Database for MySQL en función de la configuración del firewall o del punto de conexión de servicio de red virtual. Además, una vez establecido el valor de acceso a la red privada, no se pueden agregar ni actualizar las reglas de firewall ni las de punto de conexión de servicio de red virtual existentes.
+Si esta opción está establecida en *YES* (SÍ), solo se permiten conexiones a la instancia de Azure Database for MySQL mediante puntos de conexión privados. Si esta opción está establecida en *NO*, los clientes pueden conectarse a su instancia de Azure Database for MySQL en función de la configuración del firewall o del punto de conexión de servicio de red virtual. Además, una vez establecido el valor de acceso a la red privada, los clientes no pueden agregar ni actualizar las "reglas de firewall" ni la "regla de punto de conexión de servicio de red virtual" existentes.
 
 > [!Note]
-> Esta característica está disponible en todas las regiones de Azure donde Azure Database for PostgreSQL: servidor único admita los planes de tarifa De uso general y Optimizado para memoria.
+> Esta característica está disponible en todas las regiones de Azure donde Azure Database for PostgreSQL: servidor único admite los planes de tarifa de uso general y optimizados para memoria.
 >
 > Esta configuración no afecta a las configuraciones de SSL y TLS de su instancia de Azure Database for MySQL.
 
@@ -129,3 +133,6 @@ Para más información sobre las características de seguridad de Azure Database
 * Para aprender a configurar un punto de conexión de servicio de red virtual para su instancia de Azure Database for MySQL, consulte [Configuración del acceso desde redes virtuales](https://docs.microsoft.com/azure/mysql/concepts-data-access-and-security-vnet).
 
 * Para información general sobre la conectividad de Azure Database for MySQL, consulte [Arquitectura de la conectividad en Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/concepts-connectivity-architecture).
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

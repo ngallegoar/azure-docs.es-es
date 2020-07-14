@@ -2,13 +2,13 @@
 title: Preguntas más frecuentes sobre el dispositivo de Azure Migrate
 description: Respuestas a preguntas comunes sobre el dispositivo de Azure Migrate.
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.openlocfilehash: 529ead1baa769ee3e71f6fcf77ef7e020ed196a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/03/2020
+ms.openlocfilehash: afdede99fa4485ba7e5494e844d795c2d5d3deee
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81529695"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85078976"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Dispositivo de Azure Migrate: Preguntas frecuentes
 
@@ -107,7 +107,7 @@ Sí. Puede agregar el dispositivo de Azure Migrate (que se usa para la evaluaci�
 
 ## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>¿Cuántas máquinas virtuales o servidores puedo detectar con un dispositivo?
 
-Puede detectar hasta 10 000 VM de VMware, 5000 de Hyper-V y 250 servidores físicos con un único dispositivo. Si tiene más máquinas en su entorno local, lea acerca de [escalar una valoración de Hyper-V](scale-hyper-v-assessment.md), [escalar una valoración de VMware](scale-vmware-assessment.md) y [escalar una evaluación de un servidor físico](scale-physical-assessment.md).
+Puede detectar hasta 10 000 VM de VMware, 5000 de Hyper-V y 1000 servidores físicos con un único dispositivo. Si tiene más máquinas en su entorno local, lea acerca de [escalar una valoración de Hyper-V](scale-hyper-v-assessment.md), [escalar una valoración de VMware](scale-vmware-assessment.md) y [escalar una evaluación de un servidor físico](scale-physical-assessment.md).
 
 ## <a name="can-i-delete-an-appliance"></a>¿Puedo eliminar un dispositivo?
 

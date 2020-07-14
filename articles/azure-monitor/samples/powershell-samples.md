@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 2/14/2018
-ms.openlocfilehash: 14fe27c28e2eb6a527dc6f026916002cfb5b0147
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: 4313d9fec9e858a5d30cfea2bbe7372e6a96169c
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84945263"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413899"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Ejemplos de PowerShell de Azure Monitor
 En este artículo se muestran comandos de PowerShell de ejemplo para ayudarle a acceder a las características de Azure Monitor.
@@ -220,6 +220,10 @@ Set-AzActivityLogAlert -Location 'Global' -Name 'alert on VM create' -ResourceGr
 Las propiedades de webhook adicionales son opcionales. Puede volver el contenido de una alerta de registro de actividad con `Get-AzActivityLogAlert`.
 
 ## <a name="create-and-manage-autoscale-settings"></a>Creación y administración de la configuración de escalado automático
+
+> [!NOTE] 
+> Para Cloud Services (Microsoft.ClassicCompute), el escalado automático admite un intervalo de tiempo de 5 minutos (PT5M). En el caso de los demás servicios, el escalado automático admite un intervalo de tiempo mínimo de 1 minuto (PT1M).
+
 Los recursos (aplicaciones web, las máquinas virtuales, los servicios en la nube o los conjuntos de escalado de máquinas virtuales) solo pueden tener una configuración de escalado automático.
 Sin embargo, cada configuración de escalado automático puede tener varios perfiles. Por ejemplo, uno para un perfil de escalado basado en el rendimiento y otro para uno basado en la programación. Cada perfil puede tener varias reglas configuradas. Para obtener más información sobre el escalado automático, consulte [Escalado automático de una aplicación](../../cloud-services/cloud-services-how-to-scale-portal.md).
 
