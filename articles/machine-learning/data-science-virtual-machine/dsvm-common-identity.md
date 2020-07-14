@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.openlocfilehash: 44f1f7ae3b290e1dbf01877f3881e1d95a238446
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 69d6b8abc99863f29f82abcb44e18b426c5a456c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70208148"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959150"
 ---
 # <a name="set-up-a-common-identity-on-a-data-science-virtual-machine"></a>Configuración de una identidad común en una instancia de Data Science Virtual Machine
 
@@ -41,9 +41,9 @@ Azure AD DS simplifica el proceso de administrar las identidades al proporcionar
     
    1. En **Usuarios y grupos**, seleccione **Todos los usuarios** y **Nuevo usuario**.
    
-           The **User** pane opens:
+        Se abre el panel **Usuario**:
       
-      ![Panel "Usuario"](./media/add-user.png)
+        ![Panel "Usuario"](./media/add-user.png)
     
    1. Especifique los detalles del usuario, como el **nombre** y el **nombre de usuario**. La parte del nombre de dominio del nombre de usuario debe ser el nombre de dominio del nombre de dominio predeterminado inicial "[nombre de dominio].onmicrosoft.com" o un [nombre de dominio personalizado](../../active-directory/add-custom-domain.md) comprobado y no federado, como "contoso.com".
     

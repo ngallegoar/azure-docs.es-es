@@ -1,21 +1,21 @@
 ---
-title: Creación de varios punto de conexión de modelo
+title: Creación de varios modelos y puntos de conexión
 titleSuffix: ML Studio (classic) - Azure
 description: Use PowerShell para crear varios modelos de Machine Learning y puntos de conexión de servicio web con el mismo algoritmo pero con conjuntos de datos de entrenamiento distintos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 1dd17d3ac715c2b32f645602203aa2551c91b42a
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 5b158c2fbdbfba91055d64f92f64c51dc6c3d391
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195341"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955716"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Creación de varios puntos de conexión de servicio web a partir de un experimento con ML Studio (clásico) y PowerShell
 
@@ -72,20 +72,24 @@ Este servicio web incluye un punto de conexión predeterminado. Pero el interés
 
 En primer lugar, configure el entorno de PowerShell:
 
-    Import-Module .\AzureMLPS.dll
-    # Assume the default configuration file exists and is properly set to point to the valid Workspace.
-    $scoringSvc = Get-AmlWebService | where Name -eq 'Bike Rental Scoring'
-    $trainingSvc = Get-AmlWebService | where Name -eq 'Bike Rental Training'
+```powershell
+Import-Module .\AzureMLPS.dll
+# Assume the default configuration file exists and is properly set to point to the valid Workspace.
+$scoringSvc = Get-AmlWebService | where Name -eq 'Bike Rental Scoring'
+$trainingSvc = Get-AmlWebService | where Name -eq 'Bike Rental Training'
+```
 
 Después, ejecute el siguiente comando de PowerShell:
 
-    # Create 10 endpoints on the scoring web service.
-    For ($i = 1; $i -le 10; $i++){
-        $seq = $i.ToString().PadLeft(3, '0');
-        $endpointName = 'rentalloc' + $seq;
-        Write-Host ('adding endpoint ' + $endpointName + '...')
-        Add-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -Description $endpointName     
-    }
+```powershell
+# Create 10 endpoints on the scoring web service.
+For ($i = 1; $i -le 10; $i++){
+    $seq = $i.ToString().PadLeft(3, '0');
+    $endpointName = 'rentalloc' + $seq;
+    Write-Host ('adding endpoint ' + $endpointName + '...')
+    Add-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -Description $endpointName     
+}
+```
 
 Ahora ha creado diez puntos de conexión y todos ellos contienen el mismo modelo entrenado en *customer001.csv*. Puede verlos en Azure Portal.
 
@@ -96,18 +100,20 @@ El siguiente paso consiste en actualizar los puntos de conexión con modelos ent
 
 También debe proporcionar credenciales para su cuenta de almacenamiento de blobs en `$configContent`. Concretamente, en los campos `AccountName`, `AccountKey` y `RelativeLocation`. `AccountName` puede ser uno de los nombres de cuenta, como se muestra en **Azure Portal** (pestaña *Almacenamiento*). Cuando haga clic en una cuenta de almacenamiento, su `AccountKey` puede encontrarse presionando el botón **Administrar claves de acceso** , situado en la parte inferior, y copiando la *clave de acceso principal*. El campo `RelativeLocation` es la ruta de acceso relativa al almacenamiento donde se almacenará un nuevo modelo. Por ejemplo, la ruta de acceso `hai/retrain/bike_rental/` en el script siguiente señala a un contenedor denominado `hai` y `/retrain/bike_rental/` son subcarpetas. Actualmente, no puede crear subcarpetas a través del portal de interfaz de usuario, pero hay [varios exploradores de Azure Storage](../../storage/common/storage-explorers.md) que le permiten hacerlo. Se recomienda crear un contenedor en el almacenamiento para almacenar los nuevos modelos entrenados (archivos .ilearner) de esta forma: en la página de almacenamiento, haga clic en el botón **Agregar** en la parte inferior y asígnele el nombre `retrain`. En resumen, los cambios necesarios para el siguiente script se refieren a `AccountName`, `AccountKey` y `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
 
-    # Invoke the retraining API 10 times
-    # This is the default (and the only) endpoint on the training web service
-    $trainingSvcEp = (Get-AmlWebServiceEndpoint -WebServiceId $trainingSvc.Id)[0];
-    $submitJobRequestUrl = $trainingSvcEp.ApiLocation + '/jobs?api-version=2.0';
-    $apiKey = $trainingSvcEp.PrimaryKey;
-    For ($i = 1; $i -le 10; $i++){
-        $seq = $i.ToString().PadLeft(3, '0');
-        $inputFileName = 'https://bostonmtc.blob.core.windows.net/hai/retrain/bike_rental/BikeRental' + $seq + '.csv';
-        $configContent = '{ "GlobalParameters": { "URI": "' + $inputFileName + '" }, "Outputs": { "output1": { "ConnectionString": "DefaultEndpointsProtocol=https;AccountName=<myaccount>;AccountKey=<mykey>", "RelativeLocation": "hai/retrain/bike_rental/model' + $seq + '.ilearner" } } }';
-        Write-Host ('training regression model on ' + $inputFileName + ' for rental location ' + $seq + '...');
-        Invoke-AmlWebServiceBESEndpoint -JobConfigString $configContent -SubmitJobRequestUrl $submitJobRequestUrl -ApiKey $apiKey
-    }
+```powershell
+# Invoke the retraining API 10 times
+# This is the default (and the only) endpoint on the training web service
+$trainingSvcEp = (Get-AmlWebServiceEndpoint -WebServiceId $trainingSvc.Id)[0];
+$submitJobRequestUrl = $trainingSvcEp.ApiLocation + '/jobs?api-version=2.0';
+$apiKey = $trainingSvcEp.PrimaryKey;
+For ($i = 1; $i -le 10; $i++){
+    $seq = $i.ToString().PadLeft(3, '0');
+    $inputFileName = 'https://bostonmtc.blob.core.windows.net/hai/retrain/bike_rental/BikeRental' + $seq + '.csv';
+    $configContent = '{ "GlobalParameters": { "URI": "' + $inputFileName + '" }, "Outputs": { "output1": { "ConnectionString": "DefaultEndpointsProtocol=https;AccountName=<myaccount>;AccountKey=<mykey>", "RelativeLocation": "hai/retrain/bike_rental/model' + $seq + '.ilearner" } } }';
+    Write-Host ('training regression model on ' + $inputFileName + ' for rental location ' + $seq + '...');
+    Invoke-AmlWebServiceBESEndpoint -JobConfigString $configContent -SubmitJobRequestUrl $submitJobRequestUrl -ApiKey $apiKey
+}
+```
 
 > [!NOTE]
 > El punto de conexión BES es el único modo admitido para esta operación. RRS no se puede usar para generar modelos entrenados.
@@ -118,54 +124,58 @@ Como puede ver más arriba, en lugar de construir diez archivos json de trabajo 
 
 Si todo va bien, después de un tiempo verá diez archivos .iLearner (de *model001.ilearner* a *model010.ilearner*) en la cuenta de Azure Storage. Ahora ya está listo para actualizar los diez puntos de conexión del servicio web de puntuación con estos modelos mediante el cmdlet de PowerShell **Patch-AmlWebServiceEndpoint**. Recuerde una vez más que solo puede revisar los puntos de conexión no predeterminados mediante programación creados anteriormente.
 
-    # Patch the 10 endpoints with respective .ilearner models
-    $baseLoc = 'http://bostonmtc.blob.core.windows.net/'
-    $sasToken = '<my_blob_sas_token>'
-    For ($i = 1; $i -le 10; $i++){
-        $seq = $i.ToString().PadLeft(3, '0');
-        $endpointName = 'rentalloc' + $seq;
-        $relativeLoc = 'hai/retrain/bike_rental/model' + $seq + '.ilearner';
-        Write-Host ('Patching endpoint ' + $endpointName + '...');
-        Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
-    }
+```powershell
+# Patch the 10 endpoints with respective .ilearner models
+$baseLoc = 'http://bostonmtc.blob.core.windows.net/'
+$sasToken = '<my_blob_sas_token>'
+For ($i = 1; $i -le 10; $i++){
+    $seq = $i.ToString().PadLeft(3, '0');
+    $endpointName = 'rentalloc' + $seq;
+    $relativeLoc = 'hai/retrain/bike_rental/model' + $seq + '.ilearner';
+    Write-Host ('Patching endpoint ' + $endpointName + '...');
+    Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
+}
+```
 
 Esto se debe ejecutar bastante rápido. Cuando finaliza la ejecución, habrá creado correctamente diez puntos de conexión de servicio web de predicción. Cada uno de ellos contendrá un modelo entrenado de forma única en el conjunto de datos específico a una ubicación de alquiler, todo ello desde un experimento de entrenamiento único. Para comprobar esto, puede intentar llamar a estos puntos de conexión mediante el cmdlet **InvokeAmlWebServiceRRSEndpoint**, proporcionándoles los mismos datos de entrada. Debería ver resultados de predicción diferentes, ya que los modelos se entrenan con conjuntos de entrenamiento diferentes.
 
 ## <a name="full-powershell-script"></a>Script de PowerShell completo
 Este es el listado del código fuente completo:
 
-    Import-Module .\AzureMLPS.dll
-    # Assume the default configuration file exists and properly set to point to the valid workspace.
-    $scoringSvc = Get-AmlWebService | where Name -eq 'Bike Rental Scoring'
-    $trainingSvc = Get-AmlWebService | where Name -eq 'Bike Rental Training'
+```powershell
+Import-Module .\AzureMLPS.dll
+# Assume the default configuration file exists and properly set to point to the valid workspace.
+$scoringSvc = Get-AmlWebService | where Name -eq 'Bike Rental Scoring'
+$trainingSvc = Get-AmlWebService | where Name -eq 'Bike Rental Training'
 
-    # Create 10 endpoints on the scoring web service
-    For ($i = 1; $i -le 10; $i++){
-        $seq = $i.ToString().PadLeft(3, '0');
-        $endpointName = 'rentalloc' + $seq;
-        Write-Host ('adding endpoint ' + $endpontName + '...')
-        Add-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -Description $endpointName     
-    }
+# Create 10 endpoints on the scoring web service
+For ($i = 1; $i -le 10; $i++){
+    $seq = $i.ToString().PadLeft(3, '0');
+    $endpointName = 'rentalloc' + $seq;
+    Write-Host ('adding endpoint ' + $endpontName + '...')
+    Add-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -Description $endpointName     
+}
 
-    # Invoke the retraining API 10 times to produce 10 regression models in .ilearner format
-    $trainingSvcEp = (Get-AmlWebServiceEndpoint -WebServiceId $trainingSvc.Id)[0];
-    $submitJobRequestUrl = $trainingSvcEp.ApiLocation + '/jobs?api-version=2.0';
-    $apiKey = $trainingSvcEp.PrimaryKey;
-    For ($i = 1; $i -le 10; $i++){
-        $seq = $i.ToString().PadLeft(3, '0');
-        $inputFileName = 'https://bostonmtc.blob.core.windows.net/hai/retrain/bike_rental/BikeRental' + $seq + '.csv';
-        $configContent = '{ "GlobalParameters": { "URI": "' + $inputFileName + '" }, "Outputs": { "output1": { "ConnectionString": "DefaultEndpointsProtocol=https;AccountName=<myaccount>;AccountKey=<mykey>", "RelativeLocation": "hai/retrain/bike_rental/model' + $seq + '.ilearner" } } }';
-        Write-Host ('training regression model on ' + $inputFileName + ' for rental location ' + $seq + '...');
-        Invoke-AmlWebServiceBESEndpoint -JobConfigString $configContent -SubmitJobRequestUrl $submitJobRequestUrl -ApiKey $apiKey
-    }
+# Invoke the retraining API 10 times to produce 10 regression models in .ilearner format
+$trainingSvcEp = (Get-AmlWebServiceEndpoint -WebServiceId $trainingSvc.Id)[0];
+$submitJobRequestUrl = $trainingSvcEp.ApiLocation + '/jobs?api-version=2.0';
+$apiKey = $trainingSvcEp.PrimaryKey;
+For ($i = 1; $i -le 10; $i++){
+    $seq = $i.ToString().PadLeft(3, '0');
+    $inputFileName = 'https://bostonmtc.blob.core.windows.net/hai/retrain/bike_rental/BikeRental' + $seq + '.csv';
+    $configContent = '{ "GlobalParameters": { "URI": "' + $inputFileName + '" }, "Outputs": { "output1": { "ConnectionString": "DefaultEndpointsProtocol=https;AccountName=<myaccount>;AccountKey=<mykey>", "RelativeLocation": "hai/retrain/bike_rental/model' + $seq + '.ilearner" } } }';
+    Write-Host ('training regression model on ' + $inputFileName + ' for rental location ' + $seq + '...');
+    Invoke-AmlWebServiceBESEndpoint -JobConfigString $configContent -SubmitJobRequestUrl $submitJobRequestUrl -ApiKey $apiKey
+}
 
-    # Patch the 10 endpoints with respective .ilearner models
-    $baseLoc = 'http://bostonmtc.blob.core.windows.net/'
-    $sasToken = '?test'
-    For ($i = 1; $i -le 10; $i++){
-        $seq = $i.ToString().PadLeft(3, '0');
-        $endpointName = 'rentalloc' + $seq;
-        $relativeLoc = 'hai/retrain/bike_rental/model' + $seq + '.ilearner';
-        Write-Host ('Patching endpoint ' + $endpointName + '...');
-        Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
-    }
+# Patch the 10 endpoints with respective .ilearner models
+$baseLoc = 'http://bostonmtc.blob.core.windows.net/'
+$sasToken = '?test'
+For ($i = 1; $i -le 10; $i++){
+    $seq = $i.ToString().PadLeft(3, '0');
+    $endpointName = 'rentalloc' + $seq;
+    $relativeLoc = 'hai/retrain/bike_rental/model' + $seq + '.ilearner';
+    Write-Host ('Patching endpoint ' + $endpointName + '...');
+    Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
+}
+```

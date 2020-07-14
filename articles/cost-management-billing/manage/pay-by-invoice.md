@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: banders
-ms.openlocfilehash: 8552b6732736d1d10711479639fa45114f8b039b
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 5fb8a9cd5e00bf3a6ebeddaf44a09ac48b94fe7c
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298011"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849087"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Pago de las suscripciones de Azure con factura
 
@@ -42,28 +42,28 @@ Si cambia al pago con factura, significa que pagará el importe en un plazo de 3
 
 5. Escriba la siguiente información en el cuadro **Detalles** y después haga clic en **Siguiente**.
 
-         New or existing customer:
-         If existing, current payment method:
-         Order ID (requesting for invoice option):
-         Account Admins Live ID (or Org ID) (should be company domain):
-         Commerce Account ID:
-         Company Name (as registered under VAT or Government Website):
-         Company Address (as registered under VAT or Government Website):
-         Company Website:
-         Country:
-         TAX ID/ VAT ID:
-         Company Established on (Year):
-         Any prior business with Microsoft:
-         Contact Name:
-         Contact Phone:
-         Contact Email:
-         Justification on why you prefer Invoice option over credit card:
+     El cliente es nuevo o ya existía:<br>
+     Si existe, el método de pago actual:<br>
+     Id. de pedido (solicitar para la opción de factura):<br>
+     Live ID (o Id. org) de administradores de cuentas (debería ser el dominio de la empresa):<br>
+     Id. de cuenta de comercio:<br>
+     Nombre de la empresa (como figura en el registro):<br>
+     Dirección de la empresa (como figura en el registro):<br>
+     Sitio web de la empresa:<br>
+     País:<br>
+     Código o número de identificación fiscal:<br>
+     Empresa establecida el (año):<br>
+     Transacciones comerciales realizadas con Microsoft:<br>
+     Nombre de contacto:<br>
+     Teléfono de contacto:<br>
+     Dirección de correo electrónico de contacto:<br>
+     Motivos por los que prefiere la opción de factura, en lugar de tarjeta de crédito:<br>
 
-         For cores increase, provide the following additional information:
+     Si desea aumentar el número de núcleos, especifique la siguiente información adicional:<br>
 
-         (Old quota) Existing Cores:
-         (New quota) Requested cores:
-         Specific region & series of Subscription:
+     (Cuota anterior) Núcleos existentes:<br>
+     (Cuota nueva) Núcleos solicitados:<br>
+     Serie y región específica de la suscripción:<br>
 
     - El **nombre de la empresa** y la **dirección de la empresa** deben coincidir con la información que haya proporcionado para la cuenta de Azure. Para ver o actualizar la información, consulte [Cambio de la información de perfil de la cuenta de Azure](change-azure-account-profile.md).
     - Agregue la información de contacto de facturación en Azure Portal antes de que se pueda aprobar el límite de crédito. La información de contacto debe ser la del departamento de Contabilidad o Finanzas. Para actualizar la información de contacto de facturación, vaya al [Centro de cuentas de Azure](https://account.azure.com/Profile).

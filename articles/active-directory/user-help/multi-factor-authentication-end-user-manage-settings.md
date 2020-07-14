@@ -10,14 +10,14 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 02/20/2020
+ms.date: 07/06/2020
 ms.author: curtand
-ms.openlocfilehash: c9304f4a958360d01d404d9b510feb5659e5436d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 259468d0d3b04b354e782529cefa2149974c9ca0
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746742"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983312"
 ---
 # <a name="change-your-two-factor-verification-method-and-settings"></a>Cambio de la configuración y del método de comprobación en dos pasos
 
@@ -88,7 +88,7 @@ Puede agregar nuevos números de teléfono o actualizar los que ya existen en la
 
 1. En la sección **¿Cómo desea responder?** de la página **Comprobación de seguridad adicional**, actualice el número de teléfono de **Teléfono de autenticación** (su dispositivo móvil principal) y **Teléfono de la oficina**.
 
-1. Seleccione la casilla situada junto a la opción **Teléfono de autenticación alternativo** y, a continuación, escriba un número de teléfono secundario en el que pueda recibir mensajes de texto o llamadas telefónicas si no puede acceder al dispositivo principal.
+1. Seleccione la casilla situada junto a la opción **Teléfono de autenticación alternativo** y, a continuación, escriba un número de teléfono secundario en el que pueda recibir llamadas telefónicas si no puede acceder al dispositivo principal.
 
 1. Seleccione **Guardar**.
 

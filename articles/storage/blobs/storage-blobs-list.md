@@ -4,16 +4,16 @@ description: Obtenga información sobre cómo enumerar los blobs de un contenedo
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 03/30/2020
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 76142838d1ec138b75fb6c594414b2ff5d8cd939
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: ff7eac9e004a06925fbfa657278e6ec848a7d600
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82883301"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851272"
 ---
 # <a name="list-blobs-with-net"></a>Enumeración de blobs con .NET
 
@@ -24,6 +24,15 @@ En este artículo se muestra cómo enumerar blobs con [la biblioteca cliente de 
 ## <a name="understand-blob-listing-options"></a>Descripción de las opciones de enumeración de blobs
 
 Para enumerar los blobs de una cuenta de almacenamiento, llame a uno de estos métodos:
+
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
+
+- [BlobContainerClient.GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs?view=azure-dotnet)
+- [BlobContainerClient.GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync?view=azure-dotnet)
+- [BlobContainerClient.GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy?view=azure-dotnet)
+- [BlobContainerClient.GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync?view=azure-dotnet)
+
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
 
 - [CloudBlobClient.ListBlobs](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobs)
 - [CloudBlobClient.ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobssegmented)
@@ -37,11 +46,13 @@ Para enumerar los blobs de un contenedor, llame a uno de estos métodos:
 
 Las sobrecargas de estos métodos proporcionan opciones adicionales para administrar cómo la operación de enumeración devuelve los blobs. Estas opciones se describen en las secciones siguientes.
 
+---
+
 ### <a name="manage-how-many-results-are-returned"></a>Administración del número de resultados que se devuelven
 
-De forma predeterminada, una operación de enumeración devuelve hasta 5000 resultados a la vez. Para devolver un conjunto de resultados más pequeño, proporcione un valor distinto de cero con el parámetro `maxresults` al llamar a uno de los métodos **ListBlobs**.
+De forma predeterminada, una operación de enumeración devuelve hasta 5000 resultados a la vez, pero puede especificar el número de resultados que quiere que devuelva. En los ejemplos que se presentan en este artículo se muestra cómo hacerlo.
 
-Si una operación de enumeración devuelve más de 5000 blobs o si se ha especificado un valor para `maxresults` de forma que la operación de enumeración devuelva un subconjunto de los contenedores de la cuenta de almacenamiento, Azure Storage devuelve un *token de continuación* con la lista de blobs. Un token de continuación es un valor opaco que se puede usar para recuperar el siguiente conjunto de resultados de Azure Storage.
+Si una operación de enumeración devuelve más de 5000 blobs, o si el número de blobs disponibles supera el número especificado, Azure Storage devuelve un *token de continuación* con la lista de blobs. Un token de continuación es un valor opaco que se puede usar para recuperar el siguiente conjunto de resultados de Azure Storage.
 
 En el código, compruebe el valor del token de continuación para determinar si es NULL. Cuando el token de continuación es NULL, el conjunto de resultados está completo. Si el token de continuación no es NULL, llame de nuevo a la operación de enumeración y pase el token de continuación para recuperar el siguiente conjunto de resultados, hasta que el token de continuación sea NULL.
 
@@ -51,7 +62,11 @@ Para filtrar la lista de contenedores, especifique una cadena para el parámetro
 
 ### <a name="return-metadata"></a>Devolución de metadatos
 
-Para devolver metadatos de blob con los resultados, especifique el valor **Metadata** con la enumeración [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails). Azure Storage incluye metadatos con cada contenedor que se devuelve, por lo que en este contexto no hay que llamar a uno de los métodos **FetchAttributes** para recuperar los metadatos del contenedor.
+Puede devolver metadatos de blob con los resultados. 
+
+- Si usa el SDK de .NET V12, especifique el valor **Metadata** para la enumeración [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits?view=azure-dotnet).
+
+- Si usa el SDK de .NET V11, especifique el valor **Metadata** para la enumeración [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails). Azure Storage incluye metadatos con cada contenedor que se devuelve, por lo que en este contexto no hay que llamar a uno de los métodos **FetchAttributes** para recuperar los metadatos del contenedor.
 
 ### <a name="flat-listing-versus-hierarchical-listing"></a>Lista plana frente a lista jerárquica
 
@@ -66,6 +81,14 @@ Si usa un delimitador para asignar nombres a los blobs, puede optar por enumerar
 De forma predeterminada, una operación de enumeración devuelve los blobs en una lista plana. En una lista plana, los blobs no se organizan por directorio virtual.
 
 En el ejemplo siguiente se enumeran los blobs del contenedor especificado mediante una lista plana, con un tamaño de segmento opcional especificado, y se escribe el nombre del blob en una ventana de consola.
+
+Si ha habilitado la característica de espacio de nombres jerárquico en su cuenta, los directorios no son virtuales. En su lugar, son objetos independientes y concretos. Por lo tanto, los directorios aparecen en la lista como blobs de longitud cero.
+
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsFlatListing":::
+
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
 
 ```csharp
 private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container, int? segmentSize)
@@ -85,7 +108,6 @@ private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container
 
             foreach (var blobItem in resultSegment.Results)
             {
-                // A flat listing operation returns only blobs, not virtual directories.
                 blob = (CloudBlob)blobItem;
 
                 // Write out some blob properties.
@@ -108,6 +130,8 @@ private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container
 }
 ```
 
+---
+
 La salida es parecida a esta:
 
 ```
@@ -125,6 +149,16 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 ## <a name="use-a-hierarchical-listing"></a>Uso de una lista jerárquica
 
 Cuando se llama a una operación de enumeración jerárquicamente, Azure Storage devuelve los directorios virtuales y los blobs en el primer nivel de la jerarquía. La propiedad [Prefix](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) de cada directorio virtual se establece de manera que pueda pasar el prefijo en una llamada recursiva para recuperar el siguiente directorio.
+
+# <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
+
+Para enumerar los blobs de forma jerárquica, llame al método [BlobContainerClient.GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy?view=azure-dotnet) o [BlobContainerClient.GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync?view=azure-dotnet).
+
+En el ejemplo siguiente se enumeran los blobs del contenedor especificado mediante una lista jerárquica, con un tamaño de segmento opcional especificado, y se escribe el nombre del blob en la ventana de consola.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsHierarchicalListing":::
+
+# <a name="net-v11-sdk"></a>[SDK de .NET, versión 11](#tab/dotnet11)
 
 Para enumerar los blobs de forma jerárquica, establezca el parámetro `useFlatBlobListing` del método de enumeración en **false**.
 
@@ -182,6 +216,8 @@ private static async Task ListBlobsHierarchicalListingAsync(CloudBlobContainer c
     }
 }
 ```
+
+---
 
 La salida es parecida a esta:
 

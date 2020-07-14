@@ -10,43 +10,43 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 5f66e29e4c1bc85981202251e0de8288f4baee4e
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: f37109cc2677ad5ef18c5677bda9308a78cebccf
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307340"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851302"
 ---
 # <a name="add-interaction-rules"></a>Adición de reglas de interacción
 
-En este artículo, aprenderá acerca de las **reglas de interacción**. Estas son reglas adicionales para controlar situaciones más específicas o complejas. Aunque tiene la libertad de crear sus propias reglas de interacción personalizadas, en este artículo, podrá usarlas para los siguientes escenarios objetivo:
+En este artículo, aprenderá acerca de las *reglas de interacción*. Estas reglas adicionales permiten controlar situaciones más específicas o complejas. Puede crear sus propias reglas de interacción personalizadas, pero, en este artículo, usará reglas de interacción para los siguientes escenarios objetivo:
 
 * Confirmación de comandos
-* Adición de correcciones de pasos a los comandos
+* Adición de correcciones de un paso a los comandos
 
-Vaya a la sección de [referencia](./custom-commands-references.md) para obtener más información sobre las reglas de interacción.
+Para obtener más información sobre las reglas de interacción, vaya a la sección de [referencia](./custom-commands-references.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Debe haber completado los pasos descritos en los siguientes artículos:
 > [!div class="checklist"]
-> * [Cómo: Creación de una aplicación con comandos simples](./how-to-custom-commands-create-application-with-simple-commands.md)
-> * [Cómo: Adición de parámetros a comandos](./how-to-custom-commands-add-parameters-to-commands.md)
+> * [Creación de una aplicación con comandos simples](./how-to-custom-commands-create-application-with-simple-commands.md)
+> * [Adición de parámetros a comandos](./how-to-custom-commands-add-parameters-to-commands.md)
 
 ## <a name="add-confirmations-to-a-command"></a>Adición de confirmaciones a un comando
 
 Para agregar una confirmación, use el comando **SetTemperature**. Para conseguir la confirmación, use los pasos siguientes para crear reglas de interacción.
 
 1. Seleccione el comando **SetTemperature** en el panel izquierdo.
-2. Para agregar las reglas de interacción, seleccione **Agregar** en el panel central y, a continuación, **Interaction rules (reglas de interacción)**  > **Confirm command (confirmar comando)** .
+1. Seleccione **Agregar** en el panel central para agregar reglas de interacción. A continuación, seleccione **Reglas de interacción** > **Confirm command** (Confirmar comando).
 
-    De este modo, se agregarán tres reglas de interacción; esta regla pedirá al usuario que confirme la fecha y la hora de la alarma y espera una confirmación (sí/no) para el siguiente turno.
+    Esta acción agrega tres reglas de interacción. Esta regla le pide al usuario que confirme la fecha y la hora de la alarma, y espera una confirmación (sí/no) para el turno siguiente.
 
-    1. Modifique la regla de interacción **Confirm Command** (confirmar comando) según la configuración siguiente.
-        1. Cambie el **Nombre** por **`Confirm Temperature`** .
-        1. Agregue una nueva condición como **Parámetros obligatorios > Temperature**.
-        1. Agregue una nueva acción como **Tipo > Enviar respuesta de voz > `Are you sure you want to set the temperature as {Temperature} degrees?`** .
-        1. Deje el valor predeterminado de **Expecting confirmation from user** (a la espera de confirmación del usuario) en la sección Expectativas.
+    1. Modifique la regla de interacción **Confirm Command** (Confirmar comando) según la configuración siguiente:
+        1. Cambie el **Nombre** a **Confirm temperature** (Confirmar temperatura).
+        1. Agregue una nueva condición como **Parámetros obligatorios** > **Temperature** (Temperatura).
+        1. Agregue una nueva acción como **Tipo** > **Enviar respuesta de voz** > **Are you sure you want to set the temperature as {Temperature} degrees?** (¿Está seguro de que quiere definir la temperatura en {Temperature} grados?)
+        1. Deje el valor predeterminado de **Expecting confirmation from user** (A la espera de confirmación del usuario) en la sección **Expectativas**.
       
          > [!div class="mx-imgBorder"]
          > ![Crear respuesta de parámetro requerida](media/custom-speech-commands/add-validation-set-temperature.png)
@@ -54,92 +54,92 @@ Para agregar una confirmación, use el comando **SetTemperature**. Para consegui
 
     1. Modifique la regla de interacción **Confirmation succeeded** (confirmación correcta) para controlar una confirmación correcta (el usuario dijo sí).
       
-          1. Modifique el **nombre** por **`Confirmation temperature succeeded`** .
+          1. Cambie el **Nombre** a **Confirmation temperature succeeded**.
           1. Deje la condición **La confirmación se realizó correctamente** existente.
-          1. Agregue una nueva condición como **Tipo > Parámetros obligatorios > Temperature**.
+          1. Agregue una nueva condición como **Tipo** > **Parámetros obligatorios** > **Temperature**.
           1. Deje el valor predeterminado del **Post-execution state** (estado posterior a la ejecución) como **Execute completion rules** (ejecutar reglas de finalización).
 
-    1. Modifique la condición **Confirmation denied** (confirmación denegada) (el usuario dijo que no) para controlar los escenarios en los que se denegó la confirmación.
+    1. Modifique la regla de interacción **Confirmation denied** (Confirmación denegada) para controlar escenarios en que se deniega la confirmación (el usuario dijo que no).
 
-          1. Modifique el **nombre** por **`Confirmation temperature denied`** .
+          1. Cambie el **Nombre** a **Confirmation temperature denied** (Confirmación de temperatura denegada).
           1. Deje la condición **La confirmación se denegó** existente.
-          1. Agregue una nueva condición como **Tipo > Parámetros obligatorios > Temperature**.
-          1. Agregue una nueva acción como **Tipo > Enviar respuesta de voz > `No problem. What temperature then?`** .
+          1. Agregue una nueva condición como **Tipo** > **Parámetros obligatorios** > **Temperature** (Temperatura).
+          1. Agregue una nueva acción como **Tipo** > **Enviar respuesta de voz** > **No problem. What temperature then? (No hay problema. Entonces, ¿qué temperatura?)** .
           1. Deje el valor predeterminado del **Post-execution state** (estado posterior a la ejecución) como **Wait for user's input** (esperar la entrada del usuario).
 
 > [!IMPORTANT]
-> En este artículo, se usó la funcionalidad de confirmación integrada. También puede lograr el mismo resultado al agregar las reglas de interacción de una en una, de forma manual.
+> En este artículo, se usó la funcionalidad de confirmación integrada. También puede agregar manualmente reglas de interacción de una en una.
    
 
 ### <a name="try-out-the-changes"></a>Prueba de los cambios
 
 Seleccione **Entrenar**, espere a que se complete el entrenamiento y elija **Probar**.
 
-- Entrada: set temperature to 80 degrees (establece la temperatura en 80 grados)
-- Salida: ok 80? (¿80 está bien?)
-- Entrada: No
-- Salida: no problem. (No hay problema). what temperature then? (Entonces, ¿qué temperatura?)
-- Entrada: 83 degrees (83 grados)
-- Salida: ok 83? (¿83 está bien?)
-- Entrada: Sí
-- Salida: Ok, setting temperature to 83 degrees (de acuerdo, definiré la temperatura en 83 grados)
+- **Entrada**: Set temperature to 80 degrees (Establece la temperatura en 80 grados).
+- **Salida**: OK 80? (Vale. ¿80?)
+- **Entrada**: No.
+- **Salida**: No se preocupe. What temperature then? (Entonces, ¿qué temperatura?)
+- **Entrada**: 83 degrees (83 grados).
+- **Salida**: OK 83? (Vale. ¿83?)
+- **Entrada**: Sí.
+- **Salida**: Ok, setting temperature to 83 degrees (De acuerdo, estableciendo temperatura en 83 grados).
 
 
-## <a name="implementing-corrections-in-a-command"></a>Implementación de correcciones en un comando
+## <a name="implement-corrections-in-a-command"></a>Implementación de correcciones en un comando
 
-En esta sección, configurará la corrección de un paso, que se usará una vez que ya se ha ejecutado la acción de cumplimiento. También verá un ejemplo de cómo la corrección está habilitada de forma predeterminada, en caso de que el comando no se cumpla aún. Para agregar una corrección cuando no se haya completado el comando, agregue un nuevo parámetro **AlarmTone**.
+En esta sección, configurará la corrección de un paso, que se usa después de ejecutar la acción de cumplimiento. También verá un ejemplo de cómo la corrección se habilita de forma predeterminada en caso de que el comando aún no se haya completado. Para agregar una corrección cuando no se haya completado el comando, agregue el nuevo parámetro **AlarmTone**.
 
-Seleccione el comando **SetAlarm** en el panel izquierdo y agregue un nuevo parámetro **AlarmTone**.
+Seleccione el comando **SetAlarm** en el panel izquierdo y agregue el nuevo parámetro **AlarmTone**.
         
-- **Nombre** > `AlarmTone`
-- **Tipo** > Cadena
-- **Valor predeterminado** > `Chimes`
-- **Configuración** > Aceptar valores de entrada predefinidos del catálogo interno
-- **Predefined input values (valores de entrada predefinidos)**  > `Chimes`, `Jingle` y `Echo`. Cada uno como un valor de entradas predefinido individual.
+- **Nombre** > **AlarmTone**
+- **Tipo** > **Cadena**
+- **Valor predeterminado** > **Campanillas**
+- **Configuración** > **Aceptar valores de entrada predefinidos del catálogo interno**
+- **Valores de entrada predefinidos** > **Campanillas**, **Tintineo** y **Eco** como entradas individuales predefinidas
 
 
-A continuación, actualice la respuesta para el parámetro DateTime a `Ready to set alarm with tone as {AlarmTone}. For what time?`. A continuación, modifique la regla de finalización como se indica a continuación.
+A continuación, actualice la respuesta del parámetro **DateTime** como **Ready to set alarm with tone as {AlarmTone}. For what time? (Listo para definir la alarma con el tono {AlarmTone} ¿A qué hora?)** . A continuación, modifique la regla de finalización como se indica a continuación:
 
 1. Seleccione la regla de finalización existente **ConfirmationResponse**.
-1. En el panel derecho, mantenga el mouse sobre la acción existente y seleccione el botón **Editar**.
-1. Actualice la respuesta de voz a `Ok, alarm set for {DateTime}. The alarm tone is {AlarmTone}.`.
+1. En el panel derecho, mantenga el mouse sobre la acción existente y seleccione **Editar**.
+1. Actualice la respuesta de voz a **OK, alarm set for {DateTime}. The alarm tone is {AlarmTone} (De acuerdo, alarma definida para {DateTime}. El tono de alarma es {AlarmTone}).**
 
 ### <a name="try-out-the-changes"></a>Prueba de los cambios
 
-Seleccione **Entrenar**, espere hasta que se complete el entrenamiento y elija **Probar**.
+Seleccione **Entrenar**, espere a que se complete el entrenamiento y elija **Probar**.
 Pruebe las siguientes expresiones:
 
-- Entrada: set an alarm (establece una alarma)
-- Salida: Ready to set alarm with tone as Chimes. (Listo para establecer una alarma con el tono campanillas). For what time? (¿A qué hora?)
-- Entrada: set an alarm with tone as jingle for 9 am tomorrow (establece una alarma con el tono tintineo para mañana a las 9:00)
-- Salida: OK, alarm set for 2020-05-30 09:00:00. (De acuerdo, alarma establecida para el 30/05/2020 a las 9:00:00). The alarm tone is jingle. (El tono de alarma es tintineo).
+- **Entrada**: Set an alarm (Define una alarma).
+- **Salida**: Ready to set alarm with tone as Chimes. (Listo para establecer una alarma con el tono campanillas). For what time? (¿A qué hora?)
+- **Entrada**: Set an alarm with the tone as Jingle for 9 am tomorrow (Establece una alarma con el tono Tintineo para mañana a las 9:00).
+- **Salida**: OK, alarm set for 2020-05-30 09:00:00 (De acuerdo, alarma establecida para el 30/05/2020 a las 9:00:00) The alarm tone is Jingle. (El tono de alarma es Tintineo).
 
 > [!IMPORTANT]
-> Observe cómo se puede cambiar el tono de alarma sin ninguna configuración explícita en un comando en curso; es decir, cuando el comando no se ha completado todavía. **La corrección está habilitada de forma predeterminada para todos los parámetros de comando, independientemente del número de turnos si el comando todavía no finaliza.**
+> Se puede cambiar el tono de alarma sin ninguna configuración explícita en un comando en curso; por ejemplo, cuando el comando no se ha completado todavía. *Hay una corrección habilitada de forma predeterminada para todos los parámetros del comando, independientemente del número de turno si el comando aún no se ha completado.*
 
 ### <a name="correction-when-command-is-completed"></a>Corrección cuando el comando se ha completado
 
-La plataforma de Comandos personalizados también proporciona la funcionalidad para corregir un paso, incluso cuando se ha completado el comando. Sin embargo, esta característica no está habilitada de forma predeterminada y debe configurarse de forma explícita. Siga estos pasos para configurar la corrección de un paso.
+La plataforma de Comandos personalizados también proporciona la funcionalidad de corrección en un paso, incluso cuando se ha completado el comando. Esta característica no está habilitada de forma predeterminada. Debe configurarse explícitamente. Siga estos pasos para configurar una corrección de un paso.
 
-1. En el comando **SetAlarm**, agregue una regla de interacción de tipo **Update previous command** (actualizar el comando anterior) para actualizar la alarma establecida previamente. Cambie el **nombre** predeterminado de la regla de interacción a **Update previous alarm** (actualizar la alarma anterior).
+1. En el comando **SetAlarm**, agregue una regla de interacción del tipo **Update previous command** (Actualizar el comando anterior) para actualizar la alarma establecida previamente. Cambie el **nombre** predeterminado de la regla de interacción a **Update previous alarm** (actualizar la alarma anterior).
 1. Deje la condición predeterminada **Previous command needs to be updated** (se debe actualizar el comando anterior) tal como está.
-1.  Agregue una nueva condición como **Tipo > Parámetro obligatorio > DateTime**.
-1. Agregue una nueva acción como **Tipo > Enviar respuesta de voz > Editor sencillo > `Updating previous alarm time to {DateTime}.`** .
-1. Deje el valor predeterminado del estado posterior a la ejecución como **Comando finalizado**.
+1. Agregue una nueva condición como **Tipo** > **Parámetros obligatorios** > **DateTime**.
+1. Agregue una nueva acción como **Tipo** > **Enviar respuesta de voz** > **Editor simple** > **Updating previous alarm time to {DateTime} (Actualizando hora de alarma anterior a {DateTime}).**
+1. Deje el valor predeterminado del **estado posterior a la ejecución** como **Comando finalizado**.
 
 ### <a name="try-out-the-changes"></a>Prueba de los cambios
 
 Seleccione **Entrenar**, espere a que se complete el entrenamiento y elija **Probar**.
 
-- Entrada: set an alarm (establece una alarma)
-- Salida: Ready to set alarm with tone as Chimes. (Listo para establecer una alarma con el tono campanillas). What time? (¿A qué hora?)
-- Entrada: set an alarm with tone as jingle for 9 am tomorrow (establece una alarma con el tono tintineo para mañana a las 9:00)
-- Salida: OK, alarm set for 2020-05-21 09:00:00 (de acuerdo, alarma establecida para el 21/05/2020 a las 9:00:00) The alarm tone is jingle. (El tono de alarma es tintineo).
-- Entrada: no, 8 am (no, a las 8:00)
-- Salida: Updating previous alarm time to 2020-05-29 08:00 (actualizaré la hora de la alarma anterior al 29/05/2020 a las 8:00:00).
+- **Entrada**: Set an alarm (Define una alarma).
+- **Salida**: Ready to set alarm with tone as Chimes. (Listo para establecer una alarma con el tono campanillas). For what time? (¿A qué hora?)
+- **Entrada**: Set an alarm with the tone as Jingle for 9 am tomorrow (Establece una alarma con el tono Tintineo para mañana a las 9:00).
+- **Salida**: OK, alarm set for 2020-05-21 09:00:00 (De acuerdo, alarma establecida para el 21/05/2020 a las 9:00:00) The alarm tone is Jingle. (El tono de alarma es Tintineo).
+- **Entrada**: No, 8 am (No, 08:00).
+- **Salida**: Updating previous alarm time to 2020-05-29 08:00 (actualizaré la hora de la alarma anterior al 29/05/2020 a las 8:00:00).
 
 > [!NOTE]
-> En una aplicación real, en la sección Acciones de esta regla de corrección, también deberá enviar una actividad al cliente o llamar un punto de conexión HTTP para actualizar la hora de la alarma en el sistema. En particular, esta acción solo debe ser responsable de actualizar la hora de la alarma y no de cualquier otro atributo del comando; en este caso, el tono de alarma.
+> En una aplicación real, en la sección **Acciones** de esta regla de corrección, también deberá enviar una actividad al cliente o llamar a un punto de conexión HTTP para actualizar la hora de la alarma en el sistema. Esta acción solo debe ser responsable de actualizar la hora de la alarma y ningún otro atributo del comando. En este caso, sería el tono de alarma.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

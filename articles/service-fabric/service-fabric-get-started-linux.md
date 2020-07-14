@@ -3,12 +3,12 @@ title: Configuración de su entorno de desarrollo en Linux
 description: Instale el SDK y el motor en tiempo de ejecución, y cree un clúster de desarrollo local en Linux. Después de completar esta instalación, estará listo para compilar aplicaciones.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 000d615d779ed14eb1698cf297075480a07c71ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cfc97a540ed8c4c17ca4030c45b16021b926d7c5
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193418"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85854798"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparación del entorno de desarrollo en Linux
 > [!div class="op_single_selector"]
@@ -25,11 +25,11 @@ En los pasos descritos en este artículo se supone que va a instalar de forma na
 No se admite la instalación del SDK ni del entorno de tiempo de ejecución de Service Fabric en el subsistema Windows para Linux. Puede administrar las entidades de Service Fabric hospedadas en otra parte de la nube o del entorno local mediante la interfaz de la línea de comandos (CLI) de Azure Service Fabric, ya que está admitida. Para más información acerca de cómo instalar la CLI, consulte [Configuración de la CLI de Service Fabric](./service-fabric-cli.md).
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Se admiten estas versiones de sistemas operativos para desarrollo.
 
-* Ubuntu 16.04 (`Xenial Xerus`)
+* Ubuntu 16.04 (`Xenial Xerus`), 18.04 (`Bionic Beaver`)
 
     Asegúrese de que el paquete `apt-transport-https` está instalado.
          
@@ -60,46 +60,40 @@ Para instalar el SDK y el paquete del sistema en tiempo de ejecución asociado m
 ### <a name="ubuntu"></a>Ubuntu
 
 1. Abra un terminal.
-2. Agregue el repositorio de Service Fabric a su lista de orígenes.
+
+2. Agregue el repositorio `dotnet` a la lista de orígenes correspondiente a la distribución.
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
-    ```
-
-3. Agregue el repositorio `dotnet` a su lista de orígenes.
-
-    ```bash
-    wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
+    wget -q https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb
     sudo dpkg -i packages-microsoft-prod.deb
     ```
 
-4. Agregue la clave de la protección de privacidad de Gnu (GnuPG o GPG) al conjunto de claves APT.
+3. Agregue la clave de la protección de privacidad de GNU (GnuPG o GPG) de MS Open Tech al conjunto de claves de APT.
 
     ```bash
-    curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
+    sudo curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
     ```
 
-5. Agregue la clave GPG oficial de Docker a su conjunto de claves APT.
+4. Agregue la clave GPG oficial de Docker a su conjunto de claves APT.
 
     ```bash
-    sudo apt-get install curl
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     ```
 
-6. Configure el repositorio de Docker.
+5. Configure el repositorio de Docker.
 
     ```bash
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-7. Agregue la clave de Azul JDK al conjunto de claves de APT y configure su repositorio.
+6. Agregue la clave de Azul JDK al conjunto de claves de APT y configure su repositorio.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
     sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
-8. Actualice las listas de paquetes según los repositorios recién agregados.
+7. Actualice las listas de paquetes según los repositorios recién agregados.
 
     ```bash
     sudo apt-get update

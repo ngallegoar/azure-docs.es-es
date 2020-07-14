@@ -2,8 +2,8 @@
 title: Planeación de los eventos de mantenimiento de Azure
 description: Obtenga información sobre cómo prepararse para los eventos de mantenimiento planeado en Azure SQL Database e Instancia administrada de Azure SQL.
 services: sql-database
-ms.service: sql-database
-ms.subservice: operations
+ms.service: sql-db-mi
+ms.subservice: service
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,25 +11,25 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 ms.date: 01/30/2019
-ms.openlocfilehash: 2f5f69a5f145ae8bbf23aa1e5dbca07b30db0e21
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5bdc3eb8c118c19f90ce1fd92ac5ee156719dacd
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84027756"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85987229"
 ---
-# <a name="planning-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Planeación de eventos de mantenimiento de Azure en Azure SQL Database e Instancia administrada de Azure SQL
+# <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Planeación de eventos de mantenimiento de Azure en Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Obtenga información sobre cómo prepararse para los eventos de mantenimiento planeado en la base de datos en Azure SQL Database e Instancia administrada de Azure SQL.
 
-## <a name="what-is-a-planned-maintenance-event"></a>Qué es un evento de mantenimiento planeado
+## <a name="what-is-a-planned-maintenance-event"></a>¿Qué es un evento de mantenimiento planeado?
 
-Para cada base de datos, Azure SQL Database e Instancia administrada de Azure SQL mantienen un cuórum de réplicas de base de datos en el que una de ellas es la principal. En todo momento una réplica principal debe realizar mantenimiento en línea, mientras que al menos una réplica secundaria debe estar en buen estado. Durante el mantenimiento planeado, los miembros del cuórum de la base de datos se quedarán sin conexión una a la vez, con la intención de que haya una réplica principal respondiendo y al menos una réplica secundaria en línea, de forma que no haya tiempo de inactividad en el cliente. Cuando sea necesario que la réplica principal esté sin conexión, se producirá un proceso de reconfiguración o conmutación por error en el que una réplica secundaria se convertirá en la nueva réplica principal.  
+Para cada base de datos, Azure SQL Database e Instancia administrada de Azure SQL mantienen un cuórum de réplicas de base de datos en el que una de ellas es la principal. En todo momento, una réplica principal debe realizar mantenimiento en línea, mientras que al menos una réplica secundaria debe estar en buen estado. Durante el mantenimiento planeado, los miembros del cuórum de la base de datos se quedarán sin conexión una a la vez, con la intención de que haya una réplica principal respondiendo y al menos una réplica secundaria en línea, de forma que no haya tiempo de inactividad en el cliente. Cuando sea necesario que la réplica principal esté sin conexión, se producirá un proceso de reconfiguración o conmutación por error en el que una réplica secundaria se convertirá en la nueva réplica principal.  
 
 ## <a name="what-to-expect-during-a-planned-maintenance-event"></a>Qué esperar durante un evento de mantenimiento planeado
 
-Las reconfiguraciones o conmutaciones por error normalmente se completan en 30 segundos; el promedio es de 8 segundos. Si ya está conectada, la aplicación debe volver a conectarse a la nueva copia correcta de la réplica principal de la base de datos. Si se intenta establecer una nueva conexión mientras la base de datos está realizando una reconfiguración antes de que la nueva réplica esté en línea, se devolverá el error 40613 (base de datos no disponible): "La base de datos '{nombre de la base de datos}' del servidor '{nombre del servidor}' no está disponible actualmente. Vuelva a intentar la conexión más tarde". Si la base de datos tiene una consulta de larga duración, esta consulta se interrumpirá durante la reconfiguración y deberá reiniciarse.
+Las reconfiguraciones o conmutaciones por error suelen finalizar en 30 segundos. El promedio es de 8 segundos. Si ya está conectada, la aplicación debe volver a conectarse a la nueva copia correcta de la réplica principal de la base de datos. Si se intenta establecer una nueva conexión mientras la base de datos está realizando una reconfiguración antes de que la nueva réplica esté en línea, se devolverá el error 40613 (base de datos no disponible): "La base de datos '{nombre de la base de datos}' del servidor '{nombre del servidor}' no está disponible actualmente. Vuelva a intentar la conexión más tarde.) Si la base de datos tiene una consulta de larga duración, esta consulta se interrumpirá durante la reconfiguración y deberá reiniciarse.
 
 ## <a name="retry-logic"></a>Lógica de reintento
 
@@ -45,5 +45,5 @@ Si la base de datos experimenta errores de inicio de sesión, compruebe la venta
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre [Resource Health](resource-health-to-troubleshoot-connectivity.md) para Azure SQL Database e Instancia administrada de Azure SQL
+- Obtenga más información sobre [Resource Health](resource-health-to-troubleshoot-connectivity.md) para Azure SQL Database e Instancia administrada de Azure SQL.
 - Para obtener más información sobre la lógica de reintento, vea [Lógica de reintento para errores transitorios](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).

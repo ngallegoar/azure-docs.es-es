@@ -3,12 +3,12 @@ title: 'Inicio rápido: La primera consulta en el portal'
 description: En este inicio rápido dará los pasos necesarios para ejecutar la primera consulta desde Azure Portal mediante Azure Resource Graph Explorer.
 ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: a4b8e0b792dfda1bbd1866444ddc6c4ec8d289b6
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: 1e506ee1b1c610381f300323f80c38eb6bf67caa
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148045"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958814"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Inicio rápido: Ejecución de la primera consulta de Resource Graph mediante Azure Resource Graph Explorer
 
@@ -16,7 +16,7 @@ El poder de Azure Resource Graph está disponible directamente en Azure Portal m
 
 Al final de este inicio rápido, habrá usado Azure Portal y Resource Graph Explorer para ejecutar la primera consulta de Resource Graph y anclar los resultados a un panel.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -90,11 +90,11 @@ Para proporcionar ejemplos de consultas de Resource Graph y cómo se puede usar 
 
 - [Resource Graph Explorer: panel de ejemplo 1](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-1/resourcegraphexplorer-sample-1.json)
 
-  [![Imagen de ejemplo del panel de ejemplo 1](./media/arge-sample1-small.png)](./media/arge-sample1-large.png#lightbox)
+  :::image type="content" source="./media/arge-sample1-small.png" alt-text="Imagen de ejemplo del panel de ejemplo 1" lightbox="./media/arge-sample1-large.png":::
 
 - [Resource Graph Explorer: panel de ejemplo 2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-  [![Imagen de ejemplo del panel de ejemplo 2](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
+  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Imagen de ejemplo del panel de ejemplo 2" lightbox="./media/arge-sample2-large.png":::
 
 > [!NOTE]
 > Los recuentos y gráficos de las capturas de pantallas anteriores del panel de ejemplo varían en función del entorno de Azure.

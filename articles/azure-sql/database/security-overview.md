@@ -1,9 +1,9 @@
 ---
 title: Información general sobre seguridad
-titleSuffix: Azure SQL Database & SQL Managed Instance
+titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: Obtenga información sobre la seguridad de Azure SQL Database e Instancia administrada de Azure SQL, lo que incluye cómo difiere de SQL Server.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -12,15 +12,14 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 7beaae92d8f08aaaa3625240bc2c70256ed0e1d4
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: bfb7c94f1a29eaaf849dbf18a2b6137102617be8
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266056"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986855"
 ---
-# <a name="an-overview-of-azure-sql-database--sql-managed-instance-security-capabilities"></a>Información general sobre las capacidades de seguridad de Azure SQL Database e Instancia administrada de SQL
-
+# <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Información general sobre las capacidades de seguridad de Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 En este artículo se detallan los fundamentos de la protección de la capa de datos de una aplicación con [Azure SQL Database](sql-database-paas-overview.md) e [Instancia administrada de Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md). La estrategia de seguridad descrita sigue el enfoque por capas de defensa en profundidad, como se muestra en la siguiente imagen, y se mueve desde el exterior hacia el centro:
@@ -42,12 +41,12 @@ Los [puntos de conexión del servicio de redes virtuales](../../virtual-network/
 Las [reglas de red virtual](vnet-service-endpoint-rule-overview.md) permiten que Azure SQL Database solo acepte comunicaciones que se envían desde subredes seleccionadas en una red virtual.
 
 > [!NOTE]
-> El control de acceso con reglas de firewall *no* se aplica a **Instancia administrada de SQL**. Para obtener más información sobre la configuración de red necesaria, vea [Conexión a Instancia administrada de SQL](../managed-instance/connect-application-instance.md).
+> El control de acceso con reglas de firewall *no* se aplica a **Instancia administrada de SQL**. Para más información sobre la configuración de red necesaria, consulte [Conexión a una instancia administrada](../managed-instance/connect-application-instance.md).
 
 ## <a name="access-management"></a>Administración de acceso
 
 > [!IMPORTANT]
-> La administración de bases de datos y servidores en Azure se controla mediante las asignaciones de roles de su cuenta de usuario del portal. Para obtener más información sobre este artículo, consulte [Introducción al control de acceso basado en roles en Azure Portal](../../role-based-access-control/overview.md).
+> La administración de bases de datos y servidores en Azure se controla mediante las asignaciones de roles de su cuenta de usuario del portal. Para obtener más información sobre este artículo, consulte [Control de acceso basado en rol en Azure Portal](../../role-based-access-control/overview.md).
 
 ### <a name="authentication"></a>Authentication
 
@@ -55,7 +54,7 @@ La autenticación es el proceso por el cual se demuestra que el usuario es quien
 
 - **Autenticación de SQL**:
 
-    la autenticación de base de datos SQL hace referencia a la autenticación de un usuario al conectarse a Azure SQL Database o Instancia administrada de Azure SQL con el nombre de usuario y la contraseña. Cuando se crea el servidor, se debe especificar un inicio de sesión de **administrador de servidor** con un nombre de usuario y una contraseña. Con estas credenciales, un **administrador de servidor** puede autenticarse en cualquier base de datos en ese servidor o instancia como propietario de la base de datos. Después de eso, pueden crearse inicios de sesión SQL y usuarios adicionales mediante el administrador del servidor, lo que permite a los usuarios conectarse usando el nombre de usuario y contraseña.
+    La autenticación de SQL hace referencia a la autenticación de un usuario al conectarse a Azure SQL Database o Instancia administrada de Azure SQL con el nombre de usuario y la contraseña. Cuando se crea el servidor, se debe especificar un inicio de sesión de **administrador de servidor** con un nombre de usuario y una contraseña. Con estas credenciales, un **administrador de servidor** puede autenticarse en cualquier base de datos en ese servidor o instancia como propietario de la base de datos. Después de eso, pueden crearse inicios de sesión SQL y usuarios adicionales mediante el administrador del servidor, lo que permite a los usuarios conectarse usando el nombre de usuario y contraseña.
 
 - **Autenticación de Azure Active Directory**:
 
@@ -70,7 +69,7 @@ La autenticación es el proceso por el cual se demuestra que el usuario es quien
 
 ## <a name="authorization"></a>Authorization
 
-La autorización hace referencia a los permisos asignados a un usuario dentro de una instancia de Azure SQL Database o Instancia administrada de SQL, y determina qué puede hacer el usuario. Los permisos se controlan mediante la adición de cuentas de usuario a [roles de base de datos](/sql/relational-databases/security/authentication-access/database-level-roles) y la asignación de permisos de nivel de base de datos a estos roles o concediendo al usuario determinados [permisos de nivel de objeto](/sql/relational-databases/security/permissions-database-engine). Para más información, consulte [Inicios de sesión y usuarios](logins-create-manage.md).
+La autorización hace referencia a los permisos asignados a un usuario dentro de una base de datos de Azure SQL Database o Instancia administrada de Azure SQL, y determina qué puede hacer el usuario. Los permisos se controlan mediante la adición de cuentas de usuario a [roles de base de datos](/sql/relational-databases/security/authentication-access/database-level-roles) y la asignación de permisos de nivel de base de datos a estos roles o concediendo al usuario determinados [permisos de nivel de objeto](/sql/relational-databases/security/permissions-database-engine). Para más información, consulte [Inicios de sesión y usuarios](logins-create-manage.md).
 
 Como procedimiento recomendado, cree roles personalizados cuando sea necesario. Agregue usuarios al rol con los privilegios mínimos necesarios para realizar su función de trabajo. No asigne permisos directamente a los usuarios. La cuenta de administrador del servidor es un miembro del rol db_owner integrado, que tiene amplios permisos y se debe conceder solo a pocos usuarios con responsabilidades administrativas. En las aplicaciones, use [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) para especificar el contexto de ejecución del módulo llamado o use [Roles de la aplicación](/sql/relational-databases/security/authentication-access/application-roles) con permisos limitados. Esta práctica garantiza que la aplicación que se conecta a la base de datos tenga los privilegios mínimos necesarios para la aplicación. Seguir estos procedimientos recomendados también fomenta la separación de responsabilidades.
 
@@ -96,9 +95,9 @@ Advanced Threat Protection analiza los registros para detectar un comportamiento
 
 ## <a name="information-protection-and-encryption"></a>Protección y cifrado de información
 
-### <a name="transport-layer-security-tls-encryption-in-transit"></a>Seguridad de la capa de transporte (TLS) (cifrado en tránsito)
+### <a name="transport-layer-security-encryption-in-transit"></a>Seguridad de la capa de transporte (cifrado en tránsito)
 
-SQL Database e Instancia administrada de SQL protegen los datos de los clientes mediante el cifrado de datos en movimiento con [Seguridad de la capa de transporte](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
+SQL Database e Instancia administrada de SQL protegen los datos de los clientes mediante el cifrado de datos en movimiento con [Seguridad de la capa de transporte (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
 SQL Database e Instancia administrada de SQL aplican el cifrado (SSL/TLS) en todo momento para todas las conexiones. Esto garantiza que todos los datos se cifran "en tránsito" entre el cliente y el servidor independientemente de la configuración de **Encrypt** o **TrustServerCertificate** en la cadena de conexión.
 
@@ -125,7 +124,7 @@ La compatibilidad de [Bring Your Own Key](transparent-data-encryption-byok-overv
 
 ![azure-database-ae.png](./media/security-overview/azure-database-ae.png)
 
-[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) es una característica creada para proteger la información confidencial almacenada en columnas específicas de bases de datos (por ejemplo, números de tarjeta de crédito, números de identificación nacional o datos según la _necesidad de conocimiento_). Esto incluye a administradores de bases de datos u otros usuarios con privilegios que tengan autorización para acceder a la base de datos para realizar tareas de administración, pero que no tienen necesidades empresariales de acceder a datos específicos de las columnas cifradas. Los datos están siempre cifrados, lo que significa que los datos cifrados se descifran solo para el procesamiento por parte de las aplicaciones cliente con acceso a la clave de cifrado.  La clave de cifrado nunca se expone a SQL y se pueden almacenar en el [almacén de certificados de Windows](always-encrypted-certificate-store-configure.md) o en [Azure Key Vault](always-encrypted-azure-key-vault-configure.md).
+[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) es una característica creada para proteger la información confidencial almacenada en columnas específicas de bases de datos (por ejemplo, números de tarjeta de crédito, números de identificación nacional o datos según la _necesidad de conocimiento_). Esto incluye a administradores de bases de datos u otros usuarios con privilegios que tengan autorización para acceder a la base de datos para realizar tareas de administración, pero que no tienen necesidades empresariales de acceder a datos específicos de las columnas cifradas. Los datos están siempre cifrados, lo que significa que los datos cifrados se descifran solo para el procesamiento por parte de las aplicaciones cliente con acceso a la clave de cifrado. La clave de cifrado nunca se expone a SQL Database ni a Instancia administrada de SQL, y se puede almacenar en el [almacén de certificados de Windows](always-encrypted-certificate-store-configure.md) o en [Azure Key Vault](always-encrypted-azure-key-vault-configure.md).
 
 ### <a name="dynamic-data-masking"></a>Enmascaramiento de datos dinámicos
 
@@ -139,7 +138,7 @@ El enmascaramiento dinámico de datos limita la exposición de información conf
 
 La [evaluación de vulnerabilidades](sql-vulnerability-assessment.md) es un servicio fácil de configurar que puede detectar, realizar un seguimiento y corregir posibles puntos vulnerables en la base de datos con el objetivo de mejorar de manera proactiva la seguridad general de las bases de datos. La evaluación de vulnerabilidades (VA) forma parte de la oferta de Advanced Data Security, que es un paquete unificado de capacidades avanzadas de seguridad de SQL. Puede acceder a la evaluación de vulnerabilidades y administrarla a través del portal central de Advanced Data Security de SQL.
 
-### <a name="data-discovery--classification"></a>Clasificación y detección de datos
+### <a name="data-discovery-and-classification"></a>Clasificación y detección de datos
 
 La clasificación y detección de datos (actualmente en versión preliminar) proporciona capacidades avanzadas integradas en Azure SQL Database e Instancia administrada de SQL para detectar, clasificar, etiquetar y proteger los datos confidenciales de las bases de datos. Las funciones de detección y clasificación de la información confidencial más importante (empresarial, financiera, médica, personal, etc.) desempeñan un rol fundamental en el modo en que se protege la información de su organización. Puede servir como infraestructura para lo siguiente:
 
@@ -147,7 +146,7 @@ La clasificación y detección de datos (actualmente en versión preliminar) pro
 - Controlar el acceso y mejorar la seguridad de las bases de datos que contienen información altamente confidencial.
 - Ayudar a cumplir los requisitos de cumplimiento de normas y los estándares relacionados con la privacidad de datos.
 
-Para más información, consulte [Clasificación y detección de datos de Azure SQL Database](data-discovery-and-classification-overview.md).
+Para más información, consulte [Clasificación y detección de datos](data-discovery-and-classification-overview.md).
 
 ### <a name="compliance"></a>Cumplimiento normativo
 

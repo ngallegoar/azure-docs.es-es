@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 918a7700df6b5be3ebca7949875127e42f8d3a91
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b8fcef13fbe41ac26b2a31d6871896428649eaa1
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75780700"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920854"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-standard-load-balancer-in-the-azure-portal"></a>Tutorial: Equilibrio de la carga de tráfico interno con un equilibrador de carga estándar en Azure Portal
 
@@ -94,7 +94,7 @@ Cree un equilibrador de carga interno estándar mediante el portal. El nombre y 
 
     | Configuración                 | Value                                              |
     | ---                     | ---                                                |
-    | Subscription               | Seleccione su suscripción.    |    
+    | Suscripción               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **Crear nuevo** y escriba *MyResourceGroupLB* en el cuadro de texto.|
     | Nombre                   | *myLoadBalancer*                                   |
     | Region         | Seleccione **Este de EE. UU. 2**.                                        |
@@ -180,6 +180,8 @@ La regla del equilibrador de carga llamada **MyLoadBalancerRule** escucha en el 
    - **Grupo de back-end**: seleccione **MyBackendPool**.
    - **Sondeo de mantenimiento**: seleccione **MyHealthProbe**. 
    
+Para configurar los [puertos de alta disponibilidad](load-balancer-ha-ports-overview.md) mediante Azure Portal, seleccione la casilla de verificación **HA Ports** (Puertos de alta disponibilidad). Al seleccionarla, la configuración del protocolo y el puerto relacionados se rellena automáticamente. 
+
 1. Seleccione **Aceptar**.
    
    ![Incorporación de una regla de equilibrador de carga](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)

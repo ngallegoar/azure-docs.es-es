@@ -7,18 +7,21 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 0a0947a5e2b57f728023b0f923428814b3e439ec
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: e63c3f329cb9c1fd5ca91274540f5145c3ad098a
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626707"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921549"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Funciones de transformación en flujos de datos de limpieza y transformación
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 El flujo de datos de limpieza y transformación en Azure Data Factory permite la ágil preparación, y limpieza y transformación de datos sin código a escala de nube. El flujo de datos de limpieza y transformación se integra en [Power Query Online](https://docs.microsoft.com/powerquery-m/power-query-m-reference) y pone las funciones de Power Query M a disposición para la limpieza y transformación de datos a través de la ejecución de Spark. 
+
+> [!NOTE]
+> El flujo de datos de limpieza y transformación está actualmente disponible en versión preliminar pública
 
 Actualmente no se admiten todas las funciones de Power Query M para la limpieza y transformación de datos, a pesar de estar disponibles durante la creación. Al compilar los flujos de datos de limpieza y transformación, aparecerá el siguiente mensaje de error si no se admite una función:
 
@@ -85,7 +88,7 @@ Mantener y quitar la parte superior, mantener el rango (funciones M correspondie
 
 ## <a name="known-unsupported-functions"></a>Funciones conocidas no admitidas
 
-| Función | Status |
+| Función | Estado |
 | -- | -- |
 | Table.PromoteHeaders | No compatible. Se puede lograr el mismo resultado si se establece "Primera fila como encabezado" en el conjunto de resultados. |
 | Table.CombineColumns | Se trata de un escenario habitual que no se admite directamente, pero se puede realizar si se agrega una nueva columna que concatene dos columnas concretas.  Por ejemplo, Table.AddColumn(RemoveEmailColumn, "Name", each [FirstName] & " " & [LastName]) |

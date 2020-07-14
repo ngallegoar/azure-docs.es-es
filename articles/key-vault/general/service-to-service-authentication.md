@@ -3,21 +3,23 @@ title: Autenticación entre servicios en Azure Key Vault mediante .NET
 description: Utilice la biblioteca Microsoft.Azure.Services.AppAuthentication para autenticar en Azure Key Vault mediante .NET.
 keywords: credenciales locales de autenticación de azure key-vault
 author: msmbaldwin
-manager: rkarlin
 services: key-vault
 ms.author: mbaldwin
-ms.date: 08/28/2019
+ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: 84cf12aa91de72ae54e63f2cfe7a61586b6bf457
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 7ad3af46be26816231a15156d13fbec3275a5559
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857086"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855086"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticación entre servicios en Azure Key Vault mediante .NET
+
+> [!NOTE]
+> Los métodos de autenticación documentados en este artículo ya no se consideran procedimientos recomendados. Le recomendamos que adopte los métodos de autenticación actualizados en [Autenticación en Azure Key Vault](authentication.md).
 
 Para autenticarse en Azure Key Vault, necesitará una credencial de Azure Active Directory (Azure AD), un secreto compartido o un certificado.
 
@@ -25,7 +27,7 @@ La administración de estas credenciales puede ser complicada. Resulta tentador 
 
 La biblioteca `Microsoft.Azure.Services.AppAuthentication` administra la autenticación automáticamente, que a su vez le permite centrarse en la solución, en lugar de en las credenciales. Admite el desarrollo local con Microsoft Visual Studio, la CLI de Azure o la autenticación integrada de Azure AD. Cuando se implementa en un recurso de Azure que admite una identidad administrada, la biblioteca usa automáticamente [identidades administradas para los recursos de Azure](../../active-directory/msi-overview.md). No se requieren cambios de configuración o código. La biblioteca también admite el uso directo de las [credenciales de cliente](../../azure-resource-manager/resource-group-authenticate-service-principal.md) de Azure AD cuando una identidad administrada no está disponible o cuando no se puede determinar el contexto de seguridad del desarrollador durante el desarrollo local.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) o [Visual Studio 2017 v15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/).
 
@@ -130,9 +132,9 @@ Este enfoque se aplica solo a desarrollo local. Cuando la solución se implement
 
 ## <a name="running-the-application-using-managed-identity-or-user-assigned-identity"></a>Ejecución de la aplicación con una identidad administrada o una identidad asignada por el usuario
 
-Cuando se ejecuta el código en una instancia de Azure App Service o en una máquina virtual de Azure con una identidad administrada habilitada, la biblioteca usa automáticamente dicha identidad. No es necesario realizar cambios en el código, pero la identidad administrada debe tener permisos de *obtención* para el almacén de claves. Puede conceder permisos de *obtención* a la identidad administrada mediante las *directivas de acceso* del almacén de claves.
+Cuando se ejecuta el código en una instancia de Azure App Service o en una máquina virtual de Azure con una identidad administrada habilitada, la biblioteca usa automáticamente dicha identidad. No es necesario realizar cambios en el código, pero la identidad administrada debe tener permisos *GET* para el almacén de claves. Puede conceder a la identidad administrada permisos *GET* mediante las *directivas de acceso* del almacén de claves.
 
-También puede autenticarse con una identidad asignada por el usuario. Para obtener más información sobre las identidades asignadas por el usuario, consulte el artículo sobre [las identidades administradas para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work). Para autenticarse con una identidad asignada por el usuario, debe especificar el identificador de cliente de la identidad asignada por el usuario en la cadena de conexión. La cadena de conexión se especifica en [Compatibilidad con la cadena de conexión](#connection-string-support).
+También puede autenticarse con una identidad asignada por el usuario. Para obtener más información sobre las identidades asignadas por el usuario, consulte el artículo sobre [las identidades administradas para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). Para autenticarse con una identidad asignada por el usuario, debe especificar el identificador de cliente de la identidad asignada por el usuario en la cadena de conexión. La cadena de conexión se especifica en [Compatibilidad con la cadena de conexión](#connection-string-support).
 
 ## <a name="running-the-application-using-a-service-principal"></a>Ejecución de la aplicación con una entidad de servicio
 
@@ -236,7 +238,7 @@ Se admiten las siguientes opciones:
 | `RunAs=Developer; DeveloperTool=VisualStudio` | Desarrollo local | `AzureServiceTokenProvider` usa Visual Studio para obtener el token. |
 | `RunAs=CurrentUser` | Desarrollo local | `AzureServiceTokenProvider` usa la autenticación integrada de Azure AD para obtener el token. |
 | `RunAs=App` | [Identidades administradas para recursos de Azure](../../active-directory/managed-identities-azure-resources/index.yml) | `AzureServiceTokenProvider` usa una identidad administrada para obtener el token. |
-| `RunAs=App;AppId={ClientId of user-assigned identity}` | [Identidad asignada por el usuario para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) | `AzureServiceTokenProvider` usa una identidad asignada por el usuario para obtener el token. |
+| `RunAs=App;AppId={ClientId of user-assigned identity}` | [Identidad asignada por el usuario para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) | `AzureServiceTokenProvider` usa una identidad asignada por el usuario para obtener el token. |
 | `RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}` | Autenticación en servicios personalizados | `KeyVaultCertificateSecretIdentifier` es el identificador secreto del certificado. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`| Entidad de servicio | `AzureServiceTokenProvider` usa el certificado para obtener el token desde Azure AD. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateSubjectName={Subject};CertificateStoreLocation={LocalMachine or CurrentUser}` | Entidad de servicio | `AzureServiceTokenProvider` usa el certificado para obtener el token desde Azure AD.|

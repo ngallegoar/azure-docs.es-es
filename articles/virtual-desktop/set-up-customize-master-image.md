@@ -4,16 +4,16 @@ description: Cómo preparar, personalizar y cargar una imagen maestra de Windows
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fc6eb22f81279003a5355993db231ffec8e31b7d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: fe354991ce19031cc4a51b07098ab12240569a90
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611966"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832532"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparación y personalización de una imagen de disco duro virtual maestro
 
@@ -37,11 +37,13 @@ Para crear una máquina virtual mediante el VHD copiado:
 
 2. En la página Especificar generación, seleccione **Generación 1**.
 
-    ![Captura de pantalla de la página Especificar generación. La opción "Generación 1" está seleccionada.](media/a41174fd41302a181e46385e1e701975.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de la página Especificar generación. La opción "Generación 1" está seleccionada.](media/a41174fd41302a181e46385e1e701975.png)
 
 3. En Tipo de punto de control, deshabilite puntos de control desactivando las casillas correspondientes.
 
-    ![Captura de pantalla de la sección Tipo de punto de control de la página Puntos de control](media/20c6dda51d7cafef33251188ae1c0c6a.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de la sección Tipo de punto de control de la página Puntos de control](media/20c6dda51d7cafef33251188ae1c0c6a.png)
 
 También puede ejecutar el siguiente cmdlet de PowerShell para deshabilitar puntos de control.
 
@@ -53,7 +55,8 @@ Set-VM -Name <VMNAME> -CheckpointType Disabled
 
 Si crea una máquina virtual desde un disco duro virtual existente, se crea un disco dinámico de forma predeterminada. Este disco se puede cambiar a disco fijo si se selecciona **Editar disco...** , como se muestra en la siguiente imagen. Para obtener más información, vea [Preparación de un VHD o un VHDX de Windows para cargar en Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
 
-![Captura de pantalla de la opción Editar disco](media/35772414b5a0f81f06f54065561d1414.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla de la opción Editar disco.](media/35772414b5a0f81f06f54065561d1414.png)
 
 También puede ejecutar el siguiente cmdlet de PowerShell para cambiar el disco a disco fijo.
 
@@ -63,9 +66,9 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 
 ## <a name="software-preparation-and-installation"></a>Preparación e instalación del software
 
-En esta sección se describe la preparación y la instalación de FSLogix y Windows Defender, además de algunas opciones de configuración básicas de las aplicaciones y del registro de la imagen. 
+En esta sección se describe la preparación y la instalación de FSLogix y Windows Defender, además de algunas opciones de configuración básicas de las aplicaciones y del registro de la imagen.
 
-Si va a instalar Office 365 ProPlus y OneDrive en la máquina virtual, vaya a [Instalación de Office en la imagen de un disco duro virtual principal](install-office-on-wvd-master-image.md) y siga las instrucciones que se indican para instalar las aplicaciones. Cuando haya terminado, vuelva a este artículo.
+Si va a instalar Aplicaciones de Microsoft 365 para negocios y OneDrive en la máquina virtual, vaya a [Instalación de Office en la imagen de un disco duro virtual principal](install-office-on-wvd-master-image.md) y siga las instrucciones que se indican para instalar las aplicaciones. Cuando haya terminado, vuelva a este artículo.
 
 Si los usuarios necesitan tener acceso a determinadas aplicaciones de línea de negocio, se recomienda instalarlas después de completar las instrucciones de esta sección.
 
@@ -126,7 +129,8 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnab
 
 Se recomienda deshabilitar el sensor de almacenamiento en el host de sesión de Windows Virtual Desktop que usa Windows 10 Enterprise o la sesión múltiple de Windows 10 Enterprise. El sensor de almacenamiento se puede deshabilitar en la sección **Almacenamiento** del menú Configuración, como se muestra en la siguiente captura de pantalla:
 
-![Captura de pantalla del menú Almacenamiento dentro de Configuración. La opción "Sensor de almacenamiento" está desactivada.](media/storagesense.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla del menú Almacenamiento dentro de Configuración. La opción "Sensor de almacenamiento" está desactivada.](media/storagesense.png)
 
 También puede cambiar la configuración con el Registro; para ello, ejecute el siguiente comando:
 
@@ -183,21 +187,24 @@ Después de preparar la imagen para su carga, asegúrese de que la máquina virt
 
 Esta sección solo procede si la imagen maestra se ha creado localmente.
 
-Las siguientes instrucciones le indicarán cómo cargar la imagen maestra en una cuenta de Azure Storage. Si aún no tiene una cuenta de Azure Storage, siga las instrucciones de [este artículo](/azure/javascript/tutorial-vscode-static-website-node-03) para crearla.
+Las siguientes instrucciones le indicarán cómo cargar la imagen maestra en una cuenta de Azure Storage. Si aún no tiene una cuenta de Azure Storage, siga las instrucciones de [este artículo](/azure/developer/javascript/tutorial-vscode-static-website-node-03) para crearla.
 
 1. Si aún no lo ha hecho, convierta la imagen de máquina virtual (VHD) en fija. Si no lo hace, no podrá crear la imagen correctamente.
 
 2. Cargue la VHD en un contenedor de blobs en la cuenta de almacenamiento. Puede hacerlo rápidamente con la [herramienta Explorador de Storage](https://azure.microsoft.com/features/storage-explorer/). Para obtener más información sobre la herramienta Explorador de Storage, vea [este artículo](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
 
-    ![Captura de pantalla de la ventana de búsqueda de la herramienta Explorador de Microsoft Azure Storage. La casilla "Cargar archivos .vhd/vhdx como blobs en páginas (recomendado)" está activada.](media/897aa9a9b6acc0aa775c31e7fd82df02.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de la ventana de búsqueda de la herramienta Explorador de Microsoft Azure Storage. La casilla "Cargar archivos .vhd/vhdx como blobs en páginas (recomendado)" está activada.](media/897aa9a9b6acc0aa775c31e7fd82df02.png)
 
 3. Después, vaya a Azure Portal en el navegador y busque "Imágenes". La búsqueda debería llevarle a la página **Crear imagen**, como se muestra en la siguiente captura de pantalla:
 
-    ![Captura de pantalla de la página Crear imagen de Azure Portal rellenada con valores de ejemplo de la imagen](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de la página Crear imagen de Azure Portal rellenada con valores de ejemplo de la imagen.](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
 
 4. Una vez que haya creado la imagen, debería ver una notificación como la de la siguiente captura de pantalla:
 
-    ![Captura de pantalla de la notificación "Se creó correctamente la imagen"](media/1f41b7192824a2950718a2b7bb9e9d69.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de la notificación "Se creó correctamente la imagen"](media/1f41b7192824a2950718a2b7bb9e9d69.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

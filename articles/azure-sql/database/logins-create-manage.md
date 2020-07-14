@@ -4,7 +4,7 @@ titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
 description: Obtenga información sobre cómo Azure SQL Database, Instancia administrada de SQL y Azure Synapse Analytics autentican el acceso de los usuarios por medio de inicios de sesión y cuentas de usuario. También aprenderá a conceder roles de base de datos y permisos explícitos para autorizar a los inicios de sesión y a los usuarios para que puedan realizar acciones y consultar datos.
 keywords: seguridad de la Base de datos SQL, administración de seguridad de la base de datos, seguridad de inicio de sesión, seguridad de la base de datos, acceso a la base de datos
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=3
 ms.devlang: ''
@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: 296bf84c22313723c328e1775f697ee19dcb8f04
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: fbcec1ace45927561c56449cd8ca0c8d3306b3bd
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220551"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986290"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autorización del acceso de base de datos a SQL Database, Instancia administrada de SQL y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -85,13 +85,13 @@ En este momento, el servidor o la instancia administrada está configurada para 
 
   - Cree un inicio de sesión de SQL adicional en la base de datos maestra.
   - Agregue el inicio de sesión al [rol fijo de servidor sysadmin](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) usando la instrucción [ALTER SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql). Este inicio de sesión tendrá permisos administrativos completos.
-  - También puede crear un [inicio de sesión de Azure AD](authentication-aad-configure.md)#provision-azure-ad-admin-sql-managed-instance) mediante la sintaxis [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+  - También puede crear un [inicio de sesión de Azure AD](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) usando la sintaxis [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 
 - **En SQL Database, cree inicios de sesión de SQL con permisos administrativos limitados.**
 
   - Cree un inicio de sesión de SQL adicional en la base de datos maestra.
   - Cree una cuenta de usuario en la base de datos maestra asociada a ese nuevo inicio de sesión.
-  - Agregue la cuenta de usuario al rol `dbmanager`, al rol `loginmanager` o a ambos en la base de datos `master` usando la instrucción [ALTER SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) (en Azure Synapse, use la instrucción [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)).
+  - Agregue la cuenta de usuario al rol `dbmanager`, al rol `loginmanager` o a ambos en la base de datos `master` mediante la instrucción [ALTER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql) (en Azure Synapse, use la instrucción [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)).
 
   > [!NOTE]
   > Los roles `dbmanager` y `loginmanager` **no** pertenecen a las implementaciones de Instancia administrada de SQL.
@@ -155,7 +155,7 @@ Después de crear una cuenta de usuario en una base de datos, ya sea basada en u
 
 En una administración eficaz del acceso, en vez de los permisos asignados a usuarios individuales, se usan los permisos asignados a grupos de seguridad de Active Directory, así como roles fijos o personalizados.
 
-- Si se usa la autenticación de Azure Active Directory, incluya a los usuarios de Azure Active Directory en un grupo de seguridad de Azure Active Directory. Cree un usuario de base de datos independiente para el grupo. Asigne a uno o varios usuarios de base de datos un rol de base de datos personalizado con permisos específicos adecuados para ese grupo de usuarios.
+- Si se usa la autenticación de Azure Active Directory, incluya a los usuarios de Azure Active Directory en un grupo de seguridad de Azure Active Directory. Cree un usuario de base de datos independiente para el grupo. Agregue uno o varios usuarios de base de datos como miembros a un rol de base de datos integrado o personalizado con permisos específicos adecuados para ese grupo de usuarios.
 
 - Si se usa la autenticación de SQL, cree usuarios de base de datos independientes en la base de datos. Asigne a uno o varios usuarios de base de datos un rol de base de datos personalizado con permisos específicos adecuados para ese grupo de usuarios.
 

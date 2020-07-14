@@ -2,16 +2,16 @@
 title: 'Tutorial: Creación de un registro con replicación geográfica'
 description: Crear un registro de contenedor de Azure, configurar la replicación geográfica, preparar una imagen de Docker e implementarla en el registro. Primera parte de una serie de tres partes.
 ms.topic: tutorial
-ms.date: 04/30/2017
+ms.date: 06/30/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 70dc664d27fde3b7cf9fe4e5e3a99c041236ac16
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 159426b7258d83fc28fc7d126c064167bbe00975
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84693235"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799477"
 ---
-# <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: Preparación de un registro de contenedor de Azure con replicación geográfica
+# <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: Preparar un registro de contenedor de Azure con replicación geográfica
 
 Un registro de contenedor de Azure es un registro de Docker privado implementado en Azure que puede mantener cerca de la red en las implementaciones. En este conjunto de artículos de tres tutoriales, aprenderá a usar la replicación geográfica para implementar una aplicación web de ASP.NET Core que se ejecuta en un contenedor de Linux en dos instancias de [Web App for Containers](../app-service/containers/index.yml). Podrá ver cómo Azure implementa automáticamente la imagen en cada instancia de Web App desde el repositorio de replicación geográfica más cercano.
 
@@ -37,53 +37,66 @@ Azure Cloud Shell no incluye los componentes de Docker necesarios para completar
 
 ## <a name="create-a-container-registry"></a>Creación de un Registro de contenedor
 
+Para este tutorial, necesita un registro de contenedor de Azure en el nivel de servicio Premium. Siga los pasos en esta sección para crear un nuevo recurso de Azure Container Registry.
+
+> [!TIP]
+> Si previamente creó un registro y necesita actualizarlo, consulte [Cambio de niveles de servicio](container-registry-skus.md#changing-tiers). 
+
 Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 Seleccione **Crear un recurso** > **Contenedores** > **Azure Container Registry**.
 
-![Creación de un registro de contenedor en Azure Portal][tut-portal-01]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-01.png" alt-text="Creación de un registro de contenedor en Azure Portal":::
 
-Configure el registro nuevo con la configuración siguiente:
+Configure el registro nuevo con los valores siguientes: En la pestaña **Básica**:
 
-* **Nombre del registro**: cree un nombre de registro único global en Azure y que contenga entre 5 y 50 caracteres alfanuméricos.
-* **Grupo de recursos**: **Crear nuevo** > `myResourceGroup`.
+* **Nombre del Registro**: cree un nombre del Registro único global en Azure y que contenga entre 5 y 50 caracteres alfanuméricos.
+* **Grupo de recursos**: **Crear nuevo** > `myResourceGroup`
 * **Ubicación**: `West US`.
-* **Usuario administrador**: `Enable` (es necesario para que Web App for Containers extraiga imágenes).
 * **SKU**: `Premium` (es necesario para la replicación geográfica).
 
-Seleccione **Crear** para implementar la instancia de ACR.
+Seleccione **Revisar y crear** y, después, **Crear** para crear la instancia del registro.
 
-![Creación de un registro de contenedor en Azure Portal][tut-portal-02]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-02.png" alt-text="Configuración de un registro de contenedor en Azure Portal":::
 
 En el resto de este tutorial, usaremos `<acrName>` como marcador de posición del **nombre del registro** del contenedor que eligió.
 
 > [!TIP]
 > Dado que los registros de contenedor de Azure son normalmente recursos de larga duración que se usan en varios hosts de contenedor, le recomendamos que cree el registro en su propio grupo de recursos. Al configurar webhooks y registros con replicación geográfica, estos recursos adicionales se colocan en el mismo grupo de recursos.
->
 
 ## <a name="configure-geo-replication"></a>Configuración de la replicación geográfica
 
 Ahora que tiene un registro Premium, puede configurar la replicación geográfica. La aplicación web (la cual configurará en el tutorial siguiente para que se ejecute en dos regiones) puede extraer las imágenes de contenedor del registro más cercano.
 
-Vaya al nuevo registro de contenedor de Azure Portal y seleccione **Replicaciones** en **SERVICIOS**:
+Vaya al nuevo registro de contenedor en Azure Portal y seleccione **Replicaciones** en **Servicios**:
 
-![Replicaciones en la interfaz de usuario del registro de contenedor en Azure Portal][tut-portal-03]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-03.png" alt-text="Replicaciones en la interfaz de usuario del registro de contenedor de Azure Portal":::
 
 Se muestra un mapa con hexágonos verdes que representan las regiones de Azure disponibles para realizar la replicación geográfica:
 
- ![Mapa de regiones de Azure Portal][tut-map-01]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-map-01.png" alt-text="Mapa de regiones en Azure Portal":::
 
 Para replicar el registro en la región del Este de EE. UU., seleccione el hexágono verde correspondiente y, a continuación, seleccione **Crear** en **Crear replicación**:
 
- ![Interfaz de usuario de la creación de la replicación en Azure Portal][tut-portal-04]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-04.png" alt-text="Interfaz de usuario de Crear replicación en Azure Portal":::
 
 Una vez completada la replicación, el portal mostrará el mensaje *Listo* para ambas regiones. Use el botón **Actualizar** para actualizar el estado de la replicación; tenga en cuenta que tal vez tenga que esperar un par de minutos hasta que se complete la creación y sincronización de las réplicas.
 
-![Interfaz de usuario del estado de la replicación en Azure Portal][tut-portal-05]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-05.png" alt-text="Interfaz de usuario del estado de la replicación en Azure Portal":::
+
+
+## <a name="enable-admin-account"></a>Habilitación de la cuenta de administrador
+
+En los subsiguientes tutoriales se implementa una imagen de contenedor desde el registro directamente en Web App for Containers. Para habilitar esta funcionalidad, tiene que habilitar también la [cuenta de administrador](container-registry-authentication.md#admin-account) del registro.
+
+Vaya al nuevo registro de contenedor de Azure Portal y seleccione **Claves de acceso** en **Ajustes**. En **Usuario administrador**, seleccione **Habilitar**.
+
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-06.png" alt-text="Habilitar la cuenta de administrador en Azure Portal":::
+
 
 ## <a name="container-registry-login"></a>Inicio de sesión en Container Registry
 
-Ahora que ha configurado la replicación geográfica, compile una imagen de contenedor e insértela en el registro. Primero debe iniciar sesión en la instancia de ACR antes de insertar imágenes en ella.
+Ahora que ha configurado la replicación geográfica, compile una imagen de contenedor e insértela en el registro. Primero tiene que iniciar sesión en el registro antes de insertar imágenes en él.
 
 Use el comando [az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login) para autenticarse y almacenar en caché las credenciales del registro. Reemplace `<acrName>` por el nombre del registro que creó anteriormente.
 
@@ -97,7 +110,7 @@ El comando devolverá `Login Succeeded` cuando esté completo.
 
 En el ejemplo de este tutorial se incluye una pequeña aplicación web compilada con [ASP.NET Core][aspnet-core]. La aplicación sirve a una página HTML que muestra la región desde la que Azure Container Registry implementó la imagen.
 
-![Aplicación del tutorial tal como se muestra en un explorador][tut-app-01]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-app-01.png" alt-text="Aplicación del tutorial tal como se muestra en un explorador":::
 
 Use GIT para descargar el ejemplo en un directorio local y `cd` en el directorio:
 
@@ -228,15 +241,6 @@ Vaya al siguiente tutorial para implementar el contenedor en varias instancias d
 
 > [!div class="nextstepaction"]
 > [Implementación de una aplicación web desde Azure Container Registry](container-registry-tutorial-deploy-app.md)
-
-<!-- IMAGES -->
-[tut-portal-01]: ./media/container-registry-tutorial-prepare-registry/tut-portal-01.png
-[tut-portal-02]: ./media/container-registry-tutorial-prepare-registry/tut-portal-02.png
-[tut-portal-03]: ./media/container-registry-tutorial-prepare-registry/tut-portal-03.png
-[tut-portal-04]: ./media/container-registry-tutorial-prepare-registry/tut-portal-04.png
-[tut-portal-05]: ./media/container-registry-tutorial-prepare-registry/tut-portal-05.png
-[tut-app-01]: ./media/container-registry-tutorial-prepare-registry/tut-app-01.png
-[tut-map-01]: ./media/container-registry-tutorial-prepare-registry/tut-map-01.png
 
 <!-- LINKS - External -->
 [acr-helloworld-zip]: https://github.com/Azure-Samples/acr-helloworld/archive/master.zip

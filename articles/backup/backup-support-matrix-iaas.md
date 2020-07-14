@@ -3,12 +3,12 @@ title: Matriz de compatibilidad para copias de seguridad de máquinas virtuales 
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para realizar copias de seguridad de máquinas virtuales de Azure con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: b331fe757fc18029aa270f805c72150161a38f47
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 904240e066a83fa1278d663b8614b5b9269ba4d3
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849423"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970678"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 
@@ -63,7 +63,7 @@ En la tabla siguiente se resumen los sistemas operativos compatibles para realiz
 
 **Escenario** | **SO compatible**
 --- | ---
-Copia de seguridad con la extensión del agente de máquina virtual de Azure | - Windows 10 Client (solo 64 bits) <br/><br/>- Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2 (RTM and SP1 Standard)  <br/><br/> - Windows Server 2008 (solo 64 bits)
+Copia de seguridad con la extensión del agente de máquina virtual de Azure | - Windows 10 Client (solo 64 bits) <br/><br/>- Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2012 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2 (RTM and SP1 Standard)  <br/><br/> - Windows Server 2008 (solo 64 bits)
 Copia de seguridad con el agente de MARS | Sistemas operativos [compatibles](backup-support-matrix-mars-agent.md#supported-operating-systems).
 Copia de seguridad con DPM/MABS | Sistemas operativos compatibles para copia de seguridad con [MABS](backup-mabs-protection-matrix.md) y [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 
@@ -153,12 +153,13 @@ Copia de seguridad con coherencia con múltiples máquinas virtuales | Azure Bac
 Copia de seguridad con [Configuración de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)  | No compatible. <br/><br/> Si la restauración de la máquina virtual de Azure con la configuración de diagnóstico se desencadena mediante la opción [Crear nueva](backup-azure-arm-restore-vms.md#create-a-vm), se produce un error en la restauración.
 Restauración de máquinas virtuales ancladas por zona | Compatible (para máquinas virtuales cuya copia de seguridad se ha realizado después de enero de 2019 y en las que hay [zonas de disponibilidad](https://azure.microsoft.com/global-infrastructure/availability-zones/) disponibles).<br/><br/>Actualmente se admite la restauración en la misma zona que está anclada en las máquinas virtuales. Sin embargo, si la zona no está disponible, se producirá un error en la restauración.
 Máquinas virtuales de Gen2 | Compatible <br> Azure Backup admite la copia de seguridad y la restauración de [máquinas virtuales de Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). Cuando estas máquinas virtuales se restauran a partir del punto de recuperación, se restauran como [máquinas virtuales de Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
+Copia de seguridad de máquinas virtuales de Azure con bloqueos | No se admite para máquinas virtuales no administradas. <br><br> Se admite para máquinas virtuales administradas.
 
 ## <a name="vm-storage-support"></a>Compatibilidad con almacenamiento de máquina virtual
 
 **Componente** | **Soporte técnico**
 --- | ---
-Discos de datos de máquinas virtuales de Azure | La compatibilidad con la copia de seguridad de máquinas virtuales de Azure con hasta 32 discos está en versión preliminar pública en [estas regiones](#backup-of-azure-virtual-machines-with-up-to-32-disks).<br><br> La compatibilidad con la copia de seguridad de máquinas virtuales de Azure con discos no administrados o máquinas virtuales clásicas solo tiene hasta 16 discos.
+Discos de datos de máquinas virtuales de Azure | La compatibilidad con la copia de seguridad de máquinas virtuales de Azure con hasta 32 discos está en versión preliminar pública en todas las regiones, excepto en las nubes nacionales (Azure Government, Azure China y Azure Alemania).<br><br> La compatibilidad con la copia de seguridad de máquinas virtuales de Azure con discos no administrados o máquinas virtuales clásicas solo tiene hasta 16 discos.
 Tamaño del disco de datos | El tamaño de disco individual puede ser de hasta 32 TB y se admite un máximo de 256 TB si se combinan todos los discos de una máquina virtual.
 Tipo de almacenamiento | HDD estándar, SSD estándar y SSD Premium.
 Discos administrados | Compatible.
@@ -169,13 +170,6 @@ Agregar disco a una máquina virtual protegida | Compatible.
 Cambiar tamaño de disco de una máquina virtual protegida | Compatible.
 Almacenamiento compartido| No se admite la copia de seguridad de máquinas virtuales mediante el Volumen compartido de clúster (CSV) o el Servidor de archivos de escalabilidad horizontal. Es probable que los escritores de CSV experimenten errores durante la copia de seguridad. En la restauración, es posible que los discos que contienen volúmenes CSV no aparezcan.
 [Discos compartidos](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared-enable) | No compatible.
-
-### <a name="backup-of-azure-virtual-machines-with-up-to-32-disks"></a>Copia de seguridad de máquinas virtuales de Azure con hasta 32 discos
-
-Azure Backup admite ahora la copia de seguridad de máquinas virtuales de Azure con hasta 32 discos.  Esta característica se encuentra en versión preliminar pública en el Centro-oeste de EE. UU., Centro de Canadá, sudeste de Asia, Sur de Brasil, Este de Canadá, Centro de Francia, Sur de Francia, India central, Sur de la India, Japón Oriental, Japón Occidental, Centro de Corea del Sur, Sur de Corea del Sur, Norte de Sudáfrica, Sur de Reino Unido, Oeste de Reino Unido, Este de Australia.  Si está interesado en esta característica en otras regiones, regístrese para obtener la versión preliminar limitada escribiendo en AskAzureBackupTeam@microsoft.com.  
-
->[!NOTE]
->Azure Backup solo admite hasta 16 discos para máquinas virtuales con discos no administrados o máquinas virtuales clásicas.
 
 ## <a name="vm-network-support"></a>Compatibilidad con red de VM
 

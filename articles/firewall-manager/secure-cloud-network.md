@@ -1,24 +1,22 @@
 ---
-title: 'Tutorial: Protección de una red WAN virtual mediante la versión preliminar de Azure Firewall Manager'
-description: En este tutorial aprenderá a proteger una red WAN virtual con Azure Firewall Manager mediante Azure Portal.
+title: 'Tutorial: Protección de un centro virtual mediante Azure Firewall Manager'
+description: En este tutorial aprenderá a proteger un centro virtual con Azure Firewall Manager mediante Azure Portal.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 05/01/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: b13f3b4eeb57c34f51152bb6d1914f6c80f31be1
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: c44daa67b4029c73c57ca82d72ee0a9759dd4c2d
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691035"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563662"
 ---
-# <a name="tutorial-secure-your-virtual-wan-using-azure-firewall-manager-preview"></a>Tutorial: Protección de una red WAN virtual mediante la versión preliminar de Azure Firewall Manager 
+# <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Tutorial: Protección de un centro virtual mediante Azure Firewall Manager
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
-Mediante la versión preliminar de Azure Firewall Manager puede crear centros virtuales protegidos y así proteger el tráfico en la nube destinado a direcciones IP privadas, PaaS de Azure e Internet. El enrutamiento del tráfico al firewall es automático, por lo que no es necesario crear rutas definidas por el usuario (UDR).
+Mediante Azure Firewall Manager puede crear centros virtuales protegidos y así proteger el tráfico en la nube destinado a direcciones IP privadas, PaaS de Azure e Internet. El enrutamiento del tráfico al firewall es automático, por lo que no es necesario crear rutas definidas por el usuario (UDR).
 
 ![protección de la red en la nube](media/secure-cloud-network/secure-cloud-network.png)
 
@@ -95,7 +93,7 @@ Ahora puede emparejar las redes virtuales en estrella de tipo hub-and-spoke.
 5. En **Centros**, seleccione **Hub-01**.
 6. En **Grupo de recursos**, seleccione **FW-Manager**.
 7. En **Red virtual**, seleccione **Spoke-01**.
-8. Seleccione **Aceptar**.
+8. Seleccione **Crear**.
 
 ## <a name="create-a-firewall-policy-and-secure-your-hub"></a>Creación de una directiva de firewall y protección del centro
 
@@ -111,16 +109,18 @@ Una directiva de firewall define colecciones de reglas para dirigir el tráfico 
 8. En **Prioridad**, escriba **100**.
 9. Asegúrese de que el valor de **Rule collection action** (Acción de la colección de reglas) es **Permitir**.
 10. Como **Nombre** de la regla, escriba **Allow-msft**.
-11. En **Dirección de origen**, escriba **\*** .
-12. En **Protocolo**, escriba **http,https**.
-13. Asegúrese de que **Tipo de destino es **FQDN**.
-14. En **Destino**, escriba **\*.microsoft.com**.
-15. Seleccione **Agregar**.
-16. Seleccione **Siguiente: Centros de conectividad**.
-17. En la pestaña **Centros de conectividad**, seleccione **Asociar centros virtuales**.
-18. Seleccione **Hub-01** y, luego, seleccione **Agregar**.
-1. Seleccione **Revisar + crear**.
-2. Seleccione **Crear**.
+11. Para **Tipo de origen**, seleccione **Dirección IP**.
+12. Para **Origen**, escriba **\*** .
+13. En **Protocolo**, escriba **http,https**.
+14. Asegúrese de que **Tipo de destino** es **FQDN**.
+15. En **Destino**, escriba **\*.microsoft.com**.
+16. Seleccione **Agregar**.
+17. Seleccione **Siguiente: Inteligencia sobre amenazas**.
+18. Seleccione **Siguiente: Centros de conectividad**.
+19. En la pestaña **Centros de conectividad**, seleccione **Asociar centros virtuales**.
+20. Seleccione **Hub-01** y, luego, seleccione **Agregar**.
+21. Seleccione **Revisar + crear**.
+22. Seleccione **Crear**.
 
 Esta acción puede tardar unos cinco minutos o más en finalizar.
 
@@ -130,13 +130,11 @@ Ahora debe asegurarse de que el tráfico de red se enruta a través del firewall
 
 1. En Firewall Manager, seleccione **Centros virtuales protegidos**.
 2. Seleccione **Hub-01**.
-3. En **Configuración**, seleccione **Configuración de la ruta**.
-4. En **Tráfico de Internet**, **Tráfico de las redes virtuales**, seleccione **Send via Azure Firewall** (Enviar a través de Azure Firewall).
-5. En **Tráfico privado de Azure**, **Tráfico a las redes virtuales**, seleccione **Send via Azure Firewall** (Enviar a través de Azure Firewall).
-6. Seleccione **Editar los prefijos de dirección IP**.
-8. Escriba **10.0.1.0/24** como dirección de la subred de carga de trabajo y seleccione **Guardar**.
-9. En **Configuración**, seleccione **Conexiones**.
+3. En **Ajustes**, seleccione **Configuración de seguridad**.
+4. En **Tráfico de Internet**, seleccione **Azure Firewall**.
+5. En **Private traffic** (Tráfico privado), seleccione **Send via Azure Firewall** (Enviar a través de Azure Firewall).
 10. Compruebe que la conexión **hub-spoke** muestra **Tráfico de Internet** como **Protegido**.
+11. Seleccione **Guardar**.
 
 
 ## <a name="test-your-firewall"></a>Prueba del firewall

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: eac9bee6992520492b846e3b579d8a05c327e749
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6c600c4cfe96b849786664aa878ec1f84407da5b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73494359"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963536"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Tutorial: Uso de Apache Storm con Apache Kafka en HDInsight
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 > * Detención de las topologías
 > * Limpieza de recursos
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Debe estar familiarizado con la creación de temas de Kafka. Para más información, consulte el documento [Inicio de Apache Kafka en HDInsight](./kafka/apache-kafka-get-started.md).
 
@@ -408,7 +408,7 @@ Para crear una instancia de Azure Virtual Network y, posteriormente, crear clús
 
       | Configuración | Value |
       | --- | --- |
-      | Subscription | Su suscripción de Azure |
+      | Suscripción | Su suscripción de Azure |
       | Resource group | El grupo de recursos que contiene los recursos. |
       | Location | La región de Azure en que se crean los recursos. |
       | Kafka Cluster Name (Nombre de clúster de Kafka) | El nombre del clúster de Kafka. |
@@ -500,7 +500,9 @@ Para crear una instancia de Azure Virtual Network y, posteriormente, crear clús
 
     El valor que se devuelve es similar al texto siguiente:
 
-        zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
+    ```output
+    zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
+    ```
 
     > [!IMPORTANT]  
     > Aunque haya más de dos nodos de Zookeeper, no es necesario proporcionar una lista completa de los hosts a los clientes. Con uno o dos es suficiente.
@@ -509,9 +511,11 @@ Para crear una instancia de Azure Virtual Network y, posteriormente, crear clús
 
 3. Edite el archivo `dev.properties` en la raíz del proyecto. Agregue la información de hosts de agente y Zookeeper para el clúster de __Kafka__ a las líneas correspondientes en este archivo. El siguiente ejemplo se configura con los valores de ejemplo de los pasos anteriores:
 
-        kafka.zookeeper.hosts: zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
-        kafka.broker.hosts: wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
-        kafka.topic: stormtopic
+    ```bash
+    kafka.zookeeper.hosts: zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
+    kafka.broker.hosts: wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
+    kafka.topic: stormtopic
+    ```
 
     > [!IMPORTANT]  
     > La entrada `hdfs.url` está configurada para un clúster que usa una cuenta de Azure Storage. Para usar esta topología con un clúster de Storm que emplea Data Lake Storage, cambie este valor de `wasb` a `adl`.
@@ -590,11 +594,13 @@ Kafka almacena los datos en un _tema_. Debe crear el tema antes de iniciar las t
 
     La salida será similar al siguiente texto:
 
-        Found 173 items
-        -rw-r--r--   1 storm supergroup       5137 2018-04-09 19:00 /stormdata/hdfs-bolt-4-0-1523300453088.txt
-        -rw-r--r--   1 storm supergroup       5128 2018-04-09 19:00 /stormdata/hdfs-bolt-4-1-1523300453624.txt
-        -rw-r--r--   1 storm supergroup       5131 2018-04-09 19:00 /stormdata/hdfs-bolt-4-10-1523300455170.txt
-        ...
+    ```output
+    Found 173 items
+      -rw-r--r--   1 storm supergroup       5137 2018-04-09 19:00 /stormdata/hdfs-bolt-4-0-1523300453088.txt
+      -rw-r--r--   1 storm supergroup       5128 2018-04-09 19:00 /stormdata/hdfs-bolt-4-1-1523300453624.txt
+      -rw-r--r--   1 storm supergroup       5131 2018-04-09 19:00 /stormdata/hdfs-bolt-4-10-1523300455170.txt
+      ...
+    ```
 
 3. Use el comando siguiente para ver el contenido del archivo. Reemplace `filename.txt` por el nombre de un archivo:
 
@@ -604,13 +610,19 @@ Kafka almacena los datos en un _tema_. Debe crear el tema antes de iniciar las t
 
     El siguiente texto es un ejemplo del contenido del archivo:
 
-        four score and seven years ago
-        snow white and the seven dwarfs
-        i am at two with nature
-        snow white and the seven dwarfs
-        i am at two with nature
-        four score and seven years ago
-        an apple a day keeps the doctor away
+    > four score and seven years ago
+    >
+    > snow white and the seven dwarfs
+    >
+    > i am at two with nature
+    >
+    > snow white and the seven dwarfs
+    >
+    > i am at two with nature
+    >
+    > four score and seven years ago
+    >
+    > an apple a day keeps the doctor away
 
 ## <a name="stop-the-topologies"></a>Detención de las topologías
 

@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 457ab3a0d5e816becbd2b32d858d5172951f27ad
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9ab66dc7bc2aea249e105df20652c0f5904e294d
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67094119"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800268"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>Tutorial: integración de Azure Active Directory con Predictix Ordering
+# <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>Tutorial: Integración de Azure Active Directory con Predictix Ordering
 
 En este tutorial aprenderá a integrar Predictix Ordering con Azure Active Directory (Azure AD).
 Esta integración ofrece las siguientes ventajas:
@@ -35,7 +35,7 @@ Para más información acerca de la integración de aplicaciones SaaS con Azure 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Predictix Ordering, necesita:
 
@@ -110,11 +110,10 @@ Para configurar el inicio de sesión único de Azure AD con Predictix Ordering,
 
     1. En el cuadro **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente formato:
 
-        | |
-        |--|
-        | `https://<companyname-pricing>.dev.ordering.predictix.com` |
-        | `https://<companyname-pricing>.ordering.predictix.com` |
-        | |
+        ```https
+        https://<companyname-pricing>.dev.ordering.predictix.com
+        https://<companyname-pricing>.ordering.predictix.com
+        ```
 
     > [!NOTE]
     > Estos valores son marcadores de posición. Debe utilizar la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Predictix Ordering](https://www.predix.io/support/) para obtener estos valores. También puede consultar los patrones que se muestran en el cuadro de diálogo **Configuración básica de SAML** de Azure Portal.
@@ -155,7 +154,7 @@ En esta sección creará un usuario de prueba llamado Britta Simon en Azure Por
 
     1. En el cuadro **Nombre**, escriba **BrittaSimon**.
   
-    1. En el cuadro **Nombre de usuario**, escriba **BrittaSimon@\<dominioDeSuEmpresa>.\<extensión>** . (Por ejemplo, BrittaSimon@contoso.com).
+    1. En el cuadro **Nombre de usuario**, escriba **BrittaSimon@\<yourcompanydomain>.\<extension>** (Por ejemplo, BrittaSimon@contoso.com).
 
     1. Seleccione **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 

@@ -4,29 +4,25 @@ description: Integre aplicaciones en Azure App Service con Azure Virtual Network
 author: ccompy
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
-ms.date: 04/16/2020
+ms.date: 06/08/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9b7df06ea7ff07907a292bdcc32e66aafa44ae68
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 7b6b310cdc03cb45fba6ba06dbcf2add9818f6cf
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170790"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857044"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integración de su aplicación con una instancia de Azure Virtual Network
 
-En este artículo, se describe la característica Integración con red virtual de Azure App Service y se explica cómo configurarla con aplicaciones en [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Con [Azure Virtual Network][VNETOverview] (VNet), puede colocar muchos de los recursos de Azure en una red que se puede enrutar, distinta de Internet.
+En este artículo, se describe la característica Integración con red virtual de Azure App Service y se explica cómo configurarla con aplicaciones en [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Con [Azure Virtual Network][VNETOverview] (VNet), puede colocar muchos de los recursos de Azure en una red que se puede enrutar, distinta de Internet. La característica Integración con red virtual permite a las aplicaciones acceder a los recursos de una red virtual o mediante esta. La integración con redes virtuales no permite el acceso privado a las aplicaciones.
 
-Azure App Service adopta dos variantes:
+Azure App Service tiene dos variaciones en la característica de integración de la red virtual:
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
 ## <a name="enable-vnet-integration"></a>Habilitación de Integración con red virtual
-
-> [!NOTE]
-> Si la hoja "Redes" está deshabilitada (atenuada) en el menú de las aplicaciones Linux, significa que la característica no está disponible actualmente.
->
 
 1. Vaya a la interfaz de usuario de **Redes** en el portal de App Service. En **Integración de red virtual**, seleccione **Haga clic aquí para configurar**.
 
@@ -75,8 +71,8 @@ La versión de Integración con red virtual que necesita una puerta de enlace pe
 
 La versión de Integración con red virtual que necesita una puerta de enlace no puede utilizarse en las siguientes circunstancias:
 
-* Con aplicaciones de Linux.
 * Con una VNet conectada a Azure ExpressRoute.
+* Desde una aplicación para Linux
 * Para acceder a recursos protegidos por puntos de conexión de servicio.
 * Con una puerta de enlace coexistente que admita tanto VPN de ExpressRoute como VPN de punto a sitio o de sitio a sitio.
 
@@ -155,25 +151,27 @@ Hay tres cargos relacionados con el uso de la característica Integración con r
 
 Hay disponible compatibilidad con la CLI para la versión regional de Integración con red virtual. Para acceder a los comandos siguientes, [instale la CLI de Azure][installCLI].
 
-        az webapp vnet-integration --help
+```azurecli
+az webapp vnet-integration --help
 
-        Group
-            az webapp vnet-integration : Methods that list, add, and remove virtual network integrations
-            from a webapp.
-                This command group is in preview. It may be changed/removed in a future release.
-        Commands:
-            add    : Add a regional virtual network integration to a webapp.
-            list   : List the virtual network integrations on a webapp.
-            remove : Remove a regional virtual network integration from webapp.
+Group
+    az webapp vnet-integration : Methods that list, add, and remove virtual network
+    integrations from a webapp.
+        This command group is in preview. It may be changed/removed in a future release.
+Commands:
+    add    : Add a regional virtual network integration to a webapp.
+    list   : List the virtual network integrations on a webapp.
+    remove : Remove a regional virtual network integration from webapp.
 
-        az appservice vnet-integration --help
+az appservice vnet-integration --help
 
-        Group
-            az appservice vnet-integration : A method that lists the virtual network integrations used in an
-            appservice plan.
-                This command group is in preview. It may be changed/removed in a future release.
-        Commands:
-            list : List the virtual network integrations used in an appservice plan.
+Group
+    az appservice vnet-integration : A method that lists the virtual network
+    integrations used in an appservice plan.
+        This command group is in preview. It may be changed/removed in a future release.
+Commands:
+    list : List the virtual network integrations used in an appservice plan.
+```
 
 En la versión de Integración con red virtual que necesita una puerta de enlace, puede integrar App Service con una instancia de Azure Virtual Network utilizando PowerShell. Para obtener un script que esté listo para ejecutarse, consulte [Conexión de una aplicación de Azure App Service a una red virtual de Azure](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
 

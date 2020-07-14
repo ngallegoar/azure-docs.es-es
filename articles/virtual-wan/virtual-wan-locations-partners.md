@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: e56da52823de169ccb1fc28a0bd7f3ac7efacf49
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 2f3641bf540b188ce3d2333ccd6bcf4a926ba130
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891035"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565092"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Ubicaciones de concentradores virtuales y asociados de Azure Virtual WAN
 
@@ -40,7 +40,7 @@ Algunos asociados de conectividad pueden extender la automatización para inclui
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-En nuestro plan de desarrollo para un futuro próximo están programados los siguientes asociados: 128 Technologies, Arista, Aruba HPE, Cisco Systems, F5 Networks, Open Systems, Oracle SD-WAN y SharpLink.
+En nuestro plan de desarrollo para un futuro próximo están programados los siguientes asociados: 128 Technologies, Arista, Aruba HPE, Cisco Systems (Viptela), F5 Networks, Open Systems, Oracle SD-WAN y SharpLink.
 
 ## <a name="locations"></a><a name="locations"></a>Ubicaciones
 

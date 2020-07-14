@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffb8243041bb93ba8be6a65bb83df6f84affaee3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b0a0ee226fcddb3bfc216e1e160b5571fde59a41
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80049659"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807594"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Tareas posteriores a la configuración de la combinación de Azure AD híbrido
 
@@ -86,15 +86,10 @@ El instalador crea una tarea programada en el sistema del dispositivo que se eje
 
 ## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. Configurar la directiva de grupo para permitir el registro de dispositivos
 
-* Cree un objeto de directiva de grupo en Active Directory, si no lo creó aún.
-* Póngale nombre (por ejemplo, combinación de Azure AD híbrido).
-* Edite y vaya a:  Configuración del equipo > Directivas > Plantillas administrativas > Componentes de Windows > Registro de dispositivos.
-* Habilite:  Registro de equipos unidos a un dominio como dispositivos
-* Aplique las opciones y haga clic en Aceptar.
-* Vincule GPO a la ubicación de su elección (unidad organizativa, grupo de seguridad o dominio para todos los dispositivos).
+Para obtener información sobre cómo permitir la unión a Azure AD híbrido para dispositivos individuales, consulte [Validación controlada de la unión a Azure AD híbrido](../devices/hybrid-azuread-join-control.md).
 
->[!NOTE]
->Para 2012R2, la configuración de directivas se encuentra en **Configuración del equipo > Directivas > Plantillas administrativas > Componentes de Windows > Workplace Join > Automatically workplace join client computers** (Unión automática al área de trabajo de equipos cliente).
+> [!NOTE]
+> La configuración de directivas para 2012 R2 se encuentra en **Configuración del equipo > Directivas > Plantillas administrativas > Componentes de Windows > Unirse al área de trabajo > Automatically workplace join client computers** (Unión automática al área de trabajo de equipos cliente).
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Configurar la escritura diferida de dispositivos](how-to-connect-device-writeback.md)

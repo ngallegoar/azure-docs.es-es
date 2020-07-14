@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 0c03905017629e28e41cce2adaa65eac347b8185
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 009b1ff08f9a3a0b840a20a01be5b16cd28d4533
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294734"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833110"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Uso de un equilibrador de carga interno con un entorno de App Service
 
@@ -118,9 +118,10 @@ Los certificados y los DNS son los otros recursos de ASE con un ILB que se admin
 #### <a name="dns-configuration"></a>Configuración de DNS
 Cuando se utiliza una dirección VIP externa, Azure se encarga de administrar el DNS. Todas las aplicaciones que cree en el ASE se agregan automáticamente a DNS de Azure, que es un DNS público. En un ASE con un ILB tiene que administrar su propio DNS. Para un subdominio concreto como contoso.corp.net, debe crear registros D de DNS que apunten a la dirección del ILB para:
 
-    * 
-    *.scm ftp publish 
-
+- \*
+- *.scm
+- ftp
+- Publicar
 
 ## <a name="getting-started"></a>Introducción
 Para empezar a trabajar con App Service Environment, consulte [Introducción a App Service Environment][WhatisASE].

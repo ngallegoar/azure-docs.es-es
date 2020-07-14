@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4541874a9e8fc4111e5c65d02f07535c4d14f9f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c31ebfedeee0fe208f68c190402796b98c73ea1b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77565985"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829880"
 ---
 # <a name="how-to-secure-your-private-cloud-environment"></a>Cómo proteger el entorno de nube privada
 
@@ -29,7 +29,7 @@ La creación del servicio CloudSimple requiere el rol **Propietario** o **Colabo
 
 Solo los usuarios que tienen privilegios de **Propietario** o **Colaborador** en el grupo de recursos verán el servicio CloudSimple e iniciarán el portal de CloudSimple.
 
-Para más información sobre RBAC, vea [¿Qué es el control de acceso basado en rol (RBAC) para los recursos de Azure?](../role-based-access-control/overview.md)
+Para obtener más información, consulte [¿Qué es el control de acceso basado en roles (RBAC) de Azure?](../role-based-access-control/overview.md)
 
 ## <a name="rbac-for-private-cloud-vcenter"></a>RBAC para vCenter de nube privada
 

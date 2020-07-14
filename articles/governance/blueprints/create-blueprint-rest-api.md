@@ -1,20 +1,20 @@
 ---
 title: 'Inicio rápido: Creación de un plano técnico con la API de REST'
 description: En este inicio rápido se usa Azure Blueprints para crear, definir e implementar artefactos mediante la API REST.
-ms.date: 02/26/2020
+ms.date: 06/29/2020
 ms.topic: quickstart
-ms.openlocfilehash: ec84e8396ad65aa01f73414b971f27bc95396e2f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: e3cdf28cfe523e52aceefe20294042d28b98e1e2
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745091"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971205"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Inicio rápido: Definición y asignación de un plano técnico de Azure Blueprint con API REST
 
-Entender cómo crear y asignar planos técnicos permite la definición de patrones comunes para desarrollar configuraciones reutilizables y de implementación rápida basadas en plantillas de Resource Manager, directivas, seguridad y mucho más. En este tutorial, aprenderá a usar planos técnicos de Azure Blueprint para realizar algunas de las tareas más comunes relacionadas con la creación, asignación y administración de directivas en toda la organización, como, por ejemplo:
+Aprender a crear y asignar planos técnicos permite definir patrones comunes para desarrollar configuraciones reutilizables y de implementación rápida basadas en plantillas de Azure Resource Manager, directivas, seguridad, etc. En este tutorial, aprenderá a usar planos técnicos de Azure Blueprint para realizar algunas de las tareas más comunes relacionadas con la creación, asignación y administración de directivas en toda la organización, como, por ejemplo:
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
 - Registre el proveedor de recursos `Microsoft.Blueprint`. Para instrucciones, consulte [Tipos y proveedores de recursos](../../azure-resource-manager/management/resource-providers-and-types.md).

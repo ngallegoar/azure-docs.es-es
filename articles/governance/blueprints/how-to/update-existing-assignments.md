@@ -3,12 +3,12 @@ title: Actualización de una asignación existente desde el portal
 description: Obtenga información acerca del mecanismo para actualizar una asignación de plano técnico existente desde el portal en Azure Blueprints.
 ms.date: 04/15/2020
 ms.topic: how-to
-ms.openlocfilehash: a00a8bcc10b37af576777e3816a794225a3832f7
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 03c954517662c1f54fcca9fbb96ebdf48afdedef
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381787"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969471"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Procedimiento para actualizar una asignación de plano técnico
 
@@ -50,18 +50,18 @@ La implementación de las asignaciones actualizadas sigue unas reglas importante
   - Si la definición de la asignación de directiva se cambia, se crea una asignación de directiva nueva.
     Las asignaciones de directivas implementadas previamente se dejan en su lugar.
   - Si se quita el artefacto de asignación de directiva del plano técnico, las asignaciones de directivas implementadas anteriormente se dejan en su lugar.
-- Plantillas del Administrador de recursos de Azure
+- Plantillas de Azure Resource Manager (plantillas de ARM)
   - La plantilla se procesa mediante Resource Manager como **PUT**. Como cada tipo de recurso trata esta acción de forma distinta, revise la documentación de cada recurso incluido para determinar el efecto de esta acción cuando la ejecuta Blueprints.
 
 ## <a name="possible-errors-on-updating-assignments"></a>Posibles errores en la actualización de asignaciones
 
-Al actualizar las asignaciones, es posible realizar cambios que se interrumpan cuando se ejecutan. Un ejemplo se da al cambiar la ubicación de un grupo de recursos una vez que se haya implementado. Puede realizarse cualquier cambio que [Azure Resource Manager](../../../azure-resource-manager/management/overview.md) admita, pero, si este produjera un error con Azure Resource Manager, también lo generaría en la asignación.
+Al actualizar las asignaciones, es posible realizar cambios que se interrumpan cuando se ejecutan. Un ejemplo se da al cambiar la ubicación de un grupo de recursos una vez que se haya implementado. Se puede realizar cualquier cambio que admita [Resource Manager](../../../azure-resource-manager/management/overview.md), pero si este produjera un error en Resource Manager, también lo generaría en la asignación.
 
 No hay ningún límite en el número de veces que una asignación se puede actualizar. Si se produce un error, determínelo y realice otra actualización en la asignación.  Escenarios de error de ejemplo:
 
 - Un parámetro incorrecto
 - Un objeto ya existente
-- Un cambio no admitido por Azure Resource Manager
+- Cambio no admitido por Resource Manager
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 26816a545cb83e0a3d996a8056b96154830e58b6
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: a994111d2f7e938ecdd71236858e4cb8773b00f7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195511"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832872"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Uso de la inserción de dependencias en Azure Functions con .NET
 
@@ -36,11 +36,8 @@ Para registrar los servicios, cree un método para configurar y agregar componen
 Para registrar el método, agregue el atributo de ensamblado `FunctionsStartup` que especifica el nombre del tipo usado durante el inicio.
 
 ```csharp
-using System;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Http;
-using Microsoft.Extensions.Logging;
 
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
 
@@ -52,7 +49,7 @@ namespace MyNamespace
         {
             builder.Services.AddHttpClient();
 
-            builder.Services.AddSingleton((s) => {
+            builder.Services.AddSingleton<IMyService>((s) => {
                 return new MyService();
             });
 
@@ -61,6 +58,8 @@ namespace MyNamespace
     }
 }
 ```
+
+En este ejemplo se usa el paquete [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) para registrar un `HttpClient` en el inicio.
 
 ### <a name="caveats"></a>Advertencias
 
@@ -72,48 +71,47 @@ Una serie de pasos de registro se ejecuta antes y después de que el entorno de 
 
 ## <a name="use-injected-dependencies"></a>Uso de dependencias insertadas
 
-La inserción de constructores se usa para que las dependencias estén disponibles en una función. El uso de la inserción de constructores requiere que no se utilicen clases estáticas.
+La inserción de constructores se usa para que las dependencias estén disponibles en una función. El uso de la inserción de constructores requiere que no se usen clases estáticas para los servicios insertados o para las clases de función.
 
-El ejemplo siguiente muestra cómo las dependencias `IMyService` y `HttpClient` se insertan en una función desencadenada por HTTP. En este ejemplo se usa el paquete [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) para registrar un `HttpClient` en el inicio.
+El ejemplo siguiente muestra cómo las dependencias `IMyService` y `HttpClient` se insertan en una función desencadenada por HTTP.
 
 ```csharp
-using System;
-using System.IO;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace MyNamespace
 {
-    public class HttpTrigger
+    public class MyHttpTrigger
     {
-        private readonly IMyService _service;
         private readonly HttpClient _client;
+        private readonly IMyService _service;
 
-        public HttpTrigger(IMyService service, HttpClient httpClient)
+        public MyHttpTrigger(HttpClient httpClient, MyService service)
         {
-            _service = service;
-            _client = httpClient;
+            this._client = httpClient;
+            this._service = service;
         }
 
-        [FunctionName("GetPosts")]
-        public async Task<IActionResult> Get(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "posts")] HttpRequest req,
+        [FunctionName("MyHttpTrigger")]
+        public async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
-            var res = await _client.GetAsync("https://microsoft.com");
-            await _service.AddResponse(res);
+            var response = await _client.GetAsync("https://microsoft.com");
+            var message = _service.GetMessage();
 
-            return new OkResult();
+            return new OkObjectResult("Response from function with injected dependencies.");
         }
     }
 }
 ```
+
+En este ejemplo se usa el paquete [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) para registrar un `HttpClient` en el inicio.
 
 ## <a name="service-lifetimes"></a>Vigencia de los servicios
 
@@ -121,13 +119,15 @@ Las aplicaciones de Azure Functions proporcionan la misma vigencia de servicio q
 
 - **Transitorio**: los servicios transitorios se crean en cada solicitud del servicio.
 - **De ámbito**: una vigencia de servicio de ámbito coincide con una vigencia de ejecución de la función. Los servicios de ámbito se crean una vez por cada ejecución. Las solicitudes posteriores para ese servicio durante la ejecución vuelven a usar la instancia de servicio existente.
-- **Singleton**: la vigencia singleton del servicio coincide con la vigencia del host y se reutiliza en ejecuciones de la función en esa instancia. Los servicios de vigencia singleton se recomiendan para conexiones y clientes, por ejemplo, para instancias `SqlConnection` o `HttpClient`.
+- **Singleton**: la vigencia singleton del servicio coincide con la vigencia del host y se reutiliza en ejecuciones de la función en esa instancia. Los servicios de vigencia singleton se recomiendan para conexiones y clientes, por ejemplo, para instancias `DocumentClient` o `HttpClient`.
 
 Consulte o descargue un [ejemplo de vigencia de servicio diferente](https://aka.ms/functions/di-sample) en GitHub.
 
 ## <a name="logging-services"></a>Registro de servicios
 
-Si necesita su propio proveedor de registro, registre un tipo personalizado como una instancia de `ILoggerProvider`. Azure Functions agrega Application Insights automáticamente.
+Si necesita su propio proveedor de registro, registre un tipo personalizado como instancia de [`ILoggerProvider`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.iloggerfactory), disponible mediante el paquete NuGet [Microsoft.Extensions.Logging.Abstractions](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/).
+
+Azure Functions agrega Application Insights automáticamente.
 
 > [!WARNING]
 > - No agregue `AddApplicationInsightsTelemetry()` a la colección de servicios, ya que registra los servicios que entran en conflicto con los servicios proporcionados por el entorno.
@@ -135,7 +135,9 @@ Si necesita su propio proveedor de registro, registre un tipo personalizado como
 
 ### <a name="iloggert-and-iloggerfactory"></a>ILogger<T> e ILoggerFactory
 
-El host insertará los servicios `ILogger<T>` e `ILoggerFactory` en constructores.  Sin embargo, de forma predeterminada, estos nuevos filtros de registro se filtrarán de los registros de función.  Tendrá que modificar el archivo de `host.json` para participar en otros filtros y categorías.  En el ejemplo siguiente se muestra cómo agregar un `ILogger<HttpTrigger>` con registros que el host expondrá.
+El host insertará los servicios `ILogger<T>` e `ILoggerFactory` en constructores.  Sin embargo, de forma predeterminada, estos nuevos filtros de registro se filtran de los registros de función.  Tiene que modificar el archivo de `host.json` para participar en otros filtros y categorías.
+
+En el ejemplo siguiente se muestra cómo agregar un elemento `ILogger<HttpTrigger>` con registros que se exponen al host.
 
 ```csharp
 namespace MyNamespace
@@ -160,7 +162,7 @@ namespace MyNamespace
 }
 ```
 
-Y un archivo `host.json` que agrega el filtro de registro.
+En el ejemplo siguiente, el archivo `host.json` se agrega al filtro de seguridad.
 
 ```json
 {

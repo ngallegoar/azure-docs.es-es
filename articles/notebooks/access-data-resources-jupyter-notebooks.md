@@ -3,22 +3,23 @@ title: 'Acceder a los datos en cuadernos de Jupyter: versión preliminar de Azur
 description: Aprenda a acceder a los archivos, las API REST, las bases de datos y los distintos recursos de Azure Storage desde un cuaderno de Jupyter.
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: 47d2f869021851c1451a66a84b1a70ec4ff4998f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: tracking-python
+ms.openlocfilehash: e0473a885860fad71c066f9d129f859528fa16e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75646354"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833492"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Acceso a los datos en la nube en un cuaderno
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Un trabajo interesante en un cuaderno de Jupyter requiere datos. Los datos, de hecho, son fundamentales en los cuadernos.
 
 Puede [importar archivos de datos en un proyecto](work-with-project-data-files.md) e incluso utilizar comandos como `curl` desde un cuaderno para descargar un archivo directamente. Sin embargo, es probable que necesite trabajar con datos mucho más amplios que están disponibles desde orígenes no basados en archivos, como las API REST, las bases de datos relacionales y el almacenamiento en la nube, como las tablas de Azure.
 
 En este artículo se describen brevemente estas diferentes opciones. Dado que el acceso a datos se ve mejor en acción, puede encontrar código ejecutable en [Ejemplos de Azure Notebooks: acceso a los datos](https://github.com/Microsoft/AzureNotebooks/blob/master/Samples/Access%20your%20data%20in%20Azure%20Notebooks.ipynb).
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="rest-apis"></a>API de REST
 
@@ -41,11 +42,11 @@ if response.status_code == 200:
     print(dataframe_rest2)
 ```
 
-## <a name="azure-sql-databases"></a>Bases de datos de Azure SQL
+## <a name="azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database y SQL Managed Instance
 
-Puede acceder a las bases de datos de SQL Server con la ayuda de las bibliotecas pyodbc o pymssql.
+Puede acceder a las bases de datos en SQL Database o SQL Managed Instance con la ayuda de las bibliotecas yodbc o pymssql.
 
-[Uso de Python para consultar una base de datos de Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) le ofrece instrucciones sobre cómo crear una base de datos que contiene los datos de AdventureWorks y le muestra cómo consultar dichos datos. El mismo código se muestra en el cuaderno de ejemplo de este artículo.
+[Uso de Python para consultar una base de datos de Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) le ofrece instrucciones sobre cómo crear una base de datos en SQL Database que contiene los datos de AdventureWorks y le muestra cómo consultar dichos datos. El mismo código se muestra en el cuaderno de ejemplo de este artículo.
 
 ## <a name="azure-storage"></a>Azure Storage
 
@@ -56,7 +57,7 @@ Azure Storage proporciona varios tipos diferentes de almacenamiento no relaciona
 
 El cuaderno de ejemplo muestra el trabajo con tablas y blobs, incluida la forma de usar una firma de acceso compartido para permitir el acceso de solo lectura a los blobs.
 
-## <a name="azure-cosmos-db"></a>Azure Cosmos DB
+## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
 Azure Cosmos DB proporciona un almacén noSQL completamente indexado para documentos JSON. Los siguientes artículos ofrecen una serie de formas diferentes de trabajar con Cosmos DB desde Python:
 

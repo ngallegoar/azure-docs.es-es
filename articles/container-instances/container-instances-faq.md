@@ -3,13 +3,13 @@ title: Preguntas más frecuentes
 description: Respuestas a las preguntas más frecuentes relacionadas con el servicio Azure Container Instances
 author: dkkapur
 ms.topic: article
-ms.date: 04/10/2020
-ms.openlocfilehash: 4fca198356c8db006c4190e0f16b20f78dc1d477
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/02/2020
+ms.openlocfilehash: 21643ccfb6bb256e29114435ccb39a009d1b8dae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115234"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806608"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Preguntas más frecuentes sobre Azure Container Instances
 
@@ -27,25 +27,28 @@ El tamaño de la imagen de contenedor afecta al tiempo que tarda en implementars
 
 Dado que uno de los principales factores determinantes en el tiempo de implementación es el tamaño de imagen, busque formas de reducir el tamaño. Quite las capas que no necesite o reduzca el tamaño de las capas de la imagen (seleccionando una imagen de sistema operativo de base menos pesada). Por ejemplo, si ejecuta contenedores de Linux, considere la posibilidad de usar Alpine como imagen de base en lugar de un servidor de Ubuntu completo. Asimismo, para contenedores de Windows, use una imagen de base de Nano Server si es posible. 
 
-También debe comprobar la lista de imágenes previamente almacenadas en caché en Azure Container Images, disponible a través de la API [List Cached Images](/rest/api/container-instances/listcachedimages). Es posible que pueda desactivar una capa de imagen de una de las imágenes previamente almacenadas en caché. 
+También debe comprobar la lista de imágenes previamente almacenadas en caché en Azure Container Images, disponible a través de la API [List Cached Images](/rest/api/container-instances/location/listcachedimages). Es posible que pueda desactivar una capa de imagen de una de las imágenes previamente almacenadas en caché. 
 
 Consulte una [guía más detallada](container-instances-troubleshooting.md#container-takes-a-long-time-to-start) sobre cómo reducir el tiempo de inicio del contenedor.
 
 ### <a name="what-windows-base-os-images-are-supported"></a>¿Qué imágenes de sistema operativo de base de Windows se admiten?
 
+> [!NOTE]
+> Debido a problemas de compatibilidad con versiones anteriores tras las actualizaciones de Windows en 2020, las siguientes versiones de imagen incluyen el número de versión mínimo que se recomienda usar en la imagen de base. Las implementaciones actuales que usan versiones de imagen anteriores no se ven afectadas, pero las nuevas implementaciones deben adaptarse a las siguientes imágenes de base. 
+
 #### <a name="windows-server-2016-base-images"></a>Imágenes de base de Windows Server 2016
 
-* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `10.0.14393.x`, `sac2016`
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016`, `10.0.14393.x`
+* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `sac2016`, `10.0.14393.3506` o más reciente
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016`, `10.0.14393.3506` o más reciente
 
 > [!NOTE]
 > No se admiten las imágenes de Windows basadas en las versiones de Canal semianual 1709 o 1803.
 
 #### <a name="windows-server-2019-and-client-base-images-preview"></a>Imágenes de base de Windows Server 2019 y cliente (versión preliminar)
 
-* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809`, `10.0.17763.914` o anterior
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019`, `1809`, `10.0.17763.914` o anterior
-* [Windows](https://hub.docker.com/_/microsoft-windows): `1809`, `10.0.17763.914` o anterior
+* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809`, `10.0.17763.1040` o más reciente
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019`, `1809`, `10.0.17763.1040` o más reciente
+* [Windows](https://hub.docker.com/_/microsoft-windows): `1809`, `10.0.17763.1040` o más reciente
 
 ### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>¿Qué capas de imagen .NET o .NET Core debo usar en mi contenedor? 
 
@@ -60,7 +63,7 @@ Realmente, esto depende de su carga de trabajo. Empiece poco a poco y pruebe el 
 Asegúrese de comprobar también la [disponibilidad de recursos](container-instances-region-availability.md#availability---general) para la región de implementación para los límites superiores en los núcleos de CPU y memoria disponibles para cada grupo de contenedores. 
 
 > [!NOTE]
-> La infraestructura subyacente al servicio utiliza una pequeña cantidad de los recursos de un grupo de contenedores. Los contenedores podrán acceder a la mayoría de los recursos asignados al grupo, pero no a todos. Por este motivo, debe planear un pequeño búfer de recursos al solicitar los recursos para los contenedores del grupo.
+> La infraestructura subyacente al servicio utiliza una pequeña cantidad de los recursos de un grupo de contenedores. Los contenedores pueden acceder a la mayoría de los recursos asignados al grupo, pero no a todos. Por este motivo, debe planear un pequeño búfer de recursos al solicitar los recursos para los contenedores del grupo.
 
 ### <a name="what-underlying-infrastructure-does-aci-run-on"></a>¿En qué infraestructura subyacente se ejecuta ACI?
 

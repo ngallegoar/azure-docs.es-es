@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 95ebfaef863a1fa05e8a5d3b46fca9659c61f6b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7933d5e5cf7d82de013e18b221f3a0c3ce6b5229
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74110619"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800535"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Tipos y estructura de las respuestas de Bing Web Search API  
 
@@ -449,15 +449,18 @@ Para acceder a los encabezados, puede realizar la solicitud de Bing Web Search A
 
 Es fácil instalar un proxy CORS para permitir que nuestra [aplicación de tutorial](tutorial-bing-web-search-single-page-app.md) obtenga acceso a los encabezados de cliente opcionales. En primer lugar, si aún no lo tiene, [instale Node.js](https://nodejs.org/en/download/). A continuación, escriba el siguiente comando en un símbolo del sistema.
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-Luego, cambie el punto de conexión de Bing Web Search API del archivo HTML a:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+Luego, cambie el punto de conexión de Bing Web Search API del archivo HTML a:\
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Por último, inicie el proxy CORS con el siguiente comando:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Deje abierta la ventana de comandos mientras usa la aplicación del tutorial, ya que si la cierra, se detendrá el proxy. En la sección de encabezados HTTP expandibles situada bajo los resultados de la búsqueda, puede ver el encabezado `X-MSEdge-ClientID` (entre otras cosas) y comprobar que es el mismo en todas las solicitudes.
 

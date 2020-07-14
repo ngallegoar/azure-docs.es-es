@@ -1,6 +1,6 @@
 ---
-title: Tutorial de rotación de usuario único y contraseña única
-description: Use este tutorial para aprender a automatizar la rotación de secretos para los recursos que usan la autenticación de usuario único y contraseña única.
+title: Tutorial de rotación para recursos con un conjunto de credenciales de autenticación
+description: Use este tutorial para aprender a automatizar la rotación de secretos para los recursos que usan un conjunto de credenciales de autenticación.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,18 +10,18 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8f9c0dca29d173eb2c7893a20b2ab41dd31522e1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9bff8c040f4cfed612278dd83ebb354b31a3a1f3
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183218"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801451"
 ---
-# <a name="automate-the-rotation-of-a-secret-for-resources-that-use-single-usersingle-password-authentication"></a>Automatización de la rotación de secretos para recursos que usan la autenticación de usuario único y contraseña única
+# <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatización de la rotación de un secreto para recursos que usan un conjunto de credenciales de autenticación
 
 Aunque la mejor forma de realizar la autenticación en los servicios de Azure es mediante una [identidad administrada](../general/managed-identity.md), hay algunos escenarios en los que no es posible. En estos casos, se usan claves de acceso o secretos. Tanto las claves de acceso como los secretos deben rotarse periódicamente.
 
-En este tutorial se muestra cómo automatizar la rotación periódica de secretos de bases de datos y servicios que usan la autenticación de usuario único y contraseña única. Específicamente, en este tutorial se rotan las contraseñas de SQL Server almacenadas en Azure Key Vault mediante el uso de una función desencadenada por una notificación de Azure Event Grid:
+En este tutorial se muestra cómo automatizar la rotación periódica de secretos de bases de datos y servicios que usan un conjunto de credenciales de autenticación. Específicamente, en este tutorial se rotan las contraseñas de SQL Server almacenadas en Azure Key Vault mediante el uso de una función desencadenada por una notificación de Azure Event Grid:
 
 ![Diagrama de la solución de rotación](../media/rotate1.png)
 

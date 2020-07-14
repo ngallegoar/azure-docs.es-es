@@ -2,13 +2,13 @@
 title: Implementación de plantillas de Resource Manager mediante Acciones de GitHub
 description: Se describe cómo implementar plantillas de Resource Manager mediante Acciones de GitHub.
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.openlocfilehash: f2e0d73c838d16c161605972b87d6f07ef8869b9
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.date: 07/02/2020
+ms.openlocfilehash: 313354499901bc69ec6e00f0ba7c385065cae615
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869190"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85854747"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Implementación de plantillas de Azure Resource Manager mediante Acciones de GitHub
 
@@ -25,7 +25,7 @@ Un flujo de trabajo básico para implementar una plantilla de Resource Manager p
 2. Inicie sesión en Azure.
 3. Implementar la plantilla de Resource Manager
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Necesita un repositorio de GitHub para almacenar las plantillas de Resource Manager y los archivos del flujo de trabajo. Para crear uno, vea [Creación de un repositorio](https://help.github.com/en/enterprise/2.14/user/articles/creating-a-new-repository).
 
@@ -82,7 +82,7 @@ Puede colocar el archivo en cualquier parte del repositorio. En el ejemplo de fl
 
 ## <a name="create-workflow"></a>Creación del flujo de trabajo
 
-El archivo de flujo de trabajo se debe almacenar en la carpeta **.github/workflow** en la raíz del repositorio. La extensión de archivo de flujo de trabajo puede ser **.yml** o **.yaml**.
+El archivo de flujo de trabajo se debe almacenar en la carpeta **.github/workflows** en la raíz del repositorio. La extensión de archivo de flujo de trabajo puede ser **.yml** o **.yaml**.
 
 Puede crear un archivo de flujo de trabajo y, después, insertarlo o cargarlo en el repositorio, o bien usar el procedimiento siguiente:
 

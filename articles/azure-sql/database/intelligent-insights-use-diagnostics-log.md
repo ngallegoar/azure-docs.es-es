@@ -2,7 +2,7 @@
 title: Registro de diagnóstico del rendimiento de Intelligent Insights
 description: Intelligent Insights proporciona un registro de diagnóstico de los problemas de rendimiento de Azure SQL Database e Instancia administrada de Azure SQL
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -10,18 +10,21 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 42edccf0530e0b8041bfb0a182126bc7cd1a9d65
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/12/2020
+ms.openlocfilehash: 398a96dc505309e565b13cb42f610d8571b9413e
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84028666"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986334"
 ---
 # <a name="use-the-intelligent-insights-performance-diagnostics-log-of-azure-sql-database-and-azure-sql-managed-instance-performance-issues"></a>Registro de diagnóstico de rendimiento de Intelligent Insights con los problemas de rendimiento de Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Esta página proporciona información sobre cómo usar el registro de diagnóstico de rendimiento generado por [Intelligent Insights](intelligent-insights-overview.md) con los problemas de rendimiento de Azure SQL Database e Instancia administrada de Azure SQL, el formato y los datos que contiene según sus necesidades de desarrollo personalizadas. Este registro de diagnóstico se puede enviar a [registros de Azure Monitor](../../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage) o a una solución de terceros para las funcionalidades personalizadas de informes y alertas de DevOps.
+
+> [!NOTE]
+> Intelligent Insights es una característica en versión preliminar que no está disponible en las siguientes regiones: Oeste de Europa, Norte de Europa, Oeste de EE. UU. 1 y Este de EE. UU. 1.
 
 ## <a name="log-header"></a>Encabezado de registro
 

@@ -3,14 +3,16 @@ title: Perfil e identificador de usuario para su uso con la versión preliminar 
 description: Cómo crear y administrar su perfil de usuario y el identificador de usuario con Azure Notebooks, que pasa a formar parte de la dirección URL de los cuadernos compartidos.
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: d90eebf1b7b463e038bc5e54f51df0eb6ca746c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9a1ff7f92faec21f537f068f0a33473700ddfed8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75646286"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831359"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks-preview"></a>Perfil e identificador de usuario para la versión preliminar de Azure Notebooks
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 En el espacio eficaz y de colaboración de Azure Notebooks, su perfil de usuario presenta su imagen pública a otros usuarios:
 
@@ -23,8 +25,6 @@ El identificador de usuario forma parte de las direcciones URL que usa para comp
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>`: Archivos de proyecto.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: Clones de un proyecto específico.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`: Vista previa en HTML de un cuaderno o archivo específico.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="your-user-id"></a>Su identificador de usuario
 
@@ -61,4 +61,4 @@ Para editar su perfil, utilice el comando **Editar información de perfil** en l
 ## <a name="next-steps"></a>Pasos siguientes  
 
 > [!div class="nextstepaction"]
-> [Tutorial: create an run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md) (Tutorial: Creación y ejecución de un cuaderno de Jupyter Notebook para hacer regresión lineal)
+> [Tutorial: Creación y ejecución de un cuaderno de Jupyter Notebook para realizar la regresión lineal](tutorial-create-run-jupyter-notebook.md)

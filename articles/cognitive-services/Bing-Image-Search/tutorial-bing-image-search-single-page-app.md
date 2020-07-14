@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Crear una aplicación web de una sola página - Bing Image Search API'
+title: 'Tutorial: Crear una aplicación web de una sola página: Bing Image Search API'
 titleSuffix: Azure cognitive services
 description: Bing Image Search API permite buscar en la Web imágenes relevantes de alta calidad. Use este tutorial para crear una aplicación web de una sola página que pueda enviar consultas a la API y mostrar los resultados en la página web.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 9227417d28eb09a322dd4757033ee62fee97d91c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 6a88ca1f028efcb3b9614df532b6d2dcc9dcfac8
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78943903"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800911"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Tutorial: Crear una aplicación de una sola página con Bing Image Search API
 
@@ -31,7 +31,7 @@ En la aplicación del tutorial se muestra cómo:
 
 El código fuente completo de este tutorial está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Image-Search).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 * La última versión de [Node.js](https://nodejs.org/).
 * El marco de [Express.js](https://expressjs.com/) para Node.js. Las instrucciones de instalación del código fuente están disponibles en el archivo Léame del ejemplo de GitHub.
@@ -390,15 +390,18 @@ Para fines de desarrollo, puede realizar la solicitud de Bing Web Search API a t
 
 Es fácil instalar un proxy CORS para permitir que nuestra aplicación de tutorial acceda al encabezado de identificador de cliente. En primer lugar, si aún no lo tiene, [instale Node.js](https://nodejs.org/en/download/). Escriba el comando siguiente en una ventana de comandos:
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-A continuación, cambie el punto de conexión de Bing Web Search del archivo HTML a:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+A continuación, cambie el punto de conexión de Bing Web Search en el archivo HTML a:\
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Por último, inicie el proxy CORS con el siguiente comando:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Deje abierta la ventana de comandos mientras usa la aplicación del tutorial, ya que si la cierra, se detendrá el proxy. En la sección de encabezados HTTP expandibles situada bajo los resultados de la búsqueda, puede ver el encabezado `X-MSEdge-ClientID` (entre otras cosas) y comprobar que es el mismo en todas las solicitudes.
 

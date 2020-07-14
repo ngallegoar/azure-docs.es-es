@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.openlocfilehash: 7efae8fb3c00868e2740eac2d4d5bcb3c82f663a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/29/2020
+ms.openlocfilehash: 05a76a1434b5a63229b335fb3973897896ec733d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75977537"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955819"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Modelo de precios de Azure Cosmos DB 
 
@@ -28,18 +28,18 @@ El rendimiento aprovisionado, que se conoce como [unidades de solicitud](request
 
 Para más información, consulte la página [Precios de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) y [Understanding your Azure Cosmos DB bill](understand-your-bill.md) (Explicación de la factura de Azure Cosmos DB).
 
-El modelo de precios de Azure Cosmos DB es coherente en todas las API. Para más información, consulte el artículo sobre la [Rentabilidad del modelo de precios de Azure Cosmos DB para los clientes](total-cost-ownership.md). El contenedor o la base de datos tienen un rendimiento mínimo para garantizar los Acuerdos de Nivel de Servicio; el rendimiento aprovisionado se puede aumentar o disminuir 6 USD por cada 100 RU/s.
+El modelo de precios de Azure Cosmos DB es coherente en todas las API. Para más información, consulte el artículo sobre la [Rentabilidad del modelo de precios de Azure Cosmos DB para los clientes](total-cost-ownership.md). Un contenedor o una base de datos tienen una capacidad de proceso mínima para garantizar los Acuerdos de Nivel de Servicio, y se puede aumentar o disminuir por cada 100 RU/s.
 
-Actualmente el precio mínimo del rendimiento para las bases de datos y los contenedores es de 24 USD/mes (consulte la página [Precios de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para conocer la información más reciente). Si la carga de trabajo usa varios contenedores, puede optimizarse el costo mediante el rendimiento de nivel de base de datos, ya que este permite tener cualquier número de contenedores en una base de datos con el rendimiento compartido entre ellos. En la siguiente tabla se resumen el rendimiento aprovisionado y los costos para diferentes entidades:
+Si implementa la cuenta de Azure Cosmos DB en una región no gubernamental de EE. UU., actualmente el precio mínimo para el rendimiento basado en contenedores y bases de datos es de aproximadamente 24 USD al mes. Los precios varían en función de la región que use; vea la página de precios de [Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para obtener más información sobre los precios. Si la carga de trabajo usa varios contenedores, puede optimizarse el costo mediante el rendimiento de nivel de base de datos, ya que este permite tener cualquier número de contenedores en una base de datos con el rendimiento compartido entre ellos. En la siguiente tabla se resumen el rendimiento aprovisionado y los costos para diferentes entidades:
 
-|**Entidad**  | **Capacidad de proceso y costo mínimos** |**Incrementos de escala y costo** |**Ámbito del aprovisionamiento** |
+|**Entidad**  | **Capacidad de proceso mínima** |**Incrementos de escala** |**Ámbito del aprovisionamiento** |
 |---------|---------|---------|-------|
-|Base de datos    | 400 RU/s (24 USD/mes)    | 100 RU/s (6 USD/mes)   |La capacidad de proceso está reservada para la base de datos y se comparte entre los contenedores dentro de esta |
-|Contenedor     | 400 RU/s (24 USD/mes)    | 100 RU/s (6 USD/mes)  |La capacidad de proceso está reservada para un contenedor específico |
+|Base de datos    | 400 RU/s    | 100 RU/s   |La capacidad de proceso está reservada para la base de datos y se comparte entre los contenedores dentro de esta |
+|Contenedor     | 400 RU/s   | 100 RU/s  |La capacidad de proceso está reservada para un contenedor específico |
 
-Como se muestra en la tabla anterior, la capacidad de proceso mínima en Azure Cosmos DB empieza por un precio de 24 USD/mes. Si se empieza por la capacidad de proceso mínima y se escala verticalmente con el tiempo para admitir las cargas de trabajo de producción, los costos aumentarán gradualmente en incrementos de 6 USD/mes. El modelo de precios de Azure Cosmos DB es elástico y la escalada y la reducción vertical suponen un aumento o una reducción del precio gradual.
+Como se muestra en la tabla anterior, la capacidad de proceso mínima en Azure Cosmos DB empieza por un precio aproximado de 24 USD al mes. Si empieza por la capacidad de proceso mínima y se escala verticalmente con el tiempo para admitir las cargas de trabajo de producción, los costos aumentarán gradualmente en incrementos de aproximadamente 6 USD al mes. Los precios varían en función de la región que use; vea la página de precios de [Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para obtener más información sobre los precios. El modelo de precios de Azure Cosmos DB es elástico y la escalada y la reducción vertical suponen un aumento o una reducción del precio gradual.
 
-## <a name="try-azure-cosmos-db-for-free"></a>Pruebe gratis Azure Cosmos DB 
+## <a name="try-azure-cosmos-db-for-free"></a>Pruebe gratis Azure Cosmos DB
 
 Azure Cosmos DB ofrece varias opciones para que los desarrolladores lo prueben de forma gratuita. Entre estas opciones se incluyen:
 

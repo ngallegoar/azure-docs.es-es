@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 06/25/2019
+ms.date: 07/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 81732f13b85a7c0b514aad61c40802f4547957c2
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 2b5789acfbb088ca8dbeb731b1ce7748041233cb
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219122"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960538"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Tutorial: Copia de datos a Azure Data Box Disk mediante NFS
 
@@ -48,7 +48,7 @@ En los recursos compartidos de blob en bloques y en páginas, las entidades de p
 
 En la tabla siguiente se muestra la ruta de acceso UNC a los recursos compartidos en la dirección URL de la ruta de acceso de Data Box y Azure Storage donde se cargan los datos. La dirección URL final de la ruta de acceso de Azure Storage se puede derivar a partir de la ruta de acceso UNC al recurso compartido.
  
-|                   |                                                            |
+| Tipo de instancia de Azure Storage| Recursos compartidos de Data Box                                       |
 |-------------------|--------------------------------------------------------------------------------|
 | Blobs en bloques de Azure | <li>Ruta de acceso UNC a recursos compartidos: `//<DeviceIPAddress>/<StorageAccountName_BlockBlob>/<ContainerName>/files/a.txt`</li><li>Dirección URL de Azure Storage: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
 | Blobs en páginas de Azure  | <li>Ruta de acceso UNC a recursos compartidos: `//<DeviceIPAddres>/<StorageAccountName_PageBlob>/<ContainerName>/files/a.txt`</li><li>Dirección URL de Azure Storage: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
@@ -58,7 +58,7 @@ Si usa un equipo host Linux, realice los pasos siguientes para configurar un dis
 
 1. Proporcione las direcciones IP de los clientes autorizados que pueden acceder al recurso compartido. En la interfaz de usuario web local, vaya a la página **Connect and copy** (Conectar y copiar). En **NFS settings** (Configuración de NFS), haga clic en **NFS client access** (Acceso de cliente NFS). 
 
-    ![Configuración del acceso de cliente NFS 1](media/data-box-deploy-copy-data/nfs-client-access.png)
+    ![Configuración del acceso de cliente NFS 1](media/data-box-deploy-copy-data/nfs-client-access-1.png)
 
 2. Proporcione la dirección IP del cliente NFS y haga clic en **Add** (Agregar). Para configurar el acceso para varios clientes NFS, repita este paso. Haga clic en **OK**.
 
@@ -139,7 +139,19 @@ Si usa la opción rsync para una copia multiproceso, siga estas directrices:
 > [!IMPORTANT]
 > No se admiten los siguientes tipos de archivos de Linux: vínculos simbólicos, archivos de caracteres, archivos de bloqueo, sockets y canalizaciones. Estos tipos de archivo generarán errores durante el paso **Preparación para el envío**.
 
-Abra la carpeta de destino para ver y comprobar los archivos copiados. Si se produce algún error durante el proceso de copia, descargue los archivos de error para solucionar problemas. Para más información, consulte [Ver registro de errores durante la copia de datos en Data Box](data-box-logs.md#view-error-log-during-data-copy). Para obtener una lista detallada de errores durante la copia de datos, consulte [Solución de problemas de Data Box](data-box-troubleshoot.md).
+Si durante el proceso de copia se produce algún error, aparecerá una notificación.
+
+![Descarga y visualización de errores Conectar y copiar](media/data-box-deploy-copy-data/view-errors-1.png)
+
+Seleccione **Descargar la lista de problemas**.
+
+![Descarga y visualización de errores Conectar y copiar](media/data-box-deploy-copy-data/view-errors-2.png)
+
+Abra la lista para ver los detalles del error y seleccione la dirección URL de resolución para ver la resolución recomendada.
+
+![Descarga y visualización de errores Conectar y copiar](media/data-box-deploy-copy-data/view-errors-3.png)
+
+Para más información, consulte [Ver registro de errores durante la copia de datos en Data Box](data-box-logs.md#view-error-log-during-data-copy). Para obtener una lista detallada de errores durante la copia de datos, consulte [Solución de problemas de Data Box](data-box-troubleshoot.md).
 
 Para garantizar la integridad de los datos, la suma de comprobación se calcula a medida que los datos se copian. Una vez completada la copia, compruebe el espacio utilizado y el espacio disponible en el dispositivo.
 

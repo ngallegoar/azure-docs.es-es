@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 27229d36dbe9592b6ad6fc2740f7714f99fd6857
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: cadbe79bbe0af2b5cebacb3d0c7c4e910fc7dbb8
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629058"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856837"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Evaluación de la precisión de Habla personalizada
 
@@ -23,7 +23,7 @@ En este documento, aprenderá a medir cuantitativamente la calidad del modelo de
 
 ## <a name="what-is-word-error-rate-wer"></a>¿Qué es Word Error Rate (WER)?
 
-Es el estándar del sector para medir la precisión del modelo. WER cuenta el número de palabras incorrectas identificadas durante el reconocimiento y luego las divide entre el número total de palabras proporcionadas en la transcripción con la etiqueta humano. Por último, ese número se multiplica por 100 % para calcular la tasa WER.
+Es el estándar del sector para medir la precisión *del modelo* (WER). WER cuenta el número de palabras incorrectas identificadas durante el reconocimiento y luego las divide entre el número total de palabras proporcionadas en la transcripción con la etiqueta humana (se muestra a continuación como N). Por último, ese número se multiplica por 100 % para calcular la tasa WER.
 
 ![Fórmula de WER](./media/custom-speech/custom-speech-wer-formula.png)
 

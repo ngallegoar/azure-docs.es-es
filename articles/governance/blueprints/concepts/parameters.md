@@ -3,16 +3,16 @@ title: Uso de parámetros para crear planos técnicos dinámicos
 description: Obtenga información sobre los parámetros estáticos y dinámicos y cómo usarlos para crear planos técnicos seguros y dinámicos.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: e5953617d5fa27098380f3f0e95843c69800f823
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 831dd69f58130247518ee7465bc1059aed61b319
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458495"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970644"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creación de planos técnicos mediante parámetros
 
-Un plano técnico totalmente definido con distintos artefactos (por ejemplo, grupos de recursos, plantillas de Resource Manager, directivas o asignaciones de roles) permite la creación rápida y el aprovisionamiento coherente de los objetos dentro de Azure. Para habilitar el uso flexible de estos patrones de diseño y contenedores reutilizables, Azure Blueprint admite parámetros. El parámetro crea flexibilidad durante la definición y la asignación lo cual permite cambiar las propiedades de los artefactos implementados por el plano técnico.
+Un plano técnico totalmente definido con distintos artefactos (como grupos de recursos, plantillas de Azure Resource Manager (plantillas de ARM), directivas o asignaciones de roles) permite la creación rápida y el aprovisionamiento coherente de los objetos dentro de Azure. Para habilitar el uso flexible de estos patrones de diseño y contenedores reutilizables, Azure Blueprint admite parámetros. El parámetro crea flexibilidad durante la definición y la asignación lo cual permite cambiar las propiedades de los artefactos implementados por el plano técnico.
 
 Un ejemplo sencillo es el artefacto de grupo de recursos. Cuando se crea un grupo de recursos se deben proporcionar dos valores obligatorios: nombre y ubicación. Al agregar un grupo de recursos a su plano técnico, si no existieran los parámetros tendría que definir ese nombre y ubicación para cada uso del plano técnico. Esta repetición haría que todos los usos del plano técnico crearan artefactos en el mismo grupo de recursos. Los recursos dentro de ese se duplicarían y se podría producir un conflicto.
 
@@ -28,7 +28,7 @@ Con la API REST, los parámetros se pueden crear en el propio plano técnico. Es
 
 ### <a name="using-securestring-and-secureobject-parameters"></a>Uso de los parámetros secureString y secureObject
 
-Aunque un _artefacto_ de plantilla de Resource Manager admite parámetros de los tipos **secureString** y **secureObject**, Azure Blueprint requiere que cada uno esté conectado con una instancia de Azure Key Vault. Esta medida de seguridad impide el procedimiento no seguro de almacenar secretos junto con el plano técnico y anima a la implementación de patrones seguros. Azure Blueprints admite esta medida de seguridad y detecta la inclusión de un parámetro seguro en un _artefacto_ de una plantilla de Resource Manager. El servicio entonces solicita durante la asignación las siguientes propiedades de Key Vault por cada parámetro seguro detectado:
+Aunque un _artefacto_ de plantilla de ARM admite parámetros de los tipos **secureString** y **secureObject**, Azure Blueprints requiere que cada uno esté conectado con una instancia de Azure Key Vault. Esta medida de seguridad impide el procedimiento no seguro de almacenar secretos junto con el plano técnico y anima a la implementación de patrones seguros. Azure Blueprints admite esta medida de seguridad y detecta la inclusión de un parámetro seguro en un _artefacto_ de una plantilla de ARM. El servicio entonces solicita durante la asignación las siguientes propiedades de Key Vault por cada parámetro seguro detectado:
 
 - Identificador de recurso de Key Vault
 - Nombre del secreto de Key Vault
@@ -180,7 +180,7 @@ Lo contrario de un parámetro estático es un **parámetro dinámico**. Este par
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Establecimiento de parámetros dinámicos desde la API REST
 
-Para establecer **parámetros dinámicos** durante la asignación, debe escribir el valor directamente. En lugar de usar una función, como [parameters()](../reference/blueprint-functions.md#parameters), el valor proporcionado es una cadena adecuada. Los artefactos para un grupo de recursos se definen con un "nombre de plantilla" y las propiedades **name** y **location**. Todos los demás parámetros para el artefacto incluido se definen en **parámetros** con un par de clave **\<name\>** y **value**. Si el plano técnico se configura para un parámetro dinámico que no se proporciona durante la asignación, se producirá un error en esta.
+Para establecer **parámetros dinámicos** durante la asignación, debe escribir el valor directamente. En lugar de usar una función, como [parameters()](../reference/blueprint-functions.md#parameters), el valor proporcionado es una cadena adecuada. Los artefactos para un grupo de recursos se definen con un "nombre de plantilla" y las propiedades **name** y **location**. Todos los demás parámetros para el artefacto incluido se definen en **parámetros** con un par de claves **\<name\>** y **valor**. Si el plano técnico se configura para un parámetro dinámico que no se proporciona durante la asignación, se producirá un error en esta.
 
 - URI DE LA API REST
 

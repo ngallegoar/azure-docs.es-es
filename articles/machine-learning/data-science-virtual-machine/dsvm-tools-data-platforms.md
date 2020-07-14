@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: cd787881957d78f179107e46b2650de4618c7724
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ccb95064f756ef035b7da92d029680f1c195982b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282331"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958742"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plataformas de datos admitidas en Data Science Virtual Machine
 
@@ -41,10 +41,12 @@ Las siguientes son las herramientas de la plataforma de datos compatibles con DS
 
 El servidor de bases de datos ya está preconfigurado y los servicios de Windows relacionados con SQL Server (como `SQL Server (MSSQLSERVER)`) están configurados para ejecutarse automáticamente. El único paso manual implica habilitar el análisis en la base de datos mediante Microsoft Machine Learning Server. Puede habilitar el análisis ejecutando el siguiente comando como una acción única en SQL Server Management Studio (SSMS). Ejecute este comando después de iniciar sesión como administrador del equipo, abra una nueva consulta en SSMS y asegúrese de que la base de datos seleccionada sea `master`:
 
-        CREATE LOGIN [%COMPUTERNAME%\SQLRUserGroup] FROM WINDOWS 
+```sql
+CREATE LOGIN [%COMPUTERNAME%\SQLRUserGroup] FROM WINDOWS 
+```
 
-        (Replace %COMPUTERNAME% with your VM name.)
-       
+(Reemplace %COMPUTERNAME% por el nombre de la máquina virtual).
+
 Para ejecutar SQL Server Management Studio, puede buscar "SQL Server Management Studio" en la lista de programas o usar la búsqueda de Windows para buscarlo y ejecutarlo. Cuando se le piden credenciales, seleccione **Autenticación de Windows** y use el nombre del equipo o ```localhost``` en el campo de **nombre de SQL Server**.
 
 ### <a name="how-to-use-and-run-it"></a>Cómo usarla y ejecutarla
@@ -76,13 +78,15 @@ Puede usar Spark desde R mediante el uso de bibliotecas como SparkR, Sparklyr y 
 ### <a name="setup"></a>Configurar
 Antes de ejecutar en el contexto de Spark en Microsoft Machine Learning Server en la edición de Ubuntu Linux DSVM, tiene que llevar a cabo un paso de configuración una sola vez con el fin de habilitar un HDFS de Hadoop de un solo nodo y una instancia de Yarn. De manera predeterminada, los servicios de Hadoop están instalados pero deshabilitados en la DSVM. Para habilitarlos, ejecute los comandos siguientes como raíz la primera vez:
 
-    echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa
-    cat ~hadoop/.ssh/id_rsa.pub >> ~hadoop/.ssh/authorized_keys
-    chmod 0600 ~hadoop/.ssh/authorized_keys
-    chown hadoop:hadoop ~hadoop/.ssh/id_rsa
-    chown hadoop:hadoop ~hadoop/.ssh/id_rsa.pub
-    chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
-    systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
+```bash
+echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa
+cat ~hadoop/.ssh/id_rsa.pub >> ~hadoop/.ssh/authorized_keys
+chmod 0600 ~hadoop/.ssh/authorized_keys
+chown hadoop:hadoop ~hadoop/.ssh/id_rsa
+chown hadoop:hadoop ~hadoop/.ssh/id_rsa.pub
+chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
+systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
+```
 
 Puede detener los servicios relacionados con Hadoop cuando no los necesite si ejecuta ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```.
 

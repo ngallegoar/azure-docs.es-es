@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/11/2020
-ms.openlocfilehash: 9853a3decc8d145fee58d1da526926e224ee2030
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/10/2020
+ms.openlocfilehash: 5078e625f86affb8d16ffab538d11b839d2d7bda
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064253"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965015"
 ---
 # <a name="edit-metadata-module"></a>Módulo Editar metadatos
 
@@ -55,7 +55,8 @@ Entre los cambios de metadatos habituales se pueden incluir:
     + El tipo de columna y los valores cambiarán después de realizar la operación Editar metadatos. Puede recuperar el tipo de datos original en cualquier momento mediante Editar metadatos para restablecer el tipo de datos de la columna.  
 
     > [!NOTE]
-    > Si cambia cualquier tipo de número al tipo **DateTime**, deje el campo **Formato de fecha y hora** en blanco. Actualmente no es posible especificar el formato de datos de destino.  
+    > El **formato de fecha y hora** sigue el [formato de fecha y hora integrado](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior) de Python.  
+    > Si cambia cualquier tipo de número al tipo **DateTime**, deje el campo **Formato de fecha y hora** en blanco. Actualmente no es posible especificar el formato de datos de destino.
 
 1. Seleccione la opción **Categórico** para especificar que los valores de las columnas seleccionadas deben tratarse como categorías.
 

@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
-ms.date: 06/07/2019
+ms.topic: how-to
+ms.date: 07/01/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 51adbb74635f66ca86347b536dc2607566dcb725
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 63c15b13134f17cd2e1d0bf7b8d11a168dca5b2a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231092"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829976"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Creación de flujos de usuario en Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ En este tutorial se muestra cómo crear flujos de usuario recomendados mediante 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [Registre las aplicaciones](tutorial-register-applications.md) que formen parte de los flujos de usuario que desee crear.
 
@@ -46,7 +46,7 @@ Este flujo de usuario de registro y de inicio de sesión controla las experienci
     ![Inquilino de B2C, panel de directorio y suscripción, Azure Portal](./media/tutorial-create-user-flows/directory-subscription-pane.png)
 
 1. En Azure Portal, busque y seleccione **Azure AD B2C**.
-1. En **Directivas**, seleccione **Flujos de usuario (directivas)** y **Nuevo flujo de usuario**.
+1. En **Directivas**, seleccione **Flujos de usuario** y **Nuevo flujo de usuario**.
 
     ![Página Flujos de usuario del portal con el botón Nuevo flujo de usuario resaltado](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
@@ -82,7 +82,7 @@ Este flujo de usuario de registro y de inicio de sesión controla las experienci
 
 Si desea permitir que los usuarios editen sus perfiles en la aplicación, debe usar un flujo de usuario de edición de perfiles.
 
-1. En el menú de la página de información general del inquilino de Azure AD B2C, seleccione **Flujos de usuario (directivas)** y **Nuevo flujo de usuario**.
+1. En el menú de la página de información general del inquilino de Azure AD B2C, seleccione **Flujos de usuario** y **Nuevo flujo de usuario**.
 1. En la pestaña **Recomendado**, seleccione el flujo de usuario **Edición de perfiles**.
 1. Escriba un **nombre** para el flujo de usuario. Por ejemplo, *profileediting1*.
 1. En **Proveedores de identidades**, seleccione **Inicio de sesión de cuenta local**.
@@ -100,7 +100,7 @@ Si desea permitir que los usuarios editen sus perfiles en la aplicación, debe u
 
 Para habilitar que los usuarios de la aplicación restablezcan la contraseña, se usa un flujo de usuario de restablecimiento de contraseña.
 
-1. En el menú de información general del inquilino de Azure AD B2C, seleccione **Flujos de usuario (directivas)** y **Nuevo flujo de usuario**.
+1. En el menú de información general del inquilino de Azure AD B2C, seleccione **Flujos de usuario** y **Nuevo flujo de usuario**.
 1. En la pestaña **Recomendado**, seleccione el flujo de usuario **Restablecimiento de contraseña**.
 1. Escriba un **nombre** para el flujo de usuario. Por ejemplo, *passwordreset1*.
 1. En **Proveedores de identidades**, habilite **Reset password using email address** (Restablecer contraseña mediante la dirección de correo electrónico).

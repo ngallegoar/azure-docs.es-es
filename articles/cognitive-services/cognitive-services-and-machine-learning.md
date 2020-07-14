@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: 42717b1e9b4ba12c2fe42dbd13ef44223ef2ba43
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: c8480557d0f27594fa369e4e2451a5d0fe7ad3cc
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220216"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856731"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services y Machine Learning
 
@@ -73,7 +73,7 @@ Cognitive Services, como grupo de servicios, puede requerir ninguno, algunos o t
 
 ### <a name="no-additional-training-data-required"></a>No se requieren datos de entrenamiento adicionales
 
-Los servicios que proporcionan un modelo totalmente entrenado se pueden tratar como una _caja negra_. No es necesario saber cómo funcionan ni qué datos se usaron para entrenarlos. Puede llevar los datos a un modelo completamente entrenado para obtener una predicción. 
+Los servicios que proporcionan un modelo totalmente entrenado se pueden tratar como una _caja opaca_. No es necesario saber cómo funcionan ni qué datos se usaron para entrenarlos. Puede llevar los datos a un modelo completamente entrenado para obtener una predicción. 
 
 ### <a name="some-or-all-training-data-required"></a>Algunos o todos los datos de entrenamiento son necesarios
 

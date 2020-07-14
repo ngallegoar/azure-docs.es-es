@@ -4,16 +4,16 @@ description: Obtenga información sobre cómo supervisar el rendimiento y la dis
 author: bwren
 services: cosmos-db
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: a31636e4e56ddeb9f48cd8c955dc4415dacdc178
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: cd100fca074e63c56cd6a19843cc68e1a1ddf214
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234924"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850291"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Supervisión de Azure Cosmos DB
 
@@ -31,7 +31,7 @@ Puede supervisar los datos con métricas del lado cliente y del lado servidor. A
 
 La siguiente imagen muestra distintas opciones disponibles para supervisar la cuenta de Azure Cosmos DB mediante Azure Portal:
 
-![Opciones de supervisión disponibles en Azure Portal](media/monitor-cosmos-db/monitoring-options-portal.png)
+:::image type="content" source="media/monitor-cosmos-db/monitoring-options-portal.png" alt-text="Opciones de supervisión disponibles en Azure Portal" border="false":::
 
 Al usar Azure Cosmos DB, puede recopilar en el lado cliente los detalles de la carga de solicitudes, el identificador de actividad, la información de seguimiento de la pila y excepciones, el código de estado y subestado HTTP y la cadena de diagnóstico para depurar cualquier problema que pueda producirse. Esta información también es necesaria si necesita ponerse en contacto con el equipo de soporte técnico de Azure Cosmos DB.  
 
@@ -62,7 +62,7 @@ Azure Cosmos DB recopila los mismos tipos de datos de supervisión que otros rec
 
 La página **Información general** de Azure Portal para cada base de datos de Azure Cosmos incluye una breve vista del uso de la base de datos, incluidos su solicitud y el uso de facturación por hora. Esta información es útil, pero solo una pequeña cantidad de datos de supervisión está disponible. Algunos de estos datos se recopilan automáticamente y están disponibles para su análisis en cuanto se crea la base de datos, mientras que se puede habilitar la recopilación de datos adicional con alguna configuración.
 
-![Página de información general](media/monitor-cosmos-db/overview-page.png)
+:::image type="content" source="media/monitor-cosmos-db/overview-page.png" alt-text="Página de información general":::
 
 ## <a name="analyzing-metric-data"></a><a id="analyze-metric-data"></a> Análisis de datos de métricas
 
@@ -82,27 +82,27 @@ Puede analizar las métricas de Azure Cosmos DB con métricas de otros servicios
 
 1. Seleccione **Monitor** en la barra de navegación izquierda y, a continuación, seleccione **Métricas**.
 
-   ![Panel Métricas en Azure Monitor](./media/monitor-cosmos-db/monitor-metrics-blade.png)
+   :::image type="content" source="./media/monitor-cosmos-db/monitor-metrics-blade.png" alt-text="Panel Métricas en Azure Monitor":::
 
 1. En el panel **Métricas** panel > **Seleccionar un recurso** > elija la **suscripción**, y el **grupo de recursos** requeridos. En **Tipo de recurso**, seleccione **Cuentas de Azure Cosmos DB**, elija una de las cuentas de Azure Cosmos existentes y seleccione **Aplicar**.
 
-   ![Elegir una cuenta de Cosmos DB para ver las métricas](./media/monitor-cosmos-db/select-cosmosdb-account.png)
+   :::image type="content" source="./media/monitor-cosmos-db/select-cosmosdb-account.png" alt-text="Elección de una cuenta de Cosmos DB para ver las métricas":::
 
 1. A continuación, puede seleccionar una métrica de la lista de métricas disponibles. Puede seleccionar métricas específicas de unidades de solicitud, almacenamiento, latencia, disponibilidad, Cassandra, etc. Para conocer los detalles de todas las métricas disponibles en esta lista, consulte el artículo [Métricas por categoría](monitor-cosmos-db-reference.md). En este ejemplo, vamos a seleccionar **Unidades de solicitud** y **Prom.** como valor de agregación.
 
    Además de estos detalles, también puede seleccionar los valores de **Intervalo de tiempo** y **Granularidad de tiempo** de las métricas. Como máximo, puede ver las métricas de los últimos 30 días.  Después de aplicar el filtro, se muestra un gráfico basado en dicho filtro. Puede ver el número medio de unidades de solicitud consumidas por minuto durante el período seleccionado.  
 
-   ![Elegir una métrica en Azure Portal](./media/monitor-cosmos-db/metric-types.png)
+   :::image type="content" source="./media/monitor-cosmos-db/metric-types.png" alt-text="Elección de una métrica en Azure Portal":::
 
 ### <a name="add-filters-to-metrics"></a>Incorporación de filtros a métricas
 
 También puede filtrar las métricas y el gráfico que se muestra por una propiedad **CollectionName**, **DatabaseName**, **OperationType**, **Region** y **StatusCode** concreta. Para filtrar las métricas, seleccione **Agregar filtro** y elija la propiedad necesaria, como por ejemplo **OperationType** y seleccione un valor como **Query**. A continuación, el gráfico muestra las unidades de solicitud consumidas por la operación de consulta durante el período seleccionado. Las operaciones ejecutadas a través del procedimiento almacenado no se registran, por lo que no están disponibles en la métrica OperationType.
 
-![Agregar un filtro para seleccionar la granularidad de la métrica](./media/monitor-cosmos-db/add-metrics-filter.png)
+:::image type="content" source="./media/monitor-cosmos-db/add-metrics-filter.png" alt-text="Adición de un filtro para seleccionar la granularidad de la métrica":::
 
 Para agrupar las métricas puede usar la opción **Apply splitting** (Aplicar división). Por ejemplo, puede agrupar las unidades de solicitud por tipo de operación y ver el gráfico de todas las operaciones a la vez, como se muestra en la siguiente imagen:
 
-![Adición del filtro para aplicar división](./media/monitor-cosmos-db/apply-metrics-splitting.png)
+:::image type="content" source="./media/monitor-cosmos-db/apply-metrics-splitting.png" alt-text="Adición del filtro para aplicar división":::
 
 ## <a name="analyzing-log-data"></a><a id="analyze-log-data"></a> Análisis datos de registro
 
@@ -157,11 +157,15 @@ Las métricas de nivel de cuenta disponibles en el portal, como el uso de almace
 
 Para acceder a métricas adicionales, use el [SDK de Azure Monitor](https://www.nuget.org/packages/Microsoft.Azure.Insights). Se pueden recuperar definiciones de métricas mediante la llamada a:
 
-    https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metricDefinitions?api-version=2015-04-08
+```http
+https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metricDefinitions?api-version=2015-04-08
+```
 
 Las consultas para recuperar métricas individuales utilizan el siguiente formato:
 
-    https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metrics?api-version=2015-04-08&$filter=%28name.value%20eq%20%27Total%20Requests%27%29%20and%20timeGrain%20eq%20duration%27PT5M%27%20and%20startTime%20eq%202016-06-03T03%3A26%3A00.0000000Z%20and%20endTime%20eq%202016-06-10T03%3A26%3A00.0000000Z
+```http
+https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metrics?api-version=2015-04-08&$filter=%28name.value%20eq%20%27Total%20Requests%27%29%20and%20timeGrain%20eq%20duration%27PT5M%27%20and%20startTime%20eq%202016-06-03T03%3A26%3A00.0000000Z%20and%20endTime%20eq%202016-06-10T03%3A26%3A00.0000000Z
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

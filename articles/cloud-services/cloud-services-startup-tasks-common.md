@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 73762c431c84de01ce3561d586c5a12bfd26ac81
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: beebe60d70b7e4908bd3e9348fe815036d6955c3
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310132"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920072"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tareas de inicio comunes para los servicios en la nube
 Este artículo proporciona algunos ejemplos de tareas comunes de inicio que puede realizar en su servicio en la nube. Puede usar las tareas de inicio para realizar operaciones antes de que se inicie un rol. Estas operaciones incluyen la instalación de un componente, el registro de componentes COM, el establecimiento de las claves del registro o el inicio de un proceso de ejecución largo. 
@@ -377,9 +377,7 @@ EXIT /B 0
 A continuación presentamos algunas prácticas recomendadas que debería seguir al configurar una tarea para el rol web o de trabajo.
 
 ### <a name="always-log-startup-activities"></a>Registre siempre las actividades de inicio
-Visual Studio no proporciona un depurador para repasar los archivos por lotes, por eso es conveniente tener tantos datos sobre el funcionamiento de archivos por lotes como sea posible. El registro de la salida de archivos por lotes, **stdout** y **stderr**, puede proporcionar información importante a la hora de depurar y corregir los archivos por lotes. Para registrar **stdout** y **stderr** en el archivo StartupLog.txt en el directorio señalado por la variable de entorno **%TEMP%** , agregue el texto `>>  "%TEMP%\\StartupLog.txt" 2>&1` al final de líneas específicas que desee registrar. Por ejemplo, para ejecutar setup.exe en el directorio **% PathToApp1Install %** :
-
-    "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
+Visual Studio no proporciona un depurador para repasar los archivos por lotes, por eso es conveniente tener tantos datos sobre el funcionamiento de archivos por lotes como sea posible. El registro de la salida de archivos por lotes, **stdout** y **stderr**, puede proporcionar información importante a la hora de depurar y corregir los archivos por lotes. Para registrar **stdout** y **stderr** en el archivo StartupLog.txt en el directorio señalado por la variable de entorno **%TEMP%** , agregue el texto `>>  "%TEMP%\\StartupLog.txt" 2>&1` al final de líneas específicas que desee registrar. Por ejemplo, para ejecutar setup.exe en el directorio **%PathToApp1Install%** : `"%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1`
 
 Para simplificar el código xml, puede crear un archivo *cmd* de contenedor que llame a todas las tareas de inicio junto con el registro y garantice que cada tarea secundaria comparte las mismas variables de entorno.
 

@@ -5,15 +5,16 @@ description: Detalles de las herramientas incluidas en la máquina Data Science 
 author: gvashishtha
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: tracking-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 7cfb2001067b70c64274ee1dd3475c142b788c98
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 34b4bbd9c2ed088aca10801c22c5f189264fdb1f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82161288"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955546"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Referencia: Data Science Virtual Machine de Ubuntu
 
@@ -142,7 +143,7 @@ Se ha configurado previamente el servidor Jupyter Notebook con kernels de Python
 > [!NOTE]
 > Continúe aunque aparezca una advertencia de certificado.
 
-Puede acceder al servidor de Jupyter Notebook desde cualquier host. Escriba **https://\<Nombre DNS o dirección IP de la máquina virtual\>:8000/** .
+Puede acceder al servidor de Jupyter Notebook desde cualquier host. Escriba **https://\<VM DNS name or IP address\>:8000/** .
 
 > [!NOTE]
 > El puerto 8000 se abre en el firewall de forma predeterminada cuando se aprovisiona la VM. 
@@ -262,8 +263,10 @@ La máquina virtual incluye herramientas y algoritmos de aprendizaje automático
 * **Python**: Anaconda Python integra algoritmos de aprendizaje automático con bibliotecas como Scikit-learn. Puede instalar otras bibliotecas con el comando `pip install` .
 * **LightGBM**: entorno de potenciación de gradientes rápido, distribuido y de alto rendimiento basado en algoritmos de árbol de decisión.
 * **R**: una amplia biblioteca de funciones de aprendizaje automático está disponible para R. Las bibliotecas preinstaladas incluyen lm, glm, randomForest y rpart. Puede instalar otras bibliotecas mediante la ejecución de este comando:
-  
-        install.packages(<lib name>)
+
+    ```r
+    install.packages(<lib name>)
+    ```
 
 A continuación, proporcionamos información adicional sobre las tres primeras herramientas de aprendizaje automático de la lista.
 

@@ -5,16 +5,16 @@ services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2c470483cee8b621475fa70dd09c80aa126173be
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 43f0dfa5fd413d201eb8c63aa752a6fd8db68f6c
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609155"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85807883"
 ---
 # <a name="azure-synapse-analytics-workspaces-preview-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Synapse Analytics (versión preliminar de las áreas de trabajo)
 
@@ -48,6 +48,10 @@ A. Azure Synapse tiene las siguientes funcionalidades:
 A. Azure Synapse Analytics es una evolución de Azure SQL Data Warehouse en una plataforma de análisis, que incluye el grupo de SQL como solución de almacenamiento de datos. Esta plataforma combina la exploración, ingesta, transformación y preparación de datos, así como una capa de análisis de servicios.
 
 ## <a name="use-cases"></a>Casos de uso
+
+### <a name="q-how-do-i-rename-a-published-artifact-dataset-notebook-sql-script-and-so-on-in-azure-synapse"></a>P: ¿Cómo se cambiar el nombre de un artefacto publicado (conjunto de datos, cuaderno, script SQL, etc.) en Azure Synapse?
+
+A. Para cambiar el nombre de un archivo de artefacto publicado, en primer lugar clone el archivo y cambie el nombre del nuevo archivo por el que prefiera. Tendrá que actualizar manualmente todas las referencias del artefacto al nuevo nombre de archivo y eliminar el anterior.
 
 ### <a name="q-what-is-a-good-use-case-for-synapse-sql-pool"></a>P: ¿Cuál es un buen caso de uso de un grupo de Synapse SQL?
 

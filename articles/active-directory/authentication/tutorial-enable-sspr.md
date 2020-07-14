@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c84aa99608a4fc2ac1842c617cca54e2afc3cdbe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5842d21f9fb35cd8fddc5521d630d597aedcc2ba
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201999"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983156"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Habilitación del autoservicio de restablecimiento de contraseña de Azure Active Directory para que los usuarios puedan desbloquear su cuenta o restablecer contraseñas
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 > * Configurar métodos de autenticación y opciones de registro
 > * Probar el proceso SSPR como usuario
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 
@@ -47,7 +47,11 @@ Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 
 ## <a name="enable-self-service-password-reset"></a>Habilitar el autoservicio de restablecimiento de contraseña
 
-Azure AD permite habilitar el autoservicio de restablecimiento de contraseña para *Ninguno*, *Seleccionados* o *Todos* los usuarios. Esta capacidad para pormenorizar permite elegir un subconjunto de usuarios para probar el proceso de registro y el flujo de trabajo de SSPR. Cuando esté familiarizado con el proceso y pueda comunicar los requisitos con un conjunto más amplio de usuarios, podrá seleccionar grupos de usuarios adicionales para habilitarlos en el autoservicio de restablecimiento de contraseña. O bien, podrá habilitar SSPR para todos los usuarios del inquilino de Azure AD.
+Azure AD permite habilitar el autoservicio de restablecimiento de contraseña para *Ninguno*, *Seleccionados* o *Todos* los usuarios. Esta capacidad para pormenorizar permite elegir un subconjunto de usuarios para probar el proceso de registro y el flujo de trabajo de SSPR. Cuando esté familiarizado con el proceso y pueda comunicar los requisitos con un conjunto más amplio de usuarios, podrá seleccionar un grupo de usuarios para habilitarlos en el autoservicio de restablecimiento de contraseña. O bien, podrá habilitar SSPR para todos los usuarios del inquilino de Azure AD.
+
+> [!NOTE]
+>
+> Actualmente solo se puede habilitar un grupo de Azure AD para SSPR mediante Azure Portal. Como parte de una implementación más amplia del autoservicio de restablecimiento de contraseña, se admiten los grupos anidados. Asegúrese de que los usuarios de los grupos que elija tienen asignadas las licencias correspondientes. Actualmente no hay ningún proceso de validación de estos requisitos de licencia.
 
 En este tutorial, configurará SSPR para un conjunto de usuarios de un grupo de prueba. En el ejemplo siguiente, se usa el grupo *Grupo-Prueba-SSPR*. Proporcione su propio grupo de Azure AD según sea necesario:
 
@@ -57,8 +61,6 @@ En este tutorial, configurará SSPR para un conjunto de usuarios de un grupo de 
 1. Busque y seleccione el grupo de Azure AD, como *Grupo-Prueba-SSPR* y, a continuación, elija *Seleccionar*.
 
     [![](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png "Select a group in the Azure portal to enable for self-service password reset")](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
-
-    Como parte de una implementación más amplia del autoservicio de restablecimiento de contraseña, se admiten los grupos anidados. Asegúrese de que los usuarios de los grupos que elija tienen asignadas las licencias correspondientes. Actualmente no hay ningún proceso de validación de estos requisitos de licencia.
 
 1. Para habilitar SSPR para los usuarios seleccionados, seleccione **Guardar**.
 
@@ -77,6 +79,7 @@ Cuando los usuarios necesitan desbloquear su cuenta o restablecer su contraseña
     * *Correo electrónico*
     * *Teléfono móvil*
     * *Teléfono del trabajo*
+    * *Preguntas de seguridad*
 
 1. Para aplicar los métodos de autenticación, seleccione **Guardar**.
 

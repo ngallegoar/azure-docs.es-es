@@ -1,14 +1,14 @@
 ---
 title: Controles del ejemplo de plano técnico de nivel 4 de impacto del DoD
 description: Asignación de controles del ejemplo de plano técnico de nivel 4 de impacto del DoD. Cada control se asigna a una o varias directivas de Azure que ayudan en la evaluación.
-ms.date: 05/12/2020
+ms.date: 06/30/2020
 ms.topic: sample
-ms.openlocfilehash: 48734e62f47c38feb8bc34409f9ba41af2648e7a
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 54eb1807e4986bb56b72e064cdae9df973ed7a81
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168988"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800433"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico de nivel 4 de impacto del DoD
 
@@ -175,21 +175,21 @@ Esta directiva integrada requiere que especifique una matriz de tipos de recurso
 
 ## <a name="cm-7-2-least-functionality--prevent-program-execution"></a>Funcionalidad mínima CM-7 (2) | Evitar la ejecución de programas
 
-El control de aplicaciones adaptable en Azure Security Center es una solución de creación de listas de aplicaciones permitidas integral, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ejecutarse en modo de aplicación que prohíbe que la aplicación no autorizada se ejecute. Este proyecto asigna una definición de Azure Policy que le ayuda a supervisar las máquinas virtuales cuando se recomienda crear una lista de aplicaciones permitidas, pero aún no se ha configurado.
+El control de aplicaciones adaptable en Azure Security Center es una solución de lista de aplicaciones permitidas que es inteligente, automatizada, de un extremo a otro y que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ejecutarse en modo de aplicación que prohíbe que la aplicación no autorizada se ejecute. Este plano técnico asigna una definición de Azure Policy que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero esta aún no se ha configurado.
 
-- Deben habilitarse los controles de aplicaciones adaptables en las máquinas virtuales
+- Los controles de aplicaciones adaptables para definir aplicaciones seguras deben estar habilitados en las máquinas.
 
 ## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>Funcionalidad mínima CM-7 (5) | Creación de listas de software permitido o autorizado
 
-El control de aplicaciones adaptable en Azure Security Center es una solución de creación de listas de aplicaciones permitidas integral, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones le permite crear listas de aplicaciones aprobadas para las máquinas virtuales. Este proyecto asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda crear una lista de aplicaciones permitidas, pero aún no se ha configurado.
+El control de aplicaciones adaptable en Azure Security Center es una solución de lista de aplicaciones permitidas que es inteligente, automatizada, de un extremo a otro y que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones le permite crear listas de aplicaciones aprobadas para las máquinas virtuales. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero esta aún no se ha configurado.
 
-- Deben habilitarse los controles de aplicaciones adaptables en las máquinas virtuales
+- Los controles de aplicaciones adaptables para definir aplicaciones seguras deben estar habilitados en las máquinas.
 
 ## <a name="cm-11-user-installed-software"></a>Software instalado por el usuario CM-11
 
-El control de aplicaciones adaptable en Azure Security Center es una solución de creación de listas de aplicaciones permitidas integral, inteligente y automatizada que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ayudarle a aplicar y supervisar el cumplimiento con las directivas de restricción de software. Este proyecto asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda crear una lista de aplicaciones permitidas, pero aún no se ha configurado.
+El control de aplicaciones adaptable en Azure Security Center es una solución de lista de aplicaciones permitidas que es inteligente, automatizada, de un extremo a otro y que puede bloquear o impedir que se ejecute software específico en las máquinas virtuales. El control de aplicaciones puede ayudarle a aplicar y supervisar el cumplimiento con las directivas de restricción de software. Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayuda a supervisar las máquinas virtuales cuando se recomienda la existencia de una lista de aplicaciones permitidas, pero esta aún no se ha configurado.
 
-- Deben habilitarse los controles de aplicaciones adaptables en las máquinas virtuales
+- Los controles de aplicaciones adaptables para definir aplicaciones seguras deben estar habilitados en las máquinas.
 
 ## <a name="cp-7-alternate-processing-site"></a>Sitio de procesamiento alternativo CP-7
 

@@ -5,18 +5,18 @@ description: Puede exportar y eliminar los datos de usuario integrados de Azure 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: 03341b9e663398f2c42266dead0d2dd01e97c3f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6bf0d889d70272988c9d2b243ae255f9654656bd
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79204552"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955597"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Visualización y eliminación de los datos de usuario integrados de Azure AI Gallery
 
@@ -45,11 +45,13 @@ Las respuestas del catálogo se devuelven en formato JSON.
 ### <a name="get-an-author-id"></a>Obtención de un identificador de autor
 El identificador de autor se basa en la dirección de correo electrónico utilizada al publicar en Azure AI Gallery. Este valor no cambia:
 
-1.    Inicie sesión en [Azure AI Gallery](https://gallery.azure.ai/).
-2.    Haga clic en la imagen de perfil en la esquina superior derecha y, a continuación, en el nombre de cuenta para cargar la página de perfil.
-3.    La dirección URL de la barra de direcciones muestra el siguiente identificador alfanumérico `authorId=`. Por ejemplo, para la dirección URL: `https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
-        
-    Identificador de autor: `99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
+1. Inicie sesión en [Azure AI Gallery](https://gallery.azure.ai/).
+2. Haga clic en la imagen de perfil en la esquina superior derecha y, a continuación, en el nombre de cuenta para cargar la página de perfil.
+3. La dirección URL de la barra de direcciones muestra el siguiente identificador alfanumérico `authorId=`. Por ejemplo, para la dirección URL:\
+    `https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
+
+    Identificador del autor:\
+    `99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
 
 ### <a name="get-your-access-token"></a>Obtención del token de acceso
 
@@ -67,16 +69,17 @@ Para obtener un token de acceso, debe inspeccionar el encabezado `DataLabAccessT
 ### <a name="view-user-information"></a>Visualización de la información de usuario
 Con el identificador de autor que obtuvo en los pasos anteriores, puede ver la información de un perfil de usuario mediante la sustitución de `[AuthorId]` en la dirección URL siguiente:
 
-    https://catalog.cortanaanalytics.com/users/[AuthorID]
+`https://catalog.cortanaanalytics.com/users/[AuthorID]`
 
 Por ejemplo, esta solicitud URL:
-    
-    https://catalog.cortanaanalytics.com/users/99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA
+
+`https://catalog.cortanaanalytics.com/users/99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
 
 Devuelve una respuesta como:
 
-    {"entities_count":9,"contribution_score":86.351575190956922,"scored_at":"2018-05-07T14:30:25.9305671+00:00","contributed_at":"2018-05-07T14:26:55.0381756+00:00","created_at":"2017-12-15T00:49:15.6733094+00:00","updated_at":"2017-12-15T00:49:15.6733094+00:00","name":"First Last","slugs":["First-Last"],"tenant_id":"14b2744cf8d6418c87ffddc3f3127242","community_id":"9502630827244d60a1214f250e3bbca7","id":"99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA","_links":{"self":"https://catalog.azureml.net/tenants/14b2744cf8d6418c87ffddc3f3127242/communities/9502630827244d60a1214f250e3bbca7/users/99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA"},"etag":"\"2100d185-0000-0000-0000-5af063010000\""}
-
+```json
+{"entities_count":9,"contribution_score":86.351575190956922,"scored_at":"2018-05-07T14:30:25.9305671+00:00","contributed_at":"2018-05-07T14:26:55.0381756+00:00","created_at":"2017-12-15T00:49:15.6733094+00:00","updated_at":"2017-12-15T00:49:15.6733094+00:00","name":"First Last","slugs":["First-Last"],"tenant_id":"14b2744cf8d6418c87ffddc3f3127242","community_id":"9502630827244d60a1214f250e3bbca7","id":"99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA","_links":{"self":"https://catalog.azureml.net/tenants/14b2744cf8d6418c87ffddc3f3127242/communities/9502630827244d60a1214f250e3bbca7/users/99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA"},"etag":"\"2100d185-0000-0000-0000-5af063010000\""}
+```
 
 ### <a name="view-public-entities"></a>Visualización de entidades públicas
 
@@ -84,11 +87,11 @@ La API Catalog almacena información sobre las entidades publicadas en Azure AI 
 
 Para ver las entidades publicadas, visite la siguiente dirección URL, reemplazando `[AuthorId]` por el identificador de autor obtenido anteriormente en [Obtención de un identificador de autor](#get-an-author-id).
 
-    https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'
+`https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'`
 
 Por ejemplo:
 
-    https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA'
+`https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA'`
 
 ### <a name="view-unlisted-and-public-entities"></a>Visualización de las entidades públicas y no enumeradas
 

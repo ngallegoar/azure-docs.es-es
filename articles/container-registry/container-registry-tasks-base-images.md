@@ -3,12 +3,12 @@ title: 'Actualizaciones de imagen base: Tasks'
 description: Obtenga información sobre las imágenes base para las imágenes de contenedor de aplicación y sobre cómo una actualización de imagen base puede desencadenar una instancia de Azure Container Registry Tasks.
 ms.topic: article
 ms.date: 01/22/2019
-ms.openlocfilehash: 017c8f8a3a15896bd6e14a54136ba713e9f9c499
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 35933c4cdbbf2762f7a54bd945f8a8ffa55b9f21
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77617732"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85918515"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>Acerca de las actualizaciones de imagen base para ACR Tasks
 
@@ -38,6 +38,13 @@ En el caso de las compilaciones de imágenes desde un Dockerfile, una tarea ACR 
 * Un repositorio público de Microsoft Container Registry
 
 Si la imagen base especificada en la instrucción `FROM` reside en alguna de esas ubicaciones, la instancia de ACR Tasks agrega un enlace para asegurarse de que esta imagen se recompile siempre que se actualiza su base.
+
+## <a name="base-image-notifications"></a>Notificaciones de imagen base
+
+El tiempo entre el momento en que se actualiza una imagen base y el momento en que se desencadena la tarea dependiente depende de la ubicación de la imagen base:
+
+* **Imágenes base de un repositorio público en Docker Hub o MCR**: para las imágenes base en repositorios públicos, una tarea de ACR Tasks comprueba las actualizaciones de la imagen en un intervalo aleatorio de entre 10 y 60 minutos. Las tareas dependientes se ejecutan en consecuencia.
+* **Imágenes base de un registro de contenedor de Azure**: para las imágenes base de los registros de contenedor de Azure, una tarea de ACR Tasks desencadena inmediatamente una ejecución cuando se actualiza su imagen base. La imagen base puede estar en el mismo ACR en el que se ejecuta la tarea o en un ACR diferente en cualquier región.
 
 ## <a name="additional-considerations"></a>Consideraciones adicionales
 

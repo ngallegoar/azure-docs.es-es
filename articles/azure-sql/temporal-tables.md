@@ -2,7 +2,7 @@
 title: Introducción a las tablas temporales
 description: Obtenga información sobre cómo empezar a usar las tablas temporales de Azure SQL Database e Instancia administrada de Azure SQL.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -11,14 +11,14 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 06/26/2019
-ms.openlocfilehash: e172c251f629dc53bd8f4479d63fe743bbe42095
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 219d3755794a09ef25cdb41afdbe154af3736538
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84033546"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985489"
 ---
-# <a name="getting-started-with-temporal-tables-in-azure-sql-database-and-azure-sql-managed-instance"></a>Introducción a las tablas temporales de Azure SQL Database e Instancia administrada de Azure SQL
+# <a name="getting-started-with-temporal-tables-in-azure-sql-database-and-azure-sql-managed-instance"></a>Introducción a las tablas temporales de Azure SQL Database y Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 Las tablas temporales son una característica de programación de Azure SQL Database e Instancia administrada de Azure SQL que permiten realizar un seguimiento del historial completo de los cambios en los datos y analizarlos, sin necesidad de codificación personalizada. Las tablas temporales mantienen datos estrechamente relacionados con el contexto de tiempo para que se puedan interpretar los hechos almacenados como válidos solo dentro del período específico. Esta propiedad de las tablas temporales permite un análisis eficaz basado en el tiempo y obtener información útil de la evolución de los datos.

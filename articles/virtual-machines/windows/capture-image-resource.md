@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: 1b72be91ee11ef7003e225fe830a59ea42310ac6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: cf8d4cd3c70e28a6c70ab9321a8f55271ead754f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656687"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807509"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Captura de una imagen administrada de una máquina virtual generalizada en Azure
 
@@ -26,7 +26,7 @@ Una sola imagen administrada admite hasta 20 implementaciones simultáneas. Cua
 
 Sysprep elimina toda la información de seguridad y de la cuenta personal y luego prepara la máquina para usarse como imagen. Para más información acerca de Sysprep, consulte la [Introducción a Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
-Asegúrese de que los roles de servidor que se ejecutan en la máquina sean compatibles con Sysprep. Para más información, consulte [Compatibilidad de Sysprep con roles de servidor](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) y [Escenarios no admitidos](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios).
+Asegúrese de que los roles de servidor que se ejecutan en la máquina sean compatibles con Sysprep. Para más información, consulte [Compatibilidad de Sysprep con roles de servidor](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) y [Escenarios no admitidos](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios). Sysprep requiere que las unidades se descifren por completo antes de la ejecución. Si ha habilitado el cifrado en la VM, deshabilite el cifrado antes de ejecutar Sysprep.
 
 > [!IMPORTANT]
 > Una vez que se ha ejecutado sysprep en una máquina virtual, se considera *generalizada* y no se puede reiniciar. El proceso de generalización de una máquina virtual no es reversible. Si necesita mantener el funcionamiento original de la máquina virtual, debe crear una [copia de la máquina virtual](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) y generalizar la copia. 

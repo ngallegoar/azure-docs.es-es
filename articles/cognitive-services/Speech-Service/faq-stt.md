@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: a279aebdd19ebd3a41ddad0c1c279937e00838c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c84b291aad5ec2da2946e40075b23cc4496ef65
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77168457"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921021"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Preguntas más frecuentes sobre el servicio Speech to Text
 
@@ -71,7 +71,7 @@ Si ha adaptado e implementado un modelo con la línea de base V1.0, esa implemen
 
 **P: ¿Se registran mis solicitudes?**
 
-**R.** : Al crear una implementación, tiene una opción para desactivar el seguimiento. Después, no se registrará ningún sonido ni ninguna transcripción. De lo contrario, las solicitudes se registran normalmente en Azure, en almacenamiento seguro.
+**R.** : De forma predeterminada, las solicitudes no se registran (ni audio ni transcripción). Si es necesario, puede seleccionar la opción *Log content from this endpoint* (Registrar contenido desde este punto de conexión) al [crear un punto de conexión personalizado](how-to-custom-speech-deploy-model.md) para habilitar el seguimiento. Las solicitudes se registrarán en Azure en el almacenamiento seguro.
 
 **P: ¿Están limitadas mis solicitudes?**
 
@@ -118,6 +118,13 @@ or
   - en los servicios mostrados, seleccione el servicio de voz para el que desea aumentar la simultaneidad,
   - muestre `Properties` de este servicio,
   - copie el `Resource ID`completo.
+  
+**P: ¿El aumento del límite de simultaneidad aumenta el costo?**
+
+**R.** : No, el costo se basa en el uso. Al aumentar la simultaneidad no se generan costos más elevados. Vea la [página de precios](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) para obtener más detalles sobre el costo. 
+  
+>[!NOTE]
+>Los [contenedores](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto) no requieren aumentos en los límites de simultaneidad, ya que solo están restringidos por las CPU del hardware en el que se hospedan.
 
 ## <a name="importing-data"></a>Importar datos
 

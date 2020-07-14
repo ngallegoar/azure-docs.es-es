@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 3334a19b1ba0e3949ab2670c5d2f70d3bcd02fe8
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 6dc002b0ed9e68ea15eaa58c226249837c7df32d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983917"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85830866"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configuración de App Service Environment con tunelización forzada
 
@@ -95,35 +95,39 @@ Para enrutar a través del túnel todo el tráfico saliente desde el ASE, except
 
 3. Obtenga las direcciones que se usarán para todo el tráfico saliente desde App Service Environment a Internet. Si va a enrutar el tráfico de forma local, estas direcciones son las direcciones IP de la puerta de enlace o los dispositivos NAT. Si quiere enrutar el tráfico de salida de App Service Environment a través de una NVA, la dirección de salida sería la dirección IP pública de la NVA.
 
-4. _Para establecer las direcciones de salida en una instancia existente de App Service Environment_: vaya a resource.azure.com y a Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>. A continuación, puede ver el archivo JSON que describe su instancia de App Service Environment. Asegúrese de que, en la parte superior, indica **lectura/escritura**. Seleccione **Editar**. Desplácese hasta la parte inferior. Cambie el valor de **userWhitelistedIpRanges** de **null** a algo como lo siguiente. Use las direcciones que desea establecer como el intervalo de direcciones de salida. 
+4. _Para establecer las direcciones de salida en una instancia existente de App Service Environment_: Vaya a resources.azure.com y, luego, a Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>. A continuación, puede ver el archivo JSON que describe su instancia de App Service Environment. Asegúrese de que, en la parte superior, indica **lectura/escritura**. Seleccione **Editar**. Desplácese hasta la parte inferior. Cambie el valor de **userWhitelistedIpRanges** de **null** a algo como lo siguiente. Use las direcciones que desea establecer como el intervalo de direcciones de salida. 
 
-        "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
+    ```json
+    "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"]
+    ```
 
    Seleccione **PUT** en la parte superior. Esta opción desencadena una operación de escalado en App Service Environment y ajusta el firewall.
 
 _Para crear su ASE con las direcciones de salida_: siga las instrucciones que se proporcionan en [Creación de una instancia de App Service Environment con una plantilla][template] y use la plantilla adecuada.  Modifique la sección "resources" en el archivo azuredeploy.json, pero no el bloque "properties" e incluya una línea para **userWhitelistedIpRanges** con sus valores.
 
-    "resources": [
-      {
+```json
+"resources": [
+    {
         "apiVersion": "2015-08-01",
         "type": "Microsoft.Web/hostingEnvironments",
         "name": "[parameters('aseName')]",
         "kind": "ASEV2",
         "location": "[parameters('aseLocation')]",
         "properties": {
-          "name": "[parameters('aseName')]",
-          "location": "[parameters('aseLocation')]",
-          "ipSslAddressCount": 0,
-          "internalLoadBalancingMode": "[parameters('internalLoadBalancingMode')]",
-          "dnsSuffix" : "[parameters('dnsSuffix')]",
-          "virtualNetwork": {
-            "Id": "[parameters('existingVnetResourceId')]",
-            "Subnet": "[parameters('subnetName')]"
-          },
-        "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
+            "name": "[parameters('aseName')]",
+            "location": "[parameters('aseLocation')]",
+            "ipSslAddressCount": 0,
+            "internalLoadBalancingMode": "[parameters('internalLoadBalancingMode')]",
+            "dnsSuffix" : "[parameters('dnsSuffix')]",
+            "virtualNetwork": {
+                "Id": "[parameters('existingVnetResourceId')]",
+                "Subnet": "[parameters('subnetName')]"
+            },
+            "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
         }
-      }
-    ]
+    }
+]
+```
 
 Estos cambios envían el tráfico a Azure Storage directamente desde el ASE y permiten el acceso a Azure SQL desde direcciones adicionales que no sean la dirección VIP del ASE.
 

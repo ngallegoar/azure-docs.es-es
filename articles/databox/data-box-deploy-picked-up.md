@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 03fe40cea5891e87f42f0d6a50eedee80a68f25e
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: efcc5e8f629c8b6ccc903478473b54989c0e9fd6
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200535"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959488"
 ---
 ::: zone target="docs"
 
@@ -35,18 +35,18 @@ En este tutorial se describe cómo devolver Azure Data Box y comprobar los datos
 En este tutorial, aprenderá sobre temas como:
 
 > [!div class="checklist"]
-> * Prerrequisitos
+> * Requisitos previos
 > * Preparación para el envío
 > * Envío de Data Box a Microsoft
 > * Comprobación de la carga de datos en Azure
 > * Eliminación de datos de Data Box
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, asegúrese de que:
 
 - Ha completado el [Tutorial: Copia de datos a Azure Data Box y comprobación de](data-box-deploy-copy-data.md). 
-- Los trabajos de copia están completos. Preparación para el envío no se puede ejecutar mientras que los trabajos de copia están en curso.
+- Los trabajos de copia se han completado y no aparece ningún error en la página **Conectar y copiar**. Preparación para el envío no se pueden ejecutar si los trabajos de copia están en curso o hay errores en la página **Conectar y copiar**.
 
 ## <a name="prepare-to-ship"></a>Preparación para el envío
 

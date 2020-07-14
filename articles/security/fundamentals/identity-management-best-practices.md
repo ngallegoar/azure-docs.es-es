@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: baa0ad790491351a17b638ba9d8eb75ed1f355b0
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: aa662dfbd98be5ec16a30e690f28196ca3868390
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758629"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855900"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedimientos recomendados para la administración de identidades y la seguridad del control de acceso en Azure
 
@@ -87,7 +87,7 @@ En un escenario de [identidad híbrida](https://resources.office.com/ww-landing-
 
 Aunque decida usar la federación con Servicios de federación de Active Directory (AD FS) u otros proveedores de identidades, si quiere, puede configurar la sincronización de hashes de contraseñas para tener una opción alternativa si los servidores locales sufren un error o dejan de estar disponibles temporalmente. Esta sincronización permite que los usuarios inicien sesión en el servicio con la misma contraseña que usan para iniciar sesión en su instancia local de Active Directory. También permite que Identity Protection detecte las credenciales que están en peligro mediante la comparación de los hash de contraseña sincronizados con contraseñas que se sepa que están en peligro, si un usuario ha usado su misma dirección de correo electrónico y contraseña en otros servicios que no estén conectados a Azure AD.
 
-Para más información, consulte [Implement password hash synchronization with Azure AD Connect sync](/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization) (Implementación de la sincronización de hash de contraseñas mediante la sincronización de Azure AD Connect).
+Para más información, consulte [Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect](/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization).
 
 **Procedimiento recomendado**: Para el desarrollo de nuevas aplicaciones, usar Azure AD para la autenticación.
 **Detalles**: use las capacidades adecuadas para admitir la autenticación:
@@ -167,7 +167,7 @@ A continuación, se indican las opciones y ventajas para habilitar la verificaci
 * Solicitar el desafío de MFA a través de Microsoft Authenticator para todos los usuarios;
 * Restringir los protocolos de autenticación heredados.
 
-Este método está disponible para todos los niveles de licencia, pero no se puede mezclar con las directivas de acceso condicional existentes. Puede encontrar más información en los valores predeterminados de seguridad de Azure AD.
+Este método está disponible para todos los niveles de licencia, pero no se puede mezclar con las directivas de acceso condicional existentes. Puede encontrar más información en los [valores predeterminados de seguridad de Azure AD](/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
 
 **Opción 2**: [habilitar Multi-factor Authentication mediante el cambio de estado de usuario](../../active-directory/authentication/howto-mfa-userstates.md).   
 **Ventaja**: este es el método tradicional para exigir la verificación en dos pasos. Funciona tanto con [Azure Multi-factor Authentication en la nube como en el Servidor Azure Multi-factor Authentication](/azure/active-directory/authentication/concept-mfa-whichversion). El uso de este método requiere que los usuarios realicen la verificación en dos pasos cada vez que inicien sesión, e invalida las directivas de acceso condicional.
@@ -189,7 +189,7 @@ Esta es la forma más flexible de habilitar la verificación en dos pasos para l
 Este método utiliza la evaluación de riesgos de Azure AD Identity Protection para determinar si se requiere la verificación en dos pasos en función de los riesgos del usuario y el inicio de sesión para todas las aplicaciones en la nube. Este método requiere una licencia de Azure Active Directory P2. Para obtener más información sobre este método, consulte [Azure Active Directory Identity Protection](/azure/active-directory/identity-protection/overview).
 
 > [!Note]
-> La opción 1, en la que se habilita Multi-Factor Authentication al cambiar el estado del usuario, invalida las directivas de acceso condicional. Dado que las opciones de 2 y 3 usan directivas de acceso condicional, no puede usar la opción 1 con ellas.
+> La opción 2, en la que se habilita Multi-Factor Authentication al cambiar el estado del usuario, invalida las directivas de acceso condicional. Dado que las opciones de 3 y 4 usan directivas de acceso condicional, no puede usar la opción 2 con ellas.
 
 Las organizaciones que no agregan capas de protección de la identidad adicionales, como la verificación en dos pasos, son más susceptibles a ataques de robo de credenciales. Un ataque de robo de credenciales puede poner en peligro la seguridad de los datos.
 

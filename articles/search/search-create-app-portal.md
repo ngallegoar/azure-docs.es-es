@@ -1,23 +1,25 @@
 ---
-title: Creación de una aplicación de búsqueda en Azure Portal
+title: Creación de una aplicación de demostración en Azure Portal
 titleSuffix: Azure Cognitive Search
-description: Ejecute el Asistente para crear aplicaciones (versión preliminar) para generar páginas HTML y scripts para una aplicación web operativa. Las páginas incluyen una barra de búsqueda, un área de resultados, una barra lateral y compatibilidad con la escritura anticipada.
+description: Ejecute el Asistente para crear aplicaciones de demostración (versión preliminar) para generar páginas HTML y scripts para una aplicación web operativa. Las páginas incluyen una barra de búsqueda, un área de resultados, una barra lateral y compatibilidad con la escritura anticipada.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 6c956c937027b16d51141ded4de5ff9b019c37d4
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.date: 07/01/2020
+ms.openlocfilehash: 11dd12fce669d6b6a027eb182d5f9e6e493577ad
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488178"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955699"
 ---
-# <a name="quickstart-create-a-search-app-in-the-portal-azure-cognitive-search"></a>Inicio rápido: Creación de una aplicación de búsqueda en el portal (Azure Cognitive Search)
+# <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Inicio rápido: Creación de una aplicación de demostración en el portal (Azure Cognitive Search)
 
-Use el Asistente para **crear aplicaciones de búsqueda** de Azure Portal para generar una aplicación web de estilo "localhost" que se puede descargar y que se ejecuta en un explorador. Según su configuración, la aplicación generada está operativa desde el primer uso y tiene una conexión dinámica a un índice remoto. Una aplicación predeterminada puede incluir una barra de búsqueda, un área de resultados, filtros en la barra lateral y compatibilidad con la escritura anticipada.
+Use el Asistente para **crear aplicaciones de demostración** de Azure Portal para generar una aplicación web de estilo "localhost" que se puede descargar y que se ejecuta en un explorador. Según su configuración, la aplicación generada está operativa desde el primer uso y tiene una conexión dinámica de solo lectura a un índice remoto. Una aplicación predeterminada puede incluir una barra de búsqueda, un área de resultados, filtros en la barra lateral y compatibilidad con la escritura anticipada.
+
+La aplicación de demostración puede ayudarle a visualizar cómo va a funcionar un índice funcionará en una aplicación cliente, pero no se ha diseñado para escenarios de producción. Las aplicaciones cliente deben incluir la seguridad, el control de errores y la lógica de hospedaje que no proporciona la página HTML generada. Cuando esté preparado para crear una aplicación cliente, consulte [Creación de la primera aplicación de búsqueda con el SDK de .NET](tutorial-csharp-create-first-app.md) para los pasos siguientes.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -25,7 +27,7 @@ Antes de empezar, debe disponer de lo siguiente:
 
 + Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/).
 
-+ Un servicio Azure Cognitive Search. [Cree un servicio](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido. 
++ Un servicio de Azure Cognitive Search. [Cree un servicio](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido. 
 
 + [Microsoft Edge (versión más reciente)](https://www.microsoft.com/edge) o Google Chrome.
 
@@ -45,7 +47,7 @@ Cuando el índice esté listo para usarse, continúe con el paso siguiente.
 
 1. Elija *realestate-us-sample-index* en la lista de índices existentes.
 
-1. En la página de índice, en la parte superior, seleccione **Crear aplicación de búsqueda (versión preliminar)** para iniciar el asistente.
+1. En la página de índice, en la parte superior, seleccione **Create demo app (preview)** (Crear aplicación de demostración [versión preliminar]) para iniciar el asistente.
 
 1. En la primera página del asistente, seleccione **Enable Cross Origin Resource Sharing (CORS) (Habilitar el uso compartido de recursos de entre orígenes [CORS])** para agregar compatibilidad con CORS a la definición del índice. Este paso es opcional, pero la aplicación web local no se conectará al índice remoto sin él.
 
@@ -85,7 +87,7 @@ En la siguiente captura de pantalla, se muestran las opciones del asistente, jun
 
 ## <a name="create-download-and-execute"></a>Creación, descarga y ejecución
 
-1. Seleccione **Crear aplicación de búsqueda** para generar el archivo HTML.
+1. Seleccione **Create demo app** (Crear aplicación de demostración) para generar el archivo HTML.
 
 1. Cuando se le solicite, seleccione **Download your app** (Descargar aplicación) para descargar el archivo.
 

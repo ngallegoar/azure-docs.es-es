@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 5aac12f4da6304e8e14f0b4f1e33ef6257f50c11
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 9721a00ef1f0df056b3300ababfee0d0d29bbddc
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85602795"
+ms.locfileid: "85801281"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Tutorial: Creación de una aplicación web de una sola página
 
@@ -409,15 +409,18 @@ Para fines de desarrollo, puede realizar la solicitud de Bing Web Search API a t
 
 Es fácil instalar un proxy CORS para permitir que nuestra aplicación de tutorial acceda al encabezado de identificador de cliente. En primer lugar, si aún no lo tiene, [instale Node.js](https://nodejs.org/en/download/). Escriba el comando siguiente en una ventana de comandos:
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-A continuación, cambie el punto de conexión de Bing Web Search del archivo HTML a:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+A continuación, cambie el punto de conexión de Bing Web Search en el archivo HTML a:\
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Por último, inicie el proxy CORS con el siguiente comando:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Deje abierta la ventana de comandos mientras usa la aplicación del tutorial, ya que si la cierra, se detendrá el proxy. En la sección de encabezados HTTP expandibles situada bajo los resultados de la búsqueda, puede ver el encabezado `X-MSEdge-ClientID` (entre otras cosas) y comprobar que es el mismo en todas las solicitudes.
 

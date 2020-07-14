@@ -2,14 +2,14 @@
 title: Solución de problemas comunes
 description: Obtenga información sobre cómo solucionar problemas comunes en la implementación, ejecución o administración de Azure Container Instances.
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 06/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 07cdbfb27aaf9076e726ebda861ed24996e10135
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aeb4517f5be7fff9c29487d6521f80ee697c0e96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74533393"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807849"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solución de problemas habituales de Azure Container Instances
 
@@ -20,16 +20,17 @@ Si necesita soporte adicional, consulte las opciones disponibles de **Ayuda y so
 ## <a name="issues-during-container-group-deployment"></a>Problemas durante la implementación del grupo de contenedores
 ### <a name="naming-conventions"></a>Convenciones de nomenclatura
 
-Al definir la especificación de contenedor, ciertos parámetros requieren tener en cuenta las restricciones de nomenclatura. A continuación se muestra una tabla con requisitos específicos para las propiedades del grupo de contenedores. Para obtener más información sobre las convenciones de nomenclatura de Azure, vea [Convenciones de nomenclatura][azure-name-restrictions] en el Centro de Arquitectura de Azure.
+Al definir la especificación de contenedor, ciertos parámetros requieren tener en cuenta las restricciones de nomenclatura. A continuación se muestra una tabla con requisitos específicos para las propiedades del grupo de contenedores. Para obtener más información, consulte [Convenciones de nomenclatura][azure-name-restrictions] en el Centro de arquitectura de Azure y [Reglas y restricciones de nomenclatura para los recursos de Azure][naming-rules].
 
 | Ámbito | Length | Uso de mayúsculas y minúsculas | Caracteres válidos | Patrón sugerido | Ejemplo |
 | --- | --- | --- | --- | --- | --- |
-| Nombre del grupo de contenedores | 1-64 |No distingue mayúsculas de minúsculas |Caracteres alfanuméricos y guion en cualquier lugar, excepto el primer o último carácter |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| Nombre del contenedor | 1-64 |No distingue mayúsculas de minúsculas |Caracteres alfanuméricos y guion en cualquier lugar, excepto el primer o último carácter |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| Nombre de contenedor<sup>1</sup> | 1-63 |Minúsculas | Caracteres alfanuméricos y guion en cualquier lugar, excepto el primer o último carácter |`<name>-<role>-container<number>` |`web-batch-container1` |
 | Puertos del contenedor | Entre 1 y 65 535 |Entero |Un número entero comprendido entre 1 y 65 535 |`<port-number>` |`443` |
 | Etiqueta de nombre DNS | 5-63 |No distingue mayúsculas de minúsculas |Caracteres alfanuméricos y guion en cualquier lugar, excepto el primer o último carácter |`<name>` |`frontend-site1` |
 | Variable de entorno | 1-63 |No distingue mayúsculas de minúsculas |Caracteres alfanuméricos y guion bajo (_) en cualquier lugar, excepto el primer o último carácter |`<name>` |`MY_VARIABLE` |
-| Nombre del volumen | 5-63 |No distingue mayúsculas de minúsculas |Letras minúsculas, números y guiones en cualquier lugar, excepto el primer o último carácter. No puede contener dos guiones consecutivos. |`<name>` |`batch-output-volume` |
+| Nombre del volumen | 5-63 |Minúsculas |Caracteres alfanuméricos y guiones en cualquier lugar, excepto el primer o último carácter. No puede contener dos guiones consecutivos. |`<name>` |`batch-output-volume` |
+
+<sup>1</sup> La restricción también incluye nombres de grupos de contenedores cuando no se especifican independientemente de las instancias de contenedor, por ejemplo, con implementaciones del comando `az container create`.
 
 ### <a name="os-version-of-image-not-supported"></a>Versión del sistema operativo de imagen no admitida
 
@@ -95,7 +96,7 @@ Este error indica que, debido a una carga elevada en la región en la que está 
 * Implemente en una región distinta de Azure
 * Implemente en un momento posterior
 
-## <a name="issues-during-container-group-runtime"></a>Problemas durante la ejecución del grupo de contenedores
+## <a name="issues-during-container-group-runtime"></a>Problemas durante el tiempo de ejecución del grupo de contenedores
 ### <a name="container-continually-exits-and-restarts-no-long-running-process"></a>El contenedor se cierra y se reinicia continuamente (sin proceso de ejecución prolongada)
 
 Los grupos de contenedores tienen una [directiva de reinicio](container-instances-restart-policy.md) establecida en **Always** (Siempre) de forma predeterminada, por lo que los contenedores del grupo de contenedores siempre se reinician después de ejecutarse hasta su finalización. Es posible que deba cambiar este valor a **OnFailure** (En caso de error) o **Never** (Nunca) si va a ejecutar contenedores basados en tareas. Si especifica **OnFailure** y sigue observando reinicios continuos, podría haber un problema con la aplicación o el script que se ejecuta en el contenedor.
@@ -228,6 +229,7 @@ Obtenga información sobre cómo [recuperar eventos y registros de contenedor](c
 
 <!-- LINKS - External -->
 [azure-name-restrictions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources
+[naming-rules]: ../azure-resource-manager/management/resource-name-rules.md
 [windows-sac-overview]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 [docker-hub-windows-core]: https://hub.docker.com/_/microsoft-windows-servercore
@@ -235,4 +237,4 @@ Obtenga información sobre cómo [recuperar eventos y registros de contenedor](c
 
 <!-- LINKS - Internal -->
 [az-container-show]: /cli/azure/container#az-container-show
-[list-cached-images]: /rest/api/container-instances/listcachedimages
+[list-cached-images]: /rest/api/container-instances/location/listcachedimages

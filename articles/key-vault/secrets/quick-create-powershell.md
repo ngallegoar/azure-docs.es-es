@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3bac3cc2a5cedbd4b963a0759e6c8b940d2ca924
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 459c9f2d68d8a3a3c1b597665914146987aecdc2
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421419"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801808"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante PowerShell
 
@@ -64,6 +64,13 @@ La salida de este cmdlet muestra las propiedades del almacén de claves que acab
 Después de la creación del almacén, la cuenta de Azure es la única cuenta a la que se permite realizar cualquier acción en este nuevo almacén.
 
 ![Salida tras completarse el comando de creación de Key Vault](../media/quick-create-powershell/output-after-creating-keyvault.png)
+
+## <a name="give-your-user-account-permissions-to-manage-secrets-in-key-vault"></a>Conceda a su cuenta de usuario los permisos necesarios para administrar secretos en Key Vault
+
+Use el cmdlet Set-AzKeyVaultAccessPolicy de Azure PowerShell para actualizar la directiva de acceso de Key Vault y conceder permisos de secreto a su cuenta de usuario.
+```azurepowershell-interactive
+Set-AzKeyVaultAccessPolicy -VaultName 'Contoso-Vault2' -UserPrincipalName 'user@domain.com' -PermissionsToSecrets get,set,delete
+```
 
 ## <a name="adding-a-secret-to-key-vault"></a>Incorporación de un secreto a Key Vault
 

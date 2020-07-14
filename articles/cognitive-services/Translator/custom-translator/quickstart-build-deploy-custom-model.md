@@ -9,28 +9,28 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: ea01fcd259075caee1e21eb091b8df1b326c553f
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: b0992c4d18fdb9cb5201ab3ef52fba8ee3feb7a2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996472"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964386"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Inicio rápido: Compilación, implementación y uso de un modelo personalizado para la traducción
 
 En este artículo se proporcionan instrucciones detalladas para compilar un sistema de traducción con Custom Translator.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 1. Para usar el portal de [Custom Translator](https://portal.customtranslator.azure.ai), necesitará una [cuenta Microsoft](https://signup.live.com) o [cuenta de Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (cuenta de organización hospedada en Azure) para iniciar sesión.
 
-2. Una suscripción a Traductor a través de Azure Portal. Necesitará la clave de suscripción de Traductor para asociarla con el área de trabajo de Traductor personalizado. Consulte [Cómo suscribirse a Traductor](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
+2. Una suscripción a Traductor a través de Azure Portal. Necesitará una clave de suscripción de Traductor para asociarla con el área de trabajo de Traductor personalizado. Consulte [Cómo suscribirse a Traductor](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
 
 3. Cuando tenga los dos anteriores, inicie sesión in en el portal [Custom Translator](https://portal.customtranslator.azure.ai) para crear áreas de trabajo y proyectos, así como cargar archivos y crear e implementar modelos.
 
 ## <a name="create-a-workspace"></a>Crear un área de trabajo
 
-Si es la primera vez que lo usa, se le solicitará que acepte las Condiciones del servicio para crear un área de trabajo y asociarla a la suscripción de Traductor.
+Si es la primera vez que lo usa, se le solicitará que acepte los términos del servicio para crear un área de trabajo y asociarla a la suscripción de Traductor.
 
 ![Crear área de trabajo](media/quickstart/terms-of-service.png)
 ![Crear área de trabajo](media/quickstart/create-workspace-1.png)
@@ -83,7 +83,7 @@ Cuando esté listo para implementar el modelo entrenado, haga clic en el botón 
 
 ## <a name="use-a-deployed-model"></a>Uso de un modelo implementado
 
-Se puede acceder a los modelos implementados a través de Microsoft Translator [Text API V3 especificando CategoryID](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). Puede encontrar más información sobre Traductor en la página web de [referencia de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
+Se puede acceder a los modelos implementados mediante Traductor especificando el valor del id. de categoría(https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). Puede encontrar más información sobre Traductor en la página web de [referencia de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

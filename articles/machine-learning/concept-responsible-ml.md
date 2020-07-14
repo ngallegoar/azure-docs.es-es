@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 05/08/2020
-ms.openlocfilehash: 3cef3c2179019f6d84de5596e61abaf8d7d3182c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 09bb7710df19482e9625c1834d2646f70368fc1d
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595014"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920353"
 ---
 # <a name="responsible-machine-learning-ml"></a>Machine Learning (ML) responsable
 
@@ -36,7 +36,7 @@ La inteligencia artificial y los sistemas autónomos están cada vez más integr
 
 ## <a name="interpret-and-explain-model-behavior"></a>Interpretación y explicación del comportamiento del modelo
 
-Los sistemas de caja negra o aquellos que son difíciles de explicar pueden suponer un problema, ya que las partes interesadas como desarrolladores de sistemas, reguladores, usuarios y responsables de negocios, pueden no entender con claridad por qué estos sistemas toman ciertas decisiones. Algunos sistemas de IA son más fáciles de explicar que otros y, a veces, existe cierto equilibrio entre un sistema que cuenta con una precisión mayor y otro más descriptivo.
+Los sistemas de caja opaca o aquellos que son difíciles de explicar pueden suponer un problema, ya que las partes interesadas como desarrolladores de sistemas, reguladores, usuarios y responsables de negocios, pueden no entender con claridad por qué estos sistemas toman ciertas decisiones. Algunos sistemas de IA son más fáciles de explicar que otros y, a veces, existe cierto equilibrio entre un sistema que cuenta con una precisión mayor y otro más descriptivo.
 
 Para compilar sistemas de AI interpretables, use [InterpretML](https://github.com/interpretml/interpret), que es un paquete de código abierto que ha compilado Microsoft. [InterpretML se puede usar en Azure Machine Learning](how-to-machine-learning-interpretability.md) para [interpretar y explicar los modelos de Machine Learning](how-to-machine-learning-interpretability-aml.md), incluidos los [modelos automatizados de Machine Learning](how-to-machine-learning-interpretability-automl.md).
 
@@ -61,11 +61,14 @@ En escenarios tradicionales, los datos sin procesar se almacenan en archivos y b
 
 La implementación de sistemas privados de forma diferencial es difícil. [WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-core) es un proyecto de código abierto que contiene distintos componentes para la creación de sistemas privados globales de forma diferencial. Para obtener más información sobre la privacidad diferencial y el proyecto WhiteNoise, consulte el artículo para [mantener la privacidad de los datos mediante la privacidad diferencial y WhiteNoise](./concept-differential-privacy.md).
 
+> [!NOTE]
+> Tenga en cuenta que estamos cambiando el nombre del kit de herramientas y que presentaremos el nombre nuevo en las próximas semanas. 
+
 ## <a name="document-the-machine-learning-lifecycle-with-datasheets"></a>Documentación del ciclo de vida del aprendizaje automático con hojas de datos
 
 Documentar la información adecuada en el proceso de aprendizaje automático es indispensable para poder tomar decisiones responsables en cada fase. Las hojas de datos son una forma de documentar los recursos de aprendizaje automático que se usan y se crean como parte del ciclo de vida del aprendizaje automático.
 
-Los modelos suelen considerarse como "cajas negras" y, a menudo, hay poca información sobre ellos. Dado que los sistemas de aprendizaje automático están cada vez más generalizados y se usan en la toma de decisiones, el uso de hojas de datos es un paso más hacia el desarrollo de sistemas de aprendizaje automático más responsables.
+Los modelos suelen considerarse como "cajas opacas" y, a menudo, hay poca información sobre ellos. Dado que los sistemas de aprendizaje automático están cada vez más generalizados y se usan en la toma de decisiones, el uso de hojas de datos es un paso más hacia el desarrollo de sistemas de aprendizaje automático más responsables.
 
 Aquí tiene información del modelo que tal vez quiera documentar como parte de la hoja de datos:
 
@@ -80,4 +83,5 @@ Consulte el ejemplo siguiente para obtener información sobre cómo usar el SDK 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
+- Use el cifrado homomórfico para [implementar un servicio web de inferencia cifrada](how-to-homomorphic-encryption-seal.md).
 - Obtenga más información sobre el conjunto de directrices de [ABOUT ML](https://www.partnershiponai.org/about-ml/) referentes a la documentación del sistema de aprendizaje automático.

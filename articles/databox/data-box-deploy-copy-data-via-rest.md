@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Uso de las API REST para realizar copias en Blob Storage'
+title: 'Tutorial: Copia en Blob Storage a través de las API REST'
 titleSuffix: Azure Data Box
 description: Vea cómo copiar datos a Azure Data Box Blob Storage mediante API REST
 services: databox
@@ -7,16 +7,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 05/09/2019
+ms.date: 07/02/2020
 ms.author: alkohli
-ms.openlocfilehash: aa59d2dea4456b977afee92103fa66d6afe9bf31
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 50c4daabe3dc980937f52db7e56cd778890b84d8
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219136"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960694"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Tutorial: Copia de datos a Azure Data Box Blob Storage mediante API REST  
+# <a name="tutorial-use-rest-apis-to-copy-data-to-azure-data-box-blob-storage"></a>Tutorial: Uso de las API REST para copiar datos a Azure Data Box Blob Storage  
 
 En este tutorial se describen los procedimientos para conectarse a Azure Data Box Blob Storage mediante las API REST con *http* o *https*. Una vez conectado, también se describen los pasos necesarios para copiar los datos en Data Box Blob Storage y preparar el dispositivo Data Box para su envío.
 
@@ -186,15 +186,19 @@ Use AzCopy para cargar todos los archivos en una carpeta en Blob Storage en Wind
 
 #### <a name="linux"></a>Linux
 
-    azcopy \
-        --source /mnt/myfolder \
-        --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
-        --dest-key <key> \
-        --recursive
+```azcopy
+azcopy \
+    --source /mnt/myfolder \
+    --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
+    --dest-key <key> \
+    --recursive
+```
 
 #### <a name="windows"></a>Windows
 
-    AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
+```
 
 Reemplace `<key>` por la clave de cuenta. Para obtener la clave de cuenta, en Azure Portal, vaya a su cuenta de almacenamiento. Vaya a **Configuración > Claves de acceso**, seleccione una clave y péguela en el comando de AzCopy.
 
@@ -209,16 +213,21 @@ Use AzCopy para cargar archivos según la hora de la última modificación. Para
 Si solo desea copiar los recursos de origen que no existen en el destino, especifique ambos parámetros `--exclude-older` y `--exclude-newer` (Linux) o `/XO` y `/XN` (Windows) en el comando de AzCopy. AzCopy carga solo los datos actualizados, en función de su marca de tiempo.
 
 #### <a name="linux"></a>Linux
-    azcopy \
-    --source /mnt/myfolder \
-    --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
-    --dest-key <key> \
-    --recursive \
-    --exclude-older
+
+```azcopy
+azcopy \
+--source /mnt/myfolder \
+--destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
+--dest-key <key> \
+--recursive \
+--exclude-older
+```
 
 #### <a name="windows"></a>Windows
 
-    AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
+```
 
 Si se han producido errores durante la operación de copia o de conexión, consulte [Solución de problemas relacionados con el almacenamiento de blobs de Data Box](data-box-troubleshoot-rest.md).
 

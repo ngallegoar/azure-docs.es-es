@@ -1,21 +1,21 @@
 ---
 title: Detalles de la estructura de definición de directivas
 description: Describe cómo se usan las definiciones de directiva para establecer convenciones para los recursos de Azure de su organización.
-ms.date: 05/11/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: de9b3c5242f361c9f0cf7128a5ec32c0e7dce428
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 28f4e3a99b7241711e46ce92fdfd2d7689b4527b
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84205031"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971120"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
 Azure Policy establece las convenciones de los recursos. Las definiciones de directiva describen las [condiciones](#conditions) de cumplimiento de los recursos y qué sucederá si se cumple una condición. Una condición compara un [campo](#fields) de propiedad de recurso con un valor requerido. Para acceder a los campos de propiedad de recurso, se usa [alias](#aliases). Un campo de propiedad de recurso es un campo con un solo valor o una [matriz](#understanding-the--alias) de varios valores. La evaluación de la condición es diferente en las matrices.
 Más información sobre las [condiciones](#conditions).
 
-La definición de convenciones permite controlar los costes y administrar los recursos más fácilmente. Por ejemplo, puede especificar que se permitan solo determinados tipos de máquinas virtuales. O puede obligar a que todos los recursos tengan una etiqueta concreta. Todos los recursos secundarios heredan las directivas. Si una directiva se aplica a un grupo de recursos, será aplicable a todos los recursos de dicho grupo de recursos.
+La definición de convenciones permite controlar los costes y administrar los recursos más fácilmente. Por ejemplo, puede especificar que se permitan solo determinados tipos de máquinas virtuales. O bien, puede exigir que todos los recursos tengan una etiqueta concreta. Los recursos secundarios heredan las asignaciones de directivas. Si una asignación de directiva se aplica a un grupo de recursos, será aplicable a todos los recursos de dicho grupo de recursos.
 
 El esquema de definición de Directiva se encuentra aquí: [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
 
@@ -37,7 +37,7 @@ Por ejemplo, el siguiente JSON muestra una directiva que limita las ubicaciones 
     "properties": {
         "displayName": "Allowed locations",
         "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
-        "mode": "all",
+        "mode": "Indexed",
         "metadata": {
             "version": "1.0.0",
             "category": "Locations"
@@ -91,7 +91,7 @@ El **modo** se configura en función de si la directiva tiene como destino una p
 
 ### <a name="resource-manager-modes"></a>Modos de Resource Manager
 
-El **modo** determina qué tipos de recurso se evaluarán para una directiva. Los modos admitidos son:
+El **modo** determina qué tipos de recurso se evalúan para una definición de directiva. Los modos admitidos son:
 
 - `all`: evalúe los grupos de recursos, las suscripciones y todos los tipos de recurso
 - `indexed`: evalúe solo los tipos de recurso que admitan las etiquetas y la ubicación
@@ -106,8 +106,8 @@ Se recomienda que establezca **mode** en `all` en la mayoría de los casos. Toda
 
 Actualmente se admiten los siguientes modos del proveedor de recursos durante la versión preliminar:
 
-- `Microsoft.ContainerService.Data` para administrar reglas del controlador de admisión en [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Las políticas que usan este modo del proveedor de recursos **deben** utilizar el efecto [EnforceRegoPolicy](./effects.md#enforceregopolicy). Este modo está _en desuso_.
-- `Microsoft.Kubernetes.Data` para administrar los clústeres de Kubernetes en o fuera de Azure. Las políticas que usan este modo del proveedor de recursos **deben** utilizar el efecto [EnforceOPAConstraint](./effects.md#enforceopaconstraint).
+- `Microsoft.ContainerService.Data` para administrar reglas del controlador de admisión en [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Las definiciones que usan este modo del proveedor de recursos **deben** utilizar el efecto [EnforceRegoPolicy](./effects.md#enforceregopolicy). Este modo está _en desuso_.
+- `Microsoft.Kubernetes.Data` para administrar los clústeres de Kubernetes en o fuera de Azure. Las definiciones que utilizan este modo del proveedor de recursos usan los efectos _auditoría_, _denegar_ y _deshabilitado_. El uso del efecto [EnforceOPAConstraint](./effects.md#enforceopaconstraint) se está quedando _en desuso_.
 - `Microsoft.KeyVault.Data` para administrar almacenes y certificados en [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
@@ -115,7 +115,7 @@ Actualmente se admiten los siguientes modos del proveedor de recursos durante la
 
 ## <a name="metadata"></a>Metadatos
 
-La propiedad `metadata` opcional almacena información acerca de la definición de la directiva. Los clientes pueden definir las propiedades y los valores útiles para su organización en `metadata`. Sin embargo, hay algunas propiedades _comunes_ que se utilizan en Azure Policy y los elementos integrados.
+La propiedad `metadata` opcional almacena información acerca de la definición de la directiva. Los clientes pueden definir las propiedades y los valores útiles para su organización en `metadata`. Aun así, hay algunas propiedades _comunes_ que se usan en Azure Policy y los elementos integrados.
 
 ### <a name="common-metadata-properties"></a>Propiedades de metadatos comunes
 
@@ -125,7 +125,7 @@ La propiedad `metadata` opcional almacena información acerca de la definición 
 - `deprecated` (booleano): marca true o false si la definición de directiva está marcada como _en desuso_.
 
 > [!NOTE]
-> El servicio Azure Policy usa las propiedades `version`, `preview` y `deprecated` para transmitir el nivel de cambio a una definición o iniciativa de directiva integradas y el estado. El formato de `version` es: `{Major}.{Minor}.{Patch}`. Determinados estados, como _en desuso_ o _versión preliminar_, están anexados a la propiedad `version` o están en otra propiedad como **booleano**. Para obtener más información sobre la forma en que Azure Policy versiona los elementos integrados, consulte [Control de versiones integradas](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
+> El servicio Azure Policy usa las propiedades `version`, `preview` y `deprecated` para transmitir el nivel de cambio a una definición o iniciativa de directiva integradas y el estado. El formato de `version` es: `{Major}.{Minor}.{Patch}`. Determinados estados, como _en desuso_ o _versión preliminar_, están anexados a la propiedad `version` o están en otra propiedad como **booleano**. Para obtener más información sobre la forma en que Azure Policy crea versiones los elementos integrados, vea [Control de versiones integradas](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
 
 ## <a name="parameters"></a>Parámetros
 
@@ -207,7 +207,7 @@ Al crear una iniciativa o directiva, es necesario especificar la ubicación de l
 Si la ubicación de la definición es:
 
 - Una **suscripción**: solo se puede asignar la directiva a los recursos dentro de esa suscripción.
-- Un **grupo de administración**: solo se puede asignar la directiva a los recursos dentro de grupos de administración secundarios y suscripciones secundarias. Si planea aplicar la definición de directiva a varias suscripciones, la ubicación debe ser un grupo de administración que contenga esas suscripciones.
+- Un **grupo de administración**: solo se puede asignar la directiva a los recursos dentro de grupos de administración secundarios y suscripciones secundarias. Si planea aplicar la definición de directiva a varias suscripciones, la ubicación debe ser un grupo de administración que contenga las suscripciones.
 
 ## <a name="policy-rule"></a>Regla de directiva
 
@@ -432,7 +432,7 @@ Con la regla de directivas revisada, `if()` comprueba la longitud del **nombre**
 
 ### <a name="count"></a>Count
 
-Las condiciones que cuentan el número de miembros de una matriz en la carga de recursos que satisfacen una expresión de condición se pueden formar mediante la expresión **count**. Algunos escenarios comunes consisten en comprobar si "al menos uno de", "exactamente uno de", "todos" o "ninguno de" los miembros de la matriz satisfacen la condición. **count** evalúa cada miembro de la matriz de [\[\*\] alias](#understanding-the--alias) de una condición de expresión y suma los resultados con el valor _true_, que luego se compara con el operador de expresión. Las expresiones **Count** se pueden agregar hasta tres veces a una única definición de **policyRule**.
+Las condiciones que cuentan el número de miembros de una matriz en la carga de recursos que satisfacen una expresión de condición se pueden formar mediante la expresión **count**. Algunos escenarios comunes consisten en comprobar si "al menos uno de", "exactamente uno de", "todos" o "ninguno de" los miembros de la matriz satisfacen la condición. **count** evalúa cada miembro de la matriz de [\[\*\] alias](#understanding-the--alias) de una condición de expresión y suma los resultados con el valor _true_, que luego se compara con el operador de expresión. Las expresiones **count** se pueden agregar hasta tres veces a una única definición de **policyRule**.
 
 La estructura de la expresión **count** es:
 
@@ -603,9 +603,9 @@ Se pueden usar todas las [funciones de plantilla de Resource Manager](../../../a
 > [!NOTE]
 > Estas funciones siguen estando disponibles en la parte `details.deployment.properties.template` de la implementación de la plantilla en una definición de directiva **deployIfNotExists**.
 
-La siguiente función está disponible para su uso en una regla de directivas, pero difieren del uso en una plantilla de Azure Resource Manager:
+La siguiente función está disponible para su uso en una regla de directivas, pero difieren del uso en una plantilla de Azure Resource Manager (Plantilla de ARM):
 
-- `utcNow()`: a diferencia de una plantilla de Resource Manager, se puede usar con otro valor distinto del predeterminado.
+- `utcNow()`: a diferencia de una plantilla de ARM, esta propiedad se puede usar con un valor distinto a _defaultValue_.
   - Devuelve una cadena que se establece en la fecha y hora actuales en formato de fecha y hora universal ISO 8601 "yyyy-MM-ddTHH:mm:ss.fffffffZ"
 
 Las siguientes funciones solo están disponibles en las reglas de directiva:
@@ -619,7 +619,7 @@ Las siguientes funciones solo están disponibles en las reglas de directiva:
   - `field` se usa principalmente con **AuditIfNotExists** y **DeployIfNotExists** para hacer referencia a los campos del recurso que se van a evaluar. Este uso se puede observar en el [ejemplo de DeployIfNotExists](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
   - Devuelve la versión de la API de la solicitud que desencadenó la evaluación de la directiva (por ejemplo: `2019-09-01`).
-    Esta será la versión de API que se usó en la solicitud PUT/PATCH para las evaluaciones de la creación o actualización de recursos. La versión más reciente de la API siempre se usa durante la evaluación del cumplimiento de los recursos existentes.
+    Este valor es la versión de API que se usó en la solicitud PUT/PATCH para las evaluaciones de la creación o actualización de recursos. La versión más reciente de la API siempre se usa durante la evaluación del cumplimiento de los recursos existentes.
   
 #### <a name="policy-function-example"></a>Ejemplo de función de directiva
 

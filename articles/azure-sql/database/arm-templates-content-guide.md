@@ -1,9 +1,8 @@
 ---
-title: Plantillas del Administrador de recursos de Azure
-titleSuffix: Azure SQL Database & SQL Managed Instance
+title: 'Plantillas de Azure Resource Manager: Azure SQL Database e Instancia administrada de Azure SQL'
 description: Use las plantillas de Azure Resource Manager para crear y configurar Azure SQL Database e Instancia administrada de Azure SQL.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: service
 ms.custom: overview-samples sqldbrb=2
 ms.devlang: ''
@@ -12,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
-ms.openlocfilehash: 76b9b1301a0aeee24b698b15a3871754de8ca0b9
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: ee2c6580285246d3b170602e507aed038b2507f4
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718808"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983646"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database--sql-managed-instance"></a>Plantillas de Azure Resource Manager para Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +27,7 @@ Las plantillas de Azure Resource Manager le permiten definir la infraestructura 
 
 En la tabla siguiente se incluyen vínculos a plantillas de Azure Resource Manager para Azure SQL Database.
 
-| |  |
+|Vínculo |Descripción|
 |---|---|
 | [SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create) | Esta plantilla de Azure Resource Manager crea una base de datos única en Azure SQL Database y configura las reglas del firewall IP en el nivel de servidor. |
 | [Server](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | Esta plantilla de Azure Resource Manager crea un servidor para Azure SQL Database. |
@@ -47,7 +46,7 @@ En la tabla siguiente se incluyen vínculos a plantillas de Azure Resource Manag
 
 En la tabla siguiente se incluyen vínculos a plantillas de Azure Resource Manager para Instancia administrada de Azure SQL.
 
-| |  |
+|Vínculo|Descripción|
 |---|---|
 | [Instancia administrada de SQL en una red virtual nueva](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet) | Esta plantilla de Azure Resource Manager crea una nueva red virtual de Azure configurada y una instancia administrada en la red virtual. |
 | [Entorno de red de Instancia administrada SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | Esta implementación creará una red virtual de Azure con dos subredes: una que se dedicará a las instancias administradas y otra en la que se pueden colocar otros recursos (por ejemplo, máquinas virtuales, entornos de App Service, etc.). Esta plantilla creará un entorno de red configurado correctamente en el que puede implementar instancias administradas. |

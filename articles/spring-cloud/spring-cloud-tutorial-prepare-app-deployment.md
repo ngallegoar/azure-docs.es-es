@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: 0b630c746932696d51455653a6e6db8869f04863
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0cbe91de889b787d6f417afbe74720b40c3026e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657148"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833390"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Preparación de una aplicación Java Spring para su implementación en Azure Spring Cloud
 
@@ -39,6 +39,7 @@ Versión de Spring Boot | Versión de Spring Cloud
 ---|---
 2.1 | Greenwich.RELEASE
 2.2 | Hoxton.RELEASE
+2.3 | Hoxton.SR5
 
 ### <a name="dependencies-for-spring-boot-version-21"></a>Dependencias de Spring Boot, versión 2.1
 
@@ -91,7 +92,31 @@ En Spring Boot 2.2, agregue las siguientes dependencias al archivo POM de la apl
         </dependencies>
     </dependencyManagement>
 ```
+### <a name="dependencies-for-spring-boot-version-23"></a>Dependencias de Spring Boot, versión 2.3
 
+En Spring Boot 2.3, agregue las siguientes dependencias al archivo POM de la aplicación.
+
+```xml
+    <!-- Spring Boot dependencies -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.0.RELEASE</version>
+    </parent>
+
+    <!-- Spring Cloud dependencies -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Hoxton.SR5</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+```
 ## <a name="azure-spring-cloud-client-dependency"></a>Dependencia de cliente de Azure Spring Cloud
 
 Azure Spring Cloud hospeda y administra componentes de Spring Cloud. Entre los componentes se incluyen Spring Cloud Service Registry y Spring Cloud Config Server. Incluya la biblioteca cliente de Azure Spring Cloud en sus dependencias para permitir la comunicación con su instancia de servicio de Azure Spring Cloud.
@@ -102,6 +127,7 @@ Versión de Spring Boot | Versión de Spring Cloud | Versión de Azure Spring Cl
 ---|---|---
 2.1 | Greenwich.RELEASE | 2.1
 2.2 | Hoxton.RELEASE | 2.2
+2.3 | Hoxton.SR5 | 2.3
 
 Incluya una de las dependencias siguientes en el archivo pom.xml. Seleccione la dependencia cuya versión de Azure Spring Cloud coincida con la suya.
 
@@ -113,7 +139,7 @@ En Spring Boot 2.1, agregue la siguiente dependencia al archivo POM de la aplica
 <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.1.1</version>
+        <version>2.1.2</version>
 </dependency>
 ```
 
@@ -125,7 +151,17 @@ En Spring Boot 2.2, agregue la siguiente dependencia al archivo POM de la aplica
 <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.2.0</version>
+        <version>2.2.1</version>
+</dependency>
+```
+
+En Spring Boot 2.3, agregue la siguiente dependencia al archivo POM de la aplicación.
+
+```xml
+<dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
+        <version>2.3.0</version>
 </dependency>
 ```
 
@@ -198,6 +234,9 @@ Incluya la dependencia `spring-boot-starter-actuator` en la sección de dependen
 ```
 
  Se extraen métricas periódicamente de los puntos de conexión JMX. Estas métricas se pueden visualizar mediante Azure Portal.
+
+ > [!WARNING]
+ > Especifique `spring.jmx.enabled=true` en la propiedad de configuración. De lo contrario, las métricas no se pueden visualizar en Azure Portal.
 
 ### <a name="distributed-tracing"></a>Seguimiento distribuido
 

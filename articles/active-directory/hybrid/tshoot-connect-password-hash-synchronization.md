@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6feed11fcfc597658f3ec148b5dd18bb7e3f8f83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dbc9e5a9187f9ef16ea03cfa6c97e438c2b26c99
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227800"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807611"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Solución de problemas de sincronización de hash de contraseñas con la sincronización de Azure AD Connect
 
@@ -288,12 +288,15 @@ Si realizó una instalación personalizada, establezca los permisos manualmente 
 6. ¿Puede Azure AD Connect acceder a los controladores de dominio? Si el servidor de Connect no puede conectarse a todos los controladores de dominio, configure **Only use preferred domain controller** (Usar solo el controlador de dominio preferido).  
     
     ![Controlador de dominio que usa el conector Active Directory](./media/tshoot-connect-password-hash-synchronization/preferreddc.png)  
-    
+
 7. Vuelva a **Synchronization Service Manager** y **Configure Directory Partition** (Configurar partición de directorio). 
  
 8. Seleccione el dominio en **Seleccionar particiones de directorio**, active la casilla **Only use preferred domain controller** (Usar solo el controlador de dominio preferido) y haga clic en **Configurar**. 
 
 9. En la lista, escriba los controladores de dominio que Connect debe usar para realizar la sincronización de contraseñas. También se usa la misma lista para los procesos de importación y exportación. Siga estos pasos con todos los dominios.
+
+> [!NOTE]
+> Para aplicar estos cambios, reinicie el servicio **Microsoft Azure AD Sync** (ADSync).
 
 10. Si el script muestra que no hay ningún latido, ejecute el script de [Desencadenamiento de una sincronización completa de todas las contraseñas](#trigger-a-full-sync-of-all-passwords).
 
@@ -351,7 +354,7 @@ Puede solucionar fácilmente los problemas relacionados con la sincronización d
 
 La columna de estado puede presentar los siguientes valores:
 
-| Status | Descripción |
+| Estado | Descripción |
 | --- | --- |
 | Correcto |La contraseña se sincronizó correctamente. |
 | FilteredByTarget |La contraseña se establece en **El usuario debe cambiar la contraseña en el siguiente inicio de sesión**. La contraseña no se ha sincronizado. |

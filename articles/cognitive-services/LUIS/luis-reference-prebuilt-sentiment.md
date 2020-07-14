@@ -9,18 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 10/22/2019
+ms.date: 07/01/2020
 ms.author: diberry
-ms.openlocfilehash: dee07859da97f76d9a2db3ccbb71ae74d8ff4846
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d15170e3785d8978b9cb21eae3b94b002f9172e
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78270418"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857173"
 ---
 # <a name="sentiment-analysis"></a>análisis de opiniones
 Si el análisis de sentimiento está configurado, la respuesta JSON de LUIS incluye el análisis de sentimiento. Obtenga más información sobre el análisis de sentimiento en la documentación de [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
 
+LUIS usa Text Analytics v2. 
 
 ## <a name="resolution-for-sentiment"></a>Resolución de opiniones
 

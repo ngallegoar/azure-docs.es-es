@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 808b2d964bb39af6b410a84563717102ebece454
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ad80956cf7d6324487da5d0fabc2e93a5b4bf52f
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67094110"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800263"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>Tutorial: Integración de Azure Active Directory con Predictix Price Reporting
 
@@ -36,7 +36,7 @@ Para más información acerca de la integración de aplicaciones SaaS con Azure 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Predictix Price Reporting, necesita:
 
@@ -111,11 +111,10 @@ Para configurar el inicio de sesión único de Azure AD con Predictix Price Rep
 
     1. En el cuadro **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente formato:
 
-        | |
-        |--|
-        | `https://<companyname-pricing>.predictix.com` |
-        | `https://<companyname-pricing>.dev.predictix.com` |
-        | |
+        ```https
+        https://<companyname-pricing>.predictix.com
+        https://<companyname-pricing>.dev.predictix.com
+        ```
 
     > [!NOTE]
     > Estos valores son marcadores de posición. Debe utilizar la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Predictix Price Reporting](https://www.infor.com/company/customer-center/) para obtener estos valores. También puede consultar los patrones que se muestran en el cuadro de diálogo **Configuración básica de SAML** de Azure Portal.
@@ -156,7 +155,7 @@ En esta sección creará un usuario de prueba llamado Britta Simon en Azure Por
 
     1. En el cuadro **Nombre**, escriba **BrittaSimon**.
   
-    1. En el cuadro **Nombre de usuario**, escriba **BrittaSimon@\<dominioDeSuEmpresa>.\<extensión>** . (Por ejemplo, BrittaSimon@contoso.com).
+    1. En el cuadro **Nombre de usuario**, escriba **BrittaSimon@\<yourcompanydomain>.\<extension>** (Por ejemplo, BrittaSimon@contoso.com).
 
     1. Seleccione **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 

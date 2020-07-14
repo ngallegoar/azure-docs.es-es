@@ -2,14 +2,16 @@
 title: 'Conceptos: seguridad en Azure Kubernetes Service (AKS)'
 description: Obtenga información acerca de la seguridad en Azure Kubernetes Service (AKS), incluidos los secretos de Kubernetes, las directivas de red, y la comunicación con el maestro y los nodos.
 services: container-service
+author: mlearned
 ms.topic: conceptual
-ms.date: 05/08/2020
-ms.openlocfilehash: f3c4fd922ef0e4243344b34dd90f7e48f903abcd
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.date: 07/01/2020
+ms.author: mlearned
+ms.openlocfilehash: 15bd0791917ca95e61a441b71947b70c81c0598e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82981398"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831546"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceptos de seguridad de las aplicaciones y los clústeres en Azure Kubernetes Service (AKS)
 
@@ -78,6 +80,8 @@ Un *secreto* de Kubernetes se usa para insertar datos confidenciales en pods, co
 
 El uso de secretos reduce la información confidencial que se define en el pod o el manifiesto YAML del servicio. En su lugar, solicite el secreto almacenado en el servidor de API de Kubernetes como parte de su manifiesto YAML. Este enfoque proporciona acceso al secreto solo al pod específico. Nota: Los archivos de manifiesto de secreto sin formato contienen los datos secretos en formato base64 (consulte la [documentación oficial][secret-risks] para más detalles). Por lo tanto, este archivo debe considerarse como información confidencial y no confirmarse en el control de código fuente.
 
+Los secretos de Kubernetes se almacenan en etcd, un almacén distribuido de pares clave-valor. El almacén etcd está totalmente administrado por AKS y [los datos se cifran en reposo dentro de la plataforma de Azure][encryption-atrest]. 
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para empezar a proteger los clústeres de AKS, consulte [Actualización de un clúster de Azure Kubernetes Service (AKS)][aks-upgrade-cluster].
@@ -96,6 +100,7 @@ Para obtener más información sobre los conceptos básicos de Kubernetes y AKS,
 [kured]: https://github.com/weaveworks/kured
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [secret-risks]: https://kubernetes.io/docs/concepts/configuration/secret/#risks
+[encryption-atrest]: https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest
 
 <!-- LINKS - Internal -->
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets

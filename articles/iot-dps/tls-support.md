@@ -5,26 +5,29 @@ services: iot-dps
 author: wesmc7777
 ms.service: iot-dps
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 06/18/2020
 ms.author: wesmc
-ms.openlocfilehash: 285832d80d37c8553ffc8e37c6f6eab5d7f6d943
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 9a90180fa606b14b06c94d3211fdf492add0350d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82984259"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564976"
 ---
 # <a name="tls-support-in-azure-iot-hub-device-provisioning-service-dps"></a>Compatibilidad de TLS en Azure IoT Hub Device Provisioning Service (DPS)
 
-DPS utiliza Seguridad de la capa de transporte (TLS) para proteger las conexiones de los dispositivos IoT. Actualmente se admiten tres versiones del protocolo TLS: 1.0, 1.1 y 1.2.
+DPS utiliza [Seguridad de la capa de transporte (TLS)](http://wikipedia.org/wiki/Transport_Layer_Security) para proteger las conexiones de los dispositivos IoT. 
 
-TLS 1.0 y 1.1 se consideran versiones heredadas y está previsto que dejen de usarse próximamente. Para obtener más información, vea [Desuso de TLS 1.0 y 1.1 en IoT Hub](../iot-hub/iot-hub-tls-deprecating-1-0-and-1-1.md). Se recomienda encarecidamente usar TLS 1.2 como la versión de TLS preferida al conectarse a DPS.
+Las versiones actuales del protocolo TLS admitidas por DPS son: 
+* TLS 1.2
+
+TLS 1.0 y 1.1 se consideran versiones heredadas y está previsto que dejen de usarse próximamente. Para obtener más información, vea [Desuso de TLS 1.0 y 1.1 en IoT Hub](../iot-hub/iot-hub-tls-deprecating-1-0-and-1-1.md). 
 
 ## <a name="restrict-connections-to-tls-12"></a>Restricción de las conexiones a TLS 1.2
 
 Para mayor seguridad, se recomienda configurar las instancias de DPS para que *solo* permitan conexiones de cliente de dispositivos que usen la versión 1.2 de TLS y exigir el uso de [cifrados recomendados](#recommended-ciphers).
 
-Para ello, aprovisione un nuevo recurso de DPS en cualquiera de las [regiones admitidas](#supported-regions) y establezca la propiedad `minTlsVersion` en `1.2` en la especificación de recursos de DPS de la plantilla de Azure Resource Manager. En la plantilla de ejemplo siguiente, JSON especifica la propiedad `minTlsVersion` de una nueva instancia de DPS.
+Para ello, aprovisione un nuevo recurso de DPS estableciendo la propiedad `minTlsVersion` en `1.2` en la especificación de recursos de DPS de la plantilla de Azure Resource Manager. En la plantilla de ejemplo siguiente, JSON especifica la propiedad `minTlsVersion` de una nueva instancia de DPS.
 
 ```json
 {
@@ -35,7 +38,7 @@ Para ello, aprovisione un nuevo recurso de DPS en cualquiera de las [regiones ad
             "type": "Microsoft.Devices/ProvisioningServices",
             "apiVersion": "2020-01-01",
             "name": "<provide-a-valid-DPS-resource-name>",
-            "location": "<any-of-supported-regions-below>",
+            "location": "<any-region>",
             "properties": {
                 "minTlsVersion": "1.2"
             },
@@ -61,24 +64,44 @@ El recurso de DPS creado con esta configuración rechazará los dispositivos que
 > [!NOTE]
 > La propiedad `minTlsVersion` es de solo lectura y no se puede cambiar una vez creado el recurso de DPS. Por lo tanto, es esencial que compruebe y valide de antemano que *todos* los dispositivos de IoT son compatibles con TLS 1.2 y con los [cifrados recomendados](#recommended-ciphers).
 
-## <a name="supported-regions"></a>Regiones admitidas
-
-Las instancias de IoT DPS que necesitan el uso de TLS 1.2 se pueden crear en estas regiones:
-
-* US Gov: Arizona
-* US Gov - Virginia
 
 > [!NOTE]
 > En caso de conmutaciones por error, la propiedad `minTlsVersion` de su DPS seguirá siendo efectiva en la región con emparejamiento geográfico después de la conmutación por error.
 
 ## <a name="recommended-ciphers"></a>Cifrados recomendados
 
-Las instancias de DPS que están configuradas para aceptar solo TLS 1.2 también exigirán el uso de estos cifrados recomendados:
+Las instancias de DPS que están configuradas para aceptar solo TLS 1.2 también exigirán el uso de estos conjuntos de cifrados:
 
-* `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
-* `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
-* `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
-* `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`
+### <a name="tls-12-cipher-suites"></a>Conjuntos de cifrados de TLS 1.2
+
+| Barra mínima |
+| :--- |
+| `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`<br>`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`<br>`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`<br>`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`<br>`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`<br>`TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`<br>`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`<br>`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384` |
+
+| Oportunidad de excelencia |
+| :--- |
+| `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`<br>`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`<br>`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`<br>`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`<br>`TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`<br>`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`<br>`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`<br>`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256` |
+
+### <a name="cipher-suite-ordering-prior-to-windows-10"></a>Pedido del conjunto de cifrados antes de Windows 10
+
+| Barra mínima |
+| :--- |
+| `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256_P256`<br>`TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384_P384`<br>`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256`<br>`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384`<br>`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256`<br>`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P384`<br>`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256`<br>`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384` |
+
+| Oportunidad de excelencia |
+| :--- |
+| `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384_P384`<br>`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256_P256`<br>`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384`<br>`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256`<br>`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P384`<br>`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256`<br>`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384`<br>`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256` |
+
+### <a name="legacy-cipher-suites"></a>Conjuntos de cifrados heredados 
+
+| Opción 1 (mayor seguridad) |
+| :--- |
+| `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P384 (uses SHA-1)`<br>`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P256 (uses SHA-1)`<br>`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384   (uses SHA-1)`<br>`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256   (uses SHA-1)`<br>`TLS_RSA_WITH_AES_256_GCM_SHA384           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_GCM_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_CBC_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_CBC_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_CBC_SHA              (uses SHA-1, lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_CBC_SHA              (uses SHA-1, lack of Perfect Forward Secrecy)` |
+
+| Opción 2 (mayor rendimiento) |
+| :--- |
+| `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P256 (uses SHA-1)`<br>`TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P384 (uses SHA-1)`<br>`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256   (uses SHA-1)`<br>`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384   (uses SHA-1)`<br>`TLS_RSA_WITH_AES_128_GCM_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_GCM_SHA384           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_CBC_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_CBC_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_CBC_SHA              (uses SHA-1, lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_CBC_SHA              (uses SHA-1, lack of Perfect Forward Secrecy)` |
+
 
 ## <a name="use-tls-12-in-the-iot-sdks"></a>Uso de TLS 1.2 en los SDK de IoT
 
@@ -92,7 +115,10 @@ Use los vínculos siguientes para configurar TLS 1.2 y los cifrados permitidos 
 | Java     | Versión 1.19.0 o más reciente            | [Vínculo](https://aka.ms/Tls_Java_SDK_IoT) |
 | NodeJS   | Versión 1.12.2 o más reciente            | [Vínculo](https://aka.ms/Tls_Node_SDK_IoT) |
 
+## <a name="use-tls-12-with-iot-hub"></a>Uso de TLS 1.2 con IoT Hub
+
+IoT Hub se puede configurar para usar TLS 1.2 al comunicarse con dispositivos. Para obtener más información, vea [Desuso de TLS 1.0 y 1.1 en IoT Hub](../iot-hub/iot-hub-tls-deprecating-1-0-and-1-1.md).
 
 ## <a name="use-tls-12-with-iot-edge"></a>Uso de TLS 1.2 con IoT Edge
 
-Los dispositivos de IoT Edge se pueden configurar para que usen TLS 1.2 al comunicarse con IoT Hub y DPS. Para más información sobre cómo hacerlo, vea la [página de documentación de IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-modules/edgehub-proxy/README.md).
+Los dispositivos de IoT Edge se pueden configurar para que usen TLS 1.2 al comunicarse con IoT Hub y DPS. Para obtener más información, consulte la [página de documentación de IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-modules/edgehub-proxy/README.md).

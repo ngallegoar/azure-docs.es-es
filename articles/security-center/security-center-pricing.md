@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2020
 ms.author: memildin
-ms.openlocfilehash: 2eb302462e402e701cc5ae664239c457c90ab1b9
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 4487d1452611b269eec756cdbc76e8e55c466cd2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612799"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801145"
 ---
 # <a name="upgrade-to-standard-tier-for-enhanced-security"></a>Actualizar al nivel estándar para mejorar la seguridad
 
@@ -63,7 +63,9 @@ Security Center ofrece una seguridad mejorada y una protección contra amenazas 
 - **Alertas de seguridad**: use análisis avanzado y Microsoft Intelligent Security Graph para adelantarse a los ciberataques en constante cambio. Aproveche la funcionalidad integrada de análisis del comportamiento y aprendizaje automático para identificar ataques y vulnerabilidades de seguridad de día cero. Supervise las redes, las máquinas y los servicios en la nube para detectar ataques entrantes y actividad posterior a una infracción de seguridad. Optimice la investigación con herramientas interactivas e inteligencia de amenazas contextual.
 - **Detección de vulnerabilidades de máquinas virtuales**: implemente fácilmente un escáner en todas las máquinas virtuales que proporciona la solución más avanzada del sector para la administración de vulnerabilidades. Vea, investigue y corrija los hallazgos directamente dentro de Security Center. 
 - **Controles de acceso y de aplicación**: Bloquee el malware y otras aplicaciones no deseadas aplicando recomendaciones de inclusión en lista blanca basadas en el aprendizaje automático, adaptadas a sus cargas de trabajo específicas. Reduzca la superficie de la red que está expuesta a ataques mediante un acceso Just-In-Time controlado a los puertos de administración de las VM de Azure. Esto reduce drásticamente la exposición a ataques por fuerza bruta y otros tipos de ataque de red.
-- **Características de seguridad de contenedor**: Aproveche la administración de vulnerabilidades y la protección contra amenazas en tiempo real en los entornos en contenedores. Al habilitar el recurso de registros de contenedor, se puede tardar hasta 12 horas para que se habiliten todas las características.
+- **Características de seguridad de contenedor**: Aproveche la administración de vulnerabilidades y la protección contra amenazas en tiempo real en los entornos en contenedores. Al habilitar el recurso de registros de contenedor, se puede tardar hasta 12 horas para que se habiliten todas las características. Los cargos se basan en el número de imágenes de contenedor únicas insertadas en el registro conectado. Una vez que se haya analizado una imagen, no se le cobrará de nuevo a menos que se modifique e inserte una vez más. 
+
+
 
 
 ## <a name="next-steps"></a>Pasos siguientes

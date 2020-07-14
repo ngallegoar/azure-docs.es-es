@@ -4,14 +4,14 @@ description: En este tutorial, aprenderá a escalar y reducir horizontalmente un
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 6e8dbb5a56bf313bf35ad97ec6ea7df8ce483be9
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: ed212083a29836e1da593ec42c31bbf86b907546
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82788865"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611652"
 ---
-# <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Escala de un clúster de Service Fabric
+# <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Escalado de un clúster de Service Fabric en Azure
 
 Este tutorial es la tercera parte de una serie y en él se describe cómo reducir y escalar horizontalmente un clúster existente. Cuando haya terminado, habrá aprendido cómo escalar el clúster y cómo limpiar los recursos restantes.  Para más información sobre cómo escalar un clúster que se ejecuta en Azure, lea [Escalado de clústeres de Service Fabric](service-fabric-cluster-scaling.md).
 
@@ -33,7 +33,7 @@ En esta serie de tutoriales, se aprende a:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar este tutorial:
 
@@ -833,13 +833,12 @@ Foreach($node in $nodes)
 ```
 
 ## <a name="increase-node-resources"></a>Aumento de los recursos de nodo 
-Después de crear un clúster de Service Fabric, puede escalar el tipo de nodo del clúster verticalmente (cambiar los recursos de los nodos) o actualizar el sistema operativo de las máquinas virtuales del tipo de nodo.  
+Después de crear un clúster de Service Fabric, puede escalar el tipo de nodo del clúster verticalmente (cambiar los recursos de los nodos) o actualizar el sistema operativo de las máquinas virtuales del tipo de nodo reemplazando el tipo de nodo original por uno nuevo (con la SKU de la máquina virtual o la imagen del sistema operativo actualizadas). Para más información, consulte [Escalado vertical de un tipo de nodo de Azure Service Fabric](service-fabric-scale-up-node-type.md).
 
-> [!WARNING]
-> Se recomienda no cambiar la SKU de las máquinas virtuales de un tipo de nodo o conjunto de escalado a menos que se esté ejecutando en la durabilidad Silver o mayor. Modificar el tamaño de la SKU de VM constituye una operación de infraestructura local de destrucción de datos. Sin la posibilidad de retrasar o supervisar este cambio, es posible que la operación pueda provocar una pérdida de datos en los servicios con estado o bien causar otros problemas de funcionamiento imprevistos, incluso en las cargas de trabajo sin estado.
+> [!IMPORTANT]
+> No intente nunca realizar un cambio en contexto de la SKU de la máquina virtual o de la imagen del sistema operativo ya que es una operación peligrosa y no se admite.
 
-> [!WARNING]
-> Se recomienda que no cambie la SKU de las máquinas virtuales del tipo de nodo principal, lo cual es una operación peligrosa y no se admite.  Si necesita más capacidad del clúster, puede agregar más instancias de máquina virtual o tipos de nodo adicionales.  Si ello no es posible, puede crear un clúster nuevo y [restaurar el estado de la aplicación](service-fabric-reliable-services-backup-restore.md) (si procede) a partir del clúster anterior.  Si no es posible, puede [cambiar la SKU de VM del tipo de nodo principal](service-fabric-scale-up-node-type.md).
+Si ello no es posible, puede crear un clúster nuevo y [restaurar el estado de la aplicación](service-fabric-reliable-services-backup-restore.md) (si procede) a partir del clúster anterior. No es preciso restaurar el estado de ningún servicio del sistema, ya que se vuelven a crear al implementar las aplicaciones en el clúster nuevo. Si ha ejecutado aplicaciones sin estado en el clúster, lo único que hace es implementar las aplicaciones en el clúster nuevo, no hay nada que para restaurar.
 
 ### <a name="update-the-template"></a>Actualización de la plantilla
 
@@ -873,19 +872,7 @@ Luego, pase al siguiente tutorial para aprender a actualizar el sistema de tiemp
 > [!div class="nextstepaction"]
 > [Actualización del entorno en tiempo de ejecución de un clúster](service-fabric-tutorial-upgrade-cluster.md)
 
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
-[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
-[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
-
-> * Agregar y quitar tipos de nodos (escalado horizontal y reducción horizontal)
-> * Aumentar los recursos de nodo (escalabilidad vertical)
-
-Luego, pase al siguiente tutorial para aprender a actualizar el sistema de tiempo de ejecución de un clúster.
-> [!div class="nextstepaction"]
-> [Actualización del entorno en tiempo de ejecución de un clúster](service-fabric-tutorial-upgrade-cluster.md)
-
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json

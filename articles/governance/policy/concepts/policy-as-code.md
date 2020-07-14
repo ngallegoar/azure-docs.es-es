@@ -3,18 +3,18 @@ title: Diseño de flujos de trabajo de directiva como código
 description: Aprenda a diseñar flujos de trabajo para implementar sus definiciones de Azure Policy como código y validar automáticamente los recursos.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 972ec40609c340b159d21dde2bf18ab3330bf8cd
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 17964459c6c06e6d7df09da4d3f0813350f209ec
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684269"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970950"
 ---
 # <a name="design-policy-as-code-workflows"></a>Diseño de flujos de trabajo de directiva como código
 
 A medida que avanza en el recorrido con el gobierno en la nube, querrá cambiar de la administración manual de definición de cada directiva en Azure Portal o a través de los distintos SDK a algo más fácil de administrar y repetir a escala empresarial. Dos de los enfoques predominantes para administrar sistemas a escala en la nube son:
 
-- Infraestructura como código: Práctica de tratar el contenido que define los entornos, desde plantillas de Resource Manager, pasando por definiciones de Azure Policy, hasta Azure Blueprints, como código fuente.
+- Infraestructura como código: Práctica de tratar el contenido que define los entornos, desde plantillas de Azure Resource Manager (plantillas de ARM), pasando por definiciones de Azure Policy, hasta Azure Blueprints, como código fuente.
 - DevOps: Unión de personas, procesos y productos para hacer posible la entrega continua de valor a los usuarios finales.
 
 La directiva como código es la combinación de estas ideas. Básicamente, mantenga las definiciones de directivas en el control de código fuente y, cada vez que se realice un cambio, pruebe y valide ese cambio. Sin embargo, eso no debe ser el alcance de la implicación de las directivas con la infraestructura como código ni DevOps.
@@ -115,7 +115,7 @@ Una vez completadas todas las validaciones, actualice la asignación para utiliz
 
 ## <a name="process-integrated-evaluations"></a>Procesamiento de evaluaciones integradas
 
-El flujo de trabajo general de la directiva como código es desarrollar e implementar directivas e iniciativas en un entorno a escala. Sin embargo, la evaluación de directivas debe formar parte del proceso de implementación de cualquier flujo de trabajo que implemente o cree recursos en Azure, como la implementación de aplicaciones o la ejecución de plantillas de Resource Manager para crear la infraestructura.
+El flujo de trabajo general de la directiva como código es desarrollar e implementar directivas e iniciativas en un entorno a escala. Sin embargo, la evaluación de directivas debe formar parte del proceso de implementación de cualquier flujo de trabajo que implemente o cree recursos en Azure, como la implementación de aplicaciones o la ejecución de plantillas de ARM para crear la infraestructura.
 
 En estos casos, una vez que la implementación de la aplicación o infraestructura se ha completado para una suscripción o grupo de recursos de prueba, se debe realizar la evaluación de la directiva para ese ámbito mediante la comprobación de la validación de todas las directivas e iniciativas existentes. Aunque es posible que se configuren como **enforcementMode** _disabled_ en este entorno, es útil saber pronto si la implementación de una aplicación o infraestructura infringe las definiciones de directivas en un principio. Por lo tanto, esta evaluación de directivas debe ser un paso en esos flujos de trabajo, y hacer fracasar las implementaciones que crean recursos no compatibles.
 

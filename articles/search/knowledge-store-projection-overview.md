@@ -1,24 +1,21 @@
 ---
-title: Proyecciones en un almacén de conocimiento (versión preliminar)
+title: Conceptos de proyección
 titleSuffix: Azure Cognitive Search
-description: Dé forma a los datos enriquecidos de la canalización de indexación de enriquecimiento con IA y guárdelos en un almacén de conocimiento para usarlos en escenarios que no sean la búsqueda de texto completo. El almacén de conocimiento está actualmente en versión preliminar pública.
+description: Dé forma a los datos enriquecidos de la canalización de indexación de enriquecimiento con IA y guárdelos en un almacén de conocimiento para usarlos en escenarios que no sean la búsqueda de texto completo.
 manager: nitinme
 author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/08/2020
-ms.openlocfilehash: d264768bf27967d1a778400ae4e9e6f2e054d746
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/30/2020
+ms.openlocfilehash: 22db4f95bacd926208ac7edf3306cd136d81b00e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78942969"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565187"
 ---
-# <a name="projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Proyecciones en un almacén de conocimiento en Azure Cognitive Search
-
-> [!IMPORTANT] 
-> El almacén de conocimiento está actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). En la [API REST versión 2019-05-06-Preview](search-api-preview.md) se proporcionan características en versión preliminar. Actualmente hay compatibilidad limitada con el portal y no la hay con el SDK de .NET.
+# <a name="knowledge-store-projections-in-azure-cognitive-search"></a>"Proyecciones" en un almacén de conocimiento en Azure Cognitive Search
 
 Azure Cognitive Search permite el enriquecimiento de contenido a través de aptitudes cognitivas integradas y aptitudes personalizadas como parte de la indexación. Los enriquecimientos crean información nueva donde no existía anteriormente: extracción de información de imágenes, detección de la opinión, frases clave y entidades del texto, por nombrar algunas. Los enriquecimientos también agregan estructura a texto no diferenciado. Todos estos procesos producen documentos que mejoran la eficacia de la búsqueda de texto completo. En muchos casos, los documentos enriquecidos son útiles para escenarios que no son de búsqueda, como, por ejemplo, para la minería de datos de conocimiento.
 

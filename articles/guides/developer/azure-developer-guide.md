@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: d74fd2e3f6b5cc090c6313aba67a1e139c713b85
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c4121482c37afcda0f580656bbe583128b7720fe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225172"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829404"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guía de introducción para desarrolladores de Azure
 
@@ -124,13 +124,13 @@ La mayoría de las aplicaciones debe almacenar datos; por lo tanto, independient
 
   > **Cuándo se debe usar**: cuando la aplicación almacene datos no relacionales, como pares de clave-valor (tablas), blobs, recursos compartidos de archivos o mensajes (colas).
   >
-  > **Introducción**: elija uno de estos tipos de almacenamiento: [blobs](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [tablas](../../cosmos-db/table-storage-how-to-use-dotnet.md), [colas](../../storage/queues/storage-dotnet-how-to-use-queues.md) o [archivos](../../storage/files/storage-dotnet-how-to-use-files.md).
+  > **Introducción**: Elija uno de estos tipos de almacenamiento: [blobs](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [tablas](../../cosmos-db/table-storage-how-to-use-dotnet.md), [colas](../../storage/queues/storage-dotnet-how-to-use-queues.md) o [archivos](../../storage/files/storage-dotnet-how-to-use-files.md).
 
 - **Azure SQL Database**: versión para Azure del motor de Microsoft SQL Server para almacenar datos tabulares relacionales en la nube. SQL Database ofrece un rendimiento predecible, escalabilidad sin tiempo de inactividad, continuidad empresarial y protección de datos.
 
   > **Cuándo se debe usar**: cuando la aplicación requiera almacenamiento de datos con integridad referencial, compatibilidad transaccional y compatibilidad con consultas TSQL.
   >
-  > **Introducción**: [cree una base de datos SQL en cuestión de minutos con Azure Portal](../../sql-database/sql-database-get-started.md).
+  > **Introducción**: [Creación de una base de datos en Azure SQL Database en cuestión de minutos mediante Azure Portal](../../sql-database/sql-database-get-started.md).
 
 
 Puede usar [Azure Data Factory](../../data-factory/introduction.md) para mover los datos locales existentes a Azure. Si no está listo para mover los datos a la nube, [Conexiones híbridas](../../app-service/app-service-hybrid-connections.md) en Azure App Service le permite conectar su aplicación hospedada en App Service con recursos locales. También puede conectarse a los servicios de datos y almacenamiento de Azure desde las aplicaciones locales.
@@ -238,7 +238,7 @@ Azure proporciona dos maneras de administrar las aplicaciones y los servicios de
 
 -   [Azure PowerShell](../../powershell-install-configure.md): proporciona un conjunto de módulos con cmdlets que permiten administrar los recursos de Azure mediante Windows PowerShell.
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure portal
 
 [Azure Portal](https://portal.azure.com) es una aplicación basada en web. Puede usar Azure Portal para crear, administrar y eliminar recursos y servicios de Azure. Incluye:
 
@@ -255,7 +255,7 @@ Azure se basa en un conjunto de API de REST que dan soporte a la interfaz de usu
 Junto con las API de REST, muchos servicios de Azure también permiten administrar mediante programación los recursos desde las aplicaciones mediante SDK de Azure específicos de la plataforma, incluidos los SDK para las siguientes plataformas de desarrollo:
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
--   [Node.js](https://docs.microsoft.com/azure/javascript/)
+-   [Node.js](https://docs.microsoft.com/azure/developer/javascript/)
 -   [Java](https://docs.microsoft.com/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
 -   [Python](/azure/python/)
@@ -268,7 +268,7 @@ Servicios como [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-
 
 Es probable que la ejecución de la aplicación en Azure implique trabajar con varios servicios de Azure. Estos servicios siguen el mismo ciclo de vida y se pueden considerar como una unidad lógica. Por ejemplo, una aplicación web podría usar los servicios Web Apps, SQL Database, Storage, Azure Redis Cache y Azure Content Delivery Network. [Azure Resource Manager](../../azure-resource-manager/management/overview.md) permite trabajar con los recursos de la aplicación como un grupo. Todos los recursos se pueden implementar, actualizar o eliminar en una sola operación coordinada.
 
-Junto con la agrupación y administración lógica de recursos relacionados, Azure Resource Manager incluye funcionalidades de implementación que permiten personalizar la implementación y configuración de los recursos relacionados. Por ejemplo, puede usar Resource Manager para implementar y configurar una aplicación. Esta aplicación puede constar de varias máquinas virtuales, un equilibrador de carga y una base de datos de Azure SQL como una sola unidad.
+Junto con la agrupación y administración lógica de recursos relacionados, Azure Resource Manager incluye funcionalidades de implementación que permiten personalizar la implementación y configuración de los recursos relacionados. Por ejemplo, puede usar Resource Manager para implementar y configurar una aplicación. Esta aplicación puede constar de varias máquinas virtuales, un equilibrador de carga y una base de datos de Azure SQL Database como una sola unidad.
 
 Estas implementaciones se desarrollan usando una plantilla de Azure Resource Manager, que es un documento con formato JSON. Las plantillas permiten definir una implementación y administrar las aplicaciones mediante plantillas declarativas en lugar de scripts. Las plantillas pueden funcionar en diferentes entornos, como pruebas, almacenamiento provisional y producción. Por ejemplo, puede usar plantillas para agregar un botón a un repositorio de GitHub que implementa el código en el repositorio para un conjunto de servicios de Azure con un solo clic.
 

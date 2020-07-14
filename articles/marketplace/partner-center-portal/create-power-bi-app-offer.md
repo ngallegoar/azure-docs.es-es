@@ -6,19 +6,19 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 16b44b3a4496e98f8b6b643bf76aa5aa7ce593c6
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 06/17/2020
+ms.openlocfilehash: 8a4ff5c5bce7774f805130f68d7418a73cb751f8
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849100"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85980361"
 ---
 # <a name="create-a-power-bi-app-for-microsoft-appsource"></a>Creación de una aplicación de Power BI para Microsoft AppSource
 
 En este artículo se describe cómo crear y publicar una oferta de aplicación de Power BI para Microsoft[AppSource](https://appsource.microsoft.com/).
 
-Antes de comenzar, [cree una cuenta de Marketplace comercial en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), si aún no lo ha hecho. Asegúrese de que la cuenta está inscrita en el programa Marketplace comercial.
+Antes de comenzar, [cree una cuenta de Marketplace comercial en el Centro de partners](create-account.md), si aún no lo ha hecho. Asegúrese de que la cuenta está inscrita en el programa Marketplace comercial.
 
 ## <a name="create-a-new-offer"></a>Crear una nueva oferta
 
@@ -26,7 +26,7 @@ Antes de comenzar, [cree una cuenta de Marketplace comercial en el Centro de par
 2. En el menú de navegación de la izquierda, seleccione **Marketplace comercial** > **Información general**.
 3. En la página de información general, seleccione **+ Nueva oferta** > **Aplicación de servicio Power BI**.
 
-   ![Muestra el menú de navegación izquierdo.](./media/new-offer-pbi-app.png)
+   ![Muestra el menú de navegación izquierdo.](./media/new-offer-power-bi-app.png)
 
 > [!NOTE]
 > Después de publicar una oferta, las modificaciones que se realicen en el Centro de partners solo aparecen en los escaparates cuando la oferta se vuelve a publicar. Asegúrese de volver a realizar la publicación siempre después de realizar cambios.
@@ -55,10 +55,10 @@ Esta página se muestra una representación visual de los pasos necesarios para 
 
 Se incluyen vínculos para realizar operaciones en esta oferta en función de la selección que realice. Por ejemplo:
 
-- Si la oferta es un borrador: [Eliminación de una oferta borrador](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
-- Si la oferta está activa: [Detención de la venta de una oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
-- Si la oferta está en versión preliminar: [publicar](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
-- Si no ha completado el cierre de sesión del anunciante: [Cancelación de la publicación](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
+- Si la oferta es un borrador: [Eliminación de una oferta borrador](update-existing-offer.md#delete-a-draft-offer)
+- Si la oferta está activa: [Detención de la venta de una oferta](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Si la oferta está en versión preliminar: [Publicar](publishing-status.md#publisher-approval)
+- Si no ha completado el cierre de sesión del anunciante: [Cancelación de la publicación](update-existing-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configuración de la oferta
 
@@ -68,12 +68,12 @@ Al publicar la oferta en Marketplace con el Centro de partners, debe conectarla 
 
 1. Seleccione un destino de clientes potenciales al que quiera que enviemos los clientes potenciales. El Centro de partners admite los siguientes sistemas CRM:
 
-    - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for Customer Engagement
-    - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+    - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) for Customer Engagement
+    - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
+    - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > Si su sistema CRM no aparece en la lista anterior, use [Tabla de Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) o [Punto de conexión HTTPS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) para almacenar los datos del cliente potencial. A continuación, exporte los datos al sistema CRM.
+    > Si su sistema CRM no aparece en la lista anterior, use [Tabla de Azure](commercial-marketplace-lead-management-instructions-azure-table.md) o [Punto de conexión HTTPS](commercial-marketplace-lead-management-instructions-https.md) para almacenar los datos del cliente potencial. A continuación, exporte los datos al sistema CRM.
 
 2. Conecte su oferta al destino de clientes potenciales cuando la publique en el Centro de partners.
 3. Compruebe que la conexión al destino de clientes potenciales está configurada correctamente. Después de publicarla en el Centro de partners, se valida la conexión y se le envía un cliente potencial de prueba. Mientras obtiene una vista previa de la oferta antes de publicarla, también puede probar la conexión de los clientes potenciales tratando de adquirir la oferta en el entorno de versión preliminar.
@@ -81,9 +81,9 @@ Al publicar la oferta en Marketplace con el Centro de partners, debe conectarla 
 
 Estos son algunos recursos adicionales de administración de clientes potenciales:
 
-- [Introducción a la administración de clientes potenciales](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
-- [Preguntas frecuentes de la administración de clientes potenciales](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Errores comunes de la configuración de clientes potenciales](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Introducción a la administración de clientes potenciales](commercial-marketplace-get-customer-leads.md)
+- [Preguntas frecuentes de la administración de clientes potenciales](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
+- [Errores comunes de la configuración de clientes potenciales](../lead-management-for-cloud-marketplace.md#publishing-config-errors)
 - [Introducción a la administración de clientes potenciales](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) en formato PDF (asegúrese de que el bloqueador de elementos emergentes está desactivado).
 
 Seleccione **Guardar borrador** antes de continuar.
@@ -94,33 +94,16 @@ Esta página permite definir las categorías y los sectores que se usan para agr
 
 ### <a name="category"></a>Category
 
-Seleccione un mínimo de una y un máximo de tres categorías. Estas categorías se usan para colocar la oferta en las áreas de búsqueda adecuadas de Marketplace y se muestran en la página de detalles de la oferta. En la descripción de la oferta, indique la forma en que la oferta admite estas categorías.
+Seleccione categorías y subcategorías para colocar la oferta en las áreas de búsqueda adecuadas del marketplace. En la descripción de la oferta, asegúrese de indicar la forma en que la oferta admite estas categorías. Seleccione:
+
+- Al menos una y un máximo de dos categorías, incluidas una categoría principal y una secundaria (opcional).
+- Hasta dos subcategorías para cada categoría principal o secundaria. Si no hay ninguna subcategoría aplicable a la oferta, seleccione **No aplicable**.
+
+Vea la lista completa de categorías y subcategorías en [Procedimientos recomendados para la publicación de ofertas](../gtm-offer-listing-best-practices.md).
 
 ### <a name="industry"></a>Sector
 
-Opcionalmente, seleccione hasta dos sectores y segmentos verticales en cada sector. Cuando las categorías se usan para mostrar la oferta, el sector y los segmentos verticales se usan en filtros de búsqueda y se aplican en el escaparate. Si la oferta está dirigida a un sector o segmento vertical específico, use la descripción de la oferta para explicar en qué medida la oferta es compatible con los sectores o los segmentos verticales seleccionados. Si la oferta no es específica para un sector, deje esta sección en blanco.
-
-> [!NOTE]
-> A medida que trabajamos para incorporar nuevos sectores y segmentos verticales para mejorar la experiencia de descubrimiento de ofertas, es posible que algunos sectores o segmentos verticales no estén todavía visibles en el escaparate. Los sectores y los segmentos verticales marcados con un (*) estarán disponibles en una fecha futura. Todas las ofertas publicadas se pueden descubrir mediante la búsqueda de palabras clave.
-<p>&nbsp;
-
-| **Sector** | **Subsector** |
-| --- | --- |
-| *Automoción | *Automoción |
-| Agricultura | *Otros: No segmentados |
-| Distribución | *Venta al por mayor<br>Envío de paquetes |
-| Educación | *Educación superior<br>* Educación primara y secundaria/K-12<br>*Bibliotecas y museos |
-| Servicios financieros | *Mercados de capital y banca<br>* Seguros |
-| Government | *Defensa e inteligencia (solía denominarse Seguridad pública y nacional)<br>* Justicia y seguridad pública<br>*Gobierno civil |
-| Asistencia sanitaria (solía denominarse Salud) | *Pagador de seguro médico<br>* Proveedor de asistencia sanitaria<br>*Productos farmacéuticos |
-| Fabricación y recursos (solía denominarse Fabricación) | *Química y agroquímica<br>* Fabricación discreta<br>*Energía |
-| Venta al por menor y bienes de consumo (solía denominarse Venta al por menor) | *Bienes de consumo<br>* Minoristas |
-| *Medios y comunicaciones (solía denominarse Medios de comunicación y ocio) | *Medios de comunicación y ocio<br>* Telecomunicaciones |
-| Servicios profesionales | *Legal<br>* Servicios profesionales de partners |
-| *Arquitectura y construcción (solía denominarse Ingeniería de la edificación) | *Otros: No segmentados |
-| *Hostelería y viajes | *Hoteles y ocio<br>* Transporte y viajes<br>*Restaurantes y servicios de hostelería |
-| *Otros sectores de la administración pública | *Ingeniería forestal y pecuaria<br>* ONG |
-| *Bienes inmuebles | *Otros: No segmentados |
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="legal"></a>Información legal
 
@@ -144,6 +127,24 @@ Tendrá que definir los detalles de Marketplace (como nombre de la oferta, descr
 
 > [!NOTE]
 > No es necesario que los detalles de la oferta estén en inglés si la descripción de la oferta comienza con la frase "Esta aplicación solo está disponible en [idioma distinto del inglés]." También es puede proporcionar un vínculo al contenido de la oferta en un idioma distinto al utilizado en la descripción de la oferta.
+
+A continuación se muestra un ejemplo de cómo aparece la información de la oferta en Microsoft AppSource (los precios mostrados son meramente ilustrativos y no pretenden reflejar los costos reales):
+
+:::image type="content" source="media/example-power-bi-app.png" alt-text="Ilustración de cómo aparece esta oferta en Microsoft AppSource.":::
+
+#### <a name="call-out-descriptions"></a>Descripciones destacadas
+
+1. Logotipo
+2. Productos
+3. Categorías
+4. Industrias
+5. Dirección de soporte técnico (vínculo)
+6. Términos de uso
+7. Directiva de privacidad
+8. Nombre de la oferta
+9. Resumen
+10. Descripción
+11. Capturas de pantallas o vídeos
 
 ### <a name="name"></a>Nombre
 
@@ -199,14 +200,14 @@ Proporcione al menos uno y hasta tres documentos de marketing relacionados en fo
 
 ### <a name="marketplace-images"></a>Imágenes de Marketplace
 
-Proporcione logotipos e imágenes para usarlos con la oferta. Todas las imágenes deben estar en formato .PNG. Las imágenes borrosas se rechazarán.
+Proporcione logotipos e imágenes para usarlos con la oferta. Todas las imágenes deben estar en formato PNG. Las imágenes borrosas se rechazarán.
 
 >[!NOTE]
->Si tiene un problema al cargar archivos, asegúrese de que la red local no bloquee el servicio https://upload.xboxlive.com que usa el Centro de partners.
+>Si tiene un problema al cargar archivos, asegúrese de que la red local no bloquee el servicio `https://upload.xboxlive.com` que usa el Centro de partners.
 
 #### <a name="store-logos"></a>Logotipos de Store
 
-Proporcione los archivos .png del logotipo de la oferta en dos tamaños de píxeles:
+Proporcione los archivos PNG del logotipo de la oferta en dos tamaños de píxeles:
 - **Pequeño (48 x 48)**
 - **Grande (216 x 216)**
 
@@ -214,15 +215,15 @@ Los dos logotipos son necesarios y se usan en lugares diferentes de la lista de 
 
 #### <a name="screenshots"></a>Capturas de pantalla
 
-Agregue al menos una y hasta cinco capturas de pantalla que muestren el funcionamiento de la oferta. Cada una debe tener un tamaño de 1280 x 720 píxeles y el formato .png.
+Agregue al menos una y hasta cinco capturas de pantalla que muestren el funcionamiento de la oferta. Cada una debe tener un tamaño de 1280 x 720 píxeles y el formato PNG.
 
 #### <a name="videos-optional"></a>Vídeos (opcional)
 
-Agregue hasta cinco vídeos que muestren la oferta. Escriba el nombre del vídeo, su dirección web y una imagen en miniatura en formato .png del vídeo con un tamaño de 1280 x 720 píxeles.
+Agregue hasta cinco vídeos que muestren la oferta. Escriba el nombre del vídeo, su dirección web y una imagen en miniatura en formato PNG del vídeo con un tamaño de 1280 x 720 píxeles.
 
 #### <a name="additional-marketplace-listing-resources"></a>Recursos adicionales de la descripción de Marketplace
 
-Para más información sobre la creación de listas de ofertas, vea [Procedimientos recomendados para la publicación de ofertas](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
+Para más información sobre la creación de listas de ofertas, vea [Procedimientos recomendados para la publicación de ofertas](../gtm-offer-listing-best-practices.md).
 
 ## <a name="technical-configuration"></a>Configuración técnica
 
@@ -252,4 +253,4 @@ En la página de revisión, puede:
 
 Para enviar la oferta para su publicación, seleccione **Publicar**.
 
-Le enviaremos un correo electrónico para avisarle cuando haya una versión preliminar de la oferta disponible para su revisión y aprobación. Para publicar la oferta al público, o si es una oferta privada, a un público privado, vaya al Centro de partners y seleccione **Publicar**.
+Le enviaremos un correo electrónico para avisarle cuando haya una versión preliminar de la oferta disponible para su revisión y aprobación. Para ofrecer la oferta al público, vaya al Centro de partners y seleccione **Publicar**.

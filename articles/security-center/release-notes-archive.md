@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: 253ea748462ec09cd9cf4eab14c05be678cfb82d
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 36c3515bbdd0f08063ecad2ba26fc7b92a5f0e19
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860909"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970695"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Archivo de novedades de Azure Security Center
 
@@ -29,9 +29,37 @@ En este página se proporciona información acerca de lo siguiente:
 - Corrección de errores
 - Funciones obsoletas
 
+
+## <a name="january-2020"></a>Enero de 2020
+
+### <a name="enhanced-secure-score-preview"></a>Puntuación de seguridad mejorada (versión preliminar)
+
+Ahora hay disponible una versión mejorada de la característica de puntuación segura de Azure Security Center en versión preliminar. En esta versión, se agrupan varias recomendaciones en controles de seguridad que reflejan mejor las superficies de ataque vulnerables (por ejemplo, restringir el acceso a los puertos de administración).
+
+Familiarícese con los cambios de puntuación segura durante la fase de versión preliminar y determine otras correcciones que le ayudarán a proteger más su entorno.
+
+Obtenga más información sobe la [puntuación de seguridad mejorada (versión preliminar)](secure-score-security-controls.md).
+
+
+
 ## <a name="november-2019"></a>Noviembre de 2019
 
-### <a name="threat-protection-for-azure-key-vault-in-public-preview-in-north-america-regions"></a>Protección contra amenazas para Azure Key Vault en versión preliminar pública en regiones de Norteamérica
+Las actualizaciones de noviembre incluyen:
+ - [Protección contra amenazas para Azure Key Vault en regiones de Norteamérica (versión preliminar)](#threat-protection-for-azure-key-vault-in-north-america-regions-preview)
+ - [La protección contra amenazas para Azure Storage incluye el filtrado de reputación de malware](#threat-protection-for-azure-storage-includes-malware-reputation-screening)
+ - [Automatización del flujo de trabajo con Logic Apps (versión preliminar)](#workflow-automation-with-logic-apps-preview)
+ - [Corrección rápida de los recursos en masa disponibles con carácter general](#quick-fix-for-bulk-resources-generally-available)
+ - [Examen de imágenes de contenedor para detectar vulnerabilidades (versión preliminar)](#scan-container-images-for-vulnerabilities-preview)
+ - [Estándares de cumplimiento normativo adicionales (versión preliminar)](#additional-regulatory-compliance-standards-preview)
+ - [Protección contra amenazas para Azure Kubernetes Service (versión preliminar)](#threat-protection-for-azure-kubernetes-service-preview)
+ - [Evaluación de vulnerabilidades de máquinas virtuales (versión preliminar)](#virtual-machine-vulnerability-assessment-preview)
+ - [Advanced Data Security para servidores SQL Server en Azure Virtual Machines (versión preliminar)](#advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview)
+ - [Compatibilidad con directivas personalizadas (versión preliminar)](#support-for-custom-policies-preview)
+ - [Ampliación de la cobertura de Azure Security Center con la plataforma para la comunidad y los asociados](#extending-azure-security-center-coverage-with-platform-for-community-and-partners)
+ - [Integraciones avanzadas con la exportación de recomendaciones y alertas (versión preliminar)](#advanced-integrations-with-export-of-recommendations-and-alerts-preview)
+ - [Incorporación de servidores locales a Security Center desde Windows Admin Center (versión preliminar)](#onboard-on-prem-servers-to-security-center-from-windows-admin-center-preview)
+
+### <a name="threat-protection-for-azure-key-vault-in-north-america-regions-preview"></a>Protección contra amenazas para Azure Key Vault en regiones de Norteamérica (versión preliminar)
 
 Azure Key Vault es un servicio esencial para proteger los datos y mejorar el rendimiento de las aplicaciones en la nube, ya que ofrece la posibilidad de administrar de forma centralizada claves, secretos, claves criptográficas y directivas en la nube. Como Azure Key Vault almacena datos confidenciales y críticos para la empresa, requiere la máxima seguridad para los almacenes de claves y los datos almacenados en ellos.
 
@@ -146,6 +174,11 @@ Con esta nueva experiencia, los usuarios van a incorporar un servidor de WAC a A
 
 ## <a name="september-2019"></a>Septiembre de 2019
 
+Las actualizaciones de septiembre incluyen:
+
+ - [Administración de reglas con mejoras de controles de aplicación adaptables](#managing-rules-with-adaptive-application-controls-improvements)
+ - [Control de la recomendación de seguridad del contenedor mediante Azure Policy](#control-container-security-recommendation-using-azure-policy)
+
 ### <a name="managing-rules-with-adaptive-application-controls-improvements"></a>Administrar reglas con mejoras de controles de aplicación adaptables
 
 Se ha mejorado la experiencia de administración de reglas para máquinas virtuales mediante controles de aplicación adaptables. Los controles de aplicación adaptables de Azure Security Center ayudan a controlar qué aplicaciones se pueden ejecutar en las máquinas virtuales. Además de una mejora general en la administración de reglas, una nueva ventaja le permite controlar qué tipos de archivo se protegerán cuando agregue una nueva regla.
@@ -161,6 +194,12 @@ Para ver las directivas de seguridad habilitadas, en Security Center abra la pá
 
 
 ## <a name="august-2019"></a>Agosto de 2019
+
+Las actualizaciones de agosto incluyen:
+
+ - [Acceso a máquina virtual Just-in-Time (JIT) para Azure Firewall](#just-in-time-jit-vm-access-for-azure-firewall)
+ - [Corrección de un solo clic para impulsar la postura de seguridad (versión preliminar)](#single-click-remediation-to-boost-your-security-posture-preview)
+ - [Administración entre inquilinos](#cross-tenant-management)
 
 ### <a name="just-in-time-jit-vm-access-for-azure-firewall"></a>Acceso a máquina virtual Just-in-Time (JIT) para Azure Firewall 
 

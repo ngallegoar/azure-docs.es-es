@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo actualizar un clúster de Azure Ku
 services: container-service
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: 761df8abc60671341fcdd74e7c66111cfeb105ad
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: ea9f0154c221fe99d683cc58d5f6dccfce8d948c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259242"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800501"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Actualización de un clúster de Azure Kubernetes Service (AKS)
 
@@ -53,6 +53,8 @@ ERROR: Table output unavailable. Use the --query option to specify an appropriat
 
 > [!Important]
 > Los sobrecargas de nodo requieren la cuota de suscripción para el recuento máximo de sobrecargas solicitado para cada operación de actualización. Por ejemplo, un clúster con 5 grupos de nodos, cada uno con un recuento de 4 nodos, tiene un total de 20 nodos. Si cada grupo de nodos tiene un valor de sobrecarga máxima del 50 %, se requiere un proceso adicional y una cuota de IP de 10 nodos (2 nodos x 5 grupos) para completar la actualización.
+>
+> Si usa Azure CNI, compruebe que haya direcciones IP disponibles en la subred, además de [cumplir los requisitos de direcciones IP de Azure CNI](configure-azure-cni.md).
 
 De forma predeterminada, AKS configura las actualizaciones para la sobrecarga con un nodo adicional. Un valor predeterminado de uno para la configuración de sobrecarga máxima permite a AKS minimizar la interrupción de la carga de trabajo mediante la creación de un nodo adicional antes de acordonar o purgar las aplicaciones existentes para reemplazar un nodo de una versión anterior. El valor de sobrecarga máxima se puede personalizar por grupo de nodos para permitir un equilibrio entre la velocidad de actualización y la interrupción de la actualización. Al aumentar el valor de sobrecarga máxima, el proceso de actualización se completa más rápido, pero si se establece un valor alto para la sobrecarga máxima, pueden producirse interrupciones durante el proceso de actualización. 
 
@@ -105,13 +107,14 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 Con una lista de las versiones disponibles para el clúster de AKS, use el comando [az aks upgrade][az-aks-upgrade] para realizar la actualización. En el proceso de actualización, AKS agrega un nuevo nodo al clúster que ejecuta la versión de Kubernetes especificada y después [acordona y purga][kubernetes-drain] uno de los nodos antiguos para minimizar las interrupciones de las aplicaciones en ejecución. Cuando se confirma que el nuevo nodo ejecuta pods de aplicación, el anterior se elimina. Este proceso se repite hasta que se hayan actualizado todos los nodos del clúster.
 
-En el ejemplo siguiente se actualiza un clúster a la versión *1.13.10*:
-
 ```azurecli-interactive
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.13.10
+az aks upgrade \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --kubernetes-version KUBERNETES_VERSION
 ```
 
-Dicha actualización tarda varios minutos. El tiempo exacto dependerá del número de nodos que tenga. 
+Dicha actualización tarda varios minutos. El tiempo exacto dependerá del número de nodos que tenga.
 
 > [!NOTE]
 > Hay un tiempo total permitido para que se complete la actualización de un clúster. Este tiempo se calcula tomando el producto de `10 minutes * total number of nodes in the cluster`. Por ejemplo, en un clúster de 20 nodos, las operaciones de actualización deben realizarse correctamente en 200 minutos o AKS producirá un error en la operación para evitar un estado de clúster irrecuperable. Para la recuperación en caso de error de actualización, vuelva a intentar la operación una vez alcanzado el tiempo de espera.

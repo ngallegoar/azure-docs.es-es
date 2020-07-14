@@ -1,68 +1,33 @@
 ---
-title: Creación de almacenes de Recovery Services
-description: En este artículo, aprenderá a crear almacenes de Recovery Services que almacenan las copias de seguridad y los puntos de recuperación.
-ms.reviewer: sogup
+title: Creación y configuración de almacenes de Recovery Services
+description: En este artículo, aprenderá a crear y configurar almacenes de Recovery Services que almacenan las copias de seguridad y los puntos de recuperación.
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: f1f1a66bd6e0fbd28be59b0211a1ac17f030022e
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 65f7265dccc5fe28d3503e72bdd6e49123871594
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298625"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970540"
 ---
-# <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
+# <a name="create-and-configure-a-recovery-services-vault"></a>Creación y configuración de un almacén de Recovery Services
 
-Un almacén de Recovery Services es una entidad que almacena las copias de seguridad y los puntos de recuperación creados a lo largo del tiempo. También contiene las directivas de copia de seguridad asociadas con las máquinas virtuales protegidas.
-
-Para crear un almacén de Recovery Services:
-
-1. Inicie sesión en su suscripción en [Azure Portal](https://portal.azure.com/).
-
-2. En el menú izquierdo, seleccione **Todos los servicios**.
-
-    ![Seleccionar Todos los servicios](./media/backup-create-rs-vault/click-all-services.png)
-
-3. En el cuadro de diálogo **Todos los servicios**, escriba **Recovery Services**. La lista de recursos se filtra en función de lo que especifique. En la lista de recursos, seleccione **Almacenes de Recovery Services**.
-
-    ![Escribir y elegir Almacenes de Recovery Services](./media/backup-create-rs-vault/all-services.png)
-
-    Aparece la lista de almacenes de Recovery Services de la suscripción.
-
-4. En el panel **Almacenes de Recovery Services**, seleccione **Agregar**.
-
-    ![Agregar un almacén de Recovery Services](./media/backup-create-rs-vault/add-button-create-vault.png)
-
-    Se abre el cuadro de diálogo **Almacén de Recovery Services**. Especifique los valores de **Nombre**, **Suscripción**, **Grupo de recursos** y **Ubicación**.
-
-    ![Configurar el almacén de Recovery Services](./media/backup-create-rs-vault/create-new-vault-dialog.png)
-
-   - **Name**: escriba un nombre descriptivo que identifique el almacén. El nombre debe ser único para la suscripción de Azure. Especifique un nombre que tenga entre 2 y 50 caracteres. El nombre debe comenzar por una letra y consta solo de letras, números y guiones.
-   - **Suscripción**: elija la suscripción que desee usar. Si es miembro de una sola suscripción, verá solo ese nombre. Si no está seguro de qué suscripción va a utilizar, use la predeterminada (sugerida). Solo hay varias opciones si la cuenta profesional o educativa está asociada a más de una suscripción de Azure.
-   - **Grupo de recursos**: Use un grupo de recursos existente o cree uno. Para ver la lista de grupos de recursos disponibles en una suscripción, seleccione **Usar existente** y, después, seleccione un recurso en el cuadro de lista desplegable. Para crear un grupo de recursos, seleccione **Crear nuevo** y escriba el nombre. Para más información acerca de los grupos de recursos, consulte [Introducción a Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
-   - **Ubicación**: seleccione la región geográfica del almacén. Para crear un almacén para proteger máquinas virtuales, el almacén **debe** estar en la misma región que las máquinas virtuales.
-
-      > [!IMPORTANT]
-      > Si no está seguro de la ubicación de la máquina virtual, cierre el cuadro de diálogo. Vaya a la lista de máquinas virtuales en el portal. Si tiene máquinas virtuales en varias regiones, cree un almacén de Recovery Services en cada una de ellas. Cree el almacén en la primera ubicación, antes de crear el almacén de otra. No es preciso especificar cuentas de almacenamiento para almacenar los datos de la copia de seguridad. Tanto el almacén de Recovery Services como el de Azure Backup lo controlan automáticamente.
-      >
-      >
-
-5. Cuando esté listo para crear el almacén de Recovery Services, seleccione **Crear**.
-
-    ![Crear almacén de Recovery Services](./media/backup-create-rs-vault/click-create-button.png)
-
-    La creación del almacén de Recovery Services puede tardar unos minutos. Supervise las notificaciones de estado en el área de **notificaciones** de la parte superior derecha del portal. Tras crear el almacén, se ve en la lista de almacenes de Recovery Services. Si no lo ve, haga clic en **Actualizar**.
-
-     ![Actualizar lista de almacenes de Backup](./media/backup-create-rs-vault/refresh-button.png)
+[!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="set-storage-redundancy"></a>Establecimiento de la redundancia de almacenamiento
 
 Azure Backup administra automáticamente el almacenamiento para el almacén. Debe especificar cómo se replica ese almacenamiento.
 
-1. En la hoja **Almacenes de Recovery Services**, haga clic en el almacén nuevo. En la sección **Configuración**, haga clic en **Propiedades**.
-2. En **Propiedades**, en **Configuración de copia de seguridad**, haga clic en **Actualizar**.
+> [!NOTE]
+> El cambio del **tipo de replicación de almacenamiento** (con redundancia local o con redundancia geográfica) para un almacén de Recovery Services se debe realizar antes de configurar las copias de seguridad en el almacén. Una vez que configure la copia de seguridad, se deshabilita la opción para modificar.
+>
+>- Si todavía no ha configurado la copia de seguridad, [siga estos pasos](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) para revisar y modificar la configuración.
+>- Si ya ha configurado la copia de seguridad y debe pasar de GRS a LRS, [revise estas soluciones alternativas](#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
-3. Seleccione el tipo de replicación de almacenamiento y haga clic en **Guardar**.
+1. En la hoja **Almacenes de Recovery Services**, haga clic en el almacén nuevo. En la sección **Configuración**, haga clic en **Propiedades**.
+1. En **Propiedades**, en **Configuración de copia de seguridad**, haga clic en **Actualizar**.
+
+1. Seleccione el tipo de replicación de almacenamiento y haga clic en **Guardar**.
 
      ![Establecimiento de la configuración de almacenamiento del nuevo almacén](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
@@ -70,8 +35,8 @@ Azure Backup administra automáticamente el almacenamiento para el almacén. Deb
    - Si no utiliza Azure como punto de conexión de almacenamiento de copia de seguridad principal, elija **Redundancia local** para reducir los costes de almacenamiento de Azure.
    - Obtenga más información sobre la redundancia [geográfica](../storage/common/storage-redundancy-grs.md) y [local](../storage/common/storage-redundancy-lrs.md).
 
-> [!NOTE]
-> El cambio del **tipo de replicación de almacenamiento** (con redundancia local o con redundancia geográfica) para un almacén de Recovery Services debe realizarse antes de configurar las copias de seguridad en el almacén. Una vez configure la copia de seguridad, la opción para modificar está deshabilitada y no puede cambiar el **tipo de replicación del almacenamiento**.
+>[!NOTE]
+>Los valores de Replicación de almacenamiento para el almacén no son pertinentes para la copia de seguridad de recursos compartidos de archivos de Azure, ya que la solución actual se basa en instantáneas y no se transfieren datos al almacén. Las instantáneas se almacenan en la misma cuenta de almacenamiento que el recurso compartido de archivos del que se ha realizado la copia de seguridad.
 
 ## <a name="set-cross-region-restore"></a>Establecimiento de la restauración entre regiones
 
@@ -92,6 +57,7 @@ En este proceso hay implicaciones de precios, ya que se encuentra en el nivel de
 >- CRR es una característica opcional de nivel de almacén para cualquier almacén GRS (está desactivada de forma predeterminada).
 >- Tras la incorporación, los elementos de copia de seguridad pueden tardar hasta 48 horas en estar disponibles en las regiones secundarias.
 >- Actualmente, solo se admite CRR para el tipo de administración de copias de seguridad de VM de Azure de ARM (VM de Azure clásica no se admitirá).  Si otros tipos de administración admiten CRR, se inscribirán **automáticamente**.
+>- Una vez que la protección se inicia por primera vez, actualmente no se puede revertir la restauración entre regiones a GRS o LRS.
 
 ### <a name="configure-cross-region-restore"></a>Configuración de la restauración entre regiones
 
@@ -116,9 +82,56 @@ Obtenga información sobre la [supervisión de trabajos de restauración en la r
 
 Le recomendamos encarecidamente que revise la configuración predeterminada para el **tipo de replicación de almacenamiento** y la **configuración de seguridad** antes de configurar copias de seguridad en el almacén.
 
-- El **tipo de replicación de almacenamiento** se establece de forma predeterminada en **Redundante geográficamente**. Una vez que configure la copia de seguridad, se deshabilitará la opción para modificar. Siga estos [pasos](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) para revisar y modificar la configuración.
+- El **tipo de replicación de almacenamiento** se establece de forma predeterminada en **Almacenamiento con redundancia geográfica** (GRS). Una vez que configure la copia de seguridad, se deshabilitará la opción para modificar.
+  - Si todavía no ha configurado la copia de seguridad, [siga estos pasos](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) para revisar y modificar la configuración.
+  - Si ya ha configurado la copia de seguridad y debe pasar de GRS a LRS, [revise estas soluciones alternativas](#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
-- La **eliminación temporal** está **habilitada** de forma predeterminada en los almacenes recién creados para proteger los datos de copia de seguridad de eliminaciones accidentales o malintencionadas. Siga estos [pasos](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) para revisar y modificar la configuración.
+- La **eliminación temporal** está **habilitada** de forma predeterminada en los almacenes recién creados para proteger los datos de copia de seguridad de eliminaciones accidentales o malintencionadas. [Siga estos pasos](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) para revisar y modificar la configuración.
+
+### <a name="how-to-change-from-grs-to-lrs-after-configuring-backup"></a>Procedimiento para cambiar de GRS a LRS después de configurar la copia de seguridad
+
+Antes de decidir pasar de GRS a almacenamiento con redundancia local (LRS), revise las ventajas y desventajas de los costos más bajos y la durabilidad más alta de los datos que se adapten al escenario. Si debe cambiar de GRS a LRS, tiene dos opciones. Dependen de los requisitos de la empresa para conservar los datos de copia de seguridad:
+
+- [No es necesario conservar los datos de copia de seguridad anteriores](#dont-need-to-preserve-previous-backed-up-data)
+- [Se deben conservar los datos de copia de seguridad anteriores](#must-preserve-previous-backed-up-data)
+
+#### <a name="dont-need-to-preserve-previous-backed-up-data"></a>No es necesario conservar los datos de copia de seguridad anteriores
+
+Para proteger las cargas de trabajo en un nuevo almacén LRS, la protección actual y los datos se tendrán que eliminar en el almacén GRS y las copias de seguridad se deben volver a configurar.
+
+>[!WARNING]
+>La operación siguiente es destructiva y no se puede deshacer. Todos los datos de copia de seguridad y los elementos de copia de seguridad asociados con el servidor protegido se eliminarán de forma permanente. Proceda con precaución.
+
+Detenga y elimine la protección actual en el almacén GRS:
+
+1. Deshabilite la eliminación temporal en las propiedades del almacén GRS. Siga [estos pasos](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) para deshabilitar la eliminación temporal.
+
+1. Detenga la protección y elimine las copias de seguridad del almacén GRS existente. En el menú del panel del almacén, seleccione **Elementos de copia de seguridad**. Los elementos que aparecen aquí y que deben moverse al almacén LRS se deben quitar junto con sus datos de copia de seguridad. Vea cómo [eliminar elementos protegidos en la nube](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) y [eliminar elementos protegidos en el entorno local](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+
+1. Si tiene previsto mover AFS (recursos compartidos de archivos de Azure), servidores SQL o servidores SAP HANA, también tendrá que anular su registro. En el menú del panel del almacén, seleccione **Infraestructura de Backup**. Vea cómo [anular el registro de SQL Server](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), [anular el registro de una cuenta de almacenamiento asociada a recursos compartidos de archivos de Azure](manage-afs-backup.md#unregister-a-storage-account) y [anular el registro de una instancia de SAP HANA](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
+
+1. Una vez que se hayan quitado del almacén GRS, continúe con la configuración de las copias de seguridad de la carga de trabajo en el nuevo almacén LRS.
+
+#### <a name="must-preserve-previous-backed-up-data"></a>Se deben conservar los datos de copia de seguridad anteriores
+
+Si tiene que conservar los datos protegidos actuales en el almacén GRS y continuar la protección en un nuevo almacén LRS, hay opciones limitadas para algunas de las cargas de trabajo:
+
+- Para MARS, puede [detener la protección con conservación de datos](backup-azure-manage-mars.md#stop-protecting-files-and-folder-backup) y registrar el agente en el nuevo almacén LRS.
+
+  - El servicio Azure Backup seguirá conservando todos los puntos de recuperación existentes en el almacén GRS.
+  - Tendrá que pagar para conservar los puntos de recuperación en el almacén GRS.
+  - Solo podrá restaurar los datos de copia de seguridad de los puntos de recuperación que no hayan expirado en el almacén GRS.
+  - Tendrá que crear una réplica inicial de los datos en el almacén LRS.
+
+- En el caso de una máquina virtual de Azure, puede [detener la protección con conservación de datos](backup-azure-manage-vms.md#stop-protecting-a-vm) para la máquina virtual en el almacén GRS, moverla a otro grupo de recursos y, después, protegerla en el almacén LRS. Vea [Instrucciones y limitaciones](https://docs.microsoft.com/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations) para mover una máquina virtual a otro grupo de recursos.
+
+  Una máquina virtual solo se puede proteger en un almacén a la vez. Pero la máquina virtual en el nuevo grupo de recursos se puede proteger en el almacén LRS, ya que se considera una máquina virtual distinta.
+
+  - El servicio Azure Backup conservará los puntos de recuperación de los que se ha realizado una copia de seguridad en el almacén GRS.
+  - Deberá pagar para mantener los puntos de recuperación en el almacén GRS (vea [Precios de Azure Backup](azure-backup-pricing.md) para obtener detalles).
+  - Podrá restaurar la máquina virtual si es necesario, desde el almacén GRS.
+  - La primera copia de seguridad en el almacén LRS de la máquina virtual en el nuevo recurso será una réplica inicial.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

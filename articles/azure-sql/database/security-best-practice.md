@@ -1,8 +1,8 @@
 ---
 title: Cuaderno de estrategias para abordar requisitos de seguridad comunes
-titleSuffix: Azure SQL Database & SQL Managed Instance
+titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: En este artículo se proporcionan requisitos de seguridad comunes y procedimientos recomendados de seguridad en Azure SQL Database e Instancia administrada de Azure SQL.
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=2
 author: VanMSFT
@@ -10,14 +10,14 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: a462c3480d58a7895429863cb3d09874cd6ef0f8
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 8104302afa84446e2d57c7156f33bc0160e31472
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84217913"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986790"
 ---
-# <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database--sql-managed-instance"></a>Cuaderno de estrategias para abordar requisitos de seguridad comunes con Azure SQL Database e Instancia administrada de SQL
+# <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Cuaderno de estrategias para abordar requisitos de seguridad comunes con Azure SQL Database y Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 En este documento se proporcionan los procedimientos recomendados para resolver los requisitos de seguridad comunes. No todos los requisitos se pueden aplicar a todos los entornos y debe consultar la base de datos y al equipo de seguridad qué características implementar.
@@ -28,10 +28,10 @@ En este documento se proporcionan instrucciones sobre cómo resolver los requisi
 
 ### <a name="azure-sql-database-deployment-offers-covered-in-this-guide"></a>Ofertas de implementación de Azure SQL Database que se describen en esta guía
 
-- [Instancias de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-single-index): [bases de datos únicas](single-database-overview.md) y [grupos elásticos](elastic-pool-overview.md) en [servidores](logical-servers.md)
-- [Instancias administradas de Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index)
+- [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-single-index): [bases de datos únicas](single-database-overview.md) y [grupos elásticos](elastic-pool-overview.md) en [servidores](logical-servers.md)
+- [Instancia administrada de Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index)
 
-### <a name="sql-deployment-offers-not-covered-in-this-guide"></a>Ofertas de implementación de SQL que no se describen en esta guía
+### <a name="deployment-offers-not-covered-in-this-guide"></a>Ofertas de implementación que no se describen en esta guía
 
 - Azure SQL Data Warehouse
 - Máquinas virtuales de Azure SQL (IaaS)
@@ -60,8 +60,6 @@ A menos que se indique lo contrario, se recomienda seguir todos los procedimient
 - [Controles de seguridad NIST Special Publication 800-53](https://nvd.nist.gov/800-53): AC-5, AC-6
 - [PCI DSS](https://www.pcisecuritystandards.org/document_library): 6.3.2, 6.4.2
 
-### <a name="feedback"></a>Comentarios
-
 Tenemos previsto seguir actualizando las recomendaciones y los procedimientos recomendados que se describen aquí. Para proporcionar entradas o correcciones en este documento, use el vínculo **Comentarios** que se encuentra en la parte inferior de este artículo.
 
 ## <a name="authentication"></a>Authentication
@@ -78,7 +76,7 @@ La autenticación es el proceso por el cual se demuestra que el usuario es quien
 
 La administración de identidades central ofrece estas ventajas:
 
-- Administre cuentas de grupo y controle los permisos de usuario sin duplicar los inicios de sesión en servidores, bases de datos e instancias administradas de SQL.
+- Administre cuentas de grupo y controle los permisos de usuario sin duplicar los inicios de sesión en servidores, bases de datos e instancias administradas.
 - Administración de permisos simplificada y flexible.
 - Administración de aplicaciones a gran escala.
 
@@ -103,7 +101,7 @@ La administración de identidades central ofrece estas ventajas:
 
 - Supervise los cambios en la pertenencia a los grupos de Azure AD con los informes de actividad de auditoría de Azure AD.
 
-- En el caso de Instancia administrada de SQL, se requiere un paso aparte para crear un administrador de Azure AD.
+- En el caso de una instancia administrada, se requiere un paso aparte para crear un administrador de Azure AD.
   - Consulte el artículo [Aprovisionamiento de un administrador de Azure Active Directory para su instancia administrada](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
 > [!NOTE]
@@ -114,41 +112,41 @@ La administración de identidades central ofrece estas ventajas:
 > - El token de acceso de Azure AD se almacena en caché en el lado cliente y su vigencia depende de la configuración del token. Consulte el artículo [Vigencia de tokens configurable en Azure Active Directory](../../active-directory/develop/active-directory-configurable-token-lifetimes.md).
 > - Para encontrar instrucciones de solución de problemas con la autenticación de Azure AD, consulte el siguiente blog: [Solución de problemas de Azure AD](https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991).
 
-### <a name="multi-factor-authentication-mfa"></a>Multi-Factor Authentication (MFA)
+### <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
 
 > Se menciona en: Procedimiento n.° 2 de OSA, Control de acceso (CA) de ISO
 
-Azure Multi-Factor Authentication (MFA) ayuda a proporcionar más seguridad al requerir más de una forma de autenticación.
+Azure Multi-Factor Authentication ayuda a proporcionar más seguridad al requerir más de una forma de autenticación.
 
 **Implementación**:
 
-- [Habilite MFA](../../active-directory/authentication/concept-mfa-howitworks.md) en Azure AD mediante el Acceso condicional y use la autenticación interactiva.
+- [Habilite Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) en Azure AD mediante el acceso condicional y use la autenticación interactiva.
 
-- La alternativa es habilitar MFA para todo el dominio de AD o Azure AD.
+- La alternativa es habilitar Multi-Factor Authentication para todo el dominio de AD o Azure AD.
 
 **Procedimientos recomendados**:
 
 - Active el acceso condicional en Azure AD (requiere una suscripción Premium).
   - Consulte el artículo [Acceso condicional en Azure°AD](../../active-directory/conditional-access/overview.md).  
 
-- Cree grupos de Azure AD y habilite la Directiva de MFA para los grupos seleccionados con el Acceso condicional de Azure AD.
+- Cree grupos de Azure AD y habilite la directiva de Multi-Factor Authentication para los grupos seleccionados con el acceso condicional de Azure AD.
   - Consulte el artículo [Planeamiento de la implementación del Acceso condicional](../../active-directory/conditional-access/plan-conditional-access.md).
 
-- MFA se puede habilitar para todo Azure AD o para todo Active Directory federado con Azure AD.
+- Multi-Factor Authentication se puede habilitar para todo Azure AD o para todo Active Directory federado con Azure AD.
 
-- Use el modo de autenticación interactiva de Azure AD para Azure SQL Database e Instancia administrada de SQL, donde se solicita una contraseña de manera interactiva seguida de la autenticación de MFA:
-  - Use la autenticación universal en SSMS. Consulte el artículo [Uso de la autenticación de Multi-Factor Authentication de AAD con Azure SQL Database, Instancia administrada de SQL y Azure Synapse (compatibilidad de SSMS con MFA)](authentication-mfa-ssms-overview.md).
+- Use el modo de autenticación interactiva de Azure AD para Azure SQL Database y Azure SQL Managed Instance, donde se solicita una contraseña de manera interactiva, seguida de la autenticación de Multi-Factor Authentication:
+  - Use la autenticación universal en SSMS. Consulte el artículo [Uso de la autenticación multifactor de Azure AD con Azure SQL Database, SQL Managed Instance y Azure Synapse (compatibilidad de SSMS con Multi-Factor Authentication)](authentication-mfa-ssms-overview.md).
   - Use la autenticación interactiva admitida en SQL Server Data Tools (SSDT). Consulte el artículo [Compatibilidad de Azure Active Directory con SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory?view=azuresqldb-current).
-  - Use otras herramientas de SQL compatibles con MFA.
+  - Use otras herramientas de SQL que admitan Multi-Factor Authentication.
     - Compatibilidad con el Asistente de SSMS para exportar, extraer e implementar una base de datos  
     - [sqlpackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage): opción "/ua"
     - [Utilidad sqlcmd ](https://docs.microsoft.com/sql/tools/sqlcmd-utility): opción -G (interactiva)
     - [Utilidad bcp](https://docs.microsoft.com/sql/tools/bcp-utility): opción -G (interactiva)
 
-- Implemente las aplicaciones para conectarse a Azure SQL Database o Instancia administrada de SQL mediante la autenticación interactiva con compatibilidad con MFA.
+- Implemente las aplicaciones para conectarse a Azure SQL Database o Azure SQL Managed Instance mediante la autenticación interactiva con compatibilidad con Multi-Factor Authentication.
   - Consulte el artículo [Conexión a Azure SQL Database con Azure Multi-factor Authentication](active-directory-interactive-connect-azure-sql-db.md).
   > [!NOTE]
-  > Este modo de autenticación requiere identidades basadas en el usuario. En los casos en los que se usa un modelo de identidad de confianza que omite la autenticación de usuario individual de Azure AD (por ejemplo, mediante la identidad administrada para recursos de Azure), MFA no se aplica.
+  > Este modo de autenticación requiere identidades basadas en el usuario. En los casos en los que se usa un modelo de identidad de confianza que omite la autenticación de usuario individual de Azure AD (por ejemplo, mediante la identidad administrada para recursos de Azure), Multi-Factor Authentication no se aplica.
 
 ### <a name="minimize-the-use-of-password-based-authentication-for-users"></a>Minimización del uso de la autenticación de usuarios basada en contraseñas
 
@@ -178,7 +176,7 @@ Los métodos de autenticación basados en contraseña son una forma menos segura
 - Use [identidades administradas para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md).
   - [Identidad administrada asignada por el sistema](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md)
   - [Identidad administrada asignada por el usuario](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
-  - [Uso de Azure SQL Database desde App Service con identidad administrada (sin cambios de código)](https://github.com/Azure-Samples/app-service-msi-entityframework-dotnet)
+  - [Uso de Azure SQL Database desde Azure App Service con identidad administrada (sin cambios de código)](https://github.com/Azure-Samples/app-service-msi-entityframework-dotnet)
 
 - Use la autenticación basada en certificados para una aplicación.
   - Consulte este [ejemplo de código](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/security/azure-active-directory-auth/token).
@@ -192,7 +190,7 @@ En caso de que no se puedan evitar las contraseñas, asegúrese de que estén pr
 
 **Implementación**:
 
-- Use Azure Key Vault para almacenar contraseñas y secretos. Siempre que sea aplicable, use MFA para Azure SQL Database con usuarios de Azure AD.
+- Use Azure Key Vault para almacenar contraseñas y secretos. Siempre que sea aplicable, use Multi-Factor Authentication para Azure SQL Database con usuarios de Azure AD.
 
 **Procedimientos recomendados**:
 
@@ -294,7 +292,7 @@ La separación de tareas, que también se denomina "separación de obligaciones"
 
 - Cree roles según los grupos de usuarios necesarios y asigne permisos a los roles.
   - En el caso de las tareas en el nivel de administración en Azure Portal o a través de la automatización de PowerShell, use los roles de RBAC. Busque un rol integrado que coincida con el requisito o cree un rol de RBAC personalizado con los permisos disponibles.
-  - Cree roles de servidor para las tareas de servidor (crear inicios de sesión y bases de datos) en una Instancia administrada de SQL.
+  - Cree roles de servidor para las tareas de servidor (crear inicios de sesión y bases de datos) en una instancia administrada.
   - Cree roles de base de datos para las tareas en el nivel de base de datos.
 
 - En el caso de ciertas tareas confidenciales, considere la posibilidad de crear procedimientos almacenados especiales firmados por un certificado para ejecutar las tareas en nombre de los usuarios. Una ventaja importante de los procedimientos almacenados firmados digitalmente es que, si se cambia el procedimiento, se quitan inmediatamente los permisos concedidos a la versión anterior del procedimiento.
@@ -337,7 +335,7 @@ La separación de tareas, que también se denomina "separación de obligaciones"
 
 En el caso de los lectores que quieran profundizar en SoD, se recomiendan los recursos siguientes:
 
-- Para Azure SQL Database e Instancia administrada de SQL:  
+- Para Azure SQL Database y SQL Managed Instance:  
   - [Control y concesión de acceso a bases de datos](logins-create-manage.md)
   - [Motor Separación de tareas para el desarrollador de aplicaciones](https://docs.microsoft.com/previous-versions/sql/sql-server-2008/cc974525(v=sql.100))
   - [Separación de obligaciones](https://www.microsoft.com/download/details.aspx?id=39269)
@@ -400,7 +398,7 @@ El cifrado en reposo es la protección criptográfica de los datos cuando persis
 **Implementación**:
 
 - El [Cifrado de datos transparente (TDE)](transparent-data-encryption-tde-overview.md) con claves administradas por el servicio están habilitadas de manera predeterminada para todas las bases de datos creadas después de 2017 en Azure SQL Database e Instancia administrada de SQL.
-- En Instancia administrada de SQL, si la base de datos se crea a partir de una operación de restauración mediante un servidor local, se respetará la configuración de TDE de la base de datos original. Si la base de datos original no tiene habilitado TDE, se recomienda que TDE se active manualmente para la Instancia administrada de SQL.
+- En una instancia administrada, si la base de datos se crea a partir de una operación de restauración mediante un servidor local, se respetará la configuración de TDE de la base de datos original. Si la base de datos original no tiene habilitado TDE, se recomienda que TDE se active manualmente para la instancia administrada.
 
 **Procedimientos recomendados**:
 
@@ -468,7 +466,7 @@ Al usar CLE:
 
 Tenga en cuenta que Always Encrypted está diseñado principalmente para proteger los datos confidenciales en uso de los usuarios con privilegios elevados de Azure SQL Database (operadores de nube, DBA). Consulte [Protección de datos confidenciales en uso de usuarios no autorizados con privilegios elevados](#protect-sensitive-data-in-use-from-high-privileged-unauthorized-users). Tenga en cuenta los siguientes desafíos al usar Always Encrypted para proteger los datos de los usuarios de la aplicación:
 
-- De manera predeterminada, todos los controladores cliente de Microsoft que admiten Always Encrypted mantienen una caché global (una por aplicación) de claves de cifrado de columnas. Una vez que un controlador cliente adquiere una clave de cifrado de columna de texto no cifrado poniéndose en contacto con un almacén de claves que contiene una clave maestra de columna, la clave de cifrado de columna de texto no cifrado se almacena en caché. Esto dificulta el aislamiento de los datos de los usuarios de una aplicación de varios usuarios. Si la aplicación suplanta a los usuarios finales al interactuar con un almacén de claves (como Azure Key Vault), una vez que la consulta de un usuario rellena la memoria caché con una clave de cifrado de columna, una consulta posterior que requiera la misma clave, pero que la desencadene otro usuario, utilizará el clave almacenada en caché. El controlador no llamará al almacén de claves y no comprobará si el segundo usuario tiene permiso de acceso a la clave de cifrado de columna. Como resultado, el usuario podrá ver los datos cifrados aunque no tenga acceso a las claves. Para lograr el aislamiento de usuarios en una aplicación de varios usuarios, puede deshabilitar el almacenamiento en caché de claves de cifrado de columna. Al deshabilitar el almacenamiento en caché, se producirán sobrecargas de rendimiento adicionales, ya que el controlador deberá ponerse en contacto con el almacén de claves para cada operación de cifrado o descifrado de datos.
+- De manera predeterminada, todos los controladores cliente de Microsoft que admiten Always Encrypted mantienen una caché global (una por aplicación) de claves de cifrado de columnas. Una vez que un controlador cliente adquiere una clave de cifrado de columna de texto no cifrado poniéndose en contacto con un almacén de claves que contiene una clave maestra de columna, la clave de cifrado de columna de texto no cifrado se almacena en caché. Esto dificulta el aislamiento de los datos de los usuarios de una aplicación de varios usuarios. Si la aplicación suplanta a los usuarios finales al interactuar con un almacén de claves (como Azure Key Vault), una vez que la consulta de un usuario rellena la memoria caché con una clave de cifrado de columna, una consulta posterior que requiera la misma clave, pero que la desencadene otro usuario, utilizará el clave almacenada en caché. El controlador no llamará al almacén de claves y no comprobará si el segundo usuario tiene permiso de acceso a la clave de cifrado de columna. Como resultado, el usuario puede ver los datos cifrados aunque no tenga acceso a las claves. Para lograr el aislamiento de usuarios en una aplicación de varios usuarios, puede deshabilitar el almacenamiento en caché de claves de cifrado de columna. Al deshabilitar el almacenamiento en caché, se producirán sobrecargas de rendimiento adicionales, ya que el controlador deberá ponerse en contacto con el almacén de claves para cada operación de cifrado o descifrado de datos.
 
 ### <a name="protect-data-against-unauthorized-viewing-by-application-users-while-preserving-data-format"></a>Protección de datos contra la visualización no autorizada por parte de los usuarios de la aplicación al tiempo que se conserva el formato de los datos
 
@@ -503,7 +501,7 @@ Procedimientos recomendados para impedir que las máquinas cliente y las aplicac
 
 **Implementación**:
 
-- Asegúrese de que las máquinas cliente que se conectan a Azure SQL Database e Instancia administrada de SQL usan la [Seguridad de la capa de transporte (TLS)](security-overview.md#transport-layer-security-tls-encryption-in-transit).
+- Asegúrese de que las máquinas cliente que se conectan a Azure SQL Database e Instancia administrada de SQL usan la [Seguridad de la capa de transporte (TLS)](security-overview.md#transport-layer-security-encryption-in-transit).
 
 **Procedimientos recomendados**:
 
@@ -534,30 +532,30 @@ En SQL Database:
 - Utilice puntos de conexión de servicio de red virtual y reglas de firewall de red virtual.
 - Use Private Link (versión preliminar).
 
-En Instancia administrada de SQL:
+En SQL Managed Instance:
 
 - Siga las instrucciones que aparece en [Requisitos de red](../managed-instance/connectivity-architecture-overview.md#network-requirements).
 
 **Procedimientos recomendados**:
 
 - Restringir el acceso a Azure SQL Database e Instancia administrada de SQL mediante la conexión en un punto de conexión privado (por ejemplo, mediante una ruta de acceso a datos privada):
-  - Una Instancia administrada de SQL se puede aislar dentro de una red virtual para evitar el acceso externo. Las aplicaciones y herramientas que residen en la misma red virtual o en una red virtual emparejada en la misma región podrían acceder a ella directamente. Las aplicaciones y herramientas que se encuentran en una región distinta podrían usar la conexión de red virtual a red virtual o el emparejamiento de circuito ExpressRoute para establecer la conexión. El cliente debe usar los grupos de seguridad de red (NSG) para restringir el acceso a través del puerto 1433 solo a los recursos que requieren acceso a una instancia administrada.
+  - Una instancia administrada se puede aislar dentro de una red virtual para evitar el acceso externo. Las aplicaciones y herramientas que se encuentran en la misma red virtual o en una red virtual emparejada en la misma región podrían acceder a ella directamente. Las aplicaciones y herramientas que se encuentran en una región distinta podrían usar la conexión de red virtual a red virtual o el emparejamiento de circuito ExpressRoute para establecer la conexión. El cliente debe usar los grupos de seguridad de red (NSG) para restringir el acceso a través del puerto 1433 solo a los recursos que requieren acceso a una instancia administrada.
   - Para una instancia de SQL Database, use la característica [Private Link](../../private-link/private-endpoint-overview.md), que proporciona una dirección IP privada dedicada para el servidor dentro de la red virtual. También puede usar [puntos de conexión de servicio de red virtual con reglas de firewall de red virtual](vnet-service-endpoint-rule-overview.md) para restringir el acceso a los servidores.
   - Los usuarios móviles deben usar conexiones VPN de punto a sitio para conectarse a través de la ruta de acceso a los datos.
   - Los usuarios conectados a su red local deben usar la conexión VPN de sitio a sitio o ExpressRoute para conectarse a través de la ruta de acceso a los datos.
 
 - Puede acceder a Azure SQL Database e Instancia administrada de SQL mediante la conexión a un punto de conexión público (por ejemplo, mediante una ruta de acceso a datos pública). Se deben tener en cuenta los procedimientos recomendados siguientes:
   - Para un servidor de SQL Database, use las [reglas de firewall de IP](firewall-configure.md) para restringir el acceso solo a direcciones IP autorizadas.
-  - En el caso de una Instancia administrada de SQL, use los grupos de seguridad de red (NSG) para restringir el acceso a través del puerto 3342 solo a los recursos necesarios. Para más información, consulte [Uso de una Instancia administrada de Azure SQL de forma segura con puntos de conexión públicos](../managed-instance/public-endpoint-overview.md).
+  - En el caso de SQL Managed Instance, use los grupos de seguridad de red (NSG) para restringir el acceso a través del puerto 3342 solo a los recursos necesarios. Para obtener más información, consulte [Uso de una instancia administrada de forma segura con puntos de conexión públicos](../managed-instance/public-endpoint-overview.md).
 
 > [!NOTE]
-> Un punto de conexión público de Instancia administrada de SQL no está habilitado de manera predeterminada y debe habilitarse explícitamente. Si la directiva de la empresa no permite usar puntos de conexión públicos, use [Azure Policy](../../governance/policy/overview.md) para impedir que se habiliten los puntos de conexión públicos en primer lugar.
+> El punto de conexión público de SQL Managed Instance no está habilitado de forma predeterminada y debe habilitarse explícitamente. Si la directiva de la empresa no permite usar puntos de conexión públicos, use [Azure Policy](../../governance/policy/overview.md) para impedir que se habiliten los puntos de conexión públicos en primer lugar.
 
 - Configure los componentes de Redes:
   - Siga los [Procedimientos recomendados de seguridad de la red de Azure](../../security/fundamentals/network-best-practices.md).
-  - Planee la configuración de las redes virtuales (VNet) según los procedimientos recomendados que se describen en las [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](../../virtual-network/virtual-networks-faq.md).
-  - Segmente una red virtual en varias subredes y asigne recursos para un rol similar a la misma subred (por ejemplo, recursos front-end en comparación con recursos back-end).
-  - Use los [Grupos de seguridad de red (NSG)](../../virtual-network/security-overview.md) para controlar el tráfico entre las subredes dentro del límite de la red virtual de Azure.
+  - Planee la configuración de las redes virtuales según los procedimientos recomendados que se describen en las [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](../../virtual-network/virtual-networks-faq.md).
+  - Segmente una red virtual en varias subredes y asigne recursos para un rol similar a la misma subred (por ejemplo, recursos front-end frente a recursos back-end).
+  - Use los [grupos de seguridad de red (NSG)](../../virtual-network/security-overview.md) para controlar el tráfico entre las subredes dentro del límite de la red virtual de Azure.
   - Habilite [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) de su suscripción para supervisar el tráfico de red entrante y saliente.
 
 ### <a name="configure-power-bi-for-secure-connections-to-sql-databasesql-managed-instance"></a>Configuración de Power BI para proteger las conexiones a Azure SQL Database o Instancia administrada de SQL
@@ -578,19 +576,19 @@ En Instancia administrada de SQL:
 
 - En el caso de una aplicación web simple, la conexión a través de un punto de conexión público requiere que la opción **Allow Azure Services** (Permitir servicios de Azure) esté establecida en ON.
 
-- [Integre su aplicación con una instancia de Azure Virtual Network](../../app-service/web-sites-integrate-with-vnet.md) para la conectividad de la ruta de acceso a datos privada con una Instancia administrada de SQL. De manera opcional, también puede implementar una aplicación web con instancias de [App Service Environment (ASE)](../../app-service/environment/intro.md).
+- [Integre su aplicación con una instancia de Azure Virtual Network](../../app-service/web-sites-integrate-with-vnet.md) para la conectividad de la ruta de acceso a datos privada con una instancia administrada. De manera opcional, también puede implementar una aplicación web con instancias de [App Service Environment (ASE)](../../app-service/environment/intro.md).
 
 - En el caso de la aplicación web con ASE o la aplicación web integrada de red virtual con conexión a una base de datos en SQL Database, puede usar los [puntos de conexión de servicio de red virtual y las reglas de firewall de red virtual](vnet-service-endpoint-rule-overview.md) para limitar el acceso desde una red virtual y una subred específicas. A continuación, establezca **Allow Azure Services** (Permitir servicios de Azure) en OFF. También puede conectar ASE a una instancia administrada en Instancia administrada de SQL a través de una ruta de acceso a datos privada.  
 
-- Asegúrese de que la aplicación web está configurada según el artículo [Procedimientos recomendados para proteger aplicaciones web y móviles PaaS con Azure App Service](../../security/fundamentals/paas-applications-using-app-services.md).
+- Asegúrese de que la aplicación web está configurada según el artículo [Procedimientos recomendados para proteger aplicaciones web y móviles de plataforma como servicio (PaaS) con Azure App Service](../../security/fundamentals/paas-applications-using-app-services.md).
 
 - Instale [Firewall de aplicaciones web (WAF)](../../web-application-firewall/ag/ag-overview.md) para proteger la aplicación web de vulnerabilidades y aprovechamientos comunes.
 
-### <a name="configure-azure-vm-hosting-for-secure-connections-to-sql-databasesql-managed-instance"></a>Configuración del hospedaje de VM de Azure para proteger las conexiones a SQL Database o Instancia administrada de SQL
+### <a name="configure-azure-virtual-machine-hosting-for-secure-connections-to-sql-databasesql-managed-instance"></a>Configuración del hospedaje de máquina virtual de Azure para proteger las conexiones a SQL Database o SQL Managed Instance
 
 **Procedimientos recomendados**:
 
-- Use una combinación de reglas de permiso y denegación en los grupos de seguridad de red de las máquinas virtuales de Azure para controlar a qué regiones se puede tener acceso desde la máquina virtual.
+- Use una combinación de reglas de permiso y denegación en los grupos de seguridad de red de las máquinas virtuales de Azure para controlar a qué regiones se puede acceder desde la máquina virtual.
 
 - Asegúrese de que la máquina virtual está configurada según el artículo [Procedimientos de seguridad recomendados para cargas de trabajo de IaaS de Azure](../../security/fundamentals/iaas.md).
 
@@ -602,9 +600,9 @@ En Instancia administrada de SQL:
 
 - Implemente [Rutas predeterminadas opcionales](../../virtual-network/virtual-networks-udr-overview.md#optional-default-routes) si usa el emparejamiento o la conexión al entorno local.
 
-- Implemente [Rutas definidas por el usuario](../../virtual-network/virtual-networks-udr-overview.md#user-defined) si necesita enviar todo el tráfico de la red virtual a una aplicación virtual de red para la inspección de paquetes.
+- Implemente [rutas definidas por el usuario](../../virtual-network/virtual-networks-udr-overview.md#user-defined) si necesita enviar todo el tráfico de la red virtual a una aplicación virtual de red para la inspección de paquetes.
 
-- Use [Puntos de conexión de servicio de red virtual](vnet-service-endpoint-rule-overview.md) para el acceso seguro a los servicios de PaaS como Azure Storage a través de la red troncal de Azure.
+- Use [puntos de conexión de servicio de red virtual](vnet-service-endpoint-rule-overview.md) para el acceso seguro a los servicios de PaaS, como Azure Storage, a través de la red troncal de Azure.
 
 ### <a name="protect-against-distributed-denial-of-service-ddos-attacks"></a>Protección contra ataques de denegación de servicio distribuido (DDoS)
 
@@ -666,7 +664,7 @@ El seguimiento de los eventos de base de datos ayuda a comprender la actividad d
 **Procedimientos recomendados**:
 
 - Al configurar [Auditoría de SQL Database](../../azure-sql/database/auditing-overview.md) en el servidor o [Auditoría de Instancia administrada](../managed-instance/auditing-configure.md) para auditar los eventos, se auditarán todas las bases de datos existentes y recién creadas en ese servidor.
-- De manera predeterminada, la directiva de auditoría incluye todas las acciones (consultas, procedimientos almacenados e inicios de sesión correctos y erróneos) en las bases de datos, lo que puede dar lugar a un gran volumen de registros de auditoría. Se recomienda a los clientes [configurar la auditoría para diferentes tipos de acciones y grupos de acciones mediante PowerShell](../../sql-database/sql-database-auditing.md#manage-auditing). Configurarla ayudará a controlar el número de acciones auditadas y a minimizar el riesgo de pérdida de eventos. La configuración de auditoría personalizada permite a los clientes capturar solo los datos de auditoría necesarios.
+- De manera predeterminada, la directiva de auditoría incluye todas las acciones (consultas, procedimientos almacenados e inicios de sesión correctos y erróneos) en las bases de datos, lo que puede dar lugar a un gran volumen de registros de auditoría. Se recomienda a los clientes [configurar la auditoría para diferentes tipos de acciones y grupos de acciones mediante PowerShell](../../sql-database/sql-database-auditing.md#manage-auditing). Configurarla ayudará a controlar el número de acciones auditadas y a minimizar el riesgo de pérdida de eventos. Las configuraciones de auditoría personalizadas permiten a los clientes capturar solo los datos de auditoría necesarios.
 - Los registros de auditoría se pueden consumir directamente en [Azure Portal](https://portal.azure.com/) o desde la ubicación de almacenamiento que se configuró.
 
 > [!NOTE]
@@ -728,7 +726,7 @@ Detecte las columnas que posiblemente contengan datos confidenciales. Lo que se 
 - Use [Clasificación y detección de datos de SQL](data-discovery-and-classification-overview.md) para detectar, clasificar, etiquetar y proteger los datos confidenciales en las bases de datos.
   - Vea las recomendaciones de clasificación creadas por la detección automatizada en el panel Clasificación y detección de datos SQL. Acepte las clasificaciones pertinentes, de modo que los datos confidenciales se etiqueten de forma persistente con las etiquetas de clasificación.
   - Agregue manualmente las clasificaciones para los campos de datos confidenciales adicionales que no haya descubierto el mecanismo automatizado.
-- Para más información, consulte [Clasificación y detección de datos de SQL](https://docs.microsoft.com/sql/relational-databases/security/sql-data-discovery-and-classification).
+- Para obtener más información, consulte [Clasificación y detección de datos de SQL](https://docs.microsoft.com/sql/relational-databases/security/sql-data-discovery-and-classification).
 
 **Procedimientos recomendados**:
 
@@ -745,7 +743,7 @@ Supervise quién tiene acceso a los datos confidenciales y capture consultas sob
 **Implementación**:
 
 - Use la auditoría de SQL y la clasificación de datos en combinación.
-  - En el registro de [auditoría de SQL Database](../../azure-sql/database/auditing-overview.md), puede realizar un seguimiento del acceso a datos confidenciales específicamente. También puede ver información, como los datos a los que se accedió, así como su etiqueta de confidencialidad. Para más información, consulte [Clasificación y detección de datos](data-discovery-and-classification-overview.md) y [Auditoría del acceso a datos confidenciales](data-discovery-and-classification-overview.md#audit-sensitive-data).
+  - En el registro de [auditoría de SQL Database](../../azure-sql/database/auditing-overview.md), puede realizar un seguimiento del acceso a datos confidenciales específicamente. También puede ver información, como los datos a los que se accedió, así como su etiqueta de confidencialidad. Para obtener más información, consulte [Clasificación y detección de datos](data-discovery-and-classification-overview.md) y [Auditoría del acceso a datos confidenciales](data-discovery-and-classification-overview.md#audit-sensitive-data).
 
 **Procedimientos recomendados**:
 
@@ -755,7 +753,7 @@ Supervise quién tiene acceso a los datos confidenciales y capture consultas sob
 
 ### <a name="visualize-security-and-compliance-status"></a>Visualización del estado de la seguridad y del cumplimiento
 
-Use un sistema de administración de la seguridad de infraestructura unificada que refuerce la posición de seguridad de los centros de datos (incluidas las bases de datos SQL). Vea una lista de recomendaciones sobre la seguridad de las bases de datos y el estado de cumplimiento.
+Use un sistema de administración de la seguridad de infraestructura unificada que refuerce la posición de seguridad de los centros de datos (incluidas las bases de datos de SQL Database). Vea una lista de recomendaciones sobre la seguridad de las bases de datos y el estado de cumplimiento.
 
 **Implementación**:
 
@@ -784,17 +782,17 @@ En la actualidad, Azure SQL Database e Instancia administrada de SQL ofrecen l
   - Establezca Allow Azure Services (Permitir servicios de Azure) en OFF.
   - Permita solo el tráfico desde la subred que contiene la máquina virtual de Azure mediante la configuración de una regla de firewall de red virtual.
   - Use [Private Link](../../private-link/private-endpoint-overview.md).
-- En el caso de Instancia administrada de SQL, el uso del acceso IP privado de manera predeterminada aborda la primera preocupación relacionada con la filtración de datos de una VM no autorizada. Active la característica de delegación de subred en una subred para establecer automáticamente la directiva más restrictiva en una subred de Instancia administrada de SQL.
-- El problema de DBA no autorizado se expone más con una Instancia administrada de SQL, ya que tiene un área expuesta mayor y los requisitos de red son visibles para los clientes. La mejor mitigación para esto es aplicar todos los procedimientos de esta guía de seguridad para evitar en primer lugar el escenario de un DBA no autorizado (no solo para la filtración de datos). Always Encrypted es un método para proteger los datos confidenciales mediante su cifrado e impidiendo que el DBA pueda acceder a la clave.
+- En el caso de SQL Managed Instance, el uso del acceso IP privado de manera predeterminada aborda la primera preocupación relacionada con la filtración de datos de una máquina virtual no autorizada. Active la característica de delegación de subred en una subred para establecer automáticamente la directiva más restrictiva en una subred de Instancia administrada de SQL.
+- El problema de DBA no autorizado se expone más con SQL Managed Instance, ya que tiene un área expuesta mayor y los requisitos de red son visibles para los clientes. La mejor mitigación para esto es aplicar todos los procedimientos de esta guía de seguridad para evitar en primer lugar el escenario de un DBA no autorizado (no solo para la filtración de datos). Always Encrypted es un método para proteger los datos confidenciales mediante su cifrado e impidiendo que el DBA pueda acceder a la clave.
 
 ## <a name="security-aspects-of-business-continuity-and-availability"></a>Aspectos de seguridad de la disponibilidad y continuidad empresarial
 
 La mayoría de los estándares de seguridad abordan la disponibilidad de los datos en términos de la continuidad operativa, gracias a la implementación de funcionalidades de redundancia y conmutación por error para evitar únicos puntos de error. En escenarios de desastre, un procedimiento común es mantener copias de seguridad de los archivos de datos y de registro. En la sección siguiente se proporciona información general de alto nivel sobre las funcionalidades integradas en Azure. También se proporcionan opciones adicionales que se pueden configurar para satisfacer necesidades específicas:
 
-- Azure ofrece alta disponibilidad integrada: [Alta disponibilidad con SQL Database e Instancia administrada de SQL](high-availability-sla.md)
+- Azure ofrece alta disponibilidad integrada: [Alta disponibilidad con SQL Database y SQL Managed Instance](high-availability-sla.md)
 
 - El nivel Crítico para la empresa incluye grupos de conmutación por error, zonas de disponibilidad múltiple, copias de seguridad de registros completas y diferenciales y copias de seguridad de restauración a un momento dado habilitadas de forma predeterminada:  
-  - [Alta disponibilidad - Configuración de redundancia de zona](high-availability-sla.md#zone-redundant-configuration)
+  - [Alta disponibilidad: configuración de redundancia de zona](high-availability-sla.md#zone-redundant-configuration)
   - [Copias de seguridad automatizadas](automated-backups-overview.md)
   - [Recuperación de una base de datos mediante copias de seguridad automatizadas de base de datos - Restauración a un momento dado](recovery-using-backups.md#point-in-time-restore)
 

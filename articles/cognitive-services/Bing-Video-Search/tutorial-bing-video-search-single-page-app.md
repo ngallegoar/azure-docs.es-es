@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Compilación de una aplicación de página única de Bing Video Search'
+title: 'Tutorial: Compilación de una aplicación de Bing Video Search de página única'
 titleSuffix: Azure Cognitive Services
 description: En este tutorial se indica cómo utilizar Bing Video Search API en una aplicación web de una sola página.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: bing-video-search
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
-ms.openlocfilehash: fb989825ed27cc83c14c36e6394e37ae2db2c12a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: c6e36bdbb3d58878e6afa28610ab2b214f47de20
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76988267"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800732"
 ---
-# <a name="tutorial-single-page-video-search-app"></a>Tutorial: Aplicación Video Search de página única
+# <a name="tutorial-single-page-video-search-app"></a>Tutorial: Aplicación de Video Search de página única
 Bing Video Search API permite buscar en la Web y obtener resultados de vídeo correspondientes a la consulta de búsqueda. En este tutorial, crearemos una aplicación web de una sola página que usa Bing Video Search API para mostrar los resultados de la búsqueda en la página. La aplicación incluye componentes HTML, CSS y JavaScript.
 
 <!-- Remove until it can be replaced with a sanitized version.
@@ -393,15 +393,18 @@ Para fines de desarrollo, puede realizar la solicitud de Bing Web Search API a t
 
 Es fácil instalar un proxy CORS para permitir que nuestra aplicación de tutorial acceda al encabezado de identificador de cliente. En primer lugar, si aún no lo tiene, [instale Node.js](https://nodejs.org/en/download/). Escriba el comando siguiente en una ventana de comandos:
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-A continuación, cambie el punto de conexión de Bing Web Search del archivo HTML a:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+A continuación, cambie el punto de conexión de Bing Web Search en el archivo HTML a:\
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Por último, inicie el proxy CORS con el siguiente comando:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Deje abierta la ventana de comandos mientras usa la aplicación del tutorial, ya que si la cierra, se detendrá el proxy. En la sección de encabezados HTTP expandibles situada bajo los resultados de la búsqueda, puede ver el encabezado `X-MSEdge-ClientID` (entre otras cosas) y comprobar que es el mismo en todas las solicitudes.
 

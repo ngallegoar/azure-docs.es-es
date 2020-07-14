@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: e24e78d5661c2fbb60a96c2fb6d6192ffade9579
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 2a03b791f37868010e107214ddcb7cf42174e4e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82159701"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833560"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Creación de un ASE de un ILB mediante las plantillas de Azure Resource Manager
 
@@ -40,12 +40,14 @@ La mayoría de los parámetros del archivo *azuredeploy.parameters.json* son com
 * *dnsSuffix*:  este parámetro define el dominio raíz predeterminado que se asignará al ASE.  En la variación pública de Azure App Service, el dominio raíz predeterminado de todas las aplicaciones web es *azurewebsites.net*.  Sin embargo, dado que un ASE de ILB está dentro de la red virtual de un cliente, no tiene sentido utilizar el dominio raíz predeterminado del servicio público.  En su lugar, un ASE de ILB debe tener un dominio raíz predeterminado que tenga sentido usar en la red virtual interna de una compañía.  Por ejemplo, una empresa hipotética, Contoso Corporation, puede usar el dominio raíz predeterminado *interno contoso.com* para aquellas aplicaciones que se pretende que solo se puedan resolver en la red virtual de Contoso, y a las que solo se pueda acceder desde ella. 
 * *ipSslAddressCount*:  el valor predeterminado de este parámetro se establece en 0 automáticamente y se puede encontrar en el archivo *azuredeploy.json*, ya que los ASE de ILB solo tienen una dirección de ILB individual.  No hay direcciones IP-SSL explícitas para un ASE de ILB y, por consiguiente, el grupo de direcciones IP SSL de un ASE de ILB debe establecerse en cero, ya que, de lo contrario, se producirá un error de aprovisionamiento. 
 
-Una vez que se haya rellenado el archivo *azuredeploy.parameters.json* de un ASE de ILB, este puede crearse mediante el siguiente fragmento de código de Powershell.  Cambie las carpetas PATH del archivo para que coincidan con la ubicación de la máquina en la que se encuentran los archivos de plantilla de Azure Resource Manager.  Recuerde también especificar sus propios valores para el nombre de implementación y el nombre del grupo de recursos de Azure Resource Manager.
+Una vez que se haya rellenado el archivo *azuredeploy.parameters.json* de un ASE de ILB, este se puede crear mediante el siguiente fragmento de código de PowerShell.  Cambie las rutas de acceso de archivo para que coincidan con los archivos de plantilla de Azure Resource Manager del equipo.  Recuerde también especificar sus propios valores para el nombre de implementación y el nombre del grupo de recursos de Azure Resource Manager.
 
-    $templatePath="PATH\azuredeploy.json"
-    $parameterPath="PATH\azuredeploy.parameters.json"
+```azurepowershell-interactive
+$templatePath="PATH\azuredeploy.json"
+$parameterPath="PATH\azuredeploy.parameters.json"
 
-    New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+```
 
 Después que se envíe la plantilla de Azure Resource Manager el ASE de ILB tardará unas horas en crearse.  Una vez completada la creación, el ASE de ILB se mostrará en el portal, en la lista de entornos de App Service de la suscripción que desencadenó la implementación.
 
@@ -61,19 +63,21 @@ Con un certificado TLS/SSL válido, se necesitan dos pasos preparatorios adicion
 
 A continuación, el archivo .pfx resultante debe convertirse en una cadena base64, ya que el certificado TLS/SSL se cargará mediante una plantilla de Azure Resource Manager.  Dado que las plantillas de Azure Resource Manager son archivos de texto, el archivo .pfx debe convertirse en una cadena base64 para que puede incluirse como parámetro de la plantilla.
 
-El siguiente fragmento de código de Powershell muestra un ejemplo de cómo generar un certificado autofirmado, exportar el certificado como un archivo .pfx, convertir el archivo .pfx en una cadena base64 codificada y, a continuación, guardar dicha cadena en otro archivo.  El código de Powershell para la codificación en base64 se adaptó del [blog Powershell Scripts][examplebase64encoding].
+En el fragmento de código de PowerShell siguiente se muestra un ejemplo de cómo generar un certificado autofirmado, exportarlo como un archivo .pfx, convertir el archivo .pfx en una cadena codificada en base64 y, después, guardarla en otro archivo.  El código de PowerShell para la codificación en base64 se ha adaptado del [blog PowerShell Scripts][examplebase64encoding].
 
-    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
+```azurepowershell-interactive
+$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
-    $certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
-    $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
+$certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
+$password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
 
-    $fileName = "exportedcert.pfx"
-    Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
+$fileName = "exportedcert.pfx"
+Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
 
-    $fileContentBytes = get-content -encoding byte $fileName
-    $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
-    $fileContentEncoded | set-content ($fileName + ".b64")
+$fileContentBytes = get-content -encoding byte $fileName
+$fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
+$fileContentEncoded | set-content ($fileName + ".b64")
+```
 
 Una vez que el certificado TLS/SSL se ha generado y convertido correctamente en una cadena con codificación en base64, se puede usar la plantilla de Azure Resource Manager de ejemplo en GitHub para [configurar el certificado TLS/SSL predeterminado][configuringDefaultSSLCertificate].
 
@@ -83,42 +87,46 @@ Los parámetros del archivo *azuredeploy.parameters.json* se enumeran a continua
 * *existingAseLocation*:  cadena de texto que contiene la región de Azure en que se implementó el ASE de ILB.  Por ejemplo:  "Centro-sur de EE. UU."
 * *pfxBlobString*:  la representación de la cadena con codificación Base64 del archivo pfx.  Mediante el fragmento de código que se ha mostrado anteriormente, se copiaría la cadena de "exportedcert.pfx.b64" y se pegaría como el valor del atributo *pfxBlobString* .
 * *password*:  la contraseña que se usa para proteger el archivo pfx.
-* *certificateThumbprint*:  la huella digital del certificado.  Si este valor se recupera de Powershell (por ejemplo, *$certificate.Thumbprint* del fragmento de código anterior), se puede usar tal cual.  Sin embargo, si copia el valor del cuadro de diálogo del certificado de Windows, no olvide eliminar los espacios superfluos.  El elemento *certificateThumbprint* debe ser similar a:  AF3143EB61D43F6727842115BB7F17BBCECAECAE
+* *certificateThumbprint*:  la huella digital del certificado.  Si este valor se recupera de PowerShell (por ejemplo, *$certificate.Thumbprint* en el fragmento de código anterior), se puede usar tal cual.  Sin embargo, si copia el valor del cuadro de diálogo del certificado de Windows, no olvide eliminar los espacios superfluos.  El elemento *certificateThumbprint* debe ser similar a:  AF3143EB61D43F6727842115BB7F17BBCECAECAE
 * *certificateName*:  es el identificador de cadena fácil de usar que elija y que se usa para identificar el certificado.  El nombre se utiliza como parte del identificador único de Azure Resource Manager para la entidad *Microsoft.Web/certificates* que representa el certificado TLS/SSL.  El nombre **debe** terminar con el sufijo siguiente: \__yourASENameHere_InternalLoadBalancingASE.  El portal utiliza este sufijo como un indicador de que el certificado se usa para asegurar un ASE habilitado para ILB.
 
 A continuación se muestra un ejemplo abreviado de *azuredeploy.parameters.json* :
 
-    {
-         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
-         "contentVersion": "1.0.0.0",
-         "parameters": {
-              "appServiceEnvironmentName": {
-                   "value": "yourASENameHere"
-              },
-              "existingAseLocation": {
-                   "value": "East US 2"
-              },
-              "pfxBlobString": {
-                   "value": "MIIKcAIBAz...snip...snip...pkCAgfQ"
-              },
-              "password": {
-                   "value": "PASSWORDGOESHERE"
-              },
-              "certificateThumbprint": {
-                   "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
-              },
-              "certificateName": {
-                   "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
-              }
-         }
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "appServiceEnvironmentName": {
+            "value": "yourASENameHere"
+        },
+        "existingAseLocation": {
+            "value": "East US 2"
+        },
+        "pfxBlobString": {
+            "value": "MIIKcAIBAz...snip...snip...pkCAgfQ"
+        },
+        "password": {
+            "value": "PASSWORDGOESHERE"
+        },
+        "certificateThumbprint": {
+            "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
+        },
+        "certificateName": {
+            "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
+        }
     }
+}
+```
 
-Una vez rellenado el archivo *azuredeploy.parameters.json*, se puede configurar el certificado TLS/SSL predeterminado mediante el siguiente fragmento de código de Powershell.  Cambie las carpetas PATH del archivo para que coincidan con la ubicación de la máquina en la que se encuentran los archivos de plantilla de Azure Resource Manager.  Recuerde también especificar sus propios valores para el nombre de implementación y el nombre del grupo de recursos de Azure Resource Manager.
+Una vez que se ha rellenado el archivo *azuredeploy.parameters.json*, se puede configurar el certificado TLS/SSL predeterminado mediante el fragmento de código de PowerShell siguiente.  Cambie las rutas de acceso de archivo para que coincidan con los archivos de plantilla de Azure Resource Manager del equipo.  Recuerde también especificar sus propios valores para el nombre de implementación y el nombre del grupo de recursos de Azure Resource Manager.
 
-    $templatePath="PATH\azuredeploy.json"
-    $parameterPath="PATH\azuredeploy.parameters.json"
+```azurepowershell-interactive
+$templatePath="PATH\azuredeploy.json"
+$parameterPath="PATH\azuredeploy.parameters.json"
 
-    New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+```
 
 Una vez que se envía la plantilla de Azure Resource Manager, se tarda unos 40 minutos en aplicar el cambio por cada front-end de ASE.  Por ejemplo, con un ASE de un tamaño predeterminado que usa dos front-ends, la plantilla tardará aproximadamente una hora y veinte minutos en completarse.  Mientras la plantilla ejecute el ASE no se podrá escalar.  
 

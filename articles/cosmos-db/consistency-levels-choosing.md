@@ -7,16 +7,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: aa8a020dc4a7e9d4e7de0671b566755e413caeb2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa8f2d14124e7cfc5db0025c295f9b38d96bf56c
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191760"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921844"
 ---
 # <a name="choose-the-right-consistency-level"></a>Selección del nivel de coherencia adecuado 
 
-Las bases de datos distribuidas que dependen de la replicación para su alta disponibilidad, su baja latencia o ambas, constituyen el compromiso fundamental entre la coherencia de lectura y la disponibilidad, la latencia y el rendimiento. La mayoría de las bases de datos distribuidas disponibles comercialmente solicitan a los desarrolladores que elijan entre los dos modelos de coherencia extrema: coherencia *alta* y *posible* coherencia. Azure Cosmos DB permite a los desarrolladores elegir entre cinco modelos de coherencia bien definidos: *alta*, de *obsolescencia limitada*, de *sesión*, de *prefijo coherente* y *final*. Cada uno de estos modelos de coherencia está bien definido, es intuitivo y puede utilizarse para escenarios específicos del mundo real. Cada uno de los cinco modelos de coherencia ofrecen [contrapartidas entre rendimiento y disponibilidad](consistency-levels-tradeoffs.md) precisas, y están respaldados por Acuerdos de Nivel de Servicio. Las siguientes consideraciones sencillas le ayudarán a tomar la decisión correcta en muchos escenarios comunes.
+Las bases de datos distribuidas que dependen de la replicación para su alta disponibilidad, su baja latencia o ambas, constituyen el compromiso fundamental entre la coherencia de lectura y la disponibilidad, la latencia y el rendimiento. La mayoría de las bases de datos distribuidas disponibles comercialmente solicitan a los desarrolladores que elijan entre los dos modelos de coherencia extrema: coherencia *alta* y *posible* coherencia. Azure Cosmos DB permite a los desarrolladores elegir entre cinco modelos de coherencia bien definidos: *alta*, de *obsolescencia limitada*, de *sesión*, de *prefijo coherente* y *final*. Cada uno de estos modelos de coherencia está bien definido, es intuitivo y puede utilizarse para escenarios específicos del mundo real. Cada uno de los cinco modelos de coherencia ofrecen [contrapartidas entre rendimiento y disponibilidad](consistency-levels-tradeoffs.md) precisas, y están respaldados por Acuerdos de Nivel de Servicio. Puede configurar una coherencia predeterminada en el nivel de cuenta e [invalidarla en el nivel de solicitud](how-to-manage-consistency.md#override-the-default-consistency-level). Las siguientes consideraciones sencillas le ayudarán a tomar la decisión correcta en muchos escenarios comunes.
 
 ## <a name="sql-api-and-table-api"></a>SQL API y Table API
 

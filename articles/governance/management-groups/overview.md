@@ -1,16 +1,16 @@
 ---
 title: 'Organización de los recursos con grupos de administración: Servicios de gobernanza de Azure'
 description: Más información sobre los grupos de administración, el funcionamiento de sus permisos y cómo utilizarlos.
-ms.date: 04/15/2020
+ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: 43c8bb2bdb71b0b75d2fcc31451952214978093c
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: b3d031b68ee7dba9c80ee0c7e97898bb8b439a47
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773158"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963689"
 ---
-# <a name="organize-your-resources-with-azure-management-groups"></a>Organización de los recursos con grupos de administración de Azure
+# <a name="what-are-azure-management-groups"></a>¿Qué son los grupos de administración de Azure?
 
 Si su organización tiene varias suscripciones, puede que necesite una manera de administrar el acceso, las directivas y el cumplimiento de esas suscripciones de forma eficaz. Los grupos de administración de Azure proporcionan un nivel de ámbito por encima de las suscripciones. Las suscripciones se organizan en contenedores llamados "grupos de administración" y aplican sus condiciones de gobernanza a los grupos de administración. Todas las suscripciones dentro de un grupo de administración heredan automáticamente las condiciones que se aplican al grupo de administración. Los grupos de administración proporcionan capacidad de administración de nivel empresarial a gran escala con independencia del tipo de suscripciones que tenga.
 Todas las suscripciones de un único grupo de administración deben confiar en el mismo inquilino de Azure Active Directory.
@@ -199,6 +199,4 @@ Para más información sobre los grupos de administración, consulte:
 
 - [Creación de grupos de administración para organizar los recursos de Azure](./create.md)
 - [Cambio, eliminación y administración de los grupos de administración](./manage.md)
-- [Revisión de grupos de administración en el módulo de recursos de Azure PowerShell](/powershell/module/az.resources#resources)
-- [Revisión de grupos de administración en la API REST](/rest/api/resources/managementgroups)
-- [Revisión de grupos de administración en la CLI de Azure](/cli/azure/account/management-group)
+- Consulte las opciones de [Procedimiento para proteger la jerarquía de recursos](./how-to/protect-resource-hierarchy.md)

@@ -3,7 +3,7 @@ title: Grupos de conmutación por error automática
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Los grupos de conmutación por error automática permiten administrar la replicación y la conmutación por error automática o coordinada de un grupo de bases de datos en un servidor o de todas las bases de datos en una instancia administrada.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 2/10/2020
-ms.openlocfilehash: d32670ba79bd526c8f53438bf348323084f99928
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 39329eb9ea2c396f8b5f04287f3e933bb6242f85
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84258579"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983013"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -229,9 +229,9 @@ Si la aplicación usa Instancia administrada de SQL como capa de datos, siga est
 Para garantizar la conectividad sin interrupciones a la Instancia administrada de SQL principal después de la conmutación por error, las instancias principales y secundarias deben estar en la misma zona DNS. Esto garantizará que se pueda usar el mismo certificado de varios dominios (SAN) para autenticar las conexiones de cliente a cualquiera de las dos instancias del grupo de conmutación por error. Cuando la aplicación esté lista para la implementación en producción, cree una Instancia administrada de SQL secundaria en una región distinta y asegúrese de que comparte la zona DNS con la Instancia administrada de SQL principal. Para ello, especifique un parámetro `DNS Zone Partner` opcional mediante Azure Portal, PowerShell o la API de REST.
 
 > [!IMPORTANT]
-> La primera Instancia administrada de SQL creada en la subred determina la zona DNS de todas las instancias posteriores de la misma subred. Esto significa que dos instancias de la misma subred no pueden pertenecer a zonas DNS diferentes.
+> La primera Instancia administrada creada en la subred determina la zona DNS de todas las instancias posteriores de la misma subred. Esto significa que dos instancias de la misma subred no pueden pertenecer a zonas DNS diferentes.
 
-Para obtener más información sobre cómo crear la Instancia administrada de SQL secundaria en la misma zona DNS que la instancia principal, consulte [Creación de una instancia administrada secundaria](../managed-instance/failover-group-add-instance-tutorial.md#3---create-a-secondary-sql-managed-instance).
+Para obtener más información sobre cómo crear la Instancia administrada de SQL secundaria en la misma zona DNS que la instancia principal, consulte [Creación de una instancia administrada secundaria](../managed-instance/failover-group-add-instance-tutorial.md#3---create-a-secondary-managed-instance).
 
 ### <a name="enabling-replication-traffic-between-two-instances"></a>Habilitación del tráfico de replicación entre dos instancias
 

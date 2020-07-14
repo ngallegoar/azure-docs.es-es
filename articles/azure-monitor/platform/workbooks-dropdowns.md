@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: f3220a363025d80fd7636dbfc3af3d2d9d7bc040
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73b6029dfe52a4b32c9a8ce092fcd284ac1ec0e7
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77658292"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965062"
 ---
 # <a name="workbook-drop-down-parameters"></a>Parámetros de lista desplegable de libros
 
@@ -48,7 +48,9 @@ La forma más fácil de especificar una lista desplegable es proporcionar una li
     ![Imagen que muestra la creación de una lista desplegable estática](./media/workbook-dropdowns/dropdown-create.png)
 
 ## <a name="creating-a-static-dropdown-with-groups-of-items"></a>Creación de una lista desplegable estática con grupos de elementos
+
 Si el resultado de la consulta o el código JSON contienen un campo "group", la lista desplegable mostrará grupos de valores. Siga el ejemplo anterior, pero use en su lugar el siguiente código JSON:
+
 ```json
 [
     { "value":"dev", "label":"Development", "group":"Development" },
@@ -59,7 +61,8 @@ Si el resultado de la consulta o el código JSON contienen un campo "group", la 
     { "value":"prod2", "label":"Prod 2", "group":"Production" }
 ]
 ```
-    ![Image showing an example of a grouped dropdown](./media/workbook-dropdowns/grouped-dropDown.png)
+
+![Imagen que muestra un ejemplo de una lista desplegable agrupada](./media/workbook-dropdowns/grouped-dropDown.png)
 
 
 ## <a name="creating-a-dynamic-drop-down-parameter"></a>Creación de un parámetro de lista desplegable dinámica
@@ -86,6 +89,7 @@ Si el resultado de la consulta o el código JSON contienen un campo "group", la 
     ![Imagen que muestra la creación de una lista desplegable dinámica](./media/workbook-dropdowns/dropdown-dynamic.png)
 
 ## <a name="referencing-drop-down-parameter"></a>Referencia a parámetro de lista desplegable
+
 ### <a name="in-kql"></a>En KQL
 1. Agregue un control de consulta al libro y seleccione un recurso de Application Insights.
 2. En el editor de KQL, escriba este fragmento de código.
@@ -122,7 +126,8 @@ dependencies
 | serialize Rank = row_number()
 | project value = name, label = strcat('🌐 ', name), selected = iff(Rank == 1, true, false), group = operation_Name
 ```
-    ![Image showing a drop-down parameter using value, label, selection and group options](./media/workbook-dropdowns/dropdown-more-options.png)
+
+![Imagen que muestra un parámetro desplegable con las opciones de valor, etiqueta, selección y grupo](./media/workbook-dropdowns/dropdown-more-options.png)
 
 
 ## <a name="drop-down-parameter-options"></a>Opciones de parámetros lista desplegable

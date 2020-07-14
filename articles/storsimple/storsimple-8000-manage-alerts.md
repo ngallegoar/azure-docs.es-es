@@ -3,15 +3,15 @@ title: Visualización y administración de alertas para dispositivos de la serie
 description: Describe las condiciones de alerta y gravedad de StorSimple, cómo configurar notificaciones de alerta y cómo usar el servicio StorSimple Device Manager para administrar las alertas.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: ff50836e1438b8d35f26ddfdf165084406f52faf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36f416183bd44180bee59142714e924e0ac8fefe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79232192"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830050"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Uso del servicio StorSimple Device Manager para ver y administrar alertas de StorSimple
 
@@ -120,6 +120,7 @@ Las siguientes tablas enumeran algunas de las alertas de Microsoft Azure StorSim
 * [Alertas de rendimiento](#performance-alerts)
 * [Alertas de seguridad](#security-alerts)
 * [Alertas de paquetes de soporte](#support-package-alerts)
+* [Alertas del entorno del contenedor](#enclosure-environment-alerts)
 
 ### <a name="cloud-connectivity-alerts"></a>Alertas de conectividad de la nube
 
@@ -137,7 +138,7 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 * **Para los datos locales en el dispositivo**: durante algún tiempo, no se producirá ninguna interrupción y las lecturas se seguirán atendiendo. Sin embargo, cuando el número de operaciones de E/S pendientes aumenta y excede el límite, las lecturas pueden comenzar a fallar.
 
     Según la cantidad de datos en el dispositivo, las escrituras seguirán también produciéndose en las primeras horas después de la interrupción de la conectividad de la nube. Las escrituras se ralentizarán y finalmente comenzarán a fallar si se interrumpe la conectividad de la nube durante varias horas. (Hay almacenamiento temporal en el dispositivo para los datos que se van a insertar en la nube. Este área se vacía cuando se envían los datos. Si se produce un error en la conectividad, los datos de este área de almacenamiento no se insertarán en la nube y se producirá un error de E/S).
-* **Para los datos en la nube**: en la mayoría de los errores de conectividad de la nube, se devuelve un error. Una vez restaurada la conectividad, se reanudarán las operaciones de E/S sin que el usuario tiene que incorporar el volumen en línea. En raras ocasiones, podría ser necesaria la intervención del usuario para recuperar el volumen en línea desde Azure Portal.
+* **Para los datos en la nube**: para la mayoría de errores de conectividad de la nube, se devuelve un error. Una vez restaurada la conectividad, se reanudarán las operaciones de E/S sin que el usuario tiene que incorporar el volumen en línea. En raras ocasiones, podría ser necesaria la intervención del usuario para recuperar el volumen en línea desde Azure Portal.
 * **Para las instantáneas de nube en curso**: la operación se reintenta varias veces en 4 o 5 horas y, si no se restaura la conectividad, se produce un error en las instantáneas de nube.
 
 ### <a name="cluster-alerts"></a>Alertas de clúster
@@ -193,7 +194,7 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 |:--- |:--- |:--- |
 | No se han podido iniciar los servicios de StorSimple. |Error de ruta de datos |Si el persiste el problema, póngase en contacto con el Soporte técnico de Microsoft. |
 | Se ha detectado una dirección IP duplicada para 'Data0'. | |El sistema ha detectado un conflicto para la dirección IP '10.0.0.1'. El recurso de red 'Data0' en el dispositivo *\<device1>* está sin conexión. Asegúrese de que ninguna otra entidad de esta red utilice esta dirección IP. Para solucionar los problemas de red, vaya a [Solución de problemas con el cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Para resolver este problema, póngase en contacto con el administrador de red. Si el persiste el problema, póngase en contacto con el Soporte técnico de Microsoft. |
-| La dirección IPv4 (o IPv6) para 'Data0' está sin conexión. | |El recurso de red 'Data0' con la dirección IP '10.0.0.1'. La longitud del prefijo '22' en el dispositivo *\<device1>* está sin conexión. Asegúrese de que los puertos de conmutador a los que está conectada esta interfaz están operativos. Para solucionar los problemas de red, vaya a [Solución de problemas con el cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| La dirección IPv4 (o IPv6) para 'Data0' está sin conexión. | |El recurso de red 'Data0' con la dirección IP '10.0.0.1'. El prefijo de longitud '22' en el dispositivo *\<device1>* está sin conexión. Asegúrese de que los puertos de conmutador a los que está conectada esta interfaz están operativos. Para solucionar los problemas de red, vaya a [Solución de problemas con el cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
 | No se pudo conectar al servicio de autenticación. |Error de ruta de datos |La dirección URL que se usa para autenticar no está accesible. Asegúrese de que las reglas de firewall incluyen los patrones de dirección URL especificados para el dispositivo StorSimple. Para más información sobre los patrones de dirección URL en Azure Portal, vaya a https:\//aka.ms/ss-8000-network-reqs. Si usa Azure Government Cloud, vaya a los modelos de dirección URL de https:\//aka.ms/ss8000-gov-network-reqs.|
 
 ### <a name="performance-alerts"></a>Alertas de rendimiento
@@ -219,7 +220,12 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 |:--- |:--- |:--- |
 | Error de creación de paquete de soporte técnico. |StorSimple no pudo generar el paquete. |Vuelva a intentarlo. Si el problema persiste, póngase en contacto con el Soporte técnico de Microsoft. Cuando haya solucionado el problema, borre esta alerta de la página de alertas. |
 
+### <a name="enclosure-environment-alerts"></a>Alertas del entorno del contenedor
+
+| Texto de la alerta | Evento | Más información / acciones recomendadas |
+|:--- |:--- |:--- |
+| El sensor de temperatura ambiente del componente de hardware informa del estado de error.  | Tipo de contenedor: Contenedor principal | Esta alerta se activa cuando la temperatura ambiente fuera de StorSimple está por encima de un rango aceptable. Compruebe la temperatura ambiente fuera del contenedor o el flujo de aire de la ventilación de AC en el centro de datos. Cuando la temperatura vuelve a ser normal, la alerta se borra automáticamente una vez transcurrido un tiempo. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Microsoft.   |
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Aprenda más sobre [los errores de StorSimple y la solución de problemas al implementar un dispositivo](storsimple-8000-troubleshoot-deployment.md).
-

@@ -3,16 +3,16 @@ title: Introducción a Azure Enterprise Portal
 description: En este artículo se explica cómo los clientes de Contrato Enterprise de Azure (Azure EA) usan Azure Enterprise Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 06/29/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 7983afa32ff8104d181fbcdc75a50d12e2240128
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 6b31f3cd8ca6baa2d20d0281de51ed83424eca17
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298115"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560365"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Introducción a Azure Enterprise Portal
 
@@ -471,6 +471,7 @@ Azure Enterprise Portal filtra las inscripciones inactivas para excluirlas. Tend
 
 ### <a name="enrollment-statuses"></a>Estados de inscripción
 
+- **Nuevo**: Este estado se asigna a una inscripción que se creó hace menos de 24 horas y que se actualizará a un estado pendiente en un plazo máximo de 24 horas.
 - **Pending**: El administrador de la inscripción debe iniciar sesión en Azure Enterprise Portal. Una vez que inicia sesión, la inscripción cambiará a estado Activa.
 - **Activa**: La inscripción está activa, y se pueden crear cuentas y suscripciones en Azure Enterprise Portal. La inscripción permanecerá activa hasta la fecha de finalización del Contrato Enterprise.
 - **Período extendido indefinido**: Un período extendido indefinido tiene lugar después de que se haya alcanzado la fecha de finalización del Contrato Enterprise. Permite a los clientes de Azure EA que participan en el período extendido seguir usando los servicios de Azure indefinidamente al final de su Contrato Enterprise.
@@ -545,7 +546,7 @@ Para realizar un seguimiento de los costos por centro de costos, debe definir el
 
 - department
 - Cuenta
-- Subscription
+- Suscripción
 
 En función de sus necesidades, puede usar el mismo centro de costos para realizar un seguimiento del uso y los costos asociados a un centro de costos en particular.
 

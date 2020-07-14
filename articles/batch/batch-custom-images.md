@@ -1,21 +1,23 @@
 ---
-title: Aprovisionamiento de un grupo personalizado a partir de una imagen administrada
-description: Cree un grupo de Batch a partir de un recurso de imagen administrada para aprovisionar los nodos de proceso con el software y los datos para su aplicación.
+title: Uso de una imagen administrada para crear un grupo de imágenes personalizadas
+description: Cree un grupo de imágenes personalizadas de Batch a partir de una imagen administrada para aprovisionar nodos de ejecución con el software y los datos para su aplicación.
 ms.topic: conceptual
-ms.date: 05/22/2020
-ms.openlocfilehash: fbb336ff9d3d53cc53004c577e291afdba7702f6
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 07/01/2020
+ms.openlocfilehash: 45bf0f8b3cb335b7025ff06189bf6bc4e0a896ad
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847997"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851285"
 ---
-# <a name="use-a-managed-image-to-create-a-pool-of-virtual-machines"></a>Uso de una imagen administrada para crear un grupo de máquinas virtuales
+# <a name="use-a-managed-image-to-create-a-custom-image-pool"></a>Uso de una imagen administrada para crear un grupo de imágenes personalizadas
 
-Para crear una imagen personalizada para las máquinas virtuales (VM) del grupo de Batch, puede usar una imagen administrada para crear una instancia de [Shared Image Gallery](batch-sig-images.md). También se admite el uso de una imagen administrada, pero solo para las versiones de API hasta el 1 de agosto de 2019 inclusive.
+Para crear un grupo de imágenes personalizadas para las máquinas virtuales (VM) del grupo de Batch, puede usar una imagen administrada para crear una [imagen de Shared Image Gallery](batch-sig-images.md). También se admite el uso de una imagen administrada, pero solo para las versiones de API hasta el 1 de agosto de 2019 inclusive. 
 
 > [!IMPORTANT]
 > En la mayoría de los casos, debe crear imágenes personalizadas mediante Shared Image Gallery. Con Shared Image Gallery, puede aprovisionar grupos más rápido, escalar cantidades más grandes de VM y mejorar la confiabilidad al aprovisionar las VM. Para más información, consulte [Uso de Shared Image Gallery para crear un grupo personalizado](batch-sig-images.md).
+
+En este tema se explica cómo crear un grupo de imágenes personalizadas a partir de una sola imagen administrada.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -26,7 +28,7 @@ Para crear una imagen personalizada para las máquinas virtuales (VM) del grupo 
 
 - **Autenticación de Azure Active Directory (Azure AD)** . La API de cliente de Batch debe utilizar la autenticación de Azure AD. La compatibilidad de Azure Batch con Azure AD se documenta en [Autenticación de soluciones de servicio de Batch con Active Directory](batch-aad-auth.md).
 
-## <a name="prepare-a-custom-image"></a>Preparación de una imagen personalizada
+## <a name="prepare-a-managed-image"></a>Preparación de una imagen administrada
 
 En Azure, puede preparar una imagen administrada a partir de:
 
@@ -57,7 +59,7 @@ Una instantánea es una copia completa de solo lectura de un disco duro virtual.
 
 Para crear una imagen administrada a partir de una instantánea, use las herramientas de la línea de comandos de Azure, como el comando [az image create](/cli/azure/image). Puede crear una imagen mediante la especificación de una instantánea del disco del sistema operativo y, opcionalmente, una o varias instantáneas de disco de datos.
 
-## <a name="create-a-pool-from-a-custom-image"></a>Creación de un grupo con una imagen personalizada
+## <a name="create-a-pool-from-a-managed-image"></a>Creación de un grupo a partir de una imagen administrada
 
 Una vez que haya encontrado el identificador de recurso de la imagen administrada, cree un grupo de imágenes personalizado a partir de esa imagen. En los pasos siguientes se muestra cómo crear un grupo de imágenes personalizadas mediante el servicio Batch o la administración de Batch.
 

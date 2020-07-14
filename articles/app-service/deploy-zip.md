@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 716f6813e37aec086a7d496e001fe2ca0f4aab57
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 32fc57e720f9c23f6ef26f02b2cd4a82c4266984
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75945175"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957042"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Implementación de una aplicación en Azure App Service con un archivo ZIP o WAR
 
@@ -28,7 +28,10 @@ Para obtener más información, consulte la [documentación de Kudu](https://git
 
 La implementación del archivo WAR implementa su archivo [WAR](https://wikipedia.org/wiki/WAR_(file_format)) en Azure App Service para ejecutar la aplicación web de Java. Consulte [Implementación de un archivo WAR](#deploy-war-file).
 
-## <a name="prerequisites"></a>Prerrequisitos
+> [!NOTE]
+> Al usar `ZipDeploy`, solo se copiarán los archivos si sus marcas de tiempo no coinciden con lo que ya se ha implementado. La generación de un archivo ZIP mediante un proceso de compilación que almacena en memoria caché los resultados puede dar lugar a implementaciones más rápidas. Consulte el tema sobre la [implementación desde un archivo ZIP o una dirección URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url) para obtener más información.
+
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar los pasos en este artículo, [cree una aplicación de App Service](/azure/app-service/) o use alguna aplicación que haya creado para otro tutorial.
 

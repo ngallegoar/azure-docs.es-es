@@ -9,17 +9,17 @@ manager: daveba
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 11/14/2019
+ms.topic: how-to
+ms.date: 06/10/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f96e70c6699fb7ce85bd1c01f72028f537f994f2
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 84b5635d934b15c7ddd289e3a9deb014361d3c94
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680306"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850174"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalación personalizada de Azure AD Connect
 Se utiliza **Configuración personalizada** de Azure AD Connect cuando se desea contar con más opciones para la instalación. Se utiliza si tiene varios bosques o si desea configurar características opcionales que no se incluyen en la instalación rápida. Se usa en todos aquellos casos en que la opción [**Instalación rápida**](how-to-connect-install-express.md) no vale para su implementación o topología.
@@ -133,7 +133,7 @@ La característica Correspondencia entre bosques permite definir cómo se repres
 | [Atributo Mail](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |Esta opción une a los usuarios y contactos si el atributo Mail tiene el mismo valor en bosques diferentes. Esta opción se utiliza cuando los contactos se han creado mediante GALSync. Si elige esta opción, no se sincronizarán con Azure AD los objetos de usuario cuyo atributo Mail no esté relleno. |
 | [ObjectSID y msExchangeMasterAccountSID/ msRTCSIP-OriginatorSid](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |Esta opción une un usuario habilitado en un bosque de cuentas con un usuario deshabilitado en un bosque de recursos. En Exchange, esta configuración se conoce como buzón vinculado. Esta opción también se puede usar si solo usa Lync y Exchange no está presente en el bosque de recursos. |
 | sAMAccountName y MailNickName |Esta opción combina atributos donde se espera que pueda encontrarse el identificador de inicio de sesión para el usuario. |
-| Un atributo específico |Esta opción le permite seleccionar su propio atributo. Si elige esta opción, no se sincronizarán con Azure AD los objetos de usuario cuyo atributo (seleccionado) no esté relleno. **Limitación:** asegúrese de seleccionar un atributo que pueda encontrarse en el metaverso. Si selecciona un atributo personalizado (que no está en el metaverso), el asistente no podrá completarse. |
+| Un atributo específico |Esta opción le permite seleccionar su propio atributo. Si elige esta opción, no se sincronizarán con Azure AD los objetos de usuario cuyo atributo (seleccionado) no esté relleno. **Limitación:** Solo los atributos que ya se encuentran en el metaverso están disponibles para esta opción. |
 
 #### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>Seleccione cómo deben identificarse los usuarios con Azure AD: delimitador de origen
 El atributo sourceAnchor es inmutable mientras siga vigente un objeto de usuario. Es la clave principal que vincula el usuario local con el usuario de Azure AD.
@@ -181,7 +181,7 @@ Esta pantalla le permite seleccionar las características opcionales para situac
 | Aplicación Azure AD y filtro de atributos |Al habilitar la aplicación Azure AD y el filtro de atributos, se puede adaptar el conjunto de atributos sincronizados. Esta opción agrega dos páginas más de configuración al asistente. Para más información, consulte [Aplicación Azure AD y filtro de atributos](#azure-ad-app-and-attribute-filtering). |
 | Sincronización de hash de contraseña |Si seleccionó la federación como solución de inicio de sesión. puede habilitar esta solución. La sincronización de hash de contraseñas se puede usar como opción de copia de seguridad. Para más información, consulte [Sincronización de hash de contraseñas](how-to-connect-password-hash-synchronization.md). </br></br>Si seleccionó la autenticación de paso a través, esta opción también se puede habilitar para garantizar la compatibilidad a los clientes heredados y como opción de respaldo. Para más información, consulte [Sincronización de hash de contraseñas](how-to-connect-password-hash-synchronization.md).|
 | escritura diferida de contraseñas |Al habilitar la escritura diferida de contraseñas, los cambios de contraseña que se originan en Azure AD se escriben en su directorio local. Para más información, consulte [Introducción a la administración de contraseñas](../authentication/quickstart-sspr.md). |
-| Escritura diferida de grupos |Si utiliza la característica **Grupos de Office 365** , estos grupos pueden estar representados en su instancia de Active Directory local. Esta opción solo está disponible si dispone de Exchange en su Active Directory local. |
+| Escritura diferida de grupos |Si utiliza la característica **Grupos de Office 365** , estos grupos pueden estar representados en su instancia de Active Directory local. Esta opción solo está disponible si dispone de Exchange en su Active Directory local. Para obtener más información, vea [Escritura diferida de grupos de Azure AD Connect](how-to-connect-group-writeback.md).|
 | Escritura diferida de dispositivos |Permite realizar una escritura diferida de objetos de dispositivo en Azure AD para su Active Directory local para escenarios de acceso condicional. Para más información, consulte [Habilitación de la escritura diferida de dispositivos](how-to-connect-device-writeback.md). |
 | Sincronización de atributos de las extensiones de directorios |Al habilitar la sincronización de atributos de las extensiones de directorios, los atributos especificados se sincronizan con Azure AD. Para más información, consulte [Extensiones de directorio](how-to-connect-sync-feature-directory-extensions.md). |
 
@@ -230,12 +230,7 @@ En un equipo que tenga las herramientas de administración de directiva de grupo
 1.  Abra las herramientas de administración de directivas de grupo.
 2.  Edite la directiva de grupo que se aplicará a todos los usuarios. Por ejemplo, la directiva de dominio predeterminada.
 3.  Vaya a **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page** y seleccione **Site to Zone Assignment List** (Lista de asignación de sitio a zona), como en la imagen siguiente.
-4.  Habilite la directiva y escriba el siguiente elemento en el cuadro de diálogo.
-
-        Value: `https://autologon.microsoftazuread-sso.com`  
-        Data: 1  
-
-
+4.  Habilite la directiva y escriba el nombre de valor `https://autologon.microsoftazuread-sso.com` y el valor `1` en el cuadro de diálogo.
 5.  Debería tener un aspecto similar al siguiente:  
 ![Zonas de intranet](./media/how-to-connect-install-custom/sitezone.png)
 

@@ -1,19 +1,18 @@
 ---
-title: Anuncios de nuevas características
-titleSuffix: Azure Cognitive Search
+title: Novedades de Azure Cognitive Search
 description: Anuncios de características nuevas y mejoradas, como el cambio de nombre del servicio Azure Search por Azure Cognitive Search.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 06/08/2020
-ms.openlocfilehash: 97defe2af5b82cccbaf289ccbd805b608b978a43
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.date: 06/30/2020
+ms.openlocfilehash: 078892691bfaec62f71f9d601a42de3f80221149
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84736091"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958164"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novedades de Azure Cognitive Search
 
@@ -23,23 +22,33 @@ Conozca las novedades del servicio. Marque esta página para mantenerse actualiz
 
 ### <a name="june-2020"></a>Junio de 2020
 
-La aptitud de Azure Machine Learning es nueva e integra un punto de conexión de inferencia de Azure Machine Learning. La experiencia del portal admite la detección y la integración de un punto de conexión de Azure Machine Learning en un conjunto de aptitudes de Cognitive Search. La detección requiere que los servicios Cognitive Search y Azure Machine Learning se implementen en la misma suscripción. Para suscribirse a la versión preliminar de la aptitud de Azure Machine Learning, [rellene el formulario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0jK7x7HQYdDm__YfEsbtcZUMTFGTFVTOE5XMkVUMFlDVFBTTlYzSlpLTi4u). Para empezar, realice [este tutorial](cognitive-search-tutorial-aml-custom-skill.md).
++ [Knowledge Store](knowledge-store-concept-intro.md) ya está disponible con carácter general.
+
++ La [API REST de Search Service 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) es la nueva versión estable de las API REST. Además del almacén de conocimiento, esta versión disponible con carácter general incluye mejoras en la relevancia y puntuación de las búsquedas.
+
++ El nuevo algoritmo de clasificación de relevancia ahora es [BM25](https://en.wikipedia.org/wiki/Okapi_BM25) para todos los servicios que se creen. En el caso de los servicios existentes, puede participar estableciendo la propiedad `similarity` en los campos de índice. Esta propiedad se encuentra disponible con carácter general.
+
++ El nuevo indexador `executionEnvironment` de se puede establecer explícitamente en `private`. Esta funcionalidad admite el acceso del indexador a datos externos a través de puntos de conexión privados y está disponible con carácter general.
+
++ [Azure Machine Learning (AML)](cognitive-search-aml-skill.md) es un nuevo tipo de aptitud para integrar un punto de conexión de inferencia desde Azure Machine Learning. La experiencia del portal admite la detección y la integración de un punto de conexión de Azure Machine Learning en un conjunto de aptitudes de Cognitive Search. La detección requiere que los servicios Cognitive Search y Azure Machine Learning se implementen en la misma suscripción. Esta aptitud se encuentra disponible con carácter general. Para empezar, realice [este tutorial](cognitive-search-tutorial-aml-custom-skill.md).
 
 ### <a name="may-2020-microsoft-build"></a>Mayo de 2020 (Microsoft Build)
 
-+ La característica [Sesiones de depuración](cognitive-search-debug-session.md) está ahora en versión preliminar. [Regístrese para solicitar acceso](https://aka.ms/DebugSessions). Sesiones de depuración proporciona una interfaz basada en un portal para investigar y resolver problemas con un conjunto de aptitudes. Las correcciones creadas en la sesión de depuración se pueden guardar en conjuntos de aptitudes de producción. Para empezar, realice [este tutorial](cognitive-search-tutorial-debug-sessions.md).
++ La característica [Sesiones de depuración](cognitive-search-debug-session.md) está ahora en versión preliminar. Las sesiones de depuración proporcionan una interfaz basada en portal para investigar y resolver problemas con un conjunto de aptitudes. Las correcciones creadas en la sesión de depuración se pueden guardar en conjuntos de aptitudes de producción. Para empezar, realice [este tutorial](cognitive-search-tutorial-debug-sessions.md).
 
-+ Las mejoras en la seguridad incluyen la posibilidad de [configurar un punto de conexión de búsqueda privado (versión preliminar)](service-create-private-endpoint.md) al que no se puede acceder desde la red pública de Internet. También puede [configurar reglas de IP para el soporte de firewall de entrada (versión preliminar)](service-configure-firewall.md).
++ Proteja un punto de conexión de servicio de búsqueda desde la red pública de Internet mediante la [configuración de reglas de IP para lograr compatibilidad con el firewall de entrada](service-configure-firewall.md), o bien sacando provecho de [Azure Private Link para un punto de conexión de búsqueda privado](service-create-private-endpoint.md). Por lo general, ambas funcionalidades están disponibles.
 
 + Use una [identidad administrada por el sistema (versión preliminar)](search-howto-managed-identities-data-sources.md) para configurar una conexión a un origen de datos de Azure para la indexación. Se aplica a los [indexadores](search-indexer-overview.md) que ingieren contenido de orígenes de datos de Azure como Azure SQL Database, Azure Cosmos DB y Azure Storage.
 
-+ Cambie la forma en que se calculan las puntuaciones de búsqueda, desde por partición a todas las particiones, mediante los parámetros [scoringStatistics=global](index-similarity-and-scoring.md#scoring-statistics) y SessionId query.
++ Cambie la forma en que se calculan las puntuaciones de búsqueda, desde por partición a todas las particiones, mediante los parámetros [sessionId](index-similarity-and-scoring.md) y [scoringStatistics=global](index-similarity-and-scoring.md#scoring-statistics). Estos parámetros están disponibles con carácter general.
+
++ Agregue un parámetro de consulta [featuresMode (versión preliminar)](index-similarity-and-scoring.md#featuresMode-param) para expandir una puntuación de relevancia y mostrar más detalles: la puntuación de similitud por campo, la frecuencia de los términos por campo y el número de tokens únicos coincidentes por campo. Puede consumir estos puntos de datos en algoritmos de puntuación personalizados. Para obtener un ejemplo que muestra esta funcionalidad, consulte [Adición de aprendizaje automático (LearnToRank) a la relevancia de búsqueda](https://github.com/Azure-Samples/search-ranking-tutorial).
 
 ### <a name="march-2020"></a>Marzo de 2020
 
 + [Eliminación temporal de blobs nativos (versión preliminar)](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) significa que el indexador de Azure Blob Storage en Azure Cognitive Search reconocerá los blobs que se encuentran en un estado de eliminación temporal y quitará el documento de búsqueda correspondiente durante la indexación.
 
-+ Ya está disponible la nueva y estable [API REST de administración](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) (2020-03-13). 
++ Ya está disponible con carácter general la nueva y estable [API REST de administración](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) (2020-03-13). 
 
 ### <a name="february-2020"></a>Febrero de 2020
 
@@ -49,17 +58,15 @@ La aptitud de Azure Machine Learning es nueva e integra un punto de conexión de
 
 ### <a name="january-2020"></a>Enero de 2020
 
-+ Las [claves de cifrado administradas por el cliente](search-security-manage-encryption-keys.md) ya están disponibles con carácter general. Si usa REST, puede acceder a la característica mediante `api-version=2019-05-06`. Para el código administrado, el paquete correcto sigue siendo el [SDK de .NET, versión 8.0-preview](search-dotnet-sdk-migration-version-9.md) aunque la característica no se incluya en la versión preliminar. 
++ Las [claves de cifrado administradas por el cliente](search-security-manage-encryption-keys.md) ya están disponibles con carácter general. Si usa REST, puede acceder a la característica mediante `api-version=2019-05-06`, o cualquier versión posterior. Para el código administrado, el paquete correcto sigue siendo el [SDK de .NET, versión 8.0-preview](search-dotnet-sdk-migration-version-9.md) aunque la característica no se incluya en la versión preliminar. 
 
 + El acceso privado a un servicio de búsqueda está disponible mediante dos mecanismos que se encuentran en versión preliminar:
 
   + Puede restringir el acceso a direcciones IP específicas mediante la API REST de administración `api-version=2019-10-01-Preview` para crear el servicio. La API de vista previa tiene las propiedades nuevas **IpRule** y **NetworkRuleSet** en la [API CreateOrUpdate](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). Esta característica en vista previa está disponible en regiones seleccionadas. Para más información, vea [Uso de la API REST de administración](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
-  + Actualmente disponible a través de una versión preliminar de acceso limitado, puede aprovisionar un servicio Search de Azure que admita el punto de conexión privado de Azure para las conexiones de los clientes en la misma red virtual. Para más información, vea [Creación de un punto de conexión privado para una conexión segura](service-create-private-endpoint.md).
-
 ### <a name="december-2019"></a>Diciembre de 2019
 
-+ El Asistente para [crear aplicaciones (versión preliminar)](search-create-app-portal.md) es un nuevo asistente en el portal que genera un archivo HTML descargable. El archivo incluye un script insertado que representa una aplicación web de estilo "localhost" operativa, enlazada a un índice en el servicio de búsqueda. Las páginas se pueden configurar en el asistente y pueden contener una barra de búsqueda, un área de resultados, una barra de navegación lateral y compatibilidad con consultas de escritura anticipada. Puede modificar el código HTML sin conexión para extender o personalizar el flujo de trabajo o la apariencia.
++ [Create Demo App (versión preliminar)](search-create-app-portal.md) (Crear aplicación de demostración [versión preliminar]) es un nuevo asistente del portal que genera un archivo HTML descargable con acceso de consulta (solo lectura) a un índice. El archivo incluye un script insertado que representa una aplicación web de estilo "localhost" operativa, enlazada a un índice en el servicio de búsqueda. Las páginas se pueden configurar en el asistente y pueden contener una barra de búsqueda, un área de resultados, una barra de navegación lateral y compatibilidad con consultas de escritura anticipada. Puede modificar el código HTML sin conexión para extender o personalizar el flujo de trabajo o la apariencia. Una aplicación de demostración no se extiende fácilmente para incluir las capas de seguridad y hospedaje que normalmente son necesarias en escenarios de producción. Debería considerarla una herramienta de validación y prueba, en lugar de un acceso directo a una aplicación cliente completa.
 
 + En [Creación de un punto de conexión privado para conexiones seguras (versión preliminar)](service-create-private-endpoint.md) se explica cómo configurar un vínculo privado para las conexiones seguras al servicio de búsqueda. Esta característica en vista previa está disponible a petición y usa [Azure Private Link](../private-link/private-link-overview.md) y [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) como parte de la solución.
 

@@ -3,12 +3,12 @@ title: 'Tutorial: Predicción de intenciones: LUIS'
 description: Cree una aplicación personalizada que prediga la intención de un usuario en función de la expresión (texto) siguiendo este tutorial.
 ms.topic: tutorial
 ms.date: 05/05/2020
-ms.openlocfilehash: c76273d7c180928d25be70e0abd7abf26c90b44a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d0a625708e730094ab4dea8f705852f38ee6e1da
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588972"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959866"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Tutorial: Compilación de una aplicación de LUIS para determinar las intenciones del usuario
 
@@ -113,9 +113,8 @@ Para clasificar una expresión, la intención necesita ejemplos de expresiones d
 
     `get a medium vegetarian pizza for delivery`
 
-    Esto no es exactamente lo mismo que una expresión de ejemplo, por lo que es una buena prueba para ver si LUIS puede aprender lo que debe predecirse con esta intención.
-
-    El último parámetro de la cadena de consulta es `query`, la expresión **query**. Esta expresión no es la misma que cualquiera de las expresiones de ejemplo. Es una buena prueba y debe devolver la intención `OrderPizza` como la intención con la puntuación más alta.
+  
+    El parámetro de cadena de consulta es `query`, se pasa la **consulta** de expresión en el URI. Esta expresión no es la misma que cualquiera de las expresiones de ejemplo. Esto debería constituir una prueba adecuada para comprobar si LUIS aprende y predice la intención de `OrderPizza` como la de puntuación superior.
 
     ```JSON
     {

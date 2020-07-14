@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: e2018f4d6f8e0813892a43c66975961356333bff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 07e5ce5cb6fee11e3f55ce808da51ccad59b9ff2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663753"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801366"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>Uso de flujos de trabajo para integrar la aplicación de Azure IoT Central con otros servicios en la nube
 
@@ -20,27 +20,36 @@ ms.locfileid: "83663753"
 
 Puede crear reglas en IoT Central que desencadenen acciones, como el envío de un correo electrónico, en respuesta a condiciones basadas en datos de telemetría, como la temperatura de un dispositivo que supera un umbral.
 
-El conector de IoT Central para Power Automate y Azure Logic Apps permite crear reglas más avanzadas para automatizar operaciones en IoT Central:
+El conector Azure IoT Central V3 para Power Automate y Azure Logic Apps permite crear reglas más avanzadas para automatizar operaciones en IoT Central:
 
 - Cuando se activa una regla en la aplicación de Azure IoT Central, puede desencadenar un flujo de trabajo en Power Automate o en Azure Logic Apps. Estos flujos de trabajo pueden ejecutar acciones en otros servicios en la nube, como Office 365, o en un servicio de terceros.
 - Un evento en otro servicio en la nube, como Office 365, puede desencadenar un flujo de trabajo en Power Automate o en Azure Logic Apps. Estos flujos de trabajo pueden ejecutar acciones o recuperar datos de la aplicación de IoT Central.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Recuerde que para completar los pasos de esta guía paso a paso, necesita una suscripción activa a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+
+La configuración de la solución requiere una aplicación de la versión 3 de IoT Central. Para obtener información sobre cómo comprobar la versión de la aplicación, vea [Acerca de la aplicación](./howto-get-app-info.md). Para obtener información sobre cómo crear una aplicación de IoT Central, vea [Creación de una aplicación de Azure IoT Central](./quick-deploy-iot-central.md).
+
+> [!NOTE]
+> Si usa una aplicación de la versión 2 de IoT Central, vea [Creación de flujos de trabajo con el conector de IoT Central en Azure Logic Apps](https://docs.microsoft.com/previous-versions/azure/iot-central/core/howto-build-azure-logic-apps) en el sitio de documentación de las versiones anteriores y use el conector Azure IoT Central V2
 
 ## <a name="trigger-a-workflow-from-a-rule"></a>Desencadenamiento de un flujo de trabajo desde una regla
 
 Para poder desencadenar un flujo de trabajo en Power Automate o en Azure Logic Apps, necesita una regla en la aplicación de IoT Central. Para más información, consulte [Configuración de reglas y acciones en Azure IoT Central](./howto-configure-rules.md).
 
-Para agregar el conector **Azure IoT Central - preview** (Azure IoT Central [Versión preliminar]) como desencadenador en Power Automate:
+Para agregar el conector **Azure IoT Central V3 (Versión preliminar)** como desencadenador en Power Automate:
 
 1. En Power Automate, seleccione **+ Crear** y la pestaña **Personalizado**.
-1. Busque *IoT Central* y seleccione el conector **Azure IoT Central - preview** (Azure IoT Central [Versión preliminar]).
+1. Busque *IoT Central* y seleccione el conector **Azure IoT Central V3 (Versión preliminar)** .
 1. En la lista de desencadenadores, seleccione **When a rule is fired (preview)** (Cuando se desencadene una regla [versión preliminar]).
 1. En el paso **When a rule is fired (preview)** (Cuando se desencadene una regla [versión preliminar]), seleccione la aplicación de IoT Central y la regla que esté usando.
 
-Para agregar el conector **Azure IoT Central - preview** (Azure IoT Central [Versión preliminar]) como desencadenador en Azure Logic Apps:
+Para agregar el conector **Azure IoT Central V3 (Versión preliminar)** como desencadenador en Azure Logic Apps:
 
 1. En el **diseñador de Logic Apps**, seleccione la plantilla **Aplicación lógica en blanco**.
 1. En el diseñador, seleccione la pestaña **Personalizado**.
-1. Busque *IoT Central* y seleccione el conector **Azure IoT Central - preview** (Azure IoT Central [Versión preliminar]).
+1. Busque *IoT Central* y seleccione el conector **Azure IoT Central V3 (Versión preliminar)** .
 1. En la lista de desencadenadores, seleccione **When a rule is fired (preview)** (Cuando se desencadene una regla [versión preliminar]).
 1. En el paso **When a rule is fired (preview)** (Cuando se desencadene una regla [versión preliminar]), seleccione la aplicación de IoT Central y la regla que esté usando.
 
@@ -50,27 +59,27 @@ Ahora puede agregar más pasos al flujo de trabajo para crear el escenario de in
 
 ## <a name="run-an-action"></a>Ejecución de una acción
 
-Puede ejecutar acciones en una aplicación de IoT Central desde flujos de trabajo de Power Automate y Azure Logic Apps. En primer lugar, cree el flujo de trabajo y use un conector para definir el desencadenador que iniciará el flujo de trabajo. A continuación, use el conector **Azure IoT Central - preview** (Azure IoT Central [Versión preliminar]) como acción.
+Puede ejecutar acciones en una aplicación de IoT Central desde flujos de trabajo de Power Automate y Azure Logic Apps. En primer lugar, cree el flujo de trabajo y use un conector para definir el desencadenador que iniciará el flujo de trabajo. Después, use el conector **Azure IoT Central V3 (Versión preliminar)** como una acción.
 
-Para agregar el conector **Azure IoT Central - preview** (Azure IoT Central [Versión preliminar]) como acción en Power Automate:
+Para agregar el conector **Azure IoT Central V3 (Versión preliminar)** como una acción en Power Automate:
 
 1. En Power Automate, en el panel **Elegir una acción**, seleccione la pestaña **Personalizado**.
-1. Busque *IoT Central* y seleccione el conector **Azure IoT Central - preview** (Azure IoT Central [Versión preliminar]).
+1. Busque *IoT Central* y seleccione el conector **Azure IoT Central V3 (Versión preliminar)** .
 1. En la lista de acciones, seleccione la acción de IoT Central que desee usar.
 1. En el paso de la acción, complete la configuración de la acción que haya elegido. Después, seleccione **Guardar**.
 
-Para agregar el conector **Azure IoT Central - preview** (Azure IoT Central [Versión preliminar]) como acción en Azure Logic Apps:
+Para agregar el conector **Azure IoT Central V3 (Versión preliminar)** como una acción en Azure Logic Apps:
 
 1. En el **diseñador de Logic Apps**, en el panel **Elegir una acción**, seleccione la pestaña **Personalizado**.
-1. Busque *IoT Central* y seleccione el conector **Azure IoT Central - preview** (Azure IoT Central [Versión preliminar]).
+1. Busque *IoT Central* y seleccione el conector **Azure IoT Central V3 (Versión preliminar)** .
 1. En la lista de acciones, seleccione la acción de IoT Central que desee usar.
 1. En el paso de la acción, complete la configuración de la acción que haya elegido. Después, seleccione **Guardar**.
 
-:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Busque el conector Azure IoT Central - preview (Azure IoT Central [Versión preliminar]) y elija una acción":::
+:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Búsqueda del conector Azure IoT Central V3 (Versión preliminar) y selección de una acción":::
 
 ## <a name="list-of-actions"></a>Lista de acciones
 
-En la siguiente lista se muestran todas las acciones de IoT Central disponibles en el conector **Azure IoT Central - preview** (Azure IoT Central [Versión preliminar]) y sus opciones de configuración. Muchos de los campos pueden tener contenido generado dinámicamente. Por ejemplo, un paso anterior podría haber determinado el identificador del dispositivo en el que actúa el paso actual.
+En la lista siguiente se muestran todas las acciones de IoT Central disponibles en el conector **Azure IoT Central V3 (Versión preliminar)** y sus opciones de configuración. Muchos de los campos pueden tener contenido generado dinámicamente. Por ejemplo, un paso anterior podría haber determinado el identificador del dispositivo en el que actúa el paso actual.
 
 ### <a name="create-or-update-a-device"></a>Create or update a device (Crear o actualizar un dispositivo)
 

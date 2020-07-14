@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/11/2019
 ms.author: komammas
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: c60f9df87930519684c6c29b1194624342b11528
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: a8f6fe49faf0624f6ef6d4fa8a346e22c69da599
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555052"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851726"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Tutorial: Ejecución de scripts de Python mediante Azure Data Factory con Azure Batch
 
@@ -30,7 +30,7 @@ En el ejemplo siguiente se ejecuta un script de Python que recibe la entrada CSV
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una distribución de [Python](https://www.python.org/downloads/) instalada, para las pruebas locales.
 * El paquete `pip` de [Azure](https://pypi.org/project/azure/).
@@ -116,27 +116,27 @@ En esta sección, creará una canalización con el script de Python y, posterior
 1. En el cuadro **Factory Resources** (Recursos de fábrica), seleccione el botón + (más) y, después, seleccione **Pipeline** (Canalización).
 1. En la pestaña **General**, establezca el nombre de la canalización como "Ejecutar Python".
 
-    ![](./media/run-python-batch-azure-data-factory/create-pipeline.png)
+    ![En la pestaña General, establezca el nombre de la canalización como "Ejecutar Python".](./media/run-python-batch-azure-data-factory/create-pipeline.png)
 
 1. En el cuadro **Activities** (Actividades), expanda **Batch Service** (Servicio Batch). Arrastre la actividad personalizada desde el cuadro de herramientas **Activities** (Actividades) a la superficie del diseñador de canalizaciones.
 1. En la pestaña **General**, especifique **testPipeline** en Name (Nombre).
 
-    ![](./media/run-python-batch-azure-data-factory/create-custom-task.png)
+    ![En la pestaña General, especifique testPipeline en Name (Nombre).](./media/run-python-batch-azure-data-factory/create-custom-task.png)
 1. En la pestaña **Azure Batch**, agregue la **Cuenta de Batch** que se creó en los pasos anteriores y **pruebe la conexión** para asegurarse de que es correcta.
 
-    ![](./media/run-python-batch-azure-data-factory/integrate-pipeline-with-azure-batch.png)
+    ![En la pestaña Azure Batch, agregue la cuenta de Batch que se creó en los pasos anteriores y pruebe la conexión.](./media/run-python-batch-azure-data-factory/integrate-pipeline-with-azure-batch.png)
 
 1. En la pestaña **Settings** (Configuración), escriba el comando `python main.py`.
 1. Como **Resource Linked Service** (Servicio vinculado de recursos), agregue la cuenta de almacenamiento que se creó en los pasos anteriores. Pruebe la conexión para asegurarse de que se ha realizado correctamente.
 1. En **Folder Path** (Ruta de acceso a la carpeta), seleccione el nombre del contenedor **Azure Blob Storage**  que contiene el script de Python y las entradas asociadas. De esta forma, descargará los archivos seleccionados del contenedor en las instancias de nodo de grupo antes de la ejecución del script de Python.
 
-    ![](./media/run-python-batch-azure-data-factory/create-custom-task-py-script-command.png)
+    ![En la ruta de acceso de la carpeta, seleccione el nombre del contenedor de Azure Blob Storage.](./media/run-python-batch-azure-data-factory/create-custom-task-py-script-command.png)
 1. Haga clic en **Validar** en la barra de herramientas de la canalización situada en la parte superior del lienzo para validar la configuración de la canalización. Confirme que la canalización se ha validado correctamente. Para cerrar la salida de la validación, seleccione el botón &gt;&gt; (fecha derecha).
 1. Haga clic en **Debug** (Depurar) para probar la canalización y asegurarse de que funciona correctamente.
 1. Haga clic en **Publicar** para publicar la canalización.
 1. Haga clic en **Desencadenador** para ejecutar el script de Python como parte de un proceso por lotes.
 
-    ![](./media/run-python-batch-azure-data-factory/create-custom-task-py-success-run.png)
+    ![Haga clic en Trigger (Desencadenador) para ejecutar el script de Python como parte de un proceso por lotes.](./media/run-python-batch-azure-data-factory/create-custom-task-py-success-run.png)
 
 ### <a name="monitor-the-log-files"></a>Supervise los archivos de registro
 

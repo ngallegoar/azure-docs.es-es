@@ -6,12 +6,12 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/23/2020
-ms.openlocfilehash: 5b459ef57d0e8a22ce1cd53f56c44d31e53c7c93
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 8d002fae52fec1fafb2ad8e63bd8e3b779a1537c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594991"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984830"
 ---
 # <a name="security-controls-for-azure-spring-cloud-service"></a>Controles de seguridad para el servicio Azure Spring Cloud
 Los controles de seguridad están integrados en el servicio Azure Spring Cloud.
@@ -26,3 +26,8 @@ Un control de seguridad es una cualidad o característica de un servicio de Azur
 | Cifrado en tránsito | Sí | Los puntos de conexión públicos de la aplicación de usuario usan HTTPS para el tráfico de entrada de forma predeterminada. |  |
 | Llamadas a API cifradas | Sí | Las llamadas de administración para configurar el servicio Azure Spring Cloud se producen mediante llamadas de Azure Resource Manager sobre HTTPS. | [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) |
 
+**Controles de seguridad de acceso a la red**
+
+| Control de seguridad | Sí/No | Notas | Documentación |
+|:-------------|:-------|:-------------------------------|:----------------------|
+| Etiqueta de servicio | Sí | Use la etiqueta de servicio **AzureSpringCloud** para definir controles de acceso de red de salida en [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) o [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags) para permitir el tráfico a las aplicaciones de Azure Spring Cloud.<br><br>*Nota:* Actualmente, solo las instancias del servicio Azure Spring Cloud creadas después del 07/07/2020 admiten la etiqueta de servicio **AzureSpringCloud**. | [Etiquetas de servicio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) |

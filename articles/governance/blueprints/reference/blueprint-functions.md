@@ -3,16 +3,16 @@ title: Funciones de Azure Blueprints
 description: Describe las funciones disponibles que se pueden utilizar con artefactos de plano técnico en las definiciones y asignaciones de Azure Blueprints.
 ms.date: 05/22/2020
 ms.topic: reference
-ms.openlocfilehash: e804cc98f7bd6d3e94e6b518f0ed0575f9f8f440
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: c402075aa9f6beb52e72454179c2e96d148c271f
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834788"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970882"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funciones para usar con Azure Blueprints
 
-Azure Blueprints proporciona funciones que aportan dinamismo a la definición de los planos técnicos. Estas funciones se usan con las definiciones y los artefactos de los planos técnicos. Un artefacto de la plantilla de Resource Manager admite el uso completo de las funciones de Resource Manager, además de obtener un valor dinámico mediante un parámetro de plano técnico.
+Azure Blueprints proporciona funciones que aportan dinamismo a la definición de los planos técnicos. Estas funciones se usan con las definiciones y los artefactos de los planos técnicos. Un artefacto de la plantilla de Azure Resource Manager (plantilla de ARM) admite el uso completo de las funciones de Resource Manager, además de obtener un valor dinámico mediante un parámetro de plano técnico.
 
 Se admiten las siguientes funciones:
 
@@ -30,7 +30,7 @@ Se admiten las siguientes funciones:
 Devuelve un objeto de propiedades rellenadas con los resultados de los artefactos de ese plano técnico.
 
 > [!NOTE]
-> No se puede usar la función `artifacts()` desde dentro de una plantilla de Resource Manager. La función solo se puede usar en el JSON de definición de plano técnico o en el JSON del artefacto al administrar el plano técnico con Azure PowerShell o la API REST como parte de [planos técnicos como código](https://github.com/Azure/azure-blueprints/blob/master/README.md).
+> No se puede usar la función `artifacts()` desde dentro de una plantilla de ARM. La función solo se puede usar en el JSON de definición de plano técnico o en el JSON del artefacto al administrar el plano técnico con Azure PowerShell o la API REST como parte de [planos técnicos como código](https://github.com/Azure/azure-blueprints/blob/master/README.md).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -60,9 +60,9 @@ Un objeto de propiedades de salida. Las propiedades **outputs** dependen del tip
 }
 ```
 
-#### <a name="resource-manager-template-artifact"></a>Artefacto de la plantilla de Resource Manager
+#### <a name="arm-template-artifact"></a>Artefacto de plantilla de ARM
 
-Las propiedades **outputs** del objeto devuelto se definen en la plantilla de Resource Manager y los devuelve la implementación.
+Las propiedades **outputs** del objeto devuelto se definen en la plantilla de ARM y las devuelve la implementación.
 
 #### <a name="role-assignment-artifact"></a>Artefacto de asignación de roles
 
@@ -78,7 +78,7 @@ Las propiedades **outputs** del objeto devuelto se definen en la plantilla de Re
 
 ### <a name="example"></a>Ejemplo
 
-Un artefacto de plantilla de Resource Manager con el identificador _myTemplateArtifact_ que contenga la siguiente propiedad de salida de ejemplo:
+Un artefacto de plantilla de ARM con el identificador _myTemplateArtifact_ que contenga la siguiente propiedad de salida de ejemplo:
 
 ```json
 {
@@ -134,7 +134,7 @@ Una cadena de valores concatenados.
 
 ### <a name="remarks"></a>Observaciones
 
-La función de Azure Blueprints difiere de la función de la plantilla de Azure Resource Manager en que solo funciona con cadenas.
+La función de Azure Blueprints difiere de la función de la plantilla de ARM en que solo funciona con cadenas.
 
 ### <a name="example"></a>Ejemplo
 
@@ -158,7 +158,7 @@ El valor del parámetro del plano técnico o del artefacto de plano técnico esp
 
 ### <a name="remarks"></a>Observaciones
 
-La función de Azure Blueprints difiere de la función de la plantilla de Azure Resource Manager en que solo funciona con parámetros de plano técnico.
+La función de Azure Blueprints difiere de la función de la plantilla de ARM en que solo funciona con parámetro de plano técnico.
 
 ### <a name="example"></a>Ejemplo
 
@@ -218,7 +218,7 @@ El objeto devuelto está en el formato siguiente:
 
 ### <a name="remarks"></a>Observaciones
 
-La función de Azure Blueprints difiere de la función de la plantilla de Azure Resource Manager. La función `resourceGroup()` no se puede usar en un artefacto de nivel de suscripción ni en la definición del plano técnico. Solo puede usarse en artefactos de plano técnico que forman parte de un artefacto del grupo de recursos.
+La función de Azure Blueprints difiere de la función de la plantilla de ARM. La función `resourceGroup()` no se puede usar en un artefacto de nivel de suscripción ni en la definición del plano técnico. Solo puede usarse en artefactos de plano técnico que forman parte de un artefacto del grupo de recursos.
 
 La función `resourceGroup()` acostumbra a usarse para crear recursos en la misma ubicación que artefacto del grupo de recursos.
 

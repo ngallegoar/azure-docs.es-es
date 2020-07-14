@@ -4,15 +4,15 @@ description: En este artículo se proporciona información general sobre la comp
 services: application-gateway
 author: amsriva
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/13/2020
 ms.author: victorh
-ms.openlocfilehash: adaf3dea5855a4af75977cb820ae12675c7f2ced
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 1986955c7135cb9296937392b23635ae62d8d9f7
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648137"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962108"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Introducción a la terminación TLS y a TLS de extremo a extremo con Application Gateway
 
@@ -68,7 +68,7 @@ En el caso de la SKU de WAF v1 y Application Gateway, la directiva de TLS se apl
 
 En el caso de la SKU de WAF v2 y Application Gateway, la directiva de TLS se aplica solo al tráfico de front-end y se ofrecen todos los cifrados en el servidor back-end, que tiene control para seleccionar cifrados específicos y la versión de TLS durante el enlace.
 
-Application Gateway solo se comunica con los servidores back-end que han incluido su certificado en la lista blanca con Application Gateway o cuyos certificados están firmados por autoridades de entidad de certificación perfectamente conocidas y el nombre común del certificado coincide con el nombre del host en la configuración del back-end HTTP. Estas incluyen los servicios de Azure de confianza, como Azure App Service/Web Apps y Azure API Management.
+Application Gateway solo se comunica con los servidores back-end que han incluido su certificado en la lista de permitidos con Application Gateway o cuyos certificados están firmados por autoridades de entidad de certificación perfectamente conocidas y el nombre común del certificado coincide con el nombre del host en la configuración del back-end HTTP. Estas incluyen los servicios de Azure de confianza, como Azure App Service/Web Apps y Azure API Management.
 
 Si los certificados de los miembros del grupo de back-end no están firmados por autoridades de entidad de certificación perfectamente conocidas, cada instancia del grupo de back-end con la funcionalidad TLS de un extremo a otro habilitada debe configurarse con un certificado para permitir una comunicación segura. Al agregar el certificado, se garantiza que la puerta de enlace de aplicaciones solo se comunique con instancias back-end conocidas. Esto protege aún más la comunicación de un extremo a otro.
 
@@ -80,9 +80,9 @@ Si los certificados de los miembros del grupo de back-end no están firmados por
 
 En este ejemplo, las solicitudes mediante TLS1.2 se enrutan a los servidores back-end en Pool1 con TLS de un extremo a otro.
 
-## <a name="end-to-end-tls-and-whitelisting-of-certificates"></a>TLS de un extremo a otro e incorporación a listas blancas de certificados
+## <a name="end-to-end-tls-and-allow-listing-of-certificates"></a>TLS de un extremo a otro e incorporación a listas de permitidos de certificados
 
-Application Gateway solo se comunica con instancias de back-end conocidas, que tienen en la lista blanca su certificado con Application Gateway. Existen algunas diferencias en el proceso de configuración de TLS de un extremo a otro con respecto a la versión de Application Gateway utilizada. En la siguiente sección se explican individualmente.
+Application Gateway solo se comunica con instancias de back-end conocidas, que tienen en la lista de permitidos su certificado con Application Gateway. Existen algunas diferencias en el proceso de configuración de TLS de un extremo a otro con respecto a la versión de Application Gateway utilizada. En la siguiente sección se explican individualmente.
 
 ## <a name="end-to-end-tls-with-the-v1-sku"></a>TLS de un extremo a otro con la SKU v1
 
@@ -90,7 +90,7 @@ Para habilitar TLS de un extremo a otro con los servidores back-end y para que A
 
 En el caso de los sondeos de estado de HTTPS, la SKU de Application Gateway v1 usa una coincidencia exacta del certificado de autenticación (clave pública del certificado del servidor back-end y no del certificado raíz) que se va a cargar en la configuración HTTP.
 
-Solo se permiten conexiones en back-ends conocidos y en la lista blanca. Los sondeos de estado consideran incorrectos los back-ends restantes. Los certificados autofirmados son para fines de prueba que y no se recomiendan para cargas de trabajo de producción. Antes de poder usar estos certificados, deben estar en la lista blanca con Application Gateway, tal y como se describe en los pasos anteriores.
+Solo se permiten conexiones en back-ends conocidos y en la lista de permitidos. Los sondeos de estado consideran incorrectos los back-ends restantes. Los certificados autofirmados son para fines de prueba que y no se recomiendan para cargas de trabajo de producción. Antes de poder usar estos certificados, deben estar en la lista de permitidos con Application Gateway, tal y como se describe en los pasos anteriores.
 
 > [!NOTE]
 > La configuración del certificado raíz de confianza y de autenticación no es necesaria para servicios de Azure de confianza, como Azure App Service. Estos servicios se consideran de confianza de forma predeterminada.
@@ -111,7 +111,7 @@ Los certificados de autenticación han dejado de usarse, y se han reemplazado po
 
 - Además de la coincidencia del certificado raíz, Application Gateway v2 también valida si el valor de host especificado en la configuración de HTTP del back-end coincide con el del nombre común (CN) presentado por el certificado TLS/SSL del servidor back-end. Cuando se intenta establecer una conexión TLS con el back-end, Application Gateway v2 establece la extensión Indicación de nombre de servidor (SNI) en el host especificado en la configuración de HTTP de back-end.
 
-- Si se elige la opción de **elegir el nombre de host a partir de la dirección de back-end** en lugar del campo de host en la configuración de HTTP de back-end, el encabezado SNI siempre se establece en el nombre de dominio completo del grupo del back-end y el CN del certificado TLS/SSL del servidor back-end debe coincidir con su nombre de dominio completo. Los miembros del grupo de back-end con direcciones IP no se admiten en este escenario.
+- Si se elige la opción de **elegir el nombre de host a partir del destino de back-end** en lugar del campo de host en la configuración de HTTP de back-end, el encabezado SNI siempre se establece en el nombre de dominio completo del grupo del back-end y el CN del certificado TLS/SSL del servidor back-end debe coincidir con su nombre de dominio completo. Los miembros del grupo de back-end con direcciones IP no se admiten en este escenario.
 
 - El certificado raíz es un certificado raíz codificado en base64 a partir de los certificados de servidor de back-end.
 
@@ -138,10 +138,10 @@ Escenario | v1 | v2 |
 Escenario | v1 | v2 |
 | --- | --- | --- |
 | Encabezado SNI (server_name) durante el enlace TLS como FQDN | Se establece como FQDN desde el grupo de back-end. Según el estándar [RFC 6066](https://tools.ietf.org/html/rfc6066), no se permiten direcciones IPv4 y IPv6 literales en el nombre de host de SNI. <br> **Nota:** El FQDN del grupo de back-end debe resolver el DNS en la dirección IP del servidor back-end (pública o privada) | El encabezado SNI (server_name) se establece como el nombre de host del sondeo personalizado asociado a la configuración HTTP (si se configuró) o del nombre de host mencionado en la configuración HTTP o del FQDN mencionado en el grupo de back-end. El orden de prioridad es el siguiente: sondeo personalizado > configuración HTTP > grupo de back-end. <br> **Nota:** Si los nombres de host configurados en la configuración HTTP y el sondeo personalizado son diferentes, de acuerdo con la prioridad, la SNI se establecerá como el nombre de host del sondeo personalizado.
-| Si la dirección del grupo de back-end es una dirección IP (v1) o si el nombre de host del sondeo personalizado está configurado como dirección IP (v2) | No se establecerá la SNI (server_name). <br> **Nota:** En este caso, el servidor back-end debe ser capaz de devolver un certificado predeterminado o de reserva, que debe incluirse en la lista blanca en la configuración HTTP como certificado de autenticación. Si no hay ningún certificado predeterminado o de reserva configurado en el servidor back-end y se espera la SNI, el servidor podría restablecer la conexión y provocar errores de sondeo. | En el orden de prioridad mencionado anteriormente, si se tiene una dirección IP como nombre de host, no se establecerá la SNI de conformidad con el estándar [RFC 6066](https://tools.ietf.org/html/rfc6066). <br> **Nota:** Tampoco se establecerá la SNI en sondeos de v2 si no se ha configurado ningún sondeo personalizado y no se ha establecido ningún nombre de host en la configuración HTTP o en el grupo de back-end |
+| Si la dirección del grupo de back-end es una dirección IP (v1) o si el nombre de host del sondeo personalizado está configurado como dirección IP (v2) | No se establecerá la SNI (server_name). <br> **Nota:** En este caso, el servidor back-end debe ser capaz de devolver un certificado predeterminado o de reserva, que debe incluirse en la lista de permitidos en la configuración HTTP como certificado de autenticación. Si no hay ningún certificado predeterminado o de reserva configurado en el servidor back-end y se espera la SNI, el servidor podría restablecer la conexión y provocar errores de sondeo. | En el orden de prioridad mencionado anteriormente, si se tiene una dirección IP como nombre de host, no se establecerá la SNI de conformidad con el estándar [RFC 6066](https://tools.ietf.org/html/rfc6066). <br> **Nota:** Tampoco se establecerá la SNI en sondeos de v2 si no se ha configurado ningún sondeo personalizado y no se ha establecido ningún nombre de host en la configuración HTTP o en el grupo de back-end |
 
 > [!NOTE] 
-> Si no se configura un sondeo personalizado, Application Gateway envía un sondeo predeterminado con este formato: \<protocolo\>://127.0.0.1:\<puerto\>/. Por ejemplo, para un sondeo HTTPS predeterminado, se enviará como https://127.0.0.1:443/. Tenga en cuenta que la dirección 127.0.0.1 mencionada aquí solo se usa como encabezado host HTTP y, de conformidad con el estándar RFC 6066, no se usará como encabezado SNI. Para más información acerca de los errores de sondeo de estado, consulte la [guía de solución de problemas de estado del back-end](application-gateway-backend-health-troubleshooting.md).
+> Si no se configura un sondeo personalizado, Application Gateway envía un sondeo predeterminado con este formato: \<protocol\>://127.0.0.1:\<port\>/. Por ejemplo, para un sondeo HTTPS predeterminado, se enviará como https://127.0.0.1:443/. Tenga en cuenta que la dirección 127.0.0.1 mencionada aquí solo se usa como encabezado host HTTP y, de conformidad con el estándar RFC 6066, no se usará como encabezado SNI. Para más información acerca de los errores de sondeo de estado, consulte la [guía de solución de problemas de estado del back-end](application-gateway-backend-health-troubleshooting.md).
 
 #### <a name="for-live-traffic"></a>Para el tráfico en vivo
 

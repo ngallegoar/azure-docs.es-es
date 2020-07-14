@@ -4,7 +4,6 @@ description: Obtenga información sobre cómo puede migrar una máquina virtual 
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
@@ -15,24 +14,24 @@ ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: bca7237b38c1164d14ccf796e18980ba326090ac
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 37f098bc28ee89bdad9e5bde213e3c2a6847b0bf
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84027836"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851803"
 ---
-# <a name="move-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery-services"></a>Traslado de una VM con SQL Server a otra región dentro de Azure con los servicios de Azure Site Recovery
+# <a name="move-a-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery"></a>Traslado de una VM con SQL Server a otra región dentro de Azure con Azure Site Recovery
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 En este artículo se enseña cómo usar Azure Site Recovery para migrar una máquina virtual (VM) con SQL Server desde una región a otra dentro de Azure. 
 
 Para trasladar una VM con SQL Server a otra región, es necesario hacer lo siguiente:
-1. [**Preparación**](#prepare-to-move): confirme que tanto la VM con SQL Server como la región de destino están correctamente preparadas para la migración. 
-1. [**Configuración**](#configure-azure-site-recovery-vault): para trasladar la VM con SQL Server, es necesario que sea un objeto replicado dentro del almacén de Azure Site Recovery. Debe agregar la VM con SQL Server al almacén de Azure Site Recovery. 
-1. [**Prueba**](#test-move-process): migrar la VM con SQL Server requiere conmutarla por error desde la región de origen a la región de destino duplicada. Para garantizar que el proceso de traslado se complete correctamente, primero debe probar que la VM con SQL Server puede conmutar por error de manera correcta en la versión de destino. Esto lo ayudará a exponer los problemas y a evitarlos cuando se realice el traslado real. 
-1. [**Traslado**](#move-the-sql-server-vm): una vez que se haya superado la conmutación por error de prueba y que sea seguro migrar la VM con SQL Server, puede realizar el traslado de la máquina virtual a la región de destino. 
-1. [**Limpieza**](#clean-up-source-resources): para evitar cargos de facturación, quite la VM con SQL Server del almacén y cualquier recurso innecesario que quede en el grupo de recursos. 
+1. [Preparando](#prepare-to-move): confirme que tanto la VM con SQL Server como la región de destino están correctamente preparadas para la migración. 
+1. [Configuración](#configure-azure-site-recovery-vault): para trasladar la VM con SQL Server, es necesario que sea un objeto replicado dentro del almacén de Azure Site Recovery. Debe agregar la VM con SQL Server al almacén de Azure Site Recovery. 
+1. [Pruebas](#test-move-process): migrar la VM con SQL Server requiere conmutarla por error desde la región de origen a la región de destino duplicada. Para garantizar que el proceso de traslado se complete correctamente, primero debe probar que la VM con SQL Server puede conmutar por error de manera correcta a la versión de destino. Esto lo ayudará a exponer los problemas y a evitarlos cuando se realice el traslado real. 
+1. [Traslado](#move-the-sql-server-vm): una vez que se haya superado la conmutación por error de prueba y que sea seguro migrar la VM con SQL Server, puede realizar el traslado de la máquina virtual a la región de destino. 
+1. [Limpieza](#clean-up-source-resources): para evitar cargos de facturación, quite la VM con SQL Server del almacén y cualquier recurso innecesario que quede en el grupo de recursos. 
 
 ## <a name="verify-prerequisites"></a>Verificar los requisitos previos 
 
@@ -65,7 +64,7 @@ Prepare la VM con SQL Server de origen y la región de destino para la migraci�
     - Azure Site Recovery automáticamente detecta y crea una red virtual al habilitar la replicación para la máquina virtual de origen. También puede crear previamente una red y asignarla a la máquina virtual en el flujo de usuario para habilitar la replicación. Debe crear manualmente cualquier otro recurso en la región de destino.
 - Para crear los recursos de red más utilizados que considere apropiados, en función de la configuración de la máquina virtual de origen, consulte la siguiente documentación: 
     - [Grupos de seguridad de red](../../../virtual-network/tutorial-filter-network-traffic.md) 
-    - [Equilibrador de carga](../../../load-balancer/tutorial-load-balancer-basic-internal-portal.md)
+    - [Equilibrador de carga](../../../load-balancer/tutorial-load-balancer-standard-internal-portal.md)
     - [Dirección IP pública](../../../virtual-network/virtual-network-public-ip-address.md)
     - Para cualquier componente de red adicional, consulte la [documentación de red](../../../virtual-network/virtual-networks-overview.md).
 - Si desea probar la configuración antes de realizar la migración final a la región de destino, cree manualmente una red sin producción en la región de destino. Se recomienda realizar este paso porque garantiza interferencias mínimas con la red de producción. 
@@ -74,7 +73,7 @@ Prepare la VM con SQL Server de origen y la región de destino para la migraci�
 
 En los pasos siguientes aprenderá a utilizar Azure Site Recovery para copiar datos en la región de destino. Cree el almacén de Recovery Services en cualquier región distinta de la región de origen. 
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com). 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 1. Elija **Crear un recurso** en la esquina superior izquierda del panel de navegación. 
 1. Seleccione **IT & Management tools** (Herramientas de TI y administración) y, luego, **Backup and Site Recovery**. 
 1. En la pestaña **Basics** (Aspectos básicos), en **Detalles del proyecto**, cree un grupo de recursos nuevo en la región de destino o seleccione uno existente en la región de destino. 

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: e5c8bc2fe64d489c9e8490a63f4d7c4680f21ce0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4e08cba2b49f43baea16b01ec709d8d9ab6a18d
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71846396"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856945"
 ---
 # <a name="support-for-32-bit-operating-systems-in-azure-virtual-machines"></a>Compatibilidad con sistemas operativos de 32 bits en máquinas virtuales de Azure
 
-Microsoft Azure ahora permite a los usuarios traer sus sistemas operativos Windows de 32 bits a Azure. Dado que algunos de estos sistemas operativos ya han alcanzado el final de la duración del contrato de soporte técnico, es posible que Microsoft no ofrezca soporte técnico adicional para ellos. Además, no se ofrece soporte técnico para sistemas operativos basados en Linux o en Berkeley Software Distribution (BSD) que se ejecutan en una máquina virtual (VM) de Microsoft Azure.
+Microsoft Azure ahora permite a los usuarios traer sus sistemas operativos Windows de 32 bits a Azure. Solo se admiten VHD especializados y las imágenes generalizadas no funcionarán en Azure. Dado que algunos de estos sistemas operativos ya han alcanzado el final de la duración del contrato de soporte técnico, es posible que Microsoft no ofrezca soporte técnico adicional para ellos. Además, no se ofrece soporte técnico para sistemas operativos basados en Linux o en Berkeley Software Distribution (BSD) que se ejecutan en una máquina virtual (VM) de Microsoft Azure.
 
 ## <a name="more-information"></a>Más información
 
@@ -43,4 +43,4 @@ Para obtener más información acerca de los sistemas operativos que se admiten 
 
 Si necesita más ayuda con cualquier aspecto de este artículo, póngase en contacto con los expertos de Azure en los [foros de MSDN Azure o Stack Overflow](https://azure.microsoft.com/support/forums/).
 
-Como alternativa, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Obtener soporte**.
+Como alternativa, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de Soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Obtener soporte**.

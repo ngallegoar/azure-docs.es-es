@@ -2,13 +2,13 @@
 title: Nodos y grupos en Azure Batch
 description: Obtenga información sobre los grupos y nodos de proceso, y cómo se usan en un flujo de trabajo de Azure Batch desde el punto de vista del desarrollo.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: eadc5236926fed12ebee087f7354c492ae5fc745
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.date: 06/16/2020
+ms.openlocfilehash: f71be75c0358dbc7f76a61680df2c54f44bc4173
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83790922"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964049"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nodos y grupos en Azure Batch
 
@@ -27,6 +27,8 @@ Todos los nodos de proceso en Batch también incluyen:
 - Una [estructura de carpetas](files-and-directories.md) estándar y [variables de entorno](jobs-and-tasks.md) asociadas, disponibles para que las tareas hagan referencia a ellas.
 - **firewall** para controlar el acceso.
 - [Acceso remoto](error-handling.md#connect-to-compute-nodes) a nodos de Windows (Protocolo de escritorio remoto (RDP)) y nodos de Linux (Secure Shell (SSH)).
+
+De forma predeterminada, los nodos pueden comunicarse entre sí, pero no pueden comunicarse con máquinas virtuales que no forman parte del mismo grupo. Para permitir que los nodos se comuniquen de manera segura con otras máquinas virtuales o con una red local, puede aprovisionar el grupo [en una subred de una red de Azure Virtual Network (VNet)](batch-virtual-network.md). Al hacerlo, se puede tener acceso a los nodos a través de direcciones IP públicas. Batch crea estas direcciones IP públicas, que pueden cambiar durante la vigencia del grupo. También puede [crear un grupo con direcciones IP públicas estáticas](create-pool-public-ip.md) bajo su control, lo que garantiza que no cambiarán de forma inesperada.
 
 ## <a name="pools"></a>Grupos
 
@@ -78,7 +80,7 @@ Al igual que con los roles de trabajo en Cloud Services, es posible especificar 
 
 ### <a name="node-agent-skus"></a>SKU de agentes de nodos
 
-Cuando crea un grupo, debe seleccionar la opción **nodeAgentSkuId** apropiada, en función del sistema operativo de la imagen base de su VHD. Puede obtener una asignación de identificadores de SKU de agentes de nodos disponibles a sus referencias de imágenes del sistema operativo mediante una llamada a la operación [List supported node agent SKUs](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) (Lista de SKU admitidas de agentes de nodos).
+Cuando crea un grupo, debe seleccionar la opción **nodeAgentSkuId** apropiada, en función del sistema operativo de la imagen base de su VHD. Puede obtener una asignación de identificadores de SKU de agentes de nodos disponibles a sus referencias de imágenes del sistema operativo mediante una llamada a la operación [List supported node agent SKUs](/rest/api/batchservice/list-supported-node-agent-skus) (Lista de SKU admitidas de agentes de nodos).
 
 ### <a name="custom-images-for-virtual-machine-pools"></a>Imágenes personalizadas de grupos de máquinas virtuales
 
@@ -127,7 +129,7 @@ Una fórmula de escalado puede basarse en las siguientes métricas:
 - **Métricas de recursos** : se basan en el uso de CPU, ancho de banda y memoria y en el número de nodos.
 - **Métricas de tareas**: se basan en el estado de la tarea, como *Activa* (en cola), *En ejecución* o *Completada*.
 
-Cuando el escalado automático reduce el número de nodos de proceso en un grupo, debe considerar cómo administrará las tareas que se están ejecutando en el momento en que se realiza la operación de reducción. Para ello, Batch proporciona una [*opción de desasignación de nodos*](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) que se puede incluir en las fórmulas. Por ejemplo, puede especificar que las tareas en ejecución se detengan de inmediato y se vuelvan a poner en cola para ejecutarlas en otro nodo o se dejen finalizar antes de que se quite el nodo del grupo. Tenga en cuenta que si se establece la opción de desasignación de nodos en `taskcompletion` o `retaineddata`, se evitarán las operaciones de cambio de tamaño de los grupos hasta que se completen todas las tareas o hasta que expiren todos los períodos de retención de tareas, respectivamente.
+Cuando el escalado automático reduce el número de nodos de proceso en un grupo, debe considerar cómo administrará las tareas que se están ejecutando en el momento en que se realiza la operación de reducción. Para ello, Batch proporciona una [*opción de desasignación de nodos*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) que se puede incluir en las fórmulas. Por ejemplo, puede especificar que las tareas en ejecución se detengan de inmediato y se vuelvan a poner en cola para ejecutarlas en otro nodo o se dejen finalizar antes de que se quite el nodo del grupo. Tenga en cuenta que si se establece la opción de desasignación de nodos en `taskcompletion` o `retaineddata`, se evitarán las operaciones de cambio de tamaño de los grupos hasta que se completen todas las tareas o hasta que expiren todos los períodos de retención de tareas, respectivamente.
 
 Para obtener más información sobre cómo escalar automáticamente una aplicación, consulte [Escalado automático de nodos de ejecución en un grupo de Azure Batch](batch-automatic-scaling.md).
 
@@ -162,13 +164,16 @@ Para más información sobre el uso de los paquetes de aplicación para implemen
 
 ## <a name="virtual-network-vnet-and-firewall-configuration"></a>Configuración de red virtual y de firewall
 
-Al aprovisionar un grupo de nodos de proceso en Batch, dicho grupo se puede asociar a una subred de una [red virtual](../virtual-network/virtual-networks-overview.md) de Azure. Para usar una red virtual de Azure, la API de cliente de Batch debe usar la autenticación de Azure Active Directory (AD). La compatibilidad de Azure Batch con Azure AD se documenta en [Autenticación de soluciones de servicio de Batch con Active Directory](batch-aad-auth.md).  
+Al aprovisionar un grupo de nodos de proceso en Batch, dicho grupo se puede asociar a una subred de una [red virtual](../virtual-network/virtual-networks-overview.md) de Azure. Para usar una red virtual de Azure, la API de cliente de Batch debe usar la autenticación de Azure Active Directory (AD). La compatibilidad de Azure Batch con Azure AD se documenta en [Autenticación de soluciones de servicio de Batch con Active Directory](batch-aad-auth.md).
 
 ### <a name="vnet-requirements"></a>Requisitos de la red virtual
 
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
 Para más información sobre cómo configurar un grupo de Batch en una red virtual, consulte [Create a pool of virtual machines with your virtual network](batch-virtual-network.md) (Creación de un grupo de máquinas virtuales con la red virtual).
+
+> [!TIP]
+> Para asegurarse de que las direcciones IP públicas usadas para tener acceso a los nodos no cambian, puede [crear un grupo con direcciones IP públicas especificadas bajo su control](create-pool-public-ip.md).
 
 ## <a name="pool-and-compute-node-lifetime"></a>Vigencia de grupo y nodo de proceso
 
@@ -184,7 +189,7 @@ Normalmente, se usa un enfoque combinado para controlar una carga variable, pero
 
 Normalmente necesitará usar certificados al cifrar o descifrar información confidencial para las tareas, como la clave de una [cuenta de Azure Storage](accounts.md#azure-storage-accounts). Para ello, puede instalar certificados en los nodos. Los secretos cifrados se pasan a las tareas mediante parámetros de línea de comandos o se insertan en uno de los recursos de tarea, y los certificados instalados se pueden usar para descifrarlos.
 
-Use la operación [Agregar certificado](https://docs.microsoft.com/rest/api/batchservice/certificate/add) (REST de Batch) o el método [CertificateOperations.CreateCertificate](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.certificateoperations) (Batch para .NET) para agregar un certificado a una cuenta de Batch. Se puede asociar el certificado a un grupo nuevo o existente.
+Use la operación [Agregar certificado](/rest/api/batchservice/certificate/add) (REST de Batch) o el método [CertificateOperations.CreateCertificate](/dotnet/api/microsoft.azure.batch.certificateoperations) (Batch para .NET) para agregar un certificado a una cuenta de Batch. Se puede asociar el certificado a un grupo nuevo o existente.
 
 Cuando se asocia un certificado a un grupo, el servicio Batch instala el certificado en cada nodo del grupo. El servicio Batch instala los certificados adecuados cuando se inicia el nodo, antes de iniciar ninguna tarea (incluidas la de [inicio](jobs-and-tasks.md#start-task) y la del [administrador de trabajos](jobs-and-tasks.md#job-manager-task)).
 

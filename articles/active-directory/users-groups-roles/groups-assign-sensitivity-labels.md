@@ -8,22 +8,22 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/24/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e4dabad5057fda39fe3753c810a85e6aeb55b3a
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 63097ac520f1d49098054d64ceae614036f59df3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582950"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807811"
 ---
-# <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory-preview"></a>Asignación de etiquetas de confidencialidad a grupos de Office 365 en Azure Active Directory (versión preliminar)
+# <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory"></a>Asignación de etiquetas de confidencialidad a grupos de Office 365 en Azure Active Directory
 
-Azure Active Directory (Azure AD) permite aplicar etiquetas de confidencialidad publicadas por el [Centro de cumplimiento de Microsoft 365](https://sip.protection.office.com/homepage) a los grupos de Office 365. Las etiquetas de confidencialidad se aplican a grupos de servicios como Outlook, Microsoft Teams y SharePoint. Esta característica actualmente está en su versión preliminar pública. Para más información sobre el soporte técnico de aplicaciones de Office 365, consulte [Compatibilidad de Office 365 con las etiquetas de confidencialidad](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
+Azure Active Directory (Azure AD) permite aplicar etiquetas de confidencialidad publicadas por el [Centro de cumplimiento de Microsoft 365](https://sip.protection.office.com/homepage) a los grupos de Office 365. Las etiquetas de confidencialidad se aplican a grupos de servicios como Outlook, Microsoft Teams y SharePoint. Esta característica está actualmente en disponibilidad general. Para más información sobre el soporte técnico de aplicaciones de Office 365, consulte [Compatibilidad de Office 365 con las etiquetas de confidencialidad](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
 
 > [!IMPORTANT]
 > Para configurar esta característica, debe haber al menos una licencia activa de Azure Active Directory Premium P1 en la organización de Azure AD.

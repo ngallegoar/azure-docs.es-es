@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 348ddb0fa8bd973a7e8ebcf5ae14de1eee57d5a5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 1aea1f3b2401d7b9639c32927ffa7390727d25b2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827529"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833645"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Protección del acceso a un almacén de claves
 
@@ -54,7 +54,7 @@ En la siguiente tabla se muestran los puntos de conexión para los planos de adm
 
 | Plano de&nbsp;acceso | Puntos de conexión de acceso | Operaciones | Mecanismo de&nbsp;control de acceso |
 | --- | --- | --- | --- |
-| Plano de administración | **Global:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Gov:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemania:**<br> management.microsoftazure.de:443 | Crear, leer, actualizar y eliminar almacenes de claves<br><br>Establecer directivas de acceso de Key Vault<br><br>Establecer etiquetas de Key Vault | RBAC de Azure Resource Manager |
+| Plano de administración | **Global:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Gov:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemania:**<br> management.microsoftazure.de:443 | Crear, leer, actualizar y eliminar almacenes de claves<br><br>Establecer directivas de acceso de Key Vault<br><br>Establecer etiquetas de Key Vault | Azure RBAC |
 | Plano de datos | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Gov:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Alemania:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 | Claves: descifrar, cifrar,<br> desencapsular, encapsular, verificar, firmar,<br> obtener, enumerar, actualizar, crear,<br> importar, eliminar, hacer copia de seguridad y restaurar<br><br> Secretos: obtener, enumerar, establecer y eliminar | Directiva de acceso de Key Vault |
 
 ## <a name="management-plane-and-rbac"></a>Plano de administración y RBAC
@@ -79,6 +79,8 @@ Existen varios roles predefinidos. Si un rol predefinido no se ajusta a sus nece
 El acceso al plano de datos se concede mediante el establecimiento de directivas de acceso de Key Vault para un almacén de claves. Para establecer estas directivas de acceso, un usuario, grupo o aplicación deben tener permisos `Contributor` para el plano de administración de dicho almacén de claves.
 
 Puede conceder acceso a un usuario, grupo o aplicación para ejecutar operaciones concretas en las claves o los secretos de un almacén de claves. Key Vault admite hasta 1024 entradas de directivas de acceso para un almacén de claves. Para conceder acceso al plano de datos a varios usuarios, cree un grupo de seguridad de Azure AD y agregue usuarios a dicho grupo.
+
+Puede ver la lista completa de operaciones de almacén y secreto, y comprender las operaciones que se permiten al configurar las directivas de acceso de Key Vault mediante la consulta de la siguiente referencia. [Referencia de operación de Key Vault](https://docs.microsoft.com/rest/api/keyvault/#vault-operations)
 
 <a id="key-vault-access-policies"></a> Las directivas de acceso de Key Vault conceden permisos a las claves, los secretos y los certificados por separado. Puede conceder acceso a un usuario solo a las claves y no a los secretos. Los permisos para acceder a las claves, los secretos y los certificados se encuentran en el nivel del almacén. Las directivas de acceso de Key Vault no admiten permisos de nivel de objeto pormenorizados, como una clave, un secreto o un certificado específicos. Para establecer directivas de acceso de un almacén de claves, use [Azure Portal](https://portal.azure.com/), la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azureps-cmdlets-docs) o las [API de REST de administración de Key Vault](https://msdn.microsoft.com/library/azure/mt620024.aspx).
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: 53cfb983579c8a02ed6c1d80ff4821efa5950298
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 1996f607d05cb84a80acbb105504ce0b5d3bb0c1
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848218"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856898"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Referencia de módulo y algoritmo para el diseñador de Azure Machine Learning (versión preliminar)
 
@@ -34,7 +34,7 @@ Para obtener ayuda con la elección de algoritmos, consulte
 
 | Funcionalidad | Descripción | módulo |
 | --- |--- | --- |
-| Entrada y salida de datos | Mueva los datos de los orígenes en la nube a la canalización. Escriba los resultados o los datos intermedios en Azure Storage, una base de datos SQL o Hive, mientras ejecuta una canalización, o use el almacenamiento en la nube para intercambiar datos entre canalizaciones.  | [Introducción manual de datos](enter-data-manually.md) <br/> [Export Data](export-data.md) <br/> [Import Data](import-data.md) |
+| Entrada y salida de datos | Mueva los datos de los orígenes en la nube a la canalización. Escriba los resultados o los datos intermedios en Azure Storage, SQL Database o Hive, mientras ejecuta una canalización, o use el almacenamiento en la nube para intercambiar datos entre canalizaciones.  | [Introducción manual de datos](enter-data-manually.md) <br/> [Export Data](export-data.md) <br/> [Import Data](import-data.md) |
 | Transformación de datos | Operaciones con los datos que son exclusivas del aprendizaje automático, como la normalización o discretización de datos, la reducción de la dimensionalidad y la conversión de datos entre barios formatos de archivo.| [Adición de columnas](add-columns.md) <br/> [Adición de filas](add-rows.md) <br/> [Aplicación de operación matemática](apply-math-operation.md) <br/> [Aplicación de transformaciones de SQL](apply-sql-transformation.md) <br/> [Clean Missing Data](clean-missing-data.md) (limpiar datos faltantes) <br/> [Recorte de valores](clip-values.md) <br/> [Conversión a CSV](convert-to-csv.md) <br/> [Conversión en conjunto de datos](convert-to-dataset.md) <br/> [Convertir en valores de indicador](convert-to-indicator-values.md) <br/> [Edición de metadatos](edit-metadata.md) <br/> [Agrupación de datos en intervalos](group-data-into-bins.md) <br/> [Combinación de datos](join-data.md) <br/> [Normalize Data](normalize-data.md) (normalizar datos) <br/> [Partición y ejemplo](partition-and-sample.md)  <br/> [Supresión de filas duplicadas](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [Selección de transformación de columnas](select-columns-transform.md) <br/> [Seleccionar columnas de conjunto de datos](select-columns-in-dataset.md) <br/> [División de datos](split-data.md) |
 | Selección de características | Seleccione un subconjunto de características pertinentes y útiles para la creación de un modelo analítico. | [Selección de características basada en filtros](filter-based-feature-selection.md) <br/> [Importancia de la característica de permutación](permutation-feature-importance.md) |
 | Funciones estadísticas | Proporcionar una amplia variedad de métodos estadísticos relacionados con la ciencia de datos. | [Resumen de datos](summarize-data.md)|
@@ -51,12 +51,13 @@ Para obtener ayuda con la elección de algoritmos, consulte
 
 | Funcionalidad | Descripción | módulo |
 | --- |--- | --- |
-| Entrenamiento del modelo | Ejecute datos a través del algoritmo. |  [Entrenamiento del modelo de agrupación en clústeres](train-clustering-model.md) <br/> [Train Model](train-model.md) (entrenar modelo)  <br/> [Tune Model Hyperparameters](tune-model-hyperparameters.md) (Optimizar hiperparámetros del modelo) |
-| Evaluación y puntuación del modelo | Mida la precisión del modelo entrenado. | [Aplicación de la transformación](apply-transformation.md) <br/> [Assign Data to Clusters](assign-data-to-clusters.md) (asignar datos a los clústeres) <br/> [Cross Validate Model](cross-validate-model.md) (Modelo de validación cruzada) <br/> [Evaluación de módulo](evaluate-model.md) <br/> [Score Model](score-model.md) (puntuar modelo) |
+| Entrenamiento del modelo | Ejecute datos a través del algoritmo. |  [Entrenamiento del modelo de agrupación en clústeres](train-clustering-model.md) <br/> [Train Model](train-model.md) (entrenar modelo) <br/> [Entrenamiento del modelo de PyTorch](train-pytorch-model.md) <br/> [Tune Model Hyperparameters](tune-model-hyperparameters.md) (Optimizar hiperparámetros del modelo) |
+| Evaluación y puntuación del modelo | Mida la precisión del modelo entrenado. | [Aplicación de la transformación](apply-transformation.md) <br/> [Assign Data to Clusters](assign-data-to-clusters.md) (asignar datos a los clústeres) <br/> [Cross Validate Model](cross-validate-model.md) (Modelo de validación cruzada) <br/> [Evaluación de módulo](evaluate-model.md) <br/> [Puntuación del modelo de imagen](score-image-model.md) <br/> [Score Model](score-model.md) (puntuar modelo) |
 | Lenguaje Python | Escriba código e insértelo en un módulo para integrar Python con la canalización. | [Creación de modelo Python](create-python-model.md) <br/> [Ejecución de script de Python](execute-python-script.md) |
 | Lenguaje R | Escriba código e insértelo en un módulo para integrar R con la canalización. | [Ejecución script de R](execute-r-script.md) |
-| Text Analytics | Proporcione herramientas de cálculo especializadas para trabajar con texto estructurado y no estructurado. |  [Conversión de palabra en vector](convert-word-to-vector.md) <br/> [Extracción de características de n-gramas a partir de texto](extract-n-gram-features-from-text.md) <br/> [Hash de características](feature-hashing.md) <br/> [Preprocesamiento de texto](preprocess-text.md) <br/> [Asignación de Dirichlet latente](latent-dirichlet-allocation.md) |
-| Recomendación | Compile modelos de recomendación. | [Evaluate Recommender](evaluate-recommender.md) (Evaluar recomendador) <br/> [Score SVD Recommender](score-svd-recommender.md) (Puntuar recomendador de SVD) <br/> [Train SVD Recommender](train-SVD-recommender.md) (Entrenar recomendador de SVD) |
+| Text Analytics | Proporcione herramientas de cálculo especializadas para trabajar con texto estructurado y no estructurado. |  [Conversión de palabra en vector](convert-word-to-vector.md) <br/> [Extracción de características de n-gramas a partir de texto](extract-n-gram-features-from-text.md) <br/> [Hash de características](feature-hashing.md) <br/> [Preprocesamiento de texto](preprocess-text.md) <br/> [Asignación de Dirichlet latente](latent-dirichlet-allocation.md) <br/> [Puntuación del modelo de Vowpal Wabbit](score-vowpal-wabbit-model.md) <br/> [Entrenamiento del modelo de Vowpal Wabbit](train-vowpal-wabbit-model.md)|
+| Computer Vision | Módulos relacionados con el preprocesamiento de datos de imagen y el reconocimiento de imágenes. |  [Aplicación de transformación de imagen](apply-image-transformation.md) <br/> [Conversión al directorio de imagen](convert-to-image-directory.md) <br/> [Transformación de imagen init](init-image-transformation.md) <br/> [División de directorio de imagen](split-image-directory.md) <br/> [DenseNet](densenet.md) <br/> [ResNet](resnet.md) |
+| Recomendación | Compile modelos de recomendación. | [Evaluate Recommender](evaluate-recommender.md) (Evaluar recomendador) <br/> [Score SVD Recommender](score-svd-recommender.md) (Puntuar recomendador de SVD) <br/> [Puntuación del recomendador ancho y profundo](score-wide-and-deep-recommender.md)<br/> [Train SVD Recommender](train-SVD-recommender.md) (Entrenar recomendador de SVD) <br/> [Entrenamiento del recomendador ancho y profundo](train-wide-and-deep-recommender.md)|
 | Detección de anomalías | Compile modelos de detección de anomalías. | [Detección de anomalías basada en PCA](pca-based-anomaly-detection.md) <br/> [Train Anomaly Detection Model](train-anomaly-detection-model.md) (entrenar un modelo de detección de anomalías) |
 
 

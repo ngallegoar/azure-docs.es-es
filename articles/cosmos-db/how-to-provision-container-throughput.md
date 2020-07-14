@@ -3,15 +3,15 @@ title: Aprovisionamiento del rendimiento de contenedor en Azure Cosmos DB
 description: Aprenda a aprovisionar el rendimiento en el nivel de contenedor en Azure Cosmos DB mediante Azure Portal, la CLI, PowerShell y otros SDK.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/13/2019
 ms.author: mjbrown
-ms.openlocfilehash: 6ade9baaf7dc125bac6738b44134ee496b8a2be4
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 9167df9c763f4004324a3435ba1a2b0fd0171ac4
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84265937"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851689"
 ---
 # <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container"></a>Aprovisionamiento del rendimiento estándar (manual) de un contenedor de Azure Cosmos
 
@@ -31,7 +31,7 @@ En este artículo se explica cómo aprovisionar el rendimiento estándar (manual
    * Escriba un rendimiento que quiera aprovisionar (por ejemplo, 1000 RU).
    * Seleccione **Aceptar**.
 
-    ![Captura de pantalla de Data Explorer, con Nueva colección resaltado](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
+    :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png" alt-text="Captura de pantalla de Data Explorer, con la Nueva colección resaltada":::
 
 ## <a name="azure-cli-or-powershell"></a>CLI de Azure o PowerShell
 
@@ -99,7 +99,7 @@ offer.content.offerThroughput = 2000;
 await client.offer(offer.id).replace(offer);
 ```
 
-### <a name="mongodb-api"></a><a id="dotnet-cassandra"></a>API de MongoDB
+### <a name="mongodb-api"></a><a id="dotnet-mongodb"></a>API de MongoDB
 
 ```csharp
 // refer to MongoDB .NET Driver

@@ -6,12 +6,13 @@ ms.topic: article
 ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: d206ff114cd08f2ab3f2068076bf7cadb047a689
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.custom: tracking-python
+ms.openlocfilehash: 87e4d67086ea9f260becb2d63765e807e2b73546
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84258472"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985759"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Cómo usar identidades administradas para App Service y Azure Functions
 
@@ -42,7 +43,7 @@ Para configurar una identidad administrada en el portal, primero creará una apl
 
 
 > [!NOTE] 
-> Para buscar la identidad administrada de la aplicación web o de ranura en Azure Portal, vaya a la sección Configuración de usuario en Aplicaciones empresariales.
+> Para encontrar la identidad administrada de la aplicación web o de ranura en Azure Portal, busque en la sección **Configuración de usuario** en **Aplicaciones empresariales**. Normalmente, el nombre de la ranura es similar a `<app name>/slots/<slot name>`.
 
 
 ### <a name="using-the-azure-cli"></a>Uso de la CLI de Azure

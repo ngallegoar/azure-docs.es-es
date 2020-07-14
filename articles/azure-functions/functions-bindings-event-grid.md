@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 21654a3b325e8b8f0a3e49ee64b7624c8540d0d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1dc1198ab9c546ef1defa1891777c4c8081171e9
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77461086"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957186"
 ---
 # <a name="azure-event-grid-bindings-for-azure-functions"></a>Enlaces de Azure Event Grid para Azure Functions
 
@@ -38,7 +38,7 @@ Para trabajar con el desencadenador y los enlaces, es necesario hacer referencia
 
 | Idioma                                        | Agregar mediante...                                   | Observaciones 
 |-------------------------------------------------|---------------------------------------------|-------------|
-| C#                                              | Instalación del [paquete NuGet], versión 3.x | |
+| C#                                              | Instalación del [paquete NuGet], versión 2.x | |
 | Script de C#, Java, JavaScript, Python, PowerShell | Registro de [conjunto de extensiones]          | Se recomienda usar la [extensión Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) con Visual Studio Code. |
 | Script de C# (solo en línea en Azure Portal)         | Adición de un enlace                            | Para actualizar extensiones de enlace existentes sin tener que volver a publicar la aplicación de funciones, vea [Actualización de las extensiones]. |
 

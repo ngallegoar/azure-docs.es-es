@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Skyhigh Networks | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Skyhigh Networks.
+title: 'Tutorial: Integración de Azure Active Directory con MVISION Cloud Azure AD SSO Configuration | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y MVISION Cloud Azure AD SSO Configuration.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,99 +11,78 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/07/2019
+ms.date: 06/23/2020
 ms.author: jeedes
-ms.openlocfilehash: 92f3f101807171e71d40171dfa2bd3f006363ae0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a519ab6558db95ecf86b7595dbbb13a970460043
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67090392"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85806863"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skyhigh-networks"></a>Tutorial: Integración de Azure Active Directory con Skyhigh Networks
+# <a name="tutorial-integrate-mvision-cloud-azure-ad-sso-configuration-with-azure-active-directory"></a>Tutorial: Integración de MVISION Cloud Azure AD SSO Configuration con Azure Active Directory
 
-En este tutorial, aprenderá a integrar Skyhigh Networks con Azure Active Directory (Azure AD).
-La integración de Skyhigh Networks con Azure AD proporciona las siguientes ventajas:
+En este tutorial aprenderá a integrar MVISION Cloud Azure AD SSO Configuration con Azure Active Directory (Azure AD). Al integrar MVISION Cloud Azure AD SSO Configuration con Azure AD, podrá hacer lo siguiente:
 
-* Puede controlar en Azure AD quién tiene acceso a Skyhigh Networks.
-* Puede permitir que los usuarios inicien sesión automáticamente en Skyhigh Networks (inicio de sesión único) con sus cuentas de Azure AD.
-* Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Controlar en Azure AD quién tiene acceso a MVISION Cloud Azure AD SSO Configuration.
+* Permitir que los usuarios inicien sesión automáticamente en MVISION Cloud Azure AD SSO Configuration con sus cuentas de Azure AD.
+* Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
-Para configurar la integración de Azure AD con Skyhigh Networks, necesita los siguientes elementos:
+Para empezar, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
-* Una suscripción habilitada para el inicio de sesión único en Skyhigh Networks
+* Una suscripción de Azure AD. Si no tiene una suscripción, puede obtener la evaluación gratuita de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción habilitada para el inicio de sesión único (SSO) de MVISION Cloud Azure AD SSO Configuration.
+
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Skyhigh Networks admite el inicio de sesión único iniciado por **SP e IDP**.
+* MVISION Cloud Azure AD SSO Configuration admite el inicio de sesión único iniciado por **SP e IDP**.
+* Una vez configurado Dropbox, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
 
-## <a name="adding-skyhigh-networks-from-the-gallery"></a>Adición de Skyhigh Networks desde la galería
+## <a name="adding-mvision-cloud-azure-ad-sso-configuration-from-the-gallery"></a>Incorporación de MVISION Cloud Azure AD SSO Configuration desde la galería
 
-Para configurar la integración de Skyhigh Networks en Azure AD, es preciso agregar Skyhigh Networks desde la galería a la lista de aplicaciones SaaS administradas.
+Para configurar la integración de MVISION Cloud Azure AD SSO Configuration en Azure AD, debe agregar MVISION Cloud Azure AD SSO Configuration desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Skyhigh Networks desde la galería, siga estos pasos:**
-
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
-
-    ![Botón Azure Active Directory](common/select-azuread.png)
-
-2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
-
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
-
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
-
-    ![Botón Nueva aplicación](common/add-new-app.png)
-
-4. En el cuadro de búsqueda, escriba **Skyhigh Networks**, seleccione **Skyhigh Networks** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
-
-     ![Skyhigh Networks en la lista de resultados](common/search-new-app.png)
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la Galería**, escriba **MVISION Cloud Azure AD SSO Configuration** en el cuadro de búsqueda.
+1. Seleccione **MVISION Cloud Azure AD SSO Configuration** en el panel de resultados y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Skyhigh Networks con un usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Skyhigh Networks.
+Configure y pruebe el inicio de sesión único de Azure AD con MVISION Cloud Azure AD SSO Configuration mediante un usuario de prueba llamado **Britta Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de MVISION Cloud Azure AD SSO Configuration.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Skyhigh Networks, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con MVISION Cloud Azure AD SSO Configuration, complete los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Skyhigh Networks](#configure-skyhigh-networks-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Skyhigh Networks](#create-skyhigh-networks-test-user)** : para tener un homólogo de Britta Simon en Skyhigh Networks que esté vinculado a la representación de ella en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+    4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Configuración del inicio de sesión único de MVISION Cloud Azure AD SSO Configuration](#configure-mvision-cloud-azure-ad-sso-configuration-sso)** , para configurar las opciones de inicio de sesión único en la aplicación.
+    1. **[Creación de un usuario de prueba de MVISION Cloud Azure AD SSO Configuration](#create-mvision-cloud-azure-ad-sso-configuration-test-user)** , para tener un homólogo de Britta Simon en MVISION Cloud Azure AD SSO Configuration que esté vinculado a la representación de Azure AD del usuario.
+1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
+Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-Para configurar el inicio de sesión único de Azure AD con Skyhigh Networks, realice los siguientes pasos:
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Datadog**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Skyhigh Networks**, haga clic en **Inicio de sesión único**.
+   ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
-
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
-
-    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
-
-3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
-
-    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por **IDP** siga estos pasos:
-
-    ![Información de dominio y direcciones URL de inicio de sesión único de Skyhigh Networks](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<ENV>.myshn.net/shndash/saml/Azure_SSO`
 
@@ -111,30 +90,21 @@ Para configurar el inicio de sesión único de Azure AD con Skyhigh Networks, re
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Skyhigh Networks](common/metadata-upload-additional-signon.png)
+    ![Información de dominio y direcciones URL de inicio de sesión único de MVISION Cloud Azure AD SSO Configuration](common/metadata-upload-additional-signon.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<ENV>.myshn.net/shndash/saml/Azure_SSO`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de Skyhigh Networks](mailto:support@skyhighnetworks.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico al cliente de MVISION Cloud Azure AD SSO Configuration](mailto:support@skyhighnetworks.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 6. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-7. En la sección **Set up Skyhigh Networks** (Configurar Skyhigh Networks), copie las direcciones URL adecuadas según sus necesidades.
+7. En la sección **Set up MVISION Cloud Azure AD SSO Configuration** (Configurar MVISION Cloud Azure AD SSO Configuration), copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-    a. URL de inicio de sesión
-
-    b. Identificador de Azure AD
-
-    c. URL de cierre de sesión
-
-### <a name="configure-skyhigh-networks-single-sign-on"></a>Configuración del inicio de sesión único de Skyhigh Networks
-
-Para configurar el inicio de sesión único en **Skyhigh Networks**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Skyhigh Networks](mailto:support@skyhighnetworks.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -163,15 +133,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, concederá acceso a Britta Simon a Skyhigh Networks para que use el inicio de sesión único de Azure.
+En esta sección, concederá a Britta Simon acceso a MVISION Cloud Azure AD SSO Configuration para que pueda usar el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y, luego, **Skyhigh Networks**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y, luego, **MVISION Cloud Azure AD SSO Configuration**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Skyhigh Networks**.
+2. En la lista de aplicaciones, seleccione **MVISION Cloud Azure AD SSO Configuration**.
 
-    ![El vínculo de Skyhigh Networks en la lista de aplicaciones](common/all-applications.png)
+    ![Vínculo de MVISION Cloud Azure AD SSO Configuration en la lista de aplicaciones](common/all-applications.png)
 
 3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
@@ -187,15 +157,21 @@ En esta sección, concederá acceso a Britta Simon a Skyhigh Networks para que u
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="create-skyhigh-networks-test-user"></a>Creación de un usuario de prueba de Skyhigh Networks
 
-En esta sección, creará un usuario llamado Britta Simon en Skyhigh Networks. Trabaje con el  [equipo de soporte técnico de Skyhigh Networks](mailto:support@skyhighnetworks.com) para agregar los usuarios a la plataforma de Skyhigh Networks. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+## <a name="configure-mvision-cloud-azure-ad-sso-configuration-sso"></a>Configuración del inicio de sesión único de MVISION Cloud Azure AD SSO Configuration
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
+Para configurar el inicio de sesión único en **MVISION Cloud Azure AD SSO Configuration**, es preciso enviar el **Certificado (Base64)** descargado y las direcciones URL copiadas adecuadas de Azure Portal al [equipo de soporte técnico de MVISION Cloud Azure AD SSO Configuration](mailto:support@skyhighnetworks.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+
+
+### <a name="create-mvision-cloud-azure-ad-sso-configuration-test-user"></a>Creación del usuario de prueba de MVISION Cloud Azure AD SSO Configuration
+
+En esta sección, creará un usuario llamado B.Simon en MVISION Cloud Azure AD SSO Configuration. Trabaje con el  [equipo de soporte técnico de MVISION Cloud Azure AD SSO Configuration](mailto:support@skyhighnetworks.com) para agregar los usuarios a la plataforma de MVISION Cloud Azure AD SSO Configuration. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+
+### <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Skyhigh Networks en el Panel de acceso, debería iniciar sesión automáticamente en la versión de Skyhigh Networks para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de MVISION Cloud Azure AD SSO Configuration en el Panel de acceso, debería iniciar sesión automáticamente en la aplicación MVISION Cloud Azure AD SSO Configuration para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
@@ -204,3 +180,7 @@ Al hacer clic en el icono de Skyhigh Networks en el Panel de acceso, debería in
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Pruebe MVISION Cloud Azure AD SSO Configuration con Azure AD](https://aad.portal.azure.com/)
+
+- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

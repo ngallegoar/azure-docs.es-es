@@ -1,22 +1,21 @@
 ---
 title: Determinación de las causas de incumplimiento
 description: Cuando un recurso no es compatible, hay muchos motivos posibles para ello. Descubra qué es lo que provoca que no sea compatible.
-ms.date: 05/20/2020
+ms.date: 07/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 05405671900e8734ee1536cfc00fd5203a145124
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: d548f5b9db141eb6aed5984c43f00543d0228f31
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168563"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970780"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinación de las causas de incumplimiento
 
 Cuando se determina que un recurso de Azure no cumple con una regla de directiva, resulta útil entender con qué parte de la regla no es compatible el recurso. También resulta útil para comprender cuál es el cambio que modificó un recurso compatible anteriormente y lo transformó en no compatible. Hay dos maneras de obtener esta información:
 
-> [!div class="checklist"]
-> - [Detalles de cumplimiento](#compliance-details)
-> - [Historial de cambios (versión preliminar)](#change-history)
+- [Detalles de cumplimiento](#compliance-details)
+- [Historial de cambios (versión preliminar)](#change-history)
 
 ## <a name="compliance-details"></a>Detalles de cumplimiento
 
@@ -190,7 +189,7 @@ Audit that an application is installed inside Windows VMs                 NonCom
 
 ## <a name="change-history-preview"></a><a name="change-history"></a>Historial de cambios (versión preliminar)
 
-Como parte de una nueva **versión preliminar pública**, los últimos 14 días del historial de cambios están disponibles para todos los recursos de Azure que admiten la [eliminación de modo completa](../../../azure-resource-manager/templates/complete-mode-deletion.md). El historial de cambios proporciona información acerca de cuándo se detectó un cambio y una _diferencia visual_ para cada cambio. Se desencadena una detección de cambios cuando se agregan, eliminan o modifican las propiedades de Resource Manager.
+Como parte de una nueva **versión preliminar pública**, los últimos 14 días del historial de cambios están disponibles para todos los recursos de Azure que admiten la [eliminación de modo completa](../../../azure-resource-manager/templates/complete-mode-deletion.md). El historial de cambios proporciona información acerca de cuándo se detectó un cambio y una _diferencia visual_ para cada cambio. Se desencadena una detección de cambios cuando se agregan, eliminan o modifican las propiedades de Azure Resource Manager.
 
 1. Inicie el servicio Azure Policy en Azure Portal. Para ello, haga clic en **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
 

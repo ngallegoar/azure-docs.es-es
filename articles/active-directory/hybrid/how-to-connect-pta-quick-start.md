@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca425c7c5739785f3463086d89b4796f09bf45b4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3aad90a3894d3abc1a850ae21946e8895619a188
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229823"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849885"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Autenticación de paso a través de Azure Active Directory: Guía de inicio rápido
 
@@ -151,15 +151,19 @@ En primer lugar, puede hacerlo de manera interactiva si ejecuta el archivo ejecu
 En segundo lugar, puede crear y ejecutar un script de implementación desatendida. Esto resulta útil cuando desea implementar varios agentes de autenticación a la vez o instalar agentes de autenticación en servidores Windows que no tienen habilitada la interfaz de usuario o a los que no puede acceder sin Escritorio remoto. Estas son las instrucciones para usar este enfoque:
 
 1. Ejecute el comando siguiente para instalar un agente de autenticación: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
-2. Puede registrar el agente de autenticación con nuestro servicio mediante Windows PowerShell. Cree un objeto de credenciales de PowerShell `$cred` que contenga un nombre de usuario y una contraseña de administrador global para el inquilino. Ejecute el comando siguiente, reemplazando *\<username\>* y *\<password\>* por los valores correspondientes:
+2. Puede registrar el agente de autenticación con nuestro servicio mediante Windows PowerShell. Cree un objeto de credenciales de PowerShell `$cred` que contenga un nombre de usuario y una contraseña de administrador global para el inquilino. Ejecute el comando siguiente, reemplazando *\<username\>* y *\<password\>* :
 
-        $User = "<username>"
-        $PlainPassword = '<password>'
-        $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
-        $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $SecurePassword
+  ```powershell
+  $User = "<username>"
+  $PlainPassword = '<password>'
+  $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
+  $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $SecurePassword
+  ```
 3. Vaya a **C:\Archivos de programa\Microsoft Azure AD Connect Authentication Agent** y ejecute el script siguiente con el objeto `$cred` que creó:
 
-        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "PassthroughAuthPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
+  ```powershell
+  RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "PassthroughAuthPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
+  ```
 
 >[!IMPORTANT]
 >Si se instala un agente de autenticación en una máquina virtual, no podrá clonar esta para configurar otro agente de autenticación. Este método es **incompatible**.

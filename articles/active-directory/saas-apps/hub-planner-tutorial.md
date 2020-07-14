@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc1cc89beb1e704428fdb4e10868e72e837804d3
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 0b5a52d0a54a9671052b9b7d46810cc65c22951f
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765263"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799908"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hub-planner"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Hub Planner
 
@@ -85,9 +85,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.hubplanner.com`
 
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.hubplanner.com/sso/metadata`
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://app.hubplanner.com/sso/metadata`
 
-    c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.hubplanner.com/sso/callback`
+    c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://app.hubplanner.com/sso/callback`
 
     > [!NOTE]
     > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico al cliente de Hub Planner](mailto:hello@hubplanner.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -133,9 +133,29 @@ En esta sección, va a permitir que B.Simon acceda a Hub Planner mediante el ini
 
 Para configurar el inicio de sesión único en **Hub Planner**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de Hub Planner](mailto:hello@hubplanner.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
+### <a name="install-the-extension-in-hub-planner"></a>Instalación de la extensión en Hub Planner
+
+Para habilitar la funcionalidad de inicio de sesión único, primero debe habilitar la extensión. Como propietario de la cuenta o con permisos equivalentes, siga estos pasos:
+
+1. Vaya a **Configuración**.
+1. En el menú lateral, seleccione **Administrar extensiones** > **Agregar o quitar extensiones**.
+1. Busque la extensión para el inicio de sesión único y agregar o probar gratis.
+1. Cuando se le solicite, acepte los términos y condicione,s y, a continuación, seleccione **Agregar ahora**.
+
+### <a name="enable-sso"></a>Habilitación de SSO
+
+Una vez habilitada la extensión, debe habilitar el inicio de sesión único para su cuenta. 
+
+1. Vaya a **Configuración**.
+1. En el menú lateral, seleccione **Autenticación**.
+1. Seleccione **SSO (inicio de sesión único)** .
+1. Escriba la información de autenticación adicional que se muestra en la siguiente imagen y, a continuación, seleccione **Guardar**.
+
+![Captura de pantalla de la configuración de SSO](media/hub-planner-tutorial/sso-settings.png)
+
 ### <a name="create-hub-planner-test-user"></a>Creación de un usuario de prueba de Hub Planner
 
-En esta sección, creará un usuario llamado Britta Simon en Hub Planner. Trabaje con el  [equipo de soporte técnico de Hub Planner](mailto:hello@hubplanner.com) para agregar los usuarios a la plataforma de Hub Planner. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+Si desea agregar otros usuarios, vaya a **Configuración** > **Administrar recursos** y agregue los usuarios desde aquí. Asegúrese de agregar su dirección de correo electrónico e invitarlos. Una vez invitados, recibirán un correo electrónico y podrán entrar a través del inicio de sesión único. 
 
 ## <a name="test-sso"></a>Prueba de SSO 
 

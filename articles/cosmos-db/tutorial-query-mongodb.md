@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 5b9bc78f6af833d89a3404de0295ddad78ebdf20
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5283916194d407cebd30ef072907c56ded1c6cb0
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74870146"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848948"
 ---
 # <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Consulta de los datos con la API de Azure Cosmos DB para MongoDB
 
@@ -63,12 +63,15 @@ En las consultas de este artículo se usa el documento de ejemplo siguiente.
 Dado el documento de familia de ejemplo anterior, la consulta siguiente devuelve los documentos donde el campo Id. coincide con `WakefieldFamily`.
 
 **Consultar**
-    
-    db.families.find({ id: "WakefieldFamily"})
+
+```bash
+db.families.find({ id: "WakefieldFamily"})
+```
 
 **Resultados**
 
-    {
+```json
+{
     "_id": "ObjectId(\"58f65e1198f3a12c7090e68c\")",
     "id": "WakefieldFamily",
     "parents": [
@@ -106,19 +109,23 @@ Dado el documento de familia de ejemplo anterior, la consulta siguiente devuelve
     },
     "creationDate": 1431620462,
     "isRegistered": false
-    }
+}
+```
 
 ## <a name="example-query-2"></a><a id="examplequery2"></a>Consulta 2 de ejemplo 
 
 La consulta siguiente devuelve todos los elementos secundarios de la familia. 
 
 **Consultar**
-    
-    db.families.find( { id: "WakefieldFamily" }, { children: true } )
+
+```bash 
+db.families.find( { id: "WakefieldFamily" }, { children: true } )
+``` 
 
 **Resultados**
 
-    {
+```json
+{
     "_id": "ObjectId("58f65e1198f3a12c7090e68c")",
     "children": [
       {
@@ -138,28 +145,37 @@ La consulta siguiente devuelve todos los elementos secundarios de la familia.
         "grade": 8
       }
     ]
-    }
-
+}
+```
 
 ## <a name="example-query-3"></a><a id="examplequery3"></a>Consulta 3 de ejemplo 
 
 La consulta siguiente devuelve todas las familias que están registradas. 
 
 **Consultar**
-    
-    db.families.find( { "isRegistered" : true })
-**Resultados**: no se devolverá ningún documento. 
+
+```bash
+db.families.find( { "isRegistered" : true })
+``` 
+
+**Resultados**
+
+No se devolverá ningún documento. 
 
 ## <a name="example-query-4"></a><a id="examplequery4"></a>Consulta 4 de ejemplo
 
 La consulta siguiente devuelve todas las familias que no están registradas. 
 
 **Consultar**
-    
-    db.families.find( { "isRegistered" : false })
+
+```bash
+db.families.find( { "isRegistered" : false })
+``` 
+
 **Resultados**
 
-     {
+```json
+{
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
     "parents": [{
@@ -193,18 +209,22 @@ La consulta siguiente devuelve todas las familias que no están registradas.
     "creationDate": 1431620462,
     "isRegistered": false
 }
+```
 
 ## <a name="example-query-5"></a><a id="examplequery5"></a>Consulta 5 de ejemplo
 
 La consulta siguiente devuelve todas las familias que no están registradas y el estado es NY. 
 
 **Consultar**
-    
-     db.families.find( { "isRegistered" : false, "address.state" : "NY" })
+
+```bash
+db.families.find( { "isRegistered" : false, "address.state" : "NY" })
+``` 
 
 **Resultados**
 
-     {
+```json
+{
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
     "parents": [{
@@ -238,19 +258,22 @@ La consulta siguiente devuelve todas las familias que no están registradas y el
     "creationDate": 1431620462,
     "isRegistered": false
 }
-
+```
 
 ## <a name="example-query-6"></a><a id="examplequery6"></a>Consulta 6 de ejemplo
 
 La consulta siguiente devuelve todas las familias en las que los grados de los elementos secundarios son 8.
 
 **Consultar**
-  
-     db.families.find( { children : { $elemMatch: { grade : 8 }} } )
+
+```bash
+db.families.find( { children : { $elemMatch: { grade : 8 }} } )
+```
 
 **Resultados**
 
-     {
+```json
+{
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
     "parents": [{
@@ -284,14 +307,17 @@ La consulta siguiente devuelve todas las familias en las que los grados de los e
     "creationDate": 1431620462,
     "isRegistered": false
 }
+```
 
 ## <a name="example-query-7"></a><a id="examplequery7"></a>Consulta 7 de ejemplo
 
 La consulta siguiente devuelve todas las familias en las que el valor de tamaño de la matriz secundaria es 3.
 
 **Consultar**
-  
-      db.Family.find( {children: { $size:3} } )
+
+```bash
+db.Family.find( {children: { $size:3} } )
+```
 
 **Resultados**
 

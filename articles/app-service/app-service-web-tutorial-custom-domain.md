@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 116ec218b1f3947b85b4ab865df30477f05c601a
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 46c27f18f8f16f783248790f03364654d0b3c2fe
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559888"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986837"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Asignación de un nombre DNS personalizado existente a Azure App Service
 
@@ -29,7 +29,7 @@ En este tutorial, aprenderá a:
 > * Redireccionamiento de una dirección URL predeterminada a un directorio personalizado
 > * Automatizar la asignación de dominio con scripts
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 
@@ -95,9 +95,7 @@ Cuando vea la siguiente notificación, significará que la operación de escalad
 
 ## <a name="get-domain-verification-id"></a>Obtención del identificador de comprobación de dominio
 
-Para agregar un dominio personalizado a la aplicación, tiene que confirmar la propiedad del dominio agregando un identificador de comprobación como un registro TXT con el proveedor de dominio. En el panel de navegación izquierdo de la página de la aplicación, haga clic en **Explorador de recursos** en **Herramientas de desarrollo** y, a continuación, haga clic en **Ir**.
-
-En la vista JSON de las propiedades de la aplicación, busque `customDomainVerificationId`, y copie su valor dentro de las comillas dobles. Necesita este identificador de comprobación para el paso siguiente.
+Para agregar un dominio personalizado a la aplicación, tiene que confirmar la propiedad del dominio agregando un identificador de comprobación como un registro TXT con el proveedor de dominio. En el panel de navegación izquierdo de la página de la aplicación, haga clic en **Dominios personalizados** en **Configuración**. Copie el valor del identificador de comprobación de dominio personalizado de aquí. Necesita este identificador de comprobación para el paso siguiente.
 
 ## <a name="map-your-domain"></a>Asignación del dominio
 
@@ -113,6 +111,8 @@ Puede usar un **registro CNAME** o un **registro D** para asignar un nombre DNS 
 ### <a name="map-a-cname-record"></a>Asignar un registro CNAME
 
 En el ejemplo del tutorial, agregue un registro CNAME para el subdominio `www` (por ejemplo, `www.contoso.com`).
+
+Si tiene un subdominio distinto de `www`, reemplace `www` por el subdominio (por ejemplo, con `sub` si el dominio personalizado es `sub.constoso.com`).
 
 #### <a name="access-dns-records-with-domain-provider"></a>Acceso a los registros DNS con el proveedor de dominios
 
@@ -196,7 +196,7 @@ Para asignar un registro D a una aplicación, normalmente al dominio raíz, cree
 
 | Tipo de registro | Host | Value | Comentarios |
 | - | - | - |
-| Un | `@` | D www Dirección IP de [Copiar la dirección IP de la aplicación](#info) | La propia asignación de dominio (`@` normalmente representa el dominio raíz). |
+| A | `@` | D www Dirección IP de [Copiar la dirección IP de la aplicación](#info) | La propia asignación de dominio (`@` normalmente representa el dominio raíz). |
 | TXT | `asuid` | [El identificador de comprobación que obtuvo anteriormente](#get-domain-verification-id). | App Service accede al registro TXT `asuid.<subdomain>` para comprobar la propiedad del dominio personalizado. Para el dominio raíz, use `asuid`. |
 
 > [!NOTE]
@@ -204,7 +204,7 @@ Para asignar un registro D a una aplicación, normalmente al dominio raíz, cree
 >
 > | Tipo de registro | Host | Value |
 > | - | - | - |
-> | Un | `www` | D www Dirección IP de [Copiar la dirección IP de la aplicación](#info) |
+> | A | `www` | D www Dirección IP de [Copiar la dirección IP de la aplicación](#info) |
 > | TXT | `asuid.www` | `<app_name>.azurewebsites.net` |
 >
 

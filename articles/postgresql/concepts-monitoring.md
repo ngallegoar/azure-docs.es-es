@@ -5,19 +5,19 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/19/2019
-ms.openlocfilehash: 935fba3869367bff971e6067b22b05b3a0d9119f
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.date: 06/25/2020
+ms.openlocfilehash: 89450e5518d854fbc31b43324ecb05f47e1ab5ac
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266889"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971001"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Supervisión y ajuste en Azure Database for PostgreSQL: Single Server
 La supervisión de los datos sobre los servidores le permite solucionar problemas y optimizar la carga de trabajo. Azure Database for PostgreSQL proporciona diversas opciones de supervisión para ofrecer información detallada sobre el comportamiento del servidor.
 
 ## <a name="metrics"></a>Métricas
-Azure Database for PostgreSQL proporciona diversas métricas que proporcionan información sobre el comportamiento de los recursos que admiten el servidor PostgreSQL. Cada métrica se emite con una frecuencia de un minuto y tiene un historial de hasta 30 días. Puede configurar alertas en las métricas. Para obtener instrucciones paso a paso, consulte [How to set up alerts](howto-alert-on-metric.md) (Configuración de alertas). Otras tareas incluyen la configuración de acciones automatizadas, la realización de análisis avanzados y el archivo del historial. Para obtener más información, consulte [Información general sobre las métricas en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Database for PostgreSQL proporciona diversas métricas que proporcionan información sobre el comportamiento de los recursos que admiten el servidor PostgreSQL. Cada métrica se emite con una frecuencia de un minuto y tiene un [historial de hasta 93 días](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#retention-of-metrics). Puede configurar alertas en las métricas. Para obtener instrucciones paso a paso, consulte [How to set up alerts](howto-alert-on-metric.md) (Configuración de alertas). Otras tareas incluyen la configuración de acciones automatizadas, la realización de análisis avanzados y el archivo del historial. Para obtener más información, consulte [Información general sobre las métricas en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 ### <a name="list-of-metrics"></a>Lista de métricas
 Estas métricas están disponibles para Azure Database for PostgreSQL:
@@ -26,7 +26,7 @@ Estas métricas están disponibles para Azure Database for PostgreSQL:
 |---|---|---|---|
 |cpu_percent|Porcentaje de CPU|Percent|Porcentaje de CPU en uso.|
 |memory_percent|Porcentaje de memoria|Percent|Porcentaje de memoria en uso.|
-|io_consumption_percent|Porcentaje de E/S|Percent|Porcentaje de E/S en uso.|
+|io_consumption_percent|Porcentaje de E/S|Percent|Porcentaje de E/S en uso. (No se aplica a los servidores de nivel Básico).|
 |storage_percent|Porcentaje de almacenamiento|Percent|Porcentaje de almacenamiento que se usa más allá del límite máximo del servidor.|
 |storage_used|Almacenamiento utilizado|Bytes|Cantidad de almacenamiento en uso. El almacenamiento que usa el servicio puede incluir los archivos de base de datos, los registros de transacciones y los registros de servidor.|
 |storage_limit|Límite de almacenamiento|Bytes|Almacenamiento máximo de este servidor.|

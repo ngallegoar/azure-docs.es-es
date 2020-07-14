@@ -4,21 +4,21 @@ description: En esta guía de inicio rápido, obtenga información sobre cómo c
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/06/2019
+ms.date: 06/30/2020
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 54efe7b5c392ad2b4cc3a0de414e04951b268508
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c0476c7190dcf2ac42dafc9896540be83a938016
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78674240"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801748"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Inicio rápido: Implementación del primer módulo de IoT Edge en un dispositivo Windows virtual
 
-Pruebe Azure IoT Edge mediante la implementación de código en contenedor en un dispositivo IoT Edge virtual. IoT Edge permite administrar de forma remota el código de los dispositivos para que pueda enviar más cargas de trabajo al perímetro. Para este inicio rápido, se recomienda usar una máquina virtual de Azure para el dispositivo IoT Edge. Con una máquina virtual, podrá crear rápidamente una máquina de pruebas, instalar los requisitos previos y, después, eliminarla cuando haya terminado.
+Pruebe Azure IoT Edge en este inicio rápido mediante la implementación de código en contenedor en un dispositivo de Windows IoT Edge virtual. IoT Edge permite administrar de forma remota el código de los dispositivos para que pueda enviar más cargas de trabajo al perímetro. Para este inicio rápido, se recomienda usar una máquina virtual de Azure para el dispositivo IoT Edge. Con una máquina virtual, podrá crear rápidamente una máquina de pruebas, instalar los requisitos previos y, después, eliminarla cuando haya terminado.
 
 En esta guía de inicio rápido, aprenderá a hacer lo siguiente:
 
@@ -29,7 +29,7 @@ En esta guía de inicio rápido, aprenderá a hacer lo siguiente:
 
 ![Diagrama: Inicio rápido de la arquitectura para el dispositivo y la nube](./media/quickstart/install-edge-full.png)
 
-Este inicio rápido le guiará en el proceso de creación de una máquina virtual Windows y de su configuración para que sea un dispositivo de IoT Edge. Después, puede implementar un módulo desde Azure Portal en el dispositivo. El módulo que se implementa en esta guía de inicio rápido es un sensor simulado que genera datos de temperatura, humedad y presión. Los otros tutoriales de Azure IoT Edge se basan en el trabajo que se realiza aquí mediante la implementación de módulos que analizan los datos simulados para obtener información empresarial.
+Este inicio rápido le guiará en el proceso de creación de una máquina virtual Windows y de su configuración para que sea un dispositivo de IoT Edge. Después, implemente un módulo desde Azure Portal en el dispositivo. El módulo que se usa en este inicio rápido es un sensor simulado que genera datos de temperatura, humedad y presión. Los restantes tutoriales de Azure IoT Edge se basan en el trabajo que se realiza aquí mediante la implementación de módulos adicionales que analizan los datos simulados para obtener información empresarial.
 
 Si no tiene una suscripción activa a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de comenzar.
 
@@ -45,7 +45,7 @@ Agregue la extensión de Azure IoT a la instancia de Cloud Shell.
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Recursos en la nube:
 
@@ -82,7 +82,7 @@ Para empezar el inicio rápido, cree un centro de IoT con la CLI de Azure.
 
 ![Diagrama: Creación de un centro de IoT en la nube](./media/quickstart/create-iot-hub.png)
 
-El nivel gratuito de IoT Hub funciona para esta guía de inicio rápido. Si ha usado IoT Hub en el pasado y ya tiene un centro gratis creado, puede usar ese centro de IoT. Cada suscripción no puede tener más de un centro de IoT gratuito.
+El nivel gratuito de IoT Hub funciona para esta guía de inicio rápido. Si ha usado IoT Hub en el pasado y ya tiene un centro creado, puede usarlo.
 
 El código siguiente crea un centro **F1** gratis en el grupo de recursos `IoTEdgeResources`. Reemplace `{hub_name}` por un nombre único para su centro de IoT.
 
@@ -104,12 +104,12 @@ Dado que los dispositivos de IoT Edge se comportan y se pueden administrar de ma
 1. En Azure Cloud Shell, escriba el comando siguiente para crear un dispositivo denominado **myEdgeDevice** en el centro.
 
    ```azurecli-interactive
-   az iot hub device-identity create --device-id myEdgeDevice --hub-name {hub_name} --edge-enabled
+   az iot hub device-identity create --device-id myEdgeDevice --edge-enabled --hub-name {hub_name}
    ```
 
    Si recibe un error acerca de las claves de directiva de iothubowner, asegúrese de que Cloud Shell ejecuta la versión más reciente de la extensión azure-iot.
 
-2. Recupere la cadena de conexión del dispositivo, que vincula el dispositivo físico con su identidad en IoT Hub.
+2. Vea la cadena de conexión del dispositivo, que vincula el dispositivo físico con su identidad en IoT Hub. Contiene el nombre del centro de IoT, el nombre del dispositivo y, después, una clave compartida que autentica las conexiones entre los dos.
 
    ```azurecli-interactive
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
@@ -171,7 +171,7 @@ Use PowerShell para descargar e instalar el entorno de ejecución de IoT Edge. U
 
 ### <a name="view-the-iot-edge-runtime-status"></a>Visualización del estado del entorno de ejecución de Azure IoT Edge
 
-Compruebe que el entorno de ejecución se ha instalado y configurado correctamente.
+Compruebe que el entorno de ejecución se ha instalado y configurado correctamente. Puede que tarde unos minutos en completarse la instalación y en que se inicie el módulo de agente de IoT Edge.
 
 1. Compruebe el estado del servicio IoT Edge.
 
@@ -193,22 +193,21 @@ Compruebe que el entorno de ejecución se ha instalado y configurado correctamen
 
    ![Visualización de un módulo en el dispositivo](./media/quickstart/iotedge-list-1.png)
 
-Puede que tarde unos minutos en completarse la instalación y en que se inicie el módulo de agente de IoT Edge.
-
 El dispositivo de IoT Edge está ya configurado. Está preparado para ejecutar módulos implementados en la nube.
 
 ## <a name="deploy-a-module"></a>Implementación de un módulo
 
 Administre el dispositivo Azure IoT Edge desde la nube para implementar un módulo que envía datos de telemetría a IoT Hub.
+
 ![Diagrama: Implementación del módulo desde la nube al dispositivo](./media/quickstart/deploy-module.png)
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
 ## <a name="view-generated-data"></a>Visualización de datos generados
 
-En este inicio rápido, ha registrado un nuevo dispositivo de IoT Edge y ha instalado el entorno de ejecución de IoT Edge en él. Luego, ha usado Azure Portal para implementar un módulo de IoT Edge para que se ejecute en el dispositivo sin tener que realizar cambios en el propio dispositivo.
+En esta guía de inicio rápido, ha creado un nuevo dispositivo de IoT Edge y ha instalado el runtime de IoT Edge en él. Luego, ha usado Azure Portal para implementar un módulo de IoT Edge para que se ejecute en el dispositivo sin tener que realizar cambios en el propio dispositivo.
 
-En este caso, el módulo que ha insertado crea los datos de ejemplo que puede usar para las pruebas. El módulo del sensor de temperatura simulado genera datos de entorno que se pueden utilizar con fines de prueba más tarde. El sensor simulado está supervisando una máquina y el entorno alrededor de esta. Por ejemplo, este sensor podría estar en una sala de servidores, en una fábrica o en un aerogenerador. El mensaje incluye la temperatura y la humedad ambiental, la temperatura y la presión de la máquina, y una marca de tiempo. Los tutoriales de IoT Edge usan los datos creados por este módulo como datos de prueba con fines de análisis.
+En este caso, el módulo que ha insertado genera los datos del entorno de ejemplo que puede usar posteriormente para las pruebas. El sensor simulado está supervisando una máquina y el entorno alrededor de esta. Por ejemplo, este sensor podría estar en una sala de servidores, en una fábrica o en un aerogenerador. El mensaje incluye la temperatura y la humedad ambiental, la temperatura y la presión de la máquina, y una marca de tiempo. Los tutoriales de IoT Edge usan los datos creados por este módulo como datos de prueba con fines de análisis.
 
 Confirme que el módulo implementado desde la nube se está ejecutando en el dispositivo IoT Edge.
 

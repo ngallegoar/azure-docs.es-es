@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 07/06/2020
 ms.author: genli
-ms.openlocfilehash: 8ea85b560f35c79b3d5066d794f587345810b5d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 456aa225fa8eed47ca794c54e61b77a30c93fa9a
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77920865"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983237"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Instalación del agente de máquina virtual de Azure en modo sin conexión 
 
@@ -63,14 +63,12 @@ Use los pasos siguientes para instalar al agente de máquina virtual en modo sin
 
     2. Exporte los registros siguientes:
         - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
-        - HKEY_LOCAL_MACHINE\BROKENSYSTEM\\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\RdAgent
 
 8.  Use los archivos existentes en la maquina virtual de solucionador de problemas como repositorio para la instalación del agente de máquina virtual. Complete los pasos siguientes:
 
     1. En la máquina virtual de solucionador de problemas, exporte las siguientes subclaves en el formato del Registro (. reg): 
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
-        - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\RdAgent
 
           ![Exportación de las subclaves del Registro](./media/install-vm-agent-offline/backup-reg.png)
@@ -81,9 +79,8 @@ Use los pasos siguientes para instalar al agente de máquina virtual en modo sin
 
     3. Importe los archivos del Registro en el repositorio haciendo doble clic en cada uno de ellos.
 
-    4. Confirme que las siguientes tres subclaves se han importado correctamente en el subárbol **BROKENSYSTEM**:
+    4. Confirme que las siguientes dos subclaves se han importado correctamente en el subárbol **BROKENSYSTEM**:
         - WindowsAzureGuestAgent
-        - WindowsAzureTelemetryService
         - RdAgent
 
     5. Copie la carpeta de instalación del agente de máquina virtual actual en el disco del sistema operativo adjunto: 

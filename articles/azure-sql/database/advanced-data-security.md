@@ -2,22 +2,22 @@
 title: Advanced Data Security
 description: Obtenga información sobre la funcionalidad para detectar y clasificar datos confidenciales, administrar los puntos vulnerables de la base de datos y detectar actividades anómalas que podrían indicar una amenaza para la base de datos en Azure SQL Database, Instancia administrada de Azure SQL o Azure Synapse.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.devlang: ''
 ms.custom: sqldbrb=2
 ms.topic: conceptual
 ms.author: memildin
-author: memildin
 manager: rkarlin
+author: memildin
 ms.reviewer: vanto
 ms.date: 04/23/2020
-ms.openlocfilehash: d600d174aa37c5c4d5d1011b9cb61e4487256c13
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 53765ee97f0f253db4df4ecca3c1c90d6068fb07
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195143"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984001"
 ---
 # <a name="advanced-data-security"></a>Advanced Data Security
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -62,7 +62,7 @@ Para ver y administrar la configuración de ADS, vaya a **Advanced Data Security
 
 ![Configuración del servidor](./media/advanced-data-security/server_settings.png)
 
-## <a name="4-manage-ads-settings-for-a-sql-database"></a>4. Administración de la configuración de ADS para una base de datos SQL
+## <a name="4-manage-ads-settings-for-a-database"></a>4. Administración de la configuración de ADS para una base de datos
 
 Para reemplazar la configuración de ADS para una base de datos concreta, seleccione la casilla **Enable Advanced Data Security at the database level** (Habilitar Advanced Data Security en el nivel de base de datos). Use esta opción solo si tiene un requisito concreto para recibir alertas de Advanced Threat Protection o resultados de la evaluación de vulnerabilidades independientes para la base de datos individual, en lugar o además de las alertas y los resultados que recibe de todas las bases de datos en el servidor o la instancia administrada.
 

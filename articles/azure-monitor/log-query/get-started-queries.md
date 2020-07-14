@@ -6,17 +6,17 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: f56abe2bf6ccea1f55f9b3fe94b75016d449b46b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: dcb3afd14a7355a08291cd8553d5050d96919aec
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77670186"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801434"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Introducción a las consultas de registro en Azure Monitor
 
 > [!NOTE]
-> Puede trabajar en este ejercicio en su propio entorno si va a recopilar datos de al menos una máquina virtual. Si no es así, use nuestro [entorno de demostración](https://portal.loganalytics.io/demo), que incluye gran cantidad de datos de ejemplo.
+> Puede trabajar en este ejercicio en su propio entorno si va a recopilar datos de al menos una máquina virtual. Si no es así, use nuestro [entorno de demostración](https://portal.loganalytics.io/demo), que incluye gran cantidad de datos de ejemplo.  Si ya sabe cómo realizar consultas en KQL, pero solo necesita crear rápidamente consultas útiles basadas en tipos de recursos, vea el [panel de consultas de ejemplo guardado](saved-queries.md).
 
 En este tutorial aprenderá a escribir consultas de registro en Azure Monitor. Le mostrará cómo:
 
@@ -36,12 +36,14 @@ Siga con una versión en vídeo de este tutorial:
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE42pGX]
 
 ## <a name="writing-a-new-query"></a>Escribir una nueva consulta
+
 Las consultas pueden comenzar por un nombre de tabla o el comando *search*. Debe empezar por un nombre de tabla, ya que define un ámbito claro para la consulta y mejora el rendimiento de las consultas y la pertinencia de los resultados.
 
 > [!NOTE]
 > El lenguaje de consulta de Kusto que usa Azure Monitor distingue entre mayúsculas y minúsculas. Las palabras clave del lenguaje se suelen escribir en minúsculas. Al usar nombres de tablas o columnas en una consulta, asegúrese de usar las mayúsculas y minúsculas correctas, tal como se muestra en el panel de esquema.
 
 ### <a name="table-based-queries"></a>Consultas basadas en tablas
+
 Azure Monitor organiza los datos de registro en tablas, compuestas de varias columnas. Todas las tablas y columnas se muestran en el panel de esquema en Log Analytics en el portal de Analytics. Identifique una tabla que le interese y observe algunos datos:
 
 ```Kusto
@@ -58,6 +60,7 @@ La consulta anterior devuelve 10 resultados de la tabla *SecurityEvent*, sin ord
 En realidad podríamos ejecutar la consulta incluso sin agregar `| take 10`, seguiría siendo válida, pero podría devolver hasta 10 000 resultados.
 
 ### <a name="search-queries"></a>Consultas de búsqueda
+
 Las consultas de búsqueda están menos estructuradas y por lo general son más adecuadas para buscar registros con un valor específico en cualquiera de sus columnas:
 
 ```Kusto
@@ -132,12 +135,14 @@ SecurityEvent
 ## <a name="specify-a-time-range"></a>Especificar un intervalo de tiempo
 
 ### <a name="time-picker"></a>Selector de hora
+
 El selector de hora está junto al botón Ejecutar e indica que solo consultamos registros de las últimas 24 horas. Este es el intervalo de tiempo predeterminado que se aplica a todas las consultas. Para obtener solo los registros de la última hora, seleccione _Last hour_ (Última hora) y vuelva a ejecutar la consulta.
 
 ![Selector de hora](media/get-started-queries/timepicker.png)
 
 
 ### <a name="time-filter-in-query"></a>Filtro de tiempo en las consultas
+
 También puede definir su propio intervalo de tiempo mediante la incorporación de un filtro de tiempo a la consulta. Lo mejor es colocar el filtro de tiempo inmediatamente después del nombre de la tabla: 
 
 ```Kusto
@@ -150,6 +155,7 @@ En el filtro de tiempo anterior, `ago(30m)` significa "hace 30 minutos", por lo 
 
 
 ## <a name="project-and-extend-select-and-compute-columns"></a>project y extend: seleccionar y procesar columnas
+
 Use **project** para seleccionar columnas concretas que incluir en los resultados:
 
 ```Kusto

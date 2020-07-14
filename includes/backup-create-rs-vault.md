@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 10/18/2018
 ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: 2c74783ea8246232cb5c4270691daf3f83fe9a30
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c0f717e26534151585a51badf4bb1fe1ba58eb00
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82204508"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970539"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
-Un almacén de Recovery Services es una entidad de almacenamiento que almacena los puntos de recuperación creados a lo largo del tiempo. También contiene las directivas de copia de seguridad asociadas a elementos protegidos.
+Un almacén de Recovery Services es una entidad de administración que almacena los puntos de recuperación creados a lo largo del tiempo y proporciona una interfaz para realizar operaciones relacionadas con la copia de seguridad. Esto incluye realizar copias de seguridad a petición, realizar restauraciones y crear directivas de copia de seguridad.
 
 Para crear un almacén de Recovery Services, siga los pasos que se indican a continuación.
 
@@ -59,3 +59,6 @@ Para crear un almacén de Recovery Services, siga los pasos que se indican a con
     La creación del almacén de Recovery Services puede tardar unos minutos. Supervise las notificaciones de estado en el área de **notificaciones** de la parte superior derecha del portal. Tras crear el almacén, se ve en la lista de almacenes de Recovery Services. Si no lo ve, haga clic en **Actualizar**.
 
      ![Actualizar lista de almacenes de Backup](./media/backup-create-rs-vault/refresh-button.png)
+
+>[!IMPORTANT]
+> Le recomendamos encarecidamente que revise la configuración predeterminada para el **tipo de replicación de almacenamiento** y la **configuración de seguridad** antes de configurar copias de seguridad en el almacén. Para más información, consulte la sección [Establecimiento de la redundancia de almacenamiento](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy).

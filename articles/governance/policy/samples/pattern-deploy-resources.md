@@ -3,20 +3,20 @@ title: 'Patrón: implementación de recursos con una definición de directiva'
 description: Este patrón de Azure Policy proporciona un ejemplo de cómo implementar recursos con una definición de directiva.
 ms.date: 01/31/2020
 ms.topic: sample
-ms.openlocfilehash: a8b6528afbd21c7c667e48965574c9b48c403654
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7ce93f4895a86905cd31889e853f95a3de640b13
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77169993"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970865"
 ---
 # <a name="azure-policy-pattern-deploy-resources"></a>Patrón de Azure Policy: implementación de recursos
 
-El efecto [deployIfNotExists](../concepts/effects.md#deployifnotexists) permite implementar una [plantilla de Azure Resource Manager](../../../azure-resource-manager/templates/overview.md) al crear o actualizar un recurso que no es compatible. Este enfoque puede preferirse al uso del efecto [deny](../concepts/effects.md#deny), ya que permite que se sigan creando recursos, pero garantiza que se realizan cambios para que sean compatibles.
+El efecto [deployIfNotExists](../concepts/effects.md#deployifnotexists) permite implementar una [plantilla de Azure Resource Manager](../../../azure-resource-manager/templates/overview.md) (plantilla ARM) al crear o actualizar un recurso que no es compatible. Este enfoque puede preferirse al uso del efecto [deny](../concepts/effects.md#deny), ya que permite que se sigan creando recursos, pero garantiza que se realizan cambios para que sean compatibles.
 
 ## <a name="sample-policy-definition"></a>Definición de directiva de ejemplo
 
-Esta definición de directiva usa el operador **field** para evaluar el valor de `type` del recurso creado o actualizado. Cuando ese recurso es un elemento _Microsoft.Network/virtualNetworks_, la directiva busca un monitor de red en la ubicación del recurso nuevo o actualizado. Si no se encuentra ningún monitor de red coincidente, se implementa la plantilla de Resource Manager para crear el recurso que falta.
+Esta definición de directiva usa el operador **field** para evaluar el valor de `type` del recurso creado o actualizado. Cuando ese recurso es un elemento _Microsoft.Network/virtualNetworks_, la directiva busca un monitor de red en la ubicación del recurso nuevo o actualizado. Si no se encuentra ningún monitor de red que coincida, se implementa la plantilla de Resource Manager para crear el recurso que falta.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json":::
 

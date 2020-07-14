@@ -9,13 +9,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/15/2020
-ms.openlocfilehash: 44a95430ece9c55bb088ae5b968c33691f25b4c5
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.date: 06/30/2020
+ms.openlocfilehash: b65b5b847712ce32c6723d725be9cf2ed1f99050
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860833"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801558"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Supervise visualmente Azure Data Factory
 
@@ -191,6 +191,10 @@ Si desea una demostración y una introducción de siete minutos de esta caracter
     ![Cuadro para los criterios de destino](media/monitor-visually/add-criteria-1.png)
 
     ![Lista de criterios](media/monitor-visually/add-criteria-2.png)
+
+    ![Lista de criterios](media/monitor-visually/add-criteria-3.png)
+
+    Puede crear alertas de varias métricas, incluidas para el tamaño/recuento de entidades de ADF, ejecuciones de actividad/canalización/desencadenador, uso de CPU/memoria/número de nodos/cola de Integration Runtime (IR), así como para ejecuciones de paquetes de SSIS y operaciones de inicio/parada de IR de SSIS.
 
 1.  Configure la lógica de la alerta. Puede crear una alerta de la métrica seleccionada para todas las canalizaciones y actividades correspondientes. También puede seleccionar un tipo de actividad, nombre de actividad, nombre de canalización o tipo de error determinados.
 

@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 11e133a24ff728cc864e50e898e9db982b186337
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 17ba8f5bbbf0ac17e0ccb6881379a511afc7c1c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597930"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833279"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
@@ -183,7 +183,7 @@ El intercambio automático optimiza los escenarios de Azure DevOps en los que se
 
 Para configurar el intercambio automático:
 
-1. Vaya a la página de recursos de la aplicación. Seleccione **Ranuras de implementación** >  *\<ranura de origen deseada>*  > **Configuración** > **Configuración general**.
+1. Vaya a la página de recursos de la aplicación. Seleccione **Ranuras de implementación** >  *\<desired source slot>*  > **Configuración** > **Configuración general**.
    
 2. Para **Intercambio automático habilitado**, seleccione **Activado**. A continuación, seleccione la ranura de destino deseada como **Ranura de implementación de intercambio automático** y seleccione **Guardar** en la barra de comandos. 
    
@@ -199,12 +199,14 @@ Si tiene problemas, consulte [Solución de problemas con los intercambios](#trou
 
 Algunas aplicaciones pueden requerir acciones de preparación personalizadas para el intercambio. El elemento de configuración `applicationInitialization` de web.config permite especificar acciones de inicialización personalizadas. El [intercambio](#AboutConfiguration) espera hasta que se completa esta preparación personalizada para realizar el intercambio con la ranura de destino. He aquí un fragmento de ejemplo del archivo web.config.
 
-    <system.webServer>
-        <applicationInitialization>
-            <add initializationPage="/" hostName="[app hostname]" />
-            <add initializationPage="/Home/About" hostName="[app hostname]" />
-        </applicationInitialization>
-    </system.webServer>
+```xml
+<system.webServer>
+    <applicationInitialization>
+        <add initializationPage="/" hostName="[app hostname]" />
+        <add initializationPage="/Home/About" hostName="[app hostname]" />
+    </applicationInitialization>
+</system.webServer>
+```
 
 Para más información sobre la personalización del elemento `applicationInitialization`, consulte [Most common deployment slot swap failures and how to fix them](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/) (Errores de intercambio de ranuras de implementación más comunes y soluciones).
 
@@ -254,7 +256,7 @@ Además del enrutamiento automático del tráfico, App Service puede enrutar sol
 
 Para permitir que los usuarios opten por la exclusión del enrutamiento a la aplicación beta, por ejemplo, puede poner este vínculo en la página web:
 
-```HTML
+```html
 <a href="<webappname>.azurewebsites.net/?x-ms-routing-name=self">Go back to production app</a>
 ```
 
@@ -272,7 +274,7 @@ De forma predeterminada, las ranuras nuevas tienen una regla de enrutamiento del
 
 ## <a name="delete-a-slot"></a>Eliminación de una ranura
 
-Busque y seleccione la aplicación. Seleccione **Ranuras de implementación** >  *\<ranura para eliminar>*  > **Información general**. El tipo de aplicación se muestra como **App Service (ranura)** para recordarle que está viendo una ranura de implementación. En la barra de comandos, seleccione **Eliminar**.  
+Busque y seleccione la aplicación. Seleccione **Ranuras de implementación** >  *\<slot to delete>*  > **Información general**. El tipo de aplicación se muestra como **App Service (ranura)** para recordarle que está viendo una ranura de implementación. En la barra de comandos, seleccione **Eliminar**.  
 
 ![Eliminación de una ranura de implementación](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 

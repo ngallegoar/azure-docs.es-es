@@ -5,88 +5,89 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/01/2020
-ms.openlocfilehash: d74303df74a1e877645b333fa0726a68055c819b
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.date: 07/05/2020
+ms.openlocfilehash: 85f4cc9f9e6e762a85571010840cc697bc6c9888
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734930"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963672"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acceso a recursos de Azure Virtual Network desde Azure Logic Apps mediante entornos de servicio de integración (ISE)
 
-A veces, sus aplicaciones lógicas necesitan tener acceso a recursos protegidos, como máquinas virtuales y otros sistemas o servicios dentro de una red de [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Para configurar este acceso, puede [crear un *entorno del servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). Un ISE es una instancia aislada del servicio Logic Apps que usa recursos dedicados y se ejecuta de forma independiente del servicio Logic Apps público, "global" y multiinquilino.
+En ocasiones, las aplicaciones lógicas necesitan acceder a recursos protegidos, como máquinas virtuales y otros sistemas o servicios que están dentro de una [red virtual de Azure](../virtual-network/virtual-networks-overview.md) o conectados a ella. Para configurar este acceso, puede [crear un *entorno del servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). Un ISE es una instancia del servicio Logic Apps que usa recursos dedicados y se ejecuta de forma independiente al servicio Logic Apps multiinquilino "global".
 
-La ejecución de aplicaciones lógicas en una instancia aislada e individual ayuda a reducir el impacto que podrían tener otros inquilinos de Azure en el rendimiento de la aplicación, también conocido como el [efecto "vecinos ruidosos"](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). Un ISE también proporciona estas ventajas:
-
-* Direcciones IP estáticas propias, que son independientes de las direcciones IP estáticas que comparten las aplicaciones lógicas en el servicio multiinquilino. Puede configurar una dirección IP de salida única, pública, estática y predecible para comunicarse con los sistemas de destino. De ese modo, no es necesario configurar aperturas adicionales del firewall en los sistemas de destino para cada ISE.
-
-* Se aumentan los límites de duración de ejecución, retención de almacenamiento, rendimiento, solicitud HTTP y tiempos de espera de respuesta, tamaños de mensaje y solicitudes de conector personalizado. Para más información, consulte el artículo de [límites y configuración para Azure Logic Apps](logic-apps-limits-and-config.md).
-
-> [!NOTE]
-> Algunas redes virtuales de Azure usan puntos de conexión privados ([Azure Private Link](../private-link/private-link-overview.md)) para proporcionar acceso a los servicios de PaaS de Azure, como Azure Storage, Azure Cosmos DB o Azure SQL Database, servicios de asociados o servicios de clientes que se hospedan en Azure. Si las aplicaciones lógicas necesitan acceder a redes virtuales que usan puntos de conexión privados, debe crear, implementar y ejecutar esas aplicaciones lógicas dentro de un ISE.
+Por ejemplo, algunas redes virtuales de Azure usan puntos de conexión privados (que se pueden configurar mediante [Azure Private Link](../private-link/private-link-overview.md)) para proporcionar acceso a los servicios de PaaS de Azure, como Azure Storage, Azure Cosmos DB o Azure SQL Database, servicios de asociados o servicios de clientes que se hospedan en Azure. Si las aplicaciones lógicas necesitan acceder a redes virtuales que usan puntos de conexión privados, debe crear, implementar y ejecutar esas aplicaciones lógicas dentro de un ISE.
 
 Cuando se crea un ISE, Azure *inserta* o implementa dicho ISE en su red virtual de Azure. A continuación, puede usar ese ISE como la ubicación de las aplicaciones lógicas y cuentas de integración que necesitan acceso.
 
 ![Selección del entorno de servicio de integración](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 
-Las aplicaciones lógicas pueden acceder a recursos que están dentro de la red virtual o conectados a esta mediante estos elementos, que se ejecutan dentro del mismo ISE que la aplicación lógica:
+En esta información general se proporciona más información sobre [por qué querría usar un ISE](#benefits), las [diferencias entre el servicio Logic Apps dedicado y multiinquilino](#difference) y cómo se puede acceder directamente a los recursos que están dentro de la red virtual de Azure o conectados a ella.
 
-* Una acción o desencadenador integrado con la etiqueta **CORE**, como la acción o el desencadenador HTTP.
-* Un conector con la etiqueta **ISE** para ese sistema o servicio.
-* Un conector personalizado.
+<a name="benefits"></a>
 
-También puede usar conectores que no tienen la etiqueta **CORE** o **ISE** con las aplicaciones lógicas del ISE. En su lugar, estos conectores se ejecutan en el mismo servicio de Logic Apps multiinquilino. Para obtener más información, consulte estas secciones:
+## <a name="why-use-an-ise"></a>¿Por qué usar un ISE?
 
-* [Diferencias entre aislamiento y servicio multiinquilino ](#difference)
-* [Conexión desde un entorno del servicio de integración](../connectors/apis-list.md#integration-service-environment)
-* [Conectores de ISE](../connectors/apis-list.md#ise-connectors)
+La ejecución de aplicaciones lógicas en una instancia dedicada e individual ayuda a reducir el impacto que podrían tener otros inquilinos de Azure en el rendimiento de la aplicación, también conocido como el [efecto "vecinos ruidosos"](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). Un ISE también proporciona estas ventajas:
 
-> [!IMPORTANT]
-> Las aplicaciones lógicas, los desencadenadores integrados, las acciones integradas y los conectores que se ejecutan en el ISE usan un plan de tarifa diferente al plan de tarifa basado en el consumo. Para obtener más información, consulte [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Para obtener información sobre precios, consulte los [Precios de Logic Apps](../logic-apps/logic-apps-pricing.md).
+* Acceso directo a los recursos incluidos en la red virtual o conectados a ella
 
-En esta introducción se describe más información sobre cómo un ISE proporciona a las aplicaciones lógicas acceso directo a la red de Azure y se comparan las diferencias entre un ISE y el servicio Logic Apps multiinquilino.
+  Las aplicaciones lógicas que se crean y ejecutan en un ISE pueden usar [conectores específicamente diseñados que se ejecutan en el ISE](../connectors/apis-list.md#ise-connectors). Si existe un conector ISE para un origen de datos o un sistema local, se puede conectar directamente sin tener que usar la [puerta de enlace de datos local](../logic-apps/logic-apps-gateway-connection.md). Para obtener más información, vea [Diferencias entre dedicado y multiinquilino](#difference) y [Acceso a sistemas locales](#on-premises) más adelante en este tema.
+
+* Acceso continuado a los recursos que están fuera de la red virtual o no conectados a ella
+
+  Las aplicaciones lógicas que se crean y ejecutan en un ISE pueden seguir usando conectores que se ejecutan en el servicio Logic Apps multiinquilino cuando no hay un conector específico de ISE disponible. Para obtener más información, vea [Diferencias entre dedicado y multiinquilino](#difference).
+
+* Direcciones IP estáticas propias, que son independientes de las direcciones IP estáticas que comparten las aplicaciones lógicas en el servicio multiinquilino. Puede configurar una dirección IP de salida única, pública, estática y predecible para comunicarse con los sistemas de destino. De ese modo, no es necesario configurar aperturas adicionales del firewall en los sistemas de destino para cada ISE.
+
+* Se aumentan los límites de duración de ejecución, retención de almacenamiento, rendimiento, solicitud HTTP y tiempos de espera de respuesta, tamaños de mensaje y solicitudes de conector personalizado. Para más información, consulte el artículo de [límites y configuración para Azure Logic Apps](logic-apps-limits-and-config.md).
 
 <a name="difference"></a>
 
-## <a name="isolated-versus-multi-tenant"></a>Diferencias entre aislamiento y servicio multiinquilino
+## <a name="dedicated-versus-multi-tenant"></a>Diferencias entre dedicado y multiinquilino
 
 Cuando se crean y ejecutan aplicaciones lógicas en un ISE, se proporcionan las mismas experiencias de usuario y funcionalidades similares que el servicio multiinquilino de Logic Apps. Puede usar los mismos desencadenadores, acciones y conectores administrados integrados que están disponibles en el servicio multiinquilino de Logic Apps. Algunos conectores administrados ofrecen versiones de ISE adicionales. La diferencia entre los conectores de ISE y los que no son de ISE radica en la ubicación en la que se ejecutan y las etiquetas que tienen en el diseñador de aplicación lógica cuando se trabaja en un ISE.
 
 ![Conectores con y sin etiquetas en un ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/labeled-trigger-actions-integration-service-environment.png)
 
-* Las acciones y desencadenadores integrados muestran la etiqueta **CORE**. Siempre se ejecutan en el mismo ISE que la aplicación lógica. Los conectores administrados en los que se muestra la etiqueta **ISE** también se ejecutan en el mismo ISE que la aplicación lógica.
+* Los desencadenadores y acciones integrados, como HTTP, muestran la etiqueta **CORE** y se ejecutan en el mismo ISE que la aplicación lógica.
 
-  Por ejemplo, estos son algunos conectores que ofrecen versiones de ISE:
+* Los conectores administrados en los que se muestra la etiqueta **ISE** están diseñados específicamente para los ISE y *siempre se ejecutan en el mismo ISE que la aplicación lógica*. Por ejemplo, estos son algunos [conectores que ofrecen versiones de ISE](../connectors/apis-list.md#ise-connectors):<p>
 
   * Azure Blob Storage, File Storage y Table Storage
-  * Azure Queues, Azure Service Bus, Azure Event Hubs e IBM MQ
-  * FTP y SFTP-SSH
+  * Azure Service Bus, Azure Queues y Azure Event Hubs
+  * Azure Automation, Azure Key Vault, Azure Event Grid y Azure Monitor Logs
+  * FTP, SFTP-SSH, Sistema de archivos y SMTP
+  * SAP, IBM MQ, IBM DB2 e IBM 3270
   * SQL Server, Azure SQL Data Warehouse, Azure Cosmos DB
   * AS2, X12 y EDIFACT
 
-* Los conectores administrados que no muestran etiquetas adicionales siempre se ejecutan en el servicio multiinquilino de Logic Apps, pero puede seguir usando estos conectores en una aplicación lógica hospedada en ISE.
+  Con algunas excepciones, si hay un conector ISE disponible para un origen de datos o un sistema local, se puede conectar directamente sin usar la [puerta de enlace de datos local](../logic-apps/logic-apps-gateway-connection.md). Para obtener más información, vea [Acceso a sistemas locales](#on-premises) más adelante en este tema.
+
+* Los conectores administrados en los que no se muestra la etiqueta **ISE** continúan funcionando para las aplicaciones lógicas dentro de un ISE. Estos conectores *siempre se ejecutan en el servicio Logic Apps multiinquilino*, no en el ISE.
+
+* Los conectores personalizados que cree *fuera de un ISE*, con independencia de que requieran la [puerta de enlace de datos local](../logic-apps/logic-apps-gateway-connection.md), seguirán funcionando para las aplicaciones lógicas dentro de un ISE. Pero los conectores personalizados que cree *dentro de un ISE* no funcionarán con la puerta de enlace de datos local. Para obtener más información, vea [Acceso a sistemas locales](#on-premises).
 
 <a name="on-premises"></a>
 
-### <a name="access-to-on-premises-systems"></a>Acceso a los sistemas locales
+## <a name="access-to-on-premises-systems"></a>Acceso a los sistemas locales
 
-Para acceder a los sistemas u orígenes de datos locales que están conectados a una red virtual de Azure, las aplicaciones en un ISE pueden usar los siguientes elementos:
+Las aplicaciones lógicas que se ejecutan dentro de un ISE pueden acceder directamente a los sistemas y orígenes de datos locales que se encuentran dentro de una red virtual de Azure o están conectados a ella mediante estos elementos:<p>
 
-* Acción HTTP
+* Desencadenador o acción HTTP, que muestra la etiqueta **CORE**
 
-* Un conector con la etiqueta ISE para ese sistema
+* Conector **ISE**, si está disponible, para un origen de datos o un sistema local
 
-  > [!NOTE]
-  > Para usar autenticación de Windows con el conector de SQL Server en un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), use la versión no ISE del conector con la [puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md). La versión con etiqueta ISE no admite autenticación de Windows.
+  Si hay un conector ISE disponible, puede acceder directamente al sistema o al origen de datos sin la [puerta de enlace de datos local](../logic-apps/logic-apps-gateway-connection.md). Pero si tiene que acceder a SQL Server desde un ISE y usar la autenticación de Windows, debe usar la versión del conector que no es para ISE y la puerta de enlace de datos local. La versión para ISE del conector no admite la autenticación de Windows. Para obtener más información, vea [Conectores ISE](../connectors/apis-list.md#ise-connectors) y [Conexión desde un entorno del servicio de integración](../connectors/apis-list.md#integration-service-environment).
 
-* Conector personalizado
+* Un conector personalizado.
 
-  * Si tiene conectores personalizados que requieren la puerta de enlace de datos local y los ha creado fuera de un ISE, las aplicaciones lógicas en un ISE también pueden usar esos conectores.
+  * Los conectores personalizados que cree *fuera de un ISE*, con independencia de que requieran la [puerta de enlace de datos local](../logic-apps/logic-apps-gateway-connection.md), seguirán funcionando para las aplicaciones lógicas dentro de un ISE.
 
-  * Los conectores personalizados creados en un ISE no funcionan con la puerta de enlace de datos local. Aun así, estos conectores pueden acceder directamente a orígenes de datos locales que están conectados a la red virtual en la que se hospeda el ISE. Por tanto, es muy probable que las aplicaciones lógicas en un ISE no necesiten la puerta de enlace de datos cuando se comuniquen con esos recursos.
+  * Los conectores personalizados que cree *dentro de un ISE* no funcionan con la puerta de enlace de datos local. Pero estos conectores pueden acceder directamente a orígenes de datos y sistemas locales que están dentro de la red virtual en la que se hospeda el ISE o conectados a ella. Por tanto, las aplicaciones lógicas que se encuentran dentro de un ISE normalmente no necesitan la puerta de enlace de datos al acceder a esos recursos.
 
-En el caso de sistemas locales que no están conectados a una red virtual o que no tienen conectores con etiqueta ISE, primero debe [configurar la puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md) para que las aplicaciones lógicas puedan conectarse a esos sistemas.
+Para acceder a los sistemas y orígenes de datos locales que no tienen conectores ISE, que están fuera de la red virtual o que no están conectados a ella, seguirá teniendo que usar la puerta de enlace de datos local. Las aplicaciones lógicas dentro un ISE pueden seguir usando conectores sin la etiqueta **CORE** o **ISE**. Estos conectores solo se ejecutan en el servicio Logic Apps multiinquilino, en lugar de hacerlo en el ISE. 
 
 <a name="ise-level"></a>
 
@@ -123,6 +124,12 @@ Al crear el ISE, puede optar por usar puntos de conexión de acceso internos o e
 Para determinar si el ISE usa un punto de conexión de acceso interno o externo, en el menú del ISE, en **Configuración**, seleccione **Propiedades** y busque la propiedad **Punto de conexión de acceso**:
 
 ![Búsqueda del punto de conexión de acceso del ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/find-ise-access-endpoint.png)
+
+<a name="pricing-model"></a>
+
+## <a name="pricing-model"></a>Modelo de precios
+
+Las aplicaciones lógicas, los desencadenadores y las acciones integrados, y los conectores que se ejecutan en el ISE usan un plan de tarifa fijo diferente al plan de tarifa basado en el consumo. Para obtener más información, consulte [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 <a name="create-integration-account-environment"></a>
 

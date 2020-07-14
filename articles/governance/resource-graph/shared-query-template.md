@@ -1,23 +1,23 @@
 ---
 title: 'Inicio rápido: Creación de una consulta compartida con plantillas'
-description: En este inicio rápido, se usa una plantilla de Resource Manager para crear una consulta compartida de Resource Graph que cuenta las máquinas virtuales por sistema operativo.
-ms.date: 04/28/2020
+description: En este inicio rápido, se usa una plantilla de Azure Resource Manager para crear una consulta compartida de Resource Graph que cuenta las máquinas virtuales por sistema operativo.
+ms.date: 07/06/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 050cf26da2054883fceaa08b11f94c6af4c85a16
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3cdcff4898a8644008193943a243be4a2ef9e8c4
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82254246"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969814"
 ---
-# <a name="quickstart-create-a-shared-query-by-using-a-resource-manager-template"></a>Inicio rápido: Creación de una consulta compartida mediante una plantilla de Resource Manager
+# <a name="quickstart-create-a-shared-query-by-using-an-azure-resource-manager-template"></a>Inicio rápido: Creación de una consulta compartida mediante una plantilla de Azure Resource Manager
 
-Las consultas de Resource Graph se pueden guardar como una _consulta privada_ o una _consulta compartida_. Una consulta privada se guarda en el perfil del portal del usuario y no es visible para otros usuarios. Una consulta compartida es un objeto de Resource Manager que se puede compartir con otros mediante permisos y acceso basado en roles. Una consulta compartida proporciona una ejecución común y coherente de la detección de recursos. En este inicio rápido se usa una plantilla de Resource Manager para crear una consulta compartida.
+Las consultas de Resource Graph se pueden guardar como una _consulta privada_ o una _consulta compartida_. Una consulta privada se guarda en el perfil del portal del usuario y no es visible para otros usuarios. Una consulta compartida es un objeto de Resource Manager que se puede compartir con otros mediante permisos y acceso basado en roles. Una consulta compartida proporciona una ejecución común y coherente de la detección de recursos. En este inicio rápido se usa una plantilla de Azure Resource Manager para crear una consulta compartida.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -42,13 +42,13 @@ El recurso definido en la plantilla es el siguiente:
 
 1. Seleccione la siguiente imagen para iniciar sesión en Azure Portal y abrir la plantilla:
 
-   [![Implementación de la plantilla en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json)
+   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Implementar la plantilla de Resource Manager para crear una consulta compartida en Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
 
 1. Seleccione o escriba los siguientes valores:
 
    | Nombre | Value |
    |------|-------|
-   | Subscription | Seleccione su suscripción a Azure. |
+   | Suscripción | Seleccione su suscripción a Azure. |
    | Resource group | Seleccione **Crear**, especifique un nombre y seleccione **Aceptar**. |
    | Location | Seleccione una región. Por ejemplo, **Centro de EE. UU**. |
    | Nombre de la consulta | Deje el valor predeterminado **Recuento de máquinas virtuales por sistema operativo**. |

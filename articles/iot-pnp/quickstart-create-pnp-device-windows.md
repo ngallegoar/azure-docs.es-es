@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 4f9b8f3edc475ec50eaf11080020aa9f62a0d2c1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: b02455c153c6205b87a64a388d5588c3c431e0c9
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700880"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963519"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>Inicio rápido: Uso de un modelo de funcionalidad de dispositivo para crear un dispositivo de versión preliminar de IoT Plug and Play (Windows)
 
@@ -21,7 +21,7 @@ ms.locfileid: "83700880"
 
 Un _modelo de funcionalidad de dispositivo_ (DCM) describe las funcionalidades de un dispositivo IoT Plug and Play. Un DCM suele estar asociado a una SKU del producto. Las funcionalidades definidas en el DCM se organizan en interfaces reutilizables. Desde un DCM se puede generar el código de un dispositivo básico. En este inicio rápido se muestra cómo usar VS Code en Windows para crear un dispositivo IoT Plug and Play mediante un DCM.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este inicio rápido, es preciso instalar el siguiente software en el equipo local:
 
@@ -78,7 +78,7 @@ En este inicio rápido, utilizará el administrador de bibliotecas [Vcpkg](https
 1. Instale el Vcpkg del SDK de dispositivo IoT de Azure para C:
 
     ```cmd
-    .\vcpkg.exe install azure-iot-sdk-c[public-preview,use_prov_client]
+    .\vcpkg.exe install azure-iot-sdk-c[public-preview,use-prov-client]
     ```
 
 ## <a name="author-your-model"></a>Creación de un modelo
@@ -87,7 +87,7 @@ En este inicio rápido, se usa un modelo de funcionalidad del dispositivo de eje
 
 1. Cree una carpeta `pnp_app` en su unidad local. Use esta carpeta para los archivos del modelo de dispositivo y el código auxiliar del código de dispositivo.
 
-1. Descargue el [modelo de capacidad del dispositivo y los archivos de ejemplo de interfaz](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.model.json) y el [ejemplo de interfaz](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) y guarde los archivos en la carpeta `pnp_app`.
+1. Descargue el [modelo de funcionalidad del dispositivo](https://github.com/Azure/opendigitaltwins-dtdl/blob/9004219bff1e958b7cd6ff2a52209f4b7ae19396/samples/SampleDevice.capabilitymodel.json) y los archivos de [ejemplo de la interfaz](https://github.com/Azure/opendigitaltwins-dtdl/blob/9004219bff1e958b7cd6ff2a52209f4b7ae19396/samples/EnvironmentalSensor.interface.json), y guárdelos en la carpeta `pnp_app`.
 
     > [!TIP]
     > Para descargar un archivo de GitHub, vaya hasta el archivo, haga clic con el botón derecho en **Sin procesar** y seleccione **Guardar vínculo como**.

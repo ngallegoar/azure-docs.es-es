@@ -3,16 +3,17 @@ title: Información sobre cómo auditar el contenido de máquinas virtuales
 description: Obtenga información sobre cómo Azure Policy usa Guest Configuration para auditar la configuración dentro de las máquinas virtuales.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: f37364f62550a76360ea0dbb35b92f8aac67f22f
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: ec2a9f53fbe2ad0201af0250b0dcfa8dc4d519f0
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259157"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971103"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Información sobre Guest Configuration de Azure Policy
 
-Azure Policy puede auditar la configuración dentro de una máquina. La validación se realiza mediante el cliente y la extensión Guest Configuration. La extensión, a través del cliente, valida la configuración como:
+Azure Policy puede auditar la configuración dentro de un equipo, tanto para las máquinas que se ejecutan en Azure como para las [conectadas a Arc](../../../azure-arc/servers/overview.md).
+La validación se realiza mediante el cliente y la extensión Guest Configuration. La extensión, a través del cliente, valida la configuración como:
 
 - La configuración del sistema operativo
 - Configuración de la aplicación o presencia
@@ -21,13 +22,17 @@ Azure Policy puede auditar la configuración dentro de una máquina. La validaci
 En este momento, la mayoría de directivas de configuración de invitado de Azure Policy solo realiza la auditoría de la configuración dentro de la máquina.
 No se aplica a configuraciones. La excepción es una directiva integrada [a la que se hace referencia a continuación](#applying-configurations-using-guest-configuration).
 
+## <a name="enable-guest-configuration"></a>Habilitar configuración de invitado
+
+Para auditar el estado de las máquinas de su entorno, incluidas las de Azure y las conectadas a Arc, revise los detalles siguientes.
+
 ## <a name="resource-provider"></a>Proveedor de recursos
 
 Para poder usar Guest Configuration debe registrar el proveedor de recursos. El proveedor de recursos se registra automáticamente si la asignación de una directiva de configuración de invitado se realiza a través del portal. Puede registrarse manualmente mediante el [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) o la [CLI de Azure](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
 
-## <a name="extension-and-client"></a>Extensión y cliente
+## <a name="deploy-requirements-for-azure-virtual-machines"></a>Requisitos de implementación de Azure Virtual Machines
 
-Para auditar la configuración dentro de una máquina, se habilita una [extensión de máquina virtual](../../../virtual-machines/extensions/overview.md). La extensión descarga la asignación de directiva aplicable y la definición de configuración correspondiente.
+Para auditar la configuración en una máquina, se habilita una [extensión de máquina virtual](../../../virtual-machines/extensions/overview.md) y la máquina debe tener una identidad administrada por el sistema. La extensión descarga la asignación de directiva aplicable y la definición de configuración correspondiente. La identidad se usa para autenticar la máquina a medida que lee y escribe en el servicio de configuración de invitado. La extensión no es necesaria para las máquinas conectadas a Arc porque se incluye en el agente Connected Machine de Arc.
 
 > [!IMPORTANT]
 > La extensión de configuración de invitado es necesaria para realizar auditorías en las máquinas virtuales de Azure. Para implementar la extensión a gran escala, asigne las siguientes definiciones de directiva: 
@@ -36,13 +41,13 @@ Para auditar la configuración dentro de una máquina, se habilita una [extensi�
 
 ### <a name="limits-set-on-the-extension"></a>Límites establecidos en la extensión
 
-Para limitar que la extensión afecte a las aplicaciones que se ejecutan en la máquina, no se permite que la configuración de invitado supere el 5 % de la CPU. Esta limitación existe tanto para definiciones integradas como personalizadas.
+Para limitar que la extensión afecte a las aplicaciones que se ejecutan en la máquina, no se permite que la configuración de invitado supere el 5 % de la CPU. Esta limitación existe tanto para definiciones integradas como personalizadas. Lo mismo se aplica al servicio de configuración de invitado en el agente Connected Machine de Arc.
 
 ### <a name="validation-tools"></a>Herramientas de validación
 
 Dentro de la máquina, el cliente de Guest Configuration usa herramientas locales para ejecutar la auditoría.
 
-En la tabla siguiente se muestra una lista herramienta locales usada en cada sistemas operativos compatibles:
+En la tabla siguiente se muestra una lista de las herramientas locales usadas en cada sistema operativo compatible. En el caso de contenido integrado, la configuración de invitado controla la carga de estas herramientas automáticamente.
 
 |Sistema operativo|Herramienta de validación|Notas|
 |-|-|-|
@@ -65,14 +70,10 @@ En la tabla siguiente se muestra una lista de sistemas operativos compatibles en
 |Microsoft|Windows Server|2012 y versiones posteriores|
 |Microsoft|Cliente Windows|Windows 10|
 |OpenLogic|CentOS|7.3 y versiones posteriores|
-|Red Hat|Red Hat Enterprise Linux|7.4 y versiones posteriores|
+|Red Hat|Red Hat Enterprise Linux|7.4 - 7.8, 9.0 y posteriores|
 |Suse|SLES|12 SP3 y versiones posteriores|
 
 Las directivas de configuración de invitado admiten imágenes de máquina virtual personalizadas, siempre y cuando se trate de uno de los sistemas operativos de la tabla anterior.
-
-### <a name="unsupported-client-types"></a>Tipos de cliente no admitidos
-
-No se admite ninguna versión de Windows Server Nano Server.
 
 ## <a name="guest-configuration-extension-network-requirements"></a>Requisitos de red de la extensión de configuración de invitado
 
@@ -116,7 +117,7 @@ Alinee la directiva con sus requisitos o asigne la directiva a información de t
 
 Algunos parámetros admiten un intervalo de valores enteros. Por ejemplo, el valor de Vigencia máxima de la contraseña puede auditar la configuración de directiva de grupo efectiva. Un intervalo "1,70" confirmaría que los usuarios deben cambiar sus contraseñas al menos cada 70 días, pero no menos de un día.
 
-Si asigna la directiva mediante una plantilla de implementación de Azure Resource Manager, use un archivo de parámetros para administrar excepciones. Proteja los archivos en un sistema de control de versiones, como Git. Los comentarios sobre los cambios en los archivos proporcionan evidencias sobre el motivo por el que una asignación es una excepción al valor esperado.
+Si asigna la directiva mediante una plantilla de Azure Resource Manager (plantilla de ARM), use un archivo de parámetros para administrar excepciones. Proteja los archivos en un sistema de control de versiones, como Git. Los comentarios sobre los cambios en los archivos proporcionan evidencias sobre el motivo por el que una asignación es una excepción al valor esperado.
 
 #### <a name="applying-configurations-using-guest-configuration"></a>Aplicación de configuraciones mediante la configuración de invitado
 

@@ -1,24 +1,24 @@
 ---
 title: 'Inicio rápido: Asignación de directivas nuevas con plantillas'
-description: En este inicio rápido se usa una plantilla de Resource Manager para crear una asignación de directivas para identificar recursos no compatibles.
+description: En este inicio rápido se usa una plantilla de Azure Resource Manager para crear una asignación de directivas para identificar los recursos no compatibles.
 ms.date: 05/21/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 7b9e372e8b86e1ac5b0a99d0aba77982896b4d11
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: c3a37e9086744fb45c8d1e4ebe3bd16da7a83770
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757456"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971154"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles mediante una plantilla de Resource Manager
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-azure-resource-manager-template"></a>Inicio rápido: Creación de una asignación de directivas para identificar los recursos no compatibles mediante una plantilla de Azure Resource Manager
 
 El primer paso para entender el cumplimiento en Azure es identificar el estado de sus recursos.
 Esta guía de inicio rápido lo guiará por el proceso de creación de una asignación de directiva para identificar las máquinas virtuales que no están usando discos administrados. Al finalizar este proceso, habrá identificado correctamente máquinas virtuales que no utilizan discos administrados. _No son compatibles_ con la asignación de directiva.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -43,13 +43,13 @@ El recurso definido en la plantilla es el siguiente:
 
 1. Seleccione la siguiente imagen para iniciar sesión en Azure Portal y abrir la plantilla:
 
-   [![Implementación de la plantilla en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
+   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Implementación de la plantilla de Resource Manager para asignar una instancia de Azure Policy a Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
 1. Seleccione o escriba los siguientes valores:
 
    | Nombre | Value |
    |------|-------|
-   | Subscription | Seleccione su suscripción a Azure. |
+   | Suscripción | Seleccione su suscripción a Azure. |
    | Resource group | Seleccione **Crear**, especifique un nombre y seleccione **Aceptar**. En la captura de pantalla, el nombre del grupo de recursos es _mypolicyquickstart\<Date in MMDD\>rg_. |
    | Location | Seleccione una región. Por ejemplo, **Centro de EE. UU**. |
    | Nombre de la asignación de directiva | Especifique un nombre para la asignación de directiva. Si lo desea, puede usar la definición de directiva en pantalla. Por ejemplo, **Auditoría de máquinas virtuales que no usan discos administrados**. |
@@ -63,7 +63,7 @@ Algunos recursos adicionales:
 
 - Para buscar más plantillas de ejemplo, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
 - Para ver la referencia de plantilla, vaya a la [referencia de plantilla de Azure](/azure/templates/microsoft.authorization/allversions).
-- Para aprender a desarrollar plantillas de Resource Manager, consulte la [documentación de Azure Resource Manager](../../azure-resource-manager/management/overview.md).
+- Para aprender a desarrollar plantillas de Resource Manager, consulte la [documentación de Resource Manager](../../azure-resource-manager/management/overview.md).
 - Para información sobre la implementación de nivel de suscripción, consulte [Create resource groups and resources at the subscription level](../../azure-resource-manager/templates/deploy-to-subscription.md) (Creación de grupos de recursos y recursos en el nivel de suscripción).
 
 ## <a name="validate-the-deployment"></a>Validación de la implementación

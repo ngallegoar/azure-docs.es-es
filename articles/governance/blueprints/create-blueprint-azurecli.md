@@ -3,16 +3,16 @@ title: 'Inicio rápido: Creación de un plano técnico con la CLI de Azure'
 description: En este inicio rápido se usa Azure Blueprints para crear, definir e implementar artefactos mediante la CLI de Azure.
 ms.date: 06/02/2020
 ms.topic: quickstart
-ms.openlocfilehash: 7d144edca0794679e67358ff820e1508736ba723
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 30a450fc7eab55424da7ce971ad234cbf2248b30
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613354"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969675"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Inicio rápido: Definición y asignación de un plano técnico de Azure Blueprint con la CLI de Azure
 
-Entender cómo crear y asignar planos técnicos permite la definición de patrones comunes para desarrollar configuraciones reutilizables y de implementación rápida basadas en plantillas de Resource Manager, directivas, seguridad y mucho más. En este tutorial, aprenderá a usar planos técnicos de Azure Blueprint para realizar algunas de las tareas más comunes relacionadas con la creación, asignación y administración de directivas en toda la organización, como, por ejemplo:
+Aprender a crear y asignar planos técnicos permite definir patrones comunes para desarrollar configuraciones reutilizables y de implementación rápida basadas en plantillas de Azure Resource Manager, directivas, seguridad, etc. En este tutorial, aprenderá a usar planos técnicos de Azure Blueprint para realizar algunas de las tareas más comunes relacionadas con la creación, asignación y administración de directivas en toda la organización, como, por ejemplo:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -195,7 +195,7 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
 
 1. Agregue la plantilla en el grupo de recursos. El parámetro **template** de una plantilla de Resource Manager incluye los componentes JSON normales de la plantilla. La plantilla también reutiliza los parámetros del plano técnico **storageAccountType**, **tagName** y **tagValue**, cada uno de los cuales se pasa a la plantilla. Los parámetros del plano técnico se ponen a disposición de la plantilla mediante el parámetro **parameters** y dentro de la plantilla JSON en la que se utiliza el par clave-valor para insertar el valor. Los nombres de los parámetros blueprint y template podrían ser los mismos.
 
-   - Archivo de plantilla de Azure Resource Manager de JSON: \artifacts\templateStorage.json
+   - Archivo de la plantilla de Resource Manager de JSON: artifacts\templateStorage.json
 
      ```json
      {
@@ -249,7 +249,7 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
      }
      ```
 
-   - Archivo de plantilla de Azure Resource Manager de JSON: \artifacts\templateStorageParams.json
+   - Archivo de parámetros de la plantilla de Resource Manager de JSON: artifacts\templateStorageParams.json
 
      ```json
      {

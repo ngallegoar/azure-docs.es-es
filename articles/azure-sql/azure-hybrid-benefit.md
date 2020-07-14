@@ -3,20 +3,20 @@ title: Ventaja híbrida de Azure
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Use licencias de SQL Server existentes para los descuentos de Azure SQL Database e Instancia administrada de SQL.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=4
-ms.subservice: service
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/13/2019
-ms.openlocfilehash: e5af5c6b30c6f03930a61200a11bfa0bd2f72093
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: b4af9fce3c5ca779866055d2835ebfebe9fbb9cf
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196450"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85987025"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Ventaja híbrida de Azure: Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -30,9 +30,13 @@ En el nivel de proceso aprovisionado del modelo de compra basado en núcleo virt
 
 ## <a name="choose-a-license-model"></a>Elija un modelo de licencia
 
-Con la Ventaja híbrida de Azure, puede elegir pagar solo por la infraestructura subyacente de Azure mediante el uso de la licencia existente de SQL Server para el motor de base de datos SQL (precios de proceso básicos), o pagar tanto por la infraestructura subyacente como por la licencia de SQL Server (precio con licencia incluida).
+Con la Ventaja híbrida de Azure, puede elegir pagar solo por la infraestructura subyacente de Azure mediante su licencia existente de SQL Server para el motor de base de datos de SQL Server (precios de proceso básicos), o pagar tanto por la infraestructura subyacente como por la licencia de SQL Server (precio con licencia incluida).
 
-Puede elegir o cambiar el modelo de licencia mediante Azure Portal o con una de las siguientes API:
+Puede elegir o cambiar el modelo de licencias en Azure Portal: 
+- En el caso de las bases de datos nuevas, seleccione **Configurar base de datos** durante el proceso de creación en la pestaña **Conceptos básicos** y seleccione la opción para ahorrar dinero.
+- En el caso de las bases de datos existentes, seleccione **Configurar** en el menú **Configuración** y seleccione la opción para ahorrar dinero.
+
+También puede configurar una base de datos nueva o existente mediante una de las siguientes API:
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -77,7 +81,7 @@ Ofrecemos ventajas de movilidad de licencias a los clientes de SQL Server con S
 La Ventaja híbrida de Azure para SQL Server se diferencia de la movilidad de licencias en dos áreas principales:
 
 - Proporciona ventajas económicas para mover cargas de trabajo muy virtualizadas a Azure. Los clientes de SQL Server Enterprise Edition pueden obtener cuatro núcleos en Azure en la SKU de uso general por cada núcleo que posean en el entorno local para aplicaciones muy virtualizadas. La movilidad de licencias no ofrece ninguna ventaja especial sobre los costos de mover cargas de trabajo virtualizadas a la nube.
-- Se proporciona para destinos PaaS en Azure (Instancia administrada de SQL Database) que son muy compatibles con SQL Server.
+- Se proporciona para destinos PaaS en Azure (Instancia administrada de SQL) que son muy compatibles con SQL Server.
 
 #### <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>¿Cuáles son los derechos específicos de la Ventaja híbrida de Azure para SQL Server?
 

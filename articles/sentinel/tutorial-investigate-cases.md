@@ -1,6 +1,6 @@
 ---
 title: Investigación de incidentes con Azure Sentinel | Microsoft Docs
-description: Use este tutorial para aprender a investigar incidentes con Azure Sentinel.
+description: En este tutorial, aprenderá a usar Azure Sentinel para crear reglas de alerta avanzadas que generan incidentes que puede asignar e investigar.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: ecd8c508d05bfeb541a6cb5efbcdf2fffd3c78d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 564041da0be6874acae1bec69e4ab2d744d89323
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77587199"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565237"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutorial: Investigación de incidentes con Azure Sentinel
 
@@ -39,7 +39,7 @@ En este artículo se describe:
 
 Un incidente puede incluir varias alertas, a modo de agregado de todas las pruebas relevantes en una investigación en concreto. Los incidentes se crearán en función de las reglas de análisis que haya creado en la página **Analytics** (Análisis). Las propiedades relacionadas con alertas, como la gravedad y el estado, se establecen en el nivel de incidente. Después de indicar a Azure Sentinel qué tipos de amenazas está buscando y cómo detectarlas, puede supervisar las amenazas que se detecten investigando cada incidente.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Solo podrá investigar el incidente si ha usado los campos de asignación de entidades al configurar la regla de análisis. El gráfico de investigación requiere que el incidente original incluya entidades.
 
 ## <a name="how-to-investigate-incidents"></a>Investigación de incidentes
@@ -107,7 +107,21 @@ Para usar el gráfico de investigación:
 
     ![Uso de una escala de tiempo en un mapa para investigar alertas](media/tutorial-investigate-cases/use-timeline.png)
 
+## <a name="closing-an-incident"></a>Cierre de un incidente
 
+Una vez que haya resuelto un incidente en particular (por ejemplo, cuando la investigación haya alcanzado su conclusión), debe establecer el estado del incidente en **Cerrado**. Al hacerlo, a los efectos de clasificar el incidente, se le pedirá que indique el motivo por el que lo cierra. Este paso es obligatorio. Haga clic en **Seleccionar clasificación** y elija una de las siguientes opciones de la lista desplegable:
+
+- Verdadero positivo: actividad sospechosa
+- Positivo inofensivo: sospechoso, pero esperado
+- Falso positivo: lógica de alerta incorrecta
+- Falso positivo: datos incorrectos
+- Indeterminada
+
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="{alt-text}":::
+
+Después de elegir la clasificación adecuada, agregue texto descriptivo en el campo **Comentario**. Esto será útil en el caso de que tenga que volver a consultar este incidente. Haga clic en **Aplicar** cuando haya terminado, y el incidente se cerrará.
+
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{alt-text}":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial ha aprendido cómo empezar a investigar incidentes mediante Azure Sentinel. Siga con el tutorial sobre [cómo responder a amenazas usando cuadernos de estrategias automatizados](tutorial-respond-threats-playbook.md).

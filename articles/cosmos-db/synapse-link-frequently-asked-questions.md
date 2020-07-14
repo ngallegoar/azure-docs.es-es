@@ -6,12 +6,12 @@ ms.author: srchi
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 36be05f72597ae9864eff812862589cafb1f5b0d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bead905a3bd4b1cdd46c4cd27775f9d7e03040d5
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596474"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921196"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Preguntas frecuentes sobre Azure Synapse Link para Azure Cosmos DB
 
@@ -29,6 +29,9 @@ Al planear la configuración de una cuenta de Azure Cosmos para varias regiones 
 
 ### <a name="can-i-choose-to-enable-synapse-link-for-only-certain-region-and-not-all-regions-in-a-multi-region-account-set-up"></a>¿Puedo habilitar Synapse Link solo para regiones determinadas y no para todas las regiones de una configuración de cuenta de varias regiones?
 En la versión preliminar, cuando Synapse Link está habilitado para una cuenta de varias regiones, el almacén analítico se crea en todas las regiones. Los datos subyacentes se optimizan para el rendimiento y la coherencia transaccional en el almacén transaccional.
+
+### <a name="is-backup-and-restore-supported-for-synapse-link-enabled-accounts"></a>¿Se admite la copia de seguridad y restauración para las cuentas habilitadas para Synapse Link?
+En la versión preliminar, para las cuentas de bases de datos habilitadas para Synapse Link, no se admite la copia de seguridad y restauración de contenedores. Si tiene cargas de trabajo de producción que requieren la funcionalidad de copia de seguridad y restauración, se recomienda no habilitar Synapse Link en esas cuentas de bases de datos. 
 
 ### <a name="can-i-disable-the-synapse-link-feature-for-my-azure-cosmos-account"></a>¿Puedo deshabilitar la característica Synapse Link para mi cuenta de Azure Cosmos?
 En este momento, después de habilitar la funcionalidad Synapse Link en el nivel de cuenta, no se puede deshabilitar.  Si quiere desactivarla, debe eliminar la cuenta y volver a crear una nueva de Azure Cosmos.
@@ -118,11 +121,11 @@ En este momento, la compatibilidad con el flujo estructurado de Spark para Azure
 ### <a name="in-the-synapse-studio-how-do-i-recognize-if-im-connected-to-an-azure-cosmos-db-container-with-the-analytics-store-enabled"></a>En Synapse Studio, ¿cómo puedo reconocer si estoy conectado a un contenedor de Azure Cosmos DB con el almacén analítico habilitado?
 Un contenedor de Azure Cosmos DB habilitado con el almacén analítico tiene el siguiente icono:
 
-![Icono: contenedor de Azure Cosmos DB habilitado con el almacén analítico](./media/synapse-link-frequently-asked-questions/analytical-store-icon.png)
+:::image type="content" source="./media/synapse-link-frequently-asked-questions/analytical-store-icon.png" alt-text="Icono: contenedor de Azure Cosmos DB habilitado con el almacén analítico":::
 
 Un contenedor de almacén transaccional se representará con el siguiente icono:
 
-![Icono: contenedor de Azure Cosmos DB habilitado con el almacén transaccional](./media/synapse-link-frequently-asked-questions/transactional-store-icon.png)
+:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Icono: contenedor de Azure Cosmos DB habilitado con el almacén transaccional":::
  
 ### <a name="how-do-you-pass-azure-cosmos-db-credentials-from-synapse-studio"></a>¿Cómo se pasan las credenciales de Azure Cosmos DB desde Synapse Studio?
 En este momento, las credenciales de Azure Cosmos DB se pasan durante la creación del servicio que ha vinculado el usuario con acceso a las bases de datos de Azure Cosmos DB. El acceso a ese almacén está disponible para otros usuarios que tienen acceso al área de trabajo.

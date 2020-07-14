@@ -4,19 +4,19 @@ description: Aprenda a configurar directivas de acceso condicional basadas en di
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.date: 11/22/2019
+ms.topic: how-to
+ms.date: 06/08/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a3c71534febc3cdb6429d3092225ebc73f6cbe7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cf3fd50b907e69311c475af844c7969f081a3094
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481490"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849928"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Instrucciones: Uso obligatorio de dispositivos administrados para el acceso a aplicaciones en la nube mediante el acceso condicional
 
@@ -24,7 +24,7 @@ En un mundo donde la nube y la movilidad son prioritarias, Azure Active Director
 
 En este artículo se explica cómo puede configurar directivas de acceso condicional que exijan dispositivos administrados para acceder a determinadas aplicaciones en la nube del entorno. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 El uso obligatorio de dispositivos administrados para acceder a las aplicaciones en la nube vincula el **acceso condicional de Azure AD** y la **administración de dispositivos de Azure AD**. Si no está familiarizado con ninguna de estas áreas, debería leer los siguientes temas en primer lugar:
 
@@ -96,7 +96,31 @@ Para un dispositivo que está marcado como compatible, puede suponer que:
 - La información empresarial está protegida al ayudar a controlar la manera en que los trabajadores acceden a ella y la comparten.
 - El dispositivo y sus aplicaciones son compatibles con los requisitos de seguridad de la empresa.
 
+### <a name="scenario-require-device-enrollment-for-ios-and-android-devices"></a>Escenario: Exigir la inscripción para dispositivos iOS y Android
+
+En este escenario, Contoso ha decidido que todos los accesos móviles a los recursos de Office 365 deben usar un dispositivo inscrito. Todos sus usuarios ya inician sesión con credenciales de Azure AD y tienen licencias asignadas que incluyen Azure AD Premium P1 o P2 y Microsoft Intune.
+
+Las organizaciones deben completar los pasos siguientes en orden para exigir el uso de un dispositivo móvil inscrito.
+
+1. Inicie sesión en **Azure Portal** como administrador global, administrador de seguridad o administrador de acceso condicional.
+1. Vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional**.
+1. Seleccione **Nueva directiva**.
+1. Asigne un nombre a la directiva. Se recomienda que las organizaciones creen un estándar significativo para los nombres de sus directivas.
+1. En **Asignaciones**, seleccione **Usuarios y grupos**.
+   1. En **Incluir**, seleccione **Todos los usuarios** o **Usuarios y grupos** específicos a los que desee aplicar esta directiva. 
+   1. Seleccione **Listo**.
+1. En **Aplicaciones en la nube o acciones** > **Incluir**, seleccione **Office 365 (versión preliminar)** .
+1. En **Condiciones**, seleccione **Plataformas de dispositivo**.
+   1. Establezca **Configurar** en **Sí**.
+   1. Incluya **Android** e **iOS**.
+1. En **Controles de acceso** > **Conceder**, seleccione las opciones siguientes:
+   - **Requerir que el dispositivo esté marcado como compatible**
+1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
+1. Seleccione **Crear** para crear y habilitar la directiva.
+
 ### <a name="known-behavior"></a>Comportamiento conocido
+
+Al usar el [flujo de OAuth de código de dispositivo](../develop/v2-oauth2-device-code.md), no se admiten el control de concesión de dispositivo administrado ni la condición de estado de dispositivo. Esto se debe a que el dispositivo que realiza la autenticación no puede proporcionar su estado de dispositivo al que proporciona un código y el estado del dispositivo en el token está bloqueado en el dispositivo que realiza la autenticación. En su lugar, use el control de concesión de autenticación multifactor necesario.
 
 En Windows 7, iOS, Android, macOS y algunos exploradores web de terceros, Azure AD identifica el dispositivo mediante un certificado de cliente que se aprovisiona cuando el dispositivo se registra con Azure AD. Cuando un usuario inicia sesión por primera vez a través del explorador, se le pide que seleccione el certificado. El usuario final debe seleccionar este certificado para poder seguir usando el explorador.
 

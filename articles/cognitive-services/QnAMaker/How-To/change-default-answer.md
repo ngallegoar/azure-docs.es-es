@@ -2,33 +2,33 @@
 title: 'Obtención de la respuesta predeterminada: QnA Maker'
 description: Se devuelve la respuesta predeterminada cuando no hay ninguna coincidencia con la pregunta. Puede que desee cambiar la respuesta predeterminada de la respuesta predeterminada estándar.
 ms.topic: how-to
-ms.date: 04/22/2020
-ms.openlocfilehash: db5a79ec612a73066ac37365a1815841fafb3862
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/02/2020
+ms.openlocfilehash: 005442938167c1bf7927603c44d6f870795cbeee
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82097105"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85979984"
 ---
 # <a name="change-default-answer-for-a-qna-maker-resource"></a>Cambiar la respuesta predeterminada para un recurso de QnA Maker
 
-Se devuelve la respuesta predeterminada cuando no hay ninguna coincidencia con la pregunta. Puede que desee cambiar la respuesta predeterminada de la respuesta predeterminada estándar.
+La respuesta predeterminada para una base de conocimiento está pensada para que se devuelva cuando no se encuentra una respuesta. Si usa una aplicación cliente, como [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs#calling-qna-maker-from-your-bot), es posible que también tenga una respuesta predeterminada independiente, lo que indica que ninguna respuesta ha alcanzado el umbral de puntuación.
 
-## <a name="change-default-answer-in-the-azure-portal"></a>Cambiar la respuesta predeterminada en Azure Portal
+## <a name="set-default-answer-when-you-create-knowledge-base"></a>Establecer la respuesta predeterminada al crear la base de conocimiento
 
-1. Vaya a [Azure Portal](https://portal.azure.com) y navegue hasta el grupo de recursos que representa el servicio QnA Maker que creó.
+Al crear una nueva base de conocimiento, el texto de respuesta predeterminado es uno de los valores de configuración. Si decide no establecerlo durante el proceso de creación, puede cambiarlo más adelante con el siguiente procedimiento.
 
-2. Haga clic para abrir **App Service**.
+## <a name="change-default-answer-in-qna-maker-portal"></a>Cambiar la respuesta predeterminada en el portal de QnA Maker
 
-    ![En Azure Portal, acceda a App Service para QnA Maker](../media/qnamaker-concepts-confidencescore/set-default-response.png)
+La respuesta predeterminada de la base de conocimiento se devuelve cuando no se devuelve ninguna respuesta del servicio QnA Maker.
 
-3. Haga clic en **Configuración de la aplicación** y edite el campo **DefaultAnswer** a la respuesta predeterminada deseada. Haga clic en **Save**(Guardar).
+1. Inicie sesión en el [portal de QnA Maker](https://www.qnamaker.ai/) y seleccione la base de conocimiento en la lista.
+1. Seleccione **Configuración** en la barra de navegación.
+1. Cambie el valor de **Default answer text** (Texto de respuesta predeterminado) en la sección **Manage knowledge base** (Administrar base de conocimiento).
 
-    ![Seleccione Configuración de la aplicación y, a continuación, edite el valor de DefaultAnswer para QnA Maker](../media/qnamaker-concepts-confidencescore/change-response.png)
+    :::image type="content" source="../media/qnamaker-concepts-confidencescore/change-default-answer.png" alt-text="Captura de pantalla del portal de QnA Maker, página de configuración, con el cuadro de texto respuesta predeterminado resaltado.":::
 
-4. Reiniciar App Service
-
-    ![Después de cambiar DefaultAnswer, reinicie la instancia de App Service de QnA Maker](../media/qnamaker-faq/qnamaker-appservice-restart.png)
+1. Seleccione **Guardar y entrenar** para almacenar los cambios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

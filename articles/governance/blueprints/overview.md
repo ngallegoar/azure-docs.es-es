@@ -3,12 +3,12 @@ title: Introducción a Azure Blueprint
 description: Conozca el modo en que el servicio Azure Blueprints permite crear, definir e implementar artefactos en el entorno de Azure.
 ms.date: 05/06/2020
 ms.topic: overview
-ms.openlocfilehash: 68baeb8030caa17a9880cb0846688f1db6a15c87
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 3a7cece81027bd8ac79250f2f2cd08da637b5f0b
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864511"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970933"
 ---
 # <a name="what-is-azure-blueprints"></a>¿Qué es Azure Blueprint?
 
@@ -18,20 +18,20 @@ Los planos técnicos son una manera declarativa de organizar la implementación 
 
 - Asignaciones de roles
 - Asignaciones de directiva
-- Plantillas del Administrador de recursos de Azure
+- Plantillas de Azure Resource Manager (plantillas de ARM)
 - Grupos de recursos
 
 El servicio Azure Blueprints está respaldado por la distribución global [Azure Cosmos DB](../../cosmos-db/introduction.md). Los objetos de plano técnico se replican en varias regiones de Azure. Esta replicación proporciona baja latencia, alta disponibilidad y acceso coherente a los objetos de plano técnico, con independencia de la región en la que Azure Blueprints implemente el recurso.
 
-## <a name="how-its-different-from-resource-manager-templates"></a>En qué difiere de las plantillas de Resource Manager
+## <a name="how-its-different-from-arm-templates"></a>¿En qué se diferencia de las plantillas de Resource Manager?
 
 El servicio está diseñado para ayudar con la _configuración del entorno_. A menudo, esta configuración consta de un conjunto de grupos de recursos, directivas, asignaciones de roles e implementaciones de plantillas de Resource Manager. Un plano técnico es un paquete para reunir cada uno de estos tipos de _artefacto_ y permite componer y crear la versión de ese paquete, incluso mediante una canalización CI/CD. En última instancia, cada uno se asigna a una suscripción en una única operación que se puede auditar y seguir.
 
-Casi todo lo que se puede querer incluir para la implementación en Azure Blueprints se puede conseguir con una plantilla de Resource Manager. Sin embargo, una plantilla de Resource Manager es un documento que no existe de forma nativa en Azure, cada una se almacena localmente o en el control de código fuente. La plantilla se usa para las implementaciones de uno o varios recursos de Azure pero, una vez implementados los recursos, no hay conexión activa ni relación con la plantilla.
+Casi todo lo que desee incluir para la implementación en Azure Blueprints se puede conseguir con una plantilla de Resource Manager. Sin embargo, una plantilla de Resource Manager es un documento que no existe de forma nativa en Azure, cada una se almacena localmente o en el control de código fuente. La plantilla se usa para las implementaciones de uno o varios recursos de Azure pero, una vez implementados los recursos, no hay conexión activa ni relación con la plantilla.
 
 Con Azure Blueprints, la relación entre la definición del plano técnico (lo _que debe ser_ implementado) y su asignación (lo _que se ha_ implementado) permanece. Esta conexión permite un seguimiento mejorado y la auditoría de las implementaciones. Azure Blueprints también puede actualizar varias suscripciones a la vez que se rigen por el mismo plano técnico.
 
-No hay que elegir entre una plantilla de Resource Manager y un plano técnico. Cada instancia del plano técnico puede tener o no _artefactos_ de una plantilla de Resource Manager. Esta compatibilidad significa que se pueden reutilizar los trabajos anteriores para desarrollar y mantener una biblioteca de plantillas de Resource Manager en Azure Blueprints.
+No es preciso elegir entre una plantilla de Resource Manager y un plano técnico. Cada plano técnico puede tener cero o más _artefactos_ de una plantilla de Resource Manager. Esta compatibilidad significa que se pueden reutilizar los trabajos anteriores para desarrollar y mantener una biblioteca de plantillas de Resource Manager en Azure Blueprints.
 
 ## <a name="how-its-different-from-azure-policy"></a>¿En qué difiere de Azure Policy?
 
@@ -47,10 +47,10 @@ Se puede incluir una directiva como uno de muchos _artefactos_ en una definició
 
 Un plano técnico se compone de _artefactos_. Azure Blueprints admite actualmente los siguientes recursos como artefactos:
 
-|Resource  | Opciones de la jerarquía| Descripción  |
+|Recurso  | Opciones de la jerarquía| Descripción  |
 |---------|---------|---------|
-|Grupos de recursos | Subscription | Cree un nuevo grupo de recursos para que lo usen otros artefactos incluidos en el plano técnico.  Estos grupos de recursos de marcador de posición permiten organizar los recursos exactamente como desee que se estructuren y proporciona un limitador de ámbito para los artefactos de asignación de roles y directivas, así como plantillas de Azure Resource Manager. |
-|Plantilla del Administrador de recursos de Azure | Suscripción, grupo de recursos | Las plantillas, incluidas las plantillas anidadas y vinculadas, se usan para crear entornos complejos. Ejemplo de entornos: una granja de servidores SharePoint, Azure Automation State Configuration o un área de trabajo de Log Analytics. |
+|Grupos de recursos | Suscripción | Cree un nuevo grupo de recursos para que lo usen otros artefactos incluidos en el plano técnico.  Estos grupos de recursos de marcador de posición permiten organizar los recursos exactamente como desee que se estructuren y proporciona un limitador de ámbito para los artefactos de asignación de roles y directivas, así como plantillas de Resource Manager. |
+|Plantilla ARM | Suscripción, grupo de recursos | Las plantillas, incluidas las plantillas anidadas y vinculadas, se usan para crear entornos complejos. Ejemplo de entornos: una granja de servidores SharePoint, Azure Automation State Configuration o un área de trabajo de Log Analytics. |
 |Asignación de directiva | Suscripción, grupo de recursos | Permite la asignación de una directiva o iniciativa a la suscripción a la que está asignado el plano técnico. La directiva o iniciativa debe estar dentro del ámbito de la ubicación de la definición del plano técnico. Si la directiva o iniciativa tiene parámetros, estos se asignan en la creación del plano técnico o durante su asignación. |
 |Asignación de roles | Suscripción, grupo de recursos | Agregue un grupo o usuario existente a un rol integrado para asegurarse de que las personas adecuadas siempre tienen derechos de acceso a los recursos. Las asignaciones de roles se pueden definir para toda la suscripción o anidarse para un grupo de recursos específico incluido en el plano técnico. |
 
@@ -60,9 +60,7 @@ Al crear una definición de plano técnico, definirá dónde se guarda. Los plan
 
 ### <a name="blueprint-parameters"></a>Parámetros de plano técnico
 
-Los planos técnicos pueden pasar parámetros a una iniciativa o directiva, o a una plantilla de Azure Resource Manager.
-Cuando algún _artefacto_ se agrega a un plano técnico, el autor es capaz de decidir si proporcionar un valor definido para cada asignación de plano técnico o permitir que cada asignación del plano técnico proporcione un valor en el momento de la asignación.
-Esta flexibilidad permite definir un valor predeterminado para todos los usos del plano técnico o que esa decisión se tome en el momento de la asignación.
+Los planos técnicos pueden pasar parámetros a una iniciativa o directiva, o bien a una plantilla de Resource Manager. Cuando algún _artefacto_ se agrega a un plano técnico, el autor es capaz de decidir si proporcionar un valor definido para cada asignación de plano técnico o permitir que cada asignación del plano técnico proporcione un valor en el momento de la asignación. Esta flexibilidad permite definir un valor predeterminado para todos los usos del plano técnico o que esa decisión se tome en el momento de la asignación.
 
 > [!NOTE]
 > Un plano técnico puede tener sus propios parámetros, pero actualmente solo se pueden crear si el plano técnico se genera desde la API REST en lugar de mediante el Portal.

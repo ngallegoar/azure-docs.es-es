@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: b95ee80a7a99009918f4869b62a3e3768e6e58d3
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f0fba815cdc8425f016b74be7df36e5b28dfee3d
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828277"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856964"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Preguntas frecuentes sobre Azure Cache for Redis
 Conozca las respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure Cache for Redis.
@@ -100,7 +100,7 @@ Las siguientes son consideraciones para elegir una oferta de caché.
 * **Rendimiento de la red**: si tiene una carga de trabajo que requiere un rendimiento alto, el nivel Prémium ofrece más ancho de banda en comparación con los niveles Estándar o Básico. También dentro de cada nivel, las cachés de mayor tamaño tienen más ancho de banda debido a la máquina virtual subyacente que hospeda la memoria caché. Para más información, consulte la [tabla siguiente](#cache-performance).
 * **Rendimiento**: el nivel Prémium ofrece el máximo rendimiento disponible. Si el servidor o el cliente de caché alcanzan los límites del ancho de banda, recibirá los tiempos de espera del cliente. Para más información, vea la tabla siguiente.
 * **Alta disponibilidad/Acuerdo de Nivel de Servicio**: Azure Cache for Redis garantiza que la caché de los niveles Estándar y Prémium estará disponible como mínimo un 99,9 % del tiempo. Para más información sobre nuestro Acuerdo de Nivel de Servicio, consulte [Precios de Azure Cache for Redis](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). El SLA solo cubre la conectividad para los extremos de la memoria caché. El SLA no cubre la protección frente a la pérdida de datos. Se recomienda usar la característica de persistencia de datos de Redis en el nivel Premium para aumentar la resistencia contra la pérdida de datos.
-* **Persistencia de datos de Redis**: El nivel Premium permite conservar los datos de la memoria caché en una cuenta de Azure Storage. En una caché Básico/Estándar todos los datos se almacenan solo en la memoria. Los problemas con la infraestructura subyacente podrían provocar una pérdida de datos. Se recomienda usar la característica de persistencia de datos de Redis en el nivel Premium para aumentar la resistencia contra la pérdida de datos. Azure Cache for Redis ofrece las opciones RDB y AOF (próximamente) en la persistencia de Redis. Para más información, vea [How to configure persistence for a Premium Azure Cache for Redis](cache-how-to-premium-persistence.md) (Configuración de la persistencia para una instancia de Azure Cache for Redis Prémium).
+* **Persistencia de datos de Redis**: El nivel Premium permite conservar los datos de la memoria caché en una cuenta de Azure Storage. En una caché Básico/Estándar todos los datos se almacenan solo en la memoria. Los problemas con la infraestructura subyacente podrían provocar una pérdida de datos. Se recomienda usar la característica de persistencia de datos de Redis en el nivel Premium para aumentar la resistencia contra la pérdida de datos. Azure Cache for Redis ofrece las opciones RDB y AOF (versión preliminar) en la persistencia de Redis. Para más información, vea [How to configure persistence for a Premium Azure Cache for Redis](cache-how-to-premium-persistence.md) (Configuración de la persistencia para una instancia de Azure Cache for Redis Prémium).
 * **Clúster en Redis**: para crear memorias caché de más de 120 GB o particionar los datos entre varios nodos de Redis, puede usar la agrupación en clústeres Redis, disponible en el nivel Premium. Cada nodo consta de un par de caché principal/réplica para alta disponibilidad. Para más información, consulte [How to configure clustering for a Premium Azure Cache for Redis](cache-how-to-premium-clustering.md) (Configuración de la agrupación en clústeres para una instancia de Azure Cache for Redis Prémium).
 * **Seguridad y aislamiento de red mejorados**: La implementación de Azure Virtual Network aporta más seguridad y aislamiento de su instancia de Azure Cache for Redis, así como subredes, directivas de control de acceso y otras características para restringir aún más el acceso. Para más información, consulte [How to configure Virtual Network support for a Premium Azure Cache for Redis](cache-how-to-premium-vnet.md) (Configuración de la compatibilidad con Virtual Network para una instancia de Azure Cache for Redis Prémium).
 * **Configuración de Redis**: tanto en los niveles Estándar como Prémium, puede configurar Redis para las notificaciones de Keyspace.
@@ -213,22 +213,23 @@ Una de las grandes virtudes de Redis es que hay muchos clientes que admiten much
 ### <a name="is-there-a-local-emulator-for-azure-cache-for-redis"></a>¿Hay un emulador local para Azure Cache for Redis?
 No hay ningún emulador local para Azure Cache for Redis, pero puede ejecutar la versión MSOpenTech de redis-server.exe desde las [herramientas de la línea de comandos de Redis](https://github.com/MSOpenTech/redis/releases/) en su máquina local y conectarse a ella para obtener una experiencia similar a un emulador de memoria caché local, tal y como se muestra en el ejemplo siguiente:
 
-    private static Lazy<ConnectionMultiplexer>
-          lazyConnection = new Lazy<ConnectionMultiplexer>
-        (() =>
-        {
-            // Connect to a locally running instance of Redis to simulate a local cache emulator experience.
-            return ConnectionMultiplexer.Connect("127.0.0.1:6379");
-        });
+```csharp
+private static Lazy<ConnectionMultiplexer>
+      lazyConnection = new Lazy<ConnectionMultiplexer>
+    (() =>
+    {
+        // Connect to a locally running instance of Redis to simulate a local cache emulator experience.
+        return ConnectionMultiplexer.Connect("127.0.0.1:6379");
+    });
 
-        public static ConnectionMultiplexer Connection
+    public static ConnectionMultiplexer Connection
+    {
+        get
         {
-            get
-            {
-                return lazyConnection.Value;
-            }
+            return lazyConnection.Value;
         }
-
+    }
+```
 
 Si lo desea, también puede configurar un archivo [redis.conf](https://redis.io/topics/config) para ajustarse con más precisión a la [configuración de caché predeterminada](cache-configure.md#default-redis-server-configuration) del servicio en línea Azure Cache for Redis.
 
@@ -289,7 +290,7 @@ El servidor Redis no admite TLS de forma nativa, pero Azure Cache for Redis, sí
 >
 >
 
-Las herramientas de Redis, como `redis-cli`, no funcionan con el puerto TLS. Sin embargo, puede usar una utilidad (por ejemplo, `stunnel`) para conectar de forma segura las herramientas con el puerto TLS. Para ello, siga las instrucciones que se describen en la publicación del blog [Announcing ASP.NET Session State Provider for Redis Preview Release](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) (Comunicación del proveedor de estado de la sesión de ASP.NET en la versión preliminar de Redis).
+Las herramientas de Redis, como `redis-cli`, no funcionan con el puerto TLS. Sin embargo, puede usar una utilidad (por ejemplo, `stunnel`) para conectar de forma segura las herramientas con el puerto TLS. Para ello, siga las instrucciones que se describen en la publicación del blog [Announcing ASP.NET Session State Provider for Redis Preview Release](https://devblogs.microsoft.com/aspnet/announcing-asp-net-session-state-provider-for-redis-preview-release/) (Comunicación del proveedor de estado de la sesión de ASP.NET en la versión preliminar de Redis).
 
 Para obtener instrucciones acerca de cómo descargar las herramientas de Redis, consulte la sección [¿Cómo puedo ejecutar comandos de Redis?](#cache-commands) .
 
@@ -366,10 +367,12 @@ Básicamente, esto significa que cuando el número de subprocesos ocupados es ma
 
 Si examinamos un mensaje de error de ejemplo de StackExchange.Redis (compilación 1.0.450 o posterior), verá que ahora se imprimen estadísticas del grupo de subprocesos (consulte a continuación los detalles de trabajo e IOCP).
 
+```output
     System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,
     queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,
     IOCP: (Busy=6,Free=994,Min=4,Max=1000),
     WORKER: (Busy=3,Free=997,Min=4,Max=1000)
+```
 
 En el ejemplo anterior, puede ver que para el subproceso de IOCP hay seis subprocesos ocupados y el sistema está configurado para permitir cuatro subprocesos mínimos. En este caso, el cliente probablemente habría visto dos retrasos de 500 ms porque 6 > 4.
 

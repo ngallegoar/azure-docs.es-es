@@ -5,18 +5,18 @@ description: Cree, revise e implemente modelos de aprendizaje automático automa
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: nibaccam
 author: aniththa
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/20/2020
-ms.openlocfilehash: 20d98f8eb4971d2aba1ecfbf8abeaba261cde8c4
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 9871d2ef46a4bbcaa0de7a2aee7d2c91f2bfefab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84115908"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831920"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creación, revisión e implementación de modelos de aprendizaje automático automatizado con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -106,7 +106,7 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
 
     Seleccione **Next** (Siguiente).
 
-1. En el formulario **Task type and settings** (Tipo de tarea y configuración), seleccione el tipo de tarea: clasificación, regresión o previsión. Para más información, consulte el artículo en el que se explica [cómo definir tipos de tareas](how-to-define-task-type.md).
+1. En el formulario **Task type and settings** (Tipo de tarea y configuración), seleccione el tipo de tarea: clasificación, regresión o previsión. Para más información, vea los [tipos de tareas admitidos](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast).
 
     1. Para la clasificación, también puede habilitar el aprendizaje profundo, que se usa para las características de texto.
 
@@ -124,7 +124,7 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
     Explicación del mejor modelo | Seleccione esta opción para habilitar o deshabilitar la visualización de la explicación del mejor modelo recomendado.
     Blocked algorithms (Algoritmos bloqueados)| Seleccione los algoritmos que desea excluir del trabajo de entrenamiento.
     Criterios de exclusión| Cuando se cumple alguno de estos criterios, se detiene el trabajo de entrenamiento. <br> *Tiempo de trabajo de entrenamiento (horas)* : cantidad de tiempo para permitir que el trabajo de entrenamiento se ejecute. <br> *Metric score threshold* (Umbral de puntuación de métrica):  puntuación mínima de métrica para todas las canalizaciones. Esto garantiza que si tiene una métrica objetivo definida que desee alcanzar, no dedicará más tiempo en el trabajo de entrenamiento que el necesario.
-    Validación| Seleccione una de las opciones de validación cruzada en el trabajo de entrenamiento. [Más información sobre la validación cruzada](how-to-configure-auto-train.md).
+    Validación| Seleccione una de las opciones de validación cruzada en el trabajo de entrenamiento. [Más información sobre la validación cruzada](how-to-configure-cross-validation-data-splits.md#prerequisites).
     Simultaneidad| *Número máximo de iteraciones simultáneas*: número máximo de canalizaciones (iteraciones) para probar en el trabajo de entrenamiento. El trabajo no ejecutará más iteraciones que el número especificado de ellas.
 
 1. (Opcional) Consulte la configuración de caracterización: Si decide habilitar **Caracterización automática** en el formulario **Ver configuración de caracterización**, se aplican las técnicas de caracterización predeterminadas. En **Ver configuración de caracterización** puede cambiar estos valores predeterminados y personalizarlos según corresponda. Obtenga información sobre cómo [personalizar las caracterizaciones](#customize-featurization). 

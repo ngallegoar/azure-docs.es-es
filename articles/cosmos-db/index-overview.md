@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: df9135c39c1ff27abe8915c221185fca517a5614
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 44a51972e459f64f44a791ef1cf40825dddedf91
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849797"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85798160"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexación en Azure Cosmos DB: introducción
 
@@ -41,7 +41,7 @@ Por ejemplo, considere este elemento:
 
 Se podría representar mediante el árbol siguiente:
 
-![El elemento anterior representado como un árbol](./media/index-overview/item-as-tree.png)
+:::image type="content" source="./media/index-overview/item-as-tree.png" alt-text="El elemento anterior representado como árbol" border="false":::
 
 Observe cómo se codifican las matrices en el árbol: cada entrada de una matriz obtiene un nodo intermedio etiquetado con el índice de esa entrada dentro de la matriz (0, 1, etc.).
 
@@ -51,14 +51,14 @@ El motivo por el que Azure Cosmos DB transforma los elementos en árboles es por
 
 Estas son las rutas de acceso de cada propiedad del elemento de ejemplo descrito anteriormente:
 
-    /locations/0/country: "Germany"
-    /locations/0/city: "Berlin"
-    /locations/1/country: "France"
-    /locations/1/city: "Paris"
-    /headquarters/country: "Belgium"
-    /headquarters/employees: 250
-    /exports/0/city: "Moscow"
-    /exports/1/city: "Athens"
+- /locations/0/country: "Germany"
+- /locations/0/city: "Berlin"
+- /locations/1/country: "France"
+- /locations/1/city: "Paris"
+- /headquarters/country: "Belgium"
+- /headquarters/employees: 250
+- /exports/0/city: "Moscow"
+- /exports/1/city: "Athens"
 
 Cuando se escribe un elemento, Azure Cosmos DB indexa eficazmente la ruta de acceso de cada propiedad y su valor correspondiente.
 
@@ -181,7 +181,7 @@ Las rutas de acceso extraídas al indexar datos facilitan la tarea de buscar el 
 
 Por ejemplo, considere la consulta siguiente: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. El predicado de consulta (filtrado por elementos, donde cualquier ubicación tiene "France" como su país) coincidiría con la ruta de acceso resaltada en rojo a continuación:
 
-![Coincidencia con una ruta de acceso específica dentro de un árbol](./media/index-overview/matching-path.png)
+:::image type="content" source="./media/index-overview/matching-path.png" alt-text="Coincidencia con una ruta de acceso específica dentro de un árbol" border="false":::
 
 > [!NOTE]
 > Una cláusula `ORDER BY` que ordena por una sola propiedad *siempre* necesita un índice de rango y dará error si la ruta de acceso a la que hace referencia no tiene uno. Del mismo modo, una consulta `ORDER BY` que se ordena por varias propiedades *siempre* necesita un índice compuesto.

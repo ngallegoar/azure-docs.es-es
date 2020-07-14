@@ -3,7 +3,7 @@ title: Supervisión del rendimiento mediante DMV
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Obtenga información sobre cómo detectar y diagnosticar problemas comunes de rendimiento con vistas de administración dinámica para supervisar Microsoft Azure SQL Database y la Instancia administrada de Azure SQL.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 04/19/2020
-ms.openlocfilehash: 68ae42faaf4f3aea851fa1649ba033f60f2b199a
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: f0a9e36113226a40f4bd21a7b171ca7a65930f95
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193916"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85987244"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Supervisión del rendimiento de Microsoft Azure SQL Database e Instancia administrada de Azure SQL mediante vistas de administración dinámica
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -364,7 +364,7 @@ GROUP BY wait_type
 ORDER BY SUM(wait_time) DESC;
 ```
 
-### <a name="identity-high-memory-consuming-statements"></a>Identificar instrucciones con un alto consumo de memoria
+### <a name="identify-high-memory-consuming-statements"></a>Identificar instrucciones con un alto consumo de memoria
 
 Utilice la siguiente consulta para identificar las instrucciones con un alto consumo de memoria:
 

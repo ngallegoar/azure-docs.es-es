@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: f8b34f1678d39471a1d0b91756ac93a01cbfedba
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 61b6ad0bedb4817c262b4269a6e9f6930a6caa6c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800162"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985695"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Creación de un clúster de la versión 4 de Red Hat OpenShift en Azure
 
@@ -26,7 +26,7 @@ Si decide instalar y usar la CLI localmente, en este tutorial es preciso que eje
 
 ### <a name="verify-your-permissions"></a>Comprobación de los permisos
 
-Para crear un clúster de Red Hat OpenShift en Azure, compruebe los siguientes permisos en la cuenta y el usuario de Azure:
+Para crear un clúster de Red Hat OpenShift en Azure, compruebe los siguientes permisos en la suscripción de Azure, el usuario de Azure Active Directory o la entidad de servicio:
 
 |Permisos|Grupo de recursos que contiene la red virtual|El usuario que ejecuta `az aro create`|Entidad de servicio que se pasa como `–client-id`|
 |----|:----:|:----:|:----:|
@@ -189,7 +189,7 @@ A continuación, creará una red virtual que contenga dos subredes vacías.
 
 ## <a name="create-the-cluster"></a>Creación del clúster
 
-Ejecute el siguiente comando para crear un clúster. Opcionalmente, puede [pasar el secreto de incorporación de cambios de Red Hat](#get-a-red-hat-pull-secret-optional) que permita al clúster acceder a los registros de contenedor de Red Hat junto con contenido adicional.
+Ejecute el siguiente comando para crear un clúster. También puede [pasar el secreto de incorporación de cambios de Red Hat](#get-a-red-hat-pull-secret-optional), que permite al clúster acceder a los registros de contenedor de Red Hat junto con contenido adicional.
 
 >[!NOTE]
 > Si va a copiar o pegar comandos, y usa uno de los parámetros opcionales, asegúrese de eliminar los hashtags iniciales y el texto de comentario final. Además, cierre el argumento de la línea anterior del comando con una barra diagonal inversa al final.
@@ -205,7 +205,7 @@ az aro create \
   # --pull-secret @pull-secret.txt # [OPTIONAL]
 ```
 
-Después de ejecutar el comando `az aro create`, se tardan aproximadamente 35 minutos en crear un clúster.
+Después de ejecutar el comando `az aro create`, se tarda aproximadamente 35 minutos en crear un clúster.
 
 >[!IMPORTANT]
 > Si elige especificar un dominio personalizado, por ejemplo **foo.example.com**, la consola de OpenShift estará disponible en una dirección URL como `https://console-openshift-console.apps.foo.example.com`, en lugar del dominio integrado `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.

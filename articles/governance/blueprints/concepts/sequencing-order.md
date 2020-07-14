@@ -3,12 +3,12 @@ title: Orden de la secuencia de implementación
 description: Obtenga más detalles sobre el orden predeterminado en el que se implementan los artefactos de plano técnico durante una asignación de plano técnico y aprenda a personalizar el orden de implementación.
 ms.date: 05/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 91e11f8127ba2532ad48362de1689f4be2b6f935
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: d4a3b07e158aa7e4514ea9543bf44ad57e379d24
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864528"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970627"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Información sobre la secuencia de implementación en Azure Blueprint
 
@@ -28,21 +28,21 @@ Si la definición de plano técnico no contiene ninguna directiva para el orden 
 
 - Artefactos de **asignación de roles** de nivel de suscripción ordenados por nombre de artefacto
 - Artefactos de **asignación de directiva** de nivel de suscripción ordenados por nombre de artefacto
-- Artefactos de **plantilla de Azure Resource Manager** de nivel de suscripción ordenados por nombre de artefacto
+- Artefactos de **plantilla de Azure Resource Manager** (plantillas de ARM) de nivel de suscripción ordenados por nombre de artefacto
 - Artefactos de **grupo de recursos** (incluidos los secundarios) ordenados por nombre de marcador de posición
 
 Dentro de cada artefacto de **grupo de recursos**, se usa el orden de secuencia siguiente para crear los artefactos dentro de ese grupo de recursos:
 
 - Artefactos secundarios de **asignación de roles** de grupo de recursos ordenados por nombre de artefacto
 - Artefactos de **asignación de directiva** secundarios de grupo de recursos ordenados por nombre de artefacto
-- Artefactos de **plantilla de Azure Resource Manager** secundarios de grupo de recursos ordenados por nombre de artefacto
+- Artefactos de **plantilla de Azure Resource Manager** (plantillas de ARM) secundarios de grupo de recursos ordenados por nombre de artefacto
 
 > [!NOTE]
 > El uso de [artifacts()](../reference/blueprint-functions.md#artifacts) crea una dependencia implícita en el artefacto al que se hace referencia.
 
 ## <a name="customizing-the-sequencing-order"></a>Personalización del orden de secuenciación
 
-Cuando crea definiciones de planos técnicos de gran tamaño, puede ser necesario que los recursos se creen en un orden específico. El patrón de uso más común de este escenario se da cuando una definición de plano técnico incluye varias plantillas de Azure Resource Manager. Para que Azure Blueprints controle este patrón, permite definir el orden de secuenciación.
+Cuando crea definiciones de planos técnicos de gran tamaño, puede ser necesario que los recursos se creen en un orden específico. El patrón de uso más común de este escenario se produce cuando una definición de plano técnico incluye varias plantillas de ARM. Para que Azure Blueprints controle este patrón, permite definir el orden de secuenciación.
 
 La ordenación se logra definiendo una propiedad `dependsOn` en JSON. La definición de plano técnico (para grupos de recursos) y los objetos de artefacto admiten esta propiedad. `dependsOn` es una matriz de cadenas de nombres de artefacto que el artefacto en particular debe crear antes de su propia creación.
 
@@ -81,7 +81,7 @@ Esta definición de plano técnico de ejemplo tiene un grupo de recursos que ha 
 
 ### <a name="example---artifact-with-custom-order"></a>Ejemplo de artefacto con orden personalizado
 
-Este ejemplo es un artefacto de directiva que depende de una plantilla de Azure Resource Manager. Con el orden predeterminado, se crearía un artefacto de directiva antes que la plantilla de Azure Resource Manager. Esta ordenación permite que el artefacto de directiva espere a que se cree la plantilla de Azure Resource Manager.
+Este ejemplo es un artefacto de directiva que depende de una plantilla de ARM. Con el orden predeterminado, se crearía un artefacto de directiva antes que la plantilla de ARM. Esta ordenación permite que el artefacto de directiva espere a que se cree la plantilla de ARM.
 
 ```json
 {
@@ -100,7 +100,7 @@ Este ejemplo es un artefacto de directiva que depende de una plantilla de Azure 
 
 ### <a name="example---subscription-level-template-artifact-depending-on-a-resource-group"></a>Ejemplo: artefacto de plantilla en el nivel de la suscripción que depende de un grupo de recursos
 
-Este ejemplo es para una plantilla de Resource Manager implementada en el nivel de suscripción que depende de un grupo de recursos. En el orden predeterminado, los artefactos de nivel de suscripción se crean antes que los grupos de recursos y los artefactos secundarios de esos grupos de recursos. El grupo de recursos se define en la definición del plano técnico de la siguiente forma:
+Este ejemplo es para una plantilla de ARM implementada en el nivel de suscripción que depende de un grupo de recursos. En el orden predeterminado, los artefactos de nivel de suscripción se crean antes que los grupos de recursos y los artefactos secundarios de esos grupos de recursos. El grupo de recursos se define en la definición del plano técnico de la siguiente forma:
 
 ```json
 "resourceGroups": {

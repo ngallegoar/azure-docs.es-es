@@ -10,20 +10,20 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
-ms.openlocfilehash: 42d3360b7defaab2ff0a62dc125a213860b13a6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 097d2b4dffd1dda02d8e342a11b3a907bad4e90a
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133611"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851651"
 ---
 # <a name="azure-networking-services-overview"></a>Información general sobre los servicios de red de Azure
 
 Los servicios de red de Azure proporcionan diversas funcionalidades de red que se pueden usar conjuntamente o por separado. Haga clic en cualquiera de las siguientes funcionalidades principales para obtener más información acerca de ellas:
 - [**Servicios de conectividad**](#connect). Conecte recursos de Azure y recursos del entorno local con cualquier combinación de estos servicios de red en Azure: Virtual Network (VNet), Virtual WAN, ExpressRoute, VPN Gateway, NAT Gateway de Virtual Network, Azure DNS, Peering Service y Azure Bastion.
-- [**Servicios de protección de aplicaciones**](#protect). Proteja sus aplicaciones con una combinación de estos servicios de red en Azure: Private Link, DDoS Protection, Firewall, grupos de seguridad de red, Firewall de aplicaciones web o puntos de conexión de red virtual.
-- [**Servicios de entrega de aplicaciones**](#deliver). Entregue aplicaciones en la red de Azure usando uno o varios de estos servicios de red en Azure: Content Delivery Network (CDN), Azure Front Door Service, Traffic Manager, Application Gateway, Internet Analyzer y Load Balancer.
-- [**Supervisión de red**](#monitor). Supervise los recursos de red mediante uno o varios de estos servicios de red en Azure: Network Watcher, Supervisión de ExpressRoute, Azure Monitor o Punto de acceso de terminal de red virtual (TAP).
+- [**Servicios de protección de aplicaciones**](#protect): Proteja sus aplicaciones con una combinación de estos servicios de red en Azure: Private Link, DDoS Protection, Firewall, grupos de seguridad de red, Firewall de aplicaciones web o puntos de conexión de red virtual.
+- [**Servicios de entrega de aplicaciones**](#deliver): Entregue aplicaciones en la red de Azure usando uno o varios de estos servicios de red en Azure: Content Delivery Network (CDN), Azure Front Door Service, Traffic Manager, Application Gateway, Internet Analyzer y Load Balancer.
+- [**Supervisión de red**](#monitor): Supervise los recursos de red mediante uno o varios de estos servicios de red en Azure: Network Watcher, Supervisión de ExpressRoute, Azure Monitor o Punto de acceso de terminal de red virtual (TAP).
 
 ## <a name="connectivity-services"></a><a name="connect"></a>Servicios de conectividad
  
@@ -137,14 +137,14 @@ El tráfico entre la red virtual y el servicio viaja por la red troncal de Micro
 
 ## <a name="application-delivery-services"></a><a name="deliver"></a>Servicios de entrega de aplicaciones
 
-En esta sección se describen los servicios de red de Azure que ayudan a la entrega de aplicaciones: Network Watcher, ExpressRoute Monitor, Azure Monitor o punto de acceso de terminal (TAP) de VNet.
+En esta sección se describen los servicios de red de Azure que ayudan a entregar aplicaciones: Content Delivery Network, Azure Front Door Service, Traffic Manager, Load Balancer y Application Gateway.
 
 |Servicio|Motivos para la utilización|Escenario|
 |---|---|---|
 |[Content Delivery Network](#cdn)|Proporciona contenido con alto ancho de banda a los usuarios. Las redes CDN guardan el contenido almacenado en caché de los servidores perimetrales en ubicaciones de punto de presencia (POP) que están cerca de los usuarios finales, para minimizar la latencia.|<p>[Tutorial: Incorporación de CDN a una aplicación web](../cdn/cdn-add-to-web-app.md)</p> <p>[Tutorial: Acceso a blobs de almacenamiento mediante un dominio personalizado de Azure CDN a través de HTTPS](..//cdn/cdn-storage-custom-domain-https.md)</p> <p>[Tutorial: Incorporación de un dominio personalizado a un punto de conexión de Azure CDN](../cdn/cdn-map-content-to-custom-domain.md).</p> <p>[Configuración de HTTPS en un dominio personalizado de Azure CDN](../cdn/cdn-custom-ssl.md?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate)</p>|
 |[Azure Front Door Service](#frontdoor)|Permite definir, administrar y supervisar el enrutamiento global para el tráfico web gracias a la optimización para obtener el mejor rendimiento y la conmutación por error global instantánea para lograr una alta disponibilidad.|<p>[Tutorial: Incorporación de un dominio personalizado a Azure Front Door Service](../frontdoor/front-door-custom-domain.md)</p> <p>[Tutorial: Configuración de HTTPS en un dominio personalizado de Front Door](../frontdoor/front-door-custom-domain-https.md)</p><p>[Configuración de una directiva de filtrado geográfico para Front Door](../frontdoor/front-door-tutorial-geo-filtering.md)|
 |[Traffic Manager](#trafficmanager)|Distribuye el tráfico basado en DNS a los servicios a través de las regiones globales de Azure, al mismo tiempo que ofrece una alta disponibilidad y capacidad de respuesta|<p> [Enrutamiento del tráfico para baja latencia](../traffic-manager/tutorial-traffic-manager-improve-website-response.md)</p><p>[Enrutamiento del tráfico a un punto de conexión prioritario](../traffic-manager/traffic-manager-configure-priority-routing-method.md)</p><p> [Control del tráfico con puntos de conexión ponderados](../traffic-manager/tutorial-traffic-manager-weighted-endpoint-routing.md)</p><p>[Enrutamiento del tráfico según la ubicación geográfica del punto de conexión](../traffic-manager/traffic-manager-configure-geographic-routing-method.md)</p> <p> [Enrutamiento del tráfico basado en la subred del usuario](../traffic-manager/tutorial-traffic-manager-subnet-routing.md)</p>|
-|[Equilibrador de carga](#loadbalancer)|Proporciona equilibrio de carga regional mediante el enrutamiento del tráfico entre las zonas de disponibilidad y las redes virtuales. Proporciona equilibrio de carga interno mediante el enrutamiento del tráfico entre los recursos para crear una aplicación regional.|<p> [Equilibrio de carga del tráfico de Internet a las máquinas virtuales](../load-balancer/tutorial-load-balancer-standard-manage-portal.md)</p> <p>[Equilibrio de carga del tráfico a través de máquinas virtuales dentro de una red virtual](../load-balancer/tutorial-load-balancer-basic-internal-portal.md)<p>[Tráfico de reenvío de puertos a un puerto específico en máquinas virtuales concretas](../load-balancer/tutorial-load-balancer-port-forwarding-portal.md)</p><p> [Configuración del equilibrio de carga y las reglas de salida](../load-balancer/configure-load-balancer-outbound-cli.md)</p>|
+|[Equilibrador de carga](#loadbalancer)|Proporciona equilibrio de carga regional mediante el enrutamiento del tráfico entre las zonas de disponibilidad y las redes virtuales. Proporciona equilibrio de carga interno mediante el enrutamiento del tráfico entre los recursos para crear una aplicación regional.|<p> [Equilibrio de carga del tráfico de Internet a las máquinas virtuales](../load-balancer/tutorial-load-balancer-standard-manage-portal.md)</p> <p>[Equilibrio de carga del tráfico a través de máquinas virtuales dentro de una red virtual](../load-balancer/tutorial-load-balancer-standard-internal-portal.md)<p>[Tráfico de reenvío de puertos a un puerto específico en máquinas virtuales concretas](../load-balancer/tutorial-load-balancer-port-forwarding-portal.md)</p><p> [Configuración del equilibrio de carga y las reglas de salida](../load-balancer/configure-load-balancer-outbound-cli.md)</p>|
 |[Application Gateway](#applicationgateway)|Azure Application Gateway es un equilibrador de carga de tráfico web que permite administrar el tráfico a las aplicaciones web.|<p>[Inicio rápido: Dirección del tráfico web con Azure Application Gateway: Azure Portal](../application-gateway/quick-create-portal.md)</p><p>[Tutorial: Configuración de una puerta de enlace de aplicaciones con terminación TLS mediante Azure Portal](../application-gateway/create-ssl-portal.md)</p><p>[Crear una puerta de enlace de aplicaciones con redireccionamiento basado en rutas de dirección URL](../application-gateway/create-url-route-portal.md) </p>|
 |
 

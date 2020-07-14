@@ -6,18 +6,18 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: baff2806b1a8c3c99546365c2496238c24b2b243
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ec15f87bdbf381b71faa7cefd986dd5e55e17a19
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427056"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964998"
 ---
-# <a name="using-t-sql-loops-in-synapse-sql"></a>Uso de bucles de T-SQL en SQL de Synapse
+# <a name="use-t-sql-loops-in-synapse-sql"></a>Uso de bucles de T-SQL en Synapse SQL
 En este artículo encontrará sugerencias para usar bucles de T-SQL, reemplazar cursores y desarrollar soluciones relacionadas con el grupo de SQL en SQL de Synapse.
 
 ## <a name="purpose-of-while-loops"></a>Propósito de los bucles WHILE

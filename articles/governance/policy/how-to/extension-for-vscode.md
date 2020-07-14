@@ -1,14 +1,14 @@
 ---
 title: Extensión de Azure Policy para Visual Studio Code
-description: Obtenga información acerca de cómo usar la extensión de Azure Policy para Visual Studio Code para buscar alias de Resource Manager.
-ms.date: 03/07/2020
+description: Obtenga información acerca de cómo usar la extensión de Azure Policy para Visual Studio Code para buscar alias de Azure Resource Manager.
+ms.date: 06/16/2020
 ms.topic: how-to
-ms.openlocfilehash: 0c4e04cc352744fed1c7c2965f8096f0f05c2a50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c91d39414a376b410e52c2ba60ce15ed0c5054f6
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182572"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970763"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Use la extensión de Azure Policy para Visual Studio Code
 
@@ -21,7 +21,7 @@ La extensión de Azure Policy de Visual Studio Code se puede instalar en todas l
 > [!NOTE]
 > Los cambios realizados localmente en las directivas que se ven en la extensión de Azure Policy para Visual Studio Code no se sincronizan con Azure.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Los elementos siguientes son necesarios para completar los pasos indicados en este artículo:
 
@@ -86,7 +86,7 @@ La primera vez que inicia sesión, la extensión de Azure Policy carga los recur
 
    - Pie de página de ventana
 
-     En el pie de página de la ventana, en la parte inferior de la pantalla, seleccione el segmento que coincida con **Azure: \<su cuenta\>** .
+     En el pie de página de la ventana, en la parte inferior de la pantalla, seleccione el segmento que coincida con **Azure: \<your account\>** .
 
 1. Utilice el cuadro de filtro para buscar rápidamente las suscripciones por nombre. Luego, active o desactive la casilla de cada suscripción para establecer las suscripciones que se muestran en la extensión de Azure Policy. Cuando haya terminado de agregar o quitar las suscripciones que se van a mostrar, seleccione **Aceptar**.
 
@@ -121,11 +121,14 @@ Los clientes con cientos o miles de recursos en una sola suscripción pueden pre
 
 ## <a name="discover-aliases-for-resource-properties"></a>Detección de alias para propiedades de recursos
 
-Cuando se selecciona un recurso, ya sea mediante la interfaz de búsqueda o al seleccionarlo en la vista de árbol, la extensión de Azure Policy abre el archivo JSON que representa ese recurso y todos sus valores de propiedad de Resource Manager.
+Cuando se selecciona un recurso, ya sea mediante la interfaz de búsqueda o al seleccionarlo en la vista de árbol, la extensión de Azure Policy abre el archivo JSON que representa ese recurso y todos sus valores de propiedad de Azure Resource Manager.
 
 Una vez que se abre un recurso, al mantener el mouse sobre el nombre o valor de la propiedad del administrador de recursos, se muestra el alias de Azure Policy, si existe uno. En este ejemplo, el recurso es un tipo de recurso `Microsoft.Compute/virtualMachines` y la propiedad **properties. storageProfile.imageReference.offer** se mantiene sobre ella. Al mantener el mouse se muestran los alias que coinciden.
 
 :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="El desplazamiento de la extensión de Azure Policy muestra el alias de propiedad de Resource Manager" border="false":::
+
+> [!NOTE]
+> La extensión de VS Code solo expone las propiedades del modo Administrador de recursos y no muestra ninguna propiedad del modo [Proveedor de recursos](../concepts/definition-structure.md#mode).
 
 ## <a name="search-for-and-view-policies-and-assignments"></a>Búsqueda y visualización de directivas y asignaciones
 

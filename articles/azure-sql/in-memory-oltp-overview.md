@@ -1,9 +1,9 @@
 ---
 title: Tecnologías en memoria
-description: Las tecnologías en memoria mejoran notablemente el rendimiento de las cargas de trabajo transaccionales y de análisis en Azure SQL Database e Instancia administrada de Azure SQL.
+description: Las tecnologías en memoria mejoran notablemente el rendimiento de las cargas de trabajo transaccionales y de análisis en Azure SQL Database y Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
-ms.subservice: development
+ms.service: sql-db-mi
+ms.subservice: ''
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
-ms.openlocfilehash: c9b25912e1386520d61412a8ba05f6b02224fbe6
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 43527e8e5860e0bbfc50643210156be943d2f174
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84033756"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985197"
 ---
-# <a name="optimize-performance-by-using-in-memory-technologies-in-azure-sql-database-and-azure-sql-managed-instance"></a>Optimización del rendimiento mediante las tecnologías en memoria en Azure SQL Database e Instancia administrada de Azure SQL
+# <a name="optimize-performance-by-using-in-memory-technologies-in-azure-sql-database-and-azure-sql-managed-instance"></a>Optimización del rendimiento mediante las tecnologías en memoria en Azure SQL Database y Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-Las tecnologías en memoria permiten mejorar el rendimiento de las aplicaciones y, posiblemente, reducen el costo de las bases de datos.
+Las tecnologías en memoria permiten mejorar el rendimiento de las aplicaciones y pueden reducir el costo de las bases de datos.
 
 ## <a name="when-to-use-in-memory-technologies"></a>Cuándo usar tecnologías en memoria
 
@@ -35,14 +35,14 @@ Las tecnologías en memoria pueden mejorar el rendimiento de dichas cargas de tr
 
 ## <a name="overview"></a>Información general
 
-Azure SQL Database e Instancia administrada de Azure SQL tienen las siguientes tecnologías en memoria:
+Azure SQL Database y Azure SQL Managed Instance tienen las siguientes tecnologías en memoria:
 
 - *[OLTP en memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)* aumenta el número de transacciones por segundo y reduce la latencia de su procesamiento. Estas son las situaciones en las que se obtienen ventajas con OLTP en memoria: procesamiento de transacciones de alto rendimiento, como operaciones comerciales y juegos, ingesta de datos de eventos o dispositivos de IoT, almacenamiento en caché, carga de datos y escenarios de tablas temporales y variables de tablas.
 - Los *índices de almacén de columnas en clúster* reducen el espacio de almacenamiento necesario (hasta 10 veces) y mejoran el rendimiento de las consultas de análisis e informes. Puede usarlos con las tablas de hechos de sus data marts para incluir más datos en la base de datos y mejorar el rendimiento. También puede usarlos con los datos históricos de la base de datos operativa para archivar hasta 10 veces más datos, así como para disfrutar de un incremento equivalente en el número de consultas realizadas sobre ellos.
 - Con los *índices de almacén de columnas no clúster* para HTAP, podrá obtener información en tiempo real sobre su negocio realizando consultas directamente a la base de datos operativa, sin necesidad de ejecutar un caro proceso de extracción, transformación y carga (ETL) ni esperar a que se rellene el almacén de datos. Los índices de almacén de columnas no en clúster permiten una ejecución rápida de las consultas de análisis en la base de datos OLTP y, a la vez, reducen el impacto en la carga de trabajo operativa.
 - Los *índices de almacén de columnas en clúster optimizados para memoria* para HTAP le permiten realizar el procesamiento de transacciones de manera rápida y ejecutar consultas de análisis *simultáneamente* de manera muy rápida en los mismos datos.
 
-Las opciones de índices de almacén de columnas y OLTP en memoria forman parte de SQL Server desde 2012 y 2014, respectivamente. Azure SQL Database, Instancia administrada de Azure SQL y SQL Server comparten la misma implementación de tecnologías en memoria.
+Las opciones de índices de almacén de columnas y OLTP en memoria forman parte de SQL Server desde 2012 y 2014, respectivamente. Azure SQL Database, Azure SQL Managed Instance y SQL Server comparten la misma implementación de tecnologías en memoria.
 
 ## <a name="benefits-of-in-memory-technology"></a>Ventajas de la tecnología en memoria
 
@@ -50,7 +50,7 @@ Gracias al procesamiento más eficiente de las consultas y las transacciones, la
 
 A continuación se muestran dos ejemplos de cómo OLTP en memoria ayudó significativamente a mejorar el rendimiento:
 
-- Gracias al uso de OLTP en memoria, [Quorum Business Solutions pudo duplicar la carga de trabajo al mismo tiempo que mejoró las DTU en un 70 %](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
+- Gracias al uso de OLTP en memoria, [Quorum Business Solutions pudo duplicar la carga de trabajo al mismo tiempo que mejoró las DTU en un 70 %](https://resources.quorumsoftware.com/case-studies/quorum-doubles-key-database-s-workload-while-lowering-dtu).
 - El vídeo siguiente muestra la mejora significativa del consumo de recursos con una carga de trabajo de ejemplo: [Vídeo de OLTP en memoria](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB). Para obtener más información, consulte la entrada de blog: [OLTP en memoria (optimización en memoria)](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
 > [!NOTE]  
@@ -74,7 +74,7 @@ Para obtener más información sobre OLTP en memoria en SQL Server, consulte:
 - [Descripción de los índices de almacén de columnas](/sql/relational-databases/indexes/columnstore-indexes-overview)
 - Procesamiento analítico y transaccional híbrido (HTAP), también conocido como [análisis operativo en tiempo real](/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics)
 
-## <a name="in-memory-oltp"></a>OLTP en memoria (optimización en memoria
+## <a name="in-memory-oltp"></a>OLTP en memoria
 
 La tecnología OLTP en memoria proporciona operaciones de acceso a datos sumamente rápidas al mantener todos los datos en memoria. Además, usa índices especializados, compilación nativa de consultas y acceso a datos libre de bloqueos temporales para mejorar el rendimiento de la carga de trabajo OLTP. Hay dos maneras de organizar los datos de OLTP en memoria:
 
@@ -111,7 +111,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="data-size-and-storage-cap-for-in-memory-oltp"></a>Límite de almacenamiento y tamaño de datos para OLTP en memoria
 
-OLTP en memoria incluye tablas optimizadas para memoria, que se usan para almacenar los datos de los usuarios. Estas tablas deben caber en la memoria. Dado que administra la memoria directamente en el servicio de SQL Database, tenemos el concepto de una cuota para datos de usuario. Esta idea se conoce como *almacenamiento de OLTP en memoria*.
+OLTP en memoria incluye tablas optimizadas para memoria, que se usan para almacenar los datos de los usuarios. Estas tablas deben caber en la memoria. Dado que administra la memoria directamente en SQL Database, tenemos el concepto de una cuota para datos de usuario. Esta idea se conoce como *almacenamiento de OLTP en memoria*.
 
 Cada plan de tarifa de grupo elástico y de base de datos única admitido incluye una cantidad determinada de almacenamiento de OLTP en memoria.
 
@@ -149,7 +149,7 @@ Pero cambiar a un nivel inferior puede repercutir negativamente en la base de da
 
 Antes de degradar el plan de tarifa de una base de datos a De uso general, Estándar o Básico, quite todos los tipos de tabla y las tablas optimizadas para memoria, así como todos los módulos de Transact-SQL compilados de forma nativa.
 
-*Reducir verticalmente los recursos en el plan Crítico para la empresa*: Los datos de las tablas optimizadas para memoria deben caber en el almacenamiento de OLTP en memoria asociado al plan de la base de datos o Instancia administrada o disponible en el grupo elástico. Si trata de reducir verticalmente el plan o mover la base de datos a un grupo que no disponga de almacenamiento de OLTP en memoria suficiente, la operación no se desarrolla correctamente.
+*Reducir verticalmente los recursos en el plan Crítico para la empresa*: Los datos de las tablas optimizadas para memoria deben caber en el almacenamiento de OLTP en memoria asociado al plan de la base de datos o instancia administrada o disponible en el grupo elástico. Si trata de reducir verticalmente el plan o mover la base de datos a un grupo que no disponga de almacenamiento de OLTP en memoria suficiente, la operación no se desarrolla correctamente.
 
 ## <a name="in-memory-columnstore"></a>Almacén de columnas en memoria
 
@@ -160,11 +160,11 @@ Hay dos tipos de modelos de almacén de columnas que puede usar para organizar l
 - **Almacén de columnas no en clúster**, donde los datos se almacenan en una tabla de almacén de filas tradicional y hay un índice en formato de almacén de columnas que se usa para las consultas analíticas. Este modelo permite el procesamiento analítico-transaccional híbrido (HTAP): la capacidad de ejecutar análisis en tiempo real de alto rendimiento en una carga de trabajo transaccional. Las consultas OLTP se ejecutan en la tabla de almacén de filas que está optimizada para tener acceso a un pequeño conjunto de filas, mientras que las consultas OLAP se ejecutan en el índice de almacén de columnas, que es la mejor opción para exámenes y análisis. El optimizador de consultas elige dinámicamente el formato de almacén de filas o almacén de columnas en función de la consulta. Los índices de almacén de columnas no en clúster no reducen el tamaño de los datos, ya que el conjunto de datos original se conserva en la tabla de almacén de filas original sin realizar ningún cambio. Sin embargo, el tamaño del índice de almacén de columnas adicional debe ser, en orden de magnitud, menor que el índice de árbol B equivalente.
 
 > [!Note]
-> La tecnología de almacén de columnas en memoria conserva únicamente los datos que se necesitan para su procesamiento en la memoria, mientras que los datos que no quepan en la memoria se almacenan en disco. Por lo tanto, la cantidad de datos en las estructuras de almacén de columnas en memoria pueden superar la cantidad de memoria disponible.
+> La tecnología de almacén de columnas en memoria conserva únicamente los datos que se necesitan para su procesamiento en la memoria, mientras que los datos que no quepan en la memoria se almacenan en disco. Por lo tanto, la cantidad de datos en las estructuras de almacén de columnas en memoria puede superar la cantidad de memoria disponible.
 
 Vídeo detallado sobre la tecnología:
 
-- [Columnstore Index: In-Memory Analytics Videos from Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/) (Índice de almacén de columnas: Vídeos de análisis en memoria de Ignite 2016)
+- [Columnstore Index: In-Memory Analytics Videos from Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/) (Índice de almacén de columnas: Vídeos de análisis en memoria de Ignite 2016)
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Almacenamiento y tamaño de datos para los índices de almacén de columnas
 
@@ -174,7 +174,7 @@ Al utilizar los índices de almacén de columnas en clúster, se emplea una comp
 
 Por ejemplo, si tiene una base de datos con el tamaño máximo de 1 terabyte (TB) y logra una compresión de 10 veces con índices de almacén de columnas, puede incluir un total de 10 TB de datos de usuario en la base de datos.
 
-Al utilizar índices de almacén de columnas no agrupados, la tabla base sigue almacenada en el formato de almacenamiento de filas tradicional. Por lo tanto, el ahorro de almacenamiento no es tan grande como con los índices de almacén de columnas agrupados. Pero si sustituye diversos índices no agrupados tradicionales por un único índice de almacén de columnas, aún podrá obtener un ahorro global en el espacio de almacenamiento de la tabla.
+Al utilizar índices de almacén de columnas no agrupados, la tabla base sigue almacenada en el formato de almacenamiento de filas tradicional. Por lo tanto, el ahorro de almacenamiento no es tan considerable como con los índices de almacén de columnas agrupados. Pero si sustituye diversos índices no agrupados tradicionales por un único índice de almacén de columnas, aún podrá obtener un ahorro global en el espacio de almacenamiento de la tabla.
 
 ### <a name="changing-service-tiers-of-databases-containing-columnstore-indexes"></a>Cambio de los niveles de servicio de las bases de datos que contienen índices de almacén de columnas
 
@@ -183,7 +183,7 @@ Al utilizar índices de almacén de columnas no agrupados, la tabla base sigue a
 Si tiene un índice de almacén de columnas **en clúster**, toda la tabla deja de estar disponible después del cambio a un nivel inferior. Por lo tanto, se recomienda quitar todos los índices de almacén de columnas *en clúster* antes de cambiar la base de datos a un nivel o plan inferior incompatible.
 
 > [!Note]
-> La instancia administrada admite índices de tipo ColumnStore en todos los niveles.
+> SQL Managed Instance admite índices de almacén de columnas en todos los niveles.
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 
@@ -207,7 +207,7 @@ Si tiene un índice de almacén de columnas **en clúster**, toda la tabla deja 
 
 ### <a name="application-design"></a>Diseño de aplicación
 
-- [In-Memory OLTP (optimización In-Memory)](https://msdn.microsoft.com/library/dn133186.aspx)
+- [OLTP en memoria (optimización en memoria)](https://msdn.microsoft.com/library/dn133186.aspx)
 - [Uso de OLTP en memoria para mejorar el rendimiento de las aplicaciones en Azure SQL](in-memory-oltp-configure.md)
 
 ### <a name="tools"></a>Herramientas

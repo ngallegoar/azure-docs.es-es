@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: ¿Cómo realizar consultas con SQL en Azure Cosmos DB?'
-description: 'Tutorial: Obtenga información sobre cómo realizar consultas con consultas SQL en Azure Cosmos DB mediante el área de consultas'
+description: 'Tutorial: Aprenda a realizar consultas con consultas SQL en Azure Cosmos DB mediante el Sitio de prueba de consultas'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 7e83ed0f9e635ed24b7e6115eeaaa9057d422c69
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e8d1498520ea0c59372ec4e1096b6f2b4bcf885f
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74870078"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921123"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutorial: Consulta de Azure Cosmos DB mediante la API de SQL
 
@@ -56,6 +56,7 @@ En las consultas SQL de este artículo se usa el documento de ejemplo siguiente.
   "isRegistered": false
 }
 ```
+
 ## <a name="where-can-i-run-sql-queries"></a>¿Dónde puedo ejecutar consultas SQL?
 
 Puede ejecutar consultas mediante el Explorador de datos en Azure Portal, a través de la [API de REST y los SDK](sql-api-sdk-dotnet.md) e incluso el [Query playground](https://www.documentdb.com/sql/demo) (Área de consultas), que ejecuta consultas sobre un conjunto existente de datos de ejemplo.
@@ -63,19 +64,21 @@ Puede ejecutar consultas mediante el Explorador de datos en Azure Portal, a trav
 Para obtener más información sobre las consultas SQL, vea:
 * [Consulta SQL y sintaxis SQL](sql-query-getting-started.md)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-En este tutorial se da por supuesto que tiene una colección y una cuenta de Azure Cosmos DB. ¿No tiene nada de lo anterior? Complete el [inicio rápido de 5 minutos](create-cosmosdb-resources-portal.md).
+En este tutorial se da por supuesto que tiene una colección y una cuenta de Azure Cosmos DB. ¿No tiene ninguno de esos recursos? Complete el [inicio rápido de 5 minutos](create-cosmosdb-resources-portal.md).
 
 ## <a name="example-query-1"></a>Consulta 1 de ejemplo
 
-Dado el documento de familia de ejemplo anterior, la consulta SQL siguiente devuelve los documentos donde el campo Id. coincide con `WakefieldFamily`. Puesto que es una instrucción `SELECT *`, la salida de la consulta es el documento JSON completo:
+Dado el documento de familia de ejemplo anterior, la consulta SQL siguiente devuelve los documentos donde el campo de identificador coincide con `WakefieldFamily`. Puesto que es una instrucción `SELECT *`, la salida de la consulta es el documento JSON completo:
 
 **Consultar**
 
+```sql
     SELECT * 
     FROM Families f 
     WHERE f.id = "WakefieldFamily"
+```
 
 **Resultados**
 
@@ -110,23 +113,34 @@ Dado el documento de familia de ejemplo anterior, la consulta SQL siguiente devu
 
 ## <a name="example-query-2"></a>Consulta 2 de ejemplo
 
-La consulta siguiente devuelve todos los nombres proporcionados de los elementos secundarios de la familia cuyo id. coincida con `WakefieldFamily`, ordenados por su grado.
+La consulta siguiente devuelve todos los nombres de los hijos de la familia cuyos identificadores coincidan con `WakefieldFamily`, ordenados por su nivel.
 
 **Consultar**
 
+```sql
     SELECT c.givenName 
     FROM Families f 
     JOIN c IN f.children 
     WHERE f.id = 'WakefieldFamily'
+```
 
 **Resultados**
 
-[ { "givenName": "Jesse" }, { "givenName": "Lisa" } ]
+```
+[
+    {
+        "givenName": "Jesse"
+    },
+    {
+        "givenName": "Lisa"
+    }
+]
+```
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha hecho lo siguiente:
+En este tutorial, ha realizado las tareas siguientes:
 
 > [!div class="checklist"]
 > * Ha obtenido información sobre cómo realizar consultas con SQL  

@@ -1,77 +1,64 @@
 ---
-title: Características en versión preliminar de la API REST
+title: Lista de características en versión preliminar
 titleSuffix: Azure Cognitive Search
-description: La API REST del servicio Azure Cognitive Search, versión 2019-05-06-Preview, incluye características experimentales, como almacén de conocimiento y almacenamiento en caché de indexadores para enriquecimiento incremental.
+description: Se publican características en versión preliminar para que los clientes puedan proporcionar comentarios sobre el diseño y la utilidad. En este artículo se incluye una lista completa de todas las características de que actualmente se encuentran en versión preliminar.
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/11/2020
-ms.openlocfilehash: db941152186127302680b5e659e43cd2d82a8908
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/30/2020
+ms.openlocfilehash: b0c6672dcc9340e727c36b0bcf03fc8a8b176a3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77162283"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830135"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Características en versión preliminar de Azure Cognitive Search
 
-En este artículo se enumeran las características que se encuentran actualmente en versión preliminar. Se han eliminado de la lista las que pasan de versión preliminar a disponibilidad general. Puede marcar [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=search) o [Novedades](whats-new.md) para ver los anuncios relativos a la disponibilidad general.
+En este artículo se incluye una lista completa de todas las características que se encuentran en versión preliminar para que pueda decidir si usarlas en el código de producción. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Se han quitado de la lista las características en versión preliminar que pasan a disponibilidad general. Si a continuación no aparece una característica, puede suponer que está disponible con carácter general. Para ver los anuncios relativos a la disponibilidad general, consulte [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=search) o [Novedades](whats-new.md).
+
+|Característica&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descripción | Disponibilidad  |
+|---------|------------------|-------------|---------------|
+| [**Parámetro featuresMode**](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/search-documents#featuresmode) | Relevancia (puntuación) | Expansión de puntuación de relevancia para incluir detalles: puntuación de similitud por campo, frecuencia de términos por campo y número de tokens únicos coincidentes por campo. Puede consumir estos puntos de datos en [soluciones de puntuación personalizadas](https://github.com/Azure-Samples/search-ranking-tutorial). | Agregue este parámetro de consulta mediante [Documentos de búsqueda (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) con api-version=2020-06-30-Preview o 2019-05-06-Preview. |
+| [**Identidad de servicio administrada**](search-howto-managed-identities-data-sources.md) | Indexadores, seguridad| Registre un servicio de búsqueda en Azure Active Directory para convertirlo en un servicio de confianza y, a continuación, use los permisos de RBAC en los orígenes de datos de Azure para permitir el acceso de solo lectura mediante un indexador. | Acceda a esta funcionalidad mediante el portal o [Creación de orígenes de datos (REST)](https://docs.microsoft.com/rest/api/searchservice/create-datasource) con api-version=2020-06-30-Preview o api-version=2019-05-06-Preview. |
+| [**Sesiones de depuración**](cognitive-search-debug-session.md) | Portal, enriquecimiento con IA (conjunto de aptitudes) | Editor de conjunto de aptitudes en sesión que se usa para investigar y resolver problemas en un conjunto de aptitudes. Las correcciones que se aplican durante una sesión de depuración se pueden guardar en un conjunto de aptitudes en el servicio. | Solo en el portal, mediante los vínculos de página intermedia en la página de información general para abrir una sesión de depuración. |
+| [**Eliminación temporal de blobs nativos**](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) | Indexadores, blobs de Azure| El indexador de Azure Blob Storage en Azure Cognitive Search reconocerá los blobs que se encuentran en un estado de eliminación temporal y quitará el documento de búsqueda correspondiente durante la indexación. | Agregue esta opción de configuración mediante [Creación de indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) con api-version=2020-06-30-Preview o api-version=2019-05-06-Preview. |
+| [**Aptitud de búsqueda de entidades personalizadas**](cognitive-search-skill-custom-entity-lookup.md ) | Enriquecimiento con IA (conjunto de aptitudes) | Aptitud cognitiva que busca texto de una lista de palabras y frases personalizada definida por el usuario. Con esta lista, se etiquetan todos los documentos con entidades coincidentes. La aptitud también admite un grado de coincidencia aproximada que se puede aplicar para buscar coincidencias similares pero no exactas. | Haga referencia a esta aptitud en versión preliminar con el editor de conjuntos de aptitudes en el portal o [Creación de conjuntos de aptitudes (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset) con api-version=2020-06-30-Preview o api-version=2019-05-06-Preview. |
+| [**Aptitud de detección de PII**](cognitive-search-skill-pii-detection.md) | Enriquecimiento con IA (conjunto de aptitudes) | Aptitud cognitiva utilizada durante la indexación que extrae información de identificación personal de un texto de entrada y le ofrece la opción de enmascararla a partir de ese texto de varias maneras. | Haga referencia a esta aptitud en versión preliminar con el editor de conjuntos de aptitudes en el portal o [Creación de conjuntos de aptitudes (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset) con api-version=2020-06-30-Preview o api-version=2019-05-06-Preview. |
+| [**Enriquecimiento incremental**](cognitive-search-incremental-indexing-conceptual.md) | Configuración del indexador| Agrega almacenamiento en caché a una canalización de enriquecimiento, lo que le permite reutilizar los resultados existentes si una modificación de destino, como una actualización de conjunto de aptitudes u otro objeto, no cambia el contenido. El almacenamiento en caché solo se aplica a los documentos enriquecidos generados por un conjunto de aptitudes.| Agregue esta opción de configuración mediante [Creación de indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) con api-version=2020-06-30-Preview o api-version=2019-05-06-Preview. |
+| [**Indexador de Cosmos DB: API de MongoDB, API de Gremlin, API de Cassandra**](search-howto-index-cosmosdb.md) | Origen de datos del indexador | Para Cosmos DB, la API de SQL está disponible con carácter general, pero las API de MongoDB, Gremlin y Cassandra se encuentran en versión preliminar. | Solo para Gremlin y Cassandra, [regístrese primero](https://aka.ms/azure-cognitive-search/indexer-preview) para poder habilitar el soporte técnico para su suscripción en el back-end. Los orígenes de datos de MongoDB se pueden configurar en el portal. De lo contrario, se admite la configuración de orígenes de datos para las tres API mediante [Creación de orígenes de datos (REST)](https://docs.microsoft.com/rest/api/searchservice/create-datasource) con api-version=2020-06-30-Preview o api-version=2019-05-06-Preview. |
+|  [**Indexador de Azure Data Lake Storage Gen2**](search-howto-index-azure-data-lake-storage.md) | Origen de datos del indexador | Indiza contenido y metadatos de Azure Data Lake Storage Gen2.| Es necesario [registrarse](https://aka.ms/azure-cognitive-search/indexer-preview) para que se pueda habilitar el soporte técnico para su suscripción en el back-end. Acceda a este origen de datos mediante [Creación de orígenes de datos (REST)](https://docs.microsoft.com/rest/api/searchservice/create-datasource) con api-version=2020-06-30-Preview o api-version=2019-05-06-Preview. |
+| [**moreLikeThis**](search-more-like-this.md) | Consultar | Busca documentos que sean pertinentes para un documento específico. Esta característica ha aparecido en versiones anteriores. | Agregue este parámetro de consulta mediante [Documentos de búsqueda (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) con api-version=2020-06-30-Preview, 2019-05-06-Preview, 2016-09-01-Preview o 2017-11-11-Preview. |
+
+## <a name="calling-preview-rest-apis"></a>Llamada a las API de REST en versión preliminar
+
+Azure Cognitive Search siempre publica previamente características experimentales primero a través de la API REST y, después, a través de las versiones preliminares del SDK de .NET.
+
+Las características en versión preliminar están disponibles para prueba y experimentación con el fin de recabar comentarios sobre la implementación y el diseño de características. Por este motivo, las características en versión preliminar pueden cambiar con el tiempo, posiblemente de maneras que interrumpan la compatibilidad con versiones anteriores. Esto difiere de características en versión de disponibilidad general, que son estables y es poco probable que cambien, con la excepción de las mejoras y correcciones compatibles con versiones anteriores. Además, las características en versión preliminar no siempre terminando pasando a la fase de disponibilidad general.
 
 Aunque algunas características en versión preliminar pueden estar disponibles en el portal y en el SDK de .NET, la API REST siempre tiene características en versión preliminar.
 
-+ En el caso de las operaciones de búsqueda, la versión preliminar actual es [ **`2019-05-06-Preview`** ](https://docs.microsoft.com/rest/api/searchservice/index-2019-05-06-preview).
++ En el caso de las operaciones de búsqueda, la versión preliminar actual es [ **`2020-06-30-Preview`** ](https://docs.microsoft.com/rest/api/searchservice/index-preview).
+
 + En el caso de las operaciones de administración, la versión preliminar actual es [ **`2019-10-01-Preview`** ](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview).
 
-> [!IMPORTANT]
-> La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## <a name="ai-enrichment-features"></a>Características de enriquecimiento con IA
-
-Explore las últimas mejoras del enriquecimiento con IA mediante la [API de búsqueda en versión preliminar](https://docs.microsoft.com/rest/api/searchservice/index-2019-05-06-preview).
-
-|||
-|-|-|
-| [Aptitud de búsqueda de entidades personalizadas (versión preliminar)](cognitive-search-skill-custom-entity-lookup.md ) | Aptitud cognitiva que busca texto de una lista de palabras y frases personalizada definida por el usuario. Con esta lista, se etiquetan todos los documentos con entidades coincidentes. La aptitud también admite un grado de coincidencia aproximada que se puede aplicar para buscar coincidencias similares pero no exactas. | 
-| [Aptitud para la detección de información de identificación personal (versión preliminar)](cognitive-search-skill-pii-detection.md) | Aptitud cognitiva utilizada durante la indexación que extrae información de identificación personal de un texto de entrada y le ofrece la opción de enmascararla a partir de ese texto de varias maneras.| 
-| [Enriquecimiento incremental (versión preliminar)](cognitive-search-incremental-indexing-conceptual.md) | Agrega almacenamiento en caché a una canalización de enriquecimiento, lo que le permite reutilizar los resultados existentes si una modificación de destino, como una actualización de conjunto de aptitudes u otro objeto, no cambia el contenido. El almacenamiento en caché solo se aplica a los documentos enriquecidos generados por un conjunto de aptitudes.| 
-| [Almacén de conocimiento (versión preliminar)](knowledge-store-concept-intro.md) | Nuevo destino de una canalización de enriquecimiento basada en inteligencia artificial. La estructura de datos física existe en Azure Blob Storage y Azure Table Storage, y se crea y rellena al ejecutar un indexador que tiene un conjunto de aptitudes cognitivas conectado. La definición de un almacén de conocimiento se especifica en la definición de un conjunto de aptitudes. En la definición del almacén de conocimiento, controla las estructuras físicas de los datos a través de los elementos de *proyección* que determinan cómo se forman los datos, si estos se almacenan en Table Storage o Blob Storage, y si hay varias vistas.| 
-
-## <a name="indexing-and-query-features"></a>Características de indexación y consulta
-
-Las características en versión preliminar del indexador están disponibles en la API de búsqueda en versión preliminar. 
-
-|||
-|-|-|
-| [Indizador de Cosmos DB](search-howto-index-cosmosdb.md) | Es compatible con las versiones preliminares del tipo de MongoDB API, Gremlin API y Cassandra API. | 
-|  [Indizador de Azure Data Lake Storage Gen2 (versión preliminar)](search-howto-index-azure-data-lake-storage.md) | Indiza contenido y metadatos de Azure Data Lake Storage Gen2.| 
-| [Parámetro de consulta moreLikeThis (versión preliminar)](search-more-like-this.md) | Busca documentos que sean pertinentes para un documento específico. Esta característica ha aparecido en versiones anteriores. | 
-
-## <a name="management-features"></a>Características de administración
-
-|||
-|-|-|
-| [Compatibilidad con el punto de conexión privado](service-create-private-endpoint.md) | Puede crear una red virtual con un cliente seguro (como una máquina virtual) y, a continuación, crear un servicio de búsqueda que use un punto de conexión privado. |
-| Restricción de acceso IP | Con [`api-version=2019-10-01-Preview`](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview) de la API REST de administración, puede crear un servicio con restricciones sobre las direcciones IP a las que se permite el acceso. |
-
-## <a name="earlier-preview-features"></a>Características de las versiones preliminares anteriores
-
-Las características anunciadas en versiones preliminares anteriores siguen estando en versión preliminar pública si no han pasado a disponibilidad general. Si está llamando a una API con una versión anterior de la API en versión preliminar, puede continuar usando esa versión o cambiar a `2019-05-06-Preview` sin que se produzcan cambios en el comportamiento esperado.
-
-## <a name="how-to-call-a-preview-api"></a>Cómo llamar a una API en versión preliminar
-
-Las vistas previas anteriores siguen funcionando, pero quedarán obsoletas con el paso del tiempo. Si el código llama a `api-version=2016-09-01-Preview` o `api-version=2017-11-11-Preview`, dichas llamadas siguen siendo válidas. Sin embargo, solo la versión preliminar más reciente se actualiza con mejoras. 
+Las vistas previas anteriores siguen funcionando, pero quedarán obsoletas con el paso del tiempo. Si el código llama a `api-version=2019-05-06-Preview` o `api-version=2016-09-01-Preview` o `api-version=2017-11-11-Preview`, dichas llamadas siguen siendo válidas. Sin embargo, solo la versión preliminar más reciente se actualiza con mejoras. 
 
 En la sintaxis de ejemplo siguiente se ilustra una llamada a la versión de API de versión preliminar.
 
-    GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2019-05-06-Preview
+```HTTP
+GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2020-06-30-Preview
+```
 
 El servicio Azure Cognitive Search está disponible en varias versiones. Para obtener más información, consulte [Versiones de API](search-api-versions.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Revise la documentación de referencia de la API de REST del servicio Search. Si tiene algún problema, puede solicitar ayuda en [StackOverflow](https://stackoverflow.com/) o [ponerse en contacto con el servicio de soporte técnico](https://azure.microsoft.com/support/community/?product=search).
+Revise la documentación de referencia de la API de REST en versión preliminar del servicio Search. Si tiene algún problema, puede solicitar ayuda en [Stack Overflow](https://stackoverflow.com/) o [ponerse en contacto con el servicio de soporte técnico](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
-> [Referencia de la API de REST del servicio Search](https://docs.microsoft.com/rest/api/searchservice/)
+> [Referencia de la API de REST del servicio Search (versión preliminar)](https://docs.microsoft.com/rest/api/searchservice/index-preview)

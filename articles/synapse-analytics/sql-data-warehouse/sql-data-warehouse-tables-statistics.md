@@ -6,17 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6f2af87cf5cef1b5a80bc16d962fba579b4ff309
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 257b1e26127186fce07e402e58f98660005a97fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985871"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800773"
 ---
 # <a name="table-statistics-in-synapse-sql-pool"></a>Estadísticas de tablas en el grupo de SQL de Synapse
 
@@ -97,14 +97,60 @@ Las siguientes son recomendaciones para actualizar las estadísticas:
 
 Una de las primeras preguntas que se deben formular para la solución de problemas de una consulta es **"¿Están actualizadas las estadísticas?"**
 
-No se trata de una pregunta que se pueda responder por la antigüedad de los datos. Un objeto de estadísticas actualizadas podría ser antiguo si no ha habido ningún cambio material en los datos subyacentes.
+No se trata de una pregunta que se pueda responder por la antigüedad de los datos. Un objeto de estadísticas actualizadas podría ser antiguo si no ha habido ningún cambio material en los datos subyacentes. Si el número de filas ha cambiado significativamente o hay un cambio material en la distribución de valores para una columna, *entonces* es el momento de actualizar las estadísticas. 
 
-> [!TIP]
-> Si el número de filas ha cambiado significativamente o hay un cambio material en la distribución de valores para una columna, *entonces* es el momento de actualizar las estadísticas.
+No hay una vista de administración dinámica para determinar si los datos de la tabla han cambiado desde la última vez que se actualizaron las estadísticas.  Las dos consultas siguientes pueden ayudarle a determinar si las estadísticas están obsoletas.
 
-No hay una vista de administración dinámica para determinar si los datos de la tabla han cambiado desde la última vez que se actualizaron las estadísticas. Conocer la antigüedad de sus estadísticas puede proporcionarle parte de la totalidad de la imagen.
+**Consulta 1**:  averiguar la diferencia entre el recuento de filas de las estadísticas (**stats_row_count**) y el recuento de filas real (**actual_row_count**). 
 
-Puede usar la siguiente consulta para determinar la última vez que se actualizaron las estadísticas en cada tabla.
+```sql
+select 
+objIdsWithStats.[object_id], 
+actualRowCounts.[schema], 
+actualRowCounts.logical_table_name, 
+statsRowCounts.stats_row_count, 
+actualRowCounts.actual_row_count,
+row_count_difference = CASE
+    WHEN actualRowCounts.actual_row_count >= statsRowCounts.stats_row_count THEN actualRowCounts.actual_row_count - statsRowCounts.stats_row_count
+    ELSE statsRowCounts.stats_row_count - actualRowCounts.actual_row_count
+END,
+percent_deviation_from_actual = CASE
+    WHEN actualRowCounts.actual_row_count = 0 THEN statsRowCounts.stats_row_count
+    WHEN statsRowCounts.stats_row_count = 0 THEN actualRowCounts.actual_row_count
+    WHEN actualRowCounts.actual_row_count >= statsRowCounts.stats_row_count THEN CONVERT(NUMERIC(18, 0), CONVERT(NUMERIC(18, 2), (actualRowCounts.actual_row_count - statsRowCounts.stats_row_count)) / CONVERT(NUMERIC(18, 2), actualRowCounts.actual_row_count) * 100)
+    ELSE CONVERT(NUMERIC(18, 0), CONVERT(NUMERIC(18, 2), (statsRowCounts.stats_row_count - actualRowCounts.actual_row_count)) / CONVERT(NUMERIC(18, 2), actualRowCounts.actual_row_count) * 100)
+END
+from
+(
+    select distinct object_id from sys.stats where stats_id > 1
+) objIdsWithStats
+left join
+(
+    select object_id, sum(rows) as stats_row_count from sys.partitions group by object_id
+) statsRowCounts
+on objIdsWithStats.object_id = statsRowCounts.object_id 
+left join
+(
+    SELECT sm.name [schema] ,
+    tb.name logical_table_name ,
+    tb.object_id object_id ,
+    SUM(rg.row_count) actual_row_count
+    FROM sys.schemas sm
+    INNER JOIN sys.tables tb ON sm.schema_id = tb.schema_id
+    INNER JOIN sys.pdw_table_mappings mp ON tb.object_id = mp.object_id
+    INNER JOIN sys.pdw_nodes_tables nt ON nt.name = mp.physical_name
+    INNER JOIN sys.dm_pdw_nodes_db_partition_stats rg
+    ON rg.object_id = nt.object_id
+    AND rg.pdw_node_id = nt.pdw_node_id
+    AND rg.distribution_id = nt.distribution_id
+    WHERE 1 = 1
+    GROUP BY sm.name, tb.name, tb.object_id
+) actualRowCounts
+on objIdsWithStats.object_id = actualRowCounts.object_id
+
+```
+
+**Consulta 2**: averiguar la antigüedad de las estadísticas comprobando la última vez que se actualizaron las estadísticas en cada tabla. 
 
 > [!NOTE]
 > Recuerde que, si hay un cambio material en la distribución de valores para una columna, debe actualizar las estadísticas independientemente de la última vez que se actualizaran.
@@ -166,7 +212,7 @@ Estos ejemplos muestran cómo utilizar diversas opciones de creación de estadí
 
 ### <a name="create-single-column-statistics-with-default-options"></a>Crear estadísticas de columna única con las opciones predeterminadas
 
-Para crear estadísticas de una columna, especifique un nombre para el objeto de estadística y el nombre de la columna.
+Para crear estadísticas en una columna, especifique un nombre para el objeto de estadística y el nombre de la columna.
 
 Esta sintaxis utiliza todas las opciones predeterminadas. De forma predeterminada, un grupo de SQL muestrea el **20 %** de la tabla cuando crea estadísticas.
 
@@ -231,7 +277,7 @@ Para obtener la referencia completa, consulte [CREATE STATISTICS](/sql/t-sql/sta
 
 ### <a name="create-multi-column-statistics"></a>Crear estadísticas de varias columnas
 
-Para crear un objeto de estadísticas de varias columnas, use los ejemplos anteriores, pero especifique más columnas.
+Para crear un objeto de estadísticas de varias columnas, use los ejemplos anteriores, pero indique más columnas.
 
 > [!NOTE]
 > El histograma, que se utiliza para calcular el número de filas en el resultado de la consulta, solo está disponible para la primera columna de la definición del objeto de estadísticas.

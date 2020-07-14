@@ -7,12 +7,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 523049ea3286445117f41147f3dd12a2c911d1ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41fed622b14c10d3fbc7dfedca7ebc53a8efbc66
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72755007"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85799350"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modelado de datos en Azure Cosmos DB
 
@@ -33,40 +33,44 @@ Al comenzar a modelar datos en Azure Cosmos DB, intente tratar las entidades com
 
 Para la comparación, veamos primero cómo podríamos modelar datos en una base de datos relacional. En el ejemplo siguiente se muestra puede almacenarse una persona en una base de datos relacional.
 
-![Modelo de base de datos relacional](./media/sql-api-modeling-data/relational-data-model.png)
+:::image type="content" source="./media/sql-api-modeling-data/relational-data-model.png" alt-text="Modelo de base de datos relacional" border="false":::
 
 Cuando se trabaja con bases de datos relacionales, la estrategia es normalizar todos los datos. La normalización de los datos implica normalmente tomar una entidad, como una persona, y dividirla en componentes discretos. En el ejemplo anterior, una persona puede tener varios registros de información de contacto, así como varios registros de dirección. Los detalles de contacto pueden desglosarse más si se extraen todavía más campos comunes, como un tipo. Lo mismo se aplica a la dirección, cada registro puede ser de tipo *Home* o *Business*.
 
 La premisa principal cuando se normalizan datos es la de **evitar el almacenamiento de datos redundantes** en cada registro y, en su lugar, hacer referencia a los datos. En este ejemplo, para leer a una persona, con toda su información de contacto y direcciones, tendrá que usar CONEXIONES para volver a componer (o desnormalizar) de forma eficaz los datos en tiempo de ejecución.
 
-    SELECT p.FirstName, p.LastName, a.City, cd.Detail
-    FROM Person p
-    JOIN ContactDetail cd ON cd.PersonId = p.Id
-    JOIN ContactDetailType cdt ON cdt.Id = cd.TypeId
-    JOIN Address a ON a.PersonId = p.Id
+```sql
+SELECT p.FirstName, p.LastName, a.City, cd.Detail
+FROM Person p
+JOIN ContactDetail cd ON cd.PersonId = p.Id
+JOIN ContactDetailType cdt ON cdt.Id = cd.TypeId
+JOIN Address a ON a.PersonId = p.Id
+```
 
 La actualización de una única persona con su información de contacto y direcciones requiere operaciones de escritura en muchas tablas individuales.
 
 Ahora veamos cómo modelamos los mismos datos como una entidad independiente en Azure Cosmos DB.
 
-    {
-        "id": "1",
-        "firstName": "Thomas",
-        "lastName": "Andersen",
-        "addresses": [
-            {
-                "line1": "100 Some Street",
-                "line2": "Unit 1",
-                "city": "Seattle",
-                "state": "WA",
-                "zip": 98012
-            }
-        ],
-        "contactDetails": [
-            {"email": "thomas@andersen.com"},
-            {"phone": "+1 555 555-5555", "extension": 5555}
-        ]
-    }
+```json
+{
+    "id": "1",
+    "firstName": "Thomas",
+    "lastName": "Andersen",
+    "addresses": [
+        {
+            "line1": "100 Some Street",
+            "line2": "Unit 1",
+            "city": "Seattle",
+            "state": "WA",
+            "zip": 98012
+        }
+    ],
+    "contactDetails": [
+        {"email": "thomas@andersen.com"},
+        {"phone": "+1 555 555-5555", "extension": 5555}
+    ]
+}
+```
 
 Mediante el enfoque anterior, hemos **desnormalizado** el registro de la persona **insertando** toda la información relacionada con ella, como su información de contacto y direcciones, en un *único documento JSON*.
 Además, puesto que no estamos limitados a un esquema fijo, contamos con la flexibilidad para hacer cosas como tener información de contacto de formas diferentes por completo.
@@ -94,21 +98,23 @@ Puesto que la regla general en Azure Cosmos DB es desnormalizarlo todo e incrust
 
 Seleccione este fragmento JSON.
 
-    {
-        "id": "1",
-        "name": "What's new in the coolest Cloud",
-        "summary": "A blog post by someone real famous",
-        "comments": [
-            {"id": 1, "author": "anon", "comment": "something useful, I'm sure"},
-            {"id": 2, "author": "bob", "comment": "wisdom from the interwebs"},
-            …
-            {"id": 100001, "author": "jane", "comment": "and on we go ..."},
-            …
-            {"id": 1000000001, "author": "angry", "comment": "blah angry blah angry"},
-            …
-            {"id": ∞ + 1, "author": "bored", "comment": "oh man, will this ever end?"},
-        ]
-    }
+```json
+{
+    "id": "1",
+    "name": "What's new in the coolest Cloud",
+    "summary": "A blog post by someone real famous",
+    "comments": [
+        {"id": 1, "author": "anon", "comment": "something useful, I'm sure"},
+        {"id": 2, "author": "bob", "comment": "wisdom from the interwebs"},
+        …
+        {"id": 100001, "author": "jane", "comment": "and on we go ..."},
+        …
+        {"id": 1000000001, "author": "angry", "comment": "blah angry blah angry"},
+        …
+        {"id": ∞ + 1, "author": "bored", "comment": "oh man, will this ever end?"},
+    ]
+}
+```
 
 Este podría el aspecto de una entidad de publicación con comentarios incrustados si se ha modelado un sistema, CMS o blog normales. El problema con este ejemplo es que la matriz de comentarios **no está limitada**, lo que significa que no hay ningún límite (práctico) para el número de comentarios que puede tener cualquier publicación única. Esto puede constituir un problema, ya que el tamaño del elemento podría crecer hasta el infinito.
 
@@ -116,36 +122,38 @@ Puesto que el tamaño del elemento aumenta la capacidad de transmisión de los d
 
 En este caso sería mejor tener en cuenta el siguiente modelo de datos.
 
-    Post item:
-    {
-        "id": "1",
-        "name": "What's new in the coolest Cloud",
-        "summary": "A blog post by someone real famous",
-        "recentComments": [
-            {"id": 1, "author": "anon", "comment": "something useful, I'm sure"},
-            {"id": 2, "author": "bob", "comment": "wisdom from the interwebs"},
-            {"id": 3, "author": "jane", "comment": "....."}
-        ]
-    }
+```json
+Post item:
+{
+    "id": "1",
+    "name": "What's new in the coolest Cloud",
+    "summary": "A blog post by someone real famous",
+    "recentComments": [
+        {"id": 1, "author": "anon", "comment": "something useful, I'm sure"},
+        {"id": 2, "author": "bob", "comment": "wisdom from the interwebs"},
+        {"id": 3, "author": "jane", "comment": "....."}
+    ]
+}
 
-    Comment items:
-    {
-        "postId": "1"
-        "comments": [
-            {"id": 4, "author": "anon", "comment": "more goodness"},
-            {"id": 5, "author": "bob", "comment": "tails from the field"},
-            ...
-            {"id": 99, "author": "angry", "comment": "blah angry blah angry"}
-        ]
-    },
-    {
-        "postId": "1"
-        "comments": [
-            {"id": 100, "author": "anon", "comment": "yet more"},
-            ...
-            {"id": 199, "author": "bored", "comment": "will this ever end?"}
-        ]
-    }
+Comment items:
+{
+    "postId": "1"
+    "comments": [
+        {"id": 4, "author": "anon", "comment": "more goodness"},
+        {"id": 5, "author": "bob", "comment": "tails from the field"},
+        ...
+        {"id": 99, "author": "angry", "comment": "blah angry blah angry"}
+    ]
+},
+{
+    "postId": "1"
+    "comments": [
+        {"id": 100, "author": "anon", "comment": "yet more"},
+        ...
+        {"id": 199, "author": "bored", "comment": "will this ever end?"}
+    ]
+}
+```
 
 Este modelo tiene los tres últimos comentarios insertados en el contenedor posts, que es una matriz con un conjunto de atributos fijo. Los demás comentarios se agrupan en lotes de 100 comentarios y se almacenan como elementos independientes. El tamaño del lote se ha seleccionado como 100, puesto que nuestra aplicación ficticia permite al usuario cargar 100 comentarios a la vez.  
 
@@ -153,21 +161,23 @@ Otro caso en el que la incrustación de datos no es una buena opción es cuando 
 
 Seleccione este fragmento JSON.
 
-    {
-        "id": "1",
-        "firstName": "Thomas",
-        "lastName": "Andersen",
-        "holdings": [
-            {
-                "numberHeld": 100,
-                "stock": { "symbol": "zaza", "open": 1, "high": 2, "low": 0.5 }
-            },
-            {
-                "numberHeld": 50,
-                "stock": { "symbol": "xcxc", "open": 89, "high": 93.24, "low": 88.87 }
-            }
-        ]
-    }
+```json
+{
+    "id": "1",
+    "firstName": "Thomas",
+    "lastName": "Andersen",
+    "holdings": [
+        {
+            "numberHeld": 100,
+            "stock": { "symbol": "zaza", "open": 1, "high": 2, "low": 0.5 }
+        },
+        {
+            "numberHeld": 50,
+            "stock": { "symbol": "xcxc", "open": 89, "high": 93.24, "low": 88.87 }
+        }
+    ]
+}
+```
 
 Esto podría representar la cartera de acciones de una persona. Hemos elegido insertar la información de las acciones en cada documento de la cartera. En un entorno donde los datos relacionados cambian con frecuencia, como una aplicación de comercio bursátil, la incrustación de datos que cambian con frecuencia significará que está actualizando constantemente cada documento de la cartera cada vez que se negocia una acción.
 
@@ -181,38 +191,40 @@ Las bases de datos relacionales no son el único lugar donde puede crear relacio
 
 En el siguiente JSON hemos optado por utilizar el ejemplo de una cartera de acciones anteriores, pero esta vez hacemos referencia al artículo comercial en la cartera en lugar de incrustarlo. De esa forma, cuando el artículo comercial cambia frecuentemente a lo largo del día, el único documento que tiene que actualizarse es el documento de acciones único.
 
-    Person document:
-    {
-        "id": "1",
-        "firstName": "Thomas",
-        "lastName": "Andersen",
-        "holdings": [
-            { "numberHeld":  100, "stockId": 1},
-            { "numberHeld":  50, "stockId": 2}
-        ]
-    }
+```json
+Person document:
+{
+    "id": "1",
+    "firstName": "Thomas",
+    "lastName": "Andersen",
+    "holdings": [
+        { "numberHeld":  100, "stockId": 1},
+        { "numberHeld":  50, "stockId": 2}
+    ]
+}
 
-    Stock documents:
-    {
-        "id": "1",
-        "symbol": "zaza",
-        "open": 1,
-        "high": 2,
-        "low": 0.5,
-        "vol": 11970000,
-        "mkt-cap": 42000000,
-        "pe": 5.89
-    },
-    {
-        "id": "2",
-        "symbol": "xcxc",
-        "open": 89,
-        "high": 93.24,
-        "low": 88.87,
-        "vol": 2970200,
-        "mkt-cap": 1005000,
-        "pe": 75.82
-    }
+Stock documents:
+{
+    "id": "1",
+    "symbol": "zaza",
+    "open": 1,
+    "high": 2,
+    "low": 0.5,
+    "vol": 11970000,
+    "mkt-cap": 42000000,
+    "pe": 5.89
+},
+{
+    "id": "2",
+    "symbol": "xcxc",
+    "open": 89,
+    "high": 93.24,
+    "low": 88.87,
+    "vol": 2970200,
+    "mkt-cap": 1005000,
+    "pe": 75.82
+}
+```
 
 Sin embargo, una desventaja de este enfoque inmediato es si la aplicación es necesaria para mostrar información sobre cada acción que se mantiene al mostrar la cartera de una persona; en este caso necesitaría realizar varios viajes a la base de datos para cargar la información de cada documento de acciones. Aquí hemos tomado una decisión de mejorar la eficacia de las operaciones de escritura, que se producen con frecuencia a lo largo del día, pero a su vez, se comprometen las operaciones de lectura que potencialmente tienen un menor impacto en el rendimiento de este sistema en particular.
 
@@ -241,40 +253,44 @@ El crecimiento de la relación le ayudará a determinar en qué documento almace
 
 Si observamos el JSON siguiente que sirve como modelo para los publicadores y los libros.
 
-    Publisher document:
-    {
-        "id": "mspress",
-        "name": "Microsoft Press",
-        "books": [ 1, 2, 3, ..., 100, ..., 1000]
-    }
+```json
+Publisher document:
+{
+    "id": "mspress",
+    "name": "Microsoft Press",
+    "books": [ 1, 2, 3, ..., 100, ..., 1000]
+}
 
-    Book documents:
-    {"id": "1", "name": "Azure Cosmos DB 101" }
-    {"id": "2", "name": "Azure Cosmos DB for RDBMS Users" }
-    {"id": "3", "name": "Taking over the world one JSON doc at a time" }
-    ...
-    {"id": "100", "name": "Learn about Azure Cosmos DB" }
-    ...
-    {"id": "1000", "name": "Deep Dive into Azure Cosmos DB" }
+Book documents:
+{"id": "1", "name": "Azure Cosmos DB 101" }
+{"id": "2", "name": "Azure Cosmos DB for RDBMS Users" }
+{"id": "3", "name": "Taking over the world one JSON doc at a time" }
+...
+{"id": "100", "name": "Learn about Azure Cosmos DB" }
+...
+{"id": "1000", "name": "Deep Dive into Azure Cosmos DB" }
+```
 
 Si el número de libros por publicador es reducido con un crecimiento limitado, almacenar la referencia del libro dentro del documento del publicador puede ser útil. Sin embargo, si el número de libros por publicador no tiene un límite, este modelo de datos llevaría provocaría matrices crecientes y mutables como ocurre en el documento de publicador de ejemplo anterior.
 
 Cambiar las cosas un poco provocaría la creación de un modelo que seguiría representando los mismos datos, pero que evitaría esas grandes colecciones mutables.
 
-    Publisher document:
-    {
-        "id": "mspress",
-        "name": "Microsoft Press"
-    }
+```json
+Publisher document:
+{
+    "id": "mspress",
+    "name": "Microsoft Press"
+}
 
-    Book documents:
-    {"id": "1","name": "Azure Cosmos DB 101", "pub-id": "mspress"}
-    {"id": "2","name": "Azure Cosmos DB for RDBMS Users", "pub-id": "mspress"}
-    {"id": "3","name": "Taking over the world one JSON doc at a time"}
-    ...
-    {"id": "100","name": "Learn about Azure Cosmos DB", "pub-id": "mspress"}
-    ...
-    {"id": "1000","name": "Deep Dive into Azure Cosmos DB", "pub-id": "mspress"}
+Book documents:
+{"id": "1","name": "Azure Cosmos DB 101", "pub-id": "mspress"}
+{"id": "2","name": "Azure Cosmos DB for RDBMS Users", "pub-id": "mspress"}
+{"id": "3","name": "Taking over the world one JSON doc at a time"}
+...
+{"id": "100","name": "Learn about Azure Cosmos DB", "pub-id": "mspress"}
+...
+{"id": "1000","name": "Deep Dive into Azure Cosmos DB", "pub-id": "mspress"}
+```
 
 En el ejemplo anterior, hemos eliminado la colección ilimitada en el documento del publicador. En su lugar, solo tenemos una referencia al publicador en cada documento del libro.
 
@@ -282,41 +298,46 @@ En el ejemplo anterior, hemos eliminado la colección ilimitada en el documento 
 
 En una base de datos relacional, las relaciones *varios a varios* modelan con frecuencia con tablas de unión, que simplemente unen registros de otras tablas.
 
-![Combinar tablas](./media/sql-api-modeling-data/join-table.png)
+
+:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Combinar tablas" border="false":::
 
 Podría verse tentado a replicar lo mismo con documentos y producir un modelo de datos que tenga un aspecto similar al siguiente.
 
-    Author documents:
-    {"id": "a1", "name": "Thomas Andersen" }
-    {"id": "a2", "name": "William Wakefield" }
+```json
+Author documents:
+{"id": "a1", "name": "Thomas Andersen" }
+{"id": "a2", "name": "William Wakefield" }
 
-    Book documents:
-    {"id": "b1", "name": "Azure Cosmos DB 101" }
-    {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users" }
-    {"id": "b3", "name": "Taking over the world one JSON doc at a time" }
-    {"id": "b4", "name": "Learn about Azure Cosmos DB" }
-    {"id": "b5", "name": "Deep Dive into Azure Cosmos DB" }
+Book documents:
+{"id": "b1", "name": "Azure Cosmos DB 101" }
+{"id": "b2", "name": "Azure Cosmos DB for RDBMS Users" }
+{"id": "b3", "name": "Taking over the world one JSON doc at a time" }
+{"id": "b4", "name": "Learn about Azure Cosmos DB" }
+{"id": "b5", "name": "Deep Dive into Azure Cosmos DB" }
 
-    Joining documents:
-    {"authorId": "a1", "bookId": "b1" }
-    {"authorId": "a2", "bookId": "b1" }
-    {"authorId": "a1", "bookId": "b2" }
-    {"authorId": "a1", "bookId": "b3" }
+Joining documents:
+{"authorId": "a1", "bookId": "b1" }
+{"authorId": "a2", "bookId": "b1" }
+{"authorId": "a1", "bookId": "b2" }
+{"authorId": "a1", "bookId": "b3" }
+```
 
 Esto funcionaría. Sin embargo, cargar un autor con sus libros o cargar un libro con su autor siempre requeriría al menos dos consultas adicionales en la base de datos. Una consulta para el documento de unión y, a continuación, otra consulta para capturar el documento real que se está uniendo.
 
 Si todo lo que hace esta tabla de unión es combinar dos datos, ¿por qué no quitarla completamente?
 Tenga en cuenta lo siguiente.
 
-    Author documents:
-    {"id": "a1", "name": "Thomas Andersen", "books": ["b1, "b2", "b3"]}
-    {"id": "a2", "name": "William Wakefield", "books": ["b1", "b4"]}
+```json
+Author documents:
+{"id": "a1", "name": "Thomas Andersen", "books": ["b1, "b2", "b3"]}
+{"id": "a2", "name": "William Wakefield", "books": ["b1", "b4"]}
 
-    Book documents:
-    {"id": "b1", "name": "Azure Cosmos DB 101", "authors": ["a1", "a2"]}
-    {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users", "authors": ["a1"]}
-    {"id": "b3", "name": "Learn about Azure Cosmos DB", "authors": ["a1"]}
-    {"id": "b4", "name": "Deep Dive into Azure Cosmos DB", "authors": ["a2"]}
+Book documents:
+{"id": "b1", "name": "Azure Cosmos DB 101", "authors": ["a1", "a2"]}
+{"id": "b2", "name": "Azure Cosmos DB for RDBMS Users", "authors": ["a1"]}
+{"id": "b3", "name": "Learn about Azure Cosmos DB", "authors": ["a1"]}
+{"id": "b4", "name": "Deep Dive into Azure Cosmos DB", "authors": ["a2"]}
+```
 
 Ahora, si tuviera un autor, sabría de inmediato qué libros ha escrito y, a la inversa, si tuviera un documento del libro cargado sabría los identificadores de los autores. Esto ahorra la consulta intermedia de la tabla de unión, por lo que se reduce el número de viajes de ida y vuelta al servidor que tiene que realizar la aplicación.
 
@@ -330,46 +351,48 @@ En función de las cargas de trabajo y los diseños de uso específico de la apl
 
 Considere el siguiente JSON.
 
-    Author documents:
-    {
-        "id": "a1",
-        "firstName": "Thomas",
-        "lastName": "Andersen",
-        "countOfBooks": 3,
-        "books": ["b1", "b2", "b3"],
-        "images": [
-            {"thumbnail": "https://....png"}
-            {"profile": "https://....png"}
-            {"large": "https://....png"}
-        ]
-    },
-    {
-        "id": "a2",
-        "firstName": "William",
-        "lastName": "Wakefield",
-        "countOfBooks": 1,
-        "books": ["b1"],
-        "images": [
-            {"thumbnail": "https://....png"}
-        ]
-    }
+```json
+Author documents:
+{
+    "id": "a1",
+    "firstName": "Thomas",
+    "lastName": "Andersen",
+    "countOfBooks": 3,
+    "books": ["b1", "b2", "b3"],
+    "images": [
+        {"thumbnail": "https://....png"}
+        {"profile": "https://....png"}
+        {"large": "https://....png"}
+    ]
+},
+{
+    "id": "a2",
+    "firstName": "William",
+    "lastName": "Wakefield",
+    "countOfBooks": 1,
+    "books": ["b1"],
+    "images": [
+        {"thumbnail": "https://....png"}
+    ]
+}
 
-    Book documents:
-    {
-        "id": "b1",
-        "name": "Azure Cosmos DB 101",
-        "authors": [
-            {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "https://....png"},
-            {"id": "a2", "name": "William Wakefield", "thumbnailUrl": "https://....png"}
-        ]
-    },
-    {
-        "id": "b2",
-        "name": "Azure Cosmos DB for RDBMS Users",
-        "authors": [
-            {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "https://....png"},
-        ]
-    }
+Book documents:
+{
+    "id": "b1",
+    "name": "Azure Cosmos DB 101",
+    "authors": [
+        {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "https://....png"},
+        {"id": "a2", "name": "William Wakefield", "thumbnailUrl": "https://....png"}
+    ]
+},
+{
+    "id": "b2",
+    "name": "Azure Cosmos DB for RDBMS Users",
+    "authors": [
+        {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "https://....png"},
+    ]
+}
+```
 
 Aquí hemos seguido principalmente el modelo de incrustación, donde los datos de otras entidades se incrustan en el documento de nivel superior, pero se establece la referencia en otros datos.
 
@@ -385,27 +408,29 @@ La capacidad de tener un modelo con campos calculados previamente es posible por
 
 En algunos escenarios, es posible que quiera mezclar distintos tipos de documentos en la misma colección; esto suele suceder cuando quiere que varios documentos relacionados se encuentren en la misma [partición](partitioning-overview.md). Por ejemplo, podría colocar los libros y las reseñas en la misma colección de libros y dividirla por `bookId`. En este caso, es probable que quiera agregar a los documentos un campo que los identifique y le ayude a diferenciarlos.
 
-    Book documents:
-    {
-        "id": "b1",
-        "name": "Azure Cosmos DB 101",
-        "bookId": "b1",
-        "type": "book"
-    }
+```json
+Book documents:
+{
+    "id": "b1",
+    "name": "Azure Cosmos DB 101",
+    "bookId": "b1",
+    "type": "book"
+}
 
-    Review documents:
-    {
-        "id": "r1",
-        "content": "This book is awesome",
-        "bookId": "b1",
-        "type": "review"
-    },
-    {
-        "id": "r2",
-        "content": "Best book ever!",
-        "bookId": "b1",
-        "type": "review"
-    }
+Review documents:
+{
+    "id": "r1",
+    "content": "This book is awesome",
+    "bookId": "b1",
+    "type": "review"
+},
+{
+    "id": "r2",
+    "content": "Best book ever!",
+    "bookId": "b1",
+    "type": "review"
+}
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

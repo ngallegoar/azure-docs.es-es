@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 481406b02d7d864dd16ac42918ae1aa2dea0b145
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 12df9566dd3ddfedd1f4553ad8877258d840858c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195220"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960221"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Referencia de datos de supervisión de Azure Storage
 
@@ -32,11 +32,15 @@ Azure Storage proporciona las siguientes métricas de capacidad en Azure Monitor
 
 #### <a name="account-level"></a>Nivel de cuenta
 
+En esta tabla se muestran [métricas de nivel de cuenta](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccounts).
+
 | Métrica | Descripción |
 | ------------------- | ----------------- |
 | UsedCapacity | La cantidad de almacenamiento que utiliza la cuenta de almacenamiento. En las cuentas de almacenamiento estándar, es la suma de la capacidad usada por un blob, una tabla, un archivo y una cola. Tanto en las cuentas de almacenamiento Premium como en las cuentas de Blob Storage, coincide con BlobCapacity. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Average <br/> Ejemplo de valor: 1024 |
 
 #### <a name="blob-storage"></a>Blob Storage
+
+En esta tabla se muestran [métricas de Blob Storage](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsblobservices).
 
 | Métrica | Descripción |
 | ------------------- | ----------------- |
@@ -47,6 +51,8 @@ Azure Storage proporciona las siguientes métricas de capacidad en Azure Monitor
 
 #### <a name="table-storage"></a>Almacenamiento de tablas
 
+En esta tabla se muestran [métricas de almacenamiento de tablas](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountstableservices).
+
 | Métrica | Descripción |
 | ------------------- | ----------------- |
 | TableCapacity | La cantidad de almacenamiento de tablas que utiliza la cuenta de almacenamiento. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Average <br/> Ejemplo de valor: 1024 |
@@ -55,13 +61,17 @@ Azure Storage proporciona las siguientes métricas de capacidad en Azure Monitor
 
 #### <a name="queue-storage"></a>Queue Storage
 
+En esta tabla se muestran [métricas de Queue Storage](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsfileservices).
+
 | Métrica | Descripción |
 | ------------------- | ----------------- |
 | QueueCapacity | La cantidad de almacenamiento de colas que utiliza la cuenta de almacenamiento. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Average <br/> Ejemplo de valor: 1024 |
 | QueueCount   | El número de colas que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average <br/> Ejemplo de valor: 1024 |
-| QueueMessageCount | El número de mensajes de la colas no expirados que hay en la cuenta de almacenamiento. <br/><br/>Unidad: Count <br/> Tipo de agregación: Average <br/> Ejemplo de valor: 1024 |
+| QueueMessageCount | Número aproximado de mensajes de cola en la instancia de Queue service de la cuenta de almacenamiento. <br/><br/>Unidad: Count <br/> Tipo de agregación: Average <br/> Ejemplo de valor: 1024 |
 
 #### <a name="file-storage"></a>File Storage
+
+En esta tabla se muestran [métricas de File Storage](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsqueueservices).
 
 | Métrica | Descripción |
 | ------------------- | ----------------- |

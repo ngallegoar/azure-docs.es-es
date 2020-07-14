@@ -2,18 +2,19 @@
 title: Solicitar un aumento de cuota
 description: En esta página se describe cómo crear una solicitud de soporte técnico para aumentar las cuotas de Azure SQL Database y las instancias administradas de Azure SQL.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
+ms.subservice: service
 ms.topic: conceptual
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
-ms.date: 02/04/2020
-ms.openlocfilehash: 53160fa5a2d24f747b0653673a6f817ae14a7975
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 06/04/2020
+ms.openlocfilehash: 4557d2ecdb49cd50396986f0ea30277f50ecf9f7
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118860"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85987293"
 ---
 # <a name="request-quota-increases-for-azure-sql-database-and-sql-managed-instance"></a>Solicitud de aumentos de cuota para Azure SQL Database y la instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -49,19 +50,20 @@ Use los pasos siguientes para crear una nueva solicitud de soporte técnico desd
 
    ![Selección de un tipo de cuota](./media/quota-increase-request/select-quota-type.png)
 
-1. En la ventana **Detalles**, seleccione **Proporcionar detalles** para especificar información adicional.
+1. En la ventana **Detalles**, seleccione **Escribir detalles** para especificar información adicional.
 
-   ![El vínculo "Proporcionar detalles"](./media/quota-increase-request/provide-details-link.png)
+   ![Vínculo a Proporcionar detalles](./media/quota-increase-request/provide-details-link.png)
 
-Cuando hace clic en **Proporcionar detalles** aparece la ventana **Detalles de la cuota** que le permite agregar información adicional. En las secciones siguientes se describen las distintas opciones de tipos de cuota de **SQL Database** e **Instancia administrada de SQL Database**.
+Cuando hace clic en **Proporcionar detalles** aparece la ventana **Detalles de la cuota**, que le permite agregar información adicional. En las secciones siguientes se describen las distintas opciones de tipos de cuota de **SQL Database** e **Instancia administrada de SQL Database**.
 
 ## <a name="sql-database-quota-types"></a><a id="sqldbquota"></a> Tipos de cuota de SQL Database
 
-En las secciones siguientes se describen tres opciones de aumento de cuota para los tipos de cuota de **SQL Database**:
+En las secciones siguientes se describen las opciones de aumento de cuota para los tipos de cuota de **SQL Database**:
 
 - Unidades de transacción de base de datos (DTU) por servidor
 - Servidores por suscripción
-- Habilitar el acceso de suscripciones a una región
+- Acceso a la región de la serie M
+- Acceso a la región
 
 ### <a name="database-transaction-units-dtus-per-server"></a>Unidades de transacción de base de datos (DTU) por servidor
 
@@ -91,15 +93,32 @@ Siga estos pasos para solicitar un aumento en el número de servidores por suscr
 
 Para más información, consulte [Límites y regulación de recursos de SQL Database](resource-limits-logical-server.md).
 
-### <a name="enable-subscription-access-to-a-region"></a><a id="other"></a> Habilitar el acceso de suscripciones a una región
+### <a name="enable-subscription-access-to-a-region"></a><a id="region"></a> Habilitar el acceso de suscripciones a una región
 
 Algunos tipos de oferta no están disponibles en todas las regiones. Puede ver un error como el siguiente:
 
-`This location is not available for subscription`
+`Your subscription does not have access to create a server in the selected region. For the latest information about region availability for your subscription, go to aka.ms/sqlcapacity. Please try another region or create a support ticket to request access.`
 
-Si su suscripción necesita acceso en una región determinada, use la opción **Otra solicitud de cuota** para solicitar acceso. En la solicitud, especifique los detalles de la oferta y la SKU que desea habilitar para la región. Para explorar las opciones de ofertas y SKU, consulte [Precios de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/).
+Si su suscripción requiere acceso en una región determinada, seleccione la opción **Acceso a la región**. En la solicitud, especifique los detalles de la oferta y la SKU que desea habilitar para la región. Para explorar las opciones de ofertas y SKU, consulte [Precios de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
-![Otros detalles de cuota](./media/quota-increase-request/quota-details-whitelisting.png)
+1. Seleccione el tipo de cuota **Acceso a la región**.
+
+1. En la lista **Seleccionar una ubicación**, seleccione la región de Azure que se va a usar. La cuota es por suscripción en cada región.
+
+1. Especifique los detalles de **Modelo de compra** y **Consumo esperado**.
+
+   ![Solicitar acceso a la región](./media/quota-increase-request/quota-details-whitelisting.png)
+
+### <a name="enable-m-series-access-to-a-region"></a><a id="mseries"></a> Habilitar el acceso de la serie M a una región
+
+Para habilitar hardware de la serie M para una suscripción y región, se debe abrir una solicitud de soporte técnico.
+
+1. Seleccione el tipo de cuota **Acceso a la región de la serie M**.
+
+1. En la lista **Seleccionar una ubicación**, seleccione la región de Azure que se va a usar. La cuota es por suscripción en cada región.
+
+
+   ![Solicitar acceso a la región](./media/quota-increase-request/quota-m-series.png)
 
 ## <a name="sql-managed-instance-quota-type"></a><a id="sqlmiquota"></a> Tipo de cuota de instancia administrada de SQL
 

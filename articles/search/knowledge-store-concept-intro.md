@@ -1,28 +1,25 @@
 ---
-title: Introducción a los almacenes de conocimiento (versión preliminar)
+title: Conceptos del almacén de conocimiento
 titleSuffix: Azure Cognitive Search
-description: Envíe documentos enriquecidos a Azure Storage. En esta solución podrá cambiar ver y consumir documentos enriquecidos en Azure Cognitive Search y otras aplicaciones, además de cambiarle la forma. Esta característica está en versión preliminar pública.
+description: Envíe documentos enriquecidos a Azure Storage. En esta solución podrá cambiar ver y consumir documentos enriquecidos en Azure Cognitive Search y otras aplicaciones, además de cambiarle la forma.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.openlocfilehash: 20819bc6ec091eddf5d65b1c0d7aa57c821b2fc1
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 06/30/2020
+ms.openlocfilehash: 75ecfcca24aa801c2ec277e810f60dbc0a9167fc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858801"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565270"
 ---
-# <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Introducción a los almacenes de conocimiento de Azure Cognitive Search
+# <a name="knowledge-store-in-azure-cognitive-search"></a>Almacén de conocimiento en Azure Cognitive Search
 
-> [!IMPORTANT] 
-> El almacén de conocimiento está actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). En la [API REST versión 2019-05-06-Preview](search-api-preview.md) se proporcionan características en versión preliminar. Actualmente hay compatibilidad limitada con el portal y no la hay con el SDK de .NET.
+El almacén de conocimiento es una característica de Azure Cognitive Search que conserva la salida de una [canalización de enriquecimiento con IA](cognitive-search-concept-intro.md) para realizar análisis independientes o procesos de nivel inferior. Un *documento enriquecido* es la salida de una canalización creada a partir del contenido que se ha extraído, estructurado y analizado mediante procesos de inteligencia artificial. En una canalización estándar de inteligencia artificial, los documentos enriquecidos son transitorios, solo se usan durante la indexación y después se descartan. La elección de crear un almacén de conocimiento le permitirá conservar los documentos enriquecidos. 
 
-El almacén de conocimiento es una característica de Azure Cognitive Search que conserva la salida de una [canalización de enriquecimiento con IA](cognitive-search-concept-intro.md) para realizar análisis independientes o procesos de nivel inferior. Un *documento enriquecido* es la salida de una canalización creada a partir del contenido que se ha extraído, estructurado y analizado mediante procesos de inteligencia artificial. En una canalización estándar de inteligencia artificial, los documentos enriquecidos son transitorios, solo se usan durante la indexación y después se descartan. Los documentos enriquecidos se conservan mediante el almacén de conocimiento. 
-
-Si ha usado aptitudes cognitivas anteriormente, ya sabe que los *conjuntos de aptitudes* se usan para mover un documento por una secuencia de enriquecimientos. El resultado puede ser un índice de búsqueda o (una novedad de esta versión preliminar) proyecciones en un almacén de conocimientos. Las dos salidas, el índice de búsqueda y el almacén de conocimiento, son productos de la misma canalización. Aunque se obtienen de las mismas entradas, se genera una salida estructurada y almacenada, que se emplea de maneras muy distintas.
+Si ha usado aptitudes cognitivas anteriormente, ya sabe que los *conjuntos de aptitudes* se usan para mover un documento por una secuencia de enriquecimientos. El resultado puede ser un índice de búsqueda o proyecciones en un almacén de conocimientos. Las dos salidas, el índice de búsqueda y el almacén de conocimiento, son productos de la misma canalización. Aunque se obtienen de las mismas entradas, se genera una salida estructurada y almacenada, que se emplea de maneras muy distintas.
 
 Físicamente, un almacén de conocimiento es como [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview), ya sea Azure Table Storage, Azure Blob Storage o ambos. Cualquier herramienta o proceso que pueda conectarse a Azure Storage puede consumir el contenido de un almacén de conocimiento.
 
@@ -103,7 +100,7 @@ Se requiere un [indizador](search-indexer-overview.md). Un indizador invoca un c
 
 ## <a name="how-to-create-a-knowledge-store"></a>Creación de un almacén de conocimiento
 
-Para crear el almacén de conocimiento, use el portal o la versión preliminar de la API REST (`api-version=2019-05-06-Preview`).
+Para crear el almacén de conocimiento, use el portal o la API de REST (`api-version=2020-06-30`).
 
 ### <a name="use-the-azure-portal"></a>Uso de Azure Portal
 
@@ -117,13 +114,11 @@ El Asistente para **importar datos** incluye opciones para crear un almacén de 
 
 1. Ejecute el asistente. La extracción, el enriquecimiento y el almacenamiento se producen en este último paso.
 
-### <a name="use-create-skillset-and-the-preview-rest-api"></a>Uso de Create Skillset y la versión preliminar de la API REST
+### <a name="use-create-skillset-rest-api"></a>Uso de la creación de un conjunto de aptitudes (API de REST)
 
 Un elemento `knowledgeStore` se define dentro de un [conjunto de aptitudes](cognitive-search-working-with-skillsets.md) que, a su vez, se invoca mediante un [indizador](search-indexer-overview.md). Durante el enriquecimiento, Azure Cognitive Search crea un espacio en la cuenta de Azure Storage y proyecta los documentos enriquecidos como blobs o en tablas, según la configuración.
 
-Actualmente, la versión preliminar de la API REST es el único mecanismo por el que puede crear un almacén de conocimiento mediante programación. Una manera fácil de explorar es [crear un primer almacén de conocimiento mediante Postman y la API REST](knowledge-store-create-rest.md).
-
-El contenido de referencia de esta característica en versión preliminar se encuentra en la sección [Referencia de API](#kstore-rest-api) de este artículo. 
+La API de REST es un mecanismo por el que puede crear un almacén de conocimiento mediante programación. Una manera fácil de explorar es [crear un primer almacén de conocimiento mediante Postman y la API REST](knowledge-store-create-rest.md).
 
 <a name="tools-and-apps"></a>
 
@@ -141,17 +136,17 @@ Una vez que el enriquecimiento existe en el almacenamiento, puede usarse cualqui
 
 ## <a name="api-reference"></a>Referencia de API
 
-La versión de la API REST `2019-05-06-Preview` proporciona el almacén de conocimiento mediante definiciones adicionales en conjuntos de aptitudes. Además de la referencia, consulte [Creación de un almacén de conocimiento mediante Postman](knowledge-store-create-rest.md) para más información sobre cómo llamar a las API.
+La versión de la API REST `2020-06-30` proporciona el almacén de conocimiento mediante definiciones adicionales en conjuntos de aptitudes. Además de la referencia, consulte [Creación de un almacén de conocimiento mediante Postman](knowledge-store-create-rest.md) para más información sobre cómo llamar a las API.
 
-+ [Crear conjunto de aptitudes (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-skillset) 
-+ [Actualizar conjunto de aptitudes (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) 
++ [Creación de un conjunto de aptitudes (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/create-skillset)
++ [Actualización de un conjunto de aptitudes (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/update-skillset)
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 El almacén de conocimiento ofrece persistencia de documentos enriquecidos, lo cual resulta útil al diseñar un conjunto de aptitudes o durante la creación de nuevas estructuras y contenido para su consumo por parte de cualquier aplicación cliente capaz de acceder a una cuenta de Azure Storage.
 
-El enfoque más sencillo para crear documentos enriquecidos es [mediante el portal](knowledge-store-create-portal.md), pero también puede usar Postman y la API REST, que resulta más útil si desea obtener conclusiones cognitivas sobre cómo se crean objetos y se hace referencia a ellos.
+El enfoque más sencillo para crear documentos enriquecidos es [mediante el portal](knowledge-store-create-portal.md), pero también puede usar Postman y la API de REST, que resulta más útil si desea obtener conclusiones cognitivas sobre cómo se crean objetos y se hace referencia a ellos.
 
 > [!div class="nextstepaction"]
 > [Creación de un almacén de conocimiento mediante Postman y REST](knowledge-store-create-rest.md)

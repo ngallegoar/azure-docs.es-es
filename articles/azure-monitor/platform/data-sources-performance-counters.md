@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 446beca9b8491fb252a1e3284a9ec9a0e6dabef5
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 49f944aa98bf0bf8090b10d2feeb50af4a2d42b2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82739371"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955495"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Orígenes de datos de rendimiento de Windows y Linux en Azure Monitor
 Los contadores de rendimiento de Windows y Linux ofrecen información acerca del rendimiento de los componentes de hardware, los sistemas operativos y las aplicaciones.  Azure Monitor puede recopilar contadores de rendimiento a intervalos frecuentes para el análisis casi en tiempo real (NRT), además de agregar datos de rendimiento para el análisis a más largo plazo y la creación de informes.
@@ -58,17 +58,19 @@ Siga este procedimiento para agregar un nuevo contador de rendimiento de Linux p
 5. Cuando haya terminado de agregar contadores, haga clic en el botón **Guardar** de la parte superior de la pantalla para guardar la configuración.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Configuración de contadores de rendimiento de Linux en el archivo de configuración
-En lugar de configurar los contadores de rendimiento de Linux mediante Azure Portal, tiene la opción de editar archivos de configuración en el agente de Linux.  Las métricas de rendimiento que se recopilan se controlan según la configuración que aparece en **/etc/opt/microsoft/omsagent/\<identificador de área de trabajo\>/conf/omsagent.conf**.
+En lugar de configurar los contadores de rendimiento de Linux mediante Azure Portal, tiene la opción de editar archivos de configuración en el agente de Linux.  Las métricas de rendimiento para recopilar se controlan mediante la configuración en **/etc/opt/microsoft/omsagent/\<workspace id\>/conf/omsagent.conf**.
 
 Cada objeto, o categoría, de métricas de rendimiento para recopilar debe definirse en el archivo de configuración como un solo elemento `<source>` . La sintaxis sigue el modelo siguiente.
 
-    <source>
-      type oms_omi  
-      object_name "Processor"
-      instance_regex ".*"
-      counter_name_regex ".*"
-      interval 30s
-    </source>
+```xml
+<source>
+    type oms_omi  
+    object_name "Processor"
+    instance_regex ".*"
+    counter_name_regex ".*"
+    interval 30s
+</source>
+```
 
 
 Los parámetros de este elemento se describen en la tabla siguiente.
@@ -89,11 +91,11 @@ En la tabla siguiente se enumera los objetos y contadores que pueden especificar
 | Disco lógico | % de espacio libre |
 | Disco lógico | % de Inodes usados |
 | Disco lógico | % espacio usado |
-| Disco lógico | Bytes de lectura de disco/s  |
-| Disco lógico | Lecturas de disco/s  |
+| Disco lógico | Bytes de lectura de disco/s |
+| Disco lógico | Lecturas de disco/s |
 | Disco lógico | Transferencias de disco/s |
-| Disco lógico |   Bytes de escritura en disco/s |
-| Disco lógico |  Escrituras en disco/s |
+| Disco lógico | Bytes de escritura en disco/s |
+| Disco lógico | Escrituras en disco/s |
 | Disco lógico | Megabytes libres |
 | Disco lógico | Bytes de disco lógico/s |
 | Memoria | % de memoria disponible |
@@ -142,37 +144,39 @@ En la tabla siguiente se enumera los objetos y contadores que pueden especificar
 
 Esta es la configuración predeterminada de las métricas de rendimiento.
 
-    <source>
-      type oms_omi
-      object_name "Physical Disk"
-      instance_regex ".*"
-      counter_name_regex ".*"
-      interval 5m
-    </source>
+```xml
+<source>
+    type oms_omi
+    object_name "Physical Disk"
+    instance_regex ".*"
+    counter_name_regex ".*"
+    interval 5m
+</source>
 
-    <source>
-      type oms_omi
-      object_name "Logical Disk"
-      instance_regex ".*
-      counter_name_regex ".*"
-      interval 5m
-    </source>
+<source>
+    type oms_omi
+    object_name "Logical Disk"
+    instance_regex ".*
+    counter_name_regex ".*"
+    interval 5m
+</source>
 
-    <source>
-      type oms_omi
-      object_name "Processor"
-      instance_regex ".*
-      counter_name_regex ".*"
-      interval 30s
-    </source>
+<source>
+    type oms_omi
+    object_name "Processor"
+    instance_regex ".*
+    counter_name_regex ".*"
+    interval 30s
+</source>
 
-    <source>
-      type oms_omi
-      object_name "Memory"
-      instance_regex ".*"
-      counter_name_regex ".*"
-      interval 30s
-    </source>
+<source>
+    type oms_omi
+    object_name "Memory"
+    instance_regex ".*"
+    counter_name_regex ".*"
+    interval 30s
+</source>
+```
 
 ## <a name="data-collection"></a>datos, recopilación
 Azure Monitor recopila todos los contadores de rendimiento especificados en su intervalo de ejemplo en todos los agentes que tengan dicho contador instalado.  Los datos no se agregan; los datos sin procesar están disponibles en todas las vistas de consulta de registro durante el tiempo especificado por el área de trabajo del análisis de registros.
@@ -184,17 +188,17 @@ Los registros de rendimiento tienen el tipo **Perf** y sus propiedades son las q
 |:--- |:--- |
 | Computer |Nombre del equipo desde el que se recopiló el evento. |
 | CounterName |Nombre del contador de rendimiento. |
-| CounterPath |Ruta de acceso completa del contador en el formato \\\\\<Equipo>\\objeto(instancia)\\contador. |
+| CounterPath |Ruta de acceso completa del contador en el formato \\\\\<Computer>\\objeto(instancia)\\contador. |
 | CounterValue |Valor numérico del contador. |
 | InstanceName |Nombre de la instancia del evento.  Vacío si no hay instancias. |
 | ObjectName |Nombre del objeto de rendimiento |
-| SourceSystem |Tipo de agente del que se recopilaron los datos. <br><br>OpsManager: agente de Windows, ya sea una conexión directa o SCOM <br>  Linux: todos los agentes de Linux.  <br>  AzureStorage: Diagnósticos de Azure |
+| SourceSystem |Tipo de agente del que se recopilaron los datos. <br><br>OpsManager: agente de Windows, ya sea una conexión directa o SCOM <br> Linux: todos los agentes de Linux.  <br> AzureStorage: Diagnósticos de Azure |
 | TimeGenerated |Fecha y hora en que se toma la muestra de datos. |
 
 ## <a name="sizing-estimates"></a>Estimaciones de tamaño
  Una estimación aproximada para la recopilación de un contador determinado a intervalos de 10 segundos es de aproximadamente 1 MB por día y por instancia.  Los requisitos de almacenamiento de un contador se pueden calcular con la siguiente fórmula.
 
-    1 MB x (number of counters) x (number of agents) x (number of instances)
+> 1 MB x (número de contadores) x (número de agentes) x (número de instancias)
 
 ## <a name="log-queries-with-performance-records"></a>Consultas de registros con registros de rendimiento
 La tabla siguiente proporciona distintos ejemplos de consultas de registros que recuperan registros de rendimiento.

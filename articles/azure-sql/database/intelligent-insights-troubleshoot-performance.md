@@ -2,7 +2,7 @@
 title: Solución de problemas de rendimiento con Intelligent Insights
 description: Intelligent Insights ayuda a solucionar problemas de rendimiento de Azure SQL Database e Instancia administrada de Azure SQL.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 2008dd5e1e583a99756f62bc25f27e8f9832646e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/12/2020
+ms.openlocfilehash: 0fd391bfb7ed8944866b80acb31d76ea43c77912
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84031916"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986395"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Solucione con Intelligent Insights los problemas de rendimiento de Azure SQL Database e Instancia administrada de Azure SQL.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,6 +25,8 @@ En esta página se proporciona información sobre los problemas de rendimiento d
 
 > [!NOTE]
 > Para ver una guía rápida de solución de problemas de rendimiento con Intelligent Insights, consulte en este documento el diagrama de flujo denominado [Flujo de solución de problemas recomendado](intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow).
+>
+> Intelligent Insights es una característica en versión preliminar que no está disponible en las siguientes regiones: Oeste de Europa, Norte de Europa, Oeste de EE. UU. 1 y Este de EE. UU. 1
 
 ## <a name="detectable-database-performance-patterns"></a>Patrones de rendimiento de la base de datos detectables
 

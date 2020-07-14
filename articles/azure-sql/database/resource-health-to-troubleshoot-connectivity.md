@@ -2,7 +2,7 @@
 title: Uso de Azure Resource Health para supervisar el estado de una base de datos
 description: Use Azure Resource Health para supervisar el estado de Azure SQL Database e Instancia administrada de Azure SQL, ayudar a diagnosticar problemas y obtener soporte técnico cuando un problema de Azure afecte a los recursos de SQL.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -11,17 +11,15 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 02/26/2019
-ms.openlocfilehash: fd4804ccbd98bd3cab9f5b55c56274f8cbc34c65
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 27865afd356be9eac64083c1ebdeb6ced43dbd18
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84039656"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986959"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Uso de Resource Health para solucionar problemas de conectividad para Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
-
-## <a name="overview"></a>Información general
 
 [Resource Health](../../service-health/resource-health-overview.md#get-started) para Azure SQL Database e Instancia administrada de Azure SQL ayuda a diagnosticar problemas y obtener soporte técnico cuando un problema de Azure afecte a los recursos de SQL. Le informa acerca del mantenimiento actual y pasado de los recursos y le ayuda a mitigar los problemas. Resource Health le proporciona soporte técnico si necesita ayuda con los problemas de los servicios de Azure.
 
@@ -35,7 +33,7 @@ Resource Health determina el estado del recurso de SQL al examinar el estado cor
 
 ### <a name="available"></a>Disponible
 
-Un estado de **Disponible** significa que Resource Health no ha detectado errores de inicios de sesión debido a errores del sistema en el recurso de SQL.
+Un estado de **Disponible** significa que Resource Health no ha detectado errores de inicio de sesión debido a errores del sistema en el recurso de SQL.
 
 ![Disponible](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-available.jpg)
 
@@ -59,7 +57,7 @@ Este estado de mantenimiento indica que Resource Health no ha recibido informaci
 
 ## <a name="historical-information"></a>Información histórica
 
-Puede obtener acceso al historial de mantenimiento de hasta 14 días en la sección Historial de estado de Resource Health. La sección también contendrá el motivo del tiempo de inactividad (si está disponible) para los tiempos de inactividad notificados por Resource Health. Actualmente, Azure muestra el tiempo de inactividad para el recurso de base de datos con una granularidad de dos minutos. Es probable que el tiempo de inactividad real sea de menos de un minuto: el promedio es de 8 s.
+Puede obtener acceso al historial de mantenimiento de hasta 14 días en la sección Historial de estado de Resource Health. La sección también contendrá el motivo del tiempo de inactividad (si está disponible) para los tiempos de inactividad notificados por Resource Health. Actualmente, Azure muestra el tiempo de inactividad para el recurso de base de datos con una granularidad de dos minutos. Es probable que el tiempo de inactividad real sea de menos de un minuto. El promedio es de 8 segundos.
 
 ### <a name="downtime-reasons"></a>Motivos del tiempo de inactividad
 
@@ -67,7 +65,7 @@ Cuando la base de datos experimenta un tiempo de inactividad, se realizan análi
 
 #### <a name="planned-maintenance"></a>Mantenimiento planeado
 
-La infraestructura de Azure realiza periódicamente un mantenimiento planeado: actualización de componentes de hardware o software en el centro de datos. Mientras la base de datos se somete a mantenimiento, SQL puede terminar algunas conexiones existentes y rechazar otras nuevas. Los errores de inicio de sesión sufridos durante un mantenimiento planeado suelen ser transitorios y la [lógica de reintento](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) ayuda a reducir el impacto. Si sigue experimentando errores de inicio de sesión, póngase en contacto con soporte técnico.
+La infraestructura de Azure realiza periódicamente un mantenimiento planeado: actualización de componentes de hardware o software en el centro de datos. Mientras la base de datos se somete a mantenimiento, Azure SQL puede terminar algunas conexiones existentes y rechazar otras nuevas. Los errores de inicio de sesión sufridos durante un mantenimiento planeado suelen ser transitorios y la [lógica de reintento](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) ayuda a reducir el impacto. Si sigue experimentando errores de inicio de sesión, póngase en contacto con soporte técnico.
 
 #### <a name="reconfiguration"></a>Reconfiguración
 
@@ -75,8 +73,8 @@ Las reconfiguraciones se consideran condiciones transitorias y se espera que se 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre la [lógica de reintento para errores transitorios](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors)
-- [Acciones para solucionar problemas, diagnosticar y evitar errores de conexión y errores transitorios en SQL Database](troubleshoot-common-connectivity-issues.md)
-- Más información sobre [la configuración de alertas de Resource Health](../../service-health/resource-health-alert-arm-template-guide.md)
-- Introducción a [Resource Health](../../application-gateway/resource-health-overview.md)
-- [Preguntas frecuentes de Resource Health](../../service-health/resource-health-faq.md)
+- Obtener más información sobre la [lógica de reintento para errores transitorios](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).
+- [Cómo solucionar problemas, diagnosticar y evitar errores de conexión de SQL y errores transitorios de SQL Database](troubleshoot-common-connectivity-issues.md).
+- Más información sobre la [configuración de alertas de Resource Health](../../service-health/resource-health-alert-arm-template-guide.md).
+- Obtener una introducción a [Resource Health](../../application-gateway/resource-health-overview.md).
+- Revisar [P+F sobre Resource Health](../../service-health/resource-health-faq.md).

@@ -2,26 +2,28 @@
 title: Eliminaciones del historial de implementación
 description: Describe cómo Azure Resource Manager elimina automáticamente las implementaciones del historial de implementaciones. Las implementaciones se eliminan cuando el historial está próximo a superar el límite de 800.
 ms.topic: conceptual
-ms.date: 05/27/2020
-ms.openlocfilehash: 3e48b2da00986da00f7597cf887aa74f84587710
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 07/06/2020
+ms.openlocfilehash: 70730ce814ebc689d9672952bad7c3dd39b5a7f1
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84122341"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85981663"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Eliminaciones automáticas del historial de implementaciones
 
 Cada vez que se implementa una plantilla, la información sobre la implementación se escribe en el historial de implementaciones. Cada grupo de recursos está limitado a 800 implementaciones en su historial de implementaciones.
 
-A partir de junio de 2020, Azure Resource Manager elimina automáticamente las implementaciones del historial a medida que se acerca al límite. La eliminación automática es un cambio respecto al comportamiento anterior. Anteriormente, tenía que eliminar manualmente las implementaciones del historial de implementaciones para evitar un error.
+Azure Resource Manager empezará pronto a eliminar automáticamente las implementaciones del historial a medida que se acerca al límite. La eliminación automática es un cambio respecto al comportamiento anterior. Anteriormente, tenía que eliminar manualmente las implementaciones del historial de implementaciones para evitar un error. **Esta característica aún no se ha agregado a Azure. Le informaremos de este próximo cambio, en caso de que quiera dejar de participar.**
 
 > [!NOTE]
 > La eliminación de una implementación del historial no afecta a ninguno de los recursos implementados.
+>
+> Si tiene un [bloqueo CanNotDelete](../management/lock-resources.md) en un grupo de recursos, no se podrán eliminar las implementaciones para ese grupo de recursos. Debe quitar el bloqueo para aprovechar las eliminaciones automáticas en el historial de implementaciones.
 
 ## <a name="when-deployments-are-deleted"></a>Cuando las implementaciones se eliminan
 
-Las implementaciones se eliminan del historial de implementaciones solo cuando se alcanza el límite de 800. Azure Resource Manager elimina un pequeño conjunto de las implementaciones más antiguas para liberar espacio para futuras implementaciones. La mayor parte del historial permanece sin cambios. Las implementaciones más antiguas siempre se eliminan primero.
+Las implementaciones se eliminan del historial de implementaciones cuando se alcanzan 790 implementaciones. Azure Resource Manager elimina un pequeño conjunto de las implementaciones más antiguas para liberar espacio para futuras implementaciones. La mayor parte del historial permanece sin cambios. Las implementaciones más antiguas siempre se eliminan primero.
 
 :::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.svg" alt-text="Eliminaciones del historial de implementaciones":::
 
@@ -29,11 +31,14 @@ Además de las implementaciones, también se desencadenan eliminaciones al ejecu
 
 Cuando asigna a una implementación el mismo nombre que el de una existente en el historial, se restablece su lugar en el historial. La implementación se mueve a la posición más reciente en el historial. El lugar de una implementación también se restablece cuando se [revierte a esa implementación](rollback-on-error.md) después de un error.
 
+> [!NOTE]
+> Si el grupo de recursos ya está en el límite de 800, se producirá un error en la siguiente implementación. El proceso de eliminación automática se inicia inmediatamente. Puede volver a probar la implementación después de una breve espera.
+
 ## <a name="opt-out-of-automatic-deletions"></a>Rechazo de eliminaciones automáticas
 
 Puede rechazar las eliminaciones automáticas del historial. **Use esta opción solamente si desea administrar el historial de implementaciones usted mismo.** Se sigue aplicando el límite de 800 implementaciones en el historial. Si supera las 800 implementaciones, recibirá un error y la implementación no se realizará.
 
-Para deshabilitar las eliminaciones automáticas, registre la marca de característica `Microsoft.Resources/DisableDeploymentGrooming`. Cuando registra la marca de característica, se rechazan las eliminaciones automáticas de toda la suscripción de Azure. No puede rechazar solamente un grupo de recursos concreto.
+Para deshabilitar las eliminaciones automáticas, registre la marca de característica `Microsoft.Resources/DisableDeploymentGrooming`. Cuando registra la marca de característica, se rechazan las eliminaciones automáticas de toda la suscripción de Azure. No puede rechazar solamente un grupo de recursos concreto. Para volver a habilitar las eliminaciones automáticas, cancele el registro de la marca de característica.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -49,6 +54,8 @@ Para ver el estado actual de la suscripción, use:
 Get-AzProviderFeature -ProviderNamespace Microsoft.Resources -FeatureName DisableDeploymentGrooming
 ```
 
+Para volver a habilitar las eliminaciones automáticas, use la API de REST de Azure o la CLI de Azure.
+
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Para la CLI de Azure, use [az feature register](/cli/azure/feature#az-feature-register).
@@ -63,6 +70,12 @@ Para ver el estado actual de la suscripción, use:
 az feature show --namespace Microsoft.Resources --name DisableDeploymentGrooming
 ```
 
+Para volver a habilitar las eliminaciones automáticas, use [az feature unregister](/cli/azure/feature#az-feature-unregister).
+
+```azurecli-interactive
+az feature unregister --namespace Microsoft.Resources --name DisableDeploymentGrooming
+```
+
 # <a name="rest"></a>[REST](#tab/rest)
 
 Para API REST, use [Características - Registrar](/rest/api/resources/features/register).
@@ -75,6 +88,12 @@ Para ver el estado actual de la suscripción, use:
 
 ```rest
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/register?api-version=2015-12-01
+```
+
+Para volver a habilitar las eliminaciones automáticas, use [Características - Anular el registro](/rest/api/resources/features/unregister)
+
+```rest
+POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/unregister?api-version=2015-12-01
 ```
 
 ---

@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Ejecución de un cuaderno de estrategias en Azure Sentinel'
-description: 'Tutorial: En este artículo se describe cómo ejecutar un cuaderno de estrategias en Azure Sentinel.'
+description: Este tutorial le ayuda a usar cuadernos de estrategias de seguridad en Azure Sentinel para establecer respuestas automatizadas frente a amenazas en problemas relacionados con la seguridad.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2019
 ms.author: yelevin
-ms.openlocfilehash: f6adcb978dbe540d3bdd352089d4dde407d0fb4c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5bc6ca30b9dff3686b16fe5237f815f16f849e9e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77585091"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85558482"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>Tutorial: Configuración de respuestas automatizadas frente a amenazas en Azure Sentinel
 

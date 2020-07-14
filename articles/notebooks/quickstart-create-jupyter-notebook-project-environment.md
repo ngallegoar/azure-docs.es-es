@@ -4,18 +4,18 @@ description: Cree un proyecto en Azure Notebooks (versión preliminar) que esté
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.custom: tracking-python
-ms.openlocfilehash: 03935b9672c25db11b91733fac1c63f1f5978b87
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c5f73b73b4bab99e07874c2d16d47da69f8026ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559744"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85832906"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment-in-azure-notebooks-preview"></a>Inicio rápido: Creación de un proyecto con un entorno personalizado en de Azure Notebooks (versión preliminar)
 
-Un proyecto de Azure Notebooks es una colección de archivos, como cuadernos, archivos de datos, documentación, imágenes, etc. junto con un entorno que se puede configurar con comandos de instalación específicos. Al definir el entorno con el proyecto, cualquier usuario que clone el proyecto en su propia cuenta de Azure Notebooks tiene toda la información necesaria para volver a crear el entorno necesario.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Un proyecto de Azure Notebooks es una colección de archivos, como cuadernos, archivos de datos, documentación, imágenes, etc. junto con un entorno que se puede configurar con comandos de instalación específicos. Al definir el entorno con el proyecto, cualquier usuario que clone el proyecto en su propia cuenta de Azure Notebooks tiene toda la información necesaria para volver a crear el entorno necesario.
 
 ## <a name="create-a-project"></a>Crear un proyecto
 
@@ -73,4 +73,4 @@ Un proyecto de Azure Notebooks es una colección de archivos, como cuadernos, ar
 > [Manage and configure projects in Azure Notebooks](configure-manage-azure-notebooks-projects.md) (Administración y configuración de proyectos en Azure Notebooks)
 
 > [!div class="nextstepaction"]
-> [Tutorial: create an run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md) (Tutorial: Creación y ejecución de un cuaderno de Jupyter Notebook para hacer regresión lineal)
+> [Tutorial: Creación y ejecución de un cuaderno de Jupyter Notebook para realizar la regresión lineal](tutorial-create-run-jupyter-notebook.md)

@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/13/2020
-ms.openlocfilehash: 1975c13162316b4132bae34659b1c5af8e416573
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c5597528d395c2c8facd4a1b916b1378b659a646
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231618"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565291"
 ---
 # <a name="ranking-algorithm-in-azure-cognitive-search"></a>Algoritmo de clasificación de Azure Cognitive Search
 
 > [!IMPORTANT]
 > A partir del 15 de julio de 2020, los servicios de búsqueda recién creados utilizarán la función de categoría BM25 automáticamente, que, en la mayoría de los casos, ha demostrado proporcionar clasificaciones de búsqueda que se ajustan mejor a las expectativas de los usuarios que la clasificación predeterminada actual. Más allá de la clasificación superior, BM25 también habilita las opciones de configuración para optimizar los resultados en función de factores como el tamaño del documento.  
 >
-> Con este cambio, lo más probable es que vea pequeños cambios en el orden de los resultados de la búsqueda. Para aquellos que desean probar el impacto de este cambio, el algoritmo BM25 está disponible en la versión de API 2019-05-06-Preview.  
+> Con este cambio, lo más probable es que vea pequeños cambios en el orden de los resultados de la búsqueda. Para aquellos que desean probar el impacto de este cambio, el algoritmo BM25 está disponible en la versión de API 2019-05-06-Preview y en 2020-06-30.  
 
 En este artículo se describe cómo puede usar el nuevo algoritmo de clasificación BM25 en los servicios de búsqueda existentes para los nuevos índices creados y consultados mediante la API de versión preliminar.
 
@@ -30,7 +30,7 @@ A pesar de que conceptualmente es similar al algoritmo Classic Similarity más a
 
 ## <a name="how-to-test-bm25-today"></a>Cómo probar BM25 hoy
 
-Al crear un índice, puede establecer una propiedad **similarity** para especificar el algoritmo. Tendrá que usar `api-version=2019-05-06-Preview`, como se muestra a continuación.
+Al crear un índice, puede establecer una propiedad **similarity** para especificar el algoritmo. Puede usar `api-version=2019-05-06-Preview`, como se muestra a continuación, o `api-version=2020-06-30`
 
 ```
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=2019-05-06-Preview

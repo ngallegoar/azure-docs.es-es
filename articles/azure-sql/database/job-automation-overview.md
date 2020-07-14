@@ -2,7 +2,8 @@
 title: Automatización de trabajos
 description: Uso de la automatización de trabajos para ejecutar scripts de Transact-SQL (T-SQL) en un conjunto de una o varias bases de datos
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: overview
@@ -10,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 03/10/2020
-ms.openlocfilehash: 1b27eac1a8b5989734d3451bf21c5b13dd5cc0af
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 537c989271800c15444d5323cfce8e133c8eeeba
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220565"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984666"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatización de tareas de administración mediante trabajos de base de datos
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,8 +55,8 @@ Cabe destacar un par de diferencias entre el Agente SQL (disponible de modo loca
 
 | |Trabajos elásticos |Agente SQL |
 |---------|---------|---------|
-|Ámbito | Cualquier número de bases de datos en almacenamientos de datos o Azure SQL Database que se encuentren en la misma nube de Azure que el agente de trabajo. Los destinos pueden estar en servidores, suscripciones o regiones diferentes. <br><br>Los grupos de destino pueden estar compuestos de bases de datos individuales o almacenamientos de datos o de todas las bases de datos de un servidor, grupo o mapa de particiones (enumeradas dinámicamente en el momento de la ejecución de trabajo). | Cualquier base de datos individual que se encuentre en la misma instancia que el Agente SQL. |
-|Herramientas y API admitidas | Azure Portal, PowerShell, T-SQL, Azure Resource Manager | T-SQL, SQL Server Management Studio (SSMS) |
+|**Ámbito** | Cualquier número de bases de datos en almacenamientos de datos o Azure SQL Database que se encuentren en la misma nube de Azure que el agente de trabajo. Los destinos pueden estar en servidores, suscripciones o regiones diferentes. <br><br>Los grupos de destino pueden estar compuestos de bases de datos individuales o almacenamientos de datos o de todas las bases de datos de un servidor, grupo o mapa de particiones (enumeradas dinámicamente en el momento de la ejecución de trabajo). | Cualquier base de datos individual que se encuentre en la misma instancia que el Agente SQL. |
+|**Herramientas y API admitidas** | Azure Portal, PowerShell, T-SQL, Azure Resource Manager | T-SQL, SQL Server Management Studio (SSMS) |
 
 ## <a name="sql-agent-jobs"></a>Trabajos del Agente SQL
 

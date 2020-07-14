@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: bf014c7188232f07a399cc3e438d1d894c96a233
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 7c795e6077bc5a7b755a388a6f50848ad6094d48
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701442"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921808"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Uso de tablas externas con Synapse SQL
 
@@ -96,13 +96,17 @@ data_source_name
 Especifica el nombre definido por el usuario para el origen de datos. El nombre debe ser único en la base de datos.
 
 #### <a name="location"></a>Location
-LOCATION = `'<prefix>://<path>'`: proporciona el protocolo de conectividad y la ruta de acceso al origen de datos externo. La ruta de acceso puede incluir un contenedor, cuya forma sería `'<prefix>://<path>/container'`, y una carpeta, con la forma de `'<prefix>://<path>/container/folder'`.
+LOCATION = `'<prefix>://<path>'`: proporciona el protocolo de conectividad y la ruta de acceso al origen de datos externo. Los patrones siguientes se pueden usar en la ubicación:
 
 | Origen de datos externo        | Prefijo de ubicación | Ruta de acceso de ubicación                                         |
 | --------------------------- | --------------- | ----------------------------------------------------- |
 | Azure Blob Storage          | `wasb[s]`       | `<container>@<storage_account>.blob.core.windows.net` |
+|                             | `https`         | `<storage_account>.blob.core.windows.net/<container>/subfolders` |
 | Azure Data Lake Store Gen1 | `adl`           | `<storage_account>.azuredatalake.net`                 |
 | Azure Data Lake Store Gen2 | `abfs[s]`       | `<container>@<storage_account>.dfs.core.windows.net`  |
+|                             | `https`         | `<storage_account>.dfs.core.windows.net/<container>/subfolders`  |
+
+El prefijo `https:` le permite usar la subcarpeta en la ruta de acceso.
 
 #### <a name="credential"></a>Credential:
 CREDENTIAL = `<database scoped credential>` es una credencial opcional que se usará para realizar la autenticación en Azure Storage. El origen de datos externo sin credenciales puede acceder a una cuenta de almacenamiento público. 
@@ -124,7 +128,7 @@ En el ejemplo siguiente se crea un origen de datos externo para Azure Data Lake�
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 WITH
   -- Please note the abfss endpoint when your account has secure transfer enabled
-  ( LOCATION = 'abfss://newyorktaxidataset.azuredatalakestore.net' ,
+  ( LOCATION = 'abfss://data@newyorktaxidataset.dfs.core.windows.net' ,
     CREDENTIAL = ADLS_credential ,
     TYPE = HADOOP
   ) ;
@@ -342,7 +346,7 @@ SELECT TOP 1 * FROM census_external_table
 
 Mediante las funcionalidades de exploración de Data Lake ya se puede crear y consultar una tabla externa mediante un grupo de SQL o SQL a petición con un solo clic con el botón derecho en el archivo.
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 - Debe acceder al área de trabajo al menos con el rol de acceso basado en ARM Colaborador de datos de blobs de almacenamiento a la cuenta de ADLS Gen2
 

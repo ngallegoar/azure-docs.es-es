@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones y limitaciones de compatibilidad
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 8198c06c1151dd86d99bc64f825764d0a4988287
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 5670f4702a8e8d199b9762d87793a053cf6e53b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193865"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806878"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matriz de compatibilidad de copia de seguridad de recursos compartidos de archivos de Azure
 
@@ -23,7 +23,7 @@ La copia de seguridad de recursos compartidos de archivos de Azure está disponi
 
 ### <a name="supported-regions-for-accidental-delete-protection"></a>Regiones admitidas para la protección contra eliminación accidental
 
-Centro-Oeste de EE. UU.
+Centro-oeste de EE. UU., Sudeste de Australia, Centro de Canadá
 
 ## <a name="supported-storage-accounts"></a>Cuentas de almacenamiento admitidas
 
@@ -32,6 +32,7 @@ Centro-Oeste de EE. UU.
 | Tipo de cuenta            | Azure Backup admite recursos compartidos de archivos de Azure presentes en las cuentas de almacenamiento de tipo de uso general v1, v2 y de almacenamiento de archivos |
 | Rendimiento              | Azure Backup admite recursos compartidos de archivos tanto de cuentas estándar como Premium Storage |
 | Replicación              | Se admiten recursos compartidos de archivos de Azure de cuentas de almacenamiento con cualquier tipo de replicación |
+| Firewall habilitado         | Se admiten recursos compartidos de archivos de Azure en cuentas de almacenamiento con reglas de firewall que permitan a los servicios de Microsoft Azure acceder a la cuenta de almacenamiento|
 
 ## <a name="supported-file-shares"></a>Recursos compartidos de archivos admitidos
 
@@ -46,14 +47,16 @@ Centro-Oeste de EE. UU.
 
 | Configuración                                                      | Límite |
 | ------------------------------------------------------------ | ----- |
-| Número máximo de recursos compartidos de archivos que se pueden proteger al día por almacén | 200   |
+| Número máximo de recursos compartidos de archivos que se pueden proteger por almacén al día| 200   |
 | Número máximo de cuentas de almacenamiento que se pueden registrar por almacén al día | 50    |
+| Número máximo de recursos compartidos de archivos que se pueden proteger por almacén | 2000   |
+| Número máximo de cuentas de almacenamiento que se pueden registrar por almacén | 200   |
 
 ## <a name="backup-limits"></a>Límites de Backup
 
 | Configuración                                      | Límite |
 | -------------------------------------------- | ----- |
-| Número máximo de copias de seguridad a petición al día | 4     |
+| Número máximo de copias de seguridad a petición al día | 10   |
 | Número máximo de copias de seguridad programadas al día | 1     |
 
 ## <a name="restore-limits"></a>Límites de restauración

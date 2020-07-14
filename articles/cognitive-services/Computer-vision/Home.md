@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: cfd8dd7474cf7926ef2230e6be53a967a97645db
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 3e1c67ee91298b9e8d0c3c427988c9966771aeaa
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85554392"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920558"
 ---
 # <a name="what-is-computer-vision"></a>¿Qué es Computer Vision?
 
@@ -48,9 +48,9 @@ Puede analizar imágenes para detectar y proporcionar información detallada ace
 |**[Generar una miniatura](concept-generating-thumbnails.md)**|Analice el contenido de una imagen para generar una miniatura adecuada de la misma. En primer lugar, Computer Vision genera una miniatura de alta calidad y, después, analiza los objetos de la imagen para determinar el *área de interés*. Luego, Computer Vision recorta la imagen para ajustarla a los requisitos del área de interés. La miniatura generada se puede presentar con una relación de aspecto diferente de la de la imagen original en función de sus necesidades.|
 |**[Obtener el área de interés](concept-generating-thumbnails.md#area-of-interest)**|Analice el contenido de una imagen para devolver las coordenadas del *área de interés*. En lugar de recortar la imagen y generar una miniatura, Computer Vision devuelve las coordenadas del rectángulo delimitador de la región, por lo que la aplicación que realiza la llamada puede modificar la imagen original según sea necesario.|
 
-## <a name="detect-text-from-images"></a>Detección de texto en imágenes
+## <a name="optical-character-recognition-ocr"></a>Reconocimiento óptico de caracteres (OCR)
 
-Puede usar las [API de detección de texto](concept-recognizing-text.md) de Computer Vision para extraer texto tanto impreso como manuscrito de imágenes en una secuencia de caracteres legible por una máquina. La API Read utiliza modelos actualizados y funciona con texto sobre superficies y fondos distintos, como recibos, pósteres, tarjetas de visita, cartas y pizarras. Las dos API de detección de texto admiten la extracción de texto impreso en [varios idiomas](./language-support.md).
+Computer Vision incluye funcionalidades de [reconocimiento óptico de caracteres (OCR)](concept-recognizing-text.md). Puede usar la nueva Read API para extraer texto impreso y manuscrito de imágenes y documentos. Usa los modelos más recientes y funciona con texto en diversas superficies y fondos. Entre estos se incluyen recibos, pósteres, tarjetas de presentación, cartas y pizarras. Las dos API de OCR admiten la extracción de texto impreso en [varios idiomas](./language-support.md).
 
 ## <a name="moderate-content-in-images"></a>Moderación del contenido de las imágenes
 

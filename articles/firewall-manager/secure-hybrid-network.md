@@ -1,26 +1,24 @@
 ---
-title: 'Tutorial: Protección de la red virtual de centro mediante la versión preliminar de Azure Firewall Manager'
+title: 'Tutorial: Protección de la red virtual de centro mediante Azure Firewall Manager'
 description: En este tutorial aprenderá a proteger la red virtual con Azure Firewall Manager mediante Azure Portal.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 02/18/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: cdd416bdb833e4784334a6847d724a7375e2ef8d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3d4d1e65c2200aee178abefb46d3e330acbd3108
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77459960"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563637"
 ---
-# <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager-preview"></a>Tutorial: Protección de la red virtual de centro mediante la versión preliminar de Azure Firewall Manager 
-
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
+# <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager"></a>Tutorial: Protección de la red virtual de centro mediante Azure Firewall Manager
 
 Cuando conecta la red local a una red virtual de Azure para crear una red híbrida, la capacidad de controlar el acceso a los recursos de la red de Azure es parte importante de un plan de seguridad global.
 
-Mediante la versión preliminar de Azure Firewall Manager puede crear una red virtual de centro para proteger el tráfico de la red híbrida destinado a direcciones IP privadas, PaaS de Azure e Internet. Puede usar Azure Firewall Manager para controlar el acceso de red en una red híbrida con directivas que definan el tráfico de red permitido y denegado.
+Mediante Azure Firewall Manager puede crear una red virtual de centro para proteger el tráfico de la red híbrida destinado a direcciones IP privadas, PaaS de Azure e Internet. Puede usar Azure Firewall Manager para controlar el acceso de red en una red híbrida con directivas que definan el tráfico de red permitido y denegado.
 
 Firewall Manager también admite una arquitectura de centro virtual protegido. Para ver una comparación entre los tipos de arquitectura de red virtual de centro y centro virtual protegido, consulte [¿Cuáles son las opciones de arquitectura de Azure Firewall Manager?](vhubs-and-vnets.md)
 
@@ -45,7 +43,7 @@ En este tutorial, aprenderá a:
 > * Probar el firewall
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Una red híbrida usa el modelo de arquitectura radial para enrutar el tráfico entre redes virtuales de Azure y redes locales. La arquitectura radial tiene los siguientes requisitos:
 
@@ -444,4 +442,4 @@ Puede conservar los recursos relacionados con el firewall para el siguiente tuto
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Protección de una WAN virtual mediante la versión preliminar de Azure Firewall Manager](secure-cloud-network.md)
+> [Tutorial: Protección de una red WAN virtual mediante Azure Firewall Manager](secure-cloud-network.md)

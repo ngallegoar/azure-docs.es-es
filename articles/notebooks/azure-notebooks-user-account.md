@@ -3,22 +3,22 @@ title: Iniciar sesión en la versión preliminar de Azure Notebooks
 description: Configure su cuenta de usuario de Azure Notebooks con una cuenta Microsoft o una cuenta profesional o educativa.
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 9401a9e483f3f8db5af827f53937cb0f01b27a28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 929a21785b5b48c81c2d2016874feed61021d3c0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75646303"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832192"
 ---
 # <a name="your-user-account-for-azure-notebooks-preview"></a>Su cuenta de usuario para la versión preliminar de Azure Notebooks
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Puede usar Azure Notebooks iniciando sesión o no con una cuenta de usuario:
 
 - Sin iniciar sesión, puede crear y ejecutar cuadernos, pero no podrá retener dichos cuadernos o archivos de datos como parte de proyectos. Los usuarios que reciben un vínculo a un cuaderno de Azure Notebook, por ejemplo, pueden disfrutar de ellos sin tener que iniciar sesión.
 - Cuando se ha iniciado sesión, Azure Notebooks conserva todos los proyectos con su cuenta. Los usuarios con sesión iniciada tienen también un identificador de usuario que les permite compartir sus proyectos y cuadernos con otras personas.
 - Cuando la cuenta usada para Azure Notebooks también está asociada con una suscripción a Azure, disfrutará de ventajas adicionales como la ejecución de cuadernos en los servidores más eficaces, la creación de cuadernos privados y la concesión de permisos para los cuadernos a usuarios individuales.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Iniciar sesión en Azure Notebooks requiere una cuenta de Microsoft o una cuenta "profesional o educativa". Se le pide su cuenta al seleccionar el comando **Iniciar sesión** en la parte superior derecha de la página de cuadernos:
 
@@ -53,7 +53,7 @@ Para habilitar el acceso, uno de los padres debe efectuar los pasos siguientes:
 
 ## <a name="work-or-school-accounts"></a>Cuentas profesionales o educativas
 
-El administrador de la organización crea una cuenta profesional o educativa para permitir a un miembro de la organización que acceda a los servicios en la nube de Microsoft, como Office 365, y también como una cuenta para iniciar sesión en Windows en un equipo unido al dominio. Una cuenta profesional o educativa normalmente usa una dirección de correo electrónico de una organización, tal como any-user@contoso.com.
+El administrador de la organización crea una cuenta profesional o educativa para permitir que un miembro de la organización acceda a los servicios en la nube de Microsoft, como Microsoft 365, y también como una cuenta para iniciar sesión en Windows en un equipo unido al dominio. Una cuenta profesional o educativa normalmente usa una dirección de correo electrónico de una organización, tal como any-user@contoso.com.
 
 Iniciar sesión en Azure Notebooks con una cuenta profesional o educativa puede requerir el consentimiento del administrador porque Azure Notebooks recopila o usa (pero no divulga) información como la dirección de correo electrónico de la cuenta ni la información del explorador del usuario. (Los datos del explorador se usan para optimizar las características de acuerdo con el uso popular.)
 

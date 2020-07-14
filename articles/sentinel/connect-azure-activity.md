@@ -1,6 +1,6 @@
 ---
 title: Conectar datos de actividad de Azure a Azure Sentinel | Microsoft Docs
-description: Aprenda a conectar datos de actividad de Azure a Azure Sentinel.
+description: Transmita los registros de actividad de Azure a Azure Sentinel con tan solo un clic. El registro de actividad registra y muestra los eventos a nivel de suscripción en Azure.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2020
 ms.author: yelevin
-ms.openlocfilehash: 82dfcaf3394703aae531c828a1b96ad290bab798
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 88f363406ec40dfa439a52ad351501d1c64dce95
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80124979"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564498"
 ---
 # <a name="connect-data-from-azure-activity-log"></a>Conectar datos del registro de actividad de Azure
 
 Se pueden transmitir registros desde el [registro de actividad de Azure](../azure-monitor/platform/platform-logs-overview.md) a Azure Sentinel con tan solo un clic. El registro de actividad es un registro de las suscripciones que graba y muestra los eventos de nivel de suscripción en Azure, desde los datos operativos de Azure Resource Manager hasta las actualizaciones de eventos de Service Health. Con el registro de actividades, se pueden determinar los interrogantes "qué, quién y cuándo" de las operaciones de escritura (PUT, POST, DELETE) que se realizan en los recursos de la suscripción. También puede obtener más información sobre el estado de la operación y otras propiedades pertinentes. El registro de actividad no incluye las operaciones de lectura (GET) ni las operaciones de los recursos que usan el modelo Clásico/"RDFE". 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - El usuario debe tener permisos de colaborador en el área de trabajo de Log Analytics.
 - El usuario debe tener permisos de lector en cualquiera de las suscripciones cuyos registros quiere transmitir a Azure Sentinel.

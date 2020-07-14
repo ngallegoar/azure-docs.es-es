@@ -3,15 +3,15 @@ title: Guía de referencia de las funciones en las expresiones
 description: Guía de referencia de las funciones en las expresiones para Azure Logic Apps y Power Automate
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/29/2020
-ms.openlocfilehash: d879429eef68d1bc2448150e2d8eece9cfa35da2
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.date: 07/01/2020
+ms.openlocfilehash: 30806880b3ce9ab89479cedbce60435f44024efd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204861"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833025"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guía de referencia para usar las funciones en las expresiones para Azure Logic Apps y Power Automate
 
@@ -477,6 +477,9 @@ Y devuelve este resultado:
 Devuelve la salida en tiempo de ejecución de una acción o los valores de otros pares de nombre y valor JSON, que puede asignar a una expresión. De forma predeterminada, la función hace referencia al objeto de acción entero, pero también puede especificar una propiedad cuyo valor desee obtener.
 Para las versiones en forma abreviada, consulte [actionBody()](#actionBody), [actionOutputs()](#actionOutputs) y [body()](#body).
 Para la acción actual, consulte [action()](#action).
+
+> [!TIP]
+> La función `actions()` devuelve la salida como cadena. Si necesita trabajar con un valor devuelto como objeto JSON, antes debe convertir el valor de cadena. Puede transformar el valor de cadena en un objeto JSON mediante la [acción de análisis de JSON](logic-apps-perform-data-operations.md#parse-json-action).
 
 > [!NOTE]
 > Anteriormente, podía usar la función `actions()` o el elemento `conditions` al especificar que una acción se ejecutó basándose en la salida de otra acción. Sin embargo, para declarar explícitamente las dependencias entre las acciones, ahora debe usar la propiedad `runAfter` de la acción dependiente.
@@ -2046,7 +2049,7 @@ formatNumber(<number>, <format>, <locale>?)
 Supongamos que quiere dar formato al número `1234567890`. En este ejemplo se aplica formato a ese número como una cadena "1.234.567.890,00".
 
 ```
-formatNumber(1234567890, '{0:0,0.00}', 'en-us')
+formatNumber(1234567890, '0,0.00', 'en-us')
 ```
 
 *Ejemplo 2"
@@ -2054,7 +2057,7 @@ formatNumber(1234567890, '{0:0,0.00}', 'en-us')
 Supongamos que quiere dar formato al número `1234567890`. En este ejemplo se aplica formato al número como una cadena "1.234.567.890,00".
 
 ```
-formatNumber(1234567890, '{0:0,0.00}', 'is-is')
+formatNumber(1234567890, '0,0.00', 'is-is')
 ```
 
 *Ejemplo 3*

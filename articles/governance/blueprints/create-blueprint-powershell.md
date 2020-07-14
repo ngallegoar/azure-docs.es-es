@@ -3,18 +3,18 @@ title: 'Inicio rápido: Creación de un plano técnico con PowerShell'
 description: En este inicio rápido se usa Azure Blueprints para crear, definir e implementar artefactos mediante PowerShell.
 ms.date: 05/06/2020
 ms.topic: quickstart
-ms.openlocfilehash: 79feafa48d5d180949b8a23163f2ee9b686e6076
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: b881731dfdcaf9e9e016d1437e51dbd5c1a7488a
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864120"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970508"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Inicio rápido: Definición y asignación de un plano técnico de Azure Blueprint con PowerShell
 
-Entender cómo crear y asignar planos técnicos permite la definición de patrones comunes para desarrollar configuraciones reutilizables y de implementación rápida basadas en plantillas de Resource Manager, directivas, seguridad y mucho más. En este tutorial, aprenderá a usar planos técnicos de Azure Blueprint para realizar algunas de las tareas más comunes relacionadas con la creación, asignación y administración de directivas en toda la organización, como, por ejemplo:
+Aprender a crear y asignar planos técnicos permite definir patrones comunes para desarrollar configuraciones reutilizables y de implementación rápida basadas en plantillas de Azure Resource Manager, directivas, seguridad, etc. En este tutorial, aprenderá a usar planos técnicos de Azure Blueprint para realizar algunas de las tareas más comunes relacionadas con la creación, asignación y administración de directivas en toda la organización, como, por ejemplo:
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
 
@@ -187,9 +187,9 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
      New-AzBlueprintArtifact -Blueprint $blueprint -Name 'policyStorageTags' -ArtifactFile .\artifacts\policyStorageTags.json
      ```
 
-1. Agregue la plantilla en el grupo de recursos. El valor de **TemplateFile** de una plantilla del Administrador de recursos incluye el componente JSON normal de la plantilla. La plantilla también reutiliza los parámetros del plano técnico **storageAccountType**, **tagName** y **tagValue**, cada uno de los cuales se pasa a la plantilla. Los parámetros del plano técnico se ponen a disposición de la plantilla mediante la definición del parámetro **TemplateParameterFile** y dentro de la plantilla JSON que el par clave/valor utiliza para insertar el valor. Los nombres de los parámetros blueprint y template podrían ser los mismos.
+1. Agregue la plantilla en el grupo de recursos. El valor de **TemplateFile** de una plantilla de Resource Manager incluye el componente JSON normal de la plantilla. La plantilla también reutiliza los parámetros del plano técnico **storageAccountType**, **tagName** y **tagValue**, cada uno de los cuales se pasa a la plantilla. Los parámetros del plano técnico se ponen a disposición de la plantilla mediante la definición del parámetro **TemplateParameterFile** y dentro de la plantilla JSON que el par clave/valor utiliza para insertar el valor. Los nombres de los parámetros blueprint y template podrían ser los mismos.
 
-   - Archivo de plantilla de Azure Resource Manager de JSON: \artifacts\templateStorage.json
+   - Archivo de la plantilla de Resource Manager de JSON: \artifacts\templateStorage.json
 
      ```json
      {
@@ -243,7 +243,7 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
      }
      ```
 
-   - Archivo de plantilla de Azure Resource Manager de JSON: \artifacts\templateStorageParams.json
+   - Archivo de parámetros de la plantilla de Resource Manager de JSON: \artifacts\templateStorageParams.json
 
      ```json
      {

@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/17/2020
-ms.openlocfilehash: 9594a2ddfaa0103e171618925ba6974bf9ad7f00
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.date: 07/03/2020
+ms.openlocfilehash: 1126f73b4d2e51e952a7cf971363020242838c34
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833989"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958910"
 ---
 # <a name="monitor-data-flows"></a>Supervisión de flujos de datos
 
@@ -56,12 +56,31 @@ Cuando se ejecuta Data Flow en Spark, Azure Data Factory determina las rutas de 
   * Tiempo de inicio del clúster: la cantidad de tiempo necesaria para adquirir el entorno de proceso de Spark JIT para la ejecución del flujo de datos.
   * Número de transformaciones: el número de pasos de transformación que se ejecutan en el flujo
   
-![Supervisión de Data Flow](media/data-flow/monitornew.png "Nueva supervisión de Data Flow")  
+![Supervisión de Data Flow](media/data-flow/monitornew.png "Nueva supervisión de Data Flow")
+
+## <a name="total-sink-processing-time-vs-transformation-processing-time"></a>Diferencias entre tiempo total de procesamiento de receptores y tiempo de procesamiento de la transformación
+
+Cada fase de transformación incluye un tiempo total para que se complete, y el tiempo de ejecución de todas las particiones se suma. Al hacer clic en el receptor, verá "Tiempo de procesamiento del receptor". Este valor incluye el total del tiempo de transformación *más* el tiempo de E/S que se tarda en escribir los datos en el almacén de destino. La diferencia entre el tiempo de procesamiento del receptor y el total de la transformación es el tiempo de E/S para escribir los datos.
+
+También puede ver el tiempo detallado del paso de transformación de cada partición si abre la salida JSON desde la actividad de flujo de datos en la vista de supervisión de la canalización de ADF. El archivo JSON contiene el tiempo en milisegundos de cada partición, mientras que la vista de supervisión de la experiencia de usuario es un intervalo agregado de las particiones sumadas:
+
+```
+ {
+     "stage": 4,
+     "partitionTimes": [
+          14353,
+          14914,
+          14246,
+          14912,
+          ...
+         ]
+}
+```
   
 ## <a name="monitor-icons"></a>Iconos de supervisión
 
 Este icono significa que los datos de transformación se almacenaron en caché en el clúster, por lo que los intervalos y la ruta de acceso de ejecución se han tenido en cuenta:
 
-![Supervisión de Data Flow](media/data-flow/mon004.png "Supervisión de Data Flow")
+![Supervisión de Data Flow](media/data-flow/mon005.png "Supervisión de Data Flow")
 
 También ve los iconos de círculo verde en la transformación. Representan un recuento del número de receptores en los que fluyen los datos.

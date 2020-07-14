@@ -3,21 +3,21 @@ title: 'Optimización del rendimiento: Hive en Azure Data Lake Storage Gen1'
 description: Directrices de optimización del rendimiento de Hive en HDInsight y Azure Data Lake Storage Gen1.
 author: stewu
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 2e44332ddab9387c05a45d15101ccd2bdec3ada4
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: c49388d50b79b037b0a0923f2c5e9ac72105c54e
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690514"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855755"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Guía para la optimización del rendimiento de Hive en HDInsight y Azure Data Lake Storage Gen1
 
 La configuración predeterminada se ha establecido para proporcionar un buen rendimiento en muchos casos de uso diferentes.  Para las consultas de uso intensivo de E/S, Hive se puede optimizar para obtener un mejor rendimiento con Azure Data Lake Storage Gen1.  
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * **Cuenta de Data Lake Storage Gen1**. Para instrucciones sobre cómo crear una, consulte la [introducción a Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
@@ -55,17 +55,15 @@ Las cargas de trabajo que hacen un uso intensivo de E/S pueden beneficiarse de u
 
 El número de tareas simultáneas en ejecución o con paralelismo estará enlazado por la cantidad total de memoria YARN.  El número de contenedores YARN determina cuántas tareas simultáneas se pueden ejecutar.  Para buscar la memoria YARN por nodo, puede ir a Ambari.  Vaya a YARN y vea la pestaña Configs (Configuraciones).  En esta ventana se muestra el tamaño de la memoria de YARN.  
 
-        Total YARN memory = nodes * YARN memory per node
-        # of YARN containers = Total YARN memory / Tez container size
+> Total de memoria de YARN = nodos * memoria de YARN por nodo Número de contenedores de YARN = total de memoria de YARN/tamaño de contenedor de Tez
+
 La clave para mejorar el rendimiento mediante Data Lake Storage Gen1 es aumentar la simultaneidad tanto como sea posible.  Tez calcula automáticamente el número de tareas que se deben crear por lo que no es necesario establecerlo.   
 
 ## <a name="example-calculation"></a>Cálculo de ejemplo
 
 Supongamos que tiene un clúster D14 de 8 nodos.  
 
-    Total YARN memory = nodes * YARN memory per node
-    Total YARN memory = 8 nodes * 96GB = 768GB
-    # of YARN containers = 768GB / 3072MB = 256
+> Total de memoria de YARN = nodos * memoria de YARN por nodo Cantidad total de memoria de YARN= 8 nodos * 96 GB = 768 GB Número de contenedores de YARN = 768 GB/3072 MB = 256
 
 ## <a name="limitations"></a>Limitaciones
 

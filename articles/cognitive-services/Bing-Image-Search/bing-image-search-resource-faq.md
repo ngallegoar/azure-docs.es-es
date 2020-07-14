@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 6841e573446103466e2719797da9e4161b70b5a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3114c19ecff1a8ae70012592592078302d4a6222
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "68881697"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800030"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Preguntas más frecuentes (P+F) sobre Bing Image Search API
 
@@ -39,15 +39,18 @@ Para acceder a los encabezados, puede realizar la solicitud de Bing Image Search
 
 Es fácil instalar un proxy CORS para permitir que nuestra [aplicación de tutorial](tutorial-bing-image-search-single-page-app.md) obtenga acceso a los encabezados de cliente opcionales. En primer lugar, si aún no lo tiene, [instale Node.js](https://nodejs.org/en/download/). A continuación, escriba el siguiente comando en un símbolo del sistema.
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
 Luego, cambie el punto de conexión de Bing Image Search API del archivo HTML a:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Por último, inicie el proxy CORS con el siguiente comando:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Deje abierta la ventana de comandos mientras usa la aplicación del tutorial, ya que si la cierra, se detendrá el proxy. En la sección de encabezados HTTP expandibles situada bajo los resultados de la búsqueda, puede ver el encabezado `X-MSEdge-ClientID` (entre otras cosas) y comprobar que es el mismo en todas las solicitudes.
 

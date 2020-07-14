@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: d3bd1156de4aed7d1ea5c530605697f2dc80d63c
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: da776c679d5ded6f53cd0d224828fffee058d37d
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80476982"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920610"
 ---
 # <a name="high-availability-ports-overview"></a>Introducción a los puertos de alta disponibilidad
 
@@ -87,20 +87,17 @@ Si el escenario requiere que configure más de un front-end de puertos HA para e
 
 ### <a name="an-internal-load-balancer-with-ha-ports-and-a-public-load-balancer-on-the-same-back-end-instance"></a>Un equilibrador de carga interno con puertos HA y un equilibrador de carga público en la misma instancia de back-end
 
-Puede configurar *un* recurso público Load Balancer Estándar para los recursos de back-end, junto con una única instancia interna de Load Balancer Estándar con puertos HA.
-
->[!NOTE]
->Esta funcionalidad está disponible actualmente a través de plantillas de Azure Resource Manager, pero no mediante Azure Portal.
+Puede configurar *un* recurso de una instancia pública de Load Balancer estándar para los recursos de back-end, junto con una única instancia interna de Load Balancer estándar con puertos HA.
 
 ## <a name="limitations"></a>Limitaciones
 
 - Las reglas de equilibrio de carga de puertos de alta disponibilidad solo están disponibles para la instancia interna de Standard Load Balancer.
-- No se admite la combinación de una regla de equilibrio de carga de puertos HA y una regla de equilibrio de carga de puertos no HA que apuntan a las mismas IPconfigurations de back-end.
+- No se admite la combinación de una regla de equilibrio de carga de puertos HA y una regla de equilibrio de carga de puertos no HA que apuntan a las mismas IPconfiguration de back-end, salvo que ambas tengan IP flotante habilitado.
 - Los fragmentos IP existentes se reenviarán mediante reglas de equilibrio de carga de puertos de alta disponibilidad al mismo destino que el primer paquete.  No se admite la fragmentación de IP en un paquete UDP o TCP.
 - La simetría de flujo (principalmente en escenarios de NVA) se admite con instancias de back-end y una NIC única (y una sola configuración de IP), solo si se usa como se muestra en el diagrama anterior y mediante reglas de equilibrio de carga de los puertos de alta disponibilidad. No se proporciona para ningún otro escenario. Esto significa que dos o más recursos de Load Balancer y sus respectivas reglas toman decisiones independientes y nunca se coordinan. Consulte la descripción y el diagrama de los [dispositivos virtuales de red](#nva). Si usa varias NIC o sitúa la aplicación virtual de red entre una instancia pública y una privada de Load Balancer, la simetría de flujo no está disponible.  Para solucionar este problema, puede alterar el origen del primer paquete del flujo de entrada a la IP de la aplicación para permitir que las respuestas lleguen a la misma NVA.  Sin embargo, se recomienda encarecidamente utilizar una sola NIC y la arquitectura de referencia que se ha mostrado en el diagrama anterior.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Configuración de los puertos de alta disponibilidad para un equilibrador de carga interno](load-balancer-configure-ha-ports.md)
+- Aprenda a configurar los puertos HA para su ILB a través del portal (tutorial-load-balancer-standard-internal-portal.mdl#create-a-load-balancer-rule), [PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), la [CLI](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule)o las [plantillas](load-balancer-get-started-ilb-arm-template.md).
 - [Más información sobre Load Balancer estándar](load-balancer-standard-overview.md)

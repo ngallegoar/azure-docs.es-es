@@ -1,9 +1,9 @@
 ---
 title: Habilitación de TDE en SQL con Azure Key Vault
-titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Aprenda a configurar una instancia de Azure SQL Database y Azure Synapse Analytics para comenzar a usar Cifrado de datos transparente (TDE) para el cifrado en reposo mediante PowerShell o la CLI.
+titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
+description: Aprenda a configurar una instancia de Azure SQL Database y Azure Synapse Analytics para comenzar a usar Cifrado de datos transparente (TDE) para el cifrado en reposo mediante PowerShell o la CLI de Azure.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: seo-lt-2019 sqldbrb=1
 ms.devlang: ''
@@ -12,17 +12,17 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 7a71d4f2d724584509f25c7ae458ed6ab1b415af
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ac72e3e232ec17c4c4d810f6d2c7fed6fa84fd02
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84039876"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85981335"
 ---
-# <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell y CLI: Habilitación de Cifrado de datos transparente con una clave administrada por el cliente de Azure Key Vault
+# <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell y la CLI de Azure: Habilitación de Cifrado de datos transparente con una clave administrada por el cliente de Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-En este artículo se explica cómo usar una clave de Azure Key Vault para Cifrado de datos transparente (TDE) en una instancia de Azure SQL Database o Azure Synapse Analytics (anteriormente, SQL DW). Para obtener más información sobre TDE con la integración de Azure Key Vault - compatibilidad con Traiga su propia clave (BYOK), visite [TDE with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-overview.md) (TDE con claves administradas por el cliente de Azure Key Vault).
+En este artículo se explica cómo usar una clave de Azure Key Vault para Cifrado de datos transparente (TDE) en una instancia de Azure SQL Database o Azure Synapse Analytics (anteriormente, SQL Data Warehouse). Para obtener más información sobre TDE con la integración de Azure Key Vault - compatibilidad con Traiga su propia clave (BYOK), visite [TDE with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-overview.md) (TDE con claves administradas por el cliente de Azure Key Vault).
 
 ## <a name="prerequisites-for-powershell"></a>Requisitos previos para PowerShell
 
@@ -47,9 +47,9 @@ Para obtener información específica sobre Key Vault, consulte las [instruccion
 > [!IMPORTANT]
 > El módulo de Azure Resource Manager (RM) para PowerShell todavía es compatible, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. El módulo de AzureRM continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo.  Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos. Para obtener más información sobre la compatibilidad, vea [Presentación del nuevo módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
-## <a name="assign-an-azure-ad-identity-to-your-server"></a>Asignar una identidad de Azure AD al servidor
+## <a name="assign-an-azure-active-directory-azure-ad-identity-to-your-server"></a>Asignar una identidad de Azure Active Directory (Azure AD) al servidor
 
-Si ya tiene un [servidor](logical-servers.md), use lo siguiente para agregar una identidad de Azure AD al servidor:
+Si ya tiene un [servidor](logical-servers.md), use lo siguiente para agregar una identidad de Azure Active Directory (Azure AD) al servidor:
 
    ```powershell
    $server = Set-AzSqlServer -ResourceGroupName <SQLDatabaseResourceGroupName> -ServerName <LogicalServerName> -AssignIdentity
@@ -121,9 +121,9 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
    -ServerName <LogicalServerName> -DatabaseName <DatabaseName>  
 ```
 
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[La CLI de Azure](#tab/azure-cli)
 
-Para instalar la versión 2.0 o posterior de la interfaz de la línea de comandos necesaria y conectar con la suscripción a Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Para instalar la versión necesaria de la CLI de Azure (2.0 o posterior) y conectarla con la suscripción a Azure, consulte [Instalación y configuración de la Interfaz de la línea de comandos de Azure 2.0 multiplataforma](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 Para obtener información específica sobre Key Vault, consulte [Administración de Key Vault mediante la CLI 2.0](../../key-vault/general/manage-with-cli2.md) y [Uso de la eliminación temporal de Key Vault con la CLI](../../key-vault/general/soft-delete-cli.md).
 
@@ -207,7 +207,7 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
    Remove-AzSqlServerKeyVaultKey -KeyId <KeyVaultKeyId> -ServerName <LogicalServerName> -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
 
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[La CLI de Azure](#tab/azure-cli)
 
 - Para obtener la configuración general de la base de datos, vea [az sql](/cli/azure/sql).
 
@@ -229,7 +229,7 @@ Compruebe lo siguiente si se produce un problema:
    Get-AzSubscription -SubscriptionId <SubscriptionId>
    ```
 
-   # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+   # <a name="the-azure-cli"></a>[La CLI de Azure](#tab/azure-cli)
 
    ```powershell
    az account show - s <SubscriptionId>

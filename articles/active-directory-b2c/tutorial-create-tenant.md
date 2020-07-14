@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 09/28/2019
+ms.topic: tutorial
+ms.date: 07/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c31f3c4c6688af7d2142180e8d9b7100965bad96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 044a2d2cb23e36234256b9b19363462e542176fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78186410"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806857"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Creación de un inquilino de Azure Active Directory B2C
 
@@ -49,27 +49,20 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
     ![Creación de un nuevo inquilino de Azure AD B2C seleccionado en Azure Portal](media/tutorial-create-tenant/portal-02-create-tenant.png)
 
-1. Rellene los campos **Nombre de la organización** y **Nombre de dominio inicial**. Seleccione el **país o la región** (no se puede cambiar más adelante) y seleccione **Crear**.
+1. En la página **Crear directorio**, escriba lo siguiente:
 
-    El nombre de dominio se usa como parte del nombre de dominio del inquilino completo. En este ejemplo, el nombre del inquilino es *contosob2c.onmicrosoft.com*:
+   - **Nombre de la organización**: escriba un nombre para el inquilino de Azure AD B2C.
+   - **Nombre de dominio inicial**: escriba un nombre de dominio para el inquilino de Azure AD B2C.
+   - **País o región**: seleccione el país o región. Esta selección no se puede cambiar más adelante.
+   - **Suscripción**: seleccione su suscripción en la lista.
+   - **Grupo de recursos**: seleccione el grupo de recursos que contendrá al inquilino. O bien, seleccione **Crear nuevo**, escriba un **nombre** para el grupo de recursos, seleccione la **ubicación del grupo de recursos** y, después, seleccione **Aceptar**.
 
-    ![Creación de un formulario del inquilino con valores de ejemplo en Azure Portal](media/tutorial-create-tenant/portal-03-tenant-naming.png)
+    ![Creación de un formulario del inquilino con valores de ejemplo en Azure Portal](media/tutorial-create-tenant/review-and-create-tenant.png)
 
-1. Una vez completada la creación de inquilinos, seleccione el vínculo **Crear nuevo inquilino B2C o vincular al inquilino existente** en la parte superior de la página de creación de inquilinos.
+1. Seleccione **Revisar + crear**.
+1. Revise la configuración del directorio. Seleccione **Crear**.
 
-    ![Vinculación del vínculo de la ruta de navegación del inquilino resaltado en Azure Portal](media/tutorial-create-tenant/portal-04-select-link-sub-link.png)
-
-1. Seleccione **Vincular un inquilino de Azure AD B2C existente a mi suscripción de Azure**.
-
-   ![Vinculación de una selección de suscripción existente en Azure Portal](media/tutorial-create-tenant/portal-05-link-subscription.png)
-
-1. Seleccione el **inquilino de Azure AD B2C** que creó y, a continuación, seleccione su **suscripción**.
-
-    En **Grupo de recursos**, seleccione **Crear nuevo**. Escriba un **nombre** para el grupo de recursos que contendrá el inquilino, seleccione la **ubicación del grupo de recursos** y, a continuación, seleccione **Crear**.
-
-    ![Vinculación del formulario de configuración de la suscripción en Azure Portal](media/tutorial-create-tenant/portal-06-link-subscription-settings.png)
-
-    Puede vincular varios inquilinos de Azure AD B2C a una única suscripción de Azure con fines de facturación.
+Puede vincular varios inquilinos de Azure AD B2C a una única suscripción de Azure con fines de facturación. Para vincular un inquilino, debe ser administrador en el inquilino de Azure AD B2C y tener asignado al menos un rol de colaborador en la suscripción de Azure. Consulte [Vinculación de un inquilino de Azure AD B2C a una suscripción](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
 
 ## <a name="select-your-b2c-tenant-directory"></a>Selección de su directorio de inquilinos B2C
 

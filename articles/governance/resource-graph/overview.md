@@ -1,14 +1,14 @@
 ---
 title: Información general de Azure Resource Graph
 description: Conozca la forma en que el servicio Azure Resource Graph permite realizar consultas complejas de recursos a escala en suscripciones e inquilinos.
-ms.date: 03/02/2020
+ms.date: 06/29/2020
 ms.topic: overview
-ms.openlocfilehash: a084215f6f2d1b5a8ed34ca59266e1c0087f608b
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 9c15ff12f21c1d3d168828eae67de51069cdcada
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167271"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970610"
 ---
 # <a name="what-is-azure-resource-graph"></a>¿Qué es Azure Resource Graph?
 
@@ -29,7 +29,7 @@ En esta documentación, repasará cada característica en detalle.
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Cómo Resource Graph complementa Azure Resource Manager
 
-Actualmente, Azure Resource Manager admite consultas sobre campos de recursos básicos, específicamente: nombre del recurso, identificador, tipo, grupo de recursos, suscripción y ubicación. Resource Manager también proporciona los medios para llamar a proveedores de recursos individuales a fin de obtener las propiedades detalladas de los recursos de uno en uno.
+Actualmente, Resource Manager admite consultas sobre campos de recursos básicos, específicamente: nombre del recurso, identificador, tipo, grupo de recursos, suscripción y ubicación. Resource Manager también proporciona los medios para llamar a proveedores de recursos individuales a fin de obtener las propiedades detalladas de los recursos de uno en uno.
 
 Con Azure Resource Graph, puede tener acceso a estas propiedades que devuelven los proveedores de recursos sin necesidad de realizar llamadas individuales a cada proveedor de recursos. Para ver una lista de los tipos de recursos admitidos, revise la [referencia de tabla y tipo de recurso](./reference/supported-tables-resources.md). Una manera alternativa de ver los tipos de recursos admitidos es mediante el [explorador de esquemas de Azure Resource Graph Explorer](./first-query-portal.md#schema-browser).
 
@@ -52,8 +52,7 @@ Ahora que comprende mejor qué es Azure Resource Graph, vamos a profundizar en c
 
 Es importante entender que el lenguaje de consulta de Azure Resource Graph se basa en el [lenguaje de consulta de Kusto](/azure/data-explorer/data-explorer-overview) que usa Azure Data Explorer.
 
-En primer lugar, para obtener información sobre las operaciones y funciones que se pueden usar con Azure Resource Graph, consulte [Lenguaje de consulta de Resource Graph](./concepts/query-language.md).
-Para examinar los recursos, consulte [Explorar recursos](./concepts/explore-resources.md).
+En primer lugar, para obtener información sobre las operaciones y funciones que se pueden usar con Azure Resource Graph, consulte [Lenguaje de consulta de Resource Graph](./concepts/query-language.md). Para examinar los recursos, consulte [Explorar recursos](./concepts/explore-resources.md).
 
 ## <a name="permissions-in-azure-resource-graph"></a>Permisos en Azure Resource Graph
 
@@ -62,8 +61,7 @@ Para usar Resource Graph, debe tener los derechos adecuados en el [Control de ac
 > [!NOTE]
 > Resource Graph usa las suscripciones disponibles de una entidad de seguridad durante el inicio de sesión. Para ver los recursos de una nueva suscripción que se agregan durante una sesión activa, la entidad de seguridad debe actualizar el contexto. Esta acción se produce automáticamente al cerrar sesión y volver a iniciarla posteriormente.
 
-La CLI de Azure y Azure PowerShell usan suscripciones a las que el usuario tiene acceso. Si se usa la API REST directamente, el usuario es quien proporciona la lista de suscripciones. Si el usuario tiene acceso a cualquiera de las suscripciones de la lista, los resultados de la consulta se devuelven a las suscripciones a las que el usuario tiene acceso. Este comportamiento es el mismo que cuando se llama a [Grupo de recursos: Lista](/rest/api/resources/resourcegroups/list) \-, se obtienen grupos de recursos a los que se tiene acceso sin indicar que el resultado puede ser parcial.
-Si no hay suscripciones en la lista de suscripciones para las que el usuario tiene los derechos adecuados, la respuesta es _403_ (prohibido).
+La CLI de Azure y Azure PowerShell usan suscripciones a las que el usuario tiene acceso. Si se usa la API REST directamente, el usuario es quien proporciona la lista de suscripciones. Si el usuario tiene acceso a cualquiera de las suscripciones de la lista, los resultados de la consulta se devuelven a las suscripciones a las que el usuario tiene acceso. Este comportamiento es el mismo que cuando se llama a [Grupo de recursos: Lista](/rest/api/resources/resourcegroups/list) \-, se obtienen grupos de recursos a los que se tiene acceso sin indicar que el resultado puede ser parcial. Si no hay suscripciones en la lista de suscripciones para las que el usuario tiene los derechos adecuados, la respuesta es _403_ (prohibido).
 
 ## <a name="throttling"></a>Limitaciones
 
@@ -91,5 +89,5 @@ Resource Graph admite la CLI de Azure, Azure PowerShell, y el SDK de Azure para 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga más información sobre el [lenguaje de consulta](./concepts/query-language.md).
-- Consulte el lenguaje en uso en[Consultas básicas](./samples/starter.md).
-- Consulte los usos avanzados en [Consultas avanzadas](./samples/advanced.md).
+- Vea el lenguaje en uso en[Consultas básicas](./samples/starter.md).
+- Vea los usos avanzados en [Consultas avanzadas](./samples/advanced.md).

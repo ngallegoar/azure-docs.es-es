@@ -3,23 +3,23 @@ title: Diagnóstico y solución de problemas al usar el SDK de .NET de Azure Cos
 description: Use características como registro del lado cliente y otras herramientas de terceros para identificar, diagnosticar y solucionar problemas de Azure Cosmos DB cuando use el SDK de .NET.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 05/06/2020
+ms.date: 06/16/2020
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 55c462795b29cd678a5fd7816211bce720d554e1
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 0eb5d9cd86be05e5ad69bc9543231987e3c1dd2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170365"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85799272"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnóstico y solución de problemas al usar el SDK de .NET de Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [SDK de Java v4](troubleshoot-java-sdk-v4-sql.md)
-> * [SDK de Java v2 asincrónico](troubleshoot-java-async-sdk.md)
+> * [SDK de Java v2 asincrónico](troubleshoot-java-async-sdk.md)
 > * [.NET](troubleshoot-dot-net-sdk.md)
 > 
 
@@ -32,10 +32,10 @@ Tenga en cuenta la siguiente lista de comprobación antes de que la aplicación 
 *    Utilice el [SDK](sql-api-sdk-dotnet-standard.md) más reciente. No se debe utilizar la previsualización de SDK en la producción. Esto evitará problemas conocidos que ya están solucionados.
 *    Revise los [consejos de rendimiento](performance-tips.md) y siga las prácticas sugeridas. Esto ayudará a evitar el escalado, la latencia y otros problemas de rendimiento.
 *    Habilite el registro de SDK para ayudarle a solucionar un problema. La habilitación del registro puede afectar al rendimiento, por lo que es mejor hacerlo solo para solucionar problemas. Puede habilitar los registros siguientes:
-    *    Registre [métricas](monitor-accounts.md) mediante Azure Portal. Las métricas del portal muestran la telemetría de Azure Cosmos DB, que resulta útil para determinar si el problema corresponde a Azure Cosmos DB o al cliente.
-    *    Registre la [cadena de diagnósticos](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) en el SDK de V2 o el [diagnóstico](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics) en el SDK de V3 a partir de las respuestas de operación de punto.
-    *    Registre las [métricas de consultas SQL](sql-api-query-metrics.md) desde todas las respuestas de consultas. 
-    *    Siga la configuración del [registro del SDK]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md).
+*    Registre [métricas](monitor-accounts.md) mediante Azure Portal. Las métricas del portal muestran la telemetría de Azure Cosmos DB, que resulta útil para determinar si el problema corresponde a Azure Cosmos DB o al cliente.
+*    Registre la [cadena de diagnósticos](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) en el SDK de V2 o el [diagnóstico](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics) en el SDK de V3 a partir de las respuestas de operación de punto.
+*    Registre las [métricas de consultas SQL](sql-api-query-metrics.md) desde todas las respuestas de consultas. 
+*    Siga la configuración del [registro del SDK]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md).
 
 Eche un vistazo a la sección [Problemas y soluciones](#common-issues-workarounds) de este artículo.
 
@@ -87,7 +87,7 @@ Esta latencia puede tener varias causas:
 
 ### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Agotamiento de puertos SNAT (PAT) de Azure
 
-Si la aplicación está implementada en [Azure Virtual Machines sin una dirección IP pública](../load-balancer/load-balancer-outbound-connections.md#defaultsnat), los [puertos SNAT de Azure](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) se usan de manera predeterminada para establecer conexiones con cualquier punto de conexión fuera de la VM. El número de conexiones permitidas desde la máquina virtual hasta el punto de conexión de Azure Cosmos DB está limitado por la [configuración de Azure SNAT](../load-balancer/load-balancer-outbound-connections.md#preallocatedports). Esta situación puede conducir a la limitación de la conexión, al cierre de la conexión o a los [tiempos de espera de solicitudes](#request-timeouts) mencionados anteriormente.
+Si la aplicación está implementada en [Azure Virtual Machines sin una dirección IP pública](../load-balancer/load-balancer-outbound-connections.md), los [puertos SNAT de Azure](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) se usan de manera predeterminada para establecer conexiones con cualquier punto de conexión fuera de la VM. El número de conexiones permitidas desde la máquina virtual hasta el punto de conexión de Azure Cosmos DB está limitado por la [configuración de Azure SNAT](../load-balancer/load-balancer-outbound-connections.md#preallocatedports). Esta situación puede conducir a la limitación de la conexión, al cierre de la conexión o a los [tiempos de espera de solicitudes](#request-timeouts) mencionados anteriormente.
 
  Los puertos SNAT de Azure se usan solo cuando la VM tiene una dirección IP privada y se conecta a una dirección IP pública. Hay dos soluciones alternativas para evitar la limitación de SNAT de Azure (siempre que esté usando una única instancia de cliente en toda la aplicación):
 
@@ -113,9 +113,11 @@ Si recibe el siguiente mensaje de error 401: "La firma MAC que se encuentra en l
 
 1. La clave se rotó y no siguió los [procedimientos recomendados](secure-access-to-data.md#key-rotation). Ese suele ser el caso. La rotación de claves de cuenta de Cosmos DB puede tardar entre unos segundos hasta días, según el tamaño de la cuenta de Cosmos DB.
    1. La firma MAC 401 aparece poco después de una rotación de claves y finalmente se detiene sin realizar ningún cambio. 
-2. La clave está mal configurada en la aplicación, por lo que no coincide con la cuenta.
+1. La clave está mal configurada en la aplicación, por lo que no coincide con la cuenta.
    1. El problema de la firma MAC 401 será coherente y se producirá en todas las llamadas.
-3. Hay una condición de carrera con la creación de contenedores. Una instancia de la aplicación está intentando tener acceso al contenedor antes de completar la creación de dicho contenedor. Esto comúnmente sucede si la aplicación está en ejecución y el contenedor se elimina y se vuelve a crear con el mismo nombre. El SDK intentará usar el nuevo contenedor, pero la creación de este seguirá en curso, por lo que no tendrá las claves.
+1. La aplicación utiliza las [claves de solo lectura](secure-access-to-data.md#master-keys) para las operaciones de escritura.
+   1. El problema de la firma 401 MAC solo se producirá cuando la aplicación esté realizando solicitudes de escritura, pero las solicitudes de lectura se realizarán correctamente.
+1. Hay una condición de carrera con la creación de contenedores. Una instancia de la aplicación está intentando tener acceso al contenedor antes de completar la creación de dicho contenedor. Esto comúnmente sucede si la aplicación está en ejecución y el contenedor se elimina y se vuelve a crear con el mismo nombre. El SDK intentará usar el nuevo contenedor, pero la creación de este seguirá en curso, por lo que no tendrá las claves.
    1. El problema de la firma MAC 401 aparecerá poco después de la creación de un contenedor y solo se presentará hasta que se complete la creación del contenedor.
  
  ### <a name="http-error-400-the-size-of-the-request-headers-is-too-long"></a>Error HTTP 400. Los encabezados de solicitud son demasiado largos.

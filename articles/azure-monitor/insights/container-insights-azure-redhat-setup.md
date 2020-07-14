@@ -2,13 +2,13 @@
 title: Configuración de Red Hat OpenShift en Azure v3.x con Azure Monitor para contenedores | Microsoft Docs
 description: En este artículo se describe cómo configurar la supervisión de un clúster de Kubernetes con Azure Monitor hospedado en Red Hat OpenShift en Azure versión 3 y posteriores.
 ms.topic: conceptual
-ms.date: 04/02/2020
-ms.openlocfilehash: c39eda03fc5fb7521bcf08c52eaabc28d4cb1256
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.date: 06/30/2020
+ms.openlocfilehash: e04ef42971756cffe0906e1ddfb8406e876588bc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204141"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800518"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Configuración de Red Hat OpenShift en Azure v3.x con Azure Monitor para contenedores
 
@@ -30,11 +30,49 @@ Azure Monitor para contenedores admite la supervisión de Red Hat OpenShift en A
 - Datos en directo (versión preliminar)
 - [Recopilación de métricas](container-insights-update-metrics.md) de nodos y pods de clúster, y almacenamiento de estos en la base de datos de métricas de Azure Monitor
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
+
+- Un [área de trabajo de Log Analytics.](../platform/design-logs-deployment.md)
+
+    Azure Monitor para contenedores admite un área de trabajo de Log Analytics en las regiones enumeradas en los [productos por región](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor) de Azure. Para crear el área de trabajo, puede configurarla mediante [Azure Resource Manager](../platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) o en el [Azure Portal](../learn/quick-create-workspace.md).
 
 - Para habilitar y acceder a las características de Azure Monitor para contenedores debe ser miembro, como mínimo, del rol *Colaborador* de la suscripción de Azure y miembro del rol [*Colaborador de Log Analytics*](../platform/manage-access.md#manage-access-using-azure-permissions) del área de trabajo de Log Analytics configurada con Azure Monitor para contenedores.
 
 - Para ver los datos de supervisión, debe ser miembro del permiso de rol [*Lector de Log Analytics*](../platform/manage-access.md#manage-access-using-azure-permissions) en el área de trabajo de Log Analytics configurada con Azure Monitor para contenedores.
+
+## <a name="identify-your-log-analytics-workspace-id"></a>Detección del identificador del área de trabajo de Log Analytics
+
+ Para integrar en un área de trabajo de Log Analytics existente, empiece por detectar el identificador del recurso completo de su área de trabajo de Log Analytics. El identificador de recurso del área de trabajo es necesario para el parámetro `workspaceResourceId` cuando se habilita la supervisión mediante el método de plantilla de Azure Resource Manager.
+
+1. Enumere todas las suscripciones a las que tiene acceso mediante la ejecución del siguiente comando:
+
+    ```azurecli
+    az account list --all -o table
+    ```
+
+    El resultado tendrá un aspecto similar al siguiente:
+
+    ```azurecli
+    Name                                  CloudName    SubscriptionId                        State    IsDefault
+    ------------------------------------  -----------  ------------------------------------  -------  -----------
+    Microsoft Azure                       AzureCloud   0fb60ef2-03cc-4290-b595-e71108e8f4ce  Enabled  True
+    ```
+
+1. Copie el valor de **SubscriptionId**.
+
+1. Cambie a la suscripción que hospeda el área de trabajo de Log Analytics mediante la ejecución del siguiente comando:
+
+    ```azurecli
+    az account set -s <subscriptionId of the workspace>
+    ```
+
+1. Muestre la lista de áreas de trabajo de sus suscripciones en el formato JSON predeterminado mediante la ejecución del siguiente comando:
+
+    ```
+    az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
+    ```
+
+1. En la salida, busque el nombre del área de trabajo y copie el identificador de recurso completo de esa área de trabajo de Log Analytics en el campo **identificador**.
 
 ## <a name="enable-for-a-new-cluster-using-an-azure-resource-manager-template"></a>Habilitar para un nuevo clúster mediante una plantilla de Azure Resource Manager
 
@@ -54,7 +92,7 @@ Este método incluye dos plantillas JSON. Una plantilla especifica la configurac
 
 - [Grupo de seguridad de Azure AD:](../../openshift/howto-aad-app-configuration.md#create-an-azure-ad-security-group) se anotó después de realizar los pasos para crearlo o utilizar uno ya creado.
 
-- Identificador de recurso de un área de trabajo de Log Analytics existente.
+- Identificador de recurso de un área de trabajo de Log Analytics existente. Consulte [Detección del identificador del área de trabajo de Log Analytics](#identify-your-log-analytics-workspace-id) para información sobre cómo obtener esta información.
 
 - El número de nodos maestros que se crearán en el clúster.
 
@@ -70,18 +108,16 @@ Si no conoce el concepto de implementación de recursos mediante una plantilla, 
 
 Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe ejecutar la versión 2.0.65 de la CLI de Azure o cualquier versión posterior. Para identificar la versión, ejecute `az --version`. Si necesita instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-El área de trabajo de Log Analytics debe crearse antes de habilitar la supervisión con Azure PowerShell o la CLI. Para crear el área de trabajo, puede configurarla una mediante [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) o [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md).
-
 1. Descargue y guarde en una carpeta local, la plantilla de Azure Resource Manager y el archivo de parámetros para crear un clúster con el complemento de supervisión con los siguientes comandos:
 
-    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_new_cluster/newClusterWithMonitoring.json`
+    `curl -LO https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/onboarding/aro/enable_monitoring_to_new_cluster/newClusterWithMonitoring.json`
 
-    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_new_cluster/newClusterWithMonitoringParam.json`
+    `curl -LO https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/onboarding/aro/enable_monitoring_to_new_cluster/newClusterWithMonitoringParam.json`
 
 2. Inicio de sesión en Azure
 
     ```azurecli
-    az login    
+    az login
     ```
 
     Si tiene acceso a varias suscripciones, ejecute `az account set -s {subscription ID}` y reemplace `{subscription ID}` por la suscripción que quiere usar.
@@ -149,7 +185,7 @@ Este método incluye dos plantillas JSON. Una plantilla especifica la configurac
 
 - El grupo de recursos en el que se implementa el clúster.
 
-- Un área de trabajo de Log Analytics.
+- Un área de trabajo de Log Analytics. Consulte [Detección del identificador del área de trabajo de Log Analytics](#identify-your-log-analytics-workspace-id) para información sobre cómo obtener esta información.
 
 Si no conoce el concepto de implementación de recursos mediante una plantilla, consulte:
 
@@ -159,18 +195,16 @@ Si no conoce el concepto de implementación de recursos mediante una plantilla, 
 
 Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe ejecutar la versión 2.0.65 de la CLI de Azure o cualquier versión posterior. Para identificar la versión, ejecute `az --version`. Si necesita instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-El área de trabajo de Log Analytics debe crearse antes de habilitar la supervisión con Azure PowerShell o la CLI. Para crear el área de trabajo, puede configurarla una mediante [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) o [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md).
-
 1. Descargue la plantilla y el archivo de parámetros para actualizar el clúster con el complemento de supervisión mediante el uso de los siguientes comandos:
 
-    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_existing_cluster/existingClusterOnboarding.json`
+    `curl -LO https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/onboarding/aro/enable_monitoring_to_existing_cluster/existingClusterOnboarding.json`
 
-    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_existing_cluster/existingClusterParam.json`
+    `curl -LO https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/onboarding/aro/enable_monitoring_to_existing_cluster/existingClusterParam.json`
 
 2. Inicio de sesión en Azure
 
     ```azurecli
-    az login    
+    az login
     ```
 
     Si tiene acceso a varias suscripciones, ejecute `az account set -s {subscription ID}` y reemplace `{subscription ID}` por la suscripción que quiere usar.
@@ -187,7 +221,7 @@ El área de trabajo de Log Analytics debe crearse antes de habilitar la supervis
     az openshift show -g <clusterResourceGroup> -n <clusterName>
     ```
 
-5. Edite el archivo de parámetros JSON **existingClusterParam.json** y actualice los valores *araResourceId* y *araResoruceLocation*. El valor de **workspaceResourceId** es el identificador de recurso completo del área de trabajo de Log Analytics e incluye el nombre del área de trabajo.
+5. Edite el archivo de parámetros JSON **existingClusterParam.json** y actualice los valores *aroResourceId* y *aroResourceLocation*. El valor de **workspaceResourceId** es el identificador de recurso completo del área de trabajo de Log Analytics e incluye el nombre del área de trabajo.
 
 6. Para implementar con la CLI de Azure, ejecute los siguientes comandos:
 

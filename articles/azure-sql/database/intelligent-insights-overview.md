@@ -2,7 +2,7 @@
 title: Supervisión del rendimiento de las bases de datos con Intelligent Insights
 description: Intelligent Insights de Azure SQL Database e Instancia administrada de Azure SQL usa inteligencia integrada para supervisar continuamente el uso de las bases de datos mediante inteligencia artificial y detectar eventos potencialmente perjudiciales que provoquen un rendimiento insuficiente.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -10,20 +10,20 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 08904b3a5a1053d64e3b54582189da5d82f62dee
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/12/2020
+ms.openlocfilehash: 96557a6049b316a69c32e96012206eab128e024a
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84040946"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986511"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Intelligent Insights con inteligencia artificial para supervisar y solucionar problemas de rendimiento de base de datos (versión preliminar)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Intelligent Insights de Azure SQL Database e Instancia administrada de Azure SQL le permite saber lo que ocurre con el rendimiento de las bases de datos.
+Intelligent Insights de Azure SQL Database y Azure SQL Managed Instance le permite saber lo que ocurre con el rendimiento de la base de datos.
 
-Intelligent Insights usa inteligencia integrada para supervisar continuamente el uso de la base de datos mediante inteligencia artificial y detectar eventos potencialmente perjudiciales que provoquen un rendimiento bajo. Una vez detectados, se realiza un análisis detallado que genera un registro de recursos de Intelligent Insights (denominado SQLInsights) con una evaluación inteligente del problema. Esta evaluación está formada por un análisis de la causa raíz del problema de rendimiento de la base de datos y, si es posible, recomendaciones para mejorar el rendimiento.
+Intelligent Insights usa inteligencia integrada para supervisar continuamente el uso de la base de datos mediante inteligencia artificial y detectar eventos potencialmente perjudiciales que provoquen un rendimiento bajo. Una vez detectados, se realiza un análisis detallado que genera un registro de recursos de Intelligent Insights (denominado SQLInsights) con una evaluación inteligente de la incidencia. Esta evaluación está formada por un análisis de la causa raíz del problema de rendimiento de la base de datos y, si es posible, recomendaciones para mejorar el rendimiento.
 
 ## <a name="what-can-intelligent-insights-do-for-you"></a>¿Qué puede hacer Intelligent Insights por usted?
 
@@ -75,8 +75,11 @@ Las opciones de Intelligent Insights disponibles son:
 | :----------------------------- | ----- | ----- |
 | **Configure Intelligent Insights** (Configurar Intelligent Insights): Configure el análisis de Intelligent Insights para las bases de datos. | Sí | Sí |
 | **Stream insights to Azure SQL Analytics** (Transmitir conclusiones a Azure SQL Analytics): Transmita conclusiones a Azure SQL Analytics. | Sí | Sí |
-| **Stream insights to Event Hub** (Transmitir conclusiones a Event Hubs): Transmita conclusiones a Event Hubs para futuras integraciones personalizadas. | Sí | Sí |
-| **Stream insights to Azure Storage** (Transmitir conclusiones a Azure Storage): Transmita conclusiones a Azure Storage para su análisis adicional y archivado a largo plazo. | Sí | Sí |
+| **Stream insights to Azure Event Hubs** (Transmitir conclusiones a Azure Event Hubs): transmita conclusiones a Event Hubs para integraciones personalizadas adicionales. | Sí | Sí |
+| **Stream insights to Azure Storage** (Transmitir conclusiones a Azure Storage): transmita conclusiones a Azure Storage para análisis adicional y archivado a largo plazo. | Sí | Sí |
+
+> [!NOTE]
+> Intelligent Insights es una característica en versión preliminar que no está disponible en las siguientes regiones: Oeste de Europa, Norte de Europa, Oeste de EE. UU. 1 y Este de EE. UU. 1.
 
 ## <a name="configure-the-export-of-the-intelligent-insights-log"></a>Configuración de la exportación del registro de Intelligent Insights
 
@@ -86,7 +89,7 @@ La salida de Intelligent Insights se puede transmitir a uno de varios destinos p
 - La salida transmitida a Azure Event Hubs se puede usar para el desarrollo de escenarios de supervisión y alertas personalizados.
 - La salida transmitida a Azure Storage se puede usar para desarrollar aplicaciones personalizadas, por ejemplo, de generación de informes personalizados, archivo de datos a largo plazo, etc.
 
-Para realizar la integración de Azure SQL Analytics, Azure Event Hub, Azure Storage o productos de terceros para su uso es necesario habilitar primero el registro de Intelligent Insights (registro de "SQLInsights") en la hoja Configuración de diagnóstico de una base de datos y, después, configurar los datos de registro de Intelligent Insights para transmitirlos a uno de estos destinos.
+Para realizar la integración de Azure SQL Analytics, Azure Event Hubs, Azure Storage o productos de terceros para su uso, primero es necesario habilitar el registro de Intelligent Insights (el registro "SQLInsights") en la hoja Configuración de diagnóstico de una base de datos y, después, configurar los datos de registro de Intelligent Insights para transmitirlos a uno de estos destinos.
 
 Para obtener más información acerca de cómo habilitar el registro de Intelligent Insights y cómo configurar los datos de registro de métricas y recursos para su transmisión a un producto de consumo, consulte [Registros de métricas y diagnóstico](metrics-diagnostic-telemetry-logging-streaming-export-configure.md).
 
@@ -104,9 +107,9 @@ En el ejemplo siguiente se muestra un ejemplo de Intelligent Insights a través 
 
 ### <a name="set-up-with-event-hubs"></a>Configuración con Event Hubs
 
-Para usar Intelligent Insights con Event Hubs, configure los datos de registro de Intelligent Insights que transmitirá a Event Hubs, consulte [Métricas y registros de diagnóstico](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) y [Transmisión de registros de diagnóstico de Azure a Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md).
+Para usar Intelligent Insights con Event Hubs, configure los datos de registro de Intelligent Insights para que se transmitan a Event Hubs, vea [Métricas y registros de diagnóstico](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) y [Transmisión de registros de diagnóstico de Azure a Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md).
 
-Para usar Event Hubs para configurar una supervisión y alertas personalizadas, vea [Qué hacer con las métricas y registros de diagnóstico en Event Hubs](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs).
+Para usar Event Hubs a fin de configurar la supervisión y alertas personalizadas, vea [Qué hacer con las métricas y registros de diagnóstico en Event Hubs](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs).
 
 ### <a name="set-up-with-azure-storage"></a>Configuración con Azure Storage
 
@@ -114,7 +117,7 @@ Para usar Intelligent Insights con Storage, configure los datos de registro de I
 
 ### <a name="custom-integrations-of-intelligent-insights-log"></a>Integraciones personalizadas del registro de Intelligent Insights
 
-Para usar Intelligent Insights con herramientas de terceros, o para un desarrollo de supervisión y alertas personalizado, vea [Use Intelligent Insights database performance diagnostics log](intelligent-insights-use-diagnostics-log.md) (Uso del registro de diagnóstico de rendimiento de la base de datos de Intelligent Insights).
+Para usar Intelligent Insights con herramientas de terceros, o bien para el desarrollo personalizado de supervisión y alertas, vea [Uso del registro de diagnóstico de rendimiento de la base de datos de Intelligent Insights](intelligent-insights-use-diagnostics-log.md).
 
 ## <a name="detection-metrics"></a>Métricas de detección
 
@@ -133,7 +136,7 @@ Se consideran todas las métricas juntas en distintas relaciones a través de un
 
 - Detalles del problema de rendimiento detectado.
 - Análisis de la causa raíz del problema detectado.
-- Recomendaciones sobre cómo mejorar el rendimiento de la base de datos SQL supervisada, siempre que sea posible.
+- Recomendaciones sobre cómo mejorar el rendimiento de la base de datos supervisada, siempre que sea posible.
 
 ## <a name="query-duration"></a>Duración de la consulta
 

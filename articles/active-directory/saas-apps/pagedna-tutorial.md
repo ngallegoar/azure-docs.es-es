@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c7f8c8efcad0a07a3d3a56925866b10d94f82ed
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 34e496ea9d2a89894951856a19854bff18f20a8b
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68227479"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800917"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Tutorial: Integración de Azure Active Directory con PageDNA
 
@@ -35,7 +35,7 @@ La integración de PageDNA con Azure AD le proporciona las siguientes ventajas:
 
 Para más información sobre la integración de aplicaciones de software como servicio (SaaS) con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con PageDNA, necesita los siguientes elementos:
 
@@ -110,21 +110,19 @@ Para configurar el inicio de sesión único de Azure AD con PageDNA, siga estos 
 
     1. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con alguno de los siguientes patrones:
 
-        ||
-        |--|
-        | `https://stores.pagedna.com/<your site>` |
-        | `https://<your domain>` |
-        | `https://<your domain>/<your site>` |
-        | `https://www.nationsprint.com/<your site>` |
-        | |
+        ```https
+        https://stores.pagedna.com/<your site>
+        https://<your domain>
+        https://<your domain>/<your site>
+        https://www.nationsprint.com/<your site>
+        ```
 
     1. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con alguno de los siguientes patrones:
 
-        ||
-        |--|
-        | `https://stores.pagedna.com/<your site>/saml2ep.cgi` |
-        | `https://www.nationsprint.com/<your site>/saml2ep.cgi` |
-        | |
+        ```https
+        https://stores.pagedna.com/<your site>/saml2ep.cgi
+        https://www.nationsprint.com/<your site>/saml2ep.cgi
+        ```
 
     > [!NOTE]
     > Estos valores no son reales. Debe actualizarlos con la dirección URL de inicio de sesión y el identificador reales. Póngase en contacto con el [equipo de soporte técnico de PageDNA](mailto:success@pagedna.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en el panel **Configuración básica de SAML** de Azure Portal.
@@ -163,7 +161,7 @@ En esta sección, creará un usuario de prueba en Azure Portal llamado Britta Si
 
     1. En el cuadro **Nombre**, escriba **BrittaSimon**.
   
-    1. En el cuadro **Nombre de usuario**, escriba **BrittaSimon\@\<dominiodeempresa>.\<extensión>** . Por ejemplo, **BrittaSimon\@contoso.com**.
+    1. En el cuadro **Nombre de usuario**, escriba **BrittaSimon\@\<yourcompanydomain>.\<extension>** . Por ejemplo, **BrittaSimon\@contoso.com**.
 
     1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 

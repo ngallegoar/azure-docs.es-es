@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/21/2020
+ms.date: 07/01/2020
 ms.author: memildin
-ms.openlocfilehash: 3fa9de1057160340fdf10d72809a104cae985162
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 997b7b1442d29c4daa4e47c89a7f53d46c3b8c81
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248165"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969592"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novedades de Azure Security Center
 
@@ -29,8 +29,148 @@ La seguridad de Azure está en desarrollo activo y recibe mejoras continuas. Par
 
 Esta página se actualiza regularmente, por lo que se recomienda visitarla a menudo. Si busca elementos de más de 6 meses, puede encontrarlos en las [Novedades de Azure Security Center](release-notes-archive.md).
 
+## <a name="july-2020"></a>Julio de 2020
+
+Las actualizaciones de julio incluyen:
+- [Protección contra amenazas para Azure Storage expandido con el fin de incluir Azure Files y Azure Data Lake Storage Gen2 (versión preliminar)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
+
+### <a name="threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview"></a>Protección contra amenazas para Azure Storage expandido con el fin de incluir Azure Files y Azure Data Lake Storage Gen2 (versión preliminar)
+
+La protección contra amenazas para Azure Storage detecta actividades potencialmente dañinas en las cuentas de Azure Storage. Security Center muestra alertas cuando detecta intentos de acceder a las cuentas de almacenamiento o de aprovecharlas. 
+
+Los datos se pueden proteger tanto si se almacenan como contenedores de blobs, recursos compartidos de archivos o lagos de datos. 
+
+Obtenga más información sobre la [protección contra amenazas para Azure Storage](threat-protection.md#threat-protection-for-azure-storage-).
+
+
+## <a name="june-2020"></a>Junio de 2020
+
+Las actualizaciones de junio incluyen:
+- [API de puntuación segura (versión preliminar)](#secure-score-api-preview)
+- [Advanced Data Security para máquinas SQL (Azure, otras nubes e instancias locales) (versión preliminar)](#advanced-data-security-for-sql-machines-azure-other-clouds-and-on-prem-preview)
+- [Dos nuevas recomendaciones para implementar el agente de Log Analytics en máquinas de Azure Arc (versión preliminar)](#two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview)
+- [Nuevas directivas para crear configuraciones de exportación continua y de automatización de flujos de trabajo a escala](#new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale)
+- [Nueva recomendación para usar NSG para proteger las máquinas virtuales sin conexión a Internet](#new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines)
+- [Nuevas directivas para habilitar la protección contra amenazas y Advanced Data Security](#new-policies-for-enabling-threat-protection-and-advanced-data-security)
+
+
+
+### <a name="secure-score-api-preview"></a>API de puntuación segura (versión preliminar)
+
+Ahora puede acceder a la puntuación a través de la [API de puntuación segura](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (actualmente en versión preliminar). Los métodos de API proporcionan la flexibilidad necesaria para consultar los datos y crear su propio mecanismo de creación de informes de las puntuaciones seguras a lo largo del tiempo. Por ejemplo, puede usar la API **Secure Scores** para obtener la puntuación de una suscripción específica. Además, puede usar la API **Secure Score Controls** para mostrar los controles de seguridad y la puntuación actual de las suscripciones.
+
+Para ver ejemplos de herramientas externas que son posibles gracias a la API de puntuación segura, vea el [área de puntuación segura de la comunidad de GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
+
+Obtenga más información sobre la [puntuación segura y los controles de seguridad en Azure Security Center](secure-score-security-controls.md).
+
+
+
+### <a name="advanced-data-security-for-sql-machines-azure-other-clouds-and-on-prem-preview"></a>Advanced Data Security para máquinas SQL (Azure, otras nubes e instancias locales) (versión preliminar)
+
+Ahora, Advanced Data Security de Azure Security Center para máquinas SQL protege los servidores SQL Server hospedados en Azure, en otros entornos en la nube e incluso en máquinas locales. Esto amplía las protecciones de los servidores SQL Server nativos de Azure, de modo que se admitan totalmente los entornos híbridos.
+
+Advanced Data Security proporciona una evaluación de vulnerabilidades y protección contra amenazas avanzada para máquinas SQL dondequiera que se encuentren.
+
+La configuración conlleva dos pasos:
+
+1. Implementación del agente de Log Analytics en la máquina host de SQL Server para proporcionar la conexión a la cuenta de Azure.
+
+1. Habilitación del conjunto de productos opcional en la página de precios y configuración de Security Center.
+
+Obtenga más información sobre [Advanced Data Security para máquinas SQL](security-center-iaas-advanced-data.md).
+
+
+
+### <a name="two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview"></a>Dos nuevas recomendaciones para implementar el agente de Log Analytics en máquinas de Azure Arc (versión preliminar)
+
+Se han agregado dos nuevas recomendaciones para ayudar a implementar el [agente de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) en las máquinas de Azure Arc y asegurarse de que están protegidas por Azure Security Center:
+
+- **El agente de Log Analytics debe estar instalado en las máquinas de Azure Arc basadas en Windows (versión preliminar)** .
+- **El agente de Log Analytics debe estar instalado en las máquinas de Azure Arc basadas en Linux (versión preliminar)** .
+
+Estas nuevas recomendaciones aparecerán en los mismos cuatro controles de seguridad que la recomendación existente (relacionada) **El agente de supervisión debe estar instalado en las máquinas**: corrija las configuraciones de seguridad, aplique el control de aplicaciones adaptativo, aplique actualizaciones del sistema y habilite Endpoint Protection.
+
+Las recomendaciones también incluyen la función de corrección rápida para ayudar a acelerar el proceso de implementación. 
+
+Obtenga más información sobre estas dos nuevas recomendaciones en la tabla [Recomendaciones de proceso y aplicación](recommendations-reference.md#recs-computeapp).
+
+Obtenga más información sobre la manera en que Azure Security Center usa el agente en [¿Qué es el agente de Log Analytics?](https://docs.microsoft.com/azure/security-center/faq-data-collection-agents#what-is-the-log-analytics-agent)
+
+Obtenga más información sobre las [extensiones para máquinas de Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal).
+
+
+
+### <a name="new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale"></a>Nuevas directivas para crear configuraciones de exportación continua y de automatización de flujos de trabajo a escala
+
+La automatización de los procesos de supervisión y respuesta ante incidentes de la organización puede mejorar considerablemente el tiempo necesario para investigar y mitigar los incidentes de seguridad.
+
+Para implementar las configuraciones de automatización en la organización, use estas directivas de Azure "DeployIfdNotExist" integradas para crear y configurar los procedimientos de [exportación continua](continuous-export.md) y [automatización de flujos de trabajo](workflow-automation.md):
+
+Las directivas se pueden encontrar en la directiva de Azure:
+
+
+|Objetivo  |Directiva  |Id. de directiva  |
+|---------|---------|---------|
+|Exportación continua al centro de eventos|[Implementar la exportación al centro de eventos para las alertas y recomendaciones de Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
+|Exportación continua al área de trabajo de Log Analytics|[Implementar la exportación al área de trabajo de Log Analytics para las alertas y recomendaciones de Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
+|Automatización de flujos de trabajo para alertas de seguridad|[Implementar la automatización del flujo de trabajo para las alertas de Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
+|Automatización de flujos de trabajo para recomendaciones de seguridad|[Implementar la automatización del área de trabajo para las recomendaciones de Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
+||||
+
+Empiece a usar las [plantillas de automatización de flujos de trabajo](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation).
+
+Obtenga más información sobre el uso de las dos directivas de exportación en [Exportación continua de alertas y recomendaciones de Azure Security Center alertas a través de directivas](https://techcommunity.microsoft.com/t5/azure-security-center/continuously-export-azure-security-center-alerts-and/ba-p/1440745).
+
+
+### <a name="new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines"></a>Nueva recomendación para usar NSG para proteger las máquinas virtuales sin conexión a Internet
+
+El control de seguridad "implementar prácticas recomendadas de seguridad" incluye ahora la siguiente recomendación nueva:
+
+- **Las máquinas virtuales sin conexión a Internet deben protegerse con grupos de seguridad de red**
+
+Una recomendación existente (**Las máquinas virtuales sin conexión a Internet deben protegerse con grupos de seguridad de red**) no distinguía entre las máquinas virtuales con y sin conexión a Internet. En ambos casos, se generaba una recomendación de alta gravedad si una máquina virtual no estaba asignada a un grupo de seguridad de red. Esta nueva recomendación separa las máquinas sin conexión a Internet para reducir los falsos positivos y evitar alertas innecesarias de alta gravedad.
+
+Obtenga más información en la tabla [Recomendaciones de red](recommendations-reference.md#recs-network).
+
+
+
+
+### <a name="new-policies-for-enabling-threat-protection-and-advanced-data-security"></a>Nuevas directivas para habilitar la protección contra amenazas y Advanced Data Security
+
+Las nuevas directivas que se indican a continuación se agregaron a la iniciativa predeterminada de ASC y están diseñadas para ayudar a habilitar la protección contra amenazas o Advanced Data Security para los tipos de recursos pertinentes.
+
+Las directivas se pueden encontrar en la directiva de Azure:
+
+
+| Directiva                                                                                                                                                                                                                                                                | Id. de directiva                            |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
+| [Advanced Data Security debe estar habilitado en los servidores de Azure SQL Database](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7fe3b40f-802b-4cdd-8bd4-fd799c948cc2)     | 7fe3b40f-802b-4cdd-8bd4-fd799c948cc2 |
+| [Advanced Data Security debe estar habilitado en los servidores SQL Server en las máquinas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6581d072-105e-4418-827f-bd446d56421b) | 6581d072-105e-4418-827f-bd446d56421b |
+| [Advanced Threat Protection debe estar habilitado en las cuentas de almacenamiento](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f308fbb08-4ab8-4e67-9b29-592e93fb94fa)           | 308fbb08-4ab8-4e67-9b29-592e93fb94fa |
+| [Advanced Threat Protection debe estar habilitado en los almacenes de Azure Key Vault](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0e6763cc-5078-4e64-889d-ff4d9a839047)           | 0e6763cc-5078-4e64-889d-ff4d9a839047 |
+| [Advanced Threat Protection debe estar habilitado en los planes de App Service](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2913021d-f2fd-4f3d-b958-22354e2bdbcb)                | 2913021d-f2fd-4f3d-b958-22354e2bdbcb |
+| [Advanced Threat Protection debe estar habilitado en los registros de Azure Container Registry](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fc25d9a16-bc35-4e15-a7e5-9db606bf9ed4)   | c25d9a16-bc35-4e15-a7e5-9db606bf9ed4 |
+| [Advanced Threat Protection debe estar habilitado en los clústeres de Azure Kubernetes Service](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f523b5cd1-3e23-492f-a539-13118b6d1e3a)   | 523b5cd1-3e23-492f-a539-13118b6d1e3a |
+| [Advanced Threat Protection debe estar habilitado en Virtual Machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da35fc9-c9e7-4960-aec9-797fe7d9051d)           | 4da35fc9-c9e7-4960-aec9-797fe7d9051d |
+|                                                                                                                                                                                                                                                                       |                                      |
+
+Obtenga más información sobre la [protección contra amenazas en Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection).
+
+
+
+
 
 ## <a name="may-2020"></a>Mayo de 2020
+
+Las actualizaciones de mayo incluyen:
+- [Reglas de supresión de alertas (versión preliminar)](#alert-suppression-rules-preview)
+- [La evaluación de vulnerabilidades de la máquina virtual ya está disponible con carácter general](#virtual-machine-vulnerability-assessment-is-now-generally-available)
+- [Cambios en el acceso a la máquina virtual (VM) Just-in-Time (JIT)](#changes-to-just-in-time-jit-virtual-machine-vm-access)
+- [Las recomendaciones personalizadas se han migrado a un control de seguridad independiente](#custom-recommendations-have-been-moved-to-a-separate-security-control)
+- [Alternancia agregada para ver las recomendaciones en controles o como una lista plana](#toggle-added-to-view-recommendations-in-controls-or-as-a-flat-list)
+- [Control de seguridad expandido "implementar prácticas recomendadas de seguridad"](#expanded-security-control-implement-security-best-practices)
+- [Las directivas personalizadas con metadatos personalizados ya están disponibles con carácter general](#custom-policies-with-custom-metadata-are-now-generally-available)
+- [Migración de funcionalidades de análisis de volcado de memoria a detección de ataques sin archivos](#crash-dump-analysis-capabilities-migrating-to-fileless-attack-detection)
 
 
 ### <a name="alert-suppression-rules-preview"></a>Reglas de supresión de alertas (versión preliminar)
@@ -96,6 +236,7 @@ Los controles de seguridad y esta alternancia forman parte de la nueva experienc
 
 Más información sobre los controles de seguridad en [puntuación de seguridad mejorada (versión preliminar) de Azure Security Center](secure-score-security-controls.md).
 
+![Alternancia "agrupar por controles" para recomendaciones](\media\secure-score-security-controls\recommendations-group-by-toggle.gif)
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>Control de seguridad expandido "implementar prácticas recomendadas de seguridad" 
 
@@ -113,13 +254,13 @@ Las tres recomendaciones que se movieron son:
 
 Las dos nuevas recomendaciones que se han agregado al control son:
 
-- **[Versión preliminar] El agente de configuración de invitado debe instalarse:** usar la [configuración de invitado de Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) proporciona visibilidad dentro de las máquinas virtuales a la configuración de servidor y de aplicación (solo Windows).
+- **La extensión de configuración de invitado debe instalarse en máquinas virtuales Windows (versión preliminar):** el uso de la [configuración de invitado de Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) proporciona visibilidad dentro de las máquinas virtuales a la configuración de servidor y de aplicación (solo Windows).
 
-- **[Versión preliminar] Protección contra vulnerabilidades de Windows debe estar habilitada**: protección contra vulnerabilidades de seguridad de Windows Defender aprovecha el agente de configuración de invitado de Azure Policy. La protección contra vulnerabilidades de seguridad tiene cuatro componentes diseñados para bloquear dispositivos en una amplia variedad de vectores de ataque y comportamientos de bloque utilizados habitualmente en ataques de malware, al tiempo que permiten a las empresas equilibrar los requisitos de productividad y riesgo de seguridad (solo Windows).
+- **Protección contra vulnerabilidades de seguridad de Windows Defender debe estar habilitada en las máquinas (versión preliminar)** : Protección contra vulnerabilidades de seguridad de Windows Defender aprovecha el agente de configuración de invitado de Azure Policy. La protección contra vulnerabilidades de seguridad tiene cuatro componentes diseñados para bloquear dispositivos en una amplia variedad de vectores de ataque y comportamientos de bloque utilizados habitualmente en ataques de malware, al tiempo que permiten a las empresas equilibrar los requisitos de productividad y riesgo de seguridad (solo Windows).
 
 Más información sobre la protección contra vulnerabilidades de seguridad de Windows Defender en [Crear e implementar una directiva de protección contra vulnerabilidades](https://docs.microsoft.com/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy).
 
-Más información sobre los controles de seguridad en [puntuación de seguridad mejorada (versión preliminar) de Azure Security Center](secure-score-security-controls.md).
+Obtenga más información sobre los controles de seguridad en [Puntuación de seguridad mejorada (versión preliminar)](secure-score-security-controls.md).
 
 
 
@@ -152,6 +293,11 @@ Algunas de las ventajas de esta transición son:
 
 
 ## <a name="april-2020"></a>Abril de 2020
+
+Las actualizaciones de abril incluyen:
+- [Los paquetes de cumplimiento dinámico ya están disponibles con carácter general](#dynamic-compliance-packages-are-now-generally-available)
+- [Las recomendaciones de identidad ahora están incluidas en el nivel gratuito de Azure Security Center](#identity-recommendations-now-included-in-azure-security-center-free-tier)
+
 
 ### <a name="dynamic-compliance-packages-are-now-generally-available"></a>Los paquetes de cumplimiento dinámico ya están disponibles con carácter general
 
@@ -190,6 +336,14 @@ Más información acerca de la [supervisión de la identidad y el acceso](securi
 
 
 ## <a name="march-2020"></a>Marzo de 2020
+
+Las actualizaciones de marzo incluyen:
+- [La automatización del flujo de trabajo ya está disponible con carácter general](#workflow-automation-is-now-generally-available)
+- [Integración de Azure Security Center con Windows Admin Center](#integration-of-azure-security-center-with-windows-admin-center)
+- [Protección para Azure Kubernetes Service](#protection-for-azure-kubernetes-service)
+- [Experiencia Just-in-Time mejorada](#improved-just-in-time-experience)
+- [Dos recomendaciones de seguridad para las aplicaciones web en desuso](#two-security-recommendations-for-web-applications-deprecated)
+
 
 ### <a name="workflow-automation-is-now-generally-available"></a>La automatización del flujo de trabajo ya está disponible con carácter general
 
@@ -268,13 +422,3 @@ A medida que los atacantes aumentan el empleo de métodos stealthier para evitar
 
 Para contrarrestar esta amenaza, Azure Security Center publicó la detección de ataques sin archivos para Windows en octubre de 2018 y ahora ha extendido la detección de ataques sin archivos en Linux. 
 
-
-## <a name="january-2020"></a>Enero de 2020
-
-### <a name="enhanced-secure-score-preview"></a>Puntuación de seguridad mejorada (versión preliminar)
-
-Ahora hay disponible una versión mejorada de la característica de puntuación segura de Azure Security Center en versión preliminar. En esta versión, se agrupan varias recomendaciones en controles de seguridad que reflejan mejor las superficies de ataque vulnerables (por ejemplo, restringir el acceso a los puertos de administración).
-
-Familiarícese con los cambios de puntuación segura durante la fase de versión preliminar y determine otras correcciones que le ayudarán a proteger más su entorno.
-
-Más información sobe [puntuación de seguridad mejorada (versión preliminar) en Azure Security Center](secure-score-security-controls.md).

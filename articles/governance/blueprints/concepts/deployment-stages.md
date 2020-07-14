@@ -3,12 +3,12 @@ title: Etapas de implementación de un plano técnico
 description: Conozca los pasos relacionados con la seguridad y los artefactos que recorren los servicios de Azure Blueprints al crear una asignación de plano técnico.
 ms.date: 05/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9efc66baa262e004a8beea5295e8567f4ab119dd
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: d3ccba6645e1b14fffc543af2a6ad40e3634e2ed
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864001"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970661"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Etapas de implementación de un plano técnico
 
@@ -27,7 +27,7 @@ La implementación del plano técnico se desencadena mediante la asignación de 
 
 Cuando se usa una [identidad administrada asignada por el sistema](../../../active-directory/managed-identities-azure-resources/overview.md), a la entidad de servicio de Azure Blueprints se le conceden derechos de propietario en la suscripción o suscripciones asignadas. El rol concedido permite a Azure Blueprints crear y revocar después la identidad administrada **asignada por el sistema**. Si usa una identidad administrada **asignada por el usuario**, la entidad de servicio de Azure Blueprints no obtiene y no necesita derechos de propietario sobre la suscripción.
 
-Los derechos se conceden automáticamente si la asignación se realiza a través del portal. Sin embargo, si la asignación se realiza a través de la API REST, la concesión de derechos debe hacerse con una llamada API independiente. El valor de AppId de Azure Blueprints es `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`, pero la entidad de servicio varía según el inquilino. Use la [Graph API de Azure Active Directory](../../../active-directory/develop/active-directory-graph-api.md) y el punto de conexión REST [servicePrincipals](/graph/api/resources/serviceprincipal) para obtener la entidad de servicio. A continuación, conceda a Azure Blueprints el rol _Propietario_ a través del [Portal](../../../role-based-access-control/role-assignments-portal.md), la [CLI de Azure](../../../role-based-access-control/role-assignments-cli.md), [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), la [API REST](../../../role-based-access-control/role-assignments-rest.md) o una [plantilla de Resource Manager](../../../role-based-access-control/role-assignments-template.md).
+Los derechos se conceden automáticamente si la asignación se realiza a través del portal. Sin embargo, si la asignación se realiza a través de la API REST, la concesión de derechos debe hacerse con una llamada API independiente. El valor de AppId de Azure Blueprints es `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`, pero la entidad de servicio varía según el inquilino. Use la [Graph API de Azure Active Directory](../../../active-directory/develop/active-directory-graph-api.md) y el punto de conexión REST [servicePrincipals](/graph/api/resources/serviceprincipal) para obtener la entidad de servicio. Después, conceda a Azure Blueprints el rol _Propietario_ a través del [Portal](../../../role-based-access-control/role-assignments-portal.md), la [CLI de Azure](../../../role-based-access-control/role-assignments-cli.md), [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), la [API REST](../../../role-based-access-control/role-assignments-rest.md) o una [plantilla de Azure Resource Manager](../../../role-based-access-control/role-assignments-template.md).
 
 El servicio Azure Blueprints no implementa directamente los recursos.
 

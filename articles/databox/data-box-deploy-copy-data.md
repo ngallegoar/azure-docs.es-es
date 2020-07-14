@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: a3e66e7f6857361136fb4b7839953790f66b4db5
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 82cdd8519f1e3fce80aaf051d6bc5fc40a9b8be9
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219107"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959648"
 ---
 ::: zone target="docs"
 
@@ -62,7 +62,7 @@ En los recursos compartidos de blob en bloques y en páginas, las entidades de p
 
 En la tabla siguiente se muestra la ruta de acceso UNC a los recursos compartidos en la dirección URL de la ruta de acceso de Data Box y Azure Storage donde se cargan los datos. La dirección URL final de la ruta de acceso de Azure Storage se puede derivar a partir de la ruta de acceso UNC al recurso compartido.
  
-|                   |                                                            |
+|Tipos de Azure Storage  | Recursos compartidos de Data Box            |
 |-------------------|--------------------------------------------------------------------------------|
 | Blobs en bloques de Azure | <li>Ruta de acceso UNC a recursos compartidos: `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\files\a.txt`</li><li>Dirección URL de Azure Storage: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
 | Blobs en páginas de Azure  | <li>Ruta de acceso UNC a recursos compartidos: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>Dirección URL de Azure Storage: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
@@ -70,32 +70,32 @@ En la tabla siguiente se muestra la ruta de acceso UNC a los recursos compartido
 
 Si usa un equipo host Windows Server, realice los pasos siguientes para conectarse a su dispositivo Data Box.
 
-1. El primer paso es autenticarse e iniciar sesión. Vaya a **Connect and copy** (Conectar y copiar). Haga clic en **Get credentials** (Obtener credenciales) para obtener las credenciales de acceso para los recursos compartidos asociados con la cuenta de almacenamiento. 
+1. El primer paso es autenticarse e iniciar sesión. Vaya a **Connect and copy** (Conectar y copiar). Seleccione **SMB** para obtener las credenciales de acceso de los recursos compartidos asociados con la cuenta de almacenamiento. 
 
     ![Obtención de las credenciales del recurso compartido 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. En el cuadro de diálogo Access share and copy data (Acceder al recurso compartido y copiar datos), copie los valores de **Username** (Nombre de usuario) y **Password** (Contraseña) del recurso compartido. Haga clic en **OK**.
+2. En el cuadro de diálogo Access share and copy data (Acceder al recurso compartido y copiar datos), copie los valores de **Username** (Nombre de usuario) y **Password** (Contraseña) del recurso compartido. Seleccione **Aceptar**.
     
     ![Obtención de las credenciales del recurso compartido 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
-3. Para acceder a los recursos compartidos asociados con la cuenta de almacenamiento (*devicemanagertest1* en el ejemplo siguiente) desde el equipo host, abra una ventana Comandos. En el símbolo del sistema, escriba:
+3. Para acceder a los recursos compartidos asociados con su cuenta de almacenamiento (*utsac1* en el ejemplo siguiente) desde el equipo host, abra una ventana de comandos. En el símbolo del sistema, escriba:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
     Dependiendo del formato de los datos, las rutas de acceso de los recursos compartidos son las siguientes:
-    - Blob en bloques de Azure: `\\10.126.76.172\devicemanagertest1_BlockBlob`
-    - Blob en páginas de Azure: `\\10.126.76.172\devicemanagertest1_PageBlob`
-    - Azure Files: `\\10.126.76.172\devicemanagertest1_AzFile`
+    - Blob en bloques de Azure: `\\10.126.76.138\utSAC1_202006051000_BlockBlob`
+    - Blob en páginas de Azure: `\\10.126.76.138\utSAC1_202006051000_PageBlob`
+    - Azure Files: `\\10.126.76.138\utSAC1_202006051000_AzFile`
 
 4. Cuando se le solicite, escriba la contraseña del recurso compartido. En el ejemplo siguiente se muestra la conexión a un recurso compartido con el comando anterior.
 
     ```
-    C:\Users\Databoxuser>net use \\10.126.76.172\devicemanagertest1_BlockBlob /u:devicemanagertest1
-    Enter the password for 'devicemanagertest1' to connect to '10.126.76.172':
+    C:\Users\Databoxuser>net use \\10.126.76.138\utSAC1_202006051000_BlockBlob /u:testuser1
+    Enter the password for 'testuser1' to connect to '10.126.76.138':
     The command completed successfully.
     ```
 
-4. Presione Windows + R. En la ventana **Ejecutar**, escriba `\\<device IP address>`. Haga clic en **Aceptar** para abrir el Explorador de archivos.
+4. Presione Windows + R. En la ventana **Ejecutar**, escriba `\\<device IP address>`. Seleccione **Aceptar** para abrir el Explorador de archivos.
     
     ![Conexión al recurso compartido mediante el Explorador de archivos 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
@@ -107,7 +107,7 @@ Si usa un equipo host Windows Server, realice los pasos siguientes para conectar
     
 Si usa un cliente Linux, utilice el siguiente comando para montar el recurso compartido SMB. El parámetro "vers" siguiente es la versión de SMB compatible con el host Linux. Conecte la versión adecuada en el siguiente comando. Para ver las versiones de SMB compatibles con Data Box, consulte [Sistemas de archivos compatibles para clientes Linux](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients). 
 
-    `sudo mount -t nfs -o vers=2.1 10.126.76.172:/devicemanagertest1_BlockBlob /home/databoxubuntuhost/databox`
+    `sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home/databoxubuntuhost/databox`
 
 ## <a name="copy-data-to-data-box"></a>Copia de datos a un dispositivo Data Box
 
@@ -215,11 +215,23 @@ Para optimizar el rendimiento, use los siguientes parámetros de robocopy al cop
 
 Para más información sobre el comando Robocopy, consulte [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx) (Robocopy y algunos ejemplos).
 
-Abra la carpeta de destino para ver y comprobar los archivos copiados. Si se produce algún error durante el proceso de copia, descargue los archivos de error para solucionar problemas. Para más información, consulte [Ver registro de errores durante la copia de datos en Data Box](data-box-logs.md#view-error-log-during-data-copy). Para obtener una lista detallada de errores durante la copia de datos, consulte [Solución de problemas de Data Box](data-box-troubleshoot.md).
+Si durante el proceso de copia se produce algún error, aparecerá una notificación.
+
+![Descarga y visualización de errores en Conectar y copiar](media/data-box-deploy-copy-data/view-errors-1.png)
+
+Seleccione **Descargar la lista de problemas**.
+
+![Descarga y visualización de errores en Conectar y copiar](media/data-box-deploy-copy-data/view-errors-2.png)
+
+Abra la lista para ver los detalles del error y seleccione la dirección URL de resolución para ver la resolución recomendada.
+
+![Descarga y visualización de errores en Conectar y copiar](media/data-box-deploy-copy-data/view-errors-3.png)
+
+Para más información, consulte [Ver registro de errores durante la copia de datos en Data Box](data-box-logs.md#view-error-log-during-data-copy). Para obtener una lista detallada de errores durante la copia de datos, consulte [Solución de problemas de Data Box](data-box-troubleshoot.md).
 
 Para garantizar la integridad de los datos, la suma de comprobación se calcula a medida que los datos se copian. Una vez completada la copia, compruebe el espacio utilizado y el espacio disponible en el dispositivo.
 
-   ![Comprobación del espacio libre y utilizado en el panel](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
+![Comprobación del espacio libre y utilizado en el panel](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
 ::: zone-end
 

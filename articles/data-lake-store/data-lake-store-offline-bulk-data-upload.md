@@ -3,15 +3,15 @@ title: 'Carga de conjuntos de datos de gran tamaño en Azure Data Lake Storage G
 description: Uso del servicio Import/Export para copiar datos desde Azure Blob Storage a Azure Data Lake Storage Gen1
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: aa3eb0bcd9ddd2a094563efe326f7af7e9e8708a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d04a5c0e53e9a5db8bba03a5a9e9d95b87a8b5a3
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73839307"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855680"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-storage-gen1"></a>Uso del servicio Azure Import/Export para la copia de datos sin conexión en Data Lake Storage Gen1
 
@@ -19,7 +19,7 @@ En este artículo, aprenderá a copiar conjuntos de datos de gran tamaño (más 
 
 El servicio Azure Import/Export le permite transferir de forma segura grandes cantidades de datos a Azure Blob Storage mediante el envío de unidades de disco duro a un centro de datos de Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar, debe disponer de lo siguiente:
 
@@ -31,17 +31,16 @@ Antes de empezar, debe disponer de lo siguiente:
 
 Antes de usar el servicio Import/Export, divida el archivo de datos para transferirlo **en copias de menos de 200 GB**. La herramienta de importación no funciona con archivos con un tamaño superior a 200 GB. En este artículo, el archivo se divide en fragmentos de 100 GB. Puede hacerlo si utiliza [Cygwin](https://cygwin.com/install.html). Cygwin admite comandos de Linux. En este caso, ejecute el siguiente comando:
 
-    split -b 100m 319GB.tsv
+```console
+split -b 100m 319GB.tsv
+```
 
 La operación de división crea archivos con los nombres siguientes.
 
-    319GB.tsv-part-aa
-
-    319GB.tsv-part-ab
-
-    319GB.tsv-part-ac
-
-    319GB.tsv-part-ad
+* *319GB.tsv-part-aa*
+* *319GB.tsv-part-ab*
+* *319GB.tsv-part-ac*
+* *319GB.tsv-part-ad*
 
 ## <a name="get-disks-ready-with-data"></a>Preparación de los discos con datos
 

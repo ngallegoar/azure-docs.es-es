@@ -4,14 +4,14 @@ description: Obtenga información sobre cómo puede obtener cambios o reembolsos
 author: yashesvi
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 07/01/2020
 ms.author: banders
-ms.openlocfilehash: 3c2f92db1f65a4e9e57ad443a9f000ab3f6567d5
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 4a25bb13bfa5b2e4f13ddf437bcd9577f9602aed
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85101021"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85807696"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Autoservicio de cambios y reembolsos de reservas de Azure
 
@@ -20,6 +20,9 @@ Las reservas de Azure proporcionan flexibilidad para ayudar a satisfacer sus nec
 El autoservicio de intercambio y la funcionalidad de cancelación no están disponible para los clientes de Contrato Enterprise de US Government. Otros tipos de suscripción de US Government, como Pago por uso y Proveedor de soluciones en la nube, sí se admiten.
 
 Debe tener acceso de propietario en el pedido de reserva para realizar un cambio o reembolso en relación con una reserva existente. Puede [agregar o cambiar los usuarios que pueden administrar una reserva](https://docs.microsoft.com/azure/cost-management-billing/reservations/manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation).
+
+> [!NOTE]
+> Actualmente, Microsoft no cobra ningún cargo por finalización prematura en las devoluciones de las reservas. En el futuro es posible que se cobre cuando se realicen devoluciones. En la actualidad, no hay una fecha establecida para habilitar este cargo.
 
 ## <a name="how-to-exchange-or-refund-an-existing-reservation"></a>Cambio o devolución de una reserva existente
 
@@ -72,7 +75,7 @@ Azure tiene estas directivas en caso de cancelaciones, intercambios y reembolsos
 
 **Directivas de reembolso**
 
-- Puede aplicarse una cargo del 12 % por terminación anticipada para las cancelaciones.
+- Actualmente, no cobramos ningún cargo por finalización prematura, pero en el futuro podría haber una cargo del 12 % por este motivo en las cancelaciones.
 - El compromiso total cancelado no puede superar los 50 000 USD en una ventana con desplazamiento de 12 meses. Ejemplo: en el caso de una reserva trienal de 100 USD al mes que se ha devuelto el decimoctavo mes, el compromiso cancelado es de 1800 USD dólares estadounidenses. Después de la devolución, el nuevo límite disponible para reembolsos será 48 200 dólares. En 365 días a partir de esta devolución, el límite de 48 200 USD aumentará en 1800 USD, hasta 50 000 USD. Cualquier otra cancelación de reserva reducirá este importe y se aplicará la misma lógica de reposición.
 - Los reembolsos se calculan según el precio más bajo de su precio de compra o en el precio actual de la reserva.
 - Solo los propietarios de un pedido de reserva pueden procesar un reembolso. [Obtenga información sobre cómo agregar o cambiar los usuarios que pueden administrar una reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).

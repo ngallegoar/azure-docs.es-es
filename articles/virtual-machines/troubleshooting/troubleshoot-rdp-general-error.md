@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7fc0fbf3362d18284ad6a80afa6396b6be1270a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f996ffa864fb4178ddedecde7c5511d5d9cf39a1
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71057999"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985813"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Solución de problemas de un error general de RDP en una máquina virtual Windows en Azure
 
@@ -60,11 +60,11 @@ El agente de escucha de RDP está mal configurado.
 
 ## <a name="solution"></a>Solución
 
-Para resolver este problema, [realice una copia de seguridad del disco del sistema operativo](../windows/snapshot-copy-managed-disk.md) y [asocie el disco del sistema operativo a una máquina virtual de rescate](troubleshoot-recovery-disks-portal-windows.md). A continuación, siga los pasos.
+Antes de seguir estos pasos, tome una instantánea del disco del sistema operativo de la máquina virtual afectada como copia de seguridad. Para resolver este problema, use el control serie o repare la máquina virtual sin conexión.
 
 ### <a name="serial-console"></a>Consola serie
 
-#### <a name="step-1-open-cmd-instance-in-serial-console"></a>Paso 1: Abrir la instancia CMD en la consola serie
+#### <a name="step-1-open-cmd-instance-in-serial-console"></a>Paso 1: Apertura de la instancia CMD en la consola serie
 
 1. Acceda a [Serial Console](serial-console-windows.md) seleccionando **Soporte técnico y solución de problemas** > **Serial Console (versión preliminar)** . Si la característica está habilitada en la máquina virtual, puede conectar la máquina virtual correctamente.
 
@@ -78,29 +78,37 @@ Para resolver este problema, [realice una copia de seguridad del disco del siste
 
 #### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>Paso 2: Comprobación de los valores de las claves del Registro de RDP:
 
-1. Compruebe si el RDP está deshabilitado por las directivas.
+1. Compruebe si el RDP está deshabilitado mediante directivas de grupo.
 
-      ```
-      REM Get the local policy 
-      reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server " /v fDenyTSConnections
+    ```
+    REM Get the group policy 
+    reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
+    ```
+    Si la directiva de grupo indica que RDP está deshabilitado (el valor de fDenyTSConnections es 0x1), ejecute el comando siguiente para habilitar el servicio TermService. Si no se encuentra la clave del Registro, no hay ninguna directiva de grupo configurada para deshabilitar el RDP. Puede continuar al paso siguiente.
 
-      REM Get the domain policy if any
-      reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
-      ```
+    ```
+    REM update the fDenyTSConnections value to enable TermService service
+    reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+    ```
+    > [!NOTE]
+    > Este paso habilita temporalmente el servicio TermService. El cambio se restablecerá cuando se actualice la configuración de directiva de grupo. Para resolver la incidencia, debe comprobar si el servicio TermService está deshabilitado mediante la directiva de grupo local o la de grupo de dominio y, después, actualizar la configuración de directiva según corresponda.
+    
+2. Compruebe la configuración de conexión remota actual.
+    ```
+    REM Get the local remote connection setting
+    reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections
+    ```
+    Si el comando devuelve 0x1, la máquina virtual no permite la conexión remota. Después, permita la conexión remota con el comando siguiente:
+     ```
+     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+     ```
+    
+1. Compruebe la configuración actual del servidor de Terminal Server.
 
-      - Si la directiva de dominio existe, se sobrescribe la configuración de la directiva local.
-      - Si la directiva de dominio indica que RDP está deshabilitado (1), actualice directiva de AD del controlador de dominio.
-      - Si la directiva de dominio indica que RDP está habilitado (0), no hay que actualizar.
-      - Si no existe la directiva de dominio y la directiva local indica que RDP está deshabilitado (1), habilite RDP mediante el comando siguiente: 
-      
-            reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-                  
-
-2. Compruebe la configuración actual del servidor de Terminal Server.
-
-      ```
-      reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled
-      ```
+    ```
+    REM Get the local remote connection setting
+    reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled
+    ```
 
       Si el comando devuelve 0, el servidor de Terminal Server está deshabilitado. A continuación, habilite el servidor de Terminal Server:
 
@@ -163,17 +171,17 @@ Para resolver este problema, [realice una copia de seguridad del disco del siste
 
 Si sigue produciéndose el problema, vaya al paso 2.
 
-#### <a name="step-2-enable-remote-desktop-services"></a>Paso 2: Habilitar Servicios de Escritorio remoto
+#### <a name="step-2-enable-remote-desktop-services"></a>Paso 2: Habilitación de Servicios de Escritorio remoto
 
 Para obtener más información, consulte [Los Servicios de Escritorio remoto no se inician en la máquina virtual de Azure](troubleshoot-remote-desktop-services-issues.md).
 
-#### <a name="step-3-reset-rdp-listener"></a>Paso 3: Restablecer el agente de escucha de RDP
+#### <a name="step-3-reset-rdp-listener"></a>Paso 3: Restablecimiento del agente de escucha de RDP
 
 Para obtener más información, consulte [Escritorio remoto se desconecta con frecuencia en la máquina virtual de Azure](troubleshoot-rdp-intermittent-connectivity.md).
 
 ### <a name="offline-repair"></a>Reparación sin conexión
 
-#### <a name="step-1-turn-on-remote-desktop"></a>Paso 1: Activación de Escritorio remoto
+#### <a name="step-1-turn-on-remote-desktop"></a>Paso 1: Activación del Escritorio remoto
 
 1. [Conecte el disco del sistema operativo a una máquina virtual de recuperación](../windows/troubleshoot-recovery-disks-portal.md).
 2. Inicie una conexión mediante el Escritorio remoto a la máquina virtual de recuperación.
@@ -233,11 +241,11 @@ Para obtener más información, consulte [Escritorio remoto se desconecta con fr
 
 Si sigue produciéndose el problema, vaya al paso 2.
 
-#### <a name="step-2-enable-remote-desktop-services"></a>Paso 2: Habilitar Servicios de Escritorio remoto
+#### <a name="step-2-enable-remote-desktop-services"></a>Paso 2: Habilitación de Servicios de Escritorio remoto
 
 Para obtener más información, consulte [Los Servicios de Escritorio remoto no se inician en la máquina virtual de Azure](troubleshoot-remote-desktop-services-issues.md).
 
-#### <a name="step-3-reset-rdp-listener"></a>Paso 3: Restablecer el agente de escucha de RDP
+#### <a name="step-3-reset-rdp-listener"></a>Paso 3: Restablecimiento del agente de escucha de RDP
 
 Para obtener más información, consulte [Escritorio remoto se desconecta con frecuencia en la máquina virtual de Azure](troubleshoot-rdp-intermittent-connectivity.md).
 
