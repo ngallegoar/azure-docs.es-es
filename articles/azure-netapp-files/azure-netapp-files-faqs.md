@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 06/08/2020
 ms.author: b-juche
-ms.openlocfilehash: a8c299a6f0e6732d50b40fc29bde07179fc2c412
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be18a9d54049562eebc27720988b085c3e14f2da
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185649"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956516"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Preguntas más frecuentes acerca de Azure NetApp Files
 
@@ -125,6 +125,10 @@ Actualmente no se admite root squashing.
 
 ## <a name="smb-faqs"></a>Preguntas más frecuentes de SMB
 
+### <a name="which-smb-versions-are-supported-by-azure-netapp-files"></a>¿Qué versiones de SMB son compatibles con Azure NetApp Files?
+
+Azure NetApp Files admite SMB 2.1 y SMB 3.1 (que incluye compatibilidad con SMB 3.0).    
+
 ### <a name="is-an-active-directory-connection-required-for-smb-access"></a>¿Es necesaria una conexión de Active Directory para el acceso SMB? 
 
 Sí, tiene que crear una conexión de Active Directory antes de implementar un volumen de SMB. Para que la conexión tenga éxito la subred delegada de Azure NetApp Files tiene que tener acceso a los controladores de dominio especificados.  Consulte [Crear un volumen de SMB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb) para más información. 
@@ -173,23 +177,26 @@ No. Explorador de Azure Storage no es compatible con Azure NetApp Files.
 
 ### <a name="how-do-i-determine-if-a-directory-is-approaching-the-limit-size"></a>¿Cómo puedo determinar si un directorio está llegando al tamaño límite?
 
-Puede usar el comando `stat` desde un cliente para ver si un directorio está llegando al límite de tamaño máximo (320 MB).
+Puede usar el comando `stat` desde un cliente para ver si un directorio está llegando al límite de tamaño máximo de los metadatos del directorio (320 MB).
 
 En un directorio de 320 MB, el número de bloques es 655 360 y el tamaño de cada bloque es de 512 bytes.  (Es decir, 320 x 1024 x 1024/512.)  
 
 Ejemplos:
 
-    [makam@cycrh6rtp07 ~]$ stat bin
-    File: 'bin'
-    Size: 4096            Blocks: 8          IO Block: 65536  directory
+```console
+[makam@cycrh6rtp07 ~]$ stat bin
+File: 'bin'
+Size: 4096            Blocks: 8          IO Block: 65536  directory
 
-    [makam@cycrh6rtp07 ~]$ stat tmp
-    File: 'tmp'
-    Size: 12288           Blocks: 24         IO Block: 65536  directory
+[makam@cycrh6rtp07 ~]$ stat tmp
+File: 'tmp'
+Size: 12288           Blocks: 24         IO Block: 65536  directory
  
-    [makam@cycrh6rtp07 ~]$ stat tmp1
-    File: 'tmp1'
-    Size: 4096            Blocks: 8          IO Block: 65536  directory
+[makam@cycrh6rtp07 ~]$ stat tmp1
+File: 'tmp1'
+Size: 4096            Blocks: 8          IO Block: 65536  directory
+```
+
 
 ## <a name="data-migration-and-protection-faqs"></a>Preguntas frecuentes sobre migración y protección de datos
 
@@ -234,5 +241,5 @@ No. En la actualidad, el servicio Azure Import/Export no es compatible con Azure
 - [Preguntas más frecuentes acerca de Microsoft Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
 - [Preguntas más frecuentes acerca de Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)
 - [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)
-- [Azure Data Box](https://docs.microsoft.com/azure/databox-family/)
+- [Azure Data Box](https://docs.microsoft.com/azure/databox)
 - [Preguntas más frecuentes sobre el rendimiento de SMB para Azure NetApp Files](azure-netapp-files-smb-performance.md)

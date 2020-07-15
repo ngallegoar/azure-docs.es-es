@@ -6,14 +6,14 @@ author: yanancai
 ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/16/2016
-ms.openlocfilehash: 9ff7ba5f04a8c1862f8ef136f8f3f6900f00a431
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ee77045bfb1023c27a3f831279c109a74b7ed309
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71802549"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120235"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Resuelva los problemas de asimetría de datos con Herramientas de Azure Data Lake para Visual Studio
 
@@ -54,7 +54,9 @@ U-SQL proporciona la instrucción CREATE STATISTICS en las tablas. Esta instrucc
 
 Ejemplo de código:
 
-    CREATE STATISTICS IF NOT EXISTS stats_SampleTable_date ON SampleDB.dbo.SampleTable(date) WITH FULLSCAN;
+```usql
+CREATE STATISTICS IF NOT EXISTS stats_SampleTable_date ON SampleDB.dbo.SampleTable(date) WITH FULLSCAN;
+```
 
 >[!NOTE]
 >La información de estadísticas no se actualiza automáticamente. Si actualiza los datos de una tabla sin volver a crear las estadísticas, el rendimiento de las consultas puede verse reducido.
@@ -65,62 +67,66 @@ Si desea sumar el impuesto de cada estado, debe usar GROUP BY estado, un método
 
 Por lo general, puede establecer el parámetro como 0,5 y 1; 0,5 significa una ligera asimetría, mientras que 1 significa una gran asimetría. Dado que la sugerencia afecta a la optimización de plan de ejecución de la instrucción actual y todas las instrucciones de nivel inferiores, no olvide agregar la sugerencia antes de la agregación con posible asimetría en la clave.
 
-    SKEWFACTOR (columns) = x
+```usql
+SKEWFACTOR (columns) = x
+```
 
-    Provides a hint that the given columns have a skew factor x from 0 (no skew) through 1 (very heavy skew).
+Sugiere que las columnas especificadas tengan un factor de sesgo x de 0 (sin sesgo) a 1 (sesgo muy marcado).
 
 Ejemplo de código:
 
-    //Add a SKEWFACTOR hint.
-    @Impressions =
-        SELECT * FROM
-        searchDM.SML.PageView(@start, @end) AS PageView
-        OPTION(SKEWFACTOR(Query)=0.5)
-        ;
+```usql
+//Add a SKEWFACTOR hint.
+@Impressions =
+    SELECT * FROM
+    searchDM.SML.PageView(@start, @end) AS PageView
+    OPTION(SKEWFACTOR(Query)=0.5)
+    ;
+//Query 1 for key: Query, ClientId
+@Sessions =
+    SELECT
+        ClientId,
+        Query,
+        SUM(PageClicks) AS Clicks
+    FROM
+        @Impressions
+    GROUP BY
+        Query, ClientId
+    ;
+//Query 2 for Key: Query
+@Display =
+    SELECT * FROM @Sessions
+        INNER JOIN @Campaigns
+            ON @Sessions.Query == @Campaigns.Query
+    ;
+```
 
-    //Query 1 for key: Query, ClientId
-    @Sessions =
-        SELECT
-            ClientId,
-            Query,
-            SUM(PageClicks) AS Clicks
-        FROM
-            @Impressions
-        GROUP BY
-            Query, ClientId
-        ;
-
-    //Query 2 for Key: Query
-    @Display =
-        SELECT * FROM @Sessions
-            INNER JOIN @Campaigns
-                ON @Sessions.Query == @Campaigns.Query
-        ;   
-
-### <a name="option-3-use-rowcount"></a>Opción 3: Usar ROWCOUNT  
+### <a name="option-3-use-rowcount"></a>Opción 3: Usar ROWCOUNT
 Además de SKEWFACTOR, en casos concretos de combinación de clave asimétrica, si sabe que el otro conjunto de filas combinadas es pequeño, puede indicárselo al optimizador agregando la sugerencia ROWCOUNT en la instrucción U-SQL antes de JOIN. De esta manera, el optimizador puede elegir una estrategia de combinación de difusión para ayudar a mejorar el rendimiento. Tenga en cuenta que ROWCOUNT no resuelve el problema de simetría de datos, pero pueda ofrecer cierta ayuda adicional.
 
-    OPTION(ROWCOUNT = n)
+```usql
+OPTION(ROWCOUNT = n)
+```
 
-    Identify a small row set before JOIN by providing an estimated integer row count.
+Identifique un conjunto de filas pequeño antes de JOIN; para ello, proporcione un recuento estimado de filas de enteros.
 
 Ejemplo de código:
 
-    //Unstructured (24-hour daily log impressions)
-    @Huge   = EXTRACT ClientId int, ...
-                FROM @"wasb://ads@wcentralus/2015/10/30/{*}.nif"
-                ;
-
-    //Small subset (that is, ForgetMe opt out)
-    @Small  = SELECT * FROM @Huge
-                WHERE Bing.ForgetMe(x,y,z)
-                OPTION(ROWCOUNT=500)
-                ;
-
-    //Result (not enough information to determine simple broadcast JOIN)
-    @Remove = SELECT * FROM Bing.Sessions
-                INNER JOIN @Small ON Sessions.Client == @Small.Client
-                ;
+```usql
+//Unstructured (24-hour daily log impressions)
+@Huge   = EXTRACT ClientId int, ...
+            FROM @"wasb://ads@wcentralus/2015/10/30/{*}.nif"
+            ;
+//Small subset (that is, ForgetMe opt out)
+@Small  = SELECT * FROM @Huge
+            WHERE Bing.ForgetMe(x,y,z)
+            OPTION(ROWCOUNT=500)
+            ;
+//Result (not enough information to determine simple broadcast JOIN)
+@Remove = SELECT * FROM Bing.Sessions
+            INNER JOIN @Small ON Sessions.Client == @Small.Client
+            ;
+```
 
 ## <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>Solución 3: Mejorar el combinador y el reductor definidos por el usuario
 
@@ -136,19 +142,23 @@ Para cambiar un reductor no recursivo a recursivo, debe asegurarse de que el alg
 
 Atributo del reductor recursivo:
 
-    [SqlUserDefinedReducer(IsRecursive = true)]
+```usql
+[SqlUserDefinedReducer(IsRecursive = true)]
+```
 
 Ejemplo de código:
 
-    [SqlUserDefinedReducer(IsRecursive = true)]
-    public class TopNReducer : IReducer
+```usql
+[SqlUserDefinedReducer(IsRecursive = true)]
+public class TopNReducer : IReducer
+{
+    public override IEnumerable<IRow>
+        Reduce(IRowset input, IUpdatableRow output)
     {
-        public override IEnumerable<IRow>
-            Reduce(IRowset input, IUpdatableRow output)
-        {
-            //Your reducer code goes here.
-        }
+        //Your reducer code goes here.
     }
+}
+```
 
 ### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>Opción 2: Usar el modo de combinador de nivel de fila si es posible
 
@@ -175,12 +185,14 @@ Atributos del modo de combinador:
 
 Ejemplo de código:
 
-    [SqlUserDefinedCombiner(Mode = CombinerMode.Right)]
-    public class WatsonDedupCombiner : ICombiner
+```usql
+[SqlUserDefinedCombiner(Mode = CombinerMode.Right)]
+public class WatsonDedupCombiner : ICombiner
+{
+    public override IEnumerable<IRow>
+        Combine(IRowset left, IRowset right, IUpdatableRow output)
     {
-        public override IEnumerable<IRow>
-            Combine(IRowset left, IRowset right, IUpdatableRow output)
-        {
-        //Your combiner code goes here.
-        }
+    //Your combiner code goes here.
     }
+}
+```

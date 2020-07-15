@@ -4,12 +4,12 @@ description: Información acerca de los escenarios de seguridad para un clúster
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: c43cfbd4468a64867d50482d9c8055622602f159
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ba1565c31e8a3ce3f25501f0cad321d5413dc962
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461589"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080674"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Escenarios de seguridad de los clústeres de Service Fabric
 
@@ -33,13 +33,18 @@ Los clústeres que se ejecutan en Azure y los independientes que se ejecutan en 
 
 Service Fabric usa certificados de servidor X.509 que se especifican como parte de las configuraciones del tipo de nodo al crear un clúster. Al final de este artículo se proporciona una introducción a estos certificados y a cómo se pueden adquirir o crear.
 
-Configure la seguridad basada en certificados al crear el clúster, mediante Azure Portal, las plantillas de Azure Resource Manager o una plantilla JSON independiente. El comportamiento predeterminado del SDK de Service Fabric es implementar e instalar el certificado con el certificado que vaya a expirar más tarde; el comportamiento clásico posibilitaba definir los certificados principales y secundarios a fin de permitir las sustituciones iniciadas manualmente. No se recomienda usarse con la nueva funcionalidad. Los certificados principales que se usarán serán los que tengan una fecha de expiración más tardía y deberían ser diferentes de los certificados de cliente de solo lectura y de los de cliente de administración que establezca para la [seguridad de cliente a nodo](#client-to-node-security).
+Configure la seguridad basada en certificados al crear el clúster, mediante Azure Portal, las plantillas de Azure Resource Manager o una plantilla JSON independiente. El comportamiento predeterminado del SDK de Service Fabric es implementar e instalar el certificado con la fecha que vaya a expirar más tarde; el comportamiento clásico posibilitaba definir los certificados principales y secundarios a fin de permitir las sustituciones iniciadas manualmente. No se recomienda usarse con la nueva funcionalidad. Los certificados principales que se usarán serán los que tengan una fecha de expiración más tardía y deberían ser diferentes de los certificados de cliente de solo lectura y de los de cliente de administración que establezca para la [seguridad de cliente a nodo](#client-to-node-security).
 
 Para aprender a configurar la seguridad basada en certificados en un clúster para Azure, consulte [Creación de un clúster de Service Fabric con Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
 Para aprender a configurar la seguridad basada en certificados en los clústeres para uno de Windows Server independiente, consulte [Protección de un clúster independiente en Windows mediante certificados X.509](service-fabric-windows-cluster-x509-security.md).
 
 ### <a name="node-to-node-windows-security"></a>Seguridad de Windows de nodo a nodo
+
+> [!NOTE]
+> La autenticación de Windows se basa en Kerberos. NTLM no se admite como tipo de autenticación.
+>
+> Siempre que sea posible, use la autenticación de certificados X.509 para los clústeres de Service Fabric.
 
 Para aprender a configurar la seguridad de Windows para clústeres de Windows Server independientes, consulte [Proteger un clúster independiente en Windows mediante la seguridad de Windows](service-fabric-windows-cluster-windows-security.md).
 
@@ -49,7 +54,7 @@ La seguridad de cliente a nodo autentica los clientes y ayuda a proteger la comu
 
 ![Diagrama de comunicación de cliente a nodo][Client-to-Node]
 
-Los clústeres que se ejecutan en Azure y los independientes que se ejecutan en Windows pueden utilizar una [seguridad basada en certificados](https://msdn.microsoft.com/library/ff649801.aspx) o la [seguridad de Windows](https://msdn.microsoft.com/library/ff649396.aspx).
+Los clústeres que se ejecutan en Azure y los independientes que se ejecutan en Windows pueden utilizar una [seguridad basada en certificados](https://msdn.microsoft.com/library/ff649801.aspx) o la [seguridad de Windows](https://msdn.microsoft.com/library/ff649396.aspx), aunque se recomienda usar la autenticación basada en certificado X.509 siempre que sea posible.
 
 ### <a name="client-to-node-certificate-security"></a>Seguridad basada en certificados de cliente a nodo
 

@@ -5,12 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: ce40a46d4c1da627930ef8de8813936b71dcc281
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.custom: tracking-python
+ms.openlocfilehash: 14da272ce5ce7c078719909345961f6ddf57f37b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648918"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833798"
 ---
 # <a name="azure-functions-http-trigger"></a>Desencadenador HTTP de Azure Functions
 
@@ -497,7 +498,9 @@ El tipo de entrada del desencadenador se declara como `HttpRequest` o como un ti
 
 De forma predeterminada, al crear una función para un desencadenador HTTP, la función se puede dirigir con una ruta que tenga el siguiente formato:
 
-    http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
+```http
+http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
+```
 
 Puede personalizar esta ruta mediante el parámetro opcional `route` del enlace de entrada del desencadenador HTTP. Por ejemplo, el siguiente archivo *function.json* define una propiedad `route` para un desencadenador HTTP:
 
@@ -634,12 +637,14 @@ public class HttpTriggerJava {
 
 ---
 
-De forma predeterminada, todas las rutas de la función tienen el prefijo *api*. También puede personalizar o quitar el prefijo con la propiedad `http.routePrefix` del archivo [host.json](functions-host-json.md). En el ejemplo siguiente, se quita el prefijo de ruta *api* utilizando una cadena vacía del prefijo del archivo *host.json*.
+De forma predeterminada, todas las rutas de la función tienen el prefijo *api*. También puede personalizar o quitar el prefijo con la propiedad `extensions.http.routePrefix` del archivo [host.json](functions-host-json.md). En el ejemplo siguiente, se quita el prefijo de ruta *api* utilizando una cadena vacía del prefijo del archivo *host.json*.
 
 ```json
 {
-    "http": {
-    "routePrefix": ""
+    "extensions": {
+        "http": {
+            "routePrefix": ""
+        }
     }
 }
 ```
@@ -749,9 +754,6 @@ El usuario autenticado está disponible a través de [encabezados HTTP](../app-s
 
 ## <a name="function-access-keys"></a><a name="authorization-keys"></a>Claves de acceso de función
 
-> [!IMPORTANT]
-> Aunque las claves pueden ayudar a ofuscar los puntos de conexión HTTP durante el desarrollo, no están diseñadas como una manera de proteger un desencadenador HTTP en producción. Para obtener más información, vea [Proteger un punto de conexión HTTP en producción](#secure-an-http-endpoint-in-production).
-
 [!INCLUDE [functions-authorization-keys](../../includes/functions-authorization-keys.md)]
 
 ## <a name="obtaining-keys"></a>Obtención de claves
@@ -766,7 +768,9 @@ Puede obtener claves de función mediante programación con las [API de administ
 
 La mayoría de las plantillas de desencadenador HTTP requieren una clave de API en la solicitud. Por lo tanto, la solicitud HTTP normalmente se parece a la siguiente dirección URL:
 
-    https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
+```http
+https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
+```
 
 La clave se puede incluir en una variable de cadena de consulta denominada `code`, como arriba. También puede incluirse en un encabezado HTTP `x-functions-key`. El valor de la clave puede ser cualquier clave de función definida para la función o cualquier clave de host.
 
@@ -810,7 +814,15 @@ La autorización de webhook se controla mediante el componente receptor de webho
 * **Cadena de consulta**: el proveedor pasa el nombre de la clave en el parámetro de la cadena de consulta `clientid`, como `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?clientid=<KEY_NAME>`.
 * **Encabezado de solicitud**: el proveedor pasa el nombre de clave en el encabezado `x-functions-clientid`.
 
-## <a name="limits"></a>límites
+## <a name="content-types"></a>Tipos de contenido
+
+Para pasar datos binarios y de formulario a una función que no es de C#, es necesario utilizar el encabezado Content-Type adecuado. Los tipos de contenido admitidos incluyen `octet-stream` para los datos binarios y [tipos de varias partes](https://www.iana.org/assignments/media-types/media-types.xhtml#multipart).
+
+### <a name="known-issues"></a>Problemas conocidos
+
+En las funciones que no son de C#, las solicitudes enviadas con el tipo de contenido `image/jpeg` producen un valor `string` pasado a la función. En casos como estos, puede convertir manualmente el valor `string` en una matriz de bytes para acceder a los datos binarios sin formato.
+
+## <a name="limits"></a>Límites
 
 La longitud de la solicitud HTTP está limitada a 100 MB (104 857 600 bytes) y la longitud de la dirección URL a 4 KB (4 096 bytes). El elemento `httpRuntime` del [archivo Web.config](https://github.com/Azure/azure-functions-host/blob/3.x/src/WebJobs.Script.WebHost/web.config) especifica estos límites.
 

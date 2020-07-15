@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: a9468f437a89a85f28b6ce869b948ca2a4aff7bf
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 5d0808b93d0c9c7b49d1fd394d2b776c008bc594
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983336"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135865"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitectura de recuperación ante desastres de Azure a Azure
 
@@ -34,7 +34,7 @@ En la tabla siguiente se resumen los componentes implicados en la recuperación 
 **Cuenta de almacenamiento en caché** | Necesita una cuenta de almacenamiento de caché en la red de origen. Durante la replicación, los cambios de la máquina virtual se almacenan en la memoria caché antes de enviarse al almacenamiento de destino.  Las cuentas de almacenamiento en caché deben ser estándar.<br/><br/> Esto garantiza que las aplicaciones de producción que se ejecutan en la máquina virtual resulten mínimamente afectadas.<br/><br/> [Más información](azure-to-azure-support-matrix.md#cache-storage) acerca de los requisitos de almacenamiento en caché. 
 **Recursos de destino** | Los recursos de destino se utilizan durante la replicación y al producirse una conmutación por error. Site Recovery puede configurar el recurso de destino de forma predeterminada o, si lo prefiere, puede crearlo usted o personalizarlo.<br/><br/> En la región de destino, compruebe que se pueden crear máquinas virtuales y que la suscripción tiene suficientes recursos para admitir los tamaños de máquina virtual necesarios en la región de destino. 
 
-![Origen y destino de la replicación](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
+![Origen y destino de la replicación](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
 
 ## <a name="target-resources"></a>Recursos de destino
 
@@ -116,7 +116,7 @@ Al habilitar la replicación para una máquina virtual de Azure, ocurre lo sigui
 4. Site Recovery procesa los datos en la caché y los envía a la cuenta de almacenamiento de destino o a los discos administrados de réplica.
 5. Una vez procesados los datos, se generan puntos de recuperación coherentes frente a bloqueos cada cinco minutos. Los puntos de recuperación coherentes con la aplicación se generan según la configuración especificada en la directiva de replicación.
 
-![Habilitación del proceso de replicación, paso 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
+![Habilitación del proceso de replicación, paso 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
 
 **Proceso de replicación**
 
@@ -146,9 +146,9 @@ Tenga en cuenta que los detalles sobre los requisitos de conectividad de red se 
 
 **Regla** |  **Detalles** | **Etiqueta de servicio**
 --- | --- | --- 
-Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a las cuentas de almacenamiento en la región de origen. | Storage.\<nombre-región>
+Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a las cuentas de almacenamiento en la región de origen. | Almacenamiento.\<region-name>
 Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a Azure Active Directory (Azure AD)  | AzureActiveDirectory
-Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan al centro de eventos en la región de destino. | EventsHub.\<nombre-región>
+Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan al centro de eventos en la región de destino. | EventsHub.\<region-name>
 Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a Azure Site Recovery.  | AzureSiteRecovery
 Permitir HTTPS de salida: puerto 443 | Permite los rangos correspondientes a Azure Key Vault (esto solo es necesario para habilitar la replicación de máquinas virtuales habilitadas para ADE a través del portal). | AzureKeyVault
 Permitir HTTPS de salida: puerto 443 | Permite los rangos correspondientes al controlador de Azure Automation (esto solo es necesario para habilitar la actualización automática del agente de movilidad para un elemento replicado a través del portal). | GuestAndHybridManagement
@@ -157,9 +157,9 @@ Permitir HTTPS de salida: puerto 443 | Permite los rangos correspondientes al co
 
 **Regla** |  **Detalles** | **Etiqueta de servicio**
 --- | --- | --- 
-Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a las cuentas de almacenamiento en la región de destino. | Storage.\<nombre-región>
+Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a las cuentas de almacenamiento en la región de destino. | Almacenamiento.\<region-name>
 Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a Azure AD  | AzureActiveDirectory
-Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan al centro de eventos en la región de origen. | EventsHub.\<nombre-región>
+Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan al centro de eventos en la región de origen. | EventsHub.\<region-name>
 Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a Azure Site Recovery.  | AzureSiteRecovery
 Permitir HTTPS de salida: puerto 443 | Permite los rangos correspondientes a Azure Key Vault (esto solo es necesario para habilitar la replicación de máquinas virtuales habilitadas para ADE a través del portal). | AzureKeyVault
 Permitir HTTPS de salida: puerto 443 | Permite los rangos correspondientes al controlador de Azure Automation (esto solo es necesario para habilitar la actualización automática del agente de movilidad para un elemento replicado a través del portal). | GuestAndHybridManagement
@@ -167,11 +167,11 @@ Permitir HTTPS de salida: puerto 443 | Permite los rangos correspondientes al co
 
 #### <a name="control-access-with-nsg-rules"></a>Control de acceso con reglas de grupo de seguridad de red
 
-Si se controla la conectividad de la máquina virtual mediante el filtrado de tráfico de red hacia y desde redes o subredes de Azure con [reglas de grupo de seguridad de red](https://docs.microsoft.com/azure/virtual-network/security-overview), tenga en cuenta los siguientes requisitos:
+Si se controla la conectividad de la máquina virtual mediante el filtrado de tráfico de red hacia y desde redes o subredes de Azure con [reglas de grupo de seguridad de red](../virtual-network/security-overview.md), tenga en cuenta los siguientes requisitos:
 
 - Las reglas de grupo de seguridad de red para la región de Azure de origen deben permitir el acceso de salida para el tráfico de replicación.
 - Se recomienda crear reglas en un entorno de prueba antes de pasar a producción.
-- Use [etiquetas de servicio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) en lugar de permitir direcciones IP individuales.
+- Use [etiquetas de servicio](../virtual-network/security-overview.md#service-tags) en lugar de permitir direcciones IP individuales.
     - Las etiquetas de servicio representan un grupo de prefijos de direcciones IP que ayudan a reducir la complejidad de la creación de reglas de seguridad.
     - Microsoft actualiza periódica y automáticamente las etiquetas de servicio. 
  
@@ -191,7 +191,7 @@ Si habilita la coherencia entre varias máquinas virtuales, las máquinas del gr
 
 Cuando se inicia una conmutación por error, las máquinas virtuales se crean en el grupo de recursos de destino, la red virtual de destino, la subred de destino y el conjunto de disponibilidad de destino. Durante una conmutación por error, puede usar cualquier punto de recuperación.
 
-![Proceso de conmutación por error](./media/concepts-azure-to-azure-architecture/failover.png)
+![Proceso de conmutación por error](./media/concepts-azure-to-azure-architecture/failover-v2.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

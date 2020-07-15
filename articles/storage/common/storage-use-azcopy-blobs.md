@@ -3,17 +3,17 @@ title: Transferencia de datos con Azure Blob Storage como origen o destino media
 description: Este artículo contiene una colección de comandos de ejemplo de AzCopy que le ayudarán a crear contenedores, copiar archivos y sincronizar directorios entre sistemas de archivos y contenedores locales.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: b676c2647fbf7c93d271e1d7f68653452125e39b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ac96008987b0dbed9e3a39f92e608b8ae6c82512
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137202"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513772"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferencia de datos con AzCopy y Blob Storage
 
@@ -241,7 +241,7 @@ AzCopy usa interfaces [API](https://docs.microsoft.com/rest/api/storageservices/
 > [!NOTE]
 > Este escenario tiene las siguientes limitaciones en la versión actual.
 >
-> - Tiene que anexar un token de SAS a cada dirección URL de origen. Si proporciona credenciales de autorización mediante Azure Active Directory (AD), puede omitir el token de SAS solo de la dirección URL de destino.
+> - Tiene que anexar un token de SAS a cada dirección URL de origen. Si proporciona credenciales de autorización mediante Azure Active Directory (AD), puede omitir el token de SAS solo de la dirección URL de destino. Asegúrese de que ha configurado los roles adecuados en su cuenta de destino. Consulte [Opción 1: Uso de Azure Active Directory](storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json#option-1-use-azure-active-directory).
 >-  Las cuentas de almacenamiento de blobs en bloques Premium no admiten niveles de acceso. Omita el nivel de acceso de un blob de la operación de copia. Para ello, establezca `s2s-preserve-access-tier` en `false` (por ejemplo: `--s2s-preserve-access-tier=false`).
 
 En esta sección se incluyen los ejemplos siguientes:

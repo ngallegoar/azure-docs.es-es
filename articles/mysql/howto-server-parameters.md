@@ -4,20 +4,20 @@ description: En este artículo se explica cómo configurar parámetros del servi
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 4/16/2020
-ms.openlocfilehash: bd0a867cce9b2a9ad793b491b9042034ef5810f5
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.topic: how-to
+ms.date: 6/11/2020
+ms.openlocfilehash: ce8a651fcdda657a1fffa523837181031e0bbc75
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605151"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119810"
 ---
-# <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Cómo configurar parámetros del servidor en Azure Database for MySQL mediante Azure Portal
+# <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-portal"></a>Configuración de parámetros del servidor en Azure Database for MySQL mediante Azure Portal
 
 Azure Database para MySQL admite la configuración de algunos parámetros del servidor. En este artículo se explica cómo configurar estos parámetros mediante Azure Portal. No es posible ajustar todos los parámetros del servidor.
 
-## <a name="navigate-to-server-parameters-on-azure-portal"></a>Ir a Parámetros del servidor de Azure Portal
+## <a name="configure-server-parameters"></a>Configuración de parámetros del servidor
 
 1. Inicie sesión en Azure Portal y luego localice su servidor de Azure Database for MySQL.
 2. En la sección **CONFIGURACIÓN**, haga clic en **Parámetros del servidor** para abrir la página Parámetros del servidor de Azure Database for MySQL.
@@ -29,41 +29,16 @@ Azure Database para MySQL admite la configuración de algunos parámetros del se
 5. Si ha guardado los nuevos valores para los parámetros, siempre puede revertir todos los elementos a los valores predeterminados; para ello, seleccione **Restablecer todos los valores predeterminados**.
 ![Restablecer todos los valores predeterminados](./media/howto-server-parameters/5-reset_parameters.png)
 
-## <a name="list-of-configurable-server-parameters"></a>Lista de parámetros configurables del servidor
+## <a name="setting-parameters-not-listed"></a>Valor de parámetros que no aparecen en la lista
 
-La lista de parámetros del servidor admitidos crece constantemente. Use la pestaña Parámetros del servidor en Azure Portal para obtener la definición y configurar parámetros del servidor basados en los requisitos de la aplicación.
+Si el parámetro de servidor que desea actualizar no aparece en Azure Portal, también puede establecer el parámetro en el nivel de conexión mediante `init_connect`. De este modo se establecen los parámetros del servidor para cada cliente con conexión al servidor. 
 
-## <a name="non-configurable-server-parameters"></a>Parámetros no configurables del servidor
+1. En la sección **CONFIGURACIÓN**, haga clic en **Parámetros del servidor** para abrir la página Parámetros del servidor de Azure Database for MariaDB.
+2. Busque `init_connect`.
+3. Agregue los parámetros del servidor con el formato: `SET parameter_name=YOUR_DESIRED_VALUE` en la columna de valor.
 
-El grupo de búferes de InnoDB no es configurable y está vinculado a su [plan de tarifa](concepts-service-tiers.md).
-
-|**Plan de tarifa**|**Núcleos virtuales**|**Tamaño del grupo de búferes de InnoDB en MB <br>(servidores que admiten un almacenamiento de hasta 4 TB)**| **Tamaño del grupo de búferes de InnoDB en MB <br>(servidores que admiten un almacenamiento de hasta 16 TB)**|
-|:---|---:|---:|---:|
-|Básica| 1| 832| |
-|Básica| 2| 2560| |
-|Uso general| 2| 3584| 7168|
-|Uso general| 4| 7680| 15360|
-|Uso general| 8| 15360| 30720|
-|Uso general| 16| 31232| 62464|
-|Uso general| 32| 62976| 125952|
-|Uso general| 64| 125952| 251 904|
-|Memoria optimizada| 2| 7168| 14336|
-|Memoria optimizada| 4| 15360| 30720|
-|Memoria optimizada| 8| 30720| 61 440|
-|Memoria optimizada| 16| 62464| 124 928|
-|Memoria optimizada| 32| 125952| 251 904|
-
-Estos parámetros adicionales del servidor no son configurables en el sistema:
-
-|**Parámetro**|**Valor fijo**|
-| :------------------------ | :-------- |
-|innodb_file_per_table en el nivel básico|Apagado|
-|innodb_flush_log_at_trx_commit|1|
-|sync_binlog|1|
-|innodb_log_file_size|256 MB|
-|innodb_log_files_in_group|2|
-
-Los demás parámetros de servidor que no aparecen aquí se establecen en sus valores predeterminados de MySQL integrado para las versiones [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) y [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
+    Por ejemplo, puede cambiar el juego de caracteres del servidor mediante el establecimiento de `init_connect` en `SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;`.
+4. Haga clic en **Guardar** para guardar los cambios.
 
 ## <a name="working-with-the-time-zone-parameter"></a>Trabajo con el parámetro de zona horaria
 

@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4a4d3a1480a852218e698862a509c4af45e49eb8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76714414"
 ---
 # <a name="project-lead-tasks-in-the-team-data-science-process"></a>Tareas para el líder del proyecto en el proceso de ciencia de datos en equipo
@@ -36,7 +36,7 @@ Para el Paso 6: Configuración del control de seguridad del repositorio del proy
 > [!NOTE] 
 > En este artículo se utiliza Azure Repos para configurar un proyecto de TDSP, ya que se explica cómo implementar TDSP en Microsoft. Si el equipo usa otras plataformas de hospedaje de código, las tareas del responsable de proyecto son las mismas, pero la manera de realizarlas puede ser diferente.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este tutorial se da por supuesto que el [administrador del grupo](group-manager-tasks.md) y el [responsable de equipo](team-lead-tasks.md) han configurado los siguientes recursos y permisos:
 
@@ -57,7 +57,7 @@ Para clonar los repositorios y modificar el contenido en la máquina local o en 
 
 Para crear un repositorio de proyecto en el proyecto **MyTeam** del equipo:
 
-1. Vaya a la página **Resumen** del proyecto de equipo en *https:\//\<NombreDelServidor>/\<NombreDeOrganización>/\<NombreDelEquipo>* , por ejemplo, **https:\//dev.azure.com/DataScienceUnit/MyTeam** y seleccione **Repos** en el panel de navegación izquierdo. 
+1. Vaya a la página **Resumen** del proyecto de equipo en *https:\//\<server name>/\<organization name>/\<team name>* , por ejemplo, **https:\//dev.azure.com/DataScienceUnit/MyTeam** y seleccione **Repositorios** en el panel de navegación izquierdo. 
    
 1. Seleccione el nombre del repositorio en la parte superior de la página y, a continuación, seleccione **Nuevo repositorio** en la lista desplegable.
    
@@ -83,7 +83,7 @@ Si desea rellenar el repositorio del proyecto con el contenido del repositorio d
    
    ![Seleccionar Importar](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
    
-1. En el cuadro de diálogo **Importar un repositorio GIT**, seleccione **Git** como **Tipo de origen** y escriba la dirección URL del repositorio **TeamTemplate** en **Dirección URL de clonación**. La dirección URL es *https:\//\<nombreDeServidor>/\<nombreDeOrganización>/\<nombreDeEquipo>/_git/\<nombreDeRepositorioDePlantillasDeEquipo>* . Por ejemplo: **https:\//dev.azure.com/DataScienceUnit/MyTeam/_git/TeamTemplate**. 
+1. En el cuadro de diálogo **Importar un repositorio GIT**, seleccione **Git** como **Tipo de origen** y escriba la dirección URL del repositorio **TeamTemplate** en **Dirección URL de clonación**. La dirección URL es *https:\//\<server name>/\<organization name>/\<team name>/_git/\<team template repository name>* . Por ejemplo: **https:\//dev.azure.com/DataScienceUnit/MyTeam/_git/TeamTemplate**. 
    
 1. Seleccione **Import** (Importar). El contenido del repositorio de plantillas del equipo se importa en el repositorio de proyectos. 
    

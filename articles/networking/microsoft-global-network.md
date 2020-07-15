@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: b78e227159065d2ae85d9b1dc989e8ea192ae26a
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 5028417758bb8be38505d27d3dfb5e2fc055c3ca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982809"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85125828"
 ---
 # <a name="microsoft-global-network"></a>Red global de Microsoft
 
@@ -38,7 +38,7 @@ Con independencia de que se conecte desde Londres a Tokio o desde Washington DC 
 
 Por ejemplo, si un usuario en Londres intenta acceder a un servicio de Tokio, el tráfico de Internet entra en uno de nuestros servidores perimetrales en Londres, recorre la WAN de Microsoft a través de Francia, nuestras rutas de acceso de Trans-Arabia entre Europa e India, y después llega a Japón, donde se hospeda el servicio. El tráfico de respuesta es simétrico. Esto se conoce a veces como [enrutamiento de patata fría](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing), lo que significa que el tráfico permanece en la red de Microsoft el máximo tiempo posible antes de entregarlo.  
   
-Por tanto, ¿se refiere a todo el tráfico cuando se usan los servicios de Microsoft? Sí, todo el tráfico entre centros datos, dentro de Microsoft Azure o entre los servicios de Microsoft, como máquinas virtuales, Office 365, XBox, bases de datos SQL, Storage y redes virtuales se enruta dentro de nuestra red mundial y nunca sobre Internet, para garantizar un rendimiento y una integridad óptimos.  
+Por tanto, ¿se refiere a todo el tráfico cuando se usan los servicios de Microsoft? Sí, todo el tráfico entre centros datos, dentro de Microsoft Azure o entre los servicios de Microsoft, como máquinas virtuales, Microsoft 365, XBox, bases de datos SQL, Storage y redes virtuales se enruta dentro de nuestra red mundial y nunca sobre Internet, para garantizar un rendimiento y una integridad óptimos.  
  
 Las grandes inversiones en capacidad de fibra y diversidad a través de rutas metropolitanas, terrestres y submarinas son fundamentales para poder mantener un alto nivel de servicio coherente al tiempo que se impulsa el crecimiento extremo de nuestros servicios en la nube y en línea. Las adiciones recientes a la red son nuestro cable submarino [MAREA](https://www.submarinecablemap.com/#/submarine-cable/marea), el primer sistema de líneas abiertas (OLS) submarino del sector (entre Bilbao, España y Virginia Beach, Virginia, EE. UU.), así como el [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1) entre Nueva York, Estados Unidos y Dublín, Irlanda, y [New Cross Pacific (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) entre Tokio, Japón y Portland, Oregon, Estados Unidos. 
  

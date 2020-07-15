@@ -8,15 +8,15 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/20/2020
-ms.custom: seodec18
-ms.openlocfilehash: 625c1ea474693732ab19e82de4730d2f8c971979
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 519d9f25276ea54fbfd49970ba3c288245ce9653
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117486"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833696"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configuración de experimentos de ML automatizado en Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,7 +39,7 @@ Si prefiere una experiencia sin código, también puede [crear experimentos de a
 
 ## <a name="select-your-experiment-type"></a>Seleccione el tipo de experimento
 
-Antes de comenzar el experimento, debe determinar el tipo de problema de aprendizaje automático que va a resolver. El aprendizaje automático automatizado admite tipos de tareas de clasificación, regresión y previsión. Más información sobre los [tipos de tareas](how-to-define-task-type.md).
+Antes de comenzar el experimento, debe determinar el tipo de problema de aprendizaje automático que va a resolver. El aprendizaje automático automatizado admite tipos de tareas de clasificación, regresión y previsión. Más información sobre los [tipos de tareas](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast).
 
 El aprendizaje automático automatizado admite los siguientes algoritmos durante el proceso de optimización y automatización. Como usuario, no hay ninguna necesidad de especificar el algoritmo.
 
@@ -58,12 +58,10 @@ clasificación | Regresión | Previsión de series temporales
 [Bosque aleatorio](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Bosque aleatorio](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Bosque aleatorio](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
 [Árboles extremadamente aleatorios](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Árboles extremadamente aleatorios](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Árboles extremadamente aleatorios](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* |[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* | [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
-[Clasificador DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier) |[Regresor DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [Regresor DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
-[Clasificador lineal DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[Regresión lineal](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor) |[Regresión lineal](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[Regresor lineal rápida](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest)|[Auto-ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
-[Descenso de gradiente estocástico (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)* |[Regresor descendente de gradiente en línea](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
-|[Clasificador de perceptrón promedio](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest)||ForecastTCN
-|[Clasificador SVM lineal](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)* ||
+[Clasificador de perceptrón promedio](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest)|[Regresor descendente de gradiente en línea](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest) |[Auto-ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
+[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[Regresor lineal rápida](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
+[Descenso de gradiente estocástico (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)* ||ForecastTCN
+|[Clasificador SVM lineal](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)*||
 
 Use el parámetro `task` en el constructor `AutoMLConfig` para especificar el tipo de experimento.
 
@@ -117,13 +115,14 @@ Consulte el [procedimiento](how-to-train-with-datasets.md#mount-files-to-remote-
 
 ## <a name="train-and-validation-data"></a>Datos de entrenamiento y validación
 
-Puede especificar conjuntos distintos de entrenamiento y validación directamente en el constructor `AutoMLConfig`.
+Puede especificar conjuntos distintos de entrenamiento y validación directamente en el constructor `AutoMLConfig` con las siguientes opciones. Más información sobre [cómo configurar las divisiones de datos y la validación cruzada](how-to-configure-cross-validation-data-splits.md) para los experimentos de AutoML. 
 
 ### <a name="k-folds-cross-validation"></a>Validación cruzada de K iteraciones
 
 Use la opción de configuración `n_cross_validations` para especificar el número de validaciones cruzadas. El conjunto de datos de entrenamiento se dividirá aleatoriamente en `n_cross_validations` iteraciones del mismo tamaño. Durante cada ronda de validación cruzada, una de las iteraciones se usará para la validación del modelo entrenado en las iteraciones restantes. Este proceso se repite durante `n_cross_validations` rondas hasta que cada una se utiliza una vez como conjunto de validación. Se notifican las puntuaciones promedio de todas las rondas de `n_cross_validations` y el modelo correspondiente se puede volver a entrenar en todo el conjunto de datos de entrenamiento.
 
 Obtenga más información sobre cómo AutoML aplica la validación cruzada para [evitar un sobreajuste de los modelos](concept-manage-ml-pitfalls.md#prevent-over-fitting).
+
 ### <a name="monte-carlo-cross-validation-repeated-random-sub-sampling"></a>Validación de Monte Carlo entre (submuestra aleatoria repetida)
 
 Use `validation_size` para especificar el porcentaje del conjunto de datos de entrenamiento que se debe usar para la validación y use `n_cross_validations` para especificar el número de validaciones cruzadas. Durante cada ronda de validación cruzada, un subconjunto de tamaño `validation_size` se seleccionará aleatoriamente para la validación del modelo entrenado en los datos restantes. Por último, se notifican las puntuaciones promedias de todas las rondas `n_cross_validations` y el modelo correspondiente se puede volver a entrenar en todo el conjunto de datos de entrenamiento. No se admite Monte Carlo para la predicción de series temporales.
@@ -345,6 +344,8 @@ Hay unas cuantas opciones que puede definir para finalizar el experimento.
 
 Puede ver los resultados del entrenamiento en un widget o en línea si se encuentra en un bloc de notas. Vea [Seguimiento y evaluación de modelos](how-to-track-experiments.md#view-run-details) para obtener más información.
 
+Para más información sobre cómo descargar o registrar un modelo para la implementación en un servicio Web, consulte [cómo y dónde implementar un modelo](how-to-deploy-and-where.md).
+
 ## <a name="understand-automated-ml-models"></a>Descripción de los modelos de ML automatizado
 
 Cualquier modelo generado mediante ML automatizado incluye los siguientes pasos:
@@ -509,6 +510,9 @@ La interpretabilidad del modelo permite comprender por qué los modelos hacen pr
 Vea el [procedimiento](how-to-machine-learning-interpretability-automl.md) de los ejemplos de código sobre cómo habilitar características de interpretabilidad específicamente dentro de experimentos de aprendizaje automático automatizados.
 
 Para información general sobre cómo se pueden habilitar las explicaciones del modelo y la importancia de las características en otras áreas del SDK fuera del aprendizaje automático automatizado, consulte el artículo de [conceptos](how-to-machine-learning-interpretability.md) sobre la interpretabilidad.
+
+> [!NOTE]
+> El modelo ForecastTCN no es compatible en la actualidad con el cliente de explicación. Este modelo no devolverá un panel de explicación si se devuelve como el mejor modelo, y no admite ejecuciones de explicación a petición.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

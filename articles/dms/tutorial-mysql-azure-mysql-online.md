@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 7c8087a01bb71657e816be89b6a562dd4783b271
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e9fc2913a526e01ea5279c476e3deab779db88c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240735"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609240"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migración de MySQL a Azure Database for MySQL en línea mediante DMS
 
@@ -38,7 +38,14 @@ En este tutorial, aprenderá a:
 > [!IMPORTANT]
 > Para disfrutar de una experiencia de migración óptima, Microsoft recomienda crear una instancia de Azure Database Migration Service en la misma región de Azure que la base de datos de destino. Si los datos se transfieren entre diferentes regiones o ubicaciones geográficas, el proceso de migración puede verse afectado y pueden producirse errores.
 
-## <a name="prerequisites"></a>Prerrequisitos
+> [!NOTE]
+> Comunicación sin prejuicios
+>
+> Microsoft admite un entorno diverso e inclusivo. En este artículo se incluyen referencias a la palabra _esclavo_. En la [guía de estilo para la comunicación sin prejuicios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) de Microsoft se reconoce que se trata de una palabra excluyente. Se usa en este artículo por coherencia, ya que actualmente es la palabra que aparece en el software. Cuando el software se actualice para quitarla, este artículo se actualizará en consecuencia.
+>
+
+
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, necesita:
 
@@ -71,7 +78,7 @@ Para completar este tutorial, necesita:
 * Habilite el registro binario en el archivo my.ini (Windows) o en el archivo my.cnf (Unix) en la base de datos de origen con la configuración siguiente:
 
   * **server_id** = 1 o mayor (pertinente solo para MySQL 5.6)
-  * **log-bin**=\<rutaDeAcceso> (relevante solo para MySQL 5.6)    Por ejemplo: log-bin = E:\MySQL_logs\BinLog
+  * **log-bin**=\<path> (pertinente solo para MySQL 5.6)    Por ejemplo, log-bin = E:\MySQL_logs\BinLog
   * **binlog_format** = row
   * **Expire_logs_days** = 5 (se recomienda no usar cero; pertinente solo para MySQL 5.6)
   * **Binlog_row_image** = full (pertinente solo para MySQL 5.6)

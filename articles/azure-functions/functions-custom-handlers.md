@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.author: cshoe
 ms.date: 3/18/2020
 ms.topic: article
-ms.openlocfilehash: f0b738f394c4a544ddb31e25b4570890ccfa9235
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: cdbb5bbde1e5efef9bef992a62a54f1525a16df7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995877"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85052573"
 ---
 # <a name="azure-functions-custom-handlers-preview"></a>Controladores personalizados de Azure Functions (versión preliminar)
 
@@ -447,9 +447,14 @@ Este ejemplo es para Node.js, por lo que es posible que tenga que modificarlo pa
 
 Se puede implementar un controlador personalizado en casi todas las opciones de hospedaje de Azure Functions (consulte [restricciones](#restrictions)). Si el controlador requiere dependencias personalizadas (por ejemplo, un tiempo de ejecución de lenguaje), es posible que tenga que usar un [contenedor personalizado](./functions-create-function-linux-custom-image.md).
 
+En Azure Functions Core Tools, ejecute el siguiente comando para implementar una aplicación de controlador personalizada.
+
+```bash
+func azure functionapp publish $functionAppName --no-build --force
+```
+
 ## <a name="restrictions"></a>Restricciones
 
-- Los controladores personalizados no se admiten en los planes de consumo de Linux.
 - El servidor web se debe iniciar en un plazo de 60 segundos.
 
 ## <a name="samples"></a>Ejemplos

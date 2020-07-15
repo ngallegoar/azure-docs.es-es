@@ -5,15 +5,15 @@ services: storage
 author: alkohli
 ms.service: storage
 ms.subservice: blobs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: df261dbf8af8ffdb4ccb10626594626150245748
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7094fffa1ea8ca2c2557e75fcb31b700abc43da5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176403"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514438"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Elección de la solución de Azure para la transferencia de datos
 
@@ -35,7 +35,7 @@ El movimiento de datos puede ser de los siguientes tipos:
 
     - **Interfaz gráfica**: si únicamente transfiere algunos datos de manera esporádica y no necesita automatizar la transferencia, puede elegir una herramienta de interfaz gráfica, como el Explorador de Azure Storage o una herramienta de exploración basada en web de Azure Portal.
     - **Transferencia mediante scripts o programación**: puede usar las herramientas de software optimizadas que ofrecemos o llamar directamente a los SDK o las API REST. Las herramientas de scripts disponibles son AzCopy, Azure PowerShell y la CLI de Azure. Para la interfaz de programación, utilice uno de los SDK para .NET, Java, Python, Node/JS, C++, Go, PHP o Ruby.
-    - **Dispositivos locales**: nosotros ofrecemos un dispositivo virtual o físico que reside en el centro de datos y optimiza la transferencia de datos a través de la red. Estos dispositivos también proporcionan una caché local de los archivos usados frecuentemente. El dispositivo físico es Data Box Edge y el virtual, Data Box Gateway. Ambos se ejecutan permanentemente en el entorno local y se conectan a Azure a través de la red.
+    - **Dispositivos locales**: nosotros ofrecemos un dispositivo virtual o físico que reside en el centro de datos y optimiza la transferencia de datos a través de la red. Estos dispositivos también proporcionan una caché local de los archivos usados frecuentemente. El dispositivo físico es Azure Stack Edge y el virtual, Data Box Gateway. Ambos se ejecutan permanentemente en el entorno local y se conectan a Azure a través de la red.
     - **Canalización de datos administrados**: puede configurar una canalización en la nube para transferir archivos periódicamente entre distintos servicios de Azure, locales o de ambos tipos. Utilice Azure Data Factory para configurar y administrar canalizaciones de datos, y mover y transformar los datos para el análisis.
 
 En la siguiente ilustración se muestran las directrices para elegir las herramientas de transferencia de datos de Azure en función del ancho de banda de red disponible para la transferencia, el tamaño de los datos que se van a transferir y la frecuencia de las transferencias.

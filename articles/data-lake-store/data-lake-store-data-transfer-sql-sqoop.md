@@ -4,15 +4,15 @@ description: Uso de Sqoop para copiar datos entre Azure SQL Database y Azure Dat
 services: data-lake-store
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: twooley
-ms.openlocfilehash: 154f8f1923874a3221597f1c0017fe99b5d31844
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 32d17962938c9a1dc301c7a1a681801ed488c584
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015937"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985025"
 ---
 # <a name="copy-data-between-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Copia de datos entre Data Lake Storage Gen1 y Azure SQL Database mediante Sqoop
 
@@ -22,50 +22,56 @@ Aprenda a usar Apache Sqoop para importar y exportar datos entre Azure SQL Datab
 
 Las aplicaciones de macrodatos son una opción natural para procesar datos no estructurados y semiestructurados, como registros y archivos. Pero también puede que sea necesario procesar datos estructurados que se almacenan en bases de datos relacionales.
 
-[Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html) es una herramienta diseñada para transferir datos entre bases de datos relacionales y un repositorio de macrodatos, como Data Lake Storage Gen1. Puede usarla para importar datos desde un sistema de administración de bases de datos relacionales (RDBMS) como Azure SQL Database a Data Lake Storage Gen1. Después, puede transformar y analizar los datos mediante cargas de trabajo de macrodatos y exportar los datos a un RDBMS. En este artículo, use una base de datos de Azure SQL como la base de datos relacional para importar y exportar.
+[Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html) es una herramienta diseñada para transferir datos entre bases de datos relacionales y un repositorio de macrodatos, como Data Lake Storage Gen1. Puede usarla para importar datos desde un sistema de administración de bases de datos relacionales (RDBMS) como Azure SQL Database a Data Lake Storage Gen1. Después, puede transformar y analizar los datos mediante cargas de trabajo de macrodatos y exportar los datos a un RDBMS. En este artículo, usa una base de datos de Azure SQL Database como la base de datos relacional para importar y exportar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar, debe disponer de lo siguiente:
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * **Una cuenta de Azure Data Lake Storage Gen1**. Para obtener instrucciones sobre cómo crear la cuenta, vea [Introducción a Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Clúster de Azure HDInsight** con acceso a una cuenta de Data Lake Storage Gen1. Consulte [Creación de un clúster de HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). En este artículo se supone que tiene un clúster de HDInsight Linux con acceso a Data Lake Storage Gen1.
-* **Azure SQL Database**. Para obtener instrucciones sobre cómo crear una, vea [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started.md)
+* **Azure SQL Database**. Para obtener instrucciones sobre cómo crear una base de datos en Azure SQL, consulte [Creación de una base de datos de Azure SQL Database](../sql-database/sql-database-get-started.md).
 
-## <a name="create-sample-tables-in-the-azure-sql-database"></a>Creación de tablas de ejemplo en Azure SQL Database
+## <a name="create-sample-tables-in-the-database"></a>Creación de tablas sencillas en la base de datos
 
-1. Para empezar, cree dos tablas de ejemplo en Azure SQL Database. Use [SQL Server Management Studio](../azure-sql/database/connect-query-ssms.md) o Visual Studio para conectarse a la base de datos y, después, ejecute las consultas siguientes.
+1. Para empezar, cree dos tablas de ejemplo en la base de datos. Use [SQL Server Management Studio](../azure-sql/database/connect-query-ssms.md) o Visual Studio para conectarse a la base de datos y, después, ejecute las consultas siguientes.
 
     **Crear Tabla1**
 
-       CREATE TABLE [dbo].[Table1](
-       [ID] [int] NOT NULL,
-       [FName] [nvarchar](50) NOT NULL,
-       [LName] [nvarchar](50) NOT NULL,
-        CONSTRAINT [PK_Table_1] PRIMARY KEY CLUSTERED
+    ```tsql
+    CREATE TABLE [dbo].[Table1](
+    [ID] [int] NOT NULL,
+    [FName] [nvarchar](50) NOT NULL,
+    [LName] [nvarchar](50) NOT NULL,
+     CONSTRAINT [PK_Table_1] PRIMARY KEY CLUSTERED
            (
                   [ID] ASC
            )
-       ) ON [PRIMARY]
-       GO
+    ) ON [PRIMARY]
+    GO
+    ```
 
     **Crear Tabla2**
 
-       CREATE TABLE [dbo].[Table2](
-       [ID] [int] NOT NULL,
-       [FName] [nvarchar](50) NOT NULL,
-       [LName] [nvarchar](50) NOT NULL,
-        CONSTRAINT [PK_Table_2] PRIMARY KEY CLUSTERED
+    ```tsql
+    CREATE TABLE [dbo].[Table2](
+    [ID] [int] NOT NULL,
+    [FName] [nvarchar](50) NOT NULL,
+    [LName] [nvarchar](50) NOT NULL,
+     CONSTRAINT [PK_Table_2] PRIMARY KEY CLUSTERED
            (
                   [ID] ASC
            )
-       ) ON [PRIMARY]
-       GO
+    ) ON [PRIMARY]
+    GO
+    ```
 
 1. Ejecute el siguiente comando para agregar algunos datos de ejemplo a **Tabla1**. Deje **Tabla2** vacía. Después, los datos de **Tabla1** se importarán a Data Lake Storage Gen1. Luego se exportarán los datos de Data Lake Storage Gen1 a **Tabla2**.
 
-       INSERT INTO [dbo].[Table1] VALUES (1,'Neal','Kell'), (2,'Lila','Fulton'), (3, 'Erna','Myers'), (4,'Annette','Simpson');
+    ```tsql
+    INSERT INTO [dbo].[Table1] VALUES (1,'Neal','Kell'), (2,'Lila','Fulton'), (3, 'Erna','Myers'), (4,'Annette','Simpson');
+    ```
 
 ## <a name="use-sqoop-from-an-hdinsight-cluster-with-access-to-data-lake-storage-gen1"></a>Uso de Sqoop en un clúster de HDInsight con acceso a Data Lake Storage Gen1
 
@@ -75,7 +81,9 @@ Un clúster de HDInsight ya tiene los paquetes de Sqoop disponibles. Si ha confi
 
 1. Compruebe si puede tener acceso a la cuenta de Data Lake Storage Gen1 desde el clúster. Ejecute el siguiente comando desde el símbolo del sistema de SSH:
 
-       hdfs dfs -ls adl://<data_lake_storage_gen1_account>.azuredatalakestore.net/
+    ```console
+    hdfs dfs -ls adl://<data_lake_storage_gen1_account>.azuredatalakestore.net/
+    ```
 
    Este comando proporciona una lista de archivos o carpetas en la cuenta de Data Lake Storage Gen1.
 
@@ -85,25 +93,33 @@ Un clúster de HDInsight ya tiene los paquetes de Sqoop disponibles. Si ha confi
 
 1. Importe los datos de **Tabla1** a la cuenta de Data Lake Storage Gen1. Use la sintaxis siguiente:
 
-       sqoop-import --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table1 --target-dir adl://<data-lake-storage-gen1-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1
+    ```console
+    sqoop-import --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table1 --target-dir adl://<data-lake-storage-gen1-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1
+    ```
 
-   El marcador de posición **sql-database-server-name** representa el nombre del servidor donde se ejecuta la base de datos de Azure SQL. **sql-database-name** representa el nombre de la base de datos real.
+   El marcador de posición **sql-database-server-name** representa el nombre del servidor donde se ejecuta la base de datos. **sql-database-name** representa el nombre de la base de datos real.
 
    Por ejemplo,
 
-       sqoop-import --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=twooley@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table1 --target-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1
+    ```console
+    sqoop-import --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=twooley@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table1 --target-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1
+    ```
 
 1. Compruebe que los datos se han transferido a la cuenta de Data Lake Storage Gen1. Ejecute el siguiente comando:
 
-       hdfs dfs -ls adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/
+    ```console
+    hdfs dfs -ls adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/
+    ```
 
    Debería ver la siguiente salida.
 
-       -rwxrwxrwx   0 sshuser hdfs          0 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/_SUCCESS
-       -rwxrwxrwx   0 sshuser hdfs         12 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00000
-       -rwxrwxrwx   0 sshuser hdfs         14 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00001
-       -rwxrwxrwx   0 sshuser hdfs         13 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00002
-       -rwxrwxrwx   0 sshuser hdfs         18 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00003
+    ```console
+    -rwxrwxrwx   0 sshuser hdfs          0 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/_SUCCESS
+    -rwxrwxrwx   0 sshuser hdfs         12 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00000
+    -rwxrwxrwx   0 sshuser hdfs         14 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00001
+    -rwxrwxrwx   0 sshuser hdfs         13 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00002
+    -rwxrwxrwx   0 sshuser hdfs         18 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00003
+    ```
 
    Cada archivo **part-m-** * corresponde a una fila de la tabla de origen, **Table1**. Puede ver el contenido de los archivos part-m-* para comprobarlo.
 
@@ -111,24 +127,32 @@ Un clúster de HDInsight ya tiene los paquetes de Sqoop disponibles. Si ha confi
 
 1. Exporte los datos de la cuenta de Data Lake Storage Gen1 a la tabla vacía, **Tabla2**, en Azure SQL Database. Use la sintaxis siguiente.
 
-       sqoop-export --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table2 --export-dir adl://<data-lake-storage-gen1-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
+    ```console
+    sqoop-export --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table2 --export-dir adl://<data-lake-storage-gen1-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
+    ```
 
    Por ejemplo,
 
-       sqoop-export --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=twooley@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table2 --export-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
+    ```console
+    sqoop-export --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=twooley@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table2 --export-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
+    ```
 
 1. Compruebe que los datos se han cargado en la tabla de SQL Database. Use [SQL Server Management Studio](../azure-sql/database/connect-query-ssms.md) o Visual Studio para conectarse a Azure SQL Database y ejecute la siguiente consulta.
 
-       SELECT * FROM TABLE2
+    ```tsql
+    SELECT * FROM TABLE2
+    ```
 
    Este comando debe ofrecer la siguiente salida.
 
-        ID  FName    LName
-       -------------------
-       1    Neal     Kell
-       2    Lila     Fulton
-       3    Erna     Myers
-       4    Annette  Simpson
+    ```output
+     ID  FName    LName
+    -------------------
+    1    Neal     Kell
+    2    Lila     Fulton
+    3    Erna     Myers
+    4    Annette  Simpson
+    ```
 
 ## <a name="performance-considerations-while-using-sqoop"></a>Consideraciones de rendimiento sobre el uso de Sqoop
 

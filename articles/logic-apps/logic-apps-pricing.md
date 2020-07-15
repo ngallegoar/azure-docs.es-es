@@ -7,13 +7,13 @@ author: jonfancey
 ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/19/2019
-ms.openlocfilehash: f47c7412bdd5ada1e50d1005b8e740e3f46ffd8d
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.date: 06/25/2020
+ms.openlocfilehash: 9ce807238e1e373701305f8b6bb03451e0202633
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536240"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964641"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modelo de precios de Azure Logic Apps
 
@@ -49,7 +49,7 @@ Un [*entorno del servicio de integración* (ISE)](../logic-apps/connect-virtual-
 
 * ISE de **Desarrollador**: Esta SKU no tiene ninguna funcionalidad de escalado vertical, ningún acuerdo de nivel de servicio (SLA) y ningún límite publicado. Use esta SKU solo para experimentar, desarrollar y probar, no para pruebas de rendimiento ni en producción.
 
-En el caso de las aplicaciones lógicas que crea y ejecuta dentro de un ISE, paga un [precio mensual fijo](https://azure.microsoft.com/pricing/details/logic-apps) para estas funcionalidades:
+En el caso de las aplicaciones lógicas que crea y ejecuta dentro de un ISE, paga un [precio fijo](https://azure.microsoft.com/pricing/details/logic-apps) (en lugar de un pago por uso) para estas funcionalidades:
 
 * Acciones y desencadenadores [integrados](../connectors/apis-list.md#built-in)
 
@@ -57,7 +57,7 @@ En el caso de las aplicaciones lógicas que crea y ejecuta dentro de un ISE, pag
 
 * Conectores [estándar](../connectors/apis-list.md#managed-connectors) y conectores [empresariales](../connectors/apis-list.md#enterprise-connectors), que le permiten tener tantas conexiones empresariales como quiera.
 
-   Los conectores estándar y empresariales en los que se muestra la etiqueta **ISE** se ejecutan en el mismo ISE que las aplicaciones lógicas. Los conectores en los que no se muestra la etiqueta ISE se ejecutan en el servicio público "global", multiinquilino de Logic Apps. Los precios mensuales fijos también se aplican a los conectores que se ejecutan en el servicio multiinquilino cuando se usan con aplicaciones lógicas que se ejecutan en un ISE.
+   Los conectores estándar y empresariales en los que se muestra la etiqueta **ISE** se ejecutan en el mismo ISE que las aplicaciones lógicas. Los conectores en los que no se muestra la etiqueta ISE se ejecutan en el servicio público "global", multiinquilino de Logic Apps. Los precios fijos también se aplican a los conectores que se ejecutan en el servicio multiinquilino cuando se usan con aplicaciones lógicas que se ejecutan en un ISE.
 
 * Uso de la [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) sin costo adicional, en función de la [SKU de ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
 
@@ -116,13 +116,13 @@ Las aplicaciones lógicas deshabilitadas no se cobran, ya que al estar deshabili
 
 Un [modelo de precios fijos](https://azure.microsoft.com/pricing/details/logic-apps) se aplica a las [cuentas de integración](logic-apps-enterprise-integration-create-integration-account.md) en las que puede explorar, desarrollar y probar las características [B2B y EDI](logic-apps-enterprise-integration-b2b.md) y las características de [procesamiento XML](logic-apps-enterprise-integration-xml.md) en Azure Logic Apps sin ningún costo adicional. Cada suscripción de Azure puede tener hasta un [límite específico de cuentas de integración](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Cada cuenta de integración puede almacenar hasta un [límite específico de artefactos](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits), como entidades, contratos, mapas, esquemas, ensamblados, certificados y configuraciones por lotes, etc.
 
-Azure Logic Apps ofrece cuentas de integración gratuitas, básicas y estándar. Los niveles básico y estándar son compatibles con el acuerdo de nivel de servicio (SLA) de Logic Apps, mientras que el nivel gratuito no es compatible con un SLA y tiene un rendimiento y un uso limitados. Excepto en las cuentas de integración del nivel Gratis, puede tener más de una cuenta de integración en cada región de Azure. Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/).
+Azure Logic Apps ofrece cuentas de integración gratuitas, básicas y estándar. Los niveles básico y estándar son compatibles con el acuerdo de nivel de servicio (SLA) de Logic Apps, mientras que el nivel gratuito no es compatible con un SLA y tiene límites en cuanto a disponibilidad regional, así como un rendimiento y un uso limitados. Excepto en las cuentas de integración del nivel Gratis, puede tener más de una cuenta de integración en cada región de Azure. Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 Si tiene un [*entorno de servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), ya sea [Premium o Desarrollador](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), el ISE puede tener 5 cuentas de integración en total. Para información sobre cómo funciona el modelo de precios fijos para un ISE, consulte la sección anterior sobre el [modelo de precios fijos](#fixed-pricing) en este tema. Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
 
 Para elegir una cuenta de integración Gratis, Básica o Estándar, revise estas descripciones de casos de uso:
 
-* **Gratis**: adecuada si se quieren probar escenarios de exploración, no escenarios de producción.
+* **Gratis**: adecuada si se quieren probar escenarios de exploración, no escenarios de producción. Este nivel solo está disponible para las regiones públicas en Azure, por ejemplo, Oeste de EE. UU. o Sudeste Asiático, pero no para [Azure China 21Vianet](https://docs.microsoft.com/azure/china/overview-operations) o [Azure Government](../azure-government/documentation-government-welcome.md).
 
 * **Básico**: adecuada si se quiere utilizar solo el control de mensajes o actuar como un asociado de pequeña empresa que tenga una relación empresarial con una entidad empresarial mayor.
 

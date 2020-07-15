@@ -7,10 +7,10 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
 ms.openlocfilehash: 3833b27e9f90cbffa2320c84877d4eb5bb6520f7
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82613275"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingesta de datos de telemetría históricos
@@ -140,7 +140,7 @@ Para más información sobre los objetos, consulte [Swagger](https://aka.ms/Farm
 
 ### <a name="api-request-to-create-metadata"></a>Solicitud de API para crear metadatos
 
-Para realizar una solicitud de API, se combina el método HTTP (POST), la dirección URL al servicio de API y el URI a un recurso para consultar y enviar datos para crear o eliminar una solicitud. A continuación, se agregan uno o más encabezados de solicitud HTTP. La dirección URL al servicio de API es el punto de conexión de API, es decir, la dirección URL del centro de datos (https://\<sucentrodedatos>.azurewebsites.net).
+Para realizar una solicitud de API, se combina el método HTTP (POST), la dirección URL al servicio de API y el URI a un recurso para consultar y enviar datos para crear o eliminar una solicitud. A continuación, se agregan uno o más encabezados de solicitud HTTP. La dirección URL al servicio de API es el punto de conexión de API, es decir, la dirección URL del centro de datos (https://\<yourdatahub>.azurewebsites.net).
 
 ### <a name="authentication"></a>Authentication
 

@@ -4,16 +4,16 @@ description: Procedimiento para usar Microsoft Teams en Windows Virtual Desktop
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3a14ffc9f103e58681418eacbb35b72b704f2d61
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 3fc44ca18f237fecd1c694e96f9ebc2d5b541757
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267144"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564460"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Uso de Microsoft Teams en Windows Virtual Desktop
 
@@ -32,7 +32,7 @@ Con la optimización multimedia de Microsoft Teams, el cliente de escritorio de 
 Para poder usar Microsoft Teams en Windows Virtual Desktop, tendrá que hacer lo siguiente:
 
 - [Prepare la red](/microsoftteams/prepare-network/) para Microsoft Teams.
-- Instale el [cliente de escritorio de Windows](connect-windows-7-and-10.md) en un dispositivo con Windows 10 que cumpla los [requisitos de hardware de Teams de un equipo Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
+- Instale el [cliente de escritorio de Windows](connect-windows-7-and-10.md) en un dispositivo con Windows 10 o Windows 10 IoT Enterprise que cumpla los [requisitos de hardware de Teams de un equipo Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Conéctese a una máquina virtual (VM) de sesión múltiple de Windows 10 o Windows 10 Enterprise.
 - Instale la aplicación de escritorio Teams en el host mediante la instalación por máquina. Para la optimización multimedia de Microsoft Teams se necesita la versión 1.3.00.4461 o posterior de la aplicación de escritorio Teams.
 
@@ -42,7 +42,7 @@ En esta sección se muestra cómo instalar la aplicación de escritorio Teams en
 
 ### <a name="prepare-your-image-for-teams"></a>Preparación de la imagen para Teams
 
-Para permitir la instalación por equipo de Teams, establezca la siguiente clave del Registro en el host:
+Para habilitar la optimización multimedia para Teams, establezca la siguiente clave del Registro en el host:
 
 1. Desde el menú de Inicio, ejecute **RegEdit** como administrador. Vaya a **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams**.
 2. Cree el siguiente valor para la clave de Teams:
@@ -53,33 +53,43 @@ Para permitir la instalación por equipo de Teams, establezca la siguiente clave
 
 ### <a name="install-the-teams-websocket-service"></a>Instalación del servicio WebSocket de Teams
 
-Instale el [servicio WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vkL6) en la imagen de máquina virtual. Si se produce un error de instalación, instale la [última versión de Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) e inténtelo de nuevo.
+Instale el [servicio WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj0i) en la imagen de máquina virtual. Si se produce un error de instalación, instale la [última versión de Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) e inténtelo de nuevo.
 
 ### <a name="install-microsoft-teams"></a>Instalación de Microsoft Teams
 
-Puede implementar la aplicación de escritorio Teams mediante una instalación por máquina. Para instalar Microsoft Teams en el entorno de Windows Virtual Desktop:
+Puede implementar la aplicación de escritorio Teams mediante una instalación por máquina o por usuario. Para instalar Microsoft Teams en el entorno de Windows Virtual Desktop:
 
 1. Descargue el [paquete MSI de Teams](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm/) apropiado para el entorno. En un sistema operativo de 64 bits se recomienda usar el instalador de 64 bits.
 
       > [!NOTE]
       > Para la optimización multimedia de Microsoft Teams se necesita la versión 1.3.00.4461 o posterior de la aplicación de escritorio Teams.
 
-2. Ejecute este comando para instalar el paquete MSI en la máquina virtual del host.
+2. Ejecute uno de los siguientes comandos para instalar el MSI en la máquina virtual del host:
 
-      ```console
-      msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1 ALLUSERS=1
-      ```
+    - Instalación por usuario
 
-      Teams se instala en la carpeta Program Files (x86) de un sistema operativo de 64 bits y en la carpeta Archivos de programa de un sistema operativo de 32 bits. En este momento se ha completado la instalación de la imagen dorada. En el caso de instalaciones no persistentes, es necesario instalar Teams por cada máquina.
+        ```powershell
+        msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSERS=1
+        ```
 
-      La próxima vez que abra Teams en una sesión, se le pedirán sus credenciales.
+        Este proceso es la instalación predeterminada, que instala Teams en la carpeta de usuario **%AppData%** . Los equipos no funcionarán correctamente con la instalación por usuario en una instalación no persistente.
 
-      > [!NOTE]
-      > En la actualidad, los usuarios y administradores no pueden deshabilitar el inicio automático para Teams durante el inicio de sesión.
+    - Instalación por máquina
 
-      Para desinstalar el archivo MSI de la máquina virtual del host, ejecute este comando:
+        ```powershell
+        msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1 ALLUSERS=1
+        ```
 
-      ```console
+        Teams se instala en la carpeta Program Files (x86) de un sistema operativo de 64 bits y en la carpeta Archivos de programa de un sistema operativo de 32 bits. En este momento se ha completado la instalación de la imagen dorada. En el caso de instalaciones no persistentes, es necesario instalar Teams por cada máquina.
+
+        La próxima vez que abra Teams en una sesión, se le pedirán sus credenciales.
+
+        > [!NOTE]
+        > En la actualidad, los usuarios y administradores no pueden deshabilitar el inicio automático para Teams durante el inicio de sesión.
+
+3. Para desinstalar el archivo MSI de la máquina virtual del host, ejecute este comando:
+
+      ```powershell
       msiexec /passive /x <msi_name> /l*v <uninstall_logfile_name>
       ```
 
@@ -125,7 +135,7 @@ El uso de Teams en un entorno virtualizado es diferente de su uso en un entorno 
 
 En el caso de problemas conocidos de Teams que no están relacionados con los entornos virtualizados, consulte [Soporte para Microsoft Teams en la organización](/microsoftteams/known-issues/).
 
-## <a name="feedback"></a>Comentarios
+## <a name="uservoice-site"></a>Sitio de UserVoice
 
 Envíe comentarios a Microsoft Teams sobre Windows Virtual Desktop en el [sitio de UserVoice](https://microsoftteams.uservoice.com/) de Teams.
 
@@ -137,7 +147,7 @@ Si tiene problemas con las llamadas y las reuniones, recopile registros de clien
 
 ## <a name="contact-microsoft-teams-support"></a>Contacto con el soporte técnico de Microsoft Teams
 
-Para ponerse en contacto con el soporte técnico de Microsoft Teams, vaya al [centro de administración de Microsoft 365](https://docs.microsoft.com/microsoft-365/admin/contact-support-for-business-products?view=o365-worldwide&tabs=online).
+Para ponerse en contacto con el soporte técnico de Microsoft Teams, vaya al [centro de administración de Microsoft 365](/microsoft-365/admin/contact-support-for-business-products).
 
 ## <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personalización de las propiedades de Protocolo de escritorio remoto para un grupo de hosts
 

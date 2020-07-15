@@ -1,17 +1,17 @@
 ---
 title: Autenticación con identidades administradas
-description: Acceda a recursos protegidos por Azure Active Directory sin iniciar sesión con credenciales ni secretos mediante una identidad administrada
+description: Acceda a recursos protegidos por Azure Active Directory sin iniciar sesión con credenciales ni secretos mediante una identidad administrada
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 73f3e7561b97574c4603e480b972eaf2a9a1ed48
-ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
+ms.openlocfilehash: 190cc74bc2967cdee7f3154e0d6a6fedd8ee90dd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83708047"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565042"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticar el acceso a los recursos de Azure mediante identidades administradas en Azure Logic Apps
 
@@ -31,7 +31,7 @@ En este artículo se muestra cómo configurar ambos tipos de identidades adminis
 * [Límites de identidad administrada para aplicaciones lógicas](../logic-apps/logic-apps-limits-and-config.md#managed-identity)
 * [Servicios de Azure que admiten la autenticación de Azure AD con las identidades administradas](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/). La identidad administrada y el recurso de Azure de destino al que necesita acceder deben usar la misma suscripción a Azure.
 

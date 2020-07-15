@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
-ms.date: 03/09/2020
-ms.openlocfilehash: 513e198f9184d5789d5b33de7f05cda0c5dc094d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/26/2020
+ms.openlocfilehash: 3d8bf23dcb9bfc390b9e165bcf38bf8feea5135f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84033366"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833679"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -78,10 +78,10 @@ En el siguiente artículo se describen los detalles de cómo se migrará el trá
 | --- | --- |
 | Centro de Australia    | 20.36.105.0 |
 | Centro de Australia 2   | 20.36.113.0 |
-| Este de Australia       | 13.75.149.87, 40.79.161.1 |
+| Este de Australia       | 13.75.149.87, 40.79.161.1, 13.70.112.9 |
 | Sudeste de Australia | 191.239.192.109, 13.73.109.251 |
 | Sur de Brasil         | 104.41.11.5, 191.233.200.14 |
-| Centro de Canadá       | 40.85.224.249      |
+| Centro de Canadá       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
 | Este de Canadá          | 40.86.226.166      |
 | Centro de EE. UU.           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
 | Este de China           | 139.219.130.35     |
@@ -102,13 +102,15 @@ En el siguiente artículo se describen los detalles de cómo se migrará el trá
 | Centro de Corea del Sur        | 52.231.32.42       |
 | Corea del Sur          | 52.231.200.86      |
 | Centro-Norte de EE. UU     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
-| Norte de Europa         | 40.113.93.91, 191.235.193.75, 52.138.224.1 |
+| Norte de Europa         | 40.113.93.91, 191.235.193.75, 52.138.224.1, 13.74.104.113 |
 | Este de Noruega          | 51.120.96.0        |
 | Oeste de Noruega          | 51.120.216.0       |
 | Norte de Sudáfrica   | 102.133.152.0      |
 | Oeste de Sudáfrica    | 102.133.24.0       |
 | Centro-sur de EE. UU.     | 13.66.62.124, 23.98.162.75, 104.214.16.32   |
 | Sudeste de Asia      | 104.43.15.0, 23.100.117.95, 40.78.232.3   |
+| Norte de Suiza    | 51.107.56.0, 51.107.57.0 |
+| Oeste de Suiza     | 51.107.152.0, 51.107.153.0 |
 | Centro de Emiratos Árabes Unidos          | 20.37.72.64        |
 | Norte de Emiratos Árabes Unidos            | 65.52.248.0        |
 | Sur de Reino Unido             | 51.140.184.11      |
@@ -116,7 +118,7 @@ En el siguiente artículo se describen los detalles de cómo se migrará el trá
 | Centro-Oeste de EE. UU.      | 13.78.145.25       |
 | Oeste de Europa          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
 | Oeste de EE. UU.              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
-| Oeste de EE. UU. 2            | 13.66.226.202      |
+| Oeste de EE. UU. 2            | 13.66.226.202, 40.78.240.8  |
 |                      |                    |
 
 ## <a name="next-steps"></a>Pasos siguientes

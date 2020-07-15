@@ -7,14 +7,14 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 94a2398879007e7ecd6d2f1920157eb4627f33cb
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 205a4bd119a7324c4e6524a0e29d432aa57bf315
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014934"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848223"
 ---
-# <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+# <a name="load-balancer-frequently-asked-questions"></a>Preguntas frecuentes sobre Load Balancer
 
 ## <a name="what-types-of-load-balancer-exist"></a>¿Qué tipos de Load Balancer existen?
 Equilibradores de carga internos que equilibran el tráfico dentro de una red virtual y equilibradores de carga externos que equilibran el tráfico hacia y desde un punto de conexión conectado a Internet. Para más información, consulte [Tipos de Load Balancer](components.md#frontend-ip-configurations). 
@@ -35,6 +35,19 @@ Las reglas NAT se usan para especificar un recurso de back-end al que enrutar el
 
 ## <a name="what-is-ip-1686312916"></a>¿Qué es la IP 168.63.129.16?
 La dirección IP virtual para el host etiquetada como equilibrador de carga de la infraestructura de Azure en la que se originan los sondeos del estado de Azure. Al configurar las instancias de back-end, deben permitir que el tráfico procedente de esta dirección IP responda correctamente a los sondeos de estado. Esta regla no interactúa con el acceso al front-end de Load Balancer. Si no usa Azure Load Balancer, puede anular esta regla. [Aquí](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) encontrará más información sobre las etiquetas de servicio.
+
+## <a name="can-i-use-global-vnet-peering-with-basic-load-balancer"></a>¿Puedo usar el emparejamiento de VNET global con Load Balancer básico?
+No. Load Balancer básico no admite el emparejamiento de VNET global. En su lugar, puede usar Standard Load Balancer. Consulte el artículo de [actualización de básico a Standard](upgrade-basic-standard.md) para una actualización sin problemas.
+
+## <a name="how-can-i-discover-the-public-ip-that-an-azure-vm-uses"></a>¿Cómo puedo descubrir la dirección IP pública que usa una máquina virtual de Azure?
+
+Hay muchas maneras de determinar la dirección IP de origen público de una conexión saliente. OpenDNS proporciona un servicio que puede mostrar la dirección IP pública de la máquina virtual.
+Mediante el comando nslookup, puede enviar una consulta DNS del nombre myip.opendns.com para la resolución de OpenDNS. El servicio devuelve la dirección IP de origen que se usó para enviar la consulta. Si ejecuta la siguiente consulta desde la máquina virtual, la respuesta es la dirección IP pública que se usa para esa máquina virtual:
+
+ ```nslookup myip.opendns.com resolver1.opendns.com```
+
+## <a name="how-do-connections-to-azure-storage-in-the-same-region-work"></a>¿Cómo funcionan las conexiones a Azure Storage en la misma región?
+La conectividad saliente a través de los escenarios anteriores no es necesaria para conectarse al almacenamiento en la misma región que la máquina virtual. Si no quiere que pase esto, use grupos de seguridad de red (NSG) como se explicó anteriormente. Para la conectividad con el almacenamiento en otras regiones, se requiere conectividad de salida. Tenga en cuenta que, al conectarse al almacenamiento desde una máquina virtual en la misma región, la dirección IP de origen en los registros de diagnóstico de almacenamiento será una dirección de proveedor interna y no la dirección IP pública de la máquina virtual. Si desea restringir el acceso a la cuenta de almacenamiento a las máquinas virtuales de una o varias subredes de Virtual Network en la misma región, use [Virtual Network los puntos de conexión de servicio](../virtual-network/virtual-network-service-endpoints-overview.md) y no la dirección IP pública al configurar el firewall de la cuenta de almacenamiento. Una vez configurados los puntos de conexión de servicio, verá la dirección IP privada de su instancia de Virtual Network en los registros de diagnóstico de almacenamiento y no la dirección interna del proveedor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si su pregunta no aparece en la lista anterior, envíe sus comentarios sobre esta página junto con su pregunta. Esto creará un problema de GitHub para que el equipo del producto se asegure de que las preguntas de todos nuestros valiosos clientes se respondan.

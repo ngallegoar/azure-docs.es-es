@@ -3,12 +3,12 @@ title: 'Creación de grupos de administración para organizar los recursos: gobe
 description: Aprenda a crear grupos de administración de Azure para administrar varios recursos mediante el portal, Azure PowerShell y la CLI de Azure.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0abecf02062dd4461274a9bc3722d46e6e7cc3d1
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 6fe7f2ea74c697701084321e068042b36acbdb11
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220755"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971143"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Creación de grupos de administración para la organización y la administración de recursos
 
@@ -21,7 +21,7 @@ El primer grupo de administración creado en el directorio puede tardar hasta 15
 Cualquier usuario de Azure AD del inquilino puede crear un grupo de administración sin el permiso de escritura del grupo de administración asignado a ese usuario. Este nuevo grupo de administración será un elemento secundario del grupo de administración raíz y se le asignará una asignación de rol de "Propietario" al creador. El servicio del grupo de administración ofrece esta funcionalidad para que las asignaciones de roles no sean necesarias en el nivel raíz. Ningún usuario tiene acceso al grupo de administración raíz cuando se crea. Para sortear el obstáculo de buscar administradores globales de Azure AD para empezar a usar grupos de administración, se permite la creación de grupos de administración iniciales en el nivel de  
 raíz.
 
-Puede crear el grupo de administración mediante el portal, una [plantilla de Resource Manager](../../azure-resource-manager/templates/deploy-to-tenant.md#create-management-group), PowerShell o la CLI de Azure.
+Puede crear el grupo de administración mediante el portal, una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/deploy-to-tenant.md#create-management-group), PowerShell o la CLI de Azure.
 
 ### <a name="create-in-portal"></a>Crear en el portal
 

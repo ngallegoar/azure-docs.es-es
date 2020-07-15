@@ -1,23 +1,23 @@
 ---
 title: Información general del modelo de compra de núcleo virtual
-titleSuffix: Azure SQL Database & SQL Managed Instance
+titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: El modelo de compra de núcleo virtual permite escalar los recursos de proceso y de almacenamiento de manera independiente, igualar el rendimiento local y optimizar el precio para Azure SQL Database e Instancia administrada de Azure SQL.
 services: sql-database
-ms.service: sql-database
-ms.subservice: service
+ms.service: sql-db-mi
+ms.subservice: features
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: 1a6546ad587fa308ab5559d04814191c503ecdc3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 7b5e4174da3ffa0dff5c840e5da1d98435e8d07b
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84029756"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985557"
 ---
-# <a name="vcore-model-overview---azure-sql-database--sql-managed-instance"></a>Información general del modelo de núcleo virtual: Azure SQL Database e Instancia administrada de SQL 
+# <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Información general del modelo de núcleo virtual: Azure SQL Database y Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 El modelo de compra de núcleo virtual usado por Azure SQL Database e Instancia administrada de Azure SQL proporciona varias ventajas:
@@ -31,7 +31,7 @@ El modelo de compra de núcleo virtual usado por Azure SQL Database e Instancia 
 
 Entre las opciones de nivel de servicio del modelo núcleo virtual se incluyen Uso general, Crítico para la empresa e Hiperescala. El nivel de servicio define generalmente la arquitectura de almacenamiento, los límites de espacio y de E/S y las opciones de continuidad empresarial relacionadas con la disponibilidad y la recuperación ante desastres.
 
-||**Uso general**|**Crítico para la empresa**|**Hiperescala**|
+|-|**Uso general**|**Crítico para la empresa**|**Hiperescala**|
 |---|---|---|---|
 |Más adecuado para|La mayoría de las cargas de trabajo empresariales. Ofrece opciones de proceso y almacenamiento equilibradas y escalables pensando en el presupuesto. |Ofrece a las aplicaciones empresariales la mayor resistencia a los errores mediante el uso de varias réplicas aisladas y proporciona el mayor rendimiento de E/S por réplica de base de datos.|La mayoría de las cargas de trabajo de una empresa que tengan requisitos altamente escalables de almacenamiento y escalado de lectura.  Ofrece mayor resistencia a los errores al permitir la configuración de más de una réplica de base de datos aislada. |
 |Storage|Usa el almacenamiento remoto.<br/>**Proceso aprovisionado de SQL Database**:<br/>5 GB – 4 TB<br/>**Proceso sin servidor**:<br/>5 GB - 3 TB<br/>**Instancia administrada de SQL**: 32 GB - 8 TB |Usa almacenamiento local de SSD.<br/>**Proceso aprovisionado de SQL Database**:<br/>5 GB – 4 TB<br/>**Instancia administrada de SQL**:<br/>32 GB - 4 TB |Crecimiento automático flexible de almacenamiento según sea necesario. Admite hasta 100 TB de almacenamiento. Utiliza almacenamiento SSD local para la caché del grupo de búferes local y almacenamiento de datos local. Utiliza almacenamiento remoto de Azure como almacén de datos final a largo plazo. |
@@ -46,7 +46,7 @@ Entre las opciones de nivel de servicio del modelo núcleo virtual se incluyen U
 
 Para obtener información sobre cómo seleccionar un nivel de servicio para una carga de trabajo determinada, consulte los siguientes artículos:
 
-- [Cuándo elegir el nivel de servicio Uso general](service-tier-general-purpose.md#when-to-choose-this-service-tier)
+- [Cuándo elegir el nivel de servicio De uso general](service-tier-general-purpose.md#when-to-choose-this-service-tier)
 - [Cuándo elegir el nivel de servicio Crítico para la empresa](service-tier-business-critical.md#when-to-choose-this-service-tier)
 - [Cuándo elegir el nivel de servicio Hiperescala](service-tier-hyperscale.md#who-should-consider-the-hyperscale-service-tier)
 
@@ -91,10 +91,11 @@ La serie Fsv2 solo se admite en el nivel De uso general.  Para las regiones en l
 - La serie M es una opción de hardware optimizado para memoria para las cargas de trabajo que exigen más memoria y mayores límites de proceso que los proporcionados por Gen5.
 - La serie M proporciona 29 GB por núcleo virtual y 128 núcleos virtuales, lo que aumenta el límite de memoria con respecto a Gen5 por 8x hasta casi 4 TB.
 
-La serie M solo se admite en el nivel Crítico para la empresa y no es compatible con la redundancia de zona.
+La serie M solo se admite en el nivel Crítico para la empresa y no es compatible con la redundancia de zona.  La suscripción debe ser un tipo de oferta de pago, como Pago por uso o Contrato Enterprise (EA).  Para ver las regiones en las que la serie M está disponible, consulte la [disponibilidad de la serie M](#m-series).
 
-Para habilitar hardware de la serie M para una suscripción y región, se debe abrir una solicitud de soporte técnico. La suscripción debe ser un tipo de oferta de pago, como Pago por uso o Contrato Enterprise (EA).  Si se aprueba la solicitud de soporte técnico, la experiencia de selección y aprovisionamiento de la serie M sigue el mismo patrón que para otras generaciones de hardware. Para ver las regiones en las que la serie M está disponible, consulte la [disponibilidad de la serie M](#m-series).
-
+<!--
+To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
+-->
 
 ### <a name="compute-and-memory-specifications"></a>Especificaciones de memoria y proceso
 
@@ -112,7 +113,7 @@ Para obtener más información sobre los límites de recursos, vea [Límites de 
 
 ### <a name="selecting-a-hardware-generation"></a>Selección de una generación de hardware
 
-En Azure Portal, puede seleccionar la generación de hardware para una instancia de SQL Database o un grupo SQL en el momento de la creación o puede cambiar la generación de hardware de una base de datos o grupo SQL existente.
+En Azure Portal, puede seleccionar la generación de hardware para una base de datos o un grupo de SQL Database en el momento de la creación o puede cambiar la generación de hardware de una base de datos o grupo existente.
 
 **Seleccionar una generación de hardware al crear una instancia de SQL Database o un grupo SQL**
 
@@ -147,7 +148,7 @@ En la pestaña **Aspectos básicos**, seleccione el vínculo **Configurar base d
   
 **Cambio de la generación de hardware de una instancia administrada de SQL existente**
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="the-azure-portal"></a>[Portal de Azure](#tab/azure-portal)
 
 En la página de instancia administrada de SQL, seleccione el vínculo **Plan de tarifa** situado en la sección Configuración.
 
@@ -165,7 +166,7 @@ Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" 
 
 Para obtener más detalles, vea el comando [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance).
 
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[La CLI de Azure](#tab/azure-cli)
 
 Use el siguiente comando de la CLI:
 
@@ -193,32 +194,33 @@ La serie Fsv2 está disponible en las siguientes regiones: Centro de Australia, 
 #### <a name="m-series"></a>Serie M
 
 La serie M está disponible en las siguientes regiones: Este de EE. UU., Norte de Europa, Oeste de Europa, Oeste de EE. UU. 2.
-La serie M también puede tener una disponibilidad limitada en otras regiones. Puede solicitar una región distinta de la que se muestra aquí, pero puede que no sea posible la ejecución en otra región.
+<!--
+M-series may also have limited availability in additional regions. You can request a different region than listed here, but fulfillment in a different region may not be possible.
 
-Para habilitar la disponibilidad de la serie M en una suscripción, debe solicitarse el acceso mediante la [presentación de una nueva solicitud de soporte técnico](#create-a-support-request-to-enable-m-series).
+To enable M-series availability in a subscription, access must be requested by [filing a new support request](#create-a-support-request-to-enable-m-series).
 
 
-##### <a name="create-a-support-request-to-enable-m-series"></a>Cree una solicitud de soporte técnico para habilitar la serie M: 
+##### Create a support request to enable M-series: 
 
-1. Seleccione **Ayuda y soporte técnico** en el portal.
-2. Seleccione **Nueva solicitud de soporte técnico**.
+1. Select **Help + support** in the portal.
+2. Select **New support request**.
 
-En la página **Datos básicos**, proporcione los valores siguientes:
+On the **Basics** page, provide the following:
 
-1. En **Tipo de problema**, seleccione **Límites de servicio y suscripción (cuotas)** .
-2. En **Suscripción**, seleccione la suscripción para habilitar la serie M.
-3. En **Tipo de cuota**, seleccione **Base de datos SQL**.
-4. Seleccione **Siguiente** para ir a la página **Detalles**.
+1. For **Issue type**, select **Service and subscription limits (quotas)**.
+2. For **Subscription** = select the subscription to enable M-series.
+3. For **Quota type**, select **SQL database**.
+4. Select **Next** to go to the **Details** page.
 
-En la página **Detalles**, proporcione lo siguiente:
+On the **Details** page, provide the following:
 
-1. En la sección **Detalles del problema**, seleccione el vínculo **Proporcionar detalles**. 
-2. En **Tipo de cuota de base de datos SQL**, seleccione **Serie M**.
-3. En **Región**, seleccione la región para habilitar la serie M.
-    Para ver las regiones en las que la serie M está disponible, consulte la [disponibilidad de la serie M](#m-series).
+1. In the **PROBLEM DETAILS** section select the **Provide details** link. 
+2. For **SQL Database quota type** select **M-series**.
+3. For **Region**, select the region to enable M-series.
+    For regions where M-series is available, see [M-series availability](#m-series).
 
-Normalmente, las solicitudes de soporte técnico aprobadas se cumplimentan en un plazo de 5 días laborables.
-
+Approved support requests are typically fulfilled within 5 business days.
+-->
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -228,7 +230,7 @@ Para empezar, consulte:
 
 Para obtener información detallada acerca de los precios, consulte la [página de precios de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
-Para obtener más información sobre los tamaños específicos de proceso y almacenamiento disponibles en los niveles de servicio De uso general y Crítico para la empresa, consulte: 
+Para obtener más información sobre los tamaños específicos de proceso y almacenamiento disponibles en los niveles de servicio De uso general y Crítico para la empresa, consulte:
 
 - [Límites de recursos basados en núcleos virtuales de Azure SQL Database](resource-limits-vcore-single-databases.md).
 - [Límites de recursos basados en núcleos virtuales de Azure SQL Database agrupada](resource-limits-vcore-elastic-pools.md).

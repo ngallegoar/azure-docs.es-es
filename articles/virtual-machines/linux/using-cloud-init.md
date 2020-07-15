@@ -1,26 +1,19 @@
 ---
 title: Información general de la compatibilidad de cloud-init con máquinas virtuales Linux en Azure
 description: Información general de las funcionalidades cloud-init para configurar una máquina virtual en tiempo de aprovisionamiento en Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: danielsollondon
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 195c22cd-4629-4582-9ee3-9749493f1d72
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
-ms.topic: article
-ms.date: 05/19/2019
+ms.topic: how-to
+ms.date: 06/15/2020
 ms.author: danis
-ms.openlocfilehash: 9e42229b08d7817b64c66c4ab23877c837339475
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: bebf4967d96177038aba64be59d43f49458b82be
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827325"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920194"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Compatibilidad con cloud-init para máquinas virtuales en Azure
 En este artículo se explica la compatibilidad que existe para [cloud-init](https://cloudinit.readthedocs.io) para configurar una máquina virtual (VM) o conjuntos de escalado de máquinas virtuales en el momento del aprovisionamiento en Azure. Estas configuraciones de cloud-init se ejecutan durante el primer arranque una vez que Azure ha aprovisionado los recursos.  
@@ -53,45 +46,64 @@ Hay dos fases para que cloud-init esté disponible para el sistema operativo de 
 | Publicador o versión | Oferta | SKU | Versión | Imagen preparada para cloud-init | compatibilidad con paquetes de cloud-init en Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |sí | sí, compatibilidad desde la versión del paquete: *18.2-1.el7_6.2*|
-|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 | sí (tenga en cuenta que se trata de una imagen en versión preliminar y, una vez que todas las imágenes de RHEL 7.7 admitan cloud-init, se suprimirá el 1 de septiembre de 2020) | sí, compatibilidad desde la versión del paquete: *18.5-6.el7*|
-|RedHat 7.7 (GEN1)|RHEL |7,7 | 7.7.2020051912 | no, actualizaciones de imágenes en vuelo para completar hasta el final de mayo | sí, compatibilidad desde la versión del paquete: *18.5-6.el7*|
-|RedHat 7.7 (Gen2)|RHEL | 77-gen2 | 7.7.2020051913 | no, actualizaciones de imágenes en vuelo para completar hasta el final de mayo | sí, compatibilidad desde la versión del paquete: *18.5-6.el7*|
-|RedHat 7.7 (GEN1)|RHEL |7-LVM | 7.7.2020051921 | no, actualizaciones de imágenes en vuelo para completar hasta el final de mayo | sí, compatibilidad desde la versión del paquete: *18.5-6.el7*|
-|RedHat 7.7 (Gen2)|RHEL | 7lvm-gen2 | 7.7.2020051922  | no, actualizaciones de imágenes en vuelo para completar hasta el final de mayo | sí, compatibilidad desde la versión del paquete: *18.5-6.el7*|
-|RedHat 7.7 (GEN1) |rhel-byos | rhel-lvm77 | 7.7.20200416 | no, actualizaciones de imágenes en vuelo para completar hasta el final de mayo  | sí, compatibilidad desde la versión del paquete: *18.5-6.el7*|
-|RedHat 8.1 (GEN1) |RHEL |8.1-ci |8.1.2020042511 | sí (tenga en cuenta que se trata de una imagen en versión preliminar y, una vez que todas las imágenes de RHEL 8.1 admitan cloud-init, se suprimirá el 1 de agosto de 2020) | No, ETA para obtener soporte técnico completo junio de 2020|
-|RedHat 8.1 (Gen2) |RHEL |81-ci-gen2 |8.1.2020042524 | sí (tenga en cuenta que se trata de una imagen en versión preliminar y, una vez que todas las imágenes de RHEL 8.1 admitan cloud-init, se suprimirá el 1 de agosto de 2020) | No, ETA para obtener soporte técnico completo junio de 2020 |
+|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 | sí (nota: se trata de una imagen en versión preliminar y **no debe** usarse ya más, pues se suprimirá el 1 de septiembre de 2020) | N/D |
+|RedHat 7.7 (GEN1)|RHEL |7,7 | 7.7.2020051912 | sí | sí, compatibilidad desde la versión del paquete: *18.5-6.el7*|
+|RedHat 7.7 (Gen2)|RHEL | 77-gen2 | 7.7.2020051913 | sí | sí, compatibilidad desde la versión del paquete: *18.5-6.el7*|
+|RedHat 7.7 (GEN1)|RHEL |7-LVM | 7.7.2020051921 | sí | sí, compatibilidad desde la versión del paquete: *18.5-6.el7*|
+|RedHat 7.7 (Gen2)|RHEL | 7lvm-gen2 | 7.7.2020051922  | sí | sí, compatibilidad desde la versión del paquete: *18.5-6.el7*|
+|RedHat 7.7 (GEN1) |rhel-byos | rhel-lvm77 | 7.7.20200416 | sí  | sí, compatibilidad desde la versión del paquete: *18.5-6.el7*|
+|RedHat 8.1 (GEN1) |RHEL |8.1-ci |8.1.2020042511 | sí (nota: se trata de una imagen en versión preliminar y, una vez que todas las imágenes de RHEL 8.1 admitan cloud-init, se suprimirá el 1 de agosto de 2020) | No, ETA para obtener soporte técnico completo junio de 2020|
+|RedHat 8.1 (Gen2) |RHEL |81-ci-gen2 |8.1.2020042524 | sí (nota: se trata de una imagen en versión preliminar y, una vez que todas las imágenes de RHEL 8.1 admitan cloud-init, se suprimirá el 1 de agosto de 2020) | No, ETA para obtener soporte técnico completo junio de 2020 |
 
-RedHat: las imágenes RHEL 7.8 y 8.2 (Gen1 y Gen 2) se aprovisionan mediante Cloud-init.
+* Todo RedHat: las imágenes RHEL 7.8 y 8.2 (Gen1 y Gen2) se aprovisionan mediante cloud-init.
 
 ### <a name="centos"></a>CentOS
 
 | Publicador o versión | Oferta | SKU | Versión | Imagen preparada para cloud-init | compatibilidad con paquetes de cloud-init en Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |sí (tenga en cuenta que se trata de una imagen en versión preliminar y, una vez que todas las imágenes de CentOS 7.7 admitan cloud-init, se suprimirá el 1 de septiembre de 2020) | sí, compatibilidad desde la versión del paquete: *18.5-3.el7.centos*|
+|OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |sí (nota: se trata de una imagen en versión preliminar y **no debe** usarse ya más, pues se suprimirá el 1 de septiembre de 2020) | N/D |
+|OpenLogic 7.7 |CentOS | 7,7 |7.7.2020062400 |sí | sí, compatibilidad desde la versión del paquete: `18.5-6.el7.centos.5`|
+|OpenLogic 7.7 (Gen2) |CentOS | 7_7-gen2 |7.7.2020062401 |sí | sí, compatibilidad desde la versión del paquete: `18.5-6.el7.centos.5`|
+|OpenLogic 7.7 |CentOS-HPC | 7,7 |7.6.2020062600 |sí | sí, compatibilidad desde la versión del paquete: `18.5-6.el7.centos.5`|
+|OpenLogic 7.7 (Gen2) |CentOS-HPC | 7_7-gen2 |7.6.2020062601 |sí | sí, compatibilidad desde la versión del paquete: `18.5-6.el7.centos.5`|
+|OpenLogic 8.1 |CentOS | 8_1 |8.1.2020062400 |sí | sí, compatibilidad desde la versión del paquete: `18.5-7.el8_1.1`|
+|OpenLogic 8.1 (Gen2) |CentOS | 8_1-gen2 |8.1.2020062401 |sí | sí, compatibilidad desde la versión del paquete: `18.5-7.el8_1.1`|
+|OpenLogic 8.1 |CentOS-HPC | 8_1 |8.1.2020062400 |sí | sí, compatibilidad desde la versión del paquete: `18.5-7.el8_1.1`|
+|OpenLogic 8.1 (Gen2) |CentOS-HPC:8_1-gen2 | 8_1-gen2 |8.1.2020062401 |sí | sí, compatibilidad desde la versión del paquete: `18.5-7.el8_1.1`|
 
-* Las imágenes de CentOS 7.7 que se habilitarán en cloud-init se actualizarán aquí en junio de 2020 
-* Las imágenes de CentOS 7.8 se aprovisionan con Cloud-init.
-
+* Todo OpenLogic: las imágenes de CentOS 7.8 y 8.2 (Gen1 y Gen 2) se aprovisionan mediante cloud-init.
 
 ### <a name="oracle"></a>Oracle
 
 | Publicador o versión | Oferta | SKU | Versión | Imagen preparada para cloud-init | compatibilidad con paquetes de cloud-init en Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Oracle 7.7 |Oracle-Linux |77-ci |7.7.01| imagen en versión preliminar (tenga en cuenta que se trata de una imagen en versión preliminar y, una vez que todas las imágenes de Oracle 7.7 admitan cloud-init, se suprimirá a mediados de 2020; se informará de ello) | no, en la versión preliminar, el paquete es: *18.5-3.0.1.el7*
+|Oracle 7.7 |Oracle-Linux |77-ci |7.7.01| Imagen en versión preliminar (nota: se trata de una imagen en versión preliminar y, una vez que todas las imágenes de Oracle 7.7 admitan cloud-init, se suprimirá a mediados de 2020; se informará de ello) | no, en la versión preliminar, el paquete es: *18.5-3.0.1.el7*
 
 ### <a name="suse-sles"></a>SUSE SLES
-| Publicador o versión | Oferta | SKU | Versión | Imagen preparada para cloud-init | compatibilidad con paquetes de cloud-init en Azure|
-|:--- |:--- |:--- |:--- |:--- |:--- |
-|SUSE SLES 15 SP1 |SUSE |sles-15-sp1-basic |cloud-init-preview| Vea el [blog de SUSE Cloud-init](https://suse.com/c/clout-init-coming-to-suse-images-in-azure/) para obtener más información | No, en versión preliminar. |
-|SUSE SLES 15 SP1 |suse |sles-15-sp1-basic |gen2-cloud-init-preview| Vea el [blog de SUSE Cloud-init](https://suse.com/c/clout-init-coming-to-suse-images-in-azure/) para obtener más información | No, en versión preliminar. |
+Estas imágenes de SLES se han actualizado para aprovisionar mediante cloud-init. También se han actualizado las variantes de la imagen de Gen2.
+* suse:sles-15-sp1-{basic/byos/hpc/hpc-byos/chost-byos}:gen1:2020.06.10
+* suse:sles-sap-15-sp1:gen1:2020.06.10
+* suse:sles-sap-15-sp1-byos:gen1:2020.06.10
+* suse:manager-proxy-4-byos:gen1:2020.06.10
+* suse:manager-server-4-byos:gen1:2020.06.10
+* suse:sles-{byos/sap/sap-byos}:15:2020.06.10
+* suse:sles-12-sp5:gen1:2020.06.10
+* suse:sles-12-sp5{-byos/basic/hpc-byos/hpc}:gen1:2020.06.10
+* suse:sles-{byos/sap/sap-byos}:12-sp4:2020.06.10
+* suse:sles-{byos/sap/sap-byos}:12-sp3:2020.06.10
+* suse:sles-{byos/sap/sap-byos}:12-sp2:2020.06.10
 
 
 ### <a name="debian"></a>Debian
-Actualmente estamos trabajando para ofrecer soporte con la versión preliminar, actualizaciones previstas para junio de 2020.
+| Publicador o versión | Oferta | SKU | Versión | Imagen preparada para cloud-init | compatibilidad con paquetes de cloud-init en Azure|
+|:--- |:--- |:--- |:--- |:--- |:--- |
+| debian (Gen1) |debian-10 | 10-cloudinit |cloud-init-preview| sí (solo vista previa) | No, en versión preliminar. |
+| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |cloud-init-preview| sí (solo vista previa) | No, en versión preliminar. |
+
+
+
 
 Actualmente, Azure Stack admitirá el aprovisionamiento de imágenes habilitadas para cloud-init.
-
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>¿Cuál es la diferencia entre cloud-init y el agente de Linux (WALA)?
 WALA es un agente específico de la plataforma de Azure que se usa para aprovisionar y configurar máquinas virtuales y controlar las [extensiones de Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/features-linux). 
@@ -114,6 +126,7 @@ En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGrou
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
+
 El paso siguiente es crear un archivo en el shell actual, denominado *cloud-init.txt* y pegar la siguiente configuración. Para este ejemplo, cree el archivo en Cloud Shell, no en la máquina local. Puede utilizar el editor que prefiera. Escriba `sensible-editor cloud-init.txt` para crear el archivo y ver una lista de editores disponibles. Elija el número 1 para utilizar el editor **nano**. Asegúrese de que todo el archivo cloud-init se copia correctamente, especialmente la primera línea:
 
 ```yaml
@@ -126,7 +139,7 @@ Presione `ctrl-X` para salir del archivo, escriba `y` para guardar el archivo y 
 
 El paso final es crear la máquina virtual con el comando [az vm create](/cli/azure/vm). 
 
-En el ejemplo siguiente, se crea una máquina virtual denominada *centos74* y las claves SSH si aún no existen en una ubicación de claves predeterminada. Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`.  Use el parámetro `--custom-data` para pasar su archivo de configuración cloud-init. Proporcione la ruta de acceso completa a la configuración de *cloud-init.txt* si guardó el archivo fuera de su directorio de trabajo actual. En el ejemplo siguiente se crea una VM denominada *centos74*:
+En el ejemplo siguiente, se crea una máquina virtual denominada *centos74* y las claves SSH si aún no existen en una ubicación de claves predeterminada. Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`.  Use el parámetro `--custom-data` para pasar su archivo de configuración cloud-init. Proporcione la ruta de acceso completa a la configuración de *cloud-init.txt* si guardó el archivo fuera de su directorio de trabajo actual. 
 
 ```azurecli-interactive 
 az vm create \
@@ -148,6 +161,10 @@ Una vez que se ha aprovisionado la máquina virtual, cloud-init se ejecuta en to
 Para más detalles sobre el registro de cloud-init, consulte la [documentación de cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/logging.html). 
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+[Solución de problemas con cloud-init](cloud-init-troubleshooting.md)
+
+
 Para ejemplos de cloud-init de cambios de configuración, vea los siguientes documentos:
  
 - [Incorporación de otro usuario de Linux a una máquina virtual](cloudinit-add-user.md)

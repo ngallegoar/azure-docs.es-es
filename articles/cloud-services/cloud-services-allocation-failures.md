@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 470778e5c441bb05ffc7c5e1c5ef97a6c30d3359
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ab6cc71478e80bc3ff9d81a3a91ce90fbb09adb3
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225952"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921604"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Solución de errores de asignación al implementar Cloud Services de Azure
 ## <a name="summary"></a>Resumen
@@ -41,7 +41,7 @@ Cuando una solicitud de asignación está anclada a un clúster, existe una posi
 ### <a name="error-message"></a>Mensaje de error
 Puede ver el siguiente mensaje de error:
 
-    "Azure operation '{operation id}' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
+> Error "Operación de Azure" {operation id}" con el código Compute.ConstrainedAllocationFailed. Detalles: Error en la asignación; no se pudieron satisfacer las restricciones de la solicitud. La nueva implementación del servicio solicitada está enlazada a un grupo de afinidad, su destino es una instancia de Virtual Network o hay una implementación existente bajo este servicio hospedado. Todas estas condiciones restringen la nueva implementación a recursos específicos de Azure. Inténtelo de nuevo más tarde o pruebe a reducir el tamaño de la máquina virtual o el número de instancias de rol. También puede quitar, si es posible, las restricciones mencionadas o intentar realizar la implementación en otra región.
 
 ### <a name="common-issues"></a>Problemas comunes
 A continuación se presentan los escenarios de asignación comunes que ocasionan que una solicitud de asignación quede anclada a un solo clúster.

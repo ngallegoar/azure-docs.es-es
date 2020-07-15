@@ -1,19 +1,19 @@
 ---
 title: Filtros de seguridad para limitar los resultados mediante Active Directory
 titleSuffix: Azure Cognitive Search
-description: Control de acceso al contenido de Azure Cognitive Search mediante filtros de seguridad e identidades de Azure Active Directory (AAD).
+description: Privilegios de seguridad en el nivel de documento de los resultados de búsqueda de Azure Cognitive Search, mediante filtros de seguridad y las identidades de Azure Active Directory (AAD).
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 01280b6ee9dda15af3c0fc707a385501580c624c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/04/2020
+ms.openlocfilehash: ee742eae38ae95756cf31d60b877f18629c569d4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72794303"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080487"
 ---
 # <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Filtros de seguridad para limitar los resultados de Azure Cognitive Search mediante las identidades de Active Directory
 
@@ -28,9 +28,9 @@ En este artículo se tratan las tareas siguientes:
 > - Emisión de una solicitud de búsqueda con filtro de identificadores de grupo
 > 
 > [!NOTE]
-> Los fragmentos de código de ejemplo de este artículo están escritos en C#. El código fuente completo se puede encontrar [en GitHub](https://aka.ms/search-dotnet-howto). 
+> Los fragmentos de código de ejemplo de este artículo están escritos en C#. El código fuente completo se puede encontrar [en GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 El índice de Azure Cognitive Search debe tener un [campo de seguridad](search-security-trimming-for-azure-search.md) para almacenar la lista de identidades de grupo que tengan acceso de lectura al documento. Este caso de uso supone una correspondencia uno a uno entre un elemento protegible (por ejemplo, la solicitud de la universidad de un individuo) y un campo de seguridad que especifica quién tiene acceso a ese elemento (personal de admisión).
 

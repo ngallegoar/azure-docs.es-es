@@ -1,18 +1,18 @@
 ---
 title: 'Introducción a la creación de aplicaciones Power BI: Microsoft AppSource'
 description: En este artículo se describen los pasos de alto nivel para publicar una aplicación Power BI en Microsoft AppSource. También se proporcionan los requisitos técnicos y empresariales que debe cumplir la aplicación Power BI para publicarse en Marketplace comercial.
-author: anbene
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: anbene
+ms.author: mingshen
 ms.date: 04/02/2020
-ms.openlocfilehash: c40ea07fc4224052aa2474ebd61ef7838ba2cedf
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 9bf02fe6552b47070d4f79c4c497830ac2bfad84
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837845"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121782"
 ---
 # <a name="power-bi-app-creation-overview"></a>Introducción a la creación de la aplicación Power BI
 
@@ -66,16 +66,16 @@ Solo puede compilar una aplicación Power BI dentro de [Power BI](https://powerb
 2. Cree y pruebe la aplicación en Power BI.
 3. Cuando reciba la dirección web de instalación de la aplicación, agréguela a la página **Configuración técnica** del Centro de partners.
 
-Una vez creada y probada la aplicación en Power BI, guarde la dirección web de instalación de la aplicación, ya que la necesitará para [crear una oferta de la aplicación Power BI](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer).
+Una vez creada y probada la aplicación en Power BI, guarde la dirección web de instalación de la aplicación, ya que la necesitará para [crear una oferta de la aplicación Power BI](create-power-bi-app-offer.md).
 
 ### <a name="business-requirements"></a>Requisitos empresariales
 
 Los requisitos empresariales incluyen obligaciones contractuales, de procedimientos y legales. Debe:
 
-- Ser anunciante de Marketplace comercial registrado. Si no está registrado, siga los pasos que se indican en [Conviértase en anunciante de Marketplace comercial](https://docs.microsoft.com/azure/marketplace/become-publisher).
+- Ser anunciante de Marketplace comercial registrado. Si no está registrado, siga los pasos que se indican en [Creación de una cuenta de Marketplace comercial en el Centro de partners](create-account.md).
 - Proporcionar contenido que cumpla los criterios para que la oferta se publique en AppSource. Para más información, consulte [Have an app to list on AppSource? Este es el procedimiento](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how).
 - Acepte y siga la [declaración de privacidad de Microsoft](https://privacy.microsoft.com/privacystatement).
 
 ## <a name="next-step"></a>Paso siguiente
 
-- [Creación de una oferta de la aplicación Power BI en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer)
+- [Creación de una oferta de la aplicación Power BI en el Centro de partners](create-power-bi-app-offer.md)

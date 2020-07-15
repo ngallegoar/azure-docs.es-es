@@ -1,18 +1,18 @@
 ---
 title: Cómo administrar una cuenta de marketplace comercial en el Centro de partners del Microsoft
 description: Aprenda a administrar una cuenta de marketplace comercial en el Centro de partners del Microsoft.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: anbene
+ms.author: mingshen
 ms.date: 04/27/2020
-ms.openlocfilehash: 76eb0638d2b67e7859b25cdda8a6f4cbda285920
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 90ce9e48515213460fdb3db4fed57fd6f5d2688a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800220"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112857"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Administración de la cuenta de marketplace comercial en el Centro de partners
 
@@ -128,7 +128,7 @@ Si implementa un producto mediante una plantilla y está disponible tanto en Azu
 
 La creación de informes se realiza en función del valor de asociado comercial (id. de Partner de Microsoft) y de los GUID. También puede realizar un seguimiento de los GUID a un nivel más pormenorizado para cada plan de la oferta.
 
-Para más información, consulte [Tracking Azure customer usage with GUIDs FAQ](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution#faq) (Preguntas más frecuentes sobre el seguimiento del uso por parte de los clientes de Azure mediante los GUID).
+Para más información, consulte [Tracking Azure customer usage with GUIDs FAQ](../azure-partner-customer-usage-attribution.md#faq) (Preguntas más frecuentes sobre el seguimiento del uso por parte de los clientes de Azure mediante los GUID).
 
 ## <a name="create-a-billing-profile"></a>Creación de un perfil de facturación
 
@@ -138,7 +138,7 @@ La dirección de facturación se rellena previamente a partir de la entidad lega
 
 ## <a name="multi-user-account-management"></a>Administración de cuentas multiusuario
 
-El Centro de partners utiliza [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) para la administración y el acceso a la cuenta multiusuario. La instancia de Azure AD de la organización se asocia automáticamente con la cuenta del Centro de partners como parte del proceso de inscripción.
+El Centro de partners utiliza [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) para la administración y el acceso a la cuenta multiusuario. La instancia de Azure AD de la organización se asocia automáticamente con la cuenta del Centro de partners como parte del proceso de inscripción.
 
 ## <a name="manage-users"></a>Administrar usuarios
 
@@ -168,7 +168,7 @@ Para agregar usuarios a la cuenta del Centro de partners que ya existen en la [c
 
 ### <a name="create-new-users"></a>Creación de nuevos usuarios
 
-Para crear nuevas cuentas de usuario, debe tener una cuenta con permisos de [**administrador global**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). 
+Para crear nuevas cuentas de usuario, debe tener una cuenta con permisos de [**administrador global**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md). 
 
 1. Vaya a **Usuarios** (en **Configuración de la cuenta**), seleccione **Agregar usuarios** y, a continuación, elija **Crear nuevos usuarios**.
 1. Escriba un nombre, apellidos y nombre de usuario para cada usuario nuevo. 
@@ -182,7 +182,7 @@ La creación de un nuevo usuario en el Centro de partners, también crea una cue
 
 ### <a name="invite-new-users-by-email"></a>Invitar a nuevos usuarios por correo electrónico
 
-Para invitar a los usuarios que actualmente no forman parte de la cuenta profesional de la empresa (inquilino de Azure AD) mediante correo electrónico, debe tener una cuenta con permisos de [**administrador global**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
+Para invitar a los usuarios que actualmente no forman parte de la cuenta profesional de la empresa (inquilino de Azure AD) mediante correo electrónico, debe tener una cuenta con permisos de [**administrador global**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 1. Vaya a **Usuarios** (en **Configuración de la cuenta**), seleccione **Agregar usuarios** y, a continuación, elija **Invite users by email** (Invitar usuarios por correo electrónico).
 2. Escriba una o varias direcciones de correo electrónico (hasta diez), separadas por comas o por puntos y comas.
@@ -202,7 +202,7 @@ Para quitar un usuario de la cuenta profesional (inquilino de Azure AD), vaya a 
 
 ### <a name="change-a-user-password"></a>Cambiar una contraseña de usuario
 
-Si uno de los usuarios tiene que cambiar su contraseña, podrá hacerlo él mismo si proporcionó un **correo electrónico de recuperación de contraseña** al crear la cuenta de usuario. También puede actualizar la contraseña de un usuario mediante los pasos siguientes. Para cambiar la contraseña de un usuario en la cuenta profesional de la empresa (inquilino de Azure AD), debe iniciar sesión en una cuenta con permisos de [**administrador global**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). Tenga en cuenta que esta operación cambiará la contraseña del usuario en el inquilino de Azure AD y la contraseña que usa para acceder al Centro de partners.
+Si uno de los usuarios tiene que cambiar su contraseña, podrá hacerlo él mismo si proporcionó un **correo electrónico de recuperación de contraseña** al crear la cuenta de usuario. También puede actualizar la contraseña de un usuario mediante los pasos siguientes. Para cambiar la contraseña de un usuario en la cuenta profesional de la empresa (inquilino de Azure AD), debe iniciar sesión en una cuenta con permisos de [**administrador global**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md). Tenga en cuenta que esta operación cambiará la contraseña del usuario en el inquilino de Azure AD y la contraseña que usa para acceder al Centro de partners.
 
 1. En la página **Usuarios** (en **Configuración de la cuenta**), seleccione el nombre de la cuenta de usuario que desea editar.
 2. Seleccione el botón **Restablecer contraseña** situado en la parte inferior de la página.
@@ -264,7 +264,7 @@ Si desea conceder acceso al Centro de partners a una nueva cuenta de aplicación
 1. En la página **Usuarios** (en **Configuración de la cuenta**), seleccione **Agregar aplicaciones de Azure AD**.
 2. En la siguiente página, seleccione **New Azure AD application** (Nueva aplicación de Azure AD).
 3. Especifique la **URL de respuesta** de la nueva aplicación de Azure AD. Esta es la dirección URL en la que los usuarios pueden iniciar sesión y usar la aplicación de Azure AD (también se denomina a veces como URL de la aplicación o URL de inicio de sesión). La **URL de respuesta** no puede tener más de 256 caracteres y debe ser única dentro del directorio.
-4. Especifique el **URI de id. de aplicación** de la nueva aplicación de Azure AD. Se trata de un identificador lógico para la aplicación de Azure AD que se presenta cuando se envía una solicitud de inicio de sesión único a Azure AD. Tenga en cuenta que el **URI de id. de aplicación** debe ser exclusivo de cada aplicación de Azure AD del directorio. No puede tener más de 256 caracteres. Para más información sobre él, consulte [Integración de aplicaciones con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts#change-the-application-registration-to-support-different-accounts).
+4. Especifique el **URI de id. de aplicación** de la nueva aplicación de Azure AD. Se trata de un identificador lógico para la aplicación de Azure AD que se presenta cuando se envía una solicitud de inicio de sesión único a Azure AD. Tenga en cuenta que el **URI de id. de aplicación** debe ser exclusivo de cada aplicación de Azure AD del directorio. No puede tener más de 256 caracteres. Para más información sobre él, consulte [Integración de aplicaciones con Azure Active Directory](../../active-directory/develop/quickstart-modify-supported-accounts.md#change-the-application-registration-to-support-different-accounts).
 5. En la sección **Roles**, especifique los roles o permisos personalizados de la aplicación de Azure AD.
 6. Seleccione **Guardar**.
 
@@ -328,7 +328,7 @@ Para crear un nuevo inquilino de Azure AD con la cuenta del Centro de partners:
 3. Seleccione **Crear** para confirmar la nueva información de dominio y de cuenta.
 4. Inicie sesión con el nuevo nombre de usuario y contraseña de administrador global de Azure AD para empezar a [agregar y administrar usuarios](#manage-users).
 
-Para más información sobre la creación de nuevos inquilinos en Azure Portal, en lugar de mediante el portal del Centro de partners, consulte el artículo [Creación de un inquilino en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+Para más información sobre la creación de nuevos inquilinos en Azure Portal, en lugar de mediante el portal del Centro de partners, consulte el artículo [Creación de un inquilino en Azure Active Directory](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
 ### <a name="remove-a-tenant"></a>Eliminación de un inquilino
 

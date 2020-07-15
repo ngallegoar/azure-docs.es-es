@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
 ms.openlocfilehash: 5a5ffdf217483c60836f67213c20ff3afd9043d5
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82608922"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
@@ -63,7 +63,7 @@ POA consta de los siguientes subcomponentes:
 > [!NOTE]
 > POA usa el servicio de administrador de reparaciones de Service Fabric para habilitar o deshabilitar el nodo, y llevar a cabo comprobaciones de estado. La tarea de reparación creada por POA sigue el progreso de Windows Update en cada nodo.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 > [!NOTE]
 > La versión mínima requerida de .NET framework es 4.6.
@@ -294,7 +294,7 @@ Vayamos paso a paso para comprender cómo funcionan las actualizaciones en un no
 
 1. Una vez que la tarea de reparación está en estado de *En ejecución*, comienza la instalación de la revisión de ese nodo. Una vez instalada la revisión, el nodo puede o no reiniciarse dependiendo de la misma. A continuación, la tarea de reparación se mueve al estado *En restauración*, lo que permite volver a habilitar el nodo. A continuación, la tarea de reparación se marca como completada.
 
-   En las versiones de POA 1.4.0 y versiones posteriores, puede encontrar el estado de la actualización viendo los eventos de estado en NodeAgentService con la propiedad WUOperationStatus-\<NodeName >. Las secciones resaltadas en las imágenes que tiene a continuación muestran el estado de la actualización de Windows en el nodo *poanode_0* y *poanode_2*:
+   En las versiones de POA 1.4.0 y versiones posteriores, puede encontrar el estado de la actualización viendo los eventos de estado en NodeAgentService con la propiedad WUOperationStatus-\<NodeName>. Las secciones resaltadas en las imágenes que tiene a continuación muestran el estado de la actualización de Windows en el nodo *poanode_0* y *poanode_2*:
 
    [![Imagen del estado de la operación de Windows Update](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
 

@@ -4,12 +4,12 @@ description: Obtenga información sobre los conceptos y las técnicas de Azure F
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: b6af3d7ab1fdd35391c9a189162c57dfb259f2d4
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9a3c0643f4fc965ff64106758320aeb445aaf9ae
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81405347"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921737"
 ---
 # <a name="azure-functions-developer-guide"></a>Guía para desarrolladores de Azure Functions
 En Azure Functions, determinadas funciones comparten algunos componentes y conceptos técnicos básicos, independientemente del idioma o el enlace que use. Antes de ir a detalles de aprendizaje específicos de un idioma o un enlace determinados, asegúrese de leer al completo esta información general que se aplica a todos ellos.
@@ -73,7 +73,7 @@ Cuando se producen varios eventos de desencadenado más rápido de lo que un tie
 
 ## <a name="functions-runtime-versioning"></a>Versiones del entorno en tiempo de ejecución de Functions
 
-Puede configurar la versión del entorno en tiempo de ejecución de Functions mediante la configuración de la aplicación `FUNCTIONS_EXTENSION_VERSION`. Por ejemplo, el valor "~3" indica que la aplicación de funciones utilizará 3.x como versión principal. Las Function App se actualizan a las nuevas versiones secundarias a medida que se lanzan. Para más información y saber cómo ver la versión exacta de la aplicación de función, consulte [Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions](set-runtime-version.md).
+Puede configurar la versión del entorno en tiempo de ejecución de Functions mediante la configuración de la aplicación `FUNCTIONS_EXTENSION_VERSION`. Por ejemplo, el valor "~3" indica que la aplicación de funciones utilizará 3.x como versión principal. Las aplicaciones de funciones se actualizan a las nuevas versiones secundarias a medida que se lanzan. Para más información y saber cómo ver la versión exacta de la aplicación de función, consulte [Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions](set-runtime-version.md).
 
 ## <a name="repositories"></a>Repositorios
 El código de Azure Functions es código abierto y está almacenado en repositorios de GitHub:

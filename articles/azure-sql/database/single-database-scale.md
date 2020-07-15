@@ -11,19 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/30/2020
-ms.openlocfilehash: cbd15e2356e9ceb781d7314cb9a0114d2d47d412
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 84e9593884f40fce8affce628b7817c528b3c31d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84026456"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343292"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Escalar recursos de base de datos única en Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-En este artículo se describe cómo escalar los recursos de proceso y almacenamiento disponibles para una instancia de Azure SQL Database en el nivel de proceso aprovisionado. Como alternativa, el [nivel de proceso sin servidor](serverless-tier-overview.md) proporciona escalado automático de proceso y factura por segundo el proceso que se usa.
+En este artículo se describe cómo escalar los recursos de proceso y almacenamiento disponibles para una instancia de Azure SQL Database en el nivel de proceso aprovisionado. Como alternativa, el [nivel de proceso sin servidor](serverless-tier-overview.md) proporciona escalado automático de proceso y se factura por segundo el proceso que se usa.
 
-Después de elegir inicialmente el número de núcleos virtuales o DTU, puede escalar o reducir una base de datos verticalmente de manera dinámica en función de la experiencia real mediante [Azure Portal](single-database-manage.md#azure-portal), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), la [CLI de Azure](/cli/azure/sql/db#az-sql-db-update) o la [API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
+Después de elegir inicialmente el número de núcleos virtuales o DTU, puede escalar o reducir una base de datos verticalmente de manera dinámica en función de la experiencia real mediante [Azure Portal](single-database-manage.md#the-azure-portal), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), la [CLI de Azure](/cli/azure/sql/db#az-sql-db-update) o la [API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
 
 El vídeo siguiente muestra cómo cambiar de manera dinámica el nivel de servicio y el tamaño de proceso para aumentar las DTU disponibles para una base de datos única.
 
@@ -36,13 +35,13 @@ El vídeo siguiente muestra cómo cambiar de manera dinámica el nivel de servic
 
 El cambio en el nivel de servicio o el tamaño de proceso implica principalmente que el servicio realice los pasos siguientes:
 
-1. Creación de una instancia de proceso nueva para la base de datos  
+1. Cree una instancia de proceso nueva para la base de datos. 
 
-    Se crea una instancia de proceso nueva con el tamaño de proceso y el nivel de servicio solicitados. Para algunas combinaciones de cambios en el nivel de servicio y el tamaño de proceso, se debe crear una réplica de la base de datos en la nueva instancia de proceso que implique copiar los datos y pueda influir en gran medida en la latencia general. En cualquier caso, la base de datos permanece en línea durante este paso y las conexiones se continúan dirigiendo a la base de datos en la instancia de proceso original.
+    Se crea una instancia de proceso nueva con el tamaño de proceso y el nivel de servicio solicitados. Para algunas combinaciones de cambios en el nivel de servicio y el tamaño de proceso, se debe crear una réplica de la base de datos en la nueva instancia de proceso, lo que implica copiar los datos y puede influir en gran medida en la latencia general. En cualquier caso, la base de datos permanece en línea durante este paso y las conexiones se continúan dirigiendo a la base de datos en la instancia de proceso original.
 
-2. Cambio en el enrutamiento de conexiones a la nueva instancia de proceso
+2. Cambie el enrutamiento de las conexiones a una nueva instancia de proceso.
 
-    Se colocan las conexiones existentes en la base de datos en la instancia de proceso original. En la nueva instancia de proceso las nuevas conexiones se establecen en la base de datos. Para algunas combinaciones de cambios de nivel de servicio y de tamaño de proceso, los archivos de base de datos se desasocian y se vuelven a asociar durante la modificación.  No obstante, el modificador puede provocar una breve interrupción del servicio cuando la base de datos no esté disponible de forma general durante menos de 30 segundos y, a menudo, durante solo unos segundos. Si hay transacciones de larga duración que se ejecutan cuando se colocan las conexiones, la duración de este paso puede ser mayor con el fin de recuperar las transacciones anuladas. La [Recuperación de base de datos acelerada](../accelerated-database-recovery.md) puede reducir el impacto de la anulación de transacciones de larga duración.
+    Se colocan las conexiones existentes en la base de datos en la instancia de proceso original. En la nueva instancia de proceso las nuevas conexiones se establecen en la base de datos. Para algunas combinaciones de cambios de nivel de servicio y de tamaño de proceso, los archivos de base de datos se desasocian y se vuelven a asociar durante la modificación.  No obstante, el modificador puede provocar una breve interrupción del servicio cuando la base de datos no esté disponible de forma general durante menos de 30 segundos y, a menudo, durante solo unos segundos. Si hay transacciones de ejecución prolongada que se ejecutan cuando se eliminan las conexiones, la duración de este paso puede ser mayor con el fin de recuperar las transacciones anuladas. La [Recuperación de base de datos acelerada](../accelerated-database-recovery.md) puede reducir el impacto de la anulación de transacciones de larga duración.
 
 > [!IMPORTANT]
 > Durante los pasos del flujo de trabajo no se pierden datos. Asegúrese de que ha implementado alguna [lógica de reintento](troubleshoot-common-connectivity-issues.md) en las aplicaciones y los componentes que utilizan Azure SQL Database mientras se cambia el nivel de servicio.
@@ -78,7 +77,7 @@ WHERE s.type_desc IN ('ROWS', 'LOG');
 
 Un cambio del nivel de servicio o de la escala del proceso se puede cancelar.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="the-azure-portal"></a>El Portal de Azure
 
 En la hoja de información general de la base de datos, vaya a **Notificaciones** y haga clic en el icono que indica que hay una operación en curso:
 
@@ -105,7 +104,7 @@ else {
 
 ## <a name="additional-considerations"></a>Consideraciones adicionales
 
-- Si va a actualizar a un nivel de servicio o tamaño de proceso más elevado, el tamaño máximo de la base de datos no aumenta a no ser que especifique un tamaño mayor (maxsize).
+- Si va a actualizar a un nivel de servicio o tamaño de proceso más elevado, el tamaño máximo de la base de datos no aumenta a menos que especifique un tamaño mayor (maxsize).
 - Para cambiar una base de datos a una versión anterior, su espacio usado no debe alcanzar el tamaño máximo permitido del nivel de servicio de destino y del tamaño de proceso.
 - Al pasar del nivel **Premium** al nivel **Estándar**, se aplica un costo de almacenamiento adicional si (1) el tamaño máximo de la base de datos es compatible con el tamaño de proceso de destino y (2) el tamaño máximo supera la cantidad de almacenamiento incluido del tamaño de proceso de destino. Por ejemplo, si una base de datos P1 con un tamaño máximo de 500 GB se reduce a S3, se aplica un costo de almacenamiento adicional porque S3 admite un tamaño máximo de 1 TB y su cantidad de almacenamiento incluido es solo de 250 GB. Por lo tanto, la cantidad de almacenamiento adicional es 500 GB – 250 GB = 250 GB. Para conocer el precio del almacenamiento adicional, consulte los [precios de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). Si la cantidad de espacio real utilizada es menor que la cantidad de almacenamiento incluido, este costo adicional puede evitarse si se reduce el tamaño máximo de la base de datos a la cantidad incluida.
 - Al actualizar una base de datos con la [replicación geográfica](active-geo-replication-configure-portal.md) habilitada, actualice sus bases de datos secundarias al nivel de servicio y al tamaño de proceso deseados antes de actualizar la base de datos principal (instrucciones generales para mejorar el rendimiento). Si se realiza la actualización a una edición diferente, es necesario actualizar primero la base de datos secundaria.
@@ -115,13 +114,13 @@ else {
 
 ## <a name="billing"></a>Facturación
 
-Se le cobrará por cada hora que una base de datos exista con el mayor nivel de servicio + tamaño de proceso aplicable durante esa hora, independientemente del uso o de si la base de datos estuvo activa durante menos tiempo. Por ejemplo, si crea una base de datos única y la elimina a los cinco minutos, se le efectuará un cargo de una hora por usar la base de datos.
+Se le cobrará por cada hora que una base de datos exista con el mayor nivel de servicio + tamaño de proceso aplicable durante esa hora, independientemente del uso o de si la base de datos estuvo activa durante menos de una hora. Por ejemplo, si crea una base de datos única y la elimina a los cinco minutos, se le efectuará un cargo de una hora por usar la base de datos.
 
 ## <a name="change-storage-size"></a>Modificar el tamaño de almacenamiento
 
 ### <a name="vcore-based-purchasing-model"></a>Modelo de compra basado en núcleo virtual
 
-- Se puede aprovisionar el almacenamiento hasta el límite máximo de tamaño del almacenamiento de datos con incrementos de 1 GB. El almacenamiento de datos mínimo configurable es 1 GB. Consulte las páginas de documentación del límite de recursos para [bases de datos únicas](resource-limits-vcore-single-databases.md) y [grupos elásticos](resource-limits-vcore-elastic-pools.md) a fin de ver los límites máximos de tamaño del almacenamiento de datos en cada objetivo del servicio.
+- Se puede aprovisionar el almacenamiento hasta el límite máximo de tamaño del almacenamiento de datos con incrementos de 1 GB. El almacenamiento de datos mínimo configurable es 1 GB. Consulte las páginas de documentación del límite de recursos para [bases de datos únicas](resource-limits-vcore-single-databases.md) y [grupos elásticos](resource-limits-vcore-elastic-pools.md) a fin de ver los límites máximos de tamaño del almacenamiento de datos en cada objetivo del servicio.
 - Se puede aprovisionar almacenamiento de datos para una base de datos única mediante el aumento o disminución de su tamaño máximo con [Azure Portal](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), la [CLI de Azure](/cli/azure/sql/db#az-sql-db-update) o la [API de REST](https://docs.microsoft.com/rest/api/sql/databases/update). Si el valor de tamaño máximo se especifica en bytes, debe ser un múltiplo de 1 GB (1073741824 bytes).
 - La cantidad de datos que se pueden almacenar en los archivos de datos de una base de datos está limitada por el tamaño máximo del almacenamiento de datos configurado. Además de ese almacenamiento, Azure SQL Database asigna automáticamente un 30 % de almacenamiento adicional que se va a usar para el registro de transacciones.
 - Azure SQL Database asigna automáticamente 32 GB por núcleo virtual para la base de datos `tempdb`. `tempdb` se encuentra en el almacenamiento local de SSD en todos los niveles de servicio.
@@ -149,10 +148,11 @@ Existe más de 1 TB de almacenamiento en el nivel Premium actualmente disponibl
 
 - Si el tamaño máximo de una base de datos P11 o P15 nunca se estableció en un valor mayor que 1 TB, entonces solo puede restablecerse o copiarse a una base de datos P11 o P15.  Posteriormente, la base de datos puede escalarse de nuevo a un tamaño de proceso diferente siempre que la cantidad de espacio asignado en el momento de la operación de cambio de escala no supere los límites de tamaño máximo con el nuevo tamaño de proceso.
 - En escenarios de replicación geográfica activa:
-  - Configuración de una relación de replicación geográfica: si la base de datos principal es P11 o P15, la secundaria (una o varias) también debe ser P11 o P15; aquellas con un tamaño de proceso inferior se rechazarán como secundarias, puesto que no tienen capacidad para admitir más de 1 TB.
+  - Configuración de una relación de replicación geográfica: Si la base de datos principal es P11 o P15, las secundarias también deben ser P11 o P15. Un menor tamaño de proceso se rechaza como secundarias, ya que no admiten más de 1 TB.
   - Actualización de la base de datos principal en una relación de replicación geográfica: al cambiar el tamaño máximo a 1 TB en una base de datos principal, se desencadenará el mismo cambio en la base de datos secundaria. Ambas actualizaciones deben realizarse correctamente para que el cambio en la principal surta efecto. Se aplican limitaciones por región para la opción de más de 1 TB. Si la base de datos secundaria está en una región que no admite más de 1 TB, no se actualizará la principal.
-- No se admite el uso del servicio Import/Export para cargar bases de datos P11/P15 con más de 1 TB. Use SqlPackage.exe para [importar](database-import.md) y [exportar](database-export.md) datos.
+- No se admite el uso del servicio Import/Export para cargar bases de datos P11 y P15 con más de 1 TB. Use SqlPackage.exe para [importar](database-import.md) y [exportar](database-export.md) datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para conocer los límites de recursos globales, consulte [Límites de recursos basados en núcleos virtuales de Azure SQL Database para bases de datos únicas](resource-limits-vcore-single-databases.md) y [Límites de recursos de bases de datos únicas que usan el modelo de compra de DTU: Azure SQL Database](resource-limits-dtu-single-databases.md).
+ 

@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: c453e8a70a6cd4b9d33a6d40bebd2ac0a804e5e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3e4e80048453b7d6e0804bbef670f0544efaca49
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100590"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514840"
 ---
 # <a name="use-spot-vms-in-azure"></a>Uso de las máquinas virtuales de Spot en Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "82100590"
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Use el [portal](spot-portal.md), la [CLI](../linux/spot-cli.md) o [PowerShell](spot-powershell.md) para implementar máquinas virtuales de Spot.
+Use el [portal](spot-portal.md), la [CLI](../linux/spot-cli.md), [plantilla de ARM](../linux/spot-template.md) o [PowerShell](spot-powershell.md) para implementar máquinas virtuales de Spot.
 
 También puede implementar un [conjunto de escalado con instancias de máquinas virtuales de Spot](../../virtual-machine-scale-sets/use-spot.md).
 

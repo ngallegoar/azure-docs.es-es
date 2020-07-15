@@ -5,21 +5,20 @@ services: storsimple
 documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 116ac5c4efda87b5d16336dd326d516299f6955d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 825a10bec7a9d415bdcf76e5b6f28f04060bb411
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61481978"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514024"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Desactivación y eliminación de un dispositivo de StorSimple
 
@@ -36,28 +35,29 @@ Al desactivar un dispositivo, no se puede volver a acceder a los datos que se al
 >
 > El restablecimiento de fábrica elimina todos los datos almacenados localmente en el dispositivo. Por consiguiente, debe realizar una instantánea en la nube de todos los datos antes de desactivar un dispositivo. Dicha instantánea le permitirá recuperar todos los datos más adelante.
 
+> [!NOTE]
+>
+> - Antes de desactivar un dispositivo físico StorSimple o StorSimple Cloud Appliance, asegúrese de que se eliminan realmente del dispositivo los datos del contenedor de volúmenes. Puede supervisar los gráficos de consumo en la nube y, cuando vea que el uso en la nube disminuye debido a las copias de seguridad eliminadas, podrá continuar para desactivar el dispositivo. Si desactiva el dispositivo antes de que esto ocurra, los datos se deshabilitarán en la cuenta de almacenamiento y se acumularán cargos.
+>
+> - Antes de desactivar un dispositivo virtual o aplicación de nube de StorSimple, detenga o elimine los clientes y hosts que dependen de dicho dispositivo.
+>
+> - Si las cuentas de almacenamiento o los contenedores de la cuenta asociada con los contenedores de volúmenes ya se han eliminado antes de quitar los datos del dispositivo, recibirá un error y es posible que no pueda eliminar los datos. Se recomienda eliminar los datos en el dispositivo antes de la cuenta de almacenamiento o los contenedores que contiene. Sin embargo, en esta situación, tendrá que continuar con la desactivación del dispositivo y la eliminación, suponiendo que los datos ya se han quitado de la cuenta de almacenamiento.
+
 Después de leer este tutorial, podrá:
 
-* Desactivar un dispositivo y eliminar los datos.
-* Desactivar un dispositivo y conservar los datos.
-
-> [!NOTE]
-> Antes de desactivar un dispositivo virtual o aplicación de nube de StorSimple, detenga o elimine los clientes y hosts que dependen de dicho dispositivo.
-
+- Desactivar un dispositivo y eliminar los datos.
+- Desactivar un dispositivo y conservar los datos.
 
 ## <a name="deactivate-and-delete-data"></a>Desactivación y eliminación de datos
 
 Si está interesado en eliminar completamente el dispositivo y no desea conservar los datos del mismo, siga estos pasos.
 
-#### <a name="to-deactivate-the-device-and-delete-the-data"></a>Para desactivar un dispositivo y eliminar los datos
+### <a name="to-deactivate-the-device-and-delete-the-data"></a>Para desactivar un dispositivo y eliminar los datos
 
-1. Antes de desactivar un dispositivo, debe eliminar todos los contenedores de volúmenes (y los volúmenes) asociados con el dispositivo. Puede eliminar los contenedores de volúmenes solo después de eliminar las copias de seguridad asociadas.
-
-    > [!NOTE]
-    > Antes de desactivar un dispositivo físico StorSimple o StorSimple Cloud Appliance, asegúrese de que se eliminan realmente del dispositivo los datos del contenedor de volúmenes. Puede supervisar los gráficos de consumo en la nube y, cuando vea que el uso en la nube disminuye debido a las copias de seguridad eliminadas, podrá continuar para desactivar el dispositivo. Si desactiva el dispositivo antes de que esto ocurra, los datos se deshabilitarán en la cuenta de almacenamiento y se acumularán cargos.
+1. Antes de desactivar un dispositivo, debe eliminar todos los contenedores de volúmenes (y los volúmenes) asociados con el dispositivo. Puede eliminar los contenedores de volúmenes solo después de eliminar las copias de seguridad asociadas. Consulte la nota de la información general anterior antes de desactivar un dispositivo físico StorSimple o un dispositivo de nube.
 
 2. Desactive el dispositivo como sigue:
-   
+
    1. Vaya al servicio Administrador de dispositivos de StorSimple y haga clic en **Dispositivos**. En la hoja **Dispositivos**, seleccione el dispositivo que desea desactivar, haga clic con el botón derecho y, después, haga clic en **Desactivar**.
 
         ![Desactivar dispositivo StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
@@ -79,7 +79,8 @@ Si está interesado en eliminar completamente el dispositivo y no desea conserva
 
 Si está interesado en eliminar el dispositivo, pero desea conservar sus datos, siga estos pasos:
 
-#### <a name="to-deactivate-a-device-and-retain-the-data"></a>Para desactivar un dispositivo y conservar los datos
+### <a name="to-deactivate-a-device-and-retain-the-data"></a>Para desactivar un dispositivo y conservar los datos
+
 1. Desactive el dispositivo. Todos los contenedores de volúmenes y las instantáneas del dispositivo se conservan.
    
    1. Vaya al servicio Administrador de dispositivos de StorSimple y haga clic en **Dispositivos**. En la hoja **Dispositivos**, seleccione el dispositivo que desea desactivar, haga clic con el botón derecho y, después, haga clic en **Desactivar**.
@@ -99,7 +100,6 @@ Si está interesado en eliminar el dispositivo, pero desea conservar sus datos, 
        ![Desactivar dispositivo StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
    3. Una vez que la eliminación se completa correctamente, recibirá una notificación. La lista de dispositivos también se actualiza para reflejar la eliminación.
 
-     
 ## <a name="deactivate-and-delete-a-cloud-appliance"></a>Desactivación y eliminación de una aplicación en la nube
 
 En StorSimple Cloud Appliance, la desactivación desde el portal desasigna y elimina la máquina virtual y los recursos creados en el aprovisionamiento. Después de desactivar el dispositivo de nube, no se puede restaurar a su estado anterior.

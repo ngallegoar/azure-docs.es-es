@@ -7,18 +7,18 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 07/02/2020
 ms.author: allensu
-ms.openlocfilehash: 485afaa4b7009731784cf5da6f8c28e0a787c1d9
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: dcf54e5a9bee5f7dc6cba9e3cb178027f53ed5fb
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629429"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961292"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Creación de un equilibrador de carga interno mediante el módulo de Azure PowerShell
 
@@ -142,6 +142,7 @@ En el ejemplo se crean los cuatro objetos de regla siguientes:
 * Una segunda regla NAT de entrada para RDP: redirige todo el tráfico entrante del puerto 3442 al puerto 3389.
 * Una regla de sondeo de mantenimiento: comprueba el estado del mantenimiento de la ruta de acceso de HealthProbe.aspx.
 * Una regla del equilibrador de carga: equilibra la carga de todo el tráfico entrante en el puerto público 80 al puerto local 80 del grupo de direcciones de back-end.
+* Una [regla del equilibrador de carga para los puertos de alta disponibilidad](load-balancer-ha-ports-overview.md) para equilibrar la carga de todo el tráfico entrante en todos los puertos, a fin de simplificar los escenarios de alta disponibilidad para el equilibrador de carga interno estándar.
 
 ```azurepowershell-interactive
 $inboundNATRule1= New-AzLoadBalancerInboundNatRuleConfig -Name "RDP1" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389
@@ -151,6 +152,8 @@ $inboundNATRule2= New-AzLoadBalancerInboundNatRuleConfig -Name "RDP2" -FrontendI
 $healthProbe = New-AzLoadBalancerProbeConfig -Name "HealthProbe" -RequestPath "HealthProbe.aspx" -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 
 $lbrule = New-AzLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
+
+$haportslbrule = New-AzLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
 ```
 
 ### <a name="step-2-create-the-load-balancer"></a>Paso 2: Creación del equilibrador de carga
@@ -158,8 +161,10 @@ $lbrule = New-AzLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguration $fr
 Crear el equilibrador de carga y combine los objetos de regla (NAT de entrada para RDP, equilibrador de carga y sondeo de estado):
 
 ```azurepowershell-interactive
-$NRPLB = New-AzLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
+$NRPLB = New-AzLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -SKU Standard -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
 ```
+
+Utilice `-SKU Basic` para crear una instancia de Load Balancer Básico. Microsoft recomienda el uso de Standard Load Balancer para cargas de trabajo de producción.
 
 ## <a name="create-the-network-interfaces"></a>Creación de las interfaces de red
 
@@ -191,53 +196,55 @@ $backendnic2= New-AzNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-b
 
 Revise la configuración:
 
-    $backendnic1
+```azurepowershell-interactive
+$backendnic1
+```
 
 La configuración debe se como esta:
 
-    Name                 : lb-nic1-be
-    ResourceGroupName    : NRP-RG
-    Location             : westus
-    Id                   : /subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
-    Etag                 : W/"d448256a-e1df-413a-9103-a137e07276d1"
-    ProvisioningState    : Succeeded
-    Tags                 :
-    VirtualMachine       : null
-    IpConfigurations     : [
+```output
+Name                 : lb-nic1-be
+ResourceGroupName    : NRP-RG
+Location             : westus
+Id                   : /subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
+Etag                 : W/"d448256a-e1df-413a-9103-a137e07276d1"
+ProvisioningState    : Succeeded
+Tags                 :
+VirtualMachine       : null
+IpConfigurations     : [
+                     {
+                       "PrivateIpAddress": "10.0.2.6",
+                       "PrivateIpAllocationMethod": "Static",
+                       "Subnet": {
+                         "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/virtualNetworks/NRPVNet/subnets/LB-Subnet-BE"
+                       },
+                       "PublicIpAddress": {
+                         "Id": null
+                       },
+                       "LoadBalancerBackendAddressPools": [
                          {
-                           "PrivateIpAddress": "10.0.2.6",
-                           "PrivateIpAllocationMethod": "Static",
-                           "Subnet": {
-                             "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/virtualNetworks/NRPVNet/subnets/LB-Subnet-BE"
-                           },
-                           "PublicIpAddress": {
-                             "Id": null
-                           },
-                           "LoadBalancerBackendAddressPools": [
-                             {
-                               "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/backendAddressPools/LB-backend"
-                             }
-                           ],
-                           "LoadBalancerInboundNatRules": [
-                             {
-                               "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/inboundNatRules/RDP1"
-                             }
-                           ],
-                           "ProvisioningState": "Succeeded",
-                           "Name": "ipconfig1",
-                           "Etag": "W/\"d448256a-e1df-413a-9103-a137e07276d1\"",
-                           "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/ipconfig1"
+                           "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/backendAddressPools/LB-backend"
                          }
-                       ]
-    DnsSettings          : {
-                         "DnsServers": [],
-                         "AppliedDnsServers": []
-                       }
-    AppliedDnsSettings   :
-    NetworkSecurityGroup : null
-    Primary              : False
-
-
+                       ],
+                       "LoadBalancerInboundNatRules": [
+                         {
+                           "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/inboundNatRules/RDP1"
+                         }
+                       ],
+                       "ProvisioningState": "Succeeded",
+                       "Name": "ipconfig1",
+                       "Etag": "W/\"d448256a-e1df-413a-9103-a137e07276d1\"",
+                       "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/ipconfig1"
+                     }
+                   ]
+DnsSettings          : {
+                     "DnsServers": [],
+                     "AppliedDnsServers": []
+                   }
+AppliedDnsSettings   :
+NetworkSecurityGroup : null
+Primary              : False
+```
 
 ### <a name="step-3-assign-the-nic-to-a-vm"></a>Paso 3: Asignación de la NIC a una máquina virtual
 

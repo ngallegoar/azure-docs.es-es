@@ -3,7 +3,7 @@ title: Alta disponibilidad
 titleSuffix: Azure SQL Database and SQL Managed Instance
 description: Obtenga información acerca de las funcionalidades y características de alta disponibilidad de Azure SQL Database e Instancia administrada de SQL
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 04/02/2020
-ms.openlocfilehash: 527fe8fa2ad8916f9e5209e4823457d81e745034
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 01906935de76b2b262f2058563a3eee0e297e8a4
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219370"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985336"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidad para Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -75,12 +75,14 @@ Para más información sobre la alta disponibilidad en Hiperescala, consulte [Al
 
 ## <a name="zone-redundant-configuration"></a>Configuración de redundancia de zona
 
-De forma predeterminada, el clúster de nodos del modelo de disponibilidad premium se crea en el mismo centro de datos. Con la incorporación de [Azure Availability Zones](../../availability-zones/az-overview.md), SQL Database e Instancia administrada de SQL pueden colocar diferentes réplicas de la base de datos Crítico para la empresa en diferentes zonas de disponibilidad de la misma región. Para eliminar un punto de error único, también se duplica el anillo de control en varias zonas como tres anillos de puerta de enlace. El enrutamiento a un anillo de puerta de enlace específico se controla mediante [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) (ATM). Como la configuración de redundancia de zona de los niveles de servicio premium y crítico para la empresa no crean redundancia adicional de base de datos, puede habilitarla sin costo adicional. Si selecciona una configuración de redundancia de zona, puede hacer que las bases de datos de los niveles premium o crítico para la empresa sean resistentes a un número mucho mayor de errores, como interrupciones catastróficas de los centros de datos, sin necesidad de cambiar la lógica de la aplicación. También puede aplicar la configuración de redundancia de zona a cualquier grupo o base de datos existente del nivel Premium o Crítico para la empresa.
+De forma predeterminada, el clúster de nodos del modelo de disponibilidad premium se crea en el mismo centro de datos. Con la incorporación de [Azure Availability Zones](../../availability-zones/az-overview.md), SQL Database puede colocar diferentes réplicas de la base de datos de nivel Crítico para la empresa en diferentes zonas de disponibilidad de la misma región. Para eliminar un punto de error único, también se duplica el anillo de control en varias zonas como tres anillos de puerta de enlace. El enrutamiento a un anillo de puerta de enlace específico se controla mediante [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) (ATM). Como la configuración de redundancia de zona de los niveles de servicio premium y crítico para la empresa no crean redundancia adicional de base de datos, puede habilitarla sin costo adicional. Si selecciona una configuración de redundancia de zona, puede hacer que las bases de datos de los niveles premium o crítico para la empresa sean resistentes a un número mucho mayor de errores, como interrupciones catastróficas de los centros de datos, sin necesidad de cambiar la lógica de la aplicación. También puede aplicar la configuración de redundancia de zona a cualquier grupo o base de datos existente del nivel Premium o Crítico para la empresa.
 
 Como las bases de datos con redundancia de zona tienen réplicas en distintos centros de datos situados a cierta distancia entre ellos, la mayor latencia de red puede aumentar el tiempo de confirmación y, por lo tanto, afectar al rendimiento de algunas cargas de trabajo OLTP. Siempre puede volver a la configuración de zona única; para ello, deshabilite la configuración de redundancia de zona. Este proceso es una operación en línea similar a la actualización normal del nivel de servicio. Al final del proceso, la base de datos o el grupo se migra desde un anillo con redundancia de zona a un anillo de zona única, o viceversa.
 
 > [!IMPORTANT]
-> Los grupos elásticos y las bases de datos con redundancia de zona solo se admiten actualmente en los niveles de servicio premium y crítico para la empresa de algunas regiones. Cuando se usa el nivel crítico para la empresa, la configuración de redundancia de zona solo está disponible cuando se selecciona el hardware de proceso Gen5. Para información actualizada sobre las regiones que admiten bases de datos con redundancia de zona, consulte [Soporte técnico de servicios por región](../../availability-zones/az-region.md).  
+> Los grupos elásticos y las bases de datos con redundancia de zona solo se admiten actualmente en los niveles de servicio premium y crítico para la empresa de algunas regiones. Cuando se usa el nivel crítico para la empresa, la configuración de redundancia de zona solo está disponible cuando se selecciona el hardware de proceso Gen5. Para información actualizada sobre las regiones que admiten bases de datos con redundancia de zona, consulte [Soporte técnico de servicios por región](../../availability-zones/az-region.md).
+
+> [!NOTE]
 > Esta característica no está disponible en Instancia administrada de SQL.
 
 En el diagrama siguiente se ilustra la versión con redundancia de zona de la arquitectura de alta disponibilidad:
@@ -89,7 +91,7 @@ En el diagrama siguiente se ilustra la versión con redundancia de zona de la ar
 
 ## <a name="accelerated-database-recovery-adr"></a>Recuperación de base de datos acelerada (ADR)
 
-[Recuperación de base de datos acelerada (ADR)](../accelerated-database-recovery.md) es una nueva característica del motor de base de datos SQL que mejora considerablemente la disponibilidad de la base de datos, en especial en presencia de transacciones de larga duración. ADR está disponible actualmente para Azure SQL Database, Instancia administrada de Azure SQL y Azure SQL Data Warehouse.
+[Recuperación acelerada de la base de datos (ADR)](../accelerated-database-recovery.md) es una nueva característica del motor de base de datos que mejora considerablemente la disponibilidad de la base de datos, en especial en presencia de transacciones de larga duración. ADR está disponible actualmente para Azure SQL Database, Instancia administrada de Azure SQL y Azure SQL Data Warehouse.
 
 ## <a name="testing-application-fault-resiliency"></a>Prueba de la resistencia a errores de la aplicación
 

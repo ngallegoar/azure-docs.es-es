@@ -8,15 +8,15 @@ ms.subservice: user-help
 ms.service: active-directory
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 02/25/2020
+ms.date: 06/03/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: f78ef7ddf48612728c0409b0f904c0964e2272b5
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: b13de16b2080d28d3b779921456cfb20d99f0af9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83741592"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84416030"
 ---
 # <a name="back-up-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Copia de seguridad y recuperación de las credenciales de cuenta con la aplicación Microsoft Authenticator
 
@@ -73,54 +73,36 @@ Puede recuperar las credenciales de la cuenta desde su cuenta en la nube, pero p
 
 Una vez finalizada la recuperación, podrá notar que los códigos de verificación de la cuenta Microsoft personal en la aplicación Microsoft Authenticator difieren en el teléfono nuevo y el antiguo. Esto es así porque cada dispositivo tiene sus propias credenciales únicas, aunque ambas son válidas y funcionan al iniciar sesión con el teléfono asociado.
 
-## <a name="recover-additional-accounts-requiring-more-verification"></a>Recuperación de otras cuentas con más detalles de verificación
+## <a name="recover-accounts-requiring-more-verification"></a>Recuperación de cuentas con más detalles de verificación
 
 Si usa notificaciones push con las cuentas personales, profesionales o educativas, recibirá una alerta en la pantalla para que proporcione más detalles de verificación para recuperar la información. Dado que las notificaciones push requieren credenciales vinculadas con los dispositivos específicos y no se envían a través de la red, debe demostrar su identidad para que se creen en el dispositivo.
 
 Para las cuentas Microsoft personales, puede probar su identidad mediante la especificación de la contraseña junto con un número de teléfono o correo electrónico alternativos. Para las cuentas profesionales o educativas, debe digitalizar un código QR que le proporcione el proveedor de la cuenta.
 
-### <a name="to-provide-additional-verification-for-personal-accounts"></a>Proporcionar verificación adicional para las cuentas personales
+### <a name="to-provide-more-verification-for-personal-accounts"></a>Para proporcionar más comprobación a las cuentas personales
 
-1. En la pantalla **Cuentas** de la aplicación Microsoft Authenticator, seleccione la cuenta que desea recuperar. En un dispositivo Android, seleccione la flecha situada junto a la cuenta que desea recuperar.
+1. En la pantalla **Cuentas** de la aplicación Microsoft Authenticator, pulse la cuenta que quiere recuperar para abrir la vista de pantalla completa de la cuenta.
 
-    ![Aplicación Microsoft Authenticator que muestra las cuentas disponibles con las flechas desplegables asociadas](./media/user-help-auth-app-backup-recovery/backup-and-recovery-arrow.png)
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-arrow.png" alt-text="Aplicación Microsoft Authenticator, que muestra los iconos de las cuentas disponibles" border="true":::
 
-    En un dispositivo iOS, pulse la cuenta que desea recuperar para abrir la vista de pantalla completa de la cuenta.
+1. Puntee en el icono de la cuenta que va a recuperar y, a continuación, puntee en la opción para iniciar sesión para recuperarla. Escriba la contraseña y confirme el número de teléfono o la dirección de correo electrónico como verificación adicional.
 
-    ![Aplicación Microsoft Authenticator que muestra las cuentas disponibles con las flechas desplegables asociadas](./media/user-help-auth-app-backup-recovery/ios-select-account-to-recover.png)
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="Authenticador presenta una contraseña de un solo uso como código de verificación." border="true":::
 
-2. Inicie sesión para recuperar la cuenta. En un dispositivo Android, seleccione **Iniciar sesión para completar la recuperación**.
+### <a name="to-provide-more-verification-for-work-or-school-accounts"></a>Para proporcionar más comprobación a las cuentas profesionales o educativas
 
-    ![Aplicación Microsoft Authenticator para escribir la información de inicio de sesión en Android](./media/user-help-auth-app-backup-recovery/backup-and-recovery-sign-in.png)
+1. En la pantalla **Cuentas** de la aplicación Microsoft Authenticator, pulse la cuenta que quiere recuperar para abrir la vista de pantalla completa de la cuenta.
 
-    En un dispositivo iOS, pulse el icono de la cuenta que quiere recuperar y, después, pulse la opción para iniciar sesión y completar la recuperación. A continuación, escriba la contraseña y confirme el número de teléfono o la dirección de correo electrónico como verificación adicional.
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-arrow.png" alt-text="Aplicación Microsoft Authenticator, que muestra los iconos de las cuentas disponibles" border="true":::
 
-    ![Aplicación Microsoft Authenticator para escribir la información de inicio de sesión en iOS](./media/user-help-auth-app-backup-recovery/ios-sign-in-to-recover.png)
+1. En la vista de pantalla completa, puntee en la opción de escanear un código QR para recuperarla por completo.
 
-### <a name="to-provide-additional-verification-for-work-or-school-accounts"></a>Proporcionar verificación adicional para las cuentas profesionales o educativas
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="Authenticador presenta una contraseña de un solo uso como código de verificación." border="true":::
 
-1. Inicie sesión para recuperar la cuenta. En un dispositivo Android, seleccione **Iniciar sesión para completar la recuperación**.
-
-    ![Aplicación Microsoft Authenticator recuperando una cuenta profesional o educativa en Android](./media/user-help-auth-app-backup-recovery/backup-and-recovery-additional-accts.png)
-
-    En un dispositivo iOS, pulse la cuenta que desea recuperar para abrir la vista de pantalla completa de la cuenta.
-
-    ![Aplicación Microsoft Authenticator recuperando una cuenta profesional o educativa en iOS](./media/user-help-auth-app-backup-recovery/ios-recover-work-or-school-account.png)
-
-2. Puede usar un código QR para recuperar una cuenta. Seleccione **Digitalizar código QR para completar la recuperación** y lea el código QR.
-
-    En Android:
-
-    ![Aplicación Microsoft Authenticator en Android, que permite digitalizar el código QR](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
-
-    En iOS:
-
-    ![Aplicación Microsoft Authenticator en iOS, que permite digitalizar el código QR](./media/user-help-auth-app-backup-recovery/ios-scan-qr-code.png)
-
-    >[!NOTE]
-    >Para más información acerca de los códigos QR y cómo obtener uno, consulte [Introducción a la aplicación Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) o [Configuración de la información de seguridad para usar una aplicación autenticadora](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app), en función de si el administrador ha activado la información de seguridad.
-    >
-    >Si es la primera vez que configura la aplicación Microsoft Authenticator, es posible que reciba un mensaje en el que se le pregunta si quiere permitir que la aplicación acceda a la cámara (iOS) o permitir que la aplicación tome fotografías y grabe vídeo (Android). Debe seleccionar **Permitir** para que la aplicación de autenticación pueda acceder a la cámara y tomar una fotografía del código QR en el paso siguiente. Aunque no otorgue permiso a la cámara, podrá configurar la aplicación de autenticación, pero tendrá que agregar la información de código manualmente. Para más información sobre cómo agregar manualmente código, consulte [Agregar manualmente una cuenta a la aplicación](user-help-auth-app-add-account-manual.md).
+>[!NOTE]
+>Para más información acerca de los códigos QR y cómo obtener uno, consulte [Introducción a la aplicación Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) o [Configuración de la información de seguridad para usar una aplicación autenticadora](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app), en función de si el administrador ha activado la información de seguridad.
+>
+>Si es la primera vez que configura la aplicación Microsoft Authenticator, es posible que reciba un mensaje en el que se le pregunta si quiere permitir que la aplicación acceda a la cámara (iOS) o permitir que la aplicación tome fotografías y grabe vídeo (Android). Debe seleccionar **Permitir** para que la aplicación de autenticación pueda acceder a la cámara y tomar una fotografía del código QR en el paso siguiente. Aunque no otorgue permiso a la cámara, podrá configurar la aplicación de autenticación, pero tendrá que agregar la información de código manualmente. Para más información sobre cómo agregar manualmente código, consulte [Agregar manualmente una cuenta a la aplicación](user-help-auth-app-add-account-manual.md).
 
 ## <a name="troubleshoot-backup-and-recovery-problems"></a>Solución de problemas de copia de seguridad y recuperación
 
@@ -136,7 +118,7 @@ Existen diversos motivos para que la copia de seguridad no esté disponible
 
 - **Cuentas de Microsoft Authenticator existentes**. Si ya ha configurado cuentas en la aplicación Microsoft Authenticator, la aplicación no podrá recuperar las cuentas de copia de seguridad. Evitar la recuperación garantiza que los datos de la cuenta no se sobreescriben con información obsoleta. En esta situación, debe eliminar cualquier información de cuenta existente de la configuración de las cuentas existentes en la aplicación Authenticator para recuperar la copia de seguridad.
 
-- **La copia de seguridad está obsoleta**. Si la información de copia de seguridad no está actualizada, es posible que se le pida que actualice la información. Para ello, vuelva a iniciar sesión en su cuenta de recuperación de Microsoft. La cuenta de recuperación es la cuenta Microsoft personal que usó inicialmente para almacenar la copia de seguridad. Si se requiere un inicio de sesión, verá un punto rojo en el menú o la barra de acciones, o verá un signo de exclamación que le pedirá que inicie sesión para finalizar la restauración a partir de la copia de seguridad. Después de seleccionar el icono, se le pedirá que vuelva a iniciar sesión para actualizar la información.
+- **La copia de seguridad está obsoleta**. Si la información de copia de seguridad no está actualizada, es posible que se le pida que actualice la información. Para ello, vuelva a iniciar sesión en su cuenta de recuperación de Microsoft. La cuenta de recuperación es la cuenta Microsoft personal que usó inicialmente para almacenar la copia de seguridad. Si se requiere un inicio de sesión, verá un punto rojo en el menú o la barra de acciones, o verá icono de signo de exclamación que le pedirá que inicie sesión para finalizar la restauración a partir de la copia de seguridad. Después de seleccionar el icono adecuado, se le pedirá que vuelva a iniciar sesión para actualizar la información.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

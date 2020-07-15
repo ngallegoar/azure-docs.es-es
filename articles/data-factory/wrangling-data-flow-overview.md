@@ -7,16 +7,17 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 3b8632eaf7662d705235adaad7cd03d2e7e4904b
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 203e5fcaa99f7aebeda34e6968f636ed72851ec8
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626884"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921528"
 ---
 # <a name="what-are-wrangling-data-flows"></a>¿Qué son los flujos de datos de limpieza y transformación?
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 
 Las organizaciones deben encargarse de la preparación, y la limpieza y transformación de datos para un análisis preciso de los datos complejos que crecen cada día más. La preparación de datos es necesaria para que las organizaciones puedan usar los datos en diversos procesos empresariales y reducir el plazo de amortización.
 
@@ -25,6 +26,9 @@ Los flujos de datos de limpieza y transformación en Azure Data Factory permiten
 El flujo de datos de limpieza y transformación traduce el código M generado por el editor de mashups de Power Query Online en el código de Spark para la ejecución a escala de nube.
 
 Los flujos de datos de limpieza y transformación son especialmente útiles para los ingenieros de datos o "integradores de datos de la ciudadanía".
+
+> [!NOTE]
+> El flujo de datos de limpieza y transformación está actualmente disponible en versión preliminar pública
 
 ## <a name="use-cases"></a>Casos de uso
 

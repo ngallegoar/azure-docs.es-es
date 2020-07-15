@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 4/6/2020
-ms.openlocfilehash: a2c376ec2bd1f03b626c11b0d6a6c3850c9ef8c4
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.date: 7/1/2020
+ms.openlocfilehash: 8dc70eaeb9e2c2f5d4cdfef37619e4b04217782e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804595"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964522"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Opciones de configuración de Hiperescala (Citus) para Azure Database for PostgreSQL
 
@@ -20,7 +20,7 @@ ms.locfileid: "80804595"
  
 Puede seleccionar la configuración de proceso y almacenamiento por separado para los nodos de trabajo y el nodo de coordinación en un grupo de servidores Hiperescala (Citus).  Los recursos de proceso se proporcionan como núcleos virtuales, que representan la CPU lógica del hardware subyacente. El tamaño de almacenamiento para el aprovisionamiento se refiere a la capacidad disponible para los nodos de trabajo y de coordinación en el grupo de servidores Hiperescala (Citus). El almacenamiento incluye archivos de base de datos, archivos temporales, registros de transacciones y registros de servidor PostgreSQL.
  
-|                       | Nodo de trabajo           | Nodo de coordinación      |
+| Recurso              | Nodo de trabajo           | Nodo de coordinación      |
 |-----------------------|-----------------------|-----------------------|
 | Proceso, núcleos virtuales       | 4, 8, 16, 32, 64      | 4, 8, 16, 32, 64      |
 | Memoria por núcleo virtual, GiB | 8                     | 4                     |
@@ -87,10 +87,37 @@ Los grupos de servidores Hiperescala (Citus) están disponibles en las siguiente
     * Sudeste de Asia
 * Europa:
     * Norte de Europa
-    * Sur de Reino Unido 2
+    * Sur de Reino Unido
     * Oeste de Europa
 
 Es posible que algunas de estas regiones no se activen inicialmente en todas las suscripciones de Azure. Si desea utilizar una región de la lista anterior y no la ve en su suscripción, o si desea usar una región que no está en esta lista, abra una [solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+## <a name="limits-and-limitations"></a>Límites y limitaciones
+
+En la siguiente sección se describen los límites de capacidad y funcionales en el servicio de Hiperescala (Citus).
+
+### <a name="maximum-connections"></a>Número máximo de conexiones
+
+Cada conexión de PostgreSQL (incluso inactiva) usa al menos 10 MB de memoria, por lo que es importante limitar las conexiones simultáneas. Estos son los límites que elegimos para mantener los nodos en buen estado:
+
+* Nodo de coordinación
+   * Número máximo de conexiones: 300
+   * Número máximo de conexiones de usuario: 297
+* Nodo de trabajo
+   * Número máximo de conexiones: 600
+   * Número máximo de conexiones de usuario: 597
+
+Se producirá un error al intentar conectarse más allá de estos límites. El sistema reserva tres conexiones para supervisar los nodos, por lo que hay tres menos conexiones disponibles para las consultas de usuario que el total de conexiones.
+
+El establecimiento de las nuevas conexiones lleva su tiempo. Esto funciona con la mayoría de las aplicaciones, que solicitan muchas conexiones de corta duración. Se recomienda usar un agrupador de conexiones para reducir las transacciones inactivas y reutilizar las conexiones existentes. Para más información, visite nuestra [entrada de blog](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717).
+
+### <a name="storage-scaling"></a>Escalado de almacenamiento
+
+El almacenamiento en el coordinador y los nodos de trabajo se pueden escalar verticalmente (aumentar), pero no se puede reducir verticalmente (disminuir).
+
+### <a name="storage-size"></a>Tamaño de almacenamiento
+
+Se admite hasta 2 TiB de almacenamiento en los nodos de coordinador y de trabajo. Consulte las opciones de almacenamiento disponibles y el cálculo de IOPS [anterior](#compute-and-storage) para los tamaños de nodo y clúster.
 
 ## <a name="pricing"></a>Precios
 Para conocer la información más actualizada sobre precios, consulte la [página de precios](https://azure.microsoft.com/pricing/details/postgresql/) del servicio.

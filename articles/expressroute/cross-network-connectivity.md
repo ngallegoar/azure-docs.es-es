@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: rambala
-ms.openlocfilehash: 48ec26cc98310dfeb61aa17018c940b431cfbcee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 646482472caf6aded9142f33fb6bd879938998d3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75644263"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85124960"
 ---
 # <a name="cross-network-connectivity"></a>Conectividad entre redes
 
@@ -20,25 +20,25 @@ Fabrikam Inc. tiene una presencia física importante e implementación de Azure 
 
 Fabrikam Inc. adquiere Contoso Ltd. Después de la fusión, Fabrikam desea interconectar las redes. En la siguiente ilustración se muestra este escenario:
 
- [![1]][1]
+![Escenario de aplicación](./media/cross-network-connectivity/premergerscenario.png)
 
 Las flechas discontinuas en medio de la ilustración anterior indican las interconexiones de red deseadas. En concreto, hay tres tipos de conexiones cruzadas deseadas: 1) Conexiones cruzadas entre las redes virtuales de Fabrikam y Contoso, 2) Conexiones cruzadas entre redes virtuales y locales entre regiones (es decir, una conexión entre la red local de Fabrikam y la red virtual de Contoso, y otra conexión entre la red local de Contoso y la red virtual de Fabrikam), y 3) Conexión cruzada entre las redes locales de Fabrikam y Contoso. 
 
 En la siguiente tabla se muestra la tabla de rutas del emparejamiento privado con ExpressRoute de Contoso Ltd. antes de la fusión.
 
-[![2]][2]
+![Tabla de rutas de ExpressRoute de Contoso antes de la fusión](./media/cross-network-connectivity/contosoexr-rt-premerger.png)
 
-La siguiente tabla muestra las rutas eficaces de una máquina virtual en la suscripción de Contoso, antes de la fusión. Según la tabla, la máquina virtual en la red virtual conoce el espacio de direcciones de la red virtual y la red local de Contoso, aparte de los valores predeterminados. 
+La siguiente tabla muestra las rutas eficaces de una máquina virtual en la suscripción de Contoso, antes de la fusión. Según la tabla, la máquina virtual en la red virtual conoce el espacio de direcciones de la red virtual y la red local de Contoso, aparte de los valores predeterminados.
 
-[![4]][4]
+![Rutas de máquina virtual de Contoso antes de la fusión](./media/cross-network-connectivity/contosovm-routes-premerger.png)
 
 En la siguiente tabla se muestra la tabla de rutas del emparejamiento privado con ExpressRoute de Fabrikam Inc. antes de la fusión.
 
-[![3]][3]
+![Tabla de rutas de ExpressRoute de Fabrikam antes de la fusión](./media/cross-network-connectivity/fabrikamexr-rt-premerger.png)
 
 La siguiente tabla muestra las rutas eficaces de una máquina virtual en la suscripción de Fabrikam, antes de la fusión. Según la tabla, la máquina virtual en la red virtual conoce el espacio de direcciones de la red virtual y la red local de Fabrikam, aparte de los valores predeterminados.
 
-[![5]][5]
+![Rutas de máquina virtual de Fabrikam antes de la fusión](./media/cross-network-connectivity/fabrikamvm-routes-premerger.png)
 
 En este artículo, explicaremos el proceso paso a paso y discutiremos cómo lograr las conexiones cruzadas deseadas utilizando las siguientes características de red de Azure:
 
@@ -54,15 +54,15 @@ Vamos a configurar el emparejamiento de red virtual global entre las redes virtu
 
 La siguiente imagen muestra la arquitectura de red después de configurar el emparejamiento de red virtual global.
 
-[![6]][6]
+![La arquitectura después del emparejamiento de VNET](./media/cross-network-connectivity/vnet-peering.png )
 
 La siguiente tabla muestra las rutas conocidas a la máquina virtual de la suscripción a Contoso. Preste atención a la última entrada de la tabla. Esta entrada es el resultado de realizar una conexión cruzada entre las redes virtuales.
 
-[![7]][7]
+![Rutas de máquina virtual de Contoso después del emparejamiento de VNET](./media/cross-network-connectivity/contosovm-routes-peering.png)
 
 La siguiente tabla muestra las rutas conocidas a la máquina virtual de la suscripción a Fabrikam. Preste atención a la última entrada de la tabla. Esta entrada es el resultado de realizar una conexión cruzada entre las redes virtuales.
 
-[![8]][8]
+![Rutas de máquina virtual de Fabrikam después del emparejamiento de VNET](./media/cross-network-connectivity/fabrikamvm-routes-peering.png)
 
 El emparejamiento de red virtual vincula directamente dos redes virtuales (observe que no hay ningún próximo salto para la entrada *VNetGlobalPeering* en las dos tablas anteriores).
 
@@ -74,23 +74,23 @@ Vamos a conectar el circuito ExpressRoute de Fabrikam con la red virtual de la s
 
 La siguiente imagen muestra la arquitectura de red después de configurar la conectividad cruzada de ExpressRoute a las redes virtuales.
 
-[![9]][9]
+![La arquitectura después de la conexión cruzada de ExpressRoutes](./media/cross-network-connectivity/exr-x-connect.png)
 
 En la tabla siguiente se muestra la tabla de rutas del emparejamiento privado de ExpressRoute de Contoso Ltd. después de crear una conexión cruzada entre las redes virtuales y las redes locales a través de ExpressRoute. Observe que la tabla de rutas tiene rutas que pertenecen a ambas redes virtuales.
 
-[![10]][10]
+![Tabla de rutas de ExpressRoute de Contoso después de realizar la conexión cruzada entre ExR y las redes virtuales](./media/cross-network-connectivity/contosoexr-rt-xconnect.png)
 
 En la tabla siguiente se muestra la tabla de rutas del emparejamiento privado de ExpressRoute de Fabrikam Inc. después de crear una conexión cruzada entre las redes virtuales y las redes locales a través de ExpressRoute. Observe que la tabla de rutas tiene rutas que pertenecen a ambas redes virtuales.
 
-[![11]][11]
+![Tabla de rutas de ExpressRoute de Fabrikam después de realizar la conexión cruzada entre ExR y las redes virtuales](./media/cross-network-connectivity/fabrikamexr-rt-xconnect.png)
 
 La siguiente tabla muestra las rutas conocidas a la máquina virtual de la suscripción a Contoso. Preste atención a las entradas de *Virtual network gateway* (Puerta de enlace de red virtual) de la tabla. La máquina virtual muestra rutas para ambas redes locales.
 
-[![12]][12]
+![Rutas de máquina virtual de Contoso después de realizar la conexión cruzada entre ExR y las redes virtuales](./media/cross-network-connectivity/contosovm-routes-xconnect.png)
 
 La siguiente tabla muestra las rutas conocidas a la máquina virtual de la suscripción a Fabrikam. Preste atención a las entradas de *Virtual network gateway* (Puerta de enlace de red virtual) de la tabla. La máquina virtual muestra rutas para ambas redes locales.
 
-[![13]][13]
+![Rutas de máquina virtual de Fabrikam después de realizar la conexión cruzada entre ExR y las redes virtuales](./media/cross-network-connectivity/fabrikamvm-routes-xconnect.png)
 
 >[!NOTE]
 >En cualquiera de las suscripciones a Fabrikam y Contoso, también pueden existir redes virtuales de radio a la red virtual hub correspondiente (no se muestra un diseño de hub y radio en los diagramas de arquitectura de este artículo). Las conexiones cruzadas entre las puertas de enlace de red virtual de hub y ExpressRoute también permiten la comunicación entre hub y radios de las regiones Este y Oeste.
@@ -102,39 +102,21 @@ Global Reach de ExpressRoute proporciona conectividad entre redes locales que es
 
 La siguiente imagen muestra la arquitectura de red después de configurar Global Reach.
 
-[![14]][14]
+![La arquitectura después de configurar Global Reach](./media/cross-network-connectivity/globalreach.png)
 
 En la siguiente tabla se muestra la tabla de rutas del emparejamiento privado con ExpressRoute de Contoso Ltd. después de configurar Global Reach. Observe que la tabla de rutas tiene rutas que pertenecen a ambas redes locales. 
 
-[![15]][15]
+![Tabla de rutas de ExpressRoute de Contoso después de Global Reach](./media/cross-network-connectivity/contosoexr-rt-gr.png)
 
 En la siguiente tabla se muestra la tabla de rutas del emparejamiento privado con ExpressRoute de Fabrikam Inc. después de configurar Global Reach. Observe que la tabla de rutas tiene rutas que pertenecen a ambas redes locales.
 
-[![16]][16]
+![Tabla de rutas de ExpressRoute de Fabrikam después de Global Reach]( ./media/cross-network-connectivity/fabrikamexr-rt-gr.png )
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Consulte las [preguntas más frecuentes de Virtual Network][VNet-FAQ] para resolver las dudas adicionales sobre redes virtuales y emparejamiento de redes virtuales. Consulte [P+F de ExpressRoute][ER-FAQ] para resolver las dudas adicionales sobre la conectividad de redes virtuales y ExpressRoute.
 
 Global Reach se está dando a conocer país a país y región a región. Para ver si Global Reach está disponible en los países o regiones que quiere, consulte [Global Reach de ExpressRoute][Global Reach].
-
-<!--Image References-->
-[1]: ./media/cross-network-connectivity/premergerscenario.png "Escenario de aplicación"
-[2]: ./media/cross-network-connectivity/contosoexr-rt-premerger.png "Tabla de rutas de ExpressRoute de Contoso antes de la fusión"
-[3]: ./media/cross-network-connectivity/fabrikamexr-rt-premerger.png "Tabla de rutas de ExpressRoute de Fabrikam antes de la fusión"
-[4]: ./media/cross-network-connectivity/contosovm-routes-premerger.png "Rutas de máquina virtual de Contoso antes de la fusión"
-[5]: ./media/cross-network-connectivity/fabrikamvm-routes-premerger.png "Rutas de máquina virtual de Fabrikam antes de la fusión"
-[6]: ./media/cross-network-connectivity/vnet-peering.png "La arquitectura después del emparejamiento de red virtual"
-[7]: ./media/cross-network-connectivity/contosovm-routes-peering.png "Rutas de máquina virtual de Contoso después del emparejamiento de red virtual"
-[8]: ./media/cross-network-connectivity/fabrikamvm-routes-peering.png "Rutas de máquina virtual de Fabrikam después del emparejamiento de red virtual"
-[9]: ./media/cross-network-connectivity/exr-x-connect.png "La arquitectura después de la conexión cruzada de ExpressRoutes"
-[10]: ./media/cross-network-connectivity/contosoexr-rt-xconnect.png "Tabla de rutas de ExpressRoute de Contoso después de realizar la conexión cruzada entre ExpressRoute y las redes virtuales"
-[11]: ./media/cross-network-connectivity/fabrikamexr-rt-xconnect.png "Tabla de rutas de ExpressRoute de Fabrikam después de realizar la conexión cruzada entre ExpressRoute y las redes virtuales"
-[12]: ./media/cross-network-connectivity/contosovm-routes-xconnect.png "Rutas de máquina virtual de Contoso después de realizar la conexión cruzada entre ExpressRoute y las redes virtuales"
-[13]: ./media/cross-network-connectivity/fabrikamvm-routes-xconnect.png "Rutas de máquina virtual de Fabrikam después de realizar la conexión cruzada entre ExpressRoute y las redes virtuales"
-[14]: ./media/cross-network-connectivity/globalreach.png "La arquitectura después de configurar Global Reach"
-[15]: ./media/cross-network-connectivity/contosoexr-rt-gr.png "Tabla de rutas de ExpressRoute de Contoso después de Global Reach"
-[16]: ./media/cross-network-connectivity/fabrikamexr-rt-gr.png "Tabla de rutas de ExpressRoute de Fabrikam después de Global Reach"
 
 <!--Link References-->
 [Virtual network peering]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview

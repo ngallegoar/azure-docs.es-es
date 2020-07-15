@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
 ms.openlocfilehash: 9ab4db53086046ff831fe91d003599841aa8148c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83829790"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalación de un servidor de destino maestro de Linux para la conmutación por recuperación
@@ -29,7 +29,7 @@ En este artículo se proporcionan instrucciones para instalar un destino maestro
 
 Publique cualquier comentario o pregunta que tenga al final del artículo, o bien en la [Página de preguntas y respuestas de Microsoft sobre Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Para elegir el host en el que se va a implementar el destino maestro, determine si la conmutación por recuperación va a ser en una máquina virtual local existente o en una nueva máquina virtual. 
     * En el caso de una máquina virtual existente, el host del destino maestro debe tener acceso a los almacenes de datos de la máquina virtual.
@@ -244,7 +244,7 @@ Use los pasos siguientes para crear un disco de retención:
 
     ![Identificador de múltiples rutas](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Formatee la unidad y, a continuación, cree un sistema de archivos en la nueva unidad: **mkfs.ext4 /dev/mapper/\<identificador de múltiples rutas del disco de retención>** .
+3. Aplique formato a la unidad y luego cree un sistema de archivos en ella: **mkfs.ext4 /dev/mapper/\<Retention disk's multipath id>** .
     
     ![Sistema de archivos](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -261,7 +261,7 @@ Use los pasos siguientes para crear un disco de retención:
     
     Seleccione **Insertar** para comenzar a editar el archivo. Cree una nueva línea y luego inserte el siguiente texto. Edite el identificador de múltiples rutas del disco basándose en el identificador de múltiples rutas resaltado del comando anterior.
 
-    **/dev/mapper/\<id de ruta múltiple de los discos de retención> /mnt/retention ext4 rw 0 0**
+    **/dev/mapper/\<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
 
     Seleccione **Esc** y luego escriba **:wq** (escribir y salir) para cerrar la ventana del editor.
 

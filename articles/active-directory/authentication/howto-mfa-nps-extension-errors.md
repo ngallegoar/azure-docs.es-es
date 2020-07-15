@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 09468272397925d9afd1d3014f4fcc1d6a222198
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 6a292201796ccb08f684d2c44a3cee71442edbfe
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611388"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848688"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolución de mensajes de error de la extensión de NPS para Azure Multi-Factor Authentication
 
@@ -27,7 +27,7 @@ Si encuentra errores en la extensión de NPS para Azure Multi-Factor Authenticat
 
 | Código de error | Pasos para solucionar problemas |
 | ---------- | --------------------- |
-| **CONTACT_SUPPORT** | [Póngase en contacto con el servicio de soporte técnico](#contact-microsoft-support) y mencione la lista de pasos para recopilar registros. Proporcione la mayor cantidad de información que sea posible sobre lo que sucedió antes del error, incluido el id. del inquilino y el nombre principal de usuario (UPN). |
+| **CONTACT_SUPPORT** | [Póngase en contacto con el servicio de soporte técnico](#contact-microsoft-support) y mencione la lista de pasos para recopilar registros. Proporcione la mayor cantidad de información que sea posible sobre lo que sucedió antes del error, incluido el identificador del inquilino y el nombre principal de usuario (UPN). |
 | **CLIENT_CERT_INSTALL_ERROR** | Puede haber un problema con la forma en que se instaló el certificado de cliente o cómo se asoció con el inquilino. Siga las instrucciones que aparecen en [Solución de problemas con la extensión de NPS de MFA](howto-mfa-nps-extension.md#troubleshooting) para investigar los problemas con el certificado de cliente. |
 | **ESTS_TOKEN_ERROR** | Siga las instrucciones que aparecen en [Solución de problemas con la extensión de NPS de MFA](howto-mfa-nps-extension.md#troubleshooting) para investigar los problemas con el token ADAL y el certificado de cliente. |
 | **HTTPS_COMMUNICATION_ERROR** | El servidor NPS no puede recibir respuestas de Azure MFA. Compruebe que los firewalls están abiertos de forma bidireccional para el tráfico a y desde https://adnotifications.windowsazure.com |
@@ -60,7 +60,7 @@ Si encuentra errores en la extensión de NPS para Azure Multi-Factor Authenticat
 | **OathCodePinIncorrect** | Se escribió un PIN y un código de error incorrectos. | Este error no se espera en la extensión de NPS. Si el usuario encuentra este error, [póngase en contacto con el servicio de soporte técnico](#contact-microsoft-support) para ayuda en la solución de problemas. |
 | **ProofDataNotFound** | No se configuraron datos de prueba para el método de autenticación especificado. | Haga que el usuario pruebe con otro método de comprobación o agregue métodos de comprobación nuevos según las instrucciones que aparecen en [Administración de la configuración de la verificación en dos pasos](../user-help/multi-factor-authentication-end-user-manage-settings.md). Si el usuario sigue viendo este error una vez que confirmó que el método de comprobación está configurado correctamente, [póngase en contacto con el servicio de soporte técnico](#contact-microsoft-support). |
 | **SMSAuthFailedWrongCodePinEntered** | Se escribió un PIN y un código de error incorrectos. (OneWaySMS) | Este error no se espera en la extensión de NPS. Si el usuario encuentra este error, [póngase en contacto con el servicio de soporte técnico](#contact-microsoft-support) para ayuda en la solución de problemas. |
-| **TenantIsBlocked** | El inquilino está bloqueado | [Póngase en contacto con el servicio de soporte técnico](#contact-microsoft-support) con la identificación de directorio de la página de propiedades de Azure AD en Azure Portal. |
+| **TenantIsBlocked** | El inquilino está bloqueado | [Póngase en contacto con el servicio de soporte técnico](#contact-microsoft-support) con el *identificador de inquilino* de la página de propiedades de Azure AD en Azure Portal. |
 | **UserNotFound** | No se encontró el usuario especificado | El inquilino ya no está visible como activo en Azure AD. Compruebe que la suscripción está activa y que tiene las aplicaciones propias requeridas. Además, asegúrese de que el inquilino del asunto del certificado sea el esperado y que el certificado siga siendo válido y esté registrado en la entidad de servicio. |
 
 ## <a name="messages-your-users-may-encounter-that-arent-errors"></a>Mensajes que pueden encontrar los usuarios que no son errores

@@ -1,7 +1,7 @@
 ---
 title: Recuperación acelerada de bases de datos.
 titleSuffix: Azure SQL
-description: La recuperación de base de datos acelerada proporciona recuperación de bases de datos rápida y coherente, reversión de transacción instantánea y truncamiento de registros agresivo para bases de datos de la cartera de servicios de Azure SQL.
+description: La Recuperación acelerada de la base de datos proporciona una recuperación de bases de datos rápida y coherente, reversión de transacciones instantánea y truncamiento de registros agresivo para bases de datos de la cartera de Azure SQL.
 ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: sqldbrb=4
@@ -11,17 +11,17 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 05/19/2020
-ms.openlocfilehash: c0243ecea778a02238b205f1659d796165f7b316
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a6d95bbcb0873086a799dcf216beab4a6b0d33de
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84030136"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84344703"
 ---
 # <a name="accelerated-database-recovery-in-azure-sql"></a>Recuperación de base de datos acelerada en Azure SQL 
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-**Recuperación de base de datos acelerada (ADR)** es una característica del motor de base de datos SQL que mejora considerablemente la disponibilidad de la base de datos, en especial en presencia de transacciones de larga duración, al rediseñar el proceso de recuperación del motor de base de datos SQL. ADR está disponible actualmente para Azure SQL Database, la instancia administrada de Azure SQL, SQL Server en máquinas virtuales de Azure y bases de datos de Azure Synapse (actualmente en versión preliminar). Las principales ventajas de ADR son:
+**Recuperación acelerada de la base de datos (ADR)** es una característica del motor de base de datos de SQL Server que mejora considerablemente la disponibilidad de la base de datos, en especial en presencia de transacciones de larga duración, al rediseñar el proceso de recuperación del motor de base de datos de SQL Server. ADR está disponible actualmente para Azure SQL Database, Azure SQL Managed Instance, SQL Server en máquinas virtuales de Azure y bases de datos de Azure Synapse Analytics (actualmente en versión preliminar). Las principales ventajas de ADR son:
 
 - **Recuperación de base de datos rápida y coherente**
 
@@ -53,15 +53,15 @@ La recuperación de bases de datos sigue el modelo de recuperación [ARIES](http
 
   Para cada transacción activa en el momento del bloqueo, recorre el registro hacia atrás y deshace las operaciones realizadas por esta transacción.
 
-En función de este diseño, el tiempo que tarda el motor de base de datos SQL en recuperarse de un reinicio inesperado es (aproximadamente) proporcional al tamaño de la transacción activa más larga del sistema en el momento del bloqueo. La recuperación requiere la reversión de todas las transacciones incompletas. El período de tiempo necesario es proporcional al trabajo que ha realizado la transacción y el tiempo que ha estado activa. Por lo tanto, el proceso de recuperación puede tardar mucho tiempo en la presencia de transacciones de larga duración (como operaciones de inserción masiva grandes u operaciones de generación de índice en una tabla grande).
+En función de este diseño, el tiempo que tarda el motor de base de datos de SQL Server en recuperarse de un reinicio inesperado es (aproximadamente) proporcional al tamaño de la transacción activa más larga del sistema en el momento del bloqueo. La recuperación requiere la reversión de todas las transacciones incompletas. El período de tiempo necesario es proporcional al trabajo que ha realizado la transacción y el tiempo que ha estado activa. Por lo tanto, el proceso de recuperación puede tardar mucho tiempo en la presencia de transacciones de larga duración (como operaciones de inserción masiva grandes u operaciones de generación de índice en una tabla grande).
 
 Además, la cancelación o la reversión de una transacción grande en función de este diseño puede tardar mucho porque usa la misma fase de recuperación de reversión descrita anteriormente.
 
-Además, el motor de base de datos SQL no puede truncar el registro de transacciones si hay transacciones de ejecución prolongada, ya que sus entradas de registro correspondientes son necesarias para los procesos de recuperación y reversión. Como resultado de este diseño del motor de base de datos SQL, algunos clientes se enfrentan al problema de que el tamaño del registro de transacciones crece mucho y consume cantidades enormes de espacio de la unidad.
+Además, el motor de base de datos de SQL Server no puede truncar el registro de transacciones si hay transacciones de ejecución prolongada, ya que sus entradas de registro correspondientes son necesarias para los procesos de recuperación y reversión. Como resultado de este diseño del motor de base de datos de SQL Server, algunos clientes se enfrentan al problema de que el tamaño del registro de transacciones crece mucho y consume cantidades enormes de espacio de la unidad.
 
 ## <a name="the-accelerated-database-recovery-process"></a>El proceso de recuperación de base de datos acelerada
 
-ADR aborda los problemas anteriores al rediseñar por completo el proceso de recuperación del motor de base de datos SQL para:
+ADR aborda los problemas anteriores al rediseñar por completo el proceso de recuperación del motor de base de datos de SQL Server para:
 
 - Sea constante/instantáneo, ya que evita tener que examinar el registro desde/hasta el principio de la transacción activa más antigua. Con ADR, el registro de transacciones solo se procesa desde el último punto de comprobación correcto (o un número de secuencia de registro [LSN] de página desfasada más antiguo). Como resultado, el tiempo de recuperación no se ve afectado por las transacciones de larga duración.
 - Minimice el espacio del registro de transacciones necesario, ya que ya no es necesario procesar el registro para toda la transacción. Como resultado, el registro de transacciones se puede truncar de manera agresiva a medida que se producen puntos de comprobación y copias de seguridad.
@@ -95,9 +95,9 @@ El proceso de recuperación de ADR tiene las mismas tres fases que el proceso de
 
 Estos son los cuatro componentes clave de ADR:
 
-- **Almacén de versiones persistente (PVS)**
+- **Almacén de versiones persistentes (PVS)**
 
-  El almacén de versiones persistente es un nuevo mecanismo de motor de base de datos SQL para conservar las versiones de fila generadas en la propia base de datos en lugar del almacén de versiones `tempdb` tradicional. PVS habilita el aislamiento de recursos, además de mejorar la disponibilidad de las réplicas secundarias legibles.
+  El almacén de versiones persistente es un nuevo mecanismo del motor de base de datos de SQL Server para conservar las versiones de fila generadas en la propia base de datos en lugar del almacén de versiones `tempdb` tradicional. PVS habilita el aislamiento de recursos, además de mejorar la disponibilidad de las réplicas secundarias legibles.
 
 - **Reversión lógica**
 

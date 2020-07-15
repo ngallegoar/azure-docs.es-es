@@ -3,15 +3,15 @@ title: Administración y actualización de Azure HPC Cache
 description: Administración y actualización de Azure HPC Cache mediante Azure Portal
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
-ms.date: 1/29/2020
-ms.author: rohogue
-ms.openlocfilehash: 57d6a2024cd6fd979426ca5de5e261f110f6156f
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.topic: how-to
+ms.date: 06/01/2020
+ms.author: v-erkel
+ms.openlocfilehash: 825b8a34e130286a5772363107311fe4170e8743
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537957"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515563"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Administración de la memoria caché desde Azure Portal
 
@@ -30,6 +30,10 @@ Los botones que se encuentran en la parte superior de la página pueden ayudarlo
 * [**Eliminar**](#delete-the-cache): destruye permanentemente la memoria caché
 
 Lea más información sobre estas opciones a continuación.
+
+Haga clic en la imagen siguiente para ver un [vídeo](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) que muestra las tareas de administración de caché.
+
+[![Miniatura de vídeo: Azure HPC Cache: Administración (haga clic para visitar la página del vídeo)](media/video-5-manage.png)](https://azure.microsoft.com/resources/videos/managing-hpc-cache/)
 
 ## <a name="stop-the-cache"></a>Detención de la caché
 

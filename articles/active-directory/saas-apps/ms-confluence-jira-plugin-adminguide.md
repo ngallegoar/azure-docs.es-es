@@ -16,10 +16,10 @@ ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8679f9a03fded546db68f058bca716ba053aa0fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73161198"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guía del administrador de Jira y Confluence de Atlassian para Azure Active Directory
@@ -54,7 +54,7 @@ Los administradores de Jira y Confluence pueden usar el complemento para habilit
 * Jira o Confluence también están disponibles fuera de la red de la empresa.
 * El complemento funciona solo con las versiones locales de Jira y Confluence.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de instalar el complemento, tenga en cuenta la siguiente información:
 
@@ -113,11 +113,11 @@ En la imagen siguiente se muestra la pantalla de configuración tanto en Jira co
 
 * **Metadata URL** (Dirección URL de metadatos): Dirección URL para obtener los metadatos de federación de Azure AD.
 
-* **Identifiers** (Identificadores): Dirección URL que Azure AD usa para validar el origen de la solicitud. Se asigna al elemento **Identificador** de Azure AD. El complemento obtiene automáticamente esta dirección URL como https:// *\<dominio:puerto>* /.
+* **Identifiers** (Identificadores): Dirección URL que Azure AD usa para validar el origen de la solicitud. Se asigna al elemento **Identificador** de Azure AD. El complemento obtiene automáticamente esta dirección URL como https:// *\<domain:port>* /.
 
-* **Reply URL** (URL de respuesta): Dirección URL de respuesta en el proveedor de identidades (IdP) que inicia el inicio de sesión de SAML. Se asigna al elemento **Dirección URL de respuesta** de Azure AD. El complemento deduce automáticamente esta dirección URL como https:// *\<dominio:puerto>* /plugins/servlet/saml/auth.
+* **Reply URL** (URL de respuesta): Dirección URL de respuesta en el proveedor de identidades (IdP) que inicia el inicio de sesión de SAML. Se asigna al elemento **Dirección URL de respuesta** de Azure AD. El complemento deduce automáticamente esta dirección URL como https:// *\<domain:port>* /plugins/servlet/saml/auth.
 
-* **Sign On URL** (Dirección URL de inicio de sesión): Dirección URL de inicio de sesión en el IdP que inicia el inicio de sesión de SAML. Se asigna al elemento **Inicio de sesión** de Azure AD. El complemento deduce automáticamente esta dirección URL como https:// *\<dominio:puerto>* /plugins/servlet/saml/auth.
+* **Sign On URL** (Dirección URL de inicio de sesión): Dirección URL de inicio de sesión en el IdP que inicia el inicio de sesión de SAML. Se asigna al elemento **Inicio de sesión** de Azure AD. El complemento deduce automáticamente esta dirección URL como https:// *\<domain:port>* /plugins/servlet/saml/auth.
 
 * **IdP Entity ID** (Id. de entidad de IdP): Identificador de entidad que el IdP usa. Este campo se rellena cuando se resuelve la dirección URL de metadatos.
 

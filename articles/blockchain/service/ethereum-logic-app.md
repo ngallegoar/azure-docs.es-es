@@ -2,20 +2,20 @@
 title: 'Uso del conector Ethereum Blockchain con Azure Logic Apps: Azure Blockchain Service'
 description: Uso del conector Ethereum Blockchain con Azure Logic Apps para desencadenar funciones de contrato inteligente y responder a eventos de contrato inteligente.
 ms.date: 10/14/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: chrisseg
-ms.openlocfilehash: 4a9acfd6098ed45fd92c7e3047b5d1446eeddbd6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c7b45134e8b5c3e33e5d05d59c006abe103e5bda
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74325217"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85200739"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Uso del conector Ethereum Blockchain con Azure Logic Apps
 
 Use el [conector Ethereum Blockchain](https://docs.microsoft.com/connectors/blockchainethereum/) con [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) para realizar acciones y responder a eventos de contrato inteligente. Supongamos que desea crear un microservicio basado en REST que devuelva información de un libro de contabilidad de cadena de bloques. Mediante el uso de una aplicación lógica, puede aceptar solicitudes HTTP que consulten la información almacenada en un libro de contabilidad de cadena de bloques.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Complete el requisito previo opcional de [Inicio rápido: Uso de Visual Studio Code para conectarse a una red del consorcio de Azure Blockchain Service](connect-vscode.md). El inicio rápido le guía por la instalación de [Azure Blockchain Development Kit para Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) y la configuración del entorno de desarrollo de la cadena de bloques.
 
@@ -132,7 +132,7 @@ Por ejemplo, los pasos siguientes generan una aplicación lógica de un microser
 
     ![Panel del Diseñador de aplicaciones lógicas con la dirección URL de HTTP POST](./media/ethereum-logic-app/post-url.png)
 
-1. Use cURL para crear una solicitud HTTP POST. Reemplace el texto del marcador de posición *\<Dirección URL de HTTP POST\>* por la dirección URL del paso anterior.
+1. Use cURL para crear una solicitud HTTP POST. Reemplace el texto del marcador de posición *\<HTTP POST URL\>* por la dirección URL del paso anterior.
 
     ``` bash
     curl -d "{}" -H "Content-Type: application/json" -X POST "<HTTP POST URL>"

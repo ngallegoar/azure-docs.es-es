@@ -6,16 +6,16 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 06/18/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: d2ccdd0a8000cb6c78244445a34529bc8f37d7f9
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 85689661e7f0d170cd88edde8985f46285e679c6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84016634"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987774"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrización de servicios vinculados en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -33,15 +33,16 @@ Si desea una demostración y una introducción de siete minutos de esta caracter
 
 ## <a name="supported-data-stores"></a>Almacenes de datos compatibles
 
-En este momento, la parametrización de los servicios vinculados se admite en la interfaz de usuario de Data Factory en Azure Portal para los siguientes almacenes de datos. Para todos los demás almacenes de datos, puede parametrizar el servicio vinculado si selecciona el icono **Código** en la pestaña **Conexiones** y usa el editor de JSON.
-- Azure SQL Database
-- Azure SQL Data Warehouse
-- SQL Server
-- Oracle
-- Cosmos DB
+En este momento, la parametrización de los servicios vinculados se admite en la interfaz de usuario de Data Factory para los siguientes almacenes de datos. Para todos los demás almacenes de datos, puede parametrizar el servicio vinculado si selecciona el icono **Código** en la pestaña **Conexiones** y usa el editor de JSON.
+
 - Amazon Redshift
-- MySQL
+- Azure Cosmos DB (API de SQL)
 - Azure Database for MySQL
+- Azure SQL Database
+- Azure Synapse Analytics (anteriormente SQL DW)
+- MySQL
+- Oracle
+- SQL Server
 
 ## <a name="data-factory-ui"></a>Interfaz de usuario de Data Factory
 

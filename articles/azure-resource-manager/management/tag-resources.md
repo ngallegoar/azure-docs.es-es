@@ -2,13 +2,13 @@
 title: Etiquetado de recursos, grupos de recursos y suscripciones para una organización lógica
 description: Muestra cómo aplicar etiquetas para organizar los recursos de Azure para la facturación y administración.
 ms.topic: conceptual
-ms.date: 05/06/2020
-ms.openlocfilehash: 9ba7c58f6fa56b8ef2c233a5fe7f8f8e04fe29e1
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.date: 07/01/2020
+ms.openlocfilehash: 9dd025818a64a8ece1f4218a8341a40ecc617829
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864494"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056929"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Uso de etiquetas para organizar los recursos de Azure y la jerarquía de administración
 
@@ -17,7 +17,9 @@ Puede aplicar etiquetas a los recursos, grupos de recursos y suscripciones de Az
 Para recomendaciones sobre cómo implementar una estrategia de etiquetado, consulte [Guía de decisiones de nomenclatura y etiquetado de recursos](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
 > [!IMPORTANT]
-> Las nombres de etiqueta no distinguen mayúsculas de minúsculas. Los valores de etiqueta distinguen mayúsculas de minúsculas.
+> Las nombres de etiqueta no distinguen mayúsculas de minúsculas para las operaciones. Una etiqueta con un nombre de etiqueta, independientemente del uso de mayúsculas o minúsculas, se actualiza o se recupera. Sin embargo, el proveedor de recursos podría mantener el uso de mayúsculas y minúsculas para el nombre de etiqueta. Puede ver dicho uso de mayúsculas y minúsculas en los informes de costos.
+> 
+> Los valores de etiqueta distinguen mayúsculas de minúsculas.
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
@@ -263,7 +265,7 @@ Para anexar una etiqueta a las etiquetas existentes en un grupo de recursos, use
 az group update -n examplegroup --set tags.'Status'='Approved'
 ```
 
-Actualmente, la CLI de Azure no admite la aplicación de etiquetas a las suscripciones.
+Actualmente, la CLI de Azure no tiene un comando para aplicar etiquetas a las suscripciones. Sin embargo, puede usar la CLI para implementar una plantilla de ARM que aplique las etiquetas a una suscripción. Consulte [Aplicación de etiquetas a grupos de recursos o suscripciones](#apply-tags-to-resource-groups-or-subscriptions).
 
 ### <a name="list-tags"></a>Lista de etiquetas
 
@@ -523,6 +525,8 @@ New-AzSubscriptionDeployment -name tagresourcegroup -Location westus2 -TemplateU
 az deployment sub create --name tagresourcegroup --location westus2 --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
 ```
 
+Para más información sobre las implementaciones de suscripciones, consulte [Creación de grupos de recursos y otros recursos en el nivel de suscripción](../templates/deploy-to-subscription.md).
+
 La plantilla siguiente agrega las etiquetas de un objeto a un grupo de recursos o a una suscripción.
 
 ```json
@@ -574,7 +578,7 @@ Los recursos no heredan las etiquetas aplicadas al grupo de recursos ni a la sus
 
 Puede usar etiquetas a fin de agrupar los datos de facturación. Por ejemplo, si va a ejecutar varias máquinas virtuales para distintas organizaciones, use las etiquetas para agrupar el uso por centro de costo. También puede usar etiquetas para clasificar los costos por entorno de tiempo de ejecución; por ejemplo, el uso de facturación en máquinas virtuales que se ejecutan en el entorno de producción.
 
-Puede recuperar información sobre las etiquetas a través de las [API de RateCard y de uso de recursos de Azure](../../billing/billing-usage-rate-card-overview.md) o mediante el archivo de valores separados por coma (CSV). Puede descargar el archivo de uso del [Centro de cuentas de Azure](https://account.azure.com/Subscriptions) o de Azure Portal. Para más información, consulte [Procedimiento para descargar las datos de uso diario y de factura de Azure](../../billing/billing-download-azure-invoice-daily-usage-date.md). Al descargar el archivo de uso del Centro de cuentas de Azure, seleccione **Versión 2**. En los servicios que admiten etiquetas con facturación, las etiquetas aparecen en la columna **Etiquetas**.
+Puede recuperar información sobre las etiquetas a través de las [API de RateCard y de uso de recursos de Azure](../../cost-management-billing/manage/usage-rate-card-overview.md) o mediante el archivo de valores separados por coma (CSV). Puede descargar el archivo de uso del [Centro de cuentas de Azure](https://account.azure.com/Subscriptions) o de Azure Portal. Para más información, consulte [Procedimiento para descargar las datos de uso diario y de factura de Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). Al descargar el archivo de uso del Centro de cuentas de Azure, seleccione **Versión 2**. En los servicios que admiten etiquetas con facturación, las etiquetas aparecen en la columna **Etiquetas**.
 
 Para las operaciones de API de REST, vea [Referencia de API de REST de facturación de Azure](/rest/api/billing/).
 
@@ -583,10 +587,8 @@ Para las operaciones de API de REST, vea [Referencia de API de REST de facturaci
 Se aplican las siguientes limitaciones a las etiquetas:
 
 * No todos los tipos de recursos admiten etiquetas. Para determinar si se puede aplicar una etiqueta a un tipo de recurso determinado, consulte [Tag support for Azure resources](tag-support.md) (Compatibilidad con etiquetas para los recursos de Azure).
-* Los grupos de administración no admiten etiquetas actualmente.
 * Cada recurso, grupo de recursos y suscripción puede tener un máximo de 50 pares nombre-valor de etiqueta. Si necesita aplicar más etiquetas que el número máximo permitido, use una cadena JSON para el valor de etiqueta. La cadena JSON puede contener muchos valores que se aplican a un sol nombre de etiqueta. Un grupo de recursos o una suscripción puede contener muchos recursos con 50 pares clave-valor de etiqueta cada uno.
 * El nombre de etiqueta está limitado a 512 caracteres y el valor de la etiqueta, a 256. En las cuentas de almacenamiento, el nombre de etiqueta se limita a 128 caracteres y el valor de la etiqueta, a 256.
-* Las VM generalizadas no admiten etiquetas.
 * No se pueden aplicar etiquetas a recursos clásicos como Cloud Services.
 * Los nombres de etiqueta no pueden contener estos caracteres: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 

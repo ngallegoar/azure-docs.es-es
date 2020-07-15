@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 0f8e1be92d77dc928389dffb61da52f2db4c804d
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 8e832f57053cb950f705875f2895a9197cc7c83e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142068"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960306"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Configuración de un dominio personalizado en Azure Static Web Apps (versión preliminar)
 
@@ -29,11 +29,11 @@ Al configurar los nombres de dominio, los registros "A" se usan para asignar dom
 
 Hay algunos tipos diferentes de configuraciones de DNS disponibles para una aplicación.
 
-| Si desea                            | Entonces                                                |
-| ----------------------------------------- | --------------------------------------------------- |
-| Se ha agregado compatibilidad con `www.example.com`.                 | [Asignar un registro CNAME](#map-a-cname-record)           |
-| Se ha agregado compatibilidad con `example.com`.                     | [Configure un dominio raíz](#configure-a-root-domain) |
-| Apuntar todos los subdominios a `www.example.com` | [Asigne un dominio comodín](#map-a-wildcard-domain)                   |
+| Si desea                                 | Entonces                                                |
+| -----------------------------------------------| --------------------------------------------------- |
+| Asistencia de `www.example.com` o `blog.example.net`| [Asignar un registro CNAME](#map-a-cname-record)           |
+| Se ha agregado compatibilidad con `example.com`.                          | [Configure un dominio raíz](#configure-a-root-domain) |
+| Apuntar todos los subdominios a `www.example.com`      | [Asigne un dominio comodín](#map-a-wildcard-domain)            |
 
 ## <a name="map-a-cname-record"></a>Asignar un registro CNAME
 

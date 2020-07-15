@@ -5,14 +5,14 @@ services: private-link
 author: mblanco77
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: af56adef37c65da87a6de6b6a477ee3996a4e272
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: d6417b3632e1aad0b942844a1470772e8f0197e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259599"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85081093"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configuración de DNS para puntos de conexión privados de Azure
 
@@ -38,6 +38,7 @@ En el caso de los servicios de Azure, use los nombres de zona recomendados tal y
 
 | Tipo de recurso de Private Link / subrecurso |Nombre de zona de DNS privado | Reenviadores de zona DNS pública |
 |---|---|---|---|
+| Azure Automation / (Microsoft.Automation/automationAccounts) / Webhook, DSCAndHybridWorker | privatelink.azure-automation.net | azure-automation.net |
 | Azure SQL Database (Microsoft.Sql/servers) / SQL Server | privatelink.database.windows.net | database.windows.net |
 | Azure Synapse Analytics (Microsoft.Sql/servers) / SQL Server  | privatelink.database.windows.net | database.windows.net |
 | Storage account (Microsoft.Storage/storageAccounts) / Blob (blob, blob_secondary) | privatelink.blob.core.windows.net | blob.core.windows.net |
@@ -55,18 +56,24 @@ En el caso de los servicios de Azure, use los nombres de zona recomendados tal y
 | Azure Database for MySQL (Microsoft.DBforMySQL/servers) / mysqlServer | privatelink.mysql.database.azure.com | mysql.database.azure.com |
 | Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) / mariadbServer | privatelink.mariadb.database.azure.com | mariadb.database.azure.com |
 | Azure Key Vault (Microsoft.KeyVault/vaults) / vault | privatelink.vaultcore.azure.net | vault.azure.net <br> vaultcore.azure.net |
-| Azure Kubernetes Service: API de Kubernetes (Microsoft.ContainerService/managedClusters) / managedCluster | privatelink.{region}.azmk8s.io | {region}.azmk8s.io |
+| Azure Kubernetes Service: API de Kubernetes (Microsoft.ContainerService/managedClusters) / management | privatelink.{region}.azmk8s.io | {region}.azmk8s.io |
 | Azure Search (Microsoft.Search/searchServices) / searchService | privatelink.search.windows.net | search.windows.net |
 | Azure Container Registry (Microsoft.ContainerRegistry/registries) / registry | privatelink.azurecr.io | azurecr.io |
 | Azure App Configuration (Microsoft.AppConfiguration/configurationStores) / configurationStore | privatelink.azconfig.io | azconfig.io |
 | Azure Backup (Microsoft.RecoveryServices/vaults) / vault | privatelink.{region}.backup.windowsazure.com | {region}.backup.windowsazure.com |
 | Azure Event Hubs (Microsoft.EventHub/namespaces) / namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Azure Service Bus (Microsoft.ServiceBus/namespaces) / namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
+| Azure IoT Hub (Microsoft.Devices/IotHubs) / iotHub | privatelink.azure-devices.net | azure-devices.net |
 | Azure Relay (Microsoft.Relay/namespaces) / namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Azure Event Grid (Microsoft.EventGrid/topics) / topic | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 | Azure Event Grid (Microsoft.EventGrid/domains) / domain | privatelink.eventgrid.azure.net | eventgrid.azure.net |
-| Azure Web Apps (Microsoft.Web/sites) / site | privatelink.azurewebsites.net | azurewebsites.net |
+| Azure Web Apps (Microsoft.Web/sites) / sites | privatelink.azurewebsites.net | azurewebsites.net |
 | Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) / workspace | privatelink.api.azureml.ms | api.azureml.ms |
+| IoT Hub (Microsoft.Devices/IotHubs) / IotHub | privatelink.azure-devices.net | azure-devices.net |
+| SignalR (Microsoft.SignalRService/SignalR ) / signalR | privatelink.service.signalr.net | service.signalr.net |
+| Azure Monitor (Microsoft.Insights/privateLinkScopes) / azuremonitor | privatelink.monitor.azure.com | monitor.azure.com |
+| Cognitive Services (Microsoft.CognitiveServices/accounts) / account | privatelink.cognitiveservices.azure.com  | cognitiveservices.azure.com  |
+
  
 ## <a name="dns-configuration-scenarios"></a>Escenarios de configuración de DNS
 

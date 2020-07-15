@@ -3,14 +3,14 @@ title: Información general de Change Tracking e Inventario en Azure Automation
 description: En este artículo se describe la característica Change Tracking e Inventario, que ayuda a identificar los cambios en el software y el servicio de Microsoft que se producen en su entorno.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 01/28/2019
+ms.date: 06/08/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7a1c5d5371663f3520e76060c9c2a8df0a18449c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 2aab90b12cd3844b94b0b7e6e94582d403db2efe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117539"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84555029"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Información general de Change Tracking e Inventario
 
@@ -33,26 +33,29 @@ Change Tracking e Inventario obtiene sus datos de Azure Monitor. Las máquinas v
 
 Actualmente, la solución Change Tracking e Inventario no admite los elementos siguientes:
 
-* Recursión para el seguimiento del registro de Windows
-* Sistemas de archivos de red
-* Otros métodos de instalación
-* Archivos * **.exe** para Windows
+- Recursión para el seguimiento del registro de Windows
+- Sistemas de archivos de red
+- Otros métodos de instalación
+- Archivos * **.exe** para Windows
 
 Otras limitaciones:
 
-* Los valores y la columna **Tamaño máximo de archivos** no se usan en la implementación actual.
-* Si recopila más de 2500 archivos en un ciclo de recopilación de 30 minutos, el rendimiento de Change Tracking e Inventario podría degradarse.
-* Cuando el tráfico de red es elevado, los registros de cambios pueden tardar hasta seis horas en aparecer.
-* Si modifica la configuración mientras un equipo está apagado, el equipo podría publicar cambios que pertenecían a la configuración anterior.
+- Los valores y la columna **Tamaño máximo de archivos** no se usan en la implementación actual.
+- Si recopila más de 2500 archivos en un ciclo de recopilación de 30 minutos, el rendimiento de Change Tracking e Inventario podría degradarse.
+- Cuando el tráfico de red es elevado, los registros de cambios pueden tardar hasta seis horas en aparecer.
+- Si modifica la configuración mientras un equipo está apagado, el equipo podría publicar cambios que pertenecían a la configuración anterior.
 
 Actualmente, la solución Change Tracking e Inventario tiene los siguientes problemas:
 
-* Las actualizaciones de revisiones no se recopilan en máquinas Windows Server 2016 Core RS3.
-* Los demonios de Linux pueden mostrar un estado modificado aunque no se haya producido ningún cambio. Este problema se debe a la manera en que se capturan los datos de `SvcRunLevels` del registro [ConfigurationChange](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) de Azure Monitor.
+- Las actualizaciones de revisiones no se recopilan en máquinas Windows Server 2016 Core RS3.
+
+- Los demonios de Linux pueden mostrar un estado modificado aunque no se haya producido ningún cambio. Este problema se debe a la manera en que se capturan los datos de `SvcRunLevels` del registro [ConfigurationChange](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) de Azure Monitor.
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
-Change Tracking e Inventario se admite en todos los sistemas operativos que cumplen los requisitos del agente de Log Analytics. Las versiones de sistema operativo oficiales son Windows Server 2008 SP1 o posterior y Windows 7 SP1 o posterior. La característica también se admite en varios sistemas operativos Linux. Para los sistemas operativos que admiten Log Analytics, consulte [Introducción al agente de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent). 
+Change Tracking e Inventario se admite en todos los sistemas operativos que cumplen los requisitos del agente de Log Analytics. Las versiones de sistema operativo oficiales son Windows Server 2008 SP1 o posterior y Windows 7 SP1 o posterior. La característica también se admite en varios sistemas operativos Linux. Para los sistemas operativos que admiten Log Analytics, consulte [Introducción al agente de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
+
+Para comprender los requisitos de cliente para TLS 1.2, consulte el artículo sobre el [cumplimiento de TLS 1.2 para Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
 ## <a name="network-requirements"></a>Requisitos de red
 
@@ -75,12 +78,12 @@ Hay disponibles listas desplegables en la parte superior del panel para limitar 
 
 Puede hacer clic en un cambio o un evento para mostrar sus detalles. Los tipos de cambios disponibles son:
 
-* Eventos
-* Demonios
-* Archivos
-* Registro
-* Software
-* Servicios de Microsoft
+- Eventos
+- Demonios
+- Archivos
+- Registro
+- Software
+- Servicios de Microsoft
 
 Puede agregar, modificar o quitar cualquier cambio. En el ejemplo siguiente se muestra un cambio en el tipo de inicio de un servicio de Manual a Automático.
 
@@ -135,10 +138,13 @@ Change Tracking e Inventario permite la supervisión de los cambios en las clave
 
 Change Tracking e Inventory es compatible con la recursión, lo que permite especificar comodines para simplificar el seguimiento entre directorios. La recursión también proporciona variables de entorno que permiten realizar un seguimiento de los archivos en entornos con nombres de unidad varios o dinámicos. En la lista siguiente se incluye información común que debe conocer al configurar la recursión:
 
-* Los caracteres comodín son necesarios para realizar el seguimiento de varios archivos.
-* Puede usar caracteres comodín solo en el último segmento de la ruta de acceso de un archivo, como **c:\carpeta\\archivo*** o **/etc/*.conf**.
-* Si una variable de entorno tiene una ruta de acceso no válida, la validación será correcta pero se producirá un error en dicha ruta durante la ejecución.
-* Al establecer la ruta de acceso, debe evitar los nombres de ruta de acceso generales, ya que daría lugar a que se recorrieran demasiadas carpetas.
+- Los caracteres comodín son necesarios para realizar el seguimiento de varios archivos.
+
+- Puede usar caracteres comodín solo en el último segmento de la ruta de acceso de un archivo, como **c:\carpeta\\archivo*** o **/etc/*.conf**.
+
+- Si una variable de entorno tiene una ruta de acceso no válida, la validación será correcta pero se producirá un error en dicha ruta durante la ejecución.
+
+- Al establecer la ruta de acceso, debe evitar los nombres de ruta de acceso generales, ya que daría lugar a que se recorrieran demasiadas carpetas.
 
 ## <a name="change-tracking-and-inventory-data-collection"></a>Recopilación de datos de Change Tracking e Inventory
 
@@ -165,7 +171,7 @@ En la siguiente tabla se muestran los límites de elementos sometidos a seguimie
 |Servicios|250|
 |Demonios|250|
 
-El uso medio de datos de Log Analytics para una máquina con Change Tracking e Inventario es aproximadamente de 40 MB al mes, según su entorno. Con la característica Uso y costos estimados del área de trabajo de Log Analytics, puede ver los datos ingeridos por Change Tracking e Inventario en un gráfico de uso. Use esta vista de datos para evaluar el uso de los datos y determinar cómo afecta a su factura. Consulte [Información útil del uso y los costos estimados](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs). 
+El uso medio de datos de Log Analytics para una máquina con Change Tracking e Inventario es aproximadamente de 40 MB al mes, según su entorno. Con la característica Uso y costos estimados del área de trabajo de Log Analytics, puede ver los datos ingeridos por Change Tracking e Inventario en un gráfico de uso. Use esta vista de datos para evaluar el uso de los datos y determinar cómo afecta a su factura. Consulte [Información útil del uso y los costos estimados](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).
 
 ### <a name="microsoft-service-data"></a>Datos de servicio de Microsoft
 
@@ -180,13 +186,13 @@ Para optimizar el rendimiento, el agente de Log Analytics solo realiza el seguim
 
 ## <a name="support-for-alerts-on-configuration-state"></a>Compatibilidad con alertas sobre el estado de configuración
 
-Una funcionalidad clave de Change Tracking e Inventario son las alertas sobre los cambios en el estado de configuración de su entorno híbrido. Existen muchas acciones útiles disponibles para desencadenar en respuesta a las alertas, como las acciones en Azure Functions, runbooks de Automation, webhooks y similares. Las alertas sobre los cambios en el archivo **c:\windows\system32\drivers\etc\hosts** de una máquina es una buena aplicación de alertas para los datos de Change Tracking e Inventario. También hay muchos más escenarios para las alertas, incluidos los escenarios de consulta que se definen en la tabla siguiente. 
+Una funcionalidad clave de Change Tracking e Inventario son las alertas sobre los cambios en el estado de configuración de su entorno híbrido. Existen muchas acciones útiles disponibles para desencadenar en respuesta a las alertas, como las acciones en Azure Functions, runbooks de Automation, webhooks y similares. Las alertas sobre los cambios en el archivo **c:\windows\system32\drivers\etc\hosts** de una máquina es una buena aplicación de alertas para los datos de Change Tracking e Inventario. También hay muchos más escenarios para las alertas, incluidos los escenarios de consulta que se definen en la tabla siguiente.
 
 |Consultar  |Descripción  |
 |---------|---------|
 |ConfigurationChange <br>&#124; where ConfigChangeType == "Files" and FileSystemPath contains " c:\\windows\\system32\\drivers\\"|Útil para el seguimiento de cambios en archivos críticos del sistema.|
 |ConfigurationChange <br>&#124; where FieldsChanged contains "FileContentChecksum" and FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"|Útil para el seguimiento de las modificaciones de los archivos de configuración de claves.|
-|ConfigurationChange <br>&#124; where ConfigChangeType == "Microsoft services" and SvcName contains "w3svc" and SvcState == "Stopped"|Útil para el seguimiento de cambios en servicios críticos del sistema.|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "WindowsServices" and SvcName contains "w3svc" and SvcState == "Stopped"|Útil para el seguimiento de cambios en servicios críticos del sistema.|
 |ConfigurationChange <br>&#124; where ConfigChangeType == "Daemons" and SvcName contains "ssh" and SvcState!= "Running"|Útil para el seguimiento de cambios en servicios críticos del sistema.|
 |ConfigurationChange <br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Added"|Útil para entornos que necesitan configuraciones de software bloqueadas.|
 |ConfigurationData <br>&#124; where SoftwareName contains "Monitoring Agent" and CurrentVersion!= "8.0.11081.0"|Útil para ver qué máquinas tienen instalada una versión de software obsoleta o incompatible. Esta consulta notifica el último estado de configuración notificado, no los cambios.|
@@ -195,7 +201,10 @@ Una funcionalidad clave de Change Tracking e Inventario son las alertas sobre lo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para habilitar la característica desde una cuenta de Automation, vea [Habilitación de Change Tracking e Inventario desde una cuenta de Automation](automation-enable-changes-from-auto-acct.md).
-* Para habilitar la característica a través de Azure Portal, consulte [Habilitación de Change Tracking e Inventario desde Azure Portal](automation-onboard-solutions-from-browse.md).
-* Para habilitar la característica desde un runbook, vea [Habilitación de Change Tracking e Inventario desde un runbook](automation-enable-changes-from-runbook.md).
-* Para habilitar la característica desde una máquina virtual de Azure, vea [Habilitación de Change Tracking e Inventario desde una máquina virtual de Azure](automation-enable-changes-from-vm.md).
+- Para habilitar la característica desde una cuenta de Automation, vea [Habilitación de Change Tracking e Inventario desde una cuenta de Automation](automation-enable-changes-from-auto-acct.md).
+
+- Para habilitar la característica a través de Azure Portal, consulte [Habilitación de Change Tracking e Inventario desde Azure Portal](automation-onboard-solutions-from-browse.md).
+
+- Para habilitar la característica desde un runbook, vea [Habilitación de Change Tracking e Inventario desde un runbook](automation-enable-changes-from-runbook.md).
+
+- Para habilitar la característica desde una máquina virtual de Azure, vea [Habilitación de Change Tracking e Inventario desde una máquina virtual de Azure](automation-enable-changes-from-vm.md).

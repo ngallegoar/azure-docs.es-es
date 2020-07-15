@@ -1,14 +1,14 @@
 ---
 title: Procedimientos recomendados
 description: Obtenga información sobre los procedimientos recomendados y sugerencias útiles para desarrollar su solución de Azure Batch.
-ms.date: 05/22/2020
+ms.date: 06/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0fa6c5e1d7e770468a14c66af9b99b32a7827eb1
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 7a66fb383195a7de347b5e6ce83ad89fa3706e96
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871359"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954156"
 ---
 # <a name="azure-batch-best-practices"></a>Procedimientos recomendados de Azure Batch
 
@@ -29,12 +29,12 @@ Los [grupos](nodes-and-pools.md#pools) de Batch son los recursos de proceso para
     No se garantiza que los nodos individuales estén siempre disponibles. Aunque no es habitual, los errores de hardware, las actualizaciones del sistema operativo y un sinfín de otros problemas pueden hacer que los nodos individuales estén sin conexión. Si la carga de trabajo de Batch requiere un progreso determinista y garantizado, debe asignar grupos con varios nodos.
 
 - **No reutilice los nombres de recursos.**
-    Los recursos de Batch (trabajos, grupos, etc.) suelen ser inestables a lo largo del tiempo. Por ejemplo, puede crear un grupo el lunes, eliminarlo el martes y, después, crear otro grupo el jueves. Cada recurso nuevo que cree debe recibir un nombre único que no haya usado antes. Esto puede hacerse mediante el uso de un GUID (como el nombre de recurso completo o como parte del mismo) o insertando la hora en que se creó el recurso en el nombre del mismo. Batch admite la propiedad [DisplayName](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.jobspecification.displayname?view=azure-dotnet), que se puede usar para dar a un recurso un nombre legible, incluso si el identificador de recurso real es algo que no es descriptivo. El uso de nombres únicos facilita la diferenciación de un recurso determinado en los registros y las métricas. También elimina la ambigüedad si alguna vez tiene que archivar un caso de soporte técnico para un recurso.
+    Los recursos de Batch (trabajos, grupos, etc.) suelen ser inestables a lo largo del tiempo. Por ejemplo, puede crear un grupo el lunes, eliminarlo el martes y, después, crear otro grupo el jueves. Cada recurso nuevo que cree debe recibir un nombre único que no haya usado antes. Esto puede hacerse mediante el uso de un GUID (como el nombre de recurso completo o como parte del mismo) o insertando la hora en que se creó el recurso en el nombre del mismo. Batch admite la propiedad [DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname?view=azure-dotnet), que se puede usar para dar a un recurso un nombre legible, incluso si el identificador de recurso real es algo que no es descriptivo. El uso de nombres únicos facilita la diferenciación de un recurso determinado en los registros y las métricas. También elimina la ambigüedad si alguna vez tiene que archivar un caso de soporte técnico para un recurso.
 
 - **Continuidad durante el mantenimiento y errores del grupo.**
     Es mejor que los trabajos usen los grupos dinámicamente. Si los trabajos usan el mismo grupo para todo, existe la posibilidad de que los trabajos no se ejecuten si algo sale mal con el grupo. Esto es especialmente importante para las cargas de trabajo que dependen del tiempo. Para solucionar este error, seleccione o cree un grupo de forma dinámica cuando programe cada trabajo, o tenga una manera de invalidar el nombre del grupo para que pueda omitir un grupo incorrecto.
 
-- **Continuidad empresarial durante el mantenimiento y errores del grupo** Hay muchas causas posibles por las que puede que un grupo no alcance el tamaño necesario que quiere, como errores internos, restricciones de capacidad, etc. Por esta razón, debe estar preparado para redestinar los trabajos a un grupo diferente (posiblemente con un tamaño de máquina virtual diferente: Batch admite esto a través de [UpdateJob](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update?view=azure-dotnet)) si es necesario. Evite el uso de un identificador de grupo estático con la esperanza de que nunca se eliminará ni cambiará.
+- **Continuidad empresarial durante el mantenimiento y errores del grupo** Hay muchas causas posibles por las que puede que un grupo no alcance el tamaño necesario que quiere, como errores internos, restricciones de capacidad, etc. Por esta razón, debe estar preparado para redestinar los trabajos a un grupo diferente (posiblemente con un tamaño de máquina virtual diferente: Batch admite esto a través de [UpdateJob](/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update?view=azure-dotnet)) si es necesario. Evite el uso de un identificador de grupo estático con la esperanza de que nunca se eliminará ni cambiará.
 
 ### <a name="pool-lifetime-and-billing"></a>Vigencia del grupo y facturación
 
@@ -75,7 +75,7 @@ Por este motivo, asegúrese de no diseñar una solución de Batch que requiera m
 
 Un trabajo de Batch tiene una vigencia indefinida hasta que se elimine del sistema. Su estado designa si este puede aceptar más tareas para la programación.
 
-Un trabajo no se mueve automáticamente al estado completado a menos que se termine explícitamente. Esta acción se puede desencadenar automáticamente mediante la propiedad [onAllTasksComplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete?view=azure-dotnet) o [maxWallClockTime](https://docs.microsoft.com/rest/api/batchservice/job/add#jobconstraints).
+Un trabajo no se mueve automáticamente al estado completado a menos que se termine explícitamente. Esta acción se puede desencadenar automáticamente mediante la propiedad [onAllTasksComplete](/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete?view=azure-dotnet) o [maxWallClockTime](/rest/api/batchservice/job/add#jobconstraints).
 
 Hay un [trabajo activo y cuota de programación de trabajo](batch-quota-limit.md#resource-quotas) predeterminados. Los trabajos y las programaciones de trabajos en estado completado no cuentan para esta cuota.
 
@@ -91,13 +91,13 @@ Batch tiene compatibilidad integrada con Azure Storage para cargar datos a trav�
 
 ### <a name="manage-task-lifetime"></a>Administración de la duración de la tarea
 
-Elimine las tareas cuando ya no se necesiten o establezca una restricción de tarea [retentionTime](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime?view=azure-dotnet). Si se establece un `retentionTime`, Batch limpia automáticamente el espacio en disco que usa la tarea cuando `retentionTime` expire.
+Elimine las tareas cuando ya no se necesiten o establezca una restricción de tarea [retentionTime](/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime?view=azure-dotnet). Si se establece un `retentionTime`, Batch limpia automáticamente el espacio en disco que usa la tarea cuando `retentionTime` expire.
 
 La eliminación de tareas consigue dos cosas. Garantiza que no tiene una acumulación de tareas en el trabajo, lo que dificultaría la consulta y la búsqueda de la tarea que le interesa (porque tendría que filtrar por las tareas completadas). También limpia los datos de la tarea correspondiente en el nodo (siempre que todavía no se haya llegado al `retentionTime`). Esto ayuda a garantizar que los nodos no se llenen con los datos de la tarea y se quede sin espacio en disco.
 
 ### <a name="submit-large-numbers-of-tasks-in-collection"></a>Envío de un gran número de tareas en la recopilación
 
-Las tareas se pueden enviar de forma individual o en colecciones. Envíe tareas en [colecciones](https://docs.microsoft.com/rest/api/batchservice/task/addcollection) hasta un máximo de 100 a la vez al realizar el envío masivo de tareas para reducir la sobrecarga y el tiempo de envío.
+Las tareas se pueden enviar de forma individual o en colecciones. Envíe tareas en [colecciones](/rest/api/batchservice/task/addcollection) hasta un máximo de 100 a la vez al realizar el envío masivo de tareas para reducir la sobrecarga y el tiempo de envío.
 
 ### <a name="set-max-tasks-per-node-appropriately"></a>Establecimiento del número máximo de tareas por nodo correctamente
 
@@ -105,7 +105,7 @@ Batch admite tareas de sobresuscripción en nodos (que ejecutan más tareas que 
 
 ### <a name="design-for-retries-and-re-execution"></a>Diseño de reintentos y reejecución
 
-Batch puede reintentar automáticamente las tareas. Hay dos tipos de reintentos: controlados por el usuario e internos. Los reintentos controlados por el usuario los especifica el elemento [maxTaskRetryCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount?view=azure-dotnet) de la tarea. Cuando un programa especificado en la tarea sale con un código de salida distinto de cero, la tarea se reintenta hasta el valor del `maxTaskRetryCount`.
+Batch puede reintentar automáticamente las tareas. Hay dos tipos de reintentos: controlados por el usuario e internos. Los reintentos controlados por el usuario los especifica el elemento [maxTaskRetryCount](/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount?view=azure-dotnet) de la tarea. Cuando un programa especificado en la tarea sale con un código de salida distinto de cero, la tarea se reintenta hasta el valor del `maxTaskRetryCount`.
 
 Aunque es poco frecuente, se puede reintentar una tarea internamente debido a errores en el nodo de proceso, como no poder actualizar el estado interno o un error en el nodo mientras la tarea se está ejecutando. La tarea se reintentará en el mismo nodo de proceso, si es posible, hasta un límite interno antes de que se desista y se aplace la tarea que Batch va a reprogramar, potencialmente en un nodo de proceso diferente.
 
@@ -121,6 +121,9 @@ Un ejemplo común es una tarea de copia archivos en un nodo de proceso. Un enfoq
 
 Las tareas que solo se ejecutan durante uno o dos segundos no son ideales. Debe intentar realizar una cantidad significativa de trabajo en una tarea individual (un mínimo de 10 segundos y hasta horas o días). Si cada tarea se está ejecutando durante un minuto (o más), la sobrecarga de programación como una fracción del tiempo de proceso general es pequeña.
 
+### <a name="use-pool-scope-for-short-tasks-on-windows-nodes"></a>Uso del ámbito de grupo para tareas cortas en nodos de Windows
+
+Al programar una tarea en nodos de Batch, puede elegir si desea ejecutarlo con el ámbito de la tarea o con el ámbito del grupo. Si la tarea solo se va a ejecutar durante un breve período de tiempo, su ámbito puede ser ineficaz debido a los recursos necesarios para crear la cuenta de usuario automático para dicha tarea. Si desea mayor eficacia, considere la posibilidad de establecer estas tareas en el ámbito del grupo. Para más información, consulte [Ejecución de una tarea como usuario automático con ámbito de grupo](batch-user-accounts.md#run-a-task-as-an-auto-user-with-pool-scope).
 
 ## <a name="nodes"></a>Nodos
 
@@ -156,7 +159,7 @@ Las cuentas de Azure Batch no se pueden trasladar directamente de una región a 
 
 Después de cargar la plantilla en la nueva región, tendrá que volver a crear los certificados, las programaciones de trabajos y los paquetes de aplicación. Para confirmar los cambios y completar el traslado de la cuenta de Batch, recuerde eliminar la cuenta de Batch original o el grupo de recursos.
 
-Para más información sobre Resource Manager y las plantillas, consulte [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+Para más información sobre Resource Manager y las plantillas, consulte [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ## <a name="connectivity"></a>Conectividad
 
@@ -171,13 +174,17 @@ En el caso de las rutas definidas por el usuario (UDR), asegúrese de que tiene 
 
 ### <a name="honoring-dns"></a>Respetar DNS
 
-Asegúrese de que los sistemas respetan el período de vida (TTL) de DNS para la dirección URL del servicio de la cuenta de Batch. Además, asegúrese de que los clientes del servicio Batch y otros mecanismos de conectividad con el servicio Batch no se basan en direcciones IP.
+Asegúrese de que los sistemas respetan el período de vida (TTL) de DNS para la dirección URL del servicio de la cuenta de Batch. Además, asegúrese de que los clientes del servicio Batch y otros mecanismos de conectividad con el servicio Batch no se basan en direcciones IP (o bien [cree un grupo con direcciones IP públicas estáticas](create-pool-public-ip.md), como se describe a continuación).
 
 Si las solicitudes reciben respuestas HTTP de nivel 5xx y hay un encabezado "Conexión: cerrar" en la respuesta, el cliente del servicio Batch debe observar la recomendación cerrando la conexión existente y volviendo a resolver DNS para la dirección URL del servicio de la cuenta de Batch, e intentar realizar las siguientes solicitudes en una nueva conexión.
 
-### <a name="retrying-requests-automatically"></a>Reintentar solicitudes automáticamente
+### <a name="retry-requests-automatically"></a>Reintento automático de las solicitudes
 
-Asegúrese de que los clientes del servicio Batch tienen las directivas de reintento adecuadas para volver a intentar automáticamente las solicitudes, incluso durante el funcionamiento normal y no exclusivamente durante períodos de tiempo de mantenimiento del servicio. Estas directivas de reintento deben abarcar un intervalo de al menos 5 minutos. Se proporcionan capacidades de reintento automático con varios SDK de Batch, como la [clase RetryPolicyProvider de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.retrypolicyprovider?view=azure-dotnet).
+Asegúrese de que los clientes del servicio Batch tienen las directivas de reintento adecuadas para volver a intentar automáticamente las solicitudes, incluso durante el funcionamiento normal y no exclusivamente durante períodos de tiempo de mantenimiento del servicio. Estas directivas de reintento deben abarcar un intervalo de al menos 5 minutos. Se proporcionan capacidades de reintento automático con varios SDK de Batch, como la [clase RetryPolicyProvider de .NET](/dotnet/api/microsoft.azure.batch.retrypolicyprovider?view=azure-dotnet).
+
+### <a name="static-public-ip-addresses"></a>Direcciones IP públicas estáticas
+
+Normalmente, se accede a las máquinas virtuales de un grupo de Batch mediante direcciones IP públicas que pueden cambiar a lo largo de la duración del grupo. Esto puede dificultar la interacción con una base de datos u otro servicio externo que limite el acceso a determinadas direcciones IP. Para asegurarse de que las direcciones IP públicas del grupo no cambien de forma inesperada, puede crear un grupo con un conjunto de direcciones IP públicas estáticas que controle. Para más información, consulte [Creación de un grupo de Azure Batch con direcciones IP públicas especificadas](create-pool-public-ip.md).
 
 ## <a name="batch-node-underlying-dependencies"></a>Dependencias subyacentes del nodo Batch
 

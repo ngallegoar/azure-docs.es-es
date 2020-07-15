@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: srrengar
 ms.openlocfilehash: cf0fab9942dcbb7ee09e554f2c9ba8738f208009
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75609934"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Configuración de registros de Azure Monitor para un clúster
@@ -47,7 +47,7 @@ Si usa Windows, continúe con los siguientes pasos para conectar los registros d
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Conexión del área de trabajo de Log Analytics al clúster 
 
-1. El área de trabajo debe conectarse a los datos de diagnóstico que proceden del clúster. Vaya al grupo de recursos donde creó la solución Service Fabric Analytics. Seleccione **ServiceFabric\<nameOfWorkspace\>** y vaya a su página de información general. Desde allí, puede cambiar la configuración de la solución y la configuración del área de trabajo, además tener acceso al área de trabajo de Log Analytics.
+1. El área de trabajo debe conectarse a los datos de diagnóstico que proceden del clúster. Vaya al grupo de recursos donde creó la solución Service Fabric Analytics. Seleccione **ServiceFabric\<nameOfWorkspace\>** y vaya a la página de información general. Desde allí, puede cambiar la configuración de la solución y la configuración del área de trabajo, además tener acceso al área de trabajo de Log Analytics.
 
 2. En el menú de navegación izquierdo, haga clic en **Orígenes de datos del área de trabajo**, seleccione **Registros de las cuentas de almacenamiento**.
 

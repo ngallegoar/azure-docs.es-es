@@ -1,16 +1,15 @@
 ---
 title: Escalar automáticamente los nodos de proceso en un grupo de Azure Batch
 description: Habilite el escalado automático en un grupo en la nube para ajustar de forma dinámica el número de nodos de ejecución del grupo.
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/24/2019
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: b790ee286d9edd8cee04ef1db719be6395509be2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb40ea72dad2313618fb3c38bf73bf822f4b4433
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113568"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960850"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creación de una fórmula automática para escalar nodos de ejecución en un grupo de Batch
 
@@ -23,7 +22,7 @@ Puede habilitar el escalado automático al crear un grupo o bien en un grupo exi
 En este artículo se describen las distintas entidades que conforman las fórmulas de escalado automático, por ejemplo, variables, operadores, operaciones y funciones. Trataremos cómo obtener distintas métricas de recursos y tareas de proceso en Batch. Puede usar estas métricas para ajustar el número de nodos del grupo en función del estado de las tareas y del uso de recursos. También explicaremos cómo construir una fórmula y habilitar el escalado automático en un grupo mediante API de .NET y API de REST de Batch. Por último, terminaremos con algunas fórmulas de ejemplo.
 
 > [!IMPORTANT]
-> Al crear una cuenta de Batch puede especificar la [configuración de la cuenta](batch-api-basics.md#account), que determina si se asignan grupos en una suscripción de servicio de Batch (opción predeterminada) o en su suscripción de usuario. Si ha creado su cuenta de Batch con la configuración predeterminada del servicio de Batch, la cuenta estará limitada a un máximo de núcleos que se pueden usar para el procesamiento. El servicio de Batch escala nodos de ejecución solo hasta ese límite de núcleos. Por este motivo, puede que el servicio de Batch no alcance el número de nodos de ejecución que se especifiquen con una fórmula de escalado automático. Consulte [Cuotas y límites del servicio Azure Batch](batch-quota-limit.md) para más información sobre la visualización y aumento de las cuotas de la cuenta.
+> Al crear una cuenta de Batch puede especificar la [configuración de la cuenta](accounts.md), que determina si se asignan grupos en una suscripción de servicio de Batch (opción predeterminada) o en su suscripción de usuario. Si ha creado su cuenta de Batch con la configuración predeterminada del servicio de Batch, la cuenta estará limitada a un máximo de núcleos que se pueden usar para el procesamiento. El servicio de Batch escala nodos de ejecución solo hasta ese límite de núcleos. Por este motivo, puede que el servicio de Batch no alcance el número de nodos de ejecución que se especifiquen con una fórmula de escalado automático. Consulte [Cuotas y límites del servicio Azure Batch](batch-quota-limit.md) para más información sobre la visualización y aumento de las cuotas de la cuenta.
 >
 >Si ha creado su cuenta con la configuración de suscripción de usuario, su cuenta comparte la cuota de núcleos de la suscripción. Para más información, consulte [Límites de Virtual Machines](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits) en [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 >
@@ -127,6 +126,9 @@ Puede obtener el valor de estas variables definidas por el servicio para efectua
 | $CurrentDedicatedNodes |El número actual de dedicado de nodos de ejecución dedicados. |
 | $CurrentLowPriorityNodes |Número actual de nodos de ejecución de prioridad baja, incluidos todos los nodos con prioridad. |
 | $PreemptedNodeCount | El número de nodos en el grupo que se encuentran en estado reemplazado. |
+
+> [!IMPORTANT]
+> Las tareas de liberación del trabajo no se incluyen actualmente en las variables anteriores que proporcionan recuentos de tareas, como $ActiveTasks y $PendingTasks. En función de la fórmula de escalado automático, esto puede dar lugar a que se quiten los nodos y no haya ninguno disponible para ejecutar las tareas de liberación del trabajo.
 
 > [!TIP]
 > Las variables de solo lectura definidas por el servicio que se muestran en la tabla anterior son *objetos* que proporcionan distintos métodos para obtener acceso a los datos asociados a cada uno de ellos. Para obtener más información, consulte la sección [Obtención de datos de ejemplo](#getsampledata), descrita más adelante en este artículo.
@@ -373,17 +375,17 @@ $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
 
 ## <a name="create-an-autoscale-enabled-pool-with-batch-sdks"></a>Creación de un grupo habilitado para el escalado automático con SDK de Batch
 
-El escalado automático de grupo se puede configurar con cualquiera de los [SDK de Batch](batch-apis-tools.md#azure-accounts-for-batch-development), la [API de REST de Batch](https://docs.microsoft.com/rest/api/batchservice/), los [cmdlets de PowerShell de Batch](batch-powershell-cmdlets-get-started.md)y la [CLI de Batch](batch-cli-get-started.md). En esta sección, puede ver ejemplos de .NET y Python.
+El escalado automático de grupo se puede configurar con cualquiera de los [SDK de Batch](batch-apis-tools.md#azure-accounts-for-batch-development), la [API de REST de Batch](/rest/api/batchservice/), los [cmdlets de PowerShell de Batch](batch-powershell-cmdlets-get-started.md)y la [CLI de Batch](batch-cli-get-started.md). En esta sección, puede ver ejemplos de .NET y Python.
 
 ### <a name="net"></a>.NET
 
 Para crear un grupo con el escalado automático habilitado en. NET, siga estos pasos:
 
-1. Crear el grupo con [BatchClient.PoolOperations.CreatePool](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.createpool).
-1. Establecer la propiedad [CloudPool.AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) en `true`.
-1. Establecer la propiedad [CloudPool.AutoScaleFormula](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) con la fórmula de escalado automático.
-1. (Opcional) Establecer la propiedad [CloudPool.AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (el valor predeterminado es 15 minutos).
-1. Confirmar el grupo con [CloudPool.Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) o [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
+1. Crear el grupo con [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool).
+1. Establecer la propiedad [CloudPool.AutoScaleEnabled](/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) en `true`.
+1. Establecer la propiedad [CloudPool.AutoScaleFormula](/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) con la fórmula de escalado automático.
+1. (Opcional) Establecer la propiedad [CloudPool.AutoScaleEvaluationInterval](/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (el valor predeterminado es 15 minutos).
+1. Confirmar el grupo con [CloudPool.Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) o [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
 
 El fragmento de código siguiente crea un grupo habilitado para el escalado automático en .NET. La fórmula de escalado automático del grupo establece el número objetivo de nodos dedicados en 5 los lunes y en 1 los demás días de la semana. El [intervalo de escalado automático](#automatic-scaling-interval) está establecido en 30 minutos. En este y en otros fragmentos de código de C# de este artículo, `myBatchClient` es una instancia inicializada correctamente de la clase [BatchClient][net_batchclient].
 
@@ -520,11 +522,11 @@ Puede evaluar una fórmula antes de aplicarla a un grupo. De esta manera puede p
 
 Para evaluar una fórmula de escalado automático, primero debe habilitar el escalado automático en el grupo con una fórmula válida. Para probar una fórmula en un grupo que aún no tiene habilitado el escalado automático, use la fórmula de una línea `$TargetDedicatedNodes = 0` la primera vez que habilite el escalado automático. A continuación, use uno de los siguientes métodos para evaluar la fórmula que quiere probar:
 
-* [BatchClient.PoolOperations.EvaluateAutoScale](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) o [EvaluateAutoScaleAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
+* [BatchClient.PoolOperations.EvaluateAutoScale](/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) o [EvaluateAutoScaleAsync](/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
 
     Estos métodos .NET de Batch requieren el identificador de un grupo existente y una cadena que contenga la fórmula de escalado automático que se evaluará.
 
-* [Evaluación de una fórmula de escalado automático](https://docs.microsoft.com/rest/api/batchservice/evaluate-an-automatic-scaling-formula)
+* [Evaluación de una fórmula de escalado automático](/rest/api/batchservice/evaluate-an-automatic-scaling-formula)
 
     En esta solicitud de API de REST, especifique el identificador del grupo en el URI y la fórmula de escalado automático en el elemento *autoScaleFormula* del cuerpo de la solicitud. La respuesta de la operación contiene cualquier información de error que pueda relacionarse con la fórmula.
 
@@ -610,13 +612,13 @@ AutoScaleRun.Results:
 
 Para asegurarse de que la fórmula se ejecuta según lo esperado, le recomendamos que compruebe periódicamente los resultados de las ejecuciones de escalado automático que lleva a cabo Batch en su grupo. Para ello, obtenga (o actualice) una referencia al grupo y examine las propiedades de su última ejecución de escalado automático.
 
-En Batch .NET, la propiedad [CloudPool.AutoScaleRun](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscalerun) tiene varias propiedades que proporcionan información sobre la última ejecución de escalado automático efectuada en el grupo:
+En Batch .NET, la propiedad [CloudPool.AutoScaleRun](/dotnet/api/microsoft.azure.batch.cloudpool.autoscalerun) tiene varias propiedades que proporcionan información sobre la última ejecución de escalado automático efectuada en el grupo:
 
-* [AutoScaleRun.Timestamp](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.timestamp)
-* [AutoScaleRun.Results](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.results)
-* [AutoScaleRun.Error](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.error)
+* [AutoScaleRun.Timestamp](/dotnet/api/microsoft.azure.batch.autoscalerun.timestamp)
+* [AutoScaleRun.Results](/dotnet/api/microsoft.azure.batch.autoscalerun.results)
+* [AutoScaleRun.Error](/dotnet/api/microsoft.azure.batch.autoscalerun.error)
 
-En la API de REST, la solicitud para [obtener información sobre un grupo](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) devuelve información sobre el grupo (por ejemplo, información sobre la última ejecución de escalado automático en la propiedad [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool)).
+En la API de REST, la solicitud para [obtener información sobre un grupo](/rest/api/batchservice/get-information-about-a-pool) devuelve información sobre el grupo (por ejemplo, información sobre la última ejecución de escalado automático en la propiedad [autoScaleRun](/rest/api/batchservice/get-information-about-a-pool)).
 
 El siguiente fragmento de código de C# usa la biblioteca Batch .NET para imprimir información sobre la última ejecución de escalado automático en el grupo _myPool_:
 
@@ -733,15 +735,15 @@ string formula = string.Format(@"
 * [Maximizar el uso de recursos de proceso de Azure Batch con tareas simultáneas de nodo](batch-parallel-node-tasks.md) contiene detalles acerca de cómo se pueden ejecutar varias tareas simultáneamente en los nodos de proceso en el grupo. Además del escalado automático, esta característica puede ayudar a reducir la duración del trabajo para algunas cargas de trabajo, lo que permite ahorrar dinero.
 * Para otro ajuste de la eficacia, asegúrese de que la aplicación Batch consulta el servicio Batch de la manera más óptima. Consulte [Creación de consultas para enumerar los recursos de Batch con eficacia](batch-efficient-list-queries.md) para aprender a limitar la cantidad de datos que atraviesan la conexión al consultar el estado de posiblemente miles de nodos de ejecución o tareas.
 
-[net_api]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch
-[net_batchclient]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient
-[net_cloudpool_autoscaleformula]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula
-[net_cloudpool_autoscaleevalinterval]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval
-[net_enableautoscaleasync]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.enableautoscaleasync
-[net_maxtasks]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.maxtaskspercomputenode
-[net_poolops_resizepoolasync]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.resizepoolasync
+[net_api]: /dotnet/api/microsoft.azure.batch
+[net_batchclient]: /dotnet/api/microsoft.azure.batch.batchclient
+[net_cloudpool_autoscaleformula]: /dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula
+[net_cloudpool_autoscaleevalinterval]: /dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval
+[net_enableautoscaleasync]: /dotnet/api/microsoft.azure.batch.pooloperations.enableautoscaleasync
+[net_maxtasks]: /dotnet/api/microsoft.azure.batch.cloudpool.maxtaskspercomputenode
+[net_poolops_resizepoolasync]: /dotnet/api/microsoft.azure.batch.pooloperations.resizepoolasync
 
-[rest_api]: https://docs.microsoft.com/rest/api/batchservice/
-[rest_autoscaleformula]: https://docs.microsoft.com/rest/api/batchservice/enable-automatic-scaling-on-a-pool
-[rest_autoscaleinterval]: https://docs.microsoft.com/rest/api/batchservice/enable-automatic-scaling-on-a-pool
-[rest_enableautoscale]: https://docs.microsoft.com/rest/api/batchservice/enable-automatic-scaling-on-a-pool
+[rest_api]: /rest/api/batchservice/
+[rest_autoscaleformula]: /rest/api/batchservice/enable-automatic-scaling-on-a-pool
+[rest_autoscaleinterval]: /rest/api/batchservice/enable-automatic-scaling-on-a-pool
+[rest_enableautoscale]: /rest/api/batchservice/enable-automatic-scaling-on-a-pool

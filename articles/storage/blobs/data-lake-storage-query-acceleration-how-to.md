@@ -4,16 +4,16 @@ description: Use la aceleración de consultas (versión preliminar) para recuper
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.openlocfilehash: d7213bb44503fbe191a69683188bdea6976827ee
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: cc9235f07c0829abfb8be42e83d05d8428bc1806
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930087"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465871"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration-preview"></a>Filtro de datos mediante la aceleración de consultas de Azure Data Lake Storage (versión preliminar)
 
@@ -24,7 +24,7 @@ La aceleración de consultas (versión preliminar) es una nueva capacidad de Azu
 > [!NOTE]
 > La característica de aceleración de consultas está en versión preliminar pública y está disponible en las regiones Centro de Canadá y Centro de Francia. Para conocer las limitaciones, consulte el artículo [Problemas conocidos](data-lake-storage-known-issues.md). Para inscribirse en la versión preliminar, visite [este formulario](https://aka.ms/adls/qa-preview-signup).  
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 

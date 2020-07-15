@@ -9,12 +9,12 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: 3ede22b5af942c3f0c0cd88d86b56a625c7656c0
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 9810d29750e7c741c84b11b296099a37d67fc595
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267620"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955173"
 ---
 # <a name="monitor-azure-storage"></a>Supervisión de Azure Storage
 
@@ -78,7 +78,9 @@ El resto de las solicitudes anónimas con error no se registran. Para encontrar 
 
 Las métricas de la plataforma y el registro de actividad se recopilan automáticamente, pero debe crear una configuración de diagnóstico para recopilar registros de recursos o reenviarlos fuera de Azure Monitor. Para conocer el proceso para crear una configuración de diagnóstico mediante Azure Portal, la CLI de Azure o PowerShell, consulte [Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-Al crear una configuración de diagnóstico, deberá elegir el tipo de almacenamiento para el que desea habilitar los registros, por ejemplo, blob, cola, tabla, archivo. Si crea la configuración de diagnóstico en Azure Portal, puede seleccionar el recurso de una lista. Si usa PowerShell o la CLI de Azure, debe usar el identificador de recurso del tipo de almacenamiento. Para encontrar el identificador de recurso en Azure Portal, abra la página **Propiedades** de la cuenta de almacenamiento.
+Al crear una configuración de diagnóstico, deberá elegir el tipo de almacenamiento para el que desea habilitar los registros, por ejemplo, blob, cola, tabla, archivo. Data Lake Storage Gen2 no aparece como un tipo de almacenamiento. Esto se debe a que Data Lake Storage Gen2 es un conjunto de funcionalidades disponibles para el almacenamiento de blobs. 
+
+Si crea la configuración de diagnóstico en Azure Portal, puede seleccionar el recurso de una lista. Si usa PowerShell o la CLI de Azure, debe usar el identificador de recurso del tipo de almacenamiento. Para encontrar el identificador de recurso en Azure Portal, abra la página **Propiedades** de la cuenta de almacenamiento.
 
 También tendrá que especificar las categorías de operaciones para las que desea recopilar registros. En esta tabla se enumeran las categorías de Azure Storage.
 
@@ -343,6 +345,8 @@ Los datos se almacenan en estas tablas.
 |StorageFileLogs | Registros que describen la actividad en los recursos compartidos de archivos. |
 |StorageQueueLogs | Registros que describen la actividad en las colas.|
 |StorageTableLogs| Registros que describen la actividad en las tablas.|
+
+Los registros de Data Lake Storage Gen2 no aparecen en una tabla dedicada. Esto se debe a que Data Lake Storage Gen2 no es servicio. Es un conjunto de funcionalidades que puede habilitar en una cuenta de almacenamiento de blobs. Si ha habilitado esas funcionalidades, los registros seguirán apareciendo en la tabla StorageBlobLogs. 
 
 ### <a name="azure-storage-log-analytics-queries-in-azure-monitor"></a>Consultas de Log Analytics de Azure Storage en Azure Monitor
 

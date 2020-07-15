@@ -4,7 +4,6 @@ description: Instrucciones paso a paso para crear un agente de escucha en un gru
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
-manager: craigg
 editor: monicar
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
 ms.service: virtual-machines-sql
@@ -14,26 +13,27 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: df02458703b5ae82b2c5c19f7a2d32f512d715e9
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a2eb6278a9e796c33178f895eede6fd8f2144e9a
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84037216"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921679"
 ---
-# <a name="configure-a-load-balancer-for-an-availability-group-on-azure-sql-server-vms"></a>Configuración de un equilibrador de carga para un grupo de disponibilidad en máquinas virtuales con SQL Server de Azure
+# <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Configuración de un equilibrador de carga para un grupo de disponibilidad de SQL Server Always On en Azure Virtual Machines
+
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 
-En este artículo se explica cómo puede crear un equilibrador de carga para un grupo de disponibilidad de SQL Server AlwaysOn en instancias de Azure Virtual Machines que se ejecutan con Azure Resource Manager. Cuando las instancias de SQL Server están implementadas en máquinas virtuales de Azure, los grupos de disponibilidad necesitan un equilibrador de carga. El equilibrador de carga almacena la dirección IP del agente de escucha del grupo de disponibilidad. Si un grupo de disponibilidad abarca varias regiones, cada región necesitará su propio equilibrador de carga.
+En este artículo se explica cómo crear un equilibrador de carga para un grupo de disponibilidad de SQL Server Always On en instancias de Azure Virtual Machines que se ejecutan con Azure Resource Manager. Cuando las instancias de SQL Server están implementadas en Azure Virtual Machines, los grupos de disponibilidad necesitan un equilibrador de carga. El equilibrador de carga almacena la dirección IP del agente de escucha del grupo de disponibilidad. Si un grupo de disponibilidad abarca varias regiones, cada región necesitará su propio equilibrador de carga.
 
-Para completar esta tarea, debe tener un grupo de disponibilidad de SQL Server implementado en instancias de Azure Virtual Machines que se estén ejecutando con Resource Manager. Las dos máquinas virtuales de SQL Server deben pertenecer al mismo conjunto de disponibilidad. Puede usar la [plantilla de Microsoft](availability-group-azure-marketplace-template-configure.md) para crear automáticamente el grupo de disponibilidad en Resource Manager. Esta plantilla crea automáticamente un equilibrador de carga interno. 
+Para completar esta tarea, debe tener un grupo de disponibilidad de SQL Server Always On implementado en máquinas virtuales de Azure que se ejecutan con Resource Manager. Las dos máquinas virtuales de SQL Server deben pertenecer al mismo conjunto de disponibilidad. Puede usar la [plantilla de Microsoft](availability-group-azure-marketplace-template-configure.md) para crear automáticamente el grupo de disponibilidad en Resource Manager. Esta plantilla crea automáticamente un equilibrador de carga interno. 
 
 Si lo prefiere, puede [configurar manualmente un grupo de disponibilidad](availability-group-manually-configure-tutorial.md).
 
 En este artículo, es necesario que los grupos de disponibilidad ya estén configurados.  
 
-Temas relacionados:
+Artículos relacionados:
 
 * [Configuración de Grupos de disponibilidad AlwaysOn en la máquina virtual de Azure (GUI)](availability-group-manually-configure-tutorial.md)   
 * [Configuración de una conexión entre dos redes virtuales mediante Azure Resource Manager y PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
@@ -41,26 +41,27 @@ Temas relacionados:
 A lo largo de este artículo, va a crear y configurar un equilibrador de carga en Azure Portal. Una vez hecho esto, configurará el clúster para que utilice la dirección IP del equilibrador de carga para el agente de escucha del grupo de disponibilidad.
 
 ## <a name="create-and-configure-the-load-balancer-in-the-azure-portal"></a>Creación y configuración del equilibrador de carga en el Portal de Azure
-En esta parte de la tarea, haga lo siguiente:
+
+En esta parte de la tarea, realice los pasos siguientes:
 
 1. En Azure Portal, cree el equilibrador de carga y configure la dirección IP.
 2. Configure el grupo back-end.
 3. Cree el sondeo. 
-4. Configure las reglas de equilibrio de carga.
+4. Establezca las reglas de equilibrio de carga.
 
 > [!NOTE]
 > Si las instancias de SQL Server se encuentran en varios grupos de recursos y regiones, realice cada paso dos veces, una vez en cada grupo de recursos.
 > 
-> 
 
 ### <a name="step-1-create-the-load-balancer-and-configure-the-ip-address"></a>Paso 1: Creación del equilibrador de carga y configuración de la dirección IP
+
 En primer lugar, cree el equilibrador de carga. 
 
 1. En el Portal de Azure, abra el grupo de recursos que contiene las máquinas virtuales de SQL Server. 
 
-2. En el grupo de recursos, haga clic en **Agregar**.
+2. En el grupo de recursos, seleccione **Agregar**.
 
-3. Busque el **equilibrador de carga** y, a continuación, en los resultados de la búsqueda, seleccione el **equilibrador de carga** publicado por **Microsoft**.
+3. Busque el **equilibrador de carga**. En los resultados de la búsqueda, seleccione **Load Balancer** (publicado por **Microsoft**).
 
 4. En la hoja **Load Balancer**, haga clic en **Crear**.
 
@@ -78,37 +79,39 @@ En primer lugar, cree el equilibrador de carga.
    | **Grupos de recursos** |Seleccione el grupo de recursos en el que se encuentran las instancias de SQL Server. |
    | **Ubicación** |Seleccione la ubicación de Azure en la que se encuentran las instancias de SQL Server. |
 
-6. Haga clic en **Crear**. 
+6. Seleccione **Crear**. 
 
 Azure crea el equilibrador de carga. El equilibrador de carga pertenece a una red, una subred, una ubicación y un grupo de recursos específicos. Cuando Azure haya completado la tarea, compruebe la configuración del equilibrador de carga en Azure. 
 
 ### <a name="step-2-configure-the-back-end-pool"></a>Paso 2: Configuración del grupo back-end
+
 En Azure, el grupo de direcciones de back-end se denomina *grupo de back-end*. En este caso, el grupo de back-end contiene las direcciones de las dos instancias de SQL Server del grupo de disponibilidad. 
 
-1. En el grupo de recursos, haga clic en el equilibrador de carga que ha creado. 
+1. En el grupo de recursos, seleccione el equilibrador de carga que ha creado. 
 
-2. En **Configuración**, haga clic en **Grupos de back-end**.
+2. En **Configuración**, seleccione **Grupos de back-end**.
 
-3. En **Grupos de back-end**, haga clic en **Agregar** para crear un grupo de direcciones de back-end. 
+3. En **Grupos de back-end**, seleccione **Agregar** para crear un grupo de direcciones de back-end. 
 
 4. En **Agregar grupo back-end** en **Nombre**, especifique un nombre para el grupo de back-end.
 
-5. En **Máquinas virtuales**, haga clic en **+ Agregar una máquina virtual**. 
+5. En **Máquinas virtuales**, seleccione **Agregar una máquina virtual**. 
 
-6. En **Elegir máquinas virtuales**, haga clic en **Elegir un conjunto de disponibilidad** y especifique el conjunto de disponibilidad al que pertenecen las máquinas virtuales de SQL Server.
+6. En **Elegir máquinas virtuales**, seleccione **Elegir un conjunto de disponibilidad** y, a continuación, especifique el conjunto de disponibilidad al que pertenecen las máquinas virtuales de SQL Server.
 
-7. Después de elegir el conjunto de disponibilidad, haga clic en **Elegir máquinas virtuales**, seleccione las dos máquinas virtuales que hospedan las instancias de SQL Server en el grupo de disponibilidad y, finalmente, haga clic en **Seleccionar**. 
+7. Después de elegir el conjunto de disponibilidad, seleccione **Elegir máquinas virtuales**, seleccione las dos máquinas virtuales que hospedan las instancias de SQL Server en el grupo de disponibilidad y, finalmente, elija **Seleccionar**. 
 
-8. Haga clic en **Aceptar** para cerrar las hojas **Elegir máquinas virtuales** y **Agregar grupo back-end**. 
+8. Seleccione **Aceptar** para cerrar las hojas **Elegir máquinas virtuales** y **Agregar grupo back-end**. 
 
 Azure actualiza la configuración del grupo de direcciones de back-end. Ahora, el conjunto de disponibilidad tiene un grupo de dos instancias de SQL Server.
 
 ### <a name="step-3-create-a-probe"></a>Paso 3: Elaboración de un sondeo
+
 Este sondeo establece el modo en que Azure va a comprobar cuál de las instancias de SQL Server es el propietario actual del agente de escucha del grupo de disponibilidad. Azure analiza el servició con arreglo a la dirección IP de un puerto que estableció al crear el sondeo.
 
-1. En la hoja **Configuración** del equilibrador de carga, haga clic en **Sondeos de estado**. 
+1. En la hoja **Configuración** del equilibrador de carga, seleccione **Sondeos de estado**. 
 
-2. En la hoja **Sondeos de estado**, haga clic en **Agregar**.
+2. En la hoja **Sondeos de estado**, seleccione **Agregar**.
 
 3. Configure el sondeo en la hoja **Agregar sondeo** . Utilice los valores siguientes para configurar el sondeo.
 
@@ -120,21 +123,21 @@ Este sondeo establece el modo en que Azure va a comprobar cuál de las instancia
    | **Intervalo** |*5* |
    | **Umbral incorrecto** |*2* |
 
-4.  Haga clic en **OK**. 
+4.  Seleccione **Aceptar**. 
 
 > [!NOTE]
 > Asegúrese de que el puerto especificado esté abierto en el firewall de las dos instancias de SQL Server. En estas dos instancias, es necesario definir una regla de entrada para el puerto TCP. Consulte [Agregar o editar regla de firewall](https://technet.microsoft.com/library/cc753558.aspx) para más información. 
 > 
-> 
 
 Azure crea el sondeo y, a continuación, lo usa para comprobar qué instancia de SQL Server tiene el agente de escucha del grupo de disponibilidad.
 
-### <a name="step-4-set-the-load-balancing-rules"></a>Paso 4: Configuración de las reglas de equilibrio de carga
-Las reglas de equilibrio de carga determinan cómo el equilibrador de carga enruta el tráfico a las instancias de SQL Server. En este equilibrador de carga, habilite Direct Server Return, ya que solo una de las dos instancias de SQL Server puede ser el propietario del recurso del agente de escucha del grupo de disponibilidad simultáneamente.
+### <a name="step-4-set-the-load-balancing-rules"></a>Paso 4: Establecimiento de las reglas de equilibrio de carga
 
-1. En la hoja **Configuración** del equilibrador de carga, haga clic en **Reglas de equilibrio de carga**. 
+Las reglas de equilibrio de carga determinan cómo el equilibrador de carga enruta el tráfico a las instancias de SQL Server. En este equilibrador de carga, habilite Direct Server Return, ya que solo una de las dos instancias de SQL Server puede ser el propietario del recurso del agente de escucha del grupo de disponibilidad simultáneamente.
 
-2. En la hoja **Reglas de equilibrio de carga**, haga clic en **Agregar**.
+1. En la hoja **Configuración** del equilibrador de carga, seleccione **Reglas de equilibrio de carga**. 
+
+2. En la hoja **Reglas de equilibrio de carga**, seleccione **Agregar**.
 
 3. Utilice la hoja **Add load balancing rules** (Agregar reglas de equilibrio de carga) para configurar la regla de equilibrio de carga. Use la configuración siguiente: 
 
@@ -153,7 +156,8 @@ Las reglas de equilibrio de carga determinan cómo el equilibrador de carga enru
    > Tal vez necesite desplazarse hacia abajo en la hoja para ver todas las opciones.
    > 
 
-4. Haga clic en **OK**. 
+4. Seleccione **Aceptar**. 
+
 5. Azure configura la regla de equilibrio de carga. Ahora, el equilibrador de carga está configurado para enrutar el tráfico a la instancia de SQL Server que hospeda el agente de escucha del grupo de disponibilidad. 
 
 En este punto, el grupo de recursos dispone de un equilibrador de carga que se conecta con las dos máquinas de SQL Server. El equilibrador de carga también contiene una dirección IP del agente de escucha del grupo de disponibilidad de SQL Server AlwaysOn, por lo que cualquier máquina puede responder a las solicitudes de los grupos de disponibilidad.
@@ -161,43 +165,48 @@ En este punto, el grupo de recursos dispone de un equilibrador de carga que se c
 > [!NOTE]
 > Si las instancias de SQL Server se encuentran en dos regiones diferentes, repita los pasos en la otra región. Cada una de las regiones necesita su propio equilibrador de carga. 
 > 
-> 
 
 ## <a name="configure-the-cluster-to-use-the-load-balancer-ip-address"></a>Configure el clúster para que utilice la dirección IP del equilibrador de carga.
-El siguiente paso consiste en configurar el agente de escucha del clúster y conectarlo. Haga lo siguiente: 
+
+El siguiente paso consiste en configurar el agente de escucha del clúster y conectarlo. Siga estos pasos: 
 
 1. Cree el agente de escucha del grupo de disponibilidad en el clúster de conmutación por error. 
 
 2. Ponga el agente de escucha en línea.
 
 ### <a name="step-5-create-the-availability-group-listener-on-the-failover-cluster"></a>Paso 5: Creación del agente de escucha del grupo de disponibilidad en el clúster de conmutación por error
+
 En este paso, se crea manualmente el agente de escucha del grupo de disponibilidad en el Administrador de clústeres de conmutación por error y SQL Server Management Studio.
 
 [!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
 
 ### <a name="verify-the-configuration-of-the-listener"></a>Comprobación de la configuración del agente de escucha
 
-Si los recursos y las dependencias de clúster están configurados correctamente, tendría que ver el agente de escucha en SQL Server Management Studio. Haga lo siguiente para establecer el puerto de escucha:
+Si los recursos y las dependencias de clúster están configurados correctamente, tendría que ver el agente de escucha en SQL Server Management Studio. Para establecer el puerto del cliente de escucha, realice los pasos siguientes:
 
 1. Abra SQL Server Management Studio y conéctese a la réplica principal.
 
 2. Vaya a **Alta disponibilidad de AlwaysOn** > **Grupos de disponibilidad** > **Agentes de escucha del grupo de disponibilidad**.  
+
     Ahora tienes que ver el nombre del agente de escucha que creaste en el Administrador de clústeres de conmutación por error. 
 
-3. Haga clic con el botón derecho en el nombre del agente de escucha y luego en **Propiedades**.
+3. Haga clic con el botón derecho en el nombre del cliente de escucha y, a continuación, seleccione **Propiedades**.
 
-4. En el cuadro **Puerto**, especifique el número de puerto del agente de escucha del grupo de disponibilidad mediante el valor $EndpointPort que ha establecido antes (1433 era el valor predeterminado) y haga clic en **Aceptar**.
+4. En el cuadro **Puerto**, especifique el número de puerto del cliente de escucha del grupo de disponibilidad mediante el valor de $EndpointPort que ha utilizado antes (1433 era el valor predeterminado) y, a continuación, seleccione **Aceptar**.
 
 Ahora tiene un grupo de disponibilidad en máquinas virtuales de Azure que se ejecutan con el modelo de Resource Manager. 
 
 ## <a name="test-the-connection-to-the-listener"></a>Comprobación de la conexión con el agente de escucha
-Pruebe la conexión haciendo lo siguiente:
 
-1. Conéctese con RDP a una instancia de SQL Server que esté en la misma red virtual, pero que no sea la propietaria de la réplica. Este servidor puede ser otra instancia de SQL Server del clúster.
+Realice los pasos siguientes para probar la conexión:
+
+1. Use el Protocolo de escritorio remoto (RDP) para conectarse a una instancia de SQL Server que esté en la misma red virtual, pero que no sea la propietaria de la réplica. Este servidor puede ser otra instancia de SQL Server del clúster.
 
 2. Use la utilidad **sqlcmd** para probar la conexión. Por ejemplo, el siguiente script establece una conexión **sqlcmd** con la réplica principal por medio del agente de escucha con autenticación de Windows:
-   
-        sqlcmd -S <listenerName> -E
+
+    ```console
+    sqlcmd -S <listenerName> -E
+    ```
 
 La conexión SQLCMD se establece automáticamente con la instancia de SQL Server en la que se hospede la réplica principal. 
 
@@ -205,11 +214,11 @@ La conexión SQLCMD se establece automáticamente con la instancia de SQL Server
 
 Cada grupo de disponibilidad usa un agente de escucha independiente. Cada agente de escucha tiene su propia dirección IP. Use el mismo equilibrador de carga para contener la dirección IP de los agentes de escucha adicionales. Después de crear un grupo de disponibilidad, agregue la dirección IP al equilibrador de carga y luego configure el agente de escucha.
 
-Para agregar una dirección IP a un equilibrador de carga con el portal de Azure, haga lo siguiente:
+Para agregar una dirección IP a un equilibrador de carga con Azure Portal, siga estos pasos:
 
-1. En Azure Portal, abra el grupo de recursos que contiene el equilibrador de carga y haga clic en él. 
+1. En Azure Portal, abra el grupo de recursos que contiene el equilibrador de carga y seleccione el equilibrador de carga. 
 
-2. En **Configuración**, haga clic en **Grupo de direcciones IP de front-end** y, después, en **Agregar**. 
+2. En **Configuración**, seleccione **Grupo de direcciones IP de front-end** y, a continuación, seleccione **Agregar**. 
 
 3. En **Agregar dirección IP de front-end**, asigne un nombre para el front-end. 
 
@@ -232,15 +241,15 @@ Para agregar una dirección IP a un equilibrador de carga con el portal de Azure
    |**Intervalo** |Cantidad de tiempo entre los intentos de sondeo. Use el valor predeterminado (5).
    |**Umbral incorrecto** |El número de umbrales consecutivos que deben generar un error antes de que se considere que una máquina virtual tiene un estado incorrecto.
 
-8. Haga clic en **Aceptar** para guardar el sondeo. 
+8. Seleccione **Aceptar** para guardar el sondeo. 
 
-9. Cree una regla de equilibrio de carga. Haga clic en **Reglas de equilibrio de carga** y luego haga clic en **Agregar**.
+9. Cree una regla de equilibrio de carga. Seleccione **Reglas de equilibrio de carga** y, a continuación, seleccione **Agregar**.
 
 10. Configure la nueva regla de equilibrio de carga con los siguientes valores:
 
     |Configuración |Value
     |:-----|:----
-    |**Nombre** |Un nombre para identificar la regla de equilibrio de carga. 
+    |**Nombre** |Nombre para identificar la regla de equilibrio de carga. 
     |**Frontend IP address** (Dirección IP de front-end) |Seleccione la dirección IP que creó. 
     |**Protocolo** |TCP
     |**Puerto** |Use el puerto que usan las instancias de SQL Server. Una instancia predeterminada usa el puerto 1433, a menos que lo haya modificado. 
@@ -255,7 +264,7 @@ Para agregar una dirección IP a un equilibrador de carga con el portal de Azure
 
 Para terminar de configurar el clúster, repita los pasos realizados cuando creó el primer grupo de disponibilidad. Es decir, configure el [clúster para usar la nueva dirección IP](#configure-the-cluster-to-use-the-load-balancer-ip-address). 
 
-Después de haber agregado una dirección IP para el agente de escucha, configure el grupo de disponibilidad adicional. Para ello, haga lo siguiente: 
+Después de agregar una dirección IP para el cliente de escucha, configure el grupo de disponibilidad adicional mediante los pasos siguientes: 
 
 1. Compruebe que el puerto de sondeo de la nueva dirección IP esté abierto en ambas máquinas virtuales SQL Server. 
 
@@ -274,7 +283,7 @@ Después de haber agregado una dirección IP para el agente de escucha, configur
 
 Después de configurar el grupo de disponibilidad para usar la nueva dirección IP, configure la conexión al agente de escucha. 
 
-## <a name="add-load-balancing-rule-for-distributed-availability-group"></a>Incorporación de la regla de equilibrio de carga para un grupo de disponibilidad distribuido
+## <a name="add-load-balancing-rule-for-distributed-availability-group"></a>Adición de una regla de equilibrio de carga para un grupo de disponibilidad distribuido
 
 Si un grupo de disponibilidad forma parte de un grupo de disponibilidad distribuido, el equilibrador de carga necesita una regla adicional. Esta regla almacena el puerto usado por el escucha del grupo de disponibilidad distribuido.
 
@@ -283,7 +292,7 @@ Si un grupo de disponibilidad forma parte de un grupo de disponibilidad distribu
 
 1. En cada servidor que forma parte del grupo de disponibilidad distribuido, cree una regla de entrada en el puerto TCP del escucha del grupo de disponibilidad distribuido. En muchos ejemplos, la documentación usa el puerto 5022. 
 
-1. En Azure Portal, haga clic en el equilibrador de carga, en **Reglas de equilibrio de carga** y, luego, en **+Agregar**. 
+1. En Azure Portal, seleccione el equilibrador de carga, seleccione **Reglas de equilibrio de carga** y, a continuación, seleccione **+Agregar**. 
 
 1. Cree la regla de equilibrio de carga con la configuración siguiente:
 
@@ -302,7 +311,10 @@ Si un grupo de disponibilidad forma parte de un grupo de disponibilidad distribu
 
 Repita estos pasos para el equilibrador de carga de los otros grupos de disponibilidad que forman parte de los grupos de disponibilidad distribuidos.
 
-Si restringe el acceso con Azure Network Security Group, asegúrese de que las reglas de permiso incluyan las direcciones IP de back-end de VM con SQL Server, y direcciones IP flotantes del equilibrador de carga para la escucha de grupo de disponibilidad y la dirección IP principal del clúster, si corresponde.
+Si tiene un grupo de seguridad de red de Azure para restringir el acceso, asegúrese de que las reglas de tipo permitir incluyen:
+- Las direcciones IP de la máquina virtual de SQL Server de back-end
+- Las direcciones IP flotantes del equilibrador de carga para el cliente de escucha de AG
+- La dirección IP principal del clúster, si procede.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

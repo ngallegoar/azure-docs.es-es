@@ -8,42 +8,56 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
-ms.openlocfilehash: 4b10a4c98abd6bec4074bf35764a9cbb85d5b157
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.date: 06/03/2020
+ms.openlocfilehash: 143c94527b947495709d2e94f107dc578e7f2866
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605979"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84610209"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformación de receptor en el flujo de datos de asignación
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Una vez que haya transformado los datos, puede recibir los datos en un conjunto de datos de destino. Cada flujo de datos requiere al menos una transformación de receptor, pero puede agregar tantos receptores como sea necesario para completar el flujo de transformación. Para escribir en receptores adicionales, cree nuevas secuencias a través de nuevas ramas y divisiones condicionales.
+Cuando termine de transformar los datos, escríbalos en un almacén de destino mediante la transformación del receptor. Cada flujo de datos requiere al menos una transformación de receptor, pero puede agregar tantos receptores como sea necesario para completar el flujo de transformación. Para escribir en receptores adicionales, cree nuevas secuencias a través de nuevas ramas y divisiones condicionales.
 
-Cada transformación de receptor se asocia exactamente con un conjunto de datos de Data Factory. El conjunto de datos define la forma y la ubicación de los datos en que quiere escribir.
+Cada transformación del receptor se asocia exactamente con un servicio vinculado o un objeto de conjunto de objetos de Azure Data Factory. La transformación del receptor determina la forma y la ubicación de los datos en los que se desea escribir.
 
-## <a name="supported-sink-connectors-in-mapping-data-flow"></a>Conectores de receptor compatibles en el flujo de datos de asignación
+## <a name="inline-datasets"></a>Conjuntos de datos insertado
 
-Actualmente, se pueden usar los siguientes conjuntos de datos en una transformación de receptor:
-    
-* [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) (JSON, Avro, Text, Parquet)
-* [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) (JSON, Avro, Text, Parquet)
-* [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) (JSON, Avro, Text, Parquet)
-* [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties)
-* [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties)
-* [Azure CosmosDB](connector-azure-cosmos-db.md#mapping-data-flow-properties)
+Al crear una transformación de receptor, elija si la información del receptor se define dentro de un objeto de conjunto de datos o en la transformación. La mayoría de los formatos solo están disponibles en una opción o en la otra. Consulte el documento adecuado del conector para obtener información sobre cómo usar un conector específico.
 
-La configuración específica de estos conectores se encuentra en la pestaña **Configuración**. La información sobre esta configuración se encuentra en la documentación del conector. 
+Cuando un formato se admite tanto en la opción insertada como en un objeto de conjunto de datos, supone ventajas para ambos. Los objetos de conjunto de datos son entidades reutilizables que se pueden aprovechar en otros flujos de datos y actividades, como en la copia. Resultan especialmente útiles cuando se usa un esquema protegido. Los conjuntos de datos no se basan en Spark y, en ocasiones, es posible que tenga que reemplazar determinados valores o la proyección del esquema en la transformación de receptor.
 
-Azure Data Factory tiene acceso a más de [90 conectores nativos](connector-overview.md). Para escribir datos en esos otros orígenes del flujo de datos, use la herramienta de actividad de copia para cargar esos datos desde una de las áreas de almacenamiento provisional compatibles tras finalizar el flujo de datos.
+Se recomiendan los conjuntos de datos insertados cuando se usan esquemas flexibles, instancias de origen único u receptores con parámetros. Si el receptor contiene muchos parámetros, los conjuntos de datos insertados permiten no crear un objeto "ficticio". Los conjuntos de datos insertados se basan en Spark y sus propiedades son nativas para el flujo de datos.
+
+Para usar un conjunto de datos insertado, seleccione el formato deseado en el selector **Tipo de receptor**. En lugar de seleccionar un conjunto de datos de receptor, seleccione el servicio vinculado al que desee conectarse.
+
+![Conjunto de datos insertado](media/data-flow/inline-selector.png "Conjunto de datos insertado")
+
+##  <a name="supported-sink-types"></a><a name="supported-sinks"></a> Tipos de receptores admitidos
+
+Mapping Data Flow sigue un enfoque de extracción, carga y transformación (ELT) y funciona con conjuntos de datos de un *almacenamiento provisional* que están todos en Azure. Actualmente, se pueden usar los siguientes conjuntos de datos en una transformación de origen:
+
+| Conector | Formato | Conjunto de datos/insertado |
+| --------- | ------ | -------------- |
+| [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties)  | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties)  <br> [Common Data Model (versión preliminar)](format-common-data-model.md#sink-properties) | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- <br> -/✓ |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure Cosmos DB (SQL API)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+
+La configuración específica de estos conectores se encuentra en la pestaña **Configuración**. La información y algunos ejemplos de script de flujo de datos sobre esta configuración se encuentran en la documentación del conector. 
+
+Azure Data Factory tiene acceso a más de [90 conectores nativos](connector-overview.md). Para escribir datos en esos otros orígenes desde el flujo de datos, use la actividad de copia para cargar los datos desde un receptor compatible.
 
 ## <a name="sink-settings"></a>Configuración del receptor
 
 Una vez que haya agregado un receptor, configúrelo a través de la pestaña **Receptor**. Aquí puede elegir o crear el conjunto de datos en el que escribe el receptor. A continuación, se muestra un vídeo en el que se explican varias opciones de receptor diferentes para los tipos de archivo delimitados de texto:
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tf7T]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4tf7T]
 
 ![Configuración del receptor](media/data-flow/sink-settings.png "Configuración del receptor")
 

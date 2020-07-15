@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: ea2761712e4bbb7a3abd1483766f4eae47b7c350
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 4b6214ebfaf4b9ed6dd97f6a6ac2f5c4ae164a59
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996370"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964692"
 ---
 # <a name="unsupported-language-deployments"></a>Implementaciones en lenguajes no compatibles
 
@@ -25,7 +25,7 @@ Con la próxima retirada de Microsoft Translator Hub, Microsoft anulará la impl
 
 Ahora tenemos un proceso que le permite implementar sus modelos no compatibles a través de Traductor personalizado.  Este proceso le permite continuar traduciendo contenido mediante la API V3 más reciente.  Estos modelos se hospedarán hasta que decida anular su implementación o el par de idiomas esté disponible en Traductor personalizado.  En este artículo se explica el proceso de implementación de modelos con pares de idiomas no compatibles.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para que sus modelos sean candidatos para la implementación, deben cumplir los siguientes criterios:
 * El proyecto que incluye el modelo debe haber migrado de la instancia de Hub a Traductor personalizado mediante la herramienta de migración.  [Aquí](how-to-migrate.md) encontrará el proceso de migración de proyectos y áreas de trabajo.
@@ -47,7 +47,7 @@ Después del envío, el modelo dejará de estar disponible en la pestaña **Unre
 
 ## <a name="whats-next"></a>¿Qué sigue?
 
-Los modelos que seleccionó para la implementación se guardarán una vez que se retire la instancia de Hub y se anule la implementación de todos los modelos.  Hasta el 24 de mayo podrá enviar solicitudes de implementación de modelos no compatibles.  Implementaremos dichos modelos el 15 de junio, momento en el que se podrá tener acceso a ellos a través de la API de Translator V3.  Además, estarán disponibles a través de la API V2 hasta el 1 de julio.  
+Los modelos que seleccionó para la implementación se guardarán una vez que se retire la instancia de Hub y se anule la implementación de todos los modelos.  Hasta el 24 de mayo podrá enviar solicitudes de implementación de modelos no compatibles.  Implementaremos dichos modelos el 15 de junio, cuando se podrá acceder a ellos mediante Translator V3.  Además, estarán disponibles mediante Translator V2 hasta el 1 de julio.  
 
 Para obtener información adicional sobre fechas importantes relativas al desuso de la instancia de Hub, consulte [aquí](https://www.microsoft.com/translator/business/hub/).
 Una vez realizada la implementación, se aplicarán cargos de hospedaje normales.  Consulte [Precios](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/) para obtener detalles.  

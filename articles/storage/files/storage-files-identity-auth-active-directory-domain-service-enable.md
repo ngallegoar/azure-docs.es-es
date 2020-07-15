@@ -3,16 +3,16 @@ title: Uso de Azure AD Domain Services para autorizar el acceso a los datos de a
 description: Aprenda a habilitar la autenticación basada en identidades a través del Bloque de mensajes del servidor (SMB) para Azure Files mediante Azure Active Directory Domain Services. Las máquinas virtuales Windows unidas a un dominio pueden acceder entonces a los recursos compartidos de archivos de Azure con las credenciales de Azure AD.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ccaa1945101c252f7dd32be6f9340b51541ed48d
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 2d9f7eccae6b87923b52119ded90ced5e4206d7b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84296641"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510385"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Habilitación de la autenticación de Azure Active Directory Domain Services en Azure Files
 
@@ -22,7 +22,7 @@ Para obtener información general sobre la autenticación de Azure AD a través
 
 > [!NOTE]
 > Azure Files admite la autenticación Kerberos con Azure AD DS con cifrado RC4-HMAC. Todavía no se admite el cifrado de Kerberos con AES.
-> Azure Files admite la autenticación de Azure AD DS con sincronización completa con Azure AD. Si se ha habilitado la sincronización de ámbito en Azure AD DS, que solo sincroniza un conjunto limitado de identidades de Azure AD, no se admite la autenticación ni la autorización.
+> Azure Files admite la autenticación de Azure AD DS con sincronización completa con Azure AD. Si se ha habilitado la sincronización de ámbito en Azure AD DS, que solo sincroniza un conjunto limitado de identidades de Azure AD, no se admite la autenticación ni la autorización.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -55,6 +55,10 @@ Antes de habilitar Azure AD a través de SMB para recursos compartido de archiv
 1.  **Compruebe la conectividad de Azure Files; para ello, monte los recursos compartidos de archivos de Azure con la clave de su cuenta de almacenamiento.**
 
     Para comprobar que el recurso compartido de archivos y de la máquina virtual están configurados correctamente, intente montar el recurso compartido de archivos con la clave de la cuenta de almacenamiento. Para más información, consulte [Montaje de un recurso compartido de archivos de Azure y acceso al recurso compartido en Windows](storage-how-to-use-files-windows.md).
+
+## <a name="regional-availability"></a>Disponibilidad regional
+
+La autenticación de Azure Files con Azure AD DS está disponible en [todas las regiones públicas de Azure](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## <a name="overview-of-the-workflow"></a>Información general del flujo de trabajo
 

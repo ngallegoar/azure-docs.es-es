@@ -2,14 +2,14 @@
 title: 'Configuración de Blockchain Data Manager con la CLI de Azure: Azure Blockchain Service'
 description: Crear y administrar una instancia de Blockchain Data Manager para Azure Blockchain Service mediante la CLI de Azure
 ms.date: 03/30/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: e490803fabeed7d6234bd6984acbfb9f5270e0c0
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: b7b897f35cb864e2a1fa904bbb3ec13b56986598
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81254417"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85200468"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Configuración de la cadena de bloques Data Manager con la CLI de Azure
 
@@ -23,7 +23,7 @@ Para configurar una instancia de cadena de bloques Data Manager, puede:
 * Agregar una aplicación de cadena de bloques
 * Iniciar una instancia
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Instale el [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) más reciente y con la sesión iniciada`az login`.
 * Realizar el tutorial [Quickstart: Uso de Visual Studio Code para conectarse a una red del consorcio de Azure Blockchain Service](connect-vscode.md). Se recomienda el nivel *Estándar* de Azure Blockchain Service cuando se usa Blockchain Data Manager.
@@ -133,7 +133,7 @@ az resource create \
 
 ### <a name="input-examples"></a>Ejemplos de entrada
 
-Ejemplo de JSON de configuración para crear un recurso de entrada en la región *este de EE. UU.* que está conectada a \<miembro Blockchain\>.
+Ejemplo de JSON de configuración para crear un recurso de entrada en la región *Este de EE. UU.* que está conectada a \<Blockchain member\>.
 
 ``` json
 {
@@ -151,7 +151,7 @@ Ejemplo de JSON de configuración para crear un recurso de entrada en la región
 |---------|-------------|
 | ubicación | Región en la que se va a crear el recurso de entrada. |
 | inputType | Tipo de libro de contabilidad del miembro Azure Blockchain Service. Actualmente, se admite **Ethereum**. |
-| resourceId | Nodo de transacción al que está conectada la entrada. Reemplace \<ID. de suscripción\>, \<Grupo de recursos\> y \<miembro de Blockchain\> con los valores para el recurso de nodo de transacción. La entrada se conecta al nodo de transacción predeterminado para el miembro Azure Blockchain Service. |
+| resourceId | Nodo de transacción al que está conectada la entrada. Reemplace \<Subscription ID\>, \<Resource group\> y \<Blockchain member\> con los valores del recurso del nodo de transacción. La entrada se conecta al nodo de transacción predeterminado para el miembro Azure Blockchain Service. |
 
 Cree una entrada denominada *myinput* para *mywatcher* con la cadena JSON para la configuración.
 
@@ -205,7 +205,7 @@ az resource create \
 
 ### <a name="output-examples"></a>Ejemplos de salida
 
-Ejemplo de JSON de configuración para crear un recurso de salida en la región *este de EE. UU.* que está conectada a un tema de Event Grid denominado \<tema de Event Grid\>.
+Ejemplo de JSON de configuración para crear un recurso de salida en la región *Este de EE. UU.* que está conectada a un tema de Event Grid denominado \<event grid topic\>.
 
 ``` json
 {
@@ -223,7 +223,7 @@ Ejemplo de JSON de configuración para crear un recurso de salida en la región 
 |---------|-------------|
 | ubicación | Región en la que se va a crear el recurso de salida. |
 | outputType | Tipo de salida. Actualmente, se admite **EventGrid**. |
-| resourceId | Recurso al que está conectada la salida. Reemplace \<ID. de suscripción\>, \<\>Grupo de recursos y \<miembro de Blockchain\> con los valores del recurso de Event Grid. |
+| resourceId | Recurso al que está conectada la salida. Reemplace \<Subscription ID\>, \<Resource group\> y \<Blockchain member\> con los valores del recurso de Event Grid. |
 
 Cree una salida con el nombre de*myoutput* para *mywatcher* que se conecta a un tema de Event Grid con una cadena de configuración de JSON.
 
@@ -348,7 +348,7 @@ az resource invoke-action \
 | Parámetro | Descripción |
 |-----------|-------------|
 | action | Use **iniciar** para ejecutar el monitor. |
-| ids | Identificador de recurso de monitor. Reemplace \<ID. de suscripción\>, \<Grupo de recursos\>, y el \<Nombre de monitor\> por los valores del recurso de monitor.|
+| ids | Identificador de recurso de monitor. Reemplace \<Subscription ID\>, \<Resource group\> y \<Watcher name\> con los valores del recurso de monitor.|
 
 ### <a name="start-instance-example"></a>Ejemplo de instancia de inicio
 
@@ -373,7 +373,7 @@ az resource invoke-action \
 | Parámetro | Descripción |
 |-----------|-------------|
 | action | Use **detener** para detener el monitor. |
-| ids | Nombre del monitor. Reemplace \<ID. de suscripción\>, \<Grupo de recursos\>, y el \<Nombre de monitor\> por los valores del recurso de monitor. |
+| ids | Nombre del monitor. Reemplace \<Subscription ID\>, \<Resource group\> y \<Watcher name\> con los valores del recurso de monitor. |
 
 ### <a name="stop-watcher-example"></a>Ejemplo de monitor de detención
 

@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e170a789727fb0de36705895245cc638d30ee3d7
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 10a6c2e4f6f9dcbb29eb16cbfabd8fba31668f06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745497"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201640"
 ---
 # <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Procedimientos recomendados para cargar datos mediante el grupo de SQL de Synapse
 
@@ -28,8 +28,6 @@ Para minimizar la latencia, reubique la capa de almacenamiento y el grupo de SQL
 
 Al exportar datos en formato de archivo ORC, pueden producirse errores de falta de memoria de Java con las columnas de texto grandes. Para resolver este problema, exporte solo un subconjunto de las columnas.
 
-PolyBase no puede cargar filas que tengan más de un millón de bytes de datos. Cuando ponga datos en los archivos de texto de Azure Blob Storage o Azure Data Lake Store, estos tienen que tener menos de un millón de bytes de datos. Esta limitación de datos es cierta independientemente del esquema de tabla definido.
-
 Todos los formatos de archivo tienen diferentes características de rendimiento. Para lograr la carga más rápida, use archivos de texto delimitados comprimidos. La diferencia entre el rendimiento de UTF-8 y UTF-16 es mínima.
 
 Dividir archivos comprimidos grandes en archivos comprimidos más pequeños.
@@ -38,38 +36,47 @@ Dividir archivos comprimidos grandes en archivos comprimidos más pequeños.
 
 Para una velocidad de carga más rápida, ejecute solo una carga de trabajo de cada vez. Si no es factible, ejecute un número mínimo de cargas al mismo tiempo. Si espera un trabajo de carga grande, considere la posibilidad de escalar verticalmente el grupo de SQL antes de la carga.
 
-Para ejecutar cargas con recursos de proceso adecuados, cree usuarios de carga designados para ejecutar cargas. Asigne cada usuario de carga a un grupo de cargas de trabajo o una clase de recurso específicos. Para ejecutar una carga, inicie sesión como uno de los usuarios de carga y, a continuación, ejecute la carga. La carga se ejecuta con la clase de recurso del usuario.  
-
-> [!NOTE]
-> Este método es más sencillo que intentar cambiar la clase de recursos de un usuario para que se ajuste a la necesidad actual de clase de recurso.
+Para ejecutar cargas con recursos de proceso adecuados, cree usuarios de carga designados para ejecutar cargas. Clasifique cada usuario de carga a un grupo de cargas de trabajo específico. Para ejecutar una carga, inicie sesión como uno de los usuarios de carga y, a continuación, ejecute la carga. La carga se ejecuta con el grupo de cargas de trabajo del usuario.  
 
 ### <a name="example-of-creating-a-loading-user"></a>Ejemplo de creación de un usuario de carga
 
-En este ejemplo se crea un usuario de carga para la clase de recurso staticrc20. El primer paso consiste en **conectarse al servidor principal** y crear un inicio de sesión.
+En este ejemplo se crea un usuario de carga clasificado en un grupo de cargas de trabajo específico. El primer paso consiste en **conectarse al servidor principal** y crear un inicio de sesión.
 
 ```sql
    -- Connect to master
-   CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
+   CREATE LOGIN loader WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-Conéctese al grupo de SQL y cree un usuario. El código siguiente da por supuesto que está conectado a la base de datos llamada mySampleDataWarehouse. Muestra cómo crear un usuario llamado LoaderRC20 y concederle el permiso de control de usuario en una base de datos. A continuación, agrega el usuario como miembro del rol de base de datos staticrc20.  
+Conéctese al grupo de SQL y cree un usuario. El código siguiente da por supuesto que está conectado a la base de datos llamada mySampleDataWarehouse. Muestra cómo crear un usuario llamado cargador y concede al usuario permisos para crear tablas y cargar mediante la [instrucción COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). A continuación, clasifica el usuario en el grupo de cargas de trabajo de DataLoads con un máximo de recursos. 
 
 ```sql
-   -- Connect to the database
-   CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
-   GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
-   EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
+   -- Connect to the SQL pool
+   CREATE USER loader FOR LOGIN loader;
+   GRANT ADMINISTER DATABASE BULK OPERATIONS TO loader;
+   GRANT INSERT ON <yourtablename> TO loader;
+   GRANT SELECT ON <yourtablename> TO loader;
+   GRANT CREATE TABLE TO loader;
+   GRANT ALTER ON SCHEMA::dbo TO loader;
+   
+   CREATE WORKLOAD GROUP DataLoads
+   WITH ( 
+      MIN_PERCENTAGE_RESOURCE = 100
+       ,CAP_PERCENTAGE_RESOURCE = 100
+       ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 100
+    );
+
+   CREATE WORKLOAD CLASSIFIER [wgcELTLogin]
+   WITH (
+         WORKLOAD_GROUP = 'DataLoads'
+       ,MEMBERNAME = 'loader'
+   );
 ```
 
-Para ejecutar una carga con recursos de las clases de recursos staticRC20, inicie sesión como LoaderRC20 y ejecute la carga.
+Para ejecutar una carga con recursos para el grupo de cargas de trabajo de carga, inicie sesión como cargador y ejecute la carga.
 
-Ejecute cargas en clases de recursos estáticas en lugar de dinámicas. El uso de clases de recursos estáticas garantiza los mismos recursos independientemente de las [unidades de almacenamiento de datos](what-is-a-data-warehouse-unit-dwu-cdwu.md). Si utiliza una clase de recursos dinámica, los recursos varían según el nivel de servicio.
+## <a name="allowing-multiple-users-to-load-polybase"></a>Posibilidad de que varios usuarios realicen cargas (PolyBase)
 
-Para las clases dinámicas, un nivel de servicio inferior significa que probablemente necesita usar una clase de recursos más grande para el usuario de carga.
-
-## <a name="allowing-multiple-users-to-load"></a>Posibilidad de que varios usuarios realicen cargas
-
-A menudo, es necesario que varios usuarios puedan cargar datos en un grupo de SQL. La carga con [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) requiere permisos de CONTROL en la base de datos.  El permiso CONTROL ofrece control de acceso a todos los esquemas.
+A menudo, es necesario que varios usuarios puedan cargar datos en un grupo de SQL. La carga con [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (PolyBase) requiere permisos de CONTROL en la base de datos.  El permiso CONTROL ofrece control de acceso a todos los esquemas.
 
 Probablemente no desee que todos los usuarios de carga tengan control de acceso en todos los esquemas. Para limitar los permisos, use la instrucción DENY CONTROL.
 
@@ -104,7 +111,7 @@ Si no hay memoria suficiente, es posible que el índice de almacén de columnas 
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Aumento del tamaño de lote al usar SqLBulkCopy API o bcp
 
-La carga con PolyBase proporcionará el mayor rendimiento con el grupo de SQL. Si no puede usar PolyBase para la carga y debe usar [SqLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), considere la posibilidad de aumentar el tamaño del lote para mejorar el rendimiento.
+La carga con la instrucción COPY proporcionará el mayor rendimiento con el grupo de SQL. Si no puede usar COPY para la carga y debe usar [SqLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), considere la posibilidad de aumentar el tamaño del lote para mejorar el rendimiento.
 
 > [!TIP]
 > Un tamaño de lote entre 100 000 filas y 1 millón de filas es la línea de base recomendada para determinar la capacidad de tamaño de lote óptima.
@@ -142,7 +149,7 @@ create statistics [Speed] on [Customer_Speed] ([Speed]);
 create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
-## <a name="rotate-storage-keys"></a>Rotación de claves de almacenamiento
+## <a name="rotate-storage-keys-polybase"></a>Rotación de claves de almacenamiento (PolyBase)
 
 Es un buen procedimiento de seguridad cambiar la clave de acceso al almacenamiento de blobs de forma regular. Tiene dos claves de almacenamiento para la cuenta de Blob Storage, lo que le permite la transición de las claves.
 
@@ -168,6 +175,6 @@ No es necesario cambiar nada más en los orígenes de datos externos subyacentes
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información acerca de PolyBase y del diseño de un proceso de extracción, carga y transformación (ETL), consulte [Design ELT for SQL Data Warehouse](design-elt-data-loading.md) (Diseño de ELT para SQL Data Warehouse).
-- Si desea un tutorial sobre carga, consulte [Uso de PolyBase para cargar de datos de Azure Blob Storage en Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
+- Para más información acerca de la instrucción COPY o PolyBase al diseñar un proceso de extracción, carga y transformación (ETL), consulte [Estrategias de carga de datos para el grupo de SQL de Synapse](design-elt-data-loading.md).
+- Consulte el tutorial de carga [Uso de la instrucción COPY para cargar datos de Azure Blob Storage a Synapse SQL](load-data-from-azure-blob-storage-using-polybase.md).
 - Para supervisar las cargas de datos, consulte [Supervisión de la carga de trabajo mediante DMV](sql-data-warehouse-manage-monitor.md).

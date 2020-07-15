@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 584fc48aad6a64f8df54088e6dbfd990e8e112e8
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4325f75ac8181e088d64e53d3f65e085a09c0224
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655308"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85119416"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Procesadores de fuente de cambios de Azure Cosmos DB
 
@@ -35,7 +35,7 @@ Hay cuatro componentes principales en la implementación del procesador de fuent
 
 Para comprender mejor cómo funcionan estos cuatro elementos del procesador de fuente de cambios juntos, echemos un vistazo a un ejemplo en el diagrama siguiente. El contenedor supervisado almacena documentos y usa "City" como clave de partición. Vemos que los valores de la clave de partición se distribuyen en intervalos que contienen elementos. Hay dos instancias de host y el procesador de fuente de cambios está asignando distintos intervalos de valores de clave de partición a cada instancia para maximizar la distribución de proceso. Cada intervalo se lee en paralelo y su progreso se mantiene por separado de otros intervalos en el contenedor de concesión.
 
-![Ejemplo de procesador de fuente de cambios](./media/change-feed-processor/changefeedprocessor.png)
+:::image type="content" source="./media/change-feed-processor/changefeedprocessor.png" alt-text="Ejemplo de procesador de fuente de cambios" border="false":::
 
 ## <a name="implementing-the-change-feed-processor"></a>Implementación del procesador de fuente de cambios
 

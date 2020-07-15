@@ -1,16 +1,16 @@
 ---
-title: Controles de seguridad
+title: Controles de seguridad de Azure App Service
 description: Busque una lista de comprobación de los controles de seguridad para evaluar Azure App Service para su organización.
 author: msmbaldwin
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2586821c4c48f809efb5408c3cdae5e42e3b3fcf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9b0c336d9d9c463a7ed7acf42eaf292ecce4f1bb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74671447"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831155"
 ---
 # <a name="security-controls-for-azure-app-service"></a>Controles de seguridad de Azure App Service
 
@@ -39,8 +39,8 @@ En este artículo se explican los controles de seguridad integrados en Azure App
 
 | Control de seguridad | Sí/No | Notas |  Documentación
 |---|---|--|
-| Authentication| Sí | Los clientes pueden crear aplicaciones en App Service que se integren automáticamente con [Azure Active Directory (Azure AD)](../active-directory/index.yml), así como con otros proveedores de identidades compatibles con OAuth. En el caso del acceso de administración a los recursos de App Service, todo el acceso se controla utilizando una entidad de seguridad autenticada de Azure AD y los roles de RBAC de Azure Resource Manager. | [Autenticación y autorización en Azure App Service](overview-authentication-authorization.md)
-| Authorization| Sí | Para el acceso de administración a los recursos de App Service, todo el acceso se controla mediante una combinación de los roles RBAC de Azure Resource Manager y de las entidades de seguridad autenticadas de Azure AD.  | [Autenticación y autorización en Azure App Service](overview-authentication-authorization.md)
+| Authentication| Sí | Los clientes pueden crear aplicaciones en App Service que se integren automáticamente con [Azure Active Directory (Azure AD)](../active-directory/index.yml), así como con otros proveedores de identidades compatibles con OAuth. En el caso del acceso de administración a los recursos de App Service, todo el acceso se controla utilizando una entidad de seguridad autenticada de Azure AD y los roles RBAC de Azure. | [Autenticación y autorización en Azure App Service](overview-authentication-authorization.md)
+| Authorization| Sí | Para el acceso de administración a los recursos de App Service, todo el acceso se controla mediante una combinación de las entidades de seguridad autenticadas de Azure AD y los roles RBAC de Azure.  | [Autenticación y autorización en Azure App Service](overview-authentication-authorization.md)
 
 ## <a name="data-protection"></a>Protección de los datos
 

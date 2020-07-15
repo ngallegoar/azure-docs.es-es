@@ -3,15 +3,15 @@ title: Configuración de Azure HPC Cache
 description: Explica cómo configurar opciones adicionales para la memoria caché, como MTU y sin squash raíz, y cómo acceder a las instantáneas rápidas desde destinos de almacenamiento de blobs de Azure.
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: v-erkel
-ms.openlocfilehash: a3bab06166110a3627bb3a99d51ceb09b0c7ed80
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 88aea7e58aacd9a630771948c6dbc6ed5712a674
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871415"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505314"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Configuración de valores adicionales de Azure HPC Cache
 
@@ -22,6 +22,9 @@ Además, en este artículo se describe cómo usar la característica de instant�
 Para ver la configuración, abra la página **Configuración** de la memoria caché en Azure Portal.
 
 ![Captura de pantalla de la página Configuración en Azure Portal](media/configuration.png)
+
+> [!TIP]
+> En el vídeo [Administración de Azure HPC Cache](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) se muestra la página de configuración y sus valores.
 
 ## <a name="adjust-mtu-value"></a>Ajuste del valor de MTU
 <!-- linked from troubleshoot-nas article -->

@@ -4,14 +4,14 @@ description: Problemas comunes con las alertas de métricas de Azure Monitor y p
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 04/28/2020
+ms.date: 06/21/2020
 ms.subservice: alerts
-ms.openlocfilehash: 605d1f550335417a26340b6ee54736321ad69f80
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 36ff80bc0858d6d08cc120d126628de02ba6e703
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84302667"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85130745"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solución de problemas en las alertas de métricas de Azure Monitor 
 
@@ -112,7 +112,7 @@ El número permitido de reglas de alertas de métricas por suscripción está su
 Si ha alcanzado el límite de cuota, los siguientes pasos pueden ayudar a resolver el problema:
 1. Intente eliminar o deshabilitar las reglas de alertas de métricas que ya no se usan.
 
-2. Cambie al uso de reglas de alertas de métricas que supervisen varios recursos. Con esta funcionalidad, una única regla de alerta puede supervisar varios recursos con solo una regla de alerta en la cuota. Para obtener más información sobre esta funcionalidad y los tipos de recursos admitidos, consulte [este artículo](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
+2. Cambie al uso de reglas de alertas de métricas que supervisen varios recursos. Con esta funcionalidad, una única regla de alerta puede supervisar varios recursos con solo una regla de alerta en la cuota. Para más información sobre esta funcionalidad y los tipos de recursos admitidos, consulte [este artículo](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
 
 3. Si necesita aumentar el límite de cuota, abra una solicitud de soporte técnico y proporcione la siguiente información:
 
@@ -191,6 +191,33 @@ Para crear una regla de alerta de métricas, debe tener los permisos siguientes:
 - Permiso de lectura en el recurso de destino de la regla de alerta
 - Permiso de escritura en el grupo de recursos en el que se crea la regla de alerta (si va a crear la regla de alerta desde Azure Portal, esta se crea en el mismo grupo de recursos en el que reside el recurso de destino).
 - Permiso de lectura en cualquier grupo de acciones asociado a la regla de alerta (si es aplicable)
+
+
+## <a name="naming-restrictions-for-metric-alert-rules"></a>Restricciones de nomenclatura para las reglas de alertas de métricas
+
+Tenga en cuenta las siguientes restricciones para los nombres de las reglas de alertas de métricas:
+
+- Los nombres de las reglas de alertas de métricas no se pueden cambiar (cambiar su nombre) una vez creadas
+- Los nombres de las reglas de alertas de métricas deben ser únicos dentro de un grupo de recursos
+- Los nombres de las reglas de alertas de métricas no pueden contener los siguientes caracteres: * # & +: < > ? @ % { } \ / 
+- Los nombres de las reglas de alertas de métricas no pueden acabar con el siguiente carácter: .
+
+
+## <a name="restrictions-when-using-dimensions-in-a-metric-alert-rule-with-multiple-conditions"></a>Restricciones al usar dimensiones en una regla de alertas de métricas con varias condiciones
+
+Las alertas de métricas admiten las alertas relacionadas con métricas de varias dimensiones además de admitir la definición de varias condiciones (hasta 5 por regla de alertas).
+
+Tenga en cuenta las restricciones siguientes cuando use dimensiones en una regla de alertas que contenga varias condiciones:
+1. Solo puede seleccionar un valor por dimensión dentro de cada condición.
+2. No puede usar la opción "Seleccionar todos los valores actuales y futuros" (Select \*).
+3. Cuando métricas que están configuradas en distintas condiciones admiten la misma dimensión, se debe establecer de forma explícita un valor de dimensión configurado de la misma manera para todas esas métricas (en las condiciones pertinentes).
+Por ejemplo:
+    - Considere una regla de alertas de métricas que se define en una cuenta de almacenamiento y supervisa dos condiciones:
+        * Suma total del valor de **Transactions** > 5
+        * Media del valor de **SuccessE2ELatency** > 250 ms
+    - Nos gustaría actualizar la primera condición y supervisar solo las transacciones en las que la dimensión **ApiName** sea igual a *"GetBlob"* .
+    - Dado que las métricas **Transactions** y **SuccessE2ELatency** admiten la dimensión **ApiName**, necesitaremos actualizar ambas condiciones y hacer que ambas especifiquen la dimensión **ApiName** con el valor *"GetBlob"* .
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

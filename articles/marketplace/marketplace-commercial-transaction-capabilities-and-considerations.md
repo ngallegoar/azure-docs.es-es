@@ -1,18 +1,16 @@
 ---
 title: Capacidades de transacción de marketplace comercial de Microsoft
 description: En este artículo se describen las consideraciones de precios, facturación y pago de la opción de transacción de marketplace comercial.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.author: dsindona
-ms.openlocfilehash: 8818b06e84f6ffe05398087c4aaeba282adc8b2e
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.date: 06/15/2020
+ms.openlocfilehash: 653c55fa7476fa5fed077002db226297a33dfef6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298217"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119436"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades de transacción de marketplace comercial
 
@@ -42,7 +40,7 @@ La opción de publicación de transacción se admite actualmente para los siguie
 
 ### <a name="billing-infrastructure-costs"></a>Costos de infraestructura de facturación
 
-Para las **máquinas virtuales y aplicaciones de Azure**, los precios de uso de la infraestructura de Azure se facturan a la suscripción a Azure del cliente. Los precios de uso de la infraestructura se cotizan y presentan por separado de los precios de licencias del proveedor de software en la factura del cliente.
+Para las **máquinas virtuales** y **aplicaciones de Azure**, los precios de uso de la infraestructura de Azure se facturan a la suscripción a Azure del cliente. Los precios de uso de la infraestructura se cotizan y presentan por separado de los precios de licencias del proveedor de software en la factura del cliente.
 
 Para **aplicaciones SaaS**, el publicador debe tener en cuenta los precios de uso de la infraestructura de Azure y los precios de licencias de software como elemento único de costo.  Se representa como un honorario plano para el cliente. El asociado administra y factura directamente el uso de la infraestructura de Azure. El cliente no ve los honorarios de uso de infraestructura reales. En general, los publicadores optan por agrupar los honorarios de uso de la infraestructura de Azure en los precios de las licencias de software. Los precios de las licencias de software no se basan en mediciones ni en consumo.
 
@@ -136,7 +134,7 @@ En este escenario, Microsoft factura 100,00 USD por su licencia de software y p
 |Microsoft le paga el 80 % del costo de licencia <br> \* Microsoft le paga el 90 % del costo de licencia de las aplicaciones SaaS aptas.   |   80,00 USD al mes <br> \* 90,00 USD al mes    |
 |Microsoft se queda con el 20 % del costo de licencia <br> \* Microsoft se queda con el 10 % del costo de licencia de las aplicaciones SaaS aptas.  |  20,00 USD al mes <br> \* 10,00 USD     |
 
-Para determinados productos SaaS que publica en nuestro Marketplace comercial, Microsoft reducirá sus **honorarios del servicio Marketplace** del 20 % (tal como se describe en el Contrato para publicadores de Microsoft) al 10 %. Para que su oferta sea apta, Microsoft debe haber designado al menos una de sus ofertas como preparada para realizar una venta conjunta de IP o tener prioridad para realizar una venta conjunta de IP. Para recibir esta tarifa reducida del servicio Marketplace durante el mes, se deben cumplir los criterios de idoneidad al menos cinco días hábiles antes del final del mes natural anterior. La tarifa reducida del servicio Marketplace no se aplicará a las máquinas virtuales, las aplicaciones administradas ni ningún otro producto que esté disponible a través de marketplace comercial. Esta tarifa reducida estará disponible para las ofertas aptas, con los cargos de licencia recaudados por Microsoft entre el 1 de mayo de 2019 y el 30 de junio de 2020. Cuando pase ese tiempo, la tarifa volverá a su importe normal.
+Para determinados productos SaaS que publica en nuestro marketplace comercial, Microsoft reducirá sus **honorarios del servicio Marketplace** del 20 % (tal como se describe en el contrato para editores de Microsoft) al 10 %. Para que su oferta sea apta, Microsoft debe haber designado al menos una de sus ofertas como preparada para realizar una venta conjunta de IP o tener prioridad para realizar una venta conjunta de IP. Para recibir esta tarifa reducida del servicio Marketplace durante el mes, se deben cumplir los criterios de idoneidad al menos cinco días hábiles antes del final del mes natural anterior. La tarifa reducida del servicio Marketplace no se aplicará a las máquinas virtuales, las aplicaciones administradas ni ningún otro producto que esté disponible a través de marketplace comercial. Esta tarifa reducida estará disponible para las ofertas aptas, con los cargos de licencia recaudados por Microsoft entre el 1 de mayo de 2019 y el 30 de junio de 2020. Cuando pase ese tiempo, la tarifa volverá a su importe normal.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Facturación, pago y cobro al cliente
 
@@ -176,14 +174,17 @@ En esta sección se tratan los requisitos de transacción para distintos tipos d
 - Se necesitan una cuenta de Microsoft y la información financiera para la opción de publicación de transacciones, independientemente del modelo de precios de la oferta.
 - Entre la información financiera obligatoria se incluyen el perfil fiscal y la cuenta de pago.
 
-Para obtener más información sobre cómo configurar estas cuentas, vea [Administración de la cuenta de Marketplace comercial en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account).
+Para más información sobre cómo configurar estas cuentas, consulte [Administración de la cuenta de marketplace comercial en el Centro de partners](partner-center-portal/manage-account.md).
 
 ### <a name="requirements-for-specific-offer-types"></a>Requisitos para tipos de ofertas específicos
 
 La opción de publicación de transacciones solo está disponible para su uso con los siguientes tipos de oferta de Marketplace:
 
 - **Máquina virtual**: seleccione entre los modelos de precios gratuito, traiga su propia licencia o pago por uso, y preséntelo como SKU definida en el nivel de oferta. En la factura de Azure para el cliente, Microsoft presenta los precios de las licencias de software del publicador por separado de los precios de la infraestructura de Azure subyacente. Los precios de la infraestructura de Azure corresponden al uso del software del publicador.
-- **Aplicaciones de Azure: plantilla de soluciones o aplicación administrada**: debe aprovisionar una o varias máquinas virtuales y extrae la suma de los precios de máquina virtual. Para aplicaciones administradas en un único plan, se puede seleccionar una suscripción mensual con tarifa plana como modelo de precios, en su lugar del precio de las máquinas virtuales. En algunos casos, el precio por uso de la infraestructura de Azure se traslada al cliente por separado de los precios de las licencias de software, pero en el mismo extracto de facturación. En cambio, si configura una oferta de aplicación administrada para los cargos por infraestructura de ISV, los recursos de Azure se facturan al publicador y el cliente recibe una tarifa plana que incluye el costo de la infraestructura, las licencias de software y los servicios de administración.
+
+- **Aplicación de Azure: plantilla de soluciones o aplicación administrada**: debe aprovisionar una o varias máquinas virtuales y extrae la suma de los precios de las máquinas virtuales. Para aplicaciones administradas en un único plan, se puede seleccionar una suscripción mensual con tarifa plana como modelo de precios, en su lugar del precio de las máquinas virtuales. En algunos casos, el precio por uso de la infraestructura de Azure se traslada al cliente por separado de los precios de las licencias de software, pero en el mismo extracto de facturación. En cambio, si configura una oferta de aplicación administrada para los cargos por infraestructura de ISV, los recursos de Azure se facturan al editor y el cliente recibe una tarifa plana que incluye el costo de la infraestructura, las licencias de software y los servicios de administración.
+
+- **Aplicación SaaS**: debe ser una solución para varios inquilinos, utilice [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) para la autenticación e intégrela con las [API de cumplimiento de SaaS](partner-center-portal/pc-saas-fulfillment-api-v2.md). Se administra y se factura directamente al asociado por el uso de la infraestructura de Azure, por lo que se debe tener en cuenta las tarifas de uso de la infraestructura de Azure y las tarifas de las licencias de software como un único elemento de costo. Para instrucciones detalladas, consulte [Creación de una nueva oferta de SaaS en marketplace comercial](partner-center-portal/create-new-saas-offer.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

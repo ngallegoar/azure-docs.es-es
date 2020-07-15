@@ -8,12 +8,12 @@ ms.date: 04/22/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 977b2fa40e2ce27a2711e5a44f5fb487433c9462
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 80e966bf190dcbe4490269ef28a95babadda68d8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714566"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117920"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Solución de problemas de consulta al usar Azure Cosmos DB
 
@@ -47,7 +47,7 @@ Antes de leer esta guía, es útil tener en cuenta los problemas comunes del SDK
 
 Al optimizar una consulta en Azure Cosmos DB, el primer paso es siempre [obtener las métricas](profile-sql-api-query.md) de la consulta. Estas métricas también están disponibles en Azure Portal. Una vez que ejecute la consulta en el Explorador de datos, las métricas de consulta estarán visibles junto a la pestaña **Resultados**:
 
-[ ![Obtención de las métricas de consulta](./media/troubleshoot-query-performance/obtain-query-metrics.png) ](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
+:::image type="content" source="./media/troubleshoot-query-performance/obtain-query-metrics.png" alt-text="Obtención de las métricas de consulta" lightbox="./media/troubleshoot-query-performance/obtain-query-metrics.png":::
 
 Después de obtener las métricas de consulta, compare el **recuento de documentos recuperados** con el de **documentos de salida** de la consulta. Use esta comparación para identificar las secciones pertinentes a las que se hará referencia en este artículo.
 

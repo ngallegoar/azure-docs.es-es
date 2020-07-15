@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28467dbaabb0b84bf7da9f2ae28d6405699b2c6b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: bc2030f589185fd39c0f10b00c012db038a4e008
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845753"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848705"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integración de la infraestructura de VPN con Azure MFA utilizando la extensión Servidor de directivas de redes para Azure
 
@@ -72,7 +72,7 @@ Cuando la extensión NPS para Azure está integrada con NPS, el flujo de una aut
 7. Después de que el intento de conexión se autentica y autoriza, el servidor NPS donde está instalada la extensión envía un mensaje de *aceptación de acceso* RADIUS al servidor VPN (cliente RADIUS).
 8. Se concede acceso al usuario al puerto virtual en el servidor VPN y se establece un túnel VPN cifrado.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En esta sección se detallan los requisitos previos que hay que cumplir antes de integrar MFA con la VPN. Antes de comenzar, debe cumplir los siguientes requisitos previos:
 
@@ -228,9 +228,9 @@ En esta sección, configurará el servidor VPN para utilizar la autenticación R
 
 2. En el Administrador del servidor, seleccione **Herramientas** y después **Enrutamiento y acceso remoto**.
 
-3. En la ventana **Enrutamiento y acceso remoto**, haga clic con el botón derecho en **\<nombre del servidor> (local)** y después seleccione **Propiedades**.
+3. En la ventana **Enrutamiento y acceso remoto**, haga clic con el botón derecho en **\<server name> (local)** y después seleccione **Propiedades**.
 
-4. En la ventana **Propiedades de \<nombre del servidor> (local)** , seleccione la pestaña **Seguridad**.
+4. En la ventana de propiedades de **\<server name> (local)** , seleccione la pestaña **Seguridad**.
 
 5. En la pestaña **Seguridad**, en **Proveedor de autenticación**, seleccione **Autenticación RADIUS** y después **Configurar**.
 
@@ -320,19 +320,15 @@ Cree un nuevo valor de cadena denominado _REQUIRE_USER_MATCH in HKLM\SOFTWARE\Mi
 
 Si el valor se establece en *True* o está en blanco, todas las solicitudes de autenticación están sujetas a un desafío MFA. Si el valor se establece en *False*, se emiten desafíos MFA únicamente a los usuarios que están inscritos en Azure Multi-Factor Authentication. Use solo el valor *False* en las pruebas o en entornos de producción durante un período de incorporación.
 
-### <a name="obtain-the-azure-active-directory-guid-id"></a>Obtención del identificador GUID de Azure Active Directory
+### <a name="obtain-the-azure-active-directory-tenant-id"></a>Obtención del identificador de inquilino de Azure Active Directory
 
-Como parte de la configuración de la extensión NPS, debe proporcionar las credenciales de administrador y el identificador del inquilino de Azure AD. Obtenga el identificador haciendo lo siguiente:
+Como parte de la configuración de la extensión NPS, debe proporcionar las credenciales de administrador y el identificador del inquilino de Azure AD. Para obtener el identificador de inquilino, complete los pasos siguientes:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global del inquilino de Azure.
+1. En el menú de Azure Portal, seleccione **Azure Active Directory** o busque y seleccione **Azure Active Directory** desde cualquier página.
+1. En la página **Información general**, se muestra la *información del inquilino*. Junto al *identificador de inquilino*, seleccione el icono **Copiar**, tal y como se muestra en la siguiente captura de pantalla de ejemplo:
 
-2. En el menú de Azure Portal, seleccione **Azure Active Directory** o busque y seleccione **Azure Active Directory** desde cualquier página.
-
-3. Seleccione **Propiedades**.
-
-4. Para copiar el identificador de Azure AD, seleccione el botón **Copiar**.
-
-    ![Identificador de directorio de Azure AD en Azure Portal](./media/howto-mfa-nps-extension-vpn/azure-active-directory-id-in-azure-portal.png)
+   ![Obtención del identificador de inquilino en Azure Portal](./media/howto-mfa-nps-extension-vpn/azure-active-directory-tenant-id-portal.png)
 
 ### <a name="install-the-nps-extension"></a>Instalación de la extensión de NPS
 
@@ -386,7 +382,7 @@ Para usar el script, indique a la extensión sus credenciales de administrador d
 
 5. En el símbolo del sistema, pegue el identificador del inquilino que copió anteriormente y después presione ENTRAR.
 
-    ![Escribir el identificador de directorio de Azure AD que copió antes](./media/howto-mfa-nps-extension-vpn/image40.png)
+    ![Escriba el identificador de inquilino de Azure AD copiado antes](./media/howto-mfa-nps-extension-vpn/image40.png)
 
     El script crea un certificado autofirmado y realiza otros cambios en la configuración. La salida debe ser similar a la que se muestra en la imagen siguiente:
 
@@ -412,7 +408,9 @@ Una vez que se haya autenticado correctamente con el método secundario, se le c
 
 Para ver los eventos de inicio de sesión correctos en los registros del Visor de eventos de Windows, escriba el siguiente comando de PowerShell para consultar el registro de seguridad de Windows en el servidor NPS:
 
-    `Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL`
+```powershell
+Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
+```
 
 ![Visor de eventos de seguridad de PowerShell](./media/howto-mfa-nps-extension-vpn/image44.png)
 
@@ -422,7 +420,9 @@ También puede ver el registro de seguridad o la vista personalizada de Servicio
 
 En el servidor donde instaló la extensión NPS para Azure Multi-Factor Authentication, puede encontrar registros de aplicación del Visor de eventos específicos de la extensión en *Application and Services Logs\Microsoft\AzureMfa*.
 
-    `Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL`
+```powershell
+Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
+```
 
 ![Ejemplo de panel de registros de AuthZ del Visor de eventos](./media/howto-mfa-nps-extension-vpn/image46.png)
 

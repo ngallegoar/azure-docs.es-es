@@ -4,10 +4,10 @@ description: Obtenga notificaciones personalizadas sobre los eventos del estado 
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: bb449a5279f3cea55e6aec2f72edfd11fb26227a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77654076"
 ---
 # <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Envío de alertas de Azure Service Health con PageDuty mediante webhooks
@@ -27,7 +27,7 @@ Este artículo muestra cómo configurar las notificaciones de estado del servici
 
     a. **Tipo de integración**: Microsoft Azure
 
-    b. **Nombre de integración**: \<Nombre\>
+    b. **Nombre de integración**: \<Name\>
 
     !["Integration Settings" (Configuración de la integración) en PagerDuty](./media/webhook-alerts/pagerduty-integration-settings.png)
 

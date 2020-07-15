@@ -2,7 +2,7 @@
 title: Habilitación del ajuste automático
 description: Puede habilitar fácilmente el ajuste automático en su base de datos mediante Azure Portal.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: 02a6bba2dd4162a1cd9f05249174c2174a85b931
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 6ffc81f7fc5cf36ff4e9bada8f72cfef013afcbc
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84029176"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85982805"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Habilitación del ajuste automático en Azure Portal para supervisar las consultas y mejorar el rendimiento de las cargas de trabajo
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,6 @@ ms.locfileid: "84029176"
 Azure SQL Database administra automáticamente los servicios de datos que supervisan constantemente las consultas, e identifica la acción que puede realizar para mejorar el rendimiento de la carga de trabajo. Puede revisar las recomendaciones y aplicarlas manualmente o dejar que Azure SQL Database aplique automáticamente acciones correctoras, lo que se conoce como **modo de ajuste automático**.
 
 El ajuste automático se puede habilitar en el nivel de servidor o de base de datos mediante:
-
 
 - [Azure Portal](automatic-tuning-enable.md#azure-portal)
 - Llamadas a la [API de REST](automatic-tuning-enable.md#rest-api)
@@ -42,7 +41,7 @@ El ajuste automático se puede habilitar en el nivel de servidor o de base de da
 En el nivel de servidor, puede optar por heredar la configuración de ajuste automático de "Valores predeterminados de Azure" o no heredarla. Los valores predeterminados de Azure son FORCE_LAST_GOOD_PLAN (habilitado), CREATE_INDEX (deshabilitado) y DROP_INDEX (deshabilitado).
 
 > [!IMPORTANT]
-> A partir de marzo de 2020, los valores predeterminados de Azure para el ajuste automático son los siguientes:
+> A partir de marzo de 2020, los nuevos valores predeterminados de Azure para el ajuste automático son los siguientes:
 >
 > - FORCE_LAST_GOOD_PLAN = habilitado, CREATE_INDEX = deshabilitado y DROP_INDEX = deshabilitado.
 > - Los servidores existentes que no tengan configuradas preferencias de ajuste automático se configurarán automáticamente para HEREDAR los valores predeterminados de Azure. Esto se aplica a todos los clientes que tienen actualmente la configuración del servidor para el ajuste automático en un estado indefinido.

@@ -1,38 +1,44 @@
 ---
 title: Incorporación de analizadores de idioma a los campos de cadena
 titleSuffix: Azure Cognitive Search
-description: Análisis de texto de léxico en varios idiomas para consultas e índices en idiomas distintos del inglés en Azure Cognitive Search.
+description: Análisis léxico en varios idiomas para consultas e índices en idiomas distintos del inglés en Azure Cognitive Search.
+author: HeidiSteen
 manager: nitinme
-author: Yahnoosh
-ms.author: jlembicz
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/10/2019
-translation.priority.mt:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pt-br
-- ru-ru
-- zh-cn
-- zh-tw
-ms.openlocfilehash: a97bee27b74aa211b4d4d56547726555edefa87a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/05/2020
+ms.openlocfilehash: 8f0909ee1cdce1e6180b91a30b2e9b281098c826
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236908"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85130558"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Incorporación de analizadores de idioma a campos de cadena en un índice de Azure Cognitive Search
 
-Un *analizador de idiomas* es un componente específico de un [analizador de texto](search-analyzers.md) que realiza un análisis léxico mediante las reglas lingüísticas del idioma de destino. Cada campo de búsqueda tiene una propiedad **analyzer**. Si el índice contiene cadenas traducidas, como campos independientes para texto en inglés y en chino, puede especificar los analizadores de idiomas en cada campo para acceder a las funcionalidades lingüísticas enriquecidas de esos analizadores.  
+Un *analizador de idiomas* es un componente específico de un [analizador de texto](search-analyzers.md) que realiza un análisis léxico mediante las reglas lingüísticas del idioma de destino. Cada campo de búsqueda tiene una propiedad **analyzer**. Si el contenido consiste en cadenas traducidas, como campos independientes para texto en inglés y en chino, puede especificar los analizadores de idiomas en cada campo para acceder a las funcionalidades lingüísticas enriquecidas de esos analizadores.
 
-Azure Cognitive Search admite 35 analizadores respaldados por la tecnología de Lucene y 50 analizadores respaldados por la tecnología de procesamiento de lenguaje natural de Microsoft que se usa en Office y Bing.
+## <a name="when-to-use-a-language-analyzer"></a>Cuándo usar un analizador de idioma
 
-## <a name="comparing-analyzers"></a>Comparación de analizadores
+Debe considerar un analizador de idioma cuando el reconocimiento de la estructura de palabras o oraciones agrega valor al análisis de texto. Un ejemplo común es la asociación de formas de verbo irregulares ("traer" y "trajo") o nombres en masculino y femenino ("emperador" y "emperatriz"). Sin reconocimiento lingüístico, estas cadenas se analizan solo en características físicas, lo que no puede detectar la conexión. Dado que es más probable que los fragmentos de texto grandes tengan este contenido, los campos que se componen de descripciones, revisiones o resúmenes son buenos candidatos para un analizador de idioma.
+
+También hay que tener en cuenta los analizadores de idioma cuando el contenido se compone de cadenas de idioma no occidentales. Aunque el [analizador predeterminado](search-analyzers.md#default-analyzer) es independiente del idioma, el concepto de usar espacios y caracteres especiales (guiones y barras diagonales) para separar cadenas suele ser más aplicable a los idiomas occidentales que a los no occidentales. 
+
+Por ejemplo, en chino, japonés, coreano (CJK) y otros idiomas asiáticos, un espacio no es necesariamente un delimitador de palabras. Pensemos en la siguiente cadena japonesa. Dado que no tiene espacios, es probable que un analizador independiente del idioma analice toda la cadena como un token, cuando de hecho la cadena es en realidad una frase.
+
+```
+これは私たちの銀河系の中ではもっとも重く明るいクラスの球状星団です。
+(This is the heaviest and brightest group of spherical stars in our galaxy.)
+```
+
+En el ejemplo anterior, una consulta correcta tendría que incluir el token completo o un token parcial con un carácter comodín de sufijo, lo que provocaría una experiencia de búsqueda no natural y de limitación.
+
+Una mejor experiencia sería buscar palabras individuales: 明るい (brillante), 私たちの (nuestro), 銀河系 (galaxia). El uso de uno de los analizadores japoneses disponibles en Cognitive Search es más probable que desbloquee este comportamiento porque esos analizadores están mejor equipados para dividir el trozo de texto en palabras significativas en el idioma de destino.
+
+## <a name="comparing-lucene-and-microsoft-analyzers"></a>Comparación de Lucene y analizadores de Microsoft
+
+Azure Cognitive Search admite 35 analizadores respaldados por la tecnología Lucene y 50 analizadores respaldados por la tecnología de procesamiento de lenguaje natural de Microsoft que se usa en Office y Bing.
 
 Es posible que algunos desarrolladores prefieran la solución más familiar, simple y de código abierto de Lucene. Los analizadores de idiomas de Lucene son más rápidos, pero los analizadores de Microsoft disponen de capacidades avanzadas, como la lematización, la descomposición de palabras (en idiomas como el alemán, danés, neerlandés, sueco, noruego, estonio, finés, húngaro, eslovaco) y el reconocimiento de entidades (direcciones URL, correos electrónicos, fechas y números). Si es posible, debe ejecutar las comparaciones de los analizadores de Microsoft y Lucene para decidir cuál es la que se ajusta mejor. 
 

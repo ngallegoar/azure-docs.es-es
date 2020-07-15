@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
 ms.openlocfilehash: e93b3412785817050ac53030be9ff2172a678c06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617117"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verificación y solución de problemas de configuración de alta disponibilidad con escalabilidad horizontal de SAP HANA en SLES 12 SP3 

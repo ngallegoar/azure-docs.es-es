@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 902f3628235cc8a4524ddc4dd8a5327592fe47e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/22/2020
+ms.openlocfilehash: 8f170d541ec314020702ab53606eed4d660cea9e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236808"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85130813"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Tipos y composición de consultas en Azure Cognitive Search
 
-En Azure Cognitive Search, una consulta es una especificación completa de una operación de ida y vuelta. Los parámetros de la solicitud proporcionan criterios de coincidencia para buscar documentos en un índice, qué campos incluir o excluir, instrucciones de ejecución pasadas al motor y directivas de estructuración de la respuesta. Una consulta sin especificar (`search=*`) se ejecuta en todos los campos que permiten búsqueda como una operación de búsqueda de texto completo, que devuelve un conjunto de resultados sin puntuar en orden aleatorio.
+En Azure Cognitive Search, una consulta es una especificación completa de una operación de ida y vuelta. En la solicitud, hay parámetros que proporcionan instrucciones de ejecución para el motor, así como parámetros que conforman la devolución de la respuesta. Se ejecuta una consulta sin especificar (`search=*`), sin criterios de coincidencia y mediante el uso de parámetros nulos o predeterminados, en todos los campos que permiten búsqueda como una operación de búsqueda de texto completo, que devuelve un conjunto de resultados sin puntuar en orden aleatorio.
 
-El ejemplo siguiente es una consulta representativa creada en la [API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents). Este ejemplo tiene como destino el [índice de demostración de hoteles](search-get-started-portal.md) e incluye parámetros comunes.
+El ejemplo siguiente es una consulta representativa creada en la [API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents). Este ejemplo tiene como destino el [índice de demostración de hoteles](search-get-started-portal.md) e incluye parámetros comunes para que pueda hacerse una idea del aspecto de una consulta.
 
 ```
 {
@@ -35,19 +35,27 @@ El ejemplo siguiente es una consulta representativa creada en la [API REST](http
 
 + **`queryType`** establece el analizador, que es el [analizador de consultas sencillas predeterminado](search-query-simple-examples.md) (óptimo para la búsqueda de texto completo) o el [analizador de consultas completas de Lucene](search-query-lucene-examples.md) usado en construcciones de consultas avanzadas como las expresiones regulares, la búsqueda de proximidad, la búsqueda aproximada y por caracteres comodín, por nombrar algunas.
 
-+ **`search`** proporciona los criterios de coincidencia, normalmente texto, pero a menudo acompañado por operadores booleanos. Los términos individuales y sencillos constituyen las consultas por *término*. Las consultas entrecomilladas de varias partes son las consultas de *frases clave*. Búsqueda puede ser indefinida, como en **`search=*`** , pero es más probable que consta de operadores comunes similares a lo que aparece en el ejemplo, frases y términos.
++ **`search`** proporciona los criterios de coincidencia, normalmente términos completos o frases, pero a menudo acompañado por operadores booleanos. Los términos individuales y sencillos constituyen las consultas por *término*. Las consultas entrecomilladas de varias partes son las consultas de *frases*. La búsqueda puede ser indefinida, como en **`search=*`** , pero sin ningún criterio para coincidir, el conjunto de resultados se compone de documentos seleccionados de forma arbitraria.
 
 + **`searchFields`** restringe la ejecución de consultas a campos específicos. Cualquier campo que tenga el atributo *que permite búsquedas* en el esquema de índice es un candidato para este parámetro.
 
-Las respuestas también están formadas por los parámetros que incluya en la consulta. En el ejemplo, el conjunto de resultados se compone de campos que aparecen en la instrucción **`select`** . Solo los campos marcados como *recuperable* se pueden usar en una instrucción $select. Además, en esta consulta solo se devuelven los 10 resultados **`top`** , mientras que **`count`** indica cuántos documentos coinciden en general, lo que puede ser un número mayor que los que se devuelven. En esta consulta, las filas se ordenan por clasificación en orden descendente.
+Las respuestas también están formadas por los parámetros que se incluyan en la consulta.
+
++ **`select`** especifica los campos que se van a devolver en la respuesta. Solo los campos marcados como *recuperable* en el índice se pueden usar en una instrucción select.
+
++ **`top`** devuelve el número especificado de documentos con la mejor coincidencia. En este ejemplo, solo se devuelven 10 resultados. Puede usar top y skip (no se muestra) para paginar los resultados.
+
++ **`count`** indica cuántos documentos en el índice completo coinciden globalmente, lo que puede ser mayor de lo que se devuelve. 
+
++ **`orderby`** se utiliza si desea ordenar los resultados por un valor, como una clasificación o una ubicación. De lo contrario, el valor predeterminado es usar la puntuación de relevancia para clasificar los resultados.
 
 En Azure Cognitive Search, la ejecución de la consulta se realiza siempre en un índice, que se autentica mediante una clave de API proporcionada en la solicitud. En REST, ambos se proporcionan en los encabezados de solicitud.
 
 ### <a name="how-to-run-this-query"></a>Ejecución de esta consulta
 
-Para ejecutar esta consulta, use el [Explorador de búsqueda y el índice de demostración de hoteles](search-get-started-portal.md). 
+Antes de escribir código, puede usar las herramientas de consulta para conocer la sintaxis y experimentar con distintos parámetros. El enfoque más rápido es la herramienta de portal integrada, el [explorador de búsqueda](search-explorer.md).
 
-Puede pegar esta cadena de consulta en la barra de búsqueda del explorador: `search=+"New York" +restaurant&searchFields=Description, Address/City, Tags&$select=HotelId, HotelName, Description, Rating, Address/City, Tags&$top=10&$orderby=Rating desc&$count=true`
+Si ha seguido este [inicio rápido para crear el índice de demostración de hoteles](search-get-started-portal.md), puede pegar esta cadena de consulta en la barra de búsqueda del explorador para ejecutar la primera consulta: `search=+"New York" +restaurant&searchFields=Description, Address/City, Tags&$select=HotelId, HotelName, Description, Rating, Address/City, Tags&$top=10&$orderby=Rating desc&$count=true`.
 
 ## <a name="how-query-operations-are-enabled-by-the-index"></a>Habilitación de las operaciones de consulta según el índice
 
@@ -113,7 +121,7 @@ Azure Cognitive Search admite una amplia gama de tipos de consulta.
 
 | Tipo de consulta | Uso | Más información y ejemplos |
 |------------|--------|-------------------------------|
-| Búsqueda de texto libre | Parámetro de búsqueda y cualquier analizador| La consulta de texto completo busca uno o más términos en todos los campos *que permiten búsquedas* del índice y funciona tal y como cabría esperar de un motor de búsqueda como Google o Bing. El ejemplo de la introducción es una búsqueda de texto completo.<br/><br/>La búsqueda de texto completo se somete a análisis de texto con el analizador de Lucene estándar (predeterminado) para poner todos los términos en minúscula y eliminar palabras vacías como "the". Puede invalidar el valor predeterminado con [analizadores de idiomas distintos al inglés](index-add-language-analyzers.md#language-analyzer-list) o [analizadores independientes del idioma especializados](index-add-custom-analyzers.md#AnalyzerTable) que modifiquen el análisis de texto. Un ejemplo es el analizador por [palabra clave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html), que trata el contenido de un campo como token único. Esto es útil para los datos como códigos postales, identificadores y algunos nombres de producto. | 
+| Búsqueda de texto libre | Parámetro de búsqueda y cualquier analizador| La consulta de texto completo busca uno o más términos en todos los campos *que permiten búsquedas* del índice y funciona tal y como cabría esperar de un motor de búsqueda como Google o Bing. El ejemplo de la introducción es una búsqueda de texto completo.<br/><br/>La búsqueda de texto completo se somete a análisis léxico con el analizador de Lucene estándar (predeterminado) para poner todos los términos en minúscula y eliminar palabras vacías como "the". Puede invalidar el valor predeterminado con [analizadores de idiomas distintos al inglés](index-add-language-analyzers.md#language-analyzer-list) o [analizadores independientes del idioma especializados](index-add-custom-analyzers.md#AnalyzerTable) que modifiquen el análisis léxico. Un ejemplo es el analizador por [palabra clave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html), que trata el contenido de un campo como token único. Esto es útil para los datos como códigos postales, identificadores y algunos nombres de producto. | 
 | Búsqueda filtrada | [Expresión de filtro de OData](query-odata-filter-orderby-syntax.md) y cualquier analizador | Las consultas de filtro evalúan una expresión booleana en todos los campos *filtrables* de un índice. A diferencia de la búsqueda, una consulta de filtro busca el contenido exacto de un campo, incluidas las mayúsculas y minúsculas de los campos de cadena. Otra diferencia es que las consultas de filtro se expresan con sintaxis de OData. <br/>[Ejemplo de expresión de filtro](search-query-simple-examples.md#example-3-filter-queries) |
 | Búsqueda georreferenciada | [Tipo Edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) en el campo, la expresión de filtro y cualquier analizador | Las coordenadas que se almacenan en un campo con Edm.GeographyPoint se utilizan para "buscar cerca de mí" o los controles de búsqueda con mapas. <br/>[Ejemplo de búsqueda georreferenciada](search-query-simple-examples.md#example-5-geo-search)|
 | Búsqueda de intervalo | Expresión de filtro y analizador básico | En Azure Cognitive Search, las consultas de intervalo se compilan con el parámetro de filtro. <br/>[Ejemplo de filtro de intervalo](search-query-simple-examples.md#example-4-range-filters) | 
@@ -141,7 +149,7 @@ En ocasiones, la sustancia, y no la estructura de los resultados, no es la esper
 
 + Cambie **`searchMode=any`** (predeterminado) a **`searchMode=all`** para requerir coincidencias en todos los criterios en lugar de en cualquiera de ellos. Esto sucede especialmente cuando se incluyen operadores booleanos en la consulta.
 
-+ Cambie la técnica de la consulta si se necesita análisis léxico o de texto, pero el tipo de consulta impide el procesamiento lingüístico. En la búsqueda de texto completo, el análisis léxico o de texto corrige de forma automática errores de ortografía, formas de palabras con errores de concordancia de número e incluso sustantivos o verbos irregulares. En algunas consultas, como la búsqueda aproximada o la búsqueda con caracteres comodín, el análisis de texto no forma parte de la canalización de análisis de la consulta. En algunos escenarios, se han utilizado expresiones regulares como solución alternativa. 
++ Cambie la técnica de la consulta si se necesita análisis léxico o de texto, pero el tipo de consulta impide el procesamiento lingüístico. En la búsqueda de texto completo, el análisis léxico o de texto corrige de forma automática errores de ortografía, formas de palabras con errores de concordancia de número e incluso sustantivos o verbos irregulares. En algunas consultas, como la búsqueda aproximada o la búsqueda con caracteres comodín, el análisis léxico no forma parte de la canalización de análisis de la consulta. En algunos escenarios, se han utilizado expresiones regulares como solución alternativa. 
 
 ### <a name="paging-results"></a>Paginación de resultados
 Azure Cognitive Search facilita la implementación de la paginación de los resultados de búsqueda. Mediante el uso de los parámetros **`top`** y **`skip`** , puede emitir fácilmente solicitudes de búsqueda que le permitan recibir el conjunto total de resultados de búsqueda dividido en subconjuntos ordenados, sencillos de administrar que permitan habilitar fácilmente prácticas eficaces de interfaz de usuario de búsqueda. Al recibir estos subconjuntos más pequeños de resultados, también puede recibir el número de documentos del conjunto total de resultados de la búsqueda.

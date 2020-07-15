@@ -3,12 +3,12 @@ title: Copia de seguridad de un recurso compartido de archivos de Azure mediante
 description: En este artículo aprenderá a realizar copias de seguridad de un recurso compartido de Azure Files mediante el servicio Azure Backup y PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 53187152802908e94ee4a8a231d3b7874cf42422
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 18c03eda9d9daca3a0fa536843e32f7fc3158287
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199352"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971035"
 ---
 # <a name="back-up-an-azure-file-share-by-using-powershell"></a>Copia de seguridad de un recurso compartido de archivos de Azure mediante PowerShell
 
@@ -60,7 +60,7 @@ Configure PowerShell como sigue:
 5. En la página web que aparece, se le pedirá que escriba las credenciales de su cuenta.
 
     Como alternativa, puede incluir las credenciales de la cuenta como un parámetro en el cmdlet **Connect-AzAccount** mediante **-Credential**.
-   
+
     Si es un asociado de CSP que trabaja en nombre de un inquilino, especifique el cliente como inquilino. Use su id. de inquilino o el nombre de dominio principal del inquilino. Por ejemplo, **Connect-AzAccount -Tenant "fabrikam.com"** .
 
 6. Debe asociar la suscripción que quiere usar con la cuenta, ya que una cuenta puede tener varias suscripciones:
@@ -95,20 +95,11 @@ Siga estos pasos para crear un almacén de Recovery Services:
    New-AzResourceGroup -Name "test-rg" -Location "West US"
    ```
 
-2. Use el cmdlet [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) para crear el almacén. Especifique la misma ubicación para el almacén que usó en el grupo de recursos.
+1. Use el cmdlet [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) para crear el almacén. Especifique la misma ubicación para el almacén que usó en el grupo de recursos.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
-
-3. Especifique el tipo de redundancia para el almacenamiento. Puede usar [almacenamiento con redundancia local](../storage/common/storage-redundancy-lrs.md) o [almacenamiento con redundancia geográfica](../storage/common/storage-redundancy-grs.md).
-   
-   En el siguiente ejemplo se establece la opción **-BackupStorageRedundancy** para el cmdlet [Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) del elemento **testvault** establecida en **GeoRedundant**:
-
-   ```powershell
-   $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
-   Set-AzRecoveryServicesBackupProperties  -Vault $vault1 -BackupStorageRedundancy GeoRedundant
-   ```
 
 ### <a name="view-the-vaults-in-a-subscription"></a>Visualización de los almacenes de una suscripción
 
@@ -246,20 +237,22 @@ WorkloadName       Operation            Status                 StartTime        
 testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 PM     11/12/2018 2:16:11 PM     ec7d4f1d-40bd-46a4-9edb-3193c41f6bf6
 ```
 
+Para más información sobre cómo obtener una lista de recursos compartidos de archivos para una cuenta de almacenamiento, consulte [este artículo](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageshare?view=azps-4.3.0).
+
 ## <a name="important-notice-backup-item-identification"></a>Aviso importante: Identificación del elemento de copia de seguridad
 
 En esta sección se describe un cambio importante en las copias de seguridad de recursos compartidos de archivos de Azure en el proceso de preparación para la disponibilidad general.
 
-Al habilitar la copia de seguridad los recursos compartidos de archivos de Azure, el usuario proporciona al cliente el nombre del recurso compartido de archivos como nombre de la entidad; una vez hecho esto, se crea un elemento de copia de seguridad. El nombre del elemento de copia de seguridad es un identificador único que crea el servicio Azure Backup. Normalmente, el identificador es el nombre descriptivo del usuario. De todos modos, para controlar el escenario de eliminación temporal, donde se puede eliminar un recurso compartido de archivos y crear otro con el mismo nombre, la identidad única del recurso compartido de archivos de Azure ahora es un id. 
+Al habilitar la copia de seguridad los recursos compartidos de archivos de Azure, el usuario proporciona al cliente el nombre del recurso compartido de archivos como nombre de la entidad; una vez hecho esto, se crea un elemento de copia de seguridad. El nombre del elemento de copia de seguridad es un identificador único que crea el servicio Azure Backup. Normalmente, el identificador es el nombre descriptivo del usuario. De todos modos, para controlar el escenario de eliminación temporal, donde se puede eliminar un recurso compartido de archivos y crear otro con el mismo nombre, la identidad única del recurso compartido de archivos de Azure ahora es un id.
 
-Para conocer el id. único de cada elemento, ejecute el comando **Get-AzRecoveryServicesBackupItem** con los filtros correspondientes para **backupManagementType** y **WorkloadType** para obtener todos los elementos pertinentes. A continuación, observe el campo del nombre en la respuesta o el objeto de PowerShell devuelto. 
+Para conocer el id. único de cada elemento, ejecute el comando **Get-AzRecoveryServicesBackupItem** con los filtros correspondientes para **backupManagementType** y **WorkloadType** para obtener todos los elementos pertinentes. A continuación, observe el campo del nombre en la respuesta o el objeto de PowerShell devuelto.
 
 Siempre se recomienda realizar una lista de los elementos y luego recuperar su nombre único del campo del nombre de la respuesta. Use este valor para filtrar los elementos con el parámetro *Name*. De lo contrario, use el parámetro *FriendlyName* para recuperar el elemento con su id.
 
 > [!IMPORTANT]
-> Asegúrese de que PowerShell se actualice a la versión mínima (AZ.RecoveryServices 2.6.0) para las copias de seguridad de recursos compartidos de archivos de Azure. Con esta versión, el filtro *friendlyName* está disponible para el comando **Get-AzRecoveryServicesBackupItem**. 
+> Asegúrese de que PowerShell se actualice a la versión mínima (AZ.RecoveryServices 2.6.0) para las copias de seguridad de recursos compartidos de archivos de Azure. Con esta versión, el filtro *friendlyName* está disponible para el comando **Get-AzRecoveryServicesBackupItem**.
 >
-> Pase el nombre del recurso compartido de archivos de Azure al parámetro *friendlyName*. Si pasa el nombre del recurso compartido de archivos de Azure al parámetro *Name*, esta versión genera la advertencia de pasar este nombre al parámetro *friendlyName*. 
+> Pase el nombre del recurso compartido de archivos de Azure al parámetro *friendlyName*. Si pasa el nombre del recurso compartido de archivos de Azure al parámetro *Name*, esta versión genera la advertencia de pasar este nombre al parámetro *friendlyName*.
 >
 > Si no instala esta versión mínima pueden producirse errores en los scripts existentes. Instale la versión mínima de PowerShell mediante el siguiente comando:
 >
@@ -295,5 +288,5 @@ Las instantáneas del recurso compartido de archivos de Azure se usan mientras s
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre cómo [realizar copias de seguridad de archivos de Azure Files en Azure Portal](backup-afs.md).
-- Consulte el [script de ejemplo en GitHub](https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) para usar un runbook de Azure Automation para programar copias de seguridad.
+* Obtenga información sobre cómo [realizar copias de seguridad de archivos de Azure Files en Azure Portal](backup-afs.md).
+* Consulte el [script de ejemplo en GitHub](https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) para usar un runbook de Azure Automation para programar copias de seguridad.

@@ -17,12 +17,12 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: d29689b088759b73465b24d06d4341571b599782
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 6f18c9fe43b0b714e5709b014c051520b3722138
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714056"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855133"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Preguntas frecuentes y problemas conocidos con identidades administradas para recursos de Azure
 
@@ -32,6 +32,24 @@ ms.locfileid: "83714056"
 
 > [!NOTE]
 > Identidades administradas para recursos de Azure es el nombre con el que ahora se conoce al servicio Managed Service Identity (MSI).
+
+
+### <a name="how-can-you-find-resources-that-have-a-managed-identity"></a>¿Cómo se pueden encontrar los recursos que tienen una identidad administrada?
+
+Puede encontrar la lista de recursos con una identidad administrada asignada por el sistema mediante el siguiente comando de la CLI de Azure: 
+
+`az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table`
+
+
+
+
+### <a name="do-managed-identities-have-a-backing-app-object"></a>¿Las identidades administradas tienen un objeto de aplicación de respaldo?
+
+No. Las identidades administradas y los registros de aplicaciones de Azure AD no son lo mismo en el directorio. 
+
+Los registros de aplicaciones tienen dos componentes: Un objeto de aplicación y un objeto de entidad de servicio. Las identidades administradas para los recursos de Azure solo tienen uno de estos componentes: un objeto de entidad de servicio. 
+
+Las identidades administradas no tienen un objeto de aplicación en el directorio, que es lo que se suele usar para conceder permisos de aplicación para MS Graph. En su lugar, los permisos de MS Graph para identidades administradas deben concederse directamente a la entidad de servicio.  
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>¿Funcionan las identidades administradas para recursos de Azure con Azure Cloud Services?
 
@@ -114,6 +132,8 @@ Solución alternativa para identidades administradas en una suscripción que se 
 
  - Para las identidades administradas asignadas por el sistema, tiene que desactivarlas y volver a activarlas. 
  - Para las identidades administradas asignadas por el usuario, tiene que eliminarlas, volver a crearlas y adjuntarlas de nuevo a los recursos necesarios (por ejemplo, máquinas virtuales).
+
+Para más información, consulte [Transferencia de una suscripción de Azure a otro directorio de Azure AD (versión preliminar)](../../role-based-access-control/transfer-subscription.md).
 
 ### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Movimiento de una identidad administrada asignada por el usuario a otro grupo de recursos o suscripción
 

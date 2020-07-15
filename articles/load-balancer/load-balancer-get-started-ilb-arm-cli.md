@@ -1,5 +1,5 @@
 ---
-title: 'Creación de una instancia de Load Balancer básico interno: CLI de Azure'
+title: 'Creación de un equilibrador de carga interno: CLI de Azure'
 titleSuffix: Azure Load Balancer
 description: En este artículo, aprenderá a crear un equilibrador de carga interno mediante la CLI de Azure
 services: load-balancer
@@ -7,18 +7,18 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/27/2018
+ms.date: 07/02/2020
 ms.author: allensu
-ms.openlocfilehash: 51df1936e5d8725b2243e7c0084973370139c540
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2557ac6f3fb8e9091faad5c9c219db529838495d
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79457018"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921725"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Creación de un equilibrador de carga interno para equilibrar la carga de las máquinas virtuales con la CLI de Azure
 
@@ -52,7 +52,7 @@ Cree una red virtual llamada *myVnet* con una subred llamada *mySubnet* en *myRe
     --subnet-name mySubnet
 ```
 
-## <a name="create-basic-load-balancer"></a>Creación de un equilibrador de carga básico
+## <a name="create-standard-load-balancer"></a>Creación de Standard Load Balancer
 
 En esta sección se detalla cómo se pueden crear y configurar los componentes siguientes del equilibrador de carga:
   - La configuración de direcciones IP de front-end que recibe el tráfico de red entrante en el equilibrador de carga.
@@ -62,12 +62,15 @@ En esta sección se detalla cómo se pueden crear y configurar los componentes s
 
 ### <a name="create-the-load-balancer"></a>Creación del equilibrador de carga
 
-Cree un equilibrador de carga básica interno con [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) denominado **myLoadBalancer** que incluya una configuración de direcciones IP de front-end denominada **myFrontEnd**, un grupo de servidores back-end denominado **myBackEndPool** que se asocia a una dirección IP privada **10.0.0.7.
+Cree un equilibrador de carga interno con [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) denominado **myLoadBalancer** que incluya una configuración de direcciones IP de front-end denominada **myFrontEnd**, un grupo de back-end denominado **myBackEndPool** que se asocia a una dirección IP privada **10.0.0.7**. 
+
+Utilice `--sku basic` para crear una instancia de Load Balancer Básico. Microsoft recomienda la SKU estándar para cargas de trabajo de producción.
 
 ```azurecli-interactive
   az network lb create \
     --resource-group myResourceGroupILB \
     --name myLoadBalancer \
+    --sku standard \
     --frontend-ip-name myFrontEnd \
     --private-ip-address 10.0.0.7 \
     --backend-pool-name myBackEndPool \
@@ -85,7 +88,7 @@ Un sondeo de estado comprueba todas las instancias de máquina virtual para aseg
     --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
-    --port 80   
+    --port 80
 ```
 
 ### <a name="create-the-load-balancer-rule"></a>Creación de la regla de equilibrador de carga
@@ -103,6 +106,12 @@ Una regla de equilibrador de carga define la configuración de la dirección IP 
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
     --probe-name myHealthProbe  
+```
+
+También puede crear una regla de equilibrador de carga de los [puertos de alta disponibilidad](load-balancer-ha-ports-overview.md) mediante la configuración siguiente con Standard Load Balancer.
+
+```azurecli-interactive
+az network lb rule create --resource-group myResourceGroupILB --lb-name myLoadBalancer --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name myFrontEnd --backend-address-pool-name myBackEndPool
 ```
 
 ## <a name="create-servers-for-the-backend-address-pool"></a>Creación de servidores para el grupo de direcciones back-end

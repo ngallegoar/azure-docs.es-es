@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/01/2019
-ms.openlocfilehash: 4dd82eea0a80ef81a0f972d1964a62e6c17a80c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/12/2020
+ms.openlocfilehash: 23a486dfe1256cea46f6722873950ffcb1bde084
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417365"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84982703"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory"></a>Copia de datos de Dynamics AX mediante Azure Data Factory
 
@@ -143,6 +143,7 @@ Para copiar datos desde Dynamics AX, establezca el tipo de **origen** en activid
 |:--- |:--- |:--- |
 | type | La propiedad **type** del origen de la actividad de copia debe establecerse en **DynamicsAXSource**. | Sí |
 | Query | Opciones de consulta de OData para filtrar datos. Ejemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Nota**: El conector copia datos de la dirección URL combinada: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Para más información, consulte el artículo sobre [componentes de URL de OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
+| httpRequestTimeout | El tiempo de espera (el valor **TimeSpan**) para que la solicitud HTTP obtenga una respuesta. Este valor es el tiempo de espera para obtener una respuesta, no para leer los datos de la respuesta. Si no se especifica, el valor predeterminado es **00:30:00** (30 minutos). | No |
 
 **Ejemplo**
 

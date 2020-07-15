@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/8/2020
-ms.openlocfilehash: ead7361ba48a9a1b646310d3a47850545fff3ade
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: a7b2e2b14c6358d0dd9a6f8934e88c0fa89c8bd8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195620"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833815"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Información sobre las salidas desde Azure Stream Analytics
 
@@ -111,8 +111,8 @@ En la siguiente tabla se enumeran los nombres de propiedad y su descripción par
 | Formato de fecha | Opcional. Si el token de fecha se usa en la ruta de acceso de prefijo, puede seleccionar el formato de fecha en el que se organizan los archivos. Ejemplo: AAAA/MM/DD |
 | Formato de hora | Opcional. Si el token de hora se usa en la ruta de acceso de prefijo, puede seleccionar el formato de hora en el que se organizan los archivos. Actualmente, el único valor admitido es HH. |
 | Formato de serialización de eventos | Formato de serialización para los datos de salida. JSON, CSV, Avro y Parquet son compatibles. |
-|Número mínimo de filas (solo Parquet)|Número mínimo de filas por lote. En el caso de Parquet, cada lote creará un archivo. El valor predeterminado actual es 2000 filas y el máximo permitido es 10 000 filas.|
-|Tiempo máximo (solo Parquet)|Tiempo de espera máximo por lote. Después de este tiempo, el lote se escribirá en la salida aunque no se cumpla el requisito de filas mínimas. El valor predeterminado actual es 1 minuto y el máximo permitido es 2 horas. Si la salida del blob tiene una frecuencia de patrón de ruta de acceso, el tiempo de espera no puede ser mayor que el intervalo de tiempo de la partición.|
+|Número mínimo de filas |Número mínimo de filas por lote. En el caso de Parquet, cada lote creará un archivo. El valor predeterminado actual es 2000 filas y el máximo permitido es 10 000 filas.|
+|Tiempo máximo |Tiempo de espera máximo por lote. Después de este tiempo, el lote se escribirá en la salida aunque no se cumpla el requisito de filas mínimas. El valor predeterminado actual es 1 minuto y el máximo permitido es 2 horas. Si la salida del blob tiene una frecuencia de patrón de ruta de acceso, el tiempo de espera no puede ser mayor que el intervalo de tiempo de la partición.|
 | Encoding    | Si usa el formato CSV o JSON, debe especificar una codificación. Por el momento, UTF-8 es el único formato de codificación compatible. |
 | Delimitador   | Solo se aplica para la serialización de CSV. Stream Analytics admite un número de delimitadores comunes para la serialización de datos CSV. Los valores admitidos son la coma, punto y coma, espacio, tabulador y barra vertical. |
 | Formato      | Solo se aplica para la serialización de JSON. La opción **Separado por líneas** especifica que en el formato de la salida cada objeto JSON está separado por una línea nueva. Si selecciona **Separado por líneas**, el objeto JSON se lee un objeto a la vez. El contenido total en sí mismo no sería un JSON válido. La opción **Matriz** especifica que el formato de la salida es una matriz de objetos JSON. Esta matriz se cierra cuando el trabajo se detenga o Stream Analytics haya pasado a la siguiente ventana de tiempo. En general, es preferible utilizar JSON separado por líneas, ya que no requiere ningún control especial mientras todavía se esté escribiendo en el archivo de salida. |

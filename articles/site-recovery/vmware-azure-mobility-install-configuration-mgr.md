@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 2/5/2020
 ms.author: ramamill
 ms.openlocfilehash: f24d321e882024d324435498adf11694037547f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77252234"
 ---
 # <a name="automate-mobility-service-installation"></a>Automatización de la instalación del servicio Mobility
@@ -31,7 +31,7 @@ La instalación y actualización automatizadas proporcionan una solución si:
 - Tiene que escalar las instalaciones del agente a muchos servidores de forma simultánea.
 - Quiere programar las instalaciones y las actualizaciones durante las ventanas de mantenimiento planeado.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para automatizar la instalación, necesita los siguientes elementos:
 
@@ -392,7 +392,7 @@ cd /tmp
    - Para evitar los reinicios innecesarios, programe la instalación del paquete durante la ventana de mantenimiento mensual o la ventana de actualizaciones de software.
 
 1. En la página **Puntos de distribución**, configure las opciones y finalice el asistente.
-1. Puede supervisar el progreso de la implementación en la consola de Configuration Manager. Vaya a **Supervisión** > **Implementaciones** >  _\<nombre del paquete\>_ .
+1. Puede supervisar el progreso de la implementación en la consola de Configuration Manager. Vaya a **Supervisión** > **Implementaciones** >  _\<your package name\>_ .
 
 ### <a name="uninstall-the-mobility-service"></a>Desinstalación del servicio Mobility
 

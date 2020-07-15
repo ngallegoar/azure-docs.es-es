@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
-ms.openlocfilehash: 158dd5e1f69340e233a0c2392d3f19fd5cf562ea
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: c30faa31f6f733f80d4bfd5184c09d9fdbd6f389
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845553"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971188"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migre su Base de datos MySQL a Azure Database for MySQL mediante el volcado y la restauración.
 En este artículo se explican dos formas habituales de hacer una copia de seguridad y restaurar bases de datos en Azure Database for MySQL.
@@ -67,7 +67,11 @@ Los parámetros que se proporcionan son los siguientes:
 - [backupfile.sql] El nombre de archivo para la copia de seguridad de la base de datos 
 - [--opt] La opción mysqldump 
 
-Por ejemplo, para hacer una copia de seguridad de una base de datos llamada "testdb" en el servidor MySQL con el nombre de usuario "testuser" y sin contraseña en archivo untestdb_backup.sql, use el siguiente comando. El comando realiza una copia de la base de datos `testdb` en un archivo denominado `testdb_backup.sql`, que contiene todas las instrucciones SQL necesarias para volver a crear la base de datos. 
+Por ejemplo, para hacer una copia de seguridad de una base de datos llamada "testdb" en el servidor MySQL con el nombre de usuario "testuser" y sin contraseña en archivo untestdb_backup.sql, use el siguiente comando. El comando realiza una copia de la base de datos `testdb` en un archivo denominado `testdb_backup.sql`, que contiene todas las instrucciones SQL necesarias para volver a crear la base de datos. Asegúrese de que el nombre de usuario "testuser" tenga al menos el privilegio SELECT para las tablas volcadas, SHOW VIEW para las vistas volcadas, TRIGGER para los desencadenadores volcados y LOCK TABLES si no se usa la opción de una transacción.
+
+```bash
+GRANT SELECT, LOCK TABLES, SHOW VIEW ON *.* TO 'testuser'@'hostname' IDENTIFIED BY 'password';
+```
 
 ```bash
 $ mysqldump -u root -p testdb > testdb_backup.sql
@@ -96,9 +100,10 @@ Agregue la información de conexión a MySQL Workbench.
 Para preparar el servidor de Azure Database for MySQL de destino para cargas de datos más rápidas, es necesario cambiar los siguientes parámetros y configuración del servidor.
 - max_allowed_packet: establézcalo en 1073741824 (es decir, 1 GB) para evitar cualquier problema de desbordamiento debido a filas largas.
 - slow_query_log: establézcalo en OFF para desactivar el registro de consultas lentas. Esto eliminará la sobrecarga causada por un registro de consultas lento durante las cargas de datos.
-- query_store_capture_mode: establezca ambos en ninguno para desactivar el Almacén de consultas. Esto eliminará la sobrecarga causada por las actividades de muestreo en el Almacén de consultas.
+- query_store_capture_mode: establézcalo en NONE para desactivar el Almacén de consultas. Esto eliminará la sobrecarga causada por las actividades de muestreo en el Almacén de consultas.
 - innodb_buffer_pool_size: escale verticalmente el servidor a 32 núcleo virtual de SKU con optimización de memoria desde el plan de tarifa del portal durante la migración para aumentar el innodb_buffer_pool_size. Innodb_buffer_pool_size solo se puede aumentar escalando el proceso para Azure Database for MySQL Server.
-- innodb_write_io_threads & innodb_write_io_threads: cambie a 16 desde los parámetros del servidor en Azure Portal para mejorar la velocidad de la migración.
+- innodb_io_capacity e innodb_io_capacity_max: cambie a 9000 de los parámetros del servidor en Azure Portal para mejorar el uso de la E/S a fin de optimizar la velocidad de la migración.
+- innodb_write_io_threads e innodb_write_io_threads: cambie a 4 desde los parámetros del servidor en Azure Portal para mejorar la velocidad de la migración.
 - Escalar verticalmente la capa de almacenamiento: las IOPs para el servidor de Azure Database for MySQL aumentan progresivamente con el aumento de la capa de almacenamiento. Para agilizar las cargas, puede aumentar la capa de almacenamiento para aumentar la IOPs aprovisionada. Recuerde que el almacenamiento solo se puede escalar verticalmente, no reducir.
 
 Una vez completada la migración, puede revertir los parámetros del servidor y la configuración del nivel de proceso a sus valores anteriores. 

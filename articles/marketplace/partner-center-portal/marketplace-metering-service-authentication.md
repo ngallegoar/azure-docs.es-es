@@ -1,35 +1,33 @@
 ---
 title: Estrategias de autenticación del servicio de medición de Marketplace | Azure Marketplace
 description: Estrategias de autenticación del servicio de medición admitidas en Azure Marketplace.
-author: qianw211
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/13/2020
-ms.openlocfilehash: 4b3a2ed71845b8848c9cb0ac5002e0c69a170410
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/21/2020
+ms.openlocfilehash: e24dcdc2de94fe73f6bb83dcc03bbd1139503784
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83642310"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120762"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Estrategias de autenticación del servicio de medición de Marketplace
 
 El servicio de medición de Marketplace admite dos estrategias de autenticación:
 
-* [Token de seguridad de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)
-* [Identidades administradas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 
+* [Token de seguridad de Azure AD](../../active-directory/develop/access-tokens.md)
+* [Identidades administradas](../../active-directory/managed-identities-azure-resources/overview.md) 
 
 Se explicará cuándo y cómo usar las diferentes estrategias de autenticación para enviar de forma segura medidores personalizados mediante el servicio de medición de Marketplace.
 
 ## <a name="using-the-azure-ad-security-token"></a>Usar el token de seguridad de Azure AD
 
-Los tipos de oferta aplicables son aplicaciones SaaS y de Azure con el tipo de plan de aplicación administrada.  
+Los tipos de oferta aplicables son aplicaciones comercializables SaaS y de Azure con el tipo de plan de aplicación administrada.  
 
-Envíe medidores personalizados usando un identificador de aplicación fijo predefinido para autenticarse.
+Envíe medidores personalizados mediante un identificador de aplicación fijo de Azure AD predefinido para autenticarse.
 
-En el caso de las ofertas de SaaS, Azure AD es la única opción disponible.
+En el caso de las ofertas de SaaS, esta es la única opción disponible. Es un paso obligatorio para publicar cualquier oferta de SaaS tal y como se describe en [Registro de una aplicación SaaS](./pc-saas-registration.md).
 
 En el caso de las aplicaciones de Azure con un plan de aplicación administrado, debe considerar la posibilidad de usar esta estrategia en los casos siguientes:
 
@@ -38,7 +36,7 @@ En el caso de las aplicaciones de Azure con un plan de aplicación administrado,
 
 Una vez que se ha registrado la aplicación, puede solicitar un token de seguridad de Azure AD mediante programación. Se espera que el anunciante use este token y realice una solicitud para resolverlo.
 
-Para más información sobre estos tokens, consulte [Tokens de acceso de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
+Para más información sobre estos tokens, consulte [Tokens de acceso de Azure Active Directory](../../active-directory/develop/access-tokens.md).
 
 ### <a name="get-a-token-based-on-the-azure-ad-app"></a>Obtención de un token basado en la aplicación de Azure AD
 
@@ -68,10 +66,10 @@ Para más información sobre estos tokens, consulte [Tokens de acceso de Azure A
 
 |  **Nombre de propiedad**  |  **Obligatorio**  |  **Descripción**          |
 |  ------------------ |--------------- | ------------------------  |
-|  `Grant_type`       |   True         | Tipo de concesión. El valor predeterminado es `client_credentials`. |
+|  `Grant_type`       |   True         | Tipo de concesión. Mediante `client_credentials`. |
 |  `Client_id`        |   True         | Identificador de cliente o aplicación asociado a la aplicación de Azure AD.|
-|  `client_secret`    |   True         | Contraseña asociada a la aplicación de Azure AD.  |
-|  `Resource`         |   True         | Recurso de destino para el que se solicita el token. El valor predeterminado es `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`.  |
+|  `client_secret`    |   True         | Secreto asociado a la aplicación de Azure AD.  |
+|  `Resource`         |   True         | Recurso de destino para el que se solicita el token. Mediante `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`. |
 | | | |
 
 #### <a name="response"></a>*Respuesta*
@@ -106,17 +104,17 @@ El uso de este enfoque permitirá que la identidad de los recursos implementados
 >[!Note]
 >El anunciante debe asegurarse de que los recursos que emiten el uso están bloqueados, para que no se puedan modificar.
 
-La aplicación administrada puede contener diferentes tipos de recursos, desde Virtual Machines hasta Azure Functions.  Para más información sobre cómo autenticarse con identidades administradas en diferentes servicios, consulte [¿Cómo se usan las identidades administradas para recursos de Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-can-i-use-managed-identities-for-azure-resources).
+La aplicación administrada puede contener diferentes tipos de recursos, desde Virtual Machines hasta Azure Functions.  Para más información sobre cómo autenticarse con identidades administradas en diferentes servicios, consulte [¿Cómo se usan las identidades administradas para recursos de Azure?](../../active-directory/managed-identities-azure-resources/overview.md#how-can-i-use-managed-identities-for-azure-resources).
 
 Por ejemplo, siga los pasos que se indican a continuación para autenticarse con una máquina virtual Windows.
 
 1. Asegúrese de que la identidad administrada está configurada mediante uno de estos métodos:
-    * [Interfaz de usuario de Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
-    * [CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
-    * [PowerShell](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm)
-    * [Plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)
-    * [REST](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm#system-assigned-managed-identity)
-    * [SDK de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm)
+    * [Interfaz de usuario de Azure Portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
+    * [CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+    * [PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+    * [Plantilla de Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+    * [REST](../../active-directory/managed-identities-azure-resources/qs-configure-rest-vm.md#system-assigned-managed-identity)
+    * [SDK de Azure](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 1. Obtenga un token de acceso para el identificador de la aplicación del servicio de medición de Marketplace (`20e940b3-4c77-4b0b-9a53-9e16a1b010a7`) mediante la identidad del sistema, conéctese a la máquina virtual mediante RDP, abra la consola de PowerShell y ejecute el comando siguiente.
 
@@ -145,7 +143,7 @@ Por ejemplo, siga los pasos que se indican a continuación para autenticarse con
 
     ```powershell
     # Get resourceUsageId from the managed app
-    $managedAppUrl = "https://management.azure.com/subscriptions/" + $metadata.compute.subscriptionId + "/resourceGroups/" + $metadata.compute.resourceGroupName + "/providers/Microsoft.Solutions/applications/" + $managedappId + "\?api-version=2019-07-01"
+    $managedAppUrl = "https://management.azure.com" + $managedappId + "\?api-version=2019-07-01"
     $ManagedApp = curl $managedAppUrl -H $Headers | Select-Object -Expand Content | ConvertFrom-Json
     # Use this resource ID to emit usage 
     $resourceUsageId = $ManagedApp.properties.billingDetails.resourceUsageId
@@ -156,3 +154,4 @@ Por ejemplo, siga los pasos que se indican a continuación para autenticarse con
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Creación de una oferta de aplicación de Azure](./create-new-azure-apps-offer.md)
+* [Creación de una oferta de SaaS comercializable](./offer-creation-checklist.md)

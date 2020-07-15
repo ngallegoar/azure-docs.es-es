@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 07/02/2020
 ms.author: memildin
-ms.openlocfilehash: 6e61571400930d4a781d6d67647bd662a7f2d350
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 953881b0c576ad6ce12a4dc44bb0980edd7bcd50
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106226"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970559"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permisos en Azure Security Center
 
@@ -35,21 +35,20 @@ Además de estos roles, hay dos roles específicos de Security Center:
 > [!NOTE]
 > Los roles de seguridad Lector de seguridad y Administrador de seguridad solo tienen acceso a Security Center. Los roles de seguridad descritos no tienen acceso a otras áreas de servicio de Azure, como Storage, Web y móvil o Internet de las cosas.
 >
->
 
 ## <a name="roles-and-allowed-actions"></a>Roles y acciones permitidas
 
 En la siguiente tabla se muestran los roles y las acciones permitidas en Security Center.
 
-| Role | Editar directivas de seguridad | Aplicar recomendaciones de seguridad en un recurso</br> (incluido con "Quick Fix!" [Corrección rápida]) | Descartar alertas y recomendaciones | Ver alertas y recomendaciones |
-|:--- |:---:|:---:|:---:|:---:|
-| Propietario de la suscripción | ✔ | ✔ | ✔ | ✔ |
-| Colaborador de la suscripción | -- | ✔ | ✔ | ✔ |
-| Propietario del grupo de recursos | -- | ✔ | -- | ✔ |
-| Colaborador del grupo de recursos | -- | ✔ | -- | ✔ |
-| Lector | -- | -- | -- | ✔ |
-| Administrador de seguridad | ✔ | -- | ✔ | ✔ |
-| Lector de seguridad | -- | -- | -- | ✔ |
+|Acción|Lector de seguridad / <br> Lector |Administrador de seguridad  |Colaborador del grupo de recursos / <br> Propietario del grupo de recursos  |Colaborador de la suscripción  |Propietario de la suscripción  |
+|:--- |:---:|:---:|:---:|:---:|:---:|
+|Editar directivas de seguridad|-|✔|-|-|✔|
+|Agregar o asignar iniciativas (incluidas las normas de cumplimiento normativo)|-|-|-|-|✔|
+|Cambiar plan de tarifa de suscripción|-|✔|-|-|✔|
+|Habilitar o deshabilitar el aprovisionamiento automático|-|✔|✔|-|✔|
+|Aplicar recomendaciones de seguridad en un recurso</br> (y utilizar la [corrección rápida](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
+|Descartar alertas|-|✔|-|✔|✔|
+|Ver alertas y recomendaciones|✔|✔|✔|✔|✔|
 
 > [!NOTE]
 > Es recomendable que asigne el rol de menos permisos que los usuarios necesiten para realizar sus tareas. Por ejemplo, asigne el rol Lector a los usuarios que solo necesiten ver información sobre el estado de seguridad de los recursos, pero no llevar a cabo acciones como aplicar recomendaciones o editar directivas.

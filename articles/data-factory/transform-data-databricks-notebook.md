@@ -12,10 +12,10 @@ ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: 6d3c9f0df0d834ffe75d0b56e3c80a432c27ea38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81419024"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformación de datos mediante la ejecución de blocs de notas de Databricks
@@ -65,7 +65,7 @@ En la siguiente tabla se describen las propiedades JSON que se usan en la defini
 |linkedServiceName|Nombre del servicio vinculado de Databricks en el que se ejecuta el bloc de notas de Databricks. Para más información sobre este servicio vinculado, consulte el artículo  [Servicios vinculados de proceso](compute-linked-services.md) .|Sí|
 |notebookPath|La ruta de acceso absoluta del cuaderno que se va a ejecutar en el área de trabajo de Databricks. Esta ruta de acceso debe comenzar con una barra diagonal.|Sí|
 |baseParameters|Una matriz de pares de clave y valor. Se pueden utilizar parámetros base para cada ejecución de actividad. Si el cuaderno toma un parámetro que no se ha especificado, se usará el valor predeterminado del cuaderno. Encuentre más información sobre los parámetros en los [cuadernos de Databricks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|No|
-|libraries|Lista de bibliotecas para instalar en el clúster que ejecutará el trabajo. Puede ser una matriz de \<cadena, objeto>.|No|
+|libraries|Lista de bibliotecas para instalar en el clúster que ejecutará el trabajo. Puede ser una matriz de \<string, object>.|No|
 
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliotecas compatibles con las actividades de Databricks

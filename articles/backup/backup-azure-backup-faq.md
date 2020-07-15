@@ -3,12 +3,12 @@ title: Respuestas a preguntas comunes
 description: 'Respuestas a preguntas comunes sobre las características de Azure Backup, incluidos los almacenes de Recovery Services, las copias de seguridad que puede realizar, cómo funciona, el cifrado y los límites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 04921cd617a688ebcf31bcec29cf26681914f44b
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 96733ffaae101bb2cf716fda7500a8269ce8e357
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84247672"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970491"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Preguntas más frecuentes de Azure Backup
 
@@ -22,12 +22,12 @@ Sí. Se pueden crear hasta 500 almacenes de Recovery Services por cada región a
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>¿Hay algún límite en el número de servidores o máquinas que se pueden registrar en cada almacén?
 
-Puede registrar hasta 1000 máquinas virtuales de Azure por almacén. Si usa el agente de Microsoft Azure Backup, puede registrar hasta 50 agentes de MAB por almacén. Así mismo, puede registrar 50 servidores de MABS o DPM en un almacén.
+Puede registrar hasta 1000 máquinas virtuales de Azure por almacén. Si usa el agente de Microsoft Azure Backup, puede registrar hasta 50 agentes de MARS por almacén. Así mismo, puede registrar 50 servidores de MABS o DPM en un almacén.
 
 ### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>¿Cuántos orígenes de datos o elementos se pueden proteger en un almacén?
 
 Puede proteger hasta 2 000 orígenes de datos o elementos entre todas las cargas de trabajo (máquina virtual de IaaS, SQL, AFS, etc.) en un almacén.
-Por ejemplo, si ya ha protegido 500 máquinas virtuales y 400 recursos compartidos de Azure Files en el almacén, no puede proteger más de 1100 bases de datos SQL en él.
+Por ejemplo, si ya ha protegido 500 máquinas virtuales y 400 recursos compartidos de Azure Files en el almacén, no puede proteger más de 1 100 bases de datos SQL en él.
 
 ### <a name="how-many-policies-can-i-create-per-vault"></a>¿Cuántas directivas se pueden crear por almacén?
 
@@ -47,12 +47,16 @@ No. Los datos de copia de seguridad almacenados en un almacén no se pueden move
 
 ### <a name="can-i-change-from-grs-to-lrs-after-a-backup"></a>¿Puedo cambiar de GRS a LRS después de una copia de seguridad?
 
-No. Un almacén de Recovery Services solo puede cambiar las opciones de almacenamiento antes de almacenar ninguna copia de seguridad.
+El tipo de replicación de almacenamiento se establece de forma predeterminada como almacenamiento con redundancia geográfica. Una vez que configure la copia de seguridad, se deshabilitará la opción para modificarla y no se podrá cambiar.
+
+![Tipo de replicación de almacenamiento](./media/backup-azure-backup-faq/storage-replication-type.png)
+
+Si ya ha configurado la copia de seguridad y debe pasar de GRS a LRS, consulte [Procedimiento para cambiar de GRS a LRS después de configurar la copia de seguridad](backup-create-rs-vault.md#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>¿Puedo hacer una restauración a nivel de elemento (ILR) de las máquinas virtuales de las que se realiza una copia de seguridad en un almacén de Recovery Services?
 
 - ILR se admite para máquinas virtuales de Azure copiadas mediante la copia de seguridad de máquina virtual de Azure. Para más información, consulte este [artículo](backup-azure-restore-files-from-vm.md)
-- ILR no se admite para puntos de recuperación en línea de VM locales cuya copia de seguridad se realiza mediante el servidor de Azure Backup o DPM de System Center.
+- ILR no se admite para puntos de recuperación en línea de máquinas virtuales locales cuya copia de seguridad se realice mediante el servidor de Azure Backup o System Center DPM.
 
 ## <a name="azure-backup-agent"></a>Agente de Azure Backup
 
@@ -116,7 +120,7 @@ La tabla siguiente explica cómo se determina el tamaño de cada origen de datos
 **Origen de datos** | **Detalles**
 --- | ---
 Volumen |La cantidad de datos de los que se realiza copia de seguridad de una máquina virtual de un único volumen de la que se realiza la copia de seguridad.
-Base de datos de SQL Server |Tamaño de una sola base de datos SQL de la que se hace copia de seguridad.
+Base de datos de SQL Server |Tamaño de una sola base de datos de la que se hace copia de seguridad.
 SharePoint | Suma de las bases de datos de contenido y configuración de la granja de SharePoint de las que se hace copia de seguridad.
 Exchange |Suma de todas las bases de datos de un servidor de Exchange de las que se hace copia de seguridad.
 Estado del sistema y BMR |Cada copia individual del estado del sistema o BMR del equipo del que se hace copia de seguridad.

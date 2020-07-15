@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: a44703aabc35131cf040892999409173638437a7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6b172a6e15cbb22c3a0a16cb1e238ddfe45048bf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658772"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85130779"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolerancia a errores de la actividad de copia en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -75,10 +75,25 @@ Propiedad | Descripción | Valores permitidos | Obligatorio
 skipErrorFile | Un grupo de propiedades para especificar los tipos de errores que desea omitir durante el movimiento de datos. | | No
 fileMissing | Uno de los pares clave-valor dentro del contenedor de propiedades de skipErrorFile para determinar si desea omitir los archivos que se están eliminando en otras aplicaciones mientras ADF realiza la copia. <br/> -True: desea copiar el resto omitiendo los archivos que eliminan otras aplicaciones. <br/> -False: desea anular la actividad de copia una vez que se eliminan los archivos del almacén de origen en medio del movimiento de datos. <br/>Tenga en cuenta que esta propiedad está establecida en true como valor predeterminado. | True (valor predeterminado) <br/>False | No
 fileForbidden | Uno de los pares clave-valor dentro del contenedor de propiedades de skipErrorFile para determinar si desea omitir los archivos concretos, cuando los ACL de esos archivos o carpetas requieren un nivel de permiso superior al de la conexión configurada en ADF. <br/> -True: desea copiar el resto omitiendo los archivos. <br/> -False: desea anular la actividad de copia una vez que recibe el problema de los permisos en las carpetas o los archivos. | True <br/>False (valor predeterminado) | No
-dataInconsistency | Uno de los pares clave-valor dentro del contenedor de propiedades de skipErrorFile para determinar si desea omitir los datos incoherentes entre el almacén de origen y el de destino. <br/> -True: desea copiar el resto omitiendo los datos incoherentes. <br/> -False: desea anular la actividad de copia una vez que se encuentren datos incoherentes. <br/>Tenga en cuenta que esta propiedad solo es válida cuando se establece validateDataConsistency como true. | True <br/>False (valor predeterminado) | No
+dataInconsistency | Uno de los pares clave-valor dentro del contenedor de propiedades de skipErrorFile para determinar si desea omitir los datos incoherentes entre el almacén de origen y el de destino. <br/> -True: desea copiar el resto omitiendo los datos incoherentes. <br/> - False: desea anular la actividad de copia una vez que se encuentren datos incoherentes. <br/>Tenga en cuenta que esta propiedad solo es válida cuando se establece validateDataConsistency como True. | True <br/>False (valor predeterminado) | No
 logStorageSettings  | Un grupo de propiedades que puede especificarse cuando quiere registrar los nombres de los objetos omitidos. | &nbsp; | No
 linkedServiceName | El servicio vinculado de [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) o [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para almacenar los archivos de registro de sesión. | Nombre de un servicio vinculado de tipo `AzureBlobStorage` o `AzureBlobFS`, que hace referencia a la instancia que usa para almacenar el archivo de registro. | No
 path | Ruta de acceso de los archivos de registro. | Especifique la ruta de acceso que se utiliza para almacenar los archivos de registro. Si no se proporciona una ruta de acceso, el servicio creará un contenedor para usted. | No
+
+> [!NOTE]
+> A continuación se indican los requisitos previos de la habilitación de la tolerancia a errores en la actividad de copia al copiar archivos binarios.
+> Para omitir archivos concretos cuando se eliminan del almacén de origen:
+> - Los conjuntos de datos de origen y de receptor deben tener un formato binario y no se puede especificar el tipo de compresión. 
+> - Los tipos de almacén de datos admitidos son Azure Blob Storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure File Storage, Sistema de archivos, FTP, SFTP, Amazon S3, Google Cloud Storage y HDFS.
+> - Solo si se especifican varios archivos en el conjunto de datos de origen, que puede ser una carpeta, un carácter comodín o una lista de archivos, la actividad de copia puede omitir los archivos de error concretos. Si se especifica un solo archivo en el conjunto de datos de origen que se va a copiar en el destino, en el caso de que se produzca algún error en la actividad de copia, esta no se llevará a cabo.
+>
+> Para omitir archivos concretos cuando su acceso está prohibido desde el almacén de origen:
+> - Los conjuntos de datos de origen y de receptor deben tener un formato binario y no se puede especificar el tipo de compresión. 
+> - Los tipos de almacén de datos admitidos son Azure Blob Storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure File Storage, SFTP, Amazon S3 y HDFS.
+> - Solo si se especifican varios archivos en el conjunto de datos de origen, que puede ser una carpeta, un carácter comodín o una lista de archivos, la actividad de copia puede omitir los archivos de error concretos. Si se especifica un solo archivo en el conjunto de datos de origen que se va a copiar en el destino, en el caso de que se produzca algún error en la actividad de copia, esta no se llevará a cabo.
+>
+> Para omitir archivos concretos cuando se compruebe que no son coherentes entre el almacén de origen y el de destino:
+> - Puede obtener más detalles del documento de coherencia de datos [aquí](https://docs.microsoft.com/azure/data-factory/copy-activity-data-consistency).
 
 ### <a name="monitoring"></a>Supervisión 
 
@@ -112,7 +127,7 @@ Los archivos de registro deben ser archivos CSV. El esquema del archivo de regis
 Columna | Descripción 
 -------- | -----------  
 Timestamp | Marca de tiempo en la que ADF omite el archivo.
-Nivel | Nivel de registro de este elemento. Estará en el nivel de "Advertencia" para el elemento que muestra la omisión del archivo.
+Nivel | Nivel de registro de este elemento. Estará en el nivel "Warning" para el elemento que muestra la omisión del archivo.
 OperationName | Comportamiento operativo de la actividad de copia de ADF en cada archivo. Será "FileSkip" para especificar el archivo que se va a omitir.
 OperationItem | Nombres de archivo que se van a omitir.
 Message | Más información para ilustrar por qué se omite el archivo.

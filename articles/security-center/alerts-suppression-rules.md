@@ -8,14 +8,14 @@ ms.author: memildin
 ms.date: 05/04/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 84b5cd8a59103f60249da861238acb45f8aa2fd5
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 18b1b4cb959603f5898e7c725102f35d7abc90cf
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871695"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849001"
 ---
-# <a name="suppressing-alerts-from-azure-security-centers-threat-protection"></a>Eliminación de alertas de la protección contra amenazas de Azure Security Center
+# <a name="suppress-alerts-from-azure-security-centers-threat-protection"></a>Eliminación de alertas de la protección contra amenazas de Azure Security Center
 
 En esta página se explica cómo puede usar reglas de eliminación de alertas para eliminar falsos positivos u otras alertas de seguridad no deseadas en Azure Security Center.
 
@@ -28,7 +28,7 @@ En esta página se explica cómo puede usar reglas de eliminación de alertas pa
     - ✔ Nubes nacionales o soberanas (US Gov, China Gov y otros gobiernos)
 
 
-## <a name="introduction-to-suppression-rules"></a>Introducción a las reglas de eliminación
+## <a name="what-are-suppression-rules"></a>¿Qué son las reglas de supresión?
 
 Los componentes de la protección contra amenazas de Azure Security Center detectan amenazas en cualquier área del entorno y generan alertas de seguridad.
 
@@ -43,9 +43,9 @@ Las reglas de eliminación definen los criterios que se deben seguir para saber 
 > [!CAUTION]
 > La eliminación de alertas de seguridad reduce la protección contra amenazas de Security Center. Debe comprobar de forma minuciosa el posible efecto de cualquier regla de eliminación y supervisarla a lo largo del tiempo.
 
-[![Página de alertas de seguridad de Azure Security Center con opciones de eliminación de alertas](media/alerts-suppression-rules/alerts-screen-with-options.png)](media/alerts-suppression-rules/alerts-screen-with-options.png#lightbox)
+![Creación de una regla de eliminación de alertas](media\alerts-suppression-rules\create-suppression-rule.gif)
 
-## <a name="creating-a-suppression-rule"></a>Creación de una regla de eliminación
+## <a name="create-a-suppression-rule"></a>Creación de una regla de eliminación
 
 Hay varias maneras de crear reglas para eliminar las alertas de seguridad no deseadas:
 
@@ -89,13 +89,13 @@ Para crear una regla directamente en Azure Portal:
 
 1. Guarde la regla. 
 
-## <a name="editing-suppression-rules"></a>Edición de reglas de eliminación
+## <a name="edit-a-suppression-rules"></a>Edición de reglas de eliminación
 
 Para editar las reglas que ha creado, use la página de reglas de eliminación.
 
 1. En la página de alertas de seguridad de Security Center, seleccione el vínculo de **reglas de eliminación** en la parte superior de la página.
 
-1. Se abre la página de reglas de eliminación y muestra todas las reglas disponibles según las suscripciones seleccionadas actualmente. 
+1. Se abre la página de reglas de supresión con todas las reglas de las suscripciones seleccionadas.
 
     [![Lista de reglas de eliminación](media/alerts-suppression-rules/suppression-rules-page.png)](media/alerts-suppression-rules/suppression-rules-page.png#lightbox)
 
@@ -103,13 +103,13 @@ Para editar las reglas que ha creado, use la página de reglas de eliminación.
 
 1. Realice los cambios necesarios y seleccione **Aplicar**. 
 
-## <a name="deleting-suppression-rules"></a>Eliminación de reglas de eliminación
+## <a name="delete-a-suppression-rule"></a>Supresión de una regla de eliminación
 
 Para eliminar una o varias reglas que haya creado, use la página de reglas de eliminación.
 
 1. En la página de alertas de seguridad de Security Center, seleccione el vínculo de **reglas de eliminación** en la parte superior de la página.
 
-1. Se abre la página de reglas de eliminación y muestra todas las reglas disponibles según las suscripciones seleccionadas actualmente. 
+1. Se abre la página de reglas de supresión con todas las reglas de las suscripciones seleccionadas.
 
 1. Para eliminar una sola regla, abra el menú de puntos suspensivos (...) de la regla y seleccione **Eliminar**.
 
@@ -117,7 +117,7 @@ Para eliminar una o varias reglas que haya creado, use la página de reglas de e
 
     ![Eliminación de una o varias reglas de eliminación](media/alerts-suppression-rules/delete-multiple-alerts.png)
 
-## <a name="viewing-alerts-that-have-been-suppressed"></a>Visualización de las alertas que se han eliminado
+## <a name="view-suppressed-alerts"></a>Visualización de alertas suprimidas
 
 Todavía se generarán alertas que coincidan con las reglas de eliminación habilitadas, pero su estado se establecerá en **descartada**. Puede ver el estado en Azure Portal o en cualquier lugar donde acceda a las alertas de seguridad Security Center. 
 
@@ -131,7 +131,7 @@ Use el filtro de Security Center para ver las alertas descartadas por las reglas
    [![Visualización de las alertas descartadas](media/alerts-suppression-rules/view-dismissed-alerts.png)](media/alerts-suppression-rules/view-dismissed-alerts.png#lightbox)
 
 
-## <a name="using-the-api-to-create-and-manage-suppression-rules"></a>Uso de la API para crear y administrar reglas de eliminación
+## <a name="create-and-manage-suppression-rules-with-the-api"></a>Creación y administración de reglas de eliminación con la API
 
 Puede crear, ver o eliminar reglas de eliminación de alertas a través de la API REST de Security Center. 
 

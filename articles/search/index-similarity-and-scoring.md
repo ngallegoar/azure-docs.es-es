@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 00cf806bf6575fd96af435abf8d0b3dd8734338a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 4c725fe74185088dea55b7506493fe667e71b7ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83679661"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806642"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Similitud y puntuación en Azure Cognitive Search
 
@@ -38,7 +38,7 @@ Un perfil de puntuación es parte de la definición del índice que se compone d
 
 <a name="scoring-statistics"></a>
 
-## <a name="scoring-statistics-and-sticky-sessions-preview"></a>Estadísticas de puntuación y sesiones permanentes (vista previa)
+## <a name="scoring-statistics-and-sticky-sessions"></a>Estadísticas de puntuación y sesiones permanentes
 
 Para ofrecer escalabilidad, Azure Cognitive Search distribuye cada índice horizontalmente a través de un proceso de particionamiento, lo que significa que las partes de un índice están físicamente separadas.
 
@@ -47,14 +47,14 @@ De forma predeterminada, la puntuación de un documento se calcula en función d
 Si prefiere calcular la puntuación en función de las propiedades estadísticas de todas las particiones, para hacerlo puede agregar *scoringStatistics=global* como un [parámetro de consulta](https://docs.microsoft.com/rest/api/searchservice/search-documents) (o agregar *"scoringStatistics": "global"* como un parámetro del cuerpo de la [solicitud de consulta](https://docs.microsoft.com/rest/api/searchservice/search-documents)).
 
 ```http
-GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global&api-version=2019-05-06-Preview&search=[search term]
+GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global&api-version=2020-06-30&search=[search term]
   Content-Type: application/json
   api-key: [admin or query key]  
 ```
 El uso de scoringStatistics garantizará que todas las particiones de la misma réplica proporcionen los mismos resultados. Dicho esto, diferentes réplicas pueden ser ligeramente distintas entre sí, ya que siempre se actualizan con los cambios más recientes en el índice. En algunos casos, puede que desee que los usuarios obtengan resultados más coherentes durante una "sesión de consulta". En esos casos, puede proporcionar un `sessionId` como parte de las consultas. El `sessionId` es una cadena única que se crea para hacer referencia a una sesión de usuario única.
 
 ```http
-GET https://[service name].search.windows.net/indexes/[index name]/docs?sessionId=[string]&api-version=2019-05-06-Preview&search=[search term]
+GET https://[service name].search.windows.net/indexes/[index name]/docs?sessionId=[string]&api-version=2020-06-30&search=[search term]
   Content-Type: application/json
   api-key: [admin or query key]  
 ```
@@ -72,6 +72,37 @@ Por ahora, puede especificar el algoritmo de clasificación de similitud que le 
 El siguiente segmento de vídeo avanza rápidamente para mostrar una explicación de cómo funciona el procesamiento de texto en Azure Cognitive Search. Puede ver el vídeo completo para obtener más información.
 
 > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
+
+<a name="featuresMode-param"></a>
+
+## <a name="featuresmode-parameter-preview"></a>Parámetro featuresMode (versión preliminar)
+
+Las solicitudes para [buscar documentos](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents) tienen un nuevo parámetro [featuresMode](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents#featuresmode) que puede proporcionar detalles adicionales sobre la relevancia en el nivel de campo. Mientras que `@searchScore` se calcula para todo el documento (según corresponda, en el contexto de esta consulta), a través de featuresMode puede obtener información sobre los campos individuales, tal y como se expresa en una estructura de `@search.features`. La estructura contiene todos los campos usados en la consulta (campos específicos mediante **searchFields** en una consulta o todos los campos asignados como que **permite búsquedas** en un índice). Para cada campo, obtiene los valores siguientes:
+
++ Número de tokens únicos encontrados en el campo
++ Puntuación de similitud, o una medida de la similitud del contenido del campo con respecto al término de consulta
++ Frecuencia del término, o el número de veces que el término de la consulta se encontró en el campo
+
+Para una consulta que tiene como destino los campos "descripción" y "título", una respuesta que incluye `@search.features` podría ser similar a la siguiente:
+
+```json
+"value": [
+ {
+    "@search.score": 5.1958685,
+    "@search.features": {
+        "description": {
+            "uniqueTokenMatches": 1.0,
+            "similarityScore": 0.29541412,
+            "termFrequency" : 2
+        },
+        "title": {
+            "uniqueTokenMatches": 3.0,
+            "similarityScore": 1.75451557,
+            "termFrequency" : 6
+        }
+```
+
+Puede utilizar estos puntos de datos en las [soluciones de puntuación personalizadas](https://github.com/Azure-Samples/search-ranking-tutorial) o utilizar la información para depurar los problemas de relevancia de búsqueda.
 
 ## <a name="see-also"></a>Consulte también
 

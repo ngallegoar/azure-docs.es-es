@@ -8,10 +8,10 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 944a84405bd7e03b72b2610278f9f0e4d3cfaf38
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81454244"
 ---
 # <a name="manage-server-administrators"></a>Administración de administradores de servidor
@@ -23,7 +23,7 @@ Al agregar un **grupo de seguridad**, use `obj:groupid@tenantid`.
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Incorporación de administradores de servidor mediante Azure Portal
 
 1. En el portal, en su servidor, haga clic en **Administradores de Analysis Services**.
-2. En **\<nombre de servidor> - Administradores de Analysis Services**, haga clic en **Agregar**.
+2. En **\<servername> - Administradores de Analysis Services**, haga clic en **Agregar**.
 3. En **Agregar administradores de servidor**, seleccione las cuentas de usuario de Azure AD o invite usuarios externos por dirección de correo electrónico.
 
     ![Administradores del servidor en Azure Portal](./media/analysis-services-server-admins/aas-manage-users-admins.png)

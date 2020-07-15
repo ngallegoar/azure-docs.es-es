@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: aa26b0c6e30413366e06673a0890b21434fc842b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: aed1965b07a80efa3cd8dbc84e396b9ef4f99252
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84034396"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84345281"
 ---
 # <a name="in-memory-sample"></a>Ejemplo en memoria
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -47,7 +47,7 @@ Si desea ver una demostración más simple, pero más atractiva visualmente, del
 
 ### <a name="installation-steps"></a>Pasos de instalación
 
-1. En [Azure Portal](https://portal.azure.com/), cree una base de datos de nivel Premium o Crítico para la empresa en un servidor. Establezca el **Origen** en la base de datos de ejemplo de AdventureWorksLT. Para obtener instrucciones detalladas, consulte [Creación de la primera base de datos de Azure SQL](database/single-database-create-quickstart.md).
+1. En [Azure Portal](https://portal.azure.com/), cree una base de datos de nivel Premium o Crítico para la empresa en un servidor. Establezca el **Origen** en la base de datos de ejemplo de AdventureWorksLT. Para obtener instrucciones detalladas, consulte [Creación de la primera base de datos de Azure SQL Database](database/single-database-create-quickstart.md).
 
 2. Conéctese a la base de datos con SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx).
 

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/13/2020
-ms.openlocfilehash: a3884fdfbbc215c305053d8615d690880f4026ea
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 370ac9528b023f01aaff5e5a7ec62785a02bb4bd
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314157"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085351"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Uso de Azure Toolkit for IntelliJ para crear aplicaciones de Apache Spark para un clúster de HDInsight
 
@@ -31,7 +31,7 @@ En este artículo aprenderá a:
 > * Desarrollar aplicaciones de Apache Spark
 > * Enviar una aplicación al clúster de Azure HDInsight
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](apache-spark-jupyter-spark-sql.md).
 
@@ -262,7 +262,7 @@ Puede realizar varias operaciones mediante Azure Toolkit for IntelliJ.  La mayor
 
 ### <a name="access-the-job-view"></a>Acceso a la vista de trabajo
 
-1. En Azure Explorer, vaya a **HDInsight** > \<Su clúster> > **Trabajos**.
+1. En Azure Explorer, vaya a **HDInsight** > \<Your Cluster> > **Trabajos**.
 
     ![Azure Explorer de IntelliJ: nodo de vista de trabajos](./media/apache-spark-intellij-tool-plugin/intellij-job-view-node.png)
 
@@ -450,15 +450,15 @@ Puede convertir las aplicaciones Spark en Scala existentes creadas en IntelliJ I
 
 2. En el nivel raíz, hay un elemento de **module** similar al siguiente texto:
 
-        ```
-        <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
-        ```
+    ```xml
+    <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+    ```
 
    Edite el elemento para agregar `UniqueKey="HDInsightTool"` de forma que el elemento de **module** sea similar al siguiente texto:
 
-        ```
-        <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4" UniqueKey="HDInsightTool">
-        ```
+    ```xml
+    <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4" UniqueKey="HDInsightTool">
+    ```
 
 3. Guarde los cambios. La aplicación ahora debe ser compatible con el kit de herramientas de Azure para IntelliJ. Puede comprobarlo si hace clic con el botón derecho en el nombre de proyecto en Proyecto. El menú emergente ahora debería tener la opción **Submit Spark Application to HDInsight** (Enviar aplicación Spark a HDInsight).
 

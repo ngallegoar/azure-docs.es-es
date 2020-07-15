@@ -4,18 +4,24 @@ description: En este artículo se describe cómo puede crear nuevas cuentas de u
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 4/2/2020
-ms.openlocfilehash: f8c020da72e9cdf8777a3eefac266e97e4a312bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e3616e5f86c9f73eec8fceaca20f149ec1e09b9a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81263478"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118603"
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Creación de usuarios en un servidor de Azure Database for MySQL
 
 En este artículo se describe cómo puede crear usuarios en un servidor de Azure Database for MySQL.
+
+> [!NOTE]
+> Comunicación sin prejuicios
+>
+> Microsoft admite un entorno diverso e inclusivo. En este artículo se incluyen referencias a la palabra _esclavo_. En la [guía de estilo para la comunicación sin prejuicios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) de Microsoft se reconoce que se trata de una palabra excluyente. Se usa en este artículo por coherencia, ya que actualmente es la palabra que aparece en el software. Cuando se actualice el software para quitarla, este artículo se actualizará para que esté alineado.
+>
 
 La primera vez que creó su instancia de Azure Database for MySQL, proporcionó un nombre de usuario y una contraseña de inicio de sesión de administrador del servidor. Para más información, puede seguir la [Guía de inicio rápido](quickstart-create-mysql-server-database-using-azure-portal.md). Puede encontrar su nombre de usuario de inicio de sesión de administrador del servidor en Azure Portal.
 

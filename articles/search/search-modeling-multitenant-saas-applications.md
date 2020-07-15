@@ -8,20 +8,24 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d8e453336005f3389f67e9571fac438bfc340c1b
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 90a9672e3a58a068d1a4488a514a6fd51c272a56
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80549024"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85081113"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Modelos de diseño para aplicaciones SaaS multiinquilino y Azure Cognitive Search
+
 Una aplicación multiinquilino es una que proporciona los mismos servicios y funcionalidades a cualquier número de inquilinos que no pueden ver o compartir los datos de cualquier otro inquilino. En este documento se describen estrategias de aislamiento de inquilinos para aplicaciones miltiinquilino creadas con Azure Cognitive Search.
 
 ## <a name="azure-cognitive-search-concepts"></a>Conceptos de Azure Cognitive Search
-Como solución de búsqueda como servicio, Azure Cognitive Search permite a los desarrolladores agregar completas experiencias de búsqueda a las aplicaciones sin necesidad de administrar ninguna infraestructura ni de convertirse en expertos en recuperación de información. Los datos se cargan en el servicio y luego se almacenan en la nube. Mediante sencillas solicitudes a la API de Azure Cognitive Search, los datos se pueden modificar y buscar. Se puede encontrar información general del servicio en [este artículo](https://aka.ms/whatisazsearch). Antes de analizar los patrones de diseño, es importante comprender algunos conceptos de Azure Cognitive Search.
+Como solución de búsqueda como servicio, [Azure Cognitive Search](search-what-is-azure-search.md) permite a los desarrolladores agregar completas experiencias de búsqueda a las aplicaciones sin necesidad de administrar ninguna infraestructura ni de convertirse en expertos en recuperación de información. Los datos se cargan en el servicio y luego se almacenan en la nube. Mediante sencillas solicitudes a la API de Azure Cognitive Search, los datos se pueden modificar y buscar. 
 
 ### <a name="search-services-indexes-fields-and-documents"></a>Servicios de búsqueda, índices, campos y documentos
+
+Antes de analizar los patrones de diseño, es importante comprender algunos conceptos básicos.
+
 Al utilizar Azure Cognitive Search, el usuario se suscribe a un *servicio de búsqueda*. A medida que se cargan datos en Azure Cognitive Search, se almacenan en un *índice* dentro del servicio de búsqueda. Puede haber varios índices dentro de un único servicio. Para usar los conceptos de bases de datos que ya conocemos, el servicio de búsqueda se puede vincular a una base de datos, mientras que los índices de un servicio se pueden vincular a tablas dentro de una base de datos.
 
 Cada índice dentro de un servicio de búsqueda tiene su propio esquema, que viene definido por in número de *campos*personalizables. Los datos se agregan a un índice de Azure Cognitive Search en forma de *documentos*individuales. Cada documento se debe cargar en un índice determinado y debe encajar en el esquema de ese índice. Al buscar datos mediante Azure Cognitive Search, las consultas de búsqueda de texto completo se emiten contra un índice determinado.  Para comparar estos conceptos con los de una base de datos, se pueden vincular campos a columnas de una tabla y se pueden vincular documentos a filas.
@@ -37,7 +41,7 @@ Agregar y quitar particiones y réplicas permitirá que crezca la capacidad del 
 ### <a name="service-and-index-limits-in-azure-cognitive-search"></a>Límites de servicio e índice en Azure Cognitive Search
 Hay algunos [planes de tarifas](https://azure.microsoft.com/pricing/details/search/) en Azure Cognitive Search, y cada uno de ellos tiene diferentes [límites y cuotas](search-limits-quotas-capacity.md). Algunos de estos límites están en el nivel de servicio, otros en el nivel de índice y otros en el nivel de partición.
 
-|  | Básica | Standard1 | Standard2 | Standard3 | Standard3 HD |
+|  | Básico | Standard1 | Standard2 | Standard3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
 | Número máximo de réplicas por servicio |3 |12 |12 |12 |12 |
 | Número máximo de particiones por servicio |1 |12 |12 |12 |3 |

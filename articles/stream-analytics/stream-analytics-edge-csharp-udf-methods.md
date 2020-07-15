@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: 53ebf8adb99362b5aaf27676bbd50fb8b525f526
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 4f9d117ccc763744411bfe24163ed955532e8e56
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994486"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921861"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Desarrollo de funciones definidas por el usuario de .NET Standard para trabajos de Azure Stream Analytics (versión preliminar)
 
@@ -50,7 +50,7 @@ En el caso de los valores de Azure Stream Analytics que se van a usar en C# , se
 |FLOAT | double |
 |nvarchar(max) | string |
 |datetime | DateTime |
-|Registro | Dictionary\<string, object> |
+|Registro | Diccionario\<string, object> |
 |Array | Object[] |
 
 Lo mismo se aplica cuando es necesario serializar datos de C# a Azure Stream Analytics, lo cual sucede en el valor de salida de una UDF. En la tabla siguiente se muestran los tipos que se admiten:
@@ -64,7 +64,7 @@ Lo mismo se aplica cuando es necesario serializar datos de C# a Azure Stream Ana
 |struct  |  Registro   |
 |object  |  Registro   |
 |Object[]  |  Array   |
-|Dictionary\<string, object>  |  Registro   |
+|Diccionario\<string, object>  |  Registro   |
 
 ## <a name="codebehind"></a>CodeBehind
 Puede escribir funciones definidas por el usuario en el CodeBehind **Script.asql**. Las herramientas de Visual Studio compilarán automáticamente el archivo de código subyacente en un archivo de ensamblado. Los ensamblados se empaquetan como archivos zip y se cargan en su cuenta de almacenamiento al enviar el trabajo en Azure. Puede aprender a escribir un UDF de C# con CodeBehind siguiendo el tutorial de [UDF de C# para los trabajos perimetrales de Stream Analytics](stream-analytics-edge-csharp-udf.md). 
@@ -186,6 +186,10 @@ Actualmente, la versión preliminar de UDF tiene las siguientes limitaciones:
 * El editor de consultas de Azure Portal muestra un error cuando se usan UDF de .NET Standard en el portal. 
 
 * Dado que el código personalizado comparte el contexto con el motor de Azure Stream Analytics, el código personalizado no puede hacer referencia a todo lo que tiene un espacio de nombres o dll_name en conflicto con el código de Azure Stream Analytics. Por ejemplo, no puede hacer referencia a *Newtonsoft Json*.
+
+* Los archivos auxiliares incluidos en el proyecto se copian en el archivo zip del código personalizado del usuario que se usa al publicar el trabajo en la nube. Todos los archivos de las subcarpetas se copian directamente en la raíz de la carpeta de código personalizado del usuario en la nube cuando se descomprimen. El código postal se "acopla" cuando se descomprime.
+
+* El código personalizado del usuario no admite carpetas vacías. No agregue carpetas vacías a los archivos auxiliares del proyecto.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

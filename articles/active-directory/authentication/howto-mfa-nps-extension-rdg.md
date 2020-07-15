@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c61bea7f3ca1105edfec54501c5f0725a5a10225
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 21b8748cf74a5061e9dfa154047f867df4cb5428
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654109"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848763"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integración de la infraestructura de la puerta de enlace de Escritorio remoto utilizando la extensión Servidor de directivas de redes (NPS) y Azure AD
 
@@ -59,7 +59,7 @@ Cuando la extensión NPS para Azure está integrada con el NPS y la puerta de en
 1. El servidor NPS donde está instalada la extensión envía un mensaje de aceptación de acceso de RADIUS para la directiva CAP de RD al servidor de puerta de enlace de Escritorio remoto.
 1. Se concede al usuario acceso al recurso de red solicitado a través de la puerta de enlace de Escritorio remoto.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En esta sección se detallan los requisitos previos necesarios antes de integrar Azure MFA con la puerta de enlace de Escritorio remoto. Antes de comenzar, debe cumplir los siguientes requisitos previos.  
 
@@ -115,24 +115,24 @@ Siga los pasos de [¿Qué significa Azure Multi-Factor Authentication para mí?]
 
 Esta sección proporciona instrucciones para configurar la infraestructura de RDS para usar Azure MFA para la autenticación de cliente con la puerta de enlace de Escritorio remoto.
 
-### <a name="acquire-azure-active-directory-guid-id"></a>Obtener el identificador de GUID de Azure Active Directory
+### <a name="acquire-azure-active-directory-tenant-id"></a>Adquisición del identificador del inquilino de Azure Active Directory
 
-Como parte de la configuración de la extensión NPS, debe proporcionar las credenciales de administrador y el identificador de Azure AD para el inquilino de Azure AD. Los pasos siguientes muestran cómo obtener el identificador del inquilino.
+Como parte de la configuración de la extensión NPS, debe proporcionar las credenciales de administrador y el identificador de Azure AD para el inquilino de Azure AD. Para obtener el identificador de inquilino, complete los pasos siguientes:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global del inquilino de Azure.
 1. En el menú de Azure Portal, seleccione **Azure Active Directory** o busque y seleccione **Azure Active Directory** desde cualquier página.
-1. Seleccione **Propiedades**.
-1. En la hoja Propiedades, junto a la identificación de directorio, haga clic en el icono **Copiar**, tal y como se muestra a continuación, para copiar el identificador en el Portapapeles.
+1. En la página **Información general**, se muestra la *información del inquilino*. Junto al *identificador de inquilino*, seleccione el icono **Copiar**, tal y como se muestra en la siguiente captura de pantalla de ejemplo:
 
-   ![Obtener el identificador de directorio desde Azure Portal](./media/howto-mfa-nps-extension-rdg/azure-active-directory-id-in-azure-portal.png)
+   ![Obtención del identificador de inquilino en Azure Portal](./media/howto-mfa-nps-extension-rdg/azure-active-directory-tenant-id-portal.png)
 
 ### <a name="install-the-nps-extension"></a>Instalación de la extensión de NPS
 
 Instale la extensión NPS en un servidor que tenga instalado el rol Servicios de acceso y directiva de red (NPS). Este actúa como el servidor RADIUS en su diseño.
 
-> [!Important]
-> Asegúrese de no instalar la extensión NPS en el servidor de puerta de enlace de Escritorio remoto.
+> [!IMPORTANT]
+> No instale la extensión NPS en el servidor de puerta de enlace de Escritorio remoto (RDG). El servidor RDG no usa el protocolo RADIUS con su cliente, por lo que la extensión no puede interpretar y realizar la MFA.
 >
+> Cuando el servidor RDG y el servidor NPS con la extensión NPS son servidores diferentes, RDG usa NPS internamente para comunicarse con otros servidores NPS y utiliza RADIUS como protocolo para comunicarse correctamente.
 
 1. Descargue la [extensión NPS](https://aka.ms/npsmfa).
 1. Copie el archivo ejecutable de instalación (NpsExtnForAzureMfaInstaller.exe) en el servidor NPS.
@@ -166,9 +166,9 @@ Para usar el script, indique a la extensión sus credenciales de administrador d
 
    ![Autenticación en Azure AD en PowerShell](./media/howto-mfa-nps-extension-rdg/image5.png)
 
-1. Cuando se le solicite, pegue el identificador de directorio que copió al Portapapeles anteriormente y presione **ENTRAR**.
+1. Cuando se le solicite, pegue el *identificador del inquilino* que copió al Portapapeles anteriormente y presione **ENTRAR**.
 
-   ![Escribir el identificador de directorio en PowerShell](./media/howto-mfa-nps-extension-rdg/image6.png)
+   ![Entrada del identificador de inquilino en PowerShell](./media/howto-mfa-nps-extension-rdg/image6.png)
 
 1. El script crea un certificado autofirmado y realiza otros cambios en la configuración. La salida será similar a la imagen que se muestra a continuación.
 

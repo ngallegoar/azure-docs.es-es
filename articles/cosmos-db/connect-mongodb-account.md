@@ -5,15 +5,15 @@ author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: cba16d79b6506f9809a76f0128938a68afd15c92
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 0a25301bac125cd95b975a5ba1fc0cce47b56abd
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80617053"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954101"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Conectar una aplicación de MongoDB a Azure Cosmos DB
 
@@ -24,7 +24,7 @@ En este tutorial se proporcionan dos maneras de recuperar información de la cad
 - [El método de inicio rápido](#get-the-mongodb-connection-string-by-using-the-quick-start), para su uso con controladores de .NET, Node.js, MongoDB Shell, Java y Python.
 - [El método de la cadena de conexión personalizada](#get-the-mongodb-connection-string-to-customize), para su uso con otros controladores.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure. Si no tiene una cuenta de Azure, cree ahora una [cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 - Una cuenta de Cosmos. Para obtener instrucciones, consulte [Compilación de una aplicación web con la API de Azure Cosmos DB para MongoDB y .NET SDK](create-mongodb-dotnet.md).
@@ -37,7 +37,7 @@ En este tutorial se proporcionan dos maneras de recuperar información de la cad
 4. Elija la plataforma ( **.NET**, **Node.js**, **Shell de MongoDB**, **Java**, **Python**). Si no ve el controlador o la herramienta en la lista, no se preocupe, documentamos constantemente más fragmentos de código de conexión. Comente a continuación lo que le gustaría ver. Para aprender a crear su propia conexión, lea la sección sobre cómo [obtener información de la cadena de conexión de la cuenta](#get-the-mongodb-connection-string-to-customize).
 5. Copie y pegue el fragmento de código en la aplicación MongoDB.
 
-    ![Hoja de inicio rápido](./media/connect-mongodb-account/QuickStartBlade.png)
+    :::image type="content" source="./media/connect-mongodb-account/QuickStartBlade.png" alt-text="Hoja Inicio rápido":::
 
 ## <a name="get-the-mongodb-connection-string-to-customize"></a>Obtención de la cadena de conexión de MongoDB para personalizar
 
@@ -46,18 +46,16 @@ En este tutorial se proporcionan dos maneras de recuperar información de la cad
 3. En el panel izquierdo de la hoja de la cuenta, haga clic en **Cadena de conexión**.
 4. Se abre la hoja **Cadena de conexión**, que contiene toda la información necesaria para conectarse a la cuenta con un controlador para MongoDB, incluida una cadena de conexión precreada.
 
-   [ ![Hoja Cadena de conexión](./media/connect-mongodb-account/ConnectionStringBlade.png) ](./media/connect-mongodb-account/ConnectionStringBlade.png#lightbox)
+   :::image type="content" source="./media/connect-mongodb-account/ConnectionStringBlade.png" alt-text="Hoja Cadena de conexión" lightbox= "./media/connect-mongodb-account/ConnectionStringBlade.png" :::
 
 ## <a name="connection-string-requirements"></a>Requisitos de la cadena de conexión
 
 > [!Important]
-> Azure Cosmos DB tiene estándares y requisitos de seguridad estrictos. Las cuentas de Azure Cosmos DB requieren autenticación y comunicación segura mediante *TLS*. 
->
->
+> Azure Cosmos DB tiene estándares y requisitos de seguridad estrictos. Las cuentas de Azure Cosmos DB requieren autenticación y comunicación segura mediante *TLS*.
 
 Azure Cosmos DB es compatible con el formato URI de la cadena de conexión de MongoDB estándar con un par de requisitos específicos: Las cuentas de Azure Cosmos DB requieren autenticación y comunicación segura mediante TLS. Por tanto, el formato de la cadena de conexión es:
 
-    mongodb://username:password@host:port/[database]?ssl=true
+`mongodb://username:password@host:port/[database]?ssl=true`
 
 Los valores de esta cadena están disponibles en la hoja **Cadena de conexión** mostrada antes:
 
@@ -70,7 +68,7 @@ Los valores de esta cadena están disponibles en la hoja **Cadena de conexión**
 
 Por ejemplo, considere la cuenta que aparece en la hoja **Cadena de conexión**. Una cadena de conexión válida es:
 
-    mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true
+`mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true`
 
 ## <a name="next-steps"></a>Pasos siguientes
 

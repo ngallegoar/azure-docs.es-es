@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 1bb8300f1e54cf03563704cf00549ce9e09a3916
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71df5aa22eb93df6c98eb15f97ab017457946b80
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229836"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85099074"
 ---
 # <a name="azure-data-box-disk-limits"></a>Límites de Azure Data Box Disk
 
@@ -56,6 +56,7 @@ Para conocer la información más reciente sobre los límites del servicio de al
     - Solo puede tener un disco administrado con un nombre determinado en un grupo de recursos en las carpetas que se crearon previamente y en Data Box Disk. Esto implica que los VHD cargados en las carpetas creadas previamente deben tener nombres únicos. Asegúrese de que el nombre indicado no coincida con un disco administrado ya existente en un grupo de recursos. Si los discos duros virtuales tienen los mismos nombres, solo uno se convierte en un disco administrado con ese nombre. Los otros discos duros virtuales se cargan como blobs en páginas en la cuenta de almacenamiento provisional.
     - Copie siempre los VHD en una de las carpetas creadas previamente. Si copia los VHD fuera de estas carpetas o en una carpeta que usted mismo haya creado, se cargarán en la cuenta de Azure Storage como blobs en páginas y no como discos administrados.
     - Solo se pueden cargar VHD fijos para crear discos administrados. No se admiten los discos duros virtuales dinámicos, los de diferenciación ni los archivos VHDX.
+    - Los archivos que no son discos duros virtuales copiados en las carpetas de disco administrado creadas previamente no se convertirán en un disco administrado.
 
 ## <a name="azure-storage-account-size-limits"></a>Límites de tamaño de cuenta de almacenamiento de Azure
 
@@ -74,7 +75,7 @@ Estos son los tamaños de los objetos de Azure que se pueden escribir. Asegúres
 |-------------------|-----------------------------------------------------------|
 | Blob en bloques        | ~4,75 TiB                                                 |
 | Blob en páginas         | 8 TiB <br> Todos los archivos cargados en formato de blob en páginas deben tener 512 bytes alineados; de lo contrario, se produce un error en la carga. <br> VHD y VHDX tienen 512 bytes alineados. |
-|Archivos de Azure        | 1 TiB <br> Máx. tamaño del recurso compartido es de 5 TiB     |
+|Azure Files        | 1 TiB <br> Máx. tamaño del recurso compartido es de 5 TiB     |
 | Discos administrados     |4 TiB <br> Para más información sobre el tamaño y los límites, consulte: <li>[Objetivos de escalabilidad para discos administrados](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
 
 

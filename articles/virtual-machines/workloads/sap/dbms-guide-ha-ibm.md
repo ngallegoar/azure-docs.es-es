@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 03/06/2020
 ms.author: juergent
 ms.openlocfilehash: a9041b373c215ac226764b737ee3bf35b008e5db
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82978389"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Alta disponibilidad de IBM Db2 LUW en máquinas virtuales de Azure en SUSE Linux Enterprise Server con Pacemaker
@@ -314,8 +314,8 @@ Los siguientes elementos tienen los siguiente prefijos:
 - **[2]** : Aplicable solo al nodo 2
 
 **[A]**  Requisitos previos para la configuración de Pacemaker:
-1. Apague ambos servidores de base de datos con user db2\<sid> con db2stop.
-1. Cambie el entorno de shell para db2\<sid> user to */bin/ksh*. Recomendamos que use la herramienta de Yast. 
+1. Apague ambos servidores de bases de datos con el usuario db2\<sid> con db2stop.
+1. Cambie el entorno de shell del usuario db2\<sid> por */bin/ksh*. Recomendamos que use la herramienta de Yast. 
 
 
 ### <a name="pacemaker-configuration"></a>Configuración de pacemaker
@@ -541,7 +541,7 @@ El estado original en un sistema SAP se documenta en Transaction DBACOCKPIT > Co
 > Antes de iniciar la prueba, asegúrese de lo siguiente:
 > * Pacemaker no tiene acciones con error (crm status).
 > * No hay limitaciones de ubicación (restos de la prueba de migración).
-> * La sincronización de HADR de IBM Db2 funciona. Comprobar con user db2\<sid>. <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> * La sincronización de HADR de IBM Db2 funciona. Comprobación con el usuario db2\<sid> <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 Migre el nodo que ejecuta la base de datos principal de Db2. Para ello, ejecute el comando siguiente:
@@ -750,7 +750,7 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb01
      Masters: [ azibmdb01 ]
      Slaves: [ azibmdb02 ]</code></pre>
 
-Como user db2\<sid>, ejecute el comando db2stop force:
+Como usuario db2\<sid>, ejecute el comando db2stop force:
 <pre><code>azibmdb01:~ # su - db2ptr
 azibmdb01:db2ptr> db2stop force</code></pre>
 

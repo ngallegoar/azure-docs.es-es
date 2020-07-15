@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
 ms.openlocfilehash: b27fe2abc50396b527e61487acf9797db59c1cce
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82627592"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Migración de trabajos de Agente SQL Server a ADF con SSMS
@@ -33,13 +33,13 @@ En general, para los trabajos del Agente SQL seleccionados con los tipos de paso
 
 |Objeto de trabajo del Agente SQL  |Recurso de ADF  |Notas|
 |---------|---------|---------|
-|Trabajo del Agente SQL|pipeline     |El nombre de la canalización se *generará para \<nombre de trabajo>* . <br> <br> Los trabajos del agente integrados no son aplicables: <li> Trabajo de mantenimiento del servidor de SSIS <li> syspolicy_purge_history <li> collection_set_* <li> mdw_purge_data_* <li> sysutility_*|
-|Paso de trabajo de SSIS|Ejecución de una actividad del paquete de SSIS|<li> El nombre de la actividad será \<nombre del paso>. <li> La cuenta de proxy usada en el paso de trabajo se migrará como autenticación de Windows de esta actividad. <li> Las *opciones de ejecución* excepto *Use 32-bit runtime* (Usar entono de ejecución de 32 bits) definidas en el paso de trabajo se omitirán en la migración. <li> La *comprobación* definida en el paso de trabajo se omitirá en la migración.|
-|schedule      |Programación de un desencadenador        |El nombre del desencadenador de programación se *generará para \<nombre de programación>* . <br> <br> Las siguientes opciones de programación de trabajos del Agente SQL se omitirán en la migración: <li> Intervalo de segundo nivel. <li> *Iniciar automáticamente al iniciar el Agente SQL Server.* <li> *Iniciar al quedar inactivas las CPU* <li> *día laborable* y *fin de semana* <time zone> <br> A continuación, se muestran las diferencias después de migrar la programación de trabajos del Agente SQL al desencadenador de programación de ADF: <li> La ejecución posterior del desencadenador de programación de ADF es independiente del estado de la ejecución desencadenada previa. <li> La configuración de periodicidad del desencadenador de programación de ADF difiere de la frecuencia diaria del trabajo del Agente SQL.|
+|Trabajo del Agente SQL|pipeline     |El nombre de la canalización se *generará para \<job name>* . <br> <br> Los trabajos del agente integrados no son aplicables: <li> Trabajo de mantenimiento del servidor de SSIS <li> syspolicy_purge_history <li> collection_set_* <li> mdw_purge_data_* <li> sysutility_*|
+|Paso de trabajo de SSIS|Ejecución de una actividad del paquete de SSIS|<li> El nombre de la actividad será \<step name>. <li> La cuenta de proxy usada en el paso de trabajo se migrará como autenticación de Windows de esta actividad. <li> Las *opciones de ejecución* excepto *Use 32-bit runtime* (Usar entono de ejecución de 32 bits) definidas en el paso de trabajo se omitirán en la migración. <li> La *comprobación* definida en el paso de trabajo se omitirá en la migración.|
+|schedule      |Programación de un desencadenador        |El nombre del desencadenador de programación se *generará para \<schedule name>* . <br> <br> Las siguientes opciones de programación de trabajos del Agente SQL se omitirán en la migración: <li> Intervalo de segundo nivel. <li> *Iniciar automáticamente al iniciar el Agente SQL Server.* <li> *Iniciar al quedar inactivas las CPU* <li> *día laborable* y *fin de semana* <time zone> <br> A continuación, se muestran las diferencias después de migrar la programación de trabajos del Agente SQL al desencadenador de programación de ADF: <li> La ejecución posterior del desencadenador de programación de ADF es independiente del estado de la ejecución desencadenada previa. <li> La configuración de periodicidad del desencadenador de programación de ADF difiere de la frecuencia diaria del trabajo del Agente SQL.|
 
 - generar plantillas de Azure Resource Manager (ARM) en la carpeta de salida local e implementarla directamente en la factoría de datos o más tarde manualmente. Para más información sobre las plantillas de Azure Resource Manager, consulte [Tipos de recursos de Microsoft.DataFactory](https://docs.microsoft.com/azure/templates/microsoft.datafactory/allversions).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 La característica descrita en este artículo requiere SQL Server Management Studio, versión 18.5 o posterior. Para obtener la versión más reciente de SSMS, vea [Download SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) [Descargar SQL Server Management Studio (SSMS)].
 

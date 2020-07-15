@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/22/2019
-ms.openlocfilehash: 171f897f6e110e8f759281c139addab477ecede3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/06/2020
+ms.openlocfilehash: fe8d2a2c083072ebc717b7476bb0738bb83301f1
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77664701"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984631"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Solución de supervisión de contenedores en Azure Monitor
 
@@ -618,7 +618,6 @@ Cuando está solucionando un error específico, puede resultar de ayuda ver dón
 - **KubeEvents_CL** use este tipo para ver los eventos de Kubernetes.
 - **KubePodInventory_CL** use este tipo cuando desee conocer la información de la jerarquía del clúster.
 
-
 ### <a name="to-query-logs-for-container-data"></a>Para consultar registros de datos de contenedor
 
 * Elija una imagen que sabe que ha tenido errores recientemente y busque los registros de errores de ella. Para empezar, busque un nombre de contenedor que esté ejecutando esa imagen con una búsqueda **ContainerInventory**. Por ejemplo, busque `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`.  
@@ -628,7 +627,7 @@ Cuando está solucionando un error específico, puede resultar de ayuda ver dón
 
 ## <a name="example-log-queries"></a>Consultas de registro de ejemplo
 
-Suele resultar útil crear consultas a partir de un ejemplo o dos y modificarlas para adaptarlas a su entorno. Para empezar, puede experimentar con el área **Consultas de ejemplo** para ayudarle a crear consultas más avanzadas.
+Suele resultar útil crear consultas a partir de un ejemplo o dos y modificarlas para adaptarlas a su entorno. Para empezar, puede experimentar con el área **Consultas de ejemplo** situada en el extremo derecho de la página de la solución para ayudarle a crear consultas más avanzadas.
 
 ![Consultas de contenedores](./media/containers/containers-queries.png)
 

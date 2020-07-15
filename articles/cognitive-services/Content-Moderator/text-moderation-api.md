@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 31bd6a2680d8c71df6b6030187ff44ca10d09440
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: fa292f0441369ed13f3f85035a2ec8cc3f5c6723
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561040"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800098"
 ---
 # <a name="learn-text-moderation-concepts"></a>Información sobre los conceptos de moderación de texto
 
@@ -36,13 +36,15 @@ La respuesta del servicio incluye la siguiente información:
 
 Si la API detecta un término soez en cualquiera de los [idiomas admitidos](Text-Moderation-API-Languages.md), estos términos se incluyen en la respuesta. La respuesta contiene también su ubicación (`Index`) en el texto original. El `ListId` en el siguiente ejemplo de JSON hace referencia a los términos encontrados en las [listas de términos personalizadas](try-terms-list-api.md), si hubiera alguna.
 
-    "Terms": [
+```json
+"Terms": [
     {
         "Index": 118,
         "OriginalIndex": 118,
         "ListId": 0,
         "Term": "crap"
     }
+```
 
 > [!NOTE]
 > Para el parámetro **language** (idioma), asigne `eng` o déjelo en blanco para ver la respuesta **classification** (clasificación) asistida por máquina. **Esta característica solo admite inglés**.
@@ -55,18 +57,20 @@ La **característica de clasificación de texto** asistida por máquina de Conte
 
 El siguiente extracto de JSON muestra una salida de ejemplo:
 
-    "Classification": {
-        "ReviewRecommended": true,
-        "Category1": {
-              "Score": 1.5113095059859916E-06
-            },
-        "Category2": {
-              "Score": 0.12747249007225037
-            },
-        "Category3": {
-              "Score": 0.98799997568130493
-        }
+```json
+"Classification": {
+    "ReviewRecommended": true,
+    "Category1": {
+        "Score": 1.5113095059859916E-06
+    },
+    "Category2": {
+        "Score": 0.12747249007225037
+    },
+    "Category3": {
+        "Score": 0.98799997568130493
     }
+}
+```
 
 ### <a name="explanation"></a>Explicación
 
@@ -127,11 +131,11 @@ El siguiente es un ejemplo de respuesta:
 
 Imagine que el texto de entrada es el siguiente ("lzay" y "f0x" se han escrito así a propósito):
 
-    The qu!ck brown f0x jumps over the lzay dog.
+> The qu!ck brown f0x jumps over the lzay dog.
 
 Si solicita corrección automática, la respuesta contiene la versión corregida del texto:
 
-    The quick brown fox jumps over the lazy dog.
+> The quick brown fox jumps over the lazy dog.
 
 ## <a name="creating-and-managing-your-custom-lists-of-terms"></a>Creación y administración de las listas personalizadas de términos
 
@@ -143,13 +147,15 @@ Si bien la lista global y predeterminada de términos funciona muy bien para la 
 
 En el ejemplo siguiente se muestra el identificador de la lista de coincidencias:
 
-    "Terms": [
+```json
+"Terms": [
     {
         "Index": 118,
         "OriginalIndex": 118,
         "ListId": 231.
         "Term": "crap"
     }
+```
 
 Content Moderator proporciona una [API de lista de términos](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) con operaciones para administrar listas de términos personalizadas. Comience con la [consola de API de listas de términos](try-terms-list-api.md) y use los ejemplos de código de la API REST. Consulte también el [inicio rápido de .NET de listas de términos](term-lists-quickstart-dotnet.md) si está familiarizado con C# y Visual Studio.
 

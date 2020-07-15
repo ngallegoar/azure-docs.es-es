@@ -1,20 +1,45 @@
 ---
-title: Administración de datos de Azure Automation
-description: En este artículo se describen conceptos de administración de datos en Azure Automation, incluidas la retención de datos y la copia de seguridad.
+title: Seguridad de datos de Azure Automation
+description: En este artículo aprenderá cómo Azure Automation protege su privacidad y los datos.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 03/23/2020
+ms.date: 06/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: de60ef31a39a698f9a797a5836546f9b75b67594
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 2dbaebac2228c11aef5fb33af4588f75ea15677a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835213"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343061"
 ---
 # <a name="management-of-azure-automation-data"></a>Administración de datos de Azure Automation
 
-Este artículo contiene varios temas para administrar datos en un entorno de Azure Automation.
+Este artículo contiene varios temas que explican cómo se protegen y aseguran los datos en un entorno de Azure Automation.
+
+## <a name="tls-12-enforcement-for-azure-automation"></a>Aplicación de TLS 1.2 para Azure Automation
+
+Para garantizar la seguridad de los datos en tránsito hacia Azure Automation, se recomienda encarecidamente configurar el uso de Seguridad de la capa de transporte (TLS) 1.2. A continuación se muestra una lista de métodos o clientes que se comunican a través de HTTPS con el servicio Automation:
+
+* Llamadas de webhook
+
+* Instancias de Hybrid Runbook Worker, que incluyen máquinas administradas por Update Management y Change Tracking e inventario.
+
+* Nodos de DSC
+
+Las versiones anteriores de TLS/Capa de sockets seguros (SSL) han demostrado ser vulnerables y, si bien todavía funcionan para permitir la compatibilidad con versiones anteriores, **no se recomiendan**. A partir de septiembre de 2020, comenzamos a aplicar TLS 1.2 y versiones posteriores del protocolo de cifrado.
+
+No se recomienda establecer explícitamente el agente para que solo use TLS 1.2, a menos que sea absolutamente necesario, ya que esto puede interrumpir las características de seguridad a nivel de la plataforma que le permiten detectar y aprovechar automáticamente las ventajas de los protocolos más seguros más recientes a medida que estén disponibles, como TLS 1.3.
+
+Para obtener información sobre la compatibilidad de TLS 1.2 con el agente de Log Analytics para Windows y Linux, que es una dependencia del rol de Hybrid Runbook Worker, consulte la [introducción del agente de Log Analytics: TLS 1.2](..//azure-monitor/platform/log-analytics-agent.md#tls-12-protocol). 
+
+### <a name="platform-specific-guidance"></a>Guía específica para la plataforma
+
+|Plataforma/lenguaje | Soporte técnico | Más información |
+| --- | --- | --- |
+|Linux | Las distribuciones de Linux tienden a basarse en [OpenSSL](https://www.openssl.org) para la compatibilidad con TLS 1.2.  | Compruebe el [registro de cambios de OpenSSL](https://www.openssl.org/news/changelog.html) para confirmar si su versión de OpenSSL es compatible.|
+| Windows 8.0 a 10 | Compatible y habilitado de manera predeterminada. | Para confirmar que aún usa la [configuración predeterminada](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012 a 2016 | Compatible y habilitado de manera predeterminada. | Para confirmar que aún usa la [configuración predeterminada](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 y Windows Server 2008 R2 SP1 | Compatible, pero no habilitado de manera predeterminada. | Consulte la página [Configuración del registro de TLS](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) para obtener más información sobre cómo se habilita.  |
 
 ## <a name="data-retention"></a>Retención de datos
 
@@ -53,16 +78,16 @@ No se pueden exportar recursos de Azure Automation: certificados, conexiones, cr
 
 No es posible recuperar el valor de variables cifradas o del campo de contraseña de las credenciales mediante cmdlets. Si no conoce estos valores, puede recuperarlos en un runbook. Para recuperar valores de variables, consulte [Recursos de variables en Azure Automation](shared-resources/variables.md). Para más información sobre cómo recuperar valores de credenciales, consulte [Recursos de credenciales en Azure Automation](shared-resources/credentials.md).
 
- ### <a name="dsc-configurations"></a>Configuraciones DSC
+### <a name="dsc-configurations"></a>Configuraciones DSC
 
 Puede exportar las configuraciones de DSC a archivos de script con Azure Portal o con el cmdlet [Export-AzAutomationDscConfiguration](https://docs.microsoft.com/powershell/module/az.automation/export-azautomationdscconfiguration?view=azps-3.7.0
 ) en Windows PowerShell. Puede importar y usar estas configuraciones en otra cuenta de Automation.
 
 ## <a name="geo-replication-in-azure-automation"></a>Replicación geográfica en Azure Automation
 
-La replicación geográfica es estándar en cuentas de Azure Automation. Puede elegir una región primaria al configurar su cuenta. El servicio de replicación geográfica interna de Automation asigna automáticamente una región secundaria a la cuenta. Después, el servicio realiza una copia de seguridad continua de los datos de la cuenta de la región primaria en la región secundaria. Puede encontrar la lista completa de las regiones primarias y secundarias en [Continuidad empresarial y recuperación ante desastres (BCDR): Regiones emparejadas de Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
+La replicación geográfica es estándar en cuentas de Azure Automation. Puede elegir una región primaria al configurar su cuenta. El servicio de replicación geográfica interna de Automation asigna automáticamente una región secundaria a la cuenta. Después, el servicio realiza una copia de seguridad continua de los datos de la cuenta de la región primaria en la región secundaria. Puede encontrar la lista completa de las regiones primarias y secundarias en [Continuidad empresarial y recuperación ante desastres (BCDR): Regiones emparejadas de Azure](../best-practices-availability-paired-regions.md).
 
-La copia de seguridad creada por el servicio de replicación geográfica de Automation es una copia completa de los recursos de Automation, las configuraciones, etc. Esta copia de seguridad se puede usar si la región primaria deja de funcionar y pierde datos. En el improbable caso de que se pierdan datos de una región primaria, Microsoft intenta recuperarlos. Si la empresa no puede recuperar los datos principales, utiliza la conmutación automática por error y le informa de la situación a través de su suscripción de Azure. 
+La copia de seguridad creada por el servicio de replicación geográfica de Automation es una copia completa de los recursos de Automation, las configuraciones, etc. Esta copia de seguridad se puede usar si la región primaria deja de funcionar y pierde datos. En el improbable caso de que se pierdan datos de una región primaria, Microsoft intenta recuperarlos. Si la empresa no puede recuperar los datos principales, utiliza la conmutación automática por error y le informa de la situación a través de su suscripción de Azure.
 
 El servicio de replicación geográfica de Automation no es accesible directamente para los clientes externos si se produce un error regional. Si desea mantener la configuración de Automation y los runbooks durante errores regionales:
 
@@ -77,4 +102,5 @@ El servicio de replicación geográfica de Automation no es accesible directamen
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información acerca de los recursos seguros de Azure Automation, consulte [Cifrado de recursos protegidos en Azure Automation](automation-secure-asset-encryption.md).
-* Para más información sobre la replicación geográfica, consulte [Creación y uso de la replicación geográfica activa](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication).
+
+* Para más información sobre la replicación geográfica, consulte [Creación y uso de la replicación geográfica activa](../sql-database/sql-database-active-geo-replication.md).

@@ -5,16 +5,16 @@ services: storage
 author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 580f8652fcfa4e9ff21abc00f6da36caf12dda51
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 67aa9fcb51742432dcd629073f15a65d14bf3597
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193471"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961207"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Uso de PowerShell para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2
 
@@ -22,7 +22,7 @@ En este artículo se explica cómo usar PowerShell para crear y administrar dire
 
 [Asignación de Gen1 a Gen2](#gen1-gen2-map) | [Envíenos sus comentarios](https://github.com/Azure/azure-powershell/issues)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 > [!div class="checklist"]
 > * Suscripción a Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
@@ -83,13 +83,13 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-file-system"></a>Creación de un sistema de archivos
 
-Un sistema de archivos actúa como contenedor de los archivos. Puede crear uno con el cmdlet `New-AzDatalakeGen2FileSystem`. 
+Un sistema de archivos actúa como contenedor de los archivos. Puede crear uno con el cmdlet `New-AzStorageContainer`. 
 
 En este ejemplo se crea un sistema de archivos llamado `my-file-system`.
 
 ```powershell
 $filesystemName = "my-file-system"
-New-AzDatalakeGen2FileSystem -Context $ctx -Name $filesystemName
+New-AzStorageContainer -Context $ctx -Name $filesystemName
 ```
 
 ## <a name="create-a-directory"></a>Creación de un directorio
@@ -261,7 +261,7 @@ Puede usar el parámetro `-Force` para quitar el archivo sin preguntar.
 
 ## <a name="manage-access-permissions"></a>Administración de permisos de acceso
 
-Puede obtener, establecer y actualizar los permisos de acceso de los sistemas de archivos, directorios y archivos. Estos permisos se capturan en las listas de control de acceso (ACL).
+Puede obtener, establecer y actualizar los permisos de acceso de los directorios y archivos. Estos permisos se capturan en las listas de control de acceso (ACL).
 
 > [!NOTE]
 > Si usa Azure Active Directory (Azure AD) para autorizar comandos, asegúrese de que la entidad de seguridad tiene asignado el [rol Propietario de datos de blobs de almacenamiento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Para más información sobre cómo se aplican los permisos de ACL y las consecuencias de cambiarlos, vea [Control de acceso en Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
@@ -270,7 +270,7 @@ Puede obtener, establecer y actualizar los permisos de acceso de los sistemas de
 
 Obtenga la ACL de un directorio o de un archivo con el cmdlet `Get-AzDataLakeGen2Item`.
 
-En este ejemplo se obtiene la ACL de un **sistema de archivos** y luego se imprime la ACL en la consola.
+En este ejemplo se obtiene la ACL del directorio raíz de un **sistema de archivos** y luego se imprime la ACL en la consola.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -305,7 +305,7 @@ En este ejemplo, el usuario propietario tiene permisos de lectura, escritura y e
 
 Use el cmdlet `set-AzDataLakeGen2ItemAclObject` para crear una ACL para el usuario propietario, el grupo propietario u otros usuarios. Luego, use el cmdlet `Update-AzDataLakeGen2Item` para confirmar la ACL.
 
-En este ejemplo se establece la ACL en un **sistema de archivos** del usuario propietario, el grupo propietario o de otros usuarios, y luego se imprime la ACL en la consola.
+En este ejemplo se establece la ACL en el directorio raíz de un **sistema de archivos** del usuario propietario, el grupo propietario o de otros usuarios, y luego se imprime la ACL en la consola.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -363,7 +363,7 @@ $Token = $Null
 do
 {
      $items = Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse -ContinuationToken $Token    
-     if($items.Length -le 0) { Break;}
+     if($items.Count -le 0) { Break;}
      $items | Update-AzDataLakeGen2Item -Acl $acl
      $Token = $items[$items.Count -1].ContinuationToken;
 }

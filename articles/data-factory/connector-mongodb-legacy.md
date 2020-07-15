@@ -2,7 +2,6 @@
 title: Copia de datos de MongoDB (heredado)
 description: Obtenga información sobre cómo copiar datos desde MongoDB en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
-documentationcenter: ''
 author: linda33wj
 ms.author: jingwang
 manager: shwang
@@ -12,14 +11,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
-ms.openlocfilehash: 803e34a93e8019cfc2577bfaab3ba13c409c6b01
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ce1419c7dbb2cdecfd653995707fd1ece7798557
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418174"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558184"
 ---
-# <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copia de datos desde MongoDB mediante Azure Data Factory de Azure
+# <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Copia de datos desde MongoDB mediante Azure Data Factory (heredado)
 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-on-premises-mongodb-connector.md)
@@ -40,7 +39,7 @@ En concreto, este conector MongoDB admite las siguientes funcionalidades:
 - **Versiones 2.4, 2.6, 3.0, 3.2, 3.4 y 3.6** de MongoDB.
 - Copiar datos mediante la autenticación **Básica** o **Anónima**.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 

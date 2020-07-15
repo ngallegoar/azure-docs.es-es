@@ -3,27 +3,27 @@ title: Implementar Azure File Sync | Microsoft Docs
 description: Aprenda a implementar Azure File Sync de principio a fin.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4d179697707b8190515e8c0e6dee2defa8881c03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e1ba623a00c84a7b83afe778c808251e49c7008e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137729"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515350"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementación de Azure File Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
 
 Se recomienda encarecidamente leer [Planeamiento de una implementación de Azure Files](storage-files-planning.md) y [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md) antes de seguir los pasos que se describen en este artículo.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 * Un recurso compartido de archivos de Azure en la misma región en la que quiere implementar Azure File Sync. Para más información, consulte:
     - [Disponibilidad en regiones](storage-sync-files-planning.md#azure-file-sync-region-availability) de Azure File Sync.
     - [Creación de un recurso compartido de archivos](storage-how-to-create-file-share.md) para obtener una descripción paso a paso sobre cómo crear un recurso compartido de archivos.
-* Al menos una instancia de Windows Server o un clúster de Windows Server compatible para la sincronización con Azure File Sync. Para obtener más información acerca de las versiones compatibles de Windows Server, consulte [Interoperabilidad con Windows Server](storage-sync-files-planning.md#windows-file-server-considerations).
+* Al menos una instancia de Windows Server o un clúster de Windows Server compatible para la sincronización con Azure File Sync. Para más información sobre las versiones compatibles de Windows Server y los recursos del sistema recomendados, consulte [Consideraciones sobre el servidor de archivos de Windows](storage-sync-files-planning.md#windows-file-server-considerations).
 * El módulo Az PowerShell puede usarse con PowerShell 5.1 o PowerShell 6 +. Aunque puede usar el módulo Az PowerShell para Azure File Sync en cualquier sistema compatible, incluidos los sistemas que no son Windows, el cmdlet de registro de servidor siempre se debe ejecutar en la instancia de Windows Server que se va a registrar (esto se puede hacer directamente o a través de la comunicación remota de PowerShell). En Windows Server 2012 R2, para comprobar que se ejecuta al menos PowerShell 5.1.\* es preciso examinar el valor de la propiedad **PSVersion** del objeto **$PSVersionTable**:
 
     ```powershell

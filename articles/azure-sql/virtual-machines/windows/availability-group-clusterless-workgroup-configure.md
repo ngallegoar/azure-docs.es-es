@@ -1,6 +1,6 @@
 ---
 title: Configuración de un grupo de disponibilidad de grupo de trabajo independiente del dominio
-description: Aprenda a configurar un grupo de disponibilidad Always On de grupo de trabajo independiente del dominio de Active Directory en una máquina virtual de SQL Server en Azure.
+description: Aprenda a configurar un grupo de disponibilidad Always On de grupo de trabajo independiente del dominio de Active Directory en una máquina virtual de SQL Server en Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 36c4a141acf38d83ff925bafaa75c294847a7d74
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 93819332def05022272eabc130e0f2240938f244
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84037236"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955512"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Configuración de un grupo de disponibilidad de grupo de trabajo 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,7 +46,7 @@ Como referencia, se usan los parámetros siguientes en este artículo, pero se p
 | **Nombre del grupo de trabajo** | AGWorkgroup | 
 | &nbsp; | &nbsp; |
 
-## <a name="set-dns-suffix"></a>Definición del sufijo DNS 
+## <a name="set-a-dns-suffix"></a>Definición de un sufijo DNS 
 
 En este paso, configure el sufijo DNS para ambos servidores. Por ejemplo, `ag.wgcluster.example.com`. Esto le permite usar el nombre del objeto al que desea conectarse como una dirección completa dentro de la red, como `AGNode1.ag.wgcluster.example.com`. 
 
@@ -71,7 +71,7 @@ Para configurar el sufijo DNS, siga estos pasos:
 1. Reinicie el servidor cuando se le pida que lo haga. 
 1. Repita estos pasos en todos los demás nodos que se van a usar para el grupo de disponibilidad. 
 
-## <a name="edit-host-file"></a>Editar el archivo host
+## <a name="edit-a-host-file"></a>Edición de un archivo host
 
 Puesto que no hay ninguna instancia de Active Directory, no hay forma de autenticar las conexiones de Windows. Por tanto, para asignar la confianza, edite el archivo host con un editor de texto. 
 
@@ -104,7 +104,7 @@ new-itemproperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\
 
 ## <a name="create-the-failover-cluster"></a>Creación del clúster de conmutación por error
 
-En este paso, creará el clúster de conmutación por error siguiente. Si no está familiarizado con estos pasos, puede seguirlos desde el [tutorial sobre los clústeres de conmutación por error](failover-cluster-instance-storage-spaces-direct-manually-configure.md#step-2-configure-the-windows-server-failover-cluster-with-storage-spaces-direct).
+En este paso, creará el clúster de conmutación por error siguiente. Si no está familiarizado con estos pasos, puede seguirlos desde el [tutorial sobre los clústeres de conmutación por error](failover-cluster-instance-storage-spaces-direct-manually-configure.md).
 
 Diferencias importantes entre el tutorial y lo que se debe hacer para un clúster de grupo de trabajo:
 - Desactive **Almacenamiento** y **Espacios de almacenamiento directo** cuando ejecute la validación del clúster. 
@@ -130,13 +130,13 @@ Una vez creado el clúster, asigne una dirección IP de clúster estática. Para
 
 ## <a name="create-a-cloud-witness"></a>Creación de un testigo en la nube 
 
-En este paso, configure un testigo de recurso compartido en la nube. Si no está familiarizado con los pasos, consulte el [tutorial sobre los clústeres de conmutación por error](failover-cluster-instance-storage-spaces-direct-manually-configure.md#create-a-cloud-witness). 
+En este paso, configure un testigo de recurso compartido en la nube. Si no está familiarizado con los pasos, consulte [Implementación de un testigo en la nube para un clúster de conmutación por error](/windows-server/failover-clustering/deploy-cloud-witness). 
 
-## <a name="enable-availability-group-feature"></a>Habilitación de la característica de grupo de disponibilidad 
+## <a name="enable-the-availability-group-feature"></a>Habilitación de la característica de grupos de disponibilidad 
 
 En este paso, habilitará la característica de grupo de disponibilidad. Si no está familiarizado con los pasos, consulte el [tutorial sobre los grupos de disponibilidad](availability-group-manually-configure-tutorial.md#enable-availability-groups). 
 
-## <a name="create-keys-and-certificate"></a>Generación de claves y certificados
+## <a name="create-keys-and-certificates"></a>Creación de claves y certificados
 
 En este paso, cree los certificados que se usan en un inicio de sesión de SQL en el punto de conexión cifrado. Cree una carpeta en cada nodo para almacenar las copias de seguridad de los certificados, como `c:\certs`. 
 
@@ -277,14 +277,14 @@ GO
 
 Si hay otros nodos en el clúster, repita los mismos pasos en estos con los nombres de certificado y usuario respectivos. 
 
-## <a name="configure-availability-group"></a>Configurar grupo de disponibilidad
+## <a name="configure-an-availability-group"></a>Configuración de un grupo de disponibilidad
 
 En este paso, configure el grupo de disponibilidad y agréguele sus bases de datos. No cree un agente de escucha en este momento. Si no está familiarizado con los pasos, consulte el [tutorial sobre los grupos de disponibilidad](availability-group-manually-configure-tutorial.md#create-the-availability-group). Asegúrese de iniciar una conmutación por error y una conmutación por recuperación para comprobar que todo funciona correctamente. 
 
    > [!NOTE]
    > Si se produce un error durante el proceso de sincronización, puede que tenga que conceder derechos de administrador del sistema `NT AUTHORITY\SYSTEM` para crear recursos de clúster en el primer nodo, como `AGNode1`, temporalmente. 
 
-## <a name="configure-load-balancer"></a>Configuración de un equilibrador de carga
+## <a name="configure-a-load-balancer"></a>Configuración de un equilibrador de carga
 
 En este paso final, configure el equilibrador de carga mediante [Azure Portal](availability-group-load-balancer-portal-configure.md) o [PowerShell](availability-group-listener-powershell-configure.md).
 

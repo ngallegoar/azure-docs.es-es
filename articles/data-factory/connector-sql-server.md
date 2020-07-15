@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/29/2020
-ms.openlocfilehash: c2a3b40f5ac79d11e0a80ba31c3bbc10f4e82276
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.date: 06/28/2020
+ms.openlocfilehash: d39dbc640dc89febc29c7b6c4942da88837c670a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299594"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506608"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Copia de datos con SQL Server como origen o destino mediante Azure Data Factory
 
@@ -40,7 +40,7 @@ Puede copiar datos desde una base de datos de SQL Server en cualquier almacén 
 
 En concreto, este conector SQL Server admite las siguientes funcionalidades:
 
-- SQL Server versión 2016, 2014, 2012, 2008 R2, 2008 y 2005.
+- SQL Server versión 2005 y posteriores.
 - La copia de datos con autenticación de SQL o Windows.
 - Como origen, la recuperación de datos mediante una consulta SQL o un procedimiento almacenado.
 - Como receptor, la creación automática de la tabla de destino si no existe en función del esquema de origen; la anexión de datos a una tabla o la invocación de un procedimiento almacenado con lógica personalizada durante la copia. 
@@ -539,7 +539,7 @@ Más concretamente:
 
 1. Configure un entorno de ejecución de integración autohospedado si no tiene uno. Consulte el artículo sobre [Integration Runtime autohospedado](create-self-hosted-integration-runtime.md) para más información.
 
-2. Descargue el controlador ODBC de 64 bits para SQL Server [aquí](https://docs.microsoft.com/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15) e instálelo en la máquina del entorno de ejecución de integración. Puede encontrar más información sobre cómo funciona este controlador en [Uso de Always Encrypted con el controlador ODBC para SQL Server](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-ver15#using-the-azure-key-vault-provider).
+2. Descargue el controlador ODBC de 64 bits para SQL Server desde [aquí](https://docs.microsoft.com/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15) e instálelo en el equipo del entorno de ejecución de integración. Puede encontrar más información sobre cómo funciona este controlador en [Uso de Always Encrypted con el controlador ODBC para SQL Server](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-ver15#using-the-azure-key-vault-provider).
 
 3. Cree un servicio vinculado con el tipo ODBC para conectarse a la base de datos de SQL. Para usar la autenticación de SQL, especifique la cadena de conexión ODBC como se indica a continuación y seleccione autenticación **Básica** para establecer el nombre de usuario y la contraseña.
 

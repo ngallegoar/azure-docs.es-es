@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: f07efc8fd77f1c34ef96d31f55089726942d05df
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: ca244136178c9c05f2b88a917219035451d5e391
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871224"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848490"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integración de la infraestructura existente de NPS con Azure Multi-Factor Authentication
 
@@ -44,7 +44,7 @@ Puede crear tantos servidores NPS habilitados para Azure MFA como necesite. Si i
 
 Los servidores VPN enrutan las solicitudes de autenticación, por lo que tienen que ser conscientes de los nuevos servidores NPS habilitados para MFA de Azure.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 La extensión de NPS está diseñada para funcionar con la infraestructura existente. Asegúrese de que cumple los siguientes requisitos previos antes de empezar.
 
@@ -65,13 +65,21 @@ Estas bibliotecas se instalan automáticamente con la extensión.
 
 El módulo Microsoft Azure Active Directory para Windows PowerShell se instala, si todavía no está presente, a través de un script de configuración que se ejecuta como parte del proceso de instalación. No es necesario instalar este módulo con antelación si aún no está instalado.
 
+Debe instalar manualmente la siguiente biblioteca:
+
+- [Visual C++ Redistributable para Visual Studio 2015](https://www.microsoft.com/download/details.aspx?id=48145)
+
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
 Todos los usuarios que utilizan la extensión NPS deben estar sincronizados con Azure Active Directory mediante Azure AD Connect y estar registrados en MFA.
 
-Para instalar la extensión, necesita el identificador de directorio y las credenciales de administrador para el inquilino de Azure AD. Puede encontrar el identificador de directorio en [Azure Portal](https://portal.azure.com). Inicie sesión como administrador. Busque **Azure Active Directory** y selecciónelo, y después seleccione **Propiedades**. Copie el GUID en el cuadro **Id. de directorio** y guárdelo. Usará este GUID como identificador del inquilino al instalar la extensión NPS.
+Para instalar la extensión, necesita el *identificador de inquilino* y las credenciales de administrador para el inquilino de Azure AD. Para obtener el identificador de inquilino, complete los pasos siguientes:
 
-![Busque el identificador de directorio en las propiedades de Azure Active Directory.](./media/howto-mfa-nps-extension/properties-directory-id.png)
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global del inquilino de Azure.
+1. Busque y seleccione el servicio **Azure Active Directory**.
+1. En la página **Información general**, se muestra la *información del inquilino*. Junto al *identificador de inquilino*, seleccione el icono **Copiar**, tal y como se muestra en la siguiente captura de pantalla de ejemplo:
+
+   ![Obtención del identificador de inquilino en Azure Portal](./media/howto-mfa-nps-extension/azure-active-directory-tenant-id-portal.png)
 
 ### <a name="network-requirements"></a>Requisitos de red
 
@@ -186,14 +194,23 @@ A menos que desee utilizar sus propios certificados (en lugar de los certificado
 1. Ejecute Windows PowerShell como administrador.
 2. Cambie los directorios.
 
-   `cd "C:\Program Files\Microsoft\AzureMfa\Config"`
+   ```powershell
+   cd "C:\Program Files\Microsoft\AzureMfa\Config"
+   ```
 
 3. Ejecute el script de PowerShell creado por el instalador.
 
-   `.\AzureMfaNpsExtnConfigSetup.ps1`
+   > [!IMPORTANT]
+   > En el caso de los clientes que usan Azure Government o las nubes de Azure China 21Vianet, edite primero los cmdlets `Connect-MsolService` en el script *AzureMfaNpsExtnConfigSetup. PS1* para incluir los parámetros *AzureEnvironment* para la nube requerida. Por ejemplo, especifique *-AzureEnvironment USGovernment* o *-AzureEnvironment AzureChinaCloud*.
+   >
+   > Para más información, consulte la [referencia de parámetros de Connect-MsolService](/powershell/module/msonline/connect-msolservice#parameters).
+
+   ```powershell
+   .\AzureMfaNpsExtnConfigSetup.ps1
+   ```
 
 4. Inicie sesión como administrador en Azure AD.
-5. PowerShell le pide el identificador de inquilino. Use el GUID de id. de directorio que ha copiado desde Azure Portal en la sección de requisitos previos.
+5. PowerShell le pide el identificador de inquilino. Use el GUID del *identificador de inquilino* que ha copiado desde Azure Portal en la sección de requisitos previos.
 6. PowerShell muestra un mensaje de operación correcta cuando finaliza el script.  
 
 Repita estos pasos en todos los servidores NPS adicionales que desee configurar para equilibrio de carga.
@@ -201,22 +218,30 @@ Repita estos pasos en todos los servidores NPS adicionales que desee configurar 
 Si ha expirado el certificado de equipo anterior y se ha generado un nuevo certificado, debe eliminar todos los certificados expirados. Tener los certificados expirados puede provocar incidencias con el inicio de la extensión NPS.
 
 > [!NOTE]
-> Si utiliza certificados propios en lugar de generar certificados con el script de PowerShell, asegúrese de que se ajustan a la convención de nomenclatura de NPS. El nombre del firmante debe ser **CN=\<TenantID\>,OU=Microsoft NPS Extension**. 
+> Si utiliza certificados propios en lugar de generar certificados con el script de PowerShell, asegúrese de que se ajustan a la convención de nomenclatura de NPS. El nombre del firmante debe ser **CN=\<TenantID\>,OU=Microsoft NPS Extension**.
 
-### <a name="microsoft-azure-government-additional-steps"></a>Pasos adicionales de Microsoft Azure Government
+### <a name="microsoft-azure-government-or-azure-china-21vianet-additional-steps"></a>Pasos adicionales de Microsoft Azure Government o de Azure China 21Vianet
 
-En el caso de los clientes que usan la nube de Azure Government, se necesitan los siguientes pasos de configuración adicionales en cada servidor NPS.
+En el caso de los clientes que usan las nubes de Azure Government o Azure China 21Vianet, se necesitan los siguientes pasos de configuración adicionales en cada servidor NPS.
 
 > [!IMPORTANT]
-> Configure estos valores del Registro solo si es cliente de Azure Government.
+> Configure estos valores del Registro solo si es cliente de Azure Government o de Azure China 21Vianet.
 
-1. Si es cliente de Azure Government, abra el **Editor del Registro** en el servidor NPS.
-1. Vaya a `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`. Establezca los siguientes valores de clave:
+1. Si es cliente de Azure Government o de Azure China 21Vianet, abra el **Editor del Registro** en el servidor NPS.
+1. Vaya a `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`.
+1. Para clientes de Azure Government, establezca los siguientes valores de clave:
 
     | Clave del Registro       | Value |
     |--------------------|-----------------------------------|
     | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.us   |
     | STS_URL            | https://login.microsoftonline.us/ |
+
+1. En el caso de los clientes de Azure China 21Vianet, establezca los siguientes valores de clave:
+
+    | Clave del Registro       | Value |
+    |--------------------|-----------------------------------|
+    | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.cn   |
+    | STS_URL            | https://login.chinacloudapi.cn/   |
 
 1. Repita los dos pasos anteriores para establecer los valores de clave del Registro para cada servidor NPS.
 1. Reinicie el servicio NPS para cada servidor NPS.
@@ -271,7 +296,7 @@ El siguiente script está disponible para realizar los pasos básicos de comprob
 
 ### <a name="how-do-i-verify-that-the-client-cert-is-installed-as-expected"></a>¿Cómo se puede comprobar que el certificado de cliente está instalado según lo previsto?
 
-Busque el certificado autofirmado creado por el instalador en el almacén de certificados y compruebe que la clave privada tenga permisos concedidos al usuario **NETWORK SERVICE**. El certificado tiene un nombre de asunto **CN \<Id_inquilino\>, OU = Microsoft NPS Extension**
+Busque el certificado autofirmado creado por el instalador en el almacén de certificados y compruebe que la clave privada tenga permisos concedidos al usuario **NETWORK SERVICE**. El certificado tiene el nombre de firmante de **CN \<tenantid\>, OU = Microsoft NPS Extension**.
 
 Los certificados autofirmados generados por el script *AzureMfaNpsExtnConfigSetup.ps1* también tienen una vigencia de validez de dos años. Al comprobar que el certificado está instalado, también debe comprobar que el certificado no ha expirado.
 
@@ -281,7 +306,7 @@ Los certificados autofirmados generados por el script *AzureMfaNpsExtnConfigSetu
 
 Abra el símbolo del sistema de PowerShell y ejecute el comando siguiente:
 
-``` PowerShell
+```powershell
 import-module MSOnline
 Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1
@@ -291,7 +316,7 @@ Estos comandos imprimen todos los certificados que asocian a su inquilino con su
 
 El comando siguiente creará un archivo denominado "npscertificate" en la unidad "C:" con el formato .cer.
 
-``` PowerShell
+```powershell
 import-module MSOnline
 Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertificate.cer

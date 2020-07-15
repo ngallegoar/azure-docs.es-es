@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
 ms.openlocfilehash: 92bb254873669ae7c0894d633f17b5701b7ddc97
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82594736"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Uso de la extensión de script personalizado de Azure versión 2 con máquinas virtuales Linux
@@ -117,7 +117,7 @@ Estos elementos se deben tratar como datos confidenciales y se deben especificar
 | type | CustomScript | string |
 | typeHandlerVersion | 2.1 | int |
 | fileUris (p. ej.) | `https://github.com/MyProject/Archive/MyPythonScript.py` | array |
-| commandToExecute (p. ej.) | python MyPythonScript.py \<mi-parámetro1> | string |
+| commandToExecute (p. ej.) | python MyPythonScript.py \<my-param1> | string |
 | script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix (p. ej.) | false | boolean |
 | timestamp (p. ej.) | 123456789 | Entero de 32 bits |

@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 59409c428aba938c49fc37647db82f30d783a629
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 37e09612491d41887c5945920488569d3620bf0b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730573"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85052023"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Reglas y grupos de reglas de CRS de Firewall de aplicaciones Web
 
@@ -39,6 +39,9 @@ El WAF brinda protección contra las vulnerabilidades web siguientes:
 ### <a name="owasp-crs-31"></a>OWASP CRS 3.1
 
 CRS 3.1 incluye 13 grupos de reglas, tal como se muestra en la tabla siguiente. Cada grupo contiene varias reglas, las que se pueden deshabilitar.
+
+> [!NOTE]
+> CRS 3.1 solo está disponible en la SKU WAF_v2.
 
 |Grupo de reglas|Descripción|
 |---|---|

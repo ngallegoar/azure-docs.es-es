@@ -7,23 +7,23 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 9384b974463c963cc130e7ca0d4a9ee815a92e53
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 596296069686e843d0be1899cce8929417b70bcc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647722"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964590"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entienda la factura de Azure Cosmos DB
 
 Azure Cosmos DB, como servicio de bases de datos nativo de la nube totalmente administrado, simplifica la facturación al cobrar solo el rendimiento aprovisionado y el almacenamiento consumido. No existen tarifas de licencia adicionales, costos de hardware, de utilidades ni de instalaciones en comparación con las alternativas locales u hospedadas en IaaS. Al considerar las funcionalidades de varias regiones de Azure Cosmos DB, el servicio de base de datos proporciona una considerable reducción de costos en comparación con soluciones locales o IaaS.
 
-Con Azure Cosmos DB, se le factura por hora según el rendimiento aprovisionado y el almacenamiento consumido. Para el rendimiento aprovisionado, la unidad de facturación es 100 RU/s por hora, que se cobra a 0,008 USD por hora, suponiendo los precios públicos estándar, consulte la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/). Para el almacenamiento consumido, se le facturan 0,25 USD por 1 GB de almacenamiento al mes, consulte la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/). 
+Con Azure Cosmos DB, se le factura por hora según el rendimiento aprovisionado y el almacenamiento consumido. Para el rendimiento aprovisionado, la unidad de facturación es 100 RU/s por hora; consulte la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/) para obtener la información más reciente sobre los precios. Para el almacenamiento consumido, se le factura por 1 GB de almacenamiento al mes; consulte la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/) para obtener la información más reciente sobre los precios.
 
-En este artículo se usan algunos ejemplos para ayudarle a entender los detalles que ve en la factura mensual. Los números que se muestran en los ejemplos pueden ser diferentes si los contenedores de Azure Cosmos tienen una cantidad diferente de rendimiento aprovisionado, si abarcan varias regiones o se ejecutan para un periodo diferente durante un mes.
+En este artículo se usan algunos ejemplos para ayudarle a entender los detalles que ve en la factura mensual. Los números que se muestran en los ejemplos pueden ser diferentes si los contenedores de Azure Cosmos tienen una cantidad diferente de rendimiento aprovisionado, si abarcan varias regiones o se ejecutan para un periodo diferente durante un mes. En todos los ejemplos de este artículo se calcula la factura según la información de precios que se muestra en la [página de precios.](https://azure.microsoft.com/pricing/details/cosmos-db/)
 
 > [!NOTE]
-> La facturación es para cualquier parte de una hora de reloj, no una duración de 60 minutos.
+> La facturación es para cualquier parte de una hora de reloj, no una duración de 60 minutos. Todos los ejemplos que se muestran en este documento se basan en el precio de una cuenta de Azure Cosmos implementada en una región no gubernamental de Estados Unidos. Los precios y el cálculo varían en función de la región que use; consulte la [página de precios de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para obtener más información.
 
 ## <a name="billing-examples"></a>Ejemplos de facturación
 
@@ -73,7 +73,7 @@ Si aumenta el rendimiento aprovisionado para un contenedor o un conjunto de cont
 
 * En un mes de 720 horas (24 horas * 30 días), si el rendimiento aprovisionado durante 500 horas fue de 1200 RU/s y para las 220 horas restantes fue de 22 200 RU/s, la factura del mes indicaría: 500 x 0,096 USD/hora + 220 x 1,776 USD/hora = 438,72 USD/mes.
 
-![Ejemplo de factura de rendimiento dedicado](./media/understand-your-bill/bill-example1.png)
+:::image type="content" source="./media/understand-your-bill/bill-example1.png" alt-text="Ejemplo de factura de rendimiento dedicado":::
 
 ### <a name="billing-example-containers-with-shared-throughput-mode"></a>Ejemplo de facturación: contenedores con un modo de rendimiento compartido
 
@@ -87,7 +87,7 @@ Si aumenta el rendimiento aprovisionado para un contenedor o un conjunto de cont
 
 * En un mes de 720 horas, si para 300 horas el rendimiento aprovisionado fue de 120 000 RU/s y para las 420 horas restantes el rendimiento aprovisionado fue de 155 000 RU/s, la factura del mes indicaría: 300 x 9,60 USD/hora + 420 x 12,40 USD/hora = 2,880 USD + 5,208 USD/mes = 8,088 USD/mes. 
 
-![Ejemplo de factura de rendimiento compartido](./media/understand-your-bill/bill-example2.png)
+:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Ejemplo de factura de rendimiento compartido":::
 
 ## <a name="billing-examples-with-geo-replication-and-multi-master"></a>Ejemplos de facturación con replicación geográfica y arquitectura multimaestro  
 
@@ -177,7 +177,7 @@ Consideremos el ejemplo siguiente, donde se tiene una cuenta de Azure Cosmos de 
 
 Los cambios en el rendimiento aprovisionado total durante las 720 horas del mes se muestran visualmente en la ilustración siguiente: 
 
-![Ejemplo de la vida real](./media/understand-your-bill/bill-example3.png)
+:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Ejemplo de la vida real":::
 
 La factura mensual total (suponiendo 30 días o 720 horas en un mes) se calculará como sigue:
 
@@ -234,19 +234,18 @@ Este ejemplo refleja los [precios de la arquitectura multimaestro](https://azure
 
 Veamos otro ejemplo, donde quiere calcular la factura antes del final del mes de forma proactiva. Puede calcular la factura como sigue:
 
-|**Costo del almacenamiento** | |
-|----|----|
-|Tamaño de registro promedio (KB) |1 |
-|Número de registros  |100 000 000  |
-|Almacenamiento total (GB)  |100 |
-|Costo mensual por GB  |0,25 USD  |
-|Costo mensual previsto para almacenamiento   |25,00 USD  |
+**Costo del almacenamiento**
 
-<br>
+* Tamaño de registro promedio (KB) = 1 
+* Número de registros = 100 000 000 
+* Almacenamiento total (GB) = 100 
+* Costo mensual por GB = 0,25 $ 
+* Costo mensual previsto para almacenamiento = 25,00 $ 
 
-|**Costo de rendimiento** | | | |
-|----|----|----|----|
+**Costo de rendimiento**
+
 |Tipo de operación| Solicitudes/s| Prom. RU/solicitud| RU necesarias|
+|----|----|----|----|
 |Escritura| 100 | 5 | 500|
 |Lectura| 400| 1| 400|
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: be6c1fdc5deb6d541656c198469822dae0a5f7c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 142fdf27fde100385140baacdeba9249b2e7989b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77465665"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887890"
 ---
 # <a name="enterprise-security-general-information-and-guidelines-in-azure-hdinsight"></a>Directrices generales e información de seguridad de la empresa en Azure HDInsight
 
@@ -159,6 +159,17 @@ Motivos más comunes:
 * Los NSG son demasiado restrictivos, lo cual evita la unión a un dominio.
 * La identidad administrada no tiene permisos suficientes.
 * El nombre del clúster no es único en los seis primeros caracteres (debido a un clúster activo o uno eliminado).
+
+## <a name="authentication-setup-and-configuration"></a>Instalación y configuración de la autenticación
+
+### <a name="user-principal-name-upn"></a>Nombre principal de usuario (UPN)
+
+* Use minúsculas en todos los servicios: los UPN no distinguen mayúsculas de minúsculas en los clústeres ESP.
+* El prefijo UPN debe coincidir con SAMAccountName en Azure AD-DS. No es necesario buscar coincidencias con el campo de correo.
+
+### <a name="ldap-properties-in-ambari-configuration"></a>Propiedades de LDAP en la configuración de Ambari
+
+Para obtener una lista completa de las propiedades de Ambari que afectan a la configuración del clúster de HDInsight, consulte [Configuración de la autenticación LDAP de Ambari](https://ambari.apache.org/1.2.1/installing-hadoop-using-ambari/content/ambari-chap2-4.html).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
