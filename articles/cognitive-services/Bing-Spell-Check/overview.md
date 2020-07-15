@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 5586704e098fc568c714e779c2eed44aa3d1df9c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 205d7991551ca48c3ea2e61baef53f5d06bdcbd2
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75383006"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200487"
 ---
 # <a name="what-is-the-bing-spell-check-api"></a>¿Qué es Bing Spell Check API?
 
@@ -23,8 +23,7 @@ Bing Spell Check API permite realizar la revisión ortográfica y gramatical con
 
 ## <a name="features"></a>Características
 
-
-|  |  |
+| Característica | Descripción |
 |---------|---------|
 |Varios modos de revisión ortográfica     | Gracias a los diversos modos de revisión ortográfica, puede obtener correcciones centradas en la gramática o la ortografía. |
 |Reconocimiento de lenguaje coloquial e informal     | Reconoce las expresiones comunes y los términos informales usados en el texto.         |
@@ -43,6 +42,6 @@ Bing Spell Check API es fácil de llamar desde cualquier lenguaje de programaci�
 
 En primer lugar, pruebe la [demostración interactiva](https://azure.microsoft.com/services/cognitive-services/spell-check/) de Bing Spell Check Search API para ver cómo puede revisar rápidamente una variedad de textos.
 
-Cuando esté listo para llamar a la API, cree una [cuenta de API de Cognitive Services](../../cognitive-services/cognitive-services-apis-create-account.md). Si no tiene una suscripción de Azure, puede [crear una cuenta](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratuita.
+Cuando esté listo para llamar a la API, cree una [cuenta de API de Cognitive Services](../../cognitive-services/cognitive-services-apis-create-account.md). Si no tiene una suscripción de Azure, puede [crear una cuenta](https://azure.microsoft.com/free/cognitive-services/) gratuita.
 
 Puede también visitar la [página central de Bing Search API](../bing-web-search/search-the-web.md) para explorar las otras API disponibles.

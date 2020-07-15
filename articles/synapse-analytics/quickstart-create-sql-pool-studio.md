@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 3/19/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: f93eb55b888c58ad111bd67b2011ba9c996b16bb
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 4aac32ec69a4572a0988a22f1bc3b7bdf3f947d7
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960272"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274278"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-preview-using-synapse-studio"></a>Inicio rápido: Creación de un grupo de Synapse SQL (versión preliminar) mediante Synapse Studio
 
@@ -25,7 +25,7 @@ En este inicio rápido se describen los pasos necesarios para crear un grupo de 
 Si no tiene una suscripción a Azure, [cree una cuenta gratuita antes de empezar](https://azure.microsoft.com/free/).
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 - [Área de trabajo de Synapse](quickstart-create-workspace.md)
