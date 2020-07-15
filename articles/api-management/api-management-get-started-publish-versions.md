@@ -13,16 +13,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: d0c837ac376f9d496baaf1ed67d0ec80c996804a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b683910180e597cb8cbfa642bb2d9ac3200b42ee
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73176819"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255037"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>Publicación de varias versiones de la API 
 
-A veces resulta poco práctico que todos los que llaman a la API usen exactamente la misma versión. Si alguien que llama a una API quiere actualizarla a una versión posterior, querrá hacerlo con un método que sea fácil de comprender. Esto se puede hacer en Azure API Management con las **versiones**. Para más información, consulte [Versions & revisions](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) (Versiones y revisiones).
+A veces resulta poco práctico que todos los que llaman a la API usen exactamente la misma versión. Si alguien que llama a una API quiere actualizarla a una versión posterior, querrá hacerlo con un método que sea fácil de comprender. Esto se puede hacer en Azure API Management con las **versiones**. Para más información, consulte [Versions & revisions](https://azure.microsoft.com/blog/versions-revisions/) (Versiones y revisiones).
 
 En este tutorial, aprenderá a:
 

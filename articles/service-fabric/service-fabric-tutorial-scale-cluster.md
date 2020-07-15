@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a escalar y reducir horizontalmente un
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: ed212083a29836e1da593ec42c31bbf86b907546
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 05fd29f874d59601942216f907010b94bb7c4058
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611652"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257111"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Escalado de un clúster de Service Fabric en Azure
 
@@ -38,7 +38,7 @@ En esta serie de tutoriales, se aprende a:
 Antes de empezar este tutorial:
 
 * Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Instale [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) o la [CLI de Azure](/cli/azure/install-azure-cli).
+* Instale [Azure Powershell](/powershell/azure/install-az-ps) o la [CLI de Azure](/cli/azure/install-azure-cli).
 * Creación de un [clúster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro en Azure
 
 ## <a name="important-considerations-and-guidelines"></a>Consideraciones e instrucciones importantes
@@ -64,7 +64,7 @@ Para más información, consulte la [guía de capacidad del clúster](service-fa
 
 ## <a name="export-the-template-for-the-resource-group"></a>Exportación de la plantilla para el grupo de recursos
 
-Después de crear un [clúster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro y configurar el grupo de recursos correctamente, exporte la plantilla de Resource Manager para el grupo de recursos. La exportación de la plantilla permite automatizar las futuras implementaciones del clúster y sus recursos, ya que la plantilla contiene la infraestructura completa.  Para más información sobre la exportación de plantillas, consulte [Administrar grupos de recursos de Azure Resource Manager mediante Azure Portal](/azure/azure-resource-manager/manage-resource-groups-portal).
+Después de crear un [clúster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro y configurar el grupo de recursos correctamente, exporte la plantilla de Resource Manager para el grupo de recursos. La exportación de la plantilla permite automatizar las futuras implementaciones del clúster y sus recursos, ya que la plantilla contiene la infraestructura completa.  Para más información sobre la exportación de plantillas, consulte [Administrar grupos de recursos de Azure Resource Manager mediante Azure Portal](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
 1. En [Azure Portal](https://portal.azure.com), vaya al grupo de recursos que contiene el clúster (**sfclustertutorialgroup**, si está siguiendo este tutorial). 
 

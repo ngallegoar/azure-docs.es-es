@@ -4,12 +4,12 @@ description: El servicio Azure Container Instances ofrece la forma más rápida 
 ms.topic: overview
 ms.date: 04/25/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c871c09e29b64c4f0dcd107361154efdce306481
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 261e5d0159b4201aab0e8aad1e05fa320cc76a14
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84695291"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259500"
 ---
 # <a name="what-is-azure-container-instances"></a>¿Qué es Azure Container Instances?
 
@@ -43,7 +43,7 @@ Para los trabajos de proceso intensivo, como los de aprendizaje automático, Azu
 
 ## <a name="persistent-storage"></a>Almacenamiento persistente
 
-Para recuperar y conservar el estado con Azure Container Instances, ofrecemos el [montaje directo de los recursos compartidos de Azure Files](container-instances-mounting-azure-files-volume.md) con el respaldo de Azure Storage.
+Para recuperar y conservar el estado con Azure Container Instances, ofrecemos el [montaje directo de los recursos compartidos de Azure Files](./container-instances-volume-azure-files.md) con el respaldo de Azure Storage.
 
 ## <a name="linux-and-windows-containers"></a>Contenedores de Linux y Windows
 

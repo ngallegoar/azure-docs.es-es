@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: de94e40a8d34a62f4233878f8057649c8fb2c0e4
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: e2e511a8c3cd9f474d3cfb71d9ebdee9cfc48826
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126032"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253667"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Inicio rápido: Creación de una aplicación de Spring Boot de Java en Azure Service Fabric
 
@@ -21,14 +21,14 @@ En este inicio rápido, se implementar una aplicación de Spring Boot de Java en
 
 #### <a name="linux"></a>[Linux](#tab/linux)
 
-- [Entorno de Java](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development) y [Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
-- [SDK de Service Fabric e interfaz de la línea de comandos (CLI) de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+- [Entorno de Java](./service-fabric-get-started-linux.md#set-up-java-development) y [Yeoman](./service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables)
+- [SDK de Service Fabric e interfaz de la línea de comandos (CLI) de Service Fabric](./service-fabric-get-started-linux.md#installation-methods)
 - [Git](https://git-scm.com/downloads)
 
 #### <a name="macos"></a>[macOS](#tab/macos)
 
-- [Entorno de Java y Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
-- [SDK de Service Fabric e interfaz de la línea de comandos (CLI) de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli#cli-mac)
+- [Entorno de Java y Yeoman](./service-fabric-get-started-mac.md#create-your-application-on-your-mac-by-using-yeoman)
+- [SDK de Service Fabric e interfaz de la línea de comandos (CLI) de Service Fabric](./service-fabric-cli.md#cli-mac)
 - [Git](https://git-scm.com/downloads)
 
 --- 
@@ -113,7 +113,7 @@ En este punto, ha creado una aplicación de Service Fabric del ejemplo Getting S
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
-    Si utiliza un equipo Mac, inicie el clúster local desde la imagen del Docker (suponiendo que ha seguido los [requisitos previos ](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-a-local-container-and-set-up-service-fabric) para configurar el clúster local para Mac). 
+    Si utiliza un equipo Mac, inicie el clúster local desde la imagen del Docker (suponiendo que ha seguido los [requisitos previos ](./service-fabric-get-started-mac.md#create-a-local-container-and-set-up-service-fabric) para configurar el clúster local para Mac). 
 
     ```bash
     docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 -p 8080:8080 mysfcluster

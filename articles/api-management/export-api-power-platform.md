@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/01/2020
 ms.author: apimpm
-ms.openlocfilehash: 9af20972a47e2d0ad20de62f1bb9d10e4d43563c
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 5814ff3909aa36ccfd9e14033f200fb4d3b8d32d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82702656"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252867"
 ---
 # <a name="export-apis-from-azure-api-management-to-the-power-platform"></a>Exportación de API de Azure API Management a Power Platform 
 
@@ -29,7 +29,7 @@ Este artículo le guía por los pasos para exportar API desde API Management a P
 
 + Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
 + Asegúrese de que haya una API en la instancia de API Management que desea exportar a Power Platform.
-+ Asegúrese de que tiene un [entorno](https://docs.microsoft.com/powerapps/powerapps-overview#power-apps-for-admins) de Power Apps o Power Automate. 
++ Asegúrese de que tiene un [entorno](/powerapps/powerapps-overview#power-apps-for-admins) de Power Apps o Power Automate. 
 
 ## <a name="export-an-api"></a>Exportación de una API
 
@@ -47,4 +47,4 @@ Una vez finalizada la exportación, vaya a la aplicación Power App o al entorno
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Más información sobre Power Platform](https://powerplatform.microsoft.com/)
-* [Obtenga información sobre las tareas comunes en API Management siguiendo los tutoriales.](https://docs.microsoft.com/azure/api-management/import-and-publish)
+* [Obtenga información sobre las tareas comunes en API Management siguiendo los tutoriales.](./import-and-publish.md)

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c36d45919ae8a17026fc91f8e9040f3bb11d3eb0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 586641d721d0c29bcd6d7b42fc8ca9141df96c66
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75494946"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261312"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Tutorial: Depuración de una aplicación de Service Fabric Mesh que se ejecuta en un clúster de desarrollo local
 
@@ -77,7 +77,7 @@ Actualmente hay un problema que impide que la llamada a `using (HttpResponseMess
 
 Si aparece el error **No Service Fabric local cluster is running** (No hay clústeres locales de Service Fabric en ejecución), asegúrese de que se está ejecutando el Administrador de clústeres locales (LCM) de Service Fabric y haga clic con el botón derecho en el icono de LCM en la barra de tareas y, después, en **Start Local Cluster** (Iniciar clúster local). Una vez que se haya iniciado, vuelva a Visual Studio y presione **F5**.
 
-Si aparece un error **404** al iniciarse la aplicación, puede significar que las variables de entorno de **service.yaml** no son correctas. Asegúrese de que `ApiHostPort` y `ToDoServiceName` se han establecido correctamente según las instrucciones descritas en [Creación de variables de entorno](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables).
+Si aparece un error **404** al iniciarse la aplicación, puede significar que las variables de entorno de **service.yaml** no son correctas. Asegúrese de que `ApiHostPort` y `ToDoServiceName` se han establecido correctamente según las instrucciones descritas en [Creación de variables de entorno](./service-fabric-mesh-tutorial-create-dotnetcore.md#create-environment-variables).
 
 Si se producen errores de compilación en **service.yaml**, asegúrese de que se usan espacios, y no tabulaciones, para aplicar sangría a las líneas. Además, por ahora, debe compilar la aplicación mediante la configuración regional en inglés.
 
