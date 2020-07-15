@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 9951610732cbb1c5884a7b7e830033f427db0ab1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4cd21669b30b8ec83d6a0538c90d4cec5cafe32a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75646014"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244997"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Tutorial: Implementación de una aplicación de Service Fabric en un clúster en Azure
 
@@ -53,7 +53,7 @@ Abra la aplicación en Visual Studio, que se ejecuta como administrador, y compi
 
 ## <a name="create-a-cluster"></a>Crear un clúster
 
-Ahora que la aplicación está lista, cree un clúster de Service Fabric e implemente la aplicación en él. Un [clúster de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-anywhere) es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios.
+Ahora que la aplicación está lista, cree un clúster de Service Fabric e implemente la aplicación en él. Un [clúster de Service Fabric](./service-fabric-deploy-anywhere.md) es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios.
 
 En este tutorial, cree un clúster de prueba de tres nodos en el entorno de desarrollo integrado de Visual Studio y, después, publique la aplicación en dicho clúster. Para obtener información acerca de cómo crear clústeres de producción, consulte el [tutorial para crear y administrar clústeres](service-fabric-tutorial-create-vnet-and-windows-cluster.md). También puede implementar la aplicación en un clúster existente que creó anteriormente a través de [Azure Portal](https://portal.azure.com), mediante scripts de [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) o de la [CLI de Azure](./scripts/cli-create-cluster.md), o desde un [plantilla de Azure Resource Manager](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 

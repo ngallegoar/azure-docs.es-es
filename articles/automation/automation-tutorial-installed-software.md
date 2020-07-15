@@ -7,12 +7,12 @@ ms.date: 04/11/2018
 ms.topic: tutorial
 ms.subservice: change-inventory-management
 ms.custom: mvc
-ms.openlocfilehash: d4acecbc6d1a1d7f617b0da95da1b97dc5a3dd75
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: cad92ef376a14805049772cd0bfdbac04309f6c4
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743663"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185830"
 ---
 # <a name="discover-what-software-is-installed-on-your-vms"></a>Detección del software instalado en sus máquinas virtuales
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 Para completar este tutorial, necesita:
 
 * Suscripción a Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Una [cuenta de Automation](automation-offering-get-started.md) para que contenga los runbooks de monitor y de acción, y la tarea de monitor.
+* Una [cuenta de Automation](./index.yml) para que contenga los runbooks de monitor y de acción, y la tarea de monitor.
 * Una [máquina virtual](../virtual-machines/windows/quick-create-portal.md) para habilitar la característica.
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
@@ -48,7 +48,7 @@ En primer lugar, debe habilitar Change Tracking e Inventario para este tutorial.
 
 1. Vaya a la cuenta de Automation y seleccione **Inventario** o **Change Tracking** en **Administración de configuración**.
 
-2. Elija el área de trabajo de [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json). Esta área de trabajo recopila datos generados por características como Change Tracking e Inventario. El área de trabajo proporciona una única ubicación para revisar y analizar datos desde varios orígenes.
+2. Elija el área de trabajo de [Log Analytics](../azure-monitor/log-query/log-query-overview.md). Esta área de trabajo recopila datos generados por características como Change Tracking e Inventario. El área de trabajo proporciona una única ubicación para revisar y analizar datos desde varios orígenes.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

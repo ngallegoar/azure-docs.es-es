@@ -7,12 +7,12 @@ keywords: Azure Automation, DSC, PowerShell, State Configuration, Update Managem
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: e02cfdaac602adfe455c26d9e87939586fd9738a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 30cfadcec1f0c28a463740ddaefa8fc76f04af3f
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835281"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186187"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Introducción a Azure Automation
 
@@ -53,14 +53,14 @@ Azure Automation ofrece una serie de funcionalidades compartidas, como recursos 
 
 Azure Automation consta de un conjunto de recursos compartidos que le facilitan la automatización y configuración de los entornos a escala.
 
-* **[Programaciones](automation-schedules.md)** : desencadene operaciones de automatización a horas predefinidas.
-* **[Módulos](automation-integration-modules.md)** : administre Azure y otros sistemas. Puede importar módulos a la cuenta de Automation para Microsoft, recursos de DSC y cmdlets definidos personalizados, de la comunidad o de terceros.
+* **[Programaciones](./shared-resources/schedules.md)** : desencadene operaciones de automatización a horas predefinidas.
+* **[Módulos](./shared-resources/modules.md)** : administre Azure y otros sistemas. Puede importar módulos a la cuenta de Automation para Microsoft, recursos de DSC y cmdlets definidos personalizados, de la comunidad o de terceros.
 * **[Galería de módulos](automation-runbook-gallery.md)** : admite la integración nativa con la Galería de PowerShell para ver runbooks e importarlos a la cuenta de Automation. La galería le permite integrar y crear rápidamente los procesos desde la Galería de PowerShell y el Centro de scripts de Microsoft.
 * **[Paquetes de Python 2](python-packages.md)** : admiten runbooks de Python 2 para su cuenta de Automation.
-* **[Credenciales](automation-credentials.md)** : almacene de forma segura la información confidencial que los runbooks y las configuraciones pueden usar en tiempo de ejecución.
+* **[Credenciales](./shared-resources/credentials.md)** : almacene de forma segura la información confidencial que los runbooks y las configuraciones pueden usar en tiempo de ejecución.
 * **[Conexiones](automation-connections.md)** : almacenan pares nombre-valor de información común para las conexiones a sistemas. El autor del módulo define las conexiones en runbooks y configuraciones para usarlas en tiempo de ejecución.
-* **[Certificados](automation-certificates.md)** : definen información que se usará en la autenticación y protección de recursos implementados cuando accedan a ellos runbooks o configuraciones de DSC en tiempo de ejecución. 
-* **[Variables](automation-variables.md)** : almacenan contenido que puede usarse en runbooks y configuraciones. Puede cambiar los valores de las variables sin tener que modificar los runbooks ni las configuraciones que hacen referencia a ellos.
+* **[Certificados](./shared-resources/certificates.md)** : definen información que se usará en la autenticación y protección de recursos implementados cuando accedan a ellos runbooks o configuraciones de DSC en tiempo de ejecución. 
+* **[Variables](./shared-resources/variables.md)** : almacenan contenido que puede usarse en runbooks y configuraciones. Puede cambiar los valores de las variables sin tener que modificar los runbooks ni las configuraciones que hacen referencia a ellos.
 
 ### <a name="role-based-access-control"></a>Control de acceso basado en rol
 

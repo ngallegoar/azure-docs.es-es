@@ -7,18 +7,18 @@ ms.service: vpn-gateway
 ms.topic: sample
 ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7510b0243db25752a61d3711c88a250b7ae3b576
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fcae37da3ef9c5b2b7633db1dd16cec247a782af
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75867238"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203826"
 ---
 # <a name="azure-powershell-samples-for-vpn-gateway"></a>Ejemplos de Azure PowerShell para VPN Gateway
 
 En la tabla siguiente se incluyen vínculos a scripts de Azure PowerShell:
 
-| | |
+| Script | Descripción |
 |----|----|
 | [Creación de una puerta de enlace de VPN](./scripts/vpn-gateway-sample-create-vpn-gateway-powershell.md) | Permite crear una puerta de enlace de VPN basada en rutas. |
 | [Creación de una puerta de enlace de VPN y una configuración P2 (RADIUS)](./scripts/vpn-gateway-sample-point-to-site-radius-authentication-powershell.md) | Permite crear una puerta de enlace de VPN basada en rutas y una configuración P2S que usa la autenticación de nombre de usuario y contraseña de RADIUS. |

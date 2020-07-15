@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: eeb279892f987ed1f26ced97ab267e8140ccb20e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6a3a5211864c4cbadc03bbc77bfef2204f6c2ccf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75614067"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244810"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Tutorial: Supervisión de contenedores de Windows en Service Fabric mediante los registros de Azure Monitor
 
@@ -37,7 +37,7 @@ Antes de comenzar este tutorial, debe:
 En el caso de que usara la [plantilla proporcionada](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure) en la primera parte de este tutorial, debe incluir las siguientes incorporaciones a una plantilla de Azure Resource Manager para Service Fabric genérica. En caso de que tenga un clúster de su propiedad que quiera configurar para supervisar los contenedores con registros de Azure Monitor:
 
 * Realice los siguientes cambios en su plantilla de Resource Manager.
-* Impleméntelo mediante PowerShell para actualizar su clúster [implementando la plantilla](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm). Azure Resource Manager es consciente de la existencia del recurso, por lo que lo implementará como una actualización.
+* Impleméntelo mediante PowerShell para actualizar su clúster [implementando la plantilla](./service-fabric-cluster-creation-via-arm.md). Azure Resource Manager es consciente de la existencia del recurso, por lo que lo implementará como una actualización.
 
 ### <a name="adding-azure-monitor-logs-to-your-cluster-template"></a>Agregar registros de Azure Monitor a la plantilla de clúster
 
@@ -233,6 +233,6 @@ En este tutorial, ha aprendido a:
 Ahora que ha configurado la supervisión de su aplicación en contenedores, pruebe lo siguiente:
 
 * Configure los registros de Azure Monitor para un clúster Linux, siguiendo pasos similares a los anteriores. Haga referencia a [esta plantilla](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS) para realizar cambios en su plantilla de Resource Manager.
-* Configure los registros de Azure Monitor para configurar [alertas automáticas](../log-analytics/log-analytics-alerts.md) que ayuden a la detección y el diagnóstico.
+* Configure los registros de Azure Monitor para configurar [alertas automáticas](../azure-monitor/platform/alerts-overview.md) que ayuden a la detección y el diagnóstico.
 * Explore la lista de Service Fabric de [contadores de rendimiento recomendados](service-fabric-diagnostics-event-generation-perf.md) para configurar sus clústeres.
-* Familiarícese con las característica de [búsqueda de registros y consulta](../log-analytics/log-analytics-log-searches.md) que se ofrecen como parte de los registros de Azure Monitor.
+* Familiarícese con las característica de [búsqueda de registros y consulta](../azure-monitor/log-query/log-query-overview.md) que se ofrecen como parte de los registros de Azure Monitor.

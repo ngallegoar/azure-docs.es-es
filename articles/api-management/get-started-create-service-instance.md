@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 63415b221b3980f3b6e3abc7d197cf9f61844f3f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6c71b88f43570a65edb5d0bea24f623c861f8111
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077497"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206291"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Creación de una nueva instancia del servicio Azure API Management
 
@@ -86,8 +86,3 @@ Cuando ya no los necesite, puede quitar el grupo de recursos y todos los recurso
 
 > [!div class="nextstepaction"]
 > [Importación y publicación de la primera API](import-and-publish.md)
-
-¿Quiere optimizar y ahorrar en el gasto en la nube?
-
-> [!div class="nextstepaction"]
-> [Comience a analizar los costos con Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

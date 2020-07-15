@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1ff1407400843fdb0f0ff997e2e0a3c1b7e67c7d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f7cb3f75dcaaeb6e0304784941dfcfc81ae6d68f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75494944"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248397"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: implementar una aplicación en Service Fabric Mesh mediante una plantilla
 
@@ -171,7 +171,7 @@ La salida anterior confirma la presencia de `azure-mesh-todo-service:1.0-nanoser
 ## <a name="retrieve-credentials-for-the-registry"></a>Recuperar las credenciales para el registro
 
 > [!IMPORTANT]
-> En los escenarios de producción, no se recomienda habilitar al usuario administrador en una instancia de ACR. Se hace aquí para mayor comodidad. En los escenarios de producción, use una [entidad de servicio](https://docs.microsoft.com/azure/container-registry/container-registry-auth-service-principal) para la autenticación del usuario y del sistema.
+> En los escenarios de producción, no se recomienda habilitar al usuario administrador en una instancia de ACR. Se hace aquí para mayor comodidad. En los escenarios de producción, use una [entidad de servicio](../container-registry/container-registry-auth-service-principal.md) para la autenticación del usuario y del sistema.
 
 Para implementar una instancia de contenedor del registro que se ha creado mediante una plantilla, debe proporcionar las credenciales de registro durante la implementación. En primer lugar, habilite al usuario administrador en el registro con el siguiente comando:
 
@@ -191,7 +191,7 @@ Use el nombre del servidor de inicio de sesión en ACR devuelto, el nombre de us
 
 ## <a name="download-and-explore-the-template-and-parameters-files"></a>Descargar y explorar los archivos de plantilla y parámetros
 
-Una aplicación de Service Fabric Mesh es un recurso de Azure que puede implementar y administrar mediante plantillas de Azure Resource Manager (RM). Si no está familiarizado con los conceptos asociados a la implementación y administración de las soluciones de Azure, consulte [Introducción a Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) y [Definición de la estructura y la sintaxis de las plantillas de RM](/azure/azure-resource-manager/resource-group-authoring-templates).
+Una aplicación de Service Fabric Mesh es un recurso de Azure que puede implementar y administrar mediante plantillas de Azure Resource Manager (RM). Si no está familiarizado con los conceptos asociados a la implementación y administración de las soluciones de Azure, consulte [Introducción a Azure Resource Manager](../azure-resource-manager/management/overview.md) y [Definición de la estructura y la sintaxis de las plantillas de RM](../azure-resource-manager/templates/template-syntax.md).
 
 En este tutorial, el ejemplo de la lista de tareas pendientes se utiliza como ejemplo.  En lugar de crear los nuevos archivos de plantilla y parámetros, descargue los archivos [mesh_rp.windows.json deployment template](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) y [mesh_rp.windows.parameter.json parameters](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 

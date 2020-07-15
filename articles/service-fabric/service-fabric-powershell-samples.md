@@ -4,12 +4,12 @@ description: Aprenda sobre la creación y administración de clústeres, aplicac
 ms.topic: sample
 ms.date: 11/29/2018
 ms.custom: mvc
-ms.openlocfilehash: f9ba1b4833b3aff13284a68c23f398ea47ef2ae2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4b85fd604eb27f0963af882b41e823d800005dda
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75645657"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187105"
 ---
 # <a name="azure-service-fabric-powershell-samples"></a>Ejemplos de PowerShell de Azure Service Fabric
 
@@ -17,7 +17,7 @@ En la tabla siguiente se incluyen vínculos a ejemplos de scripts de PowerShell 
 
 [!INCLUDE [links to azure CLI and service fabric CLI](../../includes/service-fabric-powershell.md)]
 
-| | |
+| Script | Descripción |
 |-|-|
 | **Crear clúster** ||
 | [Creación de un clúster (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Crea un clúster de Azure Service Fabric. |

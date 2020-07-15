@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 4361cee3d07408c3abb5031d2ab18c15c92c5e0a
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 047c4649da298e1dcb74ec1910a49353d8be534a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84711262"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206655"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-heavy-via-nfs"></a>Tutorial: Copia de datos a Azure Data Box Heavy mediante NFS
 
@@ -22,11 +22,11 @@ En este tutorial se describe cómo conectarse al equipo host y copiar datos desd
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Prerrequisitos
+> * Requisitos previos
 > * Conexión a un dispositivo Data Box Heavy
 > * Copia de datos a Data Box Heavy
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, asegúrese de que:
 
@@ -55,11 +55,11 @@ En los recursos compartidos de Azure Files:
 
 En la tabla siguiente se muestra la ruta de acceso UNC a los recursos compartidos en la dirección URL de la ruta de acceso de Data Box Heavy y Azure Storage donde se cargan los datos. La dirección URL final de la ruta de acceso de Azure Storage se puede derivar a partir de la ruta de acceso UNC al recurso compartido.
  
-|                   |                                                            |
+| Storage           | Ruta de acceso UNC                                                                       |
 |-------------------|--------------------------------------------------------------------------------|
 | Blobs en bloques de Azure | <li>Ruta de acceso UNC a recursos compartidos: `//<DeviceIPAddress>/<StorageAccountName_BlockBlob>/<ContainerName>/files/a.txt`</li><li>Dirección URL de Azure Storage: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
 | Blobs en páginas de Azure  | <li>Ruta de acceso UNC a recursos compartidos: `//<DeviceIPAddres>/<StorageAccountName_PageBlob>/<ContainerName>/files/a.txt`</li><li>Dirección URL de Azure Storage: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
-| Archivos de Azure       |<li>Ruta de acceso UNC a recursos compartidos: `//<DeviceIPAddres>/<StorageAccountName_AzFile>/<ShareName>/files/a.txt`</li><li>Dirección URL de Azure Storage: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |
+| Azure Files       |<li>Ruta de acceso UNC a recursos compartidos: `//<DeviceIPAddres>/<StorageAccountName_AzFile>/<ShareName>/files/a.txt`</li><li>Dirección URL de Azure Storage: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |
 
 Si usa un equipo host Linux, realice los pasos siguientes para configurar un dispositivo para que pueda acceder a los clientes NFS.
 
@@ -156,7 +156,7 @@ Para garantizar la integridad de los datos, la suma de comprobación se calcula 
 En este tutorial, ha obtenido información acerca de varios temas relacionados con Azure Data Box Heavy, como:
 
 > [!div class="checklist"]
-> * Prerrequisitos
+> * Requisitos previos
 > * Conexión a un dispositivo Data Box Heavy
 > * Copia de datos a Data Box Heavy
 

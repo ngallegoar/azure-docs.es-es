@@ -4,16 +4,16 @@ description: En este tutorial, aprenderá a implementar un clúster de Azure Ser
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: dfcee93ffa5eea0b2aa0b9a93ff53ad7b61ea245
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: a7390858e55a456ec5fb2f851be1a7443be97082
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611669"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245065"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Tutorial: Implementación de un clúster de Service Fabric con Windows una red virtual de Azure
 
-Este tutorial es la primera parte de una serie. Con él puede aprender a implementar un clúster de Azure Service Fabric con Windows en una instancia de [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) y en un [grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md) mediante PowerShell y una plantilla. Cuando haya terminado, tendrá un clúster que se ejecuta en la nube en el que puede implementar aplicaciones. Para crear un clúster de Linux con la CLI de Azure, consulte [Implementación de un clúster de Service Fabric de Linux en una red virtual de Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Este tutorial es la primera parte de una serie. Con él puede aprender a implementar un clúster de Azure Service Fabric con Windows en una instancia de [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) y en un [grupo de seguridad de red](../virtual-network/virtual-network-vnet-plan-design-arm.md) mediante PowerShell y una plantilla. Cuando haya terminado, tendrá un clúster que se ejecuta en la nube en el que puede implementar aplicaciones. Para crear un clúster de Linux con la CLI de Azure, consulte [Implementación de un clúster de Service Fabric de Linux en una red virtual de Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 Este tutorial describe un escenario de producción. Si desea crear un clúster menor para agilizar la prueba, consulte [Creación de un clúster de prueba](./scripts/service-fabric-powershell-create-secure-cluster-cert.md).
 
@@ -48,7 +48,7 @@ Antes de empezar este tutorial:
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Instalación de [Service Fabric SDK y del módulo de PowerShell](service-fabric-get-started.md).
-* Instale [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+* Instale [Azure PowerShell](/powershell/azure/install-az-ps).
 * Repase los conceptos clave sobre [clústeres de Azure](service-fabric-azure-clusters-overview.md).
 * [Planeación y preparación](service-fabric-cluster-azure-deployment-preparation.md) para la implementación de un clúster de producción.
 
@@ -111,7 +111,7 @@ Las siguientes reglas de tráfico de entrada están habilitadas en el recurso **
 Si se necesitan otros puertos de aplicación, debe ajustar el recurso **Microsoft.Network/loadBalancers** y el recurso **Microsoft.Network/networkSecurityGroups** para permitir el tráfico de entrada.
 
 ### <a name="windows-defender"></a>Windows Defender
-De forma predeterminada, el [programa antivirus Windows Defender](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016) está instalado y operativo en Windows Server 2016. La interfaz de usuario se instala de forma predeterminada en algunas SKU, pero no es necesaria. En cada tipo de nodo o conjunto de escalado de máquinas virtuales que se declara en la plantilla, se usa la [extensión de antimalware para máquinas virtuales de Azure](/azure/virtual-machines/extensions/iaas-antimalware-windows) para excluir los directorios y procesos de Service Fabric:
+De forma predeterminada, el [programa antivirus Windows Defender](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016) está instalado y operativo en Windows Server 2016. La interfaz de usuario se instala de forma predeterminada en algunas SKU, pero no es necesaria. En cada tipo de nodo o conjunto de escalado de máquinas virtuales que se declara en la plantilla, se usa la [extensión de antimalware para máquinas virtuales de Azure](../virtual-machines/extensions/iaas-antimalware-windows.md) para excluir los directorios y procesos de Service Fabric:
 
 ```json
 {
@@ -145,8 +145,8 @@ El archivo de parámetros [azuredeploy.parameters.json][parameters] permite decl
 
 **Parámetro** | **Valor de ejemplo** | **Notas** 
 |---|---|---|
-|adminUserName|vmadmin| Nombre de usuario del administrador de las máquinas virtuales del clúster. [Requisitos de nombre de usuario para la máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm). |
-|adminPassword|Password#1234| Contraseña del administrador de las máquinas virtuales del clúster. [Requisitos de contraseña para la máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).|
+|adminUserName|vmadmin| Nombre de usuario del administrador de las máquinas virtuales del clúster. [Requisitos de nombre de usuario para la máquina virtual](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm). |
+|adminPassword|Password#1234| Contraseña del administrador de las máquinas virtuales del clúster. [Requisitos de contraseña para la máquina virtual](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
 |clusterName|mysfcluster123| Nombre del clúster. Solo puede contener letras y números. Puede tener entre 3 y 23 caracteres.|
 |ubicación|southcentralus| Ubicación del clúster. |
 |certificateThumbprint|| <p>El valor debe estar vacío si se va a crear un certificado autofirmado o a proporcionar un archivo de certificados.</p><p>Para usar un certificado existente cargado previamente en un almacén de claves, rellene el valor de huella digital SHA1 del certificado. Por ejemplo, "6190390162C988701DB5676EB81083EA608DCCF3".</p> |
@@ -703,7 +703,7 @@ Get-ServiceFabricClusterHealth
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-En el resto de artículos de esta serie de tutoriales se usa el clúster que creó anteriormente. Si no va a pasar inmediatamente al siguiente artículo, puede [eliminar el clúster](service-fabric-cluster-delete.md) para evitar incurrir en cargos.
+En el resto de artículos de esta serie de tutoriales se usa el clúster que creó anteriormente. Si no va a pasar inmediatamente al siguiente artículo, puede [eliminar el clúster](./service-fabric-tutorial-delete-cluster.md) para evitar incurrir en cargos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
