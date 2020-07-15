@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 30fc55cb608189e1be82c2b28393c5e242e262fd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: cfe2825915e52e1cbe1cb3d1015e0239e88d15e0
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160865"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86167205"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-webmethods-integration-suite"></a>Tutorial: Integración de Azure Active Directory con webMethods Integration Suite
 
@@ -109,19 +109,16 @@ Para configurar el inicio de sesión único de Azure AD con webMethods Integrati
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente:
 
-    | |
-    |--|
-    | `<SUBDOMAIN>.webmethodscloud.com` |
-    | `<SUBDOMAIN>.webmethodscloud.eu` |
-    | `<SUBDOMAIN>.webmethodscloud.de` |
+    - `<SUBDOMAIN>.webmethodscloud.com`
+    - `<SUBDOMAIN>.webmethodscloud.eu`
+    - `<SUBDOMAIN>.webmethodscloud.de`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón:
 
-    | |
-    |--|
-    | `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoResponse` |
-    | `https://<SUBDOMAIN>.webmethodscloud.eu/integration/live/saml/ssoResponse` |
-    | `https://<SUBDOMAIN>.webmethodscloud.de/integration/live/saml/ssoResponse` |
+
+    - `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoResponse`
+    - `https://<SUBDOMAIN>.webmethodscloud.eu/integration/live/saml/ssoResponse`
+    - `https://<SUBDOMAIN>.webmethodscloud.de/integration/live/saml/ssoResponse`
 
     c. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
@@ -129,11 +126,9 @@ Para configurar el inicio de sesión único de Azure AD con webMethods Integrati
 
     d. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
 
-    | |
-    |--|
-    | `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoRequest` |
-    | `https://<SUBDOMAIN>.webmethodscloud.eu/integration/live/saml/ssoRequest` |
-    | `https://<SUBDOMAIN>.webmethodscloud.de/integration/live/saml/ssoRequest` |
+    - `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoRequest`
+    - `https://<SUBDOMAIN>.webmethodscloud.eu/integration/live/saml/ssoRequest`
+    - `https://<SUBDOMAIN>.webmethodscloud.de/integration/live/saml/ssoRequest`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de webMethods Integration Suite](https://empower.softwareag.com/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -144,19 +139,15 @@ Para configurar el inicio de sesión único de Azure AD con webMethods Integrati
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente:
 
-    | |
-    |--|
-    | `<SUBDOMAIN>.webmethodscloud.com` |
-    | `<SUBDOMAIN>.webmethodscloud.eu` |
-    | `<SUBDOMAIN>.webmethodscloud.de` |
+    - `<SUBDOMAIN>.webmethodscloud.com`
+    - `<SUBDOMAIN>.webmethodscloud.eu`
+    - `<SUBDOMAIN>.webmethodscloud.de`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón:
 
-    | |
-    |--|
-    | `https://<SUBDOMAIN>.webmethodscloud.com/umc/rest/saml/initsso` |
-    | `https://<SUBDOMAIN>.webmethodscloud.eu/umc/rest/saml/initsso` |
-    | `https://<SUBDOMAIN>.webmethodscloud.de/umc/rest/saml/initsso` |
+    - `https://<SUBDOMAIN>.webmethodscloud.com/umc/rest/saml/initsso`
+    - `https://<SUBDOMAIN>.webmethodscloud.eu/umc/rest/saml/initsso`
+    - `https://<SUBDOMAIN>.webmethodscloud.de/umc/rest/saml/initsso`
 
     c. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
@@ -164,11 +155,9 @@ Para configurar el inicio de sesión único de Azure AD con webMethods Integrati
 
     d. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
 
-    | |
-    |--|
-    | `https://api.webmethodscloud.com/umc/rest/saml/initsso/?tenant=<TENANTID>` |
-    | `https://api.webmethodscloud.eu/umc/rest/saml/initsso/?tenant=<TENANTID>` |
-    | `https://api.webmethodscloud.de/umc/rest/saml/initsso/?tenant=<TENANTID>` |
+    - `https://api.webmethodscloud.com/umc/rest/saml/initsso/?tenant=<TENANTID>`
+    - `https://api.webmethodscloud.eu/umc/rest/saml/initsso/?tenant=<TENANTID>`
+    - `https://api.webmethodscloud.de/umc/rest/saml/initsso/?tenant=<TENANTID>`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de webMethods Integration Suite](https://empower.softwareag.com/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.

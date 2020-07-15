@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2612c765140d838ddf441894d7fd068b7d66ccfc
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: d369395cc06902f31bdf17b427ecbb9f71f42001
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85360646"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146826"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Integración de un bosque existente y un nuevo bosque con un único inquilino de Azure AD
 
@@ -105,13 +105,13 @@ Para comprobar que el agente se ejecuta, siga estos pasos:
 2.  Haga clic en **Azure Active Directory**.
 3.  Haga clic en **Azure AD Connect**.
 4.  Seleccione **Administración del aprovisionamiento (versión preliminar)** 
-![](media/how-to-configure/manage1.png).
+![Captura de pantalla que muestra el vínculo "Administración del aprovisionamiento (versión preliminar)".](media/how-to-configure/manage1.png)
 5.  Haga clic en **Nueva configuración**
-![](media/tutorial-single-forest/configure1.png).
+![Captura de pantalla de "Aprovisionamiento de Azure AD (versión preliminar)" con el vínculo "Nueva configuración" resaltado.](media/tutorial-single-forest/configure1.png)
 7.  En la pantalla de configuración, escriba un **correo electrónico de notificación**, mueva el selector a **Habilitar** y haga clic en **Guardar**.
-![](media/tutorial-single-forest/configure2.png)
+![Captura de la pantalla de configuración con un correo electrónico de notificación rellenado y Habilitar seleccionado.](media/tutorial-single-forest/configure2.png)
 1.  El estado de configuración ahora debería ser **Correcto**.
-![](media/how-to-configure/manage4.png)
+![Captura de pantalla de "Aprovisionamiento de Azure AD (versión preliminar)" que muestra un estado correcto.](media/how-to-configure/manage4.png)
 
 ## <a name="verify-users-are-created-and-synchronization-is-occurring"></a>Comprobación de la creación y sincronización de los usuarios
 Ahora comprobaremos que los usuarios que tenía en el directorio local se han sincronizado y que ya existen en el inquilino de Azure AD.  Tenga en cuenta que esta acción puede tardar unas horas en completarse.  Para comprobar que los usuarios están sincronizados, haga lo siguiente:

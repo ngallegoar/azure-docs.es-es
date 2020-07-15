@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 2104768f8842910bf83239e86106d288d7ad9baf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 850923940c60212ad99729b8dbd002d8f9083a0b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67086341"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86167171"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zenqms"></a>Tutorial: Integración de Azure Active Directory con ZenQMS
 
@@ -115,11 +115,8 @@ Para configurar el inicio de sesión único de Azure AD con ZenQMS, siga estos p
 
     En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
 
-    | |
-    |-|-|
-    | `https://<INSTANCE>.zenqms.com/<ID>`|
-    | `https://<INSTANCE>.zenqms.com/<EMAIL DOMAIN>/`|
-    | |
+    - `https://<INSTANCE>.zenqms.com/<ID>`
+    - `https://<INSTANCE>.zenqms.com/<EMAIL DOMAIN>/`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico para clientes de ZenQMS](mailto:help@zenqms.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.

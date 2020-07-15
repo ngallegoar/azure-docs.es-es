@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: de7cf57d177902efdbb44524703481e8c65c75c5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 33548df0b8eb73d28dfe6348f057266cca4c0290
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72991471"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86168548"
 ---
 # <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>Tutorial: Integración de RingCentral con Azure Active Directory
 
@@ -92,17 +92,13 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL:
 
-    | |
-    |--|
-    |  `https://sso.ringcentral.com` |
-    | `https://ssoeuro.ringcentral.com` |
+    - `https://sso.ringcentral.com`
+    - `https://ssoeuro.ringcentral.com`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL:
 
-    | |
-    |--|
-    | `https://sso.ringcentral.com/sp/ACS.saml2` |
-    | `https://ssoeuro.ringcentral.com/sp/ACS.saml2` |
+    - `https://sso.ringcentral.com/sp/ACS.saml2`
+    - `https://ssoeuro.ringcentral.com/sp/ACS.saml2`
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 

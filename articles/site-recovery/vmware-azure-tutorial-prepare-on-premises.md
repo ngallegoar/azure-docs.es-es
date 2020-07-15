@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4969a1f14e53aabf79495e179213f9763d4c8803
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: b8fd34c8f1e3a32a8252074941a49d61aa540207
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84704257"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134915"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores de VMware locales para la recuperación ante desastres en Azure
 
@@ -103,7 +103,7 @@ Para conectarse a máquinas virtuales Linux mediante SSH después de la conmutac
 - En el equipo local antes de la conmutación por error, compruebe que el servicio de Secure Shell está configurado para iniciarse automáticamente en el arranque del sistema.
 - Compruebe que las reglas de firewall permiten una conexión SSH.
 - En la máquina virtual de Azure después de la conmutación por error, permita las conexiones entrantes al puerto SSH para las reglas del grupo de seguridad de red de la máquina virtual conmutada por error y para la subred de Azure a la que esta se conecta.
-- [Agregue una dirección IP pública](site-recovery-monitoring-and-troubleshooting.md) para la máquina virtual.
+- [Agregue una dirección IP pública](./site-recovery-monitor-and-troubleshoot.md) para la máquina virtual.
 - Puede comprobar los **Diagnósticos de arranque** para ver una captura de pantalla de la máquina virtual.
 
 

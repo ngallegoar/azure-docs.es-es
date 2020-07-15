@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 3f715af835df6783ae5d59dd073a042a553fba4d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0c7efc94bcde18e7b6ff43726602fa87641f3e76
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75498046"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130620"
 ---
 # <a name="moving-azure-vms-to-another-azure-region"></a>Traslado de máquinas virtuales de Azure a otra región de Azure
 
@@ -51,11 +51,11 @@ En esta sección se describen las arquitecturas de implementación más comunes 
 
      ![Implementación de máquinas virtuales de instancia única en distintos niveles](media/move-vm-overview/regular-deployment.png)
 
-* **Máquinas virtuales en todos los niveles implementadas en conjuntos de disponibilidad**: Las máquinas virtuales de un nivel se configuran en un conjunto de disponibilidad. Los [conjuntos de disponibilidad](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) garantizan que las máquinas virtuales implementadas en Azure se distribuyan entre varios nodos de hardware aislados en un clúster. Esto garantiza que, si se produce un error de hardware o software en Azure, solo un subconjunto de las máquinas virtuales se vea afectado y que la solución global siga disponible y en funcionamiento.
+* **Máquinas virtuales en todos los niveles implementadas en conjuntos de disponibilidad**: Las máquinas virtuales de un nivel se configuran en un conjunto de disponibilidad. Los [conjuntos de disponibilidad](../virtual-machines/windows/tutorial-availability-sets.md) garantizan que las máquinas virtuales implementadas en Azure se distribuyan entre varios nodos de hardware aislados en un clúster. Esto garantiza que, si se produce un error de hardware o software en Azure, solo un subconjunto de las máquinas virtuales se vea afectado y que la solución global siga disponible y en funcionamiento.
 
      ![Implementación de máquinas virtuales en conjuntos de disponibilidad](media/move-vm-overview/avset.png)
 
-* **Máquinas virtuales en todos los niveles implementadas en zonas de disponibilidad**: Las máquinas virtuales de los distintos niveles se configuran en [zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview). Una zona de disponibilidad de una región de Azure es una combinación de un dominio de error y un dominio de actualización. Por ejemplo, si crea tres o más máquinas virtuales en tres zonas de una región de Azure, las máquinas virtuales se distribuyen eficazmente en tres dominios de error y tres dominios de actualización. La plataforma Azure reconoce esta distribución entre dominios de actualización para asegurarse de que las máquinas virtuales de distintas zonas no se actualizan al mismo tiempo.
+* **Máquinas virtuales en todos los niveles implementadas en zonas de disponibilidad**: Las máquinas virtuales de los distintos niveles se configuran en [zonas de disponibilidad](../availability-zones/az-overview.md). Una zona de disponibilidad de una región de Azure es una combinación de un dominio de error y un dominio de actualización. Por ejemplo, si crea tres o más máquinas virtuales en tres zonas de una región de Azure, las máquinas virtuales se distribuyen eficazmente en tres dominios de error y tres dominios de actualización. La plataforma Azure reconoce esta distribución entre dominios de actualización para asegurarse de que las máquinas virtuales de distintas zonas no se actualizan al mismo tiempo.
 
      ![Implementación en una zona de disponibilidad](media/move-vm-overview/zone.png)
 

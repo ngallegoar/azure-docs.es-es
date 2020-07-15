@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45782d7827a289cc0942eca61d6b30d071a6721c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ccd1304ae43a2f424dab94cf67e7cc41357579fa
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67452406"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86167035"
 ---
 # <a name="tutorial-integrate-vtiger-crm-saml-with-azure-active-directory"></a>Tutorial: Integración de Vtiger CRM (SAML) con Azure Active Directory
 
@@ -85,11 +85,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
 
-    | | |
-    | - |- |
-    | `https://<customer_instance>.od1.vtiger.com` |
-    | `https://<customer_instance>.od2.vtiger.com` |
-    | `https://<customer_instance>.od1.vtiger.ws` |
+   - `https://<customer_instance>.od1.vtiger.com`
+   - `https://<customer_instance>.od2.vtiger.com`
+   - `https://<customer_instance>.od1.vtiger.ws`
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<customer_instance>.od1.vtiger.com/sso/saml?acs`
 

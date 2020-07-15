@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 03826abf6da94859c510f4c127dfce035aa79370
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b46a2ea12a697afde8223cc3595365c1286512c7
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75498158"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132463"
 ---
 # <a name="fail-over-hyper-v-vms-to-azure"></a>Conmutación por error de máquinas virtuales de Hyper-V a Azure
 
@@ -27,8 +27,8 @@ En este tutorial se describe cómo conmutar por error máquinas virtuales de Hyp
 Este es el quinto tutorial de su serie. En él se da por hecho que ya ha realizado las tareas de los tutoriales anteriores.    
 
 1. [Preparación de Azure](tutorial-prepare-azure.md)
-2. [Preparación de un entorno de Hyper-V local](tutorial-prepare-on-premises-hyper-v.md)
-3. Configuración de la recuperación ante desastres de [máquinas virtuales de Hyper-V](tutorial-hyper-v-to-azure.md) o de [máquinas virtuales de Hyper-V administradas en nubes VMM de System Center](tutorial-hyper-v-vmm-to-azure.md)
+2. [Preparación de un entorno de Hyper-V local](./hyper-v-prepare-on-premises-tutorial.md)
+3. Configuración de la recuperación ante desastres de [máquinas virtuales de Hyper-V](./hyper-v-azure-tutorial.md) o de [máquinas virtuales de Hyper-V administradas en nubes VMM de System Center](./hyper-v-vmm-azure-tutorial.md)
 4. [Exploración de la recuperación ante desastres](tutorial-dr-drill-azure.md)
 
 [Más información](failover-failback-overview.md#types-of-failover) sobre los diferentes tipos de conmutación por error. Si quiere conmutar por error varias máquinas virtuales de un plan de recuperación, revise [este artículo](site-recovery-failover.md).

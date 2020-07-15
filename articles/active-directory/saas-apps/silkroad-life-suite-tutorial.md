@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 63165da69815c77afb8692e1e68c1710beb8df8c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ae0be30eb834ea5c01a719daca410fe0e0c90b4d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67090832"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170741"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Tutorial: Integración de Azure Active Directory con SilkRoad Life Suite
 
@@ -131,17 +131,13 @@ Para configurar el inicio de sesión único de Azure AD con SilkRoad Life Suite
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
 
-    | |
-    |--|
-    | `https://<subdomain>.silkroad-eng.com/Authentication/SP`|
-    | `https://<subdomain>.silkroad.com/Authentication/SP`|
+    - `https://<subdomain>.silkroad-eng.com/Authentication/SP`
+    - `https://<subdomain>.silkroad.com/Authentication/SP`
 
     c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón:
 
-    | |
-    |--|
-    | `https://<subdomain>.silkroad-eng.com/Authentication/`|
-    | `https://<subdomain>.silkroad.com/Authentication/`|
+    - `https://<subdomain>.silkroad-eng.com/Authentication/`
+    - `https://<subdomain>.silkroad.com/Authentication/`
 
     > [!NOTE]
     > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Póngase en contacto con el [equipo de atención al cliente de SilkRoad Life Suite](https://www.silkroad.com/locations/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.

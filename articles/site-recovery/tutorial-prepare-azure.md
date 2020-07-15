@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ba5ecc29edbcd69324500e87add846e4395ce0a3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 312723818c4cef82ad6c96b013d7ec81ede276cc
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80067563"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130914"
 ---
 # <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Preparación de Azure para la recuperación ante desastres en el entorno local en Azure
 
@@ -90,8 +90,8 @@ La red virtual tarda unos segundos en crearse. Una vez creada, la verá en el pa
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para la recuperación ante desastres de VMware, [prepare la infraestructura de VMware local](tutorial-prepare-on-premises-vmware.md).
+- Para la recuperación ante desastres de VMware, [prepare la infraestructura de VMware local](./vmware-azure-tutorial-prepare-on-premises.md).
 - Para la recuperación ante desastres de Hyper-V, [prepare los servidores de Hiper-V locales](hyper-v-prepare-on-premises-tutorial.md).
 - Para la recuperación ante desastres de servidores físicos, [configure el servidor de configuración y el entorno del origen](physical-azure-disaster-recovery.md)
-- [Más información](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) sobre las redes de Azure.
-- [Más información](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) sobre discos administrados.
+- [Más información](../virtual-network/virtual-networks-overview.md) sobre las redes de Azure.
+- [Más información](../virtual-machines/windows/managed-disks-overview.md) sobre discos administrados.

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: b978190776aee3c89d3beadde76d20c4327b012f
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.openlocfilehash: ccf83bacedb667e52e9865b6d451641faa0ac414
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80388923"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131188"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migración de máquinas locales a Azure
 
@@ -132,21 +132,21 @@ Algunos pasos se pueden automatizar como parte del proceso de migración con la 
 
 - Realice los ajustes de la aplicación posteriores a la migración, como actualizar las cadenas de conexión de la base de datos y las configuraciones del servidor web. 
 - Realice las pruebas finales de la aplicación y la aceptación de la migración en la aplicación migrada que ahora se ejecuta en Azure.
-- El [agente de máquina virtual de Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) administra la interacción de una máquina virtual con el controlador de tejido de Azure. Se requiere para algunos servicios de Azure, como Azure Backup, Site Recovery y Azure Security.
+- El [agente de máquina virtual de Azure](../virtual-machines/extensions/agent-windows.md) administra la interacción de una máquina virtual con el controlador de tejido de Azure. Se requiere para algunos servicios de Azure, como Azure Backup, Site Recovery y Azure Security.
     - Si va a migrar servidores físicos y máquinas de VMware, el instalador de Mobility Service instala el agente de máquina virtual de Azure disponible en máquinas Windows. En máquinas virtuales Linux, se recomienda que instale al agente después de la conmutación por error.
     - Si va a migrar máquinas virtuales de Azure a una región secundaria, se debe aprovisionar el agente de máquina virtual de Azure en la máquina virtual antes de la migración.
     - Si va a migrar máquinas virtuales de Hyper-V a Azure, instale al agente de máquina virtual de Azure en la máquina virtual de Azure después de la migración.
 - Quite manualmente cualquier proveedor/agente de Site Recovery de la máquina virtual. Si migra máquinas virtuales de VMware o servidores físicos, desinstale Mobility Service de la máquina virtual.
 - Para aumentar la resistencia:
-    - Proteja los datos mediante la copia de seguridad de máquinas virtuales de Azure mediante el servicio Azure Backup. [Más información]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal).
+    - Proteja los datos mediante la copia de seguridad de máquinas virtuales de Azure mediante el servicio Azure Backup. [Más información](../backup/quick-backup-vm-portal.md).
     - Mantenga las cargas de trabajo en ejecución y disponibles continuamente mediante la replicación de máquinas virtuales de Azure en una región secundaria con Site Recovery. [Más información](azure-to-azure-quickstart.md).
 - Para aumentar la seguridad:
-    - Bloquee y limite el acceso de tráfico de entrada con la [administración Just-In-Time]( https://docs.microsoft.com/azure/security-center/security-center-just-in-time) de Azure Security Center.
-    - Restrinja el tráfico de red a los puntos de conexión de administración con [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/security-overview).
-    - Implemente [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) para ayudar a proteger discos y datos frente al robo y acceso no autorizado.
+    - Bloquee y limite el acceso de tráfico de entrada con la [administración Just-In-Time](../security-center/security-center-just-in-time.md) de Azure Security Center.
+    - Restrinja el tráfico de red a los puntos de conexión de administración con [grupos de seguridad de red](../virtual-network/security-overview.md).
+    - Implemente [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) para ayudar a proteger discos y datos frente al robo y acceso no autorizado.
     - Obtenga más información sobre la [protección de recursos IaaS]( https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/ ) y visite [Azure Security Center](https://azure.microsoft.com/services/security-center/ ).
 - Para supervisión y administración:
-    - Considere la posibilidad de implementar [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) para supervisar el gasto y el uso de recursos.
+    - Considere la posibilidad de implementar [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) para supervisar el gasto y el uso de recursos.
 
 ### <a name="post-migration-steps-on-premises"></a>Pasos posteriores a la migración local
 

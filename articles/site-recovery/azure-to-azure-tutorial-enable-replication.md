@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 1/24/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 145ae5f6f9204366052d9a182c61d76ff7ffa715
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: e7f7535cf66da721e1738da6d0efbf335d97a6da
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871497"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134500"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configuración de la recuperación ante desastres de máquinas virtuales de Azure
 
@@ -31,8 +31,8 @@ Este tutorial muestra cómo configurar la recuperación ante desastres en máqui
 
 Para completar este tutorial:
 
-- Revise la [arquitectura del escenario y sus componentes](concepts-azure-to-azure-architecture.md).
-- Revise los [requisitos de compatibilidad](site-recovery-support-matrix-azure-to-azure.md) antes de empezar.
+- Revise la [arquitectura del escenario y sus componentes](./azure-to-azure-architecture.md).
+- Revise los [requisitos de compatibilidad](./azure-to-azure-support-matrix.md) antes de empezar.
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
@@ -137,7 +137,7 @@ Site Recovery crea la configuración predeterminada y la directiva de replicaci�
    | **Ubicación de destino** | la región de destino que se usa para la recuperación ante desastres.<br/><br/> Se recomienda que la ubicación de destino coincida con la ubicación del almacén de Site Recovery. |
    | **Grupo de recursos de destino** | el grupo de recursos en la región de destino que contiene las máquinas virtuales de Azure después de la conmutación por error.<br/><br/> De forma predeterminada, Site Recovery crea un grupo de recursos en la región de destino con un sufijo `asr`. La ubicación del grupo de recursos de destino puede ser cualquier región, excepto la región en la que se hospedan las máquinas virtuales de origen. |
    | **Red virtual de destino** | la red en la región de destino en la que las máquinas virtuales se encuentran después de la conmutación por error.<br/><br/> De forma predeterminada, Site Recovery crea una red virtual (y subredes) en la región de destino con un sufijo `asr`. |
-   | **Cuentas de almacenamiento en caché** | Site Recovery utiliza una cuenta de almacenamiento en la región de origen. Los cambios en las máquinas virtuales de origen se envían a esta cuenta, antes de la replicación en la ubicación de destino.<br/><br/> Si usa la cuenta de almacenamiento en caché con firewall habilitado, asegúrese de habilitar **Permitir servicios de Microsoft de confianza**. [Más información](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions). Además, asegúrese de permitir el acceso a al menos una subred de la red virtual de origen. |
+   | **Cuentas de almacenamiento en caché** | Site Recovery utiliza una cuenta de almacenamiento en la región de origen. Los cambios en las máquinas virtuales de origen se envían a esta cuenta, antes de la replicación en la ubicación de destino.<br/><br/> Si usa la cuenta de almacenamiento en caché con firewall habilitado, asegúrese de habilitar **Permitir servicios de Microsoft de confianza**. [Más información](../storage/common/storage-network-security.md#exceptions). Además, asegúrese de permitir el acceso a al menos una subred de la red virtual de origen. |
    | **Cuentas de almacenamiento de destino (si la máquina virtual de origen no usa discos administrados)** | de forma predeterminada, Site Recovery crea una nueva cuenta de almacenamiento en la región de destino para reflejar la cuenta de almacenamiento de la máquina virtual de origen.<br/><br/> Si usa la cuenta de almacenamiento en caché con firewall habilitado, habilite **Permitir servicios de Microsoft de confianza**. |
    | **Discos administrados de réplica (si la máquina virtual de origen usa discos administrados)** | De forma predeterminada, Site Recovery crea discos administrados de réplica en la región de destino que reflejan los discos administrados de la máquina virtual de origen con el mismo tipo de almacenamiento (estándar o prémium). Solo se puede personalizar el tipo de disco. |
    | **Conjuntos de disponibilidad de destino** | De forma predeterminada, Azure Site Recovery crea un conjunto de disponibilidad en la región de destino cuyo nombre tiene el sufijo `asr` para la parte de máquina virtual de un conjunto de disponibilidad de la región de origen. Si el conjunto de disponibilidad que cree Azure Site Recovery ya exista, se reutiliza. |

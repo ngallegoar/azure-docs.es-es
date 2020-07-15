@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b36e4688ebd6e929a56869a6bb191d98b2f1f432
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 6f24a259d2d71aa6599f6dd417d5e9fc99734e99
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84691108"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135657"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Preparación de servidores de Hyper-V locales para la recuperación ante desastres en Azure
 
@@ -56,12 +56,12 @@ Si VMM administra los hosts de Hyper-V, debe preparar el servidor VMM local.
 
 ### <a name="prepare-vmm-for-network-mapping"></a>Preparar VMM para la asignación de red
 
-Si usa VMM, la [asignación de red](site-recovery-network-mapping.md) asigna entre redes de máquinas virtuales de VMM locales y redes virtuales de Azure. La asignación garantiza que las máquinas virtuales de Azure se conecten a la red adecuada cuando se crean después de la conmutación por error.
+Si usa VMM, la [asignación de red](./hyper-v-vmm-network-mapping.md) asigna entre redes de máquinas virtuales de VMM locales y redes virtuales de Azure. La asignación garantiza que las máquinas virtuales de Azure se conecten a la red adecuada cuando se crean después de la conmutación por error.
 
 Para preparar VMM para la asignación de red, siga estos pasos:
 
-1. Asegúrese de que tiene una [red lógica de VMM](https://docs.microsoft.com/system-center/vmm/network-logical) que esté asociada a la nube en la que se encuentran los hosts de Hyper-V.
-2. Asegúrese de que tiene una [red de máquinas virtuales](https://docs.microsoft.com/system-center/vmm/network-virtual) vinculada a la red lógica.
+1. Asegúrese de que tiene una [red lógica de VMM](/system-center/vmm/network-logical) que esté asociada a la nube en la que se encuentran los hosts de Hyper-V.
+2. Asegúrese de que tiene una [red de máquinas virtuales](/system-center/vmm/network-virtual) vinculada a la red lógica.
 3. En VMM, conecte las máquinas virtuales a la red de VM.
 
 ## <a name="verify-internet-access"></a>Comprobación del acceso a Internet
@@ -94,5 +94,5 @@ Después de la conmutación por error, puede acceder a las máquinas virtuales d
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Configuración de la recuperación ante desastres en Azure para máquinas virtuales de Hyper-V](tutorial-hyper-v-to-azure.md)
-> [Configuración de la recuperación ante desastres en Azure para máquinas virtuales de Hyper-V en nubes de VMM](tutorial-hyper-v-vmm-to-azure.md)
+> [Configuración de la recuperación ante desastres en Azure para máquinas virtuales de Hyper-V](./hyper-v-azure-tutorial.md)
+> [Configuración de la recuperación ante desastres en Azure para máquinas virtuales de Hyper-V en nubes de VMM](./hyper-v-vmm-azure-tutorial.md)

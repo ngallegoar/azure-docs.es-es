@@ -5,12 +5,12 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 12/16/2019
 ms.custom: MVC
-ms.openlocfilehash: 8501bb1a998eb08984a118bfa5d52d1e3f3e4f84
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bf47f08ac555cf60f59ba2b1a84750b6a9e2e0a1
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75498086"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132005"
 ---
 # <a name="fail-over--vmware-vms"></a>Conmutación por error de máquinas virtuales de VMware
 
@@ -87,7 +87,7 @@ En algunos escenarios, la conmutación por error requiere un procesamiento adici
 
 ## <a name="connect-to-failed-over-vm"></a>Conexión a la máquina virtual conmutada por error
 
-1. Si quiere conectarse a máquinas virtuales de Azure después de la conmutación por error mediante el Protocolo de escritorio remoto (RDP) y Secure Shell (SSH), [compruebe que se han cumplido los requisitos](failover-failback-overview.md#connect-to-azure-after-failover).
+1. Si quiere conectarse a las máquinas virtuales de Azure después de la conmutación por error mediante el Protocolo de escritorio remoto (RDP) y Secure Shell (SSH), [compruebe que se han cumplido los requisitos](failover-failback-overview.md#connect-to-azure-after-failover).
 2. Después de la conmutación por error, vaya a la máquina virtual y [conéctese](../virtual-machines/windows/connect-logon.md) a ella para realizar la validación.
 3. Use **Cambiar punto de recuperación** si desea usar otro punto de recuperación después de la conmutación por error. Después de confirmar la conmutación por error en el paso siguiente, esta opción dejará de estar disponible.
 4. Tras la validación, seleccione **Confirmar** para finalizar el punto de recuperación de la máquina virtual después de la conmutación por error.

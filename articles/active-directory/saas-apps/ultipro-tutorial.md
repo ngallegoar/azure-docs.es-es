@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 036737bd945f9abecef04e6e747c2d05dcb25187
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2d4967e9aeb5d8f0a1e05d272f6e5f372c11dd64
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73161066"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170197"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ultipro"></a>Tutorial: integración de Azure Active Directory con UltiPro
 
@@ -108,27 +108,21 @@ Para configurar el inicio de sesión único de Azure AD con UltiPro, siga estos 
 
     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
 
-    | |
-    |--|
-    | `https://<companyname>.ultipro.com/`|
-    | `https://<companyname>.ultiproworkplace.com?cpi=AZUREADISSSUERURL`|
-    | `https://<companyname>.ultipro.ca`|
+    - `https://<companyname>.ultipro.com/`
+    - `https://<companyname>.ultiproworkplace.com?cpi=AZUREADISSSUERURL`
+    - `https://<companyname>.ultipro.ca`
     
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
 
-    | |
-    |--|
-    | `https://<companyname>.ultipro.com/adfs/services/trust`|
-    | `https://<companyname>.ultiproworkplace.com/adfs/services/trust`|
-    | `https://<companyname>.ultipro.ca/adfs/services/trust`|
+    - `https://<companyname>.ultipro.com/adfs/services/trust`
+    - `https://<companyname>.ultiproworkplace.com/adfs/services/trust`
+    - `https://<companyname>.ultipro.ca/adfs/services/trust`
     
     c. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón:
     
-    | |
-    |--|
-    | `https://<companyname>.ultipro.com/<instancename>`|
-    | `https://<companyname>.ultiproworkplace.com/<instancename>`|
-    | `https://<companyname>.ultipro.ca/<instancename>`|
+    - `https://<companyname>.ultipro.com/<instancename>`
+    - `https://<companyname>.ultiproworkplace.com/<instancename>`
+    - `https://<companyname>.ultipro.ca/<instancename>`
 
     > [!NOTE]
     > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Póngase en contacto con el [equipo de soporte al cliente de UltiPro](https://www.ultimatesoftware.com/ContactUs) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.

@@ -4,12 +4,12 @@ description: En este artículo se describe cómo migrar máquinas físicas a Azu
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: dbb7737d59f48cadc645be990634bb5cb0cda251
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 16145c5d8b2414750b6eff9669fa7cd61eb482f5
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116104"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165403"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migración de máquinas como servidores físicos a Azure
 
@@ -69,9 +69,9 @@ Prepare Azure para la migración con Server Migration.
 
 Asigne el rol de colaborador de la máquina virtual a la cuenta de Azure. Este rol proporciona permisos para:
 
-    - Crear una máquina virtual en el grupo de recursos seleccionado.
-    - Crear una máquina virtual en la red virtual seleccionada.
-    - Escribir en un disco administrado de Azure. 
+- Crear una máquina virtual en el grupo de recursos seleccionado.
+- Crear una máquina virtual en la red virtual seleccionada.
+- Escribir en un disco administrado de Azure. 
 
 ### <a name="create-an-azure-network"></a>Creación de una red de Azure
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 83974a57fe080e76dee26781abaddf2b0b884839
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e60e1680b0155ed089eeb08fc41cb0b1ac6cb515
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67091488"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86168616"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Tutorial: Integración de Azure Active Directory con SCC LifeCycle
 
@@ -109,10 +109,8 @@ Para configurar el inicio de sesión único de Azure AD con SCC LifeCycle, siga 
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón:
     
-    | |
-    |--|
-    | `https://bs1.scc.com/<entity>`|
-    | `https://lifecycle.scc.com/<entity>`|
+    - `https://bs1.scc.com/<entity>`
+    - `https://lifecycle.scc.com/<entity>`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Para obtener estos valores, póngase en contacto con el [equipo de soporte al cliente de SCC LifeCycle](mailto:lifecycle.support@scc.com). También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.

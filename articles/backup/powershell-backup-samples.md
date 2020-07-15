@@ -4,18 +4,18 @@ description: En este artículo se incluyen vínculos a ejemplos de scripts de Po
 ms.topic: sample
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 3709ad6bcb70d4054b13458188a0638c58d59f3c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 29af774c857f20b0ed4d5392f4933e8056f0d246
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118212"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170690"
 ---
 # <a name="azure-backup-powershell-samples"></a>Ejemplos de Azure Backup PowerShell
 
 En la tabla siguiente se incluyen vínculos a ejemplos de script de PowerShell que usan Azure Backup para realizar copias de seguridad y restaurar datos.
 
-| |                                                              |
+| Script | Descripción |
 |---|---|
 | [Hacer una copia de seguridad de una máquina virtual cifrada en Azure](./scripts/backup-powershell-sample-backup-encrypted-vm.md) | Realice una copia de seguridad de todos los datos en una máquina virtual cifrada.|
 | [Búsqueda de la cuenta de almacenamiento registrada](./scripts/backup-powershell-script-find-recovery-services-vault.md) | Busque el almacén de Recovery Services en el que está registrada la cuenta de almacenamiento. |

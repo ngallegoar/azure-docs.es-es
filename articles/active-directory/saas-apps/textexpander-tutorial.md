@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77bd880bbbc1d600ca21e058993102d69b417f41
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: aecb235006752096c6040066cb9b96fcfa709363
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84764104"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86167256"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-textexpander"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con TextExpander
 
@@ -97,11 +97,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. Además de lo anterior, la aplicación TextExpander espera que se devuelvan algunos atributos más en la respuesta de SAML que se muestran a continuación. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
     
-    | Nombre | |  Atributo de origen|
-    | ---------------| --------------- | --------- |
-    | email | | user.email |
-    | firstName | | user.givenname |
-    | lastName | | user.surname |
+    | Nombre | Atributo de origen|
+    | ---- | --------------- |
+    | email | user.email |
+    | firstName | user.givenname |
+    | lastName | user.surname |
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 

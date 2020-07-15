@@ -4,18 +4,18 @@ description: Plantillas de Resource Manager para su uso con los almacenes de Rec
 ms.topic: sample
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 3c05f345c6c5df5d0350c75e52381c24b0609501
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 09962a37f36621950189e9446099c349de9430bb
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74172178"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170996"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>Plantillas de Azure Resource Manager para Azure Backup
 
 En la tabla siguiente se incluyen vínculos a las plantillas de Resource Manager para su uso con los almacenes de Recovery Services y las características de Azure Backup. Para obtener información sobre la sintaxis y las propiedades de JSON, consulte [Tipos de recursos Microsoft.RecoveryServices](/azure/templates/microsoft.recoveryservices/allversions).
 
-|   |   |
+| Plantilla | Descripción |
 |---|---|
 |**Almacén de Recovery Services** | |
 | [Creación de un almacén de Recovery Services](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vault-create)| Cree un almacén de Recovery Services. El almacén se puede usar con Azure Backup y Azure Site Recovery. |

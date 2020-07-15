@@ -4,12 +4,12 @@ description: Configure rápidamente la recuperación ante desastres en otra regi
 ms.topic: quickstart
 ms.date: 03/27/2020
 ms.custom: mvc
-ms.openlocfilehash: e26c2a1f24a88dc979f4ec68de65afc618740c00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8681ccaac30402927005e5e8802d7da2bddc2c5c
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371855"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135709"
 ---
 # <a name="quickstart-set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Inicio rápido: Configuración de la recuperación ante desastres en una región secundaria de Azure de una máquina virtual de Azure
 
@@ -22,7 +22,7 @@ En este inicio rápido se describe cómo configurar la recuperación ante desast
 Para completar este tutorial, necesitará una suscripción de Azure y una máquina virtual.
 
 - Si no tiene una cuenta de Azure con una suscripción activa, puede [crear una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Se recomienda una máquina virtual con un mínimo de 1 GB de RAM. [Más información](/azure/virtual-machines/windows/quick-create-portal) sobre cómo crear una máquina virtual.
+- Se recomienda una máquina virtual con un mínimo de 1 GB de RAM. [Más información](../virtual-machines/windows/quick-create-portal.md) sobre cómo crear una máquina virtual.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 

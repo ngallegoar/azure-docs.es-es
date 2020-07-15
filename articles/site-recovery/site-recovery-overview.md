@@ -4,12 +4,12 @@ description: Proporciona información general acerca del servicio Azure Site Rec
 ms.topic: overview
 ms.date: 03/17/2020
 ms.custom: MVC
-ms.openlocfilehash: ee387682e935522b37a5b4f9f32e53712bfb9150
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2b8268a47a141bb7254571a762bb9603e1a31b04
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80067553"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135226"
 ---
 # <a name="about-site-recovery"></a>Acerca de Site Recovery
 
@@ -20,7 +20,7 @@ Como organización, necesita adoptar una estrategia de continuidad empresarial y
 Azure Recovery Services colabora con su estrategia de BCDR:
 
 - **Servicio Site Recovery**: Site Recovery ayuda a garantizar la continuidad empresarial manteniendo las aplicaciones y cargas de trabajo empresariales en funcionamiento durante las interrupciones. Site Recovery replica las cargas de trabajo que se ejecutan en máquinas físicas y virtuales desde un sitio principal a una ubicación secundaria. Cuando se produce una interrupción en el sitio principal, se conmuta por error a la ubicación secundaria y se accede desde allí a las aplicaciones. Cuando la ubicación principal vuelva a estar en ejecución, puede realizar la conmutación por recuperación en ella.
-- **Servicio Backup**: El servicio [Azure Backup](/azure/backup/) mantiene los datos seguros y recuperables.
+- **Servicio Backup**: El servicio [Azure Backup](../backup/index.yml) mantiene los datos seguros y recuperables.
 
 Site Recovery puede administrar la replicación de:
 

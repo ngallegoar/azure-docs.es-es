@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0b407f29e4dda532ef12019f8d0a2a273832987
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a62bdc0f23f6769dca9914381a81674e470e695d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67595252"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86167783"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Tutorial: integración de Azure Active Directory con Teamwork.com
 
@@ -110,10 +110,8 @@ Para configurar el inicio de sesión único de Azure AD con Teamwork.com, siga l
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba la dirección URL:
 
-    | | |
-    |-|-|
-    | `https://teamwork.com/saml`|
-    | `https://eu.teamwork.com/saml`|
+    - `https://teamwork.com/saml`
+    - `https://eu.teamwork.com/saml`
 
     > [!NOTE]
     > Este valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de Teamwork.com](mailto:support@teamwork.com) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.

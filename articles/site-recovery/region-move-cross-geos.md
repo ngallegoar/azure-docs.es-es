@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: acaf16e7469b3ea4e5e391db91e37dc76be3b261
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d99a5feb344f970b10925b596726520b9dba9464
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78298537"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134016"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Mover las VM de Azure entre Azure Government y las regiones públicas 
 
@@ -32,7 +32,7 @@ En este tutorial se muestra cómo trasladar las VM de Azure entre Azure Governme
 > * Descarte de los recursos en la región de origen
 
 > [!IMPORTANT]
-> En este tutorial se muestra cómo trasladar las VM de Azure entre Azure Government y las regiones públicas, o entre pares de regiones que no son compatibles con la solución de recuperación ante desastres de las VM de Azure. En caso de que sus pares de regiones de origen y destino se [admitan](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support), consulte este [documento](azure-to-azure-tutorial-migrate.md) para realizar el traslado. Si necesita mejorar la disponibilidad al trasladar las VM de un conjunto de disponibilidad a las VM ancladas en la zona de otra región, consulte el tutorial que encontrará [aquí](move-azure-VMs-AVset-Azone.md).
+> En este tutorial se muestra cómo trasladar las VM de Azure entre Azure Government y las regiones públicas, o entre pares de regiones que no son compatibles con la solución de recuperación ante desastres de las VM de Azure. En caso de que sus pares de regiones de origen y destino se [admitan](./azure-to-azure-support-matrix.md#region-support), consulte este [documento](azure-to-azure-tutorial-migrate.md) para realizar el traslado. Si necesita mejorar la disponibilidad al trasladar las VM de un conjunto de disponibilidad a las VM ancladas en la zona de otra región, consulte el tutorial que encontrará [aquí](move-azure-VMs-AVset-Azone.md).
 
 > [!IMPORTANT]
 > No es recomendable usar este método para configurar DR entre pares de regiones no compatibles, ya que los pares se definen teniendo en cuenta la latencia de los datos, lo que es fundamental para un escenario de DR.
@@ -96,13 +96,13 @@ Tiene que instalar el Servicio de movilidad en cada servidor que quiera replicar
 
      Consulte los siguientes documentos para crear los recursos de red más utilizados y que considere más relevantes, en función de la configuración de la máquina virtual de origen.
 
-    - [Grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Equilibradores de carga](https://docs.microsoft.com/azure/load-balancer)
+    - [Grupos de seguridad de red](../virtual-network/manage-network-security-group.md)
+    - [Equilibradores de carga](../load-balancer/index.yml)
     - [Dirección IP pública](../virtual-network/virtual-network-public-ip-address.md)
     
-    Para cualquier otro componente de red, consulte la [documentación](https://docs.microsoft.com/azure/?pivot=products&panel=network) de red.
+    Para cualquier otro componente de red, consulte la [documentación](../index.yml?pivot=products&panel=network) de red.
 
-4. Si desea probar la configuración antes de realizar la migración final a la región de destino, [cree manualmente una red sin producción](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) en la región de destino. Esto creará una interferencia mínima con producción y, por este motivo, se recomienda.
+4. Si desea probar la configuración antes de realizar la migración final a la región de destino, [cree manualmente una red sin producción](../virtual-network/quick-create-portal.md) en la región de destino. Esto creará una interferencia mínima con producción y, por este motivo, se recomienda.
 
 ## <a name="copy-data-to-the-target-region"></a>Copia de datos en la región de destino
 En los pasos siguientes aprenderá a utilizar Azure Site Recovery para copiar datos en la región de destino.
@@ -136,7 +136,7 @@ Configure el servidor de configuración, regístrelo en el almacén y detecte m�
 Antes de empezar, haga lo siguiente: 
 
 #### <a name="verify-time-accuracy"></a>Verificación de la precisión de tiempo
-En la máquina del servidor de configuración, asegúrese de que el reloj del sistema está sincronizado con un [servidor horario](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). Deben ser iguales. Si hay una diferencia de 15 minutos, antes o después, se podría producir un error en la instalación.
+En la máquina del servidor de configuración, asegúrese de que el reloj del sistema está sincronizado con un [servidor horario](/windows-server/networking/windows-time-service/windows-time-service-top). Deben ser iguales. Si hay una diferencia de 15 minutos, antes o después, se podría producir un error en la instalación.
 
 #### <a name="verify-connectivity"></a>Verificación de la conectividad
 Asegúrese de que la máquina puede acceder a estas direcciones URL según el entorno: 

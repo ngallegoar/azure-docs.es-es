@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89ea2c45e16dfeb63801f70fa4480c0d865a890f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2972af3c94768cc21b53bbf5376826940aee639a
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160073"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86168871"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Tutorial: Integración de Azure Active Directory con SAP Cloud Platform
 
@@ -114,35 +114,29 @@ Para configurar el inicio de sesión único de Azure AD con SAP Cloud Platform, 
 
     a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en la aplicación **SAP Cloud Platform**. Se trata de la URL específica de la cuenta de un recurso protegido en su aplicación SAP Cloud Platform. La dirección URL se parece al siguiente patrón: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
       
-     >[!NOTE]
-     >Se trata de la URL de la aplicación SAP Cloud Platform que requiere la autenticación del usuario.
-     > 
+    >[!NOTE]
+    >Se trata de la URL de la aplicación SAP Cloud Platform que requiere la autenticación del usuario.
+    > 
 
-    | |
-    |--|
-    | `https://<subdomain>.hanatrial.ondemand.com/<instancename>` |
-    | `https://<subdomain>.hana.ondemand.com/<instancename>` |
+    - `https://<subdomain>.hanatrial.ondemand.com/<instancename>`
+    - `https://<subdomain>.hana.ondemand.com/<instancename>`
 
     b. En el cuadro de texto **Identificador** proporcionará el de su aplicación SAP Cloud Platforn, escriba una dirección URL conforme a uno de los siguientes patrones: 
 
-    | |
-    |--|
-    | `https://hanatrial.ondemand.com/<instancename>` |
-    | `https://hana.ondemand.com/<instancename>` |
-    | `https://us1.hana.ondemand.com/<instancename>` |
-    | `https://ap1.hana.ondemand.com/<instancename>` |
+    - `https://hanatrial.ondemand.com/<instancename>`
+    - `https://hana.ondemand.com/<instancename>`
+    - `https://us1.hana.ondemand.com/<instancename>`
+    - `https://ap1.hana.ondemand.com/<instancename>`
 
     c. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón:
 
-    | |
-    |--|
-    | `https://<subdomain>.hanatrial.ondemand.com/<instancename>` |
-    | `https://<subdomain>.hana.ondemand.com/<instancename>` |
-    | `https://<subdomain>.us1.hana.ondemand.com/<instancename>` |
-    | `https://<subdomain>.dispatcher.us1.hana.ondemand.com/<instancename>` |
-    | `https://<subdomain>.ap1.hana.ondemand.com/<instancename>` |
-    | `https://<subdomain>.dispatcher.ap1.hana.ondemand.com/<instancename>` |
-    | `https://<subdomain>.dispatcher.hana.ondemand.com/<instancename>` |
+    - `https://<subdomain>.hanatrial.ondemand.com/<instancename>`
+    - `https://<subdomain>.hana.ondemand.com/<instancename>`
+    - `https://<subdomain>.us1.hana.ondemand.com/<instancename>`
+    - `https://<subdomain>.dispatcher.us1.hana.ondemand.com/<instancename>`
+    - `https://<subdomain>.ap1.hana.ondemand.com/<instancename>`
+    - `https://<subdomain>.dispatcher.ap1.hana.ondemand.com/<instancename>`
+    - `https://<subdomain>.dispatcher.hana.ondemand.com/<instancename>`
 
     > [!NOTE] 
     > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Póngase en contacto con el [equipo de atención al cliente de SAP Cloud Platform](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/5dd739823b824b539eee47b7860a00be.html) para obtener la dirección URL de inicio de sesión y el identificador. La dirección URL de respuesta se obtiene de la sección de administración de confianza que se explica más adelante en el tutorial.

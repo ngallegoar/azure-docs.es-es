@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: dc37cb6fa05a2be56de7bf5536d7274190257d85
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 463bd290c304d9436316c9e08778f37ce8bd0b55
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78303926"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135428"
 ---
 # <a name="move-azure-vms-to-another-azure-region"></a>Traslado de máquinas virtuales de Azure a otra región de Azure
 
@@ -35,7 +35,7 @@ Puede que quiera mover máquinas virtuales de infraestructura como servicio (Iaa
 ## <a name="prerequisites"></a>Prerrequisitos
 
 - Asegúrese de tener las máquinas virtuales de Azure en la región de Azure de origen *desde* donde se va a realizar el traslado.
-- Compruebe que se admite su opción de [combinación de región de origen y región de destino](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support) y elija con cuidado la región de destino.
+- Compruebe que se admite su opción de [combinación de región de origen y región de destino](./azure-to-azure-support-matrix.md#region-support) y elija con cuidado la región de destino.
 - Asegúrese de entender la [arquitectura y los componentes del escenario](azure-to-azure-architecture.md).
 - Revise las [limitaciones y los requisitos de compatibilidad](azure-to-azure-support-matrix.md).
 - Compruebe los permisos de la cuenta. Si acaba de crear su cuenta de Azure gratis, *ya es* el administrador de la suscripción. Si no es el administrador, trabaje con el administrador para obtener los permisos que necesita:
@@ -66,13 +66,13 @@ Puede que quiera mover máquinas virtuales de infraestructura como servicio (Iaa
 
    Azure Site Recovery detecta y crea automáticamente una red virtual y una cuenta de almacenamiento al habilitar la replicación para la máquina virtual de origen. También puede crear previamente estos recursos y asignarlos a la máquina virtual como parte del paso para habilitar la replicación. Sin embargo, debe crear manualmente cualquier otro recurso en la región de destino. Consulte los siguientes documentos para crear los recursos de red usados más comúnmente en función de la configuración de la máquina virtual de origen:
 
-   - [Grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-   - [Equilibradores de carga](https://docs.microsoft.com/azure/load-balancer)
+   - [Grupos de seguridad de red](../virtual-network/manage-network-security-group.md)
+   - [Equilibradores de carga](../load-balancer/index.yml)
    - [Dirección IP pública](../virtual-network/virtual-network-public-ip-address.md)
     
-   Para cualquier otro componente de red, consulte la [documentación de red de Azure](https://docs.microsoft.com/azure/?pivot=products&panel=network). 
+   Para cualquier otro componente de red, consulte la [documentación de red de Azure](../index.yml?pivot=products&panel=network). 
 
-4. Para probar la configuración antes de realizar el traslado, [cree una red que no sea de producción](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) manualmente en la región de destino. Al probar la configuración se crea una interferencia mínima con el entorno de producción y, por este motivo, se recomienda.
+4. Para probar la configuración antes de realizar el traslado, [cree una red que no sea de producción](../virtual-network/quick-create-portal.md) manualmente en la región de destino. Al probar la configuración se crea una interferencia mínima con el entorno de producción y, por este motivo, se recomienda.
     
 ## <a name="copy-data-to-the-target-region"></a>Copia de datos en la región de destino
 En los pasos siguientes, usará Azure Site Recovery para copiar datos en la región de destino.
@@ -149,4 +149,3 @@ En este tutorial, ha aprendido a mover máquinas virtuales de Azure a otra regi�
 
 > [!div class="nextstepaction"]
 > [Configurar la recuperación ante desastres después de la migración](azure-to-azure-quickstart.md)
-

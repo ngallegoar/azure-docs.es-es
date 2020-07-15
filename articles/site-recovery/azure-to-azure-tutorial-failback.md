@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c27b7bf29e5f124fdcfb886b658fd8e9d4cc48fe
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e6257311473987ee053caeade6bfe14533353b73
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74091342"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134449"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Conmutación por recuperación de una máquina virtual de Azure entre regiones de Azure
 
@@ -28,7 +28,7 @@ En este tutorial se describe cómo conmutar por recuperación una sola máquina 
 > 
 > [!NOTE]
 > 
-> Este tutorial le ayuda a conmutar por error algunas máquinas virtuales a una región de destino y por recuperación a la región de origen con mínimas personalizaciones. Si desea instrucciones más detalladas, consulte las [guías paso a paso para máquinas virtuales de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/).
+> Este tutorial le ayuda a conmutar por error algunas máquinas virtuales a una región de destino y por recuperación a la región de origen con mínimas personalizaciones. Si desea instrucciones más detalladas, consulte las [guías paso a paso para máquinas virtuales de Azure](../virtual-machines/windows/index.yml).
 
 ## <a name="before-you-start"></a>Antes de comenzar
 

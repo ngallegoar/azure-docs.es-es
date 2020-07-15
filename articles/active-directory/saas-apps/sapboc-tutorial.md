@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fd01c86086c7491d22f655fcba5da237286412f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: dbe6aed8ae0403f6ab4a7f9e0ba8b9a2c5d61617
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68347803"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86168565"
 ---
 # <a name="tutorial-integrate-sap-analytics-cloud-with-azure-active-directory"></a>Tutorial: Integración de SAP Analytics Cloud con Azure Active Directory
 
@@ -85,17 +85,13 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
 
-    | |
-    |-|-|
-    | `https://<sub-domain>.sapanalytics.cloud/` |
-    | `https://<sub-domain>.sapbusinessobjects.cloud/` |
+    - `https://<sub-domain>.sapanalytics.cloud/`
+    - `https://<sub-domain>.sapbusinessobjects.cloud/`
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón:
-    
-    | |
-    |-|-|
-    | `<sub-domain>.sapbusinessobjects.cloud` |
-    | `<sub-domain>.sapanalytics.cloud` |
+
+    - `<sub-domain>.sapbusinessobjects.cloud`
+    - `<sub-domain>.sapanalytics.cloud`
 
     > [!NOTE] 
     > Los valores de estas direcciones URL se muestran solo con fines demostrativos. Debe actualizarlos con las direcciones URL reales de inicio de sesión único y de identificador. Para obtener la dirección URL de inicio de sesión, póngase en contacto con el [equipo de soporte técnico de SAP Analytics Cloud](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/). Para obtener la dirección URL de identificador, descargue los metadatos de SAP Analytics Cloud desde la consola de administración. Esto se explica posteriormente en este tutorial.
