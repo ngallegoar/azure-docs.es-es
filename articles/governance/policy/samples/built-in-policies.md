@@ -1,15 +1,15 @@
 ---
 title: Lista de definiciones de directiva integradas
 description: Se enumeran las definiciones de directiva integradas para Azure Policy. Las categorías incluyen Etiquetas, Cumplimiento de normativas, Key Vault, Kubernetes, Configuración de invitados, etc.
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 94f69754ab51728a18da10b45e05770f1271760b
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 1db053744a68e34fc3995916605be75a49887f01
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85313775"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86277345"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Definiciones de directiva integradas de Azure Policy
 
@@ -17,7 +17,7 @@ Esta página es un índice de las definiciones de directiva integradas de Azure 
 
 El nombre de cada uno de los vínculos integrados a la definición de directiva en Azure Portal. Use el vínculo de la columna **Origen** para ver el origen en el [repositorio de GitHub de Azure Policy](https://github.com/Azure/azure-policy). Los directivas integradas se agrupan por la propiedad **category** (categoría) de los **metadatos**. Para ir a una **categoría** específica, use el menú del lado derecho de la página. Como alternativa, puede usar <kbd>Ctrl</kbd>-<kbd>F</kbd> para utilizar la característica de búsqueda del explorador.
 
-## <a name="api-for-fhir"></a>Azure API for FHIR
+## <a name="api-for-fhir"></a>API for FHIR
 
 [!INCLUDE [azure-policy-samples-policies-api-for-fhir](../../../../includes/policy/samples/bycat/policies-api-for-fhir.md)]
 
@@ -164,6 +164,10 @@ El nombre de cada uno de los vínculos integrados a la definición de directiva 
 ## <a name="tags"></a>Etiquetas
 
 [!INCLUDE [azure-policy-samples-policies-tags](../../../../includes/policy/samples/bycat/policies-tags.md)]
+
+## <a name="vm-image-builder"></a>Generador de imágenes de máquina virtual
+
+[!INCLUDE [azure-policy-samples-policies-vm-image-builder](../../../../includes/policy/samples/bycat/policies-vm-image-builder.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directivas integradas para Azure SignalR
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Azure SignalR. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 author: sffamily
 ms.author: zhshang
 ms.service: signalr
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 192f457127936de2b353b44d2c733894b04e6592
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 63347b6bdab9530c1d176d8bf5bcd1bd6ffbb69b
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85316606"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276231"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-signalr"></a>Definiciones integradas de Azure Policy para Azure SignalR
 

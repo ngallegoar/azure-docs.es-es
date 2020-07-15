@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 3a7c9f61af0124c656f98b64ba9295bc659c572a
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 6edc6facc884fc6469b75b63216d6e5036321ea8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262364"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86277894"
 ---
 ## <a name="configure-the-sample-project"></a>Configuración del proyecto de ejemplo
 
@@ -36,7 +36,7 @@ Guarde y cierre el archivo.
 
 Después, configure el archivo *serviceConfig.json* para que se copie al directorio de salida cuando cree *SampleClientApp*. Para ello, seleccione el archivo *serviceConfig.json* con el botón derecho y elija *Propiedades.* En el inspector *Propiedades*, cambie el valor de la propiedad *Copiar en el directorio de resultados* a *Copiar si es posterior*.
 
-:::image type="content" source="../articles/digital-twins/media/include-tutorial/copy-config.png" alt-text="Extracto de la ventana de Visual Studio que muestra el panel Explorador de soluciones con serviceConfig.JSON resaltado y el panel Propiedades con la propiedad Copiar en el directorio de resultados establecida en Copiar si es posterior" border="false":::
+:::image type="content" source="../articles/digital-twins/media/includes/copy-config.png" alt-text="Extracto de la ventana de Visual Studio que muestra el panel Explorador de soluciones con serviceConfig.JSON resaltado y el panel Propiedades con la propiedad Copiar en el directorio de resultados establecida en Copiar si es posterior" border="false":::
 
 Mantenga el _**AdtE2ESample**_ proyecto abierto en Visual Studio para seguir utilizándolo en el tutorial.
 

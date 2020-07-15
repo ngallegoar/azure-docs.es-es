@@ -9,14 +9,14 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: pafarley
-ms.openlocfilehash: c4a8950e5aaa56f739fb3f6f780fbcfef80e2ec6
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 2b46e115b6360b161a1b2ad9b176f3afbfaf27d0
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86035864"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86277786"
 ---
-[Documentación de referencia](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [Paquete (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [Ejemplos](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
+[Documentación de referencia](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [Paquete (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [Ejemplos](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -135,7 +135,7 @@ También tendrá que agregar referencias a las direcciones URL de los datos de e
 * Use el método anterior para obtener también la dirección URL de una imagen de recibo, o utilice la dirección URL de la imagen de ejemplo proporcionada.
 
 > [!NOTE]
-> Los fragmentos de código de esta guía usan formularios remotos con acceso mediante direcciones URL. En cambio, si quiere procesar documentos de formulario locales, consulte los métodos relacionados en la [documentación de referencia](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer).
+> Los fragmentos de código de esta guía usan formularios remotos con acceso mediante direcciones URL. En cambio, si quiere procesar documentos de formulario locales, consulte los métodos relacionados en la [documentación de referencia](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre).
 
 ```csharp
     string trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
@@ -171,7 +171,7 @@ Para reconocer el contenido de un archivo en un URI determinado, use el método 
 private static async Task<Guid> GetContent(
     FormRecognizerClient recognizerClient, string invoiceUri)
 {
-    Response<IReadOnlyList<FormPage>> formPages = await recognizerClient
+    Response<FormPageCollection> formPages = await recognizerClient
         .StartRecognizeContentFromUri(new Uri(invoiceUri))
         .WaitForCompletionAsync();
 ```
