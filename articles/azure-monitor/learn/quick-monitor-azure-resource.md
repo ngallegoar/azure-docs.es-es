@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: c4b80e62d3800392b847a411dfc66c3278e72bba
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 597b12a584e7b4c17ec21635e18368f897ad168a
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77661871"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85443883"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>Inicio rápido: Supervisión de recursos de Azure con Azure Monitor
 [Azure Monitor](../overview.md) comienza a recopilar datos de los recursos de Azure en el momento en que se crean. Este inicio rápido proporciona un breve tutorial de los datos que se recopilan automáticamente para un recurso y de cómo verlos en la instancia de Azure Portal de un recurso determinado. Posteriormente puede agregar la configuración necesaria para recopilar datos adicionales y puede ir al menú de Azure Monitor para usar las mismas herramientas para acceder a los datos recopilados de todos los recursos de la suscripción.
@@ -67,7 +67,7 @@ Las métricas son valores numéricos que describen algún aspecto de un recurso 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este inicio rápido, ha visto el registro de actividad y las métricas de un recurso de Azure que Azure Monitor recopilan automáticamente. Los registros de recursos proporcionan información sobre el funcionamiento detallado del recurso, pero se deben configurar para que se recopilen. Vaya al tutorial para recopilar registros de recursos en un área de trabajo de Log Analytics donde se pueden analizar mediante consultas de registro.
+En este inicio rápido, ha visto el registro de actividad y las métricas de un recurso de Azure que Azure Monitor recopilan automáticamente. Continúe con el siguiente inicio rápido, en el que se muestra cómo recopilar el registro de actividad en un área de trabajo de Log Analytics, donde se puede analizar con [consultas de registro](../log-query/log-query-overview.md).
 
 > [!div class="nextstepaction"]
-> [Recopilación y análisis de registros de recurso con Azure Monitor](tutorial-resource-logs.md)
+> [Envío del registro de actividad de Azure a un área de trabajo de Log Analytics](quick-monitor-azure-resource.md)

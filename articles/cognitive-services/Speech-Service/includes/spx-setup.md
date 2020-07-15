@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: c57187ae15e5f15a601edbc74921b3c879abe715
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: b0f70fccf3f7f4a6856ae64d0946c2c473fed93c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800692"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050484"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -27,6 +27,10 @@ Siga estos pasos para instalar la CLI de Voz en Windows:
 3. Vaya al directorio raíz `spx-zips` que extrajo de la descarga y extraiga el subdirectorio que necesita (`spx-net471` para .NET Framework 4.7 o `spx-netcore-win-x64` para .NET Core 3.0 en una CPU x64).
 
 En el símbolo del sistema, cambie el directorio a esta ubicación y, luego, escriba `spx` para ver la ayuda de la CLI de Voz.
+
+> [!NOTE]
+> PowerShell no comprueba el directorio local al buscar un comando. En PowerShell, cambie el directorio a la ubicación de `spx` y llame a la herramienta escribiendo `.\spx`.
+> Si agrega este directorio a su ruta de acceso, PowerShell y el símbolo del sistema de Windows buscarán `spx` en cualquier directorio sin incluir el prefijo `.\`.
 
 #### <a name="linux-install"></a>[Instalación de Linux](#tab/linuxinstall)
 

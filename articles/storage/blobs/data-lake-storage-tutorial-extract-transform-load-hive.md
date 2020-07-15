@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 1e408f27d4c9b2686bd9f56ca754f5553a446440
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b247a72b5d7db9892c6a2a763b7b71dc5f972d95
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014917"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045304"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Tutorial: Extracción, transformación y carga de datos mediante Azure HDInsight
 
@@ -24,7 +24,7 @@ En este tutorial, aprenderá a:
 > [!div class="checklist"]
 > * Extraer y cargar los datos en un clúster de HDInsight.
 > * Transformar los datos mediante Apache Hive.
-> * Cargar los datos en una base de datos de Azure SQL mediante Sqoop.
+> * Cargar los datos en Azure SQL Database mediante Sqoop.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -38,7 +38,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
     Consulte [Quickstart: Introducción a Apache Hadoop y Apache Hive en Azure HDInsight con Azure Portal](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal).
 
-* **Azure SQL Database**: Use una base de datos de Azure SQL como almacén de datos de destino. Si aún no tiene ninguna, consulte [Creación de una base de datos de Azure SQL en Azure Portal](../../sql-database/sql-database-get-started.md).
+* **Azure SQL Database**: Use Azure SQL Database como almacén de datos de destino. Si no tiene ninguna base de datos en SQL Database, consulte el artículo sobre [creación de una base de datos en Azure SQL Database en Azure Portal](../../sql-database/sql-database-get-started.md).
 
 * **CLI de Azure**: Si no ha instalado la CLI de Azure , consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -224,7 +224,7 @@ Como parte del trabajo de Apache Hive importe los datos del archivo .csv en una 
 
 ## <a name="create-a-sql-database-table"></a>Creación de una tabla de SQL Database
 
-Necesita el nombre del servidor de la base de datos SQL para esta operación. Complete estos pasos para buscar el nombre del servidor.
+Necesita el nombre del servidor de SQL Database para esta operación. Complete estos pasos para buscar el nombre del servidor.
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
 
@@ -300,7 +300,7 @@ Necesita el nombre del servidor de la base de datos SQL para esta operación. Co
 
 ## <a name="export-and-load-the-data"></a>Exportación y carga de los datos
 
-En las secciones anteriores, ha copiado los datos transformados en la ubicación `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`. En esta sección, va a usar Sqoop para exportar los datos de `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` a la tabla que ha creado en la base de datos de Azure SQL.
+En las secciones anteriores, ha copiado los datos transformados en la ubicación `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`. En esta sección, va a usar Sqoop para exportar los datos de `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` a la tabla que ha creado en Azure SQL Database.
 
 1. Utilice el comando siguiente para comprobar si Sqoop puede ver la instancia de SQL Database:
 

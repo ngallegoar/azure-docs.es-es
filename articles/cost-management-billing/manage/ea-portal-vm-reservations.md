@@ -3,16 +3,16 @@ title: Instancias reservadas de máquinas virtuales de Azure EA
 description: En este artículo se resume la forma en que las reservas de Azure para las instancias reservadas de máquinas virtuales pueden ayudarle a ahorrar dinero en la inscripción de su empresa.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/11/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: a06f416ed1d4df33cc6777eba878eee2b4f6b047
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: b78abeaac3066839636918923636f4b7bdf9ee35
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735428"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044862"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Instancias reservadas de máquinas virtuales de Azure EA
 
@@ -83,9 +83,9 @@ Si no usó la ventaja híbrida de Azure para comprar instancias reservadas de m�
 
 ### <a name="reserved-instance-billing"></a>Facturación de instancias reservadas
 
-En el caso de los clientes de Enterprise, se usa el compromiso monetario para comprar instancias reservadas de máquinas virtuales de Azure. Si la inscripción tiene un saldo de compromiso monetario suficiente para cubrir la compra de las instancias reservadas, el importe se deducirá del saldo del compromiso monetario y no recibirá ninguna factura por la compra.
+En el caso de los clientes de Enterprise, se usa el prepago de Azure para comprar instancias reservadas de máquinas virtuales de Azure. Si la inscripción tiene un saldo de prepago de Azure suficiente para cubrir la compra de las instancias reservadas, el importe se deducirá del saldo del prepago de Azure y no recibirá ninguna factura por la compra.
 
-En los casos en los que los clientes de Azure EA hayan usado todo su compromiso monetario, todavía podrán comprar instancias reservadas, cuyo importe se incluirá en la próxima factura de uso por encima del límite. El uso por encima del límite de las instancias reservadas, si se produce, formará parte de la factura normal de uso por encima del límite.
+En los casos en los que los clientes de Azure EA hayan usado todo su prepago de Azure, todavía podrán comprar instancias reservadas, cuyo importe se incluirá en la próxima factura de uso por encima del límite. El uso por encima del límite de las instancias reservadas, si se produce, formará parte de la factura normal de uso por encima del límite.
 
 ### <a name="reserved-instance-expiration"></a>Expiración de las instancias reservadas
 

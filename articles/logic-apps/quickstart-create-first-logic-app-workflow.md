@@ -3,16 +3,16 @@ title: Creación del primer flujo de trabajo automatizado
 description: 'Inicio rápido: Cree el primer flujo de trabajo automatizado mediante Azure Logic Apps para soluciones de integración de aplicaciones empresariales (EAI) e integración de sistemas'
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 555230499ebda106cbca616b779ae632d65349ab
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 0b3559a27fe9fae6c34b07c648a289d205560bd8
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84807870"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321593"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Inicio rápido: Creación del primer flujo de trabajo mediante Azure Logic Apps: Azure Portal
 
@@ -74,13 +74,13 @@ A continuación, añada un [desencadenador](../logic-apps/logic-apps-overview.md
 
    ![Seleccionar el desencadenador "Cuando se publica un elemento de fuente"](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
-1. Proporcione esta información para el desencadenador, como se describe a continuación:
+1. Proporcione la información del desencadenador tal y como se describe en la tabla:
 
    ![Configuración del desencadenador con la fuente RSS, la frecuencia y el intervalo](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)
 
    | Propiedad | Value | Descripción |
    |----------|-------|-------------|
-   | **URL de fuente RSS** | `http://feeds.reuters.com/reuters/topNews` | Vínculo de la fuente RSS que desea supervisar |
+   | **URL de fuente RSS** | <*URL-de-fuente-RSS*> | Vínculo de la fuente RSS que desea supervisar En este ejemplo se usa `http://feeds.reuters.com/reuters/topNews`. |
    | **Intervalo** | 1 | Número de intervalos que se espera entre comprobaciones |
    | **Frecuencia** | Minute | La unidad de tiempo de cada intervalo entre comprobaciones  |
    ||||

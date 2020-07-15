@@ -1,6 +1,6 @@
 ---
 title: Introducción a SQL Database | Microsoft Docs
-description: Contenido de ayuda de introducción a SQL Database en Azure Portal
+description: Contenido de ayuda de información general sobre SQL Database en Azure Portal
 services: sql-database
 author: sewatson
 manager: lwelicki
@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 04/09/2019
 ms.author: ninarn
-ms.openlocfilehash: 99f19971eafaa1ddad1f96b187e18b79810560a2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6d4f0c50f57661576f97ddd3772d78b9fa293153
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "61244466"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040527"
 ---
 # <a name="sql-database-documentation"></a>Documentación de SQL Database
 
@@ -29,7 +29,7 @@ Azure SQL Database le permite realizar fácilmente tareas básicas de administra
 
 ## <a name="step-by-step-tutorials"></a>Tutoriales paso a paso
 
-Aprenda a crear, administrar y migrar bases de datos mediante SQL DB.
+Aprenda a crear, administrar y migrar bases de datos mediante SQL Database.
 
 - Empiece a trabajar con [una base de datos única](/azure/sql-database/sql-database-single-database-quickstart-guide) con nuestra guía de inicio rápido.
 - Creación y diseño del esquema de una nueva base de datos única mediante [SSMS](/azure/sql-database/sql-database-design-first-database) o [.NET](/azure/sql-database/sql-database-design-first-database-csharp)

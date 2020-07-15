@@ -3,16 +3,16 @@ title: Acuerdos y enmiendas de Contrato Enterprise de Azure
 description: En este artículo se explica cómo los acuerdos y enmiendas del Contrato Enterprise de Azure afectan al uso del portal del Contrato Enterprise de Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 4904390ce0642d0331e82610e8aef4b735b56f1f
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 50f7a1bab17b9a98b7ca282387def52b24d448c4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298149"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044913"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Acuerdos y enmiendas de Contrato Enterprise de Azure
 
@@ -20,7 +20,7 @@ En este artículo se describe cómo los acuerdos y modificaciones del Contrato E
 
 ## <a name="enrollment-provisioning-status"></a>Estado de aprovisionamiento de inscripciones
 
-La fecha de inicio de un nuevo compromiso monetario se define por la fecha en que el centro de operaciones regional lo ha procesado. Como los pedidos de compromiso monetario a través de Azure EA Portal se procesan en la zona horaria UTC, puede producirse algún retraso si el pedido de compra del compromiso monetario se procesó en otra región. La fecha de inicio de la cobertura en el pedido de compra en https://www.explore.ms muestra el inicio del compromiso monetario. La fecha de inicio de la cobertura es cuando el compromiso monetario aparece en el portal del Contrato Enterprise de Azure.
+La fecha de inicio de un nuevo prepago de Azure se define por la fecha en que el centro de operaciones regional lo ha procesado. Como los pedidos de prepago de Azure a través de Azure EA Portal se procesan en la zona horaria UTC, puede producirse algún retraso si el pedido de compra de prepago de Azure se procesó en otra región. La fecha de inicio de la cobertura en el pedido de compra en https://www.explore.ms muestra el inicio del prepago de Azure. La fecha de inicio de la cobertura es cuando el prepago de Azure aparece en Azure EA Portal.
 
 ## <a name="support-for-enterprise-customers"></a>Soporte técnico para clientes de Enterprise
 
@@ -36,7 +36,7 @@ Una inscripción tiene uno de los siguientes valores de estado. Cada valor deter
 
 **Indefinite Extended Term** (Período extendido indefinido): este estado tiene lugar después de que se alcanza la fecha de finalización del Contrato Enterprise. Antes de que la inscripción del Contrato Enterprise alcance la fecha de finalización, el administrador de inscripciones debe decidir:
 
-- Renovar la inscripción agregando un compromiso monetario adicional
+- Renovar la inscripción mediante la adición de un nuevo prepago de Azure
 - Transferir la inscripción existente a una nueva inscripción
 - Migrar al programa de suscripción en línea de Microsoft (MOSP)
 - Confirmar la deshabilitación de todos los servicios asociados con la inscripción
@@ -51,7 +51,7 @@ A partir del 1 de agosto de 2019, no se aceptan nuevos formularios de no partici
 
 En el portal del Contrato Enterprise de Azure, el incremento de precios de asociados ayuda a habilitar un mejor informe de costos para los clientes. El portal del Contrato Enterprise de Azure muestra el uso y los precios configurados por los asociados para sus clientes.
 
-El incremento permite a los administradores de los asociados agregar un margen de beneficio porcentual a sus Contratos Enterprise indirectos. El incremento porcentual se aplica a toda la información de los servicios de Microsoft en Azure EA Portal como, por ejemplo, tasas de los medidores, compromisos monetarios y pedidos. Cuando el asociado publica el incremento, el cliente ve los costos de Azure en Azure EA Portal. Por ejemplo, resumen de uso, listas de precios e informes de uso descargados.
+El incremento permite a los administradores de los asociados agregar un margen de beneficio porcentual a sus Contratos Enterprise indirectos. El incremento porcentual se aplica a toda la información de los servicios de Microsoft en Azure EA Portal como, por ejemplo, tasas de los medidores, prepago de Azure y pedidos. Cuando el asociado publica el incremento, el cliente ve los costos de Azure en Azure EA Portal. Por ejemplo, resumen de uso, listas de precios e informes de uso descargados.
 
 A partir de septiembre de 2019, los asociados pueden aplicar el incremento en cualquier momento durante un período. No es necesario esperar hasta el siguiente aniversario del período para aplicar el incremento.
 
@@ -61,7 +61,7 @@ Microsoft no tendrá acceso ni usará el incremento proporcionado ni los precios
 
 El Proveedor de soluciones de licencia proporciona un único número de porcentaje en EA Portal.  Toda la información comercial del portal se elevará según este porcentaje proporcionado. Ejemplo:
 
-- El cliente firma un Contrato Enterprise con un compromiso monetario de 100 000 USD.
+- El cliente firma un Contrato Enterprise con un prepago de Azure de 100 000 USD.
 - La tasa de medidor para el servicio A es de 10 USD por hora.
 - El Proveedor de soluciones de licencia establece un porcentaje de incremento del 10 % en EA Portal.
 - En el ejemplo siguiente se muestra cómo verá el cliente la información comercial:
@@ -72,10 +72,10 @@ El Proveedor de soluciones de licencia proporciona un único número de porcenta
 
 ### <a name="when-to-use-a-markup"></a>Cuándo se usa el incremento
 
-Use esta característica si establece el mismo porcentaje de incremento en TODAS las transacciones comerciales del Contrato Enterprise; es decir, si incrementa la información de compromiso monetario, las tasas de los medidores, la información de pedidos, etc.
+Use esta característica si establece el mismo porcentaje de incremento en TODAS las transacciones comerciales del Contrato Enterprise; es decir, si incrementa la información de prepago de Azure, las tasas de los medidores, la información de pedidos, etc.
 
 No use la característica de incremento en los siguientes casos:
-- Usa diferentes tasas entre el compromiso monetario y el medidor.
+- Usa diferentes tasas entre el prepago de Azure y el medidor.
 - Usa diferentes tasas para distintos medidores.
 
 Si usa tasas diferentes para distintos medidores, se recomienda desarrollar una solución personalizada basada en la clave de API, que puede proporcionar el cliente, para extraer datos de consumo y disponer de informes.
@@ -97,11 +97,11 @@ Asegúrese de revisar la información comercial —información de saldo monetar
 
 **Paso dos: Revisar y validar**
 
-Revise el incremento de precio en _Usage Summary_ (Resumen de uso) para el período de compromiso en la vista de cliente. El precio de Microsoft seguirá estando disponible en la vista de asociado. Las vistas se pueden alternar mediante el texto de alternancia "People" (Personas) de incremento del asociado en la parte superior derecha.
+Revise el incremento de precio en _Usage Summary_ (Resumen de uso) para el período de prepago en la vista de cliente. El precio de Microsoft seguirá estando disponible en la vista de asociado. Las vistas se pueden alternar mediante el texto de alternancia "People" (Personas) de incremento del asociado en la parte superior derecha.
 
 1. Revise los precios de la hoja de precios.
 1. Se pueden realizar cambios antes de la publicación seleccionando **Edit** (Editar) en la pestaña _View Usage Summary > Customer View_ (Ver resumen de uso > Vista de cliente). 
-  Tanto los precios de los servicios como los saldos de compromiso se incrementarán con los mismos porcentajes. Si cuenta con porcentajes diferentes para el saldo monetario y para las tasas de medidor, o bien diferentes porcentajes para diferentes servicios, no use esta característica.
+  Tanto los precios de los servicios como los saldos de prepago se incrementarán con los mismos porcentajes. Si cuenta con porcentajes diferentes para el saldo monetario y para las tasas de medidor, o bien diferentes porcentajes para diferentes servicios, no use esta característica.
 
 **Paso tres: Publicar**
 
@@ -121,7 +121,7 @@ Una vez que se publique el incremento del asociado, el cliente indirecto tendrá
 Los asociados pueden usar la característica de incremento (en Azure EA) después de que se procese un cambio de asociado de canal; no es necesario esperar al siguiente aniversario del período.
 
 
-## <a name="resource-commitment-and-requesting-quota-increases"></a>Compromiso de recursos y solicitud de aumentos de la cuota
+## <a name="resource-prepayment-and-requesting-quota-increases"></a>Prepago de recursos y solicitud de aumentos de la cuota
 
 **El sistema aplica las siguientes cuotas predeterminadas por suscripción:**
 
@@ -135,11 +135,11 @@ Los asociados pueden usar la característica de incremento (en Azure EA) despu�
 | Control de acceso | 50 espacios de nombres por cuenta. 100 millones de transacciones de control de acceso al mes |   |
 | Azure Service Bus | 50 espacios de nombres por cuenta. 40 conexiones de Service Bus | Los clientes que compren conexiones de Service Bus mediante los paquetes de conexión tendrán cuotas iguales al punto medio entre el paquete de conexión que adquirieron y el importe del siguiente paquete de conexión más alto. Los clientes que elijan un paquete de 500 tendrán una cuota de 750. |
 
-## <a name="resource-commitment"></a>Compromiso de recursos
+## <a name="resource-prepayment"></a>Prepago de recursos
 
-Microsoft le ofrecerá servicios hasta, al menos, el nivel de uso asociado incluido en el compromiso mensual que haya adquirido (el Compromiso de servicio), pero el resto de aumentos en los niveles de uso de los recursos de servicio (por ejemplo, aumento del número de instancias de proceso en ejecución o aumento de la cantidad de almacenamiento en uso) estarán sujetos a la disponibilidad de estos recursos de servicio.
+Microsoft le ofrecerá servicios hasta, al menos, el nivel de uso asociado incluido en el prepago mensual que haya adquirido (el Prepago de servicio), pero el resto de aumentos en los niveles de uso de los recursos de servicio (por ejemplo, aumento del número de instancias de proceso en ejecución o aumento de la cantidad de almacenamiento en uso) estarán sujetos a la disponibilidad de estos recursos de servicio.
 
-Todas las cuotas descritas anteriormente no suponen un Compromiso de servicio. Para determinar el número de instancias de proceso pequeñas simultáneas (o su equivalente) que Microsoft ofrecerá como parte del Compromiso de servicio, se divide el número de horas de instancias de proceso pequeñas comprometidas para un mes entre el número de horas del mes más corto del año (es decir, febrero, o lo que es lo mismo, 672 horas).
+Todas las cuotas descritas anteriormente no suponen un Prepago de servicio. Para determinar el número de instancias de proceso pequeñas simultáneas (o su equivalente) que Microsoft ofrecerá como parte del Prepago de servicio, se divide el número de horas de instancias de proceso pequeñas comprometidas para un mes entre el número de horas del mes más corto del año (es decir, febrero, o lo que es lo mismo, 672 horas).
 
 ## <a name="requesting-a-quota-increase"></a>Solicitud de un aumento de la cuota
 

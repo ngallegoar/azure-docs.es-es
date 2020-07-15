@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: ac7af2f4500f6702dcacad546b0985e41159dc6e
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 8123608cbf2c1a4cbe0dc51d81d42b288bf2a91d
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734680"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024934"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Unión de una máquina virtual Windows Server a un dominio administrado de Azure Active Directory Domain Services
 
@@ -110,7 +110,7 @@ Si ya tiene una máquina virtual que quiera unir a un dominio, vaya a la secció
 
 1. La subred tarda unos segundos en crearse. Una vez creada, seleccione la *X* para cerrar la ventana de la subred.
 1. De nuevo en el panel **Redes** para crear una máquina virtual, elija la subred que creó en el menú desplegable como, por ejemplo, *management*. De nuevo, asegúrese de elegir la subred correcta y no implementar la máquina virtual en la misma que el dominio administrado.
-1. En **IP pública**, seleccione *Ninguno* en el menú desplegable, ya que usa Azure Bastion para conectarse a la administración y no necesita una dirección IP pública asignada.
+1. En **IP pública**, seleccione *Ninguna* en el menú desplegable. Como en este tutorial utiliza Azure Bastion para conectarse a la administración, no necesita una dirección IP pública asignada a la máquina virtual.
 1. Deje las restantes opciones con sus valores predeterminados y, después, seleccione **Administración**.
 1. Establezca **Diagnósticos de arranque** en *Desactivado*. Deje las restantes opciones con sus valores predeterminados y, después, seleccione **Revisar y crear**.
 1. Revise la configuración de la máquina virtual y seleccione **Crear**.
@@ -121,7 +121,7 @@ La operación de creación de la máquina virtual tarda unos minutos. En Azure 
 
 ## <a name="connect-to-the-windows-server-vm"></a>Conexión a la máquina virtual de Windows Server
 
-Para conectarse de forma segura a las máquinas virtuales, use un host de Azure Bastion. Con Azure Bastion, se implementa un host administrado en la red virtual que proporciona conexiones RDP o SSH basadas en web a las máquinas virtuales. No se requieren direcciones IP públicas para las máquinas virtuales y no es necesario abrir reglas de grupo de seguridad de red para el tráfico remoto externo. La conexión a las máquinas virtuales mediante Azure Portal se realiza desde el explorador web.
+Para conectarse de forma segura a las máquinas virtuales, use un host de Azure Bastion. Con Azure Bastion, se implementa un host administrado en la red virtual que proporciona conexiones RDP o SSH basadas en web a las máquinas virtuales. No se requieren direcciones IP públicas para las máquinas virtuales y no es necesario abrir reglas de grupo de seguridad de red para el tráfico remoto externo. La conexión a las máquinas virtuales mediante Azure Portal se realiza desde el explorador web. Si es necesario, [cree un host de Azure Bastion][azure-bastion].
 
 Para usar un host de Bastion para conectarse a la máquina virtual, complete los pasos siguientes:
 
@@ -152,7 +152,9 @@ Una vez que se ha creado la máquina virtual y se ha establecido una conexión 
 
     ![Especificar el dominio administrado al que se va a unir](./media/join-windows-vm/join-domain.png)
 
-1. Escriba las credenciales de dominio para unirse al dominio. Use las credenciales de un usuario que forme parte del dominio administrado. La cuenta debe formar parte del dominio administrado o del inquilino de Azure AD; las cuentas de directorios externos asociadas al inquilino de Azure AD no se pueden autenticar correctamente durante el proceso de unión al dominio. Las credenciales de la cuenta se pueden especificar de una de las siguientes maneras:
+1. Escriba las credenciales de dominio para unirse al dominio. Indique las credenciales de un usuario que forme parte del dominio administrado. La cuenta debe formar parte del dominio administrado o del inquilino de Azure AD; las cuentas de directorios externos asociadas al inquilino de Azure AD no se pueden autenticar correctamente durante el proceso de unión al dominio.
+
+    Las credenciales de la cuenta se pueden especificar de una de las siguientes maneras:
 
     * **Formato UPN**  (recomendado): escriba el sufijo del nombre principal de usuario (UPN) de la cuenta de usuario, según esté configurado en Azure AD. Por ejemplo, el sufijo UPN del usuario *contosoadmin* sería `contosoadmin@aaddscontoso.onmicrosoft.com`. Hay un par de casos de uso comunes en los que el formato UPN se puede usar de forma confiable para iniciar sesión en el dominio en lugar del formato *SAMAccountName*:
         * Si el prefijo UPN de un usuario es demasiado largo, por ejemplo *deehasareallylongname*, el valor de *SAMAccountName* (nombre de cuenta SAM) puede generarse automáticamente.
@@ -174,13 +176,13 @@ Una vez que se ha creado la máquina virtual y se ha establecido una conexión 
 >
 > Para unirse a un dominio de una máquina virtual sin conectarse a ella y configurar manualmente la conexión, puede usar el cmdlet de Azure PowerShell [Set-AzVmAdDomainExtension][set-azvmaddomainextension].
 
-Una vez que se haya reiniciado la máquina virtual Windows Server, las directivas aplicadas en el dominio administrado se insertarán en la máquina virtual. Ahora también puede iniciar sesión en la máquina virtual de Windows Server con las credenciales de dominio apropiadas.
+Una vez que se haya reiniciado la máquina virtual Windows Server, las directivas aplicadas en el dominio administrado se insertan en la máquina virtual. Ahora también puede iniciar sesión en la máquina virtual de Windows Server con las credenciales de dominio apropiadas.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 En el siguiente tutorial, utilizará esta máquina virtual Windows Server para instalar las herramientas de administración que le permitirán ocuparse del dominio administrado. Si no desea continuar en esta serie de tutoriales, revise las siguientes etapas de limpieza para [eliminar la máquina virtual](#delete-the-vm). De lo contrario, [continúe con el tutorial siguiente](#next-steps).
 
-### <a name="un-join-the-vm-from-the-managed-domain"></a>Separación de la máquina virtual del dominio administrado
+### <a name="unjoin-the-vm-from-the-managed-domain"></a>Separación de la máquina virtual del dominio administrado
 
 Para retirar la máquina virtual del dominio administrado, siga de nuevo los pasos para [unir la máquina virtual a un dominio](#join-the-vm-to-the-managed-domain). En lugar de unirse al dominio administrado, elija unirse a un grupo de trabajo, como el predeterminado *WORKGROUP*. Una vez que la máquina virtual se reinicia, el objeto de equipo se quita del dominio administrado.
 

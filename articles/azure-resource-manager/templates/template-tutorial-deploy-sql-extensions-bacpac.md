@@ -5,12 +5,12 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e17bad915fd913f6e3894ed386e914e65aa46c01
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 6a56602ad5217af07d9e35872a26ddb478146d0e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85250339"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101892"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Tutorial: Importación de archivos BACPAC de SQL con plantillas de Resource Manager
 
@@ -34,7 +34,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar este artículo, necesitará lo siguiente:
 
-* Visual Studio Code con la extensión Herramientas de Resource Manager. Consulte [Uso de Visual Studio Code para la creación de plantillas de Resource Manager](./use-vs-code-to-create-template.md).
+* Visual Studio Code con la extensión Herramientas de Resource Manager. Consulte [Quickstart: Creación de plantillas de Azure Resource Manager con Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 * Para aumentar la seguridad, utilice una contraseña generada para la cuenta de administrador del servidor. A continuación se muestra un ejemplo de generación de contraseña:
 
     ```console
@@ -112,8 +112,8 @@ La plantilla que se usa en este tutorial se almacena en [GitHub](https://raw.git
 
     En la plantilla hay dos recursos definidos:
 
-   * `Microsoft.Sql/servers`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.sql/servers).
-   * `Microsoft.SQL.servers/databases`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
+   * `Microsoft.Sql/servers`. Consulte la [referencia de plantilla](/azure/templates/microsoft.sql/servers).
+   * `Microsoft.SQL.servers/databases`. Consulte la [referencia de plantilla](/azure/templates/microsoft.sql/servers/databases).
 
         Resulta útil obtener cierta información básica de la plantilla antes de personalizarla.
 1. Seleccione **Archivo** > **Guardar como** para guardar una copia del archivo en la máquina local con el nombre *azuredeploy.json*.
@@ -194,7 +194,7 @@ La plantilla que se usa en este tutorial se almacena en [GitHub](https://raw.git
 
         ![Plantilla con extensión de SQL Database](./media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac.png)
 
-        Para conocer la definición de recursos, consulte la [referencia de extensiones de SQL Database](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases/extensions). Estos son algunos elementos importantes:
+        Para conocer la definición de recursos, consulte la [referencia de extensiones de SQL Database](/azure/templates/microsoft.sql/servers/databases/extensions). Estos son algunos elementos importantes:
 
         * **dependsOn**: el recurso de la extensión debe crearse después de que se haya creado la base de datos.
         * **storageKeyType**: especifique el tipo de clave de almacenamiento que se usa. El valor puede ser o `StorageAccessKey` o `SharedAccessKey`. Use `StorageAccessKey` en este tutorial.

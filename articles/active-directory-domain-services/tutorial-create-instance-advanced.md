@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 355a1c36ea810dc569f0ad2847244c398e0a2d6d
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 78eef9c84bb7610b067855b22a3fa0f51bf08253
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733694"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024798"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain-with-advanced-configuration-options"></a>Tutorial: Creación y configuración de un dominio administrado de Azure Active Directory Domain Services con opciones de configuración avanzada
 
@@ -90,14 +90,17 @@ Complete los campos de la ventana *Datos básicos* de Azure Portal para crear un
 1. Escriba un **nombre de dominio DNS** para el dominio administrado, teniendo en cuenta los puntos anteriores.
 1. Elija la **ubicación** de Azure en que se debe crear el dominio administrado. Si elige una región que admite zonas de disponibilidad, los recursos de Azure AD DS se distribuyen entre las zonas para conseguir redundancia adicional.
 
-    Las zonas de disponibilidad son ubicaciones físicas exclusivas dentro de una región de Azure. Cada zona de disponibilidad consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. Para garantizar la resistencia, hay un mínimo de tres zonas independientes en todas las regiones habilitadas.
-
-    No es necesario realizar ninguna configuración para que Azure AD DS se distribuya entre zonas. La plataforma Azure controla automáticamente la distribución en zonas de los recursos. Para más información y consulta de la disponibilidad en las regiones, consulte [¿Qué son las zonas de disponibilidad en Azure?][availability-zones]
+    > [!TIP]
+    > Las zonas de disponibilidad son ubicaciones físicas exclusivas dentro de una región de Azure. Cada zona de disponibilidad consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. Para garantizar la resistencia, hay un mínimo de tres zonas independientes en todas las regiones habilitadas.
+    >
+    > No es necesario realizar ninguna configuración para que Azure AD DS se distribuya entre zonas. La plataforma Azure controla automáticamente la distribución en zonas de los recursos. Para más información y consulta de la disponibilidad en las regiones, consulte [¿Qué son las zonas de disponibilidad en Azure?][availability-zones]
 
 1. La **SKU** determina el rendimiento, la frecuencia de la copia de seguridad y el número máximo de confianzas de bosque que se pueden crear. Puede cambiar la SKU una vez creado el dominio administrado si cambian sus necesidades o requisitos empresariales. Para más información, consulte [Conceptos de las SKU de Azure AD DS][concepts-sku].
 
     Para este tutorial, seleccione la SKU *Estándar*.
-1. Un *bosque* es una construcción lógica que Active Directory Domain Services utiliza para agrupar uno o más dominios. De forma predeterminada, un dominio administrado se crea como un bosque de *usuarios*. Este tipo de bosque sincroniza todos los objetos de Azure AD, incluidas las cuentas de usuario creadas en un entorno de AD DS local. Un bosque de *Recursos* solo sincroniza los usuarios y grupos creados directamente en Azure AD. Los bosques de recursos están actualmente en versión preliminar. Para más información sobre los bosques de *Recursos*, incluido el motivo por el que puede usar uno y cómo crear confianzas de bosque con dominios de AD DS locales, consulte [Introducción a los bosques de recursos de Azure AD DS][resource-forests].
+1. Un *bosque* es una construcción lógica que Active Directory Domain Services utiliza para agrupar uno o más dominios. De forma predeterminada, un dominio administrado se crea como un bosque de *usuarios*. Este tipo de bosque sincroniza todos los objetos de Azure AD, incluidas las cuentas de usuario creadas en un entorno de AD DS local.
+
+    Un bosque de *Recursos* solo sincroniza los usuarios y grupos creados directamente en Azure AD. Los bosques de recursos están actualmente en versión preliminar. Para más información sobre los bosques de *Recursos*, incluido el motivo por el que puede usar uno y cómo crear confianzas de bosque con dominios de AD DS locales, consulte [Introducción a los bosques de recursos de Azure AD DS][resource-forests].
 
     En este tutorial, elija crear un bosque de *Usuario*.
 
@@ -139,7 +142,10 @@ Complete los campos de la ventana *Red* de la siguiente manera:
 
 Para la administración del dominio de Azure AD DS se usa un grupo administrativo especial denominado *Administradores de DC de AAD*. A los miembros de este grupo se les conceden permisos administrativos en las máquinas virtuales que están unidas al domino administrado. En las máquinas virtuales unidas al dominio, este grupo se agrega al grupo de administradores locales. Además, los miembros de este grupo también pueden usar Escritorio remoto para conectarse de forma remota a las máquinas virtuales unidas al dominio.
 
-En los dominios administrados con Azure AD DS, no tiene permisos de *Administrador de dominio* ni de *Administrador de empresa*. Estos permisos están reservados por el servicio y no están disponibles para los usuarios del inquilino. En su lugar, el grupo *Administradores de DC de AAD* permite realizar algunas operaciones con privilegios. Estas operaciones incluyen formar parte del grupo de administradores en las máquinas virtuales unidas al dominio y configurar una directiva de grupo.
+> [!IMPORTANT]
+> En los dominios administrados con Azure AD DS, no tiene permisos de *Administrador de dominio* ni de *Administrador de empresa*. Estos permisos están reservados por el servicio y no están disponibles para los usuarios del inquilino.
+>
+> En su lugar, el grupo *Administradores de DC de AAD* permite realizar algunas operaciones con privilegios. Estas operaciones incluyen formar parte del grupo de administradores en las máquinas virtuales unidas al dominio y configurar una directiva de grupo.
 
 El asistente crea automáticamente el grupo *Administradores de DC de AAD* en el directorio de Azure AD. Si tiene un grupo existente con este nombre en el directorio de Azure AD, el asistente lo selecciona. También puede optar por agregar usuarios adicionales a este grupo de *Administradores de DC de AAD* durante el proceso de implementación. Estos pasos se pueden completar más adelante.
 
@@ -178,15 +184,16 @@ En la página **Resumen** del asistente, revise la configuración del dominio ad
 
     ![Estado de Domain Services una vez aprovisionado correctamente](./media/tutorial-create-instance-advanced/successfully-provisioned.png)
 
-El dominio administrado se asocia al inquilino de Azure AD. Durante el proceso de aprovisionamiento, Azure AD DS crea dos aplicaciones empresariales, *Domain Controller Services* y *AzureActiveDirectoryDomainControllerServices* en el inquilino de Azure AD. Estas aplicaciones empresariales se necesitan para dar servicio al dominio administrado. No las elimine.
+> [!IMPORTANT]
+> El dominio administrado se asocia al inquilino de Azure AD. Durante el proceso de aprovisionamiento, Azure AD DS crea dos aplicaciones empresariales, *Domain Controller Services* y *AzureActiveDirectoryDomainControllerServices* en el inquilino de Azure AD. Estas aplicaciones empresariales se necesitan para dar servicio al dominio administrado. No las elimine.
 
 ## <a name="update-dns-settings-for-the-azure-virtual-network"></a>Actualización de la configuración DNS para Azure Virtual Network
 
-Ahora que Azure AD DS se ha implementado correctamente, es el momento de configurar la red virtual para permitir que otras máquinas virtuales y aplicaciones conectadas usen el dominio administrado. Para proporcionar esta conectividad, actualice la configuración del servidor DNS de la red virtual de modo que apunte a las dos direcciones IP donde se ha implementado Azure AD DS.
+Ahora que Azure AD DS se ha implementado correctamente, es el momento de configurar la red virtual para permitir que otras máquinas virtuales y aplicaciones conectadas usen el dominio administrado. Para proporcionar esta conectividad, actualice la configuración del servidor DNS de la red virtual de modo que apunte a las dos direcciones IP donde se ha implementado el dominio administrado.
 
 1. En la pestaña **Información general** del dominio administrado se muestran algunos de los **Pasos de configuración necesarios**. El primer paso de configuración es la actualización de la configuración de servidores DNS para la red virtual. Cuando la configuración de DNS esté correctamente establecida, ya no se mostrará este paso.
 
-    Las direcciones que aparecen son los controladores de dominio que se usan en la red virtual. En este ejemplo, las direcciones son *10.1.0.4* y *10.1.0.5*. Más adelante puede encontrar estas direcciones IP en la pestaña **Propiedades**.
+    Las direcciones que aparecen son los controladores de dominio que se usan en la red virtual. En este ejemplo, las direcciones son *10.0.1.4* y *10.0.1.5*. Más adelante puede encontrar estas direcciones IP en la pestaña **Propiedades**.
 
     ![Configuración de los valores de DNS para la red virtual con las direcciones IP de Azure AD Domain Services](./media/tutorial-create-instance-advanced/configure-dns.png)
 
@@ -200,9 +207,17 @@ Ahora que Azure AD DS se ha implementado correctamente, es el momento de confi
 Para autenticar a los usuarios en el dominio administrado, Azure AD DS necesita los hash de las contraseñas en un formato adecuado para la autenticación de NT LAN Manager (NTLM) y Kerberos. A menos que habilite Azure AD DS para el inquilino, Azure AD no genera ni almacena los hash de las contraseñas en el formato necesario para la autenticación NTLM o Kerberos. Por motivos de seguridad, Azure AD tampoco almacena las credenciales de contraseñas en forma de texto sin cifrar. Por consiguiente, Azure AD no tiene forma de generar automáticamente estos hash de las contraseñas de NTLM o Kerberos basándose en las credenciales existentes de los usuarios.
 
 > [!NOTE]
-> Una vez configurados correctamente, los hash de las contraseñas que se pueden usar se almacenan en el dominio administrado. Si elimina el dominio administrado, también se eliminarán los hash de las contraseñas que haya almacenados en ese momento. La información de credenciales sincronizada en Azure AD no se puede volver a usar si posteriormente crea un dominio administrado: debe volver a configurar la sincronización de los hash de contraseña para almacenarlos de nuevo. Los usuarios o las máquinas virtuales anteriormente unidos a un dominio no podrán autenticarse de inmediato, ya que Azure AD debe generar y almacenar los hash de contraseña en el nuevo dominio administrado. Para más información, consulte [Proceso de sincronización de hash de contraseña para Azure AD DS y Azure AD Connect][password-hash-sync-process].
+> Una vez configurados correctamente, los hash de las contraseñas que se pueden usar se almacenan en el dominio administrado. Si elimina el dominio administrado, también se eliminarán los hash de las contraseñas que haya almacenados en ese momento.
+>
+> La información de credenciales sincronizada en Azure AD no se puede volver a usar si posteriormente crea un dominio administrado: debe volver a configurar la sincronización de los hash de contraseña para almacenarlos de nuevo. Los usuarios o las máquinas virtuales anteriormente unidos a un dominio no podrán autenticarse de inmediato, ya que Azure AD debe generar y almacenar los hash de contraseña en el nuevo dominio administrado.
+>
+> Para más información, consulte [Proceso de sincronización de hash de contraseña para Azure AD DS y Azure AD Connect][password-hash-sync-process].
 
-Los pasos necesarios para generar y almacenar estos hash de contraseña son diferentes según se trate de cuentas de usuario solo de nube creadas en Azure AD o de las cuentas de usuarios que se sincronizan desde el directorio local mediante Azure AD Connect. Una cuenta de usuario solo de nube es una cuenta creada en su directorio de Azure AD mediante Azure Portal, o bien mediante cmdlets de PowerShell de Azure AD. Estas cuentas de usuario no se sincronizan desde un directorio local. En este tutorial, vamos a trabajar con una cuenta de usuario básica solo de nube. Para más información sobre los pasos adicionales necesarios para usar Azure AD Connect, consulte [Sincronización de los hash de contraseña para las cuentas de usuario sincronizadas desde la instancia local de AD con el dominio administrado][on-prem-sync].
+Los pasos necesarios para generar y almacenar estos hash de contraseña son diferentes según se trate de cuentas de usuario solo de nube creadas en Azure AD o de las cuentas de usuarios que se sincronizan desde el directorio local mediante Azure AD Connect.
+
+Una cuenta de usuario solo de nube es una cuenta creada en su directorio de Azure AD mediante Azure Portal, o bien mediante cmdlets de PowerShell de Azure AD. Estas cuentas de usuario no se sincronizan desde un directorio local.
+
+En este tutorial, vamos a trabajar con una cuenta de usuario básica solo de nube. Para más información sobre los pasos adicionales necesarios para usar Azure AD Connect, consulte [Sincronización de los hash de contraseña para las cuentas de usuario sincronizadas desde la instancia local de AD con el dominio administrado][on-prem-sync].
 
 > [!TIP]
 > Si el inquilino de Azure AD tiene una combinación entre usuarios solo de nube y usuarios de la instancia local de AD, debe realizar ambos procedimientos.
@@ -247,7 +262,7 @@ Para ver este dominio administrado en acción, cree una máquina virtual y únal
 [create-dedicated-subnet]: ../virtual-network/virtual-network-manage-subnet.md#add-a-subnet
 [scoped-sync]: scoped-synchronization.md
 [on-prem-sync]: tutorial-configure-password-hash-sync.md
-[configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
+[configure-sspr]: ../active-directory/authentication/tutorial-enable-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
 [resource-forests]: concepts-resource-forest.md
 [availability-zones]: ../availability-zones/az-overview.md

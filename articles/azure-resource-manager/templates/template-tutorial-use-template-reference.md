@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 12990238455046d837b175318225bb4f3d317706
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3709511fa8da0a40f4faf4ab2dac9505d69003ab
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82185054"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118518"
 ---
 # <a name="tutorial-utilize-the-resource-manager-template-reference"></a>Tutorial: Uso de la referencia de plantilla de Resource Manager
 
@@ -32,11 +32,11 @@ En este tutorial se describen las tareas siguientes:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este artículo, necesitará lo siguiente:
 
-* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Uso de Visual Studio Code para la creación de plantillas de Resource Manager](use-vs-code-to-create-template.md).
+* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Quickstart: Creación de plantillas de Azure Resource Manager con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Abra una plantilla de inicio rápido.
 
@@ -75,7 +75,7 @@ Para completar este artículo, necesitará lo siguiente:
 
 ## <a name="find-the-template-reference"></a>Búsqueda de la referencia de la plantilla
 
-1. Vaya a la [referencia sobre las plantillas de Azure](https://docs.microsoft.com/azure/templates/).
+1. Vaya a la [referencia sobre las plantillas de Azure](/azure/templates/).
 1. En el cuadro**Filter by title** (Filtrar por título), escriba **storage accounts** (cuentas de almacenamiento) y seleccione la primera **cuenta de almacenamiento** en **Reference > Storage** (Referencia > Almacenamiento).
 
     ![Cuenta de almacenamiento de referencia de plantilla de Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts.png)

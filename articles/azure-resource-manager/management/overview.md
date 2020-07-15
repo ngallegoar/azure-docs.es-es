@@ -1,14 +1,14 @@
 ---
-title: Información general
+title: Información general del Administrador de recursos de Azure
 description: Describe cómo utilizar Administrador de recursos de Azure para la implementación, la administración y el control de acceso de los recursos en Azure.
 ms.topic: overview
 ms.date: 04/21/2020
-ms.openlocfilehash: 253fc2f296fa764a6c22fa1331221df60ca21bb5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 089919e227b33859dbeabd98ecd75845a28a3f42
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81870482"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087034"
 ---
 # <a name="what-is-azure-resource-manager"></a>¿Qué es Azure Resource Manager?
 
@@ -68,7 +68,7 @@ Puede implementar plantillas en inquilinos, grupos de administración, suscripci
 
 Hay algunos factores importantes que se deben tener en cuenta al definir el grupo de recursos:
 
-* Todos los recursos del grupo deben compartir el mismo ciclo de vida. Se implementan, actualizan y eliminan de forma conjunta. Si un recurso, como un servidor de base de datos, debe existir en un ciclo de implementación diferente, debe estar en otro grupo de recursos.
+* Todos los recursos del grupo deben compartir el mismo ciclo de vida. Se implementan, actualizan y eliminan de forma conjunta. Si un recurso, como un servidor, debe existir en un ciclo de implementación diferente, debe estar en otro grupo de recursos.
 
 * Cada recurso solo puede existir en un grupo de recursos.
 

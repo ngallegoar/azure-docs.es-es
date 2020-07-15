@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
 ms.author: pasta
-ms.openlocfilehash: 2b6f4bb707d6c5c07dd6a1205ce7be542a220f17
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: a5bd7b3e6262fa21865f04a6b65d1a75faafefa4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268673"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038687"
 ---
 El [Lector inmersivo](https://www.onenote.com/learningtools) es una herramienta diseñada de forma inclusiva que implementa técnicas demostradas para mejorar la comprensión lectora.
 
@@ -305,7 +305,8 @@ Al hacer clic en el botón "Lector inmersivo", verá que se inicia dicha herrami
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte el [inicio rápido de Node.js](../../quickstart-nodejs.md) para ver qué más puede hacer con la biblioteca cliente del Lector inmersivo con Node.js.
+* Consulte el [inicio rápido de Node.js](../../tutorial-nodejs.md) para ver qué más puede hacer con la biblioteca cliente del Lector inmersivo con Node.js.
+* Consulte el [tutorial de Android](../../tutorial-android.md) para ver qué más puede hacer con el SDK del Lector inmersivo con Java o Kotlin para Android.
+* Consulte el [tutorial de iOS](../../tutorial-ios.md) para ver qué más puede hacer con el SDK del Lector inmersivo con Swift para iOS.
 * Consulte el [tutorial de Python](../../tutorial-python.md) para ver qué más puede hacer con la biblioteca cliente del Lector inmersivo con Python.
-* Consulte el [tutorial de iOS](../../tutorial-ios-picture-immersive-reader.md) para ver qué más puede hacer con la biblioteca cliente del Lector inmersivo con Swift.
 * Explorar el [SDK del Lector inmersivo](https://github.com/microsoft/immersive-reader-sdk) y agregar la [Referencia del SDK del Lector inmersivo](../../reference.md)

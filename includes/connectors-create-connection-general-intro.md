@@ -3,12 +3,18 @@ ms.service: logic-apps
 ms.topic: include
 author: ecfan
 ms.author: estfan
-ms.date: 09/18/2019
-ms.openlocfilehash: 0e2d63db1afd4bb169e5aeb1c202674808f081ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/06/2020
+ms.openlocfilehash: 1113201941ce0757b58e361c08c9d79d7dd374cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74786899"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84449110"
 ---
-Cuando se usa un desencadenador o una acción que accede a un servicio por primera vez, el Diseñador de aplicación lógica le pide que cree una *conexión* a ese servicio. Luego, puede proporcionar la información de conexión necesaria directamente desde la aplicación lógica en el diseñador.
+Al agregar un desencadenador o una acción que se conecta a un servicio o sistema por primera vez, el diseñador de aplicaciones lógicas le pide que cree una *conexión* y que proporcione la información necesaria, que varía en función de la conexión; por ejemplo:
+
+* Nombre que se va a usar para la nueva conexión.
+* Nombre del servidor o del sistema.
+* Sus credenciales de usuario o cuenta.
+* Tipo de autenticación que se debe usar.
+* La suscripción de Azure y el nombre de la puerta de enlace de datos que creó anteriormente al conectarse a los orígenes de datos locales.

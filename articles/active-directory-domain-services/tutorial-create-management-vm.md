@@ -7,20 +7,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: f0b6e66a0d3a78a62fe105a175a7a519d0b37ccd
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: afeac24a5d3c21fce120512813d68c49a505c6c1
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733422"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024611"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Creación de una máquina virtual de administración para configurar y administrar un dominio administrado de Azure Active Directory Domain Services
 
 Azure Active Directory Domain Services (Azure AD DS) proporciona servicios de dominio administrado como, por ejemplo, unión a un dominio, directiva de grupo, LDAP o autenticación Kerberos/NTLM, que son totalmente compatibles con Windows Server Active Directory. Este dominio administrado se administra con las mismas Herramientas de administración remota del servidor (RSAT) que con un dominio de Active Directory Domain Services en el entorno local. Como Azure AD DS es un servicio administrado, hay algunas tareas administrativas que no se pueden realizar, como usar el protocolo de escritorio remoto (RDP) para conectarse a los controladores de dominio.
 
-En este tutorial se muestra cómo crear una máquina virtual de Windows Server en Azure e instalar las herramientas necesarias para administrar un dominio administrado de Azure AD DS.
+En este tutorial se muestra cómo configurar una máquina virtual de Windows Server en Azure e instalar las herramientas necesarias para administrar un dominio administrado de Azure AD DS.
 
 En este tutorial, aprenderá a:
 
@@ -75,7 +75,7 @@ El dominio administrado está bloqueado, por lo que no tiene privilegios para re
 
 ## <a name="sign-in-to-the-windows-server-vm"></a>Inicio de sesión en la máquina virtual de Windows Server
 
-En el tutorial anterior, se creó una máquina virtual Windows Server y se unió al dominio administrado. Vamos a usar esa máquina virtual para instalar las herramientas de administración. Si es necesario, [siga los pasos del tutorial para crear una máquina virtual Windows Server y unirla a un dominio administrado][create-join-windows-vm].
+En el tutorial anterior, se creó una máquina virtual Windows Server y se unió al dominio administrado. Use esa máquina virtual para instalar las herramientas de administración. Si es necesario, [siga los pasos del tutorial para crear una máquina virtual Windows Server y unirla a un dominio administrado][create-join-windows-vm].
 
 > [!NOTE]
 > En este tutorial, se usa una máquina virtual Windows Server en Azure que esté unida al dominio administrado. También puede usar un cliente de Windows, como Windows 10, que esté unido al dominio administrado.
@@ -97,7 +97,7 @@ Si es necesario, permita que el explorador web abra elementos emergentes para qu
 
 ## <a name="install-active-directory-administrative-tools"></a>Instalación de las herramientas administrativas de Active Directory
 
-Los dominios administrados se administran mediante las mismas herramientas administrativas que los entornos de AD DS en el entorno local, como el Centro de administración de Active Directory (ADAC) o AD PowerShell. Estas herramientas se pueden instalar como parte de la característica Herramientas de administración remota del servidor (RSAT) en Windows Server y los equipos cliente. Los miembros del grupo *Administradores de controlador de dominio de AAD* pueden ocuparse de los dominios administrados de forma remota mediante estas herramientas administrativas de AD, desde un equipo que se haya unido al dominio administrado.
+En un dominio administrado se utilizan las mismas herramientas administrativas que en los entornos de AD DS locales, como el Centro de administración de Active Directory (ADAC) o AD PowerShell. Estas herramientas se pueden instalar como parte de la característica Herramientas de administración remota del servidor (RSAT) en Windows Server y los equipos cliente. Los miembros del grupo *Administradores de controlador de dominio de AAD* pueden ocuparse de los dominios administrados de forma remota mediante estas herramientas administrativas de AD, desde un equipo que se haya unido al dominio administrado.
 
 Para instalar las herramientas de administración de Active Directory en la máquina virtual unida al dominio, siga los pasos a continuación:
 
@@ -125,7 +125,7 @@ Con las herramientas administrativas instaladas, vamos a ver cómo usarlas para 
     ![Lista de herramientas administrativas instaladas en el servidor](./media/tutorial-create-management-vm/list-admin-tools.png)
 
 1. Seleccione **Centro de administración de Active Directory**.
-1. Para explorar el dominio administrado, elija el nombre de dominio en el panel izquierdo, como *aaddscontoso.com*. En la parte superior de la lista hay dos contenedores denominados *Equipos de AADDC* y *Usuarios de AADDC*.
+1. Para explorar el dominio administrado, elija el nombre de dominio en el panel izquierdo, como *aaddscontoso*. En la parte superior de la lista hay dos contenedores denominados *Equipos de AADDC* y *Usuarios de AADDC*.
 
     ![Lista de parte de los contenedores disponibles del dominio administrado](./media/tutorial-create-management-vm/active-directory-administrative-center.png)
 
@@ -135,7 +135,7 @@ Con las herramientas administrativas instaladas, vamos a ver cómo usarlas para 
 
     ![Visualización de la lista de usuarios de dominio de Azure AD DS en el Centro de administración de Active Directory](./media/tutorial-create-management-vm/list-azure-ad-users.png)
 
-1. Para ver los equipos unidos al dominio administrado, seleccione el contenedor **Equipos de AADDC**. Se muestra una entrada para la máquina virtual actual, por ejemplo *miVM*. Las cuentas de equipo de todos los equipos unidos al dominio administrado se almacenan en este contenedor *Equipos de AADDC*.
+1. Para ver los equipos unidos al dominio administrado, seleccione el contenedor **Equipos de AADDC**. Se muestra una entrada para la máquina virtual actual, por ejemplo *miVM*. Las cuentas de equipo de todos los dispositivos unidos al dominio administrado se almacenan en este contenedor *Equipos de AADDC*.
 
 Están disponibles acciones comunes del Centro de administración de Active Directory como son el restablecimiento de la contraseña de una cuenta de usuario o la administración de la pertenencia a grupos. Estas acciones solo funcionan para los usuarios y grupos creados directamente en el dominio administrado. La información de identidad solo sincroniza *desde* Azure AD a Azure AD DS. No se realiza ninguna escritura de Azure AD DS a Azure AD. No se pueden cambiar las contraseñas ni la pertenencia a grupos administrados de los usuarios sincronizados desde Azure AD y volver a sincronizar estos cambios.
 
@@ -150,7 +150,7 @@ En este tutorial, ha aprendido a:
 > * Instalación de las herramientas administrativas de Azure Active Directory en una máquina virtual de Windows Server
 > * Uso del Centro de administración de Active Directory para realizar tareas comunes
 
-Para interactuar de forma segura con su dominio administrado, habilite el protocolo ligero de acceso a directorios seguro (LDAPS).
+Para interactuar de forma segura con su dominio administrado desde otras aplicaciones, habilite el protocolo ligero de acceso a directorios seguro (LDAPS).
 
 > [!div class="nextstepaction"]
 > [Configuración de LDAP seguro para un dominio administrado](tutorial-configure-ldaps.md)

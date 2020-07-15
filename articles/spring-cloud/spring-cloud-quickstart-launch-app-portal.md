@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: 9cd59fdf81e9b5d56872d20c76e8ea177b3c8577
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e4ea76a888ba51b3560139e9efc3df512c4fbadf
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79470901"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120949"
 ---
 # <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>Inicio rápido: Inicio de una aplicación de Azure Spring Cloud existente desde Azure Portal
 
@@ -28,7 +28,7 @@ En este inicio rápido aprenderá a:
 > * Implementar cada microservicio
 > * Asignar un punto de conexión público para la aplicación
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 >[!Note]
 > Azure Spring Cloud se ofrece actualmente como versión preliminar pública. Las ofertas de versión preliminar pública permiten a los clientes experimentar con nuevas características antes de su publicación oficial.  Los servicios y las características en versión preliminar pública no están diseñados para su uso en producción.  Para más información sobre el soporte técnico durante las versiones preliminares, revise las [preguntas frecuentes](https://azure.microsoft.com/support/faq/) o envíe una [solicitud de soporte técnico](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) para obtener más información.
@@ -134,7 +134,13 @@ El servicio tarda aproximadamente 5 minutos en implementarse.  Una vez implemen
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-4. Cree la aplicación `gateway` e implemente el archivo JAR.
+4. Cree la aplicación `gateway` e implemente el archivo JAR.  Los pasos siguientes requieren la extensión de Spring Cloud. Si no la instaló con los requisitos previos, ejecute el siguiente comando:
+
+    ```azurecli
+    az extension add --name spring-cloud
+    ```
+
+    Con la extensión de Spring Cloud, cree la aplicación:
 
     ```azurecli
     az spring-cloud app create -n gateway

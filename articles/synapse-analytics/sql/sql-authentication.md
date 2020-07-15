@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7295bb2e87373a80c6b105ab7284a43e6f0804da
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 280fea29b79db58d0974aaba961db9c7a7df3dad
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020779"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045797"
 ---
 # <a name="sql-authentication"></a>Autenticación de SQL
 
@@ -45,7 +45,7 @@ Las cuentas de **administrador del servidor** y de **administrador de Azure AD**
 - Son las únicas cuentas que pueden conectarse automáticamente a cualquier instancia de SQL Database en el servidor. (Para conectarse a una base de datos de usuario, las otras cuentas deben ser el propietario de la base de datos o tener una cuenta de usuario en la base de datos de usuario).
 - Acceden a las bases de datos de usuario como usuario `dbo` y tienen todos los permisos en las bases de datos de usuario. (El propietario de una base de datos de usuario también accede a la base de datos como usuario `dbo`).
 - No acceden a la base de datos `master` como usuario `dbo` y tienen permisos limitados en la base de datos maestra.
-- **No** son miembros del rol de servidor fijo `sysadmin` de SQL Server, que no está disponible en SQL Database.  
+- **No** son miembros del rol de servidor fijo `sysadmin` de SQL Server estándar, que no está disponible en SQL Database.  
 - Pueden crear, modificar y quitar bases de datos, inicios de sesión, usuarios en la base de datos maestra y reglas de firewall de IP en el nivel de servidor.
 - Pueden agregar y quitar miembros en los roles `dbmanager` y `loginmanager`.
 - Pueden ver la tabla del sistema `sys.sql_logins`.

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 06/08/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2aab90b12cd3844b94b0b7e6e94582d403db2efe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 192fd0fe73a34ca4d6ffc49badeac7ca8a080793
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84555029"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185592"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Información general de Change Tracking e Inventario
 
@@ -49,11 +49,11 @@ Actualmente, la solución Change Tracking e Inventario tiene los siguientes prob
 
 - Las actualizaciones de revisiones no se recopilan en máquinas Windows Server 2016 Core RS3.
 
-- Los demonios de Linux pueden mostrar un estado modificado aunque no se haya producido ningún cambio. Este problema se debe a la manera en que se capturan los datos de `SvcRunLevels` del registro [ConfigurationChange](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) de Azure Monitor.
+- Los demonios de Linux pueden mostrar un estado modificado aunque no se haya producido ningún cambio. Este problema se debe a la manera en que se capturan los datos de `SvcRunLevels` del registro [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange) de Azure Monitor.
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
-Change Tracking e Inventario se admite en todos los sistemas operativos que cumplen los requisitos del agente de Log Analytics. Las versiones de sistema operativo oficiales son Windows Server 2008 SP1 o posterior y Windows 7 SP1 o posterior. La característica también se admite en varios sistemas operativos Linux. Para los sistemas operativos que admiten Log Analytics, consulte [Introducción al agente de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
+Change Tracking e Inventario se admite en todos los sistemas operativos que cumplen los requisitos del agente de Log Analytics. Las versiones de sistema operativo oficiales son Windows Server 2008 SP1 o posterior y Windows 7 SP1 o posterior. La característica también se admite en varios sistemas operativos Linux. Para los sistemas operativos que admiten Log Analytics, consulte [Introducción al agente de Log Analytics](../azure-monitor/platform/log-analytics-agent.md).
 
 Para comprender los requisitos de cliente para TLS 1.2, consulte el artículo sobre el [cumplimiento de TLS 1.2 para Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
@@ -91,7 +91,7 @@ Puede agregar, modificar o quitar cualquier cambio. En el ejemplo siguiente se m
 
 ## <a name="fim-support-in-azure-security-center"></a>Compatibilidad de FIM en Azure Security Center
 
-Change Tracking e Inventario utiliza la característica [Supervisión de la integridad de los archivos (FIM) de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring). Mientras que FIM solo supervisa archivos y Registros, la solución Change Tracking e Inventario completa también incluye:
+Change Tracking e Inventario utiliza la característica [Supervisión de la integridad de los archivos (FIM) de Azure Security Center](../security-center/security-center-file-integrity-monitoring.md). Mientras que FIM solo supervisa archivos y Registros, la solución Change Tracking e Inventario completa también incluye:
 
 - Cambios de software
 - Servicios de Microsoft
@@ -106,7 +106,7 @@ Para realizar el seguimiento de los cambios en los archivos de Windows y Linux, 
 
 ## <a name="tracking-of-file-content-changes"></a>Seguimiento de cambios en el contenido de los archivos
 
-Change Tracking e Inventario le permite ver el contenido de un archivo de Windows o Linux. Para cada cambio en un archivo, Change Tracking e Inventario almacena el contenido del archivo en una [cuenta de Azure Storage](../storage/common/storage-create-storage-account.md). Cuando realiza el seguimiento de un archivo, puede ver su contenido antes o después de un cambio. El contenido del archivo se puede ver en línea o en paralelo. 
+Change Tracking e Inventario le permite ver el contenido de un archivo de Windows o Linux. Para cada cambio en un archivo, Change Tracking e Inventario almacena el contenido del archivo en una [cuenta de Azure Storage](../storage/common/storage-account-create.md). Cuando realiza el seguimiento de un archivo, puede ver su contenido antes o después de un cambio. El contenido del archivo se puede ver en línea o en paralelo. 
 
 ![Visualización de los cambios en un archivo](./media/change-tracking/view-file-changes.png)
 
@@ -171,7 +171,7 @@ En la siguiente tabla se muestran los límites de elementos sometidos a seguimie
 |Servicios|250|
 |Demonios|250|
 
-El uso medio de datos de Log Analytics para una máquina con Change Tracking e Inventario es aproximadamente de 40 MB al mes, según su entorno. Con la característica Uso y costos estimados del área de trabajo de Log Analytics, puede ver los datos ingeridos por Change Tracking e Inventario en un gráfico de uso. Use esta vista de datos para evaluar el uso de los datos y determinar cómo afecta a su factura. Consulte [Información útil del uso y los costos estimados](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).
+El uso medio de datos de Log Analytics para una máquina con Change Tracking e Inventario es aproximadamente de 40 MB al mes, según su entorno. Con la característica Uso y costos estimados del área de trabajo de Log Analytics, puede ver los datos ingeridos por Change Tracking e Inventario en un gráfico de uso. Use esta vista de datos para evaluar el uso de los datos y determinar cómo afecta a su factura. Consulte [Información útil del uso y los costos estimados](../azure-monitor/platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs).
 
 ### <a name="microsoft-service-data"></a>Datos de servicio de Microsoft
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: edb6846d199470818e07a208feb778aca3021d9e
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: e12f0cd44143621d34096a6c1161a22a89d21d9b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253671"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077665"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Bifurcación y encadenamiento de actividades en una canalización de Azure Data Factory mediante Azure Portal
 
@@ -139,7 +139,8 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
    El nombre de la instancia de Azure Data Factory debe ser **único de forma global**. Si recibe el siguiente error, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactory) e intente crearlo de nuevo. Consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de Data Factory.
 
-       `Data factory name “ADFTutorialDataFactory” is not available`
+   *El nombre "ADFTutorialDataFactory" de factoría de datos no está disponible.*
+
 3. Seleccione la **suscripción** de Azure donde desea crear la factoría de datos.
 4. Para el **grupo de recursos**, realice uno de los siguientes pasos:
 
@@ -202,10 +203,11 @@ En este paso se crea una canalización con una actividad de copia y dos activida
    ![Nuevo servicio vinculado de Azure Storage](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
 12. Escriba `@pipeline().parameters.sourceBlobContainer` para la carpeta y `emp.txt`, para el nombre de archivo. El parámetro de canalización sourceBlobContainer se usa para establecer la ruta de acceso de carpeta para el conjunto de datos.
 
-   ![Configuración del conjunto de datos de origen](./media/tutorial-control-flow-portal/source-dataset-settings.png)
-13. Cambie a la pestaña **Pipeline** (Canalización) (o) haga clic en la canalización en la vista de árbol. Confirme que **SourceBlobDataset** está seleccionado en **Source Dataset** (Conjunto de datos de origen).
+    ![Configuración del conjunto de datos de origen](./media/tutorial-control-flow-portal/source-dataset-settings.png)
 
-    ![Conjunto de datos de origen](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
+13. Cambie a la pestaña **Pipeline** (Canalización) (o) haga clic en la canalización en la vista de árbol. Confirme que **SourceBlobDataset** está seleccionado en **Source Dataset** (Conjunto de datos de origen).
+      
+   ![Conjunto de datos de origen](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
 
 13. En la ventana de propiedades, cambie a la pestaña **Sink** (Receptor) y haga clic en **+ New** (+ Nuevo) en **Sink Dataset** (Conjunto de datos receptor). En este paso se crea un conjunto de datos receptor para la actividad de copia, de manera similar a la creación del conjunto de datos de origen.
 

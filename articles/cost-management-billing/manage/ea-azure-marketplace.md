@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.author: banders
-ms.openlocfilehash: 4721d8dbe5973baf2ac82124ff516a89398227cb
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: acb818cf2a892a3a71f2f59b0a44041767b846d0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298200"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044930"
 ---
 # <a name="azure-marketplace"></a>Azure Marketplace
 
@@ -20,7 +20,7 @@ En este artículo de qué forma los clientes y asociados de Contrato Enterprise 
 
 ## <a name="azure-marketplace-for-ea-customers"></a>Azure Marketplace para clientes de EA
 
-Para los clientes directos, los cargos de Azure Marketplace se pueden ver en Azure Enterprise Portal. Las compras y los consumos de Azure Marketplace se facturan fuera del compromiso monetario, en plazos mensuales o trimestrales a pago vencido.
+Para los clientes directos, los cargos de Azure Marketplace se pueden ver en Azure Enterprise Portal. Las compras y los consumos de Azure Marketplace se facturan fuera del prepago de Azure, en plazos mensuales o trimestrales a pago vencido.
 
 Los clientes indirectos pueden encontrar sus suscripciones a Azure Marketplace en la página **Administrar suscripciones** de Azure Enterprise Portal, pero no se muestran los precios. Los clientes deben ponerse en contacto con su Proveedor de soluciones de licencia (LSP) para obtener información sobre los cargos en Azure Marketplace.
 
@@ -28,7 +28,7 @@ Las nuevas compras periódicas mensuales o anuales de Azure Marketplace se factu
 
 Los cargos periódicos mensuales existentes se seguirán renovando el primero de cada mes calendario. Los cargos anuales se renovarán en el aniversario de la fecha de compra.
 
-Algunos servicios de terceros revendedores disponibles en Azure Marketplace ahora consumen el saldo del compromiso monetario del Contrato Enterprise (EA). Antes, estos servicios se facturaban por separado, fuera del compromiso monetario de EA. El compromiso monetario de EA para estos servicios de Azure Marketplace simplifica las compras y la administración de los pagos para los clientes. Para ver una lista completa de los servicios que actualmente consumen compromiso monetario, consulte la [actualización del 6 de marzo de 2018 en el sitio web de Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
+Algunos servicios de revendedores de terceros disponibles en Azure Marketplace ahora consumen el saldo del prepago de Azure del Contrato Enterprise (EA). Antes, estos servicios se facturaban por separado, fuera del prepago de Azure de EA. El prepago de Azure de EA para estos servicios de Azure Marketplace simplifica las compras y la administración de los pagos para los clientes. Para ver una lista completa de los servicios que actualmente consumen prepago de Azure, consulte la [actualización del 6 de marzo de 2018 en el sitio web de Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
 
 ### <a name="partners"></a>Asociados
 
@@ -75,41 +75,41 @@ Si tiene un Contrato Enterprise, paga por Azure RemoteApp según el nivel de pre
 
 ## <a name="azure-marketplace-faq"></a>P+F sobre Azure Marketplace
 
-En esta sección se explica cómo se puede aplicar su compromiso monetario de Azure a algunos servicios de terceros revendedores en Azure Marketplace.
+En esta sección se explica cómo se puede aplicar el prepago de Azure a algunos servicios de revendedores de terceros en Azure Marketplace.
 
-### <a name="what-changed-with-azure-marketplace-services-and-ea-monetary-commitment"></a>¿Qué ha cambiado con los servicios de Azure Marketplace y el compromiso monetario de EA?
+### <a name="what-changed-with-azure-marketplace-services-and-azure-ea-prepayment"></a>¿Qué ha cambiado con los servicios de Azure Marketplace y el prepago de Azure de EA?
 
-A partir del 1 de marzo de 2018, algunos servicios de terceros revendedores consumen el compromiso monetario (MC) de EA. A excepción de las instancias reservadas (RI) de VM de Azure, los servicios se facturaban antes fuera del compromiso monetario de EA y se facturaban por separado.
+A partir del 1 de marzo de 2018, algunos servicios de revendedores de terceros consumen el prepago de Azure de EA. A excepción de las instancias reservadas (RI) de máquina virtual de Azure, antes los servicios se facturaban fuera del prepago de Azure de EA y por separado.
 
-Ampliamos el uso del compromiso monetario para incluir ahora algunos de los servicios de Azure Marketplace publicados por terceros que se compran con más frecuencia. El compromiso monetario de EA para estos servicios de Azure Marketplace simplifica las compras y la administración de los pagos.
+Ampliamos el uso del prepago de Azure para incluir algunos de los servicios de Azure Marketplace publicados por terceros que se compran con más frecuencia. El prepago de Azure de EA para estos servicios de Azure Marketplace simplifica las compras y la administración de los pagos.
 
 ### <a name="why-did-we-make-this-change"></a>¿Por qué hemos realizado este cambio?
 
-Los clientes buscan continuamente otras formas de aprovechar el pago por adelantado de MC. Los clientes solicitaron este cambio a menudo, y afectó a una gran parte de los clientes de Azure Marketplace.
+Los clientes buscan continuamente otras formas de aprovechar el prepago de Azure. Los clientes solicitaron este cambio a menudo, y afectó a una gran parte de los clientes de Azure Marketplace.
 
 ### <a name="how-do-you-benefit"></a>¿En qué se beneficia?
 
-Obtiene una experiencia de facturación más sencilla y podrá gastar mejor su compromiso monetario de EA. Dado que estos servicios se incluyen en el compromiso monetario de prepago, el compromiso monetario de EA es más valioso.
+Obtiene una experiencia de facturación más sencilla y podrá gastar mejor su prepago de Azure de EA. Dado que estos servicios se incluyen en el prepago de Azure de EA, este es más valioso.
 
-### <a name="what-azure-marketplace-services-use-ea-monetary-commitment-and-how-do-i-know"></a>¿Qué servicios de Azure Marketplace usan el compromiso monetario de EA y cómo lo averiguo?
+### <a name="what-azure-marketplace-services-use-azure-ea-prepayment-and-how-do-i-know"></a>¿Qué servicios de Azure Marketplace usan el prepago de Azure de EA y cómo lo averiguo?
 
-Cuando compra un servicio que usa compromiso monetario, Azure Marketplace presenta una declinación de responsabilidades. Se admiten algunos servicios publicados por Red Hat, SUSE, Autodesk y Oracle. Actualmente, los servicios con el mismo nombre publicados por otros terceros no se deducen del compromiso monetario. Al final de esta sección de preguntas frecuentes encontrará una lista completa.
+Cuando compra un servicio que usa el prepago de Azure, Azure Marketplace presenta una declinación de responsabilidades. Se admiten algunos servicios publicados por Red Hat, SUSE, Autodesk y Oracle. Actualmente, los servicios con el mismo nombre publicados por otros terceros no se deducen del prepago de Azure. Al final de esta sección de preguntas frecuentes encontrará una lista completa.
 
-### <a name="what-if-my-ea-monetary-commitment-runs-out"></a>¿Qué ocurre si se agota mi compromiso monetario de EA?
+### <a name="what-if-my-azure-ea-prepayment-runs-out"></a>¿Qué ocurre si se agota el prepago de Azure de EA?
 
-Si consume todo su compromiso monetario y pasa a uso por encima del límite, los cargos relacionados con estos servicios aparecerán en la próxima factura de uso por encima del límite, junto con cualquier otro servicio de consumo. Antes del cambio del 1 de marzo de 2018, estos cargos se facturaban con otros servicios de Azure Marketplace.
+Si consume todo su prepago de Azure y pasa a uso por encima del límite, los cargos relacionados con estos servicios aparecerán en la próxima factura de uso por encima del límite, junto con cualquier otro servicio de consumo. Antes del cambio del 1 de marzo de 2018, estos cargos se facturaban con otros servicios de Azure Marketplace.
 
-### <a name="why-dont-all-azure-marketplaces-consume-ea-monetary-commitment"></a>¿Por qué no todas las instancias de Azure Marketplace consumen compromiso monetario de EA?
+### <a name="why-dont-all-azure-marketplaces-consume-azure-ea-prepayment"></a>¿Por qué no todos los marketplaces de Azure consumen el prepago de Azure de EA?
 
-Hacemos lo posible por ofrecer la mejor experiencia de cliente relacionada con el compromiso monetario de EA. Este cambio afectó un gran número de clientes y a una parte importante del gasto total en Azure Marketplace. Es posible que se agreguen otros servicios en el futuro.
+Hacemos lo posible por ofrecer la mejor experiencia de cliente relacionada con el prepago de Azure de EA. Este cambio afectó un gran número de clientes y a una parte importante del gasto total en Azure Marketplace. Es posible que se agreguen otros servicios en el futuro.
 
 ### <a name="how-does-this-impact-indirect-enrollment-and-partners"></a>¿Cómo afecta esto a la inscripción indirecta y los asociados?
 
-Nuestros asociados o clientes de inscripciones indirectas no se verán afectados. Estos servicios están sujetos a las mismas funcionalidades de marcado de asociados que otros servicios de consumo. El único cambio es que los cargos aparecen en una factura diferente, y el pago de los cargos queda fuera del compromiso monetario de EA del cliente.
+Nuestros asociados o clientes de inscripciones indirectas no se verán afectados. Estos servicios están sujetos a las mismas funcionalidades de marcado de asociados que otros servicios de consumo. El único cambio es que los cargos aparecen en una factura diferente, y el pago de los cargos queda fuera del prepago de Azure de EA del cliente.
 
-### <a name="is-there-a-list-of-azure-marketplace-services-that-consume-ea-monetary-commitment"></a>¿Hay una lista de servicios de Azure Marketplace que consumen compromiso monetario de EA?
+### <a name="is-there-a-list-of-azure-marketplace-services-that-consume-azure-ea-prepayment"></a>¿Hay una lista de servicios de Azure Marketplace que consumen prepago de Azure de EA?
 
-Algunas ofertas específicas de Azure Marketplace pueden usar fondos del compromiso monetario. Consulte los [servicios de terceros que usan compromiso monetario](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment) para obtener una lista completa de productos que participan en este programa.
+Algunas ofertas específicas de Azure Marketplace pueden usar fondos del prepago de Azure. Consulte los [servicios de terceros que usan prepago de Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment) para obtener una lista completa de productos que participan en este programa.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

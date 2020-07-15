@@ -4,12 +4,12 @@ description: Aprenda a implementar una plantilla de Azure Resource Manager desde
 ms.date: 05/20/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 01f04d18ae54c3c512010dd005e9d820b914e536
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 3112c3940f9d2668f4825de3c2e57a63af009d92
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714073"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118909"
 ---
 # <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>Tutorial: Implementación de una plantilla de Azure Resource Manager local
 
@@ -33,7 +33,7 @@ Después de instalar Azure PowerShell o la CLI de Azure, asegúrese de iniciar s
 
 ### <a name="editor-optional"></a>Editor (opcional)
 
-Las plantillas son archivos JSON. Para revisar o editar plantillas, necesita un buen editor de JSON. Se recomienda Visual Studio Code con la extensión Herramientas de Resource Manager. Si necesita instalar estas herramientas, consulte [Uso de Visual Studio Code para crear plantillas de Azure Resource Manager](use-vs-code-to-create-template.md).
+Las plantillas son archivos JSON. Para revisar o editar plantillas, necesita un buen editor de JSON. Se recomienda Visual Studio Code con la extensión Herramientas de Resource Manager. Si necesita instalar estas herramientas, consulte [Inicio rápido: Creación de plantillas de Azure Resource Manager con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="review-template"></a>Revisión de la plantilla
 

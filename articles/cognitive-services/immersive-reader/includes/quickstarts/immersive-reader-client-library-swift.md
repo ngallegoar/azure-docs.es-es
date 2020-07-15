@@ -1,7 +1,7 @@
 ---
 title: Inicio rápido de la biblioteca cliente de Swift para el Lector inmersivo
 titleSuffix: Azure Cognitive Services
-description: En este inicio rápido, va a crear una aplicación web desde cero y a agregar la funcionalidad de la API de Lector inmersivo.
+description: En este inicio rápido, va a crear una aplicación iOS desde cero y a agregar la funcionalidad de la API de Lector inmersivo.
 services: cognitive-services
 author: pasta
 manager: nitinme
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
 ms.author: pasta
-ms.openlocfilehash: 191d802064d477babd8aa1f782ad15876b821d11
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 3d0a8444312f37b1f59817d50bdc50d3aff22164
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268689"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038692"
 ---
 El [Lector inmersivo](https://www.onenote.com/learningtools) es una herramienta diseñada de forma inclusiva que implementa técnicas demostradas para mejorar la comprensión lectora.
 
@@ -573,4 +573,4 @@ Al hacer clic en el botón **Lector inmersivo**, verá que se inicia dicha herra
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Lea la [Referencia del SDK del Lector inmersivo](../../reference.md)
+* Explorar el [SDK del Lector inmersivo](https://github.com/microsoft/immersive-reader-sdk) y agregar la [Referencia del SDK del Lector inmersivo](../../reference.md)

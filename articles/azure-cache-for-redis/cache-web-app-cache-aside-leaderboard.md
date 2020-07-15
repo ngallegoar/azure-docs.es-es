@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.openlocfilehash: ca70262a7980df9d427fbd7e58e08b41c37d7133
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 177aa42991612d8ce2e899576599aafc43015c58
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195573"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082784"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Creación de una tabla de clasificación cache-aside en ASP.NET
 
@@ -680,8 +680,8 @@ En esta sección aprovisionará una nueva base de datos en SQL Database para que
 
     | Marcador de posición | Valor sugerido |
     | --- | --- |
-    | *{su_nombredeusuario}* | Use el **inicio de sesión de administrador de servidor** del servidor de bases de datos que acaba de crear. |
-    | *{su_contraseña}* | Use la contraseña del servidor de bases de datos que acaba de crear. |
+    | *{su_nombredeusuario}* | Use el **inicio de sesión de administrador de servidor** del servidor que acaba de crear. |
+    | *{su_contraseña}* | Use la contraseña del servidor que acaba de crear. |
 
     Al agregar el nombre de usuario y la contraseña como una configuración de la aplicación, su nombre de usuario y su contraseña no se incluyen en el código. Este enfoque le ayuda a proteger dichas credenciales.
 

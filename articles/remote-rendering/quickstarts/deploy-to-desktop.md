@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 4e9ddeddf616c581b116d48738e110dd8cdac2d3
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: dc566d2702fb24ef551e4900bed7b828d2597383
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659933"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557056"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>Inicio rápido: Implementación de un ejemplo de Unity en el escritorio
 
@@ -38,7 +38,7 @@ Actualmente solo se admiten aplicaciones de escritorio planas en el escritorio, 
 1. Seleccione **Player** (Reproductor) a la izquierda.
 1. Seleccione la pestaña **Universal Windows Platform settings** (Configuración de Plataforma universal de Windows).
 1. Expanda **XR Settings** (Configuración de XR).
-1. Deshabilite **Virtual Reality Supported** (Se admite realidad virtual).
+1. Deshabilite **Virtual Reality Supported** (Se admite realidad virtual).\
     ![Configuración del reproductor](./media/unity-disable-xr.png)
 1. Encima de *XR Settings* (Configuración de XR), expanda **Publishing Settings** (Configuración de publicación).
 1. En **Supported Device Families** (Familias de dispositivos admitidas), asegúrese de que la casilla **Desktop** (Escritorio) está activada.
@@ -49,13 +49,13 @@ Actualmente solo se admiten aplicaciones de escritorio planas en el escritorio, 
 1. Cambie el valor de *Plataforma* a **Plataforma universal de Windows** (**Equipo independiente** también se admite, pero no se usa aquí, consulte las [limitaciones de la plataforma](../reference/limits.md#platform-limitations)).
 1. Establezca *Target Device* (Dispositivo de destino) en **PC**.
 1. Establezca *Architecture* (Arquitectura) en **x86**.
-1. Establezca *Build Type* (Tipo de compilación) en **D3D Project** (Proyecto de D3D).
+1. Establezca *Build Type* (Tipo de compilación) en **D3D Project** (Proyecto de D3D).\
   ![Configuración de compilación](./media/unity-build-settings-pc.png)
 1. Seleccione **Switch to Platform** (Cambiar a Plataforma).
 1. Al presionar **Build** (Compilar) (o "Build And Run" [Compilar y ejecutar]), se le pedirá que seleccione una carpeta donde guardar la solución.
 1. Abra el archivo **Quickstart.sln** generado con Visual Studio.
 1. Cambie la configuración a **Release** (Versión) y **x86**.
-1. Cambie el modo del depurador a **Local Machine** (Máquina local).
+1. Cambie el modo del depurador a **Local Machine** (Máquina local).\
   ![Configuración de la solución](./media/unity-deploy-config-pc.png)
 1. Compile la solución (F7).
 

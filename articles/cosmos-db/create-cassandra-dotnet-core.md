@@ -8,12 +8,12 @@ ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.openlocfilehash: 56adfa2ddab011372783a7a7872b4f4c8d7fc050
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: e30bee23b634db12def62e906183c6087c6613e6
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118464"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044301"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-core-and-azure-cosmos-db"></a>Inicio rápido: Compilación de una aplicación de Cassandra con .NET Core y Azure Cosmos DB
 
@@ -133,7 +133,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
 1. En [Azure Portal](https://portal.azure.com/) seleccione **Cadena de conexión**.
 
-1. Use el ![botón Copiar](./media/create-cassandra-dotnet/copy.png) Copiar en el lado derecho de la pantalla para copiar el valor de USERNAME.
+1. Utilice el botón :::image type="icon" source="./media/create-cassandra-dotnet/copy.png"::: del lado derecho de la pantalla para copiar el valor de USERNAME.
 
    :::image type="content" source="./media/create-cassandra-dotnet/keys.png" alt-text="Visualizar y copiar una clave de acceso en Azure Portal, página Cadena de conexión":::
 

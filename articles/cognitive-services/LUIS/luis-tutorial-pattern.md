@@ -2,13 +2,13 @@
 title: 'Tutorial: Patrones: LUIS'
 description: Use patrones para aumentar la predicción de intenciones y entidades, a la vez que se proporcionan menos expresiones de ejemplo, con este tutorial. El patrón se proporciona como un ejemplo de plantilla de expresión, que incluye la sintaxis para identificar las entidades y el texto que se puede pasar por alto.
 ms.topic: tutorial
-ms.date: 05/07/2020
-ms.openlocfilehash: c9bbd521d49d669e8ebd18b29bda9f2add8f7739
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 07/06/2020
+ms.openlocfilehash: 3ca8bb15d19b0fa0dd6b33d35a380c0b1b07abe0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592923"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039507"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Tutorial: Incorporación de formatos comunes de expresión de plantilla de patrón para mejorar las predicciones
 
@@ -39,12 +39,10 @@ Un patrón se aplica como una combinación de aprendizaje automático y coincide
 
 Siga estos pasos:
 
-1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
+1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/tutorial-fix-unsure-predictions.json?raw=true).
 
 1. Inicie sesión en el [portal de LUIS](https://www.luis.ai), seleccione su **Suscripción** y **Recurso de creación** para ver las aplicaciones asignadas a ese recurso de creación.
-1. Importe el archivo JSON a una nueva aplicación en el [portal de LUIS](https://www.luis.ai). En la página **Mis aplicaciones**, seleccione **+ New app for conversation** (+ Nueva aplicación para conversación) y, después, seleccione **Import as JSON** (Importar como JSON). Seleccione el archivo que descargó en el paso anterior.
-
-1. En la sección **Administrar**, en la pestaña **Versiones**, seleccione la versión activa y, luego, seleccione **Clonar**. Asigne un nombre a la versión clonada `patterns`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. Dado que el nombre de la versión se usa como parte de la ruta de la dirección URL, el nombre no puede contener ningún carácter que no sea válido en una dirección URL.
+1. Importe el archivo JSON a una nueva aplicación en el [portal de LUIS](https://www.luis.ai). En la página **Mis aplicaciones**, seleccione **+ New app for conversation** (+ Nueva aplicación para conversación) y, después, seleccione **Import as JSON** (Importar como JSON). Seleccione el archivo que descargó en el paso anterior y asigne a la aplicación el nombre `Patterns tutorial`.
 
 ## <a name="create-new-intents-and-their-utterances"></a>Creación de intenciones nuevas y sus expresiones
 
@@ -67,8 +65,6 @@ Las dos intenciones encuentran el administrador o los informes directos del admi
     |`Who is John W. Smith's manager?`|
     |`Who does Jill Jones directly report to?`|
     |`Who is Jill Jones supervisor?`|
-
-    No se preocupe si la entidad keyPhrase está etiquetada las expresiones de la intención en lugar de la entidad employee. Ambas se predicen correctamente en el panel de prueba y en el punto de conexión.
 
 1. Seleccione **Intents** (Intenciones) en el panel de navegación izquierdo.
 
@@ -109,50 +105,50 @@ Las dos intenciones encuentran el administrador o los informes directos del admi
             "topIntent": "OrgChart-Manager",
             "intents": {
                 "OrgChart-Manager": {
-                    "score": 0.313054234
+                    "score": 0.326605469
                 },
                 "OrgChart-Reports": {
-                    "score": 0.2462688
+                    "score": 0.127583548
                 },
                 "EmployeeFeedback": {
-                    "score": 0.0488328524
-                },
-                "GetJobInformation": {
-                    "score": 0.0156933
+                    "score": 0.0299124215
                 },
                 "MoveEmployee": {
-                    "score": 0.011265873
+                    "score": 0.01159851
                 },
-                "Utilities.StartOver": {
-                    "score": 0.003065792
-                },
-                "Utilities.Stop": {
-                    "score": 0.00300148362
-                },
-                "Utilities.Cancel": {
-                    "score": 0.00271081156
-                },
-                "None": {
-                    "score": 0.00212835032
+                "GetJobInformation": {
+                    "score": 0.0104600191
                 },
                 "ApplyForJob": {
-                    "score": 0.0020669254
+                    "score": 0.007508645
                 },
-                "Utilities.Confirm": {
-                    "score": 0.00200891262
+                "Utilities.StartOver": {
+                    "score": 0.00359402061
+                },
+                "Utilities.Stop": {
+                    "score": 0.00336530479
                 },
                 "FindForm": {
-                    "score": 0.00194145238
+                    "score": 0.002653719
+                },
+                "Utilities.Cancel": {
+                    "score": 0.00263288687
+                },
+                "None": {
+                    "score": 0.00238638581
                 },
                 "Utilities.Help": {
-                    "score": 0.00182301877
+                    "score": 0.00226386427
+                },
+                "Utilities.Confirm": {
+                    "score": 0.00211663754
                 }
             },
             "entities": {
                 "keyPhrase": [
                     "boss of Jill Jones"
                 ],
-                "Employee": [
+                "EmployeeListEntity": [
                     [
                         "Employee-45612"
                     ]
@@ -171,9 +167,9 @@ Las dos intenciones encuentran el administrador o los informes directos del admi
                             ]
                         }
                     ],
-                    "Employee": [
+                    "EmployeeListEntity": [
                         {
-                            "type": "Employee",
+                            "type": "EmployeeListEntity",
                             "text": "Jill Jones",
                             "startIndex": 19,
                             "length": 10,
@@ -190,13 +186,9 @@ Las dos intenciones encuentran el administrador o los informes directos del admi
     }
     ```
 
-Las puntuaciones de las dos intenciones principales están bastante cercanas, pero la intención con mayor puntuación no tiene una puntuación considerablemente alta (más del 60 %) y no está lo suficientemente por encima de la puntuación de la siguiente intención.
+Se predijo la intención superior correcta, `OrgChart-Manager`, pero la puntuación no es superior al 70 % y no está lo suficientemente por encima de la siguiente intención más alta. Use los patrones para que la puntuación de la intención correcta sea considerablemente más alta en porcentaje y esté más lejos de la puntuación más alta siguiente.
 
-Como el entrenamiento de LUIS no es siempre exactamente igual (hay una pequeña variación) estas dos puntuaciones se podrían invertir en el próximo ciclo de entrenamiento. El resultado es que se podría devolver la intención incorrecta.
-
-Use los patrones para que la puntuación de la intención correcta sea considerablemente más alta en porcentaje y esté más lejos de la puntuación más alta siguiente.
-
-Deje esta segunda ventana del explorador abierta. Se usará más adelante en el tutorial.
+Deje esta segunda ventana del explorador abierta. La usará más adelante en el tutorial.
 
 ## <a name="template-utterances"></a>Expresiones de plantilla
 Dada la naturaleza del dominio del tema de recursos humanos, hay algunas formas habituales de preguntar por relaciones de empleados en las organizaciones. Por ejemplo:
@@ -206,16 +198,16 @@ Dada la naturaleza del dominio del tema de recursos humanos, hay algunas formas 
 |`Who does Jill Jones report to?`|
 |`Who reports to Jill Jones?`|
 
-Estas expresiones son demasiado cercanas como para determinar la singularidad contextual de cada una de ellas sin proporcionar muchos ejemplos de expresiones. Al agregar un patrón para una intención, LUIS aprende patrones de expresión comunes para una intención sin proporcionar muchos ejemplos de expresiones.
+Estas expresiones son demasiado cercanas como para determinar la singularidad contextual de cada una de ellas sin proporcionar _muchos_ ejemplos de expresiones. Al agregar un patrón para una intención, LUIS aprende patrones de expresión comunes para una intención sin necesidad de que se proporcionen muchos más ejemplos de expresiones.
 
 Los ejemplos de expresiones de plantilla de esta intención incluyen:
 
 |Ejemplos de expresiones de plantilla|significado de sintaxis|
 |--|--|
-|`Who does {Employee} report to[?]`|interchangeable `{Employee}`<br>ignore `[?]`|
-|`Who reports to {Employee}[?]`|interchangeable `{Employee}`<br>ignore `[?]`|
+|`Who does {EmployeeListEntity} report to[?]`|interchangeable `{EmployeeListEntity}`<br>ignore `[?]`|
+|`Who reports to {EmployeeListEntity}[?]`|interchangeable `{EmployeeListEntity}`<br>ignore `[?]`|
 
-La sintaxis `{Employee}` marca la ubicación de la entidad dentro de la expresión de plantilla, así como qué entidad. La sintaxis opcional, `[?]`, marca palabras o [signos de puntuación](luis-reference-application-settings.md#punctuation-normalization) que son opcionales. LUIS coincide con la expresión y omite el texto opcional entre corchetes.
+La sintaxis `{EmployeeListEntity}` marca la ubicación de la entidad dentro de la expresión de plantilla, así como qué entidad. La sintaxis opcional, `[?]`, marca palabras o [signos de puntuación](luis-reference-application-settings.md#punctuation-normalization) que son opcionales. LUIS coincide con la expresión y omite el texto opcional entre corchetes.
 
 Aunque la sintaxis se asemeja a una expresión regular, no lo es. Solo se admite la sintaxis de llave, `{}`, y corchete, `[]`. Se pueden anidar hasta dos niveles.
 
@@ -233,35 +225,35 @@ Para que un patrón coincida con una expresión, _primero_ las entidades dentro 
 
     |Expresiones de plantilla|
     |:--|
-    |`Who is {Employee} the subordinate of[?]`|
-    |`Who does {Employee} report to[?]`|
-    |`Who is {Employee}['s] manager[?]`|
-    |`Who does {Employee} directly report to[?]`|
-    |`Who is {Employee}['s] supervisor[?]`|
-    |`Who is the boss of {Employee}[?]`|
+    |`Who is {EmployeeListEntity} the subordinate of[?]`|
+    |`Who does {EmployeeListEntity} report to[?]`|
+    |`Who is {EmployeeListEntity}['s] manager[?]`|
+    |`Who does {EmployeeListEntity} directly report to[?]`|
+    |`Who is {EmployeeListEntity}['s] supervisor[?]`|
+    |`Who is the boss of {EmployeeListEntity}[?]`|
 
-    Estas expresiones de plantilla incluyen la entidad **Employee** con la notación entre corchetes.
+    Estas expresiones de plantilla incluyen la entidad **EmployeeListEntity** con la notación entre corchetes.
 
 1. Mientras sigue en la página de patrones, seleccione la intención **OrgChart-Reports** y luego escriba las siguientes expresiones de plantilla:
 
     |Expresiones de plantilla|
     |:--|
-    |`Who are {Employee}['s] subordinates[?]`|
-    |`Who reports to {Employee}[?]`|
-    |`Who does {Employee} manage[?]`|
-    |`Who are {Employee} direct reports[?]`|
-    |`Who does {Employee} supervise[?]`|
-    |`Who does {Employee} boss[?]`|
+    |`Who are {EmployeeListEntity}['s] subordinates[?]`|
+    |`Who reports to {EmployeeListEntity}[?]`|
+    |`Who does {EmployeeListEntity} manage[?]`|
+    |`Who are {EmployeeListEntity} direct reports[?]`|
+    |`Who does {EmployeeListEntity} supervise[?]`|
+    |`Who does {EmployeeListEntity} boss[?]`|
 
 ### <a name="query-endpoint-when-patterns-are-used"></a>Consulta de punto de conexión cuando se usan patrones
 
-Ahora que los patrones se han agregado a la aplicación, entrenar, publique y consulte la aplicación en el punto de conexión en tiempo de ejecución de predicción.
+Ahora que los patrones se han agregado a la aplicación, entrene, publique y consulte la aplicación en el punto de conexión en tiempo de ejecución de predicción.
 
 1. Seleccione **Entrenar**. Una vez que haya finalizado el entrenamiento, seleccione **Publicar**, el espacio de **producción** y, a continuación, seleccione **Listo**.
 
 1. Cuando finalice la publicación, cambie las pestañas de explorador de vuelta a la pestaña de la dirección URL del punto de conexión.
 
-1. Vaya al final de la dirección URL de la barra de direcciones y reemplace _YOUR_QUERY_HERE_ por: `Who is the boss of Jill Jones?`.
+1. Vaya al final de la dirección URL en la barra de direcciones, compruebe que la consulta es todavía `Who is the boss of Jill Jones?` y envíe la dirección URL para una nueva predicción.
 
     ```json
     {
@@ -270,50 +262,50 @@ Ahora que los patrones se han agregado a la aplicación, entrenar, publique y co
             "topIntent": "OrgChart-Manager",
             "intents": {
                 "OrgChart-Manager": {
-                    "score": 0.999997854
+                    "score": 0.999999046
                 },
                 "OrgChart-Reports": {
-                    "score": 6.13748343E-05
+                    "score": 3.237443E-05
                 },
                 "EmployeeFeedback": {
-                    "score": 8.052567E-06
+                    "score": 4.364242E-06
                 },
                 "GetJobInformation": {
-                    "score": 1.18197136E-06
+                    "score": 1.616159E-06
                 },
                 "MoveEmployee": {
-                    "score": 7.65549657E-07
-                },
-                "None": {
-                    "score": 3.975E-09
-                },
-                "Utilities.StartOver": {
-                    "score": 1.53E-09
-                },
-                "Utilities.Confirm": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Help": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Stop": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Cancel": {
-                    "score": 1.25833333E-09
-                },
-                "FindForm": {
-                    "score": 1.15384613E-09
+                    "score": 7.575752E-07
                 },
                 "ApplyForJob": {
-                    "score": 5.26923061E-10
+                    "score": 5.234157E-07
+                },
+                "None": {
+                    "score": 3.3E-09
+                },
+                "Utilities.StartOver": {
+                    "score": 1.26E-09
+                },
+                "FindForm": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Cancel": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Confirm": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Help": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Stop": {
+                    "score": 1.13636367E-09
                 }
             },
             "entities": {
                 "keyPhrase": [
                     "boss of Jill Jones"
                 ],
-                "Employee": [
+                "EmployeeListEntity": [
                     [
                         "Employee-45612"
                     ]
@@ -332,9 +324,9 @@ Ahora que los patrones se han agregado a la aplicación, entrenar, publique y co
                             ]
                         }
                     ],
-                    "Employee": [
+                    "EmployeeListEntity": [
                         {
-                            "type": "Employee",
+                            "type": "EmployeeListEntity",
                             "text": "Jill Jones",
                             "startIndex": 19,
                             "length": 10,
@@ -351,7 +343,7 @@ Ahora que los patrones se han agregado a la aplicación, entrenar, publique y co
     }
     ```
 
-La predicción de intenciones es ahora mucho más segura y la puntuación de la siguiente intención es significativamente menor. Estas dos intenciones no se alternarán al realizar el entrenamiento.
+La predicción de intenciones es ahora mucho más segura y la puntuación de la siguiente intención es muy baja. Estas dos intenciones no se alternarán al realizar el entrenamiento.
 
 ### <a name="working-with-optional-text-and-prebuilt-entities"></a>Trabajo con texto opcional y entidades creadas previamente
 
@@ -372,8 +364,8 @@ Ejemplo de declaraciones de plantilla que permiten esta información opcional:
 
 |Intención|Expresiones de ejemplo con texto opcional y entidades creadas previamente|
 |:--|:--|
-|OrgChart-Manager (Organigrama-Administrador)|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
-|OrgChart-Manager (Organigrama-Administrador)|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager (Organigrama-Administrador)|`who was {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager (Organigrama-Administrador)|`who is {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
 
 El uso de la sintaxis opcional de corchetes, `[]`, facilita la adición de este texto opcional a la expresión de plantilla y se pueden anidar hasta un segundo nivel, `[[]]` e incluir entidades o texto.
@@ -383,9 +375,10 @@ El uso de la sintaxis opcional de corchetes, `[]`, facilita la adición de este 
 
 **Pregunta: ¿Por qué el número creado previamente no forma parte de la expresión de plantilla si el 3 de marzo se predice como número `3` y fecha `March 3`?** La expresión de plantilla contextualmente usa una fecha, ya sea de modo literal, como en `March 3` o abstracto, como en `in a month`. Una fecha puede contener un número, pero un número es posible que no necesariamente se considere como una fecha. Use siempre la entidad que mejor representa el tipo en el que desea que se devuelvan los resultados JSON de la predicción.
 
-**Pregunta: ¿Qué sucede con las expresiones de composición incorrecta como `Who will {Employee}['s] manager be on March 3?`?** Los tiempos verbales diferentes gramaticalmente, como este en el que `will` y `be` son independientes, deben ser una nueva expresión de plantilla. La expresión de plantilla existente no producirá coincidencia. Aunque no ha cambiado la intención de la expresión, ha cambiado la colocación de las palabras en la expresión. Este cambio afecta a la predicción de LUIS. También puede usar la sintaxis [group y OR](#use-the-or-operator-and-groups) con los tiempos verbales para combinar estas expresiones.
+**Pregunta: ¿Qué sucede con las expresiones de composición incorrecta como `Who will {EmployeeListEntity}['s] manager be on March 3?`?** Los tiempos verbales diferentes gramaticalmente, como este en el que `will` y `be` son independientes, deben ser una nueva expresión de plantilla. La expresión de plantilla existente no producirá coincidencia. Aunque no ha cambiado la intención de la expresión, ha cambiado la colocación de las palabras en la expresión. Este cambio afecta a la predicción de LUIS. También puede usar la sintaxis [group y OR](#use-the-or-operator-and-groups) con los tiempos verbales para combinar estas expresiones.
 
-**Recuerde: primero se encuentran las entidades y, a continuación, se compara el patrón.**
+> [!CAUTION]
+> **Recuerde: primero se encuentran las entidades y, a continuación, se compara el patrón.**
 
 ### <a name="add-new-pattern-template-utterances"></a>Adición de nuevas expresiones de plantilla del patrón
 
@@ -393,9 +386,9 @@ El uso de la sintaxis opcional de corchetes, `[]`, facilita la adición de este 
 
     |Intención|Expresiones de ejemplo con texto opcional y entidades creadas previamente|
     |--|--|
-    |OrgChart-Manager (Organigrama-Administrador)|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
-    |OrgChart-Manager (Organigrama-Administrador)|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-    |OrgChart-Manager (Organigrama-Administrador)|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+    |OrgChart-Manager (Organigrama-Administrador)|`who was {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
+    |OrgChart-Manager (Organigrama-Administrador)|`who will be {EmployeeListEntity}['s] manager [[in]{datetimeV2}?]`|
+    |OrgChart-Manager (Organigrama-Administrador)|`who will be {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
 2. Seleccione **Entrenar** en la barra de navegación para entrenar la aplicación.
 
@@ -403,7 +396,7 @@ El uso de la sintaxis opcional de corchetes, `[]`, facilita la adición de este 
 
 4. Especifique varias expresiones de prueba para comprobar que el patrón coincide y la puntuación de la intención es considerablemente alta.
 
-    Después de escribir la primera expresión, seleccione **Inspect** (Inspeccionar) en el resultado para ver todos los resultados de la predicción. Cada expresión debe tener la intención **OrgChart Manager** y debe extraer los valores de las entidades de empleado y datetimeV2.
+    Después de escribir la primera expresión, seleccione **Inspect** (Inspeccionar) en el resultado para ver todos los resultados de la predicción. Cada expresión debe tener la intención **OrgChart-Manager** y debe extraer los valores de las entidades `EmployeeListEntity` y `datetimeV2`.
 
     |Expresión|
     |--|
@@ -425,18 +418,21 @@ Este uso de patrones proporcionó:
 
 Varias de las expresiones de plantilla anteriores son muy parecidas. Use la sintaxis **group**`()` y **OR**`|` para reducir las expresiones de plantilla.
 
-Los dos siguientes patrones se pueden combinar en un único patrón mediante la sintaxis group `()` y OR `|`.
+Los dos siguientes patrones se pueden combinar en un único patrón mediante la sintaxis de grupo `()` y OR `|`.
 
 |Intención|Expresiones de ejemplo con texto opcional y entidades creadas previamente|
 |--|--|
-|OrgChart-Manager (Organigrama-Administrador)|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-|OrgChart-Manager (Organigrama-Administrador)|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager (Organigrama-Administrador)|`who will be {EmployeeListEntity}['s] manager [[in]{datetimeV2}?]`|
+|OrgChart-Manager (Organigrama-Administrador)|`who will be {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
 La nueva expresión de plantilla será:
 
-`who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
+`who ( was | is | will be ) {EmployeeListEntity}['s] manager [([in]|[on]){datetimeV2}?]`.
 
 Esta expresión usa un elemento **group** alrededor del tiempo verbal necesario y los elementos opcionales `in` y `on` con una barra vertical **or** entre ellos.
+
+> [!NOTE]
+> Si usa el símbolo de _OR_, `|` (barra vertical), asegúrese de separarlo con un espacio antes y después en la plantilla de ejemplo.
 
 1. En la página **Patterns** (Patrones), seleccione el filtro **OrgChart Manager**. Para limitar la lista, busque `manager`.
 
@@ -444,7 +440,7 @@ Esta expresión usa un elemento **group** alrededor del tiempo verbal necesario 
 
 1. Cambie la expresión de plantilla a:
 
-    `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`
+    `who ( was | is | will be ) {EmployeeListEntity}['s] manager [([in]|[on]){datetimeV2}?]`
 
 2. Seleccione **Entrenar** en la barra de navegación para entrenar la aplicación.
 

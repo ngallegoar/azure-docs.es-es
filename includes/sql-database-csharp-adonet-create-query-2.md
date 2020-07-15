@@ -4,16 +4,16 @@ ms.service: sql-database
 ms.topic: include
 ms.date: 12/10/2018
 ms.author: genemi
-ms.openlocfilehash: e30651cb0ed7d74082163a92acbc428c21018255
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7943ea13d93fa68b76d333bda5438fb5738f5cd1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67186393"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050229"
 ---
 ## <a name="c-program-example"></a>Ejemplo de programa C#
 
-En las secciones siguientes de este artículo se presenta un programa C# que usa ADO.NET para enviar instrucciones (T-SQL) Transact-SQL a la base de datos SQL. El programa C# muestra las acciones siguientes:
+En las secciones siguientes de este artículo se presenta un programa C# que usa ADO.NET para enviar instrucciones Transact-SQL (T-SQL) a SQL Database. El programa C# muestra las acciones siguientes:
 
 - [Conexión a SQL Database mediante ADO.NET](#cs_1_connect)
 - [Métodos que devuelven instrucciones T-SQL](#cs_2_return)

@@ -3,12 +3,12 @@ title: Controles del ejemplo de plano técnico Canada Federal PBMM
 description: Asignación de controles de los ejemplos de plano técnico Canada Federal PBMM. Cada control se asigna a una o varias directivas de Azure que ayudan en la evaluación.
 ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: 8fc5b2f369dbe174fb4d5ea8160d592e9aaef3af
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: e9153972938a572f8d37610e5721f7b0a578157c
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005714"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085640"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico de Canada Federal PBMM
 
@@ -108,7 +108,7 @@ Este proyecto asigna definiciones de [Azure Policy](../../../policy/overview.md)
 
 - Auditar la configuración de diagnóstico
 - La auditoría de SQL Server debe estar habilitada
-- La seguridad avanzada de datos debe estar habilitada en las instancias administradas
+- La opción Advanced Data Security debe estar habilitada en las instancias administradas de SQL
 - La seguridad avanzada de datos debe estar habilitada en los servidores SQL Server
 
 ## <a name="au-6-4-audit-review-analysis-and-reporting--central-review-and-analysis"></a>Revisión, análisis e informes de auditoría AU-6 (4) | Revisión y análisis central
@@ -132,7 +132,7 @@ Este plano técnico ayuda a garantizar que los eventos del sistema se registran 
 - \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows
 - Auditar la configuración de diagnóstico
 - La auditoría de SQL Server debe estar habilitada
-- La seguridad avanzada de datos debe estar habilitada en las instancias administradas
+- La opción Advanced Data Security debe estar habilitada en las instancias administradas de SQL
 - La seguridad avanzada de datos debe estar habilitada en los servidores SQL Server
 - Implementación de Advanced Data Security en los servidores de SQL Server
 - Implementación de auditorías en servidores SQL Server
@@ -198,7 +198,7 @@ Este proyecto ayuda a restringir y controlar el acceso con privilegios mediante 
 
 Este proyecto ayuda a administrar las vulnerabilidades del sistema de información mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que supervisan las vulnerabilidades del sistema operativo, las de SQL o las de las máquinas virtuales en Azure Security Center. Azure Security Center proporciona funcionalidades de informes que permiten tener información en tiempo real sobre el estado de seguridad de los recursos de Azure implementados. Este proyecto asigna también definiciones de directiva que auditan y exigen Advanced Data Security en servidores SQL. Advanced Data Security incluía la evaluación de vulnerabilidades y funcionalidades de protección contra amenazas avanzada para ayudarle a entender las vulnerabilidades en los recursos implementados.
 
-- La seguridad avanzada de datos debe estar habilitada en las instancias administradas
+- La opción Advanced Data Security debe estar habilitada en las instancias administradas de SQL
 - La seguridad avanzada de datos debe estar habilitada en los servidores SQL Server
 - Implementación de Advanced Data Security en los servidores de SQL Server
 - Se deben corregir las vulnerabilidades en la configuración de seguridad de los conjuntos de escalado de máquinas virtuales
@@ -249,7 +249,7 @@ Este proyecto le ayuda a proteger la confidencialidad y la integridad de la info
 
 Este proyecto ayuda a exigir la directiva sobre el uso de controles criptográficos para proteger la información en reposo mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que exigen controles criptográficos específicos y auditan el uso de configuraciones criptográficas poco seguras. Conocer dónde los recursos de Azure pueden tener configuraciones criptográficas subóptimas ayuda a tomar medidas correctivas para garantizar que los recursos se configuran conforme a la directiva de seguridad de la información. En concreto, las definiciones de directiva asignadas por este proyecto requieren cifrado para las cuentas de almacenamiento del lago de datos, requerir el cifrado de datos transparente en las bases de datos SQL y auditar si falta el cifrado en las bases de datos SQL, los discos de máquinas virtuales y las variables de cuenta de automatización.
 
-- La seguridad avanzada de datos debe estar habilitada en las instancias administradas
+- La opción Advanced Data Security debe estar habilitada en las instancias administradas de SQL
 - La seguridad avanzada de datos debe estar habilitada en los servidores SQL Server
 - Implementación de Advanced Data Security en los servidores de SQL Server
 - Implementación del cifrado de datos transparente de SQL DB
@@ -293,7 +293,7 @@ Este proyecto le ayuda a supervisar el sistema de auditoría y cumplimiento de s
 - \[Versión preliminar\]: Auditar área de trabajo de Log Analytics en la máquina virtual: error de coincidencia del informe
 - \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Linux
 - \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows
-- La seguridad avanzada de datos debe estar habilitada en las instancias administradas
+- La opción Advanced Data Security debe estar habilitada en las instancias administradas de SQL
 - La seguridad avanzada de datos debe estar habilitada en los servidores SQL Server
 - Implementación de Advanced Data Security en los servidores de SQL Server
 - Implementar Advanced Threat Protection en las cuentas de almacenamiento

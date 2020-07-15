@@ -3,16 +3,16 @@ title: Administración del portal del Contrato Enterprise de Azure
 description: En este artículo se explican las tareas comunes que un administrador lleva a cabo en el portal del Contrato Enterprise de Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: eefd4a9ddf2150728578a4e058686a3204e34930
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 6169a18148b251540d66bce6e34374a16f697015
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456562"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044896"
 ---
 # <a name="azure-ea-portal-administration"></a>Administración del portal del Contrato Enterprise de Azure
 
@@ -33,7 +33,7 @@ Los administradores de empresa pueden asociar cuentas existentes a los departame
 
 ## <a name="department-spending-quotas"></a>Cuota de gasto de departamento
 
-Los clientes con Contrato Enterprise pueden establecer o cambiar las cuotas de gasto de cada departamento de una inscripción. El importe de la cuota de gasto se establece para el período de compromiso actual. Al final del período de compromiso actual, el sistema ampliará la cuota de gasto existente al siguiente período de compromiso a menos que se actualicen los valores.
+Los clientes con Contrato Enterprise pueden establecer o cambiar las cuotas de gasto de cada departamento de una inscripción. El importe de la cuota de gasto se establece para el período de prepago actual. Al final de ese período, el sistema ampliará la cuota de gasto existente al siguiente período de prepago, a menos que se actualicen los valores.
 
 El administrador del departamento puede ver la cuota de gasto, pero solo el administrador de la empresa puede actualizar el importe de la cuota. El administrador de la empresa y el administrador del departamento reciben notificaciones una vez que la cuota ha alcanzado el 50 %, 75 %, 90 % y 100 %.
 
@@ -48,9 +48,9 @@ El administrador del departamento puede ver la cuota de gasto, pero solo el admi
     - El nombre del departamento y el centro de costos también se pueden editar en este momento.
  1. Seleccione **Guardar**.
 
-La cuota de gasto del departamento ahora estará visible en la vista de lista de departamentos en la pestaña Department (Departamento). Al final del compromiso actual, Azure EA Portal mantendrá las cuotas de gasto para el siguiente período de compromiso.
+La cuota de gasto del departamento ahora estará visible en la vista de lista de departamentos en la pestaña Department (Departamento). Al final del período de prepago actual, Azure EA Portal mantendrá las cuotas de gasto para el siguiente período de prepago.
 
-El importe de la cuota de departamento es independiente del compromiso monetario actual y el importe de la cuota y las alertas solo se aplican al uso de la primera parte. La cuota de gasto del departamento solo tiene fines informativos, no supone una exigencia de los límites de gasto.
+El importe de la cuota de departamento es independiente del prepago actual de Azure y el importe de la cuota y las alertas solo se aplican al uso de la primera parte. La cuota de gasto del departamento solo tiene fines informativos, no supone una exigencia de los límites de gasto.
 
 ### <a name="department-administrator-to-view-the-quota"></a>Para que el administrador de departamento pueda ver la cuota:
 
@@ -174,7 +174,7 @@ En este documento se responden las preguntas más frecuentes relacionadas con la
 
 ### <a name="how-many-azure-account-owners-can-you-have-per-subscription"></a>¿Cuántos propietarios de cuenta de Azure se pueden tener por suscripción?
 
-Solo se permite un propietario de cuenta por suscripción.  Se pueden agregar roles adicionales mediante el acceso basado en rol o (Access Control (IAM)) en la pestaña suscripción en la esquina superior izquierda de la página en [portal.azure.com]](https://portal.azure.com).
+Solo se permite un propietario de cuenta por suscripción.  Se pueden agregar roles adicionales mediante el acceso basado en rol o (Access Control (IAM)) en la pestaña de suscripción, en la esquina superior izquierda de la página de [Azure Portal](https://portal.azure.com).
 
 ### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>¿Puede un propietario de cuenta de Azure aparecer en más de un departamento?
 

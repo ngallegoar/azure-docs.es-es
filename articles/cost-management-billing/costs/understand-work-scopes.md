@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 2f61345cd55fc9541f9e1b707389d0b9d06685b0
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: ae6205db4e120f0496fa47be6788887b155361b0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873429"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077165"
 ---
 # <a name="understand-and-work-with-scopes"></a>Descripción y uso de ámbitos
 
@@ -67,7 +67,7 @@ Cost Management es compatible con los siguientes roles integrados para cada uno 
 
 Colaborador de Cost Management es el rol con menos privilegios que se recomienda. Permite a los usuarios acceder para crear y administrar presupuestos y exportaciones para supervisar de manera más eficaz los costos. Los colaboradores de Cost Management también podrían requerir roles adicionales para admitir escenarios de administración de costos globales. Considere los casos siguientes:
 
-- **Informes sobre el uso de recursos**: Azure Cost Management muestra el costo en Azure Portal e incluye el uso total y los cargos por API y descargas. Si quiere información más detallada, revise las métricas de uso en Azure Monitor. Considere la posibilidad de conceder el rol [Lector de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-reader) en cualquier ámbito en el que necesite también informar sobre métricas de uso detalladas.
+- **Informes sobre el uso de recursos**: Azure Cost Management muestra el costo en Azure Portal que incluye el uso, ya que es un costo que figura en los patrones de uso completos. Este informe también puede mostrar los cargos por API y descargas pero, si quiere información más detallada, puede consultar las métricas de uso detalladas en Azure Monitor. Considere la posibilidad de conceder el rol [Lector de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-reader) en cualquier ámbito en el que necesite también informar sobre métricas de uso detalladas.
 - **Actuación cuando se superan los presupuestos**: los colaboradores de Cost Management también necesitan acceso para crear y administrar grupos de acciones para reaccionar automáticamente a usos por encima del límite. Considere la posibilidad de conceder el rol de [colaborador de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-contributor) a un grupo de recursos que contiene el grupo de acciones que se debe usar cuando se superan los umbrales del presupuesto. La automatización de acciones concretas requiere roles adicionales para los servicios específicos utilizados como, por ejemplo, Automation y Azure Functions.
 - **Programación de exportación de datos de costo**: los colaboradores de Cost Management también necesitan acceso para administrar las cuentas de almacenamiento y programar una exportación para copiar datos en una de ellas. Considere la posibilidad de conceder el rol [Colaborador de la cuenta de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-account-contributor) a un grupo de recursos que contenga la cuenta de almacenamiento donde se exportan los datos de costos.
 - **Visualización de las recomendaciones de ahorro de costos**: los lectores y los colaboradores de Cost Management tienen permiso para *ver* las recomendaciones sobre costos de forma predeterminada. No obstante, el acceso para actuar sobre las recomendaciones de costos requiere acceso a los recursos individuales. Considere la posibilidad de conceder un [rol específico de servicio](../../role-based-access-control/built-in-roles.md#all) si desea actuar en una recomendación basada en costos.
@@ -239,7 +239,7 @@ Cuando trabaja con las API de Cost Management, conocer el ámbito es fundamental
 3. Copie el identificador del grupo de administración de la tabla.
 4. El ámbito es: `"/providers/Microsoft.Management/managementGroups/{id}"`
 
-### <a name="subscription"></a>Subscription
+### <a name="subscription"></a>Suscripción
 
 1. Abra Azure Portal y vaya a **Suscripciones** en la lista de servicios.
 2. Copie el identificador de suscripción de la tabla.

@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 75b6629ea924ec17888ec2f981ff85ed917434c9
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: d6acc16780179654975d63ab2c0b04caf141510c
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677620"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557044"
 ---
 # <a name="quickstart-deploy-unity-sample-to-hololens"></a>Inicio rápido: Implementación de un ejemplo de Unity en HoloLens
 
@@ -24,7 +24,7 @@ En este artículo de inicio rápido aprenderá lo siguiente:
 >* Implementación del ejemplo en el dispositivo
 >* Ejecución del ejemplo en el dispositivo
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este inicio rápido, se va a implementar el proyecto de ejemplo de [Inicio rápido: Representación de un modelo con Unity](render-model.md).
 
@@ -36,12 +36,14 @@ Asegúrese de que las credenciales se guardan correctamente con la escena y que 
 1. Cambie *Platform* (Plataforma) a **Universal Windows Platform** (Plataforma universal de Windows).
 1. Establezca *Target Device* (Dispositivo de destino) en **HoloLens**.
 1. Establezca *Architecture* (Arquitectura) en **ARM64**.
-1. Establezca *Build Type* (Tipo de compilación) en **D3D Project** ![Build settings](./media/unity-build-settings.png) (Proyecto D3D > Configuración de compilación).
+1. Establezca *Build Type* (Tipo de compilación) en **D3D Project** (Proyecto de D3D).\
+    ![Configuración de compilación](./media/unity-build-settings.png)
 1. Seleccione **Switch to Platform** (Cambiar a Plataforma).
 1. Al presionar **Build** (Compilar) (o "Build And Run" [Compilar y ejecutar]), se le pedirá que seleccione una carpeta donde guardar la solución.
 1. Abra el archivo **Quickstart.sln** generado con Visual Studio.
 1. Cambie la configuración a **Release** (Versión) y **ARM64**.
-1. Cambie el modo del depurador a **Remote Machine** ![Solution configuration](media/unity-deploy-config.png) (Máquina remota > Configuración de solución).
+1. Cambie el modo del depurador a **Remote Machine** (Máquina remota).\
+    ![Configuración de la solución](media/unity-deploy-config.png)
 1. Compilación de la solución (F7)
 1. Para el proyecto "Quickstart" (Inicio rápido), vaya a *Properties > Debugging* (Propiedades > Depuración).
     1. Asegúrese de que la *versión* de configuración está activa.

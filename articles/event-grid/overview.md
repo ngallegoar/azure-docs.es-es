@@ -1,20 +1,14 @@
 ---
 title: ¿Qué es Azure Event Grid?
 description: Envíe datos de eventos desde un origen a los controladores con Azure Event Grid. Cree aplicaciones basadas en eventos e intégrelas con servicios de Azure.
-services: event-grid
-author: femila
-manager: timlt
-ms.service: event-grid
 ms.topic: overview
-ms.date: 02/20/2020
-ms.author: femila
-ms.custom: seodec18
-ms.openlocfilehash: 38f0218a7dedd243cccfab4b0b5ecfb73d3a626a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 07/07/2020
+ms.openlocfilehash: 95deeddbd7ae3f5ee07bef0c4ac73559d208c352
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560305"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116138"
 ---
 # <a name="what-is-azure-event-grid"></a>¿Qué es Azure Event Grid?
 
@@ -103,7 +97,7 @@ Event Grid conecta orígenes de datos y controladores de eventos. Por ejemplo, u
 
 ![Automatización de operaciones](./media/overview/Ops_automation.png)
 
-Event Grid permite agilizar la automatización y simplificar el cumplimiento de directivas. Por ejemplo, usar Event Grid para enviar una notificación a Azure Automation cuando se crea una máquina virtual o una base de datos SQL. Use los eventos para comprobar de forma automática que la configuración del servicio es compatible, poner metadatos en herramientas de operaciones, etiquetar máquinas virtuales o archivar elementos de trabajo.
+Event Grid permite agilizar la automatización y simplificar el cumplimiento de directivas. Por ejemplo, puede usar Event Grid para enviar una notificación a Azure Automation cuando se crea una máquina virtual o una base de datos en Azure SQL. Use los eventos para comprobar de forma automática que la configuración del servicio es compatible, poner metadatos en herramientas de operaciones, etiquetar máquinas virtuales o archivar elementos de trabajo.
 
 ### <a name="application-integration"></a>Integración de aplicaciones
 

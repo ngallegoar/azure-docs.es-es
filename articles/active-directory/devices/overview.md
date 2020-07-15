@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba0630474224c34eb96429cd7592028362e03381
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7c25d5ee7ed730747317ea52286174968eb0e2fd
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82024445"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103711"
 ---
 # <a name="what-is-a-device-identity"></a>¿Qué es una identidad de dispositivo?
 
@@ -45,7 +45,7 @@ Para obtener un dispositivo en Azure AD, tiene varias opciones:
 - **Azure AD joined**
    - Los dispositivos que están unidos a Azure AD son propiedad de una organización y en ellos se inicia sesión con una cuenta de Azure AD que pertenece a dicha organización. Solo existen en la nube.
       - Windows 10 
-      - Windows Server 2019 (no se admite Server Core)
+      - [Máquinas virtuales Windows Server 2019 que se ejecutan en Azure] (./howto-vm-sign-in-azure-ad-windows.md) (No se admite Server Core)
 - **Unido a Azure AD híbrido**
    - Los dispositivos que están unidos a Azure AD híbridos son propiedad de una organización y en ellos se inicia sesión con una cuenta de Azure AD que pertenece a dicha organización. Existen en la nube y en el entorno local.
       - Windows 7, 8.1 o 10

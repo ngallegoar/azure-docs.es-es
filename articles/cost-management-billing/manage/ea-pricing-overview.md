@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.author: banders
-ms.openlocfilehash: 5ad92fe9f243cf9884f29536cf6ebb66202338d5
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: d205f3ccc0adef7e2390274bb7f4511c6f994027
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299968"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038011"
 ---
 # <a name="azure-ea-pricing"></a>Precios del Contrato Enterprise de Azure
 
@@ -24,7 +24,7 @@ En esta sección se proporcionan detalles sobre cómo se calcula el uso. Respond
 
 ### <a name="price-protection"></a>Protección de precios
 
-Como cliente o partner de canal, tiene la garantía de recibir precios a los precios que figuran en la hoja de precios del cliente (CPS), o menos, o al precio vigente en la fecha de vigor de la compra de Azure. Este precio se denomina "precio base de referencia". En el caso de los servicios introducidos después de la compra de Azure, se le cobra el precio vigente en el descuento de nivel aplicable cuando se introduce el servicio por primera vez. Esta protección de precios es aplicable durante la vigencia del período de compromiso, de uno o tres años, en función del Contrato Enterprise.
+Como cliente o partner de canal, tiene la garantía de recibir precios a los precios que figuran en la hoja de precios del cliente (CPS), o menos, o al precio vigente en la fecha de vigor de la compra de Azure. Este precio se denomina "precio base de referencia". En el caso de los servicios introducidos después de la compra de Azure, se le cobra el precio vigente en el descuento de nivel aplicable cuando se introduce el servicio por primera vez. Esta protección de precios es aplicable durante la vigencia del período de prepago, de uno o tres años en función del Contrato Enterprise.
 
 ### <a name="price-changes"></a>Cambios en los precios
 

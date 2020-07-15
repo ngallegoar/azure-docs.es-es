@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.openlocfilehash: fa8bf79c047911ca283bf60261bba0cbdd6816a7
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 53cabaec21daafb910b958bb4b573dd033ca6283
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980200"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035532"
 ---
 En esta guía se muestra cómo instalar el [SDK de voz](~/articles/cognitive-services/speech-service/speech-sdk.md) para JavaScript para su uso con una página web.
 
@@ -27,11 +27,12 @@ Cree una nueva carpeta vacía. En caso de que desee hospedar el ejemplo en un se
 
 ## <a name="unpack-the-speech-sdk-for-javascript-into-that-folder"></a>Desempaquete el SDK de Voz para JavaScript en esa carpeta
 
-Descargue el SDK de Voz en forma de [paquete .zip](https://aka.ms/csspeech/jsbrowserpackage) y desempaquételo en la carpeta recién creada. Como resultado se desempaquetan cuatro archivos:
+Descargue el SDK de Voz en forma de [paquete .zip](https://aka.ms/csspeech/jsbrowserpackage) y desempaquételo en la carpeta recién creada. Como resultado se desempaquetan cinco archivos:
 * `microsoft.cognitiveservices.speech.sdk.bundle.js` Una versión en lenguaje natural del SDK de voz.
 * `microsoft.cognitiveservices.speech.sdk.bundle.js.map` Un archivo de asignación que se usa para depurar código del SDK.
 * `microsoft.cognitiveservices.speech.sdk.bundle.d.ts` Definiciones de objetos para su uso con TypeScript
 * `microsoft.cognitiveservices.speech.sdk.bundle-min.js` Una versión reducida del SDK de voz.
+* `speech-processor.js` Código para mejorar el rendimiento en algunos exploradores.
 
 ## <a name="create-an-indexhtml-page"></a>Creación de una página index.html
 

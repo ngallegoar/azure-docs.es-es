@@ -2,15 +2,15 @@
 title: 'Implementación de plantilla: Azure Portal'
 description: Aprenda cómo crear su primera plantilla de Azure Resource Manager mediante Azure Portal, y cómo implementarla.
 author: mumian
-ms.date: 06/12/2019
+ms.date: 06/29/2020
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: dd3d9caa8184b8637b509fc3318851751b211405
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ff6c459f2f4178bee6b6b564e177c097d72592a3
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80131871"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557364"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal
 
@@ -57,7 +57,7 @@ Muchos desarrolladores de plantillas experimentados usan este método para gener
 
     El panel principal muestra la plantilla. Es un archivo JSON con seis elementos de nivel superior: `schema`, `contentVersion`, `parameters`, `variables`, `resources` y `output`. Para más información, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](./template-syntax.md).
 
-    Hay seis parámetros definidos. Uno de ellos se denomina **storageAccountName**. La segunda parte resaltada de la captura de pantalla anterior muestra cómo hacer referencia a este parámetro en la plantilla. En la sección siguiente, edite la plantilla para usar un nombre generado para la cuenta de almacenamiento.
+    Hay ocho parámetros definidos. Uno de ellos se denomina **storageAccountName**. La segunda parte resaltada de la captura de pantalla anterior muestra cómo hacer referencia a este parámetro en la plantilla. En la sección siguiente, edite la plantilla para usar un nombre generado para la cuenta de almacenamiento.
 
     En la plantilla, se define un recurso de Azure. El tipo es `Microsoft.Storage/storageAccounts`. Observe cómo se define el recurso y la estructura de definición.
 1. Seleccione **Descargar** en la parte superior de la pantalla.
@@ -77,12 +77,10 @@ Azure Portal puede utilizarse para realizar algunas modificaciones básicas de l
 
 Azure requiere que cada servicio de Azure tenga un nombre único. Se podría producir un error en la implementación si ha escrito un nombre de cuenta de almacenamiento que ya existe. Para evitar este problema, modifique la plantilla para que use una llamada de función de plantilla `uniquestring()` para generar un nombre de cuenta de almacenamiento único.
 
-1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**.
-1. En **Buscar en Marketplace**, escriba **implementación de plantillas** y, después, presione **ENTRAR**.
-1. Seleccione **Implementación de plantillas**.
+1. En el menú Azure Portal, en el cuadro de búsqueda, escriba **implementar** y, a continuación, seleccione **Implementar una plantilla personalizada**.
 
     ![Biblioteca de plantillas de Azure Resource Manager](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-library.png)
-1. Seleccione **Crear**.
+
 1. Seleccione **Cree su propia plantilla en el editor**.
 1. Seleccione **Cargar archivo** y, después, siga las instrucciones para cargar template.json que descargó en la última sección.
 1. Realice los siguientes tres cambios en la plantilla:
@@ -107,66 +105,75 @@ Azure requiere que cada servicio de Azure tenga un nombre único. Se podría pro
 
      ```json
      {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
        "contentVersion": "1.0.0.0",
        "parameters": {
-           "location": {
-               "type": "string"
-           },
-           "accountType": {
-               "type": "string"
-           },
-           "kind": {
-               "type": "string"
-           },
-           "accessTier": {
-               "type": "string"
-           },
-           "supportsHttpsTrafficOnly": {
-               "type": "bool"
-           }
+         "location": {
+           "type": "string"
+         },
+         "accountType": {
+           "type": "string"
+         },
+         "kind": {
+           "type": "string"
+         },
+         "accessTier": {
+           "type": "string"
+         },
+         "minimumTlsVersion": {
+           "type": "string"
+         },
+         "supportsHttpsTrafficOnly": {
+          "type": "bool"
+         },
+         "allowBlobPublicAccess": {
+           "type": "bool"
+         }
        },
        "variables": {
-           "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+         "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
        },
        "resources": [
-           {
-               "name": "[variables('storageAccountName')]",
-               "type": "Microsoft.Storage/storageAccounts",
-               "apiVersion": "2018-07-01",
-               "location": "[parameters('location')]",
-               "properties": {
-                   "accessTier": "[parameters('accessTier')]",
-                   "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]"
-               },
-               "dependsOn": [],
-               "sku": {
-                   "name": "[parameters('accountType')]"
-               },
-               "kind": "[parameters('kind')]"
-           }
+         {
+           "name": "[variables('storageAccountName')]",
+           "type": "Microsoft.Storage/storageAccounts",
+           "apiVersion": "2019-06-01",
+           "location": "[parameters('location')]",
+           "properties": {
+             "accessTier": "[parameters('accessTier')]",
+             "minimumTlsVersion": "[parameters('minimumTlsVersion')]",
+             "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]",
+             "allowBlobPublicAccess": "[parameters('allowBlobPublicAccess')]"
+           },
+           "dependsOn": [],
+           "sku": {
+             "name": "[parameters('accountType')]"
+           },
+           "kind": "[parameters('kind')]",
+           "tags": {}
+         }
        ],
        "outputs": {}
      }
      ```
+
 1. Seleccione **Guardar**.
 1. Escriba los siguientes valores:
 
     |Nombre|Value|
     |----|----|
     |**Grupos de recursos**|Seleccione el nombre del grupo de recursos creado en la última sección. |
+    |**Región**|Seleccione una ubicación para el grupo de recursos. Por ejemplo, **Centro de EE. UU**. |
     |**Ubicación**|Seleccione la ubicación para la cuenta de almacenamiento. Por ejemplo, **Centro de EE. UU**. |
     |**Tipo de cuenta**|escriba **Standard_LRS** para este artículo de inicio rápido. |
     |**Variante**|escriba **StorageV2** para este artículo de inicio rápido. |
     |**Nivel de acceso**|escriba **Frecuente** para este artículo de inicio rápido. |
-    |**Https Traffic Only Enabled** (Solo tráfico HTTPS habilitado)| Seleccione **true** para esta guía de inicio rápido. |
-    |**Acepto los términos y condiciones indicados anteriormente**|(Seleccionar)|
+    |**Minimum Tls Version** (Versión de TLS mínima)|Escriba **TLS1_0**. |
+    |**Supports Https Traffic Only** (Admite solo tráfico Https)| Seleccione **true** para esta guía de inicio rápido. |
+    |**Allow Blob Public Access** (Permitir acceso público a blobs)| Seleccione **false** para esta guía de inicio rápido. |
 
-    Esta es una captura de pantalla de una implementación de ejemplo:
-
-    ![Implementación de plantillas de Azure Resource Manager](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-deploy.png)
-
-1. Seleccione **Comprar**.
+1. Seleccione **Revisar + crear**.
+1. Seleccione **Crear**.
 1. Seleccione el icono de campana (notificaciones) en la parte superior de la pantalla para ver el estado de implementación. Verá **Implementación en curso**. Espere hasta que se complete la implementación.
 
     ![Notificación sobre la implementación de plantillas de Azure Resource Manager](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-notification.png)

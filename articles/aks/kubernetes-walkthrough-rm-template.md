@@ -5,16 +5,16 @@ services: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: bbe5d9ac21ae9e03d629a1667567a915c8653a8a
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 447af1580f601c1f55690434b371aeeed2d335a0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81602647"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106363"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS) con una plantilla de Azure Resource Manager
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS) mediante una plantilla de ARM
 
-Azure Kubernetes Service (AKS) es un servicio de Kubernetes administrado que le permite implementar y administrar clústeres rápidamente. En este inicio rápido implementará un clúster de AKS con una plantilla de Azure Resource Manager. En el clúster se ejecuta una aplicación de varios contenedores que incluye un front-end web y una instancia de Redis.
+Azure Kubernetes Service (AKS) es un servicio de Kubernetes administrado que le permite implementar y administrar clústeres rápidamente. En este inicio rápido implementará un clúster de AKS con una plantilla de Azure Resource Manager (plantilla de ARM). En el clúster se ejecuta una aplicación de varios contenedores que incluye un front-end web y una instancia de Redis.
 
 ![Imagen de la exploración hasta Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
@@ -22,15 +22,19 @@ Azure Kubernetes Service (AKS) es un servicio de Kubernetes administrado que le 
 
 En esta guía rápida se presupone un conocimiento básico de los conceptos de Kubernetes. Para más información, consulte [Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Si decide instalar y usar la CLI localmente, para este inicio rápido es preciso ejecutar la CLI de Azure versión 2.0.61 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-Para crear un clúster de AKS con una plantilla de Resource Manager, proporcione una clave pública SSH y la entidad de servicio de Azure Active Directory.  También puede usar una [identidad administrada](use-managed-identity.md) en lugar de una entidad de servicio para permisos. Si necesita cualquiera de estos recursos, consulte la siguiente sección; de lo contrario, vaya a la sección [Create an AKS cluster](#create-an-aks-cluster) (Creación de un clúster de AKS).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+
+Para crear un clúster de AKS con una plantilla de Resource Manager, proporcione una clave pública SSH y la entidad de servicio de Azure Active Directory. También puede usar una [identidad administrada](use-managed-identity.md) en lugar de una entidad de servicio para permisos. Si necesita cualquiera de estos recursos, consulte la sección siguiente: en caso contrario, vaya a la sección [Revisión de la plantilla](#review-the-template).
 
 ### <a name="create-an-ssh-key-pair"></a>Creación de un par de claves SSH
 
@@ -68,9 +72,7 @@ La salida es similar a la del ejemplo siguiente:
 
 Anote el valor de *appId* y *password*. Estos valores se usan en los pasos siguientes.
 
-## <a name="create-an-aks-cluster"></a>Creación de un clúster de AKS
-
-### <a name="review-the-template"></a>Revisión de la plantilla
+## <a name="review-the-template"></a>Revisión de la plantilla
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-aks/).
 
@@ -78,7 +80,7 @@ La plantilla usada en este inicio rápido forma parte de las [plantillas de inic
 
 Para más ejemplos de AKS, consulte el sitio de [plantillas de inicio rápido de AKS][aks-quickstart-templates].
 
-### <a name="deploy-the-template"></a>Implementación de la plantilla
+## <a name="deploy-the-template"></a>Implementación de la plantilla
 
 1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla.
 

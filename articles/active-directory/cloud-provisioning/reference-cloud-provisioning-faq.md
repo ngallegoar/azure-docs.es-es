@@ -6,17 +6,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: overview
-ms.date: 02/26/2020
+ms.topic: reference
+ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbc1baa86bb81c8975587e84427a72ccc044805e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3ef482804c80602771963633bcc46feaf014c363
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77916581"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85373835"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Preguntas más frecuentes sobre Azure Active Directory Connect
 
@@ -70,7 +70,7 @@ No, el aprovisionamiento en la nube no admite la escritura diferida de ms-ds-con
 
 **P: Estoy aprovisionando usuarios que utilizan el aprovisionamiento en la nube. He eliminado la configuración. ¿Por qué sigo viendo los objetos sincronizados antiguos en Azure AD?** 
 
-Al eliminar la configuración, el aprovisionamiento en la nube no limpia los objetos sincronizados en Azure AD. Para asegurarse de que no tiene los objetos antiguos, cambie el ámbito de la configuración a un grupo o a unidades organizativas vacíos. Una vez que el aprovisionamiento se ejecuta y limpia los objetos, deshabilite la configuración y elimínela. 
+Al eliminar la configuración, el aprovisionamiento en la nube no elimina automáticamente los objetos sincronizados en Azure AD. Para asegurarse de que no tiene los objetos antiguos, cambie el ámbito de la configuración a un grupo o a unidades organizativas vacíos. Una vez que el aprovisionamiento se ejecuta y limpia los objetos, deshabilite la configuración y elimínela. 
 
 **P:  ¿Qué significa que no se admite Exchange híbrido?**
 
@@ -79,6 +79,10 @@ La característica de implementación híbrida de Exchange permite la coexistenc
 **P:  ¿Puedo instalar el agente de aprovisionamiento en la nube en Windows Server Core?**
 
 No, no se admite la instalación del agente en Server Core.
+
+**P:  ¿Puedo usar un servidor provisional con el agente de aprovisionamiento en la nube?**
+
+No, no se admiten servidores provisionales.
 
 ## <a name="next-steps"></a>Pasos siguientes 
 

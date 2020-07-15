@@ -7,18 +7,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 1e3b94208c3ead6e7ed4e15dac7c32b50025064a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: e0d2b235f671ca9b30bf61aef254cb850b25373e
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733813"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024781"
 ---
 # <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configuración de redes virtuales para un dominio administrado de Azure Active Directory Domain Services
 
-Para proporcionar conectividad a usuarios y aplicaciones, se implementa un dominio administrado de Azure Active Directory Domain Services (Azure AD DS) en una subred de red virtual de Azure. Esta subred de red virtual solo debe usarse para los recursos del dominio administrado que proporciona la plataforma Azure. Cuando cree sus propias máquinas virtuales y aplicaciones, estas no se deben implementar en la misma subred de red virtual. En su lugar, debe crear e implementar las aplicaciones en una subred de red virtual independiente, o en una red virtual independiente que esté emparejada con la red virtual de Azure AD DS.
+Para proporcionar conectividad a usuarios y aplicaciones, se implementa un dominio administrado de Azure Active Directory Domain Services (Azure AD DS) en una subred de red virtual de Azure. Esta subred de red virtual solo debe usarse para los recursos del dominio administrado que proporciona la plataforma Azure.
+
+Cuando cree sus propias máquinas virtuales y aplicaciones, estas no se deben implementar en la misma subred de red virtual. En su lugar, debe crear e implementar las aplicaciones en una subred de red virtual independiente, o en una red virtual independiente que esté emparejada con la red virtual de Azure AD DS.
 
 En este tutorial se muestra cómo crear y configurar una subred de red virtual dedicada o cómo emparejar una red diferente a la red virtual del dominio administrado de Azure AD DS.
 
@@ -39,7 +41,7 @@ Para completar este tutorial, necesitará los siguientes recursos y privilegios:
     * Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un inquilino de Azure Active Directory asociado a su suscripción, ya sea sincronizado con un directorio en el entorno local o con un directorio solo en la nube.
     * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
-* Necesita privilegios de *administrador global* en el inquilino de Azure AD para habilitar Azure AD DS.
+* Necesita privilegios de *administrador global* en el inquilino de Azure AD para configurar Azure AD DS.
 * Necesita privilegios de *colaborador* en la suscripción de Azure para crear los recursos de Azure AD DS necesarios.
 * Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
     * Si es necesario, el primer tutorial [crea y configura un dominio administrado de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
@@ -54,16 +56,20 @@ En el tutorial anterior, se creó un dominio administrado que usaba algunas opci
 
 Al crear y ejecutar máquinas virtuales que necesitan usar el dominio administrado, es necesario proporcionar conectividad de red. Esta conectividad de red se puede proporcionar de una de las siguientes maneras:
 
-* Cree una subred de red virtual adicional en la red virtual predeterminada del dominio administrado. Esta subred adicional es donde creará y conectará las máquinas virtuales.
+* Cree una subred de red virtual adicional en la red virtual del dominio administrado. Esta subred adicional es donde creará y conectará las máquinas virtuales.
     * Dado que las máquinas virtuales forman parte de la misma red virtual, pueden realizar automáticamente la resolución de nombres y comunicarse con los controladores de dominio de Azure AD DS.
 * Configure el emparejamiento de red virtual de Azure desde la red virtual del dominio administrado con una o varias redes virtuales independientes. Estas redes virtuales independientes son donde creará y conectará las máquinas virtuales.
     * Al configurar el emparejamiento de red virtual, también debe especificar la configuración de DNS para volver a usar la resolución de nombres en los controladores de dominio de Azure AD DS.
 
-Normalmente solo se usa una de estas opciones de conectividad de red. La elección suele depender de cómo desee administrar los recursos de Azure. Si desea administrar Azure AD DS y las máquinas virtuales conectadas como un grupo de recursos, puede crear una subred de red virtual adicional para las máquinas virtuales. Si desea separar la administración de Azure AD DS y realizar después la de las máquinas virtuales conectadas, puede usar el emparejamiento de red virtual. También puede usar el emparejamiento de red virtual para proporcionar conectividad a las máquinas virtuales existentes en el entorno de Azure que están conectadas a una red virtual existente.
+Normalmente solo se usa una de estas opciones de conectividad de red. La elección suele depender de cómo desee administrar los recursos de Azure.
+
+* Si desea administrar Azure AD DS y las máquinas virtuales conectadas como un grupo de recursos, puede crear una subred de red virtual adicional para las máquinas virtuales.
+* Si desea separar la administración de Azure AD DS y realizar después la de las máquinas virtuales conectadas, puede usar el emparejamiento de red virtual.
+    * También puede usar el emparejamiento de red virtual para proporcionar conectividad a las máquinas virtuales existentes en el entorno de Azure que están conectadas a una red virtual existente.
 
 En este tutorial, solo tiene que configurar una de estas opciones de conectividad de red virtual.
 
-Para más información sobre cómo planear y configurar la red virtual, consulte [Consideraciones de red de Azure Active Directory Domain Services][consideraciones de red].
+Para más información sobre cómo planear y configurar la red virtual, consulte [Consideraciones de red de Azure AD Domain Services][network-considerations].
 
 ## <a name="create-a-virtual-network-subnet"></a>Creación de una subred de red virtual
 
@@ -95,7 +101,9 @@ Cuando cree una máquina virtual que necesite usar el dominio administrado, aseg
 
 Es posible que ya tenga una red virtual de Azure para las máquinas virtuales o que desee que la red virtual de su dominio administrado siga siendo independiente. Para usar el dominio administrado, las máquinas virtuales de otras redes virtuales necesitan una manera de comunicarse con los controladores de dominio de Azure AD DS. Esta conectividad se puede proporcionar mediante el emparejamiento de red virtual de Azure.
 
-Con el emparejamiento de red virtual de Azure, se conectan dos redes virtuales entre sí, sin necesidad de un dispositivo de red privada virtual (VPN). El emparejamiento de red permite conectar rápidamente redes virtuales y definir flujos de tráfico en el entorno de Azure. Para más información sobre el emparejamiento, consulte [Emparejamiento de redes virtuales de Azure][peering-overview].
+Con el emparejamiento de red virtual de Azure, se conectan dos redes virtuales entre sí, sin necesidad de un dispositivo de red privada virtual (VPN). El emparejamiento de red permite conectar rápidamente redes virtuales y definir flujos de tráfico en el entorno de Azure.
+
+Para más información sobre el emparejamiento, consulte [Emparejamiento de redes virtuales de Azure][peering-overview].
 
 Para emparejar una red virtual con la red virtual del dominio administrado, realice los pasos siguientes:
 
@@ -121,7 +129,7 @@ Antes de que las máquinas virtuales de la red virtual emparejada puedan usar el
 
 ### <a name="configure-dns-servers-in-the-peered-virtual-network"></a>Configuración de servidores DNS en la red virtual emparejada
 
-Para que las máquinas virtuales y las aplicaciones de la red virtual emparejada se comuniquen correctamente con el dominio administrado, se debe actualizar la configuración de DNS. Las direcciones IP de los controladores de dominio de Azure AD DS deben configurarse como servidores DNS en la red virtual emparejada. Existen dos maneras de configurar los controladores de dominio como servidores DNS para la red virtual emparejada:
+Para que las máquinas virtuales y las aplicaciones de la red virtual emparejada se comuniquen correctamente con el dominio administrado, se debe actualizar la configuración de DNS. Las direcciones IP de los controladores de dominio de Azure AD DS deben configurarse como servidores DNS en la red virtual emparejada. Existen dos maneras de configurar los controladores de dominio como servidores DNS para la red virtual emparejada:
 
 * Configure los servidores DNS de la red virtual de Azure para usar los controladores de dominio de Azure AD DS.
 * Configure el servidor DNS existente en uso en la red virtual emparejada para usar el reenvío condicional de DNS al dirigir las consultas al dominio administrado. Estos pasos varían en función del servidor DNS existente en uso.
@@ -159,3 +167,4 @@ Para ver este dominio administrado en acción, cree una máquina virtual y únal
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
 [peering-overview]: ../virtual-network/virtual-network-peering-overview.md
+[network-considerations]: network-considerations.md

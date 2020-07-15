@@ -13,12 +13,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 854bf2d1ed2155290c2ecebd17695049fdd0c8bb
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: d630a41f9b83a852605ffad2a85ad6dd14bbac73
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314287"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079656"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Enrutamiento del tráfico de red con una tabla de rutas mediante Azure Portal
 
@@ -50,7 +50,7 @@ Las aplicaciones virtuales de red (NVA) son máquinas virtuales que ayudan con l
 
     | Sección | Configuración | Acción |
     | ------- | ------- | ----- |
-    | **Detalles del proyecto** | Subscription | Elija su suscripción. |
+    | **Detalles del proyecto** | Suscripción | Elija su suscripción. |
     | | Resource group | Seleccione **Crear nuevo**, escriba *myResourceGroup* y seleccione **Aceptar**. |
     | **Detalles de instancia** | Nombre de la máquina virtual | Escriba *myVmNva*. |
     | | Region | Elija **(EE. UU.) Este de EE. UU.** . |
@@ -129,7 +129,7 @@ Las aplicaciones virtuales de red (NVA) son máquinas virtuales que ayudan con l
     | Configuración | Value |
     | ------- | ----- |
     | Nombre | *myRouteTablePublic* |
-    | Subscription | Su suscripción |
+    | Suscripción | Su suscripción |
     | Resource group | **myResourceGroup** |
     | Location | **(EE. UU.) Este de EE. UU.** |
     | Propagación de rutas de puerta de enlace de red virtual | **Enabled** |
@@ -359,3 +359,6 @@ Aunque puede implementar muchos recursos de Azure en una red virtual, Azure no p
 
 > [!div class="nextstepaction"]
 > [Restringir el acceso de red a los recursos de PaaS](tutorial-restrict-network-access-to-resources.md)
+
+> [!NOTE] 
+> Los servicios de Azure cuestan dinero. Azure Cost Management le ayuda a establecer presupuestos y a configurar alertas para mantener el gasto bajo control. Analice, administre y optimice sus costos de Azure con Cost Management. Para obtener más información, consulte el [inicio rápido sobre el análisis de los costos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: milismsft
 ms.author: adrianmi
 ms.date: 06/20/2019
-ms.openlocfilehash: ab31daafe496f1aaad2bbc8075b2514d9e57e997
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 12e1c79e610526dec11467cc08c753bf90daa095
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84687181"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083464"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Emulador de Azure Cosmos: notas de la versión e información de descarga.
 
@@ -26,7 +26,11 @@ En este artículo se muestran las notas de la versión del emulador de Azure Cos
 
 ## <a name="release-notes"></a>Notas de la versión
 
-### <a name="2111"></a>2.11.1
+### <a name="2112-07072020"></a>2.11.2 (07/07/2020)
+
+- Esta versión cambia el modo en que se recopilan los seguimientos de ETL necesarios al solucionar problemas del emulador de Cosmos. Las herramientas en tiempo de ejecución de rendimiento de Windows (WPR) son ahora las predeterminadas para capturar seguimientos basados en ETL; está en desuso la antigua captura basada en LOGMAN. Este cambio es necesario en parte porque las actualizaciones de seguridad más recientes de Windows afectaron de manera inesperada al funcionamiento de LOGMAN cuando se ejecuta mediante el emulador de Cosmos.
+
+### <a name="2111-06102020"></a>2.11.1 (06/10/2020)
 
 - En esta versión se corrigen errores relacionados con el Explorador de datos del emulador. En ciertos casos, cuando se usa el Explorador de datos del emulador mediante un explorador web, no se puede conectar al punto de conexión del emulador Cosmos y todas las acciones relacionadas, como la creación de una base de datos o un contenedor, generarán un error. El segundo problema corregido está relacionado con la creación de un elemento a partir de un archivo JSON mediante la acción de carga del Explorador de datos.
 

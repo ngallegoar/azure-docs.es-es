@@ -3,12 +3,12 @@ title: 'Tutorial: Extracción de datos estructurados con una entidad de aprendiz
 description: Extraiga los datos estructurados de una expresión mediante la entidad de aprendizaje automático. Para aumentar la precisión de la extracción, agregue subentidades con características.
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: e16badfb2e024c5d82f1aed8a02aa901dca2c2a9
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: eb9761a3d3a98a3318fe0adc6fa170652639a9a1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611023"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045610"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Tutorial: Extracción de datos estructurados de una expresión de usuario con entidades de aprendizaje automático en Language Understanding (LUIS)
 
@@ -108,7 +108,7 @@ Agregar una lista de tamaños conocidos que la aplicación cliente reconoce, ayu
 
 1. Seleccione **Entidades** en el menú de la izquierda y, a continuación, seleccione **+ Crear**.
 
-1. Establezca el nombre de la entidad como `SizeListentity` para que sea fácil de identificar cuando se compare con la lista `SizePhraselist` creada en la sección anterior.
+1. Establezca el nombre de la entidad como `SizeListentity` y el tipo como **Lista** para que sea fácil de identificar cuando se compare con la lista `SizePhraselist` creada en la sección anterior.
 
 1. Agregue los tamaños que espera la aplicación cliente: `Small`, `Medium`, `Large` y `XLarge`, a continuación, agregue sinónimos para cada uno. Los sinónimos deben ser los términos que un usuario escribe en el bot de chat. La entidad se extrae con una entidad de lista cuando coincide exactamente con el valor normalizado o con los sinónimos.
 

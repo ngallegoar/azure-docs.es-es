@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: include
-ms.date: 06/10/2018
+ms.date: 06/23/2020
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 1aaec104e9130eeef723c6505e04e3317271566b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c8c51d671cd98a606c11a39b6cf489aa288d71b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80234200"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85292065"
 ---
 **Requisitos del servidor de procesos y configuración**
 
@@ -52,14 +52,12 @@ Tipo de NIC | VMXNET3 (si el servidor de configuración es una máquina virtual 
  |
 **Acceso a Internet** (El servidor necesita acceder a estas direcciones URL, directamente o mediante proxy):|
 \*.backup.windowsazure.com | Se usa para la transferencia y coordinación de datos replicados
-\*.store.core.windows.net | Se usa para la transferencia y coordinación de datos replicados
-\*blob.core.windows.net | Se usa para tener acceso a la cuenta de almacenamiento que almacena los datos replicados
+\*blob.core.windows.net | Se usa para tener acceso a la cuenta de almacenamiento que almacena los datos replicados. Puede proporcionar la dirección URL específica de la cuenta de almacenamiento en caché.
 \*.hypervrecoverymanager.windowsazure.com | Se usa para las operaciones de administración de replicación y coordinación
-https:\//management.azure.com | Se usa para las operaciones de administración de replicación y coordinación 
-*.services.visualstudio.com | Se usa con fines de telemetría (es opcional)
+https:\//login.microsoftonline.com | Se usa para las operaciones de administración de replicación y coordinación 
 time.nist.gov | Se usan para comprobar la sincronización de la hora entre el sistema y la hora global.
 time.windows.com | Se usan para comprobar la sincronización de la hora entre el sistema y la hora global.
-| <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | La configuración de OVF necesita acceder a estas direcciones URL. Azure Active Directory las usa para la administración de identidades y control de acceso.
+| <ul> <li> https:\//management.azure.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> *.services.visualstudio.com (opcional) </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | El programa de instalación de OVF necesita acceso a estas direcciones URL adicionales. Azure Active Directory las usa para la administración de identidades y control de acceso.
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | Para completar la descarga de MySQL. </br> En algunas regiones, la descarga podría redirigirse a la dirección URL de la red CDN. Asegúrese de que la dirección URL de la red CDN también esté en la lista blanca, si es necesario.
 |
 

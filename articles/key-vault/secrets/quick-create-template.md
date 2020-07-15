@@ -11,24 +11,28 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 02/27/2020
 ms.author: jgao
-ms.openlocfilehash: 273a467f5db2201015352aaf4a232f5a42e29673
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5206c73ac225f31ee8c40105e292726a9f951a79
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81618094"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85478934"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante una plantilla de Resource Manager
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-an-arm-template"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante una plantilla de Resource Manager
 
-[Azure Key Vault](../general/overview.md) es un servicio en la nube que proporciona un almacén seguro para secretos, como claves, contraseñas y certificados, entre otros. Este inicio rápido se centra en el proceso de implementación de una plantilla de Resource Manager para crear un almacén de claves y un secreto.
+[Azure Key Vault](../general/overview.md) es un servicio en la nube que proporciona un almacén seguro para secretos, como claves, contraseñas y certificados, entre otros. Este inicio rápido se centra en el proceso de implementación de una plantilla de Azure Resource Manager para crear un almacén de claves y un secreto.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-## <a name="prerequisites"></a>Prerrequisitos
+[![Implementación en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json)
 
-Para completar este artículo, necesitará lo siguiente:
+## <a name="prerequisites"></a>Requisitos previos
+
+Para completar este artículo:
+
+* Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 * La plantilla necesita el identificador de objeto de usuario de Azure AD para configurar los permisos. El procedimiento siguiente permite obtener el identificador de objeto (GUID).
 
@@ -53,22 +57,20 @@ Para completar este artículo, necesitará lo siguiente:
 
     2. Anote el identificador de objeto. Lo necesitará en la sección siguiente de este inicio rápido.
 
-## <a name="create-a-vault-and-a-secret"></a>Creación de un almacén y un secreto
-
-### <a name="review-the-template"></a>Revisión de la plantilla
+## <a name="review-the-template"></a>Revisión de la plantilla
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-key-vault-create/).
 
-:::code language="json" source="~/quickstart-templates/101-key-vault-create/azuredeploy.json" range="1-150" highlight="107-148":::
+:::code language="json" source="~/quickstart-templates/101-key-vault-create/azuredeploy.json" range="1-150" highlight="106-148":::
 
 En la plantilla se definen dos recursos de Azure:
 
 * [Microsoft.KeyVault/vaults **: se crea un almacén de claves de Azure**](/azure/templates/microsoft.keyvault/vaults).
 * [**Microsoft.KeyVault/vaults/secrets**](/azure/templates/microsoft.keyvault/vaults/secrets): se crea un secreto del almacén de claves.
 
-Puede encontrar más ejemplos de plantillas de Azure Key Vault [aquí](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault).
+Puede encontrar más ejemplos de plantillas de Azure Key Vault en [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Implementación de la plantilla
+## <a name="deploy-the-template"></a>Implementación de la plantilla
 
 1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla. La plantilla crea un almacén de claves y un secreto.
 
@@ -78,16 +80,16 @@ Puede encontrar más ejemplos de plantillas de Azure Key Vault [aquí](https://a
 
     ![Plantilla de Resource Manager, integración de Key Vault, portal de implementación](../media/quick-create-template/create-key-vault-using-template-portal.png)
 
-    A menos que se especifique, utilice el valor predeterminado para crear el almacén de claves y un secreto.
+    A menos que se especifique otra cosa, utilice el valor predeterminado para crear el almacén de claves y un secreto.
 
     * **Suscripción**: seleccione una suscripción de Azure.
     * **Grupo de recursos**: seleccione **Crear nuevo**, escriba un nombre único para el grupo de recursos y, a continuación, haga clic en **Aceptar**.
-    * **Ubicación**: seleccione una ubicación.  Por ejemplo, **Centro de EE. UU**.
+    * **Ubicación**: seleccione una ubicación. Por ejemplo, **Centro de EE. UU**.
     * **Nombre del almacén de claves**: escriba un nombre para el almacén de claves que sea globalmente único dentro del espacio de nombres .vault.azure.net. Necesitará el nombre en la sección siguiente cuando valide la implementación.
-    * **Id. de inquilino**: la función de la plantilla recupera automáticamente el identificador del inquilino.  No cambie el valor predeterminado.
+    * **Id. de inquilino**: la función de la plantilla recupera automáticamente el identificador del inquilino. No cambie el valor predeterminado.
     * **Id. de usuario de AD**: escriba el identificador del objeto de usuario de Azure AD que recuperó de [Requisitos previos](#prerequisites).
-    * **Nombre del secreto**: escriba un nombre para el secreto que almacenará en el almacén de claves.  Por ejemplo, **adminpassword**.
-    * **Valor del secreto**: escriba el valor del secreto.  Si almacena una contraseña, se recomienda usar la contraseña generada que creó en Requisitos previos.
+    * **Nombre del secreto**: escriba un nombre para el secreto que almacenará en el almacén de claves. Por ejemplo, **adminpassword**.
+    * **Valor del secreto**: escriba el valor del secreto. Si almacena una contraseña, se recomienda usar la contraseña generada que creó en Requisitos previos.
     * **Acepto los términos y condiciones anteriores**: Seleccionar.
 3. Seleccione **Comprar**. Una vez que el almacén de claves se haya implementado correctamente, recibirá una notificación:
 
@@ -129,6 +131,7 @@ La salida es similar a esta:
 ![Plantilla de Resource Manager, integración de Key Vault, salida de la validación del portal de implementación](../media/quick-create-template/resource-manager-template-portal-deployment-powershell-output.png)
 
 ---
+
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Otras guías de inicio rápido y tutoriales de Key Vault se basan en esta. Si tiene pensado seguir trabajando en otras guías de inicio rápido y tutoriales, considere la posibilidad de dejar estos recursos activos.
@@ -155,7 +158,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha creado un almacén de claves y un secreto mediante una plantilla de Azure Resource Manager y ha validado la implementación. Para más información sobre Key Vault y Azure Resource Manager, continúe con los artículos siguientes.
+En este inicio rápido, ha creado un almacén de claves y un secreto mediante una plantilla de Resource Manager y ha validado la implementación. Para más información sobre Key Vault y Azure Resource Manager, continúe con los artículos siguientes.
 
 - Lea una [introducción a Azure Key Vault](../general/overview.md).
 - Obtenga más información sobre [Azure Resource Manager](../../azure-resource-manager/management/overview.md).

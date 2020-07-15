@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/18/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebbb73b6fc4e2a934c7c4235cfcdc39b8fa81b60
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 18dc2e4393175751f5ac52d53e0c331c82fce7e8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85127439"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078177"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-shopify-plus"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Shopify Plus
 
@@ -103,7 +103,8 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     | ---------------| --------------- | --------- |
     | email | | user.mail |
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
+1. Cambie el formato de **Identificador de nombre** a **Persistente**. Seleccione la opción **Identificador de usuario único (id. de nombre)** y después el formato **Identificador de nombre**. Seleccione **Persistente** en esta opción. Guarde los cambios.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
     ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
 
@@ -139,11 +140,31 @@ En esta sección, va a permitir que B.Simon acceda a Shopify Plus mediante el in
 
 ## <a name="configure-shopify-plus-sso"></a>Configuración del inicio de sesión único de Shopify Plus
 
-Para configurar el inicio de sesión único en **Shopify Plus**, es necesario enviar la **dirección URL de metadatos de federación de la aplicación** al [equipo de soporte técnico de Shopify Plus](mailto:plus-user-management@shopify.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para ver los pasos completos, consulte la [documentación de Shopify sobre cómo configurar integraciones de SAML](https://help.shopify.com/en/manual/shopify-plus/saml).
+
+Para configurar el inicio de sesión único en **Shopify Plus**, copie el valor de **Dirección URL de metadatos de federación de aplicación** de Azure Active Directory. A continuación, inicie sesión en la [administración de organizaciones](https://shopify.plus) y vaya a **Users** > **Security** (Usuarios > Seguridad). Seleccione **Set up configuration** (Establecer configuración) y, a continuación, pegue la dirección URL de metadatos de federación de la aplicación en la sección **Identity provider metadata URL** (Dirección URL de metadatos del proveedor de identidad). Seleccione **Add** (Agregar) para completar este paso.
 
 ### <a name="create-shopify-plus-test-user"></a>Creación de un usuario de prueba de Shopify Plus
 
-En esta sección, creará un usuario llamado B.Simon en Shopify Plus. Colabore con el [equipo de soporte técnico de Shopify Plus](mailto:plus-user-management@shopify.com) para agregar los usuarios a la plataforma de Shopify Plus. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado B.Simon en Shopify Plus. Vuelva a la sección **Users** (Usuarios) y agregue un usuario indicando su correo electrónico y sus permisos. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+
+### <a name="enforce-saml-authentication"></a>Aplicación de la autenticación SAML
+
+> [!NOTE]
+> Se recomienda probar la integración con usuarios individuales antes de aplicarla globalmente.
+
+Usuarios individuales:
+1. Vaya a la página de un usuario individual en Shopify Plus con un dominio de correo electrónico administrado por Azure AD y comprobado en Shopify Plus.
+1. En la sección de autenticación SAML, seleccione **Edit** (Editar), **Required** (Obligatorio) y, por último, **Save** (Guardar).
+1. Compruebe que este usuario puede iniciar sesión correctamente con los flujos iniciados por IdP y por SP.
+
+Para todos los usuarios de un dominio de correo electrónico:
+1. Vuelva a la página **Security** (Seguridad).
+1. Seleccione **Required** (Obligatorio) en el valor de autenticación SAML. Esto aplica SAML en todos los usuarios con ese dominio de correo electrónico de Shopify Plus.
+1. Seleccione **Guardar**.
+
+> [!IMPORTANT]
+> La habilitación de SAML para todos los usuarios de un dominio de correo electrónico afecta a todos los usuarios que usan esa aplicación. Los usuarios no podrán iniciar sesión con su página de inicio de sesión habitual. Solo podrán acceder a la aplicación mediante Azure Active Directory. Shopify no ofrece una dirección URL de inicio de sesión de copia de seguridad en la que los usuarios puedan iniciar sesión con su nombre de usuario y contraseña normales. Puede ponerse en contacto con el soporte técnico de Shopify para desactivar SAML, si es necesario.
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
@@ -153,9 +174,9 @@ Al hacer clic en el icono de Shopify Plus en el Panel de acceso, iniciará sesi�
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

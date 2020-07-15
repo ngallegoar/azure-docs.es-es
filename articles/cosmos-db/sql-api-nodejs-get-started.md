@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: dech
-ms.openlocfilehash: ef493b6b21eb0ba0ad6d22a21e4e205a9fecacb6
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 5d41f467efafa42bd73fce258ca97e4412a7cf48
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858072"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026855"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Creación de una aplicación de consola de Node.js con el SDK de JavaScript para administrar los datos de SQL API de Azure Cosmos DB
 
@@ -36,7 +36,7 @@ En este tutorial, aprenderá lo siguiente:
 > * Agregar elementos al contenedor.
 > * Realizar operaciones básicas sobre los elementos, el contenedor y la base de datos.
 
-## <a name="prerequisites"></a>Prerrequisitos 
+## <a name="prerequisites"></a>Requisitos previos 
 
 Asegúrese de que dispone de los siguientes recursos:
 
@@ -90,7 +90,7 @@ Ahora que existe la aplicación, se debe asegurar de que se puede comunicar con 
 
    Puede encontrar los detalles de la clave y el punto de conexión en el panel **Claves** de [Azure Portal](https://portal.azure.com).
 
-   ![Captura de pantalla de obtención de claves en Azure Portal][keys]
+   :::image type="content" source="media/sql-api-nodejs-get-started/node-js-tutorial-keys.png" alt-text="Captura de pantalla de obtención de claves en Azure Portal":::
 
 El SDK de JavaScript usa los términos genéricos *contenedor* y *elemento*. Un contenedor puede ser una colección, un grafo o una tabla. Un elemento puede ser un documento, un vértice o borde, o una fila, y es el contenido que hay en un contenedor. En el fragmento de código anterior, el código `module.exports = config;` se usa para exportar el objeto de configuración, de modo que pueda hacer referencia a él en el archivo *app.js*.
 
@@ -223,4 +223,3 @@ Cuando ya no necesite estos recursos, podrá eliminar el grupo de recursos, la c
 > [Supervisión de una cuenta de Azure Cosmos DB](monitor-accounts.md)
 
 [create-account]: create-sql-api-dotnet.md#create-account
-[keys]: media/sql-api-nodejs-get-started/node-js-tutorial-keys.png

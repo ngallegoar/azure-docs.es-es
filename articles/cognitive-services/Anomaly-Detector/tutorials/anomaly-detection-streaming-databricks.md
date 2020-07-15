@@ -11,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: d3f3842265e0c8a36c7eb4b14abca771bd3d38f2
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: b8263e0445f7997469ba9165decbaccfa9ed2d6e
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85918928"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027858"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Tutorial: Detección de anomalías en datos transmitidos con Azure Databricks
 
@@ -41,11 +41,11 @@ En este tutorial se describen las tareas siguientes:
 
 > [!Note]
 > * En este tutorial se presenta un enfoque para implementar la [arquitectura de la solución](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/) recomendada para API Anomaly Detector.
-> * Este tutorial no se puede completar con una evaluación gratuita de Anomaly Detector API o Azure Databricks. 
+> * Este tutorial no se puede completar con una suscripción de nivel Gratis (`F0`) de Anomaly Detector API o Azure Databricks. 
 
 Cree una [suscripción a Azure](https://azure.microsoft.com/free/), en caso de que no tenga.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Un [espacio de nombres de Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) y un centro de eventos.
 
@@ -101,7 +101,7 @@ En esta sección, se crea un área de trabajo de Azure Databricks desde [Azure P
      Seleccione **Create cluster** (Crear clúster). 
 4. La creación del clúster tarda varios minutos. Una vez que el clúster se está ejecutando, puede asociarle notebooks y ejecutar trabajos de Spark.
 
-## <a name="create-a-twitter-application"></a>Crear una aplicación de Twitter
+## <a name="create-a-twitter-application"></a>Creación de una aplicación de Twitter
 
 Para recibir un flujo de tweets, debe crear una aplicación en Twitter. Siga los pasos para crear una aplicación de Twitter y anote los valores que necesita para finalizar este tutorial.
 
@@ -109,7 +109,7 @@ Para recibir un flujo de tweets, debe crear una aplicación en Twitter. Siga los
 
     ![Crear una aplicación de Twitter](../media/tutorials/databricks-create-twitter-app.png "Creación de una aplicación de Twitter")
 
-2. En la página **Create an application** (Crear una aplicación), proporcione los detalles de la nueva aplicación y, a continuación, seleccione **Create your Twitter application** (Crear su aplicación de Twitter).
+2. En la página **Create an application** (Crear una aplicación), proporcione los detalles de la nueva aplicación y luego seleccione **Create your Twitter application** (Crear su aplicación de Twitter).
 
     ![Detalles de la aplicación Twitter](../media/tutorials/databricks-provide-twitter-app-details.png "Detalles de la aplicación Twitter")
 
@@ -164,7 +164,7 @@ En este tutorial, las [API Anomaly Detector de Azure Cognitive Services](../over
     |Value |Descripción  |
     |---------|---------|
     |Nombre     | Nombre del recurso de Anomaly Detector.        |
-    |Subscription     | Suscripción de Azure con la que se asociará el recurso.        |
+    |Suscripción     | Suscripción de Azure con la que se asociará el recurso.        |
     |Location     | Una ubicación de Azure.        |
     |Plan de tarifa     | El plan de tarifa del servicio. Para más información acerca de los precios de Anomaly Detector, consulte la [página de precios](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/).        |
     |Resource group     | Especifique si desea crear un nuevo grupo de recursos o seleccionar uno existente.        |

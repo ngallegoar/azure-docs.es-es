@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Creación de un registro de replicación geográfica (plantilla de Resource Manager)'
+title: 'Inicio rápido: Creación de un registro con replicación geográfica (plantilla de Azure Resource Manager)'
 description: Aprenda a crear una instancia de Azure Container Registry mediante una plantilla de Azure Resource Manager.
 services: azure-resource-manager
 author: dlepow
@@ -8,28 +8,28 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 05/26/2020
-ms.openlocfilehash: c94cd3b4b455691e85e7525007fcdf7a056a2b28
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 3ed160780e15cc36648f7e2ad77e726901ee86c3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558081"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119861"
 ---
-# <a name="quickstart-create-a-geo-replicated-container-registry-by-using-a-resource-manager-template"></a>Inicio rápido: Creación de un registro con replicación geográfica mediante una plantilla de Azure Resource Manager
+# <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>Inicio rápido: Creación de un registro de contenedor con replicación geográfica mediante una plantilla de Resource Manager
 
-En este inicio rápido se muestra cómo crear una instancia de Azure Container Registry mediante una plantilla de Azure Resource Manager. La plantilla configura un registro con [replicación geográfica](container-registry-geo-replication.md), que sincroniza automáticamente el contenido del registro entre varias regiones de Azure. La replicación geográfica permite el acceso próximo a la red a imágenes de implementaciones regionales y, al mismo tiempo, permite la administración individual. Es una característica del nivel de servicio del registro [Premium](container-registry-skus.md). 
+En este inicio rápido se muestra cómo crear una instancia de Azure Container Registry mediante una plantilla de Azure Resource Manager. La plantilla configura un registro con [replicación geográfica](container-registry-geo-replication.md), que sincroniza automáticamente el contenido del registro entre varias regiones de Azure. La replicación geográfica permite el acceso próximo a la red a imágenes de implementaciones regionales y, al mismo tiempo, permite la administración individual. Es una característica del nivel de servicio del registro [Premium](container-registry-skus.md).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-container-registry-geo-replication%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Ninguno.
+Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="create-a-geo-replicated-registry"></a>Creación de un registro con replicación geográfica
-
-### <a name="review-the-template"></a>Revisión de la plantilla
+## <a name="review-the-template"></a>Revisión de la plantilla
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/). La plantilla configura un registro y una réplica regional adicional.
 
@@ -42,7 +42,7 @@ Los recursos siguientes se definen en la plantilla:
 
 Encontrará más ejemplos de plantillas de Azure Container Registry en la [galería de plantillas de inicio rápido](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerregistry&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Implementación de la plantilla
+## <a name="deploy-the-template"></a>Implementación de la plantilla
 
  1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla.
 
@@ -94,4 +94,4 @@ En este inicio rápido ha creado una instancia de Azure Container Registry con u
 Para obtener un tutorial paso a paso que le guíe en el proceso de creación de una plantilla, consulte:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Creación e implementación de la primera plantilla de Azure Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [Tutorial: Creación e implementación de su primera plantilla de Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

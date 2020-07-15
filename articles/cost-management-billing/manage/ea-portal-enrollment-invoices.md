@@ -3,16 +3,16 @@ title: Facturas de inscripciones de Azure Enterprise
 description: En este artículo se explica cómo administrar y actuar en su factura de Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 5c26af74a392e3e6d3bb5557960b81604de7cdf3
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 5276780d06671b8358f615b1fcb6447c8e1310f9
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84807792"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044879"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Facturas de inscripciones de Azure Enterprise
 
@@ -46,14 +46,14 @@ Azure Enterprise Portal genera automáticamente un número de pedido de compra p
 
 ## <a name="azure-enterprise-billing-frequency"></a>Frecuencia de facturación de Azure Enterprise
 
-Microsoft factura anualmente en la fecha de entrada en vigor de la inscripción las compras de compromiso de los servicios de Microsoft Azure. Microsoft factura como atrasado el uso que supere las cantidades de compromiso.
+Microsoft factura anualmente en la fecha de entrada en vigor de la inscripción las compras de prepago de los servicios de Microsoft Azure. Microsoft factura a período vencido el uso que supere las cantidades de prepago.
 
-- Las tarifas de compromiso se ofrecen a razón de una tarifa mensual y se facturan anualmente por adelantado.
+- Las tarifas de prepago se ofrecen en función de una tarifa mensual y se facturan anualmente por adelantado.
 - Las tarifas de uso por encima del límite se calculan cada mes y se facturan a período vencido al final del período de facturación.
 
 ### <a name="billing-intervals"></a>Intervalos de facturación
 
-El intervalo de facturación depende de cómo decida hacer sus compras de compromisos. Su compromiso anual coincidente con una de las siguientes:
+El intervalo de facturación depende de cómo decida hacer sus compras de prepago. El prepago anual es coincide con una de las siguientes fechas:
 
 - La fecha de aniversario de la inscripción
 - La fecha efectiva de la suscripción de modificación de un año.
@@ -62,12 +62,12 @@ La fecha en que reciba la factura de uso por encima del límite depende de la fe
 
 - **Inscripciones directas con una fecha de inicio anterior al 1 de mayo de 2018**:
   - En el caso de un Contrato Enterprise (EA) directo, se encuentra en un período de facturación anual para los servicios de Azure, excepto los servicios de Azure Marketplace. El período de facturación se basa en la fecha de aniversario, la fecha en la que el contrato entró en vigor.
-  - Si supera el 150 % del umbral de su compromiso monetario de EA, se convertirá automáticamente en un período de facturación trimestral basado en la fecha de su aniversario. También recibirá una factura por uso por encima del límite de los servicios de Azure.
-  - Si no supera el 150 % del umbral del compromiso monetario, la inscripción permanecerá en un período de facturación anual. La factura de uso por encima del límite se recibirá al final del año del compromiso.
+  - Si supera el 150 % del umbral de su prepago de Azure de EA, se convertirá automáticamente en un período de facturación trimestral basado en la fecha de su aniversario. También recibirá una factura por uso por encima del límite de los servicios de Azure.
+  - Si no supera el 150 % del umbral del prepago de Azure, la inscripción permanecerá en un período de facturación anual. La factura de uso por encima del límite se recibirá al final del año del prepago.
 
 - **Inscripciones directas con una fecha de inicio posterior al 1 de mayo de 2018**:
   - Las facturas de consumo y cargos de Azure facturados por separado tendrán un período de facturación mensual.
-  - Los cargos que no cubra el compromiso monetario se deben como pago de uso por encima del límite.  
+  - Los cargos que no cubra el prepago de Azure se deben como pago de uso por encima del límite.  
 
 - **Inscripciones indirectas con una inscripción iniciada antes del 1 de mayo de 2018**:
 
@@ -77,21 +77,21 @@ La fecha en que reciba la factura de uso por encima del límite depende de la fe
 
   Se encuentra en un período de facturación mensual.  
 
-### <a name="increase-your-monetary-commitment"></a>Aumentar el compromiso monetario
+### <a name="increase-your-azure-prepayment"></a>Aumento del prepago de Azure
 
-Puede aumentar su compromiso en cualquier momento. Se le facturará el número de meses restantes en el período de compromiso de ese año. Por ejemplo, si se registra en una suscripción de enmienda de un año y aumenta el compromiso durante el sexto mes, se le facturarán los seis meses restantes de ese período. Las cantidades de compromiso se actualizarán durante los últimos seis meses del período de compromiso. Estas nuevas cantidades se usarán para determinar los cargos por uso por encima del límite.
+Puede aumentar su prepago en cualquier momento. Se le facturará el número de meses restantes en el período de prepago de ese año. Por ejemplo, si se registra en una suscripción de enmienda de un año y aumenta el prepago durante el sexto mes, se le facturarán los seis meses restantes de ese período. Las cantidades de prepago se actualizarán durante los últimos seis meses del período de prepago. Estas nuevas cantidades se usarán para determinar los cargos por uso por encima del límite.
 
 ### <a name="overage"></a>Superávit
 
-En el caso del uso por encima del límite, se le facturará el uso o las reservas que superen su compromiso durante el período de facturación. Para ver un desglose del cálculo de las cantidades de uso por encima del límite de elementos individuales, consulte el informe de resumen de uso o póngase en contacto con su partner de canal.
+En el caso del uso por encima del límite, se le facturará el uso o las reservas que superen su prepago durante el período de facturación. Para ver un desglose del cálculo de las cantidades de uso por encima del límite de elementos individuales, consulte el informe de resumen de uso o póngase en contacto con su partner de canal.
 
 Para cada elemento de la factura, verá:
 
 - **Extended Amount** (Importe extendido): El total de cargos.
-- **Commitment Usage** (Uso del compromiso): El importe del compromiso usado para cubrir los cargos.
-- **Net Amount** (Importe neto): Los cargos que superan su compromiso.
+- **Prepayment Usage** (Uso del prepago): el importe del prepago usado para cubrir los cargos.
+- **Net Amount** (Importe neto): los cargos que superan el prepago.
 
-Los impuestos correspondientes se calculan solo sobre el importe neto que supera el compromiso.
+Los impuestos correspondientes se calculan solo sobre el importe neto que supera el prepago.
 
 La facturación de uso por encima del límite está automatizada. Los plazos para las notificaciones y las facturas dependen de la fecha de finalización del período de facturación.
 
@@ -130,18 +130,18 @@ Para ver los créditos:
 1. En [Azure Enterprise Portal](https://ea.azure.com), seleccione la sección **Informes**.
 1. Seleccione **Resumen de uso**.
 1. En la esquina superior derecha, cambie de la vista **M** a la **C**.
-1. Amplíe el campo de ajustes de la tabla de compromisos de servicio de Azure.
+1. Amplíe el campo de ajustes de la tabla de prepago de servicio de Azure.
 1. Verá los créditos aplicados a su inscripción y una explicación breve. Por ejemplo: Crédito de Acuerdo de Nivel de Servicio.
 
-## <a name="pay-your-overage-with-your-monetary-commitment"></a>Pague el uso por encima del límite con su compromiso monetario
+## <a name="pay-your-overage-with-your-azure-prepayment"></a>Pago del uso por encima del límite con el prepago de Azure
 
-Para aplicar su compromiso monetario a usos por encima del límite, debe cumplir los siguientes criterios:
+Para aplicar el prepago de Azure a los usos por encima del límite, debe cumplir los siguientes criterios:
 
 - Haber incurrido en cargos de uso por encima del límite que no se han pagado y están en el plazo de un año de la fecha de finalización del servicio facturado.
-- El importe del compromiso monetario disponible cubre el número total de cargos incurridos, incluidas todas las facturas de Azure pasadas no pagadas.
+- El importe del prepago de Azure disponible cubre el número total de cargos incurridos, incluidas todas las facturas de Azure pasadas no pagadas.
 - El plazo de facturación que quiere completar debe estar cerrado por completo. La facturación se cierra por completo después del quinto día de cada mes.
 - El período de facturación que quiere compensar debe estar cerrado por completo.
-- El descuento del compromiso de Azure (ACD) se basa en el nuevo compromiso real menos los fondos planeados para el consumo anterior. Este requisito solo se aplica a los cargos incurridos por uso por encima del límite. Esto solo es válido para los servicios que consumen el compromiso monetario, así que no se aplica a los cargos de Azure Marketplace. Los cargos de Azure Marketplace se facturan por separado.
+- El descuento del prepago de Azure se basa en el nuevo prepago real menos los fondos planeados para el consumo anterior. Este requisito solo se aplica a los cargos incurridos por uso por encima del límite. Esto solo es válido para los servicios que consumen el prepago de Azure, así que no se aplica a los cargos de Azure Marketplace. Los cargos de Azure Marketplace se facturan por separado.
 
 Para completar una compensación de uso por encima del límite, usted o el equipo de cuentas pueden abrir una solicitud de soporte técnico. Se requiere una aprobación por correo electrónico del administrador de empresa o del contacto de facturación.
 
@@ -178,13 +178,13 @@ Como referencia, en la tabla siguiente se muestran las fórmulas de Excel que pu
 
 ### <a name="conversion-between-usage-detail-report-and-the-usage-summary-page"></a>Conversión entre el informe de detalles de uso y la página de resumen de uso
 
-En el informe de descarga de datos de uso, puede ver el uso de recursos sin procesar hasta seis lugares decimales. Sin embargo, los datos de uso que se muestran en Azure Enterprise Portal se redondean hasta cuatro posiciones decimales para las unidades de compromiso y se truncan en cero decimales para las unidades de uso por encima del límite. Los datos de uso sin procesar se redondean primero a cuatro cifras antes de la conversión a las unidades usadas en Azure Enterprise Portal. A continuación, las unidades de Enterprise convertidas se redondean de nuevo a cuatro cifras. Solo puede ver el consumo de horas real antes de la conversión en el informe de uso descargado y no en Azure Enterprise Portal mismo.
+En el informe de descarga de datos de uso, puede ver el uso de recursos sin procesar hasta seis lugares decimales. Sin embargo, los datos de uso que se muestran en Azure Enterprise Portal se redondean hasta cuatro posiciones decimales para las unidades de prepago y se truncan en cero decimales para las unidades de uso por encima del límite. Los datos de uso sin procesar se redondean primero a cuatro cifras antes de la conversión a las unidades usadas en Azure Enterprise Portal. A continuación, las unidades de Enterprise convertidas se redondean de nuevo a cuatro cifras. Solo puede ver el consumo de horas real antes de la conversión en el informe de uso descargado y no en Azure Enterprise Portal mismo.
 
 Por ejemplo: Si se notifican 694,533404 horas reales de SQL Server en el informe de detalles de uso. Estas unidades se convierten en 6,94533404 unidades de 100 horas de proceso, y luego se redondean a 6,9453 y se muestran en Azure Enterprise Portal.
 
-- Para determinar el importe de facturación ampliado, las unidades mostradas se multiplican por el precio de la unidad de compromiso y el resultado se trunca a dos decimales. En el caso del yen japonés (JPY) y el won coreano (KRW), el importe extendido se redondea a cero decimales.
+- Para determinar el importe de facturación ampliado, las unidades mostradas se multiplican por el precio de la unidad de prepago y el resultado se trunca a dos decimales. En el caso del yen japonés (JPY) y el won coreano (KRW), el importe extendido se redondea a cero decimales.
 - Para el uso por encima del límite, las unidades de facturación se truncarían en seis cifras y, a continuación, se multiplicarían por el precio unitario de uso por encima del límite para determinar el importe de facturación ampliado.
-- Para la facturación de proveedores de servicios administrados (MSP), todo el uso asociado a un departamento marcado como MSP se trunca a cero decimales después de la conversión a la unidad de medida de EA. Como resultado, la suma de este uso podría ser menor que la suma total de todo el uso notificado en Azure Enterprise Portal. Depende de si el MSP está dentro de su saldo de compromiso monetario o está en uso por encima del límite.
+- Para la facturación de proveedores de servicios administrados (MSP), todo el uso asociado a un departamento marcado como MSP se trunca a cero decimales después de la conversión a la unidad de medida de EA. Como resultado, la suma de este uso podría ser menor que la suma total de todo el uso notificado en Azure Enterprise Portal. Depende de si el MSP está dentro de su saldo de prepago de Azure o está en uso por encima del límite.
 
 ### <a name="graduated-pricing"></a>Precios escalonados
 
@@ -226,13 +226,13 @@ En el caso de los servicios en los que la zona y la región afectan a los precio
 
 No hay cargos por la salida de datos entre servicios hospedados en el mismo centro de datos. Por ejemplo, Microsoft 365 y Azure.
 
-### <a name="monetary-commitment-and-unbilled-usage"></a>Compromiso monetario y uso no facturado
+### <a name="azure-prepayment-and-unbilled-usage"></a>Prepago de Azure y uso no facturado
 
-El compromiso monetario de Azure es un importe pagado por adelantado para los servicios de Azure. El compromiso monetario se consume a medida que se usan los servicios. La facturación de los servicios propios de Azure utiliza el compromiso monetario. Sin embargo, algunos cargos se facturan por separado, y los servicios de Azure Marketplace no consumen el compromiso monetario.
+El prepago de Azure es un importe pagado por adelantado por los servicios de Azure. Se consume a medida que se usan los servicios. La facturación de los servicios propios de Azure utiliza el prepago de Azure. Sin embargo, algunos cargos se facturan por separado, y los servicios de Azure Marketplace no consumen el prepago de Azure.
 
 ### <a name="charges-billed-separately"></a>Gastos facturados por separado
 
-Algunos productos y servicios proporcionados por orígenes de terceros no consumen compromiso monetario de Azure. En su lugar, estos elementos se facturan por separado como parte de la factura de uso por encima del límite del período de facturación estándar.
+Algunos productos y servicios proporcionados por orígenes de terceros no consumen el prepago de Azure. En su lugar, estos elementos se facturan por separado como parte de la factura de uso por encima del límite del período de facturación estándar.
 
 Hemos combinado todos los cargos de Azure y Azure Marketplace en una sola factura alineada con el período de facturación de la inscripción. La factura combinada no se aplica a los clientes en Australia, Japón ni Singapur.
 
@@ -265,7 +265,7 @@ Las facturas se publicarán al mes siguiente de que finalice el período de fact
 
    | Título | Descripción | Nombre de archivo |
    | --- | --- | --- |
-   | [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Enumera todos los servicios activos e incluye: <br>  <ul><li>categoría del servicio</li>   <li>nombre descriptivo del servicio</li>   <li>nombre del compromiso y número de pieza</li> <li>nombre del consumo y número de pieza</li>   <li>unidad de medida</li>   <li>factores de conversión entre el uso informado y el uso de Enterprise Portal que se muestra</li></ul> | Friendly\_Service\_Names.xlsx |
+   | [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Enumera todos los servicios activos e incluye: <br>  <ul><li>categoría del servicio</li>   <li>nombre descriptivo del servicio</li>   <li>nombre del prepago y número de pieza</li> <li>nombre del consumo y número de pieza</li>   <li>unidad de medida</li>   <li>factores de conversión entre el uso informado y el uso de Enterprise Portal que se muestra</li></ul> | Friendly\_Service\_Names.xlsx |
    | [Service Download Fields](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | Esta hoja de cálculo proporciona una lista de todas las posibles combinaciones de campos relacionados con el servicio del informe de descarga de uso. | Service\_Download\_Fields.xlsx |
 
 - Para más información sobre la facturación y los cargos, consulte [Descripción de la factura de Azure Enterprise](../understand/review-enterprise-agreement-bill.md).
