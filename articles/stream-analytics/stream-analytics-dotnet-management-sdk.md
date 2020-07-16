@@ -5,15 +5,15 @@ author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 52800f52e72e4aabcc8f6ebc733443615607f3a3
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ae352ead9e3ba6980c82ea48dca3db872b8d1e6d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835502"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043451"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>SDK .NET de administración: Configuración y ejecución de trabajos de análisis con la API de Azure Stream Analytics para .NET
 Aprenda a configurar y ejecutar trabajos de análisis con la API de Stream Analytics para .NET mediante el SDK de .NET de administración. Configure un proyecto, cree orígenes de entrada y salida, transformaciones, e inicie y detenga trabajos. En los trabajos de análisis puede transmitir datos desde el almacenamiento de blobs o desde un centro de eventos.
@@ -25,7 +25,7 @@ Azure Stream Analytics es un servicio totalmente administrado que proporciona un
 > [!NOTE]
 > El código de ejemplo de este artículo se ha actualizado con la versión v2.x del SDK de .NET de administración de Azure Stream Analytics. Para código de ejemplo con la versión heredada (1.x) del SDK, vea [Uso del SDK v1.x de .NET de administración para Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de comenzar con este artículo, debe realizar los siguientes pasos:
 
 * Instale Visual Studio 2019 o 2015.
@@ -212,7 +212,7 @@ El método **TestConnection** prueba si el trabajo de Stream Analytics puede con
 ## <a name="create-a-stream-analytics-output-target"></a>Creación de un destino de salida de Stream Analytics
 La creación de un destino de salida es similar al proceso de creación de un origen de entrada de Stream Analytics. Al igual que los orígenes de entrada, los destinos de salida están vinculados a un trabajo específico. Para usar el mismo destino de salida para distintos trabajos, debe llamar nuevamente al método y especificar un nombre de trabajo distinto.
 
-El siguiente código crea un destino de salida (base de datos de Azure SQL). Puede personalizar el tipo de datos y/o el tipo de serialización del destino de salida.
+El código siguiente crea un destino de salida (Azure SQL Database). Puede personalizar el tipo de datos y/o el tipo de serialización del destino de salida.
 
    ```csharp
    // Create an output
@@ -292,7 +292,7 @@ Ha aprendido los conceptos básicos del uso de un SDK de .NET para crear y ejecu
 
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Escalado de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [SDK de .NET de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn889315.aspx)
 * [Referencia del lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

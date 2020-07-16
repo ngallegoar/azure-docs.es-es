@@ -4,16 +4,16 @@ description: En este artículo se presenta información general sobre las funcio
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
-ms.topic: conceptual
-ms.date: 04/03/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 author: timsander1
 ms.author: tisande
-ms.openlocfilehash: fd602f88acf26e821e57e0a844f543aac08dad0d
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: e0b14eefcc0b484c92faf1148ae2972f51b04d31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81732701"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260702"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Administración de la indexación en la API de Azure Cosmos DB para MongoDB
 
@@ -21,7 +21,7 @@ La API de Azure Cosmos DB para MongoDB aprovecha las funcionalidades de adminis
 
 ## <a name="indexing-for-mongodb-server-version-36"></a>Indexación del servidor de MongoDB versión 3.6
 
-La API de Azure Cosmos DB para el servidor MongoDB versión 3.6 indexa automáticamente el campo `_id`, que no se puede quitar. Aplica automáticamente la unicidad del campo `_id` por clave de partición.
+La API de Azure Cosmos DB para el servidor MongoDB versión 3.6 indexa automáticamente el campo `_id`, que no se puede quitar. Aplica automáticamente la unicidad del campo `_id` por clave de partición. En la API de Azure Cosmos DB para MongoDB, el particionamiento y la indexación son conceptos independientes. No tiene que indexar su clave de partición. Sin embargo, al igual que con cualquier otra propiedad del documento, si esta propiedad es un filtro común en las consultas, se recomienda indexar la clave de partición.
 
 Para indexar campos adicionales, se aplican los comandos de administración de índices de MongoDB. Como en MongoDB, la API de Azure Cosmos DB para MongoDB indexa automáticamente solo el campo `_id`. Esta directiva de indexación predeterminada difiere de la API SQL de Azure Cosmos DB, que indexa todos los campos de manera predeterminada.
 
@@ -72,6 +72,98 @@ A continuación, se muestra un ejemplo para crear un índice geoespacial en el c
 ### <a name="text-indexes"></a>Índices de texto
 
 La API de Azure Cosmos DB para MongoDB no admite actualmente los índices de texto. En el caso de las consultas de búsqueda de texto en cadenas, debe usar la integración de [Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) con Azure Cosmos DB.
+
+## <a name="wildcard-indexes"></a>Índices de caracteres comodín
+
+Puede utilizar índices de caracteres comodín para admitir consultas en campos desconocidos. Supongamos que tiene una colección que contiene datos sobre familias.
+
+A continuación figura una parte de un documento de ejemplo de esa colección:
+
+```json
+  "children": [
+     {
+         "firstName": "Henriette Thaulow",
+         "grade": "5"
+     }
+  ]
+```
+
+A continuación figura otro ejemplo, esta vez con un conjunto de propiedades ligeramente diferente en `children`:
+
+```json
+  "children": [
+      {
+        "familyName": "Merriam",
+        "givenName": "Jesse",
+        "pets": [
+            { "givenName": "Goofy" },
+            { "givenName": "Shadow" }
+      },
+      {
+        "familyName": "Merriam",
+        "givenName": "John",
+      }
+  ]
+```
+
+En esta colección, los documentos pueden tener muchas propiedades posibles diferentes. Si desea indexar todos los datos de la matriz `children`, tiene dos opciones: crear índices independientes para cada propiedad individual o crear un índice de caracteres comodín para toda la matriz `children`.
+
+### <a name="create-a-wildcard-index"></a>Creación de un índice de caracteres comodín
+
+El siguiente comando crea un índice de caracteres comodín en cualquier propiedad dentro de `children`:
+
+`db.coll.createIndex({"children.$**" : 1})`
+
+**A diferencia de MongoDB, los índices de caracteres comodín pueden admitir varios campos en predicados de consulta**. No habrá ninguna diferencia en el rendimiento de las consultas si se usa un solo índice de caracteres comodín en lugar de crear un índice independiente para cada propiedad.
+
+Puede crear los siguientes tipos de índice mediante la sintaxis de caracteres comodín:
+
+- Campo único
+- Geoespaciales
+
+### <a name="indexing-all-properties"></a>Indexación de todas las propiedades
+
+A continuación se muestra cómo puede crear un índice de caracteres comodín en todos los campos:
+
+`db.coll.createIndex( { "$**" : 1 } )`
+
+Al iniciar el desarrollo, puede ser útil crear un índice de caracteres comodín en todos los campos. A medida que se indexan más propiedades en un documento, aumentará el precio de la unidad de solicitud (RU) para escribir y actualizar dicho documento. Por lo tanto, si tiene una carga de trabajo con muchas operaciones de escritura, debería optar por indexar individualmente las rutas de acceso en lugar de utilizar índices de caracteres comodín.
+
+### <a name="limitations"></a>Limitaciones
+
+Los índices de caracteres comodín no admiten ninguno de los siguientes tipos o propiedades de índice:
+
+- Compuestos
+- TTL
+- Único
+
+**A diferencia de MongoDB**, en la API de Azure Cosmos DB para MongoDB, **no puede** usar índices de caracteres comodín para:
+
+- Crear un índice de caracteres comodín que incluya varios campos específicos
+
+`db.coll.createIndex(
+    { "$**" : 1 },
+    { "wildcardProjection " :
+        {
+           "children.givenName" : 1,
+           "children.grade" : 1
+        }
+    }
+)`
+
+- Crear un índice de caracteres comodín que excluya varios campos específicos
+
+`db.coll.createIndex(
+    { "$**" : 1 },
+    { "wildcardProjection" :
+        {
+           "children.givenName" : 0,
+           "children.grade" : 0
+        }
+    }
+)`
+
+Como alternativa, puede crear varios índices de caracteres comodín.
 
 ## <a name="index-properties"></a>Propiedades de índice
 
@@ -253,7 +345,12 @@ Después de colocar los índices predeterminados, puede agregar más índices, t
 
 Los índices compuestos contienen referencias a varios campos de un documento. Si quiere crear un índice compuesto, actualice a la versión 3.6 mediante la presentación de una [solicitud de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
+### <a name="wildcard-indexes-version-32"></a>Índices de caracteres comodín (versión 3.2)
+
+Si quiere crear un índice de caracteres comodín, actualice a la versión 3.6 mediante la presentación de una [solicitud de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Indexación en Azure Cosmos DB](../cosmos-db/index-policy.md)
 * [Expiración automática de los datos de Azure Cosmos DB con período de vida](../cosmos-db/time-to-live.md)
+* Para información sobre la relación entre las particiones y la indexación, consulte el artículo [Consulta de un contenedor de Azure Cosmos](how-to-query-container.md).

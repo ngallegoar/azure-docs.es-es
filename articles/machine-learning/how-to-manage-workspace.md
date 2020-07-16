@@ -1,5 +1,5 @@
 ---
-title: Creación de áreas de trabajo de Azure Machine Learning en el portal
+title: Creación de áreas de trabajo en el portal
 titleSuffix: Azure Machine Learning
 description: Aprenda a crear, ver y eliminar áreas de trabajo de Azure Machine Learning en Azure Portal.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: c729f59fbb92584ff613147577ab097e63307ace
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71bb85c5812a3e779570cdd87c5092e5b0de52f9
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84430447"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045712"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Creación y administración de áreas de trabajo de Azure Machine Learning en Azure Portal
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -43,7 +43,7 @@ Para crear un área de trabajo, necesita una suscripción de Azure. Si no tiene 
    Campo|Descripción 
    ---|---
    Nombre del área de trabajo |Escriba un nombre único que identifique el área de trabajo. En este ejemplo, se usa **docs-ws**. Los nombres deben ser únicos en el grupo de recursos. Utilice un nombre que sea fácil de recordar y que se diferencie del de las áreas de trabajo creadas por otros. El nombre del área de trabajo no distingue mayúsculas de minúsculas.
-   Subscription |Seleccione la suscripción de Azure que quiera usar.
+   Suscripción |Seleccione la suscripción de Azure que quiera usar.
    Resource group | Use un grupo de recursos existente en su suscripción o escriba un nombre para crear un nuevo grupo de recursos. Un grupo de recursos almacena los recursos relacionados con una solución de Azure. En este ejemplo, se usa **docs-aml**. 
    Location | Seleccione la ubicación más cercana a los usuarios y los recursos de datos para crear el área de trabajo.
    Edición del área de trabajo | Seleccione **Basic** o **Enterprise**.  Esta edición del área de trabajo determina las características a las que tendrá acceso y los precios. Más información sobre las [ofertas de las ediciones Basic y Enterprise](overview-what-is-azure-ml.md#sku). 

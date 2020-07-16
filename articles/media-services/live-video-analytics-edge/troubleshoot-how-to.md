@@ -1,14 +1,16 @@
 ---
 title: Solución de problemas de Live Video Analytics on IoT Edge - Azure
 description: En este artículo se describen los pasos de solución de problemas para Live Video Analytics on IoT Edge.
+author: IngridAtMicrosoft
 ms.topic: how-to
+ms.author: inhenkel
 ms.date: 05/24/2020
-ms.openlocfilehash: c235dd27da1d370531c1668c40586d4ae479aec7
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: dd55050521a1791a11f220cd5617d9df2fa2d160
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84260448"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045590"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Solución de problemas de Live Video Analytics on IoT Edge
 
@@ -128,7 +130,7 @@ Para corregir este problema:
     ```
 1. Asegúrese de que tiene instaladas las siguientes extensiones. En el momento en que se escribía esta guía, la versión de las extensiones era la siguiente:
 
-    |||
+    | Extensión | Versión |
     |---|---|
     |azure-cli   |      2.5.1*|
     |command-modules-nspkg         |   2.0.3|
@@ -243,7 +245,92 @@ Live Video Analytics on IoT Edge proporciona un modelo de programación basado e
 
 Assembly Initialization method Microsoft.Media.LiveVideoAnalytics.Test.Feature.Edge.AssemblyInitializer.InitializeAssemblyAsync threw exception. Microsoft.Azure.Devices.Common.Exceptions.IotHubException: Microsoft.Azure.Devices.Common.Exceptions.IotHubException:<br/> `{"Message":"{\"errorCode\":504101,\"trackingId\":\"55b1d7845498428593c2738d94442607-G:32-TimeStamp:05/15/2020 20:43:10-G:10-TimeStamp:05/15/2020 20:43:10\",\"message\":\"Timed out waiting for the response from device.\",\"info\":{},\"timestampUtc\":\"2020-05-15T20:43:10.3899553Z\"}","ExceptionMessage":""}. Aborting test execution. `
 
-Es recomendable no llamar a métodos directos en paralelo, sino de manera secuencial, es decir, realizar una llamada al método directo cuando finalice la anterior. 
+Es recomendable no llamar a métodos directos en paralelo, sino de manera secuencial, es decir, realizar una llamada al método directo cuando finalice la anterior.
+
+### <a name="collecting-logs-for-submitting-a-support-ticket"></a>Recopilación de registros para enviar una incidencia de soporte técnico
+
+Cuando los pasos de solución de problemas autoguiados no resuelven los problemas, debe ir a Azure Portal y [abrir una incidencia de soporte técnico](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+
+Siga los pasos siguientes para recopilar los registros pertinentes que se deben agregar a la incidencia. Podrá cargar los archivos de registro en la pestaña **Detalles** de la solicitud de soporte técnico.
+
+### <a name="support-bundle"></a>Support-bundle
+
+Cuando tenga que recopilar registros de un dispositivo IoT Edge, la manera más sencilla es usar el comando `support-bundle`. Este comando recopila:
+
+- Registros del módulo
+- Administrador de seguridad de IoT Edge y registros del motor de contenedor
+- Salida JSON iotedge check
+- Información de depuración útil
+
+#### <a name="use-the-iot-edge-security-manager"></a>Uso del administrador de seguridad de IoT Edge
+ 
+El administrador de seguridad de IoT Edge es responsable de operaciones como la inicialización del sistema de IoT Edge en los dispositivos de inicio y aprovisionamiento. Si IoT Edge no se inicia, los registros del administrador de seguridad pueden proporcionar información útil. Para ver registros más detallados del administrador de seguridad de IoT Edge:
+
+1. Edite la configuración del demonio de IoT Edge en el dispositivo IoT Edge:
+
+    ```
+    sudo systemctl edit iotedge.service
+    ```
+
+1. Actualice las líneas siguientes:
+
+    ```
+    [Service]
+    Environment=IOTEDGE_LOG=edgelet=debug
+    ```
+
+1. Reinicie el demonio de seguridad de IoT Edge ejecutando estos comandos:
+
+    ```
+    sudo systemctl cat iotedge.service
+    sudo systemctl daemon-reload
+    sudo systemctl restart iotedge
+    ```
+
+1. Ejecute el comando `support-bundle` con la marca --since para especificar hasta qué momento en el pasado deben remontarse los registros. Por ejemplo, 2 h obtendrá registros desde las últimas dos horas. Puede cambiar el valor de esta marca para incluir los registros de un período diferente.
+
+    ```
+    sudo iotedge support-bundle --since 2h
+    ```
+
+### <a name="lva-debug-logs"></a>Registros de depuración de LVA
+
+Siga estos pasos para configurar LVA en el módulo de IoT Edge para generar registros de depuración:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a IoT Hub.
+1. Seleccione **IoT Edge** en el menú.
+1. Haga clic en el identificador del dispositivo de destino en la lista de dispositivos.
+1. Haga clic en el vínculo **Establecer módulos** del menú superior.
+
+  ![establecer módulos azure portal](media/troubleshoot-how-to/set-modules.png)
+
+5. En la sección Módulos de IoT Edge, busque y haga clic en **lvaEdge**.
+1. Haga clic en **Opciones de creación del contenedor**.
+1. En la sección Enlaces, agregue el comando siguiente:
+
+    `/var/local/mediaservices/logs:/var/lib/azuremediaservices/logs`
+
+    esto enlaza las carpetas de registros entre el dispositivo perimetral y el contenedor.
+
+1. Haga clic en el botón **Actualizar**.
+1. Haga clic en el botón **Revisar y crear** de la parte inferior de la página. Una validación sencilla se llevará a cabo y publicará un mensaje de validación correcta bajo un banner verde.
+1. Haga clic en el botón **Crear**.
+1. A continuación, actualice la **Identidad de módulo gemela** para apuntar el parámetro DebugLogsDirectory a fin de seleccionar el directorio en el que se recopilarán los registros:
+    1. Seleccione **lvaEdge** en la tabla **Módulos**.
+    1. Haga clic en el vínculo **Identidad de módulo gemela**. Lo encontrará en la parte superior de la página. De este modo se abrirá un panel editable.
+    1. Agregue el siguiente par clave-valor en la **clave que desee**:
+
+        `"DebugLogsDirectory": "/var/lib/azuremediaservices/logs"`
+
+    1. Haga clic en **Guardar**.
+
+1. Reproduzca el problema.
+1. Conéctese a la máquina virtual desde la página IoT Hub del portal.
+1. Vaya a la carpeta `/var/local/mediaservices/logs` y comprima el contenido binario de esta carpeta y compártalo con nosotros (estos archivos de registro no están diseñados para el autodiagnóstico, sino para que la ingeniería de Azure analice sus problemas).
+
+1. La recopilación de registros se puede detener estableciendo ese valor en **Identidad de módulo gemela** en *NULL*. Vuelva a la página **Identidad de módulo gemela** y actualice los siguientes parámetros como:
+
+    `"DebugLogsDirectory": ""`
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,19 +4,19 @@ description: Explica los pasos necesarios para implementar dispositivos unidos a
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6bbecf0e365ba7a8424da775245181fa64c21f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d43e6e89faa8eca720e3aeafc873af1a18b9753b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78672695"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555028"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedimientos: Planeación de la implementación de la unión a Azure AD
 
@@ -24,7 +24,7 @@ Unión a Azure AD permite unir dispositivos directamente a Azure AD sin necesida
 
 Este artículo proporciona la información que necesita para planear su implementación de Unión a Azure AD.
  
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se da por hecho que está familiarizado con la [introducción a la administración de dispositivos en Azure Active Directory](../device-management-introduction.md).
 
@@ -32,15 +32,14 @@ En este artículo se da por hecho que está familiarizado con la [introducción 
 
 Para planear la implementación de la unión a Azure AD, debe familiarizarse con:
 
-|   |   |
-|---|---|
-|![Comprobar][1]|Revisión de los escenarios|
-|![Comprobar][1]|Revisión de la infraestructura de identidad|
-|![Comprobar][1]|Evaluación de la administración de dispositivos|
-|![Comprobar][1]|Explicación de las consideraciones de aplicaciones y recursos|
-|![Comprobar][1]|Explicación de las opciones de aprovisionamiento|
-|![Comprobar][1]|Configuración de Enterprise State Roaming|
-|![Comprobar][1]|Configuración del acceso condicional|
+> [!div class="checklist"]
+> - Revisión de los escenarios
+> - Revisión de la infraestructura de identidad
+> - Evaluación de la administración de dispositivos
+> - Explicación de las consideraciones de aplicaciones y recursos
+> - Explicación de las opciones de aprovisionamiento
+> - Configuración de Enterprise State Roaming
+> - Configuración del acceso condicional
 
 ## <a name="review-your-scenarios"></a>Revisión de los escenarios 
 
@@ -104,7 +103,7 @@ Unión a Azure AD:
 
 - Solo es aplicable a dispositivos Windows 10. 
 - No es aplicable a versiones anteriores de Windows ni a otros sistemas operativos. Si tiene dispositivos Windows 7/8.1, debe actualizar a Windows 10 para implementar Unión a Azure AD.
-- No es compatible con dispositivos con TPM en modo FIPS.
+- Es compatible con TPM 2.0 compatible con FIPS, pero no con TPM 1.2. Si los dispositivos tienen TPM 1.2 compatible con FIPS, debe deshabilitarlos antes de continuar con la unión a Azure AD. Microsoft no proporciona ninguna herramienta para deshabilitar el modo FIPS para TPM, ya que eso depende del fabricante de TPM. Póngase en contacto con el OEM de hardware para obtener soporte técnico.
  
 **Recomendación:** Use siempre la versión más reciente de Windows 10 para aprovechar las características actualizadas.
 
@@ -185,6 +184,8 @@ Los dispositivos unidos a AD Azure no admiten las aplicaciones locales basadas e
 
 La conexión a Escritorio remoto para dispositivos unidos a Azure AD requiere que el equipo host esté unido a Azure AD o unido a Azure AD híbrido. No se admite el escritorio remoto desde un dispositivo no unido o que no sea Windows. Para obtener más información, consulte [Conectarse a un equipo remoto unido a Azure Active Directory](/windows/client-management/connect-to-remote-aadj-pc)
 
+A partir de la actualización 2004 de Windows 10, los usuarios también pueden usar el escritorio remoto desde un dispositivo con Windows 10 registrado en Azure AD a un dispositivo unido a Azure AD. 
+
 ## <a name="understand-your-provisioning-options"></a>Explicación de las opciones de aprovisionamiento
 
 Puede aprovisionar la unión a Azure AD con los siguientes enfoques:
@@ -195,7 +196,7 @@ Puede aprovisionar la unión a Azure AD con los siguientes enfoques:
  
 A continuación se incluye una comparación de estos tres enfoques 
  
-|   | Configuración de autoservicio | Windows Autopilot | Inscripción masiva |
+| Elemento | Configuración de autoservicio | Windows Autopilot | Inscripción masiva |
 | --- | --- | --- | --- |
 | Requiere la interacción del usuario para la configuración | Sí | Sí | No |
 | Requiere un esfuerzo de TI | No | Sí | Sí |

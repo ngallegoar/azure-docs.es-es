@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 06/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 47824095e892ca3c919d2d871feb612758ab2308
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e7828810a069756d1a0cde55ab47915ad11acc5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417851"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85249711"
 ---
 # <a name="monitor-copy-activity"></a>Supervisión de la actividad de copia
 
@@ -58,8 +58,8 @@ Los detalles de la ejecución de la actividad de copia y las características de
 | filesWritten | El número de archivos escritos o confirmados en el receptor basado en archivos. | Valor Int64 (sin unidad) |
 | sourcePeakConnections | Número máximo de conexiones simultáneas establecidas en el almacén de datos de origen durante la ejecución de la actividad de copia. | Valor Int64 (sin unidad) |
 | sinkPeakConnections | Número máximo de conexiones simultáneas establecidas en el almacén de datos receptor durante la ejecución de la actividad de copia. | Valor Int64 (sin unidad) |
-| rowsRead | Número de filas que se leen del origen (no se aplica a la copia binaria). | Valor Int64 (sin unidad) |
-| rowsCopied | Número de filas que se copian en el receptor (no se aplica a la copia binaria). | Valor Int64 (sin unidad) |
+| rowsRead | Número de filas leídas del origen. Esta métrica no se aplica cuando se copian archivos tal cual sin analizarlos, por ejemplo, cuando los conjuntos de datos de origen y receptor tienen un tipo de formato binario u otro tipo de formato con configuraciones idénticas. | Valor Int64 (sin unidad) |
+| rowsCopied | Número de filas copiadas al receptor. Esta métrica no se aplica cuando se copian archivos tal cual sin analizarlos, por ejemplo, cuando los conjuntos de datos de origen y receptor tienen un tipo de formato binario u otro tipo de formato con configuraciones idénticas.  | Valor Int64 (sin unidad) |
 | rowsSkipped | Número de filas incompatibles que se han omitido. Puede permitir que se omitan las filas incompatibles; para ello, establezca `enableSkipIncompatibleRow` en true. | Valor Int64 (sin unidad) |
 | copyDuration | Duración de la ejecución de copia. | Valor Int32 en segundos |
 | throughput | Velocidad de transferencia de datos. | Número de punto flotante en KBps |

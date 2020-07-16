@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 4169bfb5da5b1ad13bab0eb01397f7c1fb20b11b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f7253be2844f40ca52df2f9b3bc9cbba552fea2b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060320"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85480140"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Incorporación de interfaces de red a máquinas virtuales o su eliminación de ellas
 
@@ -151,7 +151,7 @@ Para información sobre la configuración de la interfaz de red y cómo modifica
 
 - Al eliminar una VM, no se eliminan las interfaces de red que tiene asociadas. Cuando se elimina una máquina virtual, las interfaces de red se desasocian de ella. Puede agregar esas interfaces de red a diferentes VM o eliminarlas.
 
-- De manera similar a IPv6, después de crear una VM no se le puede asociar una interfaz de red con redes aceleradas habilitadas. Además, para aprovechar las redes aceleradas, también debe completar pasos dentro del sistema operativo de la máquina virtual. Aprenda más sobre las redes aceleradas y otras restricciones cuando la use, en [Windows](create-vm-accelerated-networking-powershell.md) o [Linux](create-vm-accelerated-networking-cli.md).
+- La obtención de un rendimiento óptimo documentado requiere redes aceleradas. En algunos casos, debe habilitar explícitamente las redes aceleradas para máquinas virtuales [Windows](create-vm-accelerated-networking-powershell.md) o [Linux](create-vm-accelerated-networking-cli.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

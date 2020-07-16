@@ -1,21 +1,17 @@
 ---
 title: Entrega de evento con Managed Service Identity
 description: En este artículo se describe cómo habilitar Managed Service Identity para un tema de Azure Event Grid. Úselo para reenviar eventos a los destinos admitidos.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: how-to
-ms.date: 04/24/2020
-ms.author: spelluru
-ms.openlocfilehash: a13b9339c55d4d70c19ce737e81f34106dd3d6f6
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.date: 07/07/2020
+ms.openlocfilehash: 5138a89101a7e6c1770952028de9c3d478bc3852
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168004"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119198"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Entrega de evento con una identidad administrada
-En este artículo se describe cómo habilitar una [identidad de servicio administrada](../active-directory/managed-identities-azure-resources/overview.md) de un tema o dominio de Azure Event Grid. Úselo para reenviar eventos a destinos compatibles, como colas y temas de Service Bus, centros de eventos y cuentas de almacenamiento.
+En este artículo se describe cómo habilitar una [identidad de servicio administrada](../active-directory/managed-identities-azure-resources/overview.md) de temas o dominios de Azure Event Grid. Úselo para reenviar eventos a destinos compatibles, como colas y temas de Service Bus, centros de eventos y cuentas de almacenamiento.
 
 Estos son los pasos que se describen en detalle en este artículo:
 1. Cree un tema o un dominio con una identidad asignada por el sistema, o bien actualice un tema o dominio existente para habilitar la identidad. 
@@ -44,11 +40,16 @@ Del mismo modo, puede usar el comando `az eventgrid domain create` para crear un
 En la última sección, ha aprendido a habilitar la identidad administrada por el sistema durante la creación de un tema o un dominio. En esta sección, aprenderá a habilitar una identidad administrada por el sistema de un tema o dominio existente. 
 
 ### <a name="use-the-azure-portal"></a>Uso de Azure Portal
+El siguiente procedimiento muestra cómo habilitar la identidad administrada por el sistema para un tema. Los pasos para habilitar una identidad para un dominio son similares. 
+
 1. Vaya a [Azure Portal](https://portal.azure.com).
-2. Busque **temas de Event Grid** en la barra de búsqueda.
+2. Busque **temas de Event Grid** en la barra de búsqueda de la parte superior.
 3. Seleccione el **tema** para el que desea habilitar la identidad administrada. 
 4. Cambie a la pestaña **Identidad**. 
-5. Active el conmutador para habilitar la identidad. 
+5. **Active** el conmutador para habilitar la identidad. 
+1. Seleccione **Guardar** en la barra de herramientas para guardar la configuración. 
+
+    :::image type="content" source="./media/managed-service-identity/identity-existing-topic.png" alt-text="Página de identidad de un tema"::: 
 
 Puede usar pasos similares para habilitar una identidad de un dominio de Event Grid.
 

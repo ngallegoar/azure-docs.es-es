@@ -1,6 +1,6 @@
 ---
 title: Conexión de datos CEF a la versión preliminar de Azure Sentinel | Microsoft Docs
-description: Aprenda a conectar datos CEF a Azure Sentinel.
+description: Conecte una solución externa que envía mensajes de formato de evento común (CEF) a Azure Sentinel mediante el uso de una máquina Linux como proxy.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2019
 ms.author: yelevin
-ms.openlocfilehash: 8314614616c6b8969832d52fc684d47ba1bf0fe3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 34091e0c9f18cb87a240054f534f474710eb421d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77588355"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563939"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Conexión de su solución externa con Common Event Format
 
@@ -49,7 +49,7 @@ Asegúrese de configurar la seguridad de la máquina de acuerdo con la directiva
 Para usar la comunicación TLS entre la solución de seguridad y la máquina de Syslog, debe configurar el demonio de Syslog (rsyslog o syslog-ng) para que se comunique en TLS: [Cifrado del tráfico de Syslog con TLS -rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [Cifrado de los mensajes de registro con TLS –syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
 
  
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Asegúrese de que la máquina Linux que usa como proxy ejecute uno de los siguientes sistemas operativos:
 
 - 64 bits

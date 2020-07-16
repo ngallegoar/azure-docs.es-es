@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 9cd3cd60f5d62a0c416b0e05ea408c20483bff13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e8a70955b36f11727019fe430f62e84d4f0c93c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74931324"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85248316"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Creación, supervisión y administración de factorías de datos de Azure mediante el SDK de .NET de Azure Data Factory
 > [!NOTE]
@@ -28,7 +28,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 > [!NOTE]
 > Este artículo no abarca todas las API de .NET de Data Factory. Para obtener documentación completa sobre la API de .NET para Data Factory, consulte la [referencia de API de .NET de Data Factory](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1). 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -445,7 +445,7 @@ La actividad de copia realiza el movimiento de datos en Azure Data Factory. La a
     }
     ```
 
-15. En el Explorador de soluciones, expanda el proyecto **DataFactoryAPITestApp**, haga clic con el botón derecho en **Referencias** y después haga clic en **Agregar referencia**. Seleccione la casilla del ensamblado de `System.Configuration` y haga clic en **Aceptar**.
+15. En el Explorador de soluciones, expanda el proyecto **DataFactoryAPITestApp**, haga clic con el botón derecho en **Referencias** y haga clic en **Agregar referencia**. Seleccione la casilla del ensamblado de `System.Configuration` y haga clic en **Aceptar**.
 15. Compile la aplicación de la consola. Haga clic en **Compilar** en el menú y en **Compilar solución**.
 16. Confirme que hay al menos un archivo en el contenedor de adftutorial del almacenamiento de blobs de Azure. En caso contrario, cree el archivo Emp.txt en el Bloc de notas con el siguiente contenido y cárguelo en el contenedor de adftutorial.
 
@@ -500,6 +500,6 @@ while (response != null);
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Vea el ejemplo siguiente para crear una canalización mediante el SDK para .NET que copia datos de un almacenamiento de blobs de Azure a una base de datos de Azure SQL: 
+Vea el ejemplo siguiente para crear una canalización mediante el SDK para .NET que copia datos de un almacenamiento de blobs de Azure a Azure SQL Database: 
 
 - [Crear una canalización para copiar datos de Blob Storage a SQL Database](data-factory-copy-activity-tutorial-using-dotnet-api.md)

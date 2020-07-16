@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4509c62b15eb06c89fe80555a26773fdd3876e66
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 81ac76ef5eeebd278dc10e03d661bb21469c8f4f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790905"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610579"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Escenarios de Azure Disk Encryption en máquinas virtuales Windows
 
@@ -217,22 +217,7 @@ También puede [agregar un nuevo disco a una máquina virtual Windows con PowerS
 
 
 ## <a name="disable-encryption"></a>Deshabilitación del cifrado
-Puede deshabilitar el cifrado con Azure PowerShell, la CLI de Azure o una plantilla de Resource Manager. La deshabilitación del cifrado de disco de datos en la VM de Windows cuando se han cifrado tanto los discos de datos como del SO no funciona según lo previsto. Deshabilite del cifrado en todos los discos en su lugar.
-
-- **Deshabilitar el cifrado de disco con Azure PowerShell:** para deshabilitar el cifrado, use el cmdlet [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption). 
-     ```azurepowershell-interactive
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' -VolumeType "all"
-     ```
-
-- **Deshabilitar el cifrado con la CLI de Azure:** para deshabilitar el cifrado, use el comando [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable). 
-     ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type "all"
-     ```
-- **Deshabilitar el cifrado con una plantilla de Resource Manager:** 
-
-    1. Haga clic en **Deploy to Azure** (Implementar en Azure) en la plantilla [Deshabilitar el cifrado de disco en una máquina virtual Windows en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad).
-    2. Seleccione la suscripción, el grupo de recursos, la ubicación, la máquina virtual, el tipo de volumen, los términos legales y el contrato.
-    3.  Haga clic en **Comprar** para deshabilitar el cifrado de disco en una máquina virtual Windows en ejecución. 
+[!INCLUDE [disk-encryption-disable-encryption-powershell](../../../includes/disk-encryption-disable-powershell.md)]
 
 ## <a name="unsupported-scenarios"></a>Escenarios no admitidos
 
@@ -248,9 +233,11 @@ Azure Disk Encryption no funciona para los siguientes escenarios, característic
 - Contenedores de Windows Server, que crean volúmenes dinámicos para cada contenedor.
 - Discos de sistema operativo efímero.
 - Cifrado de sistemas de archivos compartidos o distribuidos como DFS, GFS, DRDB, and CephFS (sin limitarse solo a estos).
-- Traslado de máquinas virtuales cifradas a otra suscripción.
-- VM de Gen2 (consulte: [Compatibilidad con máquinas virtuales de generación 2 en Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
+- Traslado de unas máquinas virtuales cifradas a otra suscripción o región.
+- Creación de una imagen o instantánea de una máquina virtual cifrada y su uso para implementar máquinas virtuales adicionales.
+- Máquinas virtuales de Gen2 (consulte: [Compatibilidad con máquinas virtuales de generación 2 en Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
 - Máquinas virtuales de serie Lsv2 (consulte: [serie Lsv2](../lsv2-series.md))
+- Máquinas virtuales de la serie M con discos de Acelerador de escritura.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

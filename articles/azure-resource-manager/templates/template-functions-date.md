@@ -2,13 +2,13 @@
 title: 'Funciones de plantillas: fecha'
 description: Describe las funciones que se usan en una plantilla de Azure Resource Manager para trabajar con cadenas.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 0c31b26361a262a502b2a9e0fb068391846cab4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/22/2020
+ms.openlocfilehash: abdc88ce15279b90f8f9dc05a38a2ae236498f12
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192304"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058051"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funciones de cadena para plantillas de Resource Manager
 
@@ -29,7 +29,7 @@ Agrega una duración de tiempo a un valor base. Se esperaba el formato ISO 8601.
 |:--- |:--- |:--- |:--- |
 | base | Sí | string | Valor datetime inicial para la suma. Utilice el [formato de marca de tiempo ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). |
 | duration | Sí | string | Valor de hora que se suma a la base. Puede ser un valor negativo. Utilice el [formato de duración ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
-| format | No | string | El formato de salida del resultado de fecha y hora. Si no se indica, se usa el formato del valor base. Use [cadenas de formato estándar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [cadenas de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format | No | string | El formato de salida del resultado de fecha y hora. Si no se indica, se usa el formato del valor base. Use [cadenas de formato estándar](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [cadenas de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -144,13 +144,13 @@ Devuelve el valor de fecha y hora (UTC) actual en el formato especificado. Si no
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
-| format |No |string |El valor codificado por el identificador URI para convertir en una cadena. Use [cadenas de formato estándar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [cadenas de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |No |string |El valor codificado por el identificador URI para convertir en una cadena. Use [cadenas de formato estándar](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [cadenas de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Observaciones
 
 Solo puede usar esta función dentro de una expresión para el valor predeterminado de un parámetro. El uso de esta función en cualquier otro lugar de una plantilla genera un error. La función no se permite en otras partes de la plantilla porque devuelve un valor diferente cada vez que se le llama. La implementación de la misma plantilla con los mismos parámetros no produciría de forma confiable los mismos resultados.
 
-Si usa la [opción de volver a implementar una implementación que se completó correctamente en un momento anterior](rollback-on-error.md) y esa implementación anterior incluye un parámetro que usa utcNow, el parámetro no se vuelve a evaluar. En su lugar, el valor del parámetro de la implementación anterior se reutiliza automáticamente en la implementación de reversión.
+Si usa la [opción de revertir en caso de error](rollback-on-error.md) a una implementación correcta anterior y dicha implementación incluye un parámetro que usa utcNow, el parámetro no se vuelve a evaluar. En su lugar, el valor del parámetro de la implementación anterior se reutiliza automáticamente en la implementación de reversión.
 
 Tenga cuidado al volver a implementar una plantilla que se base en la función utcNow para un valor predeterminado. Si vuelve a implementar y no proporciona un valor para el parámetro, la función se vuelve a evaluar. Si desea actualizar un recurso existente en lugar de crear uno nuevo, pase el valor de parámetro de la implementación anterior.
 
@@ -164,7 +164,7 @@ La plantilla de ejemplo siguiente muestra formatos diferentes para el valor de f
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "utcValue": {

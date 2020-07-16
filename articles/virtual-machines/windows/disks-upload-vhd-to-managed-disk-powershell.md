@@ -3,23 +3,23 @@ title: 'Carga de un VHD en Azure o copia de un disco entre regiones: Azure Power
 description: Aprenda a cargar un VHD en un disco administrado de Azure y a copiar un disco administrado entre regiones mediante Azure PowerShell a través de la carga directa.
 author: roygara
 ms.author: rogarana
-ms.date: 03/27/2020
-ms.topic: article
+ms.date: 06/15/2020
+ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 6242baf5a541231d367d456450388ef455312780
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d03e911b88e6a7729b0519e74941b47d85a97901
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182521"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84944634"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Carga de un VHD en Azure o copia de un disco administrado en otra región: Azure PowerShell
 
 [!INCLUDE [disks-upload-vhd-to-disk-intro](../../../includes/disks-upload-vhd-to-disk-intro.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Descargue la [versión más reciente de AzCopy, v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Instale el módulo de Azure PowerShell](/powershell/azure/install-Az-ps).
@@ -30,7 +30,7 @@ ms.locfileid: "82182521"
 
 Si prefiere cargar discos a través de una interfaz gráfica de usuario, puede hacerlo mediante el Explorador de Azure Storage. Para obtener más detalles, consulte: [Uso del Explorador de Azure Storage para administrar discos administrados de Azure](disks-use-storage-explorer-managed-disks.md)
 
-Para cargar un VHD en Azure, deberá crear un disco administrado vacío que esté configurado para este proceso de carga. Antes de crearlo, hay información adicional que debe saber acerca de estos discos.
+Para cargar un disco duro virtual en Azure, deberá crear un disco administrado vacío que esté configurado para este proceso de carga. Antes de crearlo, hay información adicional que debe saber acerca de estos discos.
 
 Este tipo de disco administrado tiene dos estados únicos:
 
@@ -47,6 +47,9 @@ Antes de que pueda crear un HDD estándar vacío para cargar, necesitará el tam
 Ahora, en el shell local, cree un HDD estándar vacío para la carga mediante la especificación del valor **Upload** en el parámetro **-CreateOption**, así como el parámetro **-UploadSizeInBytes** del cmdlet [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0). Después, llame a [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) para crear el disco.
 
 Reemplace `<yourdiskname>`, `<yourresourcegroupname>` y `<yourregion>`; luego, ejecute los siguientes comandos:
+
+> [!TIP]
+> Si va a crear un disco del sistema operativo, agregue -HyperVGeneration "<yourGeneration>" a `New-AzDiskConfig`.
 
 ```powershell
 $vhdSizeBytes = (Get-Item "<fullFilePathHere>").length
@@ -98,6 +101,9 @@ El script siguiente lo hará automáticamente, el proceso es similar a los pasos
 > Debe agregar un desplazamiento de 512 cuando proporcione el tamaño de disco en bytes de un disco administrado de Azure. Esto se debe a que Azure omite el pie de página al devolver el tamaño del disco. Si no lo hace, se producirá un error en la copia. El siguiente script ya lo hace automáticamente.
 
 Reemplace los `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, `<yourOSTypeHere>` y `<yourTargetLocationHere>` (un ejemplo de un valor de ubicación sería uswest2) con sus valores y, a continuación, ejecute el siguiente script para copiar un disco administrado.
+
+> [!TIP]
+> Si va a crear un disco del sistema operativo, agregue -HyperVGeneration "<yourGeneration>" a `New-AzDiskConfig`.
 
 ```powershell
 

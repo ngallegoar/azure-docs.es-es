@@ -5,17 +5,17 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.openlocfilehash: 2d7f53862a30287460ca72297231da468514646b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 06/18/2020
+ms.openlocfilehash: 3643092cf867fb49a24d5c1961d1a10834d5d3a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648173"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298861"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectarse a redes virtuales de Azure desde Azure Logic Apps mediante un entorno del servicio de integración (ISE)
 
-Para escenarios donde sus cuentas de integración y las aplicaciones lógicas necesitan tener acceso a una [red virtual de Azure](../virtual-network/virtual-networks-overview.md), cree un [*entorno de servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Un ISE es un entorno aislado que usa almacenamiento dedicado y otros recursos que existen de forma independiente del servicio Logic Apps multiinquilino "global". Esta separación también reduce los posibles efectos que podrían tener otros inquilinos de Azure en el rendimiento de la aplicación. Un ISE también le proporciona sus propias direcciones IP estáticas. Estas direcciones IP son independientes de las direcciones IP estáticas que comparten las aplicaciones lógicas en el servicio multiinquilino público.
+Para escenarios donde sus cuentas de integración y las aplicaciones lógicas necesitan tener acceso a una [red virtual de Azure](../virtual-network/virtual-networks-overview.md), cree un [*entorno de servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Un ISE es un entorno dedicado que usa almacenamiento dedicado y otros recursos que existen de forma independiente del servicio Logic Apps multiinquilino "global". Esta separación también reduce los posibles efectos que podrían tener otros inquilinos de Azure en el rendimiento de la aplicación. Un ISE también le proporciona sus propias direcciones IP estáticas. Estas direcciones IP son independientes de las direcciones IP estáticas que comparten las aplicaciones lógicas en el servicio multiinquilino público.
 
 Cuando crea un ISE, Azure *inserta* ese ISE en la red virtual de Azure que, luego, implementa el servicio Logic Apps en la red virtual. Al crear aplicaciones lógicas o cuentas de integración, seleccionará el ISE como ubicación. Así, las aplicaciones lógicas y las cuentas de integración tienen acceso directo a recursos tales como las máquinas virtuales, los servidores, los sistemas y los servicios de la red virtual.
 
@@ -37,37 +37,45 @@ También puede crear un ISE mediante el [ejemplo de plantilla de inicio rápido 
 * [Creación de un entorno del servicio de integración (ISE) mediante la API REST de Logic Apps](../logic-apps/create-integration-service-environment-rest-api.md)
 * [Configuración de claves administradas por el cliente para cifrar datos en reposo en los ISE](../logic-apps/customer-managed-keys-integration-service-environment.md)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
   > [!IMPORTANT]
   > Las aplicaciones lógicas, los desencadenadores integrados, las acciones integradas y los conectores que se ejecutan en el ISE usan un plan de tarifa diferente al plan de tarifa basado en el consumo. Para saber cómo funcionan los precios y la facturación para los ISE, consulte [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Para ver las tarifas de precios, consulte los [precios de Logic Apps](../logic-apps/logic-apps-pricing.md).
 
-* Una instancia de [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Si no tiene una red virtual, aprenda a [crear una](../virtual-network/quick-create-portal.md).
+* Una instancia de [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). La red virtual tiene que tener cuatro subredes *vacías* que no se deleguen a ningún servicio para crear e implementar recursos en el ISE. Cada subred admite un componente de Logic Apps diferente que se usa en el ISE. Puede crear las subredes por adelantado o esperar a que se cree el ISE en el que pueda crear las subredes al mismo tiempo. Obtenga más información sobre los [requisitos de subredes](#create-subnet).
 
-  * La red virtual tiene que tener cuatro subredes *vacías* para crear e implementar recursos en el ISE. Cada subred admite un componente de Logic Apps diferente que se usa en el ISE. Puede crear estas subredes por adelantado o esperar a que se cree el ISE en el que pueda crear las subredes al mismo tiempo. Obtenga más información sobre los [requisitos de subredes](#create-subnet).
-
-  * Los nombres de subred tienen que empezar con un carácter alfabético o un carácter de subrayado, y en ellos no se pueden usar los siguientes caracteres: `<`, `>`, `%`, `&`, `\\`, `?`, `/`. 
-  
-  * Si desea implementar el entorno de servicio de integración con una plantilla de Azure Resource Manager, primero asegúrese de que delega una subred vacía a Microsoft.Logic/integrationServiceEnvironment. No es necesario realizar esta delegación al realizar la implementación mediante Azure Portal.
+  > [!IMPORTANT]
+  >
+  > No use los siguientes espacios de direcciones IP para la red virtual o las subredes, ya que Azure Logic Apps no pueden resolverlos:<p>
+  > 
+  > * 0.0.0.0/8
+  > * 100.64.0.0/10
+  > * 127.0.0.0/8
+  > * 168.63.129.16/32
+  > * 169.254.169.254/32
+  > 
+  > Los nombres de subred tienen que empezar con un carácter alfabético o un carácter de subrayado, y en ellos no se pueden usar los siguientes caracteres: `<`, `>`, `%`, `&`, `\\`, `?`, `/`. Para implementar el entorno de servicio de integración con una plantilla de Azure Resource Manager, primero asegúrese de que delega una subred vacía a `Microsoft.Logic/integrationServiceEnvironment`. No es necesario realizar esta delegación al realizar la implementación mediante Azure Portal.
 
   * Asegúrese de que la red virtual [habilita el acceso para el ISE](#enable-access) para que su ISE funcione correctamente y permanezca accesible.
 
-  * [ExpressRoute](../expressroute/expressroute-introduction.md) permite extender las redes locales a la nube de Microsoft y conectarse a servicios de esta a través de una conexión privada que facilita el proveedor de conectividad. En concreto, ExpressRoute es una red privada virtual que enruta el tráfico a través de una red privada en lugar de la red pública de Internet. Las aplicaciones lógicas pueden conectarse a recursos locales que están en la misma red virtual al conectarse a través de ExpressRoute o una red privada virtual. 
-  
-    Si usa ExpressRoute, tiene que [crear una tabla de rutas](../virtual-network/manage-route-table.md) que tenga la siguiente ruta y vincular esa tabla a cada subred que use el ISE:
+  * Si usa o desea usar [ExpressRoute](../expressroute/expressroute-introduction.md) junto con [tunelización forzada](../firewall/forced-tunneling.md), debe [crear una tabla de rutas](../virtual-network/manage-route-table.md) con la siguiente ruta específica y vincular dicha tabla a cada subred que el entorno de servicio de integración usa:
 
     **Nombre**: <*nombre de ruta*><br>
     **Prefijo de dirección**: 0.0.0.0/0<br>
     **Próximo salto**: Internet
+    
+    Esta tabla de rutas es necesaria para que los componentes de Logic Apps se comuniquen con otros servicios dependientes de Azure, como Azure Storage y Azure SQL DB. Para más información sobre esta ruta, consulte [Prefijo de dirección 0.0.0.0/0](../virtual-network/virtual-networks-udr-overview.md#default-route). Si no usa la tunelización forzada con ExpressRoute, no necesita esta tabla de rutas específica.
+    
+    ExpressRoute permite extender las redes locales a la nube de Microsoft y conectarse a servicios de esta a través de una conexión privada que facilita el proveedor de conectividad. En concreto, ExpressRoute es una red privada virtual que enruta el tráfico a través de una red privada y no a través de la red pública Internet. Las aplicaciones lógicas pueden conectarse a recursos locales que están en la misma red virtual cuando se conectan a través de ExpressRoute o una red privada virtual.
+   
+  * Si usa una [aplicación virtual de red (NVA)](../virtual-network/virtual-networks-udr-overview.md#user-defined), asegúrese de no habilitar la terminación TLS/SSL ni cambiar el tráfico TLS/SSL saliente. Además, asegúrese de no habilitar la inspección del tráfico que se origina en la subred de la ISE. Para más información, consulte [Enrutamiento del tráfico de redes virtuales](../virtual-network/virtual-networks-udr-overview.md).
 
-    Esta tabla de rutas es necesaria para que los componentes de Logic Apps se comuniquen con otros servicios dependientes de Azure, como Azure Storage y Azure SQL DB.
+  * Si quiere usar servidores DNS personalizados para su red virtual de Azure, [configure esos servidores siguiendo estos pasos](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) antes de implementar el ISE en su red virtual. Para más información acerca de la administración de la configuración del servidor DNS, consulte [Crear, cambiar o eliminar una red virtual](../virtual-network/manage-virtual-network.md#change-dns-servers).
 
-* Si quiere usar servidores DNS personalizados para su red virtual de Azure, [configure esos servidores siguiendo estos pasos](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) antes de implementar el ISE en su red virtual. Para más información acerca de la administración de la configuración del servidor DNS, consulte [Crear, cambiar o eliminar una red virtual](../virtual-network/manage-virtual-network.md#change-dns-servers).
-
-  > [!NOTE]
-  > Si cambia el servidor DNS o su configuración, debe reiniciar el ISE para que pueda recoger dichos cambios. Para obtener más información, consulte [Restablecimiento del ISE](../logic-apps/ise-manage-integration-service-environment.md#restart-ISE).
+    > [!NOTE]
+    > Si cambia el servidor DNS o la configuración de este, debe reiniciar el ISE para que pueda recoger dichos cambios. Para obtener más información, consulte [Restablecimiento del ISE](../logic-apps/ise-manage-integration-service-environment.md#restart-ISE).
 
 <a name="enable-access"></a>
 
@@ -128,6 +136,12 @@ En esta tabla se describen los puertos que necesita el ISE para ser accesible y 
 | Acceso a instancias de Azure Cache for Redis entre instancias de rol | **VirtualNetwork** | * | **VirtualNetwork** | 6379 - 6383, además consulte **Notas**| Para que ISE funcione con Azure Cache for Redis, debe abrir estos [puertos de entrada y salida descritos en las Preguntas frecuentes sobre Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
 |||||||
 
+Además, debe agregar reglas de salida para [App Service Environment (ASE)](../app-service/environment/intro.md):
+
+* Si usa Azure Firewall, debe configurar el firewall con la [etiqueta de nombre de dominio completo (FQDN)](../firewall/fqdn-tags.md#current-fqdn-tags) de App Service Environment (ASE), que permite el acceso de salida al tráfico de la plataforma de ASE.
+
+* Si usa un dispositivo de firewall distinto de Azure Firewall, debe configurar el firewall con *todas* las reglas enumeradas en las [dependencias de integración del firewall](../app-service/environment/firewall-integration.md#dependencies) que son necesarias para App Service Environment.
+
 <a name="create-environment"></a>
 
 ## <a name="create-your-ise"></a>Crear el ISE
@@ -167,7 +181,7 @@ En esta tabla se describen los puertos que necesita el ISE para ser accesible y 
 
    * \- Usa el [formato de Enrutamiento de interdominios sin clases (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) y un espacio de direcciones de clase B.
 
-   * Usa al menos `/27` en el espacio de direcciones, porque cada subred requiere 32 direcciones. Por ejemplo, `10.0.0.0/27` tiene 32 direcciones porque 2<sup>(32-27)</sup> es 2<sup>5</sup> o 32. Más direcciones no proporcionarán ventajas adicionales.  Para obtener más información sobre cómo calcular las direcciones, consulte [bloques de CIDR IPv4](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
+   * Usa al menos `/27` en el espacio de direcciones, porque cada subred requiere 32 direcciones. Por ejemplo, `10.0.0.0/27` tiene 32 direcciones porque 2<sup>(32-27)</sup> es 2<sup>5</sup> o 32. Más direcciones no proporcionarán ventajas adicionales. Para obtener más información sobre cómo calcular las direcciones, consulte [bloques de CIDR IPv4](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
    * Si usa [ExpressRoute](../expressroute/expressroute-introduction.md), tiene que [crear una tabla de rutas](../virtual-network/manage-route-table.md) que tenga la siguiente ruta y vincular esa tabla con cada subred que utilice el ISE:
 
@@ -214,7 +228,7 @@ En esta tabla se describen los puertos que necesita el ISE para ser accesible y 
    De lo contrario, siga las instrucciones de Azure Portal para solucionar problemas de implementación.
 
    > [!NOTE]
-   > Si se produce un error en la implementación o se elimina el ISE, Azure podría tardar hasta una hora en liberar las subredes. Debido a este retraso, es posible que deba esperar antes de volver a usar esas subredes en otro ISE.
+   > Si se produce un error en la implementación o se elimina el ISE, Azure podría tardar hasta una hora, o posiblemente más en raras ocasiones, antes de liberar las subredes. Por lo tanto, es posible que tenga que esperar antes de poder volver a usar esas subredes en otro ISE.
    >
    > Si elimina su red virtual, Azure generalmente tarda hasta dos horas antes de liberar las subredes, pero esta operación puede llevar más tiempo. 
    > Cuando elimine redes virtuales, asegúrese de que no haya recursos conectados. 

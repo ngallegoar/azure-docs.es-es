@@ -5,18 +5,18 @@ description: Obtenga información sobre cómo abordar, solucionar y resolver los
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: clauren42
 ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
-ms.custom: contperfq4
-ms.openlocfilehash: f65b263bb90356a4d739ebc963458cc7e992863c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.custom: contperfq4, tracking-python
+ms.openlocfilehash: 13ce9204ad09d2ecb4b149cf50696aa73d927314
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84307952"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85214373"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Solución de problemas con la implementación de Docker de modelos con Azure Kubernetes Service y Azure Container Instances 
 
@@ -277,7 +277,7 @@ Para obtener más información sobre cómo configurar `autoscale_target_utilizat
 
 Un código de estado 504 indica que la solicitud ha agotado el tiempo de espera. El tiempo de espera predeterminado es 1 minuto.
 
-Puede aumentar el tiempo de espera o intentar acelerar el servicio modificando el archivo score.py para quitar llamadas innecesarias. Si estas acciones no solucionan el problema, use la información de este artículo para depurar el archivo score.py. El código puede estar en un estado bloqueado o en un bucle infinito.
+Puede aumentar el tiempo de espera o intentar acelerar el servicio modificando el archivo score.py para quitar llamadas innecesarias. Si estas acciones no solucionan el problema, use la información de este artículo para depurar el archivo score.py. El código puede estar en un estado sin respuesta o en un bucle infinito.
 
 ## <a name="advanced-debugging"></a>Depuración avanzada
 

@@ -7,17 +7,17 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 74c9f44ff5fbbbb50bba1594d371633fd49857eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d833a4cf26ee8ab69d16cbd1d776ca49a2df4bc4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76845045"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738222"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Supervisión de las puertas de enlace de VPN con la solución de problemas de Network Watcher
 
@@ -79,7 +79,7 @@ En este paso, se le da un nombre al runbook, en el ejemplo se llama **VPNGateway
 
 ### <a name="step-5"></a>Paso 5
 
-En este paso se crea el runbook, el ejemplo de código siguiente proporciona todo el código necesario para el ejemplo. Los elementos en el código que contienen \<value\> tienen que reemplazarse con los valores de la suscripción.
+En este paso se crea el runbook, el ejemplo de código siguiente proporciona todo el código necesario para el ejemplo. Los elementos del código que contienen \<value\> tienen que reemplazarse con los valores de la suscripción.
 
 Use el código siguiente y haga clic en **Guardar**
 

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: iainfou
-ms.openlocfilehash: f72e98213977a09b97cab9966ec69194cd8439e8
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 991bb3e296f18ef6d5182048d8ce4601c0fc09c9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845974"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84735003"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Problemas conocidos: Alertas de entidades de servicio en Azure Active Directory Domain Services
 
-Las [entidades de servicio](../active-directory/develop/app-objects-and-service-principals.md) son aplicaciones que la plataforma Azure usa para administrar, actualizar y mantener un dominio administrado de Azure AD DS. Si se elimina una entidad de servicio, se verá afectada la funcionalidad en el dominio administrado de Azure AD DS.
+Las [entidades de servicio](../active-directory/develop/app-objects-and-service-principals.md) son aplicaciones que la plataforma Azure usa para administrar, actualizar y mantener un dominio administrado de Azure Active Directory Domain Services (Azure AD DS). Si se elimina una entidad de servicio, se verá afectada la funcionalidad en el dominio administrado.
 
 Este artículo le ayuda a solucionar problemas y a resolver alertas de configuración relacionadas con las entidades de servicio.
 
@@ -30,7 +30,7 @@ Este artículo le ayuda a solucionar problemas y a resolver alertas de configura
 
 *Una entidad de servicio necesaria para que Azure AD Domain Services funcione correctamente se ha eliminado del directorio de Azure AD. Esta configuración afecta a la capacidad de Microsoft para supervisar, administrar, revisar y sincronizar el dominio administrado.*
 
-Si se elimina una entidad de servicio necesaria, la plataforma Azure no puede realizar tareas de administración automatizadas. Es posible que el dominio administrado de Azure AD DS no aplique correctamente las actualizaciones o realice copias de seguridad.
+Si se elimina una entidad de servicio necesaria, la plataforma Azure no puede realizar tareas de administración automatizadas. Es posible que el dominio administrado no aplique correctamente las actualizaciones o realice copias de seguridad.
 
 ### <a name="check-for-missing-service-principals"></a>Comprobación de las entidades de servicio que faltan
 
@@ -40,7 +40,7 @@ Para comprobar qué entidad de servicio falta y debe volver a crearse, complete 
 1. Seleccione **Aplicaciones empresariales**. En el menú desplegable **Tipo de aplicación**, seleccione *Todas las aplicaciones* y **Aplicar**.
 1. Busque cada uno de los identificadores de la aplicación. Si no se encuentra ninguna aplicación existente, siga los pasos de la *Resolución* para crear la entidad de servicio o volver a registrar el espacio de nombres.
 
-    | Identificador de aplicación | Solución |
+    | Identificador de aplicación | Resolución |
     | :--- | :--- |
     | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [Volver a crear una entidad de servicio que falta](#recreate-a-missing-service-principal) |
     | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Volver a realizar el registro en el espacio de nombres de Microsoft.AAD](#re-register-the-microsoft-aad-namespace) |
@@ -64,18 +64,18 @@ Si falta el identificador de aplicación *2565bd9d-da50-47d4-8b85-4c97f669dc36* 
     New-AzureAdServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
     ```
 
-El estado del dominio administrado de Azure AD DS se actualiza automáticamente en dos horas y quita la alerta.
+El estado del dominio administrado se actualiza automáticamente en dos horas y quita la alerta.
 
 ### <a name="re-register-the-microsoft-aad-namespace"></a>Volver a realizar el registro en el espacio de nombres de Microsoft.AAD
 
 Si falta el identificador de aplicación *443155a6-77f3-45e3-882b-22b3a8d431fb*, *abba844e-bc0e-44b0-947a-dc74e5d09022* o *d87dcbc6-a371-462e-88e3-28ad15ec4e64* del directorio de Azure AD, no se encuentra en el directorio de Azure AD, complete los pasos siguientes para volver a registrar el proveedor de recursos de *Microsoft.AAD*:
 
 1. En Azure Portal, seleccione **Suscripciones**.
-1. Elija la suscripción asociada con el dominio administrado de Azure AD DS.
+1. Elija la suscripción asociada con el dominio administrado.
 1. En el panel de navegación izquierdo, elija **Proveedores de recursos**.
 1. Busque *Microsoft.AAD* y, después, seleccione **Volver a registrar**.
 
-El estado del dominio administrado de Azure AD DS se actualiza automáticamente en dos horas y quita la alerta.
+El estado del dominio administrado se actualiza automáticamente en dos horas y quita la alerta.
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>AADDS105: la aplicación de sincronización de contraseñas no está actualizada
 
@@ -85,7 +85,7 @@ El estado del dominio administrado de Azure AD DS se actualiza automáticament
 
 Azure AD DS sincroniza automáticamente las cuentas de usuario y las credenciales de Azure AD. Si hay un problema con la aplicación de Azure AD utilizada para este proceso, se producirá un error en la sincronización de credenciales entre Azure AD DS y Azure AD.
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Para volver a crear la aplicación de Azure AD utilizada para la sincronización de credenciales, use Azure AD PowerShell para completar los pasos siguientes. Para más información, consulte [Instalación de Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
 
@@ -105,7 +105,7 @@ Para volver a crear la aplicación de Azure AD utilizada para la sincronizació
     Remove-AzureADServicePrincipal -ObjectId $spObject
     ```
 
-Después de eliminar ambas aplicaciones, la plataforma Azure las vuelve a crear automáticamente e intenta reanudar la sincronización de contraseñas. El estado del dominio administrado de Azure AD DS se actualiza automáticamente en dos horas y quita la alerta.
+Después de eliminar ambas aplicaciones, la plataforma Azure las vuelve a crear automáticamente e intenta reanudar la sincronización de contraseñas. El estado del dominio administrado se actualiza automáticamente en dos horas y quita la alerta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

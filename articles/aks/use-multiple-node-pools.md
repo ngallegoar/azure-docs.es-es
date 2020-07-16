@@ -4,12 +4,12 @@ description: Aprenda a crear y administrar grupos de varios nodos para un clúst
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: bf7e767f1a7b0c657c744c96b308160393e3f326
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 64eaa3fd38a9f3de7e2032ef7ff7a18924353a1d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610928"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318443"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creación y administración de varios grupos de nodos para un clúster de Azure Kubernetes Service (AKS)
 
@@ -42,7 +42,7 @@ Se aplican las siguientes limitaciones cuando crea y administra clústeres de AK
 > [!Important]
 > Si ejecuta un único grupo de nodos del sistema para el clúster de AKS en un entorno de producción, se recomienda usar al menos tres nodos para el grupo de nodos.
 
-Para empezar, cree un clúster de AKS con un grupo de nodo único. El ejemplo siguiente usa el comando [az group create][az-group-create] para crear un grupo de recursos denominado *myResourceGroup* en la región *eastus*. Se crea un clúster de AKS denominado *myAKSCluster* mediante el comando [az aks create][az-aks-create]. Se emplea la línea de código *--kubernetes-version* con el valor *1.15.7* para mostrar cómo se actualiza un grupo de nodos en un paso posterior. Puede especificar cualquier [versión admitida de Kubernetes][supported-versions].
+Para empezar, cree un clúster de AKS con un grupo de nodo único. El ejemplo siguiente usa el comando [az group create][az-group-create] para crear un grupo de recursos denominado *myResourceGroup* en la región *eastus*. Se crea un clúster de AKS denominado *myAKSCluster* mediante el comando [az aks create][az-aks-create].
 
 > [!NOTE]
 > **No se admite** la SKU *Básico* del equilibrador de carga cuando se usan varios grupos de nodos. De forma predeterminada, los clústeres de AKS se crean con el SKU de equilibrador de carga *Estándar* de la CLI de Azure y Azure Portal.
@@ -58,7 +58,6 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --node-count 2 \
     --generate-ssh-keys \
-    --kubernetes-version 1.15.7 \
     --load-balancer-sku standard
 ```
 
@@ -82,8 +81,7 @@ az aks nodepool add \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
-    --node-count 3 \
-    --kubernetes-version 1.15.5
+    --node-count 3
 ```
 
 > [!NOTE]
@@ -104,7 +102,7 @@ En la siguiente salida de ejemplo se puede ver que *mynodepool* se ha creado cor
     "count": 3,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.15.5",
+    "orchestratorVersion": "1.15.7",
     ...
     "vmSize": "Standard_DS2_v2",
     ...
@@ -123,7 +121,7 @@ En la siguiente salida de ejemplo se puede ver que *mynodepool* se ha creado cor
 ```
 
 > [!TIP]
-> Si no se especifica *VmSize* al agregar un grupo de nodos, el tamaño predeterminado será *Standard_DS2_v3* para los grupos de nodos de Windows y *Standard_DS2_v2* para los grupos de nodos de Linux. Si no se especifica *OrchestratorVersion*, se establecerá de forma predeterminada en la misma versión que el plano de control.
+> Si no se especifica *VmSize* al agregar un grupo de nodos, el tamaño predeterminado será *Standard_D2s_v3* para los grupos de nodos de Windows y *Standard_DS2_v2* para los grupos de nodos de Linux. Si no se especifica *OrchestratorVersion*, se establecerá de forma predeterminada en la misma versión que el plano de control.
 
 ### <a name="add-a-node-pool-with-a-unique-subnet-preview"></a>Adición de un grupo de nodos con una subred única (versión preliminar)
 
@@ -144,7 +142,6 @@ az aks nodepool add \
     --cluster-name myAKSCluster \
     --name mynodepool \
     --node-count 3 \
-    --kubernetes-version 1.15.5
     --vnet-subnet-id <YOUR_SUBNET_RESOURCE_ID>
 ```
 
@@ -153,25 +150,29 @@ az aks nodepool add \
 > [!NOTE]
 > Las operaciones de actualización y escalado en un grupo de clústeres o nodos no se pueden realizar simultáneamente. Si se intenta, se devuelve un error. En su lugar, cada tipo de operación debe completarse en el recurso de destino antes de la siguiente solicitud en ese mismo recurso. Obtenga más información al respecto en nuestra [guía de solución de problemas](https://aka.ms/aks-pending-upgrade).
 
-Cuando se creó el clúster de AKS en el primer paso, se especificó `--kubernetes-version` con el valor *1.15.7*. De este modo, se establece la versión de Kubernetes tanto para el plano de control como para el grupo de nodos predeterminado. Los comandos de esta sección explican cómo actualizar un único grupo de nodos específico.
-
-La relación entre actualizar la versión de Kubernetes del plano de control y el grupo de nodos se explica en la [sección que tiene a continuación](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
+Los comandos de esta sección explican cómo actualizar un único grupo de nodos específico. La relación entre actualizar la versión de Kubernetes del plano de control y el grupo de nodos se explica en la [sección que tiene a continuación](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 > [!NOTE]
 > La versión de la imagen del sistema operativo del grupo de nodos está vinculada a la versión de Kubernetes del clúster. Solo obtendrá actualizaciones de la imagen del sistema operativo cuando se haya realizado una actualización del clúster.
 
-Como en este ejemplo hay dos grupos de nodos, debemos usar [az aks nodepool upgrade][az-aks-nodepool-upgrade] para actualizar un grupo de nodos. Vamos a actualizar *mynodepool* a Kubernetes *1.15.7*. Use el comando [az aks nodepool upgrade][az-aks-nodepool-upgrade] para actualizar el grupo de nodos tal como se muestra en el ejemplo siguiente:
+Como en este ejemplo hay dos grupos de nodos, debemos usar [az aks nodepool upgrade][az-aks-nodepool-upgrade] para actualizar un grupo de nodos. Para ver las actualizaciones disponibles, use [az aks get-upgrades][az-aks-get-upgrades]
+
+```azurecli-interactive
+az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
+```
+
+Vamos a actualizar *mynodepool*. Use el comando [az aks nodepool upgrade][az-aks-nodepool-upgrade] para actualizar el grupo de nodos tal como se muestra en el ejemplo siguiente:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
-    --kubernetes-version 1.15.7 \
+    --kubernetes-version KUBERNETES_VERSION \
     --no-wait
 ```
 
-Muestre el estado de los grupos de nodos de nuevo mediante el comando [az aks node pool list][az-aks-nodepool-list]. En el ejemplo siguiente, se muestra que *mynodepool* se encuentra en el estado *Actualizando* a la versión *1.15.7*:
+Muestre el estado de los grupos de nodos de nuevo mediante el comando [az aks node pool list][az-aks-nodepool-list]. En el ejemplo siguiente, se muestra que *mynodepool* se encuentra en el estado *Actualizando* a *KUBERNETES_VERSION*:
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -184,7 +185,7 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 3,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.15.7",
+    "orchestratorVersion": "KUBERNETES_VERSION",
     ...
     "provisioningState": "Upgrading",
     ...
@@ -812,6 +813,8 @@ En este artículo ha aprendido a crear y administrar grupos de varios nodos en u
 
 Para crear y usar grupos de nodos de contenedores de Windows Server, consulte [Creación de un contenedor de Windows Server en AKS][aks-windows].
 
+Use [grupos con ubicación por proximidad][reduce-latency-ppg] para disminuir la latencia de las aplicaciones de AKS.
+
 <!-- EXTERNAL LINKS -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
@@ -824,6 +827,7 @@ Para crear y usar grupos de nodos de contenedores de Windows Server, consulte [C
 [aks-windows]: windows-container-cli.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-get-upgrades]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add
 [az-aks-nodepool-list]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-list
 [az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-update
@@ -848,3 +852,4 @@ Para crear y usar grupos de nodos de contenedores de Windows Server, consulte [C
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
 [az-list-ips]: /cli/azure/vmss?view=azure-cli-latest.md#az-vmss-list-instance-public-ips
+[reduce-latency-ppg]: reduce-latency-ppg.md

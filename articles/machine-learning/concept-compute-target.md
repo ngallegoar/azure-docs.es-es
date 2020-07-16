@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 03/30/2020
-ms.openlocfilehash: ed65d69c18f2dbcd53324fe3cc18af8c51c546b2
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 06/26/2020
+ms.openlocfilehash: 8b0fa1402452d8e1f348cd353b00d0ef050d866c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780120"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85483285"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>¿Qué son los destinos de proceso en Azure Machine Learning? 
 
@@ -50,23 +50,25 @@ Azure Machine Learning crea y administra un recurso de proceso administrado. Dic
 
 Puede crear instancias de procesos (versión preliminar) o clústeres de procesos de Azure Machine Learning a partir de lo siguiente:
 * Azure Machine Learning Studio
-* Azure Portal
+* Azure portal
 * SDK de Python [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) y clases de [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py)
-* [SDK de R](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets)
+* [SDK de R](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (versión preliminar)
 * Plantilla de Resource Manager
-
-También puede crear un clúster de proceso con la [extensión de aprendizaje automático de la CLI de Azure](tutorial-train-deploy-model-cli.md#create-the-compute-target-for-training).
+* Extensión de Machine learning [para la CLI de Azure](reference-azure-machine-learning-cli.md#resource-management).  
 
 Cuando se crean, estos recursos de proceso forman parte automáticamente del área de trabajo, a diferencia de otros tipos de destinos de proceso.
 
-### <a name="compute-clusters"></a>Clústeres de proceso
 
-Puede usar clústeres de procesos de Azure Machine Learning para el entrenamiento y para inferencia de lotes (versión preliminar).  Con este recurso de proceso, debe:
+|Capacidad  |Clúster de proceso  |Instancia de proceso  |
+|---------|---------|---------|
+|Clúster de uno o varios nodos     |    **&check;**       |         |
+|Se escala automáticamente cada vez que se envía una ejecución     |     **&check;**      |         |
+|Administración del clúster automático y programación de trabajos     |   **&check;**        |     **&check;**      |
+|Es compatible con recursos de CPU y GPU     |  **&check;**         |    **&check;**       |
 
-* Clúster de uno o varios nodos
-* Escalar automáticamente cada vez que se envía una ejecución 
-* Administración del clúster automático y programación de trabajos 
-* Es compatible con recursos de CPU y GPU
+
+> [!NOTE]
+> Cuando un clúster de proceso está inactivo, se escala automáticamente a 0 nodos, por lo que no paga cuando no se usa.  Sin embargo, una *instancia* de proceso está siempre activa y no se escala automáticamente.  Debe [detener la instancia de proceso](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) cuando no la esté usando para evitar costos adicionales.
 
 ### <a name="supported-vm-series-and-sizes"></a>Series y tamaños de maquina virtual compatibles
 

@@ -6,17 +6,14 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 24b52042e037e998069550599ca006eded70d1c4
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: e2f732a8cf51c51de1b6125717eafb672d7fff74
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849743"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027416"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Cifrado de datos de Azure Database for MySQL con una clave administrada por el cliente
-
-> [!NOTE]
-> Por el momento, debe solicitar acceso para poder usar esta función. Para ello, póngase en contacto con AskAzureDBforMySQL@service.microsoft.com.
 
 El cifrado de datos con claves administradas por el cliente para Azure Database for MySQL le permite traer su propia clave (BYOK) para la protección de datos en reposo. También permite a las organizaciones implementar la separación de tareas en la administración de claves y datos. Con el cifrado administrado por el cliente, el usuario es responsable y tiene el control total del ciclo de vida de una clave, los permisos de uso de la clave y la auditoría de operaciones con claves.
 
@@ -118,7 +115,7 @@ Para supervisar el estado de la base de datos y para habilitar las alertas cuand
 * [Azure Resource Health](../service-health/resource-health-overview.md): una base de datos inaccesible que haya perdido acceso a la clave del cliente aparecerá como "Inaccesible" después de que se haya denegado la primera conexión a la base de datos.
 * [Registro de actividades](../service-health/alerts-activity-log-service-notifications.md): cuando se produce un error de acceso a la clave de cliente en Key Vault administrado por el cliente, se agregan entradas al registro de actividad. Puede restablecer el acceso tan pronto como sea posible si crea alertas para estos eventos.
 
-* [Grupos de acciones](../azure-monitor/platform/action-groups.md): Defina grupos de acciones para enviarle notificaciones y alertas en función de sus preferencias.
+* [Grupos de acciones](../azure-monitor/platform/action-groups.md): Defina estos grupos para enviarle notificaciones y alertas en función de sus preferencias.
 
 ## <a name="restore-and-replicate-with-a-customers-managed-key-in-key-vault"></a>Restauración y réplica con la clave administrada del cliente en Key Vault
 
@@ -129,6 +126,19 @@ Para evitar incidencias al configurar el cifrado de datos administrado por el cl
 * Inicie el proceso de restauración o creación de réplica de lectura desde la Azure Database for MySQL maestra.
 * Mantenga el servidor recién creado (de réplica o restaurado) en un estado inaccesible, ya que su identidad única todavía no tiene permisos para Key Vault.
 * En el servidor restaurado/réplica, vuelva a validar la clave administrada por el cliente en la configuración de cifrado de datos para asegurarse de que el servidor recién creado tiene los permisos de ajuste y desajuste para la clave almacenada en Azure Key Vault.
+
+## <a name="limitations"></a>Limitaciones
+
+En el caso de Azure Database for MySQL, la compatibilidad con el cifrado de datos en reposo con la clave administrada de clientes (CMK) tiene algunas limitaciones:
+
+* La compatibilidad con esta funcionalidad se limita a los planes de tarifa para **De uso general** y **Optimizados para memoria**.
+* Esta característica solo se admite en regiones y servidores que admiten almacenamiento de hasta 16 TB. Para ver la lista de regiones de Azure que admiten almacenamiento de hasta 16 TB, consulte [aquí](concepts-pricing-tiers.md#storage) la sección de almacenamiento de la documentación.
+
+    > [!NOTE]
+    > - En todos los nuevos servidores MySQL creados en las regiones mencionadas anteriormente, el soporte para el cifrado con claves de administrador de clientes está **disponible**. El servidor de Restauración a un momento dado (PITR) o la réplica de lectura no calificarán aunque en teoría son "nuevos".
+    > - Para validar si el servidor aprovisionado admite hasta 16 TB, puede ir a la hoja del plan de tarifa en el portal y ver el tamaño de almacenamiento máximo que admite el servidor aprovisionado. Si puede subir el control deslizante hasta 4 TB, es posible que el servidor no admita el cifrado con claves administradas por el cliente. Aunque los datos se cifran en todo momento con claves administradas por el servicio. Póngase en contacto con AskAzureDBforMySQL@service.microsoft.com si tiene alguna pregunta.
+
+* El cifrado solo se admite con la clave criptográfica RSA 2048.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

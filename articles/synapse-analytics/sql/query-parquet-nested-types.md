@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: d5a10e3fe2803c7b9a10abe9bf959a694030cc8c
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: bf2dbf501b5cd3b6cd0ab6b0e9bbbc2208c98a58
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235433"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478457"
 ---
 # <a name="query-parquet-nested-types-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consulta de tipos anidados de Parquet con SQL a petición (versión preliminar) en Azure Synapse Analytics
 
@@ -99,6 +99,39 @@ FROM
         DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='PARQUET'
     ) AS [r];
+```
+
+También puede hacer referencia explícitamente a las columnas que quiere que se devuelvan en la cláusula `WITH`:
+
+```sql
+SELECT DocId,
+    MapOfPersons,
+    JSON_QUERY(MapOfPersons, '$."John Doe"') AS [John]
+FROM
+    OPENROWSET(
+        BULK 'parquet/nested/mapExample.parquet',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT='PARQUET'
+    ) 
+    WITH (DocId bigint, MapOfPersons VARCHAR(max)) AS [r];
+```
+
+La estructura `MakOfPersons` se devuelve como columna `VARCHAR` y con el formato de cadena JSON.
+
+## <a name="projecting-values-from-repeated-columns"></a>Proyección de valores de columnas repetidas
+
+Si tiene una matriz de valores escalares (por ejemplo, `[1,2,3]`) en algunas columnas, puede expandirlos fácilmente y combinarlos con la fila principal con el script siguiente:
+
+```sql
+SELECT
+    SimpleArray, Element
+FROM
+    OPENROWSET(
+        BULK 'parquet/nested/justSimpleArray.parquet',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT='PARQUET'
+    ) AS arrays
+    CROSS APPLY OPENJSON (SimpleArray) WITH (Element int '$') as array_values
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

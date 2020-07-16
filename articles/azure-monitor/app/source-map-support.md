@@ -4,13 +4,13 @@ description: Aprenda a cargar mapas de origen en su propio contenedor de blobs d
 ms.topic: conceptual
 author: markwolff
 ms.author: marwolff
-ms.date: 03/04/2020
-ms.openlocfilehash: 4b452b31338760a8f53eed54420319101836bc00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/23/2020
+ms.openlocfilehash: d5f01bb3034ab060227230071a21284177840e83
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79474890"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85249744"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>Compatibilidad con mapas de origen para aplicaciones JavaScript
 
@@ -31,7 +31,9 @@ Si ya tiene una cuenta de almacenamiento o un contenedor de blobs, puede omitir 
 
 ## <a name="push-your-source-maps-to-your-blob-container"></a>Inserción de mapas de origen en el contenedor de blobs
 
-Para integrar la canalización de implementación continua con la cuenta de almacenamiento, debe configurarla para cargar automáticamente los mapas de origen en el contenedor de blobs configurado. No debe cargar los mapas de origen en una subcarpeta del contenedor de blobs. Actualmente, el mapa de origen solo se captura desde la carpeta raíz.
+Para integrar la canalización de implementación continua con la cuenta de almacenamiento, debe configurarla para cargar automáticamente los mapas de origen en el contenedor de blobs configurado.
+
+Los mapas de origen se pueden cargar al contenedor de Blob Storage con la misma estructura de carpetas en la que se compilaron e implementaron. Un caso de uso común es prefijar una carpeta de implementación con su versión, por ejemplo, `1.2.3/static/js/main.js`. Cuando se desminifique a través de un contenedor de blobs de Azure llamado `sourcemaps`, intentará capturar un mapa de origen ubicado en `sourcemaps/1.2.3/static/js/main.js.map`.
 
 ### <a name="upload-source-maps-via-azure-pipelines-recommended"></a>Carga de mapas de origen mediante Azure Pipelines (recomendado)
 

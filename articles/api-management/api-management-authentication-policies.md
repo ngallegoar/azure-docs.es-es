@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 06/12/2020
 ms.author: apimpm
-ms.openlocfilehash: 70f124a498ff4aa45b5d90f6221fe3d0121e804a
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 70f1e4414888ceb8fb04fd92dc954d1a7c06dcb4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221042"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557983"
 ---
 # <a name="api-management-authentication-policies"></a>Directivas de autenticación de Azure API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -77,14 +77,23 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 
 ### <a name="examples"></a>Ejemplos
 
-En este ejemplo, el certificado de cliente se identifica mediante su huella digital.
+En este ejemplo, el certificado de cliente se identifica mediante su huella digital:
+
 ```xml
 <authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
 ```
-En este ejemplo, el certificado de cliente se identifica mediante el nombre de recurso.
+
+En este ejemplo, el certificado de cliente se identifica mediante el nombre de recurso:
+
 ```xml  
 <authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
-```  
+``` 
+
+En este ejemplo, el certificado de cliente se establece en la directiva en lugar de recuperarlo del almacén de certificados integrado:
+
+```xml
+<authentication-certificate body="@(context.Variables.GetValueOrDefault<byte[]>("byteCertificate"))" password="optional-certificate-password" />
+```
 
 ### <a name="elements"></a>Elementos  
   
@@ -96,8 +105,10 @@ En este ejemplo, el certificado de cliente se identifica mediante el nombre de r
   
 |Nombre|Descripción|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
-|thumbprint|La huella digital del certificado de cliente.|`thumbprint` o `certificate-id` debe estar presente.|N/D|  
-|certificate-id|Nombre del recurso de certificado.|`thumbprint` o `certificate-id` debe estar presente.|N/D|  
+|thumbprint|La huella digital del certificado de cliente.|`thumbprint` o `certificate-id` debe estar presente.|N/D|
+|certificate-id|Nombre del recurso de certificado.|`thumbprint` o `certificate-id` debe estar presente.|N/D|
+|body|Certificado de cliente como matriz de bytes.|No|N/D|
+|password|Contraseña del certificado de cliente.|Se usa si el certificado especificado en `body` está protegido por contraseña.|N/D|
   
 ### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
@@ -107,12 +118,14 @@ En este ejemplo, el certificado de cliente se identifica mediante el nombre de r
 -   **Ámbitos de la directiva:** todos los ámbitos  
 
 ##  <a name="authenticate-with-managed-identity"></a><a name="ManagedIdentity"></a> Autenticación con una identidad administrada  
- Use la directiva `authentication-managed-identity` para autenticarse con un servicio de back-end mediante la identidad administrada del servicio de API Management. En esencia, esta directiva usa la identidad administrada para obtener un token de acceso de Azure Active Directory para acceder al recurso especificado. Después de obtener el token correctamente, la Directiva establecerá el valor del token en el `Authorization` encabezado mediante el esquema `Bearer`.
+ Use la directiva `authentication-managed-identity` para realizar la autenticación con un servicio de back-end mediante la identidad administrada. En esencia, esta directiva usa la identidad administrada para obtener un token de acceso de Azure Active Directory para acceder al recurso especificado. Después de obtener el token correctamente, la Directiva establecerá el valor del token en el `Authorization` encabezado mediante el esquema `Bearer`.
+
+Para solicitar el token, se puede usar tanto la identidad asignada por el sistema como cualquiera de las distintas identidades asignadas por el usuario. Si no se proporciona `client-id`, se presupone la identidad asignada por el sistema. Si se proporciona la variable `client-id`, se solicita el token para esa identidad asignada por el usuario de Azure Active Directory
   
 ### <a name="policy-statement"></a>Instrucción de la directiva  
   
 ```xml  
-<authentication-managed-identity resource="resource" output-token-variable-name="token-variable" ignore-error="true|false"/>  
+<authentication-managed-identity resource="resource" client-id="clientid of user-assigned identity" output-token-variable-name="token-variable" ignore-error="true|false"/>  
 ```  
   
 ### <a name="example"></a>Ejemplo  
@@ -127,7 +140,7 @@ En este ejemplo, el certificado de cliente se identifica mediante el nombre de r
 <authentication-managed-identity resource="https://vault.azure.net"/> <!--Azure Key Vault-->
 ```
 ```xml  
-<authentication-managed-identity resource="https://servicebus.azure.net/"/> <!--Azure Service Busr-->
+<authentication-managed-identity resource="https://servicebus.azure.net/"/> <!--Azure Service Bus-->
 ```
 ```xml  
 <authentication-managed-identity resource="https://storage.azure.com/"/> <!--Azure Blob Storage-->
@@ -169,7 +182,8 @@ En este ejemplo, el certificado de cliente se identifica mediante el nombre de r
   
 |Nombre|Descripción|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
-|resource|String. Identificador de aplicación de la API web de destino (recurso seguro) en Azure Active Directory.|Sí|N/D|  
+|resource|String. Identificador de aplicación de la API web de destino (recurso seguro) en Azure Active Directory.|Sí|N/D|
+|client-id|String. El id. de aplicación de la identidad asignada por el usuario en Azure Active Directory.|No|identidad asignada por el sistema|
 |output-token-variable-name|String. Nombre de la variable de contexto que recibirá el valor del token como un tipo de objeto `string`. |No|N/D|  
 |ignore-error|booleano. Si se establece en `true`, la canalización de directivas seguirá ejecutándose incluso si no se obtiene un token de acceso.|No|false|  
   

@@ -3,15 +3,15 @@ title: Escribir procedimientos almacenados, desencadenadores y funciones definid
 description: Aprenda a definir procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF) en Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 05/07/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 ms.author: tisande
-ms.openlocfilehash: 3c0ac8ac419b3cdd2b154974d3ccbcce6896e847
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: e9ebd8de956437273246d08821fc87838089a256
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982299"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262878"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Escritura de procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF) en Azure Cosmos DB
 
@@ -52,21 +52,42 @@ Cuando se crea un elemento utilizando el procedimiento almacenado, el elemento s
 
 El procedimiento almacenado también incluye un parámetro para establecer la descripción, que es un valor booleano. Cuando el parámetro se establece en true y falta la descripción, el procedimiento almacenado iniciará una excepción. En caso contrario, el resto del procedimiento almacenado continúa ejecutándose.
 
-El siguiente procedimiento almacenado de ejemplo toma un nuevo elemento de Azure Cosmos como entrada, lo inserta en el contenedor de Azure Cosmos y devuelve el identificador del elemento recién creado. En este ejemplo, estamos aprovechando el ejemplo ToDoList del [inicio rápido de la API de SQL en .NET](create-sql-api-dotnet.md).
+El siguiente procedimiento almacenado de ejemplo toma una matriz de nuevos elementos de Azure Cosmos como entrada, la inserta en el contenedor de Azure Cosmos y devuelve el número de elementos insertados. En este ejemplo, estamos aprovechando el ejemplo ToDoList del [inicio rápido de la API de SQL en .NET](create-sql-api-dotnet.md).
 
 ```javascript
-function createToDoItem(itemToCreate) {
+function createToDoItems(items) {
+    var collection = getContext().getCollection();
+    var collectionLink = collection.getSelfLink();
+    var count = 0;
 
-    var context = getContext();
-    var container = context.getCollection();
+    if (!items) throw new Error("The array is undefined or null.");
 
-    var accepted = container.createDocument(container.getSelfLink(),
-        itemToCreate,
-        function (err, itemCreated) {
-            if (err) throw new Error('Error' + err.message);
-            context.getResponse().setBody(itemCreated.id)
-        });
-    if (!accepted) return;
+    var numItems = items.length;
+
+    if (numItems == 0) {
+        getContext().getResponse().setBody(0);
+        return;
+    }
+
+    tryCreate(items[count], callback);
+
+    function tryCreate(item, callback) {
+        var options = { disableAutomaticIdGeneration: false };
+
+        var isAccepted = collection.createDocument(collectionLink, item, options, callback);
+
+        if (!isAccepted) getContext().getResponse().setBody(count);
+    }
+
+    function callback(err, item, options) {
+        if (err) throw err;
+        count++;
+        if (count >= numItems) {
+            getContext().getResponse().setBody(count);
+        } else {
+            tryCreate(items[count], callback);
+        }
+    }
 }
 ```
 

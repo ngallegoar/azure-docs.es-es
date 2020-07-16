@@ -5,16 +5,16 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/08/2020
+ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ce69593c1df0039d64f89e79124af1150409eff7
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: ee00425da89391e5228f2d48b49ca85426066f1e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113314"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85299014"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Actualice el archivo de configuración del demonio de seguridad y el entorno de ejecución de IoT Edge.
 
@@ -34,12 +34,64 @@ Compruebe la versión del demonio de seguridad que se ejecuta en el dispositivo 
 
 En los dispositivos Linux x64, use apt-get o el administrador de paquetes adecuado para actualizar el demonio de seguridad a la versión más reciente.
 
-```bash
-apt-get update
-apt-get install libiothsm iotedge
-```
+Obtenga la configuración del repositorio más reciente de Microsoft:
 
-Si desea actualizar el demonio de seguridad a una versión específica, búsquela entre las [versiones de IoT Edge](https://github.com/Azure/azure-iotedge/releases). En esa versión, localice los archivos **libiothsm-std** y **iotedge** adecuados para el dispositivo. En cada archivo, haga clic con el botón derecho sobre el vínculo del archivo y copie la dirección del vínculo. Use la dirección del vínculo para instalar las versiones específicas de esos componentes:
+* **Ubuntu Server 16.04**:
+
+   ```bash
+   curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
+   ```
+
+* **Ubuntu Server 18.04**:
+
+   ```bash
+   curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+   ```
+
+* **Raspbian Stretch**:
+
+   ```bash
+   curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
+   ```
+
+Copie la lista generada.
+
+   ```bash
+   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+   ```
+
+Instale de la clave pública de GPG de Microsoft.
+
+   ```bash
+   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+   ```
+
+Actualice apt.
+
+   ```bash
+   sudo apt-get update
+   ```
+
+Compruebe qué versiones de IoT Edge están disponibles.
+
+   ```bash
+   apt list -a iotedge
+   ```
+
+Si desea actualizar a la versión más reciente del demonio de seguridad, use el siguiente comando, que también actualiza **libiothsm-std** a la versión más reciente:
+
+   ```bash
+   sudo apt-get install iotedge
+   ```
+
+Si desea actualizar el demonio de seguridad a una versión específica, especifique la versión en la salida de la lista de apt. Cada vez que **iotedge** se actualiza, se intenta actualizar automáticamente el paquete **libiothsm-std** a su versión más reciente, lo que puede provocar un conflicto de dependencia. Si no va a la versión más reciente, asegúrese de tener como destino ambos paquetes para la misma versión. Por ejemplo, el siguiente comando instala una versión específica de la versión 1.0.9:
+
+   ```bash
+   sudo apt-get install iotedge=1.0.9-1 libiothsm-std=1.0.9-1
+   ```
+
+Si la versión que desea instalar no está disponible a través de apt-get, puede usar curl para tener como destino cualquier versión del repositorio de [versiones de IoT Edge](https://github.com/Azure/azure-iotedge/releases). Para cualquier versión que desee instalar, localice los archivos **libiothsm-std** y **iotedge** adecuados para el dispositivo. En cada archivo, haga clic con el botón derecho sobre el vínculo del archivo y copie la dirección del vínculo. Use la dirección del vínculo para instalar las versiones específicas de esos componentes:
 
 ```bash
 curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
@@ -153,9 +205,9 @@ Se usan dos componentes para actualizar un dispositivo IoT Edge:
 
 Azure IoT Edge lanza periódicamente nuevas versiones del servicio IoT Edge. Antes de cada versión estable, se publican una o varias versiones candidatas para lanzamiento (RC). Las versiones RC incluyen todas las características planeadas para la versión, pero aún se están sometiendo a pruebas y validación. Si quiere probar una nueva característica de manera anticipada, puede instalar una versión RC y dejar comentarios a través de GitHub.
 
-Las versiones candidatas para lanzamiento siguen la misma convención de numeración que las versiones, pero tienen **-rc** más un número incremental anexados al final. Puede ver las versiones candidatas para lanzamiento en la misma lista de [versiones de Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases) que las versiones estables. Por ejemplo, busque **1.0.7-rc1** y **1.0.7-rc2**, las dos versiones candidatas para lanzamiento anteriores a la versión **1.0.7**. También puede ver que las versiones RC se marcan con etiquetas de **versión preliminar**.
+Las versiones candidatas para lanzamiento siguen la misma convención de numeración que las versiones, pero tienen **-rc** más un número incremental anexados al final. Puede ver las versiones candidatas para lanzamiento en la misma lista de [versiones de Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases) que las versiones estables. Por ejemplo, busque **1.0.9-rc5** y **1.0.9-rc6**, dos de las versiones candidatas para lanzamiento anteriores a la versión **1.0.9**. También puede ver que las versiones RC se marcan con etiquetas de **versión preliminar**.
 
-Los módulos agente y centro de IoT Edge tienen versiones RC que se etiquetan siguiendo la misma convención. Por ejemplo, **mcr.microsoft.com/azureiotedge-hub:1.0.7-rc2**.
+Los módulos agente y centro de IoT Edge tienen versiones RC que se etiquetan siguiendo la misma convención. Por ejemplo, **mcr.microsoft.com/azureiotedge-hub:1.0.9-rc6**.
 
 Igual que las versiones preliminares, las versiones candidatas para lanzamiento no se incluyen como la versión más reciente que utilizan los instaladores habituales. En su lugar, debe especificar manualmente los recursos para la versión RC que quiere probar. Por lo general, la instalación o actualización de una versión RC equivale a seleccionar cualquier otra versión específica de IoT Edge.
 
@@ -163,11 +215,11 @@ Use las secciones de este artículo para obtener información sobre cómo actual
 
 Si va a instalar IoT Edge en una nueva máquina, use los vínculos siguientes para obtener información sobre cómo instalar una versión específica en función del sistema operativo del dispositivo:
 
-* [Linux](how-to-install-iot-edge-linux.md#install-a-specific-runtime-version)
+* [Linux](how-to-install-iot-edge-linux.md#install-runtime-using-release-assets)
 * [Windows](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Consulte las últimas [versiones de Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases).
 
-Permanezca actualizado con los anuncios y actualizaciones recientes del [blog Internet of Things](https://azure.microsoft.com/blog/topics/internet-of-things/) (Internet de las cosas)
+Permanezca actualizado con los anuncios y las actualizaciones recientes del [blog de Internet de las cosas](https://azure.microsoft.com/blog/topics/internet-of-things/).

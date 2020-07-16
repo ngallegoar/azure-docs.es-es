@@ -3,15 +3,23 @@ title: Protección del clúster con directivas de seguridad de pod en Azure Kube
 description: Aprenda a controlar las admisiones de pods mediante PodSecurityPolicy en Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 04/08/2020
-ms.openlocfilehash: 9e3a17e4775150247ef7924dffec68cc86a0bcac
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.date: 06/30/2020
+ms.openlocfilehash: eb2e7fca3a808a1e2c4f7d1f81b8dc1d64deeee7
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998351"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077633"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Versión preliminar: Protección del clúster con directivas de seguridad de pod en Azure Kubernetes Service (AKS)
+
+<!--
+> [!WARNING]
+> **The pod security policy feature on AKS is set for deprecation** in favor of [Azure Policy for AKS](use-pod-security-on-azure-policy.md). The feature described in this document is not moving to general availability and is set for removal in September 2020.
+> It is highly recommended to begin testing with the Azure Policy Add-on which offers unique policies which support scenarios captured by pod security policy.
+
+**This document and feature are set for deprecation.**
+-->
 
 Para mejorar la seguridad del clúster de AKS, puede limitar los pods que se pueden programar. Los pods que soliciten recursos que no permita no podrán ejecutarse en el clúster de AKS. Defina este acceso mediante directivas de seguridad de pod. En este artículo se muestra cómo usar las directivas de seguridad de pod para limitar la implementación de pods en AKS.
 
@@ -42,9 +50,6 @@ az extension update --name aks-preview
 ### <a name="register-pod-security-policy-feature-provider"></a>Registro del proveedor de características de la directiva de seguridad de pod
 
 Para crear o actualizar un clúster de AKS para que use directivas de seguridad de pod, habilite primero una marca de características en su suscripción. Para registrar la marca de características *PodSecurityPolicyPreview*, use el comando [az feature register][az-feature-register] tal como se muestra en el siguiente ejemplo:
-
-> [!CAUTION]
-> Actualmente, al registrar una característica en una suscripción, no se puede anular el registro de esa característica. Después de habilitar algunas características en vista previa, se pueden usar los valores predeterminados en todos los clústeres de AKS y, luego, se pueden crear en la suscripción. No habilite características en vista previa en las suscripciones de producción. Use una suscripción independiente para probar las características en vista previa y recopilar comentarios.
 
 ```azurecli-interactive
 az feature register --name PodSecurityPolicyPreview --namespace Microsoft.ContainerService
@@ -109,7 +114,7 @@ La directiva de seguridad de pod *provileged* se aplica a cualquier usuario que 
 kubectl get rolebindings default:privileged -n kube-system -o yaml
 ```
 
-Como se muestra en la siguiente salida reducida, el valor de ClusterRole *psp:restricted* se asigna a cualquier usuario *system:authenticated*. Esta capacidad proporciona un nivel básico de restricciones sin tener directivas propias definidas.
+Como se muestra en la siguiente salida reducida, el valor de ClusterRole *psp:privileged* se asigna a cualquier usuario *system:authenticated*. Esta capacidad proporciona un nivel básico de privilegio sin tener directivas propias definidas.
 
 ```
 apiVersion: rbac.authorization.k8s.io/v1
@@ -167,7 +172,7 @@ alias kubectl-nonadminuser='kubectl --as=system:serviceaccount:psp-aks:nonadmin-
 
 ## <a name="test-the-creation-of-a-privileged-pod"></a>Prueba de la creación de un pod con privilegios
 
-Vamos a probar primero lo que sucede cuando se programa un pod con el contexto de seguridad `privileged: true`. Este contexto de seguridad eleva los privilegios del pod. En la sección anterior donde se mostraban las directivas de seguridad de pod predeterminadas de AKS, la directiva *restricted* debería denegar esta solicitud.
+Vamos a probar primero lo que sucede cuando se programa un pod con el contexto de seguridad `privileged: true`. Este contexto de seguridad eleva los privilegios del pod. En la sección anterior donde se mostraban las directivas de seguridad de pod predeterminadas de AKS, la directiva *privilege* debería denegar esta solicitud.
 
 Cree un archivo denominado `nginx-privileged.yaml` y pegue el siguiente manifiesto de YAML:
 
@@ -202,7 +207,7 @@ El pod no llega a la fase de programación, por lo que no hay recursos que elimi
 
 ## <a name="test-creation-of-an-unprivileged-pod"></a>Prueba de la creación de un pod sin privilegios
 
-En el ejemplo anterior, la especificación del pod solicitaba el escalado de privilegios. Esta solicitud la deniega la directiva de seguridad de pod *restricted* predeterminada, por lo que no se puede programar el pod. Vamos a probar ahora a ejecutar ese mismo pod NGINX sin la solicitud de elevación de privilegios.
+En el ejemplo anterior, la especificación del pod solicitaba el escalado de privilegios. Esta solicitud la deniega la directiva de seguridad de pod *privilege* predeterminada, por lo que no se puede programar el pod. Vamos a probar ahora a ejecutar ese mismo pod NGINX sin la solicitud de elevación de privilegios.
 
 Cree un archivo denominado `nginx-unprivileged.yaml` y pegue el siguiente manifiesto de YAML:
 
@@ -235,7 +240,7 @@ El pod no llega a la fase de programación, por lo que no hay recursos que elimi
 
 ## <a name="test-creation-of-a-pod-with-a-specific-user-context"></a>Creación de prueba de un pod con un contexto de usuario específico
 
-En el ejemplo anterior la imagen de contenedor intentó automáticamente utilizar la raíz para enlazar NGINX al puerto 80. Esta solicitud la denegó la directiva de seguridad de pod *restricted* predeterminada, por lo que no se puede iniciar el pod. Vamos a probar ahora a ejecutar ese mismo pod NGINX con un contexto de usuario específico, como `runAsUser: 2000`.
+En el ejemplo anterior la imagen de contenedor intentó automáticamente utilizar la raíz para enlazar NGINX al puerto 80. Esta solicitud la denegó la directiva de seguridad de pod *privilege* predeterminada, por lo que no se puede iniciar el pod. Vamos a probar ahora a ejecutar ese mismo pod NGINX con un contexto de usuario específico, como `runAsUser: 2000`.
 
 Cree un archivo denominado `nginx-unprivileged-nonroot.yaml` y pegue el siguiente manifiesto de YAML:
 
@@ -301,7 +306,7 @@ Cree la directiva mediante el comando [kubectl apply][kubectl-apply] y especifiq
 kubectl apply -f psp-deny-privileged.yaml
 ```
 
-Para ver las directivas disponibles, use el comando [kubectl get psp][kubectl-get], tal como se muestra en el siguiente ejemplo. Compare la directiva *psp-deny-privileged* con el valor de la directiva *restricted* que aplicó en los ejemplos anteriores para crear un pod. Su directiva solo deniega el uso del escalado *PRIV*. No hay ninguna restricción para el usuario o grupo relativa a la directiva *psp-deny-privileged*.
+Para ver las directivas disponibles, use el comando [kubectl get psp][kubectl-get], tal como se muestra en el siguiente ejemplo. Compare la directiva *psp-deny-privileged* con el valor de la directiva *privilege* predeterminada que aplicó en los ejemplos anteriores para crear un pod. Su directiva solo deniega el uso del escalado *PRIV*. No hay ninguna restricción para el usuario o grupo relativa a la directiva *psp-deny-privileged*.
 
 ```console
 $ kubectl get psp

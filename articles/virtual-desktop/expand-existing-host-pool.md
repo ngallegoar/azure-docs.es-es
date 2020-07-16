@@ -4,23 +4,23 @@ description: Expansión de un grupo de hosts existente con nuevos hosts de sesi�
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d46d5618d7e3dc26775401f4a90d0c98d75ea31a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 07394fb2d33aaacdc8e47bc2d1809854c0c8ca1b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929220"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85209358"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expansión de un grupo de hosts existente con nuevos hosts de sesión
 
 >[!IMPORTANT]
 >Este contenido se aplica a la actualización de primavera de 2020 con objetos de Windows Virtual Desktop para Azure Resource Manager. Si usa la versión de otoño de 2019 de Windows Virtual Desktop sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/expand-existing-host-pool-2019.md).
 >
-> La actualización de primavera de 2020 de Windows Virtual Desktop se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. 
+> La actualización de primavera de 2020 de Windows Virtual Desktop se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 A medida que aumenta el uso en el grupo de hosts, puede que necesite expandir el grupo de hosts existente con nuevos hosts de sesión para controlar la nueva carga.
@@ -50,19 +50,19 @@ Para expandir el grupo de hosts mediante la incorporación de máquinas virtuale
 
 3. En el menú situado a la izquierda de la pantalla, seleccione **Grupos de hosts**, después, seleccione el nombre del grupo de hosts al que desea agregar las máquinas virtuales.
 
-4. Seleccione **Máquinas virtuales** en el menú situado a la izquierda de la pantalla.
+4. Seleccione **Session hosts** (Hosts de sesión) en el menú situado a la izquierda de la pantalla.
 
 5. Seleccione **+Agregar** para empezar a crear el grupo de hosts.
 
 6. Ignore la pestaña Aspectos básicos y, en su lugar, seleccione la pestaña **VM details** (Detalles de VM). Aquí puede ver y editar los detalles de la máquina virtual que desea agregar al grupo de hosts.
 
 7. Seleccione el grupo de recursos en el que desea crear las máquinas virtuales y, después, seleccione la región. Puede elegir entre la región actual que está utilizando o una nueva.
-   
+
 8. Escriba el número de hosts de sesión que quiere agregar en el grupo de hosts en el campo **Número de máquinas virtuales**. Por ejemplo, si va a aumentar cinco hosts al grupo de hosts, escriba **5**.
-   
+
     >[!NOTE]
     >No puede editar el tamaño ni la imagen de las máquinas virtuales ya que es importante garantizar que todas las máquinas virtuales del grupo de hosts tengan el mismo tamaño.
-    
+
 9. Para la **información de red virtual**, seleccione la red virtual y la subred a las que desea que se unan las máquinas virtuales. Puede seleccionar la misma red virtual que utilizan actualmente las máquinas existentes o elegir una diferente que sea más adecuada para la región que seleccionó en el paso 7.
 
 10. Como **cuenta de administrador**, escriba el nombre de usuario y la contraseña del dominio de Active Directory asociado a la red virtual que ha seleccionado. Estas credenciales se utilizarán para unir las máquinas virtuales a la red virtual.
@@ -70,9 +70,9 @@ Para expandir el grupo de hosts mediante la incorporación de máquinas virtuale
       >[!NOTE]
       >Asegúrese de que los nombres de administrador cumplen con la información que se proporciona aquí. Compruebe que la autenticación multifactor no está habilitada en la cuenta.
 
-11. Seleccione la pestaña **Etiqueta** si tiene etiquetas con las que desee agrupar las máquinas virtuales. De lo contrario, ignore esta pestaña. 
+11. Seleccione la pestaña **Etiqueta** si tiene etiquetas con las que desee agrupar las máquinas virtuales. De lo contrario, ignore esta pestaña.
 
-12. Seleccione la pestaña **Revisar y crear**. Revise sus opciones y, si todo es correcto, seleccione **Crear**. 
+12. Seleccione la pestaña **Revisar y crear**. Revise sus opciones y, si todo es correcto, seleccione **Crear**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

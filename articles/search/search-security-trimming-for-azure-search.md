@@ -1,19 +1,19 @@
 ---
 title: Filtros de seguridad para restringir los resultados
 titleSuffix: Azure Cognitive Search
-description: Control de acceso al contenido de Azure Cognitive Search mediante filtros de seguridad e identidades de usuario.
+description: Privilegios de seguridad en el nivel de documento de los resultados de la búsqueda de Azure Cognitive Search, mediante filtros de seguridad e identidades de usuario.
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 24f168f68a60ebb0408b7f1c367039ea5caea6d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/04/2020
+ms.openlocfilehash: e97f607c17f746c3cb16a17b7f579a58d4914608
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72794275"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553130"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Filtros de seguridad para restringir los resultados en Azure Cognitive Search
 
@@ -32,7 +32,7 @@ En este artículo se explica cómo realizar el filtrado de seguridad mediante lo
 >[!NOTE]
 > El proceso de recuperación de los identificadores de entidad de seguridad no se trata en este documento. Debe obtenerlo de su proveedor de servicio de identidad.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se da por hecho que dispone de una [suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), el [servicio Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-create-service-portal) y el [Índice de Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-create-index-portal).  
 
@@ -60,7 +60,7 @@ Supongamos que tenemos un índice de los archivos protegidos y que un conjunto d
 Emita una solicitud POST HTTP al punto de conexión de la dirección URL del índice. El cuerpo de la solicitud HTTP es un objeto JSON que contiene los documentos que se van a agregar:
 
 ```
-POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2019-05-06  
+POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2020-06-30  
 Content-Type: application/json
 api-key: [admin key]
 ```
@@ -118,7 +118,7 @@ Tenga en cuenta que en este ejemplo se muestra cómo buscar en documentos median
 Emita la solicitud POST HTTP:
 
 ```
-POST https://[service name].search.windows.net/indexes/securedfiles/docs/search?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexes/securedfiles/docs/search?api-version=2020-06-30
 Content-Type: application/json  
 api-key: [admin or query key]
 ```

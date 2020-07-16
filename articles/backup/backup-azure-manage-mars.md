@@ -4,12 +4,12 @@ description: Aprenda a administrar y supervisar las copias de seguridad del agen
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 0afe83edc638cba4cd14cc27b84a98937175fc86
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 2cd536e191702e2619030c2e0fa06262d2e004ee
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248607"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057830"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Administración de copias de seguridad del agente de Microsoft Azure Recovery Services (MARS) con el servicio Azure Backup
 
@@ -167,6 +167,27 @@ Una frase de contraseña se usa para cifrar y descifrar los datos durante la cop
 
     ![Generar la frase de contraseña.](./media/backup-azure-manage-mars/passphrase2.png)
 - Asegúrese de que la frase de contraseña se guarda de forma segura en una ubicación alternativa (distinta de la máquina de origen), preferiblemente en Azure Key Vault. Realice un seguimiento de todas las frases de contraseña si tiene varias máquinas de las que se realiza una copia de seguridad con los agentes de MARS.
+
+## <a name="managing-backup-data-for-unavailable-machines"></a>Administración de datos de copia de seguridad para máquinas no disponibles
+
+En esta sección se describe un escenario en el que la máquina de origen protegida con MARS ya no está disponible porque se eliminó, dañó, infectó con malware o ransomware, o bien se retiró.
+
+En el caso de estas máquinas, el servicio Azure Backup garantiza que el último punto de recuperación no expire (es decir, no se elimine) según las reglas de retención especificadas en la directiva de copia de seguridad. Por lo tanto, puede restaurar la máquina de forma segura.  Tenga en cuenta los siguientes escenarios que puede implementar en los datos con copia de seguridad:
+
+### <a name="scenario-1-the-source-machine-is-unavailable-and-you-no-longer-need-to-retain-backup-data"></a>Escenario 1: la máquina de origen no está disponible y ya no es necesario que conserve los datos de copia de seguridad
+
+- Puede eliminar los datos con copia de seguridad de Azure Portal siguiendo los pasos indicados en [este artículo](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+
+### <a name="scenario-2-the-source-machine-is-unavailable-and-you-need-to-retain-backup-data"></a>Escenario 2: la máquina de origen no está disponible y es necesario que conserve los datos de copia de seguridad
+
+La administración de la directiva de copia de seguridad para MARS se realiza a través de la consola MARS y no a través del portal. Si es necesario que amplíe la configuración de retención para los puntos de recuperación existentes, tendrá que restaurar la máquina, instalar la consola MARS y ampliar la directiva.
+
+- Para restaurar la máquina, realice los pasos siguientes:
+  - [Restaure la máquina virtual a una máquina de destino alternativa](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
+  - Vuelva a crear la máquina de destino con el mismo nombre de host que la máquina de origen
+  - Instale el agente y vuelva a registrarse en el mismo almacén y con la misma frase de contraseña
+  - Inicie el cliente de MARS para ampliar la duración de retención según sus requisitos
+- La máquina recién restaurada, protegida con MARS, seguirá realizando copias de seguridad.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

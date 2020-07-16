@@ -1,17 +1,17 @@
 ---
 title: Administración de la coherencia en Azure Cosmos DB
 description: Aprenda a configurar y administrar los niveles de coherencia en Azure Cosmos DB mediante Azure Portal, el SDK de .NET, el SDK de Java y otros SDK
-author: markjbrown
+author: anfeldma-ms
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 04/24/2020
-ms.author: mjbrown
-ms.openlocfilehash: 28266471fb1e440a45e412ee889e0706cfc2ce49
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.topic: how-to
+ms.date: 06/10/2020
+ms.author: anfeldma
+ms.openlocfilehash: e6f63807eeea32a7cce7e028dab5e16114bf9643
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82870093"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261569"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Administración de los niveles de coherencia en Azure Cosmos DB
 
@@ -27,7 +27,7 @@ El [nivel de coherencia predeterminado](consistency-levels.md) es el que los cli
 
 Para ver o modificar el nivel de coherencia predeterminado, inicie sesión en Azure Portal. Busque la cuenta de Azure Cosmos y abra el panel **Coherencia predeterminada**. Seleccione el nivel de coherencia que desee como el nuevo valor predeterminado y, a continuación, seleccione **Guardar**. Azure Portal también proporciona una visualización de los diferentes niveles de coherencia con notas musicales. 
 
-![Menú de coherencia en Azure Portal](./media/how-to-manage-consistency/consistency-settings.png)
+:::image type="content" source="./media/how-to-manage-consistency/consistency-settings.png" alt-text="Menú de coherencia en Azure Portal":::
 
 # <a name="cli"></a>[CLI](#tab/cli)
 
@@ -78,7 +78,7 @@ RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = Consiste
 var response = await client.CreateDocumentAsync(collectionUri, document, requestOptions);
 ```
 
-# <a name="net-sdk-v3"></a>[SDK de .NET V3](#tab/dotnetv3)
+# <a name="net-sdk-v3"></a>[SDK para .NET V3](#tab/dotnetv3)
 
 ```csharp
 // Override consistency at the request level via request options
@@ -92,9 +92,27 @@ var response = await client.GetContainer(databaseName, containerName)
 ```
 ---
 
-### <a name="java-sdk"></a><a id="override-default-consistency-java"></a>SDK de Java
+### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> SDK de Java V4
 
-# <a name="java-async-sdk"></a>[SDK asincrónico para Java](#tab/javaasync)
+# <a name="async"></a>[Asincrónico](#tab/api-async)
+
+   API asincrónica del SDK para Java V4 (Maven com.azure::azure-cosmos)
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConsistencyAsync)]
+
+# <a name="sync"></a>[Sincronizar](#tab/api-sync)
+
+   API sincrónica del SDK para Java V4 (Maven com.azure::azure-cosmos)
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=ManageConsistencySync)]
+
+--- 
+
+### <a name="java-v2-sdks"></a><a id="override-default-consistency-javav2"></a> SDK de Java V2
+
+# <a name="async"></a>[Asincrónico](#tab/api-async)
+
+SDK de Java v2 asincrónico (Maven com.microsoft.azure::azure-cosmosdb)
 
 ```java
 // Override consistency at the client level
@@ -108,7 +126,9 @@ AsyncDocumentClient client =
                 .withConnectionPolicy(policy).build();
 ```
 
-# <a name="java-sync-sdk"></a>[SDK sincrónico para Java](#tab/javasync)
+# <a name="sync"></a>[Sincronizar](#tab/api-sync)
+
+SDK de Java V2 sincrónico (Maven com.microsoft.azure::azure-documentdb)
 
 ```java
 // Override consistency at the client level
@@ -160,7 +180,7 @@ var response = await client.ReadDocumentAsync(
                 UriFactory.CreateDocumentUri(databaseName, collectionName, "SalesOrder1"), options);
 ```
 
-# <a name="net-sdk-v3"></a>[SDK de .NET V3](#tab/dotnetv3)
+# <a name="net-sdk-v3"></a>[SDK para .NET V3](#tab/dotnetv3)
 
 ```csharp
 Container container = client.GetContainer(databaseName, collectionName);
@@ -173,9 +193,27 @@ ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(sa
 ```
 ---
 
-### <a name="java-sdk"></a><a id="utilize-session-tokens-java"></a>SDK de Java
+### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> SDK de Java V4
 
-# <a name="java-async-sdk"></a>[SDK asincrónico para Java](#tab/javaasync)
+# <a name="async"></a>[Asincrónico](#tab/api-async)
+
+   API asincrónica del SDK para Java V4 (Maven com.azure::azure-cosmos)
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConsistencySessionAsync)]
+
+# <a name="sync"></a>[Sincronizar](#tab/api-sync)
+
+   API sincrónica del SDK para Java V4 (Maven com.azure::azure-cosmos)
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=ManageConsistencySessionSync)]
+
+--- 
+
+### <a name="java-v2-sdks"></a><a id="utilize-session-tokens-javav2"></a>SDK de Java V2
+
+# <a name="async"></a>[Asincrónico](#tab/api-async)
+
+SDK de Java v2 asincrónico (Maven com.microsoft.azure::azure-cosmosdb)
 
 ```java
 // Get session token from response
@@ -197,7 +235,9 @@ requestOptions.setSessionToken(sessionToken);
 Observable<ResourceResponse<Document>> readObservable = client.readDocument(document.getSelfLink(), options);
 ```
 
-# <a name="java-sync-sdk"></a>[SDK sincrónico para Java](#tab/javasync)
+# <a name="sync"></a>[Sincronizar](#tab/api-sync)
+
+SDK de Java V2 sincrónico (Maven com.microsoft.azure::azure-documentdb)
 
 ```java
 // Get session token from response
@@ -240,7 +280,7 @@ item = client.ReadItem(doc_link, options)
 
 ¿Cómo de eventual es la coherencia eventual? Por término medio, se puede ofrecer obsolescencia limitada con respecto al historial de versiones y la hora. La métrica [**Obsolescencia limitada de manera probabilística (PBS)** ](https://pbs.cs.berkeley.edu/) intenta cuantificar la probabilidad de obsolescencia y la muestra como una métrica. Para ver la métrica de PBS, vaya a la cuenta de Azure Cosmos en Azure Portal. Abra el panel **Métricas** y seleccione la pestaña **Coherencia**. Examine el gráfico llamado **Probabilidad de lecturas con coherencia fuerte según la carga de trabajo (consultar PBS)** .
 
-![Gráfico de PBS en Azure Portal](./media/how-to-manage-consistency/pbs-metric.png)
+:::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Gráfico de PBS en Azure Portal":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 96a5d3d5c894dda4270c5a8832f188ead56a1ce4
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 229d4fd6647a8a1b756fedee2a864d00b9c7de62
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020904"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111004"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Roles y requisitos de Azure Data Share 
 
@@ -30,9 +30,8 @@ Para compartir o recibir datos de un almacén de datos de Azure, el usuario nece
 
 A continuación se muestra un resumen de los roles asignados a la identidad administrada del recurso compartido de datos:
 
-| |  |  |
-|---|---|---|
 |**Tipo de almacén de datos**|**Almacén de datos de origen del proveedor de datos**|**Almacén de datos de destino del consumidor de datos**|
+|---|---|---|
 |Azure Blob Storage| Lector de datos de blobs de almacenamiento | Colaborador de datos de blobs de almacenamiento
 |Azure Data Lake Gen1 | Propietario | No compatible
 |Azure Data Lake Gen2 | Lector de datos de blobs de almacenamiento | Colaborador de datos de blobs de almacenamiento
@@ -40,12 +39,11 @@ A continuación se muestra un resumen de los roles asignados a la identidad admi
 |Clúster de Azure Data Explorer | Colaborador | Colaborador
 |
 
-En el caso del uso compartido basado en SQL, se debe crear un usuario de SQL a partir de un proveedor externo en la base de datos SQL con el mismo nombre que el recurso de Azure Data Share. A continuación se muestra un resumen del permiso requerido por el usuario de SQL.
+En el caso del uso compartido basado en SQL, se debe crear un usuario de SQL a partir de un proveedor externo en Azure SQL Database con el mismo nombre que el recurso de Azure Data Share. A continuación se muestra un resumen del permiso requerido por el usuario de SQL.
 
-| |  |  |
-|---|---|---|
 |**Tipo de base de datos SQL**|**Permiso de usuario de SQL del proveedor de datos**|**Permiso de usuario de SQL del consumidor de datos**|
-|Azure SQL Database | db_datareader | db_datareader, db_datawriter, db_ddladmin
+|---|---|---|
+|Azure SQL Database | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |Azure Synapse Analytics (anteriormente SQL DW) | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |
 
@@ -66,7 +64,7 @@ Para crear una asignación de roles para la identidad administrada del recurso c
 1. En *Seleccionar*, escriba el nombre del recurso de Azure Data Share.
 1. Haga clic en *Save*(Guardar).
 
-En el caso de orígenes basados en SQL, además de los pasos anteriores, se debe crear un usuario de SQL a partir de un proveedor externo en la base de datos SQL con el mismo nombre que el recurso de Azure Data Share. Se debe conceder a este usuario el permiso *db_datareader*. Puede encontrar un script de ejemplo junto con otros requisitos previos para el uso compartido basado en SQL en el tutorial [Uso compartido de datos](share-your-data.md). 
+En el caso de orígenes basados en SQL, además de los pasos anteriores, se debe crear un usuario de SQL a partir de un proveedor externo en SQL Database con el mismo nombre que el recurso de Azure Data Share. Se debe conceder a este usuario el permiso *db_datareader*. Puede encontrar un script de ejemplo junto con otros requisitos previos para el uso compartido basado en SQL en el tutorial [Uso compartido de datos](share-your-data.md). 
 
 ### <a name="data-consumer"></a>Consumidor de datos
 Para recibir datos, se debe conceder a la identidad administrada del recurso compartido de datos del consumidor acceso al almacén de datos de Azure de destino. Por ejemplo, en el caso de la cuenta de almacenamiento, a la identidad administrada del recurso compartido de datos se le concede el rol Colaborador de datos de blobs de almacenamiento. 
@@ -84,7 +82,7 @@ Para crear una asignación de roles manualmente para la identidad administrada d
 1. En *Seleccionar*, escriba el nombre del recurso de Azure Data Share.
 1. Haga clic en *Save*(Guardar).
 
-En el caso de un destino basado en SQL, además de los pasos anteriores, se debe crear un usuario de SQL a partir de un proveedor externo en la base de datos SQL con el mismo nombre que el recurso de Azure Data Share. Se debe conceder a este usuario el permiso*db_datareader, db_datawriter, db_ddladmin*. En el tutorial [Aceptación y recepción de datos con Azure Data Share](subscribe-to-data-share.md), puede encontrar un script de ejemplo junto con otros requisitos previos para el uso compartido basado en SQL. 
+En el caso de un destino basado en SQL, además de los pasos anteriores, se debe crear un usuario de SQL a partir de un proveedor externo en SQL Database con el mismo nombre que el recurso de Azure Data Share. Se debe conceder a este usuario el permiso*db_datareader, db_datawriter, db_ddladmin*. En el tutorial [Aceptación y recepción de datos con Azure Data Share](subscribe-to-data-share.md), puede encontrar un script de ejemplo junto con otros requisitos previos para el uso compartido basado en SQL. 
 
 Si va a compartir datos con las API REST, debe crear estas asignaciones de roles manualmente. 
 
@@ -103,4 +101,3 @@ Para ver la invitación de Azure Data Share por primera vez en su inquilino de A
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información acerca de los roles en Azure - [Descripción de definiciones de roles](../role-based-access-control/role-definitions.md)
-

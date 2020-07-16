@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: f222cdd315b79503b1bdea032f495c71df4682b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33dafaff396ce378dfa9eab0158e1b2fd9c10da6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236552"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770499"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Conexión a las máquinas virtuales de Azure tras la conmutación por error desde un entorno local 
 
@@ -149,11 +149,21 @@ Antes de la conmutación por error, especifique la configuración de red y la di
 
 ## <a name="get-new-ip-addresses"></a>Obtención de direcciones IP nuevas
 
-En este escenario, la máquina virtual de Azure obtiene una nueva dirección IP después de la conmutación por error. Una actualización de DNS para actualizar los registros de las máquinas que conmutaron por error para que apunten a la dirección IP de la máquina virtual de Azure.
+En este escenario, la máquina virtual de Azure obtiene una nueva dirección IP después de la conmutación por error. Para configurar una nueva dirección IP para la máquina virtual creada después de la conmutación por error, se puede hacer referencia a los siguientes pasos:
 
+1. Vaya a **Elementos replicados**.
+2. Seleccione la máquina virtual de Azure que desee.
+3. Seleccione **Proceso y red**  y, después,**Editar**.
 
+     ![Personalización de las configuraciones de red de conmutación por error](media/azure-to-azure-customize-networking/edit-networking-properties.png)
+
+4. Para actualizar la configuración de red de conmutación por error, seleccione **Editar** para la NIC que desee configurar. En la siguiente página que se abre, proporcione la dirección IP correspondiente creada previamente en la ubicación de conmutación por error de prueba y de conmutación por error.
+
+    ![Edición de la configuración de la NIC](media/azure-to-azure-customize-networking/nic-drilldown.png)
+
+5. Seleccione **Aceptar**.
+
+Site Recovery ahora respetará esta configuración y garantizará que la máquina virtual de la conmutación por error esté conectada al recurso seleccionado a través de la dirección IP correspondiente, si está disponible en el intervalo de direcciones IP de destino. En este escenario, no es necesario realizar una conmutación por error de toda la subred. Se necesitará una actualización de DNS para actualizar los registros de la máquina que conmutó por error para que apunten a la nueva dirección IP de la máquina virtual.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Información](site-recovery-active-directory.md) acerca de la replicación de las instancias locales de Active Directory y DNS en Azure.
-
-

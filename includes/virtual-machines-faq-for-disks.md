@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: de8574cd691c77bb764c7e695db1e7c2f23c5f3a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 9764d3964a38408493bafe0e9c8ca059b055ca21
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837886"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85242101"
 ---
 En este artículo se responden algunas de las preguntas más frecuentes acerca de Azure Managed Disks y los discos SSD Premium de Azure.
 
@@ -451,7 +451,7 @@ Las SKU de disco de 8 TiB, 16 TiB y 32 TiB se admiten en todas las regiones en A
 
 **¿Se admite la habilitación del almacenamiento en caché del host en todos los tamaños de disco?**
 
-Se admite el almacenamiento en caché del host de solo de lectura y de lectura y escritura en tamaños de disco inferiores a 4 TiB. Para los tamaños de disco de más de 4 TiB, no se puede establecer la opción de almacenamiento en caché en un valor distinto de Ninguno. Se recomienda aprovechar el almacenamiento en caché para tamaños de disco más pequeños, donde se puede esperar un mayor aumento del rendimiento con datos almacenados en caché en la máquina virtual.
+El almacenamiento en caché del host (solo de lectura y lectura y escritura) se admite en tamaños de disco inferiores a 4 TiB. Esto significa que cualquier disco que esté aprovisionado hasta 4095 GiB puede aprovechar el almacenamiento en caché del host. El almacenamiento en caché del host no se admite para los tamaños de disco superiores o iguales que 4096 GiB. Por ejemplo, un disco prémium P50 aprovisionado con 4095 GiB puede aprovechar el almacenamiento en caché del host y un disco P50 aprovisionado con 4096 GiB no puede aprovechar dicho almacenamiento. Se recomienda aprovechar el almacenamiento en caché para tamaños de disco más pequeños, donde se puede esperar un mayor aumento del rendimiento con datos almacenados en caché en la máquina virtual.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Mi pregunta no está respondida aquí. ¿Qué debo hacer?
 

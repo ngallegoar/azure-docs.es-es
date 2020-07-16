@@ -5,17 +5,17 @@ description: Obtenga información sobre cómo implementar modelos de Azure Machi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 12/27/2019
-ms.openlocfilehash: d460112394d7c7b7d2da4e8af41c0085b67226ec
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.date: 06/12/2020
+ms.openlocfilehash: 44c197b7d9935a7b0631c6cbcd96fde783c2fffe
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475460"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087272"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Implementación de un modelo en Azure Container Instances
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ Obtenga información sobre cómo usar Azure Machine Learning para implementar un
 
 Para información de la disponibilidad de cuotas y regiones de ACI, consulte el artículo [Disponibilidad de cuotas y regiones en Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Un área de trabajo de Azure Machine Learning. Para más información, consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
@@ -48,6 +48,10 @@ Para información de la disponibilidad de cuotas y regiones de ACI, consulte el 
 ## <a name="deploy-to-aci"></a>Implementación en ACI
 
 Para implementar un modelo en Azure Container Instances, cree una __configuración de implementación__ que describa los recursos de proceso necesarios. Por ejemplo, el número de núcleos y la memoria. También necesita una __configuración de inferencia__, que describe el entorno necesario para hospedar el modelo y el servicio web. Para más información sobre cómo crear la configuración de inferencia, consulte [Cómo y dónde implementar modelos](how-to-deploy-and-where.md).
+
+> [!NOTE]
+> * ACI solo es adecuado para pequeños modelos con un tamaño inferior a 1 GB. 
+> * Se recomienda usar AKS de nodo único para desarrollo y pruebas de modelos más grandes.
 
 ### <a name="using-the-sdk"></a>Uso del SDK
 

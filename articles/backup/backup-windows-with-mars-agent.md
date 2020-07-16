@@ -3,14 +3,14 @@ title: Copia de seguridad de máquinas Windows con el agente de MARS
 description: Use el agente de Microsoft Azure Recovery Services (MARS) para realizar copias de seguridad de máquinas Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 002f4cd2e0582fb87af622f721f286bd78920350
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f0e605185be6db8629144e05f5f39309a3831ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193299"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604852"
 ---
-# <a name="back-up-windows-machines-by-using-the-azure-backup-mars-agent"></a>Copia de seguridad de las máquinas Windows con el agente de MARS Azure Backup
+# <a name="back-up-windows-server-files-and-folders-to-azure"></a>Copia de seguridad de carpetas y archivos de Windows Server en Azure
 
 En este artículo se explica cómo realizar copias de seguridad de máquinas Windows mediante el servicio [Azure Backup](backup-overview.md) y el agente de Microsoft Azure Recovery Services (MARS), también conocido como agente Azure Backup. MARS también se conoce como agente Azure Backup.
 

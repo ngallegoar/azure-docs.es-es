@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: b46e8efb252224f83603000777b2e342f7e7ab9d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 19503fa2257f42cf896dbfb831d4165e329134b2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684447"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85250356"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure para máquinas virtuales Red Hat Enterprise Linux a petición en Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que los proveedores de nube, como Azure, reflejen el contenido del repositorio hospedado en Red Hat, creen repositorios personalizados con contenido específico de Azure y lo pongan a disposición de las máquinas virtuales del usuario final.
@@ -83,7 +83,7 @@ Los repositorios de compatibilidad de actualización extendida (EUS) están disp
 >[!NOTE]
 > EUS no es compatible con RHEL Extras. Esto significa que si va a instalar un paquete que está disponible normalmente en el canal de RHEL Extras, no podrá hacerlo mientras se encuentre en EUS. [Aquí](https://access.redhat.com/support/policy/updates/extras/) se detalla el ciclo de vida del producto Red Hat Extras.
 
-En el momento de redactar este artículo, ha finalizado el soporte técnico de EUS para RHEL < = 7.4. Para más información, consulte la sección "Red Hat Enterprise Linux Longer Support Add-Ons" en la [documentación de Red Hat](https://access.redhat.com/support/policy/updates/errata/).
+En el momento de redactar este artículo, ha finalizado el soporte técnico de EUS para RHEL < = 7.4. Para más información, consulte la sección "Mantenimiento extendido de Red Hat Enterprise Linux" en la [documentación de Red Hat](https://access.redhat.com/support/policy/updates/errata/#Long_Support).
 * El soporte técnico de RHEL 7.4 EUS finaliza el 31 de agosto de 2019
 * El soporte técnico de RHEL 7.5 EUS finaliza el 30 de abril de 2020
 * El soporte técnico de RHEL 7.6 EUS finaliza el 31 de octubre de 2020
@@ -164,6 +164,11 @@ Si va a usar la configuración de red para restringir aún más el acceso desde 
 51.5.243.77
 51.4.228.145
 ```
+>[!NOTE]
+>Las nuevas imágenes de Azure US Government, a partir de enero de 2020, utilizarán la dirección IP pública mencionada en el encabezado global de Azure anterior.
+
+>[!NOTE]
+>Además, tenga en cuenta que Azure Alemania está en desuso en favor de las regiones de Alemania públicas. Una recomendación para los clientes de Azure Alemania es empezar a apuntar a RHUI público mediante los pasos descritos [aquí](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/redhat-rhui#manual-update-procedure-to-use-the-azure-rhui-servers).
 
 ## <a name="azure-rhui-infrastructure"></a>Infraestructura de RHUI en Azure
 

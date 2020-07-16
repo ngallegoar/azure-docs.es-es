@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2019
+ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: d59a2fe32742c2d1d50b9ed33ccace5d377c59c2
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 19824e978af78e85f9e8c790517bd66b1f6c0113
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791993"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85481738"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
 
@@ -49,13 +49,20 @@ Sí. A través de Azure Marketplace es posible implementar una [aplicación virt
 ### <a name="what-tools-do-i-use-to-create-a-vnet"></a>¿Qué herramientas debo usar para crear una red virtual?
 Para crear o configurar una red virtual se pueden usar las siguientes herramientas:
 
-* Azure Portal
+* Azure portal
 * PowerShell
 * Azure CLI
 * Un archivo de configuración de red (netcfg; solo para redes virtuales clásicas). Consulte el artículo [Configuración de una red virtual con un archivo de configuración de red](virtual-networks-using-network-configuration-file.md).
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>¿Qué intervalos de direcciones puedo usar en mis redes virtuales?
-Cualquier intervalo de direcciones IP definido en [RFC 1918](https://tools.ietf.org/html/rfc1918). Por ejemplo, 10.0.0.0/16. No se pueden agregar los siguientes rangos de direcciones:
+Se recomienda usar los intervalos de direcciones enumerados en [RFC 1918](https://tools.ietf.org/html/rfc1918), que el IETF ha reservado para los espacios de direcciones privados y no enrutables:
+* 10.0.0.0 a 10.255.255.255 (prefijo 10/8)
+* 172.16.0.0 a 172.31.255.255 (prefijo 172.16/12)
+* 192.168.0.0 a 192.168.255.255 (prefijo 192.168/16)
+
+Otros espacios de direcciones pueden funcionar, pero es posible que tengan efectos secundarios no deseados.
+
+Además, no se pueden agregar los intervalos de direcciones siguientes:
 * 224.0.0.0/4 (multidifusión)
 * 255.255.255.255/32 (difusión)
 * 127.0.0.0/8 (bucle invertido)
@@ -406,7 +413,7 @@ No hay límite en el número total de puntos de conexión de servicio de la red 
 |Azure SQL| 128|
 |Azure SQL Data Warehouse|  128|
 |Azure KeyVault|    127|
-|Azure Cosmos DB|   64|
+|Azure Cosmos DB|   64|
 |Centro de eventos de Azure|   128|
 |Azure Service Bus| 128|
 |Azure Data Lake Store V1|  100|

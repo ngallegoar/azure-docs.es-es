@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: a345b5a8a4d6a99b1b3928d61b22dfba0ba2735b
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 050da712df6dad872fc03bd6ca79bbdf2a3e1753
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248845"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563198"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introducción al rendimiento aprovisionado en Azure Cosmos DB
 
@@ -32,15 +32,20 @@ La configuración del rendimiento aprovisionado en un contenedor es la opción m
 
 El rendimiento aprovisionado de un contenedor se distribuye uniformemente entre las particiones físicas y, suponiendo una buena clave de partición que distribuye las particiones lógicas uniformemente entre las particiones físicas, el rendimiento también se distribuye uniformemente entre todas las particiones lógicas del contenedor. No puede especificar de forma selectiva el rendimiento de las particiones lógicas. Puesto que una o varias particiones lógicas de un contenedor se hospedan en una partición física, las particiones físicas pertenecen exclusivamente al contenedor y admiten el rendimiento aprovisionado en dicho contenedor. 
 
-Si la carga de trabajo que se ejecuta en una partición lógica consume más que el rendimiento que se ha asignado a esa partición lógica, las operaciones tienen una velocidad limitada. Cuando se produce una limitación de velocidad, puede aumentar el rendimiento aprovisionado de todo el contenedor o volver a intentar las operaciones. Para más información sobre las particiones, consulte [Particiones lógicas](partition-data.md).
+Si la carga de trabajo que se ejecuta en una partición lógica consume más que el rendimiento que se asignó a la partición física subyacente, es posible que las operaciones tengan una velocidad limitada. Lo que se conoce como _partición activa_ ocurre cuando una partición lógica tiene de manera desproporcionada más solicitudes que otros valores de clave de partición.
+
+Cuando se produce una limitación de velocidad, puede aumentar el rendimiento aprovisionado de todo el contenedor o volver a intentar las operaciones. También debe asegurarse de elegir una clave de partición que distribuya de manera uniforme el volumen de la solicitud y el almacenamiento. Para más información sobre la creación de particiones, consulte [Creación de particiones y escalado horizontal en Azure Cosmos DB](partition-data.md).
 
 Se recomienda configurar el rendimiento en la granularidad del contenedor cuando se quiere un rendimiento garantizado para dicho contenedor.
 
 En la imagen siguiente se muestra cómo una partición física hospeda una o varias particiones lógicas de un contenedor:
 
-![Partición física](./media/set-throughput/resource-partition.png)
+:::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Partición física" border="false":::
 
 ## <a name="set-throughput-on-a-database"></a>Establecimiento del rendimiento en una base de datos
+
+> [!NOTE]
+> Actualmente no es posible aprovisionar el rendimiento en una base de datos de Azure Cosmos en cuentas en las que se habilitan las [claves administradas por el cliente](how-to-setup-cmk.md).
 
 Al aprovisionar el rendimiento en una base de datos de Azure Cosmos, dicho rendimiento se comparte entre todos los contenedores (denominados contenedores de base de datos compartidos) de la base de datos. Una excepción es si ha especificado un rendimiento aprovisionado en determinados contenedores de la base de datos. Compartir el rendimiento aprovisionado de nivel de base de datos entre sus contenedores equivale a hospedar una base de datos en un clúster de máquinas. Dado que todos los contenedores de una base de datos comparten los recursos disponibles en una máquina, no obtendrá un rendimiento predecible en ningún contenedor específico. Para obtener información sobre cómo configurar el rendimiento aprovisionado en una base de datos, consulte [Aprovisionamiento del rendimiento en una base de datos de Azure Cosmos](how-to-provision-database-throughput.md). Para obtener información sobre cómo configurar el rendimiento de escalabilidad automática en una base de datos, consulte [Aprovisionamiento del rendimiento de escalabilidad automática](how-to-provision-autoscale-throughput.md).
 
@@ -70,7 +75,7 @@ Si la cuenta de Azure Cosmos DB ya contiene una base de datos de rendimiento co
 
 Si las cargas de trabajo implican eliminar y volver a crear todas las colecciones de una base de datos, se recomienda quitar la base de datos vacía y volver a crear una nueva base de datos antes de la creación de la colección. En la siguiente imagen se muestra cómo una partición física puede hospedar una o varias particiones lógicas que pertenecen a distintos contenedores dentro de una base de datos:
 
-![Partición física](./media/set-throughput/resource-partition2.png)
+:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Partición física" border="false":::
 
 ## <a name="set-throughput-on-a-database-and-a-container"></a>Establecimiento del rendimiento en un contenedor y una base de datos
 
@@ -79,7 +84,7 @@ Puede combinar los dos modelos. Se permite el aprovisionamiento del rendimiento 
 * Puede crear una base de datos de Azure Cosmos llamada *Z* con rendimiento aprovisionado estándar (manual) de *"K"*  RU. 
 * Después, cree cinco contenedores llamados *A*, *B*, *C*, *D* y *E* en la base de datos. Al crear el contenedor B, asegúrese de habilitar la opción **Provision dedicated throughput for this container** (Aprovisionar el rendimiento dedicado para este contenedor) y configurar de forma explícita las Unidades de solicitud *"P"* del rendimiento aprovisionado en este contenedor. Tenga en cuenta que únicamente puede configurar el rendimiento compartido y dedicado al crear la base de datos y el contenedor. 
 
-   ![Configuración del rendimiento en el nivel de contenedor](./media/set-throughput/coll-level-throughput.png)
+   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Configuración del rendimiento en el nivel de contenedor":::
 
 * El rendimiento de las Unidades de solicitud *"K"* se comparte entre los cuatro contenedores *A*, *C*, *D* y *E*. La cantidad exacta de rendimiento disponible en *A*, *C*, *D* o *E* varía. No hay ningún acuerdo de nivel de servicio para el rendimiento de cada contenedor individual.
 * Se garantiza que el contenedor llamado *B* obtendrá el rendimiento de las Unidades de solicitud de *"P"* todo el tiempo. Estará respaldado por los Acuerdos de Nivel de Servicio.
@@ -89,11 +94,16 @@ Puede combinar los dos modelos. Se permite el aprovisionamiento del rendimiento 
 
 ## <a name="update-throughput-on-a-database-or-a-container"></a>Actualización del rendimiento en un contenedor o una base de datos
 
-Después de crear un contenedor o una base de datos de Cosmos Azure, se puede actualizar el rendimiento aprovisionado. No existen límites para el rendimiento aprovisionado máximo que se puede configurar en la base de datos o el contenedor. El [rendimiento aprovisionado mínimo](concepts-limits.md#storage-and-throughput) depende de los factores siguientes: 
+Después de crear un contenedor o una base de datos de Cosmos Azure, se puede actualizar el rendimiento aprovisionado. No existen límites para el rendimiento aprovisionado máximo que se puede configurar en la base de datos o el contenedor. 
 
-* Tamaño actual de los datos que se han almacenado en el contenedor.
-* Rendimiento máximo que se ha aprovisionado en algún momento en el contenedor.
-* El número actual de contenedores de Azure Cosmos que tiene en una base de datos con rendimiento compartido. 
+Para estimar el [rendimiento aprovisionado mínimo](concepts-limits.md#storage-and-throughput) de una base de datos o contenedor, encuentre el valor máximo de:
+
+* 400 RU/s 
+* Almacenamiento actual en GB * 10 RU/s
+* El mayor valor de RU/s aprovisionado en la base de datos o el contenedor / 100
+* Número de contenedores * 100 RU/s (solo base de datos de rendimiento compartido)
+
+El valor mínimo real de RU/s puede variar en función de la configuración de la cuenta. Puede usar [métricas de Azure Monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) para ver el historial de rendimiento aprovisionado (RU/s) y el almacenamiento en un recurso.
 
 Puede recuperar el rendimiento mínimo de un contenedor o una base de datos mediante programación con los SDK o ver el valor en Azure Portal. Al usar el SDK de .NET, el método [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) permite escalar el valor de rendimiento aprovisionado. Al usar el SDK de Java, el método [RequestOptions.setOfferThroughput](sql-api-java-sdk-samples.md) permite escalar el valor de rendimiento aprovisionado. 
 

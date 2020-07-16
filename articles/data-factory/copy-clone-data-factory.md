@@ -5,18 +5,18 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
+author: chez-charlie
+ms.author: chez
 manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
-ms.date: 01/09/2019
-ms.openlocfilehash: 5e44bda8648fbf26487b04cf36a8fd0ec085c411
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/30/2020
+ms.openlocfilehash: 304c39f4b6f7852068d4e72adfad2d41eeefc26c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414105"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552972"
 ---
 # <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Copia o clonación de una factoría de datos en Azure Data Factory
 
@@ -28,25 +28,28 @@ En este artículo se describe cómo copiar o clonar una factoría de datos en Az
 
 Estas son algunas de las circunstancias en las que podría resultar útil copiar o clonar una factoría de datos:
 
--   **Cambiar el nombre de los recursos**. Azure no permite cambiar el nombre de los recursos. Si quiere cambiar el nombre de una factoría de datos, puede clonar la factoría de datos con otro nombre y, luego, eliminar la existente.
+- **Mover Data Factory** a una región nueva. Si quiere mover Data Factory a otra región, la mejor manera de hacerlo es crear una copia en la región de destino y eliminar la existente.
 
--   **Depurar los cambios** cuando las características de depuración no sean suficientes. En algunas ocasiones, para probar los cambios, es posible que quiera probarlos en otra factoría antes de aplicarlos en la principal. En la mayoría de los escenarios, puede usar Depurar. Sin embargo, probablemente los cambios en los desencadenadores no se puedan probar fácilmente sin insertarlos en el repositorio, por ejemplo, como el comportamiento que tienen los cambios cuando un desencadenador se invoca automáticamente o durante una ventana de tiempo. En estos casos, clonar la factoría y aplicar ahí los cambios tiene mucho sentido. Como Azure Data Factory cobra principalmente por la cantidad de ejecuciones, la segunda factoría no genera ningún cobro adicional.
+- **Cambiar el nombre de Data Factory**. Azure no permite cambiar el nombre de los recursos. Si quiere cambiar el nombre de una factoría de datos, puede clonarla con otro nombre y eliminar la existente.
+
+- **Depurar los cambios** cuando las características de depuración no sean suficientes. En la mayoría de los escenarios, puede usar [Depurar](iterative-development-debugging.md). En otros, resulta más conveniente probar los cambios en un entorno de espacio aislado clonado. Por ejemplo, cómo se comportarán las canalizaciones de ETL con parámetros cuando un desencadenador se active tras la llegada de archivos frente a la ventana de saltos de tamaño constante, es posible que no se pueda probar fácilmente solo a través de la depuración. En estos casos, puede que quiera clonar un entorno de espacio aislado para experimentación. Como Azure Data Factory cobra principalmente por la cantidad de ejecuciones, una segunda factoría no genera ningún cobro adicional.
 
 ## <a name="how-to-clone-a-data-factory"></a>Clonación de una factoría de datos
 
-1. La interfaz de usuario de Data Factory en Azure Portal permite exportar toda la carga de la factoría de datos a una plantilla de Resource Manager, junto con un archivo de parámetro que permite cambiar cualquier valor que quiera cuando se clone la factoría.
+1. Como requisito previo, primero debe crear la factoría de datos de destino desde Azure Portal.
 
-1. Como requisito previo, debe crear la factoría de datos de destino desde Azure Portal.
+1. Si está en modo GIT:
+    1. Cada vez que publique desde el portal, la plantilla de Resource Manager de la factoría se guarda en GIT en la rama adf\_publish.
+    1. Conecte la factoría nueva al _mismo_ repositorio y compile desde la rama adf\_publish. Se transportarán recursos como las canalizaciones, los conjuntos de datos y los desencadenadores.
 
-1. Si tiene una instancia de Integration Runtime autohospedada en la factoría de origen, deberá crearla previamente con el mismo nombre en el generador de destino. Si desea compartir las instancias de Integration Runtime autohospedada entre diferentes factorías, puede usar el modelo publicado [aquí](source-control.md#best-practices-for-git-integration).
+1. Si está en modo real:
+    1. La UI de Data Factory le permite exportar toda la carga de la factoría de datos a un archivo de plantilla de Resource Manager y un archivo de parámetro. Se puede acceder a ellos desde el botón **Plantilla de ARM \ Exportación de plantillas de Resource Manager** en el portal.
+    1. Puede realizar los cambios correspondientes en el archivo de parámetros e intercambiar valores nuevos de la factoría nueva.
+    1. A continuación, puede implementarla a través de los métodos de implementación de plantilla de Resource Manager estándar.
 
-1. Si está en modo GIT, cada vez que publique desde el portal, la plantilla de Resource Manager de la factoría se guarda en GIY en la rama adf_publish del repositorio.
+1. Si tiene una instancia de Integration Runtime autohospedada en la factoría de origen, deberá crearla previamente con el mismo nombre en el generador de destino. Si quiere compartir la instancia de Integration Runtime autohospedada entre distintas factorías, puede usar el patrón publicado [aquí](create-shared-self-hosted-integration-runtime-powershell.md) para compartir la instancia de IR autohospedada.
 
-1. Para otros escenarios, la plantilla de Resource Manager se puede descargar con un clic en el botón **Exportar plantilla de Resource Manager** en el portal.
-
-1. Después de descargar la plantilla de Resource Manager, puede implementarla a través de métodos de implementación de plantilla de Resource Manager estándar.
-
-1. Por motivos de seguridad, la plantilla de Resource Manager generada no contiene información secreta, como contraseñas para los servicios vinculados. Como resultado, debe proporcionar estas contraseñas como parámetros de implementación. Si no es recomendable proporcionar parámetros, debe obtener las cadenas de conexión y las contraseñas de los servicios vinculados desde Azure Key Vault.
+1. Por motivos de seguridad, la plantilla de Resource Manager generada no contendrá información secreta, como contraseñas para los servicios vinculados. Por lo tanto, debe proporcionar las credenciales como parámetros de implementación. Si no quiere escribir manualmente las credenciales para la configuración, considere en su lugar la posibilidad de recuperar las cadenas de conexión y las contraseñas de Azure Key Vault. [Más información](store-credentials-in-key-vault.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,18 +1,18 @@
 ---
 title: 'Determinación de la opción de publicación: marketplace comercial de Microsoft'
 description: En este artículo se describen los criterios de idoneidad y los requisitos para publicar ofertas en Microsoft AppSource y Azure Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.author: dsindona
-ms.openlocfilehash: 7c8a8bcef548ae752b6ddeb7663dd82b3f245349
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+author: keferna
+ms.author: keferna
+ms.date: 06/22/2020
+ms.openlocfilehash: 3d8692d3180e4164bff544f71a1216097a390773
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957892"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103660"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar la opción de publicación
 
@@ -56,11 +56,11 @@ Las aplicaciones de **Microsoft AppSource** son soluciones de línea de negocio 
 Las aplicaciones de **Azure Marketplace** son soluciones técnicas de "bloques de creación" integradas en Azure o creadas para Azure y dirigidas a un público de desarrolladores o expertos en TI. Los servicios de consultoría de Azure Marketplace son ofertas de servicios profesionales que ayudan a los clientes a empezar a usar Azure o a acelerar su uso.
 
 >[!Note]
->Listados cruzados (para aplicaciones de SaaS): si una oferta de compra o versión de evaluación cumple los criterios para un público de usuarios técnicos y empresariales, se publicará en ambos escaparates. A continuación se incluye más información sobre las opciones de publicación.
+>"Listados cruzados" (solo para aplicaciones SaaS): si su oferta de SaaS está diseñada para una audiencia técnica (Azure Marketplace) y una audiencia empresarial (AppSource), puede seleccionar una categoría o subcategoría aplicable a cualquier escaparate. No olvide que la intención de hacer "listados cruzados" para su oferta debe basarse en una propuesta de valor que se amplíe a ambas audiencias. Haga clic [aquí](./gtm-offer-listing-best-practices.md#categories) para ver las categorías aplicables a cada escaparate.
 
 ## <a name="choose-a-publishing-option"></a>Selección de la opción de publicación
 
-Las opciones de publicación disponibles ofrecen un compromiso diferenciado del cliente y le ofrecen acceso al uso compartido de clientes potenciales y a [ventajas de Marketplace comercial](gtm-your-marketplace-benefits.md). Tenga en cuenta las llamadas a la acción que se corresponden con la opción de publicación:
+Las opciones de publicación disponibles ofrecen un compromiso diferenciado del cliente y le ofrecen acceso al uso compartido de clientes potenciales y a [ventajas de Marketplace comercial](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits). Tenga en cuenta las llamadas a la acción que se corresponden con la opción de publicación:
 
 | **Opción de publicación**    | **Descripción**  |
 | :------------------- | :-------------------|

@@ -4,15 +4,15 @@ description: Este documento proporciona información general sobre los requisito
 author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: conceptual
-ms.date: 01/09/2020
+ms.topic: how-to
+ms.date: 06/04/2020
 ms.author: lbosq
-ms.openlocfilehash: 8156c1c3601b0cd6f518f6a70bc4e0769c570e7f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ffa30b0fa42abc69c19b5e6c32f4224f3ad1c95a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647277"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263065"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Pasos previos a la migración para migraciones de datos de MongoDB a la API de Azure Cosmos DB para MongoDB
 
@@ -79,7 +79,10 @@ La creación de particiones, también conocida como particionamiento, es un punt
 De forma similar, la funcionalidad de creación de particiones agrega capacidad automáticamente y vuelve a equilibrar los datos en consecuencia. Para obtener detalles y recomendaciones sobre cómo elegir la clave de partición correcta para los datos, consulte el [artículo Elección de una clave de partición](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey). 
 
 ## <a name="index-your-data"></a><a id="indexing"></a>Indexación de los datos
-De forma predeterminada, Azure Cosmos DB proporciona la indexación automática en todos los datos insertados. Entre las funcionalidades de indexación proporcionadas por Azure Cosmos DB se incluye la adición de índices compuestos, índices únicos e índices del período de vida (TTL). La interfaz de administración de índices se asigna al comando `createIndex()`. Obtenga más información en [Indexación en la API de Azure Cosmos DB para MongoDB](mongodb-indexing.md).
+
+La API de Azure Cosmos DB para el servidor MongoDB versión 3.6 solo indexa automáticamente el campo `_id`. Este campo no se puede quitar. Aplica automáticamente la unicidad del campo `_id` por clave de partición. Para indexar campos adicionales, se aplican los comandos de administración de índices de MongoDB. Esta directiva de indexación predeterminada difiere de la API SQL de Azure Cosmos DB, que indexa todos los campos de manera predeterminada.
+
+Entre las funcionalidades de indexación proporcionadas por Azure Cosmos DB se incluye la adición de índices compuestos, índices únicos e índices del período de vida (TTL). La interfaz de administración de índices se asigna al comando `createIndex()`. Obtenga más información en el artículo [Indexación en la API de Azure Cosmos DB para MongoDB](mongodb-indexing.md).
 
 [Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db.md) migra automáticamente las colecciones de MongoDB con índices únicos. Sin embargo, los índices únicos deben crearse antes de la migración. Azure Cosmos DB no admite la creación de índices únicos cuando ya hay datos en las colecciones. Para más información, consulte [Claves únicas en Azure Cosmos DB](unique-keys.md).
 

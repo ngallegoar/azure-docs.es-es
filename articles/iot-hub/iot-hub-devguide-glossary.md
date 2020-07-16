@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 73981cb0f124e1577690f893ead60e6375f16298
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78899f44ba6610f17d19b025f61d968a629c8ad6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133147"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565886"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glosario de términos de IoT Hub
 
@@ -58,7 +58,7 @@ Hay _SDK de servicios_ disponibles para varios idiomas que permiten crear [aplic
 
 Las [herramientas de Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) son una extensión de Visual Studio Code multiplataforma y de código abierto que lo ayuda a administrar Azure IoT Hub y dispositivos en VS Code. Con las herramientas de Azure IoT, los desarrolladores de IoT podrían desarrollar proyectos de IoT en VS Code con facilidad.
 
-## <a name="azure-portal"></a>Portal de Azure
+## <a name="azure-portal"></a>Azure portal
 
 [Microsoft Azure Portal](https://portal.azure.com) es una ubicación central desde donde se pueden aprovisionar y administrar los recursos de Azure. Organiza su contenido mediante _hojas_.
 
@@ -222,7 +222,7 @@ Las [métricas de IoT Hub](iot-hub-metrics.md) ofrecen datos sobre el estado de 
 
 ## <a name="iot-hub-query-language"></a>Lenguaje de consulta de IoT Hub
 
-El [lenguaje de consulta de IoT Hub](iot-hub-devguide-query-language.md) es un lenguaje de tipo SQL que permite consultar los [](#job) y sus dispositivos gemelos.
+El [lenguaje de consulta de IoT Hub](iot-hub-devguide-query-language.md) es un lenguaje de tipo SQL que permite consultar el [trabajo](#job) y los dispositivos gemelos.
 
 ## <a name="iot-hub-resource-rest-api"></a>API REST de recursos de IoT Hub
 
@@ -321,7 +321,7 @@ Para mayor comodidad, muchos de los tutoriales de IoT Hub usan dispositivos simu
 ## <a name="solution"></a>Solución
 Una _solución_ puede hacer referencia a una solución de Visual Studio que incluye uno o más proyectos. Una _solución_ también puede hacer referencia a una solución de IoT que incluye elementos como dispositivos, [aplicaciones para dispositivo](#device-app), un centro de IoT, otros servicios de Azure y [aplicaciones de back-end](#back-end-app).
 
-## <a name="subscription"></a>Subscription
+## <a name="subscription"></a>Suscripción
 
 Una suscripción de Azure es donde se realiza la facturación. Cada recurso de Azure que se crea o servicio de Azure que se utiliza está asociado a una única suscripción. Muchas cuotas también se aplican en el nivel de suscripción.
 
@@ -343,7 +343,7 @@ Se puede utilizar un servicio de token a fin de implementar un mecanismo de aute
 
 ## <a name="twin-queries"></a>Consultas gemelas
 
-Las [consultas de dispositivos y módulos gemelos](iot-hub-devguide-query-language.md) usan el lenguaje de consulta de IoT Hub de tipo SQL para recuperar información de los dispositivos o módulos gemelos. Puede usar el mismo lenguaje de consulta de IoT Hub para recuperar información sobre los trabajos [](#job) que se ejecuten en IoT Hub.
+Las [consultas de dispositivos y módulos gemelos](iot-hub-devguide-query-language.md) usan el lenguaje de consulta de IoT Hub de tipo SQL para recuperar información de los dispositivos o módulos gemelos. Puede usar el mismo lenguaje de consulta de IoT Hub para recuperar información sobre un [trabajo](#job) que se ejecuta en IoT Hub.
 
 ## <a name="twin-synchronization"></a>Sincronización de gemelos
 

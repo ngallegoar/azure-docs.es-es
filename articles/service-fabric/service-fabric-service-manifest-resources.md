@@ -3,12 +3,12 @@ title: Especificación de los puntos de conexión de servicio de Service Fabric
 description: Cómo describir los recursos de punto de conexión en un manifiesto de servicio, incluida la configuración de puntos de conexión HTTPS
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 88e71d15829e68bde635f5b4d40224b8fa914f40
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 458a10ca118bbb14f22ad9b1ae127c2036573db9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417590"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610751"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificación de los recursos en un manifiesto de servicio
 ## <a name="overview"></a>Información general
@@ -52,8 +52,6 @@ Vea [Configuración de Reliable Services con estado](service-fabric-reliable-ser
 
 ## <a name="example-specifying-an-http-endpoint-for-your-service"></a>Ejemplo: Especificación de un punto de conexión HTTP para el servicio
 El siguiente manifiesto de servicio define un recurso de punto de conexión TCP y dos recursos de punto de conexión HTTP en el elemento &lt;Recursos&gt;.
-
-Service Fabric hace ACL automáticamente en los puntos de conexión HTTP.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -157,6 +155,8 @@ Este es un ejemplo de ApplicationManifest que muestra la configuración necesari
 
 En los clústeres de Linux, el valor predeterminado del almacén **MY** es la carpeta **/var/lib/sfcerts**.
 
+## <a name="port-acling-for-http-endpoints"></a>Realización de ACL en el puerto para puntos de conexión HTTP
+Service Fabric agregará automáticamente los puntos de conexión ACL HTTP(S) especificados de forma predeterminada. **No** realizar un ACL de forma automática si un punto de conexión no tiene una propiedad [SecurityAccessPolicy](service-fabric-assign-policy-to-endpoint.md) asociad y Service Fabric está configurado para ejecutarse con una cuenta con privilegios de administrador.
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Invalidación de Endpoints en ServiceManifest.xml
 

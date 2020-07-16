@@ -9,14 +9,17 @@ ms.subservice: management
 ms.date: 10/23/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: cbe080b4c2b6e73ae15fd186589bd43535bfc13d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 54515b347a95b9315ca9ba87568fb2104c3b2b45
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198403"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737009"
 ---
-# <a name="orchestration-mode-preview"></a>Modo de orquestación (versión preliminar)
+# <a name="orchestration-modes-preview"></a>Modo de orquestación (versión preliminar)
+
+> [!CAUTION]
+> Gracias a todos los usuarios que participaron en esta versión preliminar pública. Pudimos recopilar comentarios valiosos de nuestra comunidad. Esta versión preliminar está ahora **cerrada** a nuevos participantes, con el objetivo de integrar los comentarios. Este espacio se actualizará con cualquier nueva información que tengamos.
 
 Los conjuntos de escalado de máquinas virtuales proporcionan una agrupación lógica de máquinas virtuales administradas por la plataforma. Con los conjuntos de escalado, se crea un modelo de configuración de máquina virtual, se agregan o quitan automáticamente instancias adicionales en función de la carga de CPU o de memoria y se actualiza automáticamente a la versión más reciente del sistema operativo. Tradicionalmente, los conjuntos de escalado permiten crear máquinas virtuales con un modelo de configuración de máquina virtual proporcionado en el momento de la creación del conjunto de escalado. Además, el conjunto de escalado solo puede administrar máquinas virtuales que se crean de forma implícita según el modelo de configuración.
 

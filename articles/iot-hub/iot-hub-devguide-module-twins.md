@@ -1,22 +1,22 @@
 ---
 title: Módulos gemelos de Azure IoT Hub | Microsoft Docs
 description: 'Guía para desarrolladores: uso de módulos gemelos para sincronizar los datos de estado y configuración entre IoT Hub y sus dispositivos'
-author: chrissie926
+author: ash2017
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/01/2020
-ms.author: menchi
-ms.openlocfilehash: 5ef6c4de288a764abbe434c5d84fc99e154f7492
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/29/2020
+ms.author: asrastog
+ms.openlocfilehash: ef622d950595752e616608ef56d8df66b8a9813f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78303603"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610156"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Uso de módulos gemelos en IoT Hub
 
-En este artículo se da por supuesto que ha leído primero [Dispositivos gemelos en IoT Hub](iot-hub-devguide-device-twins.md). En IoT Hub, en cada identidad de dispositivo, puede crear hasta 20 identidades de módulo. Cada identidad de módulo genera implícitamente un módulo gemelo. De forma parecida a los dispositivos gemelos, los módulos gemelos son documentos JSON que almacenan información acerca del estado del módulo, incluidos metadatos, configuraciones y condiciones. Azure IoT Hub mantiene un módulo gemelo para cada módulo que se conecta a IoT Hub. 
+En este artículo se da por supuesto que ha leído primero [Dispositivos gemelos en IoT Hub](iot-hub-devguide-device-twins.md). En IoT Hub, en cada identidad de dispositivo, puede crear hasta 50 identidades de módulos. Cada identidad de módulo genera implícitamente un módulo gemelo. De forma parecida a los dispositivos gemelos, los módulos gemelos son documentos JSON que almacenan información acerca del estado del módulo, incluidos metadatos, configuraciones y condiciones. Azure IoT Hub mantiene un módulo gemelo para cada módulo que se conecta a IoT Hub. 
 
 En el lado del dispositivo, los SDK de dispositivo de IoT Hub le permiten crear módulos, donde cada uno abre una conexión independiente a IoT Hub. Esta funcionalidad le permite usar espacios de nombres distintos para distintos componentes del dispositivo. Por ejemplo, tiene una máquina expendedora con tres sensores diferentes. Cada sensor se controla mediante diferentes departamentos de su empresa. Puede crear un módulo para cada sensor. De esta manera, cada departamento solo puede enviar trabajos o métodos directos al sensor que controlan, con lo que se evitan conflictos y errores de usuario.
 
@@ -236,35 +236,45 @@ Los [SDK de dispositivos IoT de Azure](iot-hub-devguide-sdks.md) permiten usar f
 
 Las etiquetas y las propiedades deseadas y notificadas son objetos JSON con las siguientes restricciones:
 
-* **Claves**: Todas las claves en objetos JSON son cadenas UNICODE UTF-8 de 64 caracteres que distinguen entre mayúsculas y minúsculas. Entre los caracteres permitidos no se incluyen los caracteres de control UNICODE (segmentos C0 y C1), ni `.`, SP y `$`.
+* **Claves**: Todas las claves en objetos JSON tienen codificación UTF-8, con distinción de mayúsculas y minúsculas, y una longitud de hasta 1 KB. Entre los caracteres permitidos no se incluyen los caracteres de control UNICODE (segmentos C0 y C1), ni `.`, `$` y SP.
 
 * **Valores**: Todos los valores en un objeto JSON pueden ser de los siguientes tipos JSON: booleano, número, cadena, objeto. No se permiten matrices.
 
     * Los enteros pueden tener un valor mínimo de -4503599627370496 y un máximo de 4503599627370495.
 
-    * Los valores de la cadena son codificados UTF-8 y pueden tener una longitud máxima de 512 bytes.
+    * Los valores de la cadena son codificados UTF-8 y pueden tener una longitud máxima de 4 KB.
 
-* **Profundidad**: Todos los objetos JSON en etiquetas y propiedades deseadas y notificadas pueden tener una profundidad máxima de 5. Por ejemplo, el objeto siguiente es válido:
+* **Profundidad**: La profundidad máxima de los objetos JSON en etiquetas y propiedades deseadas y notificadas es 10. Por ejemplo, el objeto siguiente es válido:
 
-    ```json
-    {
-        ...
-        "tags": {
-            "one": {
-                "two": {
-                    "three": {
-                        "four": {
-                            "five": {
-                                "property": "value"
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        ...
-    }
-    ```
+   ```json
+   {
+       ...
+       "tags": {
+           "one": {
+               "two": {
+                   "three": {
+                       "four": {
+                           "five": {
+                               "six": {
+                                   "seven": {
+                                       "eight": {
+                                           "nine": {
+                                               "ten": {
+                                                   "property": "value"
+                                               }
+                                           }
+                                       }
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+           }
+       },
+       ...
+   }
+   ```
 
 ## <a name="module-twin-size"></a>Tamaño del módulo gemelo
 

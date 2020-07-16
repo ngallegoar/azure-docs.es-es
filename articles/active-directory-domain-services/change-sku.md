@@ -8,18 +8,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/31/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 8109b7b1f6cd8477d49bafd114be24b91530d123
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51f277827ac0865eaede141e5817962b04d2bd49
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734969"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221460"
 ---
 # <a name="change-the-sku-for-an-existing-azure-active-directory-domain-services-managed-domain"></a>Cambio de SKU en un dominio administrado de Azure Active Directory Domain Services
 
-En Azure Active Directory Domain Services (Azure AD DS), el rendimiento y las características disponibles dependen del tipo de SKU. Las características difieren, por ejemplo, en la frecuencia con que se realizan copias de seguridad o en el número máximo de relaciones de confianza de salida unidireccionales que se establecen entre los bosques (actualmente en versión preliminar). Puede seleccionar una SKU al crear el dominio administrado y ampliarla o reducirla después si las necesidades del negocio varían una vez que ha implementado el dominio administrado. Las necesidades del negocio pueden variar, por ejemplo, porque sea necesario aumentar la frecuencia de las copias de seguridad o crear nuevas relaciones de confianza entre los bosques. Para más información sobre los límites y los precios de las distintas SKU, consulte estas páginas sobre los [conceptos relacionados con SKU en Azure AD DS][concepts-sku] y los [precios de Azure AD DS][pricing].
+En Azure Active Directory Domain Services (Azure AD DS), el rendimiento y las características disponibles dependen del tipo de SKU. Las características difieren, por ejemplo, en la frecuencia con que se realizan copias de seguridad o en el número máximo de relaciones de confianza de salida unidireccionales que se establecen entre los bosques (actualmente en versión preliminar).
+
+Puede seleccionar una SKU al crear el dominio administrado y ampliarla o reducirla después si las necesidades del negocio varían una vez que ha implementado el dominio administrado. Las necesidades del negocio pueden variar, por ejemplo, porque sea necesario aumentar la frecuencia de las copias de seguridad o crear nuevas relaciones de confianza entre los bosques. Para más información sobre los límites y los precios de las distintas SKU, consulte estas páginas sobre los [conceptos relacionados con SKU en Azure AD DS][concepts-sku] y los [precios de Azure AD DS][pricing].
 
 En este artículo, se explica cómo se crea la SKU de un dominio administrado de Azure AD DS en Azure Portal.
 

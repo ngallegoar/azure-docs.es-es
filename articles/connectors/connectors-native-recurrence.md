@@ -3,19 +3,19 @@ title: Programación de tareas y flujos de trabajo periódicos
 description: Programación y ejecución de tareas y flujos de trabajo automatizados periódicos con el desencadenador de periodicidad en Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, klam, logicappspm
+ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 47bb4e4cc4902168631fa67f186d0b3259c94328
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 18a58815ccd7bd229b6c1a27c92e903f22c8fd55
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83004642"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322566"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Creación, programación y ejecución de tareas y flujos de trabajo periódicos con el desencadenador de periodicidad en Azure Logic Apps
 
-Para ejecutar con regularidad las tareas, procesos o trabajos en una programación específica, puede iniciar el flujo de trabajo de la aplicación lógica con el desencadenador de **periodicidad-programación** integrado. Puede establecer una fecha y hora, así como una zona horaria para iniciar el flujo de trabajo y una periodicidad para la repetición de ese flujo de trabajo. Si se pierde la periodicidad por cualquier motivo, este desencadenador hace que continúe en el siguiente intervalo programado. Para obtener más información sobre los desencadenadores y las acciones de programación integrados, consulte [Programar y ejecutar tareas y flujos de trabajo automatizados y periódicos con Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+Para ejecutar con regularidad las tareas, procesos o trabajos en una programación específica, puede iniciar el flujo de trabajo de la aplicación lógica con el desencadenador de **periodicidad-programación** integrado. Puede establecer una fecha y hora, así como una zona horaria para iniciar el flujo de trabajo y una periodicidad para la repetición de ese flujo de trabajo. Si se pierden las periodicidades por alguna razón, por ejemplo, debido a interrupciones o flujos de trabajo deshabilitados, este desencadenador no procesa las periodicidades perdidas, sino que las reinicia en el siguiente intervalo programado. Para obtener más información sobre los desencadenadores y las acciones de programación integrados, consulte [Programar y ejecutar tareas y flujos de trabajo automatizados y periódicos con Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 A continuación se muestran algunos patrones compatibles con este desencadenador junto con periodicidades más avanzadas y programaciones complejas:
 
@@ -34,7 +34,7 @@ Para ver las diferencias entre este desencadenador y el desencadenador de ventan
 > [!TIP]
 > Si desea desencadenar la aplicación lógica y ejecutarla solo una vez en el futuro, consulte [Ejecución de trabajos una sola vez](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#run-once).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 

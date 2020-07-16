@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 602053f7a52b9a46fa797bd1146cf63c02bb60d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4930d99c4175126ffba65598bd6b33e973ba1c44
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465361"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109508"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Uso de DistCp para copiar datos entre Azure Storage Blob y Azure Data Lake Storage Gen2
 
@@ -21,7 +21,7 @@ Puede usar [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.h
 
 DistCp proporciona una variedad de parámetros de línea de comandos y se recomienda encarecidamente leer este artículo para optimizar el uso de la herramienta. En este artículo se explica la funcionalidad básica, al mismo tiempo que se centra en su uso para copiar datos a una cuenta con el espacio de nombres jerárquico habilitado.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Una cuenta existente de Azure Storage sin las funcionalidades de Data Lake Storage Gen2 habilitadas, como el espacio de nombres jerárquico.
@@ -37,25 +37,33 @@ Un clúster de HDInsight incluye la utilidad DistCp, que puede utilizarse para c
 
 2. Compruebe si puede acceder a la cuenta existente de uso general V2 (sin el espacio de nombres jerárquico habilitado).
 
-        hdfs dfs –ls wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/
+    ```bash
+    hdfs dfs –ls wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/
+    ```
 
    La salida debería proporcionar una lista de contenido en el contenedor.
 
 3. De forma similar, compruebe si puede acceder a la cuenta de almacenamiento con el espacio de nombres jerárquico habilitado desde el clúster. Ejecute el siguiente comando:
 
-        hdfs dfs -ls abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/
+    ```bash
+    hdfs dfs -ls abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/
+    ```
 
     La salida debería proporcionar una lista de archivos o carpetas en la cuenta de Data Lake Storage.
 
 4. Utilice DistCp para copiar datos desde WASB a una cuenta de Data Lake Storage.
 
-        hadoop distcp wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
+    ```bash
+    hadoop distcp wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
+    ```
 
     El comando copia el contenido de la carpeta **/example/data/gutenberg/** de Blob Storage a **/myfolder** en la cuenta de Data Lake Storage.
 
 5. Asimismo, utilice DistCp para copiar datos de la cuenta de Data Lake Storage a Blob Storage (WASB).
 
-        hadoop distcp abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg
+    ```bash
+    hadoop distcp abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg
+    ```
 
     El comando copia el contenido de **/myfolder** de la cuenta de Data Lake Store en la carpeta **/example/data/gutenberg/** de WASB.
 
@@ -65,7 +73,9 @@ Dado que la granularidad más baja de DistCp es un único archivo, configurar el
 
 **Ejemplo**
 
-    hadoop distcp -m 100 wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
+```bash
+hadoop distcp -m 100 wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
+```
 
 ### <a name="how-do-i-determine-the-number-of-mappers-to-use"></a>¿Cómo se puede determinar el número de asignadores que se debe usar?
 
@@ -75,7 +85,7 @@ A continuación hay algunas instrucciones que puede usar.
 
 * **Paso 2: Cálculo del número de mapeadores**: el valor de **m** es igual al cociente de la memoria de YARN total dividido por el tamaño del contenedor de YARN. La información del tamaño de contenedor de YARN está también disponible en el portal del Ambari. Vaya a YARN y vea la pestaña Configs (Configuraciones). En esta ventana se muestra el tamaño del contenedor de YARN. La ecuación para llegar al número de asignadores (**m**) es
 
-        m = (number of nodes * YARN memory for each node) / YARN container size
+    m = (número de nodos * memoria YARN para cada nodo) / tamaño del contenedor de YARN
 
 **Ejemplo**
 
@@ -83,11 +93,11 @@ Supongamos que tiene un clúster 4x D14v2s y que intenta transferir 10 TB de da
 
 * **Memoria de YARN total**: en el portal de Ambari determinará que la memoria de YARN es de 96 GB para un nodo D14. Por lo tanto, la memoria de YARN total para el clúster de cuatro nodos es: 
 
-        YARN memory = 4 * 96GB = 384GB
+    Memoria YARN = 4 * 96 GB = 384 GB
 
 * **Número de mapeadores**: en el portal de Ambari determinará que el tamaño del contenedor de YARN es 3072 MB para un nodo de clúster D14. Por lo tanto, el número de asignadores es:
 
-        m = (4 nodes * 96GB) / 3072MB = 128 mappers
+    m = (4 nodos * 96 GB) / 3072 MB = 128 mapeadores
 
 Si otras aplicaciones usan memoria, solo puede elegir usar una parte de la memoria de YARN del clúster para DistCp.
 

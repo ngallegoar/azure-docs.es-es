@@ -4,15 +4,15 @@ description: Se pueden configurar los intervalos de direcciones IP para SNAT.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
-ms.date: 06/01/2020
+ms.topic: how-to
+ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: 28ec61c4aefeacb8014e0a5d48d0259cf7fcf7f3
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: be2bf0f9590a23f9def44a1800338c80f69a782c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267039"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610530"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Intervalos de direcciones IP privadas de SNAT de Azure Firewall
 
@@ -35,7 +35,7 @@ En el caso de un nuevo firewall, el comando de Azure PowerShell es:
 `New-AzFirewall -Name $GatewayName -ResourceGroupName $RG -Location $Location -VirtualNetworkName $vnet.Name -PublicIpName $LBPip.Name -PrivateRange @("IANAPrivateRanges","IPRange1", "IPRange2")`
 
 > [!NOTE]
-> IANAPrivateRanges se expande a los valores predeterminados actuales en Azure Firewall mientras que los demás intervalos se agregan a él.
+> IANAPrivateRanges se expande a los valores predeterminados actuales en Azure Firewall mientras que los demás intervalos se agregan a él. Para mantener el valor predeterminado de IANAPrivateRanges en su especificación de intervalo privado, debe permanecer en la especificación de `PrivateRange`, tal como se muestra en los ejemplos siguientes.
 
 Para más información, consulte [New-AzFirewall](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall?view=azps-3.3.0).
 

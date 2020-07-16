@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 3f9f4db0119b10a2df3a1007f9e5fa710e31f0e2
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: b348f3f3684d580ca84eed9b9a094717c12cf849
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84113715"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85319091"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Actividad de procedimiento almacenado de SQL Server
 > [!div class="op_single_selector" title1="Actividades de transformación"]
@@ -49,7 +49,7 @@ Puede usar la actividad de procedimiento almacenado para invocar un procedimient
 >
 > Al copiar datos de Azure SQL Database, SQL Server o Azure SQL Data Warehouse, se puede configurar **SqlSource** en la actividad de copia para invocar un procedimiento almacenado de lectura de datos mediante la propiedad **sqlReaderStoredProcedureName**. Para más información, consulte los artículos sobre los conectores siguientes: [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)
 
-El siguiente procedimiento usa la actividad del procedimiento almacenado en una canalización para invocar un procedimiento almacenado en una base de datos de Azure SQL.
+El siguiente procedimiento usa la actividad del procedimiento almacenado en una canalización para invocar un procedimiento almacenado en Azure SQL Database.
 
 ## <a name="walkthrough"></a>Tutorial
 ### <a name="sample-table-and-stored-procedure"></a>Procedimiento almacenado y tabla de ejemplo
@@ -106,7 +106,7 @@ El siguiente procedimiento usa la actividad del procedimiento almacenado en una 
    ![Página principal de Data Factory](media/data-factory-stored-proc-activity/data-factory-home-page.png)
 
 ### <a name="create-an-azure-sql-linked-service"></a>Crear un servicio vinculado SQL de Azure.
-Después de crear la factoría de datos, cree un servicio vinculado de Azure SQL que conecte su base de datos de Azure SQL (que contiene la tabla sampletable y el procedimiento almacenado usp_sample) con la factoría de datos.
+Después de crear la factoría de datos, cree un servicio vinculado de Azure SQL que conecte su base de datos de Azure SQL Database (que contiene la tabla sampletable y el procedimiento almacenado usp_sample) con la factoría de datos.
 
 1. En la hoja **Crear e implementar**, haga clic en la hoja **Data Factory** para que **SProcDF** inicie Data Factory Editor.
 2. Haga clic en **Nuevo almacén de datos** en la barra de comandos y elija **Azure SQL Database**. Debería ver el script JSON para crear un servicio vinculado SQL de Azure en el editor.
@@ -207,7 +207,7 @@ Tenga en cuenta las siguientes propiedades:
 3. En la Vista de diagrama, haga doble clic en el conjunto de datos `sprocsampleout`. Verá los segmentos con estado Listo. Debería haber cinco segmentos, porque se genera un segmento para cada hora entre la hora de inicio y de finalización del código JSON.
 
     ![icono Diagrama](media/data-factory-stored-proc-activity/data-factory-slices.png)
-4. Cuando un segmento tiene el estado **Listo**, ejecute una consulta `select * from sampletable` en la base de datos de Azure SQL para comprobar que el procedimiento almacenado insertó los datos en la tabla.
+4. Cuando un segmento tiene el estado **Listo**, ejecute una consulta `select * from sampletable` en la base de datos para comprobar que el procedimiento almacenado insertó los datos en la tabla.
 
    ![Datos de salida](./media/data-factory-stored-proc-activity/output.png)
 
@@ -310,7 +310,7 @@ En la tabla siguiente se describen estas propiedades JSON:
 | type | Se debe establecer en: **SqlServerStoredProcedure** | Sí |
 | inputs | Opcional. Si especifica un conjunto de datos de entrada, debe estar disponible (en estado "Listo") para que se ejecute la actividad de procedimiento almacenado. El conjunto de datos de entrada no se puede usar en el procedimiento almacenado como parámetro. Solo se utiliza para comprobar la dependencia antes de iniciar la actividad de procedimiento almacenado. |No |
 | outputs | Debe especificar un conjunto de datos para una actividad de procedimiento almacenado. El conjunto de datos de salida especifica la **programación** para la actividad de procedimiento almacenada (por hora, semanal, mensual, etc.). <br/><br/>El conjunto de datos de salida debe utilizar un **servicio vinculado** que haga referencia a una base de datos de Azure SQL, una base de datos de almacenamiento de Azure SQL o una base de datos de SQL Server donde desee que el procedimiento almacenado se ejecute. <br/><br/>El conjunto de datos de salida puede usarse como una forma de pasar el resultado del procedimiento almacenado para su posterior procesamiento por otra actividad ([encadenamiento de actividades](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) en la canalización. Sin embargo, Data Factory no escribe automáticamente la salida de un procedimiento almacenado en este conjunto de datos. Es el procedimiento almacenado el que escribe en una tabla SQL a la que apunta el conjunto de datos de salida. <br/><br/>En algunos casos, el conjunto de datos de salida puede ser un **conjunto de datos ficticio**, que solo se utilice para especificar la programación para ejecutar la actividad de procedimiento almacenado. |Sí |
-| storedProcedureName |Especifique el nombre del procedimiento almacenado de la base de datos de Azure SQL, el almacenamiento de datos de Azure SQL o la base de datos de SQL Server que se representa mediante el servicio vinculado que usa la tabla de salida. |Sí |
+| storedProcedureName |Especifique el nombre del procedimiento almacenado en Azure SQL Database, Azure SQL Data Warehouse o SQL Server que se representa mediante el servicio vinculado que usa la tabla de salida. |Sí |
 | storedProcedureParameters |Especifique valores para los parámetros del procedimiento almacenado. Si necesita pasar null para un parámetro, use la sintaxis: "param1": null (todo en minúsculas). Vea el ejemplo siguiente para aprender el uso de esta propiedad. |No |
 
 ## <a name="passing-a-static-value"></a>Pasar un valor estático

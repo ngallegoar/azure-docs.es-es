@@ -2,22 +2,21 @@
 title: Acceso a API locales con Azure AD Application Proxy
 description: Azure Active Directory Application Proxy permite a las aplicaciones nativas acceder de forma segura a las API y la lógica de negocios que hospeda en el entorno local o en las VM en la nube.
 services: active-directory
-author: jeevanbisht
-manager: mtillman
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/12/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.custom: has-adal-ref
-ms.openlocfilehash: c3efd94e741124d5e662ac17e9c1daaf66d4c1c5
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: a5db76f0258eb08f6b1f8ed102dc29e26c8d8bb0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168816"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85206451"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Acceso seguro a API locales con Azure AD Application Proxy
 
@@ -35,7 +34,7 @@ En el diagrama siguiente se muestra cómo puede usar Azure AD Application Proxy
 
 ![Acceso a API de Azure AD Application Proxy](./media/application-proxy-secure-api-access/overview-publish-api-app-proxy.png)
 
-Azure AD Application Proxy es la base de la solución, funciona como punto de conexión público para el acceso a API y proporciona autenticación y autorización. Puede acceder a las API desde una amplia variedad de plataformas mediante las bibliotecas [ADAL](/azure/active-directory/develop/active-directory-authentication-libraries).
+Azure AD Application Proxy es la base de la solución, funciona como punto de conexión público para el acceso a API y proporciona autenticación y autorización. Puede acceder a las API desde una amplia variedad de plataformas mediante las bibliotecas de tipo [Biblioteca de autenticación de Microsoft (MSAL)](/azure/active-directory/develop/active-directory-authentication-libraries).
 
 Puesto que la autorización y autenticación de Azure AD Application Proxy se basan en Azure AD, puede usar el acceso condicional de Azure AD para asegurarse de que solo los dispositivos de confianza puedan tener acceso a las API publicadas mediante Application Proxy. Use Unión a Azure AD o Unión a Azure AD híbrido para escritorios e Intune Managed para dispositivos. También puede aprovechar las características de Azure Active Directory Premium, como la autenticación multifactor de Azure y la seguridad basada en el aprendizaje automático de [Azure Identity Protection](/azure/active-directory/active-directory-identityprotection).
 
@@ -137,7 +136,7 @@ Ya ha registrado la aplicación AppProxyNativeAppSample en Azure Active Direct
 
 ## <a name="configure-the-native-app-code"></a>Configurar el código de aplicación nativo
 
-El último paso es configurar la aplicación nativa. El siguiente fragmento de código del archivo *Form1.cs* de la aplicación de ejemplo NativeClient hace que la biblioteca ADAL adquiera el token para solicitar la llamada API y que lo adjunte como portador al encabezado de la aplicación.
+El último paso es configurar la aplicación nativa. El siguiente fragmento de código del archivo *Form1.cs* de la aplicación de ejemplo NativeClient hace que la biblioteca MSAL adquiera el token para solicitar la llamada API y que lo adjunte como portador al encabezado de la aplicación.
 
    ```
    // Acquire Access Token from AAD for Proxy Application

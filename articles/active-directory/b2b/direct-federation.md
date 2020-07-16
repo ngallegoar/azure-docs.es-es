@@ -4,26 +4,25 @@ description: Federe directamente con un proveedor de identidades SAML o WS-Fed p
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 05/11/2020
+ms.topic: how-to
+ms.date: 06/24/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 299b0a677e7ca7bea9481d94ecf98c993af0a6ed
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 78ad8761d3a4ff3e3cdab9dee5f50b469ff840fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591223"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551544"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federación directa con AD FS y proveedores de terceros para usuarios invitados (versión preliminar)
-|     |
-| --- |
-| La federación directa es una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+
+> [!NOTE]
+>  La federación directa es una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 En este artículo se describe cómo establecer una federación directa con otra organización para la colaboración B2B. Puede establecer una federación directa con cualquier organización cuyo proveedor de identidades (IdP) admita el protocolo SAML 2.0 o WS-Fed.
 Al configurar una federación directa con el proveedor de identidades de un asociado, los nuevos usuarios invitados de ese dominio pueden utilizar su propia cuenta de organización administrada por el proveedor de identidades para iniciar sesión con su inquilino de Azure AD y empezar a colaborar con usted. No es necesario que el usuario invitado cree otra cuenta de Azure AD.
@@ -221,3 +220,7 @@ Para quitar una federación directa con un proveedor de identidades mediante Pow
    ```powershell
    Remove-AzureADExternalDomainFederation -ExternalDomainName  $domainName
    ```
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Obtenga más información sobre la [experiencia de canje de invitación](redemption-experience.md) cuando los usuarios externos inician sesión con varios proveedores de identidades.

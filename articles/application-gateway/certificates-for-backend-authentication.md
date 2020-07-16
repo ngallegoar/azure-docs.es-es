@@ -5,15 +5,15 @@ description: En este artículo se proporcionan ejemplos de cómo un certificado 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 11/14/2019
+ms.topic: how-to
+ms.date: 06/17/2020
 ms.author: absha
-ms.openlocfilehash: 20f588639c54b0a8b7cd304f33b5a9d633a73be6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 125da04c9fafe33c7f3de3a5849e4238b3b45d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80133042"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84976547"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Creación de certificados para permitir el back-end con Azure Application Gateway
 
@@ -26,7 +26,7 @@ En este artículo aprenderá a:
 > - Exportar el certificado de autenticación desde un certificado de back-end (para SKU v1)
 > - Exportar el certificado raíz de confianza desde un certificado de back-end (para SKU v2)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Se requiere un certificado de back-end existente para generar los certificados de autenticación o los certificados raíz de confianza necesarios para permitir las instancias de back-end con Application Gateway. El certificado de back-end puede ser igual que el certificado TLS/SSL o distinto para una mayor seguridad. Application Gateway no proporciona ningún mecanismo para crear o adquirir un certificado TLS/SSL. Con fines de prueba, puede crear un certificado autofirmado, pero no debe usarlo en cargas de trabajo de producción. 
 
@@ -74,11 +74,11 @@ Desde el certificado TLS/SSL, exporte el archivo .cer de clave pública (no la c
 
 ## <a name="export-trusted-root-certificate-for-v2-sku"></a>Exportación del certificado raíz de confianza (para SKU v2)
 
-El certificado raíz de confianza es necesario para incluir en la lista de permitidos las instancias de back-end de la SKU v2 de Application Gateway. El certificado raíz es un certificado raíz en formato X.509 codificado en base 64 (.CER) de los certificados de servidor de back-end. En este ejemplo, se usará un certificado TLS/SSL como certificado de back-end, se exportará su clave pública y, luego, se exportará el certificado raíz de la entidad de certificación de confianza de la clave pública en formato codificado en Base 64 para obtener el certificado raíz de confianza. Los certificados intermedios se deben agrupar con un certificado de servidor e instalar en el servidor de back-end.
+Se requiere un certificado raíz de confianza para permitir las instancias de back-end de la SKU v2 de la puerta de enlace de aplicaciones. El certificado raíz es un certificado raíz en formato X.509 codificado en base 64 (.CER) de los certificados de servidor de back-end. En este ejemplo, se usará un certificado TLS/SSL como certificado de back-end, se exportará su clave pública y, luego, se exportará el certificado raíz de la entidad de certificación de confianza de la clave pública en formato codificado en Base 64 para obtener el certificado raíz de confianza. Los certificados intermedios se deben agrupar con un certificado de servidor e instalar en el servidor de back-end.
 
 Los pasos siguientes le ayudan a exportar el archivo .cer para el certificado:
 
-1. Use los pasos del 1 al 9 mencionados en la sección anterior **Exportar el certificado de autenticación desde un certificado de back-end (para SKU v1)** para exportar la clave pública desde el certificado de back-end.
+1. Use los pasos del 1 al 8 mencionados en la sección anterior [Exportación del certificado de autenticación (para SKU v1)](#export-authentication-certificate-for-v1-sku) para exportar la clave pública desde el certificado de back-end.
 
 2. Cuando se haya exportado la clave pública, abra el archivo.
 
@@ -106,5 +106,5 @@ Los pasos siguientes le ayudan a exportar el archivo .cer para el certificado:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora tiene el certificado de autenticación y el certificado raíz de confianza en formato X.509 codificado en Base 64 (.CER). Puede agregarlos a la puerta de enlace de aplicaciones para incluir en la lista de permitidos los servidores back-end para el cifrado TLS de un extremo a otro. Consulte [Configuración de TLS de un extremo a otro con Application Gateway mediante PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+Ahora tiene el certificado de autenticación y el certificado raíz de confianza en formato X.509 codificado en Base 64 (.CER). Puede agregarlos a la puerta de enlace de aplicaciones para permitir los servidores back-end para el cifrado TLS de un extremo a otro. Consulte [Configuración de TLS de un extremo a otro con Application Gateway mediante PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
 

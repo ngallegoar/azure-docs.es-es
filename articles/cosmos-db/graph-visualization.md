@@ -5,14 +5,14 @@ author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/02/2019
-ms.openlocfilehash: 1cabe57a0e7f2869a30973c8bbc8b4b38f664d81
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9999dad15cd02577eda85c15b67b98780a27b4a8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75500026"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261790"
 ---
 # <a name="visualize-graph-data-stored-in-azure-cosmos-db-gremlin-api-with-data-visualization-solutions"></a>Visualización de datos de gafo almacenados en Gremlin API de Azure Cosmos DB con soluciones de visualización de datos
 
@@ -20,17 +20,17 @@ Puede visualizar los datos almacenados en Gremlin API de Azure Cosmos DB mediant
 
 ## <a name="linkurious-enterprise"></a>Linkurious Enterprise
 
-![Logotipo de Linkurious](./media/graph-visualization/linkurious-logo.jpg)
+:::image type="content" source="./media/graph-visualization/linkurious-logo.jpg" alt-text="Logotipo de Linkurious" border="false":::
 
 [Linkurious Enterprise](https://linkurio.us/product/) usa tecnología de grafos y visualización de datos para convertir conjuntos de datos complejos en redes visuales interactivas. La plataforma se conecta a sus orígenes de datos y permite a los investigadores desplazarse sin problemas a través de miles de millones de entidades y relaciones. El resultado es una nueva capacidad para detectar relaciones sospechosas sin tener que hacer malabarismos con consultas o tablas.
 
 La interfaz interactiva de Linkurious Enterprise ofrece una manera fácil de investigar datos complejos. Puede buscar entidades específicas, expandir conexiones para descubrir relaciones ocultas y aplicar diseños de su elección para desenredar redes complejas. Linkurious Enterprise es ahora compatible con Gremlin API de Azure Cosmos DB. Es adecuado para escenarios de visualización de gráficos de un extremo a otro y admite funcionalidades de lectura y escritura desde la interfaz de usuario. Puede solicitar una [demostración de Linkurious con Azure Cosmos DB](https://linkurio.us/contact/).
 
-![Demostración de Linkurious](./media/graph-visualization/linkurious-demo.gif)
+:::image type="content" source="./media/graph-visualization/linkurious-demo.gif" alt-text="Demostración de Linkurious" border="false":::
 
 ## <a name="cambridge-intelligence"></a>Cambridge Intelligence
 
-![Logotipo de Cambridge Intelligence](./media/graph-visualization/ci-logo.png)
+:::image type="content" source="./media/graph-visualization/ci-logo.png" alt-text="Logotipo de Cambridge Intelligence" border="false":::
 
 Los kits de herramientas de visualización de grafos de [Cambridge Intelligence](https://cambridge-intelligence.com/products/) ahora admiten Azure Cosmos DB: Azure Cosmos DB admite los dos siguientes kits de herramientas de visualización:
 
@@ -38,11 +38,11 @@ Los kits de herramientas de visualización de grafos de [Cambridge Intelligence]
 
 - [ReGraph para los desarrolladores de React](https://cambridge-intelligence.com/regraph/)
 
-![Demostración de Cambridge Intelligence](./media/graph-visualization/ci-demo-2.gif)
+:::image type="content" source="./media/graph-visualization/ci-demo-2.gif" alt-text="Demostración de Cambridge Intelligence" border="false":::
 
 Los kits de herramientas le permiten diseñar aplicaciones de visualización y análisis de grafos de alto rendimiento para su caso de uso. Aprovechan la potente representación de Web Graphics Library (WebGL) y el código cuidadosamente diseñado para ofrecer a los usuarios una experiencia de visualización rápida y esclarecedora. Estas herramientas son compatibles con cualquier explorador, dispositivo, servidor o base de datos, y vienen acompañadas de tutoriales paso a paso, API totalmente documentadas y demostraciones interactivas.
 
-![Demostración de Cambridge Intelligence](./media/graph-visualization/ci-demo-1.gif)
+:::image type="content" source="./media/graph-visualization/ci-demo-1.gif" alt-text="Demostración de Cambridge Intelligence" border="false":::
 
 
 ## <a name="next-steps"></a>Pasos siguientes

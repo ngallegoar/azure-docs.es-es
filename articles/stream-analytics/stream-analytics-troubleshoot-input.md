@@ -5,15 +5,15 @@ author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9d8d87e0a2fb21603802f533a3566aa6743a9a79
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 3cac20e33ff865058ce41799ae8841a05716edc9
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831898"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045083"
 ---
 # <a name="troubleshoot-input-connections"></a>Solución de problemas de conexiones de entrada
 
@@ -139,14 +139,36 @@ FROM data
 
 Para las consultas en las que hay conectadas tres o más entradas al mismo grupo de consumidores de Event Hubs, cree grupos de consumidores independientes. Esto requiere la creación de entradas de Stream Analytics adicionales.
 
+### <a name="create-separate-inputs-with-different-consumer-groups"></a>Creación de entradas independientes con diferentes grupos de consumidores
+
+Puede crear entradas independientes con diferentes grupos de consumidores para el mismo Centro de eventos. La siguiente consulta UNION es un ejemplo en el que *InputOne* e *InputTwo* hacen referencia al mismo origen del Centro de eventos. Cualquier consulta puede tener entradas independientes con diferentes grupos de consumidores. La consulta UNION es solo un ejemplo.
+
+```sql
+WITH 
+DataOne AS 
+(
+SELECT * FROM InputOne 
+),
+
+DataTwo AS 
+(
+SELECT * FROM InputTwo 
+),
+
+SELECT foo FROM DataOne
+UNION 
+SELECT foo FROM DataTwo
+
+```
+
 ## <a name="get-help"></a>Obtener ayuda
 
-Para más ayuda, pruebe nuestra [Página de preguntas y respuestas de Microsoft sobre Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Para más ayuda, pruebe nuestra [página de preguntas y respuestas de Microsoft sobre Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Escalado de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Referencia del lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

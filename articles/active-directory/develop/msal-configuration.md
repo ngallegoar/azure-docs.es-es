@@ -7,18 +7,18 @@ author: shoatman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: reference
 ms.workload: identity
 ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: 9e35ba5a3f3705a52e80262da9bbfbfda489bf83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f6816da35aad51e88449361d2a80542c4349ffac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80050370"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85479426"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Archivo de configuración de la biblioteca de autenticación de Microsoft para Android
 
@@ -150,7 +150,7 @@ La siguiente configuración global es para el registro:
 | Propiedad | Tipo de datos  | Obligatorio | Notas |
 | ----------|-------------|-----------|---------|
 | `pii_enabled`  | boolean | No | Si se van a emitir datos personales |
-| `log_level`   | boolean | No | Qué mensajes de registro se van a generar |
+| `log_level`   | string | No | Qué mensajes de registro se van a generar. Entre los niveles de registro se incluyen `ERROR`,`WARNING`,`INFO` y `VERBOSE`. |
 | `logcat_enabled` | boolean | No | Indica si se va a generar el catálogo de registros, además de la interfaz de registro |
 
 ### <a name="account_mode"></a>account_mode

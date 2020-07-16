@@ -12,33 +12,69 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 06/12/2019
 ms.author: inhenkel
-ms.openlocfilehash: 9481b4ee2f225c7f76337d73b27630e4c67cc780
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: da80dacadbef560bb597a235fee59924d3887e19
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193603"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84765019"
 ---
 # <a name="live-transcription-preview"></a>Transcripción en directo (versión preliminar)
 
 Azure Media Services ofrece vídeo, audio y texto en diferentes protocolos. Cuando publica el streaming en vivo mediante MPEG-DASH o HLS/CMAF, el servicio proporcionará junto con el vídeo y el audio, el texto transcrito en formato IMSC1.1 compatible con TTML. La entrega se empaqueta en fragmentos MPEG-4 parte 30 (ISO/IEC 14496-30). Si la entrega se realiza mediante HLS/TS, el texto se proporcionará como VTT fragmentado.
 
-En este artículo se describe cómo habilitar la transcripción en directo al hacer streaming de un evento en directo con Azure Media Services v3. Antes de continuar, asegúrese de que está familiarizado con el uso de las API REST de Media Services v3 (consulte [este tutorial](stream-files-tutorial-with-rest.md) para más información). También debe estar familiarizado con el concepto de [streaming en vivo](live-streaming-overview.md). Se recomienda completar el tutorial [Streaming en vivo con Media Services](stream-live-tutorial-with-api.md).
+Cuando se activa Transcripción en directo, se aplican cargos adicionales. Revise la información de precios en la sección Vídeo en directo de la [página de precios de Media Services](https://azure.microsoft.com/pricing/details/media-services/).
 
-> [!NOTE]
-> Actualmente, la transcripción en directo solo está disponible como una característica en vista previa en la región Oeste de EE. UU. 2. Admite la transcripción de texto oral en inglés a texto. La referencia de la API para esta característica se encuentra a continuación; como está en versión preliminar, los detalles no están disponibles en nuestros documentos de REST.
+En este artículo se describe cómo habilitar Transcripción en directo al hacer streaming de un evento en directo con Azure Media Services. Antes de continuar, asegúrese de que está familiarizado con el uso de las API REST de Media Services v3 (consulte [este tutorial](stream-files-tutorial-with-rest.md) para más información). También debe estar familiarizado con el concepto de [streaming en vivo](live-streaming-overview.md). Se recomienda completar el tutorial [Streaming en vivo con Media Services](stream-live-tutorial-with-api.md).
 
-## <a name="creating-the-live-event"></a>Creación del evento en directo
+## <a name="live-transcription-preview-regions-and-languages"></a>Regiones y lenguajes de la versión preliminar de Transcripción en directo
 
-Para crear el evento en directo, se envía la operación PUT a la versión preliminar 2019-05-01, por ejemplo:
+Transcripción en directo está disponible en las siguientes regiones:
+
+- Sudeste de Asia
+- Oeste de Europa
+- Norte de Europa
+- Este de EE. UU.
+- Centro de EE. UU.
+- Centro-sur de EE. UU.
+- Oeste de EE. UU. 2
+- Sur de Brasil
+
+Esta es la lista de idiomas disponibles que se pueden asignar, use el código de idioma de la API.
+
+| Idioma | Código de lenguaje |
+| -------- | ------------- |
+| Catalán  | ca-ES |
+| Danés (Dinamarca) | da-DK |
+| Alemán (Alemania) | de-DE |
+| Inglés (Australia) | en-AU |
+| Inglés (Canadá) | en-CA |
+| Inglés (Reino Unido) | en-GB |
+| Inglés (India) | en-IN |
+| Inglés (Nueva Zelanda) | en-NZ |
+| Spanish (Traditional Sort) - Spain | es-ES |
+| Español (España) | es-ES |
+| Español (México) | es-MX |
+| Finés (Finlandia) | fi-FI |
+| Francés (Canadá) | fr-CA |
+| Francés (Francia) | fr-FR |
+| Italiano (Italia) | it-IT |
+| Neerlandés (Países Bajos) | nl-NL |
+| Portugués (Brasil) | pt-BR |
+| Portugués (Portugal) | pt-PT |
+| Sueco (Suecia) | sv-SE |
+
+## <a name="create-the-live-event-with-live-transcription"></a>Creación del evento en directo con Transcripción en directo
+
+Para crear un evento en directo con la transcripción activada, envíe la operación PUT con la versión de API 2019-05-01-preview; por ejemplo:
 
 ```
 PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview&autoStart=true 
 ```
 
-La operación tiene el cuerpo siguiente (en el que se crea un evento en directo con paso a través mediante RTMP como protocolo de ingesta). Observe que se ha agregado una propiedad de transcripciones. El único valor permitido para el idioma es "en-US".
+La operación tiene el cuerpo siguiente (en el que se crea un evento en directo con paso a través mediante RTMP como protocolo de ingesta). Observe que se ha agregado una propiedad de transcripciones.
 
 ```
 {
@@ -88,14 +124,14 @@ La operación tiene el cuerpo siguiente (en el que se crea un evento en directo 
 }
 ```
 
-Sondee el estado del evento en directo hasta que este pase al estado "En ejecución", que indica que ahora puede enviar una fuente RTMP de contribución. Ahora puede seguir los mismos pasos que en este tutorial, como comprobar la fuente de vista previa y crear salidas en directo.
+## <a name="start-or-stop-transcription-after-the-live-event-has-started"></a>Inicio o detención de la transcripción después de que se haya iniciado el evento en directo
 
-## <a name="start-transcription-after-live-event-has-started"></a>Inicio de la transcripción después del inicio del evento en directo
+Puede iniciar y detener la transcripción en directo mientras el evento en directo está en ejecución. Para obtener más información sobre cómo iniciar y detener eventos en directo, lea la sección de operaciones de ejecución prolongada en el artículo de [desarrollo con las API de Media Services v3](media-services-apis-overview.md#long-running-operations).
 
-La transcripción en directo se puede iniciar después de que haya comenzado un evento en directo. Para activar las transcripciones en vivo, revise el evento en directo para incluir la propiedad "transcriptions". Para desactivar las transcripciones en directo, se quitará la propiedad "transcriptions" del objeto de evento activo.
+Para activar las transcripciones en directo o actualizar el idioma de la transcripción, revise el evento en directo para incluir una propiedad "transcriptions". Para desactivar las transcripciones en directo, quite la propiedad "transcriptions" del objeto de evento activo.  
 
 > [!NOTE]
-> La activación o desactivación de la transcripción más de una vez durante el evento en directo no es un escenario admitido.
+> No se admite la activación o desactivación de la transcripción **más de una vez** durante el evento en directo.
 
 Esta es la llamada de ejemplo para activar las transcripciones en directo.
 
@@ -160,10 +196,8 @@ Revise el artículo [Introducción al empaquetado dinámico](dynamic-packaging-o
 
 En la versión preliminar, estos son los problemas conocidos de la transcripción en directo:
 
-* La característica solo está disponible en la región Oeste de EE. UU. 2.
-* Las aplicaciones deben usar las API de la versión preliminar que se describen en la [especificación de Media Services v3 OpenAPI](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json).
-* El único idioma compatible es el inglés (en-es).
-* Con respecto a la protección del contenido, solo se admite el cifrado de sobre AES.
+- Las aplicaciones deben usar las API de la versión preliminar que se describen en la [especificación de Media Services v3 OpenAPI](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json).
+- La protección de administración de derechos digitales (DRM) no se aplica a la pista de texto, solo es posible el cifrado de sobre AES.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

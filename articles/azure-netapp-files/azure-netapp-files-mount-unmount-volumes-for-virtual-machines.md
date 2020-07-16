@@ -5,14 +5,14 @@ author: b-juche
 ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.topic: conceptual
-ms.date: 04/30/2020
-ms.openlocfilehash: d02ceda9dc2c6a822d45c2a31fe91a976610292b
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.topic: how-to
+ms.date: 07/06/2020
+ms.openlocfilehash: 4bfd90be2a469c5ab94172769729095069f53cd7
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610860"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045661"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Montaje o desmontaje de un volumen para máquinas virtuales Linux 
 
@@ -26,9 +26,9 @@ Puede montar o desmontar un volumen para máquinas virtuales Windows o Linux seg
 
     ![Instrucciones de montaje NFS](../media/azure-netapp-files/azure-netapp-files-mount-instructions-nfs.png)
 
-    ![Instrucciones de montaje SMB](../media/azure-netapp-files/azure-netapp-files-mount-instructions-smb.png)
-    
-    Si usa NFSv4.1, utilice el siguiente comando para montar el sistema de archivos: `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
+    ![Instrucciones de montaje SMB](../media/azure-netapp-files/azure-netapp-files-mount-instructions-smb.png)  
+    * Si monta un volumen NFS, asegúrese de usar la opción `vers` en el comando `mount` para especificar la versión de protocolo NFS correspondiente al volumen que desea montar. 
+    * Si usa NFSv4.1, utilice el siguiente comando para montar el sistema de archivos: `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
 
 3. Si desea tener un volumen NFS montado automáticamente cuando se inicia o se reinicia una máquina virtual de Azure, agregue una entrada al archivo `/etc/fstab` del host. 
 

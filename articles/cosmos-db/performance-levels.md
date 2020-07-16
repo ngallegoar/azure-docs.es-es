@@ -6,18 +6,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
-ms.openlocfilehash: 40735f91e2ca58cc42f723c7993686d92f0e5ff0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dace7fb291cef24ad8b48a0791b2fadca22fa71b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77623344"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556056"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Retirada de los niveles de rendimiento S1, S2 y S3
 
 > [!IMPORTANT] 
 > Los niveles de rendimiento S1, S2 y S3 descritos en este artículo se han retirado y ya no están disponibles para las nuevas cuentas de Azure Cosmos DB.
->
 
 En este artículo se proporciona información general de los niveles de rendimiento S1, S2 y S3, y se describe cómo se pueden migrar las colecciones que usan estos niveles de rendimiento a colecciones de partición única. Después de leer este artículo, podrá responder a las preguntas siguientes:
 
@@ -43,7 +42,7 @@ Los niveles de rendimiento S1, S2 y S3 no ofrecen la flexibilidad que proporcion
 
 En la tabla siguiente se comparan las opciones de rendimiento y almacenamiento disponibles en las colecciones de partición única, las colecciones con particiones y los niveles de rendimiento S1, S2 y S3. Este es un ejemplo para la región Este de EE. UU. 2:
 
-|   |Colección con particiones|Colección de partición única|S1|S2|S3|
+| Nombre de cuota  |Colección con particiones|Colección de partición única|S1|S2|S3|
 |---|---|---|---|---|---|
 |Rendimiento máximo|Sin límite|10 000 RU/s|250 RU/s|1000 RU/s|2500 RU/s|
 |Rendimiento mínimo|2500 RU/s|400 RU/s|250 RU/s|1000 RU/s|2500 RU/s|
@@ -76,7 +75,7 @@ En todos estos casos, después de migrar la colección, podrá personalizar el n
 
 Supongamos que tiene 10 colecciones S1 en la región Este de EE. UU. y 1 GB de almacenamiento para cada una, y las migra a 10 recopilaciones de partición única a 400 RU/seg. (el nivel mínimo). Su factura tendrá el siguiente aspecto si mantiene las 10 colecciones de partición única un mes completo:
 
-![Cómo se comparan los precios de S1 para 10 colecciones con los precios de 10 colecciones que usan una colección de partición única](./media/performance-levels/s1-vs-standard-pricing.png)
+:::image type="content" source="./media/performance-levels/s1-vs-standard-pricing.png" alt-text="Cómo se comparan los precios de S1 para 10 colecciones con los precios de 10 colecciones que usan una colección de partición única" border="false":::
 
 <a name="more-storage-needed"></a>
 

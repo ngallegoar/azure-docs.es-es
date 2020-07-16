@@ -6,18 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/12/2020
-ms.openlocfilehash: 2627cd540efe644315e303337b7dce95a6e2d126
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 4edcb22ed6bd33b1174354cf0cbb9a590e35c207
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832051"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84906894"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluciones de supervisión en Azure Monitor
-
-Las soluciones de supervisión aprovechan los servicios de Azure para proporcionar información adicional sobre el funcionamiento de una aplicación o servicio determinados. En este artículo se proporciona una breve descripción de las soluciones de supervisión en Azure y los detalles sobre su uso e instalación.
-
-Puede agregar soluciones de supervisión a su instancia de Azure Monitor para todas las aplicaciones y los servicios que use. Normalmente están disponibles sin costo, excepto la recopilación de datos que podría suponer cargos por uso. Además de las soluciones que proporciona Microsoft, los asociados y los clientes pueden [crear soluciones de administración](solutions-creating.md) para utilizarlas en su propio entorno o ponerlas a disposición de los clientes en la comunidad.
+Las soluciones de supervisión aprovechan los servicios de Azure para proporcionar análisis adicional del funcionamiento de una aplicación o servicio determinados. En este artículo se proporciona una breve descripción de las soluciones de supervisión en Azure y los detalles sobre su uso e instalación. Puede agregar soluciones de supervisión a su instancia de Azure Monitor para todas las aplicaciones y los servicios que use. Normalmente están disponibles sin costo, excepto la recopilación de datos que podría suponer cargos por uso.
 
 ## <a name="use-monitoring-solutions"></a>Uso de soluciones de supervisión
 

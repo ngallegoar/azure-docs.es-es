@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6eb7012e28319ee6cc86de5ee56090743d681068
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: af7a1e40f21b6c9af490abe6f58edcaf798818b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74923865"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318882"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Asignación de columnas de conjunto de datos de origen a columnas del conjunto de datos de destino
 > [!NOTE]
@@ -39,7 +39,7 @@ Las siguientes son las condiciones de error que tienen como resultado una excepc
 > Los ejemplos siguientes son para Azure SQL y Azure Blob, pero resultan aplicables a cualquier almacén de datos que admita conjuntos de datos rectangulares. Ajuste el conjunto de datos y las definiciones de servicios vinculados en los ejemplos para que apunten a datos del origen de datos pertinente.
 
 ## <a name="sample-1--column-mapping-from-azure-sql-to-azure-blob"></a>Ejemplo 1: asignación de columnas de SQL Server a un blob de Azure
-En este ejemplo la tabla de entrada tiene una estructura y apunta a una tabla SQL en una base de datos de Azure SQL.
+En este ejemplo la tabla de entrada tiene una estructura y apunta a una tabla SQL en Azure SQL Database.
 
 ```json
 {

@@ -1,18 +1,19 @@
 ---
 title: Scheduled Events para máquinas virtuales Linux en Azure
 description: Programe los eventos usando Azure Metadata Service para las máquinas virtuales Linux.
-author: mimckitt
-ms.service: virtual-machines-windows
-ms.topic: article
+author: EricRadzikowskiMSFT
+ms.service: virtual-machines-linux
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/01/2020
-ms.author: mimckitt
-ms.openlocfilehash: c888a28607101cdf41fcd9b47cf25a2fc5da6337
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.author: ericrad
+ms.reviewer: mimckitt
+ms.openlocfilehash: ba06350a564990899a593714a1f49d1e00ea544a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299526"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262113"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Scheduled Events para máquinas virtuales Linux
 
@@ -53,7 +54,12 @@ Los eventos programados se entregan a:
 - Máquinas virtuales independientes.
 - Todas las máquinas virtuales en un servicio de nube.
 - Todas las máquinas virtuales de un conjunto de disponibilidad.
+- Todas las máquinas virtuales de una zona de disponibilidad. 
 - Todas las máquinas virtuales de un grupo de selección de ubicación de conjunto de escalado. 
+
+> [!NOTE]
+> En cuanto a las máquinas virtuales de una zona de disponibilidad, los eventos programados van a las máquinas virtuales individuales de una zona.
+> Por ejemplo, si tiene cien máquinas virtuales en un conjunto de disponibilidad y hay una actualización de una de ellas, el evento programado irá a todas esas cien máquinas, mientras que si hay cien máquinas virtuales únicas en una zona, el evento solo irá a la máquina virtual que se ve afectada.
 
 Por ello, revise el campo `Resources` del evento para identificar cuáles son las máquinas virtuales que se verán afectadas.
 
@@ -70,7 +76,7 @@ El servicio Scheduled Events tiene versiones. Las versiones son obligatorias; la
 | Versión | Tipo de versión | Regions | Notas de la versión | 
 | - | - | - | - | 
 | 2019-08-01 | Disponibilidad general | All | <li> Compatibilidad agregada con EventSource |
-| 2019-04-01 | Disponibilidad general | All | <li> Compatibilidad agregada con la descripción de eventos |
+| 01-04-2019 | Disponibilidad general | All | <li> Compatibilidad agregada con la descripción de eventos |
 | 2019-01-01 | Disponibilidad general | All | <li> Compatibilidad agregada con conjuntos de escalado de máquinas virtuales EventType "Terminate" |
 | 01-11-2017 | Disponibilidad general | All | <li> Se agregó compatibilidad para la expulsión de la máquina virtual de Azure Spot EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilidad general | All | <li> Se quitó el guion bajo antepuesto de los nombres de recursos en las máquinas virtuales de IaaS<br><li>Se aplicó el requisito de encabezado de metadatos para todas las solicitudes | 
@@ -133,7 +139,7 @@ En caso de que haya eventos programados, la respuesta contiene una matriz de eve
 | EventStatus | Es el estado de este evento. <br><br> Valores: <ul><li>`Scheduled`: este evento está programado para iniciarse después de la hora especificada en la propiedad `NotBefore`.<li>`Started`: este evento se ha iniciado.</ul> Ni `Completed` ni otro estado similar se han proporcionado antes. El evento ya no vuelve cuando finaliza el evento.
 | NotBefore| Hora a partir de la que puede iniciarse este evento. <br><br> Ejemplo: <br><ul><li> Lunes, 19 de septiembre de 2016, 18:29:47 GMT  |
 | Descripción | Descripción de este evento. <br><br> Ejemplo: <br><ul><li> El servidor host está en mantenimiento. |
-| EventSource | Iniciador del evento. <br><br> Ejemplo: <br><ul><li> `Platform`: Este evento lo inicia la plataforma. <li>`User`: Este evento lo inicia el usuario. |
+| EventSource | Iniciador del evento. <br><br> Ejemplo: <br><ul><li> `Platform`: la plataforma inicia este evento. <li>`User`: el usuario inicia este evento. |
 
 ### <a name="event-scheduling"></a>Programación de eventos
 Cada evento se programa una cantidad mínima de tiempo en el futuro en función de su tipo. Este tiempo se refleja en la propiedad `NotBefore` de un evento. 

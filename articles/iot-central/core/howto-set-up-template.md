@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 2a99f261e1a834705d081e8197e4ae627cf1cb9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d8d3ddffc52bd351b21351b53e8a1be5a674fe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81756649"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562858"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definición de un nuevo tipo de dispositivo IoT en la aplicación de Azure IoT Central
 
@@ -119,7 +119,7 @@ En la siguiente tabla se muestran las opciones de configuración de una funciona
 | Campo | Descripción |
 | ----- | ----------- |
 | Display Name (Nombre para mostrar) | El nombre para mostrar del valor de telemetría que se usa en los paneles y formularios. |
-| Nombre | El nombre del campo en el mensaje de telemetría. IoT Central genera un valor para este campo a partir del nombre para mostrar, pero puede elegir su propio valor si es necesario. |
+| Nombre | El nombre del campo en el mensaje de telemetría. IoT Central genera un valor para este campo a partir del nombre para mostrar, pero puede elegir su propio valor si es necesario. Este campo debe ser alfanumérico. |
 | Capability Type (Tipo de funcionalidad) | Telemetría. |
 | Semantic Type (Tipo semántico) | El tipo semántico de la telemetría, como la temperatura, el estado o el evento. La elección del tipo semántico determina cuál de los campos siguientes está disponible. |
 | Schema | El tipo de datos de telemetría, como doble, cadena o vector. Las opciones disponibles vienen determinadas por el tipo semántico. El esquema no está disponible para los tipos semánticos de evento y estado. |
@@ -139,7 +139,7 @@ En la siguiente tabla se muestran las opciones de configuración de una funciona
 | Campo | Descripción |
 | ----- | ----------- |
 | Display Name (Nombre para mostrar) | El nombre para mostrar del valor de propiedad que se usa en los paneles y formularios. |
-| Nombre | El nombre de la propiedad. IoT Central genera un valor para este campo a partir del nombre para mostrar, pero puede elegir su propio valor si es necesario. |
+| Nombre | El nombre de la propiedad. IoT Central genera un valor para este campo a partir del nombre para mostrar, pero puede elegir su propio valor si es necesario. Este campo debe ser alfanumérico. |
 | Capability Type (Tipo de funcionalidad) | Propiedad. |
 | Semantic Type (Tipo semántico) | El tipo semántico de la propiedad, como la temperatura, el estado o el evento. La elección del tipo semántico determina cuál de los campos siguientes está disponible. |
 | Schema | El tipo de datos de la propiedad, como doble, cadena o vector. Las opciones disponibles vienen determinadas por el tipo semántico. El esquema no está disponible para los tipos semánticos de evento y estado. |
@@ -160,7 +160,7 @@ En la tabla siguiente se muestran las opciones de configuración de una funciona
 | Campo | Descripción |
 | ----- | ----------- |
 | Display Name (Nombre para mostrar) | El nombre para mostrar del comando que se usa en los paneles y formularios. |
-| Nombre | El nombre del comando. IoT Central genera un valor para este campo a partir del nombre para mostrar, pero puede elegir su propio valor si es necesario. |
+| Nombre | El nombre del comando. IoT Central genera un valor para este campo a partir del nombre para mostrar, pero puede elegir su propio valor si es necesario. Este campo debe ser alfanumérico. |
 | Capability Type (Tipo de funcionalidad) | Comando. |
 | Get-Help | `SynchronousExecutionType`. |
 | Comentario | Cualquier comentario sobre la funcionalidad del comando. |

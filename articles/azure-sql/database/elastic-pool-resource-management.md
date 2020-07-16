@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: carlrab
-ms.date: 03/13/2019
-ms.openlocfilehash: 1db8eeecf411ae219474029e09cb866aaf0d5bbe
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/29/2020
+ms.openlocfilehash: d35b4691bcf6e40edd57d4caeae00e18a8298925
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84032086"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85558890"
 ---
 # <a name="resource-management-in-dense-elastic-pools"></a>Administración de recursos en grupos elásticos densos
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -60,7 +60,7 @@ Azure SQL Database proporciona varias métricas que son de interés para este ti
 |`avg_log_write_percent`|Usos del rendimiento para la E/S de escritura del registro de transacciones. Se proporciona para cada base de datos del grupo, así como para el propio grupo. Hay diferentes límites en el rendimiento de registros en el nivel de base de datos y en el nivel de grupo; por lo tanto, se recomienda supervisar esta métrica en ambos niveles. Disponible en la vista [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) de cada base de datos y en la vista [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) de la base de datos `master`. Esta métrica también se emite para Azure Monitor, donde se [denomina](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserverselasticpools) `log_write_percent` y se puede ver en Azure Portal. Cuando esta métrica esté cerca del 100 %, todas las modificaciones de base de datos (instrucciones INSERT, UPDATE, DELETE, MERGE, SELECT ... INTO, BULK INSERT, etc.) se ralentizarán.|Por debajo del 90 %. Pueden ser aceptables picos breves ocasionales hasta el 100 %.|
 |`oom_per_second`|La tasa de errores de memoria insuficiente (OOM) en un grupo elástico, que es un indicador de la presión de memoria. Disponible en la vista [sys.dm_resource_governor_resource_pools_history_ex](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-history-ex-azure-sql-database?view=azuresqldb-current). Consulte la sección [Ejemplos](#examples) para ver una consulta de ejemplo para calcular esta métrica.|0|
 |`avg_storage_percent`|Utilización del espacio de almacenamiento en el nivel de grupo elástico. Disponible en la vista [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) de la base de datos `master`. Esta métrica también se emite para Azure Monitor, donde se [denomina](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserverselasticpools) `storage_percent` y se puede ver en Azure Portal.|Por debajo del 80 %. Puede aproximarse al 100 % en grupos sin crecimiento de datos.|
-|`tempdb_log_used_percent`|Utilización del espacio de registro de transacciones en la base de datos de `tempdb`. Aunque los objetos temporales creados en una base de datos no están visibles en otras bases de datos del mismo grupo elástico, `tempdb` es un recurso compartido por todas las bases de datos del mismo grupo. Una transacción de larga duración o inactiva en `tempdb` iniciada desde una base de datos del grupo puede consumir una gran parte del registro de transacciones y producir errores en las consultas de otras bases de datos del mismo grupo. Disponible en la vista [sys.dm_db_log_space_usage](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-log-space-usage-transact-sql). Esta métrica también se emite para Azure Monitor, y se puede ver en Azure Portal. Consulte la sección de [Ejemplos](#examples) para ver una consulta de ejemplo que devuelve el valor actual de esta métrica.|Por debajo del 50 % Son aceptables picos ocasionales de hasta el 80 %.|
+|`tempdb_log_used_percent`|Utilización del espacio de registro de transacciones en la base de datos de `tempdb`. Aunque los objetos temporales creados en una base de datos no están visibles en otras bases de datos del mismo grupo elástico, `tempdb` es un recurso compartido por todas las bases de datos del mismo grupo. Una transacción de larga duración o huérfana en `tempdb` iniciada desde una base de datos del grupo puede consumir una gran parte del registro de transacciones y producir errores en las consultas de otras bases de datos del mismo grupo. Deriva de las vistas [sys.dm_db_log_space_usage](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-log-space-usage-transact-sql) y [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql). Esta métrica también se emite para Azure Monitor, y se puede ver en Azure Portal. Consulte la sección de [Ejemplos](#examples) para ver una consulta de ejemplo que devuelve el valor actual de esta métrica.|Por debajo del 50 % Son aceptables picos ocasionales de hasta el 80 %.|
 |||
 
 Además de estas métricas, Azure SQL Database proporciona una vista que devuelve los límites reales de la regulación de recursos, así como vistas adicionales que devuelven estadísticas de uso de recursos en el nivel de grupo de recursos y en el nivel de grupo de cargas de trabajo.
@@ -114,11 +114,17 @@ ORDER BY pool_id;
 
 ### <a name="monitoring-tempdb-log-space-utilization"></a>Supervisión de la utilización del espacio de registros `tempdb`
 
-Esta consulta devuelve el valor actual de la métrica `tempdb_log_used_percent`. Se puede ejecutar en cualquier base de datos de un grupo elástico.
+Esta consulta devuelve el valor actual de la métrica `tempdb_log_used_percent`, que muestra la utilización relativa del registro de transacciones `tempdb` con respecto al tamaño máximo permitido. Se puede ejecutar en cualquier base de datos de un grupo elástico.
 
 ```sql
-SELECT used_log_space_in_percent AS tempdb_log_used_percent
-FROM tempdb.sys.dm_db_log_space_usage;
+SELECT (lsu.used_log_space_in_bytes / df.log_max_size_bytes) * 100 AS tempdb_log_space_used_percent
+FROM tempdb.sys.dm_db_log_space_usage AS lsu
+CROSS JOIN (
+           SELECT SUM(CAST(max_size AS bigint)) * 8 * 1024. AS log_max_size_bytes
+           FROM tempdb.sys.database_files
+           WHERE type_desc = N'LOG'
+           ) AS df
+;
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

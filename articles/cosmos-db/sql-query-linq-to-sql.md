@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: d43f95b91df7d0c9c442339de51936200f4688e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3f8753518e1d54ddba4fc15a5a030308d0c112a1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75441257"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042499"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ para traducción de lenguaje SQL
 
-El proveedor de consulta de Azure Cosmos DB realiza una mejor opción de asignación desde una consulta de LINQ a una consulta SQL de Cosmos DB. En la descripción siguiente se da por supuesto un conocimiento básico de LINQ.
+El proveedor de consulta de Azure Cosmos DB realiza una mejor opción de asignación desde una consulta de LINQ a una consulta SQL de Cosmos DB. Si quiere obtener la consulta SQL que se traduce a LINQ, use el método `ToString()` en el objeto `IQueryable` generado. En la descripción siguiente se da por supuesto un conocimiento básico de LINQ.
 
 El sistema de tipos del proveedor de consultas admite solo los tipos primitivos de JSON: numérico, booleano, cadena y null.
 

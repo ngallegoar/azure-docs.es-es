@@ -1,6 +1,6 @@
 ---
 title: Conexión de datos de Palo Alto Networks con Azure Sentinel | Microsoft Docs
-description: Aprenda a conectar datos de Palo Alto Networks a Azure Sentinel.
+description: Aprenda a usar el conector de datos de Palo Alto Networks para conectar fácilmente los registros de Palo Alto Networks con Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: a79b7a1448e1decb377aa0072261df068c366567
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 245db436fc3216fe5c8c8f51c50c0ac03190f9eb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77588134"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564564"
 ---
 # <a name="connect-palo-alto-networks-to-azure-sentinel"></a>Conexión de Palo Alto Networks a Azure Sentinel
 
@@ -34,7 +34,7 @@ En este artículo se explica cómo conectar el dispositivo Palo Alto Networks a 
 Configure Palo Alto Networks para reenviar mensajes de Syslog en formato CEF a su área de trabajo de Azure a través del agente de Syslog:
 1.  Vaya a [Common Event Format (CEF) Configuration Guides](https://docs.paloaltonetworks.com/resources/cef) (Guías de configuración de Common Event Format [CEF]) y descargue el PDF para su tipo de dispositivo. Siga todas las instrucciones de la guía para configurar su dispositivo de Palo Alto Networks a fin de recopilar eventos CEF. 
 
-1.  Vaya a [Configure Syslog monitoring](https://aka.ms/asi-syslog-paloalto-forwarding) (Configuración de supervisión de Syslog) y siga los pasos 2 y 3 para configurar el reenvío de eventos CEF de su dispositivo de Palo Alto Networks a Azure Sentinel.
+1.  Vaya a [Configure Syslog monitoring](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/configure-syslog-monitoring) (Configuración de supervisión de Syslog) y siga los pasos 2 y 3 para configurar el reenvío de eventos CEF de su dispositivo de Palo Alto Networks a Azure Sentinel.
 
     1. Asegúrese de establecer el **formato de servidor de Syslog** en **BSD**.
 

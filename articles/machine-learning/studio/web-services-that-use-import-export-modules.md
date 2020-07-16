@@ -9,20 +9,20 @@ editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/28/2017
-ms.openlocfilehash: aa8500e0e301de5f015d074646bf4da82e4de0a1
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: b844a18a5acbd7a631bfe3b650dfa155d0e064ba
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84192555"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076664"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Implementación de servicios web de Azure Machine Learning Studio (clásico) que usan módulos de importación y exportación de datos
 
 Cuando se crea un experimento predictivo, normalmente se agregan una entrada y una salida de servicio web. Al implementar el experimento, los consumidores pueden enviar y recibir datos desde el servicio web a través de las entradas y salidas. En algunas aplicaciones, los datos del consumidor pueden estar disponibles desde una fuente de datos o ya residir en un origen de datos externo, como el Almacenamiento de blobs de Azure. En estos casos, no se requiere que lean y escriban datos mediante entradas y salidas del servicio web. En su lugar, pueden utilizar el servicio de ejecución por lotes (BES) para leer los datos del origen de datos mediante un módulo de importación de datos y escribir los resultados de puntuación en una ubicación de datos diferente mediante un módulo de exportación de datos.
 
-Los módulos de importación y exportación de datos pueden realizar operaciones de lectura y escritura en diversas ubicaciones de datos, como una dirección URL web a través de HTTP, una consulta de Hive, una base de datos de Azure SQL, almacenamiento de tablas de Azure, Azure Blob Storage, un proveedor de fuentes de distribución de datos o una base de datos de SQL Server.
+Los módulos de importación y exportación de datos pueden realizar operaciones de lectura y escritura en diversas ubicaciones de datos, como una dirección URL web a través de HTTP, una consulta de Hive, una base de datos en Azure SQL Database, almacenamiento de tablas de Azure, Azure Blob Storage, un proveedor de fuentes de distribución de datos o una base de datos de SQL Server.
 
 En este tema se utiliza el "Ejemplo 5: entrenamiento, prueba y evaluación para la clasificación binaria: conjunto de datos sobre adultos" y se da por supuesto que el conjunto de datos se ha cargado en una tabla de Azure SQL denominada censusdata.
 
@@ -41,8 +41,8 @@ Para leer los datos de la tabla de SQL de Azure:
 6. En los campos **Nombre del servidor de base de datos**, **Nombre de base de datos**, **Nombre de usuario** y **Contraseña**, escriba la información apropiada para la base de datos.
 7. En el campo Consulta de base de datos, escriba la siguiente consulta.
 
+    ```tsql
      select [age],
-
         [workclass],
         [fnlwgt],
         [education],
@@ -58,6 +58,7 @@ Para leer los datos de la tabla de SQL de Azure:
         [native-country],
         [income]
      from dbo.censusdata;
+    ```
 8. En la parte inferior del lienzo del experimento, haga clic en **Ejecutar**.
 
 ## <a name="create-the-predictive-experiment"></a>Creación del experimento predictivo
@@ -105,13 +106,15 @@ Para realizar la implementación como un servicio web clásico y crear una aplic
 8. Actualice el valor de la variable *apiKey* con la clave de API guardada anteriormente.
 9. Busque la declaración de solicitud y actualice los valores de los parámetros del servicio web que se pasan a los módulos *Import Data* (Importar datos) y *Export Data* (Exportar datos). En este caso, utilice la consulta original, pero defina un nuevo nombre de tabla.
 
-        var request = new BatchExecutionRequest()
-        {
-            GlobalParameters = new Dictionary<string, string>() {
-                { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
-                { "Table", "dbo.ScoredTable2" },
-            }
-        };
+    ```csharp
+    var request = new BatchExecutionRequest()
+    {
+        GlobalParameters = new Dictionary<string, string>() {
+            { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
+            { "Table", "dbo.ScoredTable2" },
+        }
+    };
+    ```
 10. Ejecute la aplicación.
 
 Al término de la ejecución, se agrega una nueva tabla a la base de datos que contiene los resultados de puntuación.
@@ -133,15 +136,17 @@ Para realizar la implementación como un servicio web nuevo y crear una aplicaci
 8. Actualice el valor de la variable *apiKey* con la **clave principal** ubicada en la sección **Basic consumption info** (Información básica de consumo).
 9. Busque la declaración *scoreRequest* y actualice los valores de los parámetros del servicio web que se pasan a los módulos *Import Data* (Importar datos) y *Export Data* (Exportar datos). En este caso, utilice la consulta original, pero defina un nuevo nombre de tabla.
 
-        var scoreRequest = new
+    ```csharp
+    var scoreRequest = new
+    {
+        Inputs = new Dictionary<string, StringTable>()
         {
-            Inputs = new Dictionary<string, StringTable>()
-            {
-            },
-            GlobalParameters = new Dictionary<string, string>() {
-                { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
-                { "Table", "dbo.ScoredTable3" },
-            }
-        };
+        },
+        GlobalParameters = new Dictionary<string, string>() {
+            { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
+            { "Table", "dbo.ScoredTable3" },
+        }
+    };
+    ```
 10. Ejecute la aplicación.
 

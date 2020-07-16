@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5b0639179c21aefebc44222c9efaa4cd8d9c82f5
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: dc25c853a37de5c310d37e7ee64c6f762283cb0a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921901"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077446"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Orígenes de datos admitidos en Azure Analysis Services
 
@@ -37,7 +37,7 @@ Los orígenes de datos y los conectores que se muestran en Obtener datos o en el
 
 <a name="tab1400a">1</a>: Tabular 1400 y modelos posteriores solamente.  
 <a name="azprovider">2</a>: Cuando se especifica como un origen de datos de *proveedor* en los modelos tabulares 1200 y posteriores, los modelos en memoria y de DirectQuery requieren Microsoft OLE DB Driver for SQL Server MSOLEDBSQL (recomendado), SQL Server Native Client 11.0 o Proveedor de datos .NET Framework para SQL Server.  
-<a name="azsqlmanaged">3</a>: Compatible con Instancia administrada de Azure SQL. Dado que la instancia administrada se ejecuta dentro de una red virtual de Azure con una dirección IP privada, el punto de conexión público debe estar habilitado en la instancia. Si no está habilitado, se requiere una [puerta de enlace de datos local](analysis-services-gateway.md).  
+<a name="azsqlmanaged">3</a>: Compatible con Instancia administrada de Azure SQL. Dado que SQL Managed Instance se ejecuta dentro de una red virtual de Azure con una dirección IP privada, el punto de conexión público debe estar habilitado en la instancia. Si no está habilitado, se requiere una [puerta de enlace de datos local](analysis-services-gateway.md).  
 <a name="databricks">4</a>: Actualmente no se admite Azure Databricks con el conector de Spark.  
 <a name="gen2">5</a>: el conector ADLS Gen2 no se admite actualmente; no obstante, se puede usar el conector de Azure Blob Storage con un origen de datos ADLS Gen2.
 

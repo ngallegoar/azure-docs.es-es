@@ -6,16 +6,16 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 8083efe833ec80290713fc14d9cb89acd8263fa2
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 4854fabb3dccc276ec32a596a42263acd07ac276
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010909"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85316067"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Proveedor de estado de sesión de ASP.NET para Azure Cache for Redis
 
-Azure Cache for Redis proporciona un proveedor de estado de sesión que se puede usar para almacenar el estado de una sesión en memoria con Azure Cache for Redis, en lugar de en una base de datos de SQL Server. Para usar el proveedor de estado de sesión de caché, configure primero su caché y, después, configure su aplicación ASP.NET para caché mediante el paquete NuGet de estado de sesión de Azure Cache for Redis.
+Azure Cache for Redis proporciona un proveedor de estado de sesión que se puede usar para almacenar el estado de una sesión en memoria con Azure Cache for Redis, en lugar de en una base de datos de SQL Server. Para usar el proveedor de estado de sesión de caché, configure primero su caché y, después, configure su aplicación ASP.NET para caché mediante el paquete NuGet de estado de sesión de Azure Cache for Redis. En el caso de las aplicaciones ASP.NET Core, lea [Administración del estado y la sesión en ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/app-state).
 
 No suele ser práctico evitar almacenar algún tipo de estado para una sesión de usuario en una aplicación de nube real, pero algunos enfoques afectan al rendimiento y a la escalabilidad más que otros Si tiene que almacenar el estado, la mejor solución es que la cantidad sea reducida y que se almacene en cookies. Si esto no es factible, entonces lo mejor es usar el estado de sesión de ASP.NET con un proveedor de caché distribuida en memoria. La peor solución desde el punto de vista del rendimiento y la escalabilidad es usar un proveedor de estado de sesión con copia de seguridad de base de datos. En este tema se ofrecen instrucciones sobre cómo usar el proveedor de estado de sesión de ASP.NET para Azure Cache for Redis. Para información sobre otras opciones de estado de sesión, consulte [Opciones de estado de sesión ASP.NET](#aspnet-session-state-options).
 
@@ -94,7 +94,7 @@ Configure los atributos con los valores de la hoja de la caché en el Portal de 
 * **operationTimeoutInMilliseconds** : esta opción le permite invalidar la configuración de syncTimeout en el cliente de StackExchange.Redis. Si no se especifica, se usa el valor predeterminado de syncTimeout, que es 1000. Para obtener más información, consulte el [modelo de configuración de StackExchange.Redis](https://go.microsoft.com/fwlink/?LinkId=398705).
 * **redisSerializerType**: esta opción permite especificar la serialización personalizada del contenido de la sesión que se envía a Redis. El tipo especificado debe implementar `Microsoft.Web.Redis.ISerializer` y debe declarar el constructor sin parámetros público. De forma predeterminada, se usa `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter`.
 
-Para obtener más información sobre estas propiedades, consulte el anuncio de entrada de blog original en [Announcing ASP.NET Session State Provider for Redis](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)(Anuncio de proveedor de estado de sesión de ASP.NET para Redis).
+Para obtener más información sobre estas propiedades, consulte el anuncio de entrada de blog original en [Announcing ASP.NET Session State Provider for Redis](https://devblogs.microsoft.com/aspnet/announcing-asp-net-session-state-provider-for-redis-preview-release/)(Anuncio de proveedor de estado de sesión de ASP.NET para Redis).
 
 No olvide comentar la sección del proveedor de estado de sesión InProc estándar en el archivo web.config.
 

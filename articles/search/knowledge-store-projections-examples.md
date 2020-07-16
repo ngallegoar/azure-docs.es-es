@@ -2,35 +2,32 @@
 title: Definición de proyecciones en un almacén de conocimiento
 titleSuffix: Azure Cognitive Search
 description: Ejemplos de patrones comunes sobre cómo proyectar documentos enriquecidos en el almacén de información para usarse con Power BI o Azure ML.
-manager: eladz
+manager: nitinme
 author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/15/2020
-ms.openlocfilehash: 23c370289669c2dde4f8969a2921018cd0abc08c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/30/2020
+ms.openlocfilehash: f030e382a5378c84df347c545e9426adee6eacb1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78943676"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85566012"
 ---
-# <a name="knowledge-store-projections-how-to-shape-and-export-enrichments"></a>Proyecciones del almacén de conocimiento: Dar forma y exportar enriquecimientos
-
-> [!IMPORTANT] 
-> El almacén de conocimiento está actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). En la [API REST versión 2019-05-06-Preview](search-api-preview.md) se proporcionan características en versión preliminar. Actualmente hay compatibilidad limitada con el portal y no la hay con el SDK de .NET.
+# <a name="how-to-shape-and-export-enrichments"></a>Dar forma y exportar enriquecimientos
 
 Las proyecciones son la expresión física de los documentos enriquecidos en un almacén de conocimiento. El uso eficaz de los documentos enriquecidos requiere una estructura. En este artículo, explorará la estructura y las relaciones; aprenderá a crear propiedades de proyección y a establecer relaciones entre los datos de los distintos tipos de proyección que cree. 
 
-Para crear una proyección, es preciso dar forma a los datos mediante la [aptitud Conformador](cognitive-search-skill-shaper.md) para crear un objeto personalizado, o bien usar la sintaxis de moldeado en línea en la definición de un proyecto. 
+Para crear una proyección, a los datos se dan forma mediante la [aptitud Conformador](cognitive-search-skill-shaper.md) para crear un objeto personalizado, o bien usar la sintaxis de moldeado en línea en la definición de un proyecto. 
 
-Las formas de datos contienen todos los datos que quiere proyectar en forma de jerarquía de nodos. En este artículo se muestran varias técnicas para dar forma a los datos, con el fin de que se puedan proyectar en estructuras físicas que favorecen la creación de informes, los análisis o el procesamiento de bajada. 
+Las formas de datos contienen todos los datos que se quieren proyectar en forma de jerarquía de nodos. En este artículo se muestran varias técnicas para dar forma a los datos, con el fin de que se puedan proyectar en estructuras físicas que favorecen la creación de informes, los análisis o el procesamiento de bajada. 
 
 Los ejemplos que se incluyen en este artículo se pueden encontrar en este [ejemplo de API REST](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/projections/Projections%20Docs.postman_collection.json) que puede descargar y ejecutar en un cliente HTTP.
 
-## <a name="introduction-to-the-examples"></a>Introducción a los ejemplos
+## <a name="introduction-to-projection-examples"></a>Introducción a los ejemplos de proyección
 
-Si está familiarizado con las [proyecciones](knowledge-store-projection-overview.md), recordará que hay tres tipos:
+Hay tres tipos de [proyecciones](knowledge-store-projection-overview.md):
 
 + Tablas
 + Objetos
@@ -38,7 +35,7 @@ Si está familiarizado con las [proyecciones](knowledge-store-projection-overvie
 
 Las proyecciones de tabla se almacenan en Azure Table Storage. Tanto las proyecciones de objeto como las de archivo se escriben en el almacenamiento de blobs, donde las proyecciones de objeto se guardan como archivos JSON, y pueden incluir contenido del documento de origen, así como las salidas o características enriquecidas de cualquier aptitud. La canalización de enriquecimiento también puede extraer archivos binarios, como las imágenes. Estos archivos binarios se proyectan como proyecciones de archivos. Cuando un objeto binario se proyecta como proyección de objeto, solo se guardan como blob JSON los metadatos asociados a él. 
 
-Para comprender la relación entre el modelado de datos y las proyecciones, usaremos el siguiente conjunto de aptitudes como base para explorar diversas configuraciones. Este conjunto de aptitudes procesa contenido de texto e imágenes sin procesar. Las proyecciones se definirán a partir del contenido del documento y de los resultados de las aptitudes para los escenarios que queremos admitir.
+Para comprender la relación entre el modelado de datos y las proyecciones, usaremos el siguiente conjunto de aptitudes como base para explorar diversas configuraciones. Este conjunto de aptitudes procesa contenido de texto e imágenes sin procesar. Las proyecciones se definirán a partir del contenido del documento y de los resultados de las aptitudes para los escenarios deseados.
 
 > [!IMPORTANT] 
 > Al experimentar con las proyecciones, resulta útil [establecer la propiedad de la caché del indizador](search-howto-incremental-index.md) para asegurarse de controlar los costos. La edición de proyecciones dará lugar a que todo el documento se vuelva a enriquecer si no se establece la memoria caché del indizador. Cuando se establece la memoria caché y solo se actualizan las proyecciones, las ejecuciones de los conjuntos de aptitudes en documentos enriquecidos previamente no generan nuevos costos de Cognitive Services.
@@ -206,14 +203,14 @@ Con este conjunto de aptitudes, con su valor `knowledgeStore` establecido en nul
 
 En Azure Storage, la proyección en tablas es útil para la generación de informes y análisis mediante herramientas como Power BI. Power BI puede leer de tablas y detectar relaciones en función de las claves que se generen durante la proyección. Si intenta compilar un panel, tener datos relacionados simplificará la tarea. 
 
-Supongamos que vamos intentar compilar un panel en el que podamos visualizar las frases clave extraídas de los documentos como una nube de palabras. Para crear la estructura de datos correcta, podemos agregar la aptitud Conformador al conjunto de aptitudes para crear una forma personalizada que tenga los detalles específicos del documento y frases clave. La forma personalizada se llamará `pbiShape` en el nodo raíz `document`.
+Vamos a crear un panel para visualizar las frases clave extraídas de los documentos como una nube de palabras. Para crear la estructura de datos correcta, agregamos la aptitud Conformador al conjunto de aptitudes para crear una forma personalizada que tenga los detalles específicos del documento y frases clave. La forma personalizada se llamará `pbiShape` en el nodo raíz `document`.
 
 > [!NOTE] 
 > Las proyecciones de tabla son tablas de Azure Storage, reguladas por los límites de almacenamiento que impone Azure Storage. Para más información, consulte el artículo acerca de los [límites del almacenamiento en tablas](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model). Debe saber que el tamaño de la entidad no puede superar 1 MB, y que una sola propiedad no puede ser mayor que 64 KB. Estas restricciones hacen que las tablas sean una buena solución para almacenar un gran número de entidades pequeñas.
 
 ### <a name="using-a-shaper-skill-to-create-a-custom-shape"></a>Uso de una aptitud modeladora para crear una forma personalizada
 
-Cree una forma personalizada que se pueda proyectar en el almacenamiento de tablas. Sin una forma personalizada, una proyección solo puede hacer referencia a un solo nodo (una proyección por salida). La creación de una forma personalizada permite agregar varios elementos a un nuevo conjunto lógico que se puede proyectar como una sola tabla, o que se puede segmentar y distribuir en una colección de tablas. 
+Cree una forma personalizada que se pueda proyectar en el almacenamiento de tablas. Sin una forma personalizada, una proyección solo puede hacer referencia a un solo nodo (una proyección por salida). La creación de una forma personalizada agrega varios elementos a un nuevo conjunto lógico que se puede proyectar como una sola tabla, o que se puede segmentar y distribuir en una colección de tablas. 
 
 En este ejemplo, la forma personalizada combina los metadatos con las entidades y frases clave identificadas. El objeto se denomina `pbiShape` y tiene como elemento primario `/document`. 
 
@@ -363,13 +360,13 @@ Power BI usa estas claves generadas para detectar relaciones en las tablas. Si 
 
 ## <a name="projecting-to-objects"></a>Proyección en objetos
 
-Las proyecciones de objeto no tienen las mismas limitaciones que las proyecciones de tabla y resultan más adecuadas para proyectar documentos grandes. En este ejemplo, se proyecta todo el documento en una proyección de objeto. Las proyecciones de objeto están limitadas a una sola proyección en un contenedor y no se pueden segmentar.
+Las proyecciones de objeto no tienen las mismas limitaciones que las proyecciones de tabla y resultan más adecuadas para proyectar documentos grandes. En este ejemplo, el documento completo se envía como una proyección de objeto. Las proyecciones de objeto están limitadas a una sola proyección en un contenedor y no se pueden segmentar.
 
 Para definir una proyección de objeto, se usa la matriz ```objects``` en las proyecciones. Puede generar una nueva forma mediante la aptitud Conformador o usar el modelado insertado de la proyección de objeto. Aunque en el ejemplo de tablas se mostró el método para crear una forma y segmentarla, en este ejemplo se muestra el uso del modelado insertado. 
 
 El modelado insertado es la capacidad de crear una forma en la definición de las entradas para una proyección. El modelado insertado crea un objeto anónimo que es idéntico a lo que produciría una aptitud Conformador (en nuestro caso, `pbiShape`). El modelado insertado resulta útil si está definiendo una forma que no se va a reutilizar.
 
-La propiedad projections es una matriz. Para este ejemplo vamos a agregar una nueva instancia de projection a la matriz, donde la definición de knowledgeStore contiene proyecciones insertadas. Cuando use proyecciones insertadas, puede omitir la aptitud Conformador.
+La propiedad projections es una matriz. En este ejemplo se agrega una nueva instancia de proyección a la matriz, donde la definición de knowledgeStore contiene proyecciones insertadas. Cuando use proyecciones insertadas, puede omitir la aptitud Conformador.
 
 ```json
 "knowledgeStore" : {
@@ -450,7 +447,7 @@ Para generar una proyección de archivo, se usa la matriz `files` en el objeto p
 
 Un escenario más complejo podría requerir que se proyecte contenido en distintos tipos de proyección. Por ejemplo, si necesita proyectar datos como frases clave y entidades en tablas, guarde los resultados de OCR del texto y el texto de diseño como objetos y, a continuación, proyecte las imágenes como archivos. 
 
-En este ejemplo, las actualizaciones del conjunto de aptitudes incluyen los siguientes cambios:
+En este ejemplo se actualizan conjuntos de aptitudes con los siguientes cambios:
 
 1. Crear una tabla con una fila para cada documento.
 1. Crear una tabla relacionada con la tabla de documento, en la que cada frase clave se identificará como una fila en la tabla.
@@ -534,7 +531,7 @@ Para obtener las formas que necesitamos para estas proyecciones, empiece por agr
 
 ### <a name="define-table-object-and-file-projections"></a>Definición de proyecciones de tabla, objeto y archivo
 
-Desde el objeto crossProjection consolidado podemos segmentar el objeto en varias tablas, capturar la salida de OCR como blobs y, después, guardar la imagen como archivos (también en Blob Storage).
+Desde el objeto crossProjection consolidado, segmente el objeto en varias tablas, capture la salida de OCR como blobs y, después, guarde la imagen como archivos (también en Blob Storage).
 
 ```json
 "knowledgeStore" : {
@@ -595,7 +592,7 @@ Las proyecciones de objeto requieren un nombre de contenedor para cada proyecci�
 
 ### <a name="relationships-among-table-object-and-file-projections"></a>Relaciones entre las proyecciones de tabla, objeto y archivo
 
-En este ejemplo también se resalta otra característica de las proyecciones. Mediante la definición de varios tipos de proyecciones en el mismo objeto de proyección hay una relación expresada dentro de los distintos tipos de proyecciones (tablas, objetos, archivos), y entre ellos, lo que permite comenzar con una fila de tablas para un documento y buscar todo el texto del OCR de las imágenes de ese documento en la proyección de objeto. 
+En este ejemplo también se resalta otra característica de las proyecciones. Al definir varios tipos de proyecciones en el mismo objeto de proyección, existe una relación expresada en y entre los distintos tipos (tablas, objetos, archivos). Esto le permite empezar con una fila de tabla para un documento y buscar todo el texto de OCR de las imágenes de ese documento en la proyección de objeto. 
 
 Si no desea los datos relacionados, defina las proyecciones en distintos objetos de proyección. Por ejemplo, el siguiente fragmento provocará que las tablas estén relacionadas, pero sin relaciones entre las tablas y las proyecciones de objeto (texto de OCR). 
 

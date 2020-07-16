@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 07/06/2020
 ms.author: b-juche
-ms.openlocfilehash: 93d51681a703258477baa81cc8737fefd4955e82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0cb29d6db339a64a1d9b753acbfd2334364853a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82731685"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045474"
 ---
 # <a name="azure-netapp-files-sdks-and-cli-tools"></a>SDK y herramientas de la CLI de Azure NetApp Files
 
@@ -49,12 +49,7 @@ En la tabla siguiente, se muestran las herramientas de la CLI compatibles junto 
 
 ## <a name="code-samples"></a>Ejemplos de código
 
-En la tabla siguiente se muestran ejemplos de código de referencia.   
-
-|    Lenguaje/Herramienta    |    Documentación de ejemplos de código    |
-|------------------|--------------------------------------------|
-|    .NET   |    [Ejemplo del SDK de Azure NetApp Files para .NETCore](https://docs.microsoft.com/samples/azure-samples/netappfiles-dotnetcore-sdk-sample/azure-netappfiles-sdk-sample-for-net-core/) |    
-|    Python    |    [Ejemplo del SDK de Azure NetApp Files para Python](https://docs.microsoft.com/samples/azure-samples/netappfiles-python-sdk-sample/azure-netappfiles-sdk-sample-for-python/)    |
+Consulte [ejemplos de código para Azure NetApp Files](https://docs.microsoft.com/samples/browse/?filter-products=netapp&products=azure-netapp-files).
 
 ## <a name="next-steps"></a>Pasos siguientes   
  [Descargas de SDK de Azure](https://azure.microsoft.com/downloads/)

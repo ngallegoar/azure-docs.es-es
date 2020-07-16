@@ -1,6 +1,6 @@
 ---
 title: Conexión de orígenes de datos a Azure Sentinel| Microsoft Docs
-description: Aprenda a conectar orígenes de datos a Azure Sentinel.
+description: Aprenda a conectar orígenes de datos como Protección contra amenazas de Microsoft, Microsoft 365 y Office 365, Azure AD, ATP y Cloud App Security a Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: yelevin
-ms.openlocfilehash: 4060cfe08e91c87467a8ef6801adab6f027473bf
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: a2b9c1602ead56b35c46508ef4d414145eb07432
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83696873"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555521"
 ---
 # <a name="connect-data-sources"></a>Conexión con orígenes de datos
 
-Para incorporar Azure Sentinel, primero debe conectarse a sus orígenes de datos. Azure Sentinel llega con varios conectores para soluciones de Microsoft que están disponibles inmediatamente y proporcionan integración en tiempo real; por ejemplo, para soluciones de Microsoft Threat Protection y orígenes de Microsoft 365, como Office 365, Azure AD, Azure ATP y Microsoft Cloud App Security, entre muchos otros. Además, hay conectores integrados al amplio ecosistema de seguridad para soluciones que no son de Microsoft. También puede usar el formato de evento común, Syslog o las API de REST para conectar los orígenes de datos con Azure Sentinel.  
+Una vez que haya habilitado Azure Sentinel, lo primero que debe hacer es conectar los orígenes de datos. Azure Sentinel llega con varios conectores para soluciones de Microsoft que están disponibles inmediatamente y proporcionan integración en tiempo real; por ejemplo, para soluciones de Protección contra amenazas de Microsoft, orígenes de Microsoft 365 (como Office 365), Azure AD, Azure ATP, Microsoft Cloud App Security, etc. Además, hay conectores integrados al amplio ecosistema de seguridad para soluciones que no son de Microsoft. También puede usar el formato de evento común (CEF), Syslog o la API REST para conectar los orígenes de datos con Azure Sentinel.
 
 1. En el menú, seleccione **Data connectors** (Conectores de datos). Esta página permite ver la lista completa de los conectores que Azure Sentinel proporciona, y su estado. Seleccione el conector al que desea conectarse y seleccione **Open connector page** (Abrir la página del conector). 
 
@@ -46,7 +46,7 @@ Los siguientes métodos de conexión de datos son compatibles con Azure Sentinel
 - **Integración de servicio a servicio**:<br> Algunos servicios se conectan de forma nativa, como los servicios de AWS y Microsoft, y aprovechan la base de Azure de la integración lista para usar. Con solo unos clics, se pueden conectar las soluciones siguientes:
     - [Amazon Web Services: CloudTrail](connect-aws.md)
     - [Azure Activity](connect-azure-activity.md) (Actividad de Azure)
-    - [Azure AD audit logs and sign-ins](connect-azure-active-directory.md) (Inicios de sesión y pistas de auditoría de Azure AD)
+    - [Azure Active Directory](connect-azure-active-directory.md): registros de auditoría y registros de inicio de sesión
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
     - [Azure Advanced Threat Protection](connect-azure-atp.md)
     - [Azure Information Protection](connect-azure-information-protection.md)
@@ -60,22 +60,31 @@ Los siguientes métodos de conexión de datos son compatibles con Azure Sentinel
     - [Eventos de seguridad de Windows](connect-windows-security-events.md)
 
 - **Soluciones externas mediante API**: algunos orígenes de datos se conectan mediante las API proporcionadas por el origen de datos conectado. Normalmente, la mayoría de las tecnologías de seguridad proporcionan un conjunto de API a través del cual se pueden recuperar registros de eventos. Las API se conectan a Azure Sentinel y recopilan y envían tipos de datos específicos a Azure Log Analytics. Entre los dispositivos conectados mediante API se incluyen:
-    - [Barracuda](connect-barracuda.md)
+    
+    - [Alcide kAudit](connect-alcide-kaudit.md)
+    - [Barracuda WAF](connect-barracuda.md)
     - [Barracuda CloudGen Firewall](connect-barracuda-cloudgen-firewall.md)
     - [Citrix Analytics (Security)](connect-citrix-analytics.md)
     - [F5 BIG-IP](connect-f5-big-ip.md)
     - [Forcepoint DLP](connect-forcepoint-dlp.md)
+    - [Registros de Perimeter 81](connect-perimeter-81-logs.md)
     - [Squadra Technologies secRMM](connect-squadra-secrmm.md)
     - [Symantec ICDX](connect-symantec.md)
     - [Zimperium](connect-zimperium-mtd.md)
 
 
-- **Soluciones externas mediante agente**: Azure Sentinel se puede conectar a todos los demás orígenes de datos que pueden realizar secuencias de registro en tiempo real mediante el protocolo de Syslog, a través de un agente. <br>La mayoría de las aplicaciones usan el protocolo de Syslog para enviar mensajes de eventos que incluyen el propio registro y datos sobre este. El formato de los registros varía, pero la mayoría de los dispositivos admiten el formato basado en Common Event Format (CEF) para los datos de registro. <br>El agente de Azure Sentinel, que se basa en el agente de Log Analytics, convierte los registros con formato CEF a un formato que Log Analytics puede ingerir. Dependiendo del tipo de dispositivo, el agente se instala directamente en el dispositivo o en un servidor Linux dedicado. El agente para Linux recibe eventos del demonio de Syslog a través de UDP; sin embargo,si se espera que una máquina Linux recopile un gran volumen de eventos Syslog, se envían a través de TCP desde el demonio de Syslog al agente y desde allí a Log Analytics.
-    - Firewalls, proxies y puntos de conexión:
+- **Soluciones externas mediante agente**: Azure Sentinel se puede conectar a través de un agente a cualquier otro origen de datos que pueda realizar streaming de registro en tiempo real mediante el protocolo de Syslog.
+
+    La mayoría de las aplicaciones usan el protocolo de Syslog para enviar mensajes de eventos que incluyen el propio registro y datos sobre este. El formato de los registros varía, pero la mayoría de los dispositivos admite el formato basado en CEF para los datos de registro. 
+
+    El agente de Azure Sentinel, que en realidad es el agente de Log Analytics, convierte los registros con formato CEF a un formato que Log Analytics puede ingerir. Dependiendo del tipo de dispositivo, el agente se instala directamente en el dispositivo o en reenviador de registros Linux dedicado. El agente para Linux recibe eventos del demonio de Syslog a través de UDP; sin embargo,si se espera que una máquina Linux recopile un gran volumen de eventos Syslog, se envían a través de TCP desde el demonio de Syslog al agente y desde allí a Log Analytics.
+
+    - **Firewalls, servidores proxy y puntos de conexión:**
+        - [AI Vectra Detect](connect-ai-vectra-detect.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
         - [Reveal(x) de ExtraHop](connect-extrahop.md)
-        - [F5](connect-f5.md)
+        - [F5 ASM](connect-f5.md)
         - [Productos de Forcepoint](connect-forcepoint-casb-ngfw.md)
         - [Fortinet](connect-fortinet.md)
         - [Palo Alto Networks](connect-paloalto.md)
@@ -106,36 +115,36 @@ También puede implementar el agente manualmente en una máquina virtual existen
 
 | **Tipo de datos** | **Conexión** | **¿Conector de datos?** | **Comentarios** |
 |------|---------|-------------|------|
-| AWSCloudTrail | [Conexión de AWS](connect-aws.md) | V | |
-| AzureActivity | [Conexión del registro de actividad de Azure](connect-azure-activity.md) e [Introducción a los registros de actividad](../azure-monitor/platform/platform-logs-overview.md)| V | |
-| AuditLogs | [Conexión de Azure AD](connect-azure-active-directory.md)  | V | |
-| SigninLogs | [Conexión de Azure AD](connect-azure-active-directory.md)  | V | |
-| AzureFirewall |[Diagnóstico de Azure](../firewall/tutorial-diagnostics.md) | V | |
-| InformationProtectionLogs_CL  | [Informes de Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip)<br>[Conexión de Azure Information Protection](connect-azure-information-protection.md)  | V | Normalmente usa la función **InformationProtectionEvents** además del tipo de datos. Para más información, consulte [Modificación de informes y creación de consultas personalizadas](https://docs.microsoft.com/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)|
+| AWSCloudTrail | [Conexión de AWS](connect-aws.md) | &#10003; | |
+| AzureActivity | [Conexión del registro de actividad de Azure](connect-azure-activity.md) e [Introducción a los registros de actividad](../azure-monitor/platform/platform-logs-overview.md)| &#10003; | |
+| AuditLogs | [Conexión de Azure AD](connect-azure-active-directory.md)  | &#10003; | |
+| SigninLogs | [Conexión de Azure AD](connect-azure-active-directory.md)  | &#10003; | |
+| AzureFirewall |[Diagnóstico de Azure](../firewall/tutorial-diagnostics.md) | &#10003; | |
+| InformationProtectionLogs_CL  | [Informes de Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip)<br>[Conexión de Azure Information Protection](connect-azure-information-protection.md)  | &#10003; | Normalmente usa la función **InformationProtectionEvents** además del tipo de datos. Para más información, consulte [Modificación de informes y creación de consultas personalizadas](https://docs.microsoft.com/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)|
 | AzureNetworkAnalytics_CL  | [Esquema de análisis de tráfico](../network-watcher/traffic-analytics.md) [Análisis de tráfico](../network-watcher/traffic-analytics.md)  | | |
-| CommonSecurityLog  | [Conexión de CEF](connect-common-event-format.md)  | V | |
-| OfficeActivity | [Conexión de Office 365](connect-office-365.md) | V | |
-| SecurityEvents | [Conexión de eventos de seguridad de Windows](connect-windows-security-events.md)  | V | Para los libros de protocolos poco seguros, vea [Configuración de libros de protocolos poco seguros](/azure/sentinel/quickstart-get-visibility#use-built-in-workbooks)  |
-| syslog | [Conexión de Syslog](connect-syslog.md) | V | |
-| Firewall de aplicaciones web (WAF) de Microsoft: (AzureDiagnostics) |[Conexión del firewall de aplicaciones web de Microsoft](connect-microsoft-waf.md) | V | |
-| SymantecICDx_CL | [Conexión de Symantec](connect-symantec.md) | V | |
-| ThreatIntelligenceIndicator  | [Conexión de Inteligencia sobre amenazas](connect-threat-intelligence.md)  | V | |
-| VMConnection <br> ServiceMapComputer_CL<br> ServiceMapProcess_CL|  [Mapa de servicio de Azure Monitor](../azure-monitor/insights/service-map.md)<br>[Incorporación de VM Insights de Azure Monitor](../azure-monitor/insights/vminsights-onboard.md) <br> [Habilitación de VM Insights de Azure Monitor](../azure-monitor/insights/vminsights-enable-overview.md) <br> [Uso de la incorporación de una máquina virtual individual](../azure-monitor/insights/vminsights-enable-single-vm.md)<br>  [Uso de la incorporación mediante Policy](../azure-monitor/insights/vminsights-enable-at-scale-policy.md)| X | Libro de VM Insights  |
-| DnsEvents | [Conexión de DNS](connect-dns.md) | V | |
-| W3CIISLog | [Conexión de registros de IIS](../azure-monitor/platform/data-sources-iis-logs.md)  | X | |
-| WireData | [Conexión de Wire Data](../azure-monitor/insights/wire-data.md) | X | |
-| WindowsFirewall | [Conexión de Firewall de Windows](connect-windows-firewall.md) | V | |
-| AADIP SecurityAlert  | [Conexión de Azure AD Identity Protection](connect-azure-ad-identity-protection.md)  | V | |
-| AATP SecurityAlert  | [Conexión de Azure Advanced Threat Protection](connect-azure-atp.md) | V | |
-| ASC SecurityAlert  | [Conexión de Azure Security Center](connect-azure-security-center.md)  | V | |
-| MCAS SecurityAlert  | [Conexión de Microsoft Cloud App Security](connect-cloud-app-security.md)  | V | |
+| CommonSecurityLog  | [Conexión de CEF](connect-common-event-format.md)  | &#10003; | |
+| OfficeActivity | [Conexión de Office 365](connect-office-365.md) | &#10003; | |
+| SecurityEvents | [Conexión de eventos de seguridad de Windows](connect-windows-security-events.md)  | &#10003; | Para los libros de protocolos poco seguros, vea [Configuración de libros de protocolos poco seguros](/azure/sentinel/quickstart-get-visibility#use-built-in-workbooks)  |
+| syslog | [Conexión de Syslog](connect-syslog.md) | &#10003; | |
+| Firewall de aplicaciones web (WAF) de Microsoft: (AzureDiagnostics) |[Conexión del firewall de aplicaciones web de Microsoft](connect-microsoft-waf.md) | &#10003; | |
+| SymantecICDx_CL | [Conexión de Symantec](connect-symantec.md) | &#10003; | |
+| ThreatIntelligenceIndicator  | [Conexión de Inteligencia sobre amenazas](connect-threat-intelligence.md)  | &#10003; | |
+| VMConnection <br> ServiceMapComputer_CL<br> ServiceMapProcess_CL|  [Mapa de servicio de Azure Monitor](../azure-monitor/insights/service-map.md)<br>[Incorporación de VM Insights de Azure Monitor](../azure-monitor/insights/vminsights-onboard.md) <br> [Habilitación de VM Insights de Azure Monitor](../azure-monitor/insights/vminsights-enable-overview.md) <br> [Uso de la incorporación de una máquina virtual individual](../azure-monitor/insights/vminsights-enable-single-vm.md)<br>  [Uso de la incorporación mediante Policy](../azure-monitor/insights/vminsights-enable-at-scale-policy.md)| &#10007; | Libro de VM Insights  |
+| DnsEvents | [Conexión de DNS](connect-dns.md) | &#10003; | |
+| W3CIISLog | [Conexión de registros de IIS](../azure-monitor/platform/data-sources-iis-logs.md)  | &#10007; | |
+| WireData | [Conexión de Wire Data](../azure-monitor/insights/wire-data.md) | &#10007; | |
+| WindowsFirewall | [Conexión de Firewall de Windows](connect-windows-firewall.md) | &#10003; | |
+| AADIP SecurityAlert  | [Conexión de Azure AD Identity Protection](connect-azure-ad-identity-protection.md)  | &#10003; | |
+| AATP SecurityAlert  | [Conexión de Azure Advanced Threat Protection](connect-azure-atp.md) | &#10003; | |
+| ASC SecurityAlert  | [Conexión de Azure Security Center](connect-azure-security-center.md)  | &#10003; | |
+| MCAS SecurityAlert  | [Conexión de Microsoft Cloud App Security](connect-cloud-app-security.md)  | &#10003; | |
 | SecurityAlert | | | |
-| Sysmon (evento) | [Conexión de Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Conexión de eventos de Windows](../azure-monitor/platform/data-sources-windows-events.md) <br> [Obtención del analizador de Sysmon](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| X | La colección de Sysmon no se instala de forma predeterminada en máquinas virtuales. Para más información sobre cómo instalar el agente Sysmon, consulte [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon). |
-| ConfigurationData  | [Automatización del inventario de máquinas virtuales](../automation/automation-vm-inventory.md)| X | |
-| ConfigurationChange  | [Automatización del seguimiento de VM](../automation/change-tracking.md) | X | |
-| F5 BIG-IP | [Conexión de F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel)  | X | |
-| McasShadowItReporting  |  | X | |
-| Barracuda_CL | [Conexión de Barracuda](connect-barracuda.md) | V | |
+| Sysmon (evento) | [Conexión de Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Conexión de eventos de Windows](../azure-monitor/platform/data-sources-windows-events.md) <br> [Obtención del analizador de Sysmon](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | La colección de Sysmon no se instala de forma predeterminada en máquinas virtuales. Para más información sobre cómo instalar el agente Sysmon, consulte [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon). |
+| ConfigurationData  | [Automatización del inventario de máquinas virtuales](../automation/automation-vm-inventory.md)| &#10007; | |
+| ConfigurationChange  | [Automatización del seguimiento de VM](../automation/change-tracking.md) | &#10007; | |
+| F5 BIG-IP | [Conexión de F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel)  | &#10007; | |
+| McasShadowItReporting  |  | &#10007; | |
+| Barracuda_CL | [Conexión de Barracuda](connect-barracuda.md) | &#10003; | |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

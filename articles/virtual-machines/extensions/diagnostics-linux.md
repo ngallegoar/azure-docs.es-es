@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 4c34996cb47b1f09f47454f162674248820ce975
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 824ba9e1f9b4325c1e0974ed1c22b465ec4b85a8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118553"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298963"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Uso de la extensión Diagnostics de Linux para supervisar métricas y registros
 
@@ -74,7 +74,12 @@ Distribuciones y versiones admitidas:
 
 ### <a name="sample-installation"></a>Instalación de ejemplo
 
-Rellene los valores correctos de las variables de la primera sección antes de ejecutar lo siguiente:
+> [!NOTE]
+> Para cualquiera de los ejemplos, rellene valores correctos de las variables de la primera sección antes de ejecutar lo siguiente. 
+
+La configuración de ejemplo descargada en estos ejemplos recopila un conjunto de datos estándar y los envía a un almacenamiento de tabla. La dirección URL de la configuración de muestreo y su contenido están sujetos a cambios. En la mayoría de los casos, conviene descargar una copia del archivo JSON de configuración del portal y personalizarlo según sus necesidades y, tras ello, hacer que las plantillas o automatizaciones que se creen usen su propia versión del archivo de configuración, en lugar de tener que descargar esa dirección URL una y otra vez.
+
+#### <a name="azure-cli-sample"></a>Ejemplo de la CLI de Azure
 
 ```azurecli
 # Set your Azure VM diagnostic variables correctly below
@@ -103,8 +108,6 @@ my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_accoun
 # Finallly tell Azure to install and enable the extension
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
-
-La configuración de ejemplo descargada en estos ejemplos recopila un conjunto de datos estándar y los envía a un almacenamiento de tabla. La dirección URL de la configuración de muestreo y su contenido están sujetos a cambios. En la mayoría de los casos, conviene descargar una copia del archivo JSON de configuración del portal y personalizarlo según sus necesidades y, tras ello, hacer que las plantillas o automatizaciones que se creen usen su propia versión del archivo de configuración, en lugar de tener que descargar esa dirección URL una y otra vez.
 
 #### <a name="powershell-sample"></a>Ejemplo de PowerShell
 
@@ -439,6 +442,9 @@ Deben especificarse "table", "sinks" o ambos.
 
 Controla la captura de los archivos de registro. LAD captura nuevas líneas de texto a medida que se escriben en el archivo y las escribe en filas de tabla o en cualquier receptor especificado (de JsonBlob o EventHub).
 
+> [!NOTE]
+> Un subcomponente de LAD denominado `omsagent` captura fileLogs. Para recopilar fileLogs, debe asegurarse de que el usuario `omsagent` tenga permisos de lectura en los archivos especificados, así como permisos de ejecución en todos los directorios de la ruta de acceso a ese archivo. Puede comprobarlo si ejecuta `sudo su omsagent -c 'cat /path/to/file'` después de instalar LAD.
+
 ```json
 "fileLogs": [
     {
@@ -451,7 +457,7 @@ Controla la captura de los archivos de registro. LAD captura nuevas líneas de t
 
 Elemento | Value
 ------- | -----
-archivo | Es la ruta de acceso completa del archivo de registro que va a inspeccionarse y capturarse. La ruta de acceso debe denominar un único archivo. No puede denominar un directorio ni contener caracteres comodín.
+archivo | Es la ruta de acceso completa del archivo de registro que va a inspeccionarse y capturarse. La ruta de acceso debe denominar un único archivo. No puede denominar un directorio ni contener caracteres comodín. La cuenta de usuario "omsagent" debe tener acceso de lectura a la ruta de acceso del archivo.
 table | (Opcional) es la tabla de Azure Storage en la cuenta de almacenamiento designada (especificada en la configuración protegida) en la que se escriben nuevas líneas de la "cola" del archivo.
 sinks | (Opcional) es una lista separada por combas de nombres de receptores adicionales a la que se envían líneas de registro.
 
@@ -564,23 +570,36 @@ BytesPerSecond | Número de bytes leídos o escritos por segundo
 
 Los valores agregados de todos los discos pueden obtenerse estableciendo `"condition": "IsAggregate=True"`. Para obtener información para un dispositivo en concreto (por ejemplo, /dev/sdf1), establezca `"condition": "Name=\\"/dev/sdf1\\""`.
 
-## <a name="installing-and-configuring-lad-30-via-cli"></a>Instalación y configuración de LAD 3.0 a través de CLI
+## <a name="installing-and-configuring-lad-30"></a>Instalación y configuración de LAD 3.0
 
-Si suponemos que la configuración protegida se encuentra en el archivo PrivateConfig.json y que la información de configuración pública está en PublicConfig.json, ejecute este comando:
+### <a name="azure-cli"></a>Azure CLI
+
+Si suponemos que la configuración protegida se encuentra en el archivo ProtectedSettings.json y que la información de configuración pública está en PublicSettings.json, ejecute este comando:
 
 ```azurecli
-az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Azure.Diagnostics '3.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json
+az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
 El comando supone que se está usando el modo de Administración de recursos de Azure (ARM) de la CLI de Azure. Para configura LAD para máquinas virtuales con el modelo de implementación clásica (ASM), cambie al modo "asm" (`azure config mode asm`) y omita el nombre del grupo de recursos en el comando. Para obtener más información, consulte la [documentación de la CLI multiplataforma](https://docs.microsoft.com/azure/xplat-cli-connect).
+
+### <a name="powershell"></a>PowerShell
+
+Si suponemos que la configuración protegida se encuentra en la variable `$protectedSettings` y que la información de configuración pública está en la variable `$publicSettings`, ejecute este comando:
+
+```powershell
+Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Location <vm_location> -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 3.0
+```
 
 ## <a name="an-example-lad-30-configuration"></a>Una configuración de LAD 3.0 de ejemplo
 
 Conforme a las anteriores definiciones, a continuación hay un ejemplo de configuración de extensión de LAD 3.0 con una explicación. Para aplicar este ejemplo a su caso, debería usar su propio nombre de cuenta de almacenamiento, token de SAS de cuenta y tokens de SAS de Event Hubs.
 
-### <a name="privateconfigjson"></a>PrivateConfig.json
+> [!NOTE]
+> Dependiendo de si usa la CLI de Azure o PowerShell para instalar LAD, el método para proporcionar la configuración pública y protegida será diferente. Si usa la CLI de Azure, guarde la siguiente configuración en ProtectedSettings.json y PublicSettings.json para usarla con el comando de ejemplo anterior. Si usa PowerShell, guarde la configuración en `$protectedSettings` y `$publicSettings` mediante la ejecución de `$protectedSettings = '{ ... }'`.
 
-Estos valores privados configuran lo siguiente:
+### <a name="protected-settings"></a>Configuración protegida
+
+Esta configuración protegida define:
 
 * Una cuenta de almacenamiento
 * Un token de SAS de cuenta que coincida
@@ -628,7 +647,7 @@ Estos valores privados configuran lo siguiente:
 }
 ```
 
-### <a name="publicconfigjson"></a>PublicConfig.json
+### <a name="public-settings"></a>Configuración pública
 
 Estos valores públicos hacen que LAD:
 

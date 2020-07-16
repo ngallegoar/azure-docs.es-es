@@ -7,44 +7,47 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.openlocfilehash: 05ff56c904fc48a1041ad40f00110a8ff0fd01f1
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.date: 06/23/2020
+ms.openlocfilehash: d562931b7578935a4544dfd953ff2de74a5350a6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82592050"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260991"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Búsqueda de términos parciales y patrones con caracteres especiales (carácter comodín, expresión regular y patrones)
 
-Una *búsqueda de términos parciales* hace referencia a las consultas que se componen de fragmentos de términos, en las que en lugar de un término completo, es posible que tenga solo el inicio, el centro o el final del término (a veces se denominan consultas de prefijo, infijo o sufijo). Un *patrón* podría ser una combinación de fragmentos, a menudo con caracteres especiales, como guiones o barras diagonales, que forman parte de la cadena de consulta. Los casos de uso comunes incluyen la consulta de partes de un número de teléfono, una dirección URL, códigos de productos o personas, o palabras compuestas.
+Una *búsqueda de términos parciales* hace referencia a las consultas que se componen de fragmentos de términos, en las que en lugar de un término completo, es posible que tenga solo el inicio, el centro o el final del término (a veces se denominan consultas de prefijo, infijo o sufijo). Una búsqueda de términos parciales podría ser una combinación de fragmentos, a menudo con caracteres especiales, como guiones o barras diagonales, que forman parte de la cadena de consulta. Entre los casos de uso comunes se incluyen partes de un número de teléfono, una dirección URL, códigos o palabras compuestas con guiones.
 
-La búsqueda de términos parciales o patrones puede ser problemática si el índice no tiene términos con el formato previsto. Durante la [fase de análisis de texto](search-lucene-query-architecture.md#stage-2-lexical-analysis) de la indexación, con el analizador estándar predeterminado, los caracteres especiales se descartan, las cadenas compuestas se dividen y se eliminan los espacios en blanco, lo que puede provocar un error en las consultas de patrones cuando no se encuentra ninguna coincidencia. Por ejemplo, un número de teléfono como `+1 (425) 703-6214` (tokenizado como `"1"`, `"425"`, `"703"`, `"6214"`) no se mostrará en una consulta `"3-62"` porque ese contenido no existe realmente en el índice. 
+La búsqueda de términos parciales y las cadenas de consulta que incluyen caracteres especiales pueden resultar problemáticas si el índice no tiene tokens con el formato esperado. Durante la [fase de análisis léxico](search-lucene-query-architecture.md#stage-2-lexical-analysis) de la indexación, con el analizador estándar predeterminado, los caracteres especiales se descartan, las palabras compuestas se dividen y los espacios en blanco se eliminan, lo que puede provocar un error en las consultas cuando no se encuentra ninguna coincidencia. Por ejemplo, un número de teléfono como `+1 (425) 703-6214` (tokenizado como `"1"`, `"425"`, `"703"`, `"6214"`) no se mostrará en una consulta `"3-62"` porque ese contenido no existe realmente en el índice. 
 
-La solución consiste en invocar un analizador que conserva una cadena completa, incluidos espacios y caracteres especiales, si es necesario, para que pueda hacer coincidir términos parciales y patrones. La creación de un campo adicional para una cadena intacta, además de usar un analizador de preservación de contenido, es la base de la solución.
+La solución consiste en invocar un analizador durante la indexación que conserve una cadena completa, incluidos espacios y caracteres especiales, si es necesario, para que pueda incluir los espacios y caracteres en la cadena de consulta. Del mismo modo, tener una cadena completa que no se convierte en un token en partes más pequeñas permite la coincidencia de patrones para las consultas de tipo "empieza con" o "finaliza con", donde el patrón proporcionado se puede evaluar con respecto a un término que no se transforma por el análisis léxico. La creación de un campo adicional para una cadena intacta, además de usar un analizador de conservación de contenido que emite tokens a largo plazo, es la solución tanto para la coincidencia de patrones como para buscar coincidencias en cadenas de consulta que incluyen caracteres especiales.
 
 > [!TIP]
-> ¿Está familiarizado con las API REST y Postman? [Descargue la colección de ejemplos de consultas](https://github.com/Azure-Samples/azure-search-postman-samples/) para consultar los términos parciales y caracteres especiales que se describen en este artículo.
+> Si está familiarizado con las API de Postman y REST, [descargue la colección de ejemplos de consultas](https://github.com/Azure-Samples/azure-search-postman-samples/) para consultar los términos parciales y caracteres especiales que se describen en este artículo.
 
-## <a name="what-is-partial-search-in-azure-cognitive-search"></a>Definición de la búsqueda parcial en Azure Cognitive Search
+## <a name="what-is-partial-term-search-in-azure-cognitive-search"></a>Definición de la búsqueda de términos parciales en Azure Cognitive Search
 
-En Azure Cognitive Search, la búsqueda parcial y el patrón están disponibles con estos formatos:
+Azure Cognitive Search examina si hay términos con tokens completos en el índice y no encontrará una coincidencia en un término parcial a menos que incluya operadores de marcadores de posición de caracteres comodín (`*` y `?`), o aplique un formato de expresión regular a la consulta. Los términos parciales se especifican mediante estas técnicas:
 
-+ [Búsqueda de prefijo](query-simple-syntax.md#prefix-search), como `search=cap*`, coincidente con "Cap'n Jack's Waterfront Inn" o "Gacc Capital". Puede usar la sintaxis de consulta simple o la sintaxis de consulta completa de Lucene para la búsqueda de prefijos.
++ Las [consultas de expresiones regulares](query-lucene-syntax.md#bkmk_regex) pueden ser cualquier expresión regular que sea válida en Apache Lucene. 
 
-+ [Búsqueda con caracteres comodín](query-lucene-syntax.md#bkmk_wildcard) o [Expresiones regulares](query-lucene-syntax.md#bkmk_regex), que buscan un patrón o partes de una cadena insertada. Los caracteres comodín y las expresiones regulares requieren la sintaxis de Lucene completa. Las consultas de sufijo e índice se formulan como una expresión regular.
++ Los [operadores de caracteres comodín con coincidencia de prefijos](query-simple-syntax.md#prefix-search) hacen referencia a un patrón reconocido generalmente que incluye el principio de un término, seguido de los operadores de sufijo `*` o `?`, como la coincidencia de `search=cap*` en "Cap'n Jack's Waterfront Inn" o "Gacc Capital". La coincidencia de prefijos es compatible con la sintaxis de consulta de Lucene simple y completa.
 
-  Algunos ejemplos de búsqueda de términos parciales son los siguientes. En el caso de una consulta de sufijo, dado el término "alfanumérico", usaría una búsqueda con caracteres comodín (`search=/.*numeric.*/`) para buscar una coincidencia. Para un término parcial que incluye caracteres interiores, como un fragmento de dirección URL, puede que tenga que agregar caracteres de escape. En JSON, una barra diagonal `/` se escapa con una barra diagonal inversa `\`. Así, `search=/.*microsoft.com\/azure\/.*/` es la sintaxis del fragmento de dirección URL "microsoft.com/azure/".
++ El [carácter comodín con coincidencia de infijos y sufijos](query-lucene-syntax.md#bkmk_wildcard) coloca los operadores `*` y `?` dentro o al principio de un término y requiere la sintaxis de expresiones regulares (donde la expresión se incluye entre barras diagonales). Por ejemplo, la cadena de consulta (`search=/.*numeric*./`) devuelve resultados en "alphanumeric" y "alphanumerical" como coincidencias de sufijo e infijo.
 
-Como hemos indicado, todo lo anterior requiere que el índice contenga cadenas en un formato favorable para la coincidencia de patrones, algo que el analizador estándar no proporciona. Al seguir los pasos de este artículo, puede asegurarse de que existe el contenido necesario para admitir estos escenarios.
+En el caso de la búsqueda de términos parciales o patrones, y en algunos otros formularios de consulta como la búsqueda aproximada, los analizadores no se usan en el momento de la consulta. En el caso de estos formularios de consulta, en los que el analizador detecta por la presencia de operadores y delimitadores, la cadena de consulta se pasa al motor sin análisis léxico. En estos formularios de consulta, el analizador especificado en el campo se omite.
+
+> [!NOTE]
+> Cuando una cadena de consulta parcial incluye caracteres, como barras en un fragmento de dirección URL, puede que tenga que agregar caracteres de escape. En JSON, una barra diagonal `/` se escapa con una barra diagonal inversa `\`. Así, `search=/.*microsoft.com\/azure\/.*/` es la sintaxis del fragmento de dirección URL "microsoft.com/azure/".
 
 ## <a name="solving-partialpattern-search-problems"></a>Solución de problemas de búsqueda de términos parciales o patrones
 
-Si necesita buscar en fragmentos, patrones o caracteres especiales, puede invalidar el analizador predeterminado con un analizador personalizado que funcione con reglas de tokenización más sencillas y conserve toda la cadena. Si realiza un paso atrás, el enfoque tiene el siguiente aspecto:
+Si necesita buscar en fragmentos, patrones o caracteres especiales, puede invalidar el analizador predeterminado con un analizador personalizado que funcione con reglas de tokenización más sencillas y conserve toda la cadena en el índice. Si realiza un paso atrás, el enfoque tiene el siguiente aspecto:
 
-+ Defina un campo para almacenar una versión intacta de la cadena (suponiendo que desee analizar texto analizado y sin analizar).
-+ Elija un analizador predefinido o defina un analizador personalizado que genere una cadena intacta no analizada.
-+ Asignación del analizador personalizado al campo
++ Defina un campo para almacenar una versión intacta de la cadena (suponiendo que desee texto analizado y no analizado en el momento de la consulta).
++ Evalúe y elija entre los distintos analizadores que emiten tokens en el nivel de granularidad adecuado.
++ Asigne el analizador al campo.
 + Compile y pruebe el índice.
 
 > [!TIP]
@@ -52,7 +55,7 @@ Si necesita buscar en fragmentos, patrones o caracteres especiales, puede invali
 
 ## <a name="duplicate-fields-for-different-scenarios"></a>Campos duplicados para diferentes escenarios
 
-Los analizadores se asignan por campo, lo que significa que puede crear campos en el índice para optimizar los distintos escenarios. En concreto, puede definir "featureCode" y "featureCodeRegex" para admitir la búsqueda de texto completo normal en el primero y la coincidencia de patrones avanzada en el segundo.
+Los analizadores determinan cómo se acortan los términos en un índice. Dado que los analizadores se asignan por campo, puede crear campos en el índice para optimizar los distintos escenarios. Por ejemplo, puede definir "featureCode" y "featureCodeRegex" para admitir la búsqueda de texto completo normal en el primero y la coincidencia de patrones avanzada en el segundo. Los analizadores asignados a cada campo determinan cómo se acorta el contenido de cada campo en el índice.  
 
 ```json
 {
@@ -84,9 +87,9 @@ Al elegir un analizador que produce tokens de términos completos, los siguiente
 
 Si usa una herramienta de prueba de API web como Postman, puede agregar la [llamada de REST del analizador de pruebas](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) para inspeccionar la salida con tokens.
 
-Debe tener un índice existente con el que trabajar. Si se da una situación en que tiene un índice y un campo que contiene guiones o términos parciales, puede probar varios analizadores en términos específicos para ver qué tokens se emiten.  
+Debe tener un índice relleno con el que trabajar. Si se da una situación en que tiene un índice y un campo que contiene guiones o términos parciales, puede probar varios analizadores en términos específicos para ver qué tokens se emiten.  
 
-1. Compruebe el analizador estándar para ver cómo se acortan los términos de forma predeterminada.
+1. En primer lugar, compruebe el analizador estándar para ver cómo se acortan los términos de forma predeterminada.
 
    ```json
    {
@@ -95,7 +98,7 @@ Debe tener un índice existente con el que trabajar. Si se da una situación en 
    }
     ```
 
-1. Evalúe la respuesta para ver cómo se acorta el texto en el índice. Observe que cada término está en minúsculas y dividido.
+1. Evalúe la respuesta para ver cómo se acorta el texto en el índice. Observe que cada término está en minúsculas y dividido. Solo las consultas que coincidan con estos tokens devolverán este documento en los resultados. Se producirá un error en una consulta que incluya "10-NOR".
 
     ```json
     {
@@ -121,7 +124,7 @@ Debe tener un índice existente con el que trabajar. Si se da una situación en 
         ]
     }
     ```
-1. Modifique la solicitud para usar el analizador `whitespace` o `keyword`:
+1. Ahora, modifique la solicitud para usar el analizador `whitespace` o `keyword`:
 
     ```json
     {
@@ -130,7 +133,7 @@ Debe tener un índice existente con el que trabajar. Si se da una situación en 
     }
     ```
 
-1. Ahora la respuesta se compone de un solo token escrito en mayúsculas con guiones que se mantienen como parte de la cadena. Si necesita realizar una búsqueda en un patrón o un término parcial, el motor de consultas ahora cuenta con la base para encontrar una coincidencia.
+1. Ahora la respuesta se compone de un solo token escrito en mayúsculas con guiones que se mantienen como parte de la cadena. Si necesita realizar una búsqueda en un patrón o un término parcial, como "10-NOR", el motor de consultas ahora cuenta con la base para encontrar una coincidencia.
 
 
     ```json
@@ -147,7 +150,7 @@ Debe tener un índice existente con el que trabajar. Si se da una situación en 
     }
     ```
 > [!Important]
-> Tenga en cuenta que los analizadores de consultas a menudo usan términos en minúsculas en una expresión de búsqueda al compilar el árbol de consulta. Si usa un analizador que no introduce las entradas de texto en minúsculas y no obtiene los resultados esperados, este podría ser el motivo. La solución consiste en agregar un filtro de tokens en minúsculas, tal como se describe en la sección "Uso de analizadores personalizados" más adelante.
+> Tenga en cuenta que los analizadores de consultas a menudo usan términos en minúsculas en una expresión de búsqueda al compilar el árbol de consulta. Si usa un analizador que no introduce las entradas de texto en minúsculas durante la indexación y no obtiene los resultados esperados, este podría ser el motivo. La solución consiste en agregar un filtro de tokens en minúsculas, tal como se describe en la sección "Uso de analizadores personalizados" más adelante.
 
 ## <a name="configure-an-analyzer"></a>Configuración de un analizador
  
@@ -233,13 +236,13 @@ La lógica se explicó en las secciones anteriores. En esta sección se explican
 
   En el caso de las consultas de infijos y de sufijos, como consultar "num" o "numéric" para encontrar una coincidencia en "alfanumérico", use la sintaxis completa de Lucene y una expresión regular: `search=/.*num.*/&queryType=full`
 
-## <a name="tips-and-best-practices"></a>Sugerencias y prácticas recomendadas
-
-### <a name="tune-query-performance"></a>Ajustar rendimiento de consulta
+## <a name="tune-query-performance"></a>Ajustar rendimiento de consulta
 
 Si implementa la configuración recomendada que incluye el tokenizador keyword_v2 y el filtro de tokens en minúsculas, es posible que observe una disminución en el rendimiento de las consultas debido al procesamiento adicional de los filtros de tokens en los tokens existentes en el índice. 
 
-En el ejemplo siguiente se agrega el elemento [EdgeNGramTokenFilter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html) para crear coincidencias de prefijo de manera más rápida. Se generan tokens adicionales para combinaciones de 2 a 25 caracteres que incluyen los caracteres siguientes: (no solo MS, MSF, MSFT, MSFT/, MSFT/S, MSFT/SQ, MSFT/SQL). Como puede imaginar, la tokenización adicional da como resultado un índice mayor.
+En el ejemplo siguiente se agrega el elemento [EdgeNGramTokenFilter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html) para crear coincidencias de prefijo de manera más rápida. Se generan tokens adicionales para combinaciones de 2 a 25 caracteres que incluyen los caracteres siguientes: (no solo MS, MSF, MSFT, MSFT/, MSFT/S, MSFT/SQ, MSFT/SQL). 
+
+Como puede imaginar, la tokenización adicional da como resultado un índice mayor. Si tiene capacidad suficiente para alojar el índice más grande, este enfoque con su tiempo de respuesta más rápido podría ser una solución mejor.
 
 ```json
 {
@@ -276,20 +279,6 @@ En el ejemplo siguiente se agrega el elemento [EdgeNGramTokenFilter](https://luc
   "side": "front"
   }
 ]
-```
-
-### <a name="use-different-analyzers-for-indexing-and-query-processing"></a>Uso de analizadores diferentes para las operaciones de indexación y procesamiento de consultas
-
-La llamada a los analizadores se realiza durante la indexación y la ejecución de la consulta. Es habitual usar el mismo analizador para ambos, pero puede configurar analizadores personalizados para cada carga de trabajo. Las invalidaciones del analizador se especifican en la [definición del índice](https://docs.microsoft.com/rest/api/searchservice/create-index) en la sección `analyzers` y, a continuación, se hace referencia a ellos en campos específicos. 
-
-Cuando el análisis personalizado solo es necesario durante la indexación, puede aplicar el analizador personalizado solo a la indexación y seguir usando el analizador estándar de Lucene (u otro) para las consultas.
-
-Para determinar el análisis específico de roles, puede establecer propiedades en el campo para cada uno. Para ello, establezca `indexAnalyzer` y `searchAnalyzer` en lugar de la propiedad `analyzer` predeterminada.
-
-```json
-"name": "featureCode",
-"indexAnalyzer":"my_customanalyzer",
-"searchAnalyzer":"standard",
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

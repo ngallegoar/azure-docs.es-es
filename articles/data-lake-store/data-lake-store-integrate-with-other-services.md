@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: ae27aba9fb6dc1421d224dab0c36373753acd5a2
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: f56d3a364e38d13931f8e07d749d3a5958dcee67
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690542"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322520"
 ---
 # <a name="integrating-azure-data-lake-storage-gen1-with-other-azure-services"></a>Integración de Azure Data Lake Storage Gen1 con otros servicios de Azure
 El Azure Data Lake Storage Gen1 puede usarse junto con otros servicios de Azure para habilitar una gama más amplia de escenarios. En el siguiente artículo se enumeran los servicios con los que puede integrarse Data Lake Storage Gen1.

@@ -2,13 +2,13 @@
 title: Introducción a las plantillas
 description: Describe las ventajas del uso de plantillas de Azure Resource Manager para la implementación de recursos.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: b3b5fb383ac89d0968a437f35aab656afa1913f0
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.date: 06/22/2020
+ms.openlocfilehash: b1c61d5eac012f2b807c0121460804c46b12c8d0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086341"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119368"
 ---
 # <a name="what-are-arm-templates"></a>¿Qué son las plantillas de Resource Manager?
 
@@ -54,7 +54,7 @@ Si intenta decidir entre usar plantillas de Resource Manager o una de las demás
 
 * **Código exportable**: Puede recuperar una plantilla de un grupo de recursos existente mediante la exportación del estado actual del grupo de recursos o la visualización de la plantilla de una implementación determinada. Una buena estrategia para aprender sobre la sintaxis de una plantilla es consultar la [plantilla exportada](export-template-portal.md).
 
-* **Herramientas de creación**: Puede crear plantillas con [Visual Studio Code](use-vs-code-to-create-template.md) y la extensión de la herramienta de plantillas. Podrá utilizar IntelliSense, el resaltado de sintaxis, la ayuda en línea y muchas otras funciones de lenguaje. Además de Visual Studio Code, también puede usar [Visual Studio](create-visual-studio-deployment-project.md).
+* **Herramientas de creación**: Puede crear plantillas con [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md) y la extensión de la herramienta de plantillas. Podrá utilizar IntelliSense, el resaltado de sintaxis, la ayuda en línea y muchas otras funciones de lenguaje. Además de Visual Studio Code, también puede usar [Visual Studio](create-visual-studio-deployment-project.md).
 
 ## <a name="template-file"></a>Archivo de plantilla
 
@@ -129,3 +129,4 @@ Para más información acerca de las plantillas anidadas, consulte [Uso de plant
 * Para obtener un tutorial paso a paso que le guíe en el proceso de creación de una plantilla, consulte [Tutorial: Creación e implementación de su primera plantilla de Resource Manager](template-tutorial-create-first-template.md).
 * Para obtener información sobre las propiedades de los archivos de plantilla, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
 * Para obtener información sobre la exportación de plantillas, consulte [Guía de inicio rápido: Creación e implementación de plantillas de Resource Manager mediante Azure Portal](quickstart-create-templates-use-the-portal.md).
+* Para obtener respuestas a preguntas comunes, consulte [Preguntas más frecuentes sobre las plantillas de ARM](frequently-asked-questions.md).

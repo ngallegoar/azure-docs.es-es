@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 3/12/2020
 ms.author: lcozzens
-ms.openlocfilehash: 8f39c9cf159f8ce5068cf10460ba6f195baa7806
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: bbf2039ad695f332b69bd5429ff527a4a2534e26
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84205065"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026991"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Uso de puntos de conexión privados en Azure App Configuration
 
@@ -24,7 +24,7 @@ El uso de puntos de conexión privados en el almacén de App Configuration permi
 - Conectarse de forma segura al almacén de App Configuration desde las redes locales que se conectan a la red virtual mediante [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) o [ExpressRoute](../expressroute/expressroute-locations.md) con emparejamiento privado.
 
 > [!NOTE]
-> Azure App Configuration ofrece el uso de puntos de conexión privados como versión preliminar pública. Las ofertas de versión preliminar pública permiten a los clientes experimentar con nuevas características antes de su publicación oficial.  Los servicios y las características en versión preliminar pública no están diseñados para su uso en producción.
+> La funcionalidad de punto de conexión privado ya está disponible con carácter general en todas las regiones *excepto* Centro de la India. En la región **Centro de la India**, Azure App Configuration ofrece el uso de puntos de conexión privados como una versión preliminar pública. Las ofertas de versión preliminar pública permiten a los clientes experimentar con nuevas características antes de su publicación oficial.  Los servicios y las características en versión preliminar pública no están diseñados para su uso en producción.
 
 ## <a name="conceptual-overview"></a>Información general conceptual
 

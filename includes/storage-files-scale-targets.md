@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
-ms.openlocfilehash: 6cf9be653da2dd587b93724b6e319dc4d20686c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c130fb2e032a24384f52f11957632319093e1e3
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81536456"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86226414"
 ---
 | Recurso | Recursos compartidos de archivos estándar | Recursos compartidos de archivos Prémium |
 |----------|---------------|------------------------------------------|
@@ -22,7 +22,7 @@ ms.locfileid: "81536456"
 | Rendimiento de destino para un único recurso compartido de archivos | hasta 300 MiB/s*, hasta 60 MiB/s,  | Consulte los valores de entrada y salida del recurso compartido de archivos Premium|
 | Salida máxima para un único recurso compartido de archivos | Consulte el rendimiento de destino del recurso compartido de archivos estándar. | Hasta 6204 MiB/s |
 | Entrada máxima para un único recurso compartido de archivos | Consulte el rendimiento de destino del recurso compartido de archivos estándar. | Hasta 4136 MiB/s |
-| Número máximo de identificadores abiertos por archivo | 2\.000 identificadores abiertos | 2\.000 identificadores abiertos |
+| Número máximo de identificadores abiertos por archivo o directorio | 2\.000 identificadores abiertos | 2\.000 identificadores abiertos |
 | Número máximo de instantáneas de recurso compartido | 200 instantáneas de recurso compartido | 200 instantáneas de recurso compartido |
 | Longitud máxima del nombre de objeto (archivos y directorios) | 2048 caracteres | 2048 caracteres |
 | Número máximo de componentes de la ruta de acceso (en la ruta de acceso \A\B\C\D, cada letra es un componente) | 255 caracteres | 255 caracteres |

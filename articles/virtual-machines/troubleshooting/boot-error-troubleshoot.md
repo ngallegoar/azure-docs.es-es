@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: genli
-ms.openlocfilehash: 660c7fa0051654fd9b0012740ce7ed3ee1e91531
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1ab2861f73d66987230c9e3398227c8e80665e96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71059183"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84769615"
 ---
 # <a name="troubleshoot-azure-virtual-machines-boot-errors"></a>Solución de errores de arranque en máquinas virtuales de Azure
 
@@ -26,12 +26,12 @@ En este artículo se enumeran los errores de arranque que puede recibir cuando i
 ## <a name="boot-errors-and-solutions"></a>Errores de arranque y soluciones
 
 * [Errores de arranque de BitLocker](troubleshoot-bitlocker-boot-error.md) 
+* [La máquina virtual no arranca después de Windows Update](troubleshoot-stuck-updating-boot-error.md)
 * [Windows muestra "Comprobando el sistema de archivos" durante el arranque](troubleshoot-check-disk-boot-error.md)
 * [Errores de pantalla azul](troubleshoot-common-blue-screen-error.md)
 * [El inicio de la máquina virtual está detenido en "Preparando Windows](troubleshoot-vm-boot-configure-update.md)
 * [Pantalla azul con el mensaje "ERROR CRÍTICO DEL SERVICIO"](troubleshoot-critical-service-failed-boot-error.md)
 * [Problema de bucle de reinicio](troubleshoot-reboot-loop.md)
-* [El inicio de la máquina virtual está atascado en una fase de actualización de Windows](troubleshoot-stuck-updating-boot-error.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

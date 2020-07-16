@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: e3d4ca6f8e67f069bffcd27563d7f32b55f6591e
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: da62efff5db5c71b087657b0eec93f8dd4702665
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780508"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84751498"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutorial: Configuración de ServiceNow para el aprovisionamiento automático de usuarios
 
@@ -35,7 +35,7 @@ En este tutorial, se describen los pasos que debe realizar en ServiceNow y Azure
 > * Aprovisionamiento de grupos y pertenencias a grupos en ServiceNow
 > * [Inicio de sesión único](servicenow-tutorial.md) en ServiceNow (recomendado)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
@@ -54,12 +54,19 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 
 1. Identifique el nombre de la instancia de ServiceNow. Puede encontrar el nombre de instancia en la dirección URL que usa para acceder a ServiceNow. En el ejemplo siguiente, el nombre de instancia es dev35214.
 
-![Instancia de ServiceNow](media/servicenow-provisioning-tutorial/servicenow_instance.png)
+   ![Instancia de ServiceNow](media/servicenow-provisioning-tutorial/servicenow_instance.png)
 
-    
 2. Obtenga las credenciales de un administrador de ServiceNow. Navegue hasta el perfil de usuario en ServiceNow y compruebe que el usuario tiene el rol de administrador. 
 
-![Rol de administrador de ServiceNow](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
+   ![Rol de administrador de ServiceNow](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
+
+3. Asegúrese de que la siguiente configuración está **deshabilitada** en ServiceNow:
+
+   1. Seleccione **System Security (Seguridad del sistema)**  > **High security settings (Configuración de alta seguridad)**  > **Require basic authentication for incoming SCHEMA requests (Requerir autenticación básica para solicitudes SCHEMA entrantes)** .
+   2. Seleccione **System Properties (Propiedades del sistema)**  > **Web Services (Servicios web)**  > **Require basic authorization for incoming SOAP requests (Requerir autenticación básica para solicitudes SOAP entrantes)** .
+     
+   > [!IMPORTANT]
+   > Si esta configuración está *habilitada*, el motor de aprovisionamiento no podrá comunicarse con ServiceNow.
 
 ## <a name="step-3-add-servicenow-from-the-azure-ad-application-gallery"></a>Paso 3. Agregar ServiceNow desde la galería de aplicaciones de Azure AD
 
@@ -142,6 +149,14 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
 * **EntryJoiningPropertyValueIsMissing:** Revise las [asignaciones de atributos ](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) para identificar el atributo coincidente. Este valor debe estar presente en el usuario o grupo que está intentando aprovisionar. 
 * Revise la [API de SOAP de ServiceNow](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) para comprender los requisitos o las limitaciones (por ejemplo, el formato para especificar el código de país de un usuario).
 * Las solicitudes de aprovisionamiento se envían de forma predeterminada a https://{nombre-de-instancia}.service-now.com/{nombre-de-tabla}. Si necesita una dirección URL de inquilino personalizada, puede proporcionar la dirección URL completa en el campo de nombre de instancia.
+* **ServiceNowInstanceInvalid** 
+  
+  `Details: Your ServiceNow instance name appears to be invalid.  Please provide a current ServiceNow administrative user name and          password along with the name of a valid ServiceNow instance.`                                                              
+
+   Este error indica un problema de comunicación con la instancia de ServiceNow. Asegúrese de que la siguiente configuración está *deshabilitada* en ServiceNow:
+   
+   1. Seleccione **System Security (Seguridad del sistema)**  > **High security settings (Configuración de alta seguridad)**  > **Require basic authentication for incoming SCHEMA requests (Requerir autenticación básica para solicitudes SCHEMA entrantes)** .
+   2. Seleccione **System Properties (Propiedades del sistema)**  > **Web Services (Servicios web)**  > **Require basic authorization for incoming SOAP requests (Requerir autenticación básica para solicitudes SOAP entrantes)** .
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

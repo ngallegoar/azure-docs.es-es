@@ -3,23 +3,23 @@ title: Requisitos de paquetes de dibujos en Azure Maps Creator
 description: Obtenga información sobre los requisitos de los paquetes de dibujos para convertir los archivos de diseño de las instalaciones a datos de mapa mediante el servicio de conversión de Azure Maps
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 5/18/2020
+ms.date: 6/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: c0c81f529dfc959916ff7c102b2b903a808b9672
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c8699ff86573084e3199b096b25dd5d97cce2985
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681908"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791578"
 ---
 # <a name="drawing-package-requirements"></a>Requisitos de paquetes de dibujos
 
 El servicio de conversión de [Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) permite convertir paquetes de dibujo cargados en datos de mapa. En este artículo se describen los requisitos de los paquetes de dibujos para la API de conversión. Para ver un paquete de ejemplo, puede descargar el [paquete de dibujos](https://github.com/Azure-Samples/am-creator-indoor-data-examples) de ejemplo.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 El paquete de dibujos incluye dibujos guardados en formato DWG, que es el formato de archivo nativo del software AutoCAD® de Autodesk, [marca comercial de Autodesk, Inc](https://www.autodesk.com/company/legal-notices-trademarks/trademarks/guidelines-for-use#section12).
 
@@ -169,12 +169,13 @@ Se puede ver un ejemplo de la capa de ZoneLabel en la capa ZONELABELS del [paque
 
 La carpeta ZIP debe contener un archivo de manifiesto en el nivel raíz del directorio y el archivo debe tener el nombre **manifest.json**. Describe los archivos DWG para permitir que el [servicio de conversión de Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) analice su contenido. Solo se ingerirán los archivos identificados por el manifiesto. Los archivos que se encuentren en la carpeta ZIP pero que no se enumeren correctamente en el manifiesto se omitirán.
 
-Las rutas de acceso de los archivos en el objeto **buildingLevels** del archivo de manifiesto deben ser relativas a la raíz de la carpeta ZIP. El nombre del archivo DWG debe coincidir exactamente con el nombre del nivel de la instalación. Por ejemplo, un archivo DWG para el nivel "Sótano" sería "Sótano.dwg". Un archivo DWG para el nivel 2 tendría el nombre "nivel_2.dwg". Use un carácter de subrayado si el nombre del nivel tiene un espacio. 
+Las rutas de acceso de los archivos en el objeto **buildingLevels** del archivo de manifiesto deben ser relativas a la raíz de la carpeta ZIP. El nombre del archivo DWG debe coincidir exactamente con el nombre del nivel de la instalación. Por ejemplo, un archivo DWG para el nivel "Sótano" sería "Sótano.dwg". Un archivo DWG para el nivel 2 tendría el nombre "nivel_2.dwg". Use un carácter de subrayado si el nombre del nivel tiene un espacio.
 
 Aunque hay requisitos al usar los objetos del manifiesto, no se requieren todos los objetos. En la tabla siguiente se muestran los objetos obligatorios y opcionales para la versión 1.1 del [servicio de conversión de Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion).
 
 | Object | Obligatorio | Descripción |
 | :----- | :------- | :------- |
+| version | true |Versión del esquema de manifiesto. Actualmente, solo se admite la versión 1.1.|
 | directoryInfo | true | Describe la información geográfica y de contacto de la instalación. También se puede usar para describir información geográfica y de contacto de un ocupante. |
 | buildingLevels | true | Especifica los niveles de los edificios y los archivos que contienen el diseño de los niveles. |
 | georeference | true | Contiene información geográfica numérica para el dibujo de la instalación. |
@@ -188,14 +189,14 @@ En las secciones siguientes se detallan los requisitos de cada objeto.
 
 | Propiedad  | type | Obligatorio | Descripción |
 |-----------|------|----------|-------------|
-| name      | cadena o entero | true   |  Nombre del edificio. |
-| streetAddress|    cadena o entero |    false    | Dirección del edificio. |
-|unit     | cadena o entero    |  false    |  Unidad en el edificio. |
-| situación |    cadena o entero |    false |    Nombre de una zona, un barrio o una región. Por ejemplo, "Overlake" o "Distrito central". La localidad no forma parte de la dirección postal. |
+| name      | string | true   |  Nombre del edificio. |
+| streetAddress|    string |    false    | Dirección del edificio. |
+|unit     | string    |  false    |  Unidad en el edificio. |
+| situación |    string |    false |    Nombre de una zona, un barrio o una región. Por ejemplo, "Overlake" o "Distrito central". La localidad no forma parte de la dirección postal. |
 | adminDivisions |    Matriz JSON de cadenas |    false     | Matriz que contiene las designaciones de las direcciones (país, estado, ciudad) o (país, región, ciudad, población). Use códigos de país ISO 3166 y códigos de estado o territorio ISO 3166-2. |
-| postalCode |    cadena o entero    | false    | Código postal. |
+| postalCode |    string    | false    | Código postal. |
 | hoursOfOperation |    string |     false | Sigue el formato de [horas de apertura de OSM](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification). |
-| phone    | cadena o entero |    false |    Número de teléfono asociado con el edificio. Debe incluir el código de país. |
+| phone    | string |    false |    Número de teléfono asociado con el edificio. Debe incluir el código de país. |
 | sitio web    | string |    false    | Sitio web asociado con el edificio. Debe empezar por http o https. |
 | nonPublic |    bool    | false | Marca que especifica si el edificio está abierto al público. |
 | anchorLatitude | NUMERIC |    false | Latitud del marcador (chincheta) de la instalación. |
@@ -209,11 +210,11 @@ El objeto `buildingLevels` contiene una matriz JSON de los niveles del edificio.
 
 | Propiedad  | Tipo | Obligatorio | Descripción |
 |-----------|------|----------|-------------|
-|levelName    |cadena o entero    |true |    Nombre descriptivo del nivel. Por ejemplo: Piso 1, vestíbulo, aparcamiento, sótano, etc.|
+|levelName    |string    |true |    Nombre descriptivo del nivel. Por ejemplo: Piso 1, vestíbulo, aparcamiento, sótano, etc.|
 |ordinal | integer |    true | Ordinal se usa para determinar el orden vertical de los niveles. Cada instalación debe tener un nivel con el ordinal 0. |
-|heightAboveFacilityAnchor | NUMERIC |    false |    Altura del nivel sobre la planta baja en metros. |
+|heightAboveFacilityAnchor | NUMERIC | false |    Altura del nivel sobre el marcador en metros. |
 | verticalExtent | NUMERIC | false | Altura del suelo al techo (grosor) del nivel en metros. |
-|filename |    cadena o entero |    true |    Ruta de acceso del sistema de archivos del dibujo de CAD para un nivel del edificio. Debe ser relativa a la raíz del archivo ZIP del edificio. |
+|filename |    string |    true |    Ruta de acceso del sistema de archivos del dibujo de CAD para un nivel del edificio. Debe ser relativa a la raíz del archivo ZIP del edificio. |
 
 ### <a name="georeference"></a>georeference
 
@@ -227,13 +228,13 @@ El objeto `buildingLevels` contiene una matriz JSON de los niveles del edificio.
 
 | Propiedad  | Tipo | Obligatorio | Descripción |
 |-----------|------|----------|-------------|
-|exterior    |Matriz de cadenas o enteros|    true|    Nombres de las capas que definen el perfil exterior del edificio.|
-|unit|    Matriz de cadenas o enteros|    true|    Nombres de las capas que definen las unidades.|
-|wall|    Matriz de cadenas o enteros    |false|    Nombres de las capas que definen las paredes.|
-|door    |Matriz de cadenas o enteros|    false   | Nombres de las capas que definen las puertas.|
-|unitLabel    |Matriz de cadenas o enteros|    false    |Nombres de las capas que definen los nombres de las unidades.|
-|zona | Matriz de cadenas o enteros    | false    | Nombres de las capas que definen las zonas.|
-|zoneLabel | Matriz de cadenas o enteros |     false |    Nombres de las capas que definen los nombres de las zonas.|
+|exterior    |Matriz de cadenas|    true|    Nombres de las capas que definen el perfil exterior del edificio.|
+|unit|    Matriz de cadenas|    true|    Nombres de las capas que definen las unidades.|
+|wall|    Matriz de cadenas    |false|    Nombres de las capas que definen las paredes.|
+|door    |Matriz de cadenas|    false   | Nombres de las capas que definen las puertas.|
+|unitLabel    |Matriz de cadenas|    false    |Nombres de las capas que definen los nombres de las unidades.|
+|zona | Matriz de cadenas    | false    | Nombres de las capas que definen las zonas.|
+|zoneLabel | Matriz de cadenas |     false |    Nombres de las capas que definen los nombres de las zonas.|
 
 ### <a name="unitproperties"></a>unitProperties
 
@@ -241,19 +242,19 @@ El objeto `unitProperties` contiene una matriz JSON de las propiedades de la uni
 
 | Propiedad  | Tipo | Obligatorio | Descripción |
 |-----------|------|----------|-------------|
-|unitName    |cadena o entero    |true    |Nombre de la unidad que se asociará a este registro `unitProperty`. Este registro solo es válido cuando se encuentra una etiqueta que coincida con `unitName` en las capas de `unitLabel`. |
-|categoryName|    cadena o entero|    false    |Nombre de la categoría. Para obtener una lista completa de las categorías, consulte las [categorías](https://aka.ms/pa-indoor-spacecategories). |
+|unitName    |string    |true    |Nombre de la unidad que se asociará a este registro `unitProperty`. Este registro solo es válido cuando se encuentra una etiqueta que coincida con `unitName` en las capas de `unitLabel`. |
+|categoryName|    string|    false    |Nombre de la categoría. Para obtener una lista completa de las categorías, consulte las [categorías](https://aka.ms/pa-indoor-spacecategories). |
 |navigableBy| Matriz de cadenas |    false    |Indica los tipos de agentes de navegación que pueden atravesar la unidad. For example, "pedestrian". Esta propiedad informará a las funcionalidades de enrutamiento.  Los valores permitidos son `pedestrian`, `wheelchair`, `machine`, `bicycle`, `automobile`, `hiredAuto`, `bus`, `railcar`, `emergency`, `ferry`, `boat` y `disallowed`.|
 |routeThroughBehavior|    string|    false    |El comportamiento para crear una ruta a través de la unidad. Los valores admitidos son `disallowed`, `allowed` y `preferred`. El valor predeterminado es `allowed`.|
 |occupants    |Matriz de objetos directoryInfo |false    |Lista de ocupantes de la unidad. |
-|nameAlt|    cadena o entero|    false|    Nombre alternativo de la unidad. |
-|nameSubtitle|    cadena o entero    |false|    Subtítulo de la unidad. |
-|addressRoomNumber|    cadena o entero|    false|    Número de habitación/unidad/apartamento/suite de la unidad.|
-|verticalPenetrationCategory|    cadena o entero|    false| Cuando se define esta propiedad, la característica resultante será una penetración vertical (VRT) en lugar de una unidad. Las VRT puede utilizarse para navegar a otras características de VRT en los niveles situados por encima o por debajo. La penetración vertical es un nombre de [categoría](https://aka.ms/pa-indoor-spacecategories). Si se define esta propiedad, la propiedad categoryName se invalida con verticalPenetrationCategory. |
+|nameAlt|    string|    false|    Nombre alternativo de la unidad. |
+|nameSubtitle|    string    |false|    Subtítulo de la unidad. |
+|addressRoomNumber|    string|    false|    Número de habitación/unidad/apartamento/suite de la unidad.|
+|verticalPenetrationCategory|    string|    false| Cuando se define esta propiedad, la característica resultante será una penetración vertical (VRT) en lugar de una unidad. Las VRT puede utilizarse para navegar a otras características de VRT en los niveles situados por encima o por debajo. La penetración vertical es un nombre de [categoría](https://aka.ms/pa-indoor-spacecategories). Si se define esta propiedad, la propiedad categoryName se invalida con verticalPenetrationCategory. |
 |verticalPenetrationDirection|    string|    false    |Si se define `verticalPenetrationCategory`, defina opcionalmente la dirección válida de desplazamiento. Los valores admitidos son `lowToHigh`, `highToLow`, `both` y `closed`. El valor predeterminado es `both`.|
 | nonPublic | bool | false | Indica si la unidad está abierta al público. |
 | isRoutable | bool | false | Cuando se establece en `false`, la unidad no es accesible ni transitable. El valor predeterminado es `true`. |
-| isOpenArea | bool | false | Permite que el agente de navegación entre en la unidad sin necesidad de una apertura asociada a la unidad. De forma predeterminada, este valor se establece en `true` a menos que la unidad tenga una apertura. |
+| isOpenArea | bool | false | Permite que el agente de navegación entre en la unidad sin necesidad de una apertura asociada a la unidad. De forma predeterminada, este valor se establece en `true` para las unidades sin aperturas; `false` para las unidades con aperturas.  El establecimiento manual de `isOpenArea` en `false` en una unidad sin aperturas produce una advertencia. Esto se debe a que un agente de navegación no podrá alcanzar la unidad resultante.|
 
 ### <a name="the-zoneproperties-object"></a>Objeto zoneProperties
 
@@ -261,10 +262,11 @@ El objeto `zoneProperties` contiene una matriz JSON de las propiedades de la zon
 
 | Propiedad  | Tipo | Obligatorio | Descripción |
 |-----------|------|----------|-------------|
-|zoneName        |cadena o entero    |true    |Nombre de la zona que se asociará al registro `zoneProperty`. Este registro solo es válido cuando se encuentra una etiqueta que coincida con `zoneName` en la capa de `zoneLabel` de la zona.  |
-|categoryName|    cadena o entero|    false    |Nombre de la categoría. Para obtener una lista completa de las categorías, consulte las [categorías](https://aka.ms/pa-indoor-spacecategories). |
-|zoneNameAlt|    cadena o entero|    false    |Nombre alternativo de la zona.  |
-|zoneNameSubtitle|    cadena o entero |    false    |Subtítulo de la zona. |
+|zoneName        |string    |true    |Nombre de la zona que se asociará al registro `zoneProperty`. Este registro solo es válido cuando se encuentra una etiqueta que coincida con `zoneName` en la capa de `zoneLabel` de la zona.  |
+|categoryName|    string|    false    |Nombre de la categoría. Para obtener una lista completa de las categorías, consulte las [categorías](https://aka.ms/pa-indoor-spacecategories). |
+|zoneNameAlt|    string|    false    |Nombre alternativo de la zona.  |
+|zoneNameSubtitle|    string |    false    |Subtítulo de la zona. |
+|zoneSetId|    string |    false    | Establezca el identificador para fijar una relación entre varias zonas para que se puedan consultar o seleccionar como grupo. Por ejemplo, las zonas que abarcan varios niveles. |
 
 ### <a name="sample-drawing-package-manifest"></a>Manifiesto de paquete de dibujo de ejemplo
 

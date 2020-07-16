@@ -5,19 +5,19 @@ description: Aprenda a importar los datos en el diseñador de Azure Machine Lear
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
 ms.custom: designer
-ms.openlocfilehash: 2b42f8f9dfe6ef2993b4615f0e4584874beabb28
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 12473aca589f8a04dd0e09fdc2dc7f0d4e450c5a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644561"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610955"
 ---
-# <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importación de datos en el diseñador de Azure Machine Learning (versión preliminar)
+# <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importación de datos en el diseñador de Azure Machine Learning (versión preliminar)
 
 En este artículo, aprenderá a importar sus propios datos en el diseñador para crear soluciones personalizadas. Hay dos formas de importar datos en el diseñador: 
 
@@ -89,6 +89,10 @@ El diseñador usa un tipo de datos interno para pasar datos entre los módulos. 
 ## <a name="data-constraints"></a>Restricciones de datos
 
 Los módulos del diseñador están limitados por el tamaño del destino de proceso. Para conjuntos de datos mayores, debe usar un recurso de proceso de Azure Machine Learning mayor. Para más información sobre el proceso de Azure Machine Learning, consulte [¿Qué son los destinos de proceso en Azure Machine Learning?](concept-compute-target.md#azure-machine-learning-compute-managed)
+
+## <a name="access-data-in-a-virtual-network"></a>Acceso a los datos de una red virtual
+
+Si el área de trabajo está en una red virtual, debe realizar pasos de configuración adicionales para visualizar los datos en el diseñador. Para más información sobre cómo usar los almacenes de datos y los conjuntos de datos en una red virtual, consulte [Aislamiento de red durante el entrenamiento e inferencia con redes virtuales privadas](how-to-enable-virtual-network.md#machine-learning-studio).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

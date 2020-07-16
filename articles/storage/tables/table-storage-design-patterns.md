@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 5478163a6103bcc84b4f3608d7513c6e7cb11c01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cbafe7c3e3b76ea13a8ca7a82b2968662b43685a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79529346"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081237"
 ---
 # <a name="table-design-patterns"></a>Patrones de diseño de tabla
 En este artículo se describen algunos patrones adecuados para su uso con soluciones de Table service. Además, verá cómo puede abordar de manera práctica algunos de los problemas, y las ventajas e inconvenientes descritos en otros artículos de diseño de Table Storage. En el diagrama siguiente se resumen las relaciones entre los distintos patrones:  

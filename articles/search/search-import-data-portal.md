@@ -1,19 +1,19 @@
 ---
 title: Importación de datos en un índice de búsqueda con Azure Portal
 titleSuffix: Azure Cognitive Search
-description: Aprenda a usar el Asistente para la importación de datos en Azure Portal para rastrear datos de Azure desde Cosmos DB, Blob Storage, Table Storage, SQL Database y SQL Server en máquinas virtuales de Azure.
+description: Aprenda a usar el Asistente para la importación de datos en Azure Portal para rastrear datos de Azure desde Cosmos DB, Blob Storage, Table Storage, SQL Database, SQL Managed Instance y SQL Server en máquinas virtuales de Azure.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0ed2bd7f1e03d8d5fa11f7e76010d087605f0fe1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d786f1ebadc961ab367fdcc9b27c4d829a68400
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75460702"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85321388"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Asistente para la importación de datos de Azure Cognitive Search
 
@@ -65,7 +65,7 @@ Debe crear esta tabla o vista única antes de ejecutar el asistente y debe inclu
 | ---------- | ----------- |
 | **Origen de datos existente** |Si ya tiene indexadores definidos en el servicio de búsqueda, es posible que tenga una definición de origen de datos ya existente que puede volver a utilizar. En Azure Cognitive Search, solo los indizadores usan objetos de origen de datos. Puede crear un objeto de origen de datos mediante programación o con el asistente para la **importación de datos** y reutilizarlo cuando sea necesario.|
 | **Muestras**| Azure Cognitive Search proporciona dos orígenes de datos de ejemplo integrados que se usan en tutoriales e inicios rápidos: una base de datos SQL con información inmobiliaria y una base de datos de hoteles hospedada en Cosmos DB. Para ver un tutorial basado en el ejemplo de los hoteles, consulte el inicio rápido [Creación de un índice de Azure Search en Azure Portal](search-get-started-portal.md). |
-| [**Azure SQL Database**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |Se puede especificar el nombre del servicio, las credenciales de un usuario de base de datos con permiso de lectura y un nombre de base de datos en la página o a través de una cadena de conexión de ADO.NET. Elija la opción de cadena de conexión para ver o personalizar las propiedades. <br/><br/>En la página debe especificarse la tabla o vista que proporciona el conjunto de filas. Esta opción aparece una vez realizada correctamente la conexión, lo que proporciona una lista desplegable para que pueda realizar una selección.|
+| [**Azure SQL Database o SQL Managed Instance**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |Se puede especificar el nombre del servicio, las credenciales de un usuario de base de datos con permiso de lectura y un nombre de base de datos en la página o a través de una cadena de conexión de ADO.NET. Elija la opción de cadena de conexión para ver o personalizar las propiedades. <br/><br/>En la página debe especificarse la tabla o vista que proporciona el conjunto de filas. Esta opción aparece una vez realizada correctamente la conexión, lo que proporciona una lista desplegable para que pueda realizar una selección.|
 | **SQL Server en máquinas virtuales de Azure** |Especifique un nombre de servicio completo, el identificador de usuario y la contraseña, y la base de datos como una cadena de conexión. Para utilizar este origen de datos, debe haber instalado un certificado en el almacén local que cifra la conexión. Para obtener instrucciones, consulte [Conexión de máquina virtual de SQL a Azure Cognitive Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>En la página debe especificarse la tabla o vista que proporciona el conjunto de filas. Esta opción aparece una vez realizada correctamente la conexión, lo que proporciona una lista desplegable para que pueda realizar una selección. |
 | [**Azure Cosmos DB**](search-howto-index-cosmosdb.md)|Los requisitos incluyen la cuenta, la base de datos y la colección. Todos los documentos de la colección se incluirán en el índice. Puede definir una consulta para aplanar o filtrar el conjunto de filas o dejar en blanco la consulta. No se requiere una consulta en este asistente.|
 | [**Azure Blob Storage**](search-howto-indexing-azure-blob-storage.md) |Los requisitos incluyen la cuenta de almacenamiento y un contenedor. Opcionalmente, si los nombres de blobs siguen una convención de nomenclatura virtual con fines de agrupación, puede especificar la parte del directorio virtual del nombre como una carpeta en el contenedor. Consulte [Indexación de Blob Storage](search-howto-indexing-azure-blob-storage.md) para más información. |
@@ -93,7 +93,7 @@ El asistente para la importación de datos se inicia desde la barra de comandos 
 
    ![Comando de importación de datos en el portal](./media/search-import-data-portal/import-data-cmd2.png "Inicio del Asistente para la importación de datos")
 
-Puede iniciar el asistente para la **importación de datos** desde otros servicios de Azure, como Azure Cosmos DB, Azure SQL Database y Azure Blob Storage. Busque la opción para **agregar Azure Cognitive Search** en el panel de navegación izquierdo en la página de información general del servicio.
+Puede iniciar la **importación de datos** desde otros servicios de Azure, como Azure Cosmos DB, Azure SQL Database, SQL Managed Instance y Azure Blob Storage. Busque la opción para **agregar Azure Cognitive Search** en el panel de navegación izquierdo en la página de información general del servicio.
 
 <a name="index-definition"></a>
 

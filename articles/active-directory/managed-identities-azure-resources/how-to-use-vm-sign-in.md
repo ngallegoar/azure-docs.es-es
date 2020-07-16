@@ -1,6 +1,6 @@
 ---
-title: 'Uso de las identidades administradas en una máquina virtual de Azure para el inicio de sesión: Azure AD'
-description: Instrucciones paso a paso y ejemplos de uso de entidades administradas de VM de una entidad de servicio de recursos de Azure para el acceso a los recursos y el inicio de sesión de cliente mediante script.
+title: 'Uso de las identidades administradas en una máquina virtual de Azure para el inicio de sesión: Azure ADV'
+description: Instrucciones paso a paso y ejemplos de uso de entidades administradas de una máquina virtual de Azure de una entidad de servicio de recursos de Azure para el acceso a los recursos y el inicio de sesión de cliente mediante un script.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -9,27 +9,27 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34f4dc749c0254b5aa4e9ff018d2a869832de3f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1380562cfc073d906ea4cfc0d6d849e9ca2a70d3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74547385"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608422"
 ---
-# <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Cómo usar las identidades administradas para recursos de Azure en una VM de Azure para el inicio de sesión 
+# <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Uso de identidades administradas para recursos de Azure en una máquina virtual de Azure para el inicio de sesión 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 En este artículo se proporcionan ejemplos de script de PowerShell y de la CLI para el inicio de sesión mediante identidades administradas para una entidad de servicio de recursos de Azure, así como instrucciones sobre temas importantes como el tratamiento de errores.
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -41,7 +41,7 @@ Si tiene previsto usar los ejemplos de Azure PowerShell o de la CLI de Azure en 
 
 ## <a name="overview"></a>Información general
 
-Las identidades administradas para recursos de Azure proporcionan un [objeto de entidad de servicio](../develop/developer-glossary.md#service-principal-object), que se [crea al habilitar las identidades administradas para recursos de Azure](overview.md#how-does-the-managed-identities-for-azure-resources-work) en la VM. Se le puede dar a la entidad de servicio acceso a los recursos de Azure, y los clientes de script o de línea de comandos pueden usar esta entidad como identidad para iniciar sesión y acceder a los recursos. Tradicionalmente, para acceder a los recursos protegidos con su propia identidad, un cliente de script debía hacer lo siguiente:  
+Las identidades administradas para recursos de Azure proporcionan un [objeto de entidad de servicio](../develop/developer-glossary.md#service-principal-object), que se [crea al habilitar las identidades administradas para recursos de Azure](overview.md) en la máquina virtual. A la entidad de servicio se le puede dar acceso a los recursos de Azure y los clientes de script o de línea de comandos pueden usar esta entidad para iniciar sesión y acceder a los recursos. Tradicionalmente, para acceder a los recursos protegidos con su propia identidad, un cliente de script debía hacer lo siguiente:  
 
    - Registrarse y ser aceptado en Azure AD como una aplicación cliente confidencial/web
    - Iniciar sesión con su entidad de servicio mediante las credenciales de la aplicación (que probablemente estaban insertadas en el script)

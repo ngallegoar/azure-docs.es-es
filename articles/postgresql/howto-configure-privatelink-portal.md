@@ -4,14 +4,14 @@ description: 'Obtenga información sobre cómo configurar Private Link para Azur
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 72dcf95c8ae8d8da34532fa96e3bf0371f5112fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6986d5882e4d62ffc2e25b7ea998f46f41c67330
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79370923"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102470"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Creación y administración de Private Link para el servidor único de Azure Database for PostgreSQL con el portal
 
@@ -39,7 +39,7 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
     | ------- | ----- |
     | Nombre | Escriba *MyVirtualNetwork*. |
     | Espacio de direcciones | Escriba *10.1.0.0/16*. |
-    | Subscription | Seleccione su suscripción.|
+    | Suscripción | Seleccione su suscripción.|
     | Resource group | Seleccione **Crear nuevo**, escriba *myResourceGroup* y, después, seleccione **Aceptar**. |
     | Location | Seleccione **Oeste de Europa**.|
     | Subred: nombre | Escriba *mySubnet*. |
@@ -56,7 +56,7 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
     | Configuración | Value |
     | ------- | ----- |
     | **DETALLES DEL PROYECTO** | |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.  |
     | **DETALLES DE INSTANCIA** |  |
     | Nombre de la máquina virtual | Escriba *myVm*. |
@@ -95,6 +95,10 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
 
 1. Cuando reciba el mensaje **Validación superada**, seleccione **Crear**.
 
+> [!NOTE]
+> En algunos casos, Azure Database for PostgreSQL y la subred de red virtual se encuentran en distintas suscripciones. En estos casos debe garantizar las siguientes configuraciones:
+> - Asegúrese de que ambas suscripciones tengan el proveedor de recursos **Microsoft.DBforPostgreSQL** registrado. Para más información, consulte [resource-manager-registration][resource-manager-portal].
+
 ## <a name="create-an-azure-database-for-postgresql-single-server"></a>Creación un único servidor de Azure Database for PostgreSQL
 
 En esta sección, creará un servidor de Azure Database for PostgreSQL en Azure. 
@@ -106,7 +110,7 @@ En esta sección, creará un servidor de Azure Database for PostgreSQL en Azure.
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.|
     | **Detalles del servidor** |  |
     |Nombre de servidor  | Escriba *miServidor*. Si el nombre ya existe, cree uno único.|
@@ -136,7 +140,7 @@ En esta sección, creará un servidor PostgreSQL y le agregará un punto de cone
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.|
     | **Detalles de instancia** |  |
     | Nombre | Escriba *myPrivateEndpoint*. Si el nombre ya existe, cree uno único. |
@@ -148,9 +152,9 @@ En esta sección, creará un servidor PostgreSQL y le agregará un punto de cone
     | Configuración | Value |
     | ------- | ----- |
     |Método de conexión  | Seleccione Connect to an Azure resource in my directory (Conectarse a un recurso de Azure en mi directorio).|
-    | Subscription| Seleccione su suscripción. |
+    | Suscripción| Seleccione su suscripción. |
     | Tipo de recurso | Seleccione **Microsoft.DBforPostgreSQL/servers**. |
-    | Resource |Seleccione *miServidor*.|
+    | Recurso |Seleccione *miServidor*.|
     |Recurso secundario de destino |Seleccione *postgresqlServer*|
     |||
 7. Seleccione **Siguiente: Configuration** (Siguiente: Configuración).
@@ -165,6 +169,9 @@ En esta sección, creará un servidor PostgreSQL y le agregará un punto de cone
     |Integración con una zona DNS privada |Seleccione **Sí**. |
     |Zona DNS privada |Seleccione *(New)privatelink.postgres.database.azure.com* |
     |||
+
+    > [!Note] 
+    > Use la zona DNS privada predefinida para su servicio o proporcione el nombre de la zona DNS que prefiera. Consulte la [configuración de la zona DNS de los servicios de Azure](../private-link/private-endpoint-dns.md) para obtener más información.
 
 1. Seleccione **Revisar + crear**. Se le remitirá a la página **Revisar y crear**, donde Azure validará la configuración. 
 2. Cuando reciba el mensaje **Validación superada**, seleccione **Crear**. 
@@ -246,3 +253,6 @@ Cuando haya terminado de usar el punto de conexión privado, el servidor Postgre
 ## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía paso a paso ha creado una máquina virtual en una red virtual, una instancia de Azure Database for PostgreSQL (único servidor) y un punto de conexión privado para acceso privado. Se ha conectado a una máquina virtual desde Internet y se ha comunicado de forma segura con el servidor PostgreSQL mediante Private Link. Para obtener más información sobre los puntos de conexión privados, vea [¿Qué es un punto de conexión privado de Azure?](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

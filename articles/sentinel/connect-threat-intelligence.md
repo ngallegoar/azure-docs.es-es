@@ -5,19 +5,20 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: security-center
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
-ms.openlocfilehash: eec07a01edc6b126bb7cd3a814912ea5c5b14195
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 8036203e33fd63a25ecfa7c4ea720e01259be04a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529093"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84769880"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Conectar datos de proveedores de inteligencia sobre amenazas
 
@@ -58,7 +59,7 @@ Puede transmitir los indicadores de amenazas a Azure Sentinel mediante uno de lo
 
 ## <a name="connect-azure-sentinel-to-your-threat-intelligence-platform"></a>Conexión de Azure Sentinel a su plataforma de inteligencia sobre amenazas
 
-## <a name="prerequisites"></a>Prerrequisitos  
+## <a name="prerequisites"></a>Requisitos previos  
 
 - Rol de Azure AD de administrador global o de administrador de seguridad para conceder permisos al producto TIP o a la aplicación personalizada que usa integración directa con Microsoft Graph Security tiIndicators API.
 
@@ -70,7 +71,7 @@ Puede transmitir los indicadores de amenazas a Azure Sentinel mediante uno de lo
 
 2. [Configure los permisos de la API](/graph/auth-v2-service#2-configure-permissions-for-microsoft-graph) para la aplicación registrada: Agregue el permiso de aplicación de Microsoft Graph **ThreatIndicators.ReadWrite.OwnedBy** a la aplicación registrada.
 
-3. Pida a su administrador de inquilinos de Azure Active Directory que conceda consentimiento de administrador a la aplicación registrada de su organización. En el Portal de Azure: **Azure Active Directory** > **Registros de aplicaciones** >  **\<_nombre de aplicación_>**  > **Ver permisos de API** > **Grant admin consent for (Conceder consentimiento del administrador para) \<_nombre del inquilino_>** .
+3. Pida a su administrador de inquilinos de Azure Active Directory que conceda consentimiento de administrador a la aplicación registrada de su organización. En el Portal de Azure: **Azure Active Directory** > **Registros de aplicaciones** >  **\<_app name_>**  > **Ver permisos de API** > **Conceder consentimiento de administrador para \<_tenant name_>** .
 
 4. Configure el producto TIP o la aplicación que usa la integración directa con Microsoft Graph Security tiIndicators API para enviar indicadores a Azure Sentinel especificando lo siguiente:
     
@@ -88,7 +89,7 @@ Puede transmitir los indicadores de amenazas a Azure Sentinel mediante uno de lo
 
 ## <a name="connect-azure-sentinel-to-taxii-servers"></a>Conexión de Azure Sentinel con servidores TAXII
 
-## <a name="prerequisites"></a>Prerrequisitos  
+## <a name="prerequisites"></a>Requisitos previos  
 
 - Permisos de lectura y escritura en el área de trabajo de Azure Sentinel para almacenar los indicadores de amenazas.
 

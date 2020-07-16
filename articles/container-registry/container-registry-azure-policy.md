@@ -2,24 +2,21 @@
 title: Cumplimiento mediante Azure Policy
 description: Asignación de directivas integradas en Azure Policy para auditar el cumplimiento de los registros de contenedor de Azure
 ms.topic: article
-ms.date: 02/26/2020
-ms.openlocfilehash: a2bfdc18f4bbf16fe8fa6bcbcba7bab18aedabf1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/11/2020
+ms.openlocfilehash: 6101db865749f98f50e04f1fec3b8009089b7908
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82144995"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791901"
 ---
 # <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Auditoría del cumplimiento de los registros de contenedor de Azure mediante Azure Policy
 
 [Azure Policy](../governance/policy/overview.md) es un servicio de Azure que se usa para crear, asignar y administrar directivas. Dichas directivas aplican distintas reglas y efectos a los recursos, con el fin de que estos sigan siendo compatibles con los estándares corporativos y los acuerdos de nivel de servicio.
 
-En este artículo se presentan las directivas integradas (versión preliminar) para Azure Container Registry. Use estas directivas para auditar los registros nuevos y existentes para el cumplimiento.
+En este artículo se presentan las directivas integradas para Azure Container Registry. Use estas directivas para auditar los registros nuevos y existentes para el cumplimiento.
 
 No se aplica ningún cargo por el uso de Azure Policy.
-
-> [!IMPORTANT]
-> Esta funcionalidad actualmente está en su versión preliminar. Las versiones preliminares están a su disposición con la condición de que acepte los [términos de uso adicionales][terms-of-use]. Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
 
 ## <a name="built-in-policy-definitions"></a>Definiciones de directiva integradas
 
@@ -27,7 +24,7 @@ Las definiciones de directivas integradas siguientes son específicas de Azure C
 
 [!INCLUDE [azure-policy-samples-policies-container-registry](../../includes/policy/samples/bycat/policies-container-registry.md)]
 
-Consulte también la definición de directiva de red integrada: [[Vista previa] Container Registry debe usar un punto de conexión del servicio de red virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78).
+Vea también la definición de directiva de red integrada: [Container Registry debe usar un punto de conexión de servicio de red virtual.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78)
 
 ## <a name="assign-policies"></a>Asignación de directivas
 
@@ -48,7 +45,10 @@ Cuando un recurso no es compatible, hay muchos motivos posibles para ello. Para 
 
 1. Seleccione **Todos los servicios** y busque **Directiva**.
 1. Seleccione **Cumplimiento**.
-1. Use los filtros para limitar los estados de cumplimiento o para buscar las directivas. ![Cumplimiento de directivas en el portal](./media/container-registry-azure-policy/azure-policy-compliance.png)
+1. Use los filtros para limitar los estados de cumplimiento o para buscar las directivas.
+
+    ![Cumplimiento de directivas en el portal](./media/container-registry-azure-policy/azure-policy-compliance.png)
+    
 1. Seleccione una directiva para revisar los eventos y los detalles de cumplimiento de los agregados. Si lo desea, seleccione un registro específico para el cumplimiento de los recursos.
 
 ### <a name="policy-compliance-in-the-azure-cli"></a>Cumplimiento de directivas en la CLI de Azure
@@ -64,8 +64,8 @@ Salida del ejemplo:
 ```
 Name                                                                                   ID
 -------------------------------------------------------------------------------------  --------------------------------------------------------------------------------------------------------------------------------
-[Preview]: Container Registries should not allow unrestricted network access           /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/b4faf132dc344b84ba68a441
-[Preview]: Container Registries should be encrypted with a Customer-Managed Key (CMK)  /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/cce1ed4f38a147ad994ab60a
+Container Registries should not allow unrestricted network access           /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/b4faf132dc344b84ba68a441
+Container Registries should be encrypted with a Customer-Managed Key (CMK)  /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/cce1ed4f38a147ad994ab60a
 ```
 
 Luego, ejecute [az policy state list](/cli/azure/policy/state#az-policy-state-list) para devolver el estado de cumplimiento con formato JSON para todos los recursos de un identificador de directiva específico:
@@ -87,12 +87,8 @@ az policy state list \
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información sobre las [definiciones](../governance/policy/concepts/definition-structure.md) y [efectos](../governance/policy/concepts/effects.md) de Azure Policy
+* Más información sobre las [definiciones](../governance/policy/concepts/definition-structure.md) y [efectos](../governance/policy/concepts/effects.md) de Azure Policy.
 
-* Creación de una [definición de directiva personalizada](../governance/policy/tutorials/create-custom-policy-definition.md)
+* Creación de una [definición de directiva personalizada](../governance/policy/tutorials/create-custom-policy-definition.md).
 
-* Más información sobre las [funcionalidades de gobernanza](../governance/index.yml) en Azure
-
-
-<!-- LINKS - External -->
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+* Más información sobre las [funcionalidades de gobernanza](../governance/index.yml) en Azure.

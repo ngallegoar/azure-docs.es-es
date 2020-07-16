@@ -1,6 +1,6 @@
 ---
 title: Conexión de datos de Check Point con Azure Sentinel | Microsoft Docs
-description: Aprenda a conectar los datos de Check Point a Azure Sentinel.
+description: Configure el dispositivo Check Point para reenviar mensajes de Syslog en formato CEF a su área de trabajo de Azure Sentinel a través del agente de Syslog.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 70836ec557eff1be035d92e8e7db30a882e05fc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 32cbdabef4d89c7fabb47a52ebf0589690b7ab33
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77588423"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85566057"
 ---
 # <a name="connect-check-point-to-azure-sentinel"></a>Conexión de Check Point a Azure Sentinel
 

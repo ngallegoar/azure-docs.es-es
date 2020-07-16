@@ -5,16 +5,16 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 description: Describe los procesos para usar Proceso local con Kubernetes para conectar el equipo de desarrollo con el clúster de Kubernetes.
 keywords: Proceso local con Kubernetes, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: 443783eb7f5359318cf8efbec8b6466a80fa1e85
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: dd126fc55a86b1de115239a31e5adb7b1d264846
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84316266"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84974428"
 ---
 # <a name="how-local-process-with-kubernetes-works"></a>Funcionamiento de Proceso local con Kubernetes
 
-Proceso local con Kubernetes le permite ejecutar y depurar el código en el equipo de desarrollo mientras sigue conectado al clúster de Kubernetes con el resto de aplicaciones o servicios. Por ejemplo, si tiene una arquitectura de microservicios de gran tamaño con muchos servicios y bases de datos interdependientes, la replicación de esas dependencias en el equipo de desarrollo puede resultar difícil. Además, compilar e implementar código en el clúster de Kubernetes para cada cambio de código durante el desarrollo del bucle interno puede ser lento y difícil de usar con un depurador, además de llevarle mucho tiempo.
+Proceso local con Kubernetes le permite ejecutar y depurar el código en el equipo de desarrollo mientras sigue conectado al clúster de Kubernetes con el resto de aplicaciones o servicios. Por ejemplo, si tiene una arquitectura de microservicios de gran tamaño con muchos servicios y bases de datos interdependientes, la replicación de esas dependencias en el equipo de desarrollo puede resultar difícil. Además, el proceso de compilación e implementación del código en el clúster de Kubernetes para cada cambio de código durante el desarrollo del bucle interno puede resultar lento y difícil de usar con un depurador, además de llevarle mucho tiempo.
 
 Proceso local con Kubernetes evita tener que compilar e implementar el código en el clúster creando en su lugar una conexión directa entre el equipo de desarrollo y el clúster. La conexión del equipo de desarrollo al clúster durante la depuración le permite probar y desarrollar rápidamente el servicio en el contexto de la aplicación completa sin necesidad de crear ninguna configuración de Docker o Kubernetes.
 
@@ -42,6 +42,15 @@ Después de establecer una conexión con el clúster, puede ejecutar y depurar e
 ## <a name="diagnostics-and-logging"></a>Diagnósticos y registro
 
 Al usar Proceso local con Kubernetes para conectarse al clúster, los registros de diagnóstico del clúster se registran en el [directorio temporal][azds-tmp-dir] del equipo de desarrollo. Con Visual Studio Code, también puede usar el comando *Mostrar información de diagnóstico* para imprimir las variables de entorno y las entradas DNS actuales del clúster.
+
+## <a name="limitations"></a>Limitaciones
+
+El proceso local con Kubernetes tiene las siguientes limitaciones:
+
+* El proceso local con Kubernetes redirige el tráfico para un solo servicio al equipo de desarrollo. No se puede usar el proceso local con Kubernetes para redirigir varios servicios al mismo tiempo.
+* Un servicio debe estar respaldado por un único pod para poder conectarse a ese servicio. No se puede conectar a un servicio con varios pods, como un servicio con réplicas.
+* Un pod solo puede tener un único contenedor que se ejecute en ese pod para el proceso local con Kubernetes para conectarse correctamente. El proceso local con Kubernetes no se puede conectar a los servicios con pods que tienen contenedores adicionales, como los contenedores sidecar inyectados por las mallas de servicios.
+* El proceso local con Kubernetes necesita permisos elevados para ejecutarse en el equipo de desarrollo con el fin de editar el archivo de hosts.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -2,14 +2,14 @@
 title: Configurar los nodos de transacción de Azure Blockchain Service
 description: Cómo configurar los nodos de transacción de Azure Blockchain Service
 ms.date: 11/20/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 8fa18496d0c1aa59beb55569e731967d5ebea427
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 90836ad94410dfec5caa32275362f1407c9f5b1a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80876936"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212571"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurar los nodos de transacción de Azure Blockchain Service
 
@@ -89,7 +89,7 @@ Puede ver los detalles del punto de conexión de autenticación básica de un no
 
 El nombre de usuario es el nombre del nodo y no se puede cambiar.
 
-Para usar la dirección URL, reemplace \<contraseña\> por la contraseña establecida cuando se aprovisionó el nodo. Para actualizar la contraseña, seleccione **Restablecer contraseña**.
+Para usar la dirección URL, reemplace \<password\> por la contraseña establecida cuando se aprovisionó el nodo. Para actualizar la contraseña, seleccione **Restablecer contraseña**.
 
 ### <a name="access-keys"></a>Claves de acceso
 

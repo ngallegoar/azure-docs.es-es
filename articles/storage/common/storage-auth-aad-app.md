@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 06/22/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0cda75469edaa183ed6553a431b9ad13b611db7d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ddb079051414168b125ce2e42e8badd55580f0c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201066"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212637"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Adquisición de un token de Azure AD para la autorización de solicitudes desde una aplicación cliente
 
@@ -58,7 +58,7 @@ A continuación, conceda los permisos de aplicación para llamar a las API de Az
 
     ![Captura de pantalla que muestra los permisos para el almacenamiento](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
-El panel **Permisos de API** muestra ahora que la aplicación de Azure AD registrada tiene acceso tanto a Microsoft Graph como a Azure Storage. La primera vez que registra la aplicación con Azure AD, se conceden permisos a Microsoft Graph automáticamente.
+El panel **Permisos de API** muestra ahora que la aplicación de Azure AD registrada tiene acceso a las API de Microsoft Graph y de Azure Storage. La primera vez que registra la aplicación con Azure AD, se conceden permisos a Microsoft Graph automáticamente.
 
 ![Captura de pantalla que muestra los permisos de aplicación registrada](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
@@ -213,7 +213,7 @@ private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalCons
 {
     AuthenticationProperties properties = new AuthenticationProperties();
 
-    // Set the scopes, including the scopes that ADAL.NET or MSAL.NET need for the Token cache.
+    // Set the scopes, including the scopes that MSAL.NET needs for the token cache.
     string[] additionalBuildInScopes = new string[] { "openid", "offline_access", "profile" };
     properties.SetParameter<ICollection<string>>(OpenIdConnectParameterNames.Scope,
                                                  scopes.Union(additionalBuildInScopes).ToList());
@@ -284,8 +284,8 @@ CloudBlockBlob blob = new CloudBlockBlob(
 Para ejecutar el ejemplo, es posible que deba configurar el flujo de concesión implícita para su registro de aplicaciones. Siga estos pasos:
 
 1. Vaya a su registro de aplicaciones en Azure Portal.
-1. En la sección Administrar, seleccione la configuración de **Autenticación**.
-1. En **Configuración avanzada**, en la sección **Concesión implícita**, active las casillas para habilitar los tokens de acceso y de identificador, como se muestra en la siguiente imagen:
+1. En la sección **Administrar**, seleccione la configuración de **Autenticación**.
+1. En la sección **Concesión implícita**, active la casilla para habilitar los tokens de identificador, como se muestra en la siguiente imagen:
 
     ![Captura de pantalla que muestra cómo habilitar la configuración para el flujo de concesión implícita](media/storage-auth-aad-app/enable-implicit-grant-flow.png)
 
@@ -294,13 +294,13 @@ Para ejecutar el ejemplo, es posible que deba configurar el flujo de concesión 
 Al ejecutar el ejemplo, es posible que tenga que actualizar el URI de redirección especificado en su registro de aplicaciones para usar el puerto *localhost* asignado en tiempo de ejecución. Para actualizar el URI de redirección a fin de usar el puerto asignado, siga estos pasos:
 
 1. Vaya a su registro de aplicaciones en Azure Portal.
-1. En la sección Administrar, seleccione la configuración de **Autenticación**.
+1. En la sección **Administrar**, seleccione la configuración de **Autenticación**.
 1. En **URI de redirección**, edite el puerto para que coincida con el usado por la aplicación de ejemplo, como se muestra en la siguiente imagen:
 
     ![Captura de pantalla que muestra los URI de redirección para el registro de aplicaciones](media/storage-auth-aad-app/redirect-uri.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más información sobre la Plataforma de identidad de Microsoft, consulte [Plataforma de identidad de Microsoft](https://docs.microsoft.com/azure/active-directory/develop/).
-- Para obtener más información sobre los roles RBAC para Azure Storage, vea [Administración de los derechos de acceso a los datos de almacenamiento con RBAC](storage-auth-aad-rbac.md).
-- Para más información sobre el uso de identidades administradas para los recursos de Azure con Azure Storage, consulte [Autenticar el acceso a los blobs y colas con Azure Active Directory y las identidades administradas para los recursos de Azure](storage-auth-aad-msi.md).
+- [Plataforma de identidad de Microsoft](https://docs.microsoft.com/azure/active-directory/develop/)
+- [Administración de los derechos de acceso a los datos de almacenamiento con RBAC](storage-auth-aad-rbac.md)
+- [Autenticación del acceso a blobs y colas con Azure Active Directory e identidades administradas para los recursos de Azure](storage-auth-aad-msi.md)

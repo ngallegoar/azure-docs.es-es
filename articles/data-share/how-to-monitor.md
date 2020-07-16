@@ -4,14 +4,14 @@ description: Aprenda a supervisar el estado de las invitaciones, las suscripcion
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/10/2019
-ms.openlocfilehash: 15089dd99de0471c244a6c0d93931438442599a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ee3f0d37c8e35972a1fc2b8c5d04504d2e065f3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73490517"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120201"
 ---
 # <a name="monitor-azure-data-share"></a>Supervisión de Azure Data Share  
 
@@ -40,13 +40,17 @@ Vea el estado de las suscripciones a recursos compartidos de datos. Para ello va
 
 ## <a name="snapshot-history"></a>Historial de instantáneas 
 
-En la pestaña de historial, es posible ver las instantáneas que se han copiado en el inquilino del consumidor de los datos. Es posible supervisar la frecuencia y duración de cada intervalo de instantánea. 
+En la pestaña **Historial** de un recurso compartido, puede ver cuándo se copian los datos del proveedor de datos al almacén de datos del consumidor de datos. Es posible supervisar la frecuencia, duración y estado de cada instantánea. 
 
 ![Historial de instantáneas](./media/sent-shares.png "Historial de instantáneas") 
 
-Para ver más información sobre la ejecución de cada instantánea, haga clic en la fecha de inicio de la ejecución. 
+Para ver más información sobre la ejecución de cada instantánea, haga clic en la fecha de inicio de la ejecución. A continuación, haga clic en el estado de cada conjunto de datos para ver la cantidad de datos transferidos, el número de archivos o registros copiados, la duración de la instantánea, el número de núcleos virtuales usados y el mensaje de error, si hay alguno. 
 
-De forma predeterminada, se muestra un máximo de 30 días de historial de instantáneas. Si tiene que ver más de 30 días de historial, vaya a Supervisión-> Configuración de diagnóstico y seleccione **Agregar configuración de diagnóstico**. Se le pedirá que seleccione una cuenta de almacenamiento en la que guardar estos registros. 
+Se muestra un máximo de 30 días de historial de instantáneas. Si tiene que guardar y ver más de 30 días de historial, puede aprovechar la configuración de diagnóstico.
+
+## <a name="diagnostic-setting"></a>Configuración de diagnóstico
+
+Puede establecer la configuración de diagnóstico para guardar eventos o datos de registro. Vaya a Supervisión -> Configuración de diagnóstico y seleccione **Agregar configuración de diagnóstico**. Seleccione los eventos o datos de registro que le interesen, así como el lugar donde quiera almacenarlos o enviarlos. 
 
 ![Historial de instantáneas](./media/diagnostic-settings.png "Configuración de diagnóstico") 
 

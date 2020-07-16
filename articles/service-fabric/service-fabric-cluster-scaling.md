@@ -4,12 +4,12 @@ description: Obtenga información acerca de cómo escalar horizontal y verticalm
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: atsenthi
-ms.openlocfilehash: a21182c974d6141264c8ca0c36bfc8f6a366d6f3
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 126be55c63c625995ad52b84a51a8983e220652d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793183"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610207"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Escalado de clústeres de Azure Service Fabric
 Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Un equipo o máquina virtual que forma parte de un clúster se denomina nodo. Los clústeres pueden contener potencialmente miles de nodos. Después de crear un clúster de Service Fabric, puede escalar el clúster horizontalmente (cambiar el número de nodos) o verticalmente (cambiar los recursos de los nodos).  Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster.  Según se escala el clúster, las aplicaciones se escalan automáticamente.
@@ -28,7 +28,7 @@ Al cambiar la escala de un clúster de Azure, tenga en cuenta las directrices si
 - Los tipos de nodo principal que ejecutan cargas de trabajo de producción siempre deben tener cinco o más nodos.
 - Los tipos de nodo no principal que ejecutan cargas de trabajo de producción con estado siempre deben tener cinco o más nodos.
 - Los tipos de nodo no principal que ejecutan cargas de trabajo de producción sin estado siempre deben tener dos o más nodos.
-- Cualquier tipo de nodo del [nivel de durabilidad](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Gold o Silver siempre debe tener cinco o más nodos.
+- Cualquier tipo de nodo del [nivel de durabilidad](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) Gold o Silver siempre debe tener cinco o más nodos.
 - No elimine nodos o instancias de máquina virtual aleatorias de un tipo de nodo, use siempre la característica de reducción horizontal del conjunto de escalado de máquinas virtuales. La eliminación de instancias de máquina virtual aleatorias puede afectar negativamente a la capacidad de los sistemas para equilibrar la carga correctamente.
 - Si usa reglas de escalado automático, establezca dichas reglas para que la reducción horizontal (eliminar instancias de máquina virtual) se realice en un nodo cada vez. No es seguro reducir verticalmente más de una instancia a la vez.
 
@@ -59,14 +59,10 @@ Cambia los recursos (CPU, memoria o almacenamiento) de los nodos del clúster.
 - Ventajas: el software y la arquitectura de la aplicación siguen siendo los mismos.
 - Desventajas: escala finita, ya que hay un límite respecto a cuánto puede aumentar los recursos en los nodos individuales. Tiempo de inactividad, ya que tendrá máquinas físicas o virtuales sin conexión con el fin de agregar o quitar recursos.
 
-Los conjuntos de escalas de máquinas virtuales son un recurso de proceso de Azure que se puede usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Cada tipo de nodo que se define en un clúster de Azure está [configurado como un conjunto de escalado independiente](service-fabric-cluster-nodetypes.md). Cada tipo de nodo, a continuación, se puede administrar por separado.  El escalado vertical de un tipo de nodo implica la modificación de la SKU de las instancias de las máquinas virtuales del conjunto de escalado. 
-
-> [!WARNING]
-> Se recomienda no cambiar la SKU de las máquinas virtuales de un tipo de nodo o conjunto de escalado a menos que se esté ejecutando en la [durabilidad Silver o mayor](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Modificar el tamaño de la SKU de VM constituye una operación de infraestructura local de destrucción de datos. Sin la posibilidad de retrasar o supervisar este cambio, es posible que la operación pueda provocar una pérdida de datos en los servicios con estado o bien causar otros problemas de funcionamiento imprevistos, incluso en las cargas de trabajo sin estado. 
->
+Los conjuntos de escalas de máquinas virtuales son un recurso de proceso de Azure que se puede usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Cada tipo de nodo que se define en un clúster de Azure está [configurado como un conjunto de escalado independiente](service-fabric-cluster-nodetypes.md). Cada tipo de nodo, a continuación, se puede administrar por separado.  Escalar o reducir verticalmente un tipo de nodo implica la adición de un nuevo tipo de nodo (con la SKU de máquina virtual actualizada) y la eliminación del tipo de nodo antiguo.
 
 Al cambiar la escala de un clúster de Azure, tenga en cuenta las directrices siguientes:
-- Si reduce verticalmente un tipo de nodo principal, no deberá hacerlo más de lo que permite el [nivel de confiabilidad](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster).
+- Si reduce verticalmente un tipo de nodo principal, no deberá hacerlo más de lo que permite el [nivel de confiabilidad](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster).
 
 El proceso de escalado vertical de un tipo de nodo es diferente dependiendo de si es un tipo de nodo principal o no principal.
 
@@ -74,9 +70,9 @@ El proceso de escalado vertical de un tipo de nodo es diferente dependiendo de s
 Cree un nuevo tipo de nodo con los recursos que necesita.  Actualice las restricciones de posición de los servicios en ejecución para que incluyan el nuevo tipo de nodo.  Gradualmente (de uno en uno), reduzca hasta cero el número de instancias de la instancia del tipo de nodo anterior para que no se vea afectada la confiabilidad del clúster.  Los servicios se migrarán gradualmente al nuevo tipo de nodo con la cancelación de las asignaciones del tipo de nodo anterior.
 
 ### <a name="scaling-the-primary-node-type"></a>Escalado del tipo de nodo principal
-Se recomienda que no cambie la SKU de las máquinas virtuales del tipo de nodo principal. Si necesita más capacidad en el clúster, se recomienda agregar más instancias. 
+Implemente un nuevo tipo de nodo principal con la SKU de máquina virtual actualizada y, a continuación, deshabilite las instancias del tipo de nodo principal original de una en una para que los servicios del sistema migren al nuevo conjunto de escalado. Compruebe que el clúster y los nuevos nodos tengan un estado correcto y, a continuación, quite el conjunto de escalado original y el estado del nodo de los nodos eliminados.
 
-Si ello no es posible, puede crear un clúster nuevo y [restaurar el estado de la aplicación](service-fabric-reliable-services-backup-restore.md) (si procede) a partir del clúster anterior. No es preciso restaurar el estado de ningún servicio del sistema, ya que se vuelven a crear al implementar las aplicaciones en el clúster nuevo. Si ha ejecutado aplicaciones sin estado en el clúster, lo único que hace es implementar las aplicaciones en el clúster nuevo, no hay nada que para restaurar. Si decide ir por la ruta no compatible y desea cambiar la SKU de la máquina virtual, realice modificaciones en la definición del modelo del conjunto de escalado de máquinas virtuales para que refleje la SKU nueva. Si el clúster tiene un solo tipo de nodo, asegúrese de que las aplicaciones con estado responden a todos los [eventos del ciclo de vida de la réplica del servicio](service-fabric-reliable-services-lifecycle.md) (como que la réplica en creación está bloqueada) en el momento adecuado y que la duración de la regeneración de la réplica del servicio es inferior a cinco minutos (en el nivel de durabilidad Silver). 
+Si ello no es posible, puede crear un clúster nuevo y [restaurar el estado de la aplicación](service-fabric-reliable-services-backup-restore.md) (si procede) a partir del clúster anterior. No es preciso restaurar el estado de ningún servicio del sistema, ya que se vuelven a crear al implementar las aplicaciones en el clúster nuevo. Si ha ejecutado aplicaciones sin estado en el clúster, lo único que hace es implementar las aplicaciones en el clúster nuevo, no hay nada que para restaurar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre [escalabilidad de aplicaciones](service-fabric-concepts-scalability.md).

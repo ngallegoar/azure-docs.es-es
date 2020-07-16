@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: 520699b81024de9491f34263f16872428ddbd487
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d3c5a998db5e76118b0c5a73b6df8bdedadc6dfb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81618037"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85317236"
 ---
 # <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Azure Cognitive Search: preguntas más frecuentes (P+F)
 
@@ -53,7 +53,7 @@ Para volver a crear un índice, debe volver a indexar los datos de orígenes ext
 
 También puede usar el ejemplo de código **index-backup-restore** de este [repositorio de ejemplo .NET de Azure Cognitive Search](https://github.com/Azure-Samples/azure-search-dotnet-samples) para realizar la copia de seguridad de una definición de índice e indexar instantáneas en una serie de archivos JSON. Más tarde, puede usar la herramienta y los archivos para restaurar el índice, en caso de que sea necesario.  
 
-### <a name="can-i-index-from-sql-database-replicas-applies-to-azure-sql-database-indexers"></a>¿Se pueden indexar réplicas de bases de datos SQL? (Se aplica a [indexadores de Azure SQL Database](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers))
+### <a name="can-i-index-from-sql-database-replicas-applies-to-azure-sql-database-indexers"></a>¿Se pueden indexar réplicas de SQL Database? (Se aplica a [indexadores de Azure SQL Database](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers))
 
 No hay ninguna restricción en el uso de réplicas principales o secundarias como origen de datos al generar un índice desde el principio. Sin embargo, la actualización de un índice con actualizaciones incrementales (basadas en los registros modificados) requiere que réplica principal. Este requisito procede de SQL Database, que garantiza el seguimiento de los cambios solo en las réplicas principales. Si intenta usar réplicas secundarias para una carga de trabajo de actualización de índices, no hay ninguna garantía de que obtenga todos los datos.
 

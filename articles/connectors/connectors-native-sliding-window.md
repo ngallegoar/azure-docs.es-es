@@ -3,19 +3,19 @@ title: Programación de tareas para administrar datos contiguos
 description: Creación y ejecución de tareas periódicas que administren datos contiguos mediante ventanas deslizantes en Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, klam, logicappspm
+ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 3ec71a1ed8d24eb637afbb73b5949b69a1e3c041
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 103805fbf395dc120acc96fbcee273abcf14939d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83004615"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322100"
 ---
 # <a name="schedule-and-run-tasks-for-contiguous-data-by-using-the-sliding-window-trigger-in-azure-logic-apps"></a>Programación y ejecución de tareas para datos contiguos mediante el desencadenador de ventana deslizante en Azure Logic Apps
 
-Para ejecutar con regularidad tareas, procesos o trabajos que deben administrar los datos en fragmentos continuos, puede iniciar el flujo de trabajo de aplicación lógica con el desencadenador de **ventana deslizante**. Puede establecer una fecha y hora, así como una zona horaria para iniciar el flujo de trabajo y una periodicidad para la repetición de ese flujo de trabajo. Si se pierde la periodicidad por cualquier motivo, este desencadenador procesa las periodicidades que faltan. Por ejemplo, cuando sincronice datos entre la base de datos y el almacenamiento de copia de seguridad, use el desencadenador de ventana deslizante para que se sincronicen los datos sin existan intervalos. Para obtener más información sobre los desencadenadores y las acciones de programación integrados, consulte [Programar y ejecutar tareas y flujos de trabajo automatizados y periódicos con Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+Para ejecutar con regularidad tareas, procesos o trabajos que deben administrar los datos en fragmentos continuos, puede iniciar el flujo de trabajo de aplicación lógica con el desencadenador de **ventana deslizante**. Puede establecer una fecha y hora, así como una zona horaria para iniciar el flujo de trabajo y una periodicidad para la repetición de ese flujo de trabajo. Si se pierden las periodicidades por alguna razón, por ejemplo, debido a interrupciones o flujos de trabajo deshabilitados, este desencadenador procesa las periodicidades perdidas. Por ejemplo, cuando sincronice datos entre la base de datos y el almacenamiento de copia de seguridad, use el desencadenador de ventana deslizante para que se sincronicen los datos sin existan intervalos. Para obtener más información sobre los desencadenadores y las acciones de programación integrados, consulte [Programar y ejecutar tareas y flujos de trabajo automatizados y periódicos con Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Aquí se presentan algunos patrones que admite este desencadenador:
 
@@ -30,7 +30,7 @@ Para ver las diferencias entre este desencadenador y el desencadenador de period
 > [!TIP]
 > Si desea desencadenar la aplicación lógica y ejecutarla solo una vez en el futuro, consulte [Ejecución de trabajos una sola vez](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#run-once).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si no tiene una suscripción, puede [registrarse para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 

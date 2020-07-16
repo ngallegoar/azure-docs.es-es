@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 3b95863c1ae53bd0642aec356f55aba1faf8ef09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 49c83fab54b7188c3a3838f3162e71d8495989dd
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535789"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037518"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Patrones de soluciones de Azure Stream Analytics
 
@@ -30,13 +30,13 @@ Este patrón de solución ofrece la latencia más baja desde el origen del event
 
 ## <a name="use-sql-for-dashboard"></a>Uso de SQL para el panel
 
-El panel de Power BI ofrece una baja latencia, pero no se puede usar para generar informes de Power BI completos. Es un patrón de informes común es la salida de los datos a una base de datos SQL en primer lugar. Luego, use el conector SQL de Power BI para consultar SQL en busca de los datos más recientes.
+El panel de Power BI ofrece una baja latencia, pero no se puede usar para generar informes de Power BI completos. Un patrón de informes común consiste en generar primero la salida de los datos en SQL Database. Luego, use el conector SQL de Power BI para consultar SQL en busca de los datos más recientes.
 
 ![Panel SQL ASA](media/stream-analytics-solution-patterns/sqldashboard.png)
 
-Con SQL Database, tendrá mayor flexibilidad, pero a costa de una latencia ligeramente mayor. Esta solución es óptima para los trabajos con requisitos de latencia mayores que un segundo. Con este método, puede maximizar las capacidades de Power BI para segmentar y desglosar aún más los datos para los informes y disponer de muchas más opciones de visualización. También obtendrá la flexibilidad de usar otras soluciones de panel, como Tableau.
+El uso de SQL Database ofrece mayor flexibilidad, pero a costa de una latencia ligeramente mayor. Esta solución es óptima para los trabajos con requisitos de latencia mayores que un segundo. Con este método, puede maximizar las capacidades de Power BI para segmentar y desglosar aún más los datos para los informes y disponer de muchas más opciones de visualización. También obtendrá la flexibilidad de usar otras soluciones de panel, como Tableau.
 
-SQL no es un almacén de datos de alto rendimiento. El rendimiento máximo para una base de datos SQL desde Azure Stream Analytics es actualmente 24 MB/s, aproximadamente. Si los orígenes de evento de la solución generan datos a mayor velocidad, tendrá que usar la lógica de procesamiento de Stream Analytics para reducir la velocidad de salida a SQL. Se pueden usar técnicas, como el filtrado, agregados en ventanas, coincidencia de patrones con combinaciones temporales y funciones analíticas. La velocidad de salida a SQL puede optimizarse aún más mediante las técnicas que se describen en [Salida de Azure Stream Analytics a Azure SQL Database](stream-analytics-sql-output-perf.md).
+SQL no es un almacén de datos de alto rendimiento. El rendimiento máximo de SQL Database en Azure Stream Analytics es actualmente de aproximadamente 24 MB/s. Si los orígenes de evento de la solución generan datos a mayor velocidad, tendrá que usar la lógica de procesamiento de Stream Analytics para reducir la velocidad de salida a SQL. Se pueden usar técnicas, como el filtrado, agregados en ventanas, coincidencia de patrones con combinaciones temporales y funciones analíticas. La velocidad de salida a SQL puede optimizarse aún más mediante las técnicas que se describen en [Salida de Azure Stream Analytics a Azure SQL Database](stream-analytics-sql-output-perf.md).
 
 ## <a name="incorporate-real-time-insights-into-your-application-with-event-messaging"></a>Incorporación de información en tiempo real en la aplicación con la mensajería de eventos
 
@@ -72,7 +72,7 @@ Este patrón mejora la resistencia y facilidad de uso del sistema. Sin embargo, 
 
 ## <a name="use-reference-data-for-application-customization"></a>Uso de datos de referencia para la personalización de la aplicación
 
-La característica de datos de referencia de Azure Stream Analytics está diseñada específicamente para la personalización del usuario final, como las alertas de umbral, el procesamiento de reglas y las [geovallas](geospatial-scenarios.md). La capa de aplicación puede aceptar los cambios de parámetro y almacenarlos en una base de datos SQL. El trabajo de Stream Analytics periódicamente consulta la base de datos en busca de cambios y hace que los parámetros de personalización sean accesibles a través de una combinación de datos de referencia. Para más información sobre cómo usar los datos de referencia para la personalización de la aplicación, consulte [Datos de referencia SQL](sql-reference-data.md) y [Combinación de datos de referencia](/stream-analytics-query/reference-data-join-azure-stream-analytics).
+La característica de datos de referencia de Azure Stream Analytics está diseñada específicamente para la personalización del usuario final, como las alertas de umbral, el procesamiento de reglas y las [geovallas](geospatial-scenarios.md). La capa de aplicación puede aceptar los cambios de parámetro y almacenarlos en SQL Database. El trabajo de Stream Analytics periódicamente consulta la base de datos en busca de cambios y hace que los parámetros de personalización sean accesibles a través de una combinación de datos de referencia. Para más información sobre cómo usar los datos de referencia para la personalización de la aplicación, consulte [Datos de referencia SQL](sql-reference-data.md) y [Combinación de datos de referencia](/stream-analytics-query/reference-data-join-azure-stream-analytics).
 
 Este patrón también se puede usar para implementar un motor de reglas donde se definen los umbrales de las reglas de los datos de referencia. Para más información sobre las reglas, consulte [Procesar reglas configurables basadas en umbrales en Azure Stream Analytics](stream-analytics-threshold-based-rules.md).
 
@@ -106,7 +106,7 @@ La mayoría actividades ciencia y análisis de datos aún se realiza sin conexi�
 
 ## <a name="use-reference-data-for-enrichment"></a>Uso de datos de referencia para el enriquecimiento
 
-Con frecuencia, el enriquecimiento de datos es un requisito para los motores de ETL. Azure Stream Analytics admite el enriquecimiento de datos con [datos de referencia](stream-analytics-use-reference-data.md) desde la base de datos SQL y Azure Blob Storage. El enriquecimiento de datos se puede realizar para los datos que llegan a Azure Data Lake y SQL Data Warehouse.
+Con frecuencia, el enriquecimiento de datos es un requisito para los motores de ETL. Azure Stream Analytics admite el enriquecimiento de datos con [datos de referencia](stream-analytics-use-reference-data.md) desde SQL Database y Azure Blob Storage. El enriquecimiento de datos se puede realizar para los datos que llegan a Azure Data Lake y SQL Data Warehouse.
 
 ![Análisis sin conexión con enriquecimiento de datos ASA](media/stream-analytics-solution-patterns/offlineanalytics.png)
 

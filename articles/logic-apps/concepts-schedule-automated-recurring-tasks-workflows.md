@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 6d00c7d7cc88427a3500b28891ec70bb8a4bbb43
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: a5f01e81564561fe43ef6e55e6e9b3b67d6e1d77
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005203"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945620"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Programación y ejecución de tareas, procesos y flujos de trabajo automatizados y periódicos con Azure Logic Apps
 
@@ -52,9 +52,9 @@ Puede iniciar el flujo de trabajo de la aplicación lógica mediante el desencad
 
 Las diferencias entre estos desencadenadores son las siguientes:
 
-* **Periodicidad**: su flujo de trabajo se ejecuta en intervalos de tiempo regulares según la programación especificada. Si se pierden las periodicidades, el desencadenador de periodicidad no procesa las periodicidades perdidas, sino que las reinicia con el siguiente intervalo programado. También puede establecer una fecha de inicio y una hora, así como la zona horaria. Si selecciona "Día", puede especificar horas del día y los minutos de la hora, por ejemplo, cada día a las 2:30. Si selecciona "Semana", también puede seleccionar los días de la semana, por ejemplo, el miércoles y el sábado. Para obtener más información, consulte [Creación, programación y ejecución de tareas y flujos de trabajo periódicos con el desencadenador de periodicidad](../connectors/connectors-native-recurrence.md).
+* **Periodicidad**: su flujo de trabajo se ejecuta en intervalos de tiempo regulares según la programación especificada. Si se pierden las periodicidades, por ejemplo, debido a interrupciones o flujos de trabajo deshabilitados, el desencadenador de periodicidad no procesa las periodicidades perdidas, sino que las reinicia con el siguiente intervalo programado. También puede establecer una fecha de inicio y una hora, así como la zona horaria. Si selecciona "Día", puede especificar horas del día y los minutos de la hora, por ejemplo, cada día a las 2:30. Si selecciona "Semana", también puede seleccionar los días de la semana, por ejemplo, el miércoles y el sábado. Para obtener más información, consulte [Creación, programación y ejecución de tareas y flujos de trabajo periódicos con el desencadenador de periodicidad](../connectors/connectors-native-recurrence.md).
 
-* **Ventana deslizante**: su flujo de trabajo se ejecuta a intervalos de tiempo regulares que administran los datos en fragmentos continuos. Si se pierden las periodicidades, el desencadenador de ventana deslizante retrocede y procesa las repeticiones perdidas. Puede especificar una fecha de inicio y una hora, la zona horaria y una duración para retrasar cada periodicidad del flujo de trabajo. Este desencadenador no admite programaciones avanzadas; por ejemplo, las horas específicas del día, los minutos de la hora y los días de la semana. Para obtener más información, consulte [Creación, programación y ejecución de tareas y flujos de trabajo periódicos con el desencadenador de ventana deslizante](../connectors/connectors-native-sliding-window.md).
+* **Ventana deslizante**: su flujo de trabajo se ejecuta a intervalos de tiempo regulares que administran los datos en fragmentos continuos. Si se pierden las periodicidades, por ejemplo, debido a interrupciones o flujos de trabajo deshabilitados, el desencadenador de ventana deslizante retrocede y procesa las repeticiones perdidas. Puede especificar una fecha de inicio y una hora, la zona horaria y una duración para retrasar cada periodicidad del flujo de trabajo. Este desencadenador no admite programaciones avanzadas; por ejemplo, las horas específicas del día, los minutos de la hora y los días de la semana. Para obtener más información, consulte [Creación, programación y ejecución de tareas y flujos de trabajo periódicos con el desencadenador de ventana deslizante](../connectors/connectors-native-sliding-window.md).
 
 <a name="schedule-actions"></a>
 

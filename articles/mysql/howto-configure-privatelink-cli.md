@@ -4,14 +4,14 @@ description: Aprenda a configurar una instancia de Private Link para Azure Datab
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: f83f52f1c1800803c5e1d47f1931f7b13b2c11de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78634ee7236c8bc0d256bac7eea521e699c0c39d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79368018"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113299"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Creación y administración de Private Link para Azure Database for MySQL mediante la CLI
 
@@ -20,7 +20,7 @@ Un punto de conexión privado es el bloque de creación fundamental para el vín
 > [!NOTE]
 > Esta característica está disponible en todas las regiones de Azure donde Azure Database for MySQL admita los planes de tarifa de uso general y optimizado para memoria.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -45,7 +45,7 @@ az network vnet create \
 ```
 
 ## <a name="disable-subnet-private-endpoint-policies"></a>Deshabilitación de las directivas de punto de conexión privado 
-Azure implementa los recursos en una subred de una red virtual, por lo que debe crear o actualizar la subred para deshabilitar las directivas de red del punto de conexión privado. Actualice una configuración de subred denominada *mySubnet* con [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
+Azure implementa los recursos en la subred de una red virtual, por lo que debe crear o actualizar la subred para deshabilitar las [directivas de red](../private-link/disable-private-endpoint-network-policy.md) del punto de conexión privado. Actualice una configuración de subred denominada *mySubnet* con [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -68,7 +68,7 @@ Anote la dirección IP pública de la máquina virtual. Usará esta dirección p
 Cree un servidor de Azure Database for MySQL con el comando az mysql server create. Recuerde que el nombre de la instancia de MySQL Server debe ser único en Azure, así que reemplace el valor de marcador de posición entre corchetes por su propio valor único: 
 
 ```azurecli-interactive
-# Create a logical server in the resource group 
+# Create a server in the resource group 
 az mysql server create \
 --name mydemoserver \
 --resource-group myResourcegroup \
@@ -78,18 +78,21 @@ az mysql server create \
 --sku-name GP_Gen5_2
 ```
 
-Tenga en cuenta que el identificador de MySQL Server es similar a  ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/servername.```. Utilizará el identificador de MySQL Server en el paso siguiente. 
+> [!NOTE]
+> En algunos casos, Azure Database for MySQL y la subred de red virtual se encuentran en distintas suscripciones. En estos casos debe garantizar las siguientes configuraciones:
+> - Asegúrese de que ambas suscripciones tengan el proveedor de recursos **Microsoft.DBforMySQL** registrado. Para más información, consulte [resource-manager-registration][resource-manager-portal].
 
 ## <a name="create-the-private-endpoint"></a>Creación del punto de conexión privado 
 Cree un punto de conexión privado para el servidor de MySQL en la instancia de Virtual Network: 
+
 ```azurecli-interactive
 az network private-endpoint create \  
     --name myPrivateEndpoint \  
     --resource-group myResourceGroup \  
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
-    --private-connection-resource-id "<MySQL Server ID>" \  
-    --group-ids mysqlServer \  
+    --private-connection-resource-id $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforMySQL/servers" --query "id") \    
+    --group-id mysqlServer \  
     --connection-name myConnection  
  ```
 
@@ -190,3 +193,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información sobre [Qué es un punto de conexión privado de Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

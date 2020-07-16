@@ -2,23 +2,24 @@
 title: Traslado de la autenticación de las aplicaciones de AD FS a Azure Active Directory
 description: Este artículo tiene como finalidad ayudar a las organizaciones a comprender cómo mover aplicaciones a Azure AD, centrándose en las aplicaciones SaaS federadas.
 services: active-directory
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 04/01/2020
-ms.author: baselden
+ms.author: kenwith
+ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30b777cce9b704be558460edf20cf243258c160b
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 33b67c836be3395061e33b5988a4bb06fa5ee20f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82202305"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608558"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Traslado de la autenticación de las aplicaciones de los Servicios de federación de Active Directory (AD FS) a Azure Active Directory
 
@@ -397,7 +398,7 @@ Para implementar directivas integradas en Azure AD, puede usar una [directiva d
 En esta tabla, se enumeran algunas opciones Permitir y Excepto y cómo se asignan a Azure AD. 
 
 
-| | ¿Cómo se configura la opción Permitir en Azure AD?| ¿Cómo se configura la opción Excepto en Azure AD? |
+| Opción | ¿Cómo se configura la opción Permitir en Azure AD?| ¿Cómo se configura la opción Excepto en Azure AD? |
 | - | - | - |
 | Desde una red específica| Se asigna a [Ubicación con nombre](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations) en Azure AD| Use la opción **Excluir** para las [ubicaciones de confianza](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition) |
 | Desde grupos específicos| [Establezca una asignación de usuario o grupos](https://docs.microsoft.com/azure/active-directory/manage-apps/assign-user-or-group-access-portal)| Use la opción **Excluir** en Usuarios y Grupos |
@@ -462,7 +463,7 @@ En función de cómo configure la aplicación, compruebe que el inicio de sesió
 ‎ |
 | SSO basado en contraseñas| Descargue e instale la [Extensión de inicio de](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)[-](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)[sesión seguro de Aplicaciones](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction). Esta extensión lo ayudará a iniciar cualquiera de las aplicaciones en la nube de su organización que requiera que se use un proceso de inicio de sesión único.  
 ‎ |
-| Proxy de aplicación| Asegúrese de que el conector esté en ejecución y que esté asignado a la aplicación. Visite la [Guía para la solución de problemas de Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot)[ ](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot)para obtener más ayuda.  
+| Proxy de aplicación| Asegúrese de que el conector esté en ejecución y que esté asignado a la aplicación. Visite la [Solución de problemas y mensajes de error de Proxy de aplicación](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot) para obtener más ayuda.  
 ‎ |
 
 > [!NOTE]

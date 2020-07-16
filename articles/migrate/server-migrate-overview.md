@@ -2,13 +2,13 @@
 title: Selección de una opción de migración de VMware con Azure Migrate Server Migration | Microsoft Docs
 description: Proporciona información general sobre las opciones para migrar máquinas virtuales de VMware a Azure con Azure Migrate Server Migration.
 ms.topic: conceptual
-ms.date: 07/09/2019
-ms.openlocfilehash: 52e7103ea3ebcd83369a866cc3f75b0bf0e889a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/08/2020
+ms.openlocfilehash: 56398f8bf78cb48b6cfe7a90ffdcbdb72743dc93
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76028717"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84769633"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selección de una opción de migración de VMware
 
@@ -18,16 +18,14 @@ Puede migrar las máquinas virtuales de VMware a Azure mediante la herramienta A
 - Migración con un agente de replicación. Instale un agente en la máquina virtual para su replicación.
 
 
-
-
 ## <a name="compare-migration-methods"></a>Comparación de métodos de migración
 
-Use estas comparaciones seleccionadas para que le ayuden a decidir qué método usar. También puede revisar los requisitos de compatibilidad completos para la migración [sin agente](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) y [basada en agente](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers).
+Use estas comparaciones seleccionadas para que le ayuden a decidir qué método usar. También puede revisar los requisitos de compatibilidad completos para la migración [sin agente](migrate-support-matrix-vmware-migration.md#agentless-migration) y [basada en agente](migrate-support-matrix-vmware-migration.md#agent-based-migration).
 
 **Configuración** | **Sin agente** | **Basado en agente**
 --- | --- | ---
 **Permisos de Azure** | Necesita permisos para crear un proyecto de Azure Migrate y para registrar aplicaciones de Azure AD creadas al implementar el dispositivo de Azure Migrate. | Necesita permisos de colaborador en la suscripción de Azure. 
-**Replicación simultánea** | Se puede replicar un máximo de 100 VM simultáneamente desde una instancia de vCenter Server.<br/> Si tiene más de 50 máquinas virtuales para la migración, cree varios lotes de máquinas.<br/> Si replica más de cada vez, afectará al rendimiento. | N/D
+**Replicación** | Se puede replicar un máximo de 300 VM simultáneamente desde una instancia de vCenter Server.<br/> Si tiene más de 50 máquinas virtuales para la migración, cree varios lotes de máquinas.<br/> Si replica más de cada vez, afectará al rendimiento.<br/><br/> En el portal puede seleccionar hasta 10 máquinas virtuales a la vez para la replicación. Para replicar más máquinas, agregue lotes de 10.| La capacidad de replicación aumenta mediante el escalado del dispositivo de replicación.
 **Implementación del dispositivo** | El [dispositivo de Azure Migrate](migrate-appliance.md) se implementa de forma local. | El [dispositivo de replicación de Azure Migrate](migrate-replication-appliance.md) se implementa de forma local.
 **Compatibilidad con Site Recovery** | Compatible. | No se puede replicar con la migración del servidor de Azure Migrate si ha configurado la replicación para una máquina con Site Recovery.
 **Disco de destino** | Discos administrados | Discos administrados
@@ -35,23 +33,21 @@ Use estas comparaciones seleccionadas para que le ayuden a decidir qué método 
 **Discos de acceso directo** | No compatible | Compatible
 **Arranque UEFI** | No compatible | La máquina virtual migrada en Azure se convertirá automáticamente en una VM de arranque del BIOS.<br/><br/> El disco del sistema operativo debe tener hasta cuatro particiones y los volúmenes deben formatearse con NTFS.
 
-
-## <a name="deployment-steps-comparison"></a>Comparación de los pasos de implementación
+## <a name="compare-deployment-steps"></a>Comparación de los pasos de implementación
 
 Después de revisar las limitaciones, una descripción de los pasos necesarios para implementar cada solución puede ayudarle a decidir qué opción elegir.
 
 **Task** | **Detalles** |**Sin agente** | **Basado en agente**
 --- | --- | --- | ---
-**Valoración** | Evalúe los servidores antes de la migración.  La valoración es opcional. Se recomienda evaluar las máquinas antes de migrarlas, aunque no es obligatorio. <br/><br/> Para la valoración, Azure Migrate configura un dispositivo ligero para detectar y evaluar las máquinas virtuales. | Si ejecuta una migración sin agente después de la valoración, se usa el mismo dispositivo de Azure Migrate configurado para la valoración.  |  Si ejecuta una migración basada en agente después de la valoración, el dispositivo configurado para la valoración no se usa durante la migración sin agente. Puede dejar el dispositivo en su lugar o quitarlo si no quiere realizar más detecciones y valoraciones.
-**Preparación de máquinas virtuales y servidor de VMware para la migración** | Configure diversas opciones en máquinas virtuales y servidores de VMware. | Obligatorio | Obligatorio
-**Incorporación de la herramienta Server Migration** | Agregue la herramienta Azure Migrate Server Migration en el proyecto de Azure Migrate. | Obligatorio | Obligatorio
-**Implementación del dispositivo de Azure Migrate** | Configure un dispositivo ligero en una máquina virtual de VMware para la detección y la valoración de máquinas virtuales. | Obligatorio | No se requiere.
-**Instalación de Mobility Service en máquinas virtuales** | Instale Mobility Service en cada máquina que quiera replicar. | No se requiere | Obligatorio
-**Implementación del dispositivo de replicación de Azure Migrate Server Migration** | Configure un dispositivo en una máquina virtual de VMware para detectar máquinas virtuales y para que actúe como puente entre la instancia de Mobility Service que se ejecuta en las máquinas virtuales y Azure Migrate Server Migration. | No se requiere | Obligatorio
+**Implementación del dispositivo de Azure Migrate** | Un dispositivo ligero que se ejecuta en una máquina virtual de VMware.<br/><br/> El dispositivo se usa para detectar y evaluar máquinas, así como para migrar máquinas mediante la migración sin agente. | Necesario.<br/><br/> Si ya ha configurado el dispositivo para valoración, puede usar el mismo dispositivo para la migración sin agente. | No se requiere.<br/><br/> Si ha configurado un dispositivo para valoración, puede dejarlo en su lugar o quitarlo si ya ha terminado con la valoración.
+**Uso de la herramienta Server Assessment** | Valore las máquinas con la herramienta Server Assessment de Azure Migrate. | Puede valorar las máquinas antes de migrarlas, aunque no es obligatorio. | La valoración es opcional | La valoración es opcional.
+**Uso de la herramienta Server Migration** | Agregue la herramienta Azure Migrate Server Migration en el proyecto de Azure Migrate. | Obligatorio | Obligatorio
+**Preparación de VMware para la migración** | Defina la configuración en máquinas virtuales y servidores de VMware. | Obligatorio | Obligatorio
+**Instalación de Mobility Service en máquinas virtuales** | El servicio Mobility se ejecuta en cada máquina que quiera replicar. | No se requiere | Obligatorio
+**Implementación del dispositivo de replicación** | El [dispositivo de replicación](migrate-replication-appliance.md) se usa para la migración basada en agente. Se conecta entre el servicio Mobility que se ejecuta en las máquinas virtuales y Server Migration. | No se requiere | Obligatorio
 **Replicación de máquinas virtuales**, habilitación de la replicación de máquinas virtuales | Configure las opciones de replicación y seleccione las máquinas virtuales que se van a replicar. | Obligatorio | Obligatorio
 **Ejecución de una migración de prueba** | Ejecute una migración de prueba para asegurarse de que todo funciona de la forma esperada. | Obligatorio | Obligatorio
 **Ejecución de una migración completa** | Migre las máquinas virtuales. | Obligatorio | Obligatorio
-
 
 
 

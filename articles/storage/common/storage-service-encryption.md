@@ -4,17 +4,17 @@ description: Azure Storage protege los datos cifrándolos automáticamente antes
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 04/10/2020
+ms.date: 06/17/2020
 ms.topic: conceptual
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: c737ccf83dae0cc4b198b9cd708a55b988e6593b
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 8b4236e40e8dfbe6ce67bca007be0b6737a6e0c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457950"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945586"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Cifrado de Azure Storage para datos en reposo
 
@@ -51,6 +51,8 @@ En la tabla siguiente se comparan las opciones de administración de claves para
 
 <sup>1</sup> Para obtener información sobre cómo crear una cuenta que admita el uso de claves administradas por el cliente con Queue Storage, consulte [Creación de una cuenta que admita las claves administradas por el cliente para colas](account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).<br />
 <sup>2</sup> Para obtener información sobre cómo crear una cuenta que admita el uso de claves administradas por el cliente con Table Storage, consulte [Creación de una cuenta que admita las claves administradas por el cliente para tablas](account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
+
+Para más información sobre el cifrado y la administración de claves para Azure Managed Disks, consulte [Cifrado del lado servidor de Azure Managed Disks](../../virtual-machines/windows/disk-encryption.md) para máquinas virtuales Windows o [Cifrado del lado servidor de Azure Managed Disks](../../virtual-machines/linux/disk-encryption.md) para máquinas virtuales Linux.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

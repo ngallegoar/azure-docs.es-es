@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, tracking-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a65143394d8e6ee8a385cc5d1737cc976aae47b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a748b9284407b5ecd8cc8f6225c6762e7017d4d9
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558494"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026124"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Proceso de ciencia de datos en equipos en acción: uso de Azure Synapse Analytics
 En este tutorial le guiaremos a través de la creación e implementación de un modelo de aprendizaje automático mediante Azure Synapse Analytics para un conjunto de datos disponible públicamente: el conjunto de datos [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/). El modelo de clasificación binaria construido predice si se dará propina por la carrera o no.  Los modelos incluyen la clasificación multiclase (si hay una propina o si no la hay) y la regresión (la distribución de los importes de propinas pagadas).
@@ -28,20 +28,31 @@ El conjunto de datos NYC Taxi Trip consta de aproximadamente 20 GB de archivos 
 
 1. El archivo **trip_data.csv** contiene información detallada de las carreras, como el número de pasajeros, los puntos de recogida y destino, la duración de las carreras y la longitud del recorrido. Estos son algunos registros de ejemplo:
 
-        medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
-        89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
-        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066
-        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002
-        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
-        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
+`medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude`
+
+`89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171`
+
+`0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066`
+
+`0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002`
+
+`DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388`
+
+`DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868`
+
 2. El archivo **trip_fare.csv** contiene información detallada de la tarifa que se paga en cada carrera, como el tipo de pago, el importe de la tarifa, los suplementos e impuestos, las propinas y los peajes, y el importe total pagado. Estos son algunos registros de ejemplo:
 
-        medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
-        89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
-        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-06 00:18:35,CSH,6,0.5,0.5,0,0,7
-        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-05 18:49:41,CSH,5.5,1,0.5,0,0,7
-        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
-        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
+`medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount`
+
+`89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7`
+
+`0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-06 00:18:35,CSH,6,0.5,0.5,0,0,7`
+
+`0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-05 18:49:41,CSH,5.5,1,0.5,0,0,7`
+
+`DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6`
+
+`DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5`
 
 La **clave única** para unir trip\_data y trip\_fare se compone de los tres campos siguientes:
 
@@ -55,11 +66,16 @@ Se formulan tres problemas de predicción basados en el valor *tip\_amount* para
 1. **Clasificación binaria**: Permite predecir si se pagó o no una propina tras una carrera; es decir, un valor de *tip\_amount* mayor que 0 $ es un ejemplo positivo, mientras que un valor de *tip\_amount* de 0 $ es un ejemplo negativo.
 2. **Clasificación multiclase**: permite predecir el intervalo de la propina de la carrera. Dividimos *tip\_amount* en cinco ubicaciones o clases:
 
-        Class 0 : tip_amount = $0
-        Class 1 : tip_amount > $0 and tip_amount <= $5
-        Class 2 : tip_amount > $5 and tip_amount <= $10
-        Class 3 : tip_amount > $10 and tip_amount <= $20
-        Class 4 : tip_amount > $20
+`Class 0 : tip_amount = $0`
+
+`Class 1 : tip_amount > $0 and tip_amount <= $5`
+
+`Class 2 : tip_amount > $5 and tip_amount <= $10`
+
+`Class 3 : tip_amount > $10 and tip_amount <= $20`
+
+`Class 4 : tip_amount > $20`
+
 3. **Tarea de regresión**: Permite predecir el importe de la propina pagada por una carrera.
 
 ## <a name="set-up-the-azure-data-science-environment-for-advanced-analytics"></a><a name="setup"></a>Configuración del entorno de ciencia de datos de Azure para análisis avanzado
@@ -91,13 +107,15 @@ Siga la documentación en [Creación de una instancia de Azure SQL Data Warehous
 >
 >
 
-    BEGIN TRY
-           --Try to create the master key
-        CREATE MASTER KEY
-    END TRY
-    BEGIN CATCH
-           --If the master key exists, do nothing
-    END CATCH;
+```sql
+BEGIN TRY
+       --Try to create the master key
+    CREATE MASTER KEY
+END TRY
+BEGIN CATCH
+       --If the master key exists, do nothing
+END CATCH;
+```
 
 **Cree un área de trabajo de Azure Machine Learning en su suscripción de Azure.** Para ver instrucciones, consulte [Creación de un área de trabajo de Azure Machine Learning](../studio/create-workspace.md).
 
@@ -109,11 +127,13 @@ Abra una consola de comandos de Windows PowerShell. Ejecute los comandos de Powe
 >
 >
 
-    $source = "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/Download_Scripts_SQLDW_Walkthrough.ps1"
-    $ps1_dest = "$pwd\Download_Scripts_SQLDW_Walkthrough.ps1"
-    $wc = New-Object System.Net.WebClient
-    $wc.DownloadFile($source, $ps1_dest)
-    .\Download_Scripts_SQLDW_Walkthrough.ps1 –DestDir 'C:\tempSQLDW'
+```azurepowershell
+$source = "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/Download_Scripts_SQLDW_Walkthrough.ps1"
+$ps1_dest = "$pwd\Download_Scripts_SQLDW_Walkthrough.ps1"
+$wc = New-Object System.Net.WebClient
+$wc.DownloadFile($source, $ps1_dest)
+.\Download_Scripts_SQLDW_Walkthrough.ps1 –DestDir 'C:\tempSQLDW'
+```
 
 Cuando se haya ejecutado correctamente, el directorio de trabajo actual cambia a *-DestDir*. Debe ver una pantalla similar a la siguiente:
 
@@ -121,7 +141,9 @@ Cuando se haya ejecutado correctamente, el directorio de trabajo actual cambia a
 
 En su *-DestDir*, ejecute el siguiente script de PowerShell en modo de administrador:
 
-    ./SQLDW_Data_Import.ps1
+```azurepowershell
+./SQLDW_Data_Import.ps1
+```
 
 Cuando se ejecuta el script de PowerShell por primera vez, se le pedirá que introduzca información desde Azure Synapse Analytics y la cuenta de Almacenamiento de blobs de Azure. Cuando este script de PowerShell termine de ejecutarse por primera vez, las credenciales indicadas se habrán escrito en un archivo de configuración SQLDW.conf del directorio de trabajo actual. La ejecución futura de este archivo de script de PowerShell puede leer todos los parámetros necesarios de este archivo de configuración. Si necesita cambiar algunos parámetros, puede elegir escribir los parámetros en la pantalla después del aviso mediante la eliminación de este archivo de configuración y de escribir los valores de parámetros cuando se le solicite o cambiar los valores de parámetros mediante la edición del archivo SQLDW.conf en el directorio *-DestDir* .
 
@@ -134,178 +156,202 @@ Este archivo de **script de PowerShell** realiza las tareas siguientes:
 
 * **Descarga e instala AzCopy**, si AzCopy no se ha instalado aún
 
-        $AzCopy_path = SearchAzCopy
-        if ($AzCopy_path -eq $null){
-               Write-Host "AzCopy.exe is not found in C:\Program Files*. Now, start installing AzCopy..." -ForegroundColor "Yellow"
-            InstallAzCopy
-            $AzCopy_path = SearchAzCopy
-        }
-            $env_path = $env:Path
-            for ($i=0; $i -lt $AzCopy_path.count; $i++){
-                if ($AzCopy_path.count -eq 1){
-                    $AzCopy_path_i = $AzCopy_path
-                } else {
-                    $AzCopy_path_i = $AzCopy_path[$i]
-                }
-                if ($env_path -notlike '*' +$AzCopy_path_i+'*'){
-                    Write-Host $AzCopy_path_i 'not in system path, add it...'
-                    [Environment]::SetEnvironmentVariable("Path", "$AzCopy_path_i;$env_path", "Machine")
-                    $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
-                    $env_path = $env:Path
-                }
+  ```azurepowershell
+  $AzCopy_path = SearchAzCopy
+  if ($AzCopy_path -eq $null){
+         Write-Host "AzCopy.exe is not found in C:\Program Files*. Now, start installing AzCopy..." -ForegroundColor "Yellow"
+      InstallAzCopy
+      $AzCopy_path = SearchAzCopy
+  }
+      $env_path = $env:Path
+      for ($i=0; $i -lt $AzCopy_path.count; $i++){
+          if ($AzCopy_path.count -eq 1){
+              $AzCopy_path_i = $AzCopy_path
+          } else {
+              $AzCopy_path_i = $AzCopy_path[$i]
+          }
+          if ($env_path -notlike '*' +$AzCopy_path_i+'*'){
+              Write-Host $AzCopy_path_i 'not in system path, add it...'
+              [Environment]::SetEnvironmentVariable("Path", "$AzCopy_path_i;$env_path", "Machine")
+              $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
+              $env_path = $env:Path
+          }
+  ```
+
 * **Copia datos en la cuenta de Almacenamiento de blobs privada** desde el blob público con AzCopy
 
-        Write-Host "AzCopy is copying data from public blob to yo storage account. It may take a while..." -ForegroundColor "Yellow"
-        $start_time = Get-Date
-        AzCopy.exe /Source:$Source /Dest:$DestURL /DestKey:$StorageAccountKey /S
-        $end_time = Get-Date
-        $time_span = $end_time - $start_time
-        $total_seconds = [math]::Round($time_span.TotalSeconds,2)
-        Write-Host "AzCopy finished copying data. Please check your storage account to verify." -ForegroundColor "Yellow"
-        Write-Host "This step (copying data from public blob to your storage account) takes $total_seconds seconds." -ForegroundColor "Green"
+  ```azurepowershell
+  Write-Host "AzCopy is copying data from public blob to yo storage account. It may take a while..." -ForegroundColor "Yellow"
+  $start_time = Get-Date
+  AzCopy.exe /Source:$Source /Dest:$DestURL /DestKey:$StorageAccountKey /S
+  $end_time = Get-Date
+  $time_span = $end_time - $start_time
+  $total_seconds = [math]::Round($time_span.TotalSeconds,2)
+  Write-Host "AzCopy finished copying data. Please check your storage account to verify." -ForegroundColor "Yellow"
+  Write-Host "This step (copying data from public blob to your storage account) takes $total_seconds seconds." -ForegroundColor "Green"
+  ```
+
 * **Carga datos mediante Polybase (mediante la ejecución de LoadDataToSQLDW.sql) para Azure Synapse Analytics** de la cuenta de almacenamiento de blobs privada con los siguientes comandos.
 
   * Creación de un esquema
 
-          EXEC (''CREATE SCHEMA {schemaname};'');
+    ```sql
+    EXEC (''CREATE SCHEMA {schemaname};'');
+    ```
+
   * Creación de una credencial con ámbito de base de datos
 
-          CREATE DATABASE SCOPED CREDENTIAL {KeyAlias}
-          WITH IDENTITY = ''asbkey'' ,
-          Secret = ''{StorageAccountKey}''
+    ```sql
+    CREATE DATABASE SCOPED CREDENTIAL {KeyAlias}
+    WITH IDENTITY = ''asbkey'' ,
+    Secret = ''{StorageAccountKey}''
+    ```
+
   * Creación de un origen de datos externo para un blob de Azure Storage
 
-          CREATE EXTERNAL DATA SOURCE {nyctaxi_trip_storage}
-          WITH
-          (
-              TYPE = HADOOP,
-              LOCATION =''wasbs://{ContainerName}@{StorageAccountName}.blob.core.windows.net'',
-              CREDENTIAL = {KeyAlias}
-          )
-          ;
+    ```sql
+    CREATE EXTERNAL DATA SOURCE {nyctaxi_trip_storage}
+    WITH
+    (
+        TYPE = HADOOP,
+        LOCATION =''wasbs://{ContainerName}@{StorageAccountName}.blob.core.windows.net'',
+        CREDENTIAL = {KeyAlias}
+    )
+    ;
 
-          CREATE EXTERNAL DATA SOURCE {nyctaxi_fare_storage}
-          WITH
-          (
-              TYPE = HADOOP,
-              LOCATION =''wasbs://{ContainerName}@{StorageAccountName}.blob.core.windows.net'',
-              CREDENTIAL = {KeyAlias}
-          )
-          ;
+    CREATE EXTERNAL DATA SOURCE {nyctaxi_fare_storage}
+    WITH
+    (
+        TYPE = HADOOP,
+        LOCATION =''wasbs://{ContainerName}@{StorageAccountName}.blob.core.windows.net'',
+        CREDENTIAL = {KeyAlias}
+    )
+    ;
+    ```
+
   * Cree un formato de archivo externo para un archivo .csv. Los datos se descomprimen y los campos se separan con el carácter de barra vertical.
 
-          CREATE EXTERNAL FILE FORMAT {csv_file_format}
-          WITH
-          (
-              FORMAT_TYPE = DELIMITEDTEXT,
-              FORMAT_OPTIONS
-              (
-                  FIELD_TERMINATOR ='','',
-                  USE_TYPE_DEFAULT = TRUE
-              )
-          )
-          ;
+    ```sql
+    CREATE EXTERNAL FILE FORMAT {csv_file_format}
+    WITH
+    (
+        FORMAT_TYPE = DELIMITEDTEXT,
+        FORMAT_OPTIONS
+        (
+            FIELD_TERMINATOR ='','',
+            USE_TYPE_DEFAULT = TRUE
+        )
+    )
+    ;
+    ```
+
   * Cree tablas externas de tarifas y propinas para el conjunto de datos de NYC Taxi en el Almacenamiento de blobs de Azure.
 
-          CREATE EXTERNAL TABLE {external_nyctaxi_fare}
-          (
-              medallion varchar(50) not null,
-              hack_license varchar(50) not null,
-              vendor_id char(3),
-              pickup_datetime datetime not null,
-              payment_type char(3),
-              fare_amount float,
-              surcharge float,
-              mta_tax float,
-              tip_amount float,
-              tolls_amount float,
-              total_amount float
-          )
-          with (
-              LOCATION    = ''/nyctaxifare/'',
-              DATA_SOURCE = {nyctaxi_fare_storage},
-              FILE_FORMAT = {csv_file_format},
-              REJECT_TYPE = VALUE,
-              REJECT_VALUE = 12
-          )
+    ```sql
+    CREATE EXTERNAL TABLE {external_nyctaxi_fare}
+    (
+        medallion varchar(50) not null,
+        hack_license varchar(50) not null,
+        vendor_id char(3),
+        pickup_datetime datetime not null,
+        payment_type char(3),
+        fare_amount float,
+        surcharge float,
+        mta_tax float,
+        tip_amount float,
+        tolls_amount float,
+        total_amount float
+    )
+    with (
+        LOCATION    = ''/nyctaxifare/'',
+        DATA_SOURCE = {nyctaxi_fare_storage},
+        FILE_FORMAT = {csv_file_format},
+        REJECT_TYPE = VALUE,
+        REJECT_VALUE = 12
+    )
 
-            CREATE EXTERNAL TABLE {external_nyctaxi_trip}
-            (
-                   medallion varchar(50) not null,
-                   hack_license varchar(50)  not null,
-                   vendor_id char(3),
-                   rate_code char(3),
-                   store_and_fwd_flag char(3),
-                   pickup_datetime datetime  not null,
-                   dropoff_datetime datetime,
-                   passenger_count int,
-                   trip_time_in_secs bigint,
-                   trip_distance float,
-                   pickup_longitude varchar(30),
-                   pickup_latitude varchar(30),
-                   dropoff_longitude varchar(30),
-                   dropoff_latitude varchar(30)
-            )
-            with (
-                LOCATION    = ''/nyctaxitrip/'',
-                DATA_SOURCE = {nyctaxi_trip_storage},
-                FILE_FORMAT = {csv_file_format},
-                REJECT_TYPE = VALUE,
-                REJECT_VALUE = 12
-            )
+      CREATE EXTERNAL TABLE {external_nyctaxi_trip}
+      (
+             medallion varchar(50) not null,
+             hack_license varchar(50)  not null,
+             vendor_id char(3),
+             rate_code char(3),
+             store_and_fwd_flag char(3),
+             pickup_datetime datetime  not null,
+             dropoff_datetime datetime,
+             passenger_count int,
+             trip_time_in_secs bigint,
+             trip_distance float,
+             pickup_longitude varchar(30),
+             pickup_latitude varchar(30),
+             dropoff_longitude varchar(30),
+             dropoff_latitude varchar(30)
+      )
+      with (
+          LOCATION    = ''/nyctaxitrip/'',
+          DATA_SOURCE = {nyctaxi_trip_storage},
+          FILE_FORMAT = {csv_file_format},
+          REJECT_TYPE = VALUE,
+          REJECT_VALUE = 12
+      )
+    ```
 
     - Carga de datos de tablas externas de Azure Blob Storage en Azure Synapse Analytics
 
-            CREATE TABLE {schemaname}.{nyctaxi_fare}
-            WITH
-            (
-                CLUSTERED COLUMNSTORE INDEX,
-                DISTRIBUTION = HASH(medallion)
-            )
-            AS
-            SELECT *
-            FROM   {external_nyctaxi_fare}
-            ;
+      ```sql
+      CREATE TABLE {schemaname}.{nyctaxi_fare}
+      WITH
+      (
+          CLUSTERED COLUMNSTORE INDEX,
+          DISTRIBUTION = HASH(medallion)
+      )
+      AS
+      SELECT *
+      FROM   {external_nyctaxi_fare}
+      ;
 
-            CREATE TABLE {schemaname}.{nyctaxi_trip}
-            WITH
-            (
-                CLUSTERED COLUMNSTORE INDEX,
-                DISTRIBUTION = HASH(medallion)
-            )
-            AS
-            SELECT *
-            FROM   {external_nyctaxi_trip}
-            ;
+      CREATE TABLE {schemaname}.{nyctaxi_trip}
+      WITH
+      (
+          CLUSTERED COLUMNSTORE INDEX,
+          DISTRIBUTION = HASH(medallion)
+      )
+      AS
+      SELECT *
+      FROM   {external_nyctaxi_trip}
+      ;
+      ```
 
     - Cree una tabla de datos de ejemplo (NYCTaxi_Sample) e inserte datos en ella mediante la selección de consultas SQL en las tablas de carreras y tarifas. (Algunos pasos de este tutorial necesitan usar esta tabla de ejemplo).
 
-            CREATE TABLE {schemaname}.{nyctaxi_sample}
-            WITH
-            (
-                CLUSTERED COLUMNSTORE INDEX,
-                DISTRIBUTION = HASH(medallion)
-            )
-            AS
-            (
-                SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, f.total_amount, f.tip_amount,
-                tipped = CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END,
-                tip_class = CASE
-                        WHEN (tip_amount = 0) THEN 0
-                        WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
-                        WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
-                        WHEN (tip_amount > 10 AND tip_amount <= 20) THEN 3
-                        ELSE 4
-                    END
-                FROM {schemaname}.{nyctaxi_trip} t, {schemaname}.{nyctaxi_fare} f
-                WHERE datepart("mi",t.pickup_datetime) = 1
-                AND t.medallion = f.medallion
-                AND   t.hack_license = f.hack_license
-                AND   t.pickup_datetime = f.pickup_datetime
-                AND   pickup_longitude <> ''0''
-                AND   dropoff_longitude <> ''0''
-            )
-            ;
+      ```sql
+      CREATE TABLE {schemaname}.{nyctaxi_sample}
+      WITH
+      (
+          CLUSTERED COLUMNSTORE INDEX,
+          DISTRIBUTION = HASH(medallion)
+      )
+      AS
+      (
+          SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, f.total_amount, f.tip_amount,
+          tipped = CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END,
+          tip_class = CASE
+                  WHEN (tip_amount = 0) THEN 0
+                  WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
+                  WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
+                  WHEN (tip_amount > 10 AND tip_amount <= 20) THEN 3
+                  ELSE 4
+              END
+          FROM {schemaname}.{nyctaxi_trip} t, {schemaname}.{nyctaxi_fare} f
+          WHERE datepart("mi",t.pickup_datetime) = 1
+          AND t.medallion = f.medallion
+          AND   t.hack_license = f.hack_license
+          AND   t.pickup_datetime = f.pickup_datetime
+          AND   pickup_longitude <> ''0''
+          AND   dropoff_longitude <> ''0''
+      )
+      ;
+      ```
 
 La ubicación geográfica de las cuentas de almacenamiento afecta a los tiempos de carga.
 
@@ -357,75 +403,91 @@ A continuación se muestra el tipo de tareas de exploración de datos y de gener
 ### <a name="data-import-verification"></a>Comprobación de la importación de datos
 Estas consultas proporcionan una comprobación rápida del número de filas y columnas en las tablas que se rellenaron anteriormente mediante la importación masiva paralela de Polybase.
 
-    -- Report number of rows in table <nyctaxi_trip> without table scan
-    SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_trip>')
+-- Informe con el número de filas de la tabla <nyctaxi_trip> sin recorrido de tabla
 
-    -- Report number of columns in table <nyctaxi_trip>
-    SELECT COUNT(*) FROM information_schema.columns WHERE table_name = '<nyctaxi_trip>' AND table_schema = '<schemaname>'
+   ```sql
+   SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_trip>')
+   ```
+
+-- Informe con el número de columnas de la tabla <nyctaxi_trip>
+
+   ```sql
+   SELECT COUNT(*) FROM information_schema.columns WHERE table_name = '<nyctaxi_trip>' AND table_schema = '<schemaname>'
+   ```
 
 **Salida:** debe obtener 173 179 759 filas y 14 columnas.
 
 ### <a name="exploration-trip-distribution-by-medallion"></a>Exploración: Distribución de carreras por medallion
 Esta consulta de ejemplo identifica las licencias (números de taxi) que han completado más de 100 carreras dentro de un período de tiempo especificado. La consulta se beneficiaría del acceso de la tabla con particiones, ya que está condicionada por el esquema de partición de **pickup\_datetime**. La consulta el conjunto de datos completo también hará uso de la tabla con particiones o del recorrido de índice.
 
-    SELECT medallion, COUNT(*)
-    FROM <schemaname>.<nyctaxi_fare>
-    WHERE pickup_datetime BETWEEN '20130101' AND '20130331'
-    GROUP BY medallion
-    HAVING COUNT(*) > 100
+```sql
+SELECT medallion, COUNT(*)
+FROM <schemaname>.<nyctaxi_fare>
+WHERE pickup_datetime BETWEEN '20130101' AND '20130331'
+GROUP BY medallion
+HAVING COUNT(*) > 100
+```
 
 **Salida:** la consulta debe devolver una tabla con filas en las que se especifiquen las 13 369 licencias (taxis) y el número de carreras completadas en 2013. La última columna contiene el recuento del número de carreras realizadas.
 
 ### <a name="exploration-trip-distribution-by-medallion-and-hack_license"></a>Exploración: distribución de carreras por medallion y hack_license
 Este ejemplo identifica las licencias (números de taxi) y los números de hack_license (conductores) que han completado más de 100 carreras dentro de un período de tiempo.
 
-    SELECT medallion, hack_license, COUNT(*)
-    FROM <schemaname>.<nyctaxi_fare>
-    WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
-    GROUP BY medallion, hack_license
-    HAVING COUNT(*) > 100
+```sql
+SELECT medallion, hack_license, COUNT(*)
+FROM <schemaname>.<nyctaxi_fare>
+WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
+GROUP BY medallion, hack_license
+HAVING COUNT(*) > 100
+```
 
 **Salida:** la consulta debe devolver una tabla con 13 369 filas en las que se especifiquen los 13 369 identificadores de vehículo/conductor que han realizado más de 100 carreras en 2013. La última columna contiene el recuento del número de carreras realizadas.
 
 ### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Evaluación de la calidad de los datos: compruebe los registros con longitud o latitud incorrectas
 En este ejemplo se investiga si alguno de los campos de longitud y latitud contiene un valor no válido (los grados radianes deben encontrarse entre -90 y 90) o tienen coordenadas (0, 0).
 
-    SELECT COUNT(*) FROM <schemaname>.<nyctaxi_trip>
-    WHERE pickup_datetime BETWEEN '20130101' AND '20130331'
-    AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND 90
-    OR    CAST(pickup_latitude AS float) NOT BETWEEN -90 AND 90
-    OR    CAST(dropoff_longitude AS float) NOT BETWEEN -90 AND 90
-    OR    CAST(dropoff_latitude AS float) NOT BETWEEN -90 AND 90
-    OR    (pickup_longitude = '0' AND pickup_latitude = '0')
-    OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
+```sql
+SELECT COUNT(*) FROM <schemaname>.<nyctaxi_trip>
+WHERE pickup_datetime BETWEEN '20130101' AND '20130331'
+AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND 90
+OR    CAST(pickup_latitude AS float) NOT BETWEEN -90 AND 90
+OR    CAST(dropoff_longitude AS float) NOT BETWEEN -90 AND 90
+OR    CAST(dropoff_latitude AS float) NOT BETWEEN -90 AND 90
+OR    (pickup_longitude = '0' AND pickup_latitude = '0')
+OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
+```
 
 **Salida:** la consulta devuelve 837 467 carreras con campos de latitud o longitud no válidos.
 
 ### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Exploración: distribución de carreras con propinas frente a sin propinas
 Este ejemplo busca el número de carreras en las que se han dado propinas frente a aquellas en las que no se han dado en un período de tiempo especificado (o en el conjunto de datos completo si se abarca todo el año, como se establece aquí). Esta distribución refleja la distribución de etiquetas binarias que se usará más adelante para el modelado de clasificación binaria.
 
-    SELECT tipped, COUNT(*) AS tip_freq FROM (
-      SELECT CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped, tip_amount
-      FROM <schemaname>.<nyctaxi_fare>
-      WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
-    GROUP BY tipped
+```sql
+SELECT tipped, COUNT(*) AS tip_freq FROM (
+  SELECT CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped, tip_amount
+  FROM <schemaname>.<nyctaxi_fare>
+  WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
+GROUP BY tipped
+```
 
 **Salida:** La consulta debe devolver las siguientes frecuencias de propinas para el año 2013: 90 447 622 con propina y 82 264 709 sin propina.
 
 ### <a name="exploration-tip-classrange-distribution"></a>Exploración: Distribución por intervalos y clases de propinas
 Este ejemplo calcula la distribución de los intervalos de propinas de un período de tiempo determinado (o en el conjunto de datos completo si abarca todo el año). Esta distribución de las clases de etiquetas se usará posteriormente para el modelado de clasificación multiclase.
 
-    SELECT tip_class, COUNT(*) AS tip_freq FROM (
-        SELECT CASE
-            WHEN (tip_amount = 0) THEN 0
-            WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
-            WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
-            WHEN (tip_amount > 10 AND tip_amount <= 20) THEN 3
-            ELSE 4
-        END AS tip_class
-    FROM <schemaname>.<nyctaxi_fare>
-    WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
-    GROUP BY tip_class
+```sql
+SELECT tip_class, COUNT(*) AS tip_freq FROM (
+    SELECT CASE
+        WHEN (tip_amount = 0) THEN 0
+        WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
+        WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
+        WHEN (tip_amount > 10 AND tip_amount <= 20) THEN 3
+        ELSE 4
+    END AS tip_class
+FROM <schemaname>.<nyctaxi_fare>
+WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
+GROUP BY tip_class
+```
 
 **Salida:**
 
@@ -440,96 +502,103 @@ Este ejemplo calcula la distribución de los intervalos de propinas de un perío
 ### <a name="exploration-compute-and-compare-trip-distance"></a>Exploración: proceso y comparación de la distancia de la carrera
 En este ejemplo se convierte la longitud y latitud de los puntos de recogida y destino a puntos geográficos de SQL, se calcula la distancia de la carrera mediante la diferencia de puntos geográficos de SQL y se devuelve una muestra aleatoria de los resultados de la comparación. En el ejemplo se limitan los resultados a coordenadas válidas usando solo la consulta de evaluación de calidad de datos tratada anteriormente.
 
-    /****** Object:  UserDefinedFunction [dbo].[fnCalculateDistance] ******/
-    SET ANSI_NULLS ON
-    GO
+```sql
+/****** Object:  UserDefinedFunction [dbo].[fnCalculateDistance] ******/
+SET ANSI_NULLS ON
+GO
 
-    SET QUOTED_IDENTIFIER ON
-    GO
+SET QUOTED_IDENTIFIER ON
+GO
 
-    IF EXISTS (SELECT * FROM sys.objects WHERE type IN ('FN', 'IF') AND name = 'fnCalculateDistance')
-      DROP FUNCTION fnCalculateDistance
-    GO
+IF EXISTS (SELECT * FROM sys.objects WHERE type IN ('FN', 'IF') AND name = 'fnCalculateDistance')
+  DROP FUNCTION fnCalculateDistance
+GO
 
-    -- User-defined function to calculate the direct distance  in mile between two geographical coordinates.
-    CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
+-- User-defined function to calculate the direct distance  in mile between two geographical coordinates.
+CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
 
-    RETURNS float
-    AS
-    BEGIN
-          DECLARE @distance decimal(28, 10)
-          -- Convert to radians
-          SET @Lat1 = @Lat1 / 57.2958
-          SET @Long1 = @Long1 / 57.2958
-          SET @Lat2 = @Lat2 / 57.2958
-          SET @Long2 = @Long2 / 57.2958
-          -- Calculate distance
-          SET @distance = (SIN(@Lat1) * SIN(@Lat2)) + (COS(@Lat1) * COS(@Lat2) * COS(@Long2 - @Long1))
-          --Convert to miles
-          IF @distance <> 0
-          BEGIN
-            SET @distance = 3958.75 * ATAN(SQRT(1 - POWER(@distance, 2)) / @distance);
-          END
-          RETURN @distance
-    END
-    GO
+RETURNS float
+AS
+BEGIN
+      DECLARE @distance decimal(28, 10)
+      -- Convert to radians
+      SET @Lat1 = @Lat1 / 57.2958
+      SET @Long1 = @Long1 / 57.2958
+      SET @Lat2 = @Lat2 / 57.2958
+      SET @Long2 = @Long2 / 57.2958
+      -- Calculate distance
+      SET @distance = (SIN(@Lat1) * SIN(@Lat2)) + (COS(@Lat1) * COS(@Lat2) * COS(@Long2 - @Long1))
+      --Convert to miles
+      IF @distance <> 0
+      BEGIN
+        SET @distance = 3958.75 * ATAN(SQRT(1 - POWER(@distance, 2)) / @distance);
+      END
+      RETURN @distance
+END
+GO
 
-    SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude,
-    dbo.fnCalculateDistance(pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude) AS DirectDistance
-    FROM <schemaname>.<nyctaxi_trip>
-    WHERE datepart("mi",pickup_datetime)=1
-    AND CAST(pickup_latitude AS float) BETWEEN -90 AND 90
-    AND CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
-    AND pickup_longitude != '0' AND dropoff_longitude != '0'
+SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude,
+dbo.fnCalculateDistance(pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude) AS DirectDistance
+FROM <schemaname>.<nyctaxi_trip>
+WHERE datepart("mi",pickup_datetime)=1
+AND CAST(pickup_latitude AS float) BETWEEN -90 AND 90
+AND CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
+AND pickup_longitude != '0' AND dropoff_longitude != '0'
+```
 
 ### <a name="feature-engineering-using-sql-functions"></a>Diseño de características con las funciones de SQL
 A veces, las funciones de SQL pueden ser una opción eficiente de diseño de características. En este tutorial, hemos definido una función SQL para calcular la distancia directa entre las ubicaciones de recogida y entrega. Puede ejecutar los scripts SQL siguientes en **Visual Studio Data Tools**.
 
 Este es el script SQL que define la función de distancia.
 
-    SET ANSI_NULLS ON
-    GO
+```sql
+SET ANSI_NULLS ON
+GO
 
-    SET QUOTED_IDENTIFIER ON
-    GO
+SET QUOTED_IDENTIFIER ON
+GO
 
-    IF EXISTS (SELECT * FROM sys.objects WHERE type IN ('FN', 'IF') AND name = 'fnCalculateDistance')
-      DROP FUNCTION fnCalculateDistance
-    GO
+IF EXISTS (SELECT * FROM sys.objects WHERE type IN ('FN', 'IF') AND name = 'fnCalculateDistance')
+  DROP FUNCTION fnCalculateDistance
+GO
 
-    -- User-defined function calculate the direct distance between two geographical coordinates.
-    CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
+-- User-defined function calculate the direct distance between two geographical coordinates.
+CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
 
-    RETURNS float
-    AS
-    BEGIN
-          DECLARE @distance decimal(28, 10)
-          -- Convert to radians
-          SET @Lat1 = @Lat1 / 57.2958
-          SET @Long1 = @Long1 / 57.2958
-          SET @Lat2 = @Lat2 / 57.2958
-          SET @Long2 = @Long2 / 57.2958
-          -- Calculate distance
-          SET @distance = (SIN(@Lat1) * SIN(@Lat2)) + (COS(@Lat1) * COS(@Lat2) * COS(@Long2 - @Long1))
-          --Convert to miles
-          IF @distance <> 0
-          BEGIN
-            SET @distance = 3958.75 * ATAN(SQRT(1 - POWER(@distance, 2)) / @distance);
-          END
-          RETURN @distance
-    END
-    GO
+RETURNS float
+AS
+BEGIN
+      DECLARE @distance decimal(28, 10)
+      -- Convert to radians
+      SET @Lat1 = @Lat1 / 57.2958
+      SET @Long1 = @Long1 / 57.2958
+      SET @Lat2 = @Lat2 / 57.2958
+      SET @Long2 = @Long2 / 57.2958
+      -- Calculate distance
+      SET @distance = (SIN(@Lat1) * SIN(@Lat2)) + (COS(@Lat1) * COS(@Lat2) * COS(@Long2 - @Long1))
+      --Convert to miles
+      IF @distance <> 0
+      BEGIN
+        SET @distance = 3958.75 * ATAN(SQRT(1 - POWER(@distance, 2)) / @distance);
+      END
+      RETURN @distance
+END
+GO
+```
 
 Este es un ejemplo para llamar a esta función para generar características en la consulta SQL:
 
-    -- Sample query to call the function to create features
-    SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude,
-    dbo.fnCalculateDistance(pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude) AS DirectDistance
-    FROM <schemaname>.<nyctaxi_trip>
-    WHERE datepart("mi",pickup_datetime)=1
-    AND CAST(pickup_latitude AS float) BETWEEN -90 AND 90
-    AND CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
-    AND pickup_longitude != '0' AND dropoff_longitude != '0'
+-- Consulta de ejemplo para llamar a la función para crear características
+
+   ```sql
+SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude,
+dbo.fnCalculateDistance(pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude) AS DirectDistance
+FROM <schemaname>.<nyctaxi_trip>
+WHERE datepart("mi",pickup_datetime)=1
+AND CAST(pickup_latitude AS float) BETWEEN -90 AND 90
+AND CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
+AND pickup_longitude != '0' AND dropoff_longitude != '0'
+   ```
 
 **Salida:** esta consulta genera una tabla (con 2 803 538 filas) con las latitudes y longitud de los puntos de origen y destino y las distancias directas correspondientes en millas. Estos son los resultados de las tres primeras filas:
 
@@ -542,20 +611,22 @@ Este es un ejemplo para llamar a esta función para generar características en 
 ### <a name="prepare-data-for-model-building"></a>Preparar datos para la generación de modelos
 La siguiente consulta combina las tablas **nyctaxi\_trip** y **nyctaxi\_fare**, genera una etiqueta de clasificación binaria **tipped**, una etiqueta de clasificación multiclase **tip\_class** y extrae una muestra aleatoria del conjunto de datos combinado completo. El muestreo se realiza mediante la recuperación de un subconjunto de los viajes en función de la hora de recogida.  Esta consulta se puede copiar y pegar directamente en el módulo [Import Data](https://studio.azureml.net) (Importar datos) [import-data] de [Azure Machine Learning Studio (clásico)] para la ingesta directa de datos desde la instancia de SQL Database de Azure. La consulta excluye los registros con coordenadas (0, 0) incorrectas.
 
-    SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
-        CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
-        CASE WHEN (tip_amount = 0) THEN 0
-            WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
-            WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
-            WHEN (tip_amount > 10 AND tip_amount <= 20) THEN 3
-            ELSE 4
-        END AS tip_class
-    FROM <schemaname>.<nyctaxi_trip> t, <schemaname>.<nyctaxi_fare> f
-    WHERE datepart("mi",t.pickup_datetime) = 1
-    AND   t.medallion = f.medallion
-    AND   t.hack_license = f.hack_license
-    AND   t.pickup_datetime = f.pickup_datetime
-    AND   pickup_longitude != '0' AND dropoff_longitude != '0'
+```sql
+SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
+    CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
+    CASE WHEN (tip_amount = 0) THEN 0
+        WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
+        WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
+        WHEN (tip_amount > 10 AND tip_amount <= 20) THEN 3
+        ELSE 4
+    END AS tip_class
+FROM <schemaname>.<nyctaxi_trip> t, <schemaname>.<nyctaxi_fare> f
+WHERE datepart("mi",t.pickup_datetime) = 1
+AND   t.medallion = f.medallion
+AND   t.hack_license = f.hack_license
+AND   t.pickup_datetime = f.pickup_datetime
+AND   pickup_longitude != '0' AND dropoff_longitude != '0'
+```
 
 Cuando esté listo para continuar con Azure Machine Learning, puede:
 
@@ -603,73 +674,86 @@ A continuación, se muestran algunas exploraciones de datos, visualizaciones de 
 ### <a name="initialize-database-credentials"></a>Inicialización de las credenciales de la base de datos
 Inicialice la configuración de conexión de base de datos en las variables siguientes:
 
-    SERVER_NAME=<server name>
-    DATABASE_NAME=<database name>
-    USERID=<user name>
-    PASSWORD=<password>
-    DB_DRIVER = <database driver>
+```sql
+SERVER_NAME=<server name>
+DATABASE_NAME=<database name>
+USERID=<user name>
+PASSWORD=<password>
+DB_DRIVER = <database driver>
+```
 
 ### <a name="create-database-connection"></a>Creación de conexiones de base de datos
 Esta es la cadena de conexión que crea la conexión a la base de datos.
 
-    CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
-    conn = pyodbc.connect(CONNECTION_STRING)
+```sql
+CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
+conn = pyodbc.connect(CONNECTION_STRING)
+```
 
 ### <a name="report-number-of-rows-and-columns-in-table-nyctaxi_trip"></a>Informe con el número de filas y columnas de la tabla <nyctaxi_trip>
-    nrows = pd.read_sql('''
-        SELECT SUM(rows) FROM sys.partitions
-        WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_trip>')
-    ''', conn)
 
-    print 'Total number of rows = %d' % nrows.iloc[0,0]
+```sql
+nrows = pd.read_sql('''
+    SELECT SUM(rows) FROM sys.partitions
+    WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_trip>')
+''', conn)
 
-    ncols = pd.read_sql('''
-        SELECT COUNT(*) FROM information_schema.columns
-        WHERE table_name = ('<nyctaxi_trip>') AND table_schema = ('<schemaname>')
-    ''', conn)
+print 'Total number of rows = %d' % nrows.iloc[0,0]
 
-    print 'Total number of columns = %d' % ncols.iloc[0,0]
+ncols = pd.read_sql('''
+    SELECT COUNT(*) FROM information_schema.columns
+    WHERE table_name = ('<nyctaxi_trip>') AND table_schema = ('<schemaname>')
+''', conn)
+
+print 'Total number of columns = %d' % ncols.iloc[0,0]
+```
 
 * Número total de filas = 173179759
 * Número total de columnas = 14
 
 ### <a name="report-number-of-rows-and-columns-in-table-nyctaxi_fare"></a>Informe con el número de filas y columnas de la tabla <nyctaxi_fare>
-    nrows = pd.read_sql('''
-        SELECT SUM(rows) FROM sys.partitions
-        WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_fare>')
-    ''', conn)
 
-    print 'Total number of rows = %d' % nrows.iloc[0,0]
+```sql
+nrows = pd.read_sql('''
+    SELECT SUM(rows) FROM sys.partitions
+    WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_fare>')
+''', conn)
 
-    ncols = pd.read_sql('''
-        SELECT COUNT(*) FROM information_schema.columns
-        WHERE table_name = ('<nyctaxi_fare>') AND table_schema = ('<schemaname>')
-    ''', conn)
+print 'Total number of rows = %d' % nrows.iloc[0,0]
+
+ncols = pd.read_sql('''
+    SELECT COUNT(*) FROM information_schema.columns
+    WHERE table_name = ('<nyctaxi_fare>') AND table_schema = ('<schemaname>')
+''', conn)
 
     print 'Total number of columns = %d' % ncols.iloc[0,0]
+```
 
 * Número total de filas = 173179759
 * Número total de columnas = 11
 
 ### <a name="read-in-a-small-data-sample-from-the-azure-synapse-analytics-database"></a>Lectura de una muestra de datos pequeña de la base de datos de Azure Synapse Analytics
-    t0 = time.time()
 
-    query = '''
-        SELECT TOP 10000 t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax,
-            f.tolls_amount, f.total_amount, f.tip_amount
-        FROM <schemaname>.<nyctaxi_trip> t, <schemaname>.<nyctaxi_fare> f
-        WHERE datepart("mi",t.pickup_datetime) = 1
-        AND   t.medallion = f.medallion
-        AND   t.hack_license = f.hack_license
-        AND   t.pickup_datetime = f.pickup_datetime
-    '''
+```sql
+t0 = time.time()
 
-    df1 = pd.read_sql(query, conn)
+query = '''
+    SELECT TOP 10000 t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax,
+        f.tolls_amount, f.total_amount, f.tip_amount
+    FROM <schemaname>.<nyctaxi_trip> t, <schemaname>.<nyctaxi_fare> f
+    WHERE datepart("mi",t.pickup_datetime) = 1
+    AND   t.medallion = f.medallion
+    AND   t.hack_license = f.hack_license
+    AND   t.pickup_datetime = f.pickup_datetime
+'''
 
-    t1 = time.time()
-    print 'Time to read the sample table is %f seconds' % (t1-t0)
+df1 = pd.read_sql(query, conn)
 
-    print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
+t1 = time.time()
+print 'Time to read the sample table is %f seconds' % (t1-t0)
+
+print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
+```
 
 El tiempo empleado en leer la tabla de ejemplo es 14,096495 segundos
 Número de filas y columnas recuperadas = (1000, 21)
@@ -677,56 +761,72 @@ Número de filas y columnas recuperadas = (1000, 21)
 ### <a name="descriptive-statistics"></a>Estadísticas descriptivas
 Ya puede explorar los datos de muestreo. Comenzamos echando un vistazo a algunas estadísticas descriptivas del campo **trip\_distance** (o de cualquier otro que elija).
 
-    df1['trip_distance'].describe()
+```sql
+df1['trip_distance'].describe()
+```
 
 ### <a name="visualization-box-plot-example"></a>Visualización: Ejemplo de diagrama de caja
 A continuación, observaremos el diagrama de caja de la distancia de la carrera para ver los cuantiles.
 
-    df1.boxplot(column='trip_distance',return_type='dict')
+```sql
+df1.boxplot(column='trip_distance',return_type='dict')
+```
 
 ![Salida del diagrama de caja][1]
 
 ### <a name="visualization-distribution-plot-example"></a>Visualización: Ejemplo de diagrama de distribución
 Diagramas que visualizan la distribución y un histograma de las distancias de las carreras muestreadas.
 
-    fig = plt.figure()
-    ax1 = fig.add_subplot(1,2,1)
-    ax2 = fig.add_subplot(1,2,2)
-    df1['trip_distance'].plot(ax=ax1,kind='kde', style='b-')
-    df1['trip_distance'].hist(ax=ax2, bins=100, color='k')
+```sql
+fig = plt.figure()
+ax1 = fig.add_subplot(1,2,1)
+ax2 = fig.add_subplot(1,2,2)
+df1['trip_distance'].plot(ax=ax1,kind='kde', style='b-')
+df1['trip_distance'].hist(ax=ax2, bins=100, color='k')
+```
 
 ![Salida del diagrama de distribución][2]
 
 ### <a name="visualization-bar-and-line-plots"></a>Visualización: Diagramas de barras y líneas
 En este ejemplo, se discretiza la distancia de la carrera en cinco discretizaciones y se visualizan los resultados de la discretización.
 
-    trip_dist_bins = [0, 1, 2, 4, 10, 1000]
-    df1['trip_distance']
-    trip_dist_bin_id = pd.cut(df1['trip_distance'], trip_dist_bins)
-    trip_dist_bin_id
+```sql
+trip_dist_bins = [0, 1, 2, 4, 10, 1000]
+df1['trip_distance']
+trip_dist_bin_id = pd.cut(df1['trip_distance'], trip_dist_bins)
+trip_dist_bin_id
+```
 
 Podemos trazar la distribución de discretización anterior en un gráfico de barras o líneas con:
 
-    pd.Series(trip_dist_bin_id).value_counts().plot(kind='bar')
+```sql
+pd.Series(trip_dist_bin_id).value_counts().plot(kind='bar')
+```
 
 ![Salida del diagrama de barras][3]
 
 y
 
-    pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
+```sql
+pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
+```
 
 ![Salida del diagrama de líneas][4]
 
 ### <a name="visualization-scatterplot-examples"></a>Visualización: Ejemplo de gráfico de dispersión
 Se muestra el gráfico de dispersión entre **trip\_time\_in\_secs** y **trip\_distance** para ver si existe algún tipo de correlación
 
-    plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
+```sql
+plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
+```
 
 ![Salida del gráfico de dispersión de la relación entre el tiempo y la distancia][6]
 
 También podemos comprobar la relación entre **rate\_code** y **trip\_distance**.
 
-    plt.scatter(df1['passenger_count'], df1['trip_distance'])
+```sql
+plt.scatter(df1['passenger_count'], df1['trip_distance'])
+```
 
 ![Salida del gráfico de dispersión de la relación entre el código y la distancia][8]
 
@@ -734,73 +834,105 @@ También podemos comprobar la relación entre **rate\_code** y **trip\_distance*
 En esta sección, se exploran las distribuciones de datos con los datos de los datos de muestreo que se conservan en la nueva tabla que se creó anteriormente. Se pueden realizar exploraciones similares con las tablas originales.
 
 #### <a name="exploration-report-number-of-rows-and-columns-in-the-sampled-table"></a>Exploración: notificación del número de filas y columnas de la tabla de muestreo
-    nrows = pd.read_sql('''SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_sample>')''', conn)
-    print 'Number of rows in sample = %d' % nrows.iloc[0,0]
 
-    ncols = pd.read_sql('''SELECT count(*) FROM information_schema.columns WHERE table_name = ('<nyctaxi_sample>') AND table_schema = '<schemaname>'''', conn)
-    print 'Number of columns in sample = %d' % ncols.iloc[0,0]
+```sql
+nrows = pd.read_sql('''SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_sample>')''', conn)
+print 'Number of rows in sample = %d' % nrows.iloc[0,0]
+
+ncols = pd.read_sql('''SELECT count(*) FROM information_schema.columns WHERE table_name = ('<nyctaxi_sample>') AND table_schema = '<schemaname>'''', conn)
+print 'Number of columns in sample = %d' % ncols.iloc[0,0]
+```
 
 #### <a name="exploration-tippednot-tripped-distribution"></a>Exploración: distribución con propinas y sin propinas
-    query = '''
-        SELECT tipped, count(*) AS tip_freq
-        FROM <schemaname>.<nyctaxi_sample>
-        GROUP BY tipped
-        '''
 
-    pd.read_sql(query, conn)
-
-#### <a name="exploration-tip-class-distribution"></a>Exploración: distribución de la clase de prueba
-    query = '''
-        SELECT tip_class, count(*) AS tip_freq
-        FROM <schemaname>.<nyctaxi_sample>
-        GROUP BY tip_class
+```sql
+query = '''
+SELECT tipped, count(*) AS tip_freq
+    FROM <schemaname>.<nyctaxi_sample>
+    GROUP BY tipped
     '''
 
-    tip_class_dist = pd.read_sql(query, conn)
+    pd.read_sql(query, conn)
+```
+
+#### <a name="exploration-tip-class-distribution"></a>Exploración: distribución de la clase de prueba
+
+```sql
+query = '''
+    SELECT tip_class, count(*) AS tip_freq
+    FROM <schemaname>.<nyctaxi_sample>
+    GROUP BY tip_class
+'''
+
+tip_class_dist = pd.read_sql(query, conn)
+```
 
 #### <a name="exploration-plot-the-tip-distribution-by-class"></a>Exploración: trazado de la distribución de propinas por clase
-    tip_class_dist['tip_freq'].plot(kind='bar')
+
+```sql
+tip_class_dist['tip_freq'].plot(kind='bar')
+```
 
 ![Diagrama 26][26]
 
 #### <a name="exploration-daily-distribution-of-trips"></a>Exploración: distribución diaria de carreras
-    query = '''
-        SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c
-        FROM <schemaname>.<nyctaxi_sample>
-        GROUP BY CONVERT(date, dropoff_datetime)
-    '''
 
-    pd.read_sql(query,conn)
+```sql
+query = '''
+    SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c
+    FROM <schemaname>.<nyctaxi_sample>
+    GROUP BY CONVERT(date, dropoff_datetime)
+'''
+
+pd.read_sql(query,conn)
+```
 
 #### <a name="exploration-trip-distribution-per-medallion"></a>Exploración: distribución de carreras por placa
-    query = '''
-        SELECT medallion,count(*) AS c
-        FROM <schemaname>.<nyctaxi_sample>
-        GROUP BY medallion
-    '''
 
-    pd.read_sql(query,conn)
+```sql
+query = '''
+    SELECT medallion,count(*) AS c
+    FROM <schemaname>.<nyctaxi_sample>
+    GROUP BY medallion
+'''
+
+pd.read_sql(query,conn)
+```
 
 #### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Exploración: Distribución de carreras por medallion y hack_license
-    query = '''select medallion, hack_license,count(*) from <schemaname>.<nyctaxi_sample> group by medallion, hack_license'''
-    pd.read_sql(query,conn)
 
+```sql
+query = '''select medallion, hack_license,count(*) from <schemaname>.<nyctaxi_sample> group by medallion, hack_license'''
+pd.read_sql(query,conn)
+```
 
 #### <a name="exploration-trip-time-distribution"></a>Exploración: distribución del tiempo de la carrera
-    query = '''select trip_time_in_secs, count(*) from <schemaname>.<nyctaxi_sample> group by trip_time_in_secs order by count(*) desc'''
-    pd.read_sql(query,conn)
+
+```sql
+query = '''select trip_time_in_secs, count(*) from <schemaname>.<nyctaxi_sample> group by trip_time_in_secs order by count(*) desc'''
+pd.read_sql(query,conn)
+```
 
 #### <a name="exploration-trip-distance-distribution"></a>Exploración: distribución de la distancia de la carrera
-    query = '''select floor(trip_distance/5)*5 as tripbin, count(*) from <schemaname>.<nyctaxi_sample> group by floor(trip_distance/5)*5 order by count(*) desc'''
-    pd.read_sql(query,conn)
+
+```sql
+query = '''select floor(trip_distance/5)*5 as tripbin, count(*) from <schemaname>.<nyctaxi_sample> group by floor(trip_distance/5)*5 order by count(*) desc'''
+pd.read_sql(query,conn)
+```
 
 #### <a name="exploration-payment-type-distribution"></a>Exploración: distribución del tipo de pago
-    query = '''select payment_type,count(*) from <schemaname>.<nyctaxi_sample> group by payment_type'''
-    pd.read_sql(query,conn)
+
+```sql
+query = '''select payment_type,count(*) from <schemaname>.<nyctaxi_sample> group by payment_type'''
+pd.read_sql(query,conn)
+```
 
 #### <a name="verify-the-final-form-of-the-featurized-table"></a>Comprobar el formulario final de la tabla con características
-    query = '''SELECT TOP 100 * FROM <schemaname>.<nyctaxi_sample>'''
-    pd.read_sql(query,conn)
+
+```sql
+query = '''SELECT TOP 100 * FROM <schemaname>.<nyctaxi_sample>'''
+pd.read_sql(query,conn)
+```
 
 ## <a name="build-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Creación de modelos en Azure Machine Learning
 Ya está todo listo para pasar a la creación del modelo y la implementación del mismo en [Azure Machine Learning](https://studio.azureml.net). Los datos están listos para usarse en cualquiera de los problemas de predicción identificados anteriormente, a saber:

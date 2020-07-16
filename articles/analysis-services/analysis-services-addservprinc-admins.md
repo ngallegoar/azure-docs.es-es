@@ -4,20 +4,23 @@ description: Aprenda cómo agregar una entidad de servicio de automatización al
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bc3e17ce5becf039703585167e1ef3aa825cf2ab
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 4ce23e9da84d01a288c1c37c6a6d884db2ed3969
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697534"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077565"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Incorporación de una entidad de servicio al rol de administrador del servidor 
 
- Para automatizar las tareas de PowerShell desatendidas, una entidad de servicio debe tener privilegios de **administrador del servidor** en el servidor de Analysis Services que se está administrando. En este artículo se describe cómo agregar una entidad de servicio al rol de administrador de servidor en un servidor de Azure AS. Puede hacerlo mediante SQL Server Management Studio o una plantilla de Resource Manager.
+ Para automatizar las tareas de PowerShell desatendidas, una entidad de servicio debe tener privilegios de **administrador del servidor** en el servidor de Analysis Services que se está administrando. En este artículo se describe cómo agregar una entidad de servicio al rol de administrador de servidor en un servidor de Azure AS. Puede hacerlo mediante SQL Server Management Studio o una plantilla de Resource Manager. 
+
+> [!NOTE]
+> Las entidades de servicio deben agregarse directamente al rol Administrador del servidor. La incorporación de una entidad de servicio a un grupo de seguridad y, posteriormente, de ese grupo de seguridad al rol Administrador del servidor, no se admite. 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 Antes de completar esta tarea, debe tener registrada una entidad de servicio en Azure Active Directory.

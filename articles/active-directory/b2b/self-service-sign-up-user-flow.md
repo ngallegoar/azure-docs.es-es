@@ -4,26 +4,23 @@ description: Fedérese con Facebook para permitir que los usuarios externos (inv
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 05/19/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd94fffded8c0e5d7b120993f069b042c2b19b6c
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: e9fa9d9e23de9a4ec93cbef6d2696d7bec70d41d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712356"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551255"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Incorporación de un flujo de usuario de registro de autoservicio a una aplicación (versión preliminar)
-|     |
-| --- |
-| El registro de autoservicio es la característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+> [!NOTE]
+> El registro de autoservicio es la característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Puede crear flujos de usuario para aplicaciones compiladas por la organización. La asociación del flujo de usuario con una aplicación le permite habilitar el registro en esa aplicación. Puede optar por asociar más de una aplicación al flujo de usuario. Una vez asociado el flujo de usuario a una o más aplicaciones, los usuarios que visiten esa aplicación podrán registrarse y obtener una cuenta de invitado mediante las opciones configuradas en el flujo de usuario.
 
@@ -109,3 +106,5 @@ Ya puede asociar aplicaciones al flujo de usuario.
 
 - [Incorporación de Google a la lista de proveedores de identidades sociales](google-federation.md)
 - [Incorporación de Facebook a la lista de proveedores de identidades sociales](facebook-federation.md)
+- [Uso de conectores de API para personalizar y extender los flujos de usuario a través de las API web](api-connectors-overview.md)
+- [Incorporación de un flujo de trabajo de aprobación personalizado al flujo del usuario](self-service-sign-up-add-approvals.md)

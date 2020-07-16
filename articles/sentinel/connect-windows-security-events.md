@@ -1,6 +1,6 @@
 ---
 title: Conectar datos de eventos de seguridad de Windows a Azure Sentinel| Microsoft Docs
-description: Aprenda a conectar datos de eventos de seguridad de Windows a Azure Sentinel.
+description: Aprenda a usar el conector de eventos de seguridad para transmitir todos los eventos de seguridad de sus sistemas Windows al área de trabajo de Azure Sentinel. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2020
 ms.author: yelevin
-ms.openlocfilehash: 30055ba1befc68d015e3e3162d8db11a2916f3d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8da05da1b4aa9966b7743bc38b09d1c4b34c8cc8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80124965"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555718"
 ---
 # <a name="connect-windows-security-events"></a>Conexión de eventos de seguridad de Windows 
 
