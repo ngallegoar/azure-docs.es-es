@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 8e44ce594375deeac47f037515d96c57d15c8359
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: f8b09c71e9ad55528788f97fb986606f21e8b0ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398402"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84769796"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Administración y respuesta a alertas de seguridad en Azure Security Center
 
@@ -58,21 +58,26 @@ Security Center recopila, analiza e integra automáticamente los datos de regist
 
 1. Después de revisar esta información, haga clic en un recurso atacado.
 
+    En el panel izquierdo de la página alerta de seguridad se muestra información de alto nivel sobre la alerta de seguridad: título, gravedad, estado, tiempo de actividad, descripción de la actividad sospechosa y el recurso afectado. Junto con el recurso afectado se encuentran las etiquetas de Azure relevantes para el recurso. Úselas para deducir el contexto de la organización del recurso al investigar la alerta.
+
+    En el panel derecho se incluye la pestaña **Detalles de alerta** que contiene más detalles de la alerta para ayudarle a investigar el problema: Direcciones IP, archivos, procesos, etc.
+     
     ![Sugerencias sobre qué hacer con las alertas de seguridad](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
 
-    La sección **Información general** puede ofrecer una visión general de lo que desencadenó la alerta de seguridad. Muestra información como el recurso de destino o la dirección IP de origen (si es aplicable) si la alerta sigue activa, así como recomendaciones sobre cómo solucionarla.  
+    Además, en el panel derecho se encuentra la pestaña **Realizar acción**. Use esta pestaña para realizar acciones adicionales con respecto a la alerta de seguridad. Acciones como:
+    - *Mitigar las amenazas:* proporciona pasos de corrección manual para esta alerta de seguridad
+    - *Evitar ataques futuros:* proporciona recomendaciones de seguridad para ayudar a reducir la superficie expuesta a ataques, aumentar la postura de seguridad y así evitar futuros ataques
+    - *Desencadenar respuesta automatizada:* ofrece la opción de desencadenar una aplicación lógica como respuesta a esta alerta de seguridad
+    - *Suprimir alertas similares:* ofrece la opción de suprimir las alertas futuras con características similares si la alerta no es relevante para su organización
 
-    > [!NOTE]
-    >En algunos casos, la dirección IP de origen no está disponible, ya que algunos registros de eventos de seguridad de Windows no incluyen la dirección IP.
+    ![Pestaña Realizar acción](./media/security-center-managing-and-responding-alerts/alert-take-action.png)
 
-1. Los pasos de corrección sugeridos por Security Center varían según la alerta de seguridad. Sígalos para cada una de las alertas. 
 
-    En algunos casos, para mitigar una alerta de seguridad, puede que tenga que usar otros servicios o controles de Azure para implementar la corrección recomendada. 
+
 
 ## <a name="see-also"></a>Consulte también
 
-En este documento ha aprendido a configurar directivas de seguridad en el Centro de seguridad. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
+En este documento, aprendió cómo ver alertas de seguridad. Vea las páginas siguientes para obtener material relacionado:
 
-- [El módulo de Microsoft Learn sobre cómo usar las capacidades de alerta de Azure Security Center para supervisar amenazas y responder a ellas](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
-* [Alertas de seguridad en Azure Security Center](security-center-alerts-overview.md)
-* [Control de incidentes de seguridad en Azure Security Center](security-center-incident.md)
+- [Configuración de reglas de eliminación de alertas](alerts-suppression-rules.md)
+- [Automatización de respuestas a alertas y recomendaciones con automatización de flujos de trabajo](workflow-automation.md)

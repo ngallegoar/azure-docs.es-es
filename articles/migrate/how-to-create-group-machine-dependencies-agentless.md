@@ -2,45 +2,44 @@
 title: Configuración del análisis de dependencias sin agente en Azure Migrate Server Assessment
 description: Configure el análisis de dependencias sin agente en Azure Migrate Server Assessment.
 ms.topic: how-to
-ms.date: 2/24/2020
-ms.openlocfilehash: af767bf73a3b9a6f2a91298987f11974499fd694
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 6/08/2020
+ms.openlocfilehash: dc2ea0656198927cc8ae58533d296a2bedc37c13
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79455713"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84771383"
 ---
-# <a name="set-up-agentless-dependency-visualization"></a>Configuración de la visualización de dependencias sin agente 
+# <a name="analyze-machine-dependencies-agentless"></a>Análisis de las dependencias de la máquina (sin agente)
 
-En este artículo se describe cómo configurar el análisis de dependencias sin agente en Azure Migrate Server Assessment. El [análisis de dependencias](concepts-dependency-visualization.md) le ayuda a identificar y comprender las dependencias en las máquinas que quiere evaluar y migrar a Azure.
+En este artículo se describe cómo configurar el análisis de dependencias sin agente en Azure Migrate Server Assessment. El [análisis de dependencias](concepts-dependency-visualization.md) le ayuda a identificar y comprender las dependencias entre máquinas para la evaluación y la migración a Azure.
 
 
 > [!IMPORTANT]
-> La visualización de dependencias sin agente se encuentra actualmente en versión preliminar solo para máquinas virtuales de VMware detectadas con la herramienta Azure Migrate Server Assessment.
+> La visualización de dependencias sin agente se encuentra actualmente en versión preliminar para VM de VMware detectadas con la herramienta Azure Migrate:Server Assessment.
 > Las características pueden ser limitadas o estar incompletas.
 > Esta versión preliminar está incluida en el soporte al cliente y se puede usar para cargas de trabajo de producción.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+## <a name="current-limitations"></a>Limitaciones actuales
 
+- En la vista de análisis de dependencias, actualmente no se puede agregar o quitar un servidor de un grupo.
+- Actualmente, no existe ningún mapa de dependencias disponible para un grupo de servidores.
+- Los datos de dependencias no se pueden descargar en formato tabular.
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
-- [Aprenda sobre](concepts-dependency-visualization.md#agentless-analysis) el análisis de dependencias sin agente.
-- [Revise](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) los requisitos previos y los requisitos de compatibilidad para configurar la visualización de dependencias sin agente para máquinas virtuales de VMware.
-- Asegúrese de que ha [creado](how-to-add-tool-first-time.md) un proyecto de Azure Migrate.
-- Si ya ha creado un proyecto, asegúrese de que ha [agregado](how-to-assess.md) la herramienta Azure Migrate: Server Assessment.
-- Asegúrese de que ha configurado un [dispositivo Azure Migrate](migrate-appliance.md) para detectar las máquinas locales. Obtenga información sobre cómo configurar un dispositivo para las VM de [VMware](how-to-set-up-appliance-vmware.md). El dispositivo detecta máquinas locales, y envía metadatos y datos de rendimiento a Azure Migrate: Server Assessment.
+- [Revise](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) los sistemas los operativos compatibles y los permisos necesarios.
+- Asegúrese de lo siguiente:
+    - Tener un proyecto de Azure Migrate. Si no lo tiene, es el momento de [crearlo](how-to-add-tool-first-time.md).
+    - Compruebe que ha [agregado ](how-to-assess.md) la herramienta Azure Migrate:Server Assessment al proyecto.
+    - Configure un [dispositivo Azure Migrate](migrate-appliance.md) para detectar las máquinas locales. [Configuración de un dispositivo](how-to-set-up-appliance-vmware.md) para VM de VMware. El dispositivo detecta máquinas locales, y envía metadatos y datos de rendimiento a Azure Migrate: Server Assessment.
+- Compruebe que una versión de las herramientas de VMware posterior a 10.2 está instalada en cada VM que se quiera analizar.
 
-
-## <a name="current-limitations"></a>Limitaciones actuales
-
-- En este momento, no se puede agregar un servidor a un grupo ni quitarlo de este en la vista de análisis de dependencias.
-- Actualmente, no existe ningún mapa de dependencias disponible para un grupo de servidores.
-- Actualmente, los datos de dependencias no se pueden descargar en formato tabular.
 
 ## <a name="create-a-user-account-for-discovery"></a>Creación de una cuenta de usuario para la detección
 
-Configure una cuenta de usuario para que Server Assessment pueda acceder a la VM para la detección. [Aprenda](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) sobre los requisitos de la cuenta.
+Configure una cuenta de usuario para que Server Assessment pueda acceder a la VM y detectar las dependencias. [Aprenda](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) sobre los requisitos de cuenta para VM Windows y Linux.
 
 
 ## <a name="add-the-user-account-to-the-appliance"></a>Adición de la cuenta de usuario al dispositivo
@@ -63,9 +62,9 @@ Elija las máquinas en las que quiere habilitar la detección de dependencias.
 1. En **Azure Migrate: Server Assessment**, haga clic en **Servidores detectados**.
 2. Haga clic en el icono **Análisis de dependencias**.
 3. Haga clic en **Agregar servidores**.
-3. En la página **Agregar servidores**, elija el dispositivo que detecta las máquinas pertinentes.
-4. En la lista de máquinas, seleccione las máquinas.
-5. Haga clic en **Agregar servidores**.
+4. En la página **Agregar servidores**, elija el dispositivo que detecta las máquinas pertinentes.
+5. En la lista de máquinas, seleccione las máquinas.
+6. Haga clic en **Agregar servidores**.
 
     ![Inicio de la detección de dependencias](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
 
@@ -92,6 +91,38 @@ Puede visualizar las dependencias aproximadamente 6 horas después de iniciar la
 > [!NOTE]
 > La información del proceso para una dependencia no siempre está disponible. Si no está disponible, la dependencia se representa con el proceso marcado como "Proceso desconocido".
 
+## <a name="export-dependency-data"></a>Exportar datos de dependencia
+
+1. En **Azure Migrate: Server Assessment**, haga clic en **Servidores detectados**.
+2. Haga clic en el icono **Análisis de dependencias**.
+3. Haga clic en **Exportar las dependencias de la aplicación**.
+4. En la página **Exportar las dependencias de la aplicación**, elija el dispositivo que detecta las máquinas correspondientes.
+5. Seleccione la hora de inicio y la hora de finalización. Tenga en cuenta que solo puede descargar los datos de los últimos 30 días.
+6. Haga clic en **Exportar dependencia**.
+
+Los datos de dependencia se exportan y se descargan en formato CSV. El archivo descargado contiene los datos de dependencia en todas las máquinas habilitadas para el análisis de dependencias. 
+
+![Exportar dependencias](./media/how-to-create-group-machine-dependencies-agentless/export.png)
+
+### <a name="dependency-information"></a>Información de dependencia
+
+Cada fila del CSV exportado corresponde a una dependencia observada en el intervalo de tiempo especificado. 
+
+En la tabla siguiente se resumen los campos del CSV exportado. Tenga en cuenta que los campos del nombre del servidor, de la aplicación y del proceso solo se rellenan en los servidores que tienen habilitado el análisis de dependencia sin agente.
+
+**Nombre del campo** | **Detalles**
+--- | --- 
+Intervalo de tiempo | El intervalo de tiempo durante el cual se observó la dependencia. <br/> Los datos de dependencia se capturan en intervalos de 6 horas actualmente.
+Nombre de servidor de origen | Nombre de máquina de origen 
+Aplicación de origen | Nombre de la aplicación en la máquina de origen 
+Proceso de origen | Nombre del proceso en la máquina de origen 
+Nombre del servidor de destino | Nombre del máquina de destino
+IP de destino | Dirección IP de la máquina de destino
+Aplicación de destino | Nombre de la aplicación en la máquina de destino
+Proceso de destino | Nombre del proceso en la máquina de destino 
+Puerto de destino | Número de puerto en la máquina de destino
+
+
 ## <a name="stop-dependency-discovery"></a>Detención de la detección de dependencias
 
 Elija las máquinas en las que quiere detener la detección de dependencias.
@@ -106,4 +137,4 @@ Elija las máquinas en las que quiere detener la detección de dependencias.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Agrupación de las máquinas](how-to-create-a-group.md) para su evaluación.
+[Agrupación de máquinas](how-to-create-a-group.md) para su evaluación.

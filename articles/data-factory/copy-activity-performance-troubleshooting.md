@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/11/2020
-ms.openlocfilehash: 694f10b53d02d44d189cbe7cbe492f48ac3b5669
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.date: 06/10/2020
+ms.openlocfilehash: d339e68dcf49c74c508029fda3e7eb548ec92588
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299798"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770986"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Solución de problemas de rendimiento de la actividad de copia
 
@@ -57,7 +57,7 @@ Los detalles de ejecución y las duraciones en la parte inferior de la vista de 
 | --------------- | ------------------------------------------------------------ |
 | Cola           | Tiempo transcurrido hasta que la actividad de copia se inicia realmente en el entorno de ejecución de integración. |
 | Pre-copy script (Script anterior a la copia) | Tiempo transcurrido entre la actividad de copia que comienza en IR y la actividad de copia que finaliza la ejecución del script anterior a la copia en el almacén de datos receptor. Se aplica al configurar el script anterior a la copia para los receptores de base de datos; por ejemplo, al escribir datos en Azure SQL Database, limpiar antes de copiar los datos nuevos. |
-| Transferencia        | Tiempo transcurrido entre el final del paso anterior y el IR que transfiere todos los datos del origen al receptor. Los subpasos en la fase de transferencia se ejecutan en paralelo.<br><br>- **Time to first byte** (Tiempo hasta el primer byte): tiempo transcurrido entre el final del paso anterior y el momento en que la instancia de IR recibe el primer byte del almacén de datos de origen. Se aplica a un origen no basado en archivos.<br>- **Listing source** (Lista de orígenes): tiempo empleado en la enumeración de los archivos de origen o las particiones de datos. El último se aplica cuando se configuran las opciones de partición para los orígenes de base de datos; por ejemplo, cuando se copian datos de bases de datos como Oracle, SAP HANA, Teradata, Netezza, etc.<br/>-**Reading from source** (Lectura desde origen): tiempo empleado en la recuperación de datos desde el almacén de datos de origen.<br/>- **Writing to sink** (Escritura en el receptor): tiempo empleado en la escritura de datos en el almacén de datos receptor. |
+| Transferencia        | Tiempo transcurrido entre el final del paso anterior y el IR que transfiere todos los datos del origen al receptor. <br/>Tenga en cuenta que los subpasos en transferencia se ejecutan en paralelo y algunas operaciones no se muestran ahora, por ejemplo, para analizar o generar el formato de archivo.<br><br/>- **Time to first byte** (Tiempo hasta el primer byte): tiempo transcurrido entre el final del paso anterior y el momento en que la instancia de IR recibe el primer byte del almacén de datos de origen. Se aplica a un origen no basado en archivos.<br>- **Listing source** (Lista de orígenes): tiempo empleado en la enumeración de los archivos de origen o las particiones de datos. El último se aplica cuando se configuran las opciones de partición para los orígenes de base de datos; por ejemplo, cuando se copian datos de bases de datos como Oracle, SAP HANA, Teradata, Netezza, etc.<br/>-**Reading from source** (Lectura desde origen): tiempo empleado en la recuperación de datos desde el almacén de datos de origen.<br/>- **Writing to sink** (Escritura en el receptor): tiempo empleado en la escritura de datos en el almacén de datos receptor. Tenga en cuenta que algunos conectores no tienen esta métrica en este momento, como Azure Cognitive Search, Azure Data Explorer, Azure Table Storage, Oracle, SQL Server, Common Data Service, Dynamics 365, Dynamics CRM, Salesforce o Salesforce Service Cloud. |
 
 ## <a name="troubleshoot-copy-activity-on-azure-ir"></a>Solución de problemas de la actividad de copia en Azure IR
 
@@ -70,7 +70,6 @@ Si el rendimiento de la actividad de copia no satisface sus expectativas, quiere
 - **En la fase de transferencia, el tiempo hasta el primer byte muestra una larga duración de trabajo**: significa que la consulta de origen tarda mucho tiempo en devolver datos. Compruebe y optimice la consulta o el servidor. Si necesita más ayuda, póngase en contacto con el equipo del almacén de datos.
 
 - **En la fase de transferencia, el listado de orígenes muestra una larga duración de trabajo**: significa que la enumeración de los archivos de origen o de las particiones de datos de la base de datos de origen es lenta.
-
   - Al copiar datos desde el origen basado en archivos, si usa el **filtro de comodín** en la ruta de acceso de la carpeta o en el nombre de archivo (`wildcardFolderPath` o `wildcardFileName`) o usa el **filtro de hora de última modificación del archivo** (`modifiedDatetimeStart` o `modifiedDatetimeEnd`), tenga en cuenta que dicho filtro daría lugar a que la actividad de copia enumerase todos los archivos de la carpeta especificada en el lado de cliente y después aplicase el filtro. Esta enumeración de archivos podría convertirse en el cuello de botella, especialmente cuando solo un pequeño conjunto de archivos cumple la regla del filtro.
 
     - Compruebe si puede [copiar archivos en función del nombre o la ruta de acceso del archivo con particiones de tiempo](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). De este modo, no se aporta carga alguna a la enumeración del lado de origen.

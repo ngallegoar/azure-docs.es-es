@@ -3,20 +3,19 @@ title: Compatibilidad para la migración de servidores físicos en Azure Migrate
 description: Obtenga más información sobre la compatibilidad para la migración de servidores físicos en Azure Migrate.
 ms.topic: conceptual
 ms.custom: fasttrack-edit
-ms.date: 01/07/2020
-ms.openlocfilehash: 8f8b94ab77a1eef8e771384f5d69da98a1d7ae6c
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.date: 06/14/2020
+ms.openlocfilehash: fe23989845d3c0b229a194c9a2a58f879b757811
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520279"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770346"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Matriz de compatibilidad para la migración de servidores físicos
 
 En este artículo se resumen los valores de compatibilidad y las limitaciones para migrar servidores físicos con [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool). Si busca información sobre cómo evaluar servidores físicos para migrar a Azure, revise la [matriz de compatibilidad de evaluación](migrate-support-matrix-physical.md).
 
-
-## <a name="overview"></a>Información general
+## <a name="migrating-machines-as-physical"></a>Migración de máquinas como físicas
 
 Puede migrar máquinas locales como servidores físicos mediante la replicación basada en agente. Con esta herramienta, puede migrar una amplia gama de máquinas a Azure:
 

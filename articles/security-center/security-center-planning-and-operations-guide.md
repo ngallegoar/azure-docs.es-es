@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: f31c084be2fb017c0db521328e4ccdff9dd2aa25
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: e33cd64da32dcb918d30cd44f413748f719023b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80810474"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84771298"
 ---
 # <a name="planning-and-operations-guide"></a>Guía de planeamiento y operaciones
 Esta guía está destinada a profesionales de tecnología de la información (TI), arquitectos de TI, analistas de seguridad de la información y administradores de la nube que planean usar Azure Security Center.
@@ -175,33 +175,17 @@ La información general de Security Center proporciona una vista unificada de la
 > [!NOTE]
 > Security Center no interferirá en los procedimientos operativos normales, sino que supervisará de forma pasiva las implementaciones y proporcionará recomendaciones basadas en las directivas de seguridad que se hayan habilitado.
 
-Cuando elige por primera vez usar Security Center para su entorno actual de Azure, debe asegurarse de revisar todas las recomendaciones. Puede hacerlo en el icono **Recomendaciones** o por recurso (**Compute**, **Redes**, **Almacenamiento y datos** y **Aplicación**).
-
-Después de que procese todas las recomendaciones, la sección **Prevención** debería aparecer en verde para los recursos correspondientes. A partir de este momento, la supervisión continua resulta más sencilla, ya que solo tomará medidas en respuesta a los cambios en los iconos de recomendaciones y estado de seguridad.
-
-La sección **Detección** es más reactiva, ya que se trata de alertas sobre los problemas que están ocurriendo en ese momento o que ocurrieron en el pasado y se detectaron en los controles de Security Center y sistemas de terceros. El icono Alertas de seguridad mostrará gráficos de barras que representan el número de alertas encontradas cada día y su distribución entre las diversas categorías de gravedad (baja, media, alta). Para más información sobre Alertas de seguridad, lea [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md).
+Cuando elige por primera vez usar Security Center para su entorno actual de Azure, debe asegurarse de revisar todas las recomendaciones, lo cual se puede hacer en la página **Recomendaciones**.
 
 Planee la visita a la opción de inteligencia sobre amenazas como parte de las operaciones de seguridad diarias. Ahí puede identificar las amenazas de seguridad en el entorno, como determinar si un determinado equipo es parte de una red de robots (botnet).
 
 ### <a name="monitoring-for-new-or-changed-resources"></a>Supervisión de recursos nuevos o modificados
+
 La mayoría de los entornos de Azure son dinámicos; en ellos se crean recursos, se activan o desactivan, se reconfiguran y se cambian. Security Center ayuda a garantizar la visibilidad del estado de seguridad de estos nuevos recursos.
 
 Cuando agregue nuevos recursos (máquinas virtuales, bases de datos SQL) a su entorno de Azure, Security Center los detectará automáticamente y empezará a supervisar su seguridad. Esto también incluye los roles web de PaaS y los roles de trabajo. Si la recopilación de datos está habilitada en la [directiva de seguridad](tutorial-security-policy.md), se habilitarán automáticamente funcionalidades de supervisión adicionales para las máquinas virtuales.
 
-![Áreas clave](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-newUI.png)
-
-1. En las máquinas virtuales, haga clic en **Procesos y aplicaciones**, en la sección **Protección de seguridad de recursos**. Cualquier problema con la habilitación de los datos o recomendaciones relacionadas aparecerán en la pestaña **Información general** y la sección **Monitoring Recommendations** (Recomendaciones de supervisión).
-2. Vea las **recomendaciones** para comprobar si se identificó algún riesgo de seguridad para el nuevo recurso.
-3. Es muy habitual que cuando se agregan nuevas máquinas virtuales a su entorno, al principio solo esté instalado el sistema operativo. Es posible que el propietario del recurso tarde un tiempo en implementar otras aplicaciones que se usarán en estas máquinas virtuales.  Idealmente, debe conocer el objetivo final de esta carga de trabajo. ¿Va a ser un servidor de aplicaciones? En función de lo que vaya a ser esta nueva carga de trabajo, puede habilitar la **directiva de seguridad**correspondiente, lo cual es el tercer paso de este flujo de trabajo.
-4. A medida que se agreguen nuevos recursos al entorno de Azure, es posible que aparezcan nuevas alertas en el icono **Alertas de seguridad**. Busque nuevas alertas en este icono y siga las recomendaciones.
-
-También debería supervisar periódicamente los recursos existentes en busca de cambios de configuración que podrían haber creado riesgos de seguridad, desviaciones de las bases de referencia recomendadas y alertas de seguridad. Comience en el panel de Security Center. Ahí, deberá revisar tres áreas principales de forma periódica.
-
-![Operaciones](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4-newUI.png)
-
-1. En el panel de la sección **Prevención** se proporciona acceso rápido a los recursos principales. Use esta opción para supervisar los recursos Compute, Redes, Almacenamiento y datos y Aplicación.
-2. El panel **Recomendaciones** permite revisar las recomendaciones de Security Center. Durante la supervisión continuada, es posible que no vea recomendaciones todos los días, lo cual es normal, ya que todas las recomendaciones se abordaron durante la configuración inicial de Security Center. Por este motivo, es posible que no aparezca en esta sección información nueva todos los días y solo tenga que acceder a ella cuando sea necesario.
-3. La sección **Detección** podría cambiar con mucha frecuencia o con muy poca. Revise siempre las alertas de seguridad y tome medidas basadas en las recomendaciones de Security Center.
+También debería supervisar periódicamente los recursos existentes en busca de cambios de configuración que podrían haber creado riesgos de seguridad, desviaciones de las bases de referencia recomendadas y alertas de seguridad. 
 
 ### <a name="hardening-access-and-applications"></a>Protección de acceso y aplicaciones
 

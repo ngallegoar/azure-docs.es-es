@@ -10,22 +10,22 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 5/13/2020
-ms.openlocfilehash: fd552e3236732fd37b2fc5d23dd234f0a87f0f27
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 7/6/2020
+ms.openlocfilehash: 130b19f280c69bfbe4ca49abe1bcba5db7f23caa
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84038106"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045967"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sin servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Sin servidor es un nivel de proceso para bases de datos únicas de Azure SQL Database que escala automáticamente el proceso según la demanda de carga de trabajo y se factura según la cantidad de proceso usada por segundo. El nivel de proceso sin servidor también detiene automáticamente las bases de datos durante períodos inactivos cuando solo se factura el almacenamiento y reanuda automáticamente las bases de datos cuando finaliza la actividad.
+Sin servidor es un nivel de proceso para las bases de datos únicas de Azure SQL Database que se escala automáticamente según la demanda de carga de trabajo y se factura según la cantidad de proceso usada por segundo. El nivel de proceso sin servidor también detiene automáticamente las bases de datos durante períodos inactivos cuando solo se factura el almacenamiento y reanuda automáticamente las bases de datos cuando finaliza la actividad.
 
 ## <a name="serverless-compute-tier"></a>Nivel de servicio de informática sin servidor
 
-El nivel de proceso sin servidor para una base de datos única de Azure SQL Database se parametriza mediante un intervalo de escalado automático de proceso y un retraso de pausa automática.  La configuración de estos parámetros da forma a la experiencia de rendimiento de la base de datos y el coste de proceso.
+El nivel de proceso sin servidor para bases de datos únicas de Azure SQL Database se parametriza mediante un intervalo de escalado automático de proceso y un retraso de pausa automática. La configuración de estos parámetros da forma a la experiencia de rendimiento de la base de datos y el costo de proceso.
 
 ![facturación sin servidor](./media/serverless-tier-overview/serverless-billing.png)
 
@@ -66,7 +66,7 @@ La tabla siguiente resume las diferencias entre el nivel de proceso sin servidor
 
 | | **Proceso sin servidor** | **Proceso aprovisionado** |
 |:---|:---|:---|
-|**Patrones de uso de bases de datos**| Uso intermitente e impredecible con menor uso promedio de proceso a lo largo del tiempo. |  Patrones de uso más regulares con mayor uso promedio de proceso a lo largo del tiempo, o varias bases de datos que usen grupos elásticos.|
+|**Patrones de uso de bases de datos**| Uso intermitente e impredecible con menor uso promedio de proceso a lo largo del tiempo. | Patrones de uso más regulares con mayor uso promedio de proceso a lo largo del tiempo, o varias bases de datos que usen grupos elásticos.|
 | **Trabajo de administración del rendimiento** |Inferior|Superior|
 |**Escalado de proceso**|Automático|Manual|
 |**Capacidad de respuesta del proceso**|Menor después de períodos de inactividad|Inmediata|
@@ -88,9 +88,9 @@ La memoria para bases de datos sin servidor se reclama con mayor frecuencia que 
 
 #### <a name="cache-reclamation"></a>Reclamación de memoria caché
 
-A diferencia de las bases de datos de proceso aprovisionadas, la memoria de la caché de SQL se reclama desde una base de datos sin servidor cuando el uso de CPU o de la memoria caché es bajo.
+A diferencia de las bases de datos de proceso aprovisionadas, la memoria de la caché de SQL se reclama desde una base de datos sin servidor cuando el uso de CPU o de la memoria caché activa es bajo.  Tenga en cuenta que cuando el uso de la CPU es bajo, el uso de la memoria caché activa puede ser alto en función del patrón de uso y prevenir la reclamación de memoria.
 
-- La utilización de la memoria caché se considera baja cuando el tamaño total de las entradas de caché más recientes está por debajo de un determinado umbral durante un período de tiempo.
+- La utilización de la memoria caché activa se considera baja cuando el tamaño total de las entradas de caché más recientes está por debajo de un determinado umbral durante un período de tiempo.
 - Cuando se desencadena la reclamación de la memoria caché, el tamaño de la caché de destino se reduce de forma incremental a una fracción del tamaño anterior y la reclamación solo continúa si el uso sigue siendo bajo.
 - Cuando se produce la reclamación de memoria caché, la directiva para seleccionar las entradas de esta que se van a expulsar es la misma directiva de selección que para las bases de datos de proceso aprovisionadas cuando la presión de memoria es elevada.
 - El tamaño de la memoria caché no se reduce nunca por debajo del límite de memoria mínimo definido por el número mínimo de núcleos virtuales cuyo valor se puede configurar.
@@ -112,7 +112,7 @@ La pausa automática se desencadena si todas las condiciones siguientes se cumpl
 
 Hay disponible una opción para deshabilitar la pausa automática si se desea.
 
-Las características siguientes no admiten la pausa automática.  Es decir, si se utiliza cualquiera de las siguientes características, la base de datos permanecerá en línea, independientemente de la duración de la inactividad de la base de datos:
+Las características siguientes no admiten la pausa automática, pero admiten el escalado automático.  Es decir, si se utiliza cualquiera de las siguientes características, la base de datos permanecerá en línea, independientemente de la duración de la inactividad de la base de datos:
 
 - Replicación geográfica (replicación geográfica activa y grupos de conmutación por error automáticos).
 - Retención de copia de seguridad a largo plazo (LTR).
@@ -161,19 +161,8 @@ Si se usa el [cifrado de datos transparente administrado por el cliente](transpa
 
 La creación de una nueva base de datos o el cambio de una base de datos existente a un nivel de proceso sin servidor siguen el mismo patrón que la creación de una nueva base de datos en el nivel de proceso aprovisionado y constan de los dos pasos siguientes.
 
-1. Especifique el objetivo de servicio. El objetivo de servicio preceptúa el nivel de servicio, la generación de hardware y el máximo de núcleos virtuales. La siguiente tabla muestra las opciones de objetivo de servicio:
+1. Especifique el objetivo de servicio. El objetivo de servicio preceptúa el nivel de servicio, la generación de hardware y el máximo de núcleos virtuales. Para ver las opciones de objetivo de servicio, consulte [Límites de los recursos sin servidor](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5)
 
-   |Nombre del objetivo de servicio|Nivel de servicio|Generación de hardware|Número máximo de núcleos virtuales|
-   |---|---|---|---|
-   |GP_S_Gen5_1|De uso general|Gen5|1|
-   |GP_S_Gen5_2|De uso general|Gen5|2|
-   |GP_S_Gen5_4|De uso general|Gen5|4|
-   |GP_S_Gen5_6|De uso general|Gen5|6|
-   |GP_S_Gen5_8|De uso general|Gen5|8|
-   |GP_S_Gen5_10|De uso general|Gen5|10|
-   |GP_S_Gen5_12|De uso general|Gen5|12|
-   |GP_S_Gen5_14|De uso general|Gen5|14|
-   |GP_S_Gen5_16|De uso general|Gen5|16|
 
 2. Opcionalmente, especifique el mínimo de núcleos virtuales y la demora de pausa automática para cambiar sus valores predeterminados. En la siguiente tabla se muestran los valores disponibles para estos parámetros.
 
@@ -183,11 +172,11 @@ La creación de una nueva base de datos o el cambio de una base de datos existen
    |Demora de pausa automática|Mínimos: 60 minutos (1 hora)<br>Máximo: 10 080 minutos (7 días)<br>Incrementos: 10 minutos<br>Deshabilitar pausa automática: -1|60 minutos|
 
 
-### <a name="create-new-database-in-serverless-compute-tier"></a>Creación de una nueva base de datos en el nivel de proceso sin servidor 
+### <a name="create-a-new-database-in-the-serverless-compute-tier"></a>Creación de una nueva base de datos en el nivel de proceso sin servidor
 
 En el siguiente ejemplo se crea una base de datos en el nivel de proceso sin servidor.
 
-#### <a name="use-azure-portal"></a>Usar Azure Portal
+#### <a name="use-the-azure-portal"></a>Uso de Azure Portal
 
 Consulte [Quickstart: Creación de una base de datos única en Azure SQL Database con Azure Portal](single-database-create-quickstart.md).
 
@@ -199,7 +188,7 @@ New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
   -ComputeModel Serverless -Edition GeneralPurpose -ComputeGeneration Gen5 `
   -MinVcore 0.5 -MaxVcore 2 -AutoPauseDelayInMinutes 720
 ```
-#### <a name="use-azure-cli"></a>Uso de CLI de Azure
+#### <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
 
 ```azurecli
 az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
@@ -218,7 +207,7 @@ CREATE DATABASE testdb
 
 Para más información, consulte [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).  
 
-### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>Cambio de la base de datos del nivel de proceso aprovisionado al nivel de proceso sin servidor
+### <a name="move-a-database-from-the-provisioned-compute-tier-into-the-serverless-compute-tier"></a>Traslado de una base de datos del nivel de proceso aprovisionado al nivel de proceso sin servidor
 
 En el siguiente ejemplo se mueve una base de datos del nivel de proceso aprovisionado al nivel de proceso sin servidor.
 
@@ -231,7 +220,7 @@ Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
   -MinVcore 1 -MaxVcore 4 -AutoPauseDelayInMinutes 1440
 ```
 
-#### <a name="use-azure-cli"></a>Uso de CLI de Azure
+#### <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
 
 ```azurecli
 az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
@@ -250,7 +239,7 @@ MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 
 Para más información, consulte [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current).
 
-### <a name="move-database-from-serverless-compute-tier-into-provisioned-compute-tier"></a>Cambio de la base de datos del nivel de proceso sin servidor al nivel de proceso aprovisionado
+### <a name="move-a-database-from-the-serverless-compute-tier-into-the-provisioned-compute-tier"></a>Traslado de una base de datos del nivel de proceso sin servidor al nivel de proceso aprovisionado
 
 Una base de datos sin servidor se puede mover a un nivel de proceso aprovisionado de la misma manera que se mueve una base de datos de proceso aprovisionado a un nivel de proceso sin servidor.
 
@@ -260,7 +249,7 @@ Una base de datos sin servidor se puede mover a un nivel de proceso aprovisionad
 
 Puede usar el comando [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) en PowerShell con los argumentos `MaxVcore`, `MinVcore` y `AutoPauseDelayInMinutes` para modificar el número máximo o mínimo de núcleos virtuales, así como la demora de la pausa automática.
 
-### <a name="use-azure-cli"></a>Uso de CLI de Azure
+### <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
 
 Puede usar el comando [az sql db update](/cli/azure/sql/db#az-sql-db-update) en la CLI de Azure con los argumentos `capacity`, `min-capacity` y `auto-pause-delay` para modificar el número máximo o mínimo de núcleos virtuales, así como la demora de la pausa automática.
 
@@ -307,7 +296,7 @@ Get-AzSqlDatabase -ResourceGroupName $resourcegroupname -ServerName $servername 
   | Select -ExpandProperty "Status"
 ```
 
-#### <a name="use-azure-cli"></a>Uso de CLI de Azure
+#### <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
 
 ```azurecli
 az sql db show --name $databasename --resource-group $resourcegroupname --server $servername --query 'status' -o json
@@ -358,7 +347,7 @@ Los descuentos de Ventaja híbrida de Azure (AHB) y capacidad reservada no se ap
 
 ## <a name="available-regions"></a>Regiones disponibles
 
-El nivel de proceso sin servidor está disponible en todas las regiones excepto las siguientes: Este de China, Norte de China, Centro de Alemania, Nordeste de Alemania, Norte de Reino Unido, Sur de Reino Unido 2, Centro-oeste de EE. UU.y US Gov Central (Iowa).
+El nivel de proceso sin servidor está disponible en todas las regiones excepto las siguientes: Este de China, Norte de China, Centro de Alemania, Nordeste de Alemania y US Gov Central (Iowa).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

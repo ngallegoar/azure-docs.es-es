@@ -2,21 +2,21 @@
 title: Descripción del funcionamiento del aprovisionamiento de Azure AD | Microsoft Docs
 description: Descripción del funcionamiento del aprovisionamiento de Azure AD
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/20/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 533e38206b9a85b449880d88c9ff969c051fac53
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 38ddfad179a8ef459b5c10f84619a836193ee092
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712237"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781657"
 ---
 # <a name="how-provisioning-works"></a>Funcionamiento del aprovisionamiento
 
@@ -172,7 +172,7 @@ Todas las operaciones que ejecute el servicio de aprovisionamiento de usuarios s
 
 El servicio de aprovisionamiento de Azure AD mantiene los sistemas de origen y destino sincronizados mediante el desaprovisionamiento de cuentas cuando los usuarios ya no deberían tener acceso. 
 
-El servicio de aprovisionamiento de Azure AD eliminará temporalmente un usuario en una aplicación cuando esta admita eliminaciones temporales (solicitud de actualización con active = false) y ocurra cualquiera de los siguientes eventos:
+El servicio de aprovisionamiento de Azure AD eliminará temporalmente un usuario en una aplicación cuando esta admita eliminaciones temporales (solicitud de actualización con active = false) y ocurra cualquiera de los siguientes eventos:
 
 * La cuenta de usuario se elimina en Azure AD
 *   El usuario no está asignado desde la aplicación

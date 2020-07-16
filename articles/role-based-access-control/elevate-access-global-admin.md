@@ -2,25 +2,19 @@
 title: Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure
 description: Describe cómo elevar los privilegios de acceso de un administrador global para administrar todas las suscripciones y los grupos de administración en Azure Active Directory mediante Azure Portal o la API REST.
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-editor: bagovind
-ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: role-based-access-control
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 06/09/2020
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: 6821e3de3bfec891d98e9291a479cbb7537364ca
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: a93901bd95d57b29aeb1464652737a77a1a84376
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82733673"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84792003"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure
 
@@ -47,13 +41,15 @@ Debe quitar este acceso con privilegios elevados una vez que haya hecho los camb
 
 ![Elevación de los privilegios de acceso](./media/elevate-access-global-admin/elevate-access.png)
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 
 ### <a name="elevate-access-for-a-global-administrator"></a>Elevación de los privilegios de acceso de un administrador global
 
 Siga estos pasos para elevar los privilegios de acceso de un administrador global mediante Azure Portal.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com) o en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com) como administrador global.
+
+    Si usa Azure AD Privileged Identity Management, [active la asignación de roles de administrador global](../active-directory/privileged-identity-management/pim-how-to-activate-role.md).
 
 1. Abra **Azure Active Directory**.
 
@@ -70,7 +66,7 @@ Siga estos pasos para elevar los privilegios de acceso de un administrador globa
    Al establecer el botón de alternancia en **No**, se quita el rol de administrador de accesos de usuario en Azure RBAC de su cuenta de usuario. Ya no puede asignar roles en todas las suscripciones de Azure y los grupos de administración asociados a este directorio de Azure AD. Puede ver y administrar solo las suscripciones de Azure y los grupos de administración a los que se le ha concedido acceso.
 
     > [!NOTE]
-    > Si usa [Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md), la desactivación de la asignación de roles no cambia esta opción a **No**. Para mantener el acceso con privilegios mínimos, se recomienda establecer esta opción en **No** antes de desactivar la asignación de roles.
+    > Si usa [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), la desactivación de la asignación de roles no cambia la opción **Administración de acceso para recursos de Azure** a **No**. Para mantener el acceso con privilegios mínimos, se recomienda establecer esta opción en **No** antes de desactivar la asignación de roles.
     
 1. Haga clic en **Guardar** para guardar la configuración.
 
@@ -84,7 +80,9 @@ Siga estos pasos para elevar los privilegios de acceso de un administrador globa
 
 1. Haga los cambios que tenga que hacer con privilegios de acceso elevados.
 
-    Para más información sobre la asignación de roles, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](role-assignments-portal.md). Si usa Azure AD Privileged Identity Management (PIM), consulte [Detección de recursos de Azure que se administran en PIM](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) o [Asignación de roles de recursos de Azure en PIM](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+    Para más información sobre la asignación de roles, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](role-assignments-portal.md). Si usa Privileged Identity Management, consulte [Detección de recursos de Azure para administrar](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) o [Asignación de roles de recursos de Azure](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+
+1. Siga los pasos de la sección siguiente para quitar el acceso con privilegios elevados.
 
 ### <a name="remove-elevated-access"></a>Eliminación de privilegios de acceso elevados
 
@@ -99,6 +97,13 @@ Para quitar la asignación del rol de administrador de accesos de usuario en el 
     Si intenta quitar la asignación de rol de administración de identidad y acceso en el panel de control de acceso (IAM), verá el siguiente mensaje. Para quitar la asignación de roles, debe establecer el botón de alternancia en **No** o usar Azure PowerShell, la CLI de Azure o la API REST.
 
     ![Quitar las asignaciones de roles en el ámbito raíz](./media/elevate-access-global-admin/iam-root-remove.png)
+
+1. Cerrar sesión como un administrador global.
+
+    Si usa Privileged Identity Management, desactive la asignación de roles de administrador global.
+
+    > [!NOTE]
+    > Si usa [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), la desactivación de la asignación de roles no cambia la opción **Administración de acceso para recursos de Azure** a **No**. Para mantener el acceso con privilegios mínimos, se recomienda establecer esta opción en **No** antes de desactivar la asignación de roles.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -190,24 +195,11 @@ Utilice los siguientes pasos básicos para elevar los privilegios de acceso de u
    POST https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01
    ```
 
-1. Cree una [asignación de roles](/rest/api/authorization/roleassignments) para asignar cualquier rol en cualquier ámbito. En el ejemplo siguiente, se muestran las propiedades para asignar el rol {roleDefinitionID} en el ámbito raíz (`/`):
+1. Haga los cambios que tenga que hacer con privilegios de acceso elevados.
 
-   ```json
-   { 
-     "properties": {
-       "roleDefinitionId": "providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionID}",
-       "principalId": "{objectID}",
-       "scope": "/"
-     },
-     "id": "providers/Microsoft.Authorization/roleAssignments/11111111-1111-1111-1111-111111111111",
-     "type": "Microsoft.Authorization/roleAssignments",
-     "name": "11111111-1111-1111-1111-111111111111"
-   }
-   ```
+    Para más información sobre la asignación de roles, consulte [Incorporación o eliminación de asignaciones de roles de Azure mediante la API REST](role-assignments-rest.md).
 
-1. Mientras sea administrador de accesos de usuario, también podrá quitar asignaciones de roles en el ámbito raíz (`/`).
-
-1. Quite los privilegios de administrador de acceso de usuario hasta que los vuelva a necesitar.
+1. Siga los pasos de una sección posterior para quitar el acceso con privilegios elevados.
 
 ### <a name="list-role-assignments-at-root-scope-"></a>Enumeración de las asignaciones de roles en el ámbito raíz (/)
 

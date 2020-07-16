@@ -3,19 +3,18 @@ title: Introducción a los certificados de Key Vault
 description: En los escenarios siguientes se describen algunos de los usos principales de servicio de administración de certificados de Key Vault, como los pasos adicionales necesarios para crear el primer certificado en el almacén de claves.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5881314f0d3c62e7d6181ebd7bb27a5e0e87729a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 316a6c13b55664bdabf7c0cb3e37d7bb18b8649f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427668"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84765104"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introducción a los certificados de Key Vault
 En los escenarios siguientes se describen algunos de los usos principales de servicio de administración de certificados de Key Vault, como los pasos adicionales necesarios para crear el primer certificado en el almacén de claves.
@@ -97,13 +96,19 @@ Nota: Este proceso, con el paso 3.1, es una operación que no tendrá que repeti
 -   Además, el usuario puede editar la directiva, que es funcional en el momento de la importación, pero contiene los valores predeterminados sin información especificada en la importación. Por ejemplo, sin información del emisor  
 
 ### <a name="formats-of-import-we-support"></a>Formatos de importación que se admiten
+Azure Key Vault admite archivos de certificado .pem y . pfx para la importación de certificados en el almacén de claves.
 Se admiten los siguientes tipos de importación para el formato de archivo PEM. Un único certificado PEM codificado junto con una clave sin cifrar codificada PKCS#8, con lo siguiente:
 
 -----BEGIN CERTIFICATE----- -----END CERTIFICATE-----
 
 -----BEGIN PRIVATE KEY----- -----END PRIVATE KEY-----
 
-En la combinación de certificados se admiten dos formatos basados en PEM. O bien puede combinar un único certificado codificado en PKCS #8 o un archivo P7B codificado en base64. -----BEGIN CERTIFICATE----- -----END CERTIFICATE-----
+Al importar el certificado, debe asegurarse de que la clave se incluye en el propio archivo. Si tiene la clave privada por separado en un formato diferente, tendrá que combinar la clave con el certificado. Algunas entidades de certificación proporcionan certificados en formatos diferentes. Por lo tanto, antes de importar el certificado, asegúrese de que están en formato .pem o. pfx. 
+
+### <a name="formats-of-merge-csr-we-support"></a>Formatos de CSR de combinación admitidos
+AKV admite 2 formatos basados en PEM. O bien puede combinar un único certificado codificado en PKCS #8 o P7B codificado en base64 (cadena de formatos certificados firmados por la entidad de certificación) 
+
+-----BEGIN CERTIFICATE----- -----END CERTIFICATE-----
 
 Actualmente no se admiten claves CE en formato PEM.
 
@@ -123,4 +128,3 @@ Actualmente no se admiten claves CE en formato PEM.
   (4) - Esta entidad de certificación responde con un certificado X.509.  
 
   (5) - La aplicación termina de crear el certificado con una combinación del certificado X.509 de la entidad de certificación.
-
