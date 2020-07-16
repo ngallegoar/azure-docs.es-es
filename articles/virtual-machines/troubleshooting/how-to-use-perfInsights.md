@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 783b479dd3e5f429516799d7d3ea82f363cac2ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 896e69bad9cd75b57ef2bf93048c332ef4d974c0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847457"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207699"
 ---
 # <a name="how-to-use-perfinsights"></a>Cómo usar PerfInsights
 
@@ -101,9 +101,8 @@ Al ejecutar un análisis avanzado del rendimiento, seleccione seguimientos que s
 
 Se recopila información acerca de la máquina virtual Windows, la configuración de discos o bloques de almacenamiento, contadores de rendimiento, registros y diferentes seguimientos. Depende del escenario de rendimiento que se use. En la tabla siguiente se dan los detalles:
 
-|Datos recopilados                              |  |  | Escenarios de rendimiento |  |  | |
-|----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Análisis rápido del rendimiento | Pruebas comparativas | Análisis de rendimiento | Análisis de Azure Files | Análisis avanzado del rendimiento |
+| Datos recopilados | Análisis rápido del rendimiento | Pruebas comparativas | Análisis de rendimiento | Análisis de Azure Files | Análisis avanzado del rendimiento |
+|----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|
 | Información de los registros de eventos       | Sí                        | Sí                                | Sí                      | Sí                  | Sí                  |
 | Información del sistema                | Sí                        | Sí                                | Sí                      | Sí                  | Sí                  |
 | Asignación de volúmenes                        | Sí                        | Sí                                | Sí                      | Sí                  | Sí                  |

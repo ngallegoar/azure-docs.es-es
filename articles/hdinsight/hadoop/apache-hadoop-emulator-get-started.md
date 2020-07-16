@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: how-to
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: e918740c884f377048febfe2177e2fe956b1d552
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: de2a8e6377ababadc7d42f873a816a01a8f3b77e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085062"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207462"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introducción a un espacio aislado de Apache Hadoop, un emulador en una máquina virtual
 
@@ -57,7 +57,9 @@ Para descargar un espacio aislado anterior de la versión de HDP, consulte los v
 
 2. Una vez que haya iniciado sesión, escriba el comando siguiente:
 
-        ambari-admin-password-reset
+    ```bash
+    ambari-admin-password-reset
+    ```
 
     Cuando se le solicite, proporcione una contraseña para la cuenta de administración de Ambari. Esta se usará para tener acceso a la interfaz de usuario web de Ambari.
 
@@ -65,13 +67,21 @@ Para descargar un espacio aislado anterior de la versión de HDP, consulte los v
 
 1. Desde una conexión SSH en el espacio aislado, utilice el siguiente comando para iniciar el shell de Hive:
 
-        hive
+    ```bash
+    hive
+    ```
+
 2. Una vez que se inició el shell, use lo siguiente para ver las tablas que se proporcionan con el espacio aislado:
 
-        show tables;
+    ```hiveql
+    show tables;
+    ```
+
 3. Utilice lo siguiente para recuperar 10 filas de la tabla `sample_07` :
 
-        select * from sample_07 limit 10;
+    ```hiveql
+    select * from sample_07 limit 10;
+    ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

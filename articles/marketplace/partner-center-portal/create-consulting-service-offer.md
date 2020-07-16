@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: b9bac7b5b23c4e7d4042b53b93347628488be953
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a06f0838f25e771a90fb6dc6f4fcd3bd9bdeda87
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984277"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203802"
 ---
 # <a name="create-a-consulting-service-offer"></a>Creación de una oferta de servicios de consultoría
 
@@ -98,12 +98,22 @@ Esta página le permite establecer el producto principal más relacionado con el
 
 3. Si ha seleccionado **Azure** como producto principal, seleccione hasta tres **Áreas de solución**. Esto hace que sea más fácil para los clientes de Azure Marketplace encontrar la oferta. Si no ha seleccionado Azure, omita este paso.
 
-    | Área de solución | | | |
-    | --- | --- | --- | --- |
-    | Análisis | Copia de seguridad | DevOps | Migración |
-    | Modernización de aplicaciones | Datos de gran tamaño | Recuperación ante desastres | Redes |
-    | Archivar | Plataforma de datos | Identidad | Seguridad |
-    | AI + Aprendizaje automático | Administración de centro de datos | Internet de las cosas | Storage |
+    - Análisis
+    - Modernización de aplicaciones
+    - Archivar
+    - AI + Aprendizaje automático
+    - Copia de seguridad
+    - Datos de gran tamaño
+    - Plataforma de datos
+    - Administración de centro de datos
+    - DevOps
+    - Recuperación ante desastres
+    - Identidad
+    - Internet de las cosas
+    - Migración
+    - Redes
+    - Seguridad
+    - Storage
 
 1. Si ha seleccionado **Azure** como producto principal, tiene la opción de seleccionar hasta seis **sectores**. Esto hace que sea más fácil para los clientes de Azure Marketplace encontrar la oferta. Vea la lista completa de sectores en [Procedimientos recomendados para la publicación de ofertas](../gtm-offer-listing-best-practices.md). Si no ha seleccionado Azure, omita este paso.
 1. Si ha seleccionado un producto principal *distinto* de Azure, seleccione hasta tres **Productos aplicables**. Esto hace que sea más fácil para los clientes de AppSource encontrar la oferta. Para más información, consulte [Instrucciones sobre listas de servicios de consultoría de Microsoft AppSource](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).

@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: f9ed611ae530e49ad8e776c47450bc9b7ece3190
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34294bf29ec861d7bbb954ece7016de37769a332
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266770"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232702"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desarrollo de aplicaciones seguras en Azure
 En este artículo se presentan las actividades de seguridad y los controles que debe tener en cuenta al desarrollar aplicaciones para la nube. Se abarcan los conceptos y preguntas de seguridad que se deben tener en cuenta durante las fases de implementación y comprobación del [ciclo de vida de desarrollo de seguridad (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) de Microsoft. El objetivo es ayudarle a definir las actividades y los servicios de Azure que puede usar para desarrollar una aplicación más segura.
@@ -134,7 +134,7 @@ Realice pruebas DAST preferentemente con la ayuda de un profesional de seguridad
 
 En las [pruebas de vulnerabilidades](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/), se induce un error de programa al introducir deliberadamente datos aleatorios o con formato incorrecto a una aplicación. La inducción de errores en los programas ayudan a revelar los posibles problemas de seguridad antes del lanzamiento de la aplicación.
 
-[Security Risk Detection](https://docs.microsoft.com/security-risk-detection/) es el servicio de pruebas de vulnerabilidades exclusivo de Microsoft para buscar errores críticos para la seguridad en el software.
+[Security Risk Detection](https://www.microsoft.com/en-us/security-risk-detection/) es el servicio de pruebas de vulnerabilidades exclusivo de Microsoft para buscar errores críticos para la seguridad en el software.
 
 ### <a name="conduct-attack-surface-review"></a>Realice una revisión de la superficie expuesta a ataques
 

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 64f15bf3d262249cdda2760c7ddf768be2590419
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dfe438f6940d3ccd5632a47be1389a30748716b0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74113107"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206886"
 ---
 # <a name="odata-select-syntax-in-azure-cognitive-search"></a>Sintaxis de $select de OData en Azure Cognitive Search
 
@@ -63,7 +63,9 @@ Si se indica un campo complejo sin especificar sus subcampos de forma explícita
 
 En los resultados se incluyen los campos de nivel superior `HotelId`, `HotelName` y `Rating`, así como el subcampo `City` de `Address`:
 
+```odata-filter-expr
     $select=HotelId, HotelName, Rating, Address/City
+```
 
 Un resultado de ejemplo podría tener este aspecto:
 
@@ -80,7 +82,9 @@ Un resultado de ejemplo podría tener este aspecto:
 
 En los resultados se incluye el campo de nivel superior `HotelName`, así como todos los subcampos de `Address` y los subcampos `Type` y `BaseRate` de todos los objetos de la colección `Rooms`:
 
+```odata-filter-expr
     $select=HotelName, Address, Rooms/Type, Rooms/BaseRate
+```
 
 Un resultado de ejemplo podría tener este aspecto:
 

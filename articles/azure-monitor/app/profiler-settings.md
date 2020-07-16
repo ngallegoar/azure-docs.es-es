@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 52391ffc8eb6b6879e5fd90df26d9ccacbfacebb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b6f98f3c7f540e00743ae27b532b24d2310453e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82188933"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205720"
 ---
 # <a name="configure-application-insights-profiler"></a>Configuración de Application Insights Profiler
 
@@ -32,7 +32,7 @@ Esta opción abre una página que tiene este aspecto:
 
 La página **Configurar Application Insights Profiler** tiene estas características:
 
-| | |
+| Característica | Descripción |
 |-|-|
 Generar perfiles ahora | inicia sesiones de generación en todas las aplicaciones vinculadas a esta instancia de Application Insights.
 Desencadenadores | Esto le permite configurar desencadenadores que hacen que se ejecute la instancia de Profiler. 
@@ -48,7 +48,7 @@ Para que un usuario desencadene manualmente una sesión de Profiler, requiere co
 
 Al hacer clic en el botón Desencadenadores en la barra de menú, se abre el cuadro de configuración del desencadenador. Puede configurar el desencadenador para comenzar a generar perfiles cuando el porcentaje de uso de la CPU o la memoria alcanza el nivel establecido.
 
-| | |
+| Configuración | Descripción |
 |-|-|
 Botón de activado o desactivado | Activado: el desencadenador puede iniciar Profiler. Desactivado: el desencadenador no iniciará Profiler.
 Umbral de memoria | Cuando este porcentaje de memoria está en uso, se iniciará Profiler.
@@ -58,7 +58,7 @@ Recuperación | Se establece el período de tiempo durante el cual Profiler espe
 ## <a name="recent-profiling-sessions"></a>Sesiones de generación de perfiles recientes
 En esta sección de la página se muestra información sobre las sesiones recientes de creación de perfiles. Una sesión de creación de perfiles representa el período de tiempo durante el que el agente de Profiler toma un perfil de una de las máquinas que hospedan su aplicación. Puede abrir los perfiles de una sesión haciendo clic en una de las filas. Para cada sesión, mostramos lo siguiente:
 
-| | |
+| Configuración | Descripción |
 |-|-|
 Desencadenado en función de | Cómo se inició la sesión, ya sea mediante un desencadenador, la opción Crear perfil o un muestreo predeterminado. 
 Nombre de la aplicación | Nombre de la aplicación de la que se creó el perfil.

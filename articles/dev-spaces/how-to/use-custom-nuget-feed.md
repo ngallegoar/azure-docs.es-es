@@ -8,12 +8,12 @@ ms.topic: conceptual
 description: Use una fuente NuGet personalizada para acceder a paquetes NuGet y utilizarlos en Azure Dev Spaces.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contenedores
 manager: gwallace
-ms.openlocfilehash: 39984a3b3a1be64a497fb8088559ccfcdee4f1c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 77c7b733b12d9b352f9a806cadc0f900b9283ef3
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74325724"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229284"
 ---
 # <a name="use-a-custom-nuget-feed-with-azure-dev-spaces"></a>Uso de una fuente NuGet personalizada con Azure Dev Spaces
 
@@ -21,7 +21,7 @@ Una fuente NuGet proporciona una manera cómoda de incluir orígenes de paquetes
 
 ## <a name="set-up-a-nuget-feed"></a>Configuración de una fuente NuGet
 
-Agregue una [referencia de paquete](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) para la dependencia en el archivo `*.csproj` bajo el nodo `PackageReference`. Por ejemplo:
+Agregue una [referencia de paquete](/nuget/consume-packages/package-references-in-project-files) para la dependencia en el archivo `*.csproj` bajo el nodo `PackageReference`. Por ejemplo:
 
 ```xml
 <ItemGroup>
@@ -31,7 +31,7 @@ Agregue una [referencia de paquete](https://docs.microsoft.com/nuget/consume-pac
 </ItemGroup>
 ```
 
-Cree un archivo [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) en la carpeta del proyecto y defina las secciones `packageSources` y `packageSourceCredentials` de la fuente de NuGet. La sección `packageSources` contiene la dirección URL de la fuente, a la que debe poder acceder desde el clúster de AKS. `packageSourceCredentials` se corresponde con las credenciales para acceder a la fuente. Por ejemplo:
+Cree un archivo [NuGet.Config](/nuget/reference/nuget-config-file) en la carpeta del proyecto y defina las secciones `packageSources` y `packageSourceCredentials` de la fuente de NuGet. La sección `packageSources` contiene la dirección URL de la fuente, a la que debe poder acceder desde el clúster de AKS. `packageSourceCredentials` se corresponde con las credenciales para acceder a la fuente. Por ejemplo:
 
 ```xml
 <packageSources>
@@ -71,4 +71,4 @@ La próxima vez que ejecute `azds up` o presione `F5` en Visual Studio Code o Vi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre [NuGet y cómo funciona](https://docs.microsoft.com/nuget/what-is-nuget).
+Obtenga más información sobre [NuGet y cómo funciona](/nuget/what-is-nuget).

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: aahi
-ms.openlocfilehash: 4a73ff517347baa2cf589432be025bd922597ed3
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: f76b444f737c4deb0fc61953c839c8826f379d5e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611397"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207260"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Creación de un recurso de Cognitive Services con Azure Portal
 
@@ -37,11 +37,17 @@ Use esta guía de inicio rápido para empezar a usar Azure Cognitive Services. D
 
     En este momento, el recurso multiservicio permite el acceso a los siguientes servicios de Cognitive Services:
 
-    |                  |                                                      |                    |                               |                  |
-    |------------------|------------------------------------------------------|--------------------|-------------------------------|------------------|
-    | Computer Vision  | Content Moderator                                    | Caras               | Language Understanding (LUIS) | Text Analytics   |
-    | Traductor  | Bing Search versión 7 <br>(Web, imágenes, noticias, vídeos, contenido visual) | Bing Custom Search | Bing Entity Search            | Bing Autosuggest |
-    | Bing Spell Check |                                                      |                    |                               |                  |
+    - Computer Vision
+    - Content Moderator
+    - Caras
+    - Language Understanding (LUIS)
+    - Text Analytics
+    - Traductor
+    - Bing Search versión 7 <br>(Web, imágenes, noticias, vídeos, contenido visual)
+    - Bing Custom Search
+    - Bing Entity Search
+    - Bing Autosuggest
+    - Bing Spell Check
 
     #### <a name="single-service-resource"></a>[Recurso de servicio único](#tab/singleservice)
 

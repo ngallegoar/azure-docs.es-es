@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 902996c1813931638012c78f81bd65c400bee7a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 09e492ae950003f97ed86355257c97777cd71c1a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74113163"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202012"
 ---
 # <a name="odata-geo-spatial-functions-in-azure-cognitive-search---geodistance-and-geointersects"></a>Funciones geoespaciales de OData en Azure Cognitive Search: `geo.distance` y `geo.intersects`
 
@@ -105,21 +105,29 @@ Como sucede con todos los demás campos que no son de colección en Azure Cognit
 
 Buscar todos los hoteles a una distancia no superior a diez kilómetros de un punto de referencia determinado (donde la ubicación es un campo de tipo `Edm.GeographyPoint`):
 
+```odata-filter-expr
     geo.distance(location, geography'POINT(-122.131577 47.678581)') le 10
+```
 
 Buscar todos los hoteles dentro de una ventanilla dada descrita como un polígono (donde la ubicación es un campo de tipo `Edm.GeographyPoint`). Tenga en cuenta que el polígono está cerrado (el primer y el último conjunto de puntos deben ser los mismos) y [los puntos deben aparecer ordenados en sentido contrario a las agujas del reloj](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
+```odata-filter-expr
     geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
+```
 
 ### <a name="order-by-examples"></a>Ejemplos de OrderBy
 
 Clasificar hoteles en orden descendente por `rating` y después en orden ascendente por distancia de las coordenadas dadas:
 
+```odata-filter-expr
     rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
+```
 
 Clasificar hoteles en orden descendente por `search.score` y `rating`, y después en orden ascendente por distancia de las coordenadas dadas de manera que, entre dos hoteles con valoraciones idénticas, el más cercano aparezca primero en la lista:
 
+```odata-filter-expr
     search.score() desc,rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
+```
 
 ## <a name="next-steps"></a>Pasos siguientes  
 

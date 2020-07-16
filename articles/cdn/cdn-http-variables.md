@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
-ms.openlocfilehash: f9768d4d20380e8e0c4ca6f7c71fddd68bb93d5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e601e3e06965faf8ec0fd238c54115570150b61
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84340681"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203573"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variables HTTP para el motor de reglas de Azure CDN
 Las variables HTTP proporcionan los medios para recuperar metadatos de respuesta y solicitudes HTTP. Estos metadatos pueden usarse después para alterar una solicitud o respuesta de forma dinámica. El uso de las variables HTTP se restringe a las siguientes características del motor de reglas:
@@ -187,7 +187,7 @@ En este escenario de ejemplo, la variable *request_uri* se establece en:
 
 En la tabla siguiente se muestra cómo funciona esta sintaxis.
 
-| Sintaxis de ejemplo | Results | |
+| Sintaxis de ejemplo | Results | Descripción |
 | ------------- | ------- | --- |
 | %{request_uri#/800001}/customerorigin | /customerorigin/myorigin/marketing/product.html?language=en-US | Dado que la variable empieza con el patrón, se ha reemplazado. |
 | %{request_uri%html}htm | /800001/myorigin/marketing/product.html?language=en-US | Dado que la variable no termina con el patrón, no se ha introducido ningún cambio.|

@@ -8,12 +8,12 @@ ms.topic: conceptual
 manager: gwallace
 description: Aprenda a configurar la integración y la implementación continuas mediante Azure DevOps con Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contenedores
-ms.openlocfilehash: f2eb9449518b32ab74f2dbbca6b5489aed325db7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a5f232111bd01f707080cc1638970f8dc51e6fa
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81685629"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229336"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Uso de CI/CD con Azure Dev Spaces
 
@@ -26,7 +26,7 @@ Aunque en este artículo se le guiará por Azure DevOps, son de aplicación los 
 ## <a name="prerequisites"></a>Requisitos previos
 * [Clúster de Azure Kubernetes Service (AKS) con Azure Dev Spaces habilitado](../get-started-netcore.md)
 * [CLI de Azure Dev Spaces instalada](upgrade-tools.md)
-* [Organización de Azure DevOps con un proyecto](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
+* [Organización de Azure DevOps con un proyecto](/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
 * [Azure Container Registry (ACR)](../../container-registry/container-registry-get-started-azure-cli.md)
     * Detalles disponibles de una [cuenta de administrador](../../container-registry/container-registry-authentication.md#admin-account) de Azure Container Registry
 * [Autorización al clúster de AKS para extraer de Azure Container Registry](../../aks/cluster-container-registry-integration.md)
@@ -68,7 +68,7 @@ La opción para deshabilitar:
 > [!Note]
 > La característica en versión preliminar _Nueva experiencia de creación de canalizaciones de YAML_de Azure DevOps entra en conflicto con la creación de canalizaciones de compilación predefinidas en este momento. Debe deshabilitarla por ahora para implementar nuestra canalización de compilación predefinida.
 
-En la rama _azds_updates_ hemos incluido una sencilla instancia de [YAML de canalización de Azure](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema) que define los pasos de compilación necesarios para *mywebapi* y *webfrontend*.
+En la rama _azds_updates_ hemos incluido una sencilla instancia de [YAML de canalización de Azure](/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema) que define los pasos de compilación necesarios para *mywebapi* y *webfrontend*.
 
 Dependiendo del lenguaje que haya elegido, instancia de YAML de canalización se habrá insertado en una ruta de acceso similar a: `samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`
 

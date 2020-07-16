@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 3d8ab6da9327048469c8b781657bb03b6a4b9669
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 920f7f2fa6fb6e80b060f0308b124a3a1214cb3f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508255"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86204461"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Usar el servicio Administrador de dispositivos de StorSimple para administrar volúmenes (Update 3 o posterior)
 
@@ -26,7 +26,7 @@ El servicio StorSimple Device Manager es una extensión de Azure Portal que perm
 Los volúmenes de StorSimple pueden ser:
 
 * **Volúmenes anclados localmente**: los datos de estos volúmenes se mantienen en el dispositivo StorSimple local en todo momento.
-* **Volúmenes en capas**: los datos de estos volúmenes pueden escribirse en la nube.
+* **Volúmenes en capas**: los datos de estos volúmenes pueden volcarse en la nube.
 
 Un volumen de archivo es un tipo de volumen en capas. El tamaño del fragmento de desduplicación más grande utilizado para los volúmenes de archivo permite que el dispositivo transfiera a la nube segmentos más grandes de datos.
 
@@ -51,7 +51,7 @@ Si usa el volumen en capas para los datos de archivo, active casilla **Usar este
 
 Para conocer la capacidad máxima aprovisionada de cada dispositivo y tipo de volumen, consulte la siguiente tabla. (Tenga en cuenta que los volúmenes anclados localmente no están disponibles en un dispositivo virtual).
 
-|  | Tamaño máximo del volumen en capas | Tamaño máximo del volumen anclado localmente |
+| Tipo | Tamaño máximo del volumen en capas | Tamaño máximo del volumen anclado localmente |
 | --- | --- | --- |
 | **Dispositivos físicos** | | |
 | 8100 |64 TB |8 TB |

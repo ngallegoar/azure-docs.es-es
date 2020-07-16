@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: c6a4b2c1d95bc803d10697ce2164ea190f824d96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8850162847f2dd416b0951a797e2eb0cd7d55d2
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505450"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229574"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Montaje del clúster de Avere de vFXT
 
@@ -28,7 +28,7 @@ Para equilibrar las solicitudes de cliente entre todos los nodos del clúster, d
 > [!TIP]
 > Otros métodos para equilibrar la carga pueden ser apropiados para sistemas grandes o complicados; [abra una incidencia de soporte técnico](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) para obtener ayuda.
 >
-> Si prefiere usar un servidor DNS para el equilibrio de carga automático del lado servidor, debe configurar y administrar su propio servidor DNS en Azure. En ese caso, puede configurar el DNS round robin para el clúster de vFXT según este documento: [Avere cluster DNS configuration](avere-vfxt-configure-dns.md) (Configuración de DNS del clúster de Avere).
+> Si prefiere usar un servidor DNS para el equilibrio de carga automático del lado servidor, debe configurar y administrar su propio servidor DNS en Azure. En ese caso, puede configurar el DNS round robin para el clúster de vFXT según este documento: [Configuración de DNS del clúster de Avere](avere-vfxt-configure-dns.md).
 
 ### <a name="sample-balanced-client-mounting-script"></a>Script de ejemplo para el montaje de cliente equilibrado
 
@@ -102,7 +102,7 @@ Para garantizar un montaje de cliente sin problemas, use estos valores y argumen
 
 ``mount -o hard,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
 
-| Configuración requerida | |
+| Configuración requerida | Descripción |
 --- | ---
 ``hard`` | Los montajes leves en el clúster de vFXT están asociados con errores de la aplicación y la posible pérdida de datos.
 ``proto=netid`` | Esta opción es compatible con el control adecuado de los errores de la red NFS.

@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 36f416183bd44180bee59142714e924e0ac8fefe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf41232026fcb51e63cb68d6f42b7b66d14022e1
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830050"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207785"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Uso del servicio StorSimple Device Manager para ver y administrar alertas de StorSimple
 
@@ -199,8 +199,8 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 
 ### <a name="performance-alerts"></a>Alertas de rendimiento
 
-| Texto de la alerta | Evento | Más información / acciones recomendadas | |
-|:--- |:--- |:--- | --- |
+| Texto de la alerta | Evento | Más información / acciones recomendadas |
+|:--- |:--- |:--- |
 | La carga del dispositivo ha superado el <*umbral*>. |Tiempos de respuesta más lentos que lo esperado. |El dispositivo indica su utilización con una carga elevada de entrada/salida. Esto podría provocar que el dispositivo no funcione tan bien como debería. Revise las cargas de trabajo que ha conectado al dispositivo y determine si hay alguna que se pueda mover a otro dispositivo o que ya no sea necesaria.|
 | No se han podido iniciar los servicios de StorSimple. |Error de ruta de datos |Si el persiste el problema, póngase en contacto con el Soporte técnico de Microsoft. |
 

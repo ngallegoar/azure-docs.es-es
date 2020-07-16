@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 7933d5e5cf7d82de013e18b221f3a0c3ce6b5229
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 284f8c8432d732fdfa7e16b43a47578437bcf0ba
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800535"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202243"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Tipos y estructura de las respuestas de Bing Web Search API  
 
@@ -435,7 +435,7 @@ Si Bing determina que el usuario tenía la intención de buscar algo diferente, 
 
 Las respuestas de Bing Web Search API pueden tener los encabezados siguientes:
 
-|||
+| Encabezado | Descripción |
 |-|-|
 |`X-MSEdge-ClientID`|El identificador único que Bing ha asignado al usuario|
 |`BingAPIs-Market`|El mercado que se usó para cumplir la solicitud|

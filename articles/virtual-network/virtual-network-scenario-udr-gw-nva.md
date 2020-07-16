@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
-ms.openlocfilehash: 80a9397838e90a2af504125b2dc4c4ef39251d4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d2dde4e77a39b114f721cd6d2be250141984e7f
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81455369"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231716"
 ---
 # <a name="virtual-appliance-scenario"></a>Escenario de aplicación virtual
 Un escenario común entre los clientes de Azure de mayor tamaño es la necesidad de ofrecer una aplicación en 2 niveles expuesta a Internet a la vez que permiten el acceso al nivel posterior desde un centro de datos local. Este documento le guiará en un escenario con Rutas definidas por el usuario (UDR), una instancia de VPN Gateway y aplicaciones virtuales de red para implementar un entorno de 2 niveles que cumple los siguientes requisitos:
@@ -33,8 +33,8 @@ Este es un escenario de red perimetral estándar con una red perimetral y una re
 
 |  | Ventajas | Desventajas |
 | --- | --- | --- |
-| Grupo de seguridad de red |No tienen costo. <br/>Están integrados en Azure RBAC. <br/>Las reglas se pueden crear en plantillas de Azure Resource Manager. |La complejidad podría variar en entornos de mayor tamaño. |
-| Firewall |Control total sobre el plano de datos. <br/>Administración central a través de la consola de firewall. |El costo de la aplicación de firewall. <br/>No está integrado con Azure RBAC. |
+| **NSG** |No tienen costo. <br/>Están integrados en Azure RBAC. <br/>Las reglas se pueden crear en plantillas de Azure Resource Manager. |La complejidad podría variar en entornos de mayor tamaño. |
+| **Firewall** |Control total sobre el plano de datos. <br/>Administración central a través de la consola de firewall. |El costo de la aplicación de firewall. <br/>No está integrado con Azure RBAC. |
 
 La solución siguiente usa aplicaciones virtuales de firewall para implementar un escenario de red protegida o red perimetral.
 

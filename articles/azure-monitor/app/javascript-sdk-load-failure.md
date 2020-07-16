@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
-ms.openlocfilehash: 50a7e9520730159ad2df3ec3e0b75fcfa0c5ce0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dae6b40e7ec8a2bb6f635a6ffca4886ed09c1364
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450589"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229540"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Solución de problemas de errores de carga del SDK para aplicaciones web de JavaScript
 
@@ -76,11 +76,11 @@ Si confirma que hay una interrupción, puede [crear una nueva incidencia de sopo
 Como la aplicación devuelve el fragmento de código y su configuración como parte de cada página generada, puede cambiar la configuración `src` del fragmento de código para que utilice una dirección URL diferente para el SDK. Con este enfoque, puede evitar el problema de la red CDN bloqueada, ya que la nueva dirección URL no debería estar bloqueada.
 
 Puntos de conexión actuales de la red CDN del SDK para JavaScript de Application Insights
-- https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js
-- https://js.monitor.azure.com/scripts/b/ai.2.min.js
+- `https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js`
+- `https://js.monitor.azure.com/scripts/b/ai.2.min.js`
 
 > [!NOTE]
-> El punto de conexión https://js.monitor.azure.com/ es un alias que nos permite cambiar entre proveedores de la red CDN en unos 5 minutos, sin necesidad de que el usuario cambie la configuración. Esto nos permite corregir los problemas detectados relacionados con la red CDN más rápidamente si un proveedor de CDN tiene problemas regionales o globales sin necesidad de que todos los usuarios ajusten su configuración.
+> El punto de conexión `https://js.monitor.azure.com/` es un alias que nos permite cambiar entre proveedores de la red CDN en unos 5 minutos, sin necesidad de que el usuario cambie la configuración. Esto nos permite corregir los problemas detectados relacionados con la red CDN más rápidamente si un proveedor de CDN tiene problemas regionales o globales sin necesidad de que todos los usuarios ajusten su configuración.
 
 ## <a name="sdk-failed-to-initialize-after-loading-the-script"></a>No se pudo inicializar el SDK después de cargar el script
 

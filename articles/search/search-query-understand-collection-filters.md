@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f6e8ed5baef9b8594bb1fe03942e831fd8264a56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 861e011c4bd368a274998859170e78cf444400a8
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74113072"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206173"
 ---
 # <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Uso de los filtros de colección de OData en Azure Cognitive Search
 
@@ -50,13 +50,17 @@ El primer motivo es simplemente una consecuencia de cómo se definen el lenguaje
 
 Al aplicar varios criterios de filtro en una colección de objetos complejos, los criterios son **correlacionados**, ya que se aplican a *cada uno de los objetos de la colección*. Por ejemplo, el filtro siguiente devolverá los hoteles que tengan al menos una habitación deluxe con un precio inferior a 100:
 
+```odata-filter-expr
     Rooms/any(room: room/Type eq 'Deluxe Room' and room/BaseRate lt 100)
+```
 
 Si el filtrado fuera *no correlacionado*, el filtro anterior podría devolver hoteles en los que una habitación es deluxe y otra diferente tiene una tarifa base inferior a 100. Eso no tendría sentido, ya que las dos cláusulas de la expresión lambda se aplican a la misma variable de rango, es decir, `room`. Por este motivo estos filtros se ponen en correlación.
 
 Pero para la búsqueda de texto completo, no hay ninguna manera para hacer referencia a una variable de rango específica. Si usa la búsqueda clasificada por campos para emitir una [consulta completa de Lucene](query-lucene-syntax.md) como esta:
 
+```odata-filter-expr
     Rooms/Type:deluxe AND Rooms/Description:"city view"
+```
 
 puede obtener hoteles donde una habitación sea deluxe, y en otra diferente se mencione "vistas a la ciudad" en la descripción. Por ejemplo, el documento siguiente con el `Id` de `1` coincidiría con la consulta:
 
@@ -149,19 +153,27 @@ Esta estructura de datos está diseñada para responder una pregunta a gran velo
 
 Partiendo de la igualdad, a continuación se verá cómo se pueden combinar varias comprobaciones de igualdad en la misma variable de rango con `or`. Funciona gracias al álgebra y a [la propiedad distributiva de los cuantificadores](https://en.wikipedia.org/wiki/Existential_quantification#Negation). Esta expresión:
 
+```odata-filter-expr
     seasons/any(s: s eq 'winter' or s eq 'fall')
+```
 
 equivale a:
 
+```odata-filter-expr
     seasons/any(s: s eq 'winter') or seasons/any(s: s eq 'fall')
+```
 
 y cada una de las dos subexpresiones `any` se puede ejecutar de forma eficaz mediante el índice invertido. Además, gracias a [la ley de negación de cuantificadores](https://en.wikipedia.org/wiki/Existential_quantification#Negation), esta expresión:
 
+```odata-filter-expr
     seasons/all(s: s ne 'winter' and s ne 'fall')
+```
 
 equivale a:
 
+```odata-filter-expr
     not seasons/any(s: s eq 'winter' or s eq 'fall')
+```
 
 motivo por el que se puede usar `all` con `ne` y `and`.
 

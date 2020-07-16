@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Obtenga información sobre cómo solucionar problemas y resolver problemas comunes al habilitar y usar Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s '
-ms.openlocfilehash: 51846c8630e4e8c60205f8d92fb7f74f92de3f41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b97bab7182e382801a57bcf7dd6f325e665438b
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309652"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232498"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Solución de problemas de Azure Dev Spaces
 
@@ -132,7 +132,7 @@ Para corregir este problema:
 
 ### <a name="timeout-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>Con los nodos virtuales de AKS, se agota el tiempo de espera en el paso "Waiting for container image build..." (Esperando la compilación de la imagen de contenedor...)
 
-Este problema se produce cuando intenta usar Dev Spaces para ejecutar un servicio que está configurado para funcionar en un [nodo virtual de AKS](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Dev Spaces no admite actualmente la compilación o la depuración de servicios en nodos virtuales.
+Este problema se produce cuando intenta usar Dev Spaces para ejecutar un servicio que está configurado para funcionar en un [nodo virtual de AKS](../aks/virtual-nodes-portal.md). Dev Spaces no admite actualmente la compilación o la depuración de servicios en nodos virtuales.
 
 Si ejecuta `azds up` con el modificador `--verbose` o habilita el registro detallado en Visual Studio, verá más detalles:
 

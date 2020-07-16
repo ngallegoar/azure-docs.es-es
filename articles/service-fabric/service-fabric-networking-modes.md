@@ -5,12 +5,12 @@ author: athinanthny
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.author: atsenthi
-ms.openlocfilehash: ba1fa92559d39a481008d1dd18036e4232be1bfa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6174f35bd54b3ca0b2c5240a663369350b30ce8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75639809"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86241903"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de redes de contenedor de Service Fabric
 
@@ -21,7 +21,7 @@ Si tiene un servicio de contenedor con un punto de conexión estático en el man
 Cuando un servicio de contenedor se reinicia o se mueve a otro nodo del clúster, la dirección IP cambia. Por esta razón, no se recomienda usar la dirección IP asignada dinámicamente para detectar servicios de contenedor. Solo se debe usar para ello el servicio de nombres de Service Fabric o el servicio DNS. 
 
 >[!WARNING]
->Azure permite hasta un total de 65 356 direcciones IP por red virtual. La suma del número de nodos y el número de instancias de servicio de contenedor (que usan el modo abierto) no puede superar 65 356 direcciones IP en una red virtual. En escenarios de alta densidad, se recomienda el modo de red nat. Además, otras dependencias, como el equilibrador de carga, tendrán otra [limitaciones](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) a tener en cuenta. Actualmente se han probado hasta 50 direcciones IP por nodo, y han demostrar ser estables. 
+>Azure permite hasta un total de 65 356 direcciones IP por red virtual. La suma del número de nodos y el número de instancias de servicio de contenedor (que usan el modo abierto) no puede superar 65 356 direcciones IP en una red virtual. En escenarios de alta densidad, se recomienda el modo de red nat. Además, otras dependencias, como el equilibrador de carga, tendrán otra [limitaciones](../azure-resource-manager/management/azure-subscription-service-limits.md) a tener en cuenta. Actualmente se han probado hasta 50 direcciones IP por nodo, y han demostrar ser estables. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>Configuración del modo de red abierto
@@ -191,15 +191,14 @@ Cuando un servicio de contenedor se reinicia o se mueve a otro nodo del clúster
  
 3. Solo en clústeres de Windows, configure una regla de grupo de seguridad de red (NSG) de Azure que abra el puerto UDP/53 para la red virtual con los siguientes valores:
 
-   |Configuración |Value | |
-   | --- | --- | --- |
-   |Priority |2000 | |
-   |Nombre |Custom_Dns  | |
-   |Source |VirtualNetwork | |
-   |Destination | VirtualNetwork | |
-   |Servicio | DNS (UDP/53) | |
-   |Acción | Allow  | |
-   | | |
+   |Configuración |Value |
+   | --- | --- |
+   |Priority |2000 |
+   |Nombre |Custom_Dns  |
+   |Source |VirtualNetwork |
+   |Destination | VirtualNetwork |
+   |Servicio | DNS (UDP/53) |
+   |Acción | Allow  |
 
 4. Especifique el modo de red en el manifiesto de aplicación para cada servicio `<NetworkConfig NetworkType="Open">`. El modo **abierto** da lugar a que el servicio obtenga una dirección IP dedicada. Si no se especifica un modo, el servicio adopta como valor predeterminado el modo **nat**. En el siguiente ejemplo de manifiesto, los servicios `NodeContainerServicePackage1` y `NodeContainerServicePackage2` pueden escuchar en el mismo puerto (ambos servicios escuchan en `Endpoint1`). Cuando se especifica el modo de red abierto, no se pueden especificar configuraciones de `PortBinding`.
 
@@ -264,6 +263,6 @@ Cuando un servicio de contenedor se reinicia o se mueve a otro nodo del clúster
  
 ## <a name="next-steps"></a>Pasos siguientes
 * [Entender el modelo de aplicación de Service Fabric](service-fabric-application-model.md)
-* [Aprenda más sobre los recursos del manifiesto de servicio de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
+* [Aprenda más sobre los recursos del manifiesto de servicio de Service Fabric](./service-fabric-service-manifest-resources.md)
 * [Implementación de un contenedor de Windows en Service fabric en Windows Server 2016](service-fabric-get-started-containers.md)
 * [Implementación de un contenedor de Docker en Service Fabric en Linux](service-fabric-get-started-containers-linux.md)

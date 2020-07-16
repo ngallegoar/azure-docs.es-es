@@ -7,12 +7,12 @@ ms.topic: article
 author: anbene
 ms.author: mingshen
 ms.date: 06/29/2020
-ms.openlocfilehash: 2192b3757281bf6796fbf93f83cab6e71deb29f6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e708d9a32d63c306a2d1ee8d06b044652f108dde
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120561"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231886"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Preguntas más frecuentes sobre la transición de Cloud Partner Portal al Centro de partners
 
@@ -76,7 +76,7 @@ En el caso de los tipos de oferta admitidos en el Centro de partners, todas las 
 | Servicio de consultoría | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de servicios de consultoría](partner-center-portal/create-consulting-service-offer.md). |
 | Servicio administrado | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de servicio administrado](partner-center-portal/create-new-managed-service-offer.md). |
 | Servicio administrado de Dynamics NAV | No | Microsoft ha evolucionado el Servicio administrado de Dynamics NAV a [Dynamics 365 Business Central](https://docs.microsoft.com/dynamics365/business-central/), por lo que sus ofertas se han eliminado de la lista en AppSource. Los clientes ya no pueden detectar estas ofertas y no se han movido al Centro de partners. Para que las ofertas estén disponibles en AppSource, puede adaptarlas a ofertas de Dynamics 365 Business Central y enviarlas al [Centro de partners](https://partner.microsoft.com/). Más información en [Creación de una oferta de Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md). |
-| Cortana Intelligence | No | Microsoft ha evolucionado la hoja de ruta del producto para Cortana Intelligence, por lo que sus ofertas activas se han eliminado de la lista en AppSource. Los clientes ya no pueden detectar estas ofertas y no se han movido al Centro de partners. Para que las ofertas estén disponibles en el marketplace comercial, adáptelas a ofertas de software como servicio (SaaS) y envíelas al [Centro de partners](hhttps://partner.microsoft.com/). Más información en [Lista de comprobación de creación de ofertas de SaaS](partner-center-portal/offer-creation-checklist.md). |
+| Cortana Intelligence | No | Microsoft ha evolucionado la hoja de ruta del producto para Cortana Intelligence, por lo que sus ofertas activas se han eliminado de la lista en AppSource. Los clientes ya no pueden detectar estas ofertas y no se han movido al Centro de partners. Para que las ofertas estén disponibles en el marketplace comercial, adáptelas a ofertas de software como servicio (SaaS) y envíelas al [Centro de partners](https://partner.microsoft.com/). Más información en [Lista de comprobación de creación de ofertas de SaaS](partner-center-portal/offer-creation-checklist.md). |
 
 ## <a name="i-cant-find-my-cloud-partner-portal-offers-in-partner-center"></a>No encuentro mis ofertas de Cloud Partner Portal en el Centro de partners
 

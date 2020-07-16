@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 2d3952f7d2adc26892cbebcd962f2ea25b86de7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 741bf9e2aba6f893f670e86fb8bf5cd6c8b9d803
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74113185"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202000"
 ---
 # <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Operadores lógicos de OData en Azure Cognitive Search: `and`, `or`, `not`
 
@@ -93,19 +93,27 @@ Cuando un campo booleano `b` aparece por sí mismo en una expresión de filtro, 
 
 Comparar documentos donde el campo `rating` esté entre 3 y 5, inclusive:
 
+```odata-filter-expr
     rating ge 3 and rating le 5
+```
 
 Comparar documentos donde todos los elementos del campo `ratings` sean menores que 3 o mayores que 5:
 
+```odata-filter-expr
     ratings/all(r: r lt 3 or r gt 5)
+```
 
 Comparar documentos donde el campo `location` está dentro del polígono determinado, y el documento no contiene el término "public".
 
+```odata-filter-expr
     geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))') and not search.ismatch('public')
+```
 
 Comparar documentos para hoteles en Vancouver, Canadá donde hay una habitación deluxe con una tarifa base inferior a 160:
 
+```odata-filter-expr
     Address/City eq 'Vancouver' and Address/Country eq 'Canada' and Rooms/any(room: room/Type eq 'Deluxe Room' and room/BaseRate lt 160)
+```
 
 ## <a name="next-steps"></a>Pasos siguientes  
 

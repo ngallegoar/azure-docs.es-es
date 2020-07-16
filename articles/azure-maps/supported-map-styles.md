@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2eafe3c16a89723d55ec52fde785e9ec69e45e0c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3db8ae98302ad6df7355ce03f5a33b5d21f1ea09
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334038"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242107"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Estilos de mapa admitidos en Azure Maps
 Azure Maps es compatible con varios estilos de mapa integrados, tal como se describe a continuación.
@@ -28,6 +28,7 @@ Un mapa de **carreteras** es un mapa estándar que muestra las carreteras y cara
 * [Mosaico de mapa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Control de mapa de SDK web
 * Control de mapa de Android
+* Objeto visual de Power BI
 
 ## <a name="blank-and-blank_accessible"></a>blank y blank_accessible
 
@@ -48,6 +49,7 @@ El mapa estilo **satélite** es una combinación de imágenes aéreas o por sat�
 * [Mosaico de satélite](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
 * Control de mapa de SDK web
 * Control de mapa de Android
+* Objeto visual de Power BI
 
 ## <a name="satellite_road_labels"></a>satellite_road_labels
 Este estilo de mapa es un híbrido de carreteras y etiquetas que se superpone a imágenes aéreas o por satélite.
@@ -57,6 +59,7 @@ Este estilo de mapa es un híbrido de carreteras y etiquetas que se superpone a 
 **API correspondientes:**
 * Control de mapa de SDK web
 * Control de mapa de Android
+* Objeto visual de Power BI
 
 ## <a name="grayscale_dark"></a>grayscale_dark
 **escala de grises oscuros** es una versión oscura del estilo de mapa de carreteras.
@@ -68,6 +71,7 @@ Este estilo de mapa es un híbrido de carreteras y etiquetas que se superpone a 
 * [Mosaico de mapa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Control de mapa de SDK web 
 * Control de mapa de Android
+* Objeto visual de Power BI
 
 
 ## <a name="grayscale_light"></a>grayscale_light
@@ -78,6 +82,7 @@ Este estilo de mapa es un híbrido de carreteras y etiquetas que se superpone a 
 **API correspondientes:**
 * Control de mapa de SDK web
 * Control de mapa de Android
+* Objeto visual de Power BI
 
 
 ## <a name="night"></a>noche
@@ -88,6 +93,7 @@ Este estilo de mapa es un híbrido de carreteras y etiquetas que se superpone a 
 **API correspondientes:**
 * Control de mapa de SDK web
 * Control de mapa de Android
+* Objeto visual de Power BI
 
 ## <a name="road_shaded_relief"></a>road_shaded_relief
 **relieve sombreado del camino** es un estilo principal de Azure Maps completado con los contornos de la tierra.
@@ -98,6 +104,7 @@ Este estilo de mapa es un híbrido de carreteras y etiquetas que se superpone a 
 * [Mosaico de mapa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Control de mapa de SDK web
 * Control de mapa de Android
+* Objeto visual de Power BI
 
 ## <a name="high_contrast_dark"></a>high_contrast_dark
 
@@ -107,6 +114,7 @@ Este estilo de mapa es un híbrido de carreteras y etiquetas que se superpone a 
 
 **API correspondientes:**
 * Control de mapa de SDK web
+* Objeto visual de Power BI
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -5,12 +5,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 description: Aprenda a usar Azure Dev Spaces para compartir un espacio de desarrollo en Azure Kubernetes Service con otros usuarios del equipo.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s '
-ms.openlocfilehash: 0fcb8be5107c7769af7e51dece9f190c8e7e22df
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3cef7cd6a5113401cb1df3dd6c76e4dea3a7524d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79474414"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229302"
 ---
 # <a name="share-azure-dev-spaces"></a>Uso compartido de Azure Dev Spaces
 
@@ -19,7 +19,7 @@ Con Azure Dev Spaces, puede compartir el espacio de desarrollo con otras persona
 ## <a name="set-up-a-dev-space-for-multiple-developers"></a>Configuración de un espacio de desarrollo para varios desarrolladores
 
 1. Cree una instancia de Dev Space en Azure. Elija [.NET Core y VS Code](../get-started-netcore.md), [.NET Core y Visual Studio](../get-started-netcore-visualstudio.md) o [Node.js y VS Code](../get-started-nodejs.md). Debe tener acceso de propietario o colaborador a la suscripción de Azure seleccionada.
-1. Asegúrese de que cada miembro del equipo tenga los [permisos adecuados para acceder al controlador de Azure Dev Spaces](../troubleshooting.md#incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis). Por ejemplo, puede configurar el **grupo de recursos** del espacio de Azure Dev Spaces para [conceder acceso de colaborador](/azure/active-directory/role-based-access-control-configure) a cada miembro del equipo. Puede comprobar el grupo de recursos de un espacio de desarrollo mediante la ejecución de este comando: `azds show-context`
+1. Asegúrese de que cada miembro del equipo tenga los [permisos adecuados para acceder al controlador de Azure Dev Spaces](../troubleshooting.md#incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis). Por ejemplo, puede configurar el **grupo de recursos** del espacio de Azure Dev Spaces para [conceder acceso de colaborador](../../role-based-access-control/role-assignments-portal.md) a cada miembro del equipo. Puede comprobar el grupo de recursos de un espacio de desarrollo mediante la ejecución de este comando: `azds show-context`
 1. Pida a los miembros del equipo que **seleccionen el espacio de desarrollo** para desarrollar en él.
    * **Línea de comandos o VS Code**: Para ver los espacios de Azure Dev Spaces existentes a los que tiene acceso: `azds space list`. Para seleccionar un espacio de desarrollo: `azds space select`.
    * **IDE de Visual Studio**: Abra un proyecto en Visual Studio y seleccione **Azure Dev Spaces** en la lista desplegable de configuración de inicio. En el cuadro de diálogo que se abre, seleccione un clúster existente.

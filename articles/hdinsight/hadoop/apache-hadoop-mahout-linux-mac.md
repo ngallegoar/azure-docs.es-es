@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/14/2020
-ms.openlocfilehash: f533b2baa3e1e748edfc723a60734daedf3d0a18
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a4e4a45519526dd0eeb938a3b83e737d82589c1e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086031"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207672"
 ---
 # <a name="generate-recommendations-using-apache-mahout-in-azure-hdinsight"></a>Generación de recomendaciones mediante Apache Mahout en Azure HDInsight
 
@@ -47,11 +47,13 @@ Hay dos archivos, `moviedb.txt` y `user-ratings.txt`. El archivo `user-ratings.t
 
 Los datos del archivo `user-ratings.txt` tienen una estructura de `userID`, `movieID`, `userRating` y `timestamp`, que indica qué valoración dio cada usuario a una película. A continuación se muestra un ejemplo de los datos:
 
+```output
     196    242    3    881250949
     186    302    3    891717742
     22     377    1    878887116
     244    51     2    880606923
     166    346    1    886397596
+```
 
 ## <a name="run-the-analysis"></a>Ejecutar el análisis
 

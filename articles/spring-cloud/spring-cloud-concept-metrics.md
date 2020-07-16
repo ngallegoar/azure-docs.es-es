@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: brendm
-ms.openlocfilehash: ed8a46683d79211559b4af7972c6d1bb784e1f02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ef7614b32dd88e804b1a74749ee87504f9cea40
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84434164"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205462"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Descripción de las métricas en Azure Spring Cloud
 
@@ -90,63 +90,41 @@ En las tablas siguientes se muestran las métricas y los detalles disponibles.
 >[!div class="mx-tdCol2BreakAll"]
 >| Nombre | Nombre de la métrica de Spring Actuator | Unidad | Detalles |
 >|----|----|----|------------|
->| Error global de Tomcat (en desuso)<br><br>(se quitará después del 1 de julio de 2020)  | tomcat.global.error | Count | Número de errores que se produjeron en las solicitudes procesadas |
 >| tomcat.global.error | tomcat.global.error | Count | Número de errores que se produjeron en las solicitudes procesadas |
 
 ### <a name="performance"></a>Rendimiento
 >[!div class="mx-tdCol2BreakAll"]
 >| Nombre | Nombre de la métrica de Spring Actuator | Unidad | Detalles |
 >|----|----|----|------------|
->| Porcentaje de uso de CPU del sistema (en desuso)<br><br>(se quitará después del 1 de julio de 2020) | system.cpu.usage | Percent | Uso de CPU reciente de todo el sistema. Este es un valor Double en el intervalo [0,0, 1,0]. Un valor de 0,0 indica que todas las CPU estuvieron inactivas durante el período de tiempo reciente observado, mientras que un valor de 1,0 indica que todas las CPU se estaban ejecutando activamente el 100 % del tiempo durante el último período observado.|
 >| system.cpu.usage | system.cpu.usage | Percent | Uso de CPU reciente de todo el sistema. Este es un valor Double en el intervalo [0,0, 1,0]. Un valor de 0,0 indica que todas las CPU estuvieron inactivas durante el período de tiempo reciente observado, mientras que un valor de 1,0 indica que todas las CPU se estaban ejecutando activamente el 100 % del tiempo durante el último período observado.|
->| Porcentaje de uso de CPU de la aplicación (en desuso)<br><br>(eliminado después del 1 de julio de 2020) | App CPU Usage Percentage (Porcentaje de uso de CPU de la aplicación) | Percent | Uso reciente de la CPU para el proceso de Máquina virtual Java. Este es un valor Double en el intervalo [0,0, 1,0]. Un valor de 0,0 indica que ninguna de las CPU estaba ejecutando subprocesos del proceso de Máquina virtual Java durante el período de tiempo reciente observado, mientras que un valor de 1,0 indica que todas las CPU estaban ejecutando activamente subprocesos de la Máquina virtual Java el 100 % del tiempo durante el último período observado. Los subprocesos de la Máquina virtual Java incluyen los subprocesos de la aplicación, así como los subprocesos internos de Máquina virtual Java.|
 >| process.cpu.usage | App CPU Usage Percentage (Porcentaje de uso de CPU de la aplicación) | Percent | Uso reciente de la CPU para el proceso de Máquina virtual Java. Este es un valor Double en el intervalo [0,0, 1,0]. Un valor de 0,0 indica que ninguna de las CPU estaba ejecutando subprocesos del proceso de Máquina virtual Java durante el período de tiempo reciente observado, mientras que un valor de 1,0 indica que todas las CPU estaban ejecutando activamente subprocesos de la Máquina virtual Java el 100 % del tiempo durante el último período observado. Los subprocesos de la Máquina virtual Java incluyen los subprocesos de la aplicación, así como los subprocesos internos de Máquina virtual Java.|
->| Memoria de la aplicación asignada (en desuso)<br><br>(se quitará después del 1 de julio de 2020) | jvm.memory.committed | Bytes | Representa la cantidad de memoria que se garantiza que va a estar disponible para que la use la Máquina virtual Java. Es posible que la Máquina virtual Java libere memoria para el sistema y que la memoria confirmada sea menor que la inicial. La memoria asignada siempre será mayor o igual que la utilizada. |
 >| jvm.memory.committed | jvm.memory.committed | Bytes | Representa la cantidad de memoria que se garantiza que va a estar disponible para que la use la Máquina virtual Java. Es posible que la Máquina virtual Java libere memoria para el sistema y que la memoria confirmada sea menor que la inicial. La memoria asignada siempre será mayor o igual que la utilizada. |
->| Memoria de la aplicación usada (en desuso)<br><br>(se quitará después del 1 de julio de 2020) | jvm.memory.used | Bytes | Representa la cantidad de memoria que se usa actualmente en bytes. |
 >| jvm.memory.used | jvm.memory.used | Bytes | Representa la cantidad de memoria que se usa actualmente en bytes. |
->| Memoria de la aplicación máxima (en desuso)<br><br>(se quitará después del 1 de julio de 2020) | jvm.memory.max | Bytes | Representa la cantidad máxima de memoria que se puede usar para la administración de memoria. La cantidad de memoria usada y asignada siempre será menor o igual al valor máximo, si se definió el máximo. Se puede producir un error de asignación de memoria si intenta aumentar la memoria usada de modo que la memoria usada sea mayor que la memoria asignada, incluso si la memoria usada es menor o igual que el valor máximo (por ejemplo, cuando el sistema tiene poca memoria virtual). |
 >| jvm.memory.max | jvm.memory.max | Bytes | Representa la cantidad máxima de memoria que se puede usar para la administración de memoria. La cantidad de memoria usada y asignada siempre será menor o igual al valor máximo, si se definió el máximo. Se puede producir un error de asignación de memoria si intenta aumentar la memoria usada de modo que la memoria usada sea mayor que la memoria asignada, incluso si la memoria usada es menor o igual que el valor máximo (por ejemplo, cuando el sistema tiene poca memoria virtual). |
->| Tamaño máximo de datos de generación anterior disponible (en desuso)<br><br>(se quitará después del 1 de julio de 2020) | jvm.gc.max.data.size | Bytes | Uso de memoria máximo del bloque de memoria de generación anterior desde que se inició la máquina virtual Java. |
 >| jvm.gc.max.data.size | jvm.gc.max.data.size | Bytes | Uso de memoria máximo del bloque de memoria de generación anterior desde que se inició la máquina virtual Java. |
->| Tamaño de datos de generación anterior (en desuso)<br><br>(se quitará después del 1 de julio de 2020) | jvm.gc.live.data.size | Bytes | Tamaño del grupo de memoria de generación anterior después de una recolección de elementos no utilizados completa. |
 >| jvm.gc.live.data.size | jvm.gc.live.data.size | Bytes | Tamaño del grupo de memoria de generación anterior después de una recolección de elementos no utilizados completa. |
->| Tamaño de datos de generación anterior (en desuso)<br><br>(se quitará después del 1 de julio de 2020) | jvm.gc.memory.promoted | Bytes | Recuento de aumentos positivos en el tamaño del grupo de memoria de generación anterior entre antes y después de una recolección de elementos no utilizados. |
 >| jvm.gc.memory.promoted | jvm.gc.memory.promoted | Bytes | Recuento de aumentos positivos en el tamaño del grupo de memoria de generación anterior entre antes y después de una recolección de elementos no utilizados. |
->| Promoción al tamaño de datos de nueva generación (en desuso)<br><br>(se quitará después del 1 de julio de 2020) | jvm.gc.memory.allocated | Bytes | Se incrementa por un aumento del tamaño del grupo de memoria de nueva generación después de una recolección de elementos no utilizados y antes de la siguiente. |
 >| jvm.gc.memory.allocated | jvm.gc.memory.allocated | Bytes | Se incrementa por un aumento del tamaño del grupo de memoria de nueva generación después de una recolección de elementos no utilizados y antes de la siguiente. |
->| Recuento de pausas de la GC (en desuso)<br><br>(se quitará después del 1 de julio de 2020) | jvm.gc.pause (recuento total) | Count | Recuento total de recolecciones de elementos no utilizados después del inicio de esta Máquina virtual Java, incluidas las recolecciones de elementos no utilizados anteriores y nuevas. |
 >| jvm.gc.pause.total.count | jvm.gc.pause (recuento total) | Count | Recuento total de recolecciones de elementos no utilizados después del inicio de esta Máquina virtual Java, incluidas las recolecciones de elementos no utilizados anteriores y nuevas. |
->| Tiempo total de pausas de la GC (en desuso)<br><br>(se quitará después del 1 de julio de 2020) | jvm.gc.pause (tiempo total) | Milisegundos | Recuento total de tiempo consumido en recolecciones de elementos no utilizados después del inicio de esta Máquina virtual Java, incluidas las recolecciones de elementos no utilizados anteriores y nuevas. |
 >| jvm.gc.pause.total.time | jvm.gc.pause (tiempo total) | Milisegundos | Recuento total de tiempo consumido en recolecciones de elementos no utilizados después del inicio de esta Máquina virtual Java, incluidas las recolecciones de elementos no utilizados anteriores y nuevas. |
 
 ### <a name="request"></a>Solicitud
 >[!div class="mx-tdCol2BreakAll"]
 >| Nombre | Nombre de la métrica de Spring Actuator | Unidad | Detalles |
 >|----|----|----|------------|
->| Total de bytes enviados de Tomcat (en desuso)<br><br>(eliminado después del 1 de julio de 2020) | tomcat.global.sent | Bytes | Cantidad de datos enviados por el servidor web de Tomcat |
 >| tomcat.global.sent | tomcat.global.sent | Bytes | Cantidad de datos enviados por el servidor web de Tomcat |
->| Total de bytes recibidos de Tomcat (en desuso)<br><br>(eliminado después del 1 de julio de 2020) | tomcat.global.received | Bytes | Cantidad de datos recibidos por el servidor web de Tomcat |
 >| tomcat.global.received | tomcat.global.received | Bytes | Cantidad de datos recibidos por el servidor web de Tomcat |
->| Tiempo total de la solicitud de Tomcat (en desuso)<br><br>(eliminado después del 1 de julio de 2020) | tomcat.global.request (tiempo total) | Milisegundos | Tiempo total del servidor web de Tomcat para procesar las solicitudes |
->| Recuento total de la solicitud de Tomcat (en desuso)<br><br>(eliminado después del 1 de julio de 2020) | tomcat.global.request (recuento total) | Count | Recuento total de solicitudes procesadas por el servidor web de Tomcat |
 >| tomcat.global.request.total.count | tomcat.global.request (recuento total) | Count | Recuento total de solicitudes procesadas por el servidor web de Tomcat |
->| Tiempo máximo de la solicitud de Tomcat (en desuso)<br><br>(eliminado después del 1 de julio de 2020) | tomcat.global.request.max | Milisegundos | Tiempo máximo del servidor web de Tomcat para procesar una solicitud |
 >| tomcat.global.request.max | tomcat.global.request.max | Milisegundos | Tiempo máximo del servidor web de Tomcat para procesar una solicitud |
 
 ### <a name="session"></a>Sesión
 >[!div class="mx-tdCol2BreakAll"]
 >| Nombre | Nombre de la métrica de Spring Actuator | Unidad | Detalles |
 >|----|----|----|------------|
->| Recuento máximo de sesiones activas de Tomcat (en desuso)<br><br>(eliminado después del 1 de julio de 2020) | tomcat.sessions.active.max | Count | Número máximo de sesiones que han estado activas al mismo tiempo |
 >| tomcat.sessions.active.max | tomcat.sessions.active.max | Count | Número máximo de sesiones que han estado activas al mismo tiempo |
->| Tiempo activo máximo de las sesiones de Tomcat (en desuso)<br><br>(eliminado después del 1 de julio de 2020) | tomcat.sessions.alive.max | Milisegundos | Período más largo (en segundos) que una sesión expirada ha estado activa |
 >| tomcat.sessions.alive.max | tomcat.sessions.alive.max | Milisegundos | Período más largo (en segundos) que una sesión expirada ha estado activa |
->| Recuento de sesiones creadas de Tomcat (en desuso)<br><br>(eliminado después del 1 de julio de 2020) | tomcat.sessions.created | Count | Número de sesiones que se han creado |
 >| tomcat.sessions.created | tomcat.sessions.created | Count | Número de sesiones que se han creado |
->| Recuento de sesiones expiradas de Tomcat (en desuso)<br><br>(eliminado después del 1 de julio de 2020) | tomcat.sessions.expired | Count | Número de sesiones que han expirado |
 >| tomcat.sessions.expired | tomcat.sessions.expired | Count | Número de sesiones que han expirado |
->| Recuento de sesiones rechazadas de Tomcat (en desuso)<br><br>(eliminado después del 1 de julio de 2020) | tomcat.sessions.rejected | Count | Número de sesiones que no se crearon porque se alcanzó el número máximo de sesiones activas. |
 >| tomcat.sessions.rejected | tomcat.sessions.rejected | Count | Número de sesiones que no se crearon porque se alcanzó el número máximo de sesiones activas. |
 >| tomcat.sessions.active.current | tomcat.sessions.active.current | Count | Recuento de sesiones activas de Tomcat |
 

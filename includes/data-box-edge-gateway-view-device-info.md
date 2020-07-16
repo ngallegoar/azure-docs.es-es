@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 94c132421f1e113b667341b094acad8047e5f465
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 3312d1ec7c2535e103cf8959599c0d4c3014f520
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561758"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218104"
 ---
 1. [Conéctese a la interfaz de PowerShell](#connect-to-the-powershell-interface).
 2. Use `Get-HcsApplianceInfo` para obtener la información del dispositivo.
@@ -44,15 +44,15 @@ ms.locfileid: "82561758"
     ```
 
     Esta es una tabla que resume alguna de la información importante del dispositivo:
-    
-    | Parámetro                             | Descripción                                                                                                                                                  |   |
-    |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-    | FriendlyName                   | El nombre descriptivo del dispositivo, tal y como se configuró mediante la interfaz de usuario web local durante la implementación del dispositivo. El nombre descriptivo predeterminado es el número de serie del dispositivo.  |   |
-    | SerialNumber                   | El número de serie del dispositivo es un número único asignado en la fábrica.                                                                             |   |
-    | Modelo                          | El modelo del dispositivo Azure Stack Edge o Data Box Gateway. El modelo es físico para Azure Stack Edge y virtual para Data Box Gateway.                   |   |
-    | FriendlySoftwareVersion        | La cadena descriptiva que corresponde a la versión de software del dispositivo. Para un sistema que ejecuta la versión preliminar, la versión de software descriptiva sería Data Box Edge 1902. |   |
-    | HcsVersion                     | La versión de software HCS que se ejecuta en el dispositivo. Por ejemplo, la versión de software HCS correspondiente a Data Box Edge 1902 es 1.4.771.324.            |   |
-    | LocalCapacityInMb              | La capacidad total local del dispositivo en megabits.                                                                                                        |   |
-    | IsRegistered                   | Este valor indica si el dispositivo se activa con el servicio.                                                                                         |   |
+
+    | Parámetro | Descripción |
+    |-----------|-------------|
+    | FriendlyName                   | El nombre descriptivo del dispositivo, tal y como se configuró mediante la interfaz de usuario web local durante la implementación del dispositivo. El nombre descriptivo predeterminado es el número de serie del dispositivo.  |
+    | SerialNumber                   | El número de serie del dispositivo es un número único asignado en la fábrica.                                                                             |
+    | Modelo                          | El modelo del dispositivo Azure Stack Edge o Data Box Gateway. El modelo es físico para Azure Stack Edge y virtual para Data Box Gateway.                   |
+    | FriendlySoftwareVersion        | La cadena descriptiva que corresponde a la versión de software del dispositivo. Para un sistema que ejecuta la versión preliminar, la versión de software descriptiva sería Data Box Edge 1902. |
+    | HcsVersion                     | La versión de software HCS que se ejecuta en el dispositivo. Por ejemplo, la versión de software HCS correspondiente a Data Box Edge 1902 es 1.4.771.324.            |
+    | LocalCapacityInMb              | La capacidad total local del dispositivo en megabits.                                                                                                        |
+    | IsRegistered                   | Este valor indica si el dispositivo se activa con el servicio.                                                                                         |
 
 

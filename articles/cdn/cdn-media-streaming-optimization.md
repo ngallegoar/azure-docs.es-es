@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
-ms.openlocfilehash: 1f8dc5ef89c70cebce1d59fc389300b30dc828f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: edc2198cff360b6f0d2f6ace3b76d35bf77fab97
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887604"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206706"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Optimización del streaming multimedia con Azure CDN 
  
@@ -82,12 +82,11 @@ Después de crear el punto de conexión, aplica la optimización para todos los 
 Si **Azure CDN Estándar de Akamai** detecta que el recurso es un fragmento o manifiesto de streaming, usa tiempos de expiración de almacenamiento en caché diferentes a los de la entrega web general. (Vea la lista completa en la tabla siguiente). Como siempre, se respetan los encabezados Cache-Control o Expires enviados desde el origen. Si el recurso no es un recurso multimedia, almacena en caché mediante los tiempos de expiración para la entrega web general.
 
 El tiempo de almacenamiento en caché negativo corto es útil para la descarga de origen cuando muchos usuarios solicitan un fragmento que no existe todavía. Un ejemplo es una transmisión en directo en la que los paquetes no están disponibles desde el origen en ese segundo. Un intervalo de almacenamiento en caché más largo también ayuda a descargar solicitudes del origen, ya que el contenido de vídeo no suele modificarse.
- 
 
-|   | Entrega web general | Streaming multimedia general | Streaming multimedia de vídeo a petición  
---- | --- | --- | ---
-Almacenamiento en caché: Positive <br> HTTP 200, 203, 300, <br> 301, 302 y 410 | 7 días |365 días | 365 días   
-Almacenamiento en caché: Negative <br> HTTP 204, 305, 404, <br> y 405 | None | 1 segundo | 1 segundo
+| Almacenamiento en memoria caché  | Entrega web general | Streaming multimedia general | Streaming multimedia de vídeo a petición  
+|--- | --- | --- | ---
+| Almacenamiento en caché: Positive <br> HTTP 200, 203, 300, <br> 301, 302 y 410 | 7 días |365 días | 365 días   
+| Almacenamiento en caché: Negative <br> HTTP 204, 305, 404, <br> y 405 | None | 1 segundo | 1 segundo
  
 ### <a name="deal-with-origin-failure"></a>Tratamiento del error de origen  
 

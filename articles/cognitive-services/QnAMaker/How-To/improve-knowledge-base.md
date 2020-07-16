@@ -3,12 +3,12 @@ title: 'Mejora de una base de conocimiento: QnA Maker'
 description: Mejore la calidad de su base de conocimientos con el aprendizaje activo. Revise, acepte o rechace, o agregue sin quitar ni cambiar las preguntas existentes.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 2e074716e4342a8748de4fb4e217548f1cb731f6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 88ccbc52e0eb3447d0b99cac9ba41761e292a6fd
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650761"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231784"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceptación de preguntas sugeridas de aprendizaje activo en la base de conocimiento
 
@@ -199,7 +199,7 @@ El código de Bot Framework debe llamar a Train API, si la consulta del usuario 
 * Determinar si se debe usar la consulta para el aprendizaje activo
 * Envío de la consulta a Train API de QnA Maker para el aprendizaje activo
 
-En el [ejemplo de Azure Bot](https://aka.ms/activelearningsamplebot), se han programado ambas actividades.
+En el [ejemplo de Azure Bot](https://github.com/microsoft/BotBuilder-Samples), se han programado ambas actividades.
 
 ### <a name="example-c-code-for-train-api-with-bot-framework-4x"></a>Ejemplo del código C# para Train API con Bot Framework 4.x
 

@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: f4b76bd91a47f14104a9f7f23a4a545ee3d40e59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a48467100e396ed1b43544d1b10ae5007415e3e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477862"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201954"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedimientos: Inicio de sesión de cualquier usuario de Azure Active Directory mediante el patrón de aplicación multiinquilino
 
@@ -71,15 +71,21 @@ Las aplicaciones web y las API web reciben y validan los tokens que provienen de
 
 Veamos cómo una aplicación valida los tokens que recibe de la Plataforma de identidad de Microsoft. Una aplicación de un solo inquilino normalmente toma un valor de punto de conexión como:
 
+```http
     https://login.microsoftonline.com/contoso.onmicrosoft.com
+```
 
 y lo usa para crear una URL de metadatos (en este caso, OpenID Connect) como:
 
+```http
     https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
+```
 
 para descargar dos tipos de información esenciales que se usan para validar los tokens: las claves de firma del inquilino y el valor issuer. Cada inquilino de Azure AD tiene un valor issuer único con la forma:
 
+```http
     https://sts.windows.net/31537af4-6d77-4bb9-a681-d2394888ea26/
+```
 
 donde el valor de GUID es la versión segura de cambio de nombre del id. del inquilino. Si selecciona el vínculo de metadatos anterior para `contoso.onmicrosoft.com`, puede ver este valor issuer en el documento.
 
@@ -87,7 +93,9 @@ Cuando una aplicación de un solo inquilino valida un token, comprueba la firma 
 
 Como el punto de conexión /common no corresponde a ningún inquilino y no es un emisor, cuando examine el valor issuer en los metadatos de /common tendrá una URL con plantilla en lugar de un valor real:
 
+```http
     https://sts.windows.net/{tenantid}/
+```
 
 Por lo tanto, una aplicación multiempresa no puede validar los tokens simplemente haciendo coincidir el valor issuer de los metadatos con el valor `issuer` del token. Una aplicación multiempresa necesita una lógica para decidir qué valores issuer son válidos y cuáles no, según la parte del id. de inquilino del valor issuer. 
 
@@ -135,7 +143,9 @@ La aplicación puede tener varios niveles, cada uno representado por su propio r
 
 Esto puede ser un problema si la aplicación lógica consta de dos o más registros de aplicación, por ejemplo, un cliente y un recurso independientes. ¿Cómo se convierte primero el recurso en el inquilino del cliente? Azure AD aborda este caso al habilitar el consentimiento del cliente y del recurso en un solo paso. El usuario ve la suma total de los permisos solicitados por el cliente y el recurso en la página de consentimiento. Para permitir este comportamiento, el registro de la aplicación del recurso debe incluir el identificador de la aplicación del cliente como un elemento `knownClientApplications` en su [manifiesto de aplicación][AAD-App-Manifest]. Por ejemplo:
 
+```aad-app-manifest
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
+```
 
 Esto se demuestra en un ejemplo de llamada a la API web de un cliente nativo de niveles múltiples en la sección [Contenido relacionado](#related-content) al final de este artículo. En el diagrama siguiente se ofrece información general sobre el consentimiento de una aplicación de niveles múltiples registrada en un solo inquilino.
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 75ecfcca24aa801c2ec277e810f60dbc0a9167fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78a8e0a46fd60f14ea3bae7485c737aa4fe3c60e
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565270"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230781"
 ---
 # <a name="knowledge-store-in-azure-cognitive-search"></a>Almacén de conocimiento en Azure Cognitive Search
 
@@ -138,8 +138,8 @@ Una vez que el enriquecimiento existe en el almacenamiento, puede usarse cualqui
 
 La versión de la API REST `2020-06-30` proporciona el almacén de conocimiento mediante definiciones adicionales en conjuntos de aptitudes. Además de la referencia, consulte [Creación de un almacén de conocimiento mediante Postman](knowledge-store-create-rest.md) para más información sobre cómo llamar a las API.
 
-+ [Creación de un conjunto de aptitudes (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/create-skillset)
-+ [Actualización de un conjunto de aptitudes (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/update-skillset)
++ [Creación de un conjunto de aptitudes (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Actualización de un conjunto de aptitudes (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/update-skillset)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

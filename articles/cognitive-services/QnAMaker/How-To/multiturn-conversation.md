@@ -3,12 +3,12 @@ title: 'Conversaciones de varios turnos: QnA Maker'
 description: Use solicitudes y contexto para administrar los múltiples turnos del bot, lo que se conoce como multiturno, de una pregunta a otra. Multiturno es la capacidad de mantener una conversación fluida en la que el contexto de la pregunta anterior influye en la siguiente pregunta y en su respuesta.
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 8ef244e1b6baf480189bb90ea5ff53138a6f377a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 93bc6201cb627dc27071caf7beded5778b06ccb6
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261472"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229353"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Uso de avisos de seguimiento para crear múltiples turnos de una conversación
 
@@ -367,7 +367,7 @@ QnA Maker admite el control de versiones al incluir pasos de conversación de va
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información acerca de las conversaciones contextuales de este [ejemplo de diálogo](https://aka.ms/qnamakermultiturnsample) o más información acerca del [diseño de bots conceptuales para conversaciones multiturno](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
+Más información acerca de las conversaciones contextuales de este [ejemplo de diálogo](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj) o más información acerca del [diseño de bots conceptuales para conversaciones multiturno](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
 
 > [!div class="nextstepaction"]
 > [Migración de una base de conocimiento](../Tutorials/migrate-knowledge-base.md)

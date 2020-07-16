@@ -8,12 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: e55dfc692bdd625de8873f6e61c9969ed7fbf2df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27fb165c36c17cee83cd9f90eba3bdcb9e32d517
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466177"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206899"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Creación de un punto de conexión privado para una conexión segura a Azure Cognitive Search
 
@@ -86,11 +86,11 @@ En esta sección, creará un nuevo servicio Azure Cognitive Search con un punto 
     | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.|
     | Location | Seleccione **Oeste de EE. UU.**|
-    | Nombre | Escriba  *myPrivateEndpoint*.  |
+    | Nombre | Escriba *myPrivateEndpoint*.  |
     | Recurso secundario de destino | Deje el valor predeterminado **searchService**. |
     | **REDES** |  |
-    | Virtual network  | Seleccione *MyVirtualNetwork* en el grupo de recursos *myResourceGroup*. |
-    | Subnet | Seleccione  *mySubnet*. |
+    | Virtual network  | Seleccione *MyVirtualNetwork* en el grupo de recursos *myResourceGroup*. |
+    | Subnet | Seleccione *mySubnet*. |
     | **INTEGRACIÓN DE DNS PRIVADO** |  |
     | Integración con una zona DNS privada  | Deje el valor predeterminado **Sí**. |
     | Zona DNS privada  | Deje el valor predeterminado ** (New) privatelink.blob.core.windows.net**. |
@@ -189,7 +189,7 @@ En esta sección, comprobará el acceso de la red privada al servicio de búsque
 
 Cuando el punto de conexión del servicio de búsqueda es privado, se deshabilitan algunas características del portal. Podrá ver y administrar la configuración del nivel de servicio, pero, por motivos de seguridad, se ha restringido el acceso del portal a los datos del índice y de los distintos componentes de este servicio, como el índice, el indexador y las definiciones del conjunto de aptitudes.
 
-1. En el Escritorio remoto de  *myVm*, abra PowerShell.
+1. En el Escritorio remoto de *myVm*, abra PowerShell.
 
 1. Escriba "nslookup [nombre del servicio de búsqueda].search.windows.net".
 
@@ -207,7 +207,7 @@ Cuando el punto de conexión del servicio de búsqueda es privado, se deshabilit
 
 1. La finalización del inicio rápido de la máquina virtual es su confirmación de que el servicio es totalmente operativo.
 
-1. Cierre la conexión de Escritorio remoto con  *myVm*. 
+1. Cierre la conexión de Escritorio remoto a *myVM*. 
 
 1. Para comprobar que su servicio no es accesible en un punto de conexión público, abra Postman en su estación de trabajo local e intente realizar las primeras tareas del inicio rápido. Si recibe un error que indica que el servidor remoto no existe, habrá configurado correctamente un punto de conexión privado para su servicio de búsqueda.
 

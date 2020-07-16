@@ -5,19 +5,19 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 2b7a9c44a84e3ce15eaec22c8f57bb48f79dae05
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 751af36c630d1b0faa0c07bdd3a8b7519bd328c9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75464641"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86241937"
 ---
 # <a name="report-and-check-service-health"></a>Notificación y comprobación del estado del servicio
 Cuando los servicios se encuentran con problemas, su capacidad para responder y corregir cualquier incidente e interrupción depende de la capacidad de detectar los problemas rápidamente. Si informa de problemas y errores en el administrador de estado de Azure Service Fabric desde el código de servicio, puede usar las herramientas estándar de seguimiento de estado que proporciona Service Fabric para comprobar el estado de mantenimiento.
 
 Hay tres maneras de informar sobre el estado del servicio:
 
-* Mediante los objetos [Partition](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition) o [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext).  
+* Mediante los objetos [Partition](/dotnet/api/system.fabric.istatefulservicepartition) o [CodePackageActivationContext](/dotnet/api/system.fabric.codepackageactivationcontext).  
   Puede usar los objetos `Partition` y `CodePackageActivationContext` para informar sobre el estado de elementos que forman parte del contexto actual. Por ejemplo, el código que se ejecuta como parte de una réplica solo puede informar sobre el estado de esa réplica, la partición a la que pertenece y la aplicación de la que forma parte.
 * Mediante `FabricClient`.   
   Puede usar `FabricClient` para informar sobre el estado del código de servicio si el clúster no es [seguro](service-fabric-cluster-security.md) o si el servicio se ejecuta con privilegios de administrador. La mayoría de los escenarios reales no usan clústeres no seguros ni proporcionan privilegios de administrador. Con `FabricClient`, puede notificar sobre el estado de cualquier entidad que forme parte del clúster. Sin embargo, lo ideal es que el código de servicio solo envíe informes relacionados con su propio estado.
@@ -141,6 +141,5 @@ activationContext.ReportApplicationHealth(healthInformation);
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Profundización en el estado de Service Fabric](service-fabric-health-introduction.md)
-* [API de REST para informar el estado del servicio](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service)
-* [API de REST para informar el estado de la aplicación](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-an-application)
-
+* [API de REST para informar el estado del servicio](/rest/api/servicefabric/report-the-health-of-a-service)
+* [API de REST para informar el estado de la aplicación](/rest/api/servicefabric/report-the-health-of-an-application)
