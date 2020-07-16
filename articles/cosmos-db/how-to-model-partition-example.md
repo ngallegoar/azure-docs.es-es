@@ -215,7 +215,7 @@ Al igual que **[C3]** , creamos el elemento correspondiente en el contenedor `po
 
 Al igual que **[Q4]** , se consulta los "Me gusta" para la publicación y, después, se agregan sus nombres de usuario.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q5.png" alt-text="Recuperación de todos los "Me gusta" de una publicación y agregación de sus datos adicionales" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q5.png" alt-text="Recuperación de todos los Me gusta de una publicación y agregación de sus datos adicionales" border="false":::
 
 | **Latency** | **Carga de unidad de solicitud** | **Rendimiento** |
 | --- | --- | --- |
@@ -396,7 +396,7 @@ Aquí podemos volver a compartir solicitudes adicionales que han capturado los e
 
 Exactamente la misma cuando se enumeran los "Me gusta".
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q5.png" alt-text="Recuperación de los "Me gusta" de una publicación" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q5.png" alt-text="Recuperación de los Me gusta de una publicación" border="false":::
 
 | **Latency** | **Carga de unidad de solicitud** | **Rendimiento** |
 | --- | --- | --- |
