@@ -3,12 +3,12 @@ title: Información general de Service Fabric y contenedores
 description: Información general sobre Service Fabric y el uso de contenedores para implementar aplicaciones de microservicios. Este artículo le proporciona información general de cómo se pueden utilizar los contenedores y las funcionalidades disponibles en Service Fabric.
 ms.topic: conceptual
 ms.date: 8/8/2018
-ms.openlocfilehash: 884cefa3d6a60f55269afac73c40b9f6b21518f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c92910a92c8fa3061a1a0d53611734cf681484f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75458211"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259235"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric y contenedores
 
@@ -65,7 +65,7 @@ La ilustración siguiente muestra los diferentes tipos de niveles de aislamiento
 
 Ejemplos típicos de buena elección de contenedor:
 
-* **Migración mediante lift-and-shift de IIS**: puede colocar una aplicación existente de [ASP.NET MVC](https://www.asp.net/mvc) en un contenedor en lugar de migrarla a ASP.NET Core. Estas aplicaciones de ASP.NET MVC dependen de Internet Information Services (IIS). Puede empaquetarlas en imágenes de contenedor a partir de la imagen de IIS creada previamente e implementarlas con Service Fabric. Consulte [Imágenes de contenedores en Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) para obtener información sobre los contenedores de Windows.
+* **Migración mediante lift-and-shift de IIS**: puede colocar una aplicación existente de [ASP.NET MVC](https://www.asp.net/mvc) en un contenedor en lugar de migrarla a ASP.NET Core. Estas aplicaciones de ASP.NET MVC dependen de Internet Information Services (IIS). Puede empaquetarlas en imágenes de contenedor a partir de la imagen de IIS creada previamente e implementarlas con Service Fabric. Consulte [Imágenes de contenedores en Windows Server](/virtualization/windowscontainers/quick-start/quick-start-windows-server) para obtener información sobre los contenedores de Windows.
 
 * **Mezcla de los contenedores y los microservicios de Service Fabric**: Use una imagen de contenedor existente para parte de la aplicación. Por ejemplo, podría usar el [contenedor NGINX](https://hub.docker.com/_/nginx/) para el front-end web de su aplicación y los servicios con estado para la computación de back-end más intensa.
 
@@ -90,7 +90,7 @@ Service Fabric ofrece varias funcionalidades de contenedor que le ayudarán a cr
 * La capacidad de configurar credenciales de seguridad en el contenedor.
 * Selección de diferentes modos de red para contenedores.
 
-Para obtener una introducción completa sobre la compatibilidad de contenedores en Azure para, por ejemplo, crear un clúster de Kubernetes con Azure Kubernetes Service, crear un registro privado de Docker en Azure Container Registry, etc, consulte [Azure for Containers](https://docs.microsoft.com/azure/containers/).
+Para obtener una introducción completa sobre la compatibilidad de contenedores en Azure para, por ejemplo, crear un clúster de Kubernetes con Azure Kubernetes Service, crear un registro privado de Docker en Azure Container Registry, etc, consulte [Azure for Containers](../containers/index.yml).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -98,6 +98,6 @@ En este artículo, ha aprendido sobre la compatibilidad que ofrece Service Fabri
 
 [Cree la primera aplicación de contenedor de Service Fabric en Linux](service-fabric-get-started-containers-linux.md)  
 [Cree la primera aplicación de contenedor en Service Fabric en Windows](service-fabric-get-started-containers.md)  
-[Más información acerca de los contenedores de Windows](https://docs.microsoft.com/virtualization/windowscontainers/about/)
+[Más información acerca de los contenedores de Windows](/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png

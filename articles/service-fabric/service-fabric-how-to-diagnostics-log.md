@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: srrengar
-ms.openlocfilehash: 8c4721584e74bd7f7111c516f2d16bd190392bb5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: caa6d4fc27373e524f4c492635cffbf8b735add8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75614373"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247224"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Adición del registro a la aplicación de Service Fabric
 
@@ -96,7 +96,7 @@ El uso de instrumentación híbrida (estructurada y genérica) también puede fu
 
 El registro de ASP.NET Core ([paquete NuGet Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging)) es una plataforma de registro que proporciona una API de registro estándar para la aplicación. Es posible conectar el soporte técnico de otros back-ends de registro al registro de ASP.NET Core. Esto ofrece una amplia variedad de soporte técnico para el registro de la aplicación, sin tener que cambiar una gran cantidad de código.
 
-1. Agregue el paquete NuGet **Microsoft.Extensions.Logging** al proyecto que quiera instrumentar. Asimismo, agregue los paquetes de proveedor. Consulte el artículo sobre el [registro de ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging) para más información.
+1. Agregue el paquete NuGet **Microsoft.Extensions.Logging** al proyecto que quiera instrumentar. Asimismo, agregue los paquetes de proveedor. Consulte el artículo sobre el [registro de ASP.NET Core](/aspnet/core/fundamentals/logging) para más información.
 2. Agregue una directiva **using** para **Microsoft.Extensions.Logging** al archivo de servicio.
 3. Defina una variable privada dentro de la clase de servicio.
 
@@ -167,13 +167,3 @@ Algunos proveedores de terceros usan el enfoque descrito en la sección anterior
 
 - Obtenga más información acerca de la [supervisión de aplicaciones en Service Fabric](service-fabric-diagnostics-event-generation-app.md).
 - Obtenga información acerca del registro con [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) y [Microsoft Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md).
-
-
-
-
-
-
-
-
-
-

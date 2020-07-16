@@ -3,12 +3,12 @@ title: Implementación de un ejecutable existente en Azure Service Fabric
 description: Aprenda a empaquetar una aplicación existente como ejecutable invitado para implementarla en un clúster de Service Fabric.
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: c6c6bc0369593c177b74261da1fd8c15dd73fcb3
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 72fde75e16341164106bb952d0bb66b83be744e1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520483"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259268"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Empaquetado e implementación de un ejecutable existente en Service Fabric
 
@@ -76,7 +76,7 @@ El proceso de empaquetado manual de un ejecutable invitado se basa en los siguie
 
 ### <a name="create-the-package-directory-structure"></a>Crear la estructura de directorios del paquete
 
-Puede empezar creando la estructura de directorios del modo descrito en [Empaquetado de una aplicación de Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps).
+Puede empezar creando la estructura de directorios del modo descrito en [Empaquetado de una aplicación de Azure Service Fabric](./service-fabric-package-apps.md).
 
 ### <a name="add-the-applications-code-and-configuration-files"></a>Agregar archivos de código y la configuración de la aplicación
 

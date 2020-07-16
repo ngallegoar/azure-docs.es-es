@@ -4,12 +4,12 @@ description: Obtenga información sobre la administración de certificados en un
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: 6be9cbe77ef5e64659e56447d0a5b6be30b05272
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb5d19e1cceacfeabc4bc670de98e56d3fbc2596
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324749"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246714"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Administración de certificados en clústeres de Service Fabric
 
@@ -76,8 +76,8 @@ Estos pasos se ilustran a continuación; tenga en cuenta las diferencias en el a
 ![Aprovisionamiento de certificados declarados por nombre común del firmante][Image2]
 
 ### <a name="certificate-enrollment"></a>Inscripción de certificados
-Este tema se trata con más detalle en la [documentación](../key-vault/create-certificate.md) de Key Vault; aquí se incluye un resumen para mantener la continuidad y como referencia más sencilla. Continuando con Azure como contexto y usando Azure Key Vault como servicio de administración de secretos, un solicitante de certificados autorizado debe tener al menos permisos de administración de certificados en el almacén, concedido por el propietario del almacén; a continuación, el solicitante se inscribiría en un certificado de la manera siguiente:
-    - Crea una directiva de certificado en Azure Key Vault (AKV), que especifica el dominio o firmante del certificado, el emisor deseado, el tipo de clave y su longitud, el uso previsto de claves, etc.; para obtener más información, consulte [Certificados en Azure Key Vault](../key-vault/certificate-scenarios.md). 
+Este tema se trata con más detalle en la [documentación](../key-vault/certificates/create-certificate.md) de Key Vault; aquí se incluye un resumen para mantener la continuidad y como referencia más sencilla. Continuando con Azure como contexto y usando Azure Key Vault como servicio de administración de secretos, un solicitante de certificados autorizado debe tener al menos permisos de administración de certificados en el almacén, concedido por el propietario del almacén; a continuación, el solicitante se inscribiría en un certificado de la manera siguiente:
+    - Crea una directiva de certificado en Azure Key Vault (AKV), que especifica el dominio o firmante del certificado, el emisor deseado, el tipo de clave y su longitud, el uso previsto de claves, etc.; para obtener más información, consulte [Certificados en Azure Key Vault](../key-vault/certificates/certificate-scenarios.md). 
     - Crea un certificado en el mismo almacén con la directiva especificada anteriormente; esto, a su vez, genera un par de claves como objetos del almacén, una solicitud de firma de certificado firmada con la clave privada, que luego se reenvía al emisor designado para su firma.
     - Una vez que el emisor (la entidad de certificación) responde con el certificado firmado, el resultado se combina en el almacén y el certificado está disponible para las operaciones siguientes:
       - en {UriDelAlmacén}/certificates/{nombre}: el certificado, incluida la clave pública y los metadatos
@@ -210,7 +210,7 @@ Como se mencionó anteriormente, el servicio Proveedor de recursos Microsoft.Com
 
 Todos los extractos subsiguientes deben implementarse concomitantemente: se enumeran de forma individual para su análisis y explicaciones detallados.
 
-En primer lugar, defina una identidad asignada por el usuario (los valores predeterminados se incluyen como ejemplos). Consulte la [documentación oficial](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm#create-a-user-assigned-managed-identity) para obtener información actualizada:
+En primer lugar, defina una identidad asignada por el usuario (los valores predeterminados se incluyen como ejemplos). Consulte la [documentación oficial](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity) para obtener información actualizada:
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -241,7 +241,7 @@ En primer lugar, defina una identidad asignada por el usuario (los valores prede
   ]}
 ```
 
-A continuación, conceda a esta identidad acceso a los secretos del almacén. Consulte la [documentación oficial](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy) para obtener información actual:
+A continuación, conceda a esta identidad acceso a los secretos del almacén. Consulte la [documentación oficial](/rest/api/keyvault/vaults/updateaccesspolicy) para obtener información actual:
 ```json
   "resources":
   [{
@@ -266,7 +266,7 @@ A continuación, conceda a esta identidad acceso a los secretos del almacén. Co
 En el siguiente paso, haremos lo siguiente:
   - Asignar al conjunto de escalado de máquinas virtuales la identidad asignada por el usuario.
   - Declarar la dependencia del conjunto de escalado de máquinas virtuales en la creación de la identidad administrada y en el resultado de concederle acceso al almacén.
-  - Declarar la extensión KeyVault VM, y exigir que recupere los certificados observados en el inicio ([documentación oficial](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows)).
+  - Declarar la extensión KeyVault VM, y exigir que recupere los certificados observados en el inicio ([documentación oficial](../virtual-machines/extensions/key-vault-windows.md)).
   - Actualizar la definición de la extensión de VM de Service Fabric para que dependa de la extensión KVVM, y para convertir el certificado del clúster al nombre común (vamos a realizar estos cambios en un solo paso, ya que se encuentran bajo el ámbito del mismo recurso).
 
 ```json
@@ -420,12 +420,12 @@ La extensión KVVM, como agente de aprovisionamiento, se ejecuta de forma contin
 #### <a name="certificate-linking-explained"></a>Explicación de la vinculación de certificados
 Es posible que haya observado la marca "linkOnRenewal" de la extensión KVVM y el hecho de que se ha establecido en false. Aquí abordaremos en profundidad el comportamiento que controla esta marca y sus consecuencias en el funcionamiento de un clúster. Tenga en cuenta que este comportamiento es específico de Windows.
 
-Según su [definición](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows#extension-schema):
+Según su [definición](../virtual-machines/extensions/key-vault-windows.md#extension-schema):
 ```json
 "linkOnRenewal": <Only Windows. This feature enables auto-rotation of SSL certificates, without necessitating a re-deployment or binding.  e.g.: false>,
 ```
 
-Los certificados usados para establecer una conexión TLS suelen [adquirirse como controlador](https://docs.microsoft.com/windows/win32/api/sspi/nf-sspi-acquirecredentialshandlea) a través del proveedor de compatibilidad para seguridad Schannel, es decir, el cliente no accede directamente a la clave privada del certificado mismo. Schannel admite el redireccionamiento (vinculación) de credenciales en forma de una extensión del certificado ([CERT_RENEWAL_PROP_ID](https://docs.microsoft.com/windows/win32/api/wincrypt/nf-wincrypt-certsetcertificatecontextproperty#cert_renewal_prop_id)): si se establece esta propiedad, su valor representa la huella digital del certificado de "renovación" y, por tanto, el Schannel intentará cargar el certificado vinculado. De hecho, atravesará esta lista vinculada (y, esperemos, acíclica) hasta que acabe con el certificado "final", uno sin una marca de renovación. Esta característica, si se usa con prudencia, es una excelente mitigación de la pérdida de disponibilidad causada por certificados expirados (por ejemplo). En otros casos, puede ser la causa de interrupciones difíciles de diagnosticar y mitigar. Schannel ejecuta el recorrido de los certificados en sus propiedades de renovación de manera incondicional, independientemente del firmante, los emisores o cualquier otro atributo específico que participe en la validación del certificado resultante por parte del cliente. De hecho, es posible que el certificado resultante no tenga ninguna clave privada asociada o que la clave no se haya incluido en la ACL para su consumidor potencial. 
+Los certificados usados para establecer una conexión TLS suelen [adquirirse como controlador](/windows/win32/api/sspi/nf-sspi-acquirecredentialshandlea) a través del proveedor de compatibilidad para seguridad Schannel, es decir, el cliente no accede directamente a la clave privada del certificado mismo. Schannel admite el redireccionamiento (vinculación) de credenciales en forma de una extensión del certificado ([CERT_RENEWAL_PROP_ID](/windows/win32/api/wincrypt/nf-wincrypt-certsetcertificatecontextproperty#cert_renewal_prop_id)): si se establece esta propiedad, su valor representa la huella digital del certificado de "renovación" y, por tanto, el Schannel intentará cargar el certificado vinculado. De hecho, atravesará esta lista vinculada (y, esperemos, acíclica) hasta que acabe con el certificado "final", uno sin una marca de renovación. Esta característica, si se usa con prudencia, es una excelente mitigación de la pérdida de disponibilidad causada por certificados expirados (por ejemplo). En otros casos, puede ser la causa de interrupciones difíciles de diagnosticar y mitigar. Schannel ejecuta el recorrido de los certificados en sus propiedades de renovación de manera incondicional, independientemente del firmante, los emisores o cualquier otro atributo específico que participe en la validación del certificado resultante por parte del cliente. De hecho, es posible que el certificado resultante no tenga ninguna clave privada asociada o que la clave no se haya incluido en la ACL para su consumidor potencial. 
  
 Si la vinculación está habilitada, la extensión KeyVault VM, después de recuperar un certificado observado del almacén, intentará encontrar los certificados existentes coincidentes para vincularlos a través de la propiedad de extensión de renovación. La coincidencia se basa (exclusivamente) en el nombre alternativo del firmante (SAN) y funciona como se muestra a continuación.
 Suponga que existen dos certificados, como se indica a continuación: A. CN = “Alice's accessories”, SAN = {“alice.universalexports.com”}, renewal = ‘’ B: CN = “Bob's bits”, SAN = {“bob.universalexports.com”, “bob.universalexports.net”}, renewal = ‘’
@@ -492,4 +492,3 @@ Para PKI internas de Microsoft, consulte la documentación interna sobre los pun
 
 [Image1]:./media/security-cluster-certificate-mgmt/certificate-journey-thumbprint.png
 [Image2]:./media/security-cluster-certificate-mgmt/certificate-journey-common-name.png
-

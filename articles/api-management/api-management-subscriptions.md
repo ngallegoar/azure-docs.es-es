@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 9144af131e1427d0b3226655c871921ac1d91665
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 137cbec270b40042503fc7687c9deb39b0df1aa4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70073422"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243297"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Suscripciones en Azure API Management
 
@@ -33,7 +33,7 @@ Para obtener una clave de suscripción para acceder a las API se necesita una su
 > API Management también admite otros mecanismos para proteger el acceso a las API, por ejemplo:
 > - [OAuth2.0](api-management-howto-protect-backend-with-aad.md)
 > - [Certificados de cliente](api-management-howto-mutual-certificates-for-clients.md)
-> - [Lista de direcciones IP permitidas](https://docs.microsoft.com/azure/api-management/api-management-access-restriction-policies#RestrictCallerIPs)
+> - [Lista de direcciones IP permitidas](./api-management-access-restriction-policies.md#RestrictCallerIPs)
 
 ## <a name="scope-of-subscriptions"></a>Ámbito de las suscripciones
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 70ae4a014768976c7dcf81ffadf1066027fa06ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 956934bd536d8eb5e692ed193cad1424929db24b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214288"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260764"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expansión de un grupo de hosts existente con nuevos hosts de sesión
 
@@ -130,7 +130,7 @@ Siga las instrucciones que se indican en [Ejecutar la plantilla de Azure Resourc
 
 Ahora que ha expandido el grupo de hosts existente, puede iniciar sesión en un cliente de Windows Virtual Desktop para realizar pruebas en él como parte de una sesión de usuario. Puede conectarse a una sesión con cualquiera de los siguientes clientes:
 
-- [Conexión con el cliente de Escritorio de Windows](../connect-windows-7-and-10.md)
+- [Conexión con el cliente de Escritorio de Windows](connect-windows-7-10-2019.md)
 - [Conexión con el cliente web](connect-web-2019.md)
 - [Conexión con el cliente de Android](connect-android-2019.md)
 - [Conexión con el cliente macOS](connect-macos-2019.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 27bb6abb7ae8eae46bc4dea3708270ecb4b731a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0182c3aa9095ad6f7bf3d8d86f115517e9efb020
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81260911"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249610"
 ---
 # <a name="api-management-transformation-policies"></a>Directivas de transformación de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -82,7 +82,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |parse-date|Cuando se establece en `false`, los valores de fecha simplemente se copian durante la transformación.|No|true|
 
 ### <a name="usage"></a>Uso
- Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+ Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** entrante, saliente y en caso de error
 
@@ -126,7 +126,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |consider-accept-header|El atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   true: especifica que se debe aplicar la conversión si se solicita JSON en el encabezado de aceptación (Accept) de la solicitud.<br />-   false: indica que se debe aplicar siempre la conversión.|No|true|
 
 ### <a name="usage"></a>Uso
- Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+ Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** entrante, saliente y en caso de error
 
@@ -161,7 +161,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |to|La cadena de sustitución. Especifique una cadena de reemplazo de longitud cero para quitar la cadena de búsqueda.|Sí|N/D|
 
 ### <a name="usage"></a>Uso
- Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+ Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error
 
@@ -192,7 +192,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |redirect-content-urls|Elemento raíz.|Sí|
 
 ### <a name="usage"></a>Uso
- Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+ Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** entrante y saliente
 
@@ -214,7 +214,7 @@ or
 ```
 
 > [!NOTE]
-> Las entidades de back-end pueden administrarse mediante [API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) y [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> Las entidades de back-end pueden administrarse mediante [API](/rest/api/apimanagement/2019-12-01/backend) y [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### <a name="example"></a>Ejemplo
 
@@ -269,7 +269,7 @@ En este ejemplo, la directiva enruta la solicitud a un back-end de Service Fabri
 |Nombre|Descripción|Obligatorio|Valor predeterminado|
 |----------|-----------------|--------------|-------------|
 |base-url|Nueva dirección URL base del servicio back-end.|`base-url` o `backend-id` deben estar presentes.|N/D|
-|backend-id|Identificador del back-end al que se va a enrutar. (Las entidades de back-end se administran mediante [API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) y [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement)).|`base-url` o `backend-id` deben estar presentes.|N/D|
+|backend-id|Identificador del back-end al que se va a enrutar. (Las entidades de back-end se administran mediante [API](/rest/api/apimanagement/2019-12-01/backend) y [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement)).|`base-url` o `backend-id` deben estar presentes.|N/D|
 |sf-partition-key|Solo se aplica cuando el back-end es un servicio de Service Fabric y se especifica con "backend-id". Se usa para resolver una partición específica desde el servicio de resolución de nombres.|No|N/D|
 |sf-replica-type|Solo se aplica cuando el back-end es un servicio de Service Fabric y se especifica con "backend-id". Controla si la solicitud debe ir a la réplica principal o secundaria de una partición. |No|N/D|
 |sf-resolve-condition|Solo se aplica cuando el back-end es un servicio de Service Fabric. Condición que identifica si la llamada al back-end de Service Fabric tiene que repetirse con la nueva resolución.|No|N/D|
@@ -277,7 +277,7 @@ En este ejemplo, la directiva enruta la solicitud a un back-end de Service Fabri
 |sf-listener-name|Solo se aplica cuando el back-end es un servicio de Service Fabric y se especifica con "backend-id". Service Fabric Reliable Services le permite crear varios agentes de escucha en un servicio. Este atributo se utiliza para seleccionar un agente de escucha específico cuando una instancia de Reliable Service de back-end tiene más de un agente de escucha. Si no se especifica este atributo, API Management intentará usar un agente de escucha sin nombre. Un agente de escucha sin nombre es típico de las instancias de Reliable Services que tienen un solo agente de escucha. |No|N/D|
 
 ### <a name="usage"></a>Uso
- Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+ Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** entrante y back-end
 
@@ -447,7 +447,7 @@ OriginalUrl.
 
 
 ### <a name="usage"></a>Uso
- Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+ Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** entrante, saliente y back-end
 
@@ -523,7 +523,7 @@ OriginalUrl.
 |name|Especifica el nombre del encabezado que se va a establecer.|Sí|N/D|
 
 ### <a name="usage"></a>Uso
- Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+ Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error
 
@@ -578,7 +578,7 @@ OriginalUrl.
 |name|Especifica el nombre del parámetro de consulta que se debe establecer.|Sí|N/D|
 
 ### <a name="usage"></a>Uso
- Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+ Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** entrante y back-end
 
@@ -656,7 +656,7 @@ OriginalUrl.
 |copy-unmatched-params|Especifica si los parámetros de consulta de la solicitud entrante no presentes en la plantilla de la dirección URL original se agregan en la dirección URL definida por la plantilla de reescritura|No|true|
 
 ### <a name="usage"></a>Uso
- Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+ Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound (entrada)
 
@@ -720,7 +720,7 @@ OriginalUrl.
 |xsl:stylesheet|Elemento raíz de la hoja de estilo. Todos los elementos y atributos definidos dentro de él cumplen la [especificación XSLT](https://www.w3.org/TR/xslt) estándar.|Sí|
 
 ### <a name="usage"></a>Uso
- Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+ Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** entrante y saliente
 
@@ -731,5 +731,5 @@ OriginalUrl.
 Para obtener más información, vea los temas siguientes:
 
 + [Directivas de Azure API Management](api-management-howto-policies.md)
-+ En la [Referencia de directivas](api-management-policy-reference.md) se muestra una lista completa de declaraciones de directivas y su configuración
++ En la [Referencia de directivas](./api-management-policies.md) se muestra una lista completa de declaraciones de directivas y su configuración
 + [Ejemplos de directivas](policy-samples.md)

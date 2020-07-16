@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/14/2019
 ms.author: apimpm
-ms.openlocfilehash: 1d6773b4daac256234c33bf50fb3736d585ac505
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e995d008b441e122f9e93e5f7c29f0bb9bf9c53
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75475298"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254697"
 ---
 # <a name="use-azure-api-management-with-microservices-deployed-in-azure-kubernetes-service"></a>Uso de Azure API Management con microservicios implementados en Azure Kubernetes Service
 
-Los microservicios son idóneos para crear interfaces de programación de aplicaciones. Con [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS), puede implementar y operar rápidamente una [arquitectura basada en microservicios](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/microservices) en la nube. Después, puede aprovechar [Azure API Management](https://aka.ms/apimrocks) (API Management) para publicar sus microservicios como interfaces de programación de aplicaciones para consumo interno y externo. En este artículo se describen las opciones de implementación de API Management con AKS. Se presupone conocimientos básicos de las redes de Kubernetes, API Management y Azure. 
+Los microservicios son idóneos para crear interfaces de programación de aplicaciones. Con [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS), puede implementar y operar rápidamente una [arquitectura basada en microservicios](/azure/architecture/guide/architecture-styles/microservices) en la nube. Después, puede aprovechar [Azure API Management](https://aka.ms/apimrocks) (API Management) para publicar sus microservicios como interfaces de programación de aplicaciones para consumo interno y externo. En este artículo se describen las opciones de implementación de API Management con AKS. Se presupone conocimientos básicos de las redes de Kubernetes, API Management y Azure. 
 
 ## <a name="background"></a>Información previa
 
 Al publicar microservicios como interfaces de programación de aplicaciones para su consumo, puede ser difícil administrar la comunicación entre los microservicios y los clientes que los consumen. Hay multitud de cuestiones transversales tales como la autenticación, la autorización, la limitación, el almacenamiento en caché, la transformación y la supervisión. Estos problemas son válidos independientemente de si los microservicios se exponen a clientes internos o externos. 
 
-El patrón de [puerta de enlace de API](https://docs.microsoft.com/dotnet/architecture/microservices/architect-microservice-container-applications/direct-client-to-microservice-communication-versus-the-api-gateway-pattern) aborda estos problemas. Una puerta de enlace de API actúa como puerta de entrada de los microservicios, desacopla los clientes de los microservicios, agrega una capa de seguridad adicional y reduce la complejidad de los microservicios al eliminar la carga que supone el control de las cuestiones transversales. 
+El patrón de [puerta de enlace de API](/dotnet/architecture/microservices/architect-microservice-container-applications/direct-client-to-microservice-communication-versus-the-api-gateway-pattern) aborda estos problemas. Una puerta de enlace de API actúa como puerta de entrada de los microservicios, desacopla los clientes de los microservicios, agrega una capa de seguridad adicional y reduce la complejidad de los microservicios al eliminar la carga que supone el control de las cuestiones transversales. 
 
 [Azure API Management](https://aka.ms/apimrocks) es una solución llave en mano que permite resolver las necesidades de la puerta de enlace de API. Puede crear rápidamente una puerta de enlace coherente y moderna para los microservicios y publicarlos como interfaces de programación de aplicaciones. Como solución de administración de API de ciclo de vida completo, también proporciona funcionalidades adicionales como, por ejemplo, un portal para desarrolladores de autoservicio para la detección de API, la administración del ciclo de vida de API y el análisis de API.
 
@@ -53,7 +53,7 @@ Aunque un clúster de AKS se implementa siempre en una red virtual, no hay que i
 
 ### <a name="option-1-expose-services-publicly"></a>Opción 1: Exposición pública de los servicios
 
-Los servicios de un clúster de AKS se pueden exponer públicamente con [tipos de servicio](https://docs.microsoft.com/azure/aks/concepts-network) de NodePort, LoadBalancer o ExternalName. En este caso, los servicios son accesibles directamente desde Internet público. Después de implementar API Management delante del clúster, hay que asegurarse de que todo el tráfico de entrada pase por API Management aplicando la autenticación en los microservicios. Por ejemplo, API Management puede incluir un token de acceso en cada solicitud realizada al clúster. Cada microservicio es responsable de validar el token antes de procesar la solicitud. 
+Los servicios de un clúster de AKS se pueden exponer públicamente con [tipos de servicio](../aks/concepts-network.md) de NodePort, LoadBalancer o ExternalName. En este caso, los servicios son accesibles directamente desde Internet público. Después de implementar API Management delante del clúster, hay que asegurarse de que todo el tráfico de entrada pase por API Management aplicando la autenticación en los microservicios. Por ejemplo, API Management puede incluir un token de acceso en cada solicitud realizada al clúster. Cada microservicio es responsable de validar el token antes de procesar la solicitud. 
 
 
 Esta podría ser la opción más sencilla de implementar API Management delante de AKS, especialmente si ya tiene lógica de autenticación implementada en sus microservicios. 
@@ -73,7 +73,7 @@ Inconvenientes:
 
 Aunque la opción 1 podría ser más fácil, tiene notables inconvenientes como se ha mencionado anteriormente. Si una instancia de API Management no reside en la red virtual del clúster, la autenticación Mutual TLS (mTLS) es una manera robusta de garantizar que el tráfico sea seguro y de confianza en ambas direcciones entre una instancia de API Management y un clúster de AKS. 
 
-La autenticación Mutual TLS es [compatible de forma nativa](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates) con API Management y se puede habilitar en Kubernetes mediante la [instalación de un controlador de entrada](https://docs.microsoft.com/azure/aks/ingress-own-tls) (figura 3). Como resultado, la autenticación se realizará en el controlador de entrada, lo que simplifica los microservicios. Además, puede agregar las direcciones IP de API Management a la lista de permitidos por entrada para asegurarse de que solo API Management tiene acceso al clúster.  
+La autenticación Mutual TLS es [compatible de forma nativa](./api-management-howto-mutual-certificates.md) con API Management y se puede habilitar en Kubernetes mediante la [instalación de un controlador de entrada](../aks/ingress-own-tls.md) (figura 3). Como resultado, la autenticación se realizará en el controlador de entrada, lo que simplifica los microservicios. Además, puede agregar las direcciones IP de API Management a la lista de permitidos por entrada para asegurarse de que solo API Management tiene acceso al clúster.  
 
  
 ![Publicación a través de un controlador de entrada](./media/api-management-aks/ingress-controller.png)
@@ -97,7 +97,7 @@ Para obtener una clave de suscripción para acceder a las API se necesita una su
 
 En algunos casos, es posible que a los clientes con restricciones normativas o estrictos requisitos de seguridad les parezca que las opciones 1 y 2 no son soluciones viables debido a los puntos finales expuestos públicamente. En otros, el clúster de AKS y las aplicaciones que consumen los microservicios pueden residir en la misma red virtual; por lo tanto, no hay ninguna razón para exponer el clúster de forma pública, ya que todo el tráfico de la API permanecerá dentro de la red virtual. En estos casos, puede implementar API Management en la red virtual del clúster. [Nivel Premium de API Management](https://aka.ms/apimpricing) admite la implementación de red virtual. 
 
-Hay dos modos de [implementación de API Management en una red virtual](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet): externo e interno. 
+Hay dos modos de [implementación de API Management en una red virtual](./api-management-using-with-vnet.md): externo e interno. 
 
 Si los consumidores de la API no residen en la red virtual del clúster, ha de usarse el modo externo (figura 4). En este modo, la puerta de enlace de API Management se inserta en la red virtual del clúster, pero es accesible desde Internet público a través de un equilibrador de carga externo. Ayuda a ocultar por completo el clúster mientras sigue permitiendo a los clientes externos consumir los microservicios. Además, puede usar funcionalidades de red de Azure tales como los grupos de seguridad de red (NSG), para restringir el tráfico.
 
@@ -120,10 +120,5 @@ Inconvenientes:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información sobre [Conceptos de red para aplicaciones en AKS](https://docs.microsoft.com/azure/aks/concepts-network)
-* Más información sobre el [uso de API Management con redes virtuales](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet)
-
-
-
-
-
+* Más información sobre [Conceptos de red para aplicaciones en AKS](../aks/concepts-network.md)
+* Más información sobre el [uso de API Management con redes virtuales](./api-management-using-with-vnet.md)

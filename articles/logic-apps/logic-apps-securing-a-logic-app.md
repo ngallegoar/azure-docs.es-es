@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 07/03/2020
-ms.openlocfilehash: 769d82cae6b5f9039587018ba5a7cde407f74e4c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 902c48f2edcca6eb25958a9f22d6760faf1fcbc2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964250"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248720"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger el acceso y los datos en Azure Logic Apps
 
@@ -110,7 +110,7 @@ En el cuerpo, incluya la propiedad `KeyType` como `Primary` o `Secondary`. Esta 
 
 ### <a name="enable-azure-active-directory-oauth"></a>Habilitación de Azure Active Directory OAuth
 
-Si la aplicación lógica se inicia con un [desencadenador de solicitud](../connectors/connectors-native-reqres.md), puede habilitar [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) creando una directiva de autorización para las llamadas entrantes al desencadenador de solicitud. Antes de habilitar esta autenticación, tenga en cuenta los siguientes aspectos:
+Si la aplicación lógica se inicia con un [desencadenador de solicitud](../connectors/connectors-native-reqres.md), puede habilitar [Azure Active Directory Open Authentication](/azure/active-directory/develop/) (Azure AD OAuth) creando una directiva de autorización para las llamadas entrantes al desencadenador de solicitud. Antes de habilitar esta autenticación, tenga en cuenta los siguientes aspectos:
 
 * Una llamada entrante a la aplicación lógica solo puede usar un esquema de autorización, ya sea Azure AD OAuth o [firmas de acceso compartido (SAS)](#sas). Solo se admiten esquemas de autorización de [tipo portador](../active-directory/develop/active-directory-v2-protocols.md#tokens) para los tokens de OAuth, que solo se admiten para el desencadenador de solicitud.
 
@@ -309,7 +309,7 @@ Puede limitar el acceso a las entradas y salidas del historial de ejecución de 
 
 1. En **Configuración del control de acceso** > **Direcciones IP entrantes permitidas**, seleccione **Intervalos IP específicos**.
 
-1. En **Intervalos IP para contenido**, especifique los intervalos de direcciones IP que pueden acceder a contenido desde las entradas y salidas. 
+1. En **Intervalos IP para contenido**, especifique los intervalos de direcciones IP que pueden acceder a contenido desde las entradas y salidas.
 
    Un intervalo IP válido usa estos formatos: *x.x.x.x/x* o *x.x.x.x-x.x.x.x*
 
@@ -462,7 +462,8 @@ Si implementa en entornos diferentes, considere la posibilidad de parametrizar l
 Por ejemplo, si autentica acciones HTTP con [Azure Active Directory Open Authentication](#azure-active-directory-oauth-authentication) (Azure AD OAuth), puede definir y ocultar los parámetros que aceptan el identificador de cliente y el secreto de cliente utilizados para la autenticación. Para definir estos parámetros para la aplicación lógica, use la sección `parameters` dentro de la definición de flujo de trabajo de la aplicación lógica y Resource Manager para la implementación. Para proteger los valores de parámetros que no quiera mostrar al editar la aplicación lógica o visualizar el historial de ejecución, defina los parámetros con el tipo `securestring` o `secureobject` y use la codificación necesaria. Los parámetros de este tipo no se devuelven con la definición del recurso y no son accesibles al visualizar el recurso después de la implementación. Para tener acceso a estos valores de parámetro durante el tiempo de ejecución, use la expresión `@parameters('<parameter-name>')` dentro de la definición del flujo de trabajo. Esta expresión solo se evalúa en tiempo de ejecución y se describe con el [lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
-> Si usa un parámetro en el encabezado o el cuerpo de una solicitud, ese parámetro se puede ver al visualizar el historial de ejecución de la aplicación lógica y la solicitud HTTP saliente. Asegúrese de definir también las directivas de acceso al contenido según corresponda. También puede usar la [ofuscación](#obfuscate) para ocultar entradas y salidas en el historial de ejecución. Los encabezados de autorización nunca son visibles a través de entradas o salidas. Por lo tanto, si aquí se usa un secreto, no se podrá recuperar.
+> Si usa un parámetro en el encabezado o el cuerpo de una solicitud, ese parámetro se puede ver al visualizar el historial de ejecución de la aplicación lógica y la solicitud HTTP saliente. Asegúrese de definir también las directivas de acceso al contenido según corresponda.
+> También puede usar la [ofuscación](#obfuscate) para ocultar entradas y salidas en el historial de ejecución. Los encabezados de autorización nunca son visibles a través de entradas o salidas. Por lo tanto, si aquí se usa un secreto, no se podrá recuperar.
 
 Para más información, consulte las secciones siguientes en este tema:
 
@@ -680,7 +681,7 @@ Se pueden proteger los puntos de conexión que reciben llamadas o solicitudes de
   * [Autenticación de Active Directory OAuth](#azure-active-directory-oauth-authentication)
 
   * [Autenticación de identidad administrada](#managed-identity-authentication)
-  
+
   Para obtener más información, consulte [Incorporación de autenticación a las llamadas salientes](#add-authentication-outbound) más adelante en este tema.
 
 * Restricción del acceso desde direcciones IP de aplicación lógica.
@@ -727,7 +728,8 @@ Se pueden proteger los puntos de conexión que reciben llamadas o solicitudes de
 Los extremos HTTP y HTTPS admiten varios tipos de autenticación. En algunos desencadenadores y acciones que se usan para enviar llamadas o solicitudes salientes a estos puntos de conexión, se puede especificar un tipo de autenticación. En el Diseñador de aplicación lógica, los desencadenadores y las acciones que admiten la elección de un tipo de autenticación tienen una propiedad **Autenticación**. Sin embargo, es posible que esta propiedad no aparezca siempre de forma predeterminada. En estos casos, en el desencadenador o la acción, abra la lista **Agregar nuevo parámetro** y seleccione **Autenticación**.
 
 > [!IMPORTANT]
-> Para proteger la información confidencial que controla la aplicación lógica, use los parámetros seguros y codifique los datos según sea necesario. Para obtener más información acerca de cómo usar y proteger los parámetros, consulte [Acceso a las entradas de parámetro](#secure-action-parameters).
+> Para proteger la información confidencial que controla la aplicación lógica, use los parámetros seguros y codifique los datos según sea necesario.
+> Para obtener más información acerca de cómo usar y proteger los parámetros, consulte [Acceso a las entradas de parámetro](#secure-action-parameters).
 
 En esta tabla se identifican los tipos de autenticación que están disponibles en los desencadenadores y las acciones donde puede seleccionar un tipo de autenticación:
 
@@ -814,7 +816,7 @@ Para obtener más información acerca de cómo proteger los servicios mediante l
 
 ### <a name="azure-active-directory-open-authentication"></a>Azure Active Directory Open Authentication
 
-En los desencadenadores de solicitud, puede usar [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) para autenticar las llamadas entrantes después de [configurar directivas de autorización de Azure AD](#enable-oauth) en la aplicación lógica. En el caso del resto de desencadenadores y acciones que proporcionan el tipo de autenticación **Active Directory OAuth**, especifique estos valores de propiedad:
+En los desencadenadores de solicitud, puede usar [Azure Active Directory Open Authentication](/azure/active-directory/develop/) (Azure AD OAuth) para autenticar las llamadas entrantes después de [configurar directivas de autorización de Azure AD](#enable-oauth) en la aplicación lógica. En el caso del resto de desencadenadores y acciones que proporcionan el tipo de autenticación **Active Directory OAuth**, especifique estos valores de propiedad:
 
 | Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | Descripción |
 |---------------------|-----------------|----------|-------|-------------|

@@ -4,12 +4,12 @@ description: Obtenga información acerca de cómo depurar los contenedores de Wi
 ms.topic: article
 ms.date: 02/14/2019
 ms.author: mikhegn
-ms.openlocfilehash: 2a00a352d09562ffe46dc8e6e63a5d4963ac3a3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e6e7785278b182cebb21115a70f35ade52303c3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701156"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247258"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Procedimientos: Depurar contenedores de Windows en Azure Service Fabric mediante Visual Studio 2019
 
@@ -17,9 +17,9 @@ Con Visual Studio 2019, puede depurar aplicaciones .NET en contenedores como se
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* En Windows 10, siga este inicio rápido para [configurar Windows 10 para ejecutar contenedores de Windows](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10).
-* En Windows Server 2016, siga este inicio rápido para [configurar Windows 2016 para ejecutar contenedores de Windows](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server).
-* Configure el entorno de Service Fabric local con el procedimiento descrito en [Preparación del entorno de desarrollo en Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started).
+* En Windows 10, siga este inicio rápido para [configurar Windows 10 para ejecutar contenedores de Windows](/virtualization/windowscontainers/quick-start/quick-start-windows-10).
+* En Windows Server 2016, siga este inicio rápido para [configurar Windows 2016 para ejecutar contenedores de Windows](/virtualization/windowscontainers/quick-start/quick-start-windows-server).
+* Configure el entorno de Service Fabric local con el procedimiento descrito en [Preparación del entorno de desarrollo en Windows](./service-fabric-get-started.md).
 
 ## <a name="configure-your-developer-environment-to-debug-containers"></a>Configuración del entorno de desarrollo para depurar contenedores
 
@@ -38,7 +38,7 @@ Con Visual Studio 2019, puede depurar aplicaciones .NET en contenedores como se
       > Puede usar `-CreateOneNodeCluster` para configurar un clúster de un nodo. El valor predeterminado creará un clúster de cinco nodos local.
       >
 
-      Para más información sobre el servicio DNS en Service Fabric, consulte [Servicio DNS en Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice). Para aprender más sobre el uso del proxy inverso de Service Fabric en servicios que se ejecutan en un contenedor, consulte [Tratamiento especial del proxy inverso para servicios que se ejecutan en contenedores](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers).
+      Para más información sobre el servicio DNS en Service Fabric, consulte [Servicio DNS en Azure Service Fabric](./service-fabric-dnsservice.md). Para aprender más sobre el uso del proxy inverso de Service Fabric en servicios que se ejecutan en un contenedor, consulte [Tratamiento especial del proxy inverso para servicios que se ejecutan en contenedores](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers).
 
 ### <a name="known-limitations-when-debugging-containers-in-service-fabric"></a>Limitaciones conocidas al depurar contenedores en Service Fabric
 

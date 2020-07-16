@@ -5,12 +5,12 @@ author: PavanKunapareddyMSFT
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 1d3be958a0649ed3e80df2d63adbdf0b91831dbd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b86f68126825f146a50ed21edf2acbda2b5181cf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75639605"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245184"
 ---
 # <a name="reliable-services-lifecycle"></a>Ciclo de vida de Reliable Services
 > [!div class="op_single_selector"]
@@ -115,7 +115,7 @@ Los servicios que no administren correctamente la cancelación pueden experiment
 
 Como los servicios tienen estado, también es probable que utilicen [Colecciones confiables](service-fabric-reliable-services-reliable-collections.md). En Service Fabric, cuando un servicio principal se degrada de nivel, una de las primeras cosas que ocurren es que se revoca el acceso de escritura al estado subyacente. Esto genera un segundo conjunto de problemas que pueden afectar al ciclo de vida del servicio. Las colecciones devuelven excepciones en función del momento elegido y de si la réplica se está transfiriendo a otro lugar o cerrando. Es importante controlar estas excepciones correctamente. 
 
-Las excepciones producidas por Service Fabric son permanentes [(`FabricException`)](https://docs.microsoft.com/java/api/system.fabric.exception) o transitorias [(`FabricTransientException`)](https://docs.microsoft.com/java/api/system.fabric.exception.fabrictransientexception). Las excepciones permanentes deberían ser registras y lanzadas. Las excepciones transitorias se pueden volver a intentar en función de una lógica de reintento.
+Las excepciones producidas por Service Fabric son permanentes [(`FabricException`)](/java/api/system.fabric.exception) o transitorias [(`FabricTransientException`)](/java/api/system.fabric.exception.fabrictransientexception). Las excepciones permanentes deberían ser registras y lanzadas. Las excepciones transitorias se pueden volver a intentar en función de una lógica de reintento.
 
 Administrar las excepciones que proceden del uso de `ReliableCollections` junto con los eventos del ciclo de vida del servicio es una parte importante del proceso de comprobación y validación de un servicio de Reliable Services. Se recomienda que ejecute siempre el servicio bajo carga. También debe realizar las actualizaciones y las [pruebas de caos](service-fabric-controlled-chaos.md) antes de la implementación en producción. Estos pasos básicos ayudan a garantizar que el servicio está implementado correctamente y que puede administrar los eventos del ciclo de vida correctamente.
 
@@ -130,4 +130,3 @@ Administrar las excepciones que proceden del uso de `ReliableCollections` junto 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Guía de inicio rápido de Reliable Services](service-fabric-reliable-services-quick-start-java.md)
-

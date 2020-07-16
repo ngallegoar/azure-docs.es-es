@@ -4,12 +4,12 @@ description: Cree la primera aplicación contenedora en Windows en Azure Service
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.custom: tracking-python
-ms.openlocfilehash: d7076226b63fa3b45eaae82c2964997d3065ed88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0baad5d2596de04b629c4cf9eb86c51b37b8cdc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560660"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247411"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Cree la primera aplicación contenedora en Service Fabric en Windows
 
@@ -17,7 +17,7 @@ ms.locfileid: "84560660"
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Para ejecutar una aplicación que existe en un contenedor de Windows en un clúster de Service Fabric no hay que hacer ningún cambio en la aplicación. Este artículo le guía en la creación de una imagen de Docker que contiene una aplicación web [Flask](http://flask.pocoo.org/) de Python y su implementación en un clúster de Azure Service Fabric. También compartirá la aplicación en el contenedor mediante [Azure Container Registry](/azure/container-registry/). Este artículo supone que el usuario tiene un conocimiento básico de Docker. Para obtener información acerca de Docker, lea la [introducción a Docker](https://docs.docker.com/engine/understanding-docker/).
+Para ejecutar una aplicación que existe en un contenedor de Windows en un clúster de Service Fabric no hay que hacer ningún cambio en la aplicación. Este artículo le guía en la creación de una imagen de Docker que contiene una aplicación web [Flask](http://flask.pocoo.org/) de Python y su implementación en un clúster de Azure Service Fabric. También compartirá la aplicación en el contenedor mediante [Azure Container Registry](../container-registry/index.yml). Este artículo supone que el usuario tiene un conocimiento básico de Docker. Para obtener información acerca de Docker, lea la [introducción a Docker](https://docs.docker.com/engine/understanding-docker/).
 
 > [!NOTE]
 > Este artículo es aplicable a un entorno de desarrollo de Windows.  El runtime del clúster de Service Fabric y el runtime de Docker deben ejecutarse en el mismo sistema operativo.  No se pueden ejecutar contenedores de Windows en un clúster de Linux.
@@ -333,7 +333,7 @@ Abra un explorador y vaya a `http://containercluster.westus2.cloudapp.azure.com:
 
 ## <a name="clean-up"></a>Limpieza
 
-Mientras el clúster esté en ejecución seguirá generando cargos, así que debería considerar la posibilidad de [eliminar el clúster](service-fabric-cluster-delete.md).
+Mientras el clúster esté en ejecución seguirá generando cargos, así que debería considerar la posibilidad de [eliminar el clúster](./service-fabric-tutorial-delete-cluster.md).
 
 Después de insertar la imagen en el registro de contenedor puede eliminar la imagen local del equipo de desarrollo:
 
@@ -350,7 +350,7 @@ Los contenedores de Windows Server no son compatibles con todas las versiones de
 - Los contenedores de Windows Server creados con Windows Server 2016 solamente podrán utilizar el modo de aislamiento de Hyper-V en un host que tenga la versión 1709 de Windows Server. 
 - En el caso de los contenedores de Windows Server creados con Windows Server 2016, tal vez sea necesario garantizar que la revisión del sistema operativo del contenedor y del sistema operativo del host es la misma cuando se utiliza el modo de aislamiento de proceso en un host con Windows Server 2016.
  
-Para más información, consulte [Compatibilidad con versiones de contenedores de Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+Para más información, consulte [Compatibilidad con versiones de contenedores de Windows](/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
 Tenga en cuenta la compatibilidad de los sistemas operativos del host y del contenedor al compilar e implementar contenedores en el clúster de Service Fabric. Por ejemplo:
 

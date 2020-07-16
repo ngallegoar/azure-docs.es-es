@@ -5,12 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 0bca690fd585b288f15cbab21c1c951474390318
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b6d6ff37024a3181a43b67d2af26b067225654fe
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78196986"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257480"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Administración de aplicaciones en varios entornos
 
@@ -40,8 +40,8 @@ La configuración que proporcione se puede dividir en dos categorías:
 
 Al crear instancias de aplicación con nombre en Service Fabric, tiene la opción de pasar parámetros. La manera de hacerlo depende de cómo cree la instancia de la aplicación.
 
-  - En PowerShell, el cmdlet [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) toma los parámetros de la aplicación como una tabla hash.
-  - Mediante sfctl, el comando [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) acepta parámetros como una cadena JSON. El script install.sh script usa sfctl.
+  - En PowerShell, el cmdlet [`New-ServiceFabricApplication`](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) toma los parámetros de la aplicación como una tabla hash.
+  - Mediante sfctl, el comando [`sfctl application create`](./service-fabric-sfctl-application.md#sfctl-application-create) acepta parámetros como una cadena JSON. El script install.sh script usa sfctl.
   - Visual Studio proporciona un conjunto de archivos de parámetros en la carpeta de parámetros del proyecto de aplicación. Estos archivos de parámetros se usan al realizar la publicación desde Visual Studio, mediante Azure DevOps Services o Azure DevOps Server. En Visual Studio, los archivos de parámetros se van a pasar al script Deploy-FabricApplication.ps1.
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -3,18 +3,18 @@ title: Creación de una regla de Azure Load Balancer para un clúster
 description: Configure una instancia de Azure Load Balancer para abrir puertos para el clúster de Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: f4599b2e0174381ab7df04aeeb33db7e3ee60f26
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 049afb88b5552c92294180069b54d49574a410fa
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77025391"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259041"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Abrir puertos para un clúster de Service Fabric
 
 El equilibrador de carga que se implementa con el clúster de Azure Service Fabric dirige el tráfico a la aplicación que se ejecuta en un nodo. Si cambia la aplicación para usar otro puerto, debe exponer ese puerto (o enrutar un puerto diferente) en Azure Load Balancer.
 
-Al implementar el clúster de Service Fabric en Azure, se crea automáticamente un equilibrador de carga. Si no tiene un equilibrador de carga, consulte [Creación de un equilibrador de carga orientado a Internet](../load-balancer/load-balancer-get-started-internet-portal.md).
+Al implementar el clúster de Service Fabric en Azure, se crea automáticamente un equilibrador de carga. Si no tiene un equilibrador de carga, consulte [Creación de un equilibrador de carga orientado a Internet](../load-balancer/quickstart-load-balancer-standard-public-portal.md).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -25,7 +25,7 @@ El archivo de configuración **ServiceManifest.xml** de la aplicación de Servic
 
 ## <a name="create-a-load-balancer-rule"></a>Creación de una regla de equilibrador de carga
 
-Una regla de equilibrador de carga abre un puerto con conexión a Internet y reenvía el tráfico al puerto del nodo interno usado por la aplicación. Si no tiene un equilibrador de carga, consulte [Creación de un equilibrador de carga orientado a Internet](../load-balancer/load-balancer-get-started-internet-portal.md).
+Una regla de equilibrador de carga abre un puerto con conexión a Internet y reenvía el tráfico al puerto del nodo interno usado por la aplicación. Si no tiene un equilibrador de carga, consulte [Creación de un equilibrador de carga orientado a Internet](../load-balancer/quickstart-load-balancer-standard-public-portal.md).
 
 Para crear una regla de equilibrador de carga, debe recopilar la información siguiente:
 

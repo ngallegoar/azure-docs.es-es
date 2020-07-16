@@ -5,15 +5,15 @@ author: suchiagicha
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: pepogors
-ms.openlocfilehash: 31095a619fc4d756fa4ef9c29691d1d511d59ece
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89a7a545dd334f892ee27b97995de40d7b6416dc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692570"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245932"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Supervisión de diagnósticos y rendimiento de Reliable ServiceRemoting
-El entorno de tiempo de ejecución de Reliable ServiceRemoting emite [contadores de rendimiento](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Estos ofrecen información sobre cómo está funcionando Reliable ServiceRemoting y le ayudarán con la solución de problemas y la supervisión de rendimiento.
+El entorno de tiempo de ejecución de Reliable ServiceRemoting emite [contadores de rendimiento](/dotnet/api/system.diagnostics.performancecounter?view=dotnet-plat-ext-3.1). Estos ofrecen información sobre cómo está funcionando Reliable ServiceRemoting y le ayudarán con la solución de problemas y la supervisión de rendimiento.
 
 
 ## <a name="performance-counters"></a>Contadores de rendimiento
@@ -26,7 +26,7 @@ El entorno de tiempo de ejecución de Reliable ServiceRemoting define las siguie
 
 Cada una de las categorías anteriores tiene uno o varios contadores.
 
-La aplicación del [Monitor de rendimiento de Windows](https://technet.microsoft.com/library/cc749249.aspx) que está disponible de forma predeterminada en el sistema operativo Windows puede usarse para recopilar y ver los datos del contador de rendimiento. [Diagnósticos de Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) es otra opción para recopilar datos del contador de rendimiento y cargarlos en tablas de Azure.
+La aplicación del [Monitor de rendimiento de Windows](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc749249(v=ws.11)) que está disponible de forma predeterminada en el sistema operativo Windows puede usarse para recopilar y ver los datos del contador de rendimiento. [Diagnósticos de Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) es otra opción para recopilar datos del contador de rendimiento y cargarlos en tablas de Azure.
 
 ### <a name="performance-counter-instance-names"></a>Nombres de instancias de contador de rendimiento
 Un clúster con un gran número de servicios o particiones de ServiceRemoting tendrá una gran cantidad de instancias de contador de rendimiento. Los nombres de las instancias del contador de rendimiento pueden ayudar a identificar la partición y el método de servicio (si procede) específicos con los que está asociada la instancia de contador de rendimiento.
@@ -36,7 +36,7 @@ En la categoría `Service Fabric Service`, los nombres de instancias de contador
 
 `ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
-*ServiceFabricPartitionID* es la representación de cadena del identificador de partición de Service Fabric con el que está asociada la instancia de contador de rendimiento. El identificador de partición es un GUID y su representación de cadena se genera mediante el método [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) con el especificador de formato "D".
+*ServiceFabricPartitionID* es la representación de cadena del identificador de partición de Service Fabric con el que está asociada la instancia de contador de rendimiento. El identificador de partición es un GUID y su representación de cadena se genera mediante el método [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) con el especificador de formato "D".
 
 *ServiceReplicaOrInstanceId* es la representación de cadena del identificador de réplica o instancia de Service Fabric con el que está asociada la instancia de contador de rendimiento.
 
@@ -57,7 +57,7 @@ En la categoría `Service Fabric Service Method`, los nombres de instancias de c
 
 *ServiceRuntimeMethodId* es la representación de cadena de un entero de 32 bits que el entorno de tiempo de ejecución de los servicios de Fabric genera para su uso interno. Esto se incluye en el nombre de la instancia de contador de rendimiento para garantizar su unicidad y evitar conflictos con otros nombres de instancia de contador de rendimiento. Los usuarios no deberían intentar interpretar esta parte del nombre de instancia de contador de rendimiento.
 
-*ServiceFabricPartitionID* es la representación de cadena del identificador de partición de Service Fabric con el que está asociada la instancia de contador de rendimiento. El identificador de partición es un GUID y su representación de cadena se genera mediante el método [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) con el especificador de formato "D".
+*ServiceFabricPartitionID* es la representación de cadena del identificador de partición de Service Fabric con el que está asociada la instancia de contador de rendimiento. El identificador de partición es un GUID y su representación de cadena se genera mediante el método [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) con el especificador de formato "D".
 
 *ServiceReplicaOrInstanceId* es la representación de cadena del identificador de réplica o instancia de Service Fabric con el que está asociada la instancia de contador de rendimiento.
 
@@ -92,4 +92,4 @@ Cuando un cliente invoca un método a través de un objeto de proxy de servicio,
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Código de ejemplo](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
-* [Proveedores de EventSource en PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
+* [Proveedores de EventSource en PerfView](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource)

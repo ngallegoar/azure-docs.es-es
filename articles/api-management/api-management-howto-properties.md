@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: dc8ca7296658f4113d86765f230ca0158727255f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 28a9f37f58a6c056bf23a85fcf2641f407988891
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649202"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243484"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Cómo usar valores con nombre en las directivas de Azure API Management
 
@@ -34,7 +34,7 @@ Cada instancia del servicio de API Management tiene una colección de pares clav
 
 ![Valores con nombre](./media/api-management-howto-properties/named-values.png)
 
-Los valores con nombre pueden contener cadenas literales y [expresiones de directiva](/azure/api-management/api-management-policy-expressions). Por ejemplo, el valor de `Expression` es una expresión de directiva que devuelve una cadena que contiene la fecha y la hora actuales. El valor con nombre `Credential` está marcado como secreto, por lo que su valor no se muestra de forma predeterminada.
+Los valores con nombre pueden contener cadenas literales y [expresiones de directiva](./api-management-policy-expressions.md). Por ejemplo, el valor de `Expression` es una expresión de directiva que devuelve una cadena que contiene la fecha y la hora actuales. El valor con nombre `Credential` está marcado como secreto, por lo que su valor no se muestra de forma predeterminada.
 
 | Nombre       | Value                      | Secreto | Etiquetas          |
 | ---------- | -------------------------- | ------ | ------------- |
@@ -110,8 +110,8 @@ Aunque los valores con nombre pueden contener expresiones de directiva, no puede
 
 -   Obtenga más información sobre cómo trabajar con directivas
     -   [Directivas de Azure API Management](api-management-howto-policies.md)
-    -   [Referencia de la directiva](/azure/api-management/api-management-policies)
-    -   [Expresiones de directiva](/azure/api-management/api-management-policy-expressions)
+    -   [Referencia de la directiva](./api-management-policies.md)
+    -   [Expresiones de directiva](./api-management-policy-expressions.md)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png

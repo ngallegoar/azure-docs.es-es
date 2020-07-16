@@ -5,12 +5,12 @@ author: shsha-msft
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: shsha
-ms.openlocfilehash: 8483e00f55d0dd49ba57db58b99b237ce0a169e5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 3be079b97c2660437344f88203fdda06cc6d6740
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427264"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258978"
 ---
 # <a name="initializer-codepackages"></a>Inicializador CodePackages
 
@@ -50,7 +50,7 @@ Veamos un ejemplo completo con el Inicializador CodePackages.
 > [!IMPORTANT]
 > En el siguiente ejemplo se supone que está familiarizado con la creación de [aplicaciones de contenedor de Windows con Service Fabric y Docker][containers-getting-started-link].
 >
-> En este ejemplo se hace referencia a mcr.microsoft.com/windows/nanoserver:1809. Los contenedores de Windows Server no son compatibles con todas las versiones del sistema operativo de un host. Para más información, consulte [Compatibilidad con versiones de contenedores de Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+> En este ejemplo se hace referencia a mcr.microsoft.com/windows/nanoserver:1809. Los contenedores de Windows Server no son compatibles con todas las versiones del sistema operativo de un host. Para más información, consulte [Compatibilidad con versiones de contenedores de Windows](/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
 El siguiente ServiceManifest.xml se basa en el fragmento de ServiceManifest descrito anteriormente. *InitCodePackage0*, *InitCodePackage1* y *WorkloadCodePackage* son CodePackages que representan contenedores. Tras la activación, *InitCodePackage0* se ejecuta primero. Registra un mensaje en un archivo y se cierra. A continuación, se ejecuta *InitCodePackage1*, que también registra un mensaje en un archivo y se cierra. Por último, *WorkloadCodePackage* comienza la ejecución. También registra un mensaje en un archivo, genera el contenido del archivo en **stdout** y, a continuación, hace ping para siempre.
 
@@ -151,4 +151,3 @@ Para obtener información relacionada, consulte los siguientes artículos.
 [application-model-link]: service-fabric-application-model.md
 [hosting-model-link]: service-fabric-hosting-model.md
 [setup-entry-point-link]: service-fabric-run-script-at-service-startup.md
-

@@ -5,12 +5,12 @@ author: mcoskun
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: ac6bb14517b67a4b308460583e8c9fb99a2df9f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bf004b913c032d8a121bf4d508adf4cf9be1c7f9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75922773"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253327"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Copia de seguridad y restauración de Reliable Services y Reliable Actors
 Azure Service Fabric es una plataforma de alta disponibilidad que replica el estado entre varios nodos para mantener esta disponibilidad alta.  Por lo tanto, incluso si se produce un error en un nodo del clúster, los servicios siguen estando disponibles. Aunque esta redundancia integrada proporcionada por la plataforma puede ser suficiente para algunos casos, en otros es conveniente que el servicio haga una copia de seguridad de los datos (en un almacén externo).
@@ -149,7 +149,7 @@ Por ejemplo, si contiene la copia de seguridad completa, la primera y la tercera
 > 
 
 ## <a name="deleted-or-lost-service"></a>Eliminación o pérdida del servicio
-Si se quita un servicio, en primer lugar debe volver a crearlo para poder restaurar los datos.  Es importante crear el servicio con la misma configuración, por ejemplo, con el mismo esquema de partición, para que los datos se restauren sin ningún problema.  Una vez que el servicio está activo, la API `OnDataLossAsync` para recuperar los datos que se menciona más arriba debe invocarse en todas las particiones de este servicio. Una manera de conseguirlo es mediante el uso de [FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx) en cada partición.  
+Si se quita un servicio, en primer lugar debe volver a crearlo para poder restaurar los datos.  Es importante crear el servicio con la misma configuración, por ejemplo, con el mismo esquema de partición, para que los datos se restauren sin ningún problema.  Una vez que el servicio está activo, la API `OnDataLossAsync` para recuperar los datos que se menciona más arriba debe invocarse en todas las particiones de este servicio. Una manera de conseguirlo es mediante el uso de [FabricClient.TestManagementClient.StartPartitionDataLossAsync](/dotnet/api/system.fabric.fabricclient.testmanagementclient?view=azure-dotnet#System_Fabric_FabricClient_TestManagementClient_StartPartitionDataLossAsync_System_Guid_System_Fabric_PartitionSelector_System_Fabric_DataLossMode_) en cada partición.  
 
 Desde este punto, la implementación es igual que en el escenario anterior. Cada partición debe restaurar la última copia de seguridad pertinente desde el almacén externo. Una advertencia es que es posible que el identificador de partición sea diferente, ya que el tiempo de ejecución crea los identificadores de partición de forma dinámica. Por lo tanto, el servicio necesita almacenar el nombre de servicio y la información de partición adecuada para identificar la copia de seguridad correcta más reciente desde la que restaurar para cada partición.
 
@@ -258,6 +258,5 @@ En primer lugar, `RestoreAsync` quita todos los estados existentes en la réplic
   - [Guía de inicio rápido de Reliable Services](service-fabric-reliable-services-quick-start.md)
   - [Notificaciones de Reliable Services](service-fabric-reliable-services-notifications.md)
   - [Configuración de Reliable Services](service-fabric-reliable-services-configuration.md)
-  - [Referencia para desarrolladores de colecciones confiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  - [Referencia para desarrolladores de colecciones confiables](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
   - [Restauración y copia de seguridad periódicas de Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
-

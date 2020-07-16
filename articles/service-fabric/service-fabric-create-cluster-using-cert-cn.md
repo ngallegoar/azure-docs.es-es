@@ -3,12 +3,12 @@ title: Creación de un clúster mediante el nombre común del certificado
 description: Obtenga información acerca de cómo crear un clúster de Service Fabric mediante un nombre común del certificado de una plantilla.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 4a4448c88fa9493979f075f6b9c669927dd1d39e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c852b40d35f936753d3c16420159676da239b6c6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75614560"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246442"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Implementar un clúster de Service Fabric que utiliza un nombre común del certificado en lugar de una huella digital
 No hay dos certificados que puedan tener la misma huella digital, lo que dificulta la sustitución o administración del certificado de clúster. Sin embargo, varios certificados pueden tener el mismo nombre o asunto común.  Si un clúster usa nombres comunes del certificado, se simplificará considerablemente la administración de certificados. En este artículo se describe cómo implementar un clúster de Service Fabric para que use un nombre común del certificado en lugar de la huella digital del certificado.
@@ -17,7 +17,7 @@ No hay dos certificados que puedan tener la misma huella digital, lo que dificul
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="get-a-certificate"></a>Obtener un certificado
-Primero, obtenga un certificado de una [entidad de certificación (CA)](https://wikipedia.org/wiki/Certificate_authority).  El nombre común del certificado debe ser para el dominio personalizado que posee, y que ha comprado de un registrador de dominios. Por ejemplo, "azureservicefabricbestpractices.com"; aquellos que no son empleados de Microsoft no pueden aprovisionar certificados para dominios de MS, por lo que no puede usar los nombres DNS del equilibrador de carga o Traffic Manager como los nombres comunes del certificado, y deberá aprovisionar una [zona de Azure DNS](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) para que el dominio personalizado pueda resolverse en Azure. También deberá declarar el dominio personalizado que posee como el valor "managementEndpoint" del clúster si quiere que el portal refleje el alias del dominio personalizado para el clúster.
+Primero, obtenga un certificado de una [entidad de certificación (CA)](https://wikipedia.org/wiki/Certificate_authority).  El nombre común del certificado debe ser para el dominio personalizado que posee, y que ha comprado de un registrador de dominios. Por ejemplo, "azureservicefabricbestpractices.com"; aquellos que no son empleados de Microsoft no pueden aprovisionar certificados para dominios de MS, por lo que no puede usar los nombres DNS del equilibrador de carga o Traffic Manager como los nombres comunes del certificado, y deberá aprovisionar una [zona de Azure DNS](../dns/dns-delegate-domain-azure-dns.md) para que el dominio personalizado pueda resolverse en Azure. También deberá declarar el dominio personalizado que posee como el valor "managementEndpoint" del clúster si quiere que el portal refleje el alias del dominio personalizado para el clúster.
 
 Si quiere realizar pruebas, puede obtener un certificado que haya firmado una CA de una entidad de certificación gratuita o pública.
 

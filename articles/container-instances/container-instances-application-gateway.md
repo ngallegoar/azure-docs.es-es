@@ -3,12 +3,12 @@ title: Dirección IP estática del grupo de contenedores
 description: Creación de un grupo de contenedores en una red virtual y uso de una instancia de Azure Application Gateway para exponer una dirección IP de front-end estática en una aplicación web en contenedor
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: a27cf20b7d04fedb0b9e0ab408de24d37f2935c7
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: bc128da0f4c2e92af98781cef45f48f9e8aeab31
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299169"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260777"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Exposición de una dirección IP estática para un grupo de contenedores
 
@@ -103,7 +103,7 @@ ACI_IP=$(az container show \
 
 ## <a name="create-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
-Cree una instancia de Application Gateway en la red virtual siguiendo los pasos que se describen en la [guía de inicio rápido de Application Gateway](../application-gateway/quick-create-cli.md). El comando [az network application-gateway create][az-network-application-gateway-create] siguiente crea una puerta de enlace con una dirección IP de front-end pública y una ruta al grupo de contenedores de back-end. Consulte la [documentación de Application Gateway](/azure/application-gateway/) para obtener más información sobre la configuración de la puerta de enlace.
+Cree una instancia de Application Gateway en la red virtual siguiendo los pasos que se describen en la [guía de inicio rápido de Application Gateway](../application-gateway/quick-create-cli.md). El comando [az network application-gateway create][az-network-application-gateway-create] siguiente crea una puerta de enlace con una dirección IP de front-end pública y una ruta al grupo de contenedores de back-end. Consulte la [documentación de Application Gateway](../application-gateway/index.yml) para obtener más información sobre la configuración de la puerta de enlace.
 
 ```azurecli
 az network application-gateway create \

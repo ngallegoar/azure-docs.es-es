@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8c5de43ed29856451ad67e02a426b07cc34a0d54
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 3dc9d62141a63574a6796982542cb1491108eedc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422411"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259863"
 ---
 # <a name="linux-support"></a>Compatibilidad de Linux
 
@@ -69,7 +69,7 @@ Antes de que pueda desarrollar un cliente Linux para Windows Virtual Desktop, de
 
 Consulte la documentación de los siguientes clientes:
 
-- [Cliente de escritorio de Windows](connect-windows-7-and-10.md)
+- [Cliente de escritorio de Windows](connect-windows-7-10.md)
 - [Cliente web](connect-web.md)
 - [Cliente de Android](connect-android.md)
 - [Cliente de macOS](connect-macos.md)

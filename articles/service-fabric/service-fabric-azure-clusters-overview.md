@@ -7,12 +7,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: 8c1be30750e6a6d1c541f244c4d0c3875e7dd927
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbe64bdcbff5592d271c773eff1d5c99c585fcd7
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84234690"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248023"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Introducción a los clústeres de Service Fabric en Azure
 Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Una máquina física o virtual que forma parte de un clúster se denomina nodo del clúster. Los clústeres pueden escalarse a miles de nodos. Si agrega nuevos nodos al clúster, Service Fabric reequilibra las réplicas e instancias de la partición del servicio en el número aumentado de nodos. El rendimiento general de la aplicación mejora y se reduce la contención para el acceso a la memoria. Si los nodos del clúster no se usan de forma eficaz, puede reducir su número de nodos. Service Fabric vuelve a reequilibrar las réplicas e instancias de la partición en el número reducido de nodos para aprovechar mejor el hardware de cada nodo.
@@ -31,14 +31,14 @@ Un clúster de Service Fabric en Azure es un recurso de Azure que usa otros recu
 ![Clúster de Service Fabric][Image]
 
 ### <a name="virtual-machine"></a>Máquina virtual
-Una [máquina virtual](/azure/virtual-machines/) que forma parte de un clúster se denomina nodo aunque, técnicamente, un nodo de clúster es un proceso de entorno de ejecución de Service Fabric. A cada nodo se le asigna un nombre de nodo (una cadena). Los nodos tienen características, como las [propiedades de colocación](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). Cada máquina física o virtual tiene un servicio de inicio automático, *FabricHost.exe*, que empieza a ejecutarse en el arranque y luego inicia dos ejecutables: *Fabric.exe* y *FabricGateway.exe*, que componen el nodo. Una implementación de producción es un nodo por máquina física o virtual. En los escenarios de prueba, se pueden hospedar varios nodos en una sola máquina física o virtual mediante la ejecución de varias instancias de *Fabric.exe* y *FabricGateway.exe*.
+Una [máquina virtual](../virtual-machines/index.yml) que forma parte de un clúster se denomina nodo aunque, técnicamente, un nodo de clúster es un proceso de entorno de ejecución de Service Fabric. A cada nodo se le asigna un nombre de nodo (una cadena). Los nodos tienen características, como las [propiedades de colocación](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). Cada máquina física o virtual tiene un servicio de inicio automático, *FabricHost.exe*, que empieza a ejecutarse en el arranque y luego inicia dos ejecutables: *Fabric.exe* y *FabricGateway.exe*, que componen el nodo. Una implementación de producción es un nodo por máquina física o virtual. En los escenarios de prueba, se pueden hospedar varios nodos en una sola máquina física o virtual mediante la ejecución de varias instancias de *Fabric.exe* y *FabricGateway.exe*.
 
 Cada máquina virtual está asociada con una tarjeta de interfaz de red (NIC) virtual y a cada NIC se le asigna una dirección IP privada.  Una máquina virtual se asigna a una red virtual y el equilibrador de carga local a través de la NIC.
 
 Todas las máquinas virtuales de un clúster se colocan en una red virtual.  Todos los nodos del mismo conjunto de escalado o tipo de nodo se colocan en la misma subred de la red virtual.  Estos nodos solo tienen direcciones IP privadas y no son directamente direccionables fuera de la red virtual.  Los clientes pueden tener acceso a servicios en los nodos a través del equilibrador de carga de Azure.
 
 ### <a name="scale-setnode-type"></a>Tipo de nodo o conjunto de escalado
-Al crear el clúster, se definen uno o más tipos de nodo.  Los nodos, o máquinas virtuales, de un tipo de nodo tienen el mismo tamaño y características como el número de CPU, memoria, número de discos y E/S de disco.  Por ejemplo, un tipo de nodo podría ser para VM pequeñas y de front-end con puertos abiertos a Internet, mientras que otro tipo de nodo podría ser para VM grandes y de back-end que procesan datos. En clústeres de Azure, cada tipo de nodo se asigna a un [conjunto de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets/).
+Al crear el clúster, se definen uno o más tipos de nodo.  Los nodos, o máquinas virtuales, de un tipo de nodo tienen el mismo tamaño y características como el número de CPU, memoria, número de discos y E/S de disco.  Por ejemplo, un tipo de nodo podría ser para VM pequeñas y de front-end con puertos abiertos a Internet, mientras que otro tipo de nodo podría ser para VM grandes y de back-end que procesan datos. En clústeres de Azure, cada tipo de nodo se asigna a un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/index.yml).
 
 Puede usarlos para implementar y administrar una colección de máquinas virtuales como conjunto. Cada tipo de nodo que defina en un clúster de Azure Service Fabric configura un conjunto de escalado independiente. El entorno de ejecución de Service Fabric se arranca en cada máquina virtual en el conjunto de escalado mediante extensiones de máquina virtual de Azure. Cada tipo de nodo se puede escalar o reducir verticalmente de forma independiente; puede cambiar la SKU del sistema operativo que se ejecuta en cada nodo de clúster, tener diferentes conjuntos de puertos abiertos y usar distintas métricas de capacidad. Un conjunto de escalado tiene cinco [dominios de actualización](service-fabric-cluster-resource-manager-cluster-description.md#upgrade-domains) y cinco [dominios de error](service-fabric-cluster-resource-manager-cluster-description.md#fault-domains) y puede tener hasta 100 máquinas virtuales.  Crea clústeres de más de 100 nodos mediante la creación de varios tipos de nodo/conjuntos de escalado.
 
@@ -48,12 +48,12 @@ Puede usarlos para implementar y administrar una colección de máquinas virtual
 Para más información, consulte los [tipos de nodos y conjuntos de escalado de máquinas virtuales de Azure Service Fabric](service-fabric-cluster-nodetypes.md).
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-Las instancias de máquina virtual se unen detrás de una instancia de [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), que está asociada a una [dirección IP pública](../virtual-network/public-ip-addresses.md) y una etiqueta DNS.  Cuando aprovisiona un clúster con un *&lt;nombreclúster&gt;* , el nombre DNS, *&lt;nombreclúster&gt;.&lt;ubicación&gt;.cloudapp.azure.com* es la etiqueta DNS asociada con el equilibrador de carga delante del conjunto de escalado.
+Las instancias de máquina virtual se unen detrás de una instancia de [Azure Load Balancer](../load-balancer/load-balancer-overview.md), que está asociada a una [dirección IP pública](../virtual-network/public-ip-addresses.md) y una etiqueta DNS.  Cuando aprovisiona un clúster con un *&lt;nombreclúster&gt;* , el nombre DNS, *&lt;nombreclúster&gt;.&lt;ubicación&gt;.cloudapp.azure.com* es la etiqueta DNS asociada con el equilibrador de carga delante del conjunto de escalado.
 
 Las máquinas virtuales en un clúster solo tienen [direcciones IP privadas](../virtual-network/private-ip-addresses.md).  El tráfico de administración y el tráfico del servicio se enrutan a través del equilibrador de carga orientado al público.  El tráfico de red se enruta a estas máquinas a través de las reglas NAT (los clientes se conectan a instancias o nodos específicos) o las reglas de equilibrio de carga (el tráfico se dirige a las máquinas virtuales en round robin).  Un equilibrador de carga tiene una dirección IP pública asociada con un nombre DNS en el formato: *&lt;nombreclúster&gt;.&lt; ubicación&gt;.cloudapp.azure.com*.  Una dirección IP pública es otro recurso de Azure en el grupo de recursos.  Si define varios tipos de nodo en un clúster, se crea un equilibrador de carga para cada conjunto de escalado o tipo de nodo. O bien, puede configurar un solo equilibrador de carga para varios tipos de nodo.  El tipo de nodo principal tiene la etiqueta DNS *&lt;nombreclúster&gt;.&lt;ubicación&gt;.cloudapp.azure.com*, otros tipos de nodos tienen la etiqueta DNS *&lt;nombreclúster&gt;-&lt;tiponodo&gt;.&lt;ubicación&gt;.cloudapp.azure.com*.
 
 ### <a name="storage-accounts"></a>Cuentas de almacenamiento
-Cada tipo de nodo de clúster es compatible con una [cuenta de almacenamiento de Azure](/azure/storage/common/storage-introduction) y discos administrados.
+Cada tipo de nodo de clúster es compatible con una [cuenta de almacenamiento de Azure](../storage/common/storage-introduction.md) y discos administrados.
 
 ## <a name="cluster-security"></a>Seguridad de clúster
 Un clúster de Service Fabric es un recurso que usted posee.  Tiene la responsabilidad de proteger los clústeres para impedir que usuarios no autorizados se conecten a ellos. Proteger el clúster es especialmente importante si en él se ejecutan cargas de trabajo de producción. 
@@ -71,7 +71,7 @@ Además de los certificados de cliente, Azure Active Directory también puede co
 Para más información, lea [Seguridad de cliente a nodo](service-fabric-cluster-security.md#client-to-node-security)
 
 ### <a name="role-based-access-control"></a>Control de acceso basado en roles
-El control de acceso basado en rol (RBAC) le permite asignar controles de acceso específicos en los recursos de Azure.  Puede asignar diferentes reglas de acceso a las suscripciones, los grupos de recursos y los recursos.  A menos que se reemplacen a un nivel inferior, se heredan las reglas de RBAC a lo largo de la jerarquía de recursos.  Puede asignar reglas RBAC a cualquier usuario o grupo de usuarios de su entorno AAD para que los usuarios y grupos designados puedan modificar el clúster.  Para obtener más información, lea la [introducción a RBAC en Azure](/azure/role-based-access-control/overview).
+El control de acceso basado en rol (RBAC) le permite asignar controles de acceso específicos en los recursos de Azure.  Puede asignar diferentes reglas de acceso a las suscripciones, los grupos de recursos y los recursos.  A menos que se reemplacen a un nivel inferior, se heredan las reglas de RBAC a lo largo de la jerarquía de recursos.  Puede asignar reglas RBAC a cualquier usuario o grupo de usuarios de su entorno AAD para que los usuarios y grupos designados puedan modificar el clúster.  Para obtener más información, lea la [introducción a RBAC en Azure](../role-based-access-control/overview.md).
 
 Service Fabric también admite el control de acceso para limitar este a determinadas operaciones de clúster para los diferentes grupos de usuarios. Esto ayuda a que el clúster esté más protegido. Se admiten dos tipos de control de acceso para los clientes que se conectan a un clúster: rol de administrador y usuario.  
 
@@ -80,7 +80,7 @@ Para obtener más información, consulte [Control de acceso basado en rol (RBAC)
 ### <a name="network-security-groups"></a>Grupos de seguridad de red 
 Los grupos de seguridad de red (NSG) controlan el tráfico entrante y saliente de una subred, VM o NIC específica.  De forma predeterminada, cuando se colocan varias máquinas virtuales en la misma red virtual, pueden comunicarse entre sí a través de cualquier puerto.  Si desea restringir las comunicaciones entre las máquinas, puede definir los NSG para segmentar la red o aislar las máquinas virtuales entre sí.  Si tiene varios tipos de nodo en un clúster, puede aplicar los NSG a subredes para impedir que las máquinas que pertenecen a distintos tipos de nodos se comuniquen entre sí.  
 
-Para obtener más información, consulte la información sobre [grupos de seguridad](/azure/virtual-network/security-overview).
+Para obtener más información, consulte la información sobre [grupos de seguridad](../virtual-network/security-overview.md).
 
 ## <a name="scaling"></a>Ampliación
 
@@ -106,7 +106,7 @@ Puede crear clústeres en máquinas virtuales que ejecuten estos sistemas operat
 | Windows Server 2019 | 6.4.654.9590 |
 | Linux Ubuntu 16.04 | 6.0 |
 
-Para más información, consulte [Versiones de clúster admitidas en Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-operating-systems).
+Para más información, consulte [Versiones de clúster admitidas en Azure](./service-fabric-versions.md#supported-operating-systems).
 
 > [!NOTE]
 > Si decide implementar Service Fabric en Windows Server 1709, tenga en cuenta que (1) no es una rama de mantenimiento a largo plazo, así que puede que tenga que mover versiones en el futuro, y (2) si implementa contenedores, los integrados en Windows Server 2016 no funcionarán en Windows Server 1709, y viceversa (tendrá que volver a compilarlos para implementarlos).

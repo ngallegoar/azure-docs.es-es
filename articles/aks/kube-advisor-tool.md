@@ -7,12 +7,12 @@ author: seanmck
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 9dc5a38a05ef73863f85e4dbe92d52eb94b2715f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b0078f1aff3ef81ee270f67de0fffddec3abab9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83773796"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255258"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Comprobación de los procedimientos recomendados de Kubernetes en el clúster
 
@@ -29,7 +29,7 @@ La herramienta kube-advisor puede informar sobre la solicitud de recursos y la f
 
 ## <a name="running-kube-advisor"></a>Ejecución de kube-advisor
 
-Para ejecutar la herramienta en un clúster configurado para el [control de acceso basado en roles de Kubernetes (RBAC)](azure-ad-integration.md), deben usarse los siguientes comandos. El primer comando crea una cuenta de servicio de Kubernetes. El segundo, ejecuta la herramienta en un pod con esa cuenta de servicio y configura el pod para su eliminación después de salir. 
+Para ejecutar la herramienta en un clúster configurado para el [control de acceso basado en roles de Kubernetes (RBAC)](./azure-ad-integration-cli.md), deben usarse los siguientes comandos. El primer comando crea una cuenta de servicio de Kubernetes. El segundo, ejecuta la herramienta en un pod con esa cuenta de servicio y configura el pod para su eliminación después de salir. 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml

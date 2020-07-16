@@ -3,12 +3,12 @@ title: Información sobre la seguridad de las aplicaciones de Azure Service Fabr
 description: Información general sobre cómo ejecutar de forma segura aplicaciones de microservicios en Service Fabric. Obtenga información acerca de cómo ejecutar un script de inicio y servicios en cuentas de seguridad diferentes, autenticar y autorizar a los usuarios, administrar secretos de aplicación, proteger las comunicaciones de servicios, usar una puerta de enlace de API y proteger los datos en reposo de las aplicaciones.
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: c97c5345a1a18cce8c44508542f12d3642d2b8f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f17840f31d2a4c12a1d4618bd16e81dcc2cc8a14
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461436"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256584"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Seguridad del servicio y la aplicación de Service Fabric
 Una arquitectura de microservicios puede aportar [muchas ventajas](service-fabric-overview-microservices.md). Administrar la seguridad de los microservicios, sin embargo, es un desafío y no es lo mismo que administrar la seguridad de las aplicaciones tradicionales monolíticas. 
@@ -35,7 +35,7 @@ La [autorización de ASP.NET Core](/dotnet/standard/microservices-architecture/s
 ## <a name="restrict-and-secure-access-using-an-api-gateway"></a>Restricción y protección del acceso mediante una puerta de enlace de API
 Las aplicaciones en la nube normalmente necesitan una puerta de enlace front-end para proporcionar un único punto de entrada para usuarios, dispositivos u otras aplicaciones. Una [puerta de enlace de API](/azure/architecture/microservices/gateway) se ubica entre los clientes y los servicios, y es el punto de entrada a todos los servicios que proporciona la aplicación. Actúa como un proxy inverso, enrutando las solicitudes de los clientes a los servicios. También puede realizar diversas tareas transversales como la autenticación, la autorización, la terminación TLS y la limitación de velocidad. Si no implementa una puerta de enlace, los clientes deben enviar las solicitudes directamente a los servicios front-end.
 
-En Service Fabric, una puerta de enlace puede ser cualquier servicio sin estado como una [aplicación ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) u otro servicio designado para la entrada de tráfico, como [Traefik](https://docs.traefik.io/), [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/) o [Azure API Management](https://docs.microsoft.com/azure/api-management).
+En Service Fabric, una puerta de enlace puede ser cualquier servicio sin estado como una [aplicación ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) u otro servicio designado para la entrada de tráfico, como [Traefik](https://docs.traefik.io/), [Event Hubs](../event-hubs/index.yml), [IoT Hub](../iot-hub/index.yml) o [Azure API Management](../api-management/index.yml).
 
 API Management se integra directamente con Service Fabric, lo que le permite publicar API con un amplio conjunto de reglas de enrutamiento para los servicios back-end de Service Fabric.  Puede proteger el acceso a servicios back-end, evitar ataques DOS usando la limitación, o verificar las claves API, los tokens JWT, los certificados y otras credenciales. Para obtener más información, consulte [Información general de Service Fabric con Azure API Management](service-fabric-api-management-overview.md).
 
@@ -85,7 +85,7 @@ Puede establecer una conexión segura entre el proxy inverso y los servicios, lo
 El marco de trabajo de la aplicación de Reliable Services proporciona una serie de pilas de comunicación creadas previamente y herramientas que puede utilizar para mejorar la seguridad. Aprenda a mejorar la seguridad cuando se utiliza la comunicación remota de servicios (en [C#](service-fabric-reliable-services-secure-communication.md) o [Java](service-fabric-reliable-services-secure-communication-java.md)) o con [WCF](service-fabric-reliable-services-secure-communication-wcf.md).
 
 ## <a name="encrypt-application-data-at-rest"></a>Cifrado de datos en reposo de la aplicación
-Cada [tipo de nodo](service-fabric-cluster-nodetypes.md) de un clúster de Service Fabric que se ejecuta en Azure se encuentra respaldado por un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Mediante una plantilla de Azure Resource Manager, puede asociar discos de datos a los conjuntos de escalado que componen el clúster de Service Fabric.  Si los servicios guardan los datos en un disco de datos conectado, puede [cifrar esos discos de datos](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) para proteger los datos de aplicación.
+Cada [tipo de nodo](service-fabric-cluster-nodetypes.md) de un clúster de Service Fabric que se ejecuta en Azure se encuentra respaldado por un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/overview.md). Mediante una plantilla de Azure Resource Manager, puede asociar discos de datos a los conjuntos de escalado que componen el clúster de Service Fabric.  Si los servicios guardan los datos en un disco de datos conectado, puede [cifrar esos discos de datos](../virtual-machine-scale-sets/disk-encryption-powershell.md) para proteger los datos de aplicación.
 
 <!--TO DO: Enable BitLocker on Windows standalone clusters?
 TO DO: Encrypt disks on Linux clusters?-->

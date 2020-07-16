@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: a9699eae17657e96b38b3bccc95e8f84326efbb3
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: f473b70d260c552dc67d00715b6ee4bc56b670e0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259480"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246561"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descripción de un clúster de Service Fabric con Cluster Resource Manager
 La característica Cluster Resource Manager de Azure Service Fabric proporciona varios mecanismos para describir un clúster:
@@ -36,7 +36,7 @@ En el entorno de Azure, Service Fabric aprovecha la información sobre dominios 
 > [!WARNING]
 > Es importante que la información de dominio de error proporcionada a Service Fabric sea precisa. Por ejemplo, supongamos que los nodos del clúster de Service Fabric se ejecutan dentro de 10 máquinas virtuales, en 5 hosts físicos. En este caso, a pesar de que hay 10 máquinas virtuales, hay solo 5 dominios de error diferentes (nivel superior). Compartir el mismo host físico hace que las VM compartan el mismo dominio de error de raíz, dado que las máquinas virtuales experimentan un error coordinado si se produce un error en su host físico.  
 >
-> Service Fabric espera que el dominio de error de un nodo no cambie. Otros mecanismos que garantizan la alta disponibilidad de las VM, como [HA-VM](https://technet.microsoft.com/library/cc967323.aspx), pueden causar conflictos con Service Fabric. Estos mecanismos usan la migración transparente de VM desde un host a otro. Estos no reconfiguran ni notifican el código de ejecución dentro de la VM. Por lo tanto, *no se admiten* como entornos para ejecutar clústeres de Service Fabric. 
+> Service Fabric espera que el dominio de error de un nodo no cambie. Otros mecanismos que garantizan la alta disponibilidad de las VM, como [HA-VM](/previous-versions/system-center/virtual-machine-manager-2008-r2/cc967323(v=technet.10)), pueden causar conflictos con Service Fabric. Estos mecanismos usan la migración transparente de VM desde un host a otro. Estos no reconfiguran ni notifican el código de ejecución dentro de la VM. Por lo tanto, *no se admiten* como entornos para ejecutar clústeres de Service Fabric. 
 >
 > Service Fabric debe ser la única tecnología de alta disponibilidad empleada. Los mecanismos como la migración en vivo de VM y SAN no son necesarios. Si estos mecanismos se usan junto con Service Fabric, _reducen_ la confiabilidad y la disponibilidad de las aplicaciones. El motivo es que agregan una complejidad adicional, agregan orígenes centralizados de errores y usan estrategias de confiabilidad y disponibilidad que entran en conflicto con las de Service Fabric. 
 >

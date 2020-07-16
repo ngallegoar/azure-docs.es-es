@@ -3,12 +3,12 @@ title: Actualización de la aplicación de Service Fabric
 description: Este artículo proporciona una introducción a la actualización de una aplicación de Service Fabric, incluida la elección de los modos de actualización y las comprobaciones de estado.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 2dc484b49c5250510e5f018cbbc2da107573d452
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e7a93dd3ef8a1adf6617dcd57887a0ce694c509
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710327"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248006"
 ---
 # <a name="service-fabric-application-upgrade"></a>Actualización de la aplicación de Service Fabric
 Una aplicación de Azure Service Fabric es una colección de servicios. Durante una actualización, Service Fabric compara el nuevo [manifiesto de aplicación](service-fabric-application-and-service-manifests.md) con la versión anterior y determina qué servicios de la aplicación requieren actualizaciones. Service Fabric compara los números de versión en los manifiestos de servicio con los números de versión en la versión anterior. Si un servicio no ha cambiado, no se actualiza.
@@ -37,7 +37,7 @@ El modo en que se recomienda que se actualice la aplicación es el modo supervis
 El modo manual sin supervisión requiere intervención manual tras cada actualización en un dominio de actualización para iniciar la actualización en el siguiente dominio de actualización. No se realiza ninguna comprobación de mantenimiento de Service Fabric. El administrador realiza las comprobaciones de estado antes de iniciar la actualización en el siguiente dominio de actualización.
 
 ## <a name="upgrade-default-services"></a>Actualización de servicios predeterminados
-Algunos parámetros del servicio predeterminados definidos en el [manifiesto de aplicación](service-fabric-application-and-service-manifests.md) también se pueden actualizar como parte de una actualización de la aplicación. Solo se pueden cambiar como parte de una actualización los parámetros del servicio que admitan su modificación mediante [Update-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps). El comportamiento del cambio de los servicios predeterminados durante la actualización de la aplicación es el siguiente:
+Algunos parámetros del servicio predeterminados definidos en el [manifiesto de aplicación](service-fabric-application-and-service-manifests.md) también se pueden actualizar como parte de una actualización de la aplicación. Solo se pueden cambiar como parte de una actualización los parámetros del servicio que admitan su modificación mediante [Update-ServiceFabricService](/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps). El comportamiento del cambio de los servicios predeterminados durante la actualización de la aplicación es el siguiente:
 
 1. Se crean los servicios predeterminados del nuevo manifiesto de aplicación que no existen aún en el clúster.
 2. Se actualizan los servicios predeterminados que existen tanto en el anterior manifiesto de aplicación como en el nuevo. Los parámetros del servicio predeterminados del nuevo manifiesto de aplicación sobrescriben los parámetros del servicio existente. La actualización de aplicaciones se revertirá automáticamente tras un error de actualización de un servicio predeterminado.

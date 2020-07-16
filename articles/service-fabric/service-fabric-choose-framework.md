@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
-ms.openlocfilehash: 11e32c9d1290227e638a314ed8417b1bed906842
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e1c96d0b04140f8c1121cfb74b43969b49cfdda
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75749537"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260521"
 ---
 # <a name="service-fabric-programming-model-overview"></a>Información general del modelo de programación de Service Fabric
 
@@ -26,7 +26,7 @@ Introducción a los archivos ejecutables de invitado mediante la implementación
 
 De forma predeterminada, Service Fabric implementa y activa estos servicios como procesos. Service Fabric puede implementar también servicios en [contenedores](service-fabric-containers-overview.md). Service Fabric admite la implementación de contenedores de Linux y contenedores de Windows en Windows Server 2016 o posterior. Las imágenes de contenedor se pueden extraer de cualquier repositorio de contenedor e implementarse en la máquina. Puede implementar las aplicaciones existentes como ejecutables de invitado, servicios de confianza con estado o sin estado de Service Fabric o Reliable Actors en contenedores, y puede mezclar los servicios en procesos y servicios en contenedores en la misma aplicación.
 
-[más información sobre la inclusión en contenedores de los servicios de Windows o Linux](service-fabric-deploy-container.md)
+[más información sobre la inclusión en contenedores de los servicios de Windows o Linux](./service-fabric-get-started-containers.md)
 
 ## <a name="reliable-services"></a>Reliable Services
 

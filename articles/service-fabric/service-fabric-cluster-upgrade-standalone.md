@@ -3,19 +3,19 @@ title: Actualización de un clúster de Azure Service Fabric independiente
 description: Obtenga información acerca de cómo actualizar la versión o configuración de un clúster de Azure Service Fabric independiente.  T
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.openlocfilehash: ac3e80aae440c6709057e4211f7a4f6a1beea058
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 519a9163d16fda2dd9fcf49cf22fe4ad4a272e09
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82790650"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260986"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>Actualización de un clúster de Service Fabric independiente
 
 Para cualquier sistema moderno, diseñar la capacidad de actualización es clave para lograr el éxito a largo plazo de su producto. Un clúster de Azure Service Fabric independiente es un recurso que usted posee. En este artículo se describe lo que se puede actualizar.
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Control de la versión de Service Fabric que se ejecuta en el clúster
-Asegúrese de que el clúster siempre ejecuta una [versión compatible de Service Fabric](service-fabric-versions.md). Cuando Microsoft anuncia el lanzamiento de una nueva versión de Service Fabric, se marca la versión anterior para que finalice el soporte después de un mínimo de 60 días a partir de la fecha del anuncio. Las versiones nuevas se anuncian [en el blog del equipo de Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/). La nueva versión estará disponible para su elección a partir de ese momento.
+Asegúrese de que el clúster siempre ejecuta una [versión compatible de Service Fabric](service-fabric-versions.md). Cuando Microsoft anuncia el lanzamiento de una nueva versión de Service Fabric, se marca la versión anterior para que finalice el soporte después de un mínimo de 60 días a partir de la fecha del anuncio. Las versiones nuevas se anuncian [en el blog del equipo de Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric). La nueva versión estará disponible para su elección a partir de ese momento.
 
 Puede configurar el clúster para recibir las actualizaciones automáticas cuando Microsoft las publica o puede seleccionar manualmente la versión compatible de Service Fabric que quiere que tenga el clúster. Para obtener más información, lea [Actualización de la versión de Service Fabric que se ejecuta en el clúster](service-fabric-cluster-upgrade-windows-server.md).
 

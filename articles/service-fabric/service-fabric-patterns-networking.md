@@ -3,12 +3,12 @@ title: Patrones de redes para Azure Service Fabric
 description: En este artículo se describen los patrones de redes comunes de Service Fabric y cómo crear un clúster con las características de red de Azure.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: b9114be5498bcb7fdec4e105ad6e3ff9fcc03a7c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c3664d1890fd318aa1bff508a51cb227bdcc01d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85106615"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258532"
 ---
 # <a name="service-fabric-networking-patterns"></a>Patrones de redes de Service Fabric
 Puede integrar el clúster de Azure Service Fabric con otras características de red de Azure. En este artículo se muestra cómo crear clústeres que usan las siguientes características:
@@ -598,10 +598,9 @@ Después de la implementación, puede ver dos de equilibradores de carga en el g
 
 ## <a name="notes-for-production-workloads"></a>Notas para cargas de trabajo de producción
 
-Las plantillas de GitHub anteriores se han diseñado para trabajar con la SKU predeterminada para Azure Standard Load Balancer (SLB), la SKU básica. Este SLB no dispone de Acuerdo de Nivel de Servicio, de modo que la SKU estándar debe usarse para las cargas de trabajo de producción. Para obtener más información al respecto, consulte la [introducción a Azure Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview). Cualquier clúster de Service Fabric que use la SKU estándar para SLB deberá asegurarse de que cada tipo de nodo tiene una regla que permite el tráfico saliente en el puerto 443. Esto es necesario para completar la configuración del clúster, produciéndose un error en cualquier implementación sin esta regla. En el ejemplo anterior de un equilibrador de carga "solo externo", debe agregarse un equilibrador de carga externo adicional a la plantilla con una regla que permite el tráfico saliente para el puerto 443.
+Las plantillas de GitHub anteriores se han diseñado para trabajar con la SKU predeterminada para Azure Standard Load Balancer (SLB), la SKU básica. Este SLB no dispone de Acuerdo de Nivel de Servicio, de modo que la SKU estándar debe usarse para las cargas de trabajo de producción. Para obtener más información al respecto, consulte la [introducción a Azure Standard Load Balancer](../load-balancer/load-balancer-overview.md). Cualquier clúster de Service Fabric que use la SKU estándar para SLB deberá asegurarse de que cada tipo de nodo tiene una regla que permite el tráfico saliente en el puerto 443. Esto es necesario para completar la configuración del clúster, produciéndose un error en cualquier implementación sin esta regla. En el ejemplo anterior de un equilibrador de carga "solo externo", debe agregarse un equilibrador de carga externo adicional a la plantilla con una regla que permite el tráfico saliente para el puerto 443.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Creación de un clúster](service-fabric-cluster-creation-via-arm.md)
 
 Después de la implementación, puede ver dos de equilibradores de carga en el grupo de recursos. Si examina los equilibradores de carga, puede ver la dirección IP pública y los puntos de conexión de administración (puertos 19000 y 19080) asignados a la dirección IP pública. También puede ver la dirección IP interna estática y el punto de conexión de la aplicación (puerto 80) asignados al equilibrador de carga interno. Ambos equilibradores de carga usan el mismo grupo de back-end de conjunto de escalado de máquinas virtuales.
-
