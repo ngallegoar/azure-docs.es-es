@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 18469c94b66acab27b58243e8d15eb924843319b
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: e4ebb33333dc59432fd269c4847abdeab91d935c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811121"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389789"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar una aplicación de App Service en Azure Portal
 
@@ -168,9 +168,9 @@ En este caso, puede configurar algunas opciones comunes para la aplicación. Alg
 - **Configuración de plataforma**: Le permite configurar opciones para la plataforma de alojamiento, incluidas:
     - **Valor de bits**: 32 bits o 64 bits.
     - **Protocolo Websocket**: para [ASP.NET SignalR] o [socket.io](https://socket.io/), por ejemplo.
-    - **Always On**: mantenga cargada la aplicación, incluso cuando no hay tráfico. Esto es necesario en los WebJobs continuos o WebJobs que se desencadenan mediante una expresión CRON.
+    - **Always On**: mantiene la aplicación cargada, incluso cuando no hay tráfico. Esto es necesario en los WebJobs continuos o WebJobs que se desencadenan mediante una expresión CRON.
       > [!NOTE]
-      > Con la característica Always On, no se puede controlar el punto de conexión. Siempre envía una solicitud a la raíz de la aplicación.
+      > Con la característica Always On, el equilibrador de carga de front-end envía una solicitud a la raíz de la aplicación. No se puede configurar el punto de conexión de la aplicación de App Service.
     - **Versión de canalización administrada**: el [modo de canalización] IIS. Establézcalo en **Clásico** si tiene una aplicación heredada que requiere una versión anterior de IIS.
     - **Versión de HTTP**: Establézcala en **2.0** para habilitar la compatibilidad con el protocolo [HTTPS/2](https://wikipedia.org/wiki/HTTP/2).
     > [!NOTE]

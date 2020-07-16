@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: cdf901ca56c150cfed6ba3d462ce493d40bd2488
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 81dfac2a1623253a110833a96fddd1b41bd11b26
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81757998"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85390234"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Uso de claves SSH con Windows en Azure
 
@@ -63,15 +63,15 @@ Para crear un par de claves SSH RSA con PuTTYgen:
 
 2. Haga clic en **Generar**. De forma predeterminada, PuTTYgen genera una clave SSH-2 RSA de 2048 bits.
 
-4. Mueva el mouse en el área en blanco para que la clave sea aleatoria.
+3. Mueva el mouse en el área en blanco para que la clave sea aleatoria.
 
-5. Una vez generada la clave pública, tiene la opción de escribir y confirmar una frase de contraseña. Se le pedirá la frase de contraseña cuando se autentique en la máquina virtual con la clave SSH. Sin una frase de contraseña, si alguien obtiene su clave privada, podrá iniciar sesión en cualquier máquina virtual o servicio que utilice dicha clave. Por consiguiente, se recomienda crear una frase de contraseña. Sin embargo, si se le olvida la frase de contraseña, no hay forma de recuperarla.
+4. Una vez generada la clave pública, tiene la opción de escribir y confirmar una frase de contraseña. Se le pedirá la frase de contraseña cuando se autentique en la máquina virtual con la clave SSH. Sin una frase de contraseña, si alguien obtiene su clave privada, podrá iniciar sesión en cualquier máquina virtual o servicio que utilice dicha clave. Por consiguiente, se recomienda crear una frase de contraseña. Sin embargo, si se le olvida la frase de contraseña, no hay forma de recuperarla.
 
-6. La clave pública se muestra en la parte superior de la ventana. Cuando cree una máquina virtual Linux, copie la clave pública al completo y péguela en Azure Portal o en una plantilla de Azure Resource Manager. También puede hacer clic en **Save public key** (Guardar clave pública) para guardar una copia en el equipo:
+5. La clave pública se muestra en la parte superior de la ventana. Cuando cree una máquina virtual Linux, copie la clave pública completa y péguela en Azure Portal o en una plantilla de Azure Resource Manager. También puede hacer clic en **Save public key** (Guardar clave pública) para guardar una copia en el equipo. Tenga en cuenta que, cuando se guarda en un archivo, PuTTy convierte la clave pública a un formato diferente, [RFC4716](https://tools.ietf.org/html/rfc4716). El formato RFC4716 puede no ser compatible con todas las API. Por tanto, para usarla en Azure Portal, se recomienda copiar la clave pública mostrada en la ventana de PuTTY.
 
     ![Guardar archivo de clave pública de PuTTY](./media/ssh-from-windows/save-public-key.png)
 
-7. De manera opcional, para guardar la clave privada con el formato de clave privada de PuTTy (archivo .ppk), haga clic en **Save private key** (Guardar clave privada). Necesitará el archivo .ppk si quiere usar PuTTY más adelante para establecer una conexión SSH con la máquina virtual.
+6. De manera opcional, para guardar la clave privada con el formato de clave privada de PuTTy (archivo .ppk), haga clic en **Save private key** (Guardar clave privada). Necesitará el archivo .ppk si quiere usar PuTTY más adelante para establecer una conexión SSH con la máquina virtual.
 
     ![Guardar el archivo de clave privada de PuTTY](./media/ssh-from-windows/save-ppk-file.png)
 

@@ -5,12 +5,12 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 06/22/2020
-ms.openlocfilehash: 095746b9cf3cada9cebf7d169078eff9eb64a52d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1bcdfb4bb3c910feeac0521308e1e7d733fbd959
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444274"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244079"
 ---
 # <a name="reduce-latency-with-proximity-placement-groups-preview"></a>Reducción de la latencia con grupos con ubicación por proximidad (versión preliminar)
 
@@ -74,7 +74,7 @@ El primer recurso que se implementa con un grupo con ubicación por proximidad s
 
 El ejemplo siguiente usa el comando [az group create][az-group-create] para crear un grupo de recursos denominado *myResourceGroup* en la región *centralus*. Se crea un clúster de AKS denominado *myAKSCluster* mediante el comando [az aks create][az-aks-create]. 
 
-Las redes aceleradas mejoran en gran medida el rendimiento de red de las máquinas virtuales. Idealmente, use grupos con ubicación por proximidad junto con redes aceleradas. De forma predeterminada, AKS usa redes aceleradas en las [instancias de máquinas virtuales admitidas](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli?toc=/azure/virtual-machines/linux/toc.json#limitations-and-constraints), que incluyen la mayoría de las máquinas virtuales de Azure con dos o más CPU virtuales.
+Las redes aceleradas mejoran en gran medida el rendimiento de red de las máquinas virtuales. Idealmente, use grupos con ubicación por proximidad junto con redes aceleradas. De forma predeterminada, AKS usa redes aceleradas en las [instancias de máquinas virtuales admitidas](../virtual-network/create-vm-accelerated-networking-cli.md?toc=/azure/virtual-machines/linux/toc.json#limitations-and-constraints), que incluyen la mayoría de las máquinas virtuales de Azure con dos o más CPU virtuales.
 
 Cree un clúster de AKS con un grupo con ubicación por proximidad:
 
@@ -164,4 +164,3 @@ az group delete --name myResourceGroup --yes --no-wait
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
-

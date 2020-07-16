@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 005c035468a4225f96e8ef69b2ef31a82bf7eedb
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f160910024d9d64d22028c72825b98d93f66f15d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682814"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85390370"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Preguntas más frecuentes sobre Azure Container Registry
 
@@ -269,6 +269,7 @@ La configuración de una instancia de Azure Container Registry para el acceso de
 - [¿Por qué Azure Portal no muestra todos los repositorios o etiquetas?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
 - [¿Por qué Azure Portal no captura repositorios ni etiquetas?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
 - [¿Por qué se produce un error de operación no permitida en la solicitud de extracción o de inserción?](#why-does-my-pull-or-push-request-fail-with-disallowed-operation)
+- [El formato del repositorio no es válido o no es compatible](#repository-format-is-invalid-or-unsupported)
 - [¿Cómo se pueden recopilar los seguimientos http en Windows?](#how-do-i-collect-http-traces-on-windows)
 
 ### <a name="check-health-with-az-acr-check-health"></a>Comprobación de mantenimiento con `az acr check-health`
@@ -438,10 +439,17 @@ Estos son algunos escenarios en los que es posible que no se permitan operacione
 * Ya no se admiten los registros clásicos. Actualice a un [nivel de servicio](https://aka.ms/acr/skus) compatible mediante [az acr update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) o Azure Portal.
 * Es posible que la imagen o el repositorio estén bloqueados para que no se puedan eliminar ni actualizar. Puede usar el comando [az acr show repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) para ver los atributos actuales.
 * Algunas operaciones no se permiten si la imagen está en cuarentena. Más información sobre la [cuarentena](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
+* Puede que el registro haya alcanzado su [límite de almacenamiento](container-registry-skus.md#service-tier-features-and-limits).
+
+### <a name="repository-format-is-invalid-or-unsupported"></a>El formato del repositorio no es válido o no es compatible
+
+Si recibe un error tipo "formato de repositorio no compatible", "formato no válido" o "los datos solicitados no existen" al especificar un nombre de repositorio en las operaciones del repositorio, compruebe la ortografía y las mayúsculas y minúsculas en el nombre. Los nombres de repositorio válidos solo pueden incluir caracteres alfanuméricos en minúscula, puntos, guiones, guiones bajos y barras diagonales. 
+
+Para obtener las reglas de nomenclatura de repositorios completas, vea la [Especificación sobre la distribución de Open Container Initiative](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>¿Cómo se pueden recopilar los seguimientos http en Windows?
 
-#### <a name="prerequisites"></a>Prerrequisitos
+#### <a name="prerequisites"></a>Requisitos previos
 
 - Habilite el descifrado de https en Fiddler: <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
 - Habilite Docker para que use un proxy mediante la interfaz de usuario de Docker: <https://docs.docker.com/docker-for-windows/#proxies>

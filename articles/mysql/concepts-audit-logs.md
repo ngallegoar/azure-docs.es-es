@@ -5,22 +5,22 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/19/2020
-ms.openlocfilehash: b42f0d7a8146f7f2b313959273abd22303c89a60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/24/2020
+ms.openlocfilehash: 8b12e1bd7bd67c3d22bdb62255b481d81976b969
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062543"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362132"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Registros de auditoría en Azure Database for MySQL
 
 Los usuarios tienen disponible el registro de auditoría en Azure Database for MySQL. El registro de auditoría se puede usar para realizar un seguimiento de la actividad a nivel de la base de datos y se usa normalmente para cumplimiento.
 
-> [!IMPORTANT]
-> La funcionalidad del registro de auditoría se encuentra actualmente en versión preliminar.
-
 ## <a name="configure-audit-logging"></a>Configuración del registro de auditoría
+
+>[!IMPORTANT]
+> Se recomienda registrar solo los tipos de evento y los usuarios necesarios con fines de auditoría para asegurarse de que el rendimiento del servidor no se ve afectado en gran medida.
 
 De forma predeterminada, el registro de auditoría está deshabilitado. Para habilitarlo, cambie `audit_log_enabled` a Activado.
 
@@ -28,12 +28,10 @@ Otros parámetros que se pueden ajustar son los siguientes:
 
 - `audit_log_events`: controla los eventos que se registrarán. Consulte la tabla a continuación para ver los eventos de auditoría específicos.
 - `audit_log_include_users`: Usuarios de MySQL que se incluirán para el registro. El valor predeterminado de este parámetro es estar vacío, lo que incluirá todos los usuarios en el registro. Este tiene una mayor prioridad que `audit_log_exclude_users`. La longitud máxima del parámetro es de 512 caracteres.
-> [!Note]
-> `audit_log_include_users` tiene mayor prioridad sobre `audit_log_exclude_users`. Por ejemplo, si `audit_log_include_users` = `demouser` y `audit_log_exclude_users` = `demouser`, el usuario se incluirá en los registros de auditoría porque `audit_log_include_users` tiene mayor prioridad.
 - `audit_log_exclude_users`: Los usuarios de MySQL que se excluirán del registro. La longitud máxima del parámetro es de 512 caracteres.
 
-> [!Note]
-> Para `sql_text`, el registro se truncará si supera los 2048 caracteres.
+> [!NOTE]
+> `audit_log_include_users` tiene mayor prioridad sobre `audit_log_exclude_users`. Por ejemplo, si `audit_log_include_users` = `demouser` y `audit_log_exclude_users` = `demouser`, el usuario se incluirá en los registros de auditoría porque `audit_log_include_users` tiene mayor prioridad.
 
 | **Evento** | **Descripción** |
 |---|---|
@@ -85,6 +83,9 @@ En las secciones siguientes se describe lo que generan los registros de auditor�
 
 El esquema siguiente se aplica a los tipos de evento GENERAL, DML_SELECT, DML_NONSELECT, DML, DDL, DCL y ADMIN.
 
+> [!NOTE]
+> Para `sql_text`, el registro se truncará si supera los 2048 caracteres.
+
 | **Propiedad** | **Descripción** |
 |---|---|
 | `TenantId` | El identificador de inquilino |
@@ -114,7 +115,7 @@ El esquema siguiente se aplica a los tipos de evento GENERAL, DML_SELECT, DML_NO
 ### <a name="table-access"></a>Acceso a la tabla
 
 > [!NOTE]
-> Los registros de acceso a tablas solo se muestran en MySQL 5.7.
+> Los registros de acceso a tablas solo se muestran en MySQL 5.7.<br>Para `sql_text`, el registro se truncará si supera los 2048 caracteres.
 
 | **Propiedad** | **Descripción** |
 |---|---|

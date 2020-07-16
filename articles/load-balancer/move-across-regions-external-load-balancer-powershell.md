@@ -3,15 +3,15 @@ title: Traslado de un equilibrador de carga externo de Azure a otra región de A
 description: Use una plantilla de Azure Resource Manager para trasladar un equilibrador de carga externo de Azure de una región de Azure a otra mediante Azure PowerShell.
 author: asudbring
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: a24eb4608e7630d5b613751fa2120361eccd7672
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be1971c9184d0b2b406b669ae9d1ea61598b201f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75644824"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809430"
 ---
 # <a name="move-azure-external-load-balancer-to-another-region-using-azure-powershell"></a>Traslado de un equilibrador de carga externo de Azure a otra región mediante Azure PowerShell
 
@@ -20,7 +20,7 @@ Hay varios escenarios en los que quizá quiera trasladar su equilibrador de carg
 Los equilibradores de carga externos de Azure no se pueden trasladar de una región a otra. Sin embargo, puede usar una plantilla de Azure Resource Manager para exportar la configuración y dirección IP pública actuales de un equilibrador de carga externo.  Después, puede preparar el recurso para otra región al exportar el equilibrador de carga y la dirección IP pública a una plantilla, modificar los parámetros para que coincidan con la región de destino y, a continuación, implementar la plantilla en la nueva región.  Para más información sobre Resource Manager y sus plantillas, consulte [Exportación de grupos de recursos a plantillas](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 - Asegúrese de que el equilibrador de carga externo de Azure se encuentra en la región de Azure desde la que va a realizar el traslado.
 
@@ -60,7 +60,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-4. El nombre del archivo descargado se asignará en función del grupo de recursos desde el que se exportó el recurso.  Busque el archivo que se exportó desde el comando denominado **\<nombre-del-grupo-de-recursos>.json** y ábralo en el editor que prefiera:
+4. El nombre del archivo descargado se asignará en función del grupo de recursos desde el que se exportó el recurso.  Busque el archivo que se exportó con el comando denominado **\<resource-group-name>.json** y ábralo en el editor que prefiera:
    
    ```azurepowershell
    notepad.exe <source-resource-group-name>.json
@@ -116,7 +116,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
     ```
 8. También puede cambiar otros parámetros de la plantilla si así lo desea; son opcionales según sus requisitos:
 
-    * **SKU**: puede cambiar la SKU de la dirección IP pública en la configuración del nivel estándar al básico o viceversa si modifica la propiedad **sku** > **name** en el archivo **\<resource-group-name>.json**:
+    * **SKU**: puede cambiar la SKU de la dirección IP pública de la configuración de estándar a básica o viceversa modificando la propiedad **sku** > **name** en el archivo **\<resource-group-name>.json**:
 
          ```json
             "resources": [
@@ -161,14 +161,14 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
         Para más información sobre los métodos de asignación y los valores de tiempo de espera de inactividad, consulte [Creación, modificación o eliminación de una dirección IP pública](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
 
-9. Guarde el archivo **\<nombre-del-grupo-de-recursos>.json**.
+9. Guarde el archivo **\<resource-group-name>.json**.
 
 10. Cree un grupo de recursos en la región de destino para la dirección IP pública de destino que se va a implementar mediante [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0).
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Implemente el archivo **\<nombre-del-grupo-de-recursos>.json** editado en el grupo de recursos que creó en el paso anterior mediante [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Implemente el archivo **\<resource-group-name>.json** editado en el grupo de recursos que creó en el paso anterior mediante [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
@@ -209,7 +209,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceExtLBID -IncludeParameterDefaultValue
    ```
-4. El nombre del archivo descargado se asignará en función del grupo de recursos desde el que se exportó el recurso.  Busque el archivo que se exportó desde el comando denominado **\<nombre-del-grupo-de-recursos>.json** y ábralo en el editor que prefiera:
+4. El nombre del archivo descargado se asignará en función del grupo de recursos desde el que se exportó el recurso.  Busque el archivo que se exportó con el comando denominado **\<resource-group-name>.json** y ábralo en el editor que prefiera:
    
    ```azurepowershell
    notepad.exe <source-resource-group-name>.json
@@ -232,7 +232,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
 
     ```
 
-6.  Para modificar el valor de la dirección IP pública de destino que se ha trasladado antes, primero debe obtener el identificador de recurso y, a continuación, copiarlo y pegarlo en el archivo **\<nombre-del-grupo-de-recursos>.json**.  Para obtener el identificador, use [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
+6.  Para modificar el valor de la dirección IP pública de destino que se ha trasladado antes, primero debe obtener el identificador de recurso y, a continuación, copiarlo y pegarlo en el archivo **\<resource-group-name>.json**.  Para obtener el identificador, use [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
 
     ```azurepowershell-interactive
     $targetPubIPID = (Get-AzPublicIPaddress -Name <target-public-ip-name> -ResourceGroupName <target-resource-group-name>).Id
@@ -244,7 +244,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
     /subscriptions/7668d659-17fc-4ffd-85ba-9de61fe977e8/resourceGroups/myResourceGroupLB-Move/providers/Microsoft.Network/publicIPAddresses/myPubIP-in-move
     ```
 
-7.  En el archivo **\<nombre-del-grupo-de-recursos>.json**, pegue el **identificador del recurso** de la variable en lugar del valor **defaultValue** en el segundo parámetro del identificador externo de la IP pública y asegúrese de escribir la ruta de acceso entre comillas:
+7.  En el archivo **\<resource-group-name>.json**, pegue el **identificador del recurso** de la variable en lugar del valor **defaultValue** en el segundo parámetro del identificador externo de la IP pública y, después, asegúrese de escribir la ruta de acceso entre comillas:
 
     ```json
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -261,7 +261,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
 
     ```
 
-8.  Si ha configurado las reglas de salida y NAT de salida para el equilibrador de carga, en este archivo habrá una tercera entrada para el identificador externo de la IP pública saliente.  Repita los pasos anteriores en la **región de destino** para obtener el identificador de la dirección IP pública de salida y pegue esa entrada en el archivo **\<nombre-del-grupo-de-recursos>.json**:
+8.  Si ha configurado las reglas de salida y NAT de salida para el equilibrador de carga, en este archivo habrá una tercera entrada para el identificador externo de la IP pública saliente.  Repita los pasos anteriores en la **región de destino** para obtener el identificador de la dirección IP pública de salida y pegue esa entrada en el archivo **\<resource-group-name>.json**:
 
     ```json
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -282,7 +282,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
         },
     ```
 
-10. Para editar la región de destino a la que se va a trasladar la configuración del equilibrador de carga externo, cambie la propiedad **location** en **resources** del archivo **\<nombre-del-grupo-de-recursos>.json**:
+10. Para editar la región de destino a la que se va a trasladar la configuración del equilibrador de carga externo, cambie la propiedad **location** en **resources** del archivo **\<resource-group-name>.json**:
 
     ```json
         "resources": [
@@ -306,7 +306,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
     ```
 12. También puede cambiar otros parámetros de la plantilla si así lo desea; son opcionales según sus requisitos:
     
-    * **SKU**: puede cambiar la SKU del equilibrador de carga externo en la configuración del nivel estándar al básico o viceversa si modifica la propiedad **sku** > **name** en el archivo \<**nombre-del-grupo-de-recursos>.json**:
+    * **SKU**: puede cambiar la SKU del equilibrador de carga externo en la configuración del nivel estándar al básico o viceversa si modifica la propiedad **sku** > **name** en el archivo **\<resource-group-name>.json**:
 
         ```json
         "resources": [
@@ -322,7 +322,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
         ```
       Para más información sobre las diferencias entre los equilibradores de carga de la SKU básica y estándar, consulte [Introducción a Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
 
-    * **Reglas de equilibrio de carga**: puede agregar o quitar reglas de equilibrio de carga en la configuración agregando o quitando entradas en la sección **loadBalancingRules** del archivo **\<nombre-del-grupo-de-recursos>.json**:
+    * **Reglas de equilibrio de carga**: puede agregar o quitar reglas de equilibrio de carga en la configuración agregando o quitando entradas en la sección **loadBalancingRules** del archivo **\<resource-group-name>.json**:
 
         ```json
         "loadBalancingRules": [
@@ -354,7 +354,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
         ```
        Para más información sobre las reglas de equilibrio de carga, consulte [¿Qué es Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
-    * **Sondeos**: puede agregar o quitar sondeos para el equilibrador de carga en la configuración agregando o quitando entradas en la sección **probes** del archivo **\<nombre-del-grupo-de-recursos>.json**:
+    * **Sondeos**: puede agregar o quitar sondeos para el equilibrador de carga en la configuración agregando o quitando entradas en la sección **probes** del archivo **\<resource-group-name>.json** :
 
         ```json
         "probes": [
@@ -374,7 +374,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
         ```
        Para más información sobre los sondeos de estado de Azure Load Balancer, consulte [Sondeos de estado de Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
-    * **Reglas NAT de entrada**: puede agregar o quitar reglas NAT de entrada para el equilibrador de carga agregando o quitando entradas en la sección **inboundNatRules** del archivo **\<nombre-del-grupo-de-recursos>.json**:
+    * **Reglas NAT de entrada**: puede agregar o quitar reglas NAT de entrada para el equilibrador de carga agregando o quitando entradas en la sección **inboundNatRules** del archivo **\<resource-group-name>.json** :
 
         ```json
         "inboundNatRules": [
@@ -396,7 +396,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
                     }
                 ]
         ```
-        Para completar la adición o eliminación de una regla NAT de entrada, esta debe agregarse o quitarse como una propiedad **type** al final del archivo **\<nombre-del-grupo-de-recursos>.json**:
+        Para completar la adición o eliminación de una regla NAT de entrada, esta debe agregarse o quitarse como propiedad **type** al final del archivo **\<resource-group-name>.json**:
 
         ```json
         {
@@ -422,7 +422,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
         ```
         Para más información sobre las reglas NAT de entrada, consulte [¿Qué es Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
-    * **Reglas de salida**: puede agregar o quitar reglas de salida en la configuración mediante la edición de la propiedad **outboundRules** en el archivo **\<nombre-del-grupo-de-recursos>.json**:
+    * **Reglas de salida**: puede agregar o quitar reglas de salida en la configuración mediante la edición de la propiedad **outboundRules** en el archivo **\<resource-group-name>.json** :
 
         ```json
         "outboundRules": [
@@ -450,14 +450,14 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
 
          Para más información sobre las reglas de salida, consulte [Reglas de salida de Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview).
 
-13. Guarde el archivo **\<nombre-del-grupo-de-recursos>.json**.
+13. Guarde el archivo **\<resource-group-name>.json**.
     
 10. Cree un grupo de recursos en la región de destino para el equilibrador de carga externo de destino que se va a implementar mediante [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0). El grupo de recursos existente anterior también se puede reutilizar como parte de este proceso:
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Implemente el archivo **\<nombre-del-grupo-de-recursos>.json** editado en el grupo de recursos que creó en el paso anterior mediante [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Implemente el archivo **\<resource-group-name>.json** editado en el grupo de recursos que creó en el paso anterior mediante [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 

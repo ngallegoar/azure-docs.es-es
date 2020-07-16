@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 05/29/2020
+ms.date: 06/23/2020
 tags: connectors
-ms.openlocfilehash: 557e162d9d7f0238d5554c32cb3ae96885877dbe
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 01c1a2b3f9455f19877f1b16b7fff5a7c2e77c76
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220497"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85323163"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Conexión a sistemas SAP desde Azure Logic Apps
 
@@ -49,9 +49,12 @@ Para seguir con este artículo, necesita los siguientes elementos:
 
 * El [servidor de aplicaciones de SAP](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) o el [servidor de mensajes de SAP](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm).
 
-* El contenido del mensaje que puede enviar a su servidor SAP, como un archivo IDOC de ejemplo, debe estar en formato XML e incluir el espacio de nombres de la acción de SAP que quiera usar.
+* El contenido del mensaje que envía a su servidor SAP, como un archivo IDoc de ejemplo, debe estar en formato XML e incluir el espacio de nombres de la acción de SAP que quiera usar.
 
 * Para usar el desencadenador **Cuando se recibe un mensaje de SAP**, también debe realizar estos pasos de configuración:
+  
+  > [!NOTE]
+  > Este desencadenador utiliza la misma ubicación de URI para renovar y cancelar una suscripción de webhook. La operación de renovación usa el método `PATCH` de HTTP, mientras que la operación de cancelación usa el método `DELETE` de HTTP. Este comportamiento puede provocar que una operación de renovación aparezca como una operación de cancelación en el historial del desencadenador, pero la operación sigue siendo una renovación porque el desencadenador usa `PATCH` como método HTTP, no `DELETE`.
 
   * Configure los permisos de seguridad de la puerta de enlace de SAP con esta opción:
 
@@ -360,9 +363,9 @@ En este ejemplo se usa una aplicación lógica que se desencadena cuando la apli
 
       Logic Apps configura y comprueba la conexión para asegurarse de que funciona correctamente.
 
-1. Proporcione los [parámetros necesarios](#parameters) en función de la configuración del sistema SAP.
+1. Proporcione los [parámetros necesarios](#parameters) en función de la configuración del sistema SAP. 
 
-   También puede proporcionar una o varias acciones de SAP. Esta lista de acciones especifica los mensajes que recibe el desencadenador del servidor SAP. Una lista vacía especifica que el desencadenador recibe todos los mensajes. Si la lista tiene más de un mensaje, el desencadenador recibe solo los mensajes especificados en la lista. Se rechazan todos los demás mensajes enviados desde el servidor SAP.
+   Puede [filtrar los mensajes que recibe desde el servidor SAP especificando una lista de acciones de SAP](#filter-with-sap-actions).
 
    Puede seleccionar una acción de SAP desde el selector de archivos:
 
@@ -395,6 +398,56 @@ Junto con entradas de cadena y número simples, el conector de SAP acepta estos 
 * Parámetros de cambio, que reemplazan los parámetros de dirección de la tabla para las versiones más recientes de SAP.
 * Parámetros de tabla jerárquica
 
+<a name="filter-with-sap-actions"></a>
+
+#### <a name="filter-with-sap-actions"></a>Filtrado con acciones de SAP
+
+Opcionalmente, puede filtrar los mensajes que la aplicación lógica recibe del servidor SAP proporcionando una lista, o una matriz, con una o varias acciones de SAP. De forma predeterminada, esta matriz está vacía, lo que significa que la aplicación lógica recibe todos los mensajes del servidor SAP sin filtrar. 
+
+Al configurar el filtro de matriz, el desencadenador solo recibe mensajes de los tipos de acción de SAP especificados y rechaza todos los demás mensajes del servidor SAP. Sin embargo, este filtro no afecta al establecimiento de tipos de la carga recibida, que puede ser flexible o inflexible.
+
+Cualquier filtrado de acciones de SAP se produce en el nivel del adaptador de SAP para la puerta de enlace de datos local. Para obtener más información, vea [Envío de IDoc de prueba a Logic Apps desde SAP](#send-idocs-from-sap).
+
+Si no puede enviar paquetes de IDoc desde SAP al desencadenador de la aplicación lógica, consulte el mensaje de rechazo de llamada de RFC transaccional (tRFC) en el cuadro de diálogo tRFC de SAP (T-CODE SM58). En la interfaz de SAP, puede obtener los siguientes mensajes de error, que se recortan debido a los límites para subcadenas en el campo **Status Text** (Texto de estado).
+
+* `The RequestContext on the IReplyChannel was closed without a reply being`: Se producen errores inesperados cuando el controlador comodín del canal finaliza el canal debido a un error y vuelve a generar el canal para procesar otros mensajes.
+
+  * Para confirmar que la aplicación lógica recibió el IDoc, [agregue una acción de respuesta](../connectors/connectors-native-reqres.md#add-a-response-action) que devuelva un código de estado `200 OK`. El IDoc se transporta a través de tRFC, que no permite una carga de respuesta.
+
+  * Si en vez de eso tiene que rechazar el IDoc, responda con cualquier código de Estado HTTP distinto de `200 OK` para que el adaptador de SAP devuelva una excepción a SAP en su nombre. 
+
+* `The segment or group definition E2EDK36001 was not found in the IDoc meta`: Los errores esperados se producen con otros errores, como el error de generación de una carga XML de IDoc provocado por el hecho de que SAP no publica sus segmentos, por lo que faltan los metadatos de tipo de segmento necesarios para la conversión. 
+
+  * Para que SAP publique estos segmentos, póngase en contacto con el ingeniero de ABAP para su sistema SAP.
+
+<a name="find-extended-error-logs"></a>
+
+#### <a name="find-extended-error-logs"></a>Búsqueda de registros de errores ampliados
+
+Para ver los mensajes de error completos, recurra a los registros ampliados del adaptador de SAP. 
+
+En el caso de las versiones de puerta de enlace de datos local de junio de 2020 y posteriores, puede [habilitar los registros de puerta de enlace en la configuración de la aplicación](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app).
+
+En el caso de las versiones de puerta de enlace de datos local de abril de 2020 y anteriores, los registros están deshabilitados de forma predeterminada. Para recuperar los registros ampliados, siga estos pasos:
+
+1. En la carpeta de instalación de la puerta de enlace de datos local, abra el archivo `Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config`. 
+
+1. Para el valor **SapExtendedTracing**, cambie el valor de **False** a **True**.
+
+1. Opcionalmente, para menos eventos, cambie el valor **SapTracingLevel** de **Informativo** (valor predeterminado) a **Error** o **Advertencia**. O bien, para obtener más eventos, cambie de **Informativo** a **Detallado**.
+
+1. Guarde el archivo de configuración.
+
+1. Reinicie la puerta de enlace de datos. Abra la aplicación del instalador de puerta de enlace de datos local y vaya al menú **Valor de configuración del servicio**. En **Reinicio de la puerta de enlace**, seleccione **Reiniciar ahora**.
+
+1. Reproduzca el problema.
+
+1. Exporte los registros de puerta de enlace. En la aplicación del instalador de puerta de enlace de datos, vaya al menú **Diagnóstico**. En **Registros de la puerta de enlace**, seleccione **Exportar registros**. Estos archivos incluyen registros SAP organizados por fecha. En función del tamaño del registro, pueden existir varios archivos de registro para una sola fecha.
+
+1. En el archivo de configuración, revierta el valor de **SapExtendedTracing** a **False**.
+
+1. Reinicie el servicio de puerta de enlace.
+
 ### <a name="test-your-logic-app"></a>Comprobación de la aplicación lógica
 
 1. Para desencadenar la aplicación lógica, envíe un mensaje desde el sistema SAP.
@@ -403,9 +456,148 @@ Junto con entradas de cadena y número simples, el conector de SAP acepta estos 
 
 1. Abra la ejecución más reciente, que muestra el mensaje enviado desde su sistema SAP en la sección de salidas del desencadenador.
 
+<a name="send-idocs-from-sap"></a>
+
+### <a name="test-sending-idocs-from-sap"></a>Prueba de envío de IDoc desde SAP
+
+Para enviar IDoc desde SAP a la aplicación lógica, necesita la siguiente configuración mínima:
+
+> [!IMPORTANT]
+> Siga estos pasos solo al probar la configuración de SAP con la aplicación lógica. Los entornos de producción requieren configuración adicional.
+
+1. [Configuración de un destino RFC en SAP](#create-rfc-destination)
+
+1. [Creación de una conexión ABAP con el destino RFC](#create-abap-connection)
+
+1. [Creación de un puerto receptor](#create-receiver-port)
+
+1. [Creación de un puerto remitente](#create-sender-port)
+
+1. [Creación de un asociado del sistema lógico](#create-logical-system-partner)
+
+1. [Creación de perfil de socio](#create-partner-profiles)
+
+1. [Prueba de envío de mensajes](#test-sending-messages)
+
+#### <a name="create-rfc-destination"></a>Creación de destino RFC
+
+1. Para abrir los parámetros de la **configuración de las conexiones RFC**, en la interfaz de SAP, use el código de transacción (T Code) **sm59** con el prefijo **/n**.
+
+1. Seleccione **TCP/IP Connections** > **Create** (Conexiones TCP/IP > Crear).
+
+1. Cree un nuevo destino RFC con la siguiente configuración:
+    
+    * En **RFC Destination** (Destino RFC), escriba un nombre.
+    
+    * En la pestaña **Technical Settings** (Configuración técnica), en **Activation Type** (Tipo de activación), seleccione **Registered Server Program** (Programa de servidor registrado). En **Program ID** (Id. de programa), escriba un valor. En SAP, el desencadenador de la aplicación lógica se registrará con este identificador.
+    
+    * En la pestaña **Unicode**, para **Communication Type with Target System** (Tipo de comunicación con sistema de destino), seleccione **Unicode**.
+
+1. Guarde los cambios.
+
+1. Registre el nuevo **Program ID** (Id. de programa) con Azure Logic Apps.
+
+1. Para probar la conexión, en la interfaz de SAP, en el nuevo **RFC Destination** (Destino RFC), seleccione **Connection Test** (Prueba de conexión).
+
+#### <a name="create-abap-connection"></a>Creación de conexión ABAP
+
+1. Para abrir los parámetros de la **configuración de las conexiones RFC**, en la interfaz de SAP, use el código de transacción (T Code) **sm59*** con el prefijo **/n**.
+
+1. Seleccione **ABAP Connections** > **Create** (Conexiones ABAP > Crear).
+
+1. **RFC Destination** (Destino RFC), escriba el identificador de [su sistema SAP de prueba](#create-rfc-destination).
+
+1. Guarde los cambios.
+
+1. Para probar la conexión, seleccione **Connection Test** (Prueba de conexión).
+
+#### <a name="create-receiver-port"></a>Creación de un puerto receptor
+
+1. Para abrir los parámetros del **procesamiento de puertos en IDoc**, en la interfaz de SAP, use el código de transacción (T Code) **we21** con el prefijo **/n**.
+
+1. Seleccione **Ports** > **Transactional RFC** > **Create** (Puertos > RFC transaccional > Crear).
+
+1. En el cuadro de configuración que se abre, seleccione **own port name** (nombre propio del puerto). En el puerto de prueba, escriba un **nombre**. Guarde los cambios.
+
+1. En la configuración del nuevo puerto receptor, para **RFC destination** (Destino RFC), escriba el identificador del [destino RFC de prueba](#create-rfc-destination).
+
+1. Guarde los cambios.
+
+#### <a name="create-sender-port"></a>Creación de un puerto remitente
+
+1.  Para abrir los parámetros del **procesamiento de puertos en IDoc**, en la interfaz de SAP, use el código de transacción (T Code) **we21** con el prefijo **/n**.
+
+1. Seleccione **Ports** > **Transactional RFC** > **Create** (Puertos > RFC transaccional > Crear).
+
+1. En el cuadro de configuración que se abre, seleccione **own port name** (nombre propio del puerto). En el puerto de prueba, escriba un **nombre** que empiece por **SAP**. Todos los nombres de puerto remitente deben comenzar con las letras **SAP**, por ejemplo, **SAPTEST**. Guarde los cambios.
+
+1. En la configuración del nuevo puerto remitente, para **RFC destination** (Destino RFC), escriba el identificador de [la conexión de ABAP](#create-abap-connection).
+
+1. Guarde los cambios.
+
+#### <a name="create-logical-system-partner"></a>Creación de un asociado del sistema lógico
+
+1. Para abrir la configuración para **cambiar la vista de sistemas lógicos referente al apartado de información general**, en la interfaz de SAP, use el código de transacción (T Code) **bd54**.
+
+1. Acepte el mensaje de advertencia que aparece: **Caution: The table is cross-client** (Precaución, la tabla afecta a varios clientes).
+
+1. Encima de la lista que muestra los sistemas lógicos existentes, seleccione **New Entries** (Nuevas entradas).
+
+1. En el nuevo sistema lógico, escriba un identificador de **Log.System** y una descripción breve del **nombre**. Guarde los cambios.
+
+1. Cuando aparezca **Prompt for Workbench** (Solicitud de banco de trabajo), cree una nueva solicitud. Para ello, proporcione una descripción (si ya ha creado una solicitud, omita este paso).
+
+1. Después de crear la solicitud de banco de trabajo, vincule esa solicitud a la solicitud de actualización de la tabla. Para confirmar que la tabla se ha actualizado, guarde los cambios.
+
+#### <a name="create-partner-profiles"></a>Creación de perfiles de socios
+
+En entornos de producción, debe crear dos perfiles de socio. El primer perfil es para el remitente, que es su organización y el sistema SAP. El segundo perfil es para el receptor, que es la aplicación lógica.
+
+1. Para abrir los parámetros de **perfiles de asociado**, en la interfaz de SAP, use el código de transacción (T Code) **we20** con el prefijo **/n**.
+
+1. En **Partner Profiles** (Perfiles de socio), seleccione **Partner Type LS** > **Create** (Tipo de socio LS > Crear).
+
+1. Cree un nuevo perfil de socio con la siguiente configuración:
+
+    * En **Partner No.** (Núm. de socio), escriba el [identificador de socio del sistema lógico](#create-logical-system-partner).
+
+    * En **Partn. Type** (Tipo de socio), escriba **LS**.
+
+    * En **Agent** (Agente), escriba el identificador de la cuenta de usuario de SAP que utilizará al registrar identificadores de programa para Azure Logic Apps u otros sistemas que no sean de SAP.
+
+1. Guarde los cambios. Si no ha [creado el socio del sistema lógico](#create-logical-system-partner), aparecerá el error **Enter a valid partner number** (Escriba un número de socio válido).
+
+1. En la configuración del perfil de socio, en **Outbound parmtrs.** (Parámetros de salida), seleccione **Create outbound parameter** (Crear parámetro de salida).
+
+1. Cree un nuevo parámetro de salida con la siguiente configuración:
+
+    * Escriba su **tipo de mensaje**, por ejemplo, **CREMAS**.
+
+    * Escriba el [identificador del puerto receptor](#create-receiver-port).
+
+    * Escriba un tamaño de IDoc para **Pack. Tamaño**. O bien, para [enviar IDoc de uno en uno desde SAP](#receive-idoc-packets-from-sap), seleccione **Pass IDoc Immediately** (Pasar IDoc de inmediato).
+
+1. Guarde los cambios.
+
+#### <a name="test-sending-messages"></a>Prueba de envío de mensajes
+
+1. Para abrir los parámetros de **procesamiento de la herramienta de prueba para IDoc**, en la interfaz de SAP, use el código de transacción (T Code) **we19** con el prefijo **/n**.
+
+1. En **Template for test** (Plantilla para prueba), seleccione **Via message type** (Mediante tipo de mensaje) y escriba su tipo de mensaje; por ejemplo, **CREMAS**. Seleccione **Crear**.
+
+1. Confirme el mensaje **Which IDoc type?** (¿Qué tipo de IDoc?) seleccionando **Continue** (Continuar).
+
+1. Seleccione el nodo **EDIDC**. Escriba los valores adecuados para los puertos receptor y remitente. Seleccione **Continuar**.
+
+1. Seleccione **Standard Outbound Processing** (Procesamiento de salida estándar).
+
+1. Para iniciar el procesamiento de IDoc de salida, seleccione **Continue** (Continuar). Una vez finalizado el procesamiento, aparece el mensaje **IDoc sent to SAP system or external program** (IDoc enviado a sistema SAP o programa externo).
+
+1.  Para comprobar si hay errores de procesamiento, use el código de transacción **sm58** con el prefijo **/n**.
+
 ## <a name="receive-idoc-packets-from-sap"></a>Recepción de paquetes IDoc de SAP
 
-Puede configurar SAP para que [envíe IDoc en paquetes](https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/en-US/4ab38886549a6d8ce10000000a42189c.html), que son lotes o grupos de IDoc. Para recibir paquetes IDoc, el conector de SAP y, en concreto, el desencadenador, no necesitan una configuración adicional. Pero para procesar cada elemento en un paquete IDoc después de que el desencadenador reciba el paquete, se necesitan algunos pasos adicionales para dividir el paquete en IDoc individuales.
+Puede configurar SAP para que [envíe IDoc en paquetes](https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/4ab38886549a6d8ce10000000a42189c.html), que son lotes o grupos de IDoc. Para recibir paquetes IDoc, el conector de SAP y, en concreto, el desencadenador, no necesitan una configuración adicional. Pero para procesar cada elemento en un paquete IDoc después de que el desencadenador reciba el paquete, se necesitan algunos pasos adicionales para dividir el paquete en IDoc individuales.
 
 Este es un ejemplo que muestra cómo extraer IDoc individuales de un paquete mediante la [función `xpath()`](./workflow-definition-language-functions-reference.md#xpath):
 
@@ -439,7 +631,14 @@ Puede usar la plantilla de inicio rápido para este patrón si selecciona esta p
 
 ## <a name="generate-schemas-for-artifacts-in-sap"></a>Generar esquemas para artefactos en SAP
 
-En este ejemplo, se utiliza una aplicación lógica que se puede desencadenar con una solicitud HTTP. La acción de SAP envía una solicitud a un sistema SAP para generar los esquemas de IDOC y BAPI especificados. Los esquemas que se devuelven en la respuesta se cargan en una cuenta de integración mediante el conector de Azure Resource Manager.
+En este ejemplo, se utiliza una aplicación lógica que se puede desencadenar con una solicitud HTTP. Para generar los esquemas para los IDoc y BAPI especificados, la acción de SAP **Generate schema** (Generar esquema) envía una solicitud a un sistema SAP.
+
+Esta acción de SAP devuelve un esquema XML, no el contenido o los datos del propio documento XML. Los esquemas que se devuelven en la respuesta se cargan en una cuenta de integración mediante el conector de Azure Resource Manager. Los esquemas contienen las siguientes partes:
+
+* La estructura del mensaje de solicitud. Use esta información para formar la lista `get` de BAPI.
+* La estructura del mensaje de respuesta. Utilice esta información para analizar la respuesta. 
+
+Para enviar el mensaje de solicitud, use la acción genérica de SAP **Send message to SAP** (Enviar mensaje a SAP) o las acciones **Call BAPI** (Llamar a BAPI) de destino.
 
 ### <a name="add-an-http-request-trigger"></a>Adición de un desencadenador de solicitud HTTP
 
@@ -639,9 +838,23 @@ Cuando se envían mensajes con **Escritura segura** habilitada, la respuesta DAT
 
 ## <a name="advanced-scenarios"></a>Escenarios avanzados
 
+### <a name="change-language-headers"></a>Cambio de los encabezados de idioma
+
+Cuando se conecta a SAP desde Logic Apps, el idioma predeterminado de la conexión es el inglés. Puede establecer el idioma de la conexión mediante el [encabezado HTTP estándar `Accept-Language`](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4) con las solicitudes entrantes.
+
+> [!TIP]
+> La mayoría de los exploradores web agregan un encabezado `Accept-Language` basado en la configuración del usuario. El explorador web aplica este encabezado cuando se crea una nueva conexión de SAP en el diseñador de Logic Apps. Si no desea crear conexiones de SAP en el idioma preferido del explorador web, actualice la configuración del explorador web para que use el idioma que prefiera o cree la conexión de SAP mediante Azure Resource Manager en lugar del diseñador de Logic Apps. 
+
+Por ejemplo, puede enviar una solicitud con el encabezado `Accept-Language` a la aplicación lógica mediante el desencadenador de la **solicitud HTTP**. Todas las acciones de la aplicación lógica reciben el encabezado. A continuación, SAP usa los idiomas especificados en sus mensajes del sistema, como los mensajes de error de BAPI.
+
+Los parámetros de conexión de SAP para una aplicación lógica no tienen una propiedad de idioma. Por lo tanto, si utiliza el encabezado `Accept-Language`, es posible que reciba el siguiente error: **Please check your account info and/or permissions and try again** (Compruebe la información de la cuenta o los permisos e inténtelo de nuevo). En este caso, compruebe los registros de errores del componente de SAP en su lugar. En realidad, el error se produce en el componente de SAP que usa el encabezado, por lo que podría obtener uno de estos mensajes de error:
+
+* `"SAP.Middleware.Connector.RfcLogonException: Select one of the installed languages"`
+* `"SAP.Middleware.Connector.RfcAbapMessageException: Select one of the installed languages"`
+
 ### <a name="confirm-transaction-explicitly"></a>Confirmación de la transacción explícitamente
 
-Cuando se envían transacciones a SAP desde Logic Apps, este intercambio se produce en dos pasos, tal como se describe en el documento de SAP [Transactional RFC Server Programs](https://help.sap.com/doc/saphelp_nwpi71/7.1/en-US/22/042ad7488911d189490000e829fbbd/content.htm?no_cache=true) (Programas del servidor RFC transaccional). De manera predeterminada, la acción **Enviar a SAP** controla ambos pasos para la transferencia de la función y la confirmación de la transacción en una sola llamada. El conector de SAP ofrece la opción de desacoplar estos pasos. Puede enviar un IDoc y, en lugar de confirmar automáticamente la transacción, puede usar la acción explícita **Confirmar id. de transacción**.
+Cuando se envían transacciones a SAP desde Logic Apps, este intercambio se produce en dos pasos, tal como se describe en el documento de SAP [Transactional RFC Server Programs](https://help.sap.com/doc/saphelp_nwpi71/7.1/22/042ad7488911d189490000e829fbbd/content.htm?no_cache=true) (Programas del servidor RFC transaccional). De manera predeterminada, la acción **Enviar a SAP** controla ambos pasos para la transferencia de la función y la confirmación de la transacción en una sola llamada. El conector de SAP ofrece la opción de desacoplar estos pasos. Puede enviar un IDoc y, en lugar de confirmar automáticamente la transacción, puede usar la acción explícita **Confirmar id. de transacción**.
 
 Esta capacidad de desacoplar la confirmación del id. de transacción resulta útil cuando no quiere duplicar las transacciones en SAP, por ejemplo, en escenarios en los que se pueden producir errores debido a causas como problemas de red. Al confirmar el id. de la transacción por separado, la transacción solo se completa una vez en el sistema SAP.
 

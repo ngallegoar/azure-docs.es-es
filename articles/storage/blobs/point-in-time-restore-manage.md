@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/28/2020
+ms.date: 06/11/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: fe98e04c37172dc6b91c86fab8200022ed860d4f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 6948d4d786e918e5f3e32e6bdf2f7e23940f6815
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170110"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85445447"
 ---
 # <a name="enable-and-manage-point-in-time-restore-for-block-blobs-preview"></a>Habilitación y administración de la restauración a un momento dado para blobs en bloques (versión preliminar)
 
@@ -30,35 +30,23 @@ Para obtener más información y para aprender a registrarse en la versión prel
 
 ## <a name="install-the-preview-module"></a>Instalación del módulo de versión preliminar
 
-Para configurar la restauración a un momento dado de Azure con PowerShell, primero Instale la versión [1.14.1-preview](https://www.powershellgallery.com/packages/Az.Storage/1.14.1-preview) del módulo AZ.Storage de PowerShell. Para instalar el módulo de la versión preliminar, siga estos pasos:
+Para configurar la restauración a un momento dado de Azure con PowerShell, primero Instale la versión preliminar 1.14.1-preview del módulo AZ.Storage o posterior. Se recomienda usar la versión preliminar más reciente, pero se admite la restauración a un momento dado en la versión 1.14.1-preview y posteriores. Quite cualquier otra versión del módulo Az.Storage.
 
-1. Desinstale cualquier instalación anterior de Azure PowerShell desde Windows usando el ajuste **Aplicaciones y características** en **Configuración**.
+El siguiente comando instala el módulo [2.0.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) de Az.Storage:
 
-1. Asegúrese de tener instalada la versión más reciente de PowerShellGet. Abra una ventana de Windows PowerShell y ejecute el siguiente comando para instalar la versión más reciente:
+```powershell
+Install-Module -Name Az.Storage -RequiredVersion 2.0.1-preview -AllowPrerelease
+```
 
-    ```powershell
-    Install-Module PowerShellGet –Repository PSGallery –Force
-    ```
-
-1. Cierre y vuelva a abrir la ventana de PowerShell después de instalar PowerShellGet.
-
-1. Instale la versión más reciente de Azure PowerShell:
-
-    ```powershell
-    Install-Module Az –Repository PSGallery –AllowClobber
-    ```
-
-1. Instale el módulo de versión preliminar Az.Storage:
-
-    ```powershell
-    Install-Module Az.Storage -Repository PSGallery -RequiredVersion 1.14.1-preview -AllowPrerelease -AllowClobber -Force
-    ```
-
+El comando anterior requiere la versión 2.2.4.1 o superior de PowerShellGet para instalar. Para determinar qué versión se ha cargado actualmente:
+```powershell
+Get-Module PowerShellGet
+```
 Para más información sobre cómo instalar Azure PowerShell, consulte [Instalación de Azure PowerShell con PowerShellGet](/powershell/azure/install-az-ps).
 
 ## <a name="enable-and-configure-point-in-time-restore"></a>Habilitar y configurar la restauración a un momento dado
 
-Antes de habilitar y configurar la restauración a un momento dado, habilite los requisitos previos: eliminación temporal, fuente de cambios y control de versiones de blob. Para obtener más información sobre cómo habilitar cada una de estas características, consulte estos artículos:
+Antes de habilitar y configurar la restauración a un momento dado, habilite los requisitos previos para la cuenta de almacenamiento: eliminación temporal, fuente de cambios y control de versiones de blob. Para obtener más información sobre cómo habilitar cada una de estas características, consulte estos artículos:
 
 - [Habilitación de la eliminación temporal para blobs](soft-delete-enable.md)
 - [Habilitar y deshabilitar la fuente de cambios](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
@@ -99,7 +87,7 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 ## <a name="perform-a-restore-operation"></a>Realizar una operación de restauración
 
-Para iniciar una operación de restauración, llame al comando Restore-AzStorageBlobRange, especificando el punto de restauración como un valor UTC **DateTime**. Puede especificar intervalos lexicográficos de blobs para restaurar u omitir el rango para restaurar todos los blobs en todos los contenedores de la cuenta de almacenamiento. Se admiten hasta 10 intervalos lexicográficos por operación de restauración. La operación de restauración puede tardar varios minutos en completarse.
+Para iniciar una operación de restauración, llame al comando **Restore-AzStorageBlobRange**, especificando el punto de restauración como un valor UTC **DateTime**. Puede especificar intervalos lexicográficos de blobs para restaurar u omitir el rango para restaurar todos los blobs en todos los contenedores de la cuenta de almacenamiento. Se admiten hasta 10 rangos lexicográficos por operación de restauración. Los blobs en páginas y los blobs en anexión no se incluyen en la restauración. La operación de restauración puede tardar varios minutos en completarse.
 
 Al especificar un rango de blobs para restaurar, tenga en cuenta las siguientes reglas:
 
@@ -115,7 +103,7 @@ Al especificar un rango de blobs para restaurar, tenga en cuenta las siguientes 
 
 ### <a name="restore-all-containers-in-the-account"></a>Restaurar todos los contenedores de la cuenta
 
-Para restaurar todos los contenedores y blobs de la cuenta de almacenamiento, llame al comando Restore-AzStorageBlobRange, omitiendo el parámetro `-BlobRestoreRange`. En el siguiente ejemplo se restauran los contenedores de la cuenta de almacenamiento a su estado 12 horas antes del momento actual:
+Para restaurar todos los contenedores y blobs de la cuenta de almacenamiento, llame al comando **Restore-AzStorageBlobRange**, omitiendo el parámetro `-BlobRestoreRange`. En el siguiente ejemplo se restauran los contenedores de la cuenta de almacenamiento a su estado 12 horas antes del momento actual:
 
 ```powershell
 # Specify -TimeToRestore as a UTC value
@@ -126,7 +114,7 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 
 ### <a name="restore-a-single-range-of-block-blobs"></a>Restauración de un solo rango de blobs en bloques
 
-Para restaurar un rango de blobs, llame al comando Restore-AzStorageBlobRange y especifique un rango lexicográfico de nombres de contenedor y blob para el parámetro `-BlobRestoreRange`. El inicio del rango es inclusivo y el final del rango es exclusivo.
+Para restaurar un rango de blobs, llame al comando **Restore-AzStorageBlobRange** y especifique un rango lexicográfico de nombres de contenedor y blob para el parámetro `-BlobRestoreRange`. El inicio del rango es inclusivo y el final del rango es exclusivo.
 
 Por ejemplo, para restaurar los blobs en un único contenedor denominado *sample-container*, puede especificar un rango que comience por *sample-container* y termine con *sample-container1*. No es necesario que existan los contenedores denominados en los rangos de inicio y finalización. Dado que el final del rango es exclusivo, incluso si la cuenta de almacenamiento incluye un contenedor denominado *sample-container1*, solo se restaurará el contenedor denominado *sample-container*:
 
@@ -140,7 +128,7 @@ Para especificar un subconjunto de blobs en un contenedor para restaurar, use un
 $range = New-AzStorageBlobRangeToRestore -StartRange sample-container/d -EndRange sample-container/g
 ```
 
-A continuación, proporcione el rango al comando Restore-AzStorageBlobRange command. Especifique el punto de restauración proporcionando un valor UTC **DateTime** para el parámetro `-TimeToRestore`. En el siguiente ejemplo se restauran los blobs del rango especificado a su estado 3 días antes del momento actual:
+A continuación, proporcione el rango al comando **Restore-AzStorageBlobRange**. Especifique el punto de restauración proporcionando un valor UTC **DateTime** para el parámetro `-TimeToRestore`. En el siguiente ejemplo se restauran los blobs del rango especificado a su estado 3 días antes del momento actual:
 
 ```powershell
 # Specify -TimeToRestore as a UTC value
@@ -155,7 +143,9 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 Para restaurar varios rangos de blobs en bloques, especifique una matriz de rangos para el parámetro `-BlobRestoreRange`. Se admiten hasta 10 intervalos por operación de restauración. En el ejemplo siguiente se especifica dos intervalos para restaurar el contenido completo de *container1* y *container4*:
 
 ```powershell
+# Specify a range that includes the complete contents of container1.
 $range1 = New-AzStorageBlobRangeToRestore -StartRange container1 -EndRange container2
+# Specify a range that includes the complete contents of container4.
 $range2 = New-AzStorageBlobRangeToRestore -StartRange container4 -EndRange container5
 
 Restore-AzStorageBlobRange -ResourceGroupName $rgName `
@@ -163,6 +153,31 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -TimeToRestore (Get-Date).AddMinutes(-30) `
     -BlobRestoreRange @($range1, $range2)
 ```
+
+### <a name="restore-block-blobs-asynchronously"></a>Restauración de blobs en bloques de forma asincrónica
+
+Para ejecutar una operación de restauración de forma asincrónica, agregue el parámetro `-AsJob` a la llamada a **Restore-AzStorageBlobRange** y almacene el resultado de la llamada en una variable. El comando **Restore-AzStorageBlobRange** devuelve un objeto de tipo **AzureLongRunningJob**. Puede comprobar la propiedad **State** de este objeto para determinar si la operación de restauración se ha completado. Es posible que el valor de la propiedad **State** esté **en ejecución** o **completado**.
+
+En el ejemplo siguiente se muestra cómo llamar a una operación de restauración de forma asincrónica:
+
+```powershell
+$job = Restore-AzStorageBlobRange -ResourceGroupName $rgName `
+    -StorageAccountName $accountName `
+    -TimeToRestore (Get-Date).AddMinutes(-5) `
+    -AsJob
+
+# Check the state of the job.
+$job.State
+```
+
+Para esperar a que se complete la operación de restauración una vez que se está ejecutando, llame al comando [Wait-Job](/powershell/module/microsoft.powershell.core/wait-job), como se muestra en el ejemplo siguiente:
+
+```powershell
+$job | Wait-Job
+```
+
+## <a name="known-issues"></a>Problemas conocidos
+- Para un subconjunto de restauraciones donde están presentes los blobs en anexión, se producirá un error en la restauración. Por ahora, no realice restauraciones si los blobs en anexión están presentes en la cuenta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

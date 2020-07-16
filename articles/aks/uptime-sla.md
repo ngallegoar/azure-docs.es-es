@@ -3,14 +3,14 @@ title: Azure Kubernetes Service (AKS) con acuerdo de nivel de servicio de tiempo
 description: Obtenga información sobre la oferta opcional de acuerdo de nivel de servicio de tiempo de actividad para el servidor de API de Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 06/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 2df0ad675f03b25363ab0f5b13dceb762a657ed7
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 9f8b0cc5a80853542b15d1993713d8a97f5371b9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299560"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361581"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Acuerdo de nivel de servicio de tiempo de actividad de Azure Kubernetes Service (AKS)
 
@@ -23,29 +23,45 @@ Los clientes todavía pueden crear un número ilimitado de clústeres gratuitos 
 > [!Important]
 > En el caso de los clústeres con bloqueo de salida, consulte la [limitación del tráfico de salida](limit-egress-traffic.md) para abrir los puertos adecuados.
 
+## <a name="region-availability"></a>Disponibilidad en regiones
+
+El Acuerdo de Nivel de Servicio de tiempo de actividad está disponible en las regiones públicas en las que [se admite AKS](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+
+* Azure Government no se admite actualmente.
+* Azure China 21Vianet no se admite actualmente.
+
+## <a name="limitations"></a>Limitaciones
+
+* Por el momento no se admiten los clústeres privados.
+
 ## <a name="sla-terms-and-conditions"></a>Términos y condiciones del acuerdo de nivel de servicio
 
 El acuerdo de nivel de servicio de tiempo de actividad es una característica de pago y se habilita para cada clúster. El precio del acuerdo de nivel de servicio de tiempo de actividad viene determinado por el número de clústeres discretos, no por el tamaño de los clústeres individuales. Puede ver los [Detalles de precios de los acuerdos de nivel de servicio de tiempo de actividad](https://azure.microsoft.com/pricing/details/kubernetes-service/) para obtener más información.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-* La CLI de Azure, versión 2.7.0 o posterior
+* Instale la versión 2.8.0 de la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), o cualquier versión posterior.
 
-## <a name="creating-a-cluster-with-uptime-sla"></a>Creación de un clúster con un acuerdo de nivel de servicio de tiempo de actividad
+## <a name="creating-a-new-cluster-with-uptime-sla"></a>Creación de un clúster con un Acuerdo de Nivel de Servicio de tiempo de actividad
+
+> [!NOTE]
+> Actualmente, si habilita el Acuerdo de Nivel de Servicio de tiempo de actividad, no hay forma de quitarlo de un clúster.
 
 Para crear un nuevo clúster con el acuerdo de nivel de servicio de tiempo de actividad, use la CLI de Azure.
 
-En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
+En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
 
 ```azurecli-interactive
+# Create a resource group
 az group create --name myResourceGroup --location eastus
 ```
-Use el comando [az aks create][az-aks-create] para crear un clúster de AKS. En el siguiente ejemplo se crea un clúster denominado *myAKSCluster* con un nodo. Azure Monitor para contenedores también se habilita usando el parámetro *--enable-addons monitoring*.  La operación tarda varios minutos en completarse.
+Use el comando [`az aks create`][az-aks-create] para crear un clúster de AKS. En el siguiente ejemplo se crea un clúster denominado *myAKSCluster* con un nodo. La operación tarda varios minutos en completarse:
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1 --enable-addons monitoring --generate-ssh-keys
+# Create an AKS cluster with uptime SLA
+az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1
 ```
-Transcurridos unos minutos, el comando se completa y devuelve información en formato JSON sobre el clúster. El siguiente fragmento JSON muestra el nivel de pago de la SKU, que indica que el clúster tiene habilitado el acuerdo de nivel de servicio de tiempo de actividad.
+Transcurridos unos minutos, el comando se completa y devuelve información en formato JSON sobre el clúster. El siguiente fragmento JSON muestra el nivel de pago de la SKU, que indica que el clúster tiene habilitado el Acuerdo de Nivel de Servicio de tiempo de actividad.
 
 ```output
   },
@@ -55,15 +71,61 @@ Transcurridos unos minutos, el comando se completa y devuelve información en fo
   },
 ```
 
-## <a name="limitations"></a>Limitaciones
+## <a name="modify-an-existing-cluster-to-use-uptime-sla"></a>Modificación de un clúster existente para usar un Acuerdo de Nivel de Servicio de tiempo de actividad
 
-* Actualmente, no se puede convertir un clúster existente para habilitar el acuerdo de nivel de servicio de tiempo de actividad.
-* Actualmente, no hay ninguna manera de quitar un acuerdo de nivel de servicio de tiempo de actividad de un clúster de AKS después de crearlo con la característica habilitada.  
-* Por el momento no se admiten los clústeres privados.
+Opcionalmente, puede actualizar los clústeres existentes para usar el Acuerdo de Nivel de Servicio de tiempo de actividad.
+
+Si creó un clúster de AKS con los pasos anteriores, elimine el grupo de recursos:
+
+```azurecli-interactive
+# Delete the existing cluster by deleting the resource group 
+az group delete --name myResourceGroup --yes --no-wait
+```
+
+Cree un nuevo grupo de recursos:
+
+```azurecli-interactive
+# Create a resource group
+az group create --name myResourceGroup --location eastus
+```
+
+Cree un nuevo clúster y no use el Acuerdo de Nivel de Servicio de tiempo de actividad:
+
+```azurecli-interactive
+# Create a new cluster without uptime SLA
+az aks create --resource-group myResourceGroup --name myAKSCluster--node-count 1
+```
+
+Use el comando [`az aks update`][az-aks-nodepool-update] para actualizar el clúster existente:
+
+```azurecli-interactive
+# Update an existing cluster to use Uptime SLA
+ az aks update --resource-group myResourceGroup --name myAKSCluster --uptime-sla
+ ```
+
+ El siguiente fragmento JSON muestra el nivel de pago de la SKU, que indica que el clúster tiene habilitado el Acuerdo de Nivel de Servicio de tiempo de actividad.
+
+ ```output
+  },
+  "sku": {
+    "name": "Basic",
+    "tier": "Paid"
+  },
+  ```
+
+## <a name="clean-up"></a>Limpieza
+
+Para evitar cargos, limpie los recursos que haya creado. Para eliminar el clúster, use el comando [`az group delete`][az-group-delete] para eliminar el grupo de recursos de AKS:
+
+```azurecli-interactive
+az group delete --name myResourceGroup --yes --no-wait
+```
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Use [Availability Zones][availability-zones] para aumentar la alta disponibilidad con las cargas de trabajo del clúster de AKS.
+
 Configure el clúster para [limitar el tráfico de salida](limit-egress-traffic.md).
 
 <!-- LINKS - External -->
@@ -79,3 +141,5 @@ Configure el clúster para [limitar el tráfico de salida](limit-egress-traffic.
 [limit-egress-traffic]: ./limit-egress-traffic.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-update
+[az-group-delete]: /cli/azure/group#az-group-delete

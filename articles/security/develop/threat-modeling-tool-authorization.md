@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 75bbce0f1e9787e55880ccac80dacb5457e1f2c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56afed264facb6a02040cef01cd5d5d41526ec49
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68728382"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322671"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Marco de seguridad: Autorización | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -146,7 +146,7 @@ Ahora un posible atacante no podrá manipular ni cambiar el funcionamiento de la
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Jerarquía de permisos de SQL Database](https://msdn.microsoft.com/library/ms191465), [Elementos protegibles de SQL Database](https://msdn.microsoft.com/library/ms190401) |
+| **Referencias**              | [Jerarquía de permisos de SQL](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine), [Elementos protegibles de SQL](https://docs.microsoft.com/sql/relational-databases/security/securables) |
 | **Pasos** | Para conectarse a la base de datos deben usarse cuentas con privilegios mínimos. El inicio de sesión de la aplicación debe estar restringido en la base de datos y solo debe ejecutar procedimientos almacenados seleccionados. El inicio de sesión de la aplicación no debe tener acceso directo a tablas. |
 
 ## <a name="implement-row-level-security-rls-to-prevent-tenants-from-accessing-each-others-data"></a><a id="rls-tenants"></a>Implementación de seguridad de nivel de fila (RLS) para impedir que los inquilinos accedan a los datos de los demás
@@ -160,7 +160,7 @@ Ahora un posible atacante no podrá manipular ni cambiar el funcionamiento de la
 | **Referencias**              | [Seguridad de nivel de fila (RLS) de SQL Server](https://msdn.microsoft.com/library/azure/dn765131.aspx) |
 | **Pasos** | <p>La seguridad de nivel de fila permite a los clientes controlar el acceso a las filas de una tabla de base de datos en función de las características del usuario que ejecuta una consulta (por ejemplo, la pertenencia a un grupo o el contexto de ejecución).</p><p>La seguridad de nivel de fila (RLS) simplifica el diseño y la codificación de la seguridad de la aplicación. RLS permite implementar restricciones de acceso a filas de datos. Por ejemplo, garantiza que los empleados únicamente puedan acceder a aquellas filas de datos necesarios para su departamento o que un cliente solo pueda acceder a los datos relevantes para su empresa.</p><p>La lógica de la restricción de acceso está ubicada en el nivel de base de datos en lugar de estar alejado de los datos en otro nivel de aplicación. El sistema de base de datos aplica las restricciones de acceso cada vez que se intenta acceder a los datos desde cualquier nivel. Esto hace que el sistema de seguridad resulte más sólido y fiable al reducir el área expuesta del sistema de seguridad.</p><p>|
 
-Tenga en cuenta que RLS, al ser una característica de base de datos de serie, solo es aplicable a SQL Server a partir de 2016 y a Azure SQL Database. Si no está implementada la característica RLS de serie, es necesario garantizar que el acceso a los datos se restrinja mediante vistas y procedimientos
+Tenga en cuenta que RLS, al ser una característica de base de datos de serie, solo es aplicable a SQL Server a partir de 2016, Azure SQL Database y SQL Managed Instance. Si no está implementada la característica RLS de serie, es necesario garantizar que el acceso a los datos se restrinja mediante vistas y procedimientos
 
 ## <a name="sysadmin-role-should-only-have-valid-necessary-users"></a><a id="sysadmin-users"></a>El rol sysadmin solo debe tener a los usuarios válidos necesarios
 
@@ -170,7 +170,7 @@ Tenga en cuenta que RLS, al ser una característica de base de datos de serie, s
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Jerarquía de permisos de SQL Database](https://msdn.microsoft.com/library/ms191465), [Elementos protegibles de SQL Database](https://msdn.microsoft.com/library/ms190401) |
+| **Referencias**              | [Jerarquía de permisos de SQL](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine), [Elementos protegibles de SQL](https://docs.microsoft.com/sql/relational-databases/security/securables) |
 | **Pasos** | Los miembros del rol del servidor fijo SysAdmin deben estar muy limitados y no deben contener cuentas utilizadas por las aplicaciones.  Revise la lista de los usuarios del rol y quite todas las cuentas innecesarias.|
 
 ## <a name="connect-to-cloud-gateway-using-least-privileged-tokens"></a><a id="cloud-least-privileged"></a>Conexión a la puerta de enlace de la nube mediante tokens con privilegios mínimos

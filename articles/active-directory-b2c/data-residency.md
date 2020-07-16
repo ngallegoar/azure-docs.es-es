@@ -7,19 +7,19 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 09/26/2019
+ms.topic: reference
+ms.date: 06/06/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
-ms.openlocfilehash: 46d8fb33c59fc5f0b6d844831e5ee1c937654afb
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: bb9c6dbf9984ec81fbd4b93a61552211928d0f0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193794"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388721"
 ---
-# <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Disponibilidad en regiones y residencia de datos
+# <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Disponibilidad de región y residencia de datos
 
 La disponibilidad en regiones y residencia de datos son dos conceptos muy diferentes que se aplican de forma diferente a Azure AD B2C del resto de Azure. En este artículo se explican las diferencias entre estos dos conceptos y se compara cómo se aplican a Azure frente a Azure AD B2C.
 
@@ -41,7 +41,7 @@ Azure AD B2C almacena los datos de usuarios en la región de Estados Unidos, Eu
 
 La residencia de datos viene determinada por el país o la región que seleccione cuando [cree un inquilino de Azure AD B2C](tutorial-create-tenant.md):
 
-![Captura de pantalla de un inquilino de versión preliminar](./media/data-residency/data-residency-b2c-tenant.png)
+![Captura de pantalla de un formulario Crear inquilino, con la elección de país o región.](./media/data-residency/data-residency-b2c-tenant.png)
 
 Los datos residen en **Estados Unidos** para los países o regiones siguientes:
 
@@ -53,7 +53,7 @@ Los datos residen en **Europa** para los países o regiones siguientes:
 
 Los datos residen en **Asia Pacifico** para los países o regiones siguientes:
 
-> Afganistán, Hong Kong RAE, India, Indonesia, Japón, Corea, Malasia, Filipinas, Singapur, Sri Lanka, Taiwán y Tailandia.
+> Afganistán, RAE de Hong Kong, India, Indonesia, Japón, Corea, Malasia, Filipinas, Singapur, Sri Lanka, Taiwán y Tailandia.
 
 Los países o regiones siguientes están a punto de agregarse a la lista. De momento, todavía puede usar Azure AD B2C escogiendo cualquiera de los países o regiones anteriores.
 
@@ -69,4 +69,4 @@ En ese caso, al inquilino se debe usar solo para las pruebas y en el desarrollo.
 
 Existen problemas conocidos al eliminar un inquilino de B2C preliminar y volver a crear un inquilino B2C a escala de producción con el mismo nombre de dominio. *Es necesario crear un inquilino de B2C a escala de producción con otro nombre de dominio*.
 
-![Captura de pantalla de un inquilino de versión preliminar](./media/data-residency/preview-b2c-tenant.png)
+![Captura de pantalla de un tipo de inquilino, como inquilino de versión preliminar.](./media/data-residency/preview-b2c-tenant.png)

@@ -6,35 +6,36 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/11/2020
+ms.date: 06/03/2020
 ms.author: anfeldma
-ms.openlocfilehash: 53ae3217e77a9301cbe0d3d63ce0712a0b9b7f1e
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 520f64cbe768f2fcbd4603d1fb038bc349cd01db
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171623"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85391985"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java de Azure Cosmos DB para API de SQL: Notas de la versión y recursos
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-sdk-dotnet.md)
-> * [Fuente de cambios de .NET](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
+> * [SDK de .NET v2](sql-api-sdk-dotnet.md)
+> * [SDK de .NET Core v2](sql-api-sdk-dotnet-core.md)
+> * [SDK de fuente de cambios de .NET v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [SDK para Java v4](sql-api-sdk-java-v4.md)
-> * [SDK asincrónico para Java v2](sql-api-sdk-async-java.md)
-> * [SDK sincrónico para Java v2](sql-api-sdk-java.md)
+> * [SDK de Java v4](sql-api-sdk-java-v4.md)
+> * [Versión 2 del SDK de Java asincrónico](sql-api-sdk-async-java.md)
+> * [SDK de Java v2 sincrónico](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
-> * [Proveedor de recursos de REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
+> * [REST](/rest/api/cosmos-db/)
+> * [Proveedor de recursos de REST](/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Bulk Executor: .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Bulk Executor: .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk Executor: Java](sql-api-sdk-bulk-executor-java.md)
 
 Este es el SDK sincrónico original de Azure Cosmos DB para Java v2 para SQL API original que admite operaciones sincrónicas.
 
 > [!IMPORTANT]  
-> *No* se trata de la versión de SDK de Azure Cosmos DB para Java más reciente. Considere la posibilidad de usar el [SDK de Azure Cosmos DB para Java v4](sql-api-sdk-java-v4.md) en su proyecto. Para realizar la actualización, siga las instrucciones que se indican en la guía [Migración de la aplicación para usar el SDK de Azure Cosmos DB para Java v4](migrate-java-v4-sdk.md) y la guía de [Reactor frente a RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md). 
+> *No* se trata de la versión de SDK de Azure Cosmos DB para Java más reciente. Considere la posibilidad de usar el [SDK de Azure Cosmos DB para Java v4](sql-api-sdk-java-v4.md) en su proyecto. Para realizar la actualización, siga las instrucciones que se indican en la guía [Migración de la aplicación para usar el SDK de Azure Cosmos DB para Java v4](migrate-java-v4-sdk.md) y la guía de [Reactor frente a RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md). 
 >
 
 | |  |
@@ -47,6 +48,12 @@ Este es el SDK sincrónico original de Azure Cosmos DB para Java v2 para SQL AP
 |**Tiempo de ejecución mínimo admitido**|[Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable)|
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="251"></a><a name="2.5.1"></a>2.5.1
+* Corrige el problema de la caché de la partición maestra en la consulta documentCollection.
+
+### <a name="250"></a><a name="2.5.0"></a>2.5.0
+* Se agregó compatibilidad con la configuración personalizada de reintento de 449.
 
 ### <a name="247"></a><a name="2.4.7"></a>2.4.7
 * Corrige un problema de tiempo de espera de grupo de conexiones.
@@ -268,6 +275,8 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 | Versión | Fecha de la versión | Fecha de retirada |
 | --- | --- | --- |
+| [2.5.1](#2.5.1) |3 de junio de 2020 |--- |
+| [2.5.0](#2.5.0) |12 de mayo de 2020 |--- |
 | [2.4.7](#2.4.7) |20 de febrero de 2020 |--- |
 | [2.4.6](#2.4.6) |24 de enero de 2020 |--- |
 | [2.4.5](#2.4.5) |10 de noviembre de 2019 |--- |

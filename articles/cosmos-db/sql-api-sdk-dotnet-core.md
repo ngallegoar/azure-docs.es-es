@@ -8,28 +8,28 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 3738af6349a6f71f6100c601858b39c6329d0295
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: fdc3d4244daa1f3b3d12898d6de42128ae1670ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660385"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392053"
 ---
-# <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SDK de .NET Core de Azure Cosmos DB para API de SQL: Notas de la versión y recursos
+# <a name="azure-cosmos-db-net-core-sdk-v2-for-sql-api-release-notes-and-resources"></a>SDK de .NET Core de Azure Cosmos DB v2 para SQL API: Notas de la versión y recursos
 > [!div class="op_single_selector"]
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [.NET Standard](sql-api-sdk-dotnet-standard.md)
-> * [.NET](sql-api-sdk-dotnet.md)
-> * [Fuente de cambios de .NET](sql-api-sdk-dotnet-changefeed.md)
+> * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
+> * [SDK de .NET v2](sql-api-sdk-dotnet.md)
+> * [SDK de .NET Core v2](sql-api-sdk-dotnet-core.md)
+> * [SDK de fuente de cambios de .NET v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [SDK de Java v4](sql-api-sdk-java-v4.md)
-> * [SDK de Java v2 asincrónico](sql-api-sdk-async-java.md)
+> * [Versión 2 del SDK de Java asincrónico](sql-api-sdk-async-java.md)
 > * [SDK de Java v2 sincrónico](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
-> * [Proveedor de recursos de REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
+> * [REST](/rest/api
+> * [Proveedor de recursos de REST](/rest/apier/)
 > * [SQL](sql-api-query-reference.md)
-> * [Bulk Executor: .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Bulk Executor: .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk Executor: Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |

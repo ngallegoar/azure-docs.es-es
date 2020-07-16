@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 07394fb2d33aaacdc8e47bc2d1809854c0c8ca1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5eee6f34124f8b286deff278c6c3d1038b595357
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85209358"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259881"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expansión de un grupo de hosts existente con nuevos hosts de sesión
 
@@ -78,7 +78,7 @@ Para expandir el grupo de hosts mediante la incorporación de máquinas virtuale
 
 Ahora que ha expandido el grupo de hosts existente, puede iniciar sesión en un cliente de Windows Virtual Desktop para realizar pruebas en él como parte de una sesión de usuario. Puede conectarse a una sesión con cualquiera de los siguientes clientes:
 
-- [Conexión con el cliente de Escritorio de Windows](./connect-windows-7-and-10.md)
+- [Conexión con el cliente de Escritorio de Windows](./connect-windows-7-10.md)
 - [Conexión con el cliente web](./connect-web.md)
 - [Conexión con el cliente de Android](./connect-android.md)
 - [Conexión con el cliente macOS](./connect-macos.md)

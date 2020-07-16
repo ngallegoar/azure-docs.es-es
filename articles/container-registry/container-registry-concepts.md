@@ -2,13 +2,13 @@
 title: Acerca de los repositorios y las imágenes
 description: Una introducción a los conceptos clave de los registros de contenedor, repositorios e imágenes de contenedor de Azure.
 ms.topic: article
-ms.date: 09/10/2019
-ms.openlocfilehash: ea6e2577d3eee91626dd613617a0b79e4ff3d6a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/16/2020
+ms.openlocfilehash: f3a3e2a00b4fb35f9e9dd1415d5c197aef0d39b0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225804"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85390455"
 ---
 # <a name="about-registries-repositories-and-images"></a>Acerca de los registros, repositorios e imágenes
 
@@ -24,13 +24,11 @@ Además de las imágenes de contenedor de Docker, Azure Container Registry admit
 
 La dirección de un artefacto en un registro de contenedor de Azure incluye los siguientes elementos. 
 
-`[loginUrl]/[namespace]/[artifact:][tag]`
+`[loginUrl]/[repository:][tag]`
 
 * **loginUrl**: el nombre completo del host del registro. El host del registro de un registro de contenedor de Azure tiene el formato *myregistry*.azurecr.io (todo en minúsculas). Debe especificar el valor de loginUrl cuando utilice Docker u otras herramientas de cliente para extraer o insertar artefactos a un registro de contenedor de Azure. 
-* **namespace**: agrupación lógica delimitada por barras diagonales de imágenes relacionadas o artefactos; por ejemplo, para una aplicación o un grupo de trabajo
-* **artifact**: el nombre de un repositorio para una imagen o un artefacto particular
-* **tag**: una versión específica de una imagen o un artefacto que se almacenan en un repositorio
-
+* **repository**: el nombre de una agrupación lógica de una o varias imágenes o artefactos relacionados; por ejemplo, las imágenes de una aplicación o un sistema operativo base. Puede incluir la ruta de acceso al *espacio de nombres*. 
+* **tag**: un identificador de una versión específica de una imagen o un artefacto que se almacenan en un repositorio.
 
 Por ejemplo, el nombre completo de una imagen de un registro de contenedor de Azure puede tener este aspecto:
 
@@ -40,20 +38,24 @@ Consulte las siguientes secciones para más información sobre estos elementos.
 
 ## <a name="repository-name"></a>Nombre del repositorio
 
-Los registros de contenedor administran *repositorios*, colecciones de imágenes de contenedor u otros artefactos con el mismo nombre, pero con etiquetas diferentes. Por ejemplo, las tres imágenes siguientes están en el repositorio "acr-helloworld":
+Un *repositorio* es una colección de imágenes de contenedor u otros artefactos con el mismo nombre, pero con etiquetas diferentes. Por ejemplo, las tres imágenes siguientes están en el repositorio "acr-helloworld":
 
 
 - *acr-helloworld:latest*
 - *acr-helloworld:v1*
 - *acr-helloworld:v2*
 
-Los nombres de repositorio también pueden incluir [espacios de nombres](container-registry-best-practices.md#repository-namespaces). Los espacios de nombres le permiten agrupar imágenes con nombres de repositorio delimitados por barras diagonales hacia delante, por ejemplo:
+Los nombres de repositorio también pueden incluir [espacios de nombres](container-registry-best-practices.md#repository-namespaces). Los espacios de nombres permiten identificar la propiedad de los artefactos y los repositorios relacionados en la organización mediante el uso de nombres delimitados por barras diagonales. Sin embargo, el registro administra todos los repositorios de forma independiente, no como una jerarquía. Por ejemplo:
 
 - *marketing/campaign10-18/web:v2*
 - *marketing/campaign10-18/api:v3*
 - *marketing/campaign10-18/email-sender:v2*
 - *product-returns/web-submission:20180604*
 - *product-returns/legacy-integrator:20180715*
+
+Los nombres de repositorio solo pueden incluir caracteres alfanuméricos en minúscula, puntos, guiones, guiones bajos y barras diagonales. 
+
+Para obtener las reglas de nomenclatura de repositorios completas, vea la [Especificación sobre la distribución de Open Container Initiative](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
 
 ## <a name="image"></a>Imagen
 
@@ -63,9 +65,11 @@ Una imagen de contenedor u otro artefacto dentro de un registro está asociado c
 
 La *etiqueta* de una imagen u otro artefacto especifica su versión. A un solo artefacto dentro de un repositorio se le pueden asignar una o varias etiquetas y también puede ser "sin etiqueta". Es decir, puede eliminar todas las etiquetas de una imagen, mientras que los datos de la imagen (sus capas) permanecen en el registro.
 
-El repositorio (o repositorio y espacio de nombres) junto con una etiqueta definen el nombre de una imagen. Puede insertar y extraer una imagen especificando su nombre en la operación de inserción o extracción.
+El repositorio (o repositorio y espacio de nombres) junto con una etiqueta definen el nombre de una imagen. Puede insertar y extraer una imagen especificando su nombre en la operación de inserción o extracción. De forma predeterminada, se usa la etiqueta `latest` si no se proporciona ninguna en los comandos de Docker.
 
 La forma de etiquetar las imágenes de contenedor está guiada por los escenarios de desarrollo o implementación. Por ejemplo, se recomiendan etiquetas estables para mantener las imágenes base y etiquetas únicas para implementar las imágenes. Para más información, consulte [Recomendaciones para el etiquetado y control de versiones de las imágenes de contenedor](container-registry-image-tag-version.md).
+
+Para obtener información sobre las reglas de nomenclatura de etiquetas, vea la [documentación de Docker](https://docs.docker.com/engine/reference/commandline/tag/).
 
 ### <a name="layer"></a>Nivel
 
