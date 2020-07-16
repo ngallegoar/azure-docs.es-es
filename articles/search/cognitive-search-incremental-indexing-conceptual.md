@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: d4b36f00bad8c06c2f62794fa03a85120af79965
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3957884a8c559194c436487050f0dbc09acf0441
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557380"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232515"
 ---
 # <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Enriquecimiento incremental y almacenamiento en caché en Azure Cognitive Search
 
@@ -109,7 +109,7 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 
 El propósito de la caché es evitar procesamientos innecesarios, pero imagine que realiza un cambio en una aptitud que el indizador no detecta (por ejemplo, cambiar un elemento del código externo, como una aptitud personalizada).
 
-En este caso, puede usar [Reset Skills](https://docs.microsoft.com/rest/api/searchservice/reset-skills) para forzar el reprocesamiento de una aptitud determinada, incluidos los conocimientos de nivel inferior que tengan una dependencia en la salida de esa aptitud. Esta API acepta una solicitud POST con una lista de aptitudes que se deben invalidar y marcar para volver a procesarse. Después de Reset Skills, ejecute el indizador para invocar la canalización.
+En este caso, puede usar [Reset Skills](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) para forzar el reprocesamiento de una aptitud determinada, incluidos los conocimientos de nivel inferior que tengan una dependencia en la salida de esa aptitud. Esta API acepta una solicitud POST con una lista de aptitudes que se deben invalidar y marcar para volver a procesarse. Después de Reset Skills, ejecute el indizador para invocar la canalización.
 
 ## <a name="change-detection"></a>Detección de cambios
 
@@ -152,13 +152,13 @@ El procesamiento incremental evalúa la definición del conjunto de aptitudes y 
 
 La versión de la API de REST `2020-06-30-Preview` proporciona enriquecimiento incremental a través de propiedades adicionales en indizadores. Los conjuntos de aptitudes y los orígenes de datos pueden usar la versión disponible con carácter general. Además de la documentación de referencia, consulte [Configuración del almacenamiento en caché para el enriquecimiento incremental](search-howto-incremental-index.md) para más información sobre cómo llamar a las API.
 
-+ [Crear indizador (api-version=2020-06-30-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-indexer) 
++ [Crear indizador (api-version=2020-06-30-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) 
 
-+ [Actualizar indizador (api-version=2020-06-30-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-indexer) 
++ [Actualizar indizador (api-version=2020-06-30-Preview)](https://docs.microsoft.com/rest/api/searchservice/update-indexer) 
 
 + [Actualizar conjunto de aptitudes (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/update-skillset) (nuevo parámetro URI en la solicitud)
 
-+ [Restablecer aptitudes (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/reset-skills)
++ [Restablecer aptitudes (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills)
 
 + Indizadores de base de datos (Azure SQL, Cosmos DB). Algunos indizadores recuperan datos a través de consultas. En cuanto a las consultas que recuperan datos, [Update Data Source](https://docs.microsoft.com/rest/api/searchservice/update-data-source) admite un nuevo parámetro en una solicitud **ignoreResetRequirement**, que se tiene que establecer en `true` si la acción de actualización no debe invalidar la caché. 
 

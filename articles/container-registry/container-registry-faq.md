@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: f160910024d9d64d22028c72825b98d93f66f15d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ee58f6a2058158308cab8ec49b1d79587998d39
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390370"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247037"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Preguntas más frecuentes sobre Azure Container Registry
 
@@ -32,7 +32,7 @@ Sí. Esta es [una plantilla](https://github.com/Azure/azure-quickstart-templates
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>¿Existe un examen de vulnerabilidades de seguridad para imágenes en ACR?
 
-Sí. Vea la documentación de [Azure Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) y [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Sí. Vea la documentación de [Azure Security Center](../security-center/azure-container-registry-integration.md), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) y [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>¿Cómo se configura Kubernetes con Azure Container Registry?
 
@@ -436,8 +436,8 @@ Póngase en contacto con el administrador de red o compruebe la configuración y
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>¿Por qué se produce un error de operación no permitida en la solicitud de extracción o de inserción?
 
 Estos son algunos escenarios en los que es posible que no se permitan operaciones:
-* Ya no se admiten los registros clásicos. Actualice a un [nivel de servicio](https://aka.ms/acr/skus) compatible mediante [az acr update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) o Azure Portal.
-* Es posible que la imagen o el repositorio estén bloqueados para que no se puedan eliminar ni actualizar. Puede usar el comando [az acr show repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) para ver los atributos actuales.
+* Ya no se admiten los registros clásicos. Actualice a un [nivel de servicio](https://aka.ms/acr/skus) compatible mediante [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) o Azure Portal.
+* Es posible que la imagen o el repositorio estén bloqueados para que no se puedan eliminar ni actualizar. Puede usar el comando [az acr show repository](./container-registry-image-lock.md) para ver los atributos actuales.
 * Algunas operaciones no se permiten si la imagen está en cuarentena. Más información sobre la [cuarentena](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 * Puede que el registro haya alcanzado su [límite de almacenamiento](container-registry-skus.md#service-tier-features-and-limits).
 
