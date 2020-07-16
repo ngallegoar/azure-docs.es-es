@@ -5,12 +5,12 @@ author: mcoskun
 ms.topic: conceptual
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: 1f3239ea1da252ccd84c6572b562756c8fd1677d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 16dcfd23ec00a144b17244e811e91a92db9e6995
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75639571"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253055"
 ---
 # <a name="reliable-services-notifications"></a>Notificaciones de Reliable Services
 Las notificaciones permiten que los clientes sigan los cambios que se están realizando en un objeto que les interesa. Dos tipos de objetos admiten notificaciones: *Reliable State Manager* y *Reliable Dictionary*.
@@ -210,5 +210,4 @@ Algunos aspectos que debe tener en cuenta:
 * [Colecciones confiables](service-fabric-work-with-reliable-collections.md)
 * [Introducción a Reliable Services de Service Fabric de Microsoft Azure](service-fabric-reliable-services-quick-start.md)
 * [Copia de seguridad y restauración de Reliable Services (recuperación ante desastres)](service-fabric-reliable-services-backup-restore.md)
-* [Referencia para desarrolladores de colecciones confiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-
+* [Referencia para desarrolladores de colecciones confiables](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)

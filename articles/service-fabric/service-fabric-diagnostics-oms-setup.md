@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: cf0fab9942dcbb7ee09e554f2c9ba8738f208009
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 691f3b7987c2591b0f6cea3f7b520c03c0ba9a9e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75609934"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258650"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Configuración de registros de Azure Monitor para un clúster
 
@@ -91,7 +91,7 @@ Azure Resource Manager detecta que este comando es una actualización para un re
 
 ## <a name="deploy-azure-monitor-logs-with-azure-powershell"></a>Implementación de los registros de Azure Monitor con Azure PowerShell
 
-También puede implementar el recurso de Log Analytics a través de PowerShell mediante el comando `New-AzOperationalInsightsWorkspace`. Para usar este método, asegúrese de que ha instalado [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Use este script para crear una nueva área de trabajo de Log Analytics y agregue la solución Service Fabric a esta: 
+También puede implementar el recurso de Log Analytics a través de PowerShell mediante el comando `New-AzOperationalInsightsWorkspace`. Para usar este método, asegúrese de que ha instalado [Azure PowerShell](/powershell/azure/install-az-ps). Use este script para crear una nueva área de trabajo de Log Analytics y agregue la solución Service Fabric a esta: 
 
 ```powershell
 
@@ -123,5 +123,5 @@ También puede agregar otras soluciones o realizar otras modificaciones al área
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Implemente el agente de Log Analytics](service-fabric-diagnostics-oms-agent.md) en los nodos para recopilar contadores de rendimiento, así como estadísticas y registros de Docker de sus contenedores.
-* Familiarícese con las características de [consultas y búsqueda de registros](../log-analytics/log-analytics-log-searches.md) que se ofrecen como parte de los registros de Azure Monitor.
+* Familiarícese con las características de [consultas y búsqueda de registros](../azure-monitor/log-query/log-query-overview.md) que se ofrecen como parte de los registros de Azure Monitor.
 * [Uso del diseñador de vistas para crear vistas personalizadas en los registros de Azure Monitor](../azure-monitor/platform/view-designer.md)

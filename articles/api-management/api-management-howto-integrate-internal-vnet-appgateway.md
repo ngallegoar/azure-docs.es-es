@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: 733f4b74ca7643476586189b36f4e1d3e446968b
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 08e718739971283418d151bef9ad75333e313d85
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811174"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250439"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integración de API Management en una red virtual interna con Application Gateway
 
@@ -330,7 +330,7 @@ $rule02 = New-AzApplicationGatewayRequestRoutingRule -Name "rule2" -RuleType Bas
 
 ### <a name="step-11"></a>Paso 11
 
-Configure el número de instancias y el tamaño de Application Gateway. En este ejemplo, usamos [WAF SKU](../application-gateway/application-gateway-webapplicationfirewall-overview.md) para aumentar la seguridad de los recursos de API Management.
+Configure el número de instancias y el tamaño de Application Gateway. En este ejemplo, usamos [WAF SKU](../web-application-firewall/ag/ag-overview.md) para aumentar la seguridad de los recursos de API Management.
 
 ```powershell
 $sku = New-AzApplicationGatewaySku -Name "WAF_Medium" -Tier "WAF" -Capacity 2
@@ -368,9 +368,9 @@ El servicio Azure API Management configurado en una red virtual proporciona una 
 
 ## <a name="next-steps"></a><a name="next-steps"> </a> Pasos siguientes
 * Obtenga más información sobre Azure Application Gateway.
-  * [Introducción a Puerta de enlace de aplicaciones](../application-gateway/application-gateway-introduction.md)
-  * [Firewall de aplicaciones web de Application Gateway](../application-gateway/application-gateway-webapplicationfirewall-overview.md)
-  * [Application Gateway mediante enrutamiento basado en rutas de acceso](../application-gateway/application-gateway-create-url-route-arm-ps.md)
+  * [Introducción a Puerta de enlace de aplicaciones](../application-gateway/overview.md)
+  * [Firewall de aplicaciones web de Application Gateway](../web-application-firewall/ag/ag-overview.md)
+  * [Application Gateway mediante enrutamiento basado en rutas de acceso](../application-gateway/tutorial-url-route-powershell.md)
 * Más información acerca de API Management y redes virtuales
   * [El uso de API Management solo está disponible en la red virtual](api-management-using-with-internal-vnet.md)
   * [Usar Azure API Management con redes virtuales](api-management-using-with-vnet.md)

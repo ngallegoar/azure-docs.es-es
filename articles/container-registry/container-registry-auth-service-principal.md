@@ -3,12 +3,12 @@ title: Autenticación con una entidad de servicio
 description: Proporcione acceso a las imágenes de su registro de contenedor privado mediante una entidad de servicio de Azure Active Directory.
 ms.topic: article
 ms.date: 10/04/2019
-ms.openlocfilehash: 37da784c8e95a5f5b924532e4a019552924a1a3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d49628576a1c337efaea3e5286fef00e39def17
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74455412"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259147"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticación de Azure Container Registry con entidades de servicio
 
@@ -30,7 +30,7 @@ Por ejemplo, configure su aplicación web para usar una entidad de servicio que 
 
 Debe usar una entidad de servicio para proporcionar acceso al registro en **escenarios de equipos sin periféricos**. Es decir, para cualquier aplicación, servicio o script que deba insertar o extraer imágenes de contenedor de forma automática o desatendida. Por ejemplo:
 
-  * *Incorporación de cambios*: se implementan los contenedores desde un Registro en sistemas de orquestación como son Kubernetes, DC/OS y Docker Swarm. También puede incorporar los cambios desde registros de contenedor a servicios de Azure relacionados, como son [Azure Kubernetes Service (AKS)](../aks/cluster-container-registry-integration.md), [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) y otros.
+  * *Incorporación de cambios*: se implementan los contenedores desde un Registro en sistemas de orquestación como son Kubernetes, DC/OS y Docker Swarm. También puede incorporar los cambios desde registros de contenedor a servicios de Azure relacionados, como son [Azure Kubernetes Service (AKS)](../aks/cluster-container-registry-integration.md), [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](../service-fabric/index.yml) y otros.
 
   * *Push*: crea imágenes de contenedor y las inserta en un Registro con soluciones de integración e implementación continuas, por ejemplo, Azure Pipelines o Jenkins.
 

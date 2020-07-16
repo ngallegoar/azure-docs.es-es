@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 8c1d126f01580574a83850e63945aa7e513eaeda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e7be1e90d10a84465d6416f2c13a6e4b6855077b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76713136"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250080"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Protección de API mediante la autenticación de certificados de cliente en API Management
 
 API Management proporciona la capacidad de proteger el acceso a las API (es decir, de cliente a API Management) mediante certificados de cliente. Puede validar el certificado entrante y comprobar las propiedades del certificado con los valores deseados mediante expresiones de directiva.
 
-Para información acerca de cómo proteger el acceso al servicio de back-end de una API mediante certificados de cliente (por ejemplo, de API Management para back-end), consulte [Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
+Para información acerca de cómo proteger el acceso al servicio de back-end de una API mediante certificados de cliente (por ejemplo, de API Management para back-end), consulte [Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Azure API Management](./api-management-howto-mutual-certificates.md)
 
 > [!IMPORTANT]
 > Para recibir y comprobar los certificados de cliente a través de HTTP/2 en los niveles Desarrollador, Básico, Estándar o Premium, debe activar la opción "Negociación del certificado de cliente" en la hoja "Dominios personalizados", tal como se muestra a continuación.
@@ -99,5 +99,5 @@ En el ejemplo siguiente se muestra cómo comprobar la huella digital de un certi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
--   [Cómo asegurar servicios back-end con la autenticación de certificados de cliente](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
--   [¿Cómo se cargan certificados?](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
+-   [Cómo asegurar servicios back-end con la autenticación de certificados de cliente](./api-management-howto-mutual-certificates.md)
+-   [¿Cómo se cargan certificados?](./api-management-howto-mutual-certificates.md)

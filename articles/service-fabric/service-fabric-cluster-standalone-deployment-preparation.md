@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 495949d1a4ec927c601f174521c360f51034a2fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b07e3fe14478cf45df2f02378da4e83853cf9ea
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85079351"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261034"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planeamiento y preparación de la implementación de un clúster independiente de Service Fabric
 
@@ -59,10 +59,10 @@ Estas son las especificaciones recomendadas para las máquinas de un clúster de
 * Conectividad a una o varias redes seguras para todas las máquinas
 * SO Windows Server instalado (versiones válidas: 2012 R2, 2016, 1709 o 1803). La versión 6.4.654.9590 de Service Fabric y posteriores también admiten el servidor 2019 y 1809.
 * [.NET Framework 4.5.1 o posterior](https://www.microsoft.com/download/details.aspx?id=40773) (instalación completa)
-* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/install/installing-windows-powershell)
-* El [servicio RemoteRegistry](https://technet.microsoft.com/library/cc754820) se debe estar ejecutando en todas las máquinas
+* [Windows PowerShell 3.0](/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-7)
+* El [servicio RemoteRegistry](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754820(v=ws.11)) se debe estar ejecutando en todas las máquinas
 * **La unidad de instalación de Service Fabric debe estar en el sistema de archivos NTFS**
-* **Los servicios de Windows *Registros y alertas de rendimiento* y *Registro de eventos de Windows* deben [estar habilitados](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc755249(v=ws.11))** .
+* **Los servicios de Windows *Registros y alertas de rendimiento* y *Registro de eventos de Windows* deben [estar habilitados](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755249(v=ws.11))** .
 
 > [!IMPORTANT]
 > El administrador de clúster que implemente y configure el clúster debe tener [privilegios de administrador](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) en cada una de las máquinas. No se puede instalar Service Fabric en un controlador de dominio.
@@ -157,7 +157,7 @@ Passed                     : True
 Actualmente, este módulo de prueba de configuración no valida la configuración de seguridad, así que se debe realizar de forma independiente.
 
 > [!NOTE]
-> Continuamente realizamos mejoras para conseguir que este módulo sea más robusto; por tanto, si cree que hay algún caso incorrecto o que falta que no está contemplado en TestConfiguration, comuníquenoslo a través de nuestros [canales de soporte técnico](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
+> Continuamente realizamos mejoras para conseguir que este módulo sea más robusto; por tanto, si cree que hay algún caso incorrecto o que falta que no está contemplado en TestConfiguration, comuníquenoslo a través de nuestros [canales de soporte técnico](./service-fabric-support.md).
 >
 >
 

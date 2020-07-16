@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: c1a9f3e76622523dde03cc2a639cce33227dff5f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 183a3561a7c01d8f0911a70846384cf8ebc7dd9c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649224"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254850"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Guardado y configuración del servicio Administración de API mediante Git
 
@@ -142,7 +142,7 @@ git push
 
 Una vez confirmados los cambios locales e insertados en el repositorio del servidor, puede implementarlos en la instancia del servicio Administración de API.
 
-Para obtener información acerca de cómo realizar esta operación mediante la API de REST, consulte [Deploy Git changes to configuration database using the REST API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/tenantconfiguration)(Implementación de cambios de Git en la base de datos de configuración mediante la API de REST).
+Para obtener información acerca de cómo realizar esta operación mediante la API de REST, consulte [Deploy Git changes to configuration database using the REST API](/rest/api/apimanagement/2019-12-01/tenantconfiguration)(Implementación de cambios de Git en la base de datos de configuración mediante la API de REST).
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Referencia de estructura de archivo y carpeta del repositorio local de Git
 
@@ -172,8 +172,8 @@ Estos archivos se pueden crear, eliminar, editar y administrar en el sistema de 
 > [!NOTE]
 > Las siguientes entidades no están en el repositorio de Git y no se pueden configurar mediante Git.
 >
-> * [Usuarios](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/user)
-> * [Suscripciones](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription)
+> * [Usuarios](/rest/api/apimanagement/2019-12-01/user)
+> * [Suscripciones](/rest/api/apimanagement/2019-12-01/subscription)
 > * Valores con nombre
 > * Entidades del portal de desarrolladores distintas de los estilos
 >
@@ -222,15 +222,15 @@ El valor final, `$ref-policy`, se asigna al archivo de instrucciones de directiv
 ### <a name="apis-folder"></a>carpeta de API
 La carpeta `apis` contiene una carpeta para cada API de la instancia de servicio, que contiene los elementos siguientes.
 
-* `apis\<api name>\configuration.json` : es la configuración de la API y contiene información acerca de la dirección URL del servicio back-end y las operaciones. Se trata de la misma información que se devolvería si se llamase a [Obtener una API específica](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/apis/get) con `export=true` en formato `application/json`.
-* `apis\<api name>\api.description.html`: es la descripción de la API y corresponde a la propiedad `description` de la [entidad de API](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.entityproperty).
-* `apis\<api name>\operations\`: esta carpeta contiene archivos `<operation name>.description.html` que se asignan a las operaciones de la API. Cada archivo contiene la descripción de una única operación en la API, que se asigna a la propiedad `description` de la [entidad de operación](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) en la API de REST.
+* `apis\<api name>\configuration.json` : es la configuración de la API y contiene información acerca de la dirección URL del servicio back-end y las operaciones. Se trata de la misma información que se devolvería si se llamase a [Obtener una API específica](/rest/api/apimanagement/2019-12-01/apis/get) con `export=true` en formato `application/json`.
+* `apis\<api name>\api.description.html`: es la descripción de la API y corresponde a la propiedad `description` de la [entidad de API](/java/api/com.microsoft.azure.storage.table.entityproperty).
+* `apis\<api name>\operations\`: esta carpeta contiene archivos `<operation name>.description.html` que se asignan a las operaciones de la API. Cada archivo contiene la descripción de una única operación en la API, que se asigna a la propiedad `description` de la [entidad de operación](/rest/api/visualstudio/operations/list#operationproperties) en la API de REST.
 
 ### <a name="groups-folder"></a>carpeta de grupos
 La carpeta `groups` contiene una carpeta para cada grupo definido en la instancia de servicio.
 
-* `groups\<group name>\configuration.json`: es la configuración para el grupo. Se trata de la misma información que se devolvería si se llamase a la operación [Obtener un grupo específico](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/group/get) .
-* `groups\<group name>\description.html`: es la descripción del grupo y corresponde a la propiedad `description` de la [entidad de servicio](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
+* `groups\<group name>\configuration.json`: es la configuración para el grupo. Se trata de la misma información que se devolvería si se llamase a la operación [Obtener un grupo específico](/rest/api/apimanagement/2019-12-01/group/get) .
+* `groups\<group name>\description.html`: es la descripción del grupo y corresponde a la propiedad `description` de la [entidad de servicio](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### <a name="policies-folder"></a>carpeta de directivas
 La carpeta `policies` contiene las instrucciones de directiva para la instancia de servicio.
@@ -249,8 +249,8 @@ La carpeta `portalStyles` contiene la configuración y las hojas de estilo para 
 ### <a name="products-folder"></a>carpeta de productos
 La carpeta `products` contiene una carpeta para cada producto que se define en la instancia de servicio.
 
-* `products\<product name>\configuration.json`: es la configuración del producto. Se trata de la misma información que se devolvería si se llamase a la operación [Obtener un producto específico](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/product/get) .
-* `products\<product name>\product.description.html`: es la descripción del producto y corresponde a la propiedad `description` de la [entidad de producto](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) de la API de REST.
+* `products\<product name>\configuration.json`: es la configuración del producto. Se trata de la misma información que se devolvería si se llamase a la operación [Obtener un producto específico](/rest/api/apimanagement/2019-12-01/product/get) .
+* `products\<product name>\product.description.html`: es la descripción del producto y corresponde a la propiedad `description` de la [entidad de producto](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) de la API de REST.
 
 ### <a name="templates"></a>plantillas
 La carpeta `templates` contiene la configuración para las [plantillas de correo electrónico](api-management-howto-configure-notifications.md) de la instancia de servicio.
@@ -262,8 +262,8 @@ La carpeta `templates` contiene la configuración para las [plantillas de correo
 Para obtener información sobre otras formas de administrar la instancia de servicio, consulte:
 
 * Administrar la instancia de servicio con los siguientes cmdlets de PowerShell
-  * [Azure API Management Deployment Management Cmdlets (Cmdlets de administración de la implementación de Administración de API de Azure)](https://docs.microsoft.com/powershell/module/wds)
-  * [Azure API Management Service Management Cmdlets (Cmdlets de administración del servicio Administración de API de Azure)](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
+  * [Azure API Management Deployment Management Cmdlets (Cmdlets de administración de la implementación de Administración de API de Azure)](/powershell/module/wds)
+  * [Azure API Management Service Management Cmdlets (Cmdlets de administración del servicio Administración de API de Azure)](/powershell/azure/servicemanagement/overview)
 * Administrar la instancia de servicio mediante la API de REST
   * [API Management REST API (API de REST de Administración de API)](/rest/api/apimanagement/)
 
@@ -281,7 +281,3 @@ Para obtener información sobre otras formas de administrar la instancia de serv
 [api-management-identity-settings]: ./media/api-management-configuration-repository-git/api-management-identity-settings.png
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
 [api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
-
-
-
-

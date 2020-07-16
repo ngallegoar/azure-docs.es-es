@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 48a83fad3395f6ecf06fb1f1ba95aa1b06a53431
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c9df3393a0554d2e65b3918c6760885f89e11ed
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81259143"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254751"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Cómo integrar Azure API Management con Azure Application Insights
 
@@ -51,7 +51,7 @@ Antes de poder usar Azure Application Insights, debe crear una instancia del ser
     ![Registrador de App Insights](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> En segundo plano, se crea una entidad [Logger](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate) en la instancia de API Management, que contiene la clave de instrumentación de la instancia de Application Insights.
+> En segundo plano, se crea una entidad [Logger](/rest/api/apimanagement/2019-12-01/logger/createorupdate) en la instancia de API Management, que contiene la clave de instrumentación de la instancia de Application Insights.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Habilitación del registro Application Insights para la API
 
@@ -70,7 +70,7 @@ Antes de poder usar Azure Application Insights, debe crear una instancia del ser
 > Reemplazar el valor predeterminado **0** en el campo **First bytes of body** (Primeros bytes del cuerpo) puede disminuir considerablemente el rendimiento de las API.
 
 > [!NOTE]
-> En segundo plano, se crea una entidad de [diagnóstico](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) denominada "applicationinsights" en el nivel de API.
+> En segundo plano, se crea una entidad de [diagnóstico](/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) denominada "applicationinsights" en el nivel de API.
 
 | Nombre del valor                        | Tipo de valor                        | Descripción                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -126,5 +126,5 @@ Omitir el registro de encabezados y del cuerpo de las solicitudes y respuestas t
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-+ Más información sobre [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/).
++ Más información sobre [Azure Application Insights](/azure/application-insights/).
 + Tenga en cuenta el [registro con Azure Event Hubs](api-management-howto-log-event-hubs.md).

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/29/2018
 ms.author: dekapur
 ms.custom: sfrev
-ms.openlocfilehash: 19343d370547cb5457f6bed70a8465187ff27102
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8dea63ef6a50597d9ad852cb9cdea4745532fed4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76988403"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252919"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Ejecución de un servicio como una cuenta de servicio administrada de grupo
 
@@ -41,7 +41,7 @@ Requisitos previos:
     Test-AdServiceAccount svc-Test$
     ```
 
-3. Configure la entidad de seguridad de usuario y `RunAsPolicy` para que hagan referencia al [usuario](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-fabric-settings#runas).
+3. Configure la entidad de seguridad de usuario y `RunAsPolicy` para que hagan referencia al [usuario](./service-fabric-cluster-fabric-settings.md#runas).
     
     ```xml
     <?xml version="1.0" encoding="utf-8"?>

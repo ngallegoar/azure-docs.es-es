@@ -5,12 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: a3b2f7c22c1afd0a24aafa3bcd9dc9a6c3f725f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e60ac5065c2f9543a641daf4f62299c00c61fc8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392580"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260188"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utilización de informes de mantenimiento del sistema para solucionar problemas
 Los componentes de Azure Service Fabric proporcionan informes de mantenimiento del sistema inmediatos sobre todas las entidades del clúster. El [almacén de estado](service-fabric-health-introduction.md#health-store) crea y elimina entidades basándose en los informes del sistema. También las organiza en una jerarquía que captura las interacciones de la entidad.
@@ -74,17 +74,17 @@ El informe de advertencia para el estado del nodo de inicialización mostrará t
 * **Pasos siguientes**: si se muestra esta advertencia en el clúster, siga estas instrucciones para corregirlo: en el caso del clúster que ejecuta Service Fabric versión 6.5 o posteriores: si se trata de un clúster de Service Fabric en Azure, después de que el nodo de inicialización deje de funcionar, Service Fabric intentará cambiarlo automáticamente a un nodo que no sea de inicialización. Para conseguirlo, asegúrese de que el número de nodos que no son de inicialización en el tipo de nodo principal es mayor o igual que el número de nodos de inicialización inactivos. Si es necesario, agregue más nodos al tipo de nodo principal.
 Según el estado del clúster, puede tardar algún tiempo en corregirse el problema. Una vez hecho esto, el informe de advertencia se borra automáticamente.
 
-En el caso de un clúster independiente de Service Fabric, para borrar el informe de advertencia todos los nodos de inicialización deben ser correctos. En función del motivo por el que los nodos de inicialización son incorrectos, deberán llevarse a cabo diferentes acciones: si el nodo de inicialización está fuera de servicio, los usuarios deben activarlo; si el nodo de inicialización muestra los estados Quitado o Desconocido, [debe quitarse del clúster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes).
+En el caso de un clúster independiente de Service Fabric, para borrar el informe de advertencia todos los nodos de inicialización deben ser correctos. En función del motivo por el que los nodos de inicialización son incorrectos, deberán llevarse a cabo diferentes acciones: si el nodo de inicialización está fuera de servicio, los usuarios deben activarlo; si el nodo de inicialización muestra los estados Quitado o Desconocido, [debe quitarse del clúster](./service-fabric-cluster-windows-server-add-remove-nodes.md).
 El informe de advertencia se borra automáticamente cuando todos los nodos de inicialización vuelven a ser correctos.
 
 En el caso del clúster que ejecuta una versión de Service Fabric anterior a la 6.5: en este caso, el informe de advertencia debe borrarse manualmente. **Los usuarios deben asegurarse de que todos los nodos de inicialización son correctos antes de borrar el informe**: si el nodo de inicialización está fuera de servicio, los usuarios deben activarlo; si su estado es Quitado o Desconocido, debe quitarse del clúster.
-Cuando todos los nodos de inicialización son correctos, use los siguientes comandos de PowerShell para [borrar el informe de advertencia](https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricclusterhealthreport):
+Cuando todos los nodos de inicialización son correctos, use los siguientes comandos de PowerShell para [borrar el informe de advertencia](/powershell/module/servicefabric/send-servicefabricclusterhealthreport):
 
 ```powershell
 PS C:\> Send-ServiceFabricClusterHealthReport -SourceId "System.FM" -HealthProperty "SeedNodeStatus" -HealthState OK
 
 ## Node system health reports
-System.FM, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed. For more information, see [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
+System.FM, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed. For more information, see [RemoveNodeStateAsync](/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
 
 ### Node up/down
 System.FM reports as OK when the node joins the ring (it's up and running). It reports an error when the node departs the ring (it's down, either for upgrading or simply because it has failed). The health hierarchy built by the health store acts on deployed entities in correlation with System.FM node reports. It considers the node a virtual parent of all deployed entities. The deployed entities on that node are exposed through queries if the node is reported as up by System.FM, with the same instance as the instance associated with the entities. When System.FM reports that the node is down or restarted, as a new instance, the health store automatically cleans up the deployed entities that can exist only on the down node or on the previous instance of the node.
@@ -675,7 +675,7 @@ Otras llamadas API que se pueden bloquear están en la interfaz **IReplicator**.
 * **Propiedad**: **PrimaryReplicationQueueStatus** o **SecondaryReplicationQueueStatus**, según el rol de réplica.
 
 ### <a name="slow-naming-operations"></a>Operaciones de nomenclatura lentas
-**System.NamingService** informa del mantenimiento en su réplica principal cuando una operación de nomenclatura tarda más de lo aceptable. [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) o [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync) son ejemplos de operaciones de nomenclatura. En FabricClient pueden encontrarse más métodos. Por ejemplo, pueden encontrarse en [métodos de administración de servicios](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) o [métodos de administración de propiedades](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
+**System.NamingService** informa del mantenimiento en su réplica principal cuando una operación de nomenclatura tarda más de lo aceptable. [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) o [DeleteServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync) son ejemplos de operaciones de nomenclatura. En FabricClient pueden encontrarse más métodos. Por ejemplo, pueden encontrarse en [métodos de administración de servicios](/dotnet/api/system.fabric.fabricclient.servicemanagementclient) o [métodos de administración de propiedades](/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
 
 > [!NOTE]
 > El servicio de nomenclatura resuelve los nombres de servicio a una ubicación en el clúster. Los usuarios pueden usarlo para administrar propiedades y nombres de servicio. Se trata de un servicio persistente con particiones de Service Fabric. Una de las particiones representa a *Authority Owner*, que contiene metadatos sobre todos los nombres y servicios de Service Fabric. Los nombres de Service Fabric se asignan a particiones diferentes, denominadas particiones *Name Owner*, por lo que el servicio se puede ampliar. Aprenda más sobre el [servicio de nomenclatura](service-fabric-architecture.md).
@@ -880,4 +880,3 @@ Si las capacidades de nodo no se definen en el manifiesto de clúster y se desac
 * [Supervisión y diagnóstico de los servicios localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 * [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
-

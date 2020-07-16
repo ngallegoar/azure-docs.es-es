@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 8d4231de13da3f8b2960bd4852136f803a97a546
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1d118fa1fb65663f37e33f739bf4a72a14e1c52
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75614441"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258701"
 ---
 # <a name="monitor-containers-with-azure-monitor-logs"></a>Supervisión de contenedores con los registros de Azure Monitor
  
@@ -48,5 +48,5 @@ El agente habilita la recopilación de varios registros específicos de contened
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre la [solución de contenedores de registros de Azure Monitor](../azure-monitor/insights/containers.md).
 * Obtenga más información sobre la orquestación de contenedores en Service Fabric en [Service Fabric y contenedores](service-fabric-containers-overview.md)
-* Familiarícese con las características de [consultas y búsqueda de registros](../log-analytics/log-analytics-log-searches.md) que se ofrecen como parte de los registros de Azure Monitor.
-* Configure los registros de Azure Monitor para configurar [alertas automáticas](../log-analytics/log-analytics-alerts.md) que ayuden a la detección y el diagnóstico.
+* Familiarícese con las características de [consultas y búsqueda de registros](../azure-monitor/log-query/log-query-overview.md) que se ofrecen como parte de los registros de Azure Monitor.
+* Configure los registros de Azure Monitor para configurar [alertas automáticas](../azure-monitor/platform/alerts-overview.md) que ayuden a la detección y el diagnóstico.

@@ -17,12 +17,12 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23508535c1853cd056bb162c254cda5f7f86d7fe
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f84724285dee6dfff4913b067daa651837787d4e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681755"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255785"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Cuentas y permisos
 
@@ -202,7 +202,6 @@ Leyenda:
 
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Personalizado | SQL remoto</br>Personalizado |
 | --- | --- | --- | --- |
-| **equipo independiente/en grupo de trabajo** | No compatible | **VSA**</br>Cuenta local (2008)</br>Cuenta local |  No compatible |
 | **equipo unido a un dominio** | **VSA**</br>Cuenta local (2008) | **VSA**</br>Cuenta local (2008)</br>Cuenta local</br>Cuenta de dominio</br>sMSA, gMSA | **gMSA**</br>Cuenta de dominio |
 | **Controlador de dominio** | **Cuenta de dominio** | *gMSA*</br>**Cuenta de dominio**</br>sMSA| *gMSA*</br>**Cuenta de dominio**|
 

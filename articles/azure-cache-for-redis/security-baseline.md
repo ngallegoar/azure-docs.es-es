@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b9568d352b22d9c48789f2648489be0444823fff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea46a42fa8063aaf1d67c4f5ae0d2eef3a83fd5a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82195993"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242717"
 ---
 # <a name="azure-security-baseline-for-azure-cache-for-redis"></a>Base de referencia de seguridad de Azure para Azure Cache for Redis
 
@@ -28,7 +28,7 @@ Para obtener más información, consulte [Introducción a las líneas de base de
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: Proteja los recursos mediante grupos de seguridad de red o Azure Firewall en su red virtual
 
-**Guía**: Implemente la instancia de Azure Cache for Redis dentro de una red virtual (VNet). Una red virtual es una red privada en la nube. Cuando una instancia de Azure Cache for Redis se configure con una red virtual, no será posible acceder a ella públicamente, solo se podrá acceder a ella desde máquinas virtuales y aplicaciones de dentro de la red virtual.
+**Instrucciones**: Implemente la instancia de Azure Cache for Redis dentro de una red virtual (VNet). Una red virtual es una red privada en la nube. Cuando una instancia de Azure Cache for Redis se configure con una red virtual, no será posible acceder a ella públicamente, solo se podrá acceder a ella desde máquinas virtuales y aplicaciones de dentro de la red virtual.
 
 Puede especificar también las reglas de firewall con un intervalo de direcciones IP de inicio y finalización. Cuando se configuran las reglas de firewall, solo las conexiones de cliente de los intervalos de direcciones IP especificados pueden conectarse a la memoria caché.
 
@@ -134,7 +134,7 @@ https://azuremarketplace.microsoft.com/marketplace/?term=Firewall
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8: Minimice la complejidad y la sobrecarga administrativa de las reglas de seguridad de red
 
-**Instrucciones**: Puede usar etiquetas de servicio de red virtual para definir los controles de acceso a la red en grupos de seguridad de red (NSG) o Azure Firewall. Puede utilizar etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. Al especificar el nombre de la etiqueta de servicio (por ejemplo, ApiManagement) en el campo de origen o destino apropiado de una regla, puede permitir o denegar el tráfico para el servicio correspondiente. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian.
+**Guía**: Puede usar etiquetas de servicio de red virtual para definir los controles de acceso a la red en grupos de seguridad de red (NSG) o Azure Firewall. Puede utilizar etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. Al especificar el nombre de la etiqueta de servicio (por ejemplo, ApiManagement) en el campo de origen o destino apropiado de una regla, puede permitir o denegar el tráfico para el servicio correspondiente. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian.
 
 También puede usar grupos de seguridad de aplicaciones (ASG) para simplificar una configuración de seguridad compleja. Los grupos de seguridad de aplicaciones le permiten configurar la seguridad de red como una extensión natural de la estructura de una aplicación, lo que le permite agrupar máquinas virtuales y definir directivas de seguridad de red basadas en esos grupos.
 
@@ -206,7 +206,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: Uso de orígenes de sincronización de hora aprobados
 
-**Guía**: Microsoft mantiene el origen de la hora usado en los recursos de Azure, como Azure Cache for Redis, para las marcas de tiempo de los registros.
+**Instrucciones**: Microsoft mantiene el origen de la hora usado en los recursos de Azure, como Azure Cache for Redis, para las marcas de tiempo de los registros.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -300,7 +300,7 @@ Configuración de alertas para Azure Cache for Redis: https://docs.microsoft.com
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10: Habilitación del registro de auditoría de la línea de comandos
 
-**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
+**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -312,7 +312,7 @@ Configuración de alertas para Azure Cache for Redis: https://docs.microsoft.com
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Mantenga un inventario de cuentas administrativas
 
-**Guía**: Azure Active Directory (AD) tiene roles integrados que se deben asignar explícitamente y son consultables. Use el módulo de PowerShell de Azure AD para realizar consultas ad hoc para detectar cuentas que son miembros de grupos administrativos.
+**Instrucciones**: Azure Active Directory (AD) tiene roles integrados que se deben asignar explícitamente y son consultables. Use el módulo de PowerShell de Azure AD para realizar consultas ad hoc para detectar cuentas que son miembros de grupos administrativos.
 
 Obtención de un rol de directorio en Azure AD con PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
 
@@ -324,7 +324,7 @@ Obtención de los miembros de un rol de directorio en Azure AD con PowerShell: 
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: Cambie las contraseñas predeterminadas cuando proceda
 
-**Instrucciones**: El acceso del plano de control a Azure Cache for Redis se controla mediante Azure Active Directory (AD). Azure AD no tiene el concepto de contraseñas predeterminadas. 
+**Guía**: El acceso del plano de control a Azure Cache for Redis se controla mediante Azure Active Directory (AD). Azure AD no tiene el concepto de contraseñas predeterminadas. 
 
 El acceso del plano de datos a Azure Cache for Redis se controla mediante claves de acceso. Estas claves las utilizan los clientes al conectarse a la memoria caché y se pueden volver a generar en cualquier momento.
 
@@ -359,7 +359,7 @@ Uso de Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorial
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: Use el inicio de sesión único (SSO) con Azure Active Directory
 
-**Instrucciones**: Azure Cache for Redis usa claves de acceso para autenticar a los usuarios y no admite el inicio de sesión único (SSO) en el nivel del plano de datos. El acceso al plano de control de Azure Cache for Redis está disponible mediante la API REST y admite SSO. Para autenticarse, establezca el encabezado de autorización de las solicitudes en JSON Web Token, que se obtiene de Azure Active Directory.
+**Guía**: Azure Cache for Redis usa claves de acceso para autenticar a los usuarios y no admite el inicio de sesión único (SSO) en el nivel del plano de datos. El acceso al plano de control de Azure Cache for Redis está disponible mediante la API REST y admite SSO. Para autenticarse, establezca el encabezado de autorización de las solicitudes en JSON Web Token, que se obtiene de Azure Active Directory.
 
 Descripción de la API REST de Azure Cache for Redis: https://docs.microsoft.com/rest/api/redis/
 
@@ -465,9 +465,9 @@ Incorporación de Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quic
 
 Visualización de los inicios de sesión de riesgo de Azure AD: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
 
-Configuración y habilitación de las directivas de riesgo de Identity Protection: https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
+Procedimiento para configurar y habilitar las directivas de riesgo de Identity Protection: https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
 
-Incorporación de Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Cómo incorporar Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -543,7 +543,7 @@ Descripción de la protección de datos de los clientes en Azure: https://docs.m
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: Cifrado de toda la información confidencial en tránsito
 
-**Guía**: Azure Cache for Redis requiere comunicaciones cifradas TLS de forma predeterminada. Actualmente se admiten las versiones de TLS 1.0, 1.1 y 1.2. Sin embargo, TLS 1.0 y 1.1 están en proceso de desuso en todo el sector, por lo que se recomienda TLS 1.2 si es posible. Si la biblioteca o la herramienta cliente no admiten TLS, se pueden habilitar las conexiones no cifradas mediante Azure Portal o las API de administración. En casos en los que no es posible establecer conexiones cifradas, se recomienda colocar la caché y la aplicación cliente en una red virtual.
+**Instrucciones**: Azure Cache for Redis requiere comunicaciones cifradas TLS de forma predeterminada. Actualmente se admiten las versiones de TLS 1.0, 1.1 y 1.2. Sin embargo, TLS 1.0 y 1.1 están en proceso de desuso en todo el sector, por lo que se recomienda TLS 1.2 si es posible. Si la biblioteca o la herramienta cliente no admiten TLS, se pueden habilitar las conexiones no cifradas mediante Azure Portal o las API de administración. En casos en los que no es posible establecer conexiones cifradas, se recomienda colocar la caché y la aplicación cliente en una red virtual.
 
 Descripción del cifrado en tránsito para Azure Cache for Redis:
 
@@ -707,7 +707,7 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3: Eliminación de recursos de Azure no autorizados
 
-**Instrucciones**: Use el etiquetado, los grupos de administración y las suscripciones independientes, si procede, para organizar y realizar un seguimiento de las instancias de Azure Cache for Redis y recursos relacionados. Concilie el inventario periódicamente y asegúrese de que los recursos no autorizados se eliminan de la suscripción de manera oportuna.
+**Guía**: Use el etiquetado, los grupos de administración y las suscripciones independientes, si procede, para organizar y realizar un seguimiento de las instancias de Azure Cache for Redis y recursos relacionados. Concilie el inventario periódicamente y asegúrese de que los recursos no autorizados se eliminan de la suscripción de manera oportuna.
 
 Además, use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 
@@ -765,7 +765,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: Eliminación de aplicaciones de software y recursos de Azure no aprobadas
 
-**Instrucciones**: No aplicable; esta recomendación está destinada a los recursos de proceso y a Azure en su conjunto.
+**Guía**: No aplicable; esta recomendación está destinada a los recursos de proceso y a Azure en su conjunto.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -863,7 +863,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: Mantenga configuraciones de recursos de Azure seguras
 
-**Instrucciones**: Utilice las directivas [deny] y [deploy if not exist] de Azure Policy para aplicar una configuración segura en los recursos de Azure.
+**Guía**: Utilice las directivas [deny] y [deploy if not exist] de Azure Policy para aplicar una configuración segura en los recursos de Azure.
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -883,7 +883,7 @@ Descripción de los efectos de Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Almacene de forma segura la configuración de los recursos de Azure
 
-**Guía**: Si usa definiciones de Azure Policy personalizadas o plantillas de Azure Resource Manager para las instancias de Azure Cache for Redis y recursos relacionados, use Azure Repos para almacenar y administrar el código de forma segura.
+**Instrucciones**: Si usa definiciones de Azure Policy personalizadas o plantillas de Azure Resource Manager para las instancias de Azure Cache for Redis y recursos relacionados, use Azure Repos para almacenar y administrar el código de forma segura.
 
 Cómo almacenar código en Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
@@ -903,7 +903,7 @@ Documentación de Azure Repos: https://docs.microsoft.com/azure/devops/repos/ind
 
 ### <a name="77-deploy-system-configuration-management-tools"></a>7.7: Implemente herramientas de administración de configuración del sistema
 
-**Guía**: Use alias de Azure Policy en el espacio de nombres "Microsoft.Cache" para crear directivas personalizadas a fin de auditar y aplicar las configuraciones del sistema y enviar alertas sobre ellas. Además, desarrolle un proceso y una canalización para administrar las excepciones de las directivas.
+**Instrucciones**: Use alias de Azure Policy en el espacio de nombres "Microsoft.Cache" para crear directivas personalizadas a fin de auditar y aplicar las configuraciones del sistema y enviar alertas sobre ellas. Además, desarrolle un proceso y una canalización para administrar las excepciones de las directivas.
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -921,7 +921,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: Implemente la supervisión de configuración automatizada para servicios de Azure
 
-**Instrucciones**: Use alias de Azure Policy en el espacio de nombres "Microsoft.Cache" para crear directivas personalizadas a fin de auditar y aplicar las configuraciones del sistema y enviar alertas sobre ellas. Use Azure Policy [auditar], [denegar] e [implementar si no existe] para aplicar automáticamente las configuraciones de las instancias de Azure Cache for Redis y recursos relacionados.
+**Guía**: Use alias de Azure Policy en el espacio de nombres "Microsoft.Cache" para crear directivas personalizadas a fin de auditar y aplicar las configuraciones del sistema y enviar alertas sobre ellas. Use Azure Policy [auditar], [denegar] e [implementar si no existe] para aplicar automáticamente las configuraciones de las instancias de Azure Cache for Redis y recursos relacionados.
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -939,7 +939,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="711-manage-azure-secrets-securely"></a>7.11: Administre los secretos de Azure de forma segura
 
-**Instrucciones**: En el caso de Azure Virtual Machines o las aplicaciones web que se ejecutan en Azure App Service y se usan para tener acceso a las instancias de Azure Cache for Redis, utilice Managed Service Identity junto con Azure Key Vault para simplificar y proteger la administración de secretos de Azure Cache for Redis. Asegúrese de que la eliminación temporal de Key Vault esté habilitada.
+**Guía**: En el caso de Azure Virtual Machines o las aplicaciones web que se ejecutan en Azure App Service y se usan para tener acceso a las instancias de Azure Cache for Redis, utilice Managed Service Identity junto con Azure Key Vault para simplificar y proteger la administración de secretos de Azure Cache for Redis. Asegúrese de que la eliminación temporal de Key Vault esté habilitada.
 
 Cómo integrar las identidades administradas de Azure:
 
@@ -1001,7 +1001,7 @@ Microsoft Antimalware está habilitado en el host subyacente que admite los serv
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2: Examine previamente los archivos que se van a cargar en recursos de Azure que no son de proceso
 
-**Guía**: Microsoft Antimalware está habilitado en el host subyacente que admite los servicios de Azure (por ejemplo, Azure Cache for Redis), pero no se ejecuta en el contenido del cliente.
+**Instrucciones**: Microsoft Antimalware está habilitado en el host subyacente que admite los servicios de Azure (por ejemplo, Azure Cache for Redis), pero no se ejecuta en el contenido del cliente.
 
 Examine previamente el contenido que se carga en recursos de Azure que no son de proceso, como App Service, Data Lake Storage, Blob Storage, Azure Database for PostgreSQL, etc. Microsoft no tiene acceso a los datos de estas instancias.
 
@@ -1025,7 +1025,7 @@ Microsoft Antimalware está habilitado en el host subyacente que admite los serv
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Garantía de copias de seguridad automáticas periódicas
 
-**Instrucciones**: Habilite la persistencia de Redis. La persistencia de Redis le permite conservar los datos almacenados en Redis. También puede tomar instantáneas y realizar copias de seguridad de los datos que puede cargar en el caso de un error de hardware. Se trata de una inmensa ventaja sobre el nivel Básico o Estándar, donde todos los datos se almacenan en la memoria y puede haber una posible pérdida de datos en caso de error donde los nodos de la memoria caché están inactivos.
+**Guía**: Habilite la persistencia de Redis. La persistencia de Redis le permite conservar los datos almacenados en Redis. También puede tomar instantáneas y realizar copias de seguridad de los datos que puede cargar en el caso de un error de hardware. Se trata de una inmensa ventaja sobre el nivel Básico o Estándar, donde todos los datos se almacenan en la memoria y puede haber una posible pérdida de datos en caso de error donde los nodos de la memoria caché están inactivos.
 
 También puede utilizar la exportación de Azure Cache for Redis. La exportación permite exportar los datos almacenados en Azure Cache for Redis a archivos RDB compatibles. Puede utilizar esta característica para mover datos desde una instancia de Azure Cache for Redis a otra o a otro servidor de Redis. Durante el proceso de exportación, se crea un archivo temporal en la máquina virtual que hospeda la instancia del servidor de Azure Cache for Redis y el archivo se carga en la cuenta de almacenamiento designada. Una vez completada la operación de exportación (de manera correcta o incorrecta), se elimina el archivo temporal.
 
@@ -1145,7 +1145,7 @@ https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4: Provisión de detalles de contacto de incidentes de seguridad y configuración de notificaciones de alerta para incidentes de seguridad
 
-**Guía**: La información de contacto del incidente de seguridad la utilizará Microsoft para ponerse en contacto con usted si Microsoft Security Response Center (MSRC) detecta que un tercero no autorizado o ilegal ha accedido a los datos del cliente.  Revise los incidentes después del hecho para asegurarse de que se resuelven los problemas.
+**Instrucciones**: La información de contacto del incidente de seguridad la utilizará Microsoft para ponerse en contacto con usted si Microsoft Security Response Center (MSRC) detecta que un tercero no autorizado o ilegal ha accedido a los datos del cliente.  Revise los incidentes después del hecho para asegurarse de que se resuelven los problemas.
 
 Establecimiento del contacto de seguridad de Azure Security Center:
 

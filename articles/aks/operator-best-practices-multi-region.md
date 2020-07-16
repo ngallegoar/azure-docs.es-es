@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7aa93d8ba21cafddc5511e16fa430b76942b1a6d
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: e4e2a1fc08851e4e625bfc59419fc274ebbce1c8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668289"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251203"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para continuidad empresarial y recuperación ante desastres en Azure Kubernetes Service (AKS)
 
-A medida que administra los clústeres en Azure Kubernetes Service (AKS), el tiempo de actividad de la aplicación pasa a ser importante. De forma predeterminada, AKS proporciona alta disponibilidad mediante el uso de varios nodos en un [conjunto de escalado de máquinas virtuales (VMSS)](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview). Pero estos múltiples nodos no protegen al sistema frente a un error de la región. Para maximizar el tiempo de actividad, planee con antelación para mantener la continuidad empresarial y preparar la recuperación ante desastres.
+A medida que administra los clústeres en Azure Kubernetes Service (AKS), el tiempo de actividad de la aplicación pasa a ser importante. De forma predeterminada, AKS proporciona alta disponibilidad mediante el uso de varios nodos en un [conjunto de escalado de máquinas virtuales (VMSS)](../virtual-machine-scale-sets/overview.md). Pero estos múltiples nodos no protegen al sistema frente a un error de la región. Para maximizar el tiempo de actividad, planee con antelación para mantener la continuidad empresarial y preparar la recuperación ante desastres.
 
 Este artículo se centra en cómo planear la continuidad empresarial y la recuperación ante desastres en AKS. Aprenderá a:
 
@@ -33,8 +33,8 @@ Este artículo se centra en cómo planear la continuidad empresarial y la recupe
 
 Un clúster de AKS se implementa en una sola región. Para proteger el sistema frente al error en una región, implemente la aplicación en varios clústeres de AKS en diferentes regiones. Al planear dónde implementar el clúster de AKS, tenga en cuenta:
 
-* [**Disponibilidad por región de AKS**](https://docs.microsoft.com/azure/aks/quotas-skus-regions#region-availability): Elija regiones cerca de los usuarios. AKS se expande continuamente en nuevas regiones.
-* [**Regiones emparejadas de Azure**](https://docs.microsoft.com/azure/best-practices-availability-paired-regions): Para su área geográfica, elija dos regiones que estén emparejadas entre sí. Las regiones emparejadas coordinan las actualizaciones de la plataforma y dan prioridad a los esfuerzos de recuperación cuando resulta necesario.
+* [**Disponibilidad por región de AKS**](./quotas-skus-regions.md#region-availability): Elija regiones cerca de los usuarios. AKS se expande continuamente en nuevas regiones.
+* [**Regiones emparejadas de Azure**](../best-practices-availability-paired-regions.md): Para su área geográfica, elija dos regiones que estén emparejadas entre sí. Las regiones emparejadas coordinan las actualizaciones de la plataforma y dan prioridad a los esfuerzos de recuperación cuando resulta necesario.
 * **Disponibilidad del servicio**: Decida si las regiones emparejadas deben ser las del nivel de acceso frecuente/frecuente, frecuente/normal o frecuente/poco frecuente. ¿Desea ejecutar ambas regiones al mismo tiempo, con una región *preparada* para empezar a atender el tráfico? ¿O bien desea que una región tenga tiempo para prepararse para atender el tráfico?
 
 La disponibilidad por región de AKS y las regiones emparejadas son una consideración conjunta. Implemente los clústeres de AKS en regiones emparejadas diseñadas para administrar la recuperación ante desastres de las regiones de forma conjunta. Por ejemplo, AKS está disponible en el Este de EE. UU. y en el Oeste de EE. UU. Estas regiones están emparejadas. Elija estas dos regiones al crear una estrategia de continuidad empresarial y recuperación ante desastres en AKS.
@@ -45,7 +45,7 @@ Al implementar la aplicación, agregue otro paso a la canalización de CI/CD par
 
 **Procedimiento recomendado**: Azure Traffic Manager puede dirigir a los clientes a la instancia de la aplicación y los clústeres de AKS más próxima. Para conseguir los máximos niveles de rendimiento y redundancia, dirija todo el tráfico de la aplicación con Traffic Manager antes de que pase al clúster de AKS.
 
-Si tiene varios clústeres de AKS en distintas regiones, use Traffic Manager para controlar cómo fluye el tráfico a las aplicaciones que se ejecutan en cada clúster. [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/) es un equilibrador de carga de tráfico basado en DNS que puede distribuir el tráfico de red entre regiones. Use Traffic Manager para enrutar a los usuarios en función del tiempo de respuesta del clúster o de la ubicación geográfica.
+Si tiene varios clústeres de AKS en distintas regiones, use Traffic Manager para controlar cómo fluye el tráfico a las aplicaciones que se ejecutan en cada clúster. [Azure Traffic Manager](../traffic-manager/index.yml) es un equilibrador de carga de tráfico basado en DNS que puede distribuir el tráfico de red entre regiones. Use Traffic Manager para enrutar a los usuarios en función del tiempo de respuesta del clúster o de la ubicación geográfica.
 
 ![AKS con Traffic Manager](media/operator-best-practices-bc-dr/aks-azure-traffic-manager.png)
 
@@ -55,15 +55,15 @@ Los clientes que tienen un único clúster de AKS suelen conectarse a la direcci
 
 Traffic Manager realiza las búsquedas de DNS y devuelve el punto de conexión más adecuado de un usuario. Los perfiles anidados pueden dar prioridad a una ubicación principal. Por ejemplo, los usuarios generalmente deberían conectarse a su región geográfica más cercana. Si esa región tiene un problema, Traffic Manager, en su lugar, dirige a los usuarios a una región secundaria. Este enfoque garantiza que los clientes puedan conectarse a una instancia de una aplicación, incluso aunque su región geográfica más próxima no esté disponible.
 
-Para información sobre cómo configurar estos puntos de conexión y el enrutamiento, consulte [Configuración del método de enrutamiento de tráfico geográfico con Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
+Para información sobre cómo configurar estos puntos de conexión y el enrutamiento, consulte [Configuración del método de enrutamiento de tráfico geográfico con Traffic Manager](../traffic-manager/traffic-manager-configure-geographic-routing-method.md).
 
 ### <a name="layer-7-application-routing-with-azure-front-door-service"></a>Enrutamiento de aplicaciones de nivel 7 con Azure Front Door Service
 
-Traffic Manager usa DNS (nivel 3) para dar forma al tráfico. [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) proporciona una opción de enrutamiento HTTP/HTTPS (nivel 7). Las características adicionales de Azure Front Door Service incluyen la terminación TLS, el dominio personalizado, el firewall de aplicaciones web, la reescritura de dirección URL y la afinidad de la sesión. Revise los requisitos del tráfico de su aplicación para saber qué solución es la más conveniente.
+Traffic Manager usa DNS (nivel 3) para dar forma al tráfico. [Azure Front Door Service](../frontdoor/front-door-overview.md) proporciona una opción de enrutamiento HTTP/HTTPS (nivel 7). Las características adicionales de Azure Front Door Service incluyen la terminación TLS, el dominio personalizado, el firewall de aplicaciones web, la reescritura de dirección URL y la afinidad de la sesión. Revise los requisitos del tráfico de su aplicación para saber qué solución es la más conveniente.
 
 ### <a name="interconnect-regions-with-global-virtual-network-peering"></a>Interconexión de regiones con el emparejamiento de redes virtuales globales
 
-Si los clústeres necesitan comunicarse entre sí, puede conectar ambas redes virtuales entre sí a través del [emparejamiento de redes virtuales](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Esta tecnología conecta las redes virtuales entre sí, lo que ofrece un alto ancho de banda en toda la red troncal de Microsoft, incluso en distintas regiones geográficas.
+Si los clústeres necesitan comunicarse entre sí, puede conectar ambas redes virtuales entre sí a través del [emparejamiento de redes virtuales](../virtual-network/virtual-network-peering-overview.md). Esta tecnología conecta las redes virtuales entre sí, lo que ofrece un alto ancho de banda en toda la red troncal de Microsoft, incluso en distintas regiones geográficas.
 
 Un requisito previo para emparejar las redes virtuales en las que se ejecutan los clústeres de AKS es usar una instancia de Load Balancer estándar en el clúster de AKS. De este modo, se puede acceder a los servicios de Kubernetes a través del emparejamiento de redes virtuales.
 
@@ -83,7 +83,7 @@ Cuando se usa la replicación geográfica de Container Registry para extraer im�
 * **Más confiables**: si una región no está disponible, el clúster de AKS extrae las imágenes desde un registro de contenedor disponible.
 * **Más baratos**: No se genera ningún cargo por salida de red entre los centros de datos.
 
-La replicación geográfica es una característica de los registros de contenedor de SKU *Prémium*. Para información sobre cómo configurar la replicación geográfica, consulte [Replicación geográfica en Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication).
+La replicación geográfica es una característica de los registros de contenedor de SKU *Prémium*. Para información sobre cómo configurar la replicación geográfica, consulte [Replicación geográfica en Azure Container Registry](../container-registry/container-registry-geo-replication.md).
 
 ## <a name="remove-service-state-from-inside-containers"></a>Quitar el estado de servicio de dentro de los contenedores
 
@@ -98,7 +98,7 @@ Los contenedores y los microservicios son más resistentes si los procesos que s
 Para crear aplicaciones portátiles, consulte las siguientes directrices:
 
 * [La metodología de las aplicaciones con doce factores](https://12factor.net/)
-* [Ejecución de una aplicación web en varias regiones de Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region)
+* [Ejecución de una aplicación web en varias regiones de Azure](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
 
 ## <a name="create-a-storage-migration-plan"></a>Crear un plan de migración de almacenamiento
 

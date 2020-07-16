@@ -4,12 +4,12 @@ description: Obtenga información sobre el escalado en Azure Kubernetes Service 
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: 83cbaf49f26a53518b1aa1e211b61af1959642a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41d4088a0942eb408d3d3c9eeb2d13ff38fc0362
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465344"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244521"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opciones de escalado de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ En este artículo se presentan los conceptos básicos para ayudarle a escalar ap
 
 Puede escalar manualmente las réplicas (pods) y nodos para probar cómo responde la aplicación a un cambio en los recursos disponibles y el estado. El escalado manual de recursos también le permite definir una cantidad establecida de recursos que se usarán para mantener un costo fijo como el número de nodos. Para realizar un escalado manual, defina el número de réplicas o de nodos. Luego, Kubernetes API programará la creación de pods adicionales o el drenaje de nodos en función del número de réplicas o de nodos.
 
-Al reducir verticalmente los nodos, la API de Kubernetes llama a la API de proceso de Azure correspondiente asociada al tipo de proceso que usa el clúster. Por ejemplo, para los clústeres basados en VM Scale Sets, la lógica para seleccionar los nodos que se van a quitar vienen determinada por la API de VM Scale Sets. Para obtener más información sobre cómo se seleccionan los nodos para su eliminación al reducir verticalmente, vea las [preguntas más frecuentes sobre VMSS](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed).
+Al reducir verticalmente los nodos, la API de Kubernetes llama a la API de proceso de Azure correspondiente asociada al tipo de proceso que usa el clúster. Por ejemplo, para los clústeres basados en VM Scale Sets, la lógica para seleccionar los nodos que se van a quitar vienen determinada por la API de VM Scale Sets. Para obtener más información sobre cómo se seleccionan los nodos para su eliminación al reducir verticalmente, vea las [preguntas más frecuentes sobre VMSS](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed).
 
 Para empezar con el escalado manual de pods y nodos, consulte [Escalado de aplicaciones en AKS][aks-scale].
 
@@ -80,7 +80,7 @@ Para escalar rápidamente el clúster de AKS, puedes realizar la integración co
 
 ![Escalado de ráfaga de Kubernetes en ACI](media/concepts-scale/burst-scaling.png)
 
-ACI le permite implementar rápidamente instancias de contenedor sin sobrecarga de infraestructura adicional. Cuando se conecta con AKS, ACI se convierte en una extensión lógica y segura de su clúster de AKS. El componente de [nodos virtuales][virtual-nodes-cli], que se basa en [Virtual Kubelet][virtual-kubelet], se instala en el clúster de AKS que presenta ACI como un nodo de Kubernetes virtual. Kubernetes puede programar pods que se ejecuten como instancias de ACI a través de los nodos virtuales, no como pods en nodos de máquina virtual directamente en el clúster de AKS. Los nodos virtuales se encuentran actualmente en versión preliminar en AKS.
+ACI le permite implementar rápidamente instancias de contenedor sin sobrecarga de infraestructura adicional. Cuando se conecta con AKS, ACI se convierte en una extensión lógica y segura de su clúster de AKS. El componente de [nodos virtuales][virtual-nodes-cli], que se basa en [Virtual Kubelet][virtual-kubelet], se instala en el clúster de AKS que presenta ACI como un nodo de Kubernetes virtual. Kubernetes puede programar pods que se ejecuten como instancias de ACI a través de los nodos virtuales, no como pods en nodos de máquina virtual directamente en el clúster de AKS.
 
 La aplicación no requiere ninguna modificación para usar los nodos virtuales. Puede escalar las implementaciones en AKS y ACI sin ningún retraso, ya que Cluster Autoscaler implementa los nodos nuevos en el clúster de AKS.
 
@@ -111,7 +111,7 @@ Para obtener más información sobre los conceptos básicos de Kubernetes y AKS,
 [aks-scale]: tutorial-kubernetes-scale.md
 [aks-manually-scale-pods]: tutorial-kubernetes-scale.md#manually-scale-pods
 [aks-manually-scale-nodes]: tutorial-kubernetes-scale.md#manually-scale-aks-nodes
-[aks-cluster-autoscaler]: autoscaler.md
+[aks-cluster-autoscaler]: ./cluster-autoscaler.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-storage]: concepts-storage.md

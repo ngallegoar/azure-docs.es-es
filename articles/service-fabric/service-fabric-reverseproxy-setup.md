@@ -4,12 +4,12 @@ description: Aprenda a iniciar y configurar el servicio de proxy inverso para un
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pepogors
-ms.openlocfilehash: 6e3edb0fe238dcaddb7d99cc68660591f081581c
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: f8a9025a50b2815f0e6030e7baf317b261c8c462
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80476675"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256343"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Instalación y configuración del proxy inverso en Azure Service Fabric
 El proxy inverso es un servicio opcional de Azure Service Fabric que ayuda a los microservicios que se ejecutan en un clúster de Service Fabric a detectar otros servicios que tienen puntos de conexión HTTP y a comunicarse con ellos. Para más información, consulte [Proxy inverso en Azure Service Fabric](service-fabric-reverseproxy.md). Este artículo muestra cómo instalar y configurar el proxy inverso en el clúster. 
@@ -37,7 +37,7 @@ Si desea un clúster nuevo, puede [crear una plantilla de Resource Manager perso
 
 Puede encontrar plantillas de Resource Manager de ejemplo que pueden servirle de ayuda para configurar el proxy inverso seguro para un clúster de Azure en [Secure Reverse Proxy Sample Templates](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample) (Plantillas de ejemplo de proxy inverso seguro) en GitHub. Consulte [Configure HTTPS Reverse Proxy in a secure cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) (Configuración del proxy inverso HTTPS en un clúster seguro) en el archivo LÉAME para obtener instrucciones y las plantillas para configurar un proxy inverso seguro con un certificado y administrar la sustitución de certificados.
 
-Para un clúster existente, puede exportar la plantilla de Resource Manager para el grupo de recursos del clúster con los [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) o la [CLI de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli).
+Para un clúster existente, puede exportar la plantilla de Resource Manager para el grupo de recursos del clúster con los [Azure Portal](../azure-resource-manager/templates/export-template-portal.md), [PowerShell](../azure-resource-manager/management/manage-resources-powershell.md) o la [CLI de Azure](../azure-resource-manager/management/manage-resources-cli.md).
 
 Una vez que tenga una plantilla de Resource Manager, puede seguir estos pasos para habilitar el proxy inverso:
 
@@ -52,7 +52,7 @@ Una vez que tenga una plantilla de Resource Manager, puede seguir estos pasos pa
         }
     },
     ```
-2. Especifique el puerto para cada uno de los objetos nodetype de la sección [**Microsoft. ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [tipo de recurso](../azure-resource-manager/templates/template-syntax.md).
+2. Especifique el puerto para cada uno de los objetos nodetype de la sección [**Microsoft. ServiceFabric/clusters**](/azure/templates/microsoft.servicefabric/clusters) [tipo de recurso](../azure-resource-manager/templates/template-syntax.md).
 
     El puerto se identifica con el nombre de parámetro reverseProxyEndpointPort.
 
@@ -74,7 +74,7 @@ Una vez que tenga una plantilla de Resource Manager, puede seguir estos pasos pa
         ...
     }
     ```
-3. Para configurar certificados TLS/SSL en el puerto para el proxy inverso, agregue el certificado a la propiedad ***reverseProxyCertificate*** de la **sección de** tipo de recurso [Microsoft.ServiceFabric/clusters](../resource-group-authoring-templates.md).
+3. Para configurar certificados TLS/SSL en el puerto para el proxy inverso, agregue el certificado a la propiedad ***reverseProxyCertificate*** de la **sección de** tipo de recurso [Microsoft.ServiceFabric/clusters](../azure-resource-manager/templates/template-syntax.md).
 
     ```json
     {
@@ -98,7 +98,7 @@ Una vez que tenga una plantilla de Resource Manager, puede seguir estos pasos pa
     ```
 
 ### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>Compatibilidad de un certificado de proxy inverso distinto del certificado de clúster
- Si el certificado de proxy inverso es distinto del certificado que protege el clúster, el certificado especificado anteriormente debe instalarse en la máquina virtual y agregarse a la lista de control de acceso (ACL) para que Service Fabric pueda acceder a él. Esto puede hacerse en la [**sección del** tipo de recurso](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachinescalesets) [Microsoft. Compute/virtualMachineScaleSets](../resource-group-authoring-templates.md). Para la instalación, agregue el certificado a osProfile. La sección de extensión de la plantilla puede actualizar el certificado en la ACL.
+ Si el certificado de proxy inverso es distinto del certificado que protege el clúster, el certificado especificado anteriormente debe instalarse en la máquina virtual y agregarse a la lista de control de acceso (ACL) para que Service Fabric pueda acceder a él. Esto puede hacerse en la [**sección del** tipo de recurso](/azure/templates/microsoft.compute/virtualmachinescalesets) [Microsoft. Compute/virtualMachineScaleSets](../azure-resource-manager/templates/template-syntax.md). Para la instalación, agregue el certificado a osProfile. La sección de extensión de la plantilla puede actualizar el certificado en la ACL.
 
   ```json
   {
@@ -252,50 +252,50 @@ Si desea exponer un proxy inverso públicamente para un clúster independiente, 
 
 ### <a name="expose-the-reverse-proxy-via-resource-manager-templates"></a>Exposición del proxy inverso mediante plantillas de Resource Manager
 
-El siguiente archivo JSON hace referencia a la misma plantilla que se usa en [Habilitación del proxy inverso mediante plantillas de Azure Resource Manager](#enable-reverse-proxy-via-azure-resource-manager-templates). Haga referencia a esa sección del documento para obtener información acerca de cómo crear una plantilla de Resource Manager o exportar una plantilla para un clúster existente.  Los cambios se realizan en la [**sección de cambios de recurso**](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers) [Microsoft. Network/loadBalancers](../resource-group-authoring-templates.md).
+El siguiente archivo JSON hace referencia a la misma plantilla que se usa en [Habilitación del proxy inverso mediante plantillas de Azure Resource Manager](#enable-reverse-proxy-via-azure-resource-manager-templates). Haga referencia a esa sección del documento para obtener información acerca de cómo crear una plantilla de Resource Manager o exportar una plantilla para un clúster existente.  Los cambios se realizan en la [**sección de cambios de recurso**](/azure/templates/microsoft.network/loadbalancers) [Microsoft. Network/loadBalancers](../azure-resource-manager/templates/template-syntax.md).
 
-    ```json
-    {
-        "apiVersion": "[variables('lbApiVersion')]",
-        "type": "Microsoft.Network/loadBalancers",
+```json
+{
+    "apiVersion": "[variables('lbApiVersion')]",
+    "type": "Microsoft.Network/loadBalancers",
+    ...
+    ...
+    "loadBalancingRules": [
         ...
-        ...
-        "loadBalancingRules": [
-            ...
-            {
-                "name": "LBSFReverseProxyRule",
-                "properties": {
-                    "backendAddressPool": {
-                        "id": "[variables('lbPoolID0')]"
-                    },
-                    "backendPort": "[parameters('SFReverseProxyPort')]",
-                    "enableFloatingIP": "false",
-                    "frontendIPConfiguration": {
-                        "id": "[variables('lbIPConfig0')]"
-                    },
-                    "frontendPort": "[parameters('SFReverseProxyPort')]",
-                    "idleTimeoutInMinutes": "5",
-                    "probe": {
-                        "id": "[concat(variables('lbID0'),'/probes/SFReverseProxyProbe')]"
-                    },
-                    "protocol": "tcp"
-                }
+        {
+            "name": "LBSFReverseProxyRule",
+            "properties": {
+                "backendAddressPool": {
+                    "id": "[variables('lbPoolID0')]"
+                },
+                "backendPort": "[parameters('SFReverseProxyPort')]",
+                "enableFloatingIP": "false",
+                "frontendIPConfiguration": {
+                    "id": "[variables('lbIPConfig0')]"
+                },
+                "frontendPort": "[parameters('SFReverseProxyPort')]",
+                "idleTimeoutInMinutes": "5",
+                "probe": {
+                    "id": "[concat(variables('lbID0'),'/probes/SFReverseProxyProbe')]"
+                },
+                "protocol": "tcp"
             }
-        ],
-        "probes": [
-            ...
-            {
-                "name": "SFReverseProxyProbe",
-                "properties": {
-                    "intervalInSeconds": 5,
-                    "numberOfProbes": 2,
-                    "port":     "[parameters('SFReverseProxyPort')]",
-                    "protocol": "tcp"
-                }
-            }  
-        ]
-    }
-    ```
+        }
+    ],
+    "probes": [
+        ...
+        {
+            "name": "SFReverseProxyProbe",
+            "properties": {
+                "intervalInSeconds": 5,
+                "numberOfProbes": 2,
+                "port":     "[parameters('SFReverseProxyPort')]",
+                "protocol": "tcp"
+            }
+        }  
+    ]
+}
+```
 
 
 ## <a name="customize-reverse-proxy-behavior-using-fabric-settings"></a>Personalización del comportamiento del proxy inverso mediante la configuración del tejido

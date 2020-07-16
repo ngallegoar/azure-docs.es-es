@@ -4,12 +4,12 @@ description: Información general sobre por qué la creación de aplicaciones de
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
-ms.openlocfilehash: 9e0c93423b3639fb2bc3739f0d6569c4c4cec8da
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: b8fbe5096014b116c3d5c5deaa7615874135d001
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792875"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246027"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>¿Por qué usar un enfoque de microservicios para crear aplicaciones?
 
@@ -131,7 +131,7 @@ El estado es diferente de los diagnósticos. El mantenimiento hace referencia a 
 
 ## <a name="guidance-for-designing-microservices-on-azure"></a>Guía para el diseño de microservicios en Azure
 
-Visite el Centro de arquitectura de Azure para una guía sobre el [diseño y creación de microservicios en Azure](https://docs.microsoft.com/azure/architecture/microservices/).
+Visite el Centro de arquitectura de Azure para una guía sobre el [diseño y creación de microservicios en Azure](/azure/architecture/microservices/).
 
 ## <a name="service-fabric-as-a-microservices-platform"></a>Service Fabric como plataforma de microservicios
 
@@ -191,7 +191,7 @@ El objetivo de Service Fabric es reducir las complejidades que conlleva crear ap
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Microservicios: Una revolución en las aplicaciones con la tecnología de la nube)
-* [Centro de arquitectura de Azure: Creación de microservicios en Azure](https://docs.microsoft.com/azure/architecture/microservices/)
+* [Centro de arquitectura de Azure: Creación de microservicios en Azure](/azure/architecture/microservices/)
 * [Procedimientos recomendados para aplicaciones y clústeres de Azure Service Fabric](service-fabric-best-practices-overview.md)
 * [Información general sobre la terminología de Service Fabric](service-fabric-technical-overview.md)
 

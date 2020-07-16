@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: srrengar
-ms.openlocfilehash: 40dd930aa21e3056d5ecc908359215d6874ed8ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd952449cb088a383f0b9241fb7856522fbeeb10
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75464741"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257671"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Análisis y visualización de eventos con los registros de Azure Monitor
  Los registros de Azure Monitor recopilan y analizan la telemetría de las aplicaciones y los servicios hospedados en la nube y proporcionan herramientas de análisis para ayudarle a maximizar su disponibilidad y rendimiento. En este artículo se describe cómo ejecutar consultas en los registros de Azure Monitor para obtener información de lo que está sucediendo en el clúster y solucionar problemas. Se tratan las siguientes preguntas habituales:
@@ -104,6 +104,6 @@ El lenguaje de consulta Kusto es eficaz. Otra consulta valiosa que puede ejecuta
 
 * Para habilitar la supervisión de la infraestructura, es decir, los contadores de rendimiento, vea cómo [agregar el agente de Log Analytics](service-fabric-diagnostics-oms-agent.md). El agente recopila los contadores de rendimiento y los agrega al área de trabajo existente.
 * Si se trata de clústeres locales, los registros de Azure Monitor ofrecen una puerta de enlace (proxy de reenvío HTTP) que puede usarse para enviar datos a estos registros. Para más información, vea [Conexión de equipos sin acceso a Internet a los registros de Azure Monitor mediante la puerta de enlace de Log Analytics](../azure-monitor/platform/gateway.md).
-* Configure [alertas automáticas](../log-analytics/log-analytics-alerts.md) para facilitar la detección y el diagnóstico.
-* Familiarícese con las característica de [búsqueda de registros y consulta](../log-analytics/log-analytics-log-searches.md) que se ofrecen como parte de los registros de Azure Monitor.
-* Lea en [¿Qué son los registros de Azure Monitor?](../operations-management-suite/operations-management-suite-overview.md) una introducción más detallada de los registros de Azure Monitor y conozca qué ofrecen.
+* Configure [alertas automáticas](../azure-monitor/platform/alerts-overview.md) para facilitar la detección y el diagnóstico.
+* Familiarícese con las característica de [búsqueda de registros y consulta](../azure-monitor/log-query/log-query-overview.md) que se ofrecen como parte de los registros de Azure Monitor.
+* Lea en [¿Qué son los registros de Azure Monitor?](../azure-monitor/overview.md) una introducción más detallada de los registros de Azure Monitor y conozca qué ofrecen.

@@ -5,12 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 80e3d990b6e8026c57ffff0048d0447a95529564
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 92f6f495f6aac23785dd2a21672747bffb07e2e3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229228"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256261"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualización del clúster mediante el Explorador de Service Fabric
 
@@ -132,7 +132,7 @@ Son posibles las siguientes operaciones:
 * Desencadenar y hacer seguimiento de la copia de seguridad de una partición.
 * Desencadenar y hacer seguimiento de la restauración de una partición.
 
-Para más información sobre el servicio de copia de seguridad y restauración, consulte la [referencia de la API de REST](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore).
+Para más información sobre el servicio de copia de seguridad y restauración, consulte la [referencia de la API de REST](/rest/api/servicefabric/sfclient-index-backuprestore).
 ## <a name="next-steps"></a>Pasos siguientes
 * [Administración de aplicaciones de Service Fabric en Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Implementación de aplicaciones de Service Fabric con PowerShell](service-fabric-deploy-remove-applications.md)

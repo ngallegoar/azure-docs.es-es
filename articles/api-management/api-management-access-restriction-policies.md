@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 3ba620d66b84e6724751b2024059e8ecd66888cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6e5012d64f7370c4d81c24324522824bc88584d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84690343"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255122"
 ---
 # <a name="api-management-access-restriction-policies"></a>Directivas de restricción de acceso de API Management
 
@@ -76,7 +76,7 @@ Usa la directiva `check-header` para exigir que una solicitud tenga un encabezad
 
 ### <a name="usage"></a>Uso
 
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** entrante y saliente
 
@@ -136,7 +136,7 @@ La directiva `rate-limit` evita los picos de uso de la API según suscripción l
 
 ### <a name="usage"></a>Uso
 
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound (entrada)
 
@@ -149,7 +149,7 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 
 La directiva `rate-limit-by-key` evita los picos de uso de la API según clave limitando la tasa de llamadas a un número especificado por un período de tiempo establecido. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva. Puede agregarse una condición de incremento opcional para especificar qué solicitudes se deben contar para este límite. Cuando se desencadena esta directiva, el autor de la llamada recibe un código de estado de respuesta `429 Too Many Requests`.
 
-Para obtener más información y ver ejemplos de esta directiva, consulte [Limitación avanzada de solicitudes con Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
+Para obtener más información y ver ejemplos de esta directiva, consulte [Limitación avanzada de solicitudes con Azure API Management](./api-management-sample-flexible-throttling.md).
 
 > [!CAUTION]
 > Debido a la naturaleza distribuida de la arquitectura de limitación, el límite de velocidad nunca es completamente preciso. La diferencia entre la cantidad configurada y la cantidad real de solicitudes permitidas varía según el volumen y la velocidad de la solicitud, la latencia del servidor y otros factores.
@@ -200,7 +200,7 @@ En el ejemplo siguiente, la clave del límite de velocidad se establece según l
 
 ### <a name="usage"></a>Uso
 
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound (entrada)
 
@@ -247,7 +247,7 @@ En el siguiente ejemplo, la directiva solo permite solicitudes provenientes de l
 
 ### <a name="usage"></a>Uso
 
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound (entrada)
 -   **Ámbitos de la directiva:** todos los ámbitos
@@ -304,7 +304,7 @@ La directiva `quota` aplica un volumen de llamadas o una cuota de ancho de banda
 
 ### <a name="usage"></a>Uso
 
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound (entrada)
 -   **Ámbitos de la directiva:** producto
@@ -316,7 +316,7 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 
 La directiva `quota-by-key` aplica un volumen de llamadas o una cuota de ancho de banda por clave renovables o permanentes. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva. Puede agregarse una condición de incremento opcional para especificar qué solicitudes se cuentan para esta cuota. Si varias directivas incrementan el mismo valor de clave, se incrementa solo una vez por solicitud. Cuando se alcanza el límite de llamadas, el autor de la llamada recibe un código de estado de respuesta `403 Forbidden`.
 
-Para obtener más información y ver ejemplos de esta directiva, consulte [Limitación avanzada de solicitudes con Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
+Para obtener más información y ver ejemplos de esta directiva, consulte [Limitación avanzada de solicitudes con Azure API Management](./api-management-sample-flexible-throttling.md).
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
@@ -365,7 +365,7 @@ En el ejemplo siguiente, la clave de la cuota se establece según la dirección 
 
 ### <a name="usage"></a>Uso
 
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound (entrada)
 -   **Ámbitos de la directiva:** todos los ámbitos
@@ -534,7 +534,7 @@ En este ejemplo se muestra cómo usar la directiva de [validación de JWT](api-m
 
 ### <a name="usage"></a>Uso
 
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound (entrada)
 -   **Ámbitos de la directiva:** todos los ámbitos
@@ -545,5 +545,5 @@ Para obtener más información sobre cómo trabajar con directivas, consulte:
 
 -   [Directivas de Azure API Management](api-management-howto-policies.md)
 -   [API de transformación](transform-api.md)
--   En la [Referencia de directivas](api-management-policy-reference.md) se muestra una lista completa de declaraciones de directivas y su configuración
+-   En la [Referencia de directivas](./api-management-policies.md) se muestra una lista completa de declaraciones de directivas y su configuración
 -   [Ejemplos de directivas](policy-samples.md)

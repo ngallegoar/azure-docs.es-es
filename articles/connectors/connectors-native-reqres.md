@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
 tags: connectors
-ms.openlocfilehash: 9f3f361b3e9fafdb350f943c0a8adcd87fa06c78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25aafee59c7f5f7ae59aa2fd7871de8926907f68
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84325140"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261375"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Recepción y respuesta de solicitudes HTTPS entrantes en Azure Logic Apps
 
@@ -24,7 +24,7 @@ Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el desencadenador
 
 * Reciba una llamada HTTPS de otra aplicación lógica, y responda e ella.
 
-El desencadenador de solicitud admite [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) para autorizar llamadas entrantes a la aplicación lógica. Para obtener más información sobre la habilitación de esta autenticación, vea [Proteger el acceso y los datos en Azure Logic Apps - Habilitación de la autenticación Azure AD OAuth](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+El desencadenador de solicitud admite [Azure Active Directory Open Authentication](/azure/active-directory/develop/) (Azure AD OAuth) para autorizar llamadas entrantes a la aplicación lógica. Para obtener más información sobre la habilitación de esta autenticación, vea [Proteger el acceso y los datos en Azure Logic Apps - Habilitación de la autenticación Azure AD OAuth](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -157,7 +157,7 @@ Este desencadenador integrado crea un punto de conexión HTTPS invocable manualm
          "account": {
             "name": "Contoso",
             "ID": "12345",
-            "address": { 
+            "address": {
                "number": "1234",
                "street": "Anywhere Street",
                "city": "AnyTown",
@@ -172,9 +172,9 @@ Este desencadenador integrado crea un punto de conexión HTTPS invocable manualm
 1. Para comprobar que la llamada entrante tiene un cuerpo de solicitud que coincide con el esquema especificado, siga estos pasos:
 
    1. En la barra de título del desencadenador de solicitud, seleccione el botón de puntos suspensivos ( **...** ).
-   
+
    1. En la configuración del desencadenador, active **Validación de esquema** y seleccione **Listo**.
-   
+
       Si el cuerpo de la solicitud de la llamada entrante no coincide con el esquema, el desencadenador devuelve un error `HTTP 400 Bad Request`.
 
 1. Para especificar propiedades adicionales, abra la lista **Agregar nuevo parámetro** y seleccione los parámetros que quiera agregar.
@@ -259,7 +259,7 @@ La aplicación lógica solo mantiene abierta la solicitud entrante durante un [t
 
    El desencadenador de solicitud se contrae en este ejemplo por motivos de simplicidad.
 
-1. Agregue los valores necesarios para el mensaje de respuesta. 
+1. Agregue los valores necesarios para el mensaje de respuesta.
 
    En algunos campos, al hacer clic dentro de los cuadros, se abre la lista de contenido dinámico. A continuación, puede seleccionar los tokens que representan las salidas disponibles de los pasos anteriores del flujo de trabajo. Las propiedades del esquema especificado en el ejemplo anterior ahora aparecen en la lista de contenido dinámico.
 
@@ -271,7 +271,7 @@ La aplicación lógica solo mantiene abierta la solicitud entrante durante un [t
 
    ![Encabezados: cambiar a la vista de texto](./media/connectors-native-reqres/switch-to-text-view.png)
 
-   Aquí encontrará más información sobre las propiedades que puede establecer en la acción Respuesta. 
+   Aquí encontrará más información sobre las propiedades que puede establecer en la acción Respuesta.
 
    | Nombre de propiedad | Nombre de la propiedad JSON | Obligatorio | Descripción |
    |---------------|--------------------|----------|-------------|
@@ -282,7 +282,7 @@ La aplicación lógica solo mantiene abierta la solicitud entrante durante un [t
 
 1. Para especificar propiedades adicionales, como un esquema JSON para el cuerpo de respuesta, abra la lista **Agregar nuevo parámetro** y seleccione los parámetros que quiera agregar.
 
-1. Cuando haya terminado, guarde la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Save** (Guardar). 
+1. Cuando haya terminado, guarde la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Save** (Guardar).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

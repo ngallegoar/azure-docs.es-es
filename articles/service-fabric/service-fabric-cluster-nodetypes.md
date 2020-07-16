@@ -5,16 +5,16 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 03076a711041812f7587aa1c388b0889b49725d2
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 4efa8626e80cbd64cd6216faa1869d7210f32cf2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82787140"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261113"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipos de nodos y conjuntos de escalado de máquinas virtuales de Azure Service Fabric
 
-Los [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets) son un recurso de Azure Compute. Puede usarlos para implementar y administrar una colección de máquinas virtuales como conjunto. Cada tipo de nodo que se define en un clúster de Azure Service Fabric configura exactamente un conjunto de escalado: varios tipos de nodo no pueden estar respaldados por el mismo conjunto de escalado y un tipo de nodo no debe estar respaldado (en la mayoría de los casos) por varios conjuntos de escalado. Una excepción es una situación poco frecuente del [escalado vertical](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations) de un tipo de nodo, cuando tiene temporalmente dos conjuntos de escalado con el mismo valor `nodeTypeRef`, mientras que las réplicas se migran desde el original al conjunto de escalado actualizado.
+Los [conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/index.yml) son un recurso de Azure Compute. Puede usarlos para implementar y administrar una colección de máquinas virtuales como conjunto. Cada tipo de nodo que se define en un clúster de Azure Service Fabric configura exactamente un conjunto de escalado: varios tipos de nodo no pueden estar respaldados por el mismo conjunto de escalado y un tipo de nodo no debe estar respaldado (en la mayoría de los casos) por varios conjuntos de escalado. Una excepción es una situación poco frecuente del [escalado vertical](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations) de un tipo de nodo, cuando tiene temporalmente dos conjuntos de escalado con el mismo valor `nodeTypeRef`, mientras que las réplicas se migran desde el original al conjunto de escalado actualizado.
 
 La extensión de máquina virtual *Microsoft.Azure.ServiceFabric* instala el runtime de Service Fabric en cada máquina virtual del conjunto de escalado. Cada tipo de nodo se puede escalar o reducir verticalmente de forma independiente; puede cambiar la SKU del sistema operativo que se ejecuta en cada nodo de clúster, tener diferentes conjuntos de puertos abiertos y usar distintas métricas de capacidad.
 

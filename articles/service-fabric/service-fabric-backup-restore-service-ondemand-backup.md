@@ -5,12 +5,12 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: d5eada62bec49fe771373671e9438d2786d6b165
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 04d8bb4a9f8157a229751d073e8d351f5448fa68
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75458421"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247904"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Copia de seguridad a petición en Azure Service Fabric
 
@@ -56,7 +56,7 @@ Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
 
 #### <a name="rest-call-using-powershell"></a>Llamada a REST mediante PowerShell
 
-Use [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API para configurar el desencadenamiento de la copia de seguridad a petición para el identificador de partición `974bd92a-b395-4631-8a7f-53bd4ae9cf22`.
+Use [BackupPartition](/rest/api/servicefabric/sfclient-api-backuppartition) API para configurar el desencadenamiento de la copia de seguridad a petición para el identificador de partición `974bd92a-b395-4631-8a7f-53bd4ae9cf22`.
 
 ```powershell
 $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/Backup?api-version=6.4"
@@ -64,7 +64,7 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/9
 Invoke-WebRequest -Uri $url -Method Post -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-Use [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) API para habilitar el seguimiento del [progreso de la copia de seguridad a petición](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress).
+Use [GetBackupProgress](/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) API para habilitar el seguimiento del [progreso de la copia de seguridad a petición](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress).
 
 ### <a name="on-demand-backup-to-specified-storage"></a>Copia de seguridad a petición en el almacenamiento especificado
 
@@ -81,7 +81,7 @@ Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -AzureBlo
 
 #### <a name="rest-call-using-powershell"></a>Llamada a REST mediante PowerShell
 
-Use [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API para configurar el desencadenamiento de la copia de seguridad a petición para el identificador de partición `974bd92a-b395-4631-8a7f-53bd4ae9cf22`. Incluya la siguiente información de Azure Storage:
+Use [BackupPartition](/rest/api/servicefabric/sfclient-api-backuppartition) API para configurar el desencadenamiento de la copia de seguridad a petición para el identificador de partición `974bd92a-b395-4631-8a7f-53bd4ae9cf22`. Incluya la siguiente información de Azure Storage:
 
 ```powershell
 $StorageInfo = @{
@@ -100,7 +100,7 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/9
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-Puede usar [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) API para configurar el seguimiento del [progreso de la copia de seguridad a petición](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress).
+Puede usar [GetBackupProgress](/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) API para configurar el seguimiento del [progreso de la copia de seguridad a petición](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress).
 
 ### <a name="using-service-fabric-explorer"></a>Uso de Service Fabric Explorer
 Asegúrese de que se ha habilitado el modo avanzado en la configuración de Service Fabric Explorer.
@@ -170,7 +170,7 @@ Las solicitudes de copia de seguridad a petición pueden tener los siguientes es
     LsnOfLastBackupRecord   : 0
     FailureError            : @{Code=FABRIC_E_BACKUPCOPIER_UNEXPECTED_ERROR; Message=An error occurred during this operation.  Please check the trace logs for more details.}
     ```
-  - **Timeout**: el estado de copia de seguridad _Timeout_ indica que la copia de seguridad del estado de la partición no se pudo crear en un tiempo determinado. El tiempo de espera predeterminado es de 10 minutos. En este escenario, inicie una nueva solicitud de copia de seguridad con un valor de [BackupTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) mayor en la solicitud de copia de seguridad a petición.
+  - **Timeout**: el estado de copia de seguridad _Timeout_ indica que la copia de seguridad del estado de la partición no se pudo crear en un tiempo determinado. El tiempo de espera predeterminado es de 10 minutos. En este escenario, inicie una nueva solicitud de copia de seguridad con un valor de [BackupTimeout](/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) mayor en la solicitud de copia de seguridad a petición.
     ```
     BackupState             : Timeout
     TimeStampUtc            : 0001-01-01T00:00:00Z
@@ -184,7 +184,7 @@ Las solicitudes de copia de seguridad a petición pueden tener los siguientes es
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Información sobre la configuración de la copia de seguridad periódica](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
-- [Referencia de las API REST BackupRestore](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+- [Referencia de las API REST BackupRestore](/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/trigger-partition-backup.png
 [1]: ./media/service-fabric-backuprestoreservice/trigger-backup-fileshare.png

@@ -5,19 +5,19 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 5921fc9038e53f34e23f6fd97111c71b29699dc5
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 31712ce4f661b13802d9a0f2d798c1fe87fdebf3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793149"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261008"
 ---
 # <a name="upgrade-the-service-fabric-version-that-runs-on-your-cluster"></a>Actualización de la versión de Service Fabric que se ejecuta en el clúster 
 
 En cualquier sistema moderno, la capacidad de actualización es clave para el éxito a largo plazo del producto. Un clúster de Azure Service Fabric es un recurso que usted posee. En este artículo se describe cómo actualizar la versión de Service Fabric que se ejecuta en el clúster independiente.
 
 > [!NOTE]
-> Asegúrese de que el clúster siempre ejecuta una versión compatible de Service Fabric. Cuando Microsoft anuncia el lanzamiento de una nueva versión de Service Fabric, se marca la versión anterior para que finalice el soporte después de un mínimo de 60 días a partir de la fecha del anuncio. Las versiones nuevas se anuncian [en el blog del equipo de Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/). La nueva versión estará disponible para su elección a partir de ese momento.
+> Asegúrese de que el clúster siempre ejecuta una versión compatible de Service Fabric. Cuando Microsoft anuncia el lanzamiento de una nueva versión de Service Fabric, se marca la versión anterior para que finalice el soporte después de un mínimo de 60 días a partir de la fecha del anuncio. Las versiones nuevas se anuncian [en el blog del equipo de Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric). La nueva versión estará disponible para su elección a partir de ese momento.
 >
 >
 
@@ -66,7 +66,7 @@ Cuando vea la advertencia de mantenimiento del clúster, actualícelo:
     Debería obtener una salida similar a esta:
 
     ![Obtener versiones de Service Fabric][getfabversions]
-3. Inicie una actualización de clúster a una versión disponible mediante el comando de Windows PowerShell [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade).
+3. Inicie una actualización de clúster a una versión disponible mediante el comando de Windows PowerShell [Start-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/start-servicefabricclusterupgrade).
 
     ```powershell
     Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion <codeversion#> -Monitored -FailureAction Rollback
@@ -81,7 +81,7 @@ Cuando vea la advertencia de mantenimiento del clúster, actualícelo:
     Get-ServiceFabricClusterUpgrade
     ```
 
-    Si no se cumplen las directivas de mantenimiento del clúster, la actualización se revierte. Para especificar las directivas de mantenimiento personalizado para el comando Start-ServiceFabricClusterUpgrade consulte la documentación de [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade).
+    Si no se cumplen las directivas de mantenimiento del clúster, la actualización se revierte. Para especificar las directivas de mantenimiento personalizado para el comando Start-ServiceFabricClusterUpgrade consulte la documentación de [Start-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/start-servicefabricclusterupgrade).
 
     Después de corregir los problemas que provocaron la reversión, debe iniciar la actualización de nuevo, siguiendo los mismos pasos descritos anteriormente.
 
@@ -89,7 +89,7 @@ Cuando vea la advertencia de mantenimiento del clúster, actualícelo:
 Siga estos pasos para actualizar el clúster a una versión compatible, si los nodos del clúster no tienen conectividad a Internet al [Centro de descarga de Microsoft](https://download.microsoft.com).
 
 > [!NOTE]
-> Si está ejecutando un clúster que no está conectado a Internet, tendrá que supervisar el [blog del equipo de Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/) para conocer más información acerca de nuevas versiones. El sistema no muestra ninguna advertencia de mantenimiento de clúster para informarle de una nueva versión.  
+> Si está ejecutando un clúster que no está conectado a Internet, tendrá que supervisar el [blog del equipo de Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) para conocer más información acerca de nuevas versiones. El sistema no muestra ninguna advertencia de mantenimiento de clúster para informarle de una nueva versión.  
 >
 >
 
@@ -104,7 +104,7 @@ Modifique la configuración del clúster para establecer la siguiente propiedad 
 "fabricClusterAutoupgradeEnabled": false,
 ```
 
-Consulte el [comando Start-ServiceFabricClusterConfigurationUpgrade de PowerShell ](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) para conocer los detalles de uso. Asegúrese de actualizar 'clusterConfigurationVersion' en JSON antes de iniciar la actualización de la configuración.
+Consulte el [comando Start-ServiceFabricClusterConfigurationUpgrade de PowerShell ](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) para conocer los detalles de uso. Asegúrese de actualizar 'clusterConfigurationVersion' en JSON antes de iniciar la actualización de la configuración.
 
 ```powershell
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
@@ -112,7 +112,7 @@ Consulte el [comando Start-ServiceFabricClusterConfigurationUpgrade de PowerShel
 
 ### <a name="cluster-upgrade-workflow"></a>Flujo de trabajo de actualización de clúster
 
-1. Ejecute [Get-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterupgrade) desde uno de los nodos del clúster y apunte el valor de *TargetCodeVersion*.
+1. Ejecute [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade) desde uno de los nodos del clúster y apunte el valor de *TargetCodeVersion*.
 
 2. Ejecute lo siguiente en un equipo conectado a Internet para enumerar todas las versiones de actualización compatibles con la versión actual y descargar el paquete correspondiente de los vínculos de descarga asociados:
 
@@ -155,7 +155,7 @@ Consulte el [comando Start-ServiceFabricClusterConfigurationUpgrade de PowerShel
     Get-ServiceFabricClusterUpgrade
     ```
 
-    Si no se cumplen las directivas de mantenimiento del clúster, la actualización se revierte. Para especificar las directivas de mantenimiento personalizado para el comando Start-ServiceFabricClusterUpgrade consulte la documentación de [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade).
+    Si no se cumplen las directivas de mantenimiento del clúster, la actualización se revierte. Para especificar las directivas de mantenimiento personalizado para el comando Start-ServiceFabricClusterUpgrade consulte la documentación de [Start-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/start-servicefabricclusterupgrade).
 
     Después de corregir los problemas que provocaron la reversión, debe iniciar la actualización de nuevo, siguiendo los mismos pasos descritos anteriormente.
 

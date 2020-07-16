@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 393563427e936e07315cd44b78cb793d4292b352
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4c8cd4aa3e91c5d69c40e47683818ed8bc9be338
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79224840"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249910"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Plantillas de producto en Azure API Management
 
@@ -31,7 +31,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 -   [Producto](#Product)  
   
 > [!NOTE]
->  En la siguiente documentación se incluyen plantillas predeterminadas de ejemplo; sin embargo, están sujetas a cambios debido a mejoras continuas. Puede ver las plantillas predeterminadas en vivo en el portal para desarrolladores; para ello, vaya hasta a las plantillas individuales que desee. Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  En la siguiente documentación se incluyen plantillas predeterminadas de ejemplo; sin embargo, están sujetas a cambios debido a mejoras continuas. Puede ver las plantillas predeterminadas en vivo en el portal para desarrolladores; para ello, vaya hasta a las plantillas individuales que desee. Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](./api-management-developer-portal-templates.md).  
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
@@ -210,7 +210,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 |IsDeveloperSubscribed|boolean|Si el usuario actual está suscrito a este producto.|  
 |SubscriptionState|number|Estado de la suscripción. Los estados posibles son:<br /><br /> -   `0 - suspended`: la suscripción está bloqueada y el suscriptor no puede llamar a ninguna API del producto.<br />-   `1 - active`: la suscripción está activa.<br />-   `2 - expired`: la suscripción ha alcanzado su fecha de expiración y se ha desactivado.<br />-   `3 - submitted`: el desarrollador ha realizado una solicitud de suscripción, pero esta aún no se ha aprobado ni rechazado.<br />-   `4 - rejected`: un administrador ha rechazado la solicitud de suscripción.<br />-   `5 - cancelled`: el desarrollador o el administrador han cancelado la suscripción.|  
 |límites|array|Esta propiedad está en desuso y no debe utilizarse.|  
-|DelegatedSubscriptionEnabled|boolean|Si la [delegación](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) está habilitada para esta suscripción.|  
+|DelegatedSubscriptionEnabled|boolean|Si la [delegación](./api-management-howto-setup-delegation.md) está habilitada para esta suscripción.|  
 |DelegatedSubscriptionUrl|string|Si la delegación está habilitada, la dirección URL de la suscripción delegada.|  
 |IsAgreed|boolean|Si el producto tiene términos, si el usuario actual ha aceptado los términos.|  
 |Suscripciones|Colección de entidades de [resumen de suscripción](api-management-template-data-model-reference.md#SubscriptionSummary).|Las suscripciones al producto.|  

@@ -12,12 +12,12 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: 764600d61704378b1bc0937dd1399260a1266150
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 91094285aa50641f62527326bab121adcf026a9a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84308633"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252069"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glosario para desarrolladores de la plataforma de identidad de Microsoft
 
@@ -117,7 +117,7 @@ Para más información, consulte la referencia [Tokens de acceso de plataforma d
 
 ## <a name="microsoft-identity-platform"></a>Plataforma de identidad de Microsoft
 
-La plataforma de identidad de Microsoft es una evolución de la plataforma de desarrolladores y de servicio de identidad de Azure Active Directory (Azure AD). Permite a los desarrolladores crear aplicaciones que inicien sesión en todas las identidades de Microsoft, obtener tokens para llamar a Microsoft Graph, otras API de Microsoft o API que los desarrolladores hayan creado. Es una plataforma completa que consiste en un servicio de autenticación, bibliotecas, registro y configuración de aplicaciones, documentación completa para desarrolladores, ejemplos de código y otros contenidos para desarrolladores. La plataforma de identidad de Microsoft admite los protocolos estándar del sector como OAuth 2.0 y OpenID Connect. Consulte [Acerca de la plataforma de identidad de Microsoft](about-microsoft-identity-platform.md) para más información.
+La plataforma de identidad de Microsoft es una evolución de la plataforma de desarrolladores y de servicio de identidad de Azure Active Directory (Azure AD). Permite a los desarrolladores crear aplicaciones que inicien sesión en todas las identidades de Microsoft, obtener tokens para llamar a Microsoft Graph, otras API de Microsoft o API que los desarrolladores hayan creado. Es una plataforma completa que consiste en un servicio de autenticación, bibliotecas, registro y configuración de aplicaciones, documentación completa para desarrolladores, ejemplos de código y otros contenidos para desarrolladores. La plataforma de identidad de Microsoft admite los protocolos estándar del sector como OAuth 2.0 y OpenID Connect.
 
 ## <a name="multi-tenant-application"></a>aplicación multiinquilino
 

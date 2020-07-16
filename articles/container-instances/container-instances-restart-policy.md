@@ -3,12 +3,12 @@ title: Reiniciar de la directiva para tareas de una sola ejecución
 description: Aprenda a usar Azure Container Instances para ejecutar tareas hasta su terminación, como compilaciones, pruebas o trabajos de representación de imágenes.
 ms.topic: article
 ms.date: 04/15/2019
-ms.openlocfilehash: 8ef4ef228038242f53abc8041470f7f596ab1157
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a582036ae54a0b100b768e37bcf0d952521559d9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131491"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261347"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Ejecución de tareas en contenedores con directivas de reinicio
 
@@ -90,13 +90,13 @@ Salida:
  ('HAMLET', 386)]
 ```
 
-En este ejemplo se muestra la salida que el script envía a STDOUT. No obstante, puede que las tareas en contenedor escriban su salida en almacenamiento persistente para su posterior recuperación. Por ejemplo, en un [recurso compartido de archivos de Azure](container-instances-mounting-azure-files-volume.md).
+En este ejemplo se muestra la salida que el script envía a STDOUT. No obstante, puede que las tareas en contenedor escriban su salida en almacenamiento persistente para su posterior recuperación. Por ejemplo, en un [recurso compartido de archivos de Azure](./container-instances-volume-azure-files.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Los escenarios basados en tareas, como el procesamiento por lotes de un gran conjunto de datos con varios contenedores, pueden aprovechar las [variables de entorno](container-instances-environment-variables.md) o las [líneas de comando](container-instances-start-command.md) personalizadas en tiempo de ejecución.
 
-Para más información acerca de cómo conservar la salida de los contenedores que se ejecutan hasta completarse, consulte [Montaje de un recurso compartido de archivos de Azure en Azure Container Instances](container-instances-mounting-azure-files-volume.md).
+Para más información acerca de cómo conservar la salida de los contenedores que se ejecutan hasta completarse, consulte [Montaje de un recurso compartido de archivos de Azure en Azure Container Instances](./container-instances-volume-azure-files.md).
 
 <!-- LINKS - External -->
 [aci-wordcount-image]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount

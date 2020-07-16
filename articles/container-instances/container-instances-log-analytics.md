@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo enviar registros de recursos y dat
 ms.topic: article
 ms.date: 07/02/2020
 ms.author: danlep
-ms.openlocfilehash: c76d8a2e7e468c511f0df47ebb240a787f40e026
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: d9f3e844e9d82e540776cdcf821770929d238e3f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169738"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259616"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Registro de instancias y grupos de contenedores con registros de Azure Monitor
 
@@ -29,7 +29,7 @@ En las secciones siguientes se describe cómo crear un grupo de contenedores con
 Para habilitar el registro en las instancias de los contenedores, necesita lo siguiente:
 
 * [Área de trabajo de Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
-* [CLI de Azure](/cli/azure/install-azure-cli) (o [Cloud Shell](/azure/cloud-shell/overview))
+* [CLI de Azure](/cli/azure/install-azure-cli) (o [Cloud Shell](../cloud-shell/overview.md))
 
 ## <a name="get-log-analytics-credentials"></a>Obtención de las credenciales de Log Analytics
 
@@ -153,7 +153,7 @@ ContainerInstanceLog_CL
 
 Para más información acerca de cómo realizar consultas en registros y configurar alertas en registros de Azure Monitor, consulte:
 
-* [Descripción de las búsquedas de registros en los registros de Azure Monitor](../log-analytics/log-analytics-log-search.md)
+* [Descripción de las búsquedas de registros en los registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 * [Alertas unificadas en Azure Monitor](../azure-monitor/platform/alerts-overview.md)
 
 

@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: 5bd3bda71943b2ba8a34cd4fbd0b20917b875670
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe31c6fdca3651bfe56e798b30d50c9f047c680b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75645759"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258630"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Eventos de clúster Linux de Service Fabric en Syslog
 
@@ -113,6 +113,6 @@ El ejemplo anterior es de un evento NodeDown. Puede ver la lista completa de eve
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Implemente el agente de Log Analytics](service-fabric-diagnostics-oms-agent.md) en los nodos para recopilar contadores de rendimiento, así como estadísticas y registros de Docker de sus contenedores.
-* Familiarícese con las características de [consultas y búsqueda de registros](../log-analytics/log-analytics-log-searches.md) que se ofrecen como parte de los registros de Azure Monitor.
-* [Uso del diseñador de vistas para crear vistas personalizadas en los registros de Azure Monitor](../log-analytics/log-analytics-view-designer.md)
-* Consulte esta referencia para obtener información sobre la [integración de los registros de Azure Monitor con Syslog](../log-analytics/log-analytics-data-sources-syslog.md).
+* Familiarícese con las características de [consultas y búsqueda de registros](../azure-monitor/log-query/log-query-overview.md) que se ofrecen como parte de los registros de Azure Monitor.
+* [Uso del diseñador de vistas para crear vistas personalizadas en los registros de Azure Monitor](../azure-monitor/platform/view-designer.md)
+* Consulte esta referencia para obtener información sobre la [integración de los registros de Azure Monitor con Syslog](../azure-monitor/platform/data-sources-syslog.md).

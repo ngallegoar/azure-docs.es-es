@@ -5,12 +5,12 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 11/28/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0fb65ceeabca9331130083f8ec5b3fe8acce13b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ce2dbcefa63cc55a66e712664d1436ca24d3a1d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707981"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248550"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Configuración de la CLI de Service Fabric Mesh
 La interfaz de la línea de comandos (CLI) de Service Fabric Mesh es necesaria para implementar y administrar recursos de Azure Service Fabric Mesh. Así es como se configura.
@@ -44,7 +44,7 @@ En la versión preliminar, la CLI de Azure Service Fabric Mesh está escrita com
 
 ## <a name="install-the-service-fabric-cli-sfctl"></a>Instalación de la CLI de Service Fabric (sfctl) 
 
-Siga las instrucciones de [Configuración de la CLI de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli). El módulo **sfctl** puede utilizarse para la implementación de aplicaciones basadas en el modelo de recursos contra clústeres de Service Fabric en su máquina local. 
+Siga las instrucciones de [Configuración de la CLI de Service Fabric](../service-fabric/service-fabric-cli.md). El módulo **sfctl** puede utilizarse para la implementación de aplicaciones basadas en el modelo de recursos contra clústeres de Service Fabric en su máquina local. 
 
 ## <a name="install-the-maven-cli"></a>Instalación de la CLI de Maven 
 

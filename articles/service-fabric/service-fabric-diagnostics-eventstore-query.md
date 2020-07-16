@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 48350caef6bdaafda9aff7ac776d67b314aeaf8c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d66248797d577d6894d1125188735ecf71029b0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75614407"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258891"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>Consulta de las API del servicio EventStore para obtener eventos de clúster
 
@@ -110,7 +110,7 @@ Aquí podemos verlo entre `2018-04-03T18:00:00Z` y `2018-04-04T18:00:00Z`, este 
 
 ## <a name="query-the-eventstore-programmatically"></a>Consulta de EventStore mediante programación
 
-También puede consultar EventStore mediante programación, a través de la [biblioteca de clientes de Service Fabric](https://docs.microsoft.com/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library).
+También puede consultar EventStore mediante programación, a través de la [biblioteca de clientes de Service Fabric](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library).
 
 Una vez que tenga configurado el cliente de Service Fabric, puede consultar los eventos al acceder a EventStore como sigue: `sfhttpClient.EventStore.<request>`
 
@@ -200,4 +200,3 @@ Para ver todos los movimientos de partición que se produjeron en el clúster, c
 *Servicio Chaos:*
 
 Hay un evento para cuando se inicia o detiene el servicio Chaos, que se expone en el nivel de clúster. Para ver el uso reciente del servicio Chaos, utilice la siguiente consulta: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ChaosStarted,ChaosStopped`
-

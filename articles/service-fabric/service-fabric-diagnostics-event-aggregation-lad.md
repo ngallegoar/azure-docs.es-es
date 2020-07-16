@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: fdb78498d33416ef21b2e2b0f498e7afa6a58d99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 453258bb5768a2faa8f4e42cce86d02125283026
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75609968"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259189"
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Recopilación y agregación de eventos con Linux Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -21,7 +21,7 @@ ms.locfileid: "75609968"
 
 Cuando se ejecuta un clúster de Azure Service Fabric, es conveniente recopilar los registros de todos los nodos en una ubicación central. La presencia de los registros en una ubicación central facilita el análisis y la solución de los problemas del clúster o de las aplicaciones y los servicios que se ejecutan en ese clúster.
 
-Uno de los métodos para cargar y recopilar registros es usar la extensión Linux Azure Diagnostics (LAD), que carga registros en Azure Storage, y también tiene la opción de enviar registros a Azure Application Insights o Event Hubs. Además, puede usar un proceso externo para leer los eventos desde el almacenamiento y colocarlos en un producto de plataforma de análisis, como los [registros de Azure Monitor](../log-analytics/log-analytics-service-fabric.md) u otra solución de análisis de registros.
+Uno de los métodos para cargar y recopilar registros es usar la extensión Linux Azure Diagnostics (LAD), que carga registros en Azure Storage, y también tiene la opción de enviar registros a Azure Application Insights o Event Hubs. Además, puede usar un proceso externo para leer los eventos desde el almacenamiento y colocarlos en un producto de plataforma de análisis, como los [registros de Azure Monitor](./service-fabric-diagnostics-oms-setup.md) u otra solución de análisis de registros.
 
 ## <a name="log-and-event-sources"></a>Orígenes de eventos y registros
 
@@ -43,5 +43,5 @@ Esto configura el agente LAD para supervisar los archivos de registro especifica
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-1. Compruebe la [documentación de LTTng](https://lttng.org/docs) y el [uso de LAD](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux) para obtener información más detallada sobre qué eventos debe examinar durante la solución de problemas.
+1. Compruebe la [documentación de LTTng](https://lttng.org/docs) y el [uso de LAD](../virtual-machines/extensions/diagnostics-linux.md) para obtener información más detallada sobre qué eventos debe examinar durante la solución de problemas.
 2. [Configuración del agente de Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) con el fin de recopilar métricas, supervisar contenedores implementados en el clúster y visualizar los registros 

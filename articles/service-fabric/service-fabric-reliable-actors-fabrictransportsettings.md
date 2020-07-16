@@ -5,25 +5,24 @@ author: suchiagicha
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
-ms.openlocfilehash: 182b35194a647f5de706f9ada07b8e9db51bb4c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d5f6d3502662d48cf6ff750c9a695fadfeac97c2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75645589"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256241"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Configuración de FabricTransport de Reliable Actors
 
 Estos son los valores que puede configurar:
-- C#: [FabricTransportRemotingSettings](
-https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
-- Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
+- C#: [FabricTransportRemotingSettings](/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
+- Java: [FabricTransportRemotingSettings](/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
 
 Puede modificar la configuración predeterminada de FabricTransport de las maneras siguientes.
 
 ## <a name="assembly-attribute"></a>Atributo de ensamblado
 
-El atributo [FabricTransportActorRemotingProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN) debe aplicarse en los ensamblados del cliente de actor y del servicio de actor.
+El atributo [FabricTransportActorRemotingProvider](/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute) debe aplicarse en los ensamblados del cliente de actor y del servicio de actor.
 
 En el ejemplo siguiente se muestra cómo cambiar el valor predeterminado de la configuración de FabricTransport OperationTimeout:
 

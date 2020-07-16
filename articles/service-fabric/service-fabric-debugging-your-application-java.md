@@ -5,12 +5,12 @@ author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 15448a9bd8998a99e8fce578b05130694ecd5fd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6f2361bf76bd4f9d297fbe541b950840f13966cc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75614492"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246408"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Depuración de la aplicación de Service Fabric para Java con Eclipse
 > [!div class="op_single_selector"]
@@ -41,5 +41,5 @@ Si se bloquea la aplicación, puede que también desee habilitar los volcados de
 
 ### <a name="next-steps"></a>Pasos siguientes
 
-* [Recopilación de registros con Diagnósticos de Azure de Linux](service-fabric-diagnostics-how-to-setup-lad.md).
+* [Recopilación de registros con Diagnósticos de Azure de Linux](./service-fabric-diagnostics-event-aggregation-lad.md).
 * [Supervisión y diagnóstico de servicios localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).

@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 3b7cb09d67080d49f53d9dd48b5ed0f8f3a54884
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a912b7a6d918a40aaae54c9b177250dc3c30c84d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83701900"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256567"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Análisis y visualización de eventos con Application Insights
 
@@ -38,7 +38,7 @@ Application Insights tiene una vista designada para realizar consultas en todos 
 
 ![Detalles de las solicitudes de Application Insights](media/service-fabric-diagnostics-event-analysis-appinsights/ai-metrics-explorer.png)
 
-Para explorar aún más las funcionalidades del portal de Application Insights, diríjase a la [documentación del portal de Application Insights](../azure-monitor/app/app-insights-dashboards.md).
+Para explorar aún más las funcionalidades del portal de Application Insights, diríjase a la [documentación del portal de Application Insights](../azure-monitor/app/overview-dashboard.md).
 
 ### <a name="configuring-application-insights-with-eventflow"></a>Configuración de Application Insights con EventFlow
 
@@ -67,11 +67,11 @@ Si desarrolla en .NET, existe la probabilidad de que vaya a usar algunos de los 
 
 Tras configurar Application Insights como salida de eventos y registros, la información debería empezar a mostrarse en el recurso de Application Insights al cabo de pocos minutos. Vaya al recurso de Application Insights, lo que le llevará al panel de recursos de Application Insights. Haga clic en **Buscar** en la barra de tareas de Application Insights para ver los últimos seguimientos que ha recibido y poder filtrarlos.
 
-El *Explorador de métricas* es una herramienta útil para crear paneles personalizados basados en métricas sobre las que las aplicaciones, los servicios y el clúster pueden informar. Vea [Exploración de métricas en Application Insights](../azure-monitor/app/metrics-explorer.md) para configurar algunos gráficos por su cuenta en función de los datos que recopile.
+El *Explorador de métricas* es una herramienta útil para crear paneles personalizados basados en métricas sobre las que las aplicaciones, los servicios y el clúster pueden informar. Vea [Exploración de métricas en Application Insights](../azure-monitor/platform/metrics-charts.md) para configurar algunos gráficos por su cuenta en función de los datos que recopile.
 
-Al hacer clic en **Analytics**, se le remitirá al portal de Analytics en Application Insights, donde puede consultar eventos y seguimientos con un ámbito más amplio y más opciones. Lea más información en [Analytics en Application Insights](../azure-monitor/app/analytics.md).
+Al hacer clic en **Analytics**, se le remitirá al portal de Analytics en Application Insights, donde puede consultar eventos y seguimientos con un ámbito más amplio y más opciones. Lea más información en [Analytics en Application Insights](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Definición de alertas en Application Insights](/azure/azure-monitor/platform/alerts-log) para recibir notificaciones sobre los cambios de rendimiento o de uso
+* [Definición de alertas en Application Insights](../azure-monitor/platform/alerts-log.md) para recibir notificaciones sobre los cambios de rendimiento o de uso
 * [Detección inteligente en Application Insights](../azure-monitor/app/proactive-diagnostics.md) realiza un análisis proactivo de la telemetría que se envía a Application Insights para avisar de posibles problemas de rendimiento

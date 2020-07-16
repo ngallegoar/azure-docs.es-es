@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo rotar los certificados en un clús
 services: container-service
 ms.topic: article
 ms.date: 11/15/2019
-ms.openlocfilehash: 715771c7a1704e0d39f790d018980c4b39ba351b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e48a05a36fdbd56fb78cd1394c512485b521e50
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817448"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255360"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Rotación de certificados en Azure Kubernetes Service (AKS)
 
@@ -94,5 +94,5 @@ En este artículo se ha mostrado cómo rotar automáticamente los certificados, 
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [aks-best-practices-security-upgrades]: operator-best-practices-cluster-security.md
-[dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
+[dev-spaces]: ../dev-spaces/index.yml
 [dev-spaces-rotate]: ../dev-spaces/troubleshooting.md#error-using-dev-spaces-after-rotating-aks-certificates

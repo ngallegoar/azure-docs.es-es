@@ -5,12 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: 167ca76d0b6977a87352f8219d807949a0e4a301
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5695e8d03f782527cd3a9a2667f3513046d7e76c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392648"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256312"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Incorporación de informes de mantenimiento de Service Fabric personalizados
 Azure Service Fabric presenta un [modelo de estado](service-fabric-health-introduction.md) diseñado para marcar las condiciones poco favorables del clúster o de la aplicación en entidades específicas. El modelo de mantenimiento utiliza **informadores de estado** (componentes del sistema y guardianes). El objetivo es obtener un diagnóstico y reparación sencillo y rápido. Los escritores de servicio deben pensar por adelantado sobre el estado. Cualquier condición que pueda afectar al estado debe notificarse, sobre todo si puede ayudar a marcar la causa raíz de los problemas. La información de estado puede ahorrar tiempo y esfuerzo en la depuración y la investigación. La utilidad resulta especialmente clara una vez que el servicio está en funcionamiento a escala en la nube (privada o Azure).
@@ -38,7 +38,7 @@ Tal y como se ha mencionado, la creación de informes puede realizarse desde:
 > 
 > 
 
-Una vez que el diseño de informes de mantenimiento está vacío, los informes de mantenimiento se pueden enviar de forma fácil. Puede usar [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) para informar del mantenimiento si el clúster no es [seguro](service-fabric-cluster-security.md) o si el cliente de Fabric tiene privilegios de administrador. La notificación se puede hacer a través de la API mediante [FabricClient.HealthManager.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth), PowerShell o REST. Los botones de configuración procesan los informes por lotes para un mejor rendimiento.
+Una vez que el diseño de informes de mantenimiento está vacío, los informes de mantenimiento se pueden enviar de forma fácil. Puede usar [FabricClient](/dotnet/api/system.fabric.fabricclient) para informar del mantenimiento si el clúster no es [seguro](service-fabric-cluster-security.md) o si el cliente de Fabric tiene privilegios de administrador. La notificación se puede hacer a través de la API mediante [FabricClient.HealthManager.ReportHealth](/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth), PowerShell o REST. Los botones de configuración procesan los informes por lotes para un mejor rendimiento.
 
 > [!NOTE]
 > El informe de mantenimiento es sincrónico y solo representa el trabajo de validación en el cliente. El hecho de que el cliente de mantenimiento o los objetos `Partition` o `CodePackageActivationContext` acepten el informe no significa que se aplique en el almacén. Se envía de forma asincrónica y posiblemente por lotes con otros informes. El procesamiento en el servidor todavía puede seguir dando error: el número de secuencia puede estar obsoleto, la entidad en la que se debe aplicar el informe ha sido eliminada, etc.
@@ -58,7 +58,7 @@ Los informes de mantenimiento se envían al administrador de mantenimiento por m
 > 
 
 El almacenamiento en búfer en el cliente toma en consideración el carácter único de los informes. Por ejemplo, si un informador incorrecto determinado notifica 100 informes por segundo en la misma propiedad de la misma entidad, los informes se reemplazan por la versión más reciente. A lo sumo, existirá un informe de este tipo en la cola de cliente. Si se configura el procesamiento por lotes, el número de informes que se envían al administrador de mantenimiento es simplemente uno por intervalo de envío. Este informe es el último informe agregado, que refleja el estado más reciente de la entidad.
-Especifique los parámetros de configuración al crear `FabricClient`, pasando [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) con los valores deseados para las entradas relacionadas con el mantenimiento.
+Especifique los parámetros de configuración al crear `FabricClient`, pasando [FabricClientSettings](/dotnet/api/system.fabric.fabricclientsettings) con los valores deseados para las entradas relacionadas con el mantenimiento.
 
 En el siguiente ejemplo se crea un cliente de Fabric y se especifica que se deben enviar los informes cuando se agregan. En tiempos de espera y errores que se pueden reintentar, los reintentos se producen cada 40 segundos.
 
@@ -72,7 +72,7 @@ var clientSettings = new FabricClientSettings()
 var fabricClient = new FabricClient(clientSettings);
 ```
 
-Se recomienda mantener la configuración predeterminada del cliente de Fabric, que establece `HealthReportSendInterval` en 30 segundos. Esta configuración garantiza un rendimiento óptimo debido al procesamiento por lotes. Para los informes importantes que se deban enviar tan pronto como sea posible, utilice `HealthReportSendOptions` con la marca Immediate establecida en `true` en la API [FabricClient.HealthClient.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth). Los informes inmediatos omiten el intervalo de procesamiento por lotes. Utilice esta marca con cuidado; queremos aprovechar el procesamiento por lotes del cliente de mantenimiento siempre que sea posible. El envío inmediato también es útil cuando se está cerrando el cliente Fabric (por ejemplo, el proceso ha determinado que el estado no es válido y debe cerrarse para evitar efectos secundarios). Garantiza el envío más eficaz de los informes acumulados. Cuando se agrega un informe con la marca Immediate, el cliente de mantenimiento envía por lotes todos los informes acumulados desde el último envío.
+Se recomienda mantener la configuración predeterminada del cliente de Fabric, que establece `HealthReportSendInterval` en 30 segundos. Esta configuración garantiza un rendimiento óptimo debido al procesamiento por lotes. Para los informes importantes que se deban enviar tan pronto como sea posible, utilice `HealthReportSendOptions` con la marca Immediate establecida en `true` en la API [FabricClient.HealthClient.ReportHealth](/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth). Los informes inmediatos omiten el intervalo de procesamiento por lotes. Utilice esta marca con cuidado; queremos aprovechar el procesamiento por lotes del cliente de mantenimiento siempre que sea posible. El envío inmediato también es útil cuando se está cerrando el cliente Fabric (por ejemplo, el proceso ha determinado que el estado no es válido y debe cerrarse para evitar efectos secundarios). Garantiza el envío más eficaz de los informes acumulados. Cuando se agrega un informe con la marca Immediate, el cliente de mantenimiento envía por lotes todos los informes acumulados desde el último envío.
 
 Se pueden especificar los mismos parámetros cuando se crea una conexión a un clúster mediante Powershell. En el ejemplo siguiente se inicia una conexión con un clúster local:
 
@@ -114,12 +114,12 @@ Para REST, los informes se envían a la puerta de enlace de Service Fabric, que 
 ## <a name="report-from-within-low-privilege-services"></a>Informes desde servicios con pocos privilegios
 Si los servicios de Service Fabric no tienen acceso de administrador al clúster, puede informar sobre el estado de las entidades desde el contexto actual mediante `Partition` o `CodePackageActivationContext`.
 
-* Para los servicios sin estado, use [IStatelessServicePartition.ReportInstanceHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatelessservicepartition.reportinstancehealth) para informar sobre la instancia de servicio actual.
-* Para los servicios con estado, use [IStatefulServicePartition.ReportReplicaHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition.reportreplicahealth) para informar sobre la réplica actual.
-* Use [IServicePartition.ReportPartitionHealth](https://docs.microsoft.com/dotnet/api/system.fabric.iservicepartition.reportpartitionhealth) para informar sobre la entidad de partición actual.
-* Use [CodePackageActivationContext.ReportApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportapplicationhealth) para informar sobre la aplicación actual.
-* Use [CodePackageActivationContext.ReportDeployedApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth) para informar sobre la aplicación actual implementada en el nodo actual.
-* Use [CodePackageActivationContext.ReportDeployedServicePackageHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth) para informar sobre un paquete de servicio para la aplicación implementada en el nodo actual.
+* Para los servicios sin estado, use [IStatelessServicePartition.ReportInstanceHealth](/dotnet/api/system.fabric.istatelessservicepartition.reportinstancehealth) para informar sobre la instancia de servicio actual.
+* Para los servicios con estado, use [IStatefulServicePartition.ReportReplicaHealth](/dotnet/api/system.fabric.istatefulservicepartition.reportreplicahealth) para informar sobre la réplica actual.
+* Use [IServicePartition.ReportPartitionHealth](/dotnet/api/system.fabric.iservicepartition.reportpartitionhealth) para informar sobre la entidad de partición actual.
+* Use [CodePackageActivationContext.ReportApplicationHealth](/dotnet/api/system.fabric.codepackageactivationcontext.reportapplicationhealth) para informar sobre la aplicación actual.
+* Use [CodePackageActivationContext.ReportDeployedApplicationHealth](/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth) para informar sobre la aplicación actual implementada en el nodo actual.
+* Use [CodePackageActivationContext.ReportDeployedServicePackageHealth](/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth) para informar sobre un paquete de servicio para la aplicación implementada en el nodo actual.
 
 > [!NOTE]
 > Internamente, `Partition` y `CodePackageActivationContext` contienen un cliente de mantenimiento configurado con los valores predeterminados. Como se explica para el [cliente de mantenimiento](service-fabric-report-health.md#health-client), los informes se envían por lotes según un temporizador. Los objetos deben estar activos para que tener ocasión de enviar el informe.
@@ -290,7 +290,7 @@ HealthEvents          :
 ```
 
 ### <a name="rest"></a>REST
-Envíe informes de mantenimiento mediante REST con solicitudes POST que vayan a la entidad deseada y tengan en el cuerpo la descripción del informe de mantenimiento. Por ejemplo, consulte cómo enviar [informes de mantenimiento de clúster](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-cluster) o [informes de mantenimiento de servicio](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service) de REST. Se admiten todas las entidades.
+Envíe informes de mantenimiento mediante REST con solicitudes POST que vayan a la entidad deseada y tengan en el cuerpo la descripción del informe de mantenimiento. Por ejemplo, consulte cómo enviar [informes de mantenimiento de clúster](/rest/api/servicefabric/report-the-health-of-a-cluster) o [informes de mantenimiento de servicio](/rest/api/servicefabric/report-the-health-of-a-service) de REST. Se admiten todas las entidades.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Según los datos del estado, los escritores del servicio y los administradores de clúster/aplicación pueden pensar en maneras de utilizar la información. Por ejemplo, pueden configurar alertas basadas en el estado de mantenimiento para detectar problemas graves antes de provocar interrupciones. Los administradores también pueden configurar sistemas de reparación para solucionar problemas de forma automática.
@@ -306,4 +306,3 @@ Según los datos del estado, los escritores del servicio y los administradores d
 [Supervisión y diagnóstico de los servicios localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
-

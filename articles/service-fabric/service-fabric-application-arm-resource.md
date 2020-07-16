@@ -3,12 +3,12 @@ title: Implementación y actualización con Azure Resource Manager
 description: Aprenda a implementar aplicaciones y servicios en un clúster de Service Fabric mediante una plantilla de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: a2dfe54bf2c6b4fa8814f10c10576a73727a7417
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a849bdff0d2719f02b6b5f2d7159b87ce664c13f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75610257"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256516"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Administración de aplicaciones y servicios como recursos de Azure Resource Manager
 
@@ -261,13 +261,12 @@ Quitar Microsoft.ServiceFabric/clusters/application de la plantilla ARM no anula
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>Administración de una aplicación existente mediante Resource Manager
 
-Si el clúster ya está activo y algunas de las aplicaciones que le gustaría administrar como recursos de Resource Manager ya están implementadas en él, en lugar de quitar las aplicaciones y volver a implementarlas, puede usar una llamada PUT con las mismas API para que las aplicaciones se confirmen como recursos de Resource Manager. Para más información, consulte [¿Qué es el modelo de recurso de aplicación de Service Fabric?](https://docs.microsoft.com/azure/service-fabric/service-fabric-concept-resource-model)
+Si el clúster ya está activo y algunas de las aplicaciones que le gustaría administrar como recursos de Resource Manager ya están implementadas en él, en lugar de quitar las aplicaciones y volver a implementarlas, puede usar una llamada PUT con las mismas API para que las aplicaciones se confirmen como recursos de Resource Manager. Para más información, consulte [¿Qué es el modelo de recurso de aplicación de Service Fabric?](./service-fabric-concept-resource-model.md)
 
 > [!NOTE]
-> Para permitir una actualización del clúster para ignorar las aplicaciones en mal estado, el cliente puede especificar "maxPercentUnhealthyApplications: 100" en la sección "upgradeDescription/healthPolicy"; encontrará descripciones detalladas de todas las opciones de configuración en la [documentación de la directiva de actualización del clúster de la API de REST de Service Fabrics](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
+> Para permitir una actualización del clúster para ignorar las aplicaciones en mal estado, el cliente puede especificar "maxPercentUnhealthyApplications: 100" en la sección "upgradeDescription/healthPolicy"; encontrará descripciones detalladas de todas las opciones de configuración en la [documentación de la directiva de actualización del clúster de la API de REST de Service Fabrics](/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Use la [CLI de Service Fabric](service-fabric-cli.md) o [PowerShell](service-fabric-deploy-remove-applications.md) para implementar otras aplicaciones en el clúster. 
 * [Actualización de un clúster de Azure Service Fabric](service-fabric-cluster-upgrade.md)
-

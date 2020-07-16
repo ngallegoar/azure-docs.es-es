@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: dekapur
-ms.openlocfilehash: 0f9b625dfbe9c39bea7771dcc5fd58805ce19811
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8a1fdfb23b6e0aee9b9bdd04f70c554824f4c35
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75458367"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246578"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Opciones de configuración de un clúster de Windows independiente
 En este artículo se describen las opciones de configuración de un clúster de Azure Service Fabric independiente que puede configurarse en el archivo *ClusterConfig.json*. Usará este archivo para especificar la información acerca de los nodos del clúster y las configuraciones de seguridad, así como la topología de red en cuanto a dominios de error y actualización.  Después de cambiar o agregar valores de configuración, puede [crear un clúster independiente](service-fabric-cluster-creation-for-windows-server.md) o [actualizar la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -89,7 +89,7 @@ La sección diagnosticsStore permite configurar parámetros para habilitar el di
 }
 ```
 
-metadata es una descripción del diagnóstico del clúster y se puede establecer según su configuración. Estas variables permiten recopilar registros de seguimiento ETW, volcados de memoria y contadores de rendimiento. Lea [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) y [Seguimiento ETW](https://msdn.microsoft.com/library/ms751538.aspx) para más información sobre los registros de seguimiento ETW. Todos los registros, incluidos [volcados de memoria](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) y [contadores de rendimiento](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx), se pueden dirigir a la carpeta connectionString de su máquina. También puede usar AzureStorage para almacenar los diagnósticos. Vea el siguiente fragmento de ejemplo:
+metadata es una descripción del diagnóstico del clúster y se puede establecer según su configuración. Estas variables permiten recopilar registros de seguimiento ETW, volcados de memoria y contadores de rendimiento. Lea [Tracelog](/windows-hardware/drivers/devtest/tracelog) y [Seguimiento ETW](/dotnet/framework/wcf/samples/etw-tracing) para más información sobre los registros de seguimiento ETW. Todos los registros, incluidos [volcados de memoria](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf) y [contadores de rendimiento](/windows/win32/perfctrs/performance-counters-portal), se pueden dirigir a la carpeta connectionString de su máquina. También puede usar AzureStorage para almacenar los diagnósticos. Vea el siguiente fragmento de ejemplo:
 
 ```json
 "diagnosticsStore": {
@@ -193,7 +193,7 @@ Para configurar características complementarias, el valor de apiVersion debe co
     ]
 }
 ```
-Todas las características complementarias disponibles pueden verse en la [referencia de la API REST de Service Fabric](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-addonfeatures).
+Todas las características complementarias disponibles pueden verse en la [referencia de la API REST de Service Fabric](/rest/api/servicefabric/sfrp-model-addonfeatures).
 
 ### <a name="container-support"></a>Compatibilidad con los contenedores
 Para habilitar la compatibilidad con un contenedor de Windows Server o Hyper-V para clústeres independientes, debe habilitarse la característica complementaria DnsService.
@@ -204,4 +204,3 @@ Una vez que haya configurado un archivo *ClusterConfig.json* completo de acuerdo
 Si tiene un clúster independiente implementado, también puede [actualizar la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md). 
 
 Obtenga información acerca de cómo [visualizar el clúster mediante Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-

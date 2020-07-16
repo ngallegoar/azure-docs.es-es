@@ -5,17 +5,17 @@ author: motanv
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: motanv
-ms.openlocfilehash: 37b451abd0a519dff17aba9b2d6c42b4762f30cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33ad837195c747a4e7f9a4609d745659be69dc9a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75463173"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246187"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Inducción de errores controlados con Caos en clústeres de Service Fabric
 Los sistemas distribuidos a gran escala, como las infraestructuras en la nube, por naturaleza, no son confiables. Azure Service Fabric permite a los desarrolladores crear servicios distribuidos confiables en una infraestructura no confiable. Para escribir servicios distribuidos sólidos en una infraestructura no confiable, los desarrolladores necesitan poder probar la estabilidad de sus servicios, mientras que la infraestructura no confiable subyacente pasa por transiciones de estado complicadas debido a los errores.
 
-El [servicio de inserción de errores y análisis de clúster](https://docs.microsoft.com/azure/service-fabric/service-fabric-testability-overview) (también denominado servicio de análisis de errores) proporciona a los desarrolladores la posibilidad de inducir errores para probar sus servicios. Estos errores simulados de destino, como [reiniciar una partición](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps), pueden ayudar a ejercer las transiciones de estado más comunes. Sin embargo, los errores simulados de destino están sesgados por definición y, por consiguiente, pueden perder errores que se muestran solo en una secuencia de transiciones de estado larga, complicada y difícil de predecir. Para una prueba no sesgada, se puede usar Chaos.
+El [servicio de inserción de errores y análisis de clúster](./service-fabric-testability-overview.md) (también denominado servicio de análisis de errores) proporciona a los desarrolladores la posibilidad de inducir errores para probar sus servicios. Estos errores simulados de destino, como [reiniciar una partición](/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps), pueden ayudar a ejercer las transiciones de estado más comunes. Sin embargo, los errores simulados de destino están sesgados por definición y, por consiguiente, pueden perder errores que se muestran solo en una secuencia de transiciones de estado larga, complicada y difícil de predecir. Para una prueba no sesgada, se puede usar Chaos.
 
 Chaos simula errores periódicos intercalados (tanto correctos como incorrectos) en todo el clúster durante períodos prolongados. Un error correcto consta de un conjunto de llamadas API de Service Fabric, por ejemplo, reiniciar un error de réplica es un error correcto porque se trata de un cierre seguido de una apertura en una réplica. Quitar la réplica, mover la réplica principal y mover la réplica secundaria de movimiento son los otros errores correctos que desempeña Chaos. Los errores incorrectos son salidas de procesos, como reiniciar el nodo y reiniciar el paquete de código. 
 
@@ -25,7 +25,7 @@ Una vez haya configurado Chaos con la velocidad y el tipo de errores, puede inic
 > En su forma actual, Chaos solo induce errores seguros, lo que implica que, si no hay errores externos, nunca se producirá una pérdida de cuórum o de datos.
 >
 
-Mientras se ejecuta Caos, se producen diferentes eventos que obtienen el estado de la ejecución en ese momento. Por ejemplo, ExecutingFaultsEvent contiene todos los errores que Chaos ha decidido ejecutarse en esa iteración. ValidationFailedEvent contiene los detalles de un error de validación (problemas de estabilidad o de mantenimiento) que se ha encontrado durante la validación del clúster. Puede invocar la API de GetChaosReportAsync (REST, C# o Powershell) para obtener el informe de las ejecuciones de Chaos. Estos eventos se guardan en un [diccionario de confianza](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections), que tiene una directiva de truncamiento dictada por dos configuraciones: **MaxStoredChaosEventCount** (el valor predeterminado es 25 000) y **StoredActionCleanupIntervalInSeconds** (el valor predeterminado es 3 600). Todas las instancias de *StoredActionCleanupIntervalInSeconds* que Chaos comprueba y todos los eventos de *MaxStoredChaosEventCount*, salvo los más recientes, se purgan del diccionario confiable.
+Mientras se ejecuta Caos, se producen diferentes eventos que obtienen el estado de la ejecución en ese momento. Por ejemplo, ExecutingFaultsEvent contiene todos los errores que Chaos ha decidido ejecutarse en esa iteración. ValidationFailedEvent contiene los detalles de un error de validación (problemas de estabilidad o de mantenimiento) que se ha encontrado durante la validación del clúster. Puede invocar la API de GetChaosReportAsync (REST, C# o Powershell) para obtener el informe de las ejecuciones de Chaos. Estos eventos se guardan en un [diccionario de confianza](./service-fabric-reliable-services-reliable-collections.md), que tiene una directiva de truncamiento dictada por dos configuraciones: **MaxStoredChaosEventCount** (el valor predeterminado es 25 000) y **StoredActionCleanupIntervalInSeconds** (el valor predeterminado es 3 600). Todas las instancias de *StoredActionCleanupIntervalInSeconds* que Chaos comprueba y todos los eventos de *MaxStoredChaosEventCount*, salvo los más recientes, se purgan del diccionario confiable.
 
 ## <a name="faults-induced-in-chaos"></a>Errores inducidos en Caos
 Caos genera errores en todo el clúster de Service Fabric y comprime todos los detectados que se ven en meses o años en tan solo unas horas. Esta combinación de errores intercalados con una elevada tasa de errores encuentra casos excepcionales que de otra manera pueden pasar desapercibidos. Esto conduce a una mejora considerable en la calidad del código del servicio.

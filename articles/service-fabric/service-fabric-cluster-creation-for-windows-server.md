@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: a42797b51d811ee9427c9b77f8ea59a24c00feee
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ba6474751913b4994ae840f77577b3c1db6c5f73
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827971"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259281"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Creación de un clúster independiente con Windows Server
 Puede usar Azure Service Fabric para crear clústeres de Service Fabric en las máquinas virtuales o los equipos que ejecutan Windows Server. Es decir, podrá implementar y ejecutar aplicaciones de Service Fabric en cualquier entorno donde haya un conjunto de equipos con Windows Server que estén conectados entre sí, ya sea de manera local o con algún proveedor de servicios en la nube. Service Fabric proporciona un paquete de instalación para crear clústeres de Service Fabric, llamado paquete independiente de Windows Server. Los clústeres tradicionales de Service Fabric en Azure están disponibles como un servicio administrado, mientras que los clústeres independientes son de autoservicio. Para más información sobre las diferencias, consulte [Comparación de clústeres de Service Fabric de Azure e independientes](./service-fabric-deploy-anywhere.md).
@@ -25,10 +25,10 @@ Este artículo le guía por los pasos para crear un clúster independiente de Se
 <a id="getsupport"></a>
 
 ## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>Soporte técnico para el paquete de Service Fabric para Windows Server
-* Pregunte a la comunidad sobre el paquete independiente de Service Fabric para Windows Server en la [página de preguntas y respuestas de Microsoft sobre Azure Service Fabric](https://docs.microsoft.com/answers/topics/azure-service-fabric.html).
+* Pregunte a la comunidad sobre el paquete independiente de Service Fabric para Windows Server en la [página de preguntas y respuestas de Microsoft sobre Azure Service Fabric](/answers/topics/azure-service-fabric.html).
 * Abra una incidencia para obtener [soporte técnico profesional para Service Fabric](https://support.microsoft.com/oas/default.aspx?prid=16146).  Más información sobre el soporte técnico profesional de Microsoft[aquí](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * También puede obtener soporte técnico para este paquete como parte del [soporte técnico Premier de Microsoft](https://support.microsoft.com/en-us/premier).
-* Para más información, consulte [Opciones de soporte técnico de Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
+* Para más información, consulte [Opciones de soporte técnico de Azure Service Fabric](./service-fabric-support.md).
 * Para recopilar registros como soporte técnico, ejecute el [recopilador de registros independiente de Service Fabric](service-fabric-cluster-standalone-package-contents.md).
 
 <a id="downloadpackage"></a>
@@ -216,7 +216,7 @@ Ninguno.
 * [Opciones de configuración de clústeres de Windows independientes](service-fabric-cluster-manifest.md)
 * [Incorporación o eliminación de nodos de un clúster de Service Fabric independiente](service-fabric-cluster-windows-server-add-remove-nodes.md)
 * [Actualización de nodos de un clúster de Service Fabric independiente](service-fabric-cluster-upgrade-windows-server.md)
-* [Creación de un clúster de Service Fabric independiente con máquinas virtuales de Azure con Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
+* [Creación de un clúster de Service Fabric independiente con máquinas virtuales de Azure con Windows](./service-fabric-cluster-creation-via-arm.md)
 * [Proteger un clúster independiente en Windows mediante la seguridad de Windows](service-fabric-windows-cluster-windows-security.md)
 * [Protección de un clúster de Windows independiente mediante certificados](service-fabric-windows-cluster-x509-security.md)
 

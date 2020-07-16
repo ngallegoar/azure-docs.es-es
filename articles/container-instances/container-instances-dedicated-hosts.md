@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: a614d6b5d0cf5c6c1df5ffcb90e56960d6b8a2a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9d7e2a706f65b5f2948a24400aa63ba39350661
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82025040"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259649"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Implementación en hosts dedicados
 
@@ -28,7 +28,7 @@ La SKU dedicada es adecuada para cargas de trabajo de contenedor que requieren a
 > El uso de la SKU dedicada solo está disponible en la versión de API más reciente (2019-12-01) que se está implementando actualmente. Especifique esta versión de API en la plantilla de implementación.
 >
 
-A partir de la versión 2019-12-01 de la API, hay una propiedad `sku` en la sección Propiedades del grupo de contenedores de una plantilla de implementación, que es necesaria para una implementación de ACI. Actualmente, puede usar esta propiedad como parte de una plantilla de implementación de Azure Resource Manager para ACI. Obtenga más información sobre la implementación de recursos de ACI con una plantilla en el [Tutorial: Implementación de un grupo con varios contenedores con una plantilla de Resource Manager](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+A partir de la versión 2019-12-01 de la API, hay una propiedad `sku` en la sección Propiedades del grupo de contenedores de una plantilla de implementación, que es necesaria para una implementación de ACI. Actualmente, puede usar esta propiedad como parte de una plantilla de implementación de Azure Resource Manager para ACI. Obtenga más información sobre la implementación de recursos de ACI con una plantilla en el [Tutorial: Implementación de un grupo con varios contenedores con una plantilla de Resource Manager](./container-instances-multi-container-group.md). 
 
 La propiedad `sku` admite cualquiera de los siguientes valores:
 * `Standard`: la opción de implementación de ACI estándar, que sigue garantizando la seguridad de nivel de hipervisor 
@@ -137,17 +137,17 @@ Para crear un grupo de recursos, use el comando [az group create][az-group-creat
 az group create --name myResourceGroup --location eastus
 ```
 
-Implemente la plantilla con el comando [az group deployment create][az-group-deployment-create].
+Implemente la plantilla con el comando [az deployment group create][az-deployment-group-create].
 
 ```azurecli-interactive
-az group deployment create --resource-group myResourceGroup --template-file deployment-template.json
+az deployment group create --resource-group myResourceGroup --template-file deployment-template.json
 ```
 
 Al cabo de unos segundos, debe recibir una respuesta inicial de Azure. Se realizará una implementación correcta en un host dedicado.
 
 <!-- LINKS - Internal -->
 [az-group-create]: /cli/azure/group#az-group-create
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

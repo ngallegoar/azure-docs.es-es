@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: b72abf4e208c57987375a105865046f194460058
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6512edd26b59dac11f046e82940db4877728943c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84690326"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243599"
 ---
 # <a name="api-management-cross-domain-policies"></a>Directivas entre dominios de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -58,7 +58,7 @@ Use la directiva `cross-domain` para que la API sea accesible desde Adobe Flash 
 |entre dominios|Elemento raíz. Los elementos secundarios deben ajustarse a la [especificación de archivos de directivas entre dominios de Adobe](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Sí|
 
 ### <a name="usage"></a>Uso
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 - **Secciones de la directiva:** inbound (entrada)
 - **Ámbitos de la directiva:** todos los ámbitos
@@ -141,7 +141,7 @@ En este ejemplo se muestra cómo admitir solicitudes preparatorias, como aquella
 |preflight-result-max-age|El encabezado `Access-Control-Max-Age` de la respuesta preparatoria se establecerá en el valor de este atributo e influirá en la capacidad del agente del usuario de almacenar en caché la respuesta preparatoria.|No|0|
 
 ### <a name="usage"></a>Uso
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 - **Secciones de la directiva:** inbound (entrada)
 - **Ámbitos de la directiva:** todos los ámbitos
@@ -178,7 +178,7 @@ Si agrega el parámetro de devolución de llamada `?cb=XXX`, devolverá un resul
 |callback-parameter-name|La llamada de función de JavaScript entre dominios prefijada con el nombre de dominio completo en donde reside la función.|Sí|N/D|
 
 ### <a name="usage"></a>Uso
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 - **Secciones de la directiva:** outbound
 - **Ámbitos de la directiva:** todos los ámbitos
@@ -189,5 +189,5 @@ Para obtener más información sobre cómo trabajar con directivas, consulte:
 
 + [Directivas de Azure API Management](api-management-howto-policies.md)
 + [API de transformación](transform-api.md)
-+ En la [Referencia de directivas](api-management-policy-reference.md) se muestra una lista completa de declaraciones de directivas y su configuración
++ En la [Referencia de directivas](./api-management-policies.md) se muestra una lista completa de declaraciones de directivas y su configuración
 + [Ejemplos de directivas](policy-samples.md)

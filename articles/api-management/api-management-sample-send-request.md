@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 1c86570850894a47f57a2d3587811411cc9a76eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ac5f6b4d2d197bbd4f4aff9236837eab062b4a63
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77190010"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243314"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Uso de servicios externos del servicio de administración de API de Azure
 Las directivas disponibles en el servicio Azure API Management pueden llevar a cabo una gran variedad de trabajo útil basado exclusivamente en la solicitud entrante, la respuesta saliente y la información de configuración básica. Pero la interacción con servicios externos de las directivas de API Management brinda muchas más oportunidades.
@@ -27,7 +27,7 @@ Las directivas disponibles en el servicio Azure API Management pueden llevar a c
 Anteriormente ha visto cómo interactuar con el [servicio del Centro de eventos de Azure con fines de registro, supervisión y análisis](api-management-log-to-eventhub-sample.md). En este artículo encontrará las directivas que permiten interactuar con cualquier servicio externo basado en HTTP. Dichas directivas se pueden usar para desencadenar eventos remotos o recuperar información que se utiliza para manipular en cierto modo la solicitud y la respuesta originales.
 
 ## <a name="send-one-way-request"></a>Send-One-Way-Request
-Es posible que la interacción externa más sencilla sea el estilo de fire and forget de solicitud que permite que se notifique a un servicio externo de algún tipo de evento importante. La directiva de flujo de control `choose` puede utilizarse para detectar cualquier tipo de condición que le interese.  Si se cumple la condición, puede hacer una solicitud HTTP externa usando la directiva [Envío de solicitud unidireccional](/azure/api-management/api-management-advanced-policies#SendOneWayRequest). Podría tratarse de una solicitud para un sistema de mensajería como Hipchat o Slack o una API de Correo como SendGrid o MailChimp, o bien para incidentes de soporte técnico críticos como PagerDuty. Todos estos sistemas de mensajería tienen API HTTP sencillas que se pueden invocar.
+Es posible que la interacción externa más sencilla sea el estilo de fire and forget de solicitud que permite que se notifique a un servicio externo de algún tipo de evento importante. La directiva de flujo de control `choose` puede utilizarse para detectar cualquier tipo de condición que le interese.  Si se cumple la condición, puede hacer una solicitud HTTP externa usando la directiva [Envío de solicitud unidireccional](./api-management-advanced-policies.md#SendOneWayRequest). Podría tratarse de una solicitud para un sistema de mensajería como Hipchat o Slack o una API de Correo como SendGrid o MailChimp, o bien para incidentes de soporte técnico críticos como PagerDuty. Todos estos sistemas de mensajería tienen API HTTP sencillas que se pueden invocar.
 
 ### <a name="alerting-with-slack"></a>Alerta con Slack
 En el siguiente ejemplo puede ver cómo enviar un mensaje a un salón de chat de Slack si el código de estado de respuesta HTTP es mayor o igual que 500. Un error de intervalo 500 indica un problema con la API de back-end cuyo cliente no puede resolver por sí mismo. Normalmente requiere algún tipo de intervención por parte de API Management.  
@@ -62,7 +62,7 @@ Slack tiene la noción de enlaces web entrantes. Al configurar un webhook entran
 ![Enlace web de Slack](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### <a name="is-fire-and-forget-good-enough"></a>¿Es fire and forget lo suficientemente bueno?
-Existen ciertos compromisos cuando se usa un estilo de fire and forget de solicitud. Si por algún motivo se produce un error en la solicitud, este no se notificará. En esta situación concreta, no se garantizan la complejidad de tener un sistema de informe de errores secundario ni el costo de rendimiento adicional de esperar la respuesta. En aquellos escenarios donde sea esencial comprobar la respuesta, la directiva [send-request](/azure/api-management/api-management-advanced-policies#SendRequest) constituye una mejor opción.
+Existen ciertos compromisos cuando se usa un estilo de fire and forget de solicitud. Si por algún motivo se produce un error en la solicitud, este no se notificará. En esta situación concreta, no se garantizan la complejidad de tener un sistema de informe de errores secundario ni el costo de rendimiento adicional de esperar la respuesta. En aquellos escenarios donde sea esencial comprobar la respuesta, la directiva [send-request](./api-management-advanced-policies.md#SendRequest) constituye una mejor opción.
 
 ## <a name="send-request"></a>send-request
 La directiva `send-request` permite usar un servicio externo para realizar funciones complejas de procesamiento y devolver datos al servicio de Administración de API que pueden usarse para un posterior procesamiento de directivas.
@@ -213,7 +213,7 @@ Una vez que tiene esta información, puede realizar solicitudes a todos los sist
 Estas solicitudes se ejecutan en secuencia, que no es lo ideal. 
 
 ### <a name="responding"></a>Respuesta
-Para construir la respuesta compuesta, puede usar la directiva [return-response](/azure/api-management/api-management-advanced-policies#ReturnResponse). El elemento `set-body` puede usar una expresión para construir un nuevo elemento `JObject` con todas las representaciones de componentes insertadas como propiedades.
+Para construir la respuesta compuesta, puede usar la directiva [return-response](./api-management-advanced-policies.md#ReturnResponse). El elemento `set-body` puede usar una expresión para construir un nuevo elemento `JObject` con todas las representaciones de componentes insertadas como propiedades.
 
 ```xml
 <return-response response-variable-name="existing response variable">
@@ -287,4 +287,3 @@ En la configuración de la operación del marcador de posición, puede establece
 
 ## <a name="summary"></a>Resumen
 El servicio de administración de API de Azure proporciona directivas flexibles que se pueden aplicar de forma selectiva al tráfico HTTP y permite la composición de servicios de back-end. Si desea mejorar la puerta de enlace de la API con funciones de alerta, comprobación, capacidades de validación o crear nuevos recursos compuestos basados en varios servicios de back-end, la directiva `send-request` y otras relacionadas ofrecen todo un mundo de posibilidades.
-

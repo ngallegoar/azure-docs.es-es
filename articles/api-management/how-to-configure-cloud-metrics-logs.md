@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
-ms.openlocfilehash: d0fbdcb877e91a703306f15fdc7507fd19d534f4
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 3bbfd167e89ae1b5f9b7de1df5fd1cb72c720cb6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204841"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254541"
 ---
 # <a name="configure-cloud-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configuración de los registros y las métricas en la nube para la puerta de enlace autohospedada de Azure API Management
 
@@ -57,14 +57,12 @@ La puerta de enlace autohospedada actualmente emite las siguientes métricas a t
 
 ## <a name="logs"></a>Registros
 
-Actualmente, la puerta de enlace autohospedada no envía [registros de diagnóstico](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) a la nube. Sin embargo, es posible [configurar y conservar los registros localmente](how-to-configure-local-metrics-logs.md) donde se implementa la puerta de enlace autohospedada. 
+Actualmente, la puerta de enlace autohospedada no envía [registros de diagnóstico](./api-management-howto-use-azure-monitor.md#activity-logs) a la nube. Sin embargo, es posible [configurar y conservar los registros localmente](how-to-configure-local-metrics-logs.md) donde se implementa la puerta de enlace autohospedada. 
 
-Si una puerta de enlace está implementada en [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/), puede habilitar [Azure Monitor para contenedores](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) para recopilar registros de los contenedores y verlos en Log Analytics. 
+Si una puerta de enlace está implementada en [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/), puede habilitar [Azure Monitor para contenedores](../azure-monitor/insights/container-insights-overview.md) para recopilar registros de los contenedores y verlos en Log Analytics. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener más información sobre la puerta de enlace autohospedada, consulte [Introducción a la puerta de enlace autohospedada de Azure API Management](self-hosted-gateway-overview.md)
 * Más información sobre la [configuración y conservación de registros localmente](how-to-configure-local-metrics-logs.md)
-
-

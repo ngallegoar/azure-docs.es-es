@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: f9bee35ee8e82070b4cf601139b471562ba5e10b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9fa8b0970d198f9801c7661b9555db17cdf67b3c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75934206"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258724"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Incorporación o eliminación de nodos de un clúster de Service Fabric independiente con Windows Server
 Una vez que [cree su clúster de Service Fabric independiente en máquinas con Windows Server](service-fabric-cluster-creation-for-windows-server.md), puede que las necesidades (empresariales) cambien y que deba agregar o eliminar nodos del clúster. En este artículo, se muestran los pasos detallados para llevarlo a cabo. Tenga en cuenta que no se permite agregar o eliminar nodos en los clústeres de desarrollo local.
@@ -142,5 +142,4 @@ Los nodos principales se deben sustituir uno por uno, en lugar de quitarlos y ag
 ## <a name="next-steps"></a>Pasos siguientes
 * [Opciones de configuración de clústeres de Windows independientes](service-fabric-cluster-manifest.md)
 * [Protección de un clúster de Windows independiente mediante certificados](service-fabric-windows-cluster-x509-security.md)
-* [Creación de un clúster de Service Fabric independiente con máquinas virtuales de Azure con Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
-
+* [Creación de un clúster de Service Fabric independiente con máquinas virtuales de Azure con Windows](./service-fabric-cluster-creation-via-arm.md)

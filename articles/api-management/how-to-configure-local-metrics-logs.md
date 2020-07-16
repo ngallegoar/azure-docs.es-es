@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
-ms.openlocfilehash: dd49680da6f52e32ddb52dbdb23ad5e8f627a91e
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: ac147863fe54be3343eda653fc863ebd08dac54d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204821"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254510"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configuración de los registros y las métricas locales para la puerta de enlace autohospedada de Azure API Management
 
@@ -204,7 +204,7 @@ La puerta de enlace autohospedada genera registros en `stdout` y `stderr` de for
 kubectl logs <pod-name>
 ```
 
-Si la puerta de enlace autohospedada está implementada en Azure Kubernetes Service, puede habilitar [Azure Monitor para contenedores](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) con el fin de recopilar `stdout` y `stderr` de sus cargas de trabajo y ver los registros en Log Analytics. 
+Si la puerta de enlace autohospedada está implementada en Azure Kubernetes Service, puede habilitar [Azure Monitor para contenedores](../azure-monitor/insights/container-insights-overview.md) con el fin de recopilar `stdout` y `stderr` de sus cargas de trabajo y ver los registros en Log Analytics. 
 
 La puerta de enlace autohospedada también admite varios protocolos, como `localsyslog`, `rfc5424` y `journal`. En la tabla siguiente se resumen todas las opciones admitidas. 
 
@@ -236,4 +236,3 @@ A continuación, puede ver un ejemplo de configuración de registro local:
 
 * Para obtener más información sobre la puerta de enlace autohospedada, consulte [Introducción a la puerta de enlace autohospedada de Azure API Management](self-hosted-gateway-overview.md)
 * Más información acerca de la [configuración y persistencia de registros en la nube](how-to-configure-local-metrics-logs.md).
-

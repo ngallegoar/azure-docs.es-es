@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: b9a448ff41c66fa3a38c124f7acde062bacbe9ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff13f8301274ebfc8b31dcbe01ef2a0fe6cd6fcc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846665"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247870"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Recopilación y agregación de eventos con Azure Diagnostics de Windows
 > [!div class="op_single_selector"]
@@ -21,7 +21,7 @@ ms.locfileid: "85846665"
 
 Cuando se ejecuta un clúster de Azure Service Fabric, es conveniente recopilar los registros de todos los nodos en una ubicación central. La presencia de los registros en una ubicación central facilita el análisis y la solución de los problemas del clúster o de las aplicaciones y los servicios que se ejecutan en ese clúster.
 
-Uno de los métodos para cargar y recopilar registros es usar la extensión Azure Diagnostics de Windows (WAD), que carga registros en Azure Storage, y también tiene la opción de enviar registros a Azure Application Insights o Event Hubs. Además, puede usar un proceso externo para leer los eventos desde el almacenamiento y colocarlos en un producto de plataforma de análisis, como los [registros de Azure Monitor](../log-analytics/log-analytics-service-fabric.md) u otra solución de análisis de registros.
+Uno de los métodos para cargar y recopilar registros es usar la extensión Azure Diagnostics de Windows (WAD), que carga registros en Azure Storage, y también tiene la opción de enviar registros a Azure Application Insights o Event Hubs. Además, puede usar un proceso externo para leer los eventos desde el almacenamiento y colocarlos en un producto de plataforma de análisis, como los [registros de Azure Monitor](./service-fabric-diagnostics-oms-setup.md) u otra solución de análisis de registros.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -31,7 +31,7 @@ En este artículo se emplean las herramientas siguientes:
 
 * [Azure Resource Manager](../azure-resource-manager/management/overview.md)
 * [Azure PowerShell](/powershell/azure/overview)
-* [Plantilla de Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Plantilla de Azure Resource Manager](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json)
 
 ## <a name="service-fabric-platform-events"></a>Eventos de plataforma de Service Fabric
 Service Fabric configura algunos [canales de registro predefinidos](service-fabric-diagnostics-event-generation-infra.md). Los que se indican a continuación se configuran previamente con la extensión para que envíen datos de supervisión y diagnóstico a una tabla de almacenamiento u otro lugar:
@@ -202,12 +202,12 @@ Como las tablas que rellena la extensión aumentan hasta que se alcanza la cuota
 ## <a name="log-collection-configurations"></a>Configuraciones de recopilación de registros
 Los registros de los canales adicionales también están disponibles para la recopilación, estas son algunas de las configuraciones más comunes que puede realizar en la plantilla para los clústeres que se ejecutan en Azure.
 
-* Canal operativo, básico: Habilitadas de forma predeterminada, las operaciones de alto nivel que realizan Service Fabric y el clúster, incluidos eventos para un nodo próximo, una nueva aplicación que se implementa o la reversión de una actualización, etc. Para obtener una lista de eventos, consulte los [eventos de canal operativo](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+* Canal operativo, básico: Habilitadas de forma predeterminada, las operaciones de alto nivel que realizan Service Fabric y el clúster, incluidos eventos para un nodo próximo, una nueva aplicación que se implementa o la reversión de una actualización, etc. Para obtener una lista de eventos, consulte los [eventos de canal operativo](./service-fabric-diagnostics-event-generation-operational.md).
   
 ```json
       scheduledTransferKeywordFilter: "4611686018427387904"
   ```
-* Canal operativo, detallado: incluye informes de estado y decisiones de equilibrio de carga, además de todos los elementos de canal operativo básico. Estos eventos son generados por el sistema o por el código mediante las API de generación de informes de estado de mantenimiento o carga, como [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) o [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Para ver estos eventos en el Visor de eventos de diagnóstico de Visual Studio, agregue "Microsoft-ServiceFabric:4:0x4000000000000008" a la lista de proveedores de ETW.
+* Canal operativo, detallado: incluye informes de estado y decisiones de equilibrio de carga, además de todos los elementos de canal operativo básico. Estos eventos son generados por el sistema o por el código mediante las API de generación de informes de estado de mantenimiento o carga, como [ReportPartitionHealth](/previous-versions/azure/reference/mt645153(v=azure.100)) o [ReportLoad](/previous-versions/azure/reference/mt161491(v=azure.100)). Para ver estos eventos en el Visor de eventos de diagnóstico de Visual Studio, agregue "Microsoft-ServiceFabric:4:0x4000000000000008" a la lista de proveedores de ETW.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387912"
@@ -296,7 +296,7 @@ Por ejemplo, si el origen del evento se denomina My-Eventsource, agregue el cód
         }
 ```
 
-Para recopilar registros de eventos o contadores de rendimiento, modifique la plantilla de Resource Manager con los ejemplos proporcionados en [Creación de una máquina virtual de Windows con supervisión y diagnóstico mediante una plantilla de Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Luego, vuelva a publicar la plantilla de Resource Manager.
+Para recopilar registros de eventos o contadores de rendimiento, modifique la plantilla de Resource Manager con los ejemplos proporcionados en [Creación de una máquina virtual de Windows con supervisión y diagnóstico mediante una plantilla de Azure Resource Manager](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json). Luego, vuelva a publicar la plantilla de Resource Manager.
 
 ## <a name="collect-performance-counters"></a>Recopilar contadores de rendimiento
 
@@ -358,7 +358,7 @@ Una vez que haya configurado correctamente Azure Diagnostics, verá los datos en
 >[!NOTE]
 >Actualmente no existe ninguna manera de filtrar o limpiar los eventos que se envían a la tabla. Si no se implementa un proceso para quitar eventos de la tabla, la tabla seguirá aumentando. Actualmente, hay un ejemplo de un servicio de limpieza de datos en ejecución en el [ejemplo de guardián](https://github.com/Azure-Samples/service-fabric-watchdog-service). Se recomienda que escriba uno para sí mismo, a menos que tenga una buena razón para almacenar los registros durante más de 30 o 90 días.
 
-* [Información sobre cómo recopilar registros o contadores de rendimiento mediante la extensión de Diagnósticos](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Información sobre cómo recopilar registros o contadores de rendimiento mediante la extensión de Diagnósticos](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json)
 * [Análisis y visualización de eventos con Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Análisis y visualización de eventos con los registros de Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)
 * [Análisis y visualización de eventos con Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)

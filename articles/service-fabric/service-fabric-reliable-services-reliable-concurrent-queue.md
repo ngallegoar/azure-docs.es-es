@@ -3,15 +3,15 @@ title: ReliableConcurrentQueue en Azure Service Fabric
 description: ReliableConcurrentQueue es una cola de alto rendimiento que permite puestas en cola y eliminaciones de la cola paralelas.
 ms.topic: conceptual
 ms.date: 5/1/2017
-ms.openlocfilehash: a7115db8259fde0e87e53557ecef730f8e82d2fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 423ef3d1898176d7c25c596ad186a9c000108aa4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75462728"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257442"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introducción a ReliableConcurrentQueue en Azure Service Fabric
-La cola simultánea confiable es una cola asincrónica, transaccional y replicada que presenta una alta simultaneidad para las operaciones de puesta en cola y eliminación de la cola. Está diseñada para ofrecer un alto rendimiento y una baja latencia al relajar la ordenación FIFO estricta que proporciona la [cola confiable](https://msdn.microsoft.com/library/azure/dn971527.aspx) y, en su lugar, proporciona la ordenación de mejor esfuerzo.
+La cola simultánea confiable es una cola asincrónica, transaccional y replicada que presenta una alta simultaneidad para las operaciones de puesta en cola y eliminación de la cola. Está diseñada para ofrecer un alto rendimiento y una baja latencia al relajar la ordenación FIFO estricta que proporciona la [cola confiable](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1) y, en su lugar, proporciona la ordenación de mejor esfuerzo.
 
 ## <a name="apis"></a>API existentes
 
@@ -21,11 +21,11 @@ La cola simultánea confiable es una cola asincrónica, transaccional y replicad
 | bool TryDequeue(out T result)  | Task< ConditionalValue < T > > TryDequeueAsync(ITransaction tx)  |
 | int Count()                    | long Count()                                                     |
 
-## <a name="comparison-with-reliable-queue"></a>Comparación con la [cola confiable](https://msdn.microsoft.com/library/azure/dn971527.aspx)
+## <a name="comparison-with-reliable-queue"></a>Comparación con la [cola confiable](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1)
 
-La cola simultánea confiable se ofrece como una alternativa a la [cola confiable](https://msdn.microsoft.com/library/azure/dn971527.aspx). Debe usarse en aquellos casos en que no se requiere la ordenación FIFO estricta, ya que para garantizar FIFO se requiere un compromiso con la simultaneidad.  [La cola confiable](https://msdn.microsoft.com/library/azure/dn971527.aspx) usa bloqueos para aplicar la ordenación FIFO, y como máximo permite poner en cola una transacción y quitar de cola una transacción a la vez. En comparación, la cola simultánea confiable relaja la restricción de ordenación y permite que cualquier número de transacciones simultáneas intercalen las operaciones de puesta en cola y eliminación de la cola. Aunque se ofrece la ordenación de mejor esfuerzo, la ordenación relativa de dos valores nunca se puede garantizar en una cola simultánea confiable.
+La cola simultánea confiable se ofrece como una alternativa a la [cola confiable](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1). Debe usarse en aquellos casos en que no se requiere la ordenación FIFO estricta, ya que para garantizar FIFO se requiere un compromiso con la simultaneidad.  [La cola confiable](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1) usa bloqueos para aplicar la ordenación FIFO, y como máximo permite poner en cola una transacción y quitar de cola una transacción a la vez. En comparación, la cola simultánea confiable relaja la restricción de ordenación y permite que cualquier número de transacciones simultáneas intercalen las operaciones de puesta en cola y eliminación de la cola. Aunque se ofrece la ordenación de mejor esfuerzo, la ordenación relativa de dos valores nunca se puede garantizar en una cola simultánea confiable.
 
-La cola simultánea confiable proporciona un rendimiento mayor y menor latencia que la [cola confiable](https://msdn.microsoft.com/library/azure/dn971527.aspx) siempre que existen varias transacciones simultáneas que realizan puestas en cola y/o eliminaciones de la cola.
+La cola simultánea confiable proporciona un rendimiento mayor y menor latencia que la [cola confiable](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1) siempre que existen varias transacciones simultáneas que realizan puestas en cola y/o eliminaciones de la cola.
 
 Un ejemplo de caso de uso de ReliableConcurrentQueue es el escenario de la [cola de mensajes](https://en.wikipedia.org/wiki/Message_queue). En este escenario, uno o más productores de mensajes crean elementos y los agregan a la cola, y uno o más consumidores de mensajes extraen mensajes de la cola y los procesan. Varios productores y consumidores pueden trabajar de manera independiente usando transacciones simultáneas para procesar la cola.
 
@@ -338,6 +338,6 @@ using (var txn = this.StateManager.CreateTransaction())
 * [Notificaciones de Reliable Services](service-fabric-reliable-services-notifications.md)
 * [Copia de seguridad y restauración de Reliable Services (recuperación ante desastres)](service-fabric-reliable-services-backup-restore.md)
 * [Configuración del administrador de estado confiable](service-fabric-reliable-services-configuration.md)
-* [Introducción a los servicios de la API web de Microsoft Azure Service Fabric](service-fabric-reliable-services-communication-webapi.md)
-* [Uso avanzado del modelo de programación de Reliable Services](service-fabric-reliable-services-advanced-usage.md)
-* [Referencia para desarrolladores de colecciones confiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+* [Introducción a los servicios de la API web de Microsoft Azure Service Fabric](./service-fabric-reliable-services-communication-aspnetcore.md)
+* [Uso avanzado del modelo de programación de Reliable Services](./service-fabric-reliable-services-lifecycle.md)
+* [Referencia para desarrolladores de colecciones confiables](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)

@@ -12,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 380b61df8a774e69454577d201cebf1c495b4f74
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 981d3134e957e1f19b9cd88ee13a72fc45d79277
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83004738"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252902"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar un nombre de dominio personalizado
 
@@ -71,8 +71,8 @@ Para seguir los pasos que se describen en este artículo, debe tener:
     > Los nombres de dominio con caracteres comodín, como por ejemplo,`*.contoso.com`, se admiten en todos los niveles, salvo en el nivel de consumo.
 
     > [!TIP]
-    > Se recomienda usar [Azure Key Vault para administrar certificados](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates) y configurarlos para la renovación automática.
-    > Si usa Azure Key Vault para administrar el certificado TLS/SSL de dominio personalizado, asegúrese de que el certificado se inserta en Key Vault [como un _certificado_](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), no como un _secreto_.
+    > Se recomienda usar [Azure Key Vault para administrar certificados](../key-vault/certificates/about-certificates.md) y configurarlos para la renovación automática.
+    > Si usa Azure Key Vault para administrar el certificado TLS/SSL de dominio personalizado, asegúrese de que el certificado se inserta en Key Vault [como un _certificado_](/rest/api/keyvault/createcertificate/createcertificate), no como un _secreto_.
     >
     > Para capturar un certificado TLS/SSL, API Management debe tener la lista y obtener los permisos de secretos en la instancia de Azure Key Vault que contiene el certificado. Cuando se usa Azure Portal, todos los pasos de configuración necesarios se realizarán automáticamente. Cuando se usan las herramientas de línea de comandos o API Management, estos permisos se deben conceder manualmente. Para ello, debe realizar dos pasos. En primer lugar, use la página de identidades administradas de la instancia de API Management para asegurarse de que está habilitada la identidad administrada, y anote el identificador de la entidad que se muestra en esa página. En segundo lugar, proporcione la lista de permisos y obtenga los permisos de secretos de este identificador de entidad en la instancia de Azure Key Vault que contiene el certificado.
     >

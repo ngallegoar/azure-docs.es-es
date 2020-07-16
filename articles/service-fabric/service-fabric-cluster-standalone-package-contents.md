@@ -5,12 +5,12 @@ author: maburlik
 ms.topic: conceptual
 ms.date: 8/10/2017
 ms.author: maburlik
-ms.openlocfilehash: 1bb73fa69717f067139067f127a0d50af4878d6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb9a52510788a275bdeea67cd5c1fdd2e894738d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75451844"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261020"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Contenido del paquete independiente de Service Fabric para Windows Server
 En el paquete independiente de Service Fabric [descargado](https://go.microsoft.com/fwlink/?LinkId=730690), encontrará los siguientes archivos:
@@ -37,11 +37,11 @@ En el paquete independiente de Service Fabric [descargado](https://go.microsoft.
 | --- | --- |
 | ClusterConfig.Unsecure.DevCluster.json |Archivo de ejemplo de configuración de clúster que contiene la configuración de un clúster de desarrollo no seguro con una sola máquina (o máquina virtual) y tres nodos, incluidos los datos de cada nodo del clúster. |
 | ClusterConfig.Unsecure.MultiMachine.json |Archivo de ejemplo de configuración de clúster que contiene la configuración de un clúster no seguro con varias máquinas (o máquinas virtuales), incluida la información para cada máquina del clúster. |
-| ClusterConfig.Windows.DevCluster.json |Archivo de ejemplo de configuración de clúster que contiene toda la configuración de un clúster de desarrollo seguro con una sola máquina (o máquina virtual) y tres nodos, incluidos los datos de cada nodo del clúster. El clúster está protegido mediante [identidades de Windows](https://msdn.microsoft.com/library/ff649396.aspx). |
-| ClusterConfig.Windows.MultiMachine.json |Archivo de ejemplo de configuración de clúster que contiene la configuración de un clúster seguro con varias máquinas (o máquinas virtuales) mediante la utilización de la seguridad de Windows, incluida la información para cada máquina del clúster seguro. El clúster está protegido mediante [identidades de Windows](https://msdn.microsoft.com/library/ff649396.aspx). |
+| ClusterConfig.Windows.DevCluster.json |Archivo de ejemplo de configuración de clúster que contiene toda la configuración de un clúster de desarrollo seguro con una sola máquina (o máquina virtual) y tres nodos, incluidos los datos de cada nodo del clúster. El clúster está protegido mediante [identidades de Windows](/previous-versions/msp-n-p/ff649396(v=pandp.10)). |
+| ClusterConfig.Windows.MultiMachine.json |Archivo de ejemplo de configuración de clúster que contiene la configuración de un clúster seguro con varias máquinas (o máquinas virtuales) mediante la utilización de la seguridad de Windows, incluida la información para cada máquina del clúster seguro. El clúster está protegido mediante [identidades de Windows](/previous-versions/msp-n-p/ff649396(v=pandp.10)). |
 | ClusterConfig.x509.DevCluster.json |Archivo de ejemplo de configuración de clúster que contiene toda la configuración de un clúster de desarrollo seguro con una sola máquina (o máquina virtual) y tres nodos, incluida la información de cada nodo del clúster. El clúster se protege mediante certificados X509. |
 | ClusterConfig.x509.MultiMachine.json |Archivo de ejemplo de configuración de clúster que contiene toda la configuración de un clúster seguro con varias máquinas (o máquinas virtuales), incluida la información para cada nodo del clúster seguro. El clúster se protege mediante certificados X509. |
-| ClusterConfig.gMSA.Windows.MultiMachine.json |Archivo de ejemplo de configuración de clúster que contiene toda la configuración de un clúster seguro con varias máquinas (o máquinas virtuales), incluida la información para cada nodo del clúster seguro. El clúster se protege mediante [cuentas de servicio administradas de grupo](https://technet.microsoft.com/library/jj128431(v=ws.11).aspx). |
+| ClusterConfig.gMSA.Windows.MultiMachine.json |Archivo de ejemplo de configuración de clúster que contiene toda la configuración de un clúster seguro con varias máquinas (o máquinas virtuales), incluida la información para cada nodo del clúster seguro. El clúster se protege mediante [cuentas de servicio administradas de grupo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11)). |
 
 ## <a name="cluster-configuration-samples"></a>Ejemplos de configuración del clúster
 Las versiones más recientes de las plantillas de configuración de clústeres se encuentran en la página de GitHub: [Ejemplos de configuración de clúster independiente](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).

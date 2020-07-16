@@ -3,26 +3,26 @@ title: Temas avanzados de actualización de aplicación
 description: En este artículo se tratan algunos temas avanzados relacionados con la actualización de una aplicación de Service Fabric.
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 98d8213cc50f73ef2c053e1fe5574fe33a2f3cb6
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: cc2fdc8f99b74078bd8d5274cbe52265ab8455ae
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263098"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248091"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Actualización de la aplicación de Service Fabric: temas avanzados
 
 ## <a name="add-or-remove-service-types-during-an-application-upgrade"></a>Adición o eliminación de tipos de servicio durante la actualización de una aplicación
 
-Si se agrega un nuevo tipo de servicio a una aplicación publicada como parte de una actualización, el nuevo tipo de servicio se agrega a la aplicación implementada. Esta actualización no afecta a ninguna de las instancias de servicio que ya formaban parte de la aplicación, pero debe crearse una instancia del tipo de servicio que se ha agregado para que el nuevo tipo de servicio esté activo (consulte [New-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)).
+Si se agrega un nuevo tipo de servicio a una aplicación publicada como parte de una actualización, el nuevo tipo de servicio se agrega a la aplicación implementada. Esta actualización no afecta a ninguna de las instancias de servicio que ya formaban parte de la aplicación, pero debe crearse una instancia del tipo de servicio que se ha agregado para que el nuevo tipo de servicio esté activo (consulte [New-ServiceFabricService](/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)).
 
-De manera similar, los tipos de servicio pueden quitarse de una aplicación como parte de una actualización. Sin embargo, todas las instancias de servicio del tipo de servicio que va a quitarse se deben quitar antes de continuar con la actualización (consulte [Remove-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
+De manera similar, los tipos de servicio pueden quitarse de una aplicación como parte de una actualización. Sin embargo, todas las instancias de servicio del tipo de servicio que va a quitarse se deben quitar antes de continuar con la actualización (consulte [Remove-ServiceFabricService](/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
 
 ## <a name="avoid-connection-drops-during-stateless-service-planned-downtime"></a>Evitar interrupciones de la conexión durante el tiempo de inactividad planeado del servicio sin estado
 
 En el caso de tiempos de inactividad planeados de instancias sin estado, como la actualización de aplicaciones o clústeres o la desactivación de nodos, las conexiones se pueden interrumpir si el punto de conexión expuesto se quita después de que la instancia se desactive. Como resultado, se realizan cierres de conexión efectivos.
 
-Para evitarlo, configure la característica *RequestDrain* agregando una *duración de retraso de cierre de instancia* en la configuración del servicio para permitir que las solicitudes existentes dentro del clúster se purguen en los puntos de conexión expuestos. Esto se consigue cuando el punto de conexión anunciado por la instancia sin estado se quita *antes* de que se inicie el retraso y con anterioridad al cierre de la instancia. Este retraso permite que las solicitudes existentes se vacíen correctamente antes de que la instancia se desactive realmente. A los clientes se les notifica el cambio del punto de conexión mediante una función de devolución de llamada en el momento en que inicia el retraso, por lo que pueden volver a resolver el punto de conexión y evitar el envío de nuevas solicitudes a la instancia que se desactivará. Estas solicitudes podrían originarse en clientes que usan un [proxy inverso](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) o mediante API de resolución de puntos de conexión de servicio con el modelo de notificación ([ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription)) para actualizar los puntos de conexión.
+Para evitarlo, configure la característica *RequestDrain* agregando una *duración de retraso de cierre de instancia* en la configuración del servicio para permitir que las solicitudes existentes dentro del clúster se purguen en los puntos de conexión expuestos. Esto se consigue cuando el punto de conexión anunciado por la instancia sin estado se quita *antes* de que se inicie el retraso y con anterioridad al cierre de la instancia. Este retraso permite que las solicitudes existentes se vacíen correctamente antes de que la instancia se desactive realmente. A los clientes se les notifica el cambio del punto de conexión mediante una función de devolución de llamada en el momento en que inicia el retraso, por lo que pueden volver a resolver el punto de conexión y evitar el envío de nuevas solicitudes a la instancia que se desactivará. Estas solicitudes podrían originarse en clientes que usan un [proxy inverso](./service-fabric-reverseproxy.md) o mediante API de resolución de puntos de conexión de servicio con el modelo de notificación ([ServiceNotificationFilterDescription](/dotnet/api/system.fabric.description.servicenotificationfilterdescription)) para actualizar los puntos de conexión.
 
 ### <a name="service-configuration"></a>Configuración del servicio
 
@@ -77,7 +77,7 @@ Hay varias maneras de configurar el retraso en el lado del servicio.
 
 ### <a name="client-configuration"></a>Configuración de cliente
 
-Para recibir una notificación cuando un punto de conexión ha cambiado, los clientes deben registrar una devolución de llamada; consulte[ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
+Para recibir una notificación cuando un punto de conexión ha cambiado, los clientes deben registrar una devolución de llamada; consulte[ServiceNotificationFilterDescription](/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
 La notificación de cambios indica que los puntos de conexión han cambiado, que el cliente debe volver a resolver los puntos de conexión y que no se deben usar los puntos de conexión que ya no se anuncian, ya que se desactivarán pronto.
 
 ### <a name="optional-upgrade-overrides"></a>Invalidaciones de actualización opcionales
@@ -94,7 +94,7 @@ La duración del retraso invalidado solo se aplica a la instancia de actualizaci
 
 > [!NOTE]
 > * La configuración para purgar solicitudes no podrá impedir que Azure Load Balancer envíe nuevas solicitudes a los puntos de conexión que se están purgando.
-> * Un mecanismo de resolución basado en quejas no dará como resultado una purga estable de las solicitudes, ya que desencadena una resolución de servicio después de un error. Tal y como se ha descrito antes, esto debería mejorarse para suscribirse a las notificaciones de cambio de punto de conexión mediante [ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
+> * Un mecanismo de resolución basado en quejas no dará como resultado una purga estable de las solicitudes, ya que desencadena una resolución de servicio después de un error. Tal y como se ha descrito antes, esto debería mejorarse para suscribirse a las notificaciones de cambio de punto de conexión mediante [ServiceNotificationFilterDescription](/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
 > * La configuración no se respeta cuando la actualización no tiene ningún impacto; es decir, cuando las réplicas no se desactivan durante la actualización.
 >
 >
@@ -114,7 +114,7 @@ La duración del retraso invalidado solo se aplica a la instancia de actualizaci
 
 En el modo *Monitored*, Service Fabric aplica directivas de mantenimiento para asegurarse de que la aplicación esté en un estado correcto a medida que avance la actualización. Si se infringen las directivas de mantenimiento, la actualización se suspende o se revierte automáticamente según la *FailureAction* especificada.
 
-En modo *UnmonitoredManual*, el administrador de la aplicación tiene un control total sobre el avance de la actualización. Este modo resulta útil al aplicar las directivas de evaluación de mantenimiento personalizadas o realizar actualizaciones no convencional al omitir completamente la supervisión de estado (por ejemplo, la aplicación ya está en pérdida de datos). Una actualización que se ejecuta en este modo se suspenderá después de completar cada UD y se debe reanudar de forma explícita mediante [Resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps). Cuando se suspende una actualización y está lista para que el usuario la reanude, su estado de actualización mostrará *RollforwardPending* (consulte [UpgradeState](https://docs.microsoft.com/dotnet/api/system.fabric.applicationupgradestate?view=azure-dotnet)).
+En modo *UnmonitoredManual*, el administrador de la aplicación tiene un control total sobre el avance de la actualización. Este modo resulta útil al aplicar las directivas de evaluación de mantenimiento personalizadas o realizar actualizaciones no convencional al omitir completamente la supervisión de estado (por ejemplo, la aplicación ya está en pérdida de datos). Una actualización que se ejecuta en este modo se suspenderá después de completar cada UD y se debe reanudar de forma explícita mediante [Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps). Cuando se suspende una actualización y está lista para que el usuario la reanude, su estado de actualización mostrará *RollforwardPending* (consulte [UpgradeState](/dotnet/api/system.fabric.applicationupgradestate?view=azure-dotnet)).
 
 Por último, el modo *UnmonitoredAuto* es útil para realizar iteraciones rápidas de actualización durante el desarrollo o las pruebas del servicio, ya que no se necesitan entradas del usuario y no se evalúa ninguna directiva de mantenimiento de la aplicación.
 
@@ -205,11 +205,11 @@ ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testAft
 
 ## <a name="roll-back-application-upgrades"></a>Reversión de actualizaciones de aplicaciones
 
-Si bien las actualizaciones se pueden poner al día en uno de tres modos (*Monitored*, *UnmonitoredAuto* o *UnmonitoredManual*), solo se pueden revertir en el modo *UnmonitoredAuto* o *UnmonitoredManual*. La reversión en modo *UnmonitoredAuto* funciona del mismo modo que la puesta al día, con la excepción de que el valor predeterminado de *UpgradeReplicaSetCheckTimeout* es diferente; consulte [Parámetros de actualización de la aplicación](service-fabric-application-upgrade-parameters.md). La reversión en el modo *UnmonitoredManual* funciona del mismo modo que la puesta al día: la reversión se suspenderá después de completar cada UD y se debe reanudar de forma explícita mediante [ Resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) para continuar con la reversión.
+Si bien las actualizaciones se pueden poner al día en uno de tres modos (*Monitored*, *UnmonitoredAuto* o *UnmonitoredManual*), solo se pueden revertir en el modo *UnmonitoredAuto* o *UnmonitoredManual*. La reversión en modo *UnmonitoredAuto* funciona del mismo modo que la puesta al día, con la excepción de que el valor predeterminado de *UpgradeReplicaSetCheckTimeout* es diferente; consulte [Parámetros de actualización de la aplicación](service-fabric-application-upgrade-parameters.md). La reversión en el modo *UnmonitoredManual* funciona del mismo modo que la puesta al día: la reversión se suspenderá después de completar cada UD y se debe reanudar de forma explícita mediante [ Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) para continuar con la reversión.
 
-Las reversiones pueden activarse automáticamente cuando se infringen las directivas de mantenimiento de una actualización en modo *Monitored* con una *FailureAction* de *Rollback* (consulte [Parámetros de actualización de la aplicación](service-fabric-application-upgrade-parameters.md)), o explícitamente con [Start-ServiceFabricApplicationRollback](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
+Las reversiones pueden activarse automáticamente cuando se infringen las directivas de mantenimiento de una actualización en modo *Monitored* con una *FailureAction* de *Rollback* (consulte [Parámetros de actualización de la aplicación](service-fabric-application-upgrade-parameters.md)), o explícitamente con [Start-ServiceFabricApplicationRollback](/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
 
-Durante la reversión, el valor de *UpgradeReplicaSetCheckTimeout* y el modo se pueden cambiar en cualquier momento con [Update-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps).
+Durante la reversión, el valor de *UpgradeReplicaSetCheckTimeout* y el modo se pueden cambiar en cualquier momento con [Update-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps).
 
 ## <a name="next-steps"></a>Pasos siguientes
 [actualización de aplicaciones usando Visual Studio](service-fabric-application-upgrade-tutorial.md) ofrece información para actualizar una aplicación mediante Visual Studio.

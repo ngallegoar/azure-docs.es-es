@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 8d0279cc323f7eee87feb2a596a4c2df0b4667e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4817c7b76ccd127d5f310a9d2abcecdb094944dc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82790854"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246612"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Actualización de la configuración de un clúster independiente 
 
@@ -53,7 +53,7 @@ TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File
 Algunas configuraciones no se pueden actualizar, como los puntos de conexión, el nombre del clúster, la dirección IP del nodo, etc. El nuevo archivo JSON de configuración del clúster se prueba en el antiguo y generará errores en la ventana de PowerShell si hay cualquier problema.
 
 ## <a name="upgrade-the-cluster-configuration"></a>Actualizar la configuración del clúster
-Para actualizar la configuración del clúster, ejecute [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). El dominio de actualización procesa la actualización de la configuración.
+Para actualizar la configuración del clúster, ejecute [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). El dominio de actualización procesa la actualización de la configuración.
 
 ```powershell
 Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>

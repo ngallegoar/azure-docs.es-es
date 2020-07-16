@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 376f9d78f508c245bec2d066863566ace68eff0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f4ee0a6ba028a6359a83f5130aca7c6f05ba08b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204870"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259793"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configuración del tipo de asignación de grupo de host de escritorio personal
 
@@ -92,5 +92,5 @@ Si necesita volver a agregar el host de sesión al grupo host de escritorio pers
 
 Ahora que ha configurado el tipo de asignación de escritorio personal, puede iniciar sesión en un cliente de Windows Virtual Desktop para probarlo como parte de una sesión de usuario. En las dos guías paso a paso siguientes se indica cómo conectarse a una sesión mediante el cliente que elija:
 
-- [Conexión con el cliente de Escritorio de Windows](../connect-windows-7-and-10.md)
+- [Conexión con el cliente de Escritorio de Windows](connect-windows-7-10-2019.md)
 - [Conexión con el cliente web](connect-web-2019.md)

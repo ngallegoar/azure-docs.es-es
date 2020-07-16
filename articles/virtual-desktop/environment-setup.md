@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ad535dd18b89cbe2fceab90f73789180ad332b57
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: d189d5febe54a83cde4fe6cd6aa51e728aa882e6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612375"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259894"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Entorno de Windows Virtual Desktop
 
@@ -66,7 +66,7 @@ Para información sobre cómo configurar el grupo de hosts de Windows Virtual De
 
 Para obtener información sobre cómo conectarse a Windows Virtual Desktop, consulte uno de los siguientes artículos:
 
-- [Conexión con Windows 10 o Windows 7](connect-windows-7-and-10.md)
+- [Conexión con Windows 10 o Windows 7](connect-windows-7-10.md)
 - [Conexión con un explorador web](connect-web.md)
 - [Conexión con el cliente de Android](connect-android.md)
 - [Conexión con el cliente macOS](connect-macos.md)

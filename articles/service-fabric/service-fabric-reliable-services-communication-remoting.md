@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 0d59275f25931a11b2d551a2e9eb019838e4c1b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3f19d1240c2dcf1e62d5723c40b4f7c8b2154f0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75433883"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253293"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Comunicación remota del servicio en C# con Reliable Services
 
@@ -65,7 +65,7 @@ class MyService : StatelessService, IMyService
 ```
 
 > [!NOTE]
-> Los argumentos y los tipos devueltos de la interfaz de servicio pueden ser cualquier tipo simple, complejo o personalizado, pero deben poderse serializar mediante [DataContractSerializer](https://msdn.microsoft.com/library/ms731923.aspx) de .NET.
+> Los argumentos y los tipos devueltos de la interfaz de servicio pueden ser cualquier tipo simple, complejo o personalizado, pero deben poderse serializar mediante [DataContractSerializer](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer) de .NET.
 >
 >
 
@@ -89,19 +89,19 @@ La creación del proxy de servicio es una operación ligera, por lo que se puede
 
 ### <a name="service-proxy-factory-lifetime"></a>Duración de la fábrica de proxy de servicio
 
-[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) es una fábrica que crea instancias de proxy para interfaces remotas diferentes. Si usa la API `ServiceProxyFactory.CreateServiceProxy` para crear un proxy, el marco de trabajo crea un proxy de servicio singleton.
-Es útil crear uno manualmente cuando necesite invalidar las propiedades [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v1.client.iserviceremotingclientfactory).
+[ServiceProxyFactory](/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) es una fábrica que crea instancias de proxy para interfaces remotas diferentes. Si usa la API `ServiceProxyFactory.CreateServiceProxy` para crear un proxy, el marco de trabajo crea un proxy de servicio singleton.
+Es útil crear uno manualmente cuando necesite invalidar las propiedades [IServiceRemotingClientFactory](/dotnet/api/microsoft.servicefabric.services.remoting.v1.client.iserviceremotingclientfactory).
 La creación de fábricas es una operación costosa. Una fábrica de proxy de servicio mantiene una caché interna del cliente de comunicación.
 Un procedimiento recomendado consiste en almacenar en caché la fábrica de proxy de servicio tanto como sea posible.
 
 ## <a name="remoting-exception-handling"></a>Control de excepciones remota
 
-Todas las excepciones remotas generadas por la API de servicio se vuelven a enviar al cliente como AggregateException. Las excepciones remotas deben poderse serializar mediante DataContract. Si no, la API de proxy genera [ServiceException](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) con el error de serialización.
+Todas las excepciones remotas generadas por la API de servicio se vuelven a enviar al cliente como AggregateException. Las excepciones remotas deben poderse serializar mediante DataContract. Si no, la API de proxy genera [ServiceException](/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) con el error de serialización.
 
 El proxy de servicio controla todas las excepciones de conmutación por error de la partición de servicio para la que se crea. Vuelve a resolver los puntos de conexión si existen excepciones de conmutación por error (excepciones no transitorias) y recupera la llamada con el punto de conexión correcto. El número de reintentos de las excepciones de conmutación por error es indefinido.
 Si se producen excepciones transitorias, el proxy vuelve a intentar la llamada.
 
-[OperationRetrySettings](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings) proporciona los parámetros de reintento predeterminados.
+[OperationRetrySettings](/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings) proporciona los parámetros de reintento predeterminados.
 
 El usuario puede configurar estos valores pasando el objeto OperationRetrySettings al constructor ServiceProxyFactory.
 
@@ -161,7 +161,7 @@ Estos pasos cambian el código de la plantilla para usar la pila V2 mediante las
    </Resources>
    ```
 
-2. Use [FabricTransportServiceRemotingListener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingListener?view=azure-dotnet) del espacio de nombres `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime`.
+2. Use [FabricTransportServiceRemotingListener](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet) del espacio de nombres `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime`.
 
    ```csharp
    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -177,7 +177,7 @@ Estos pasos cambian el código de la plantilla para usar la pila V2 mediante las
     }
    ```
 
-3. Use [FabricTransportServiceRemotingClientFactory ](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet) del espacio de nombres `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client` para crear clientes.
+3. Use [FabricTransportServiceRemotingClientFactory ](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet) del espacio de nombres `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client` para crear clientes.
 
    ```csharp
    var proxyFactory = new ServiceProxyFactory((c) =>
@@ -256,7 +256,7 @@ Siga estos pasos para cambiar a una pila V2_1.
     }
    ```
 
-3. Agregue un [atributo de ensamblado](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportserviceremotingproviderattribute?view=azure-dotnet) en las interfaces de comunicación remota.
+3. Agregue un [atributo de ensamblado](/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportserviceremotingproviderattribute?view=azure-dotnet) en las interfaces de comunicación remota.
 
    ```csharp
     [assembly:  FabricTransportServiceRemotingProvider(RemotingListenerVersion=  RemotingListenerVersion.V2_1, RemotingClientVersion= RemotingClientVersion.V2_1)]
@@ -280,7 +280,7 @@ Siga estos pasos:
    </Resources>
    ```
 
-2. Use el [agente de escucha de comunicación remota V2](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet). El nombre de recurso del punto de conexión de servicio predeterminado usado es "ServiceEndpointV2_1". Se debe definir en el manifiesto de servicio.
+2. Use el [agente de escucha de comunicación remota V2](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet). El nombre de recurso del punto de conexión de servicio predeterminado usado es "ServiceEndpointV2_1". Se debe definir en el manifiesto de servicio.
 
    ```csharp
    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -298,7 +298,7 @@ Siga estos pasos:
     }
    ```
 
-3. Use la [fábrica de cliente](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet) V2.
+3. Use la [fábrica de cliente](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet) V2.
    ```csharp
    var proxyFactory = new ServiceProxyFactory((c) =>
           {
@@ -549,6 +549,6 @@ Siga estos pasos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Web API con OWIN en Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+* [Web API con OWIN en Reliable Services](./service-fabric-reliable-services-communication-aspnetcore.md)
 * [Comunicación de Windows Communication Foundation con Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 * [Protección de la comunicación para Reliable Services](service-fabric-reliable-services-secure-communication.md)

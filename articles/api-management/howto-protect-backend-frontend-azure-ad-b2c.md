@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
-ms.openlocfilehash: 3c5c13b3aae33b098de79a3429a299cc33f1c4f6
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 60177dd00dc6326aae4cfdc0b658c85f2635f8c0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82202883"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253701"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Protección del back-end de SPA con OAuth 2.0, Azure Active Directory B2C y Azure API Management
 
@@ -458,7 +458,7 @@ Deberá agregar bloques de direcciones con formato CIDR al panel restricciones d
 Los pasos anteriores se pueden adaptar y editar para permitir gran cantidad de usos diferentes de Azure AD B2C con API Management.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga más información sobre [Escenarios de autenticación para Azure AD](../active-directory/develop/authentication-scenarios.md).
+* Obtenga más información sobre [Escenarios de autenticación para Azure AD](../active-directory/develop/authentication-vs-authorization.md).
 * Consulte más [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sobre la administración de API.
 * Para conocer otras formas de proteger el servicio back-end, consulte [Autenticación de certificado mutua](api-management-howto-mutual-certificates.md).
 * [Creación de una instancia del servicio de API Management](get-started-create-service-instance.md).

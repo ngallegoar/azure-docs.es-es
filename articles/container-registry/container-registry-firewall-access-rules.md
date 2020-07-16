@@ -3,12 +3,12 @@ title: Reglas de acceso del firewall
 description: Configure reglas para acceder a un registro de contenedor de Azure desde detrás de un firewall. Para ello, permita el acceso a la API de REST ("inclusión en lista blanca") y los nombres de dominio del punto de conexión de datos o los intervalos de direcciones IP específicos del servicio.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 4774191087b3e88e657e8dc9bc6a9f9c406153e2
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 679dbcaf30653b855d35825f94e93f87ac68c322
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849999"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246986"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configuración de reglas para acceder a un registro de contenedor de Azure desde detrás de un firewall
 
@@ -183,7 +183,7 @@ Si necesita obtener acceso a Microsoft Container Registry (MCR) desde detrás de
 
 * Obtenga información sobre los [Procedimientos recomendados de seguridad de la red de Azure](../security/fundamentals/network-best-practices.md).
 
-* Obtenga más información sobre los [grupos de seguridad](/azure/virtual-network/security-overview) en una red virtual de Azure.
+* Obtenga más información sobre los [grupos de seguridad](../virtual-network/security-overview.md) en una red virtual de Azure.
 
 * Más información sobre la configuración de [Private Link](container-registry-private-link.md) para un registro de contenedor
 
@@ -199,4 +199,3 @@ Si necesita obtener acceso a Microsoft Container Registry (MCR) desde detrás de
 
 [az-acr-update]: /cli/azure/acr#az-acr-update
 [az-acr-show-endpoints]: /cli/azure/acr#az-acr-show-endpoints
-

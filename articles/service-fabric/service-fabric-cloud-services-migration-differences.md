@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 283ad2c63bb59771dab7881522e737f773ab1705
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 47c3d1b4d603e2dde2de8d4a95fb953744d71409
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75463367"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259017"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Obtenga información acerca de las diferencias entre Cloud Services y Service Fabric antes de migrar las aplicaciones.
 Microsoft Azure Service Fabric es la plataforma de aplicaciones en la nube de última generación para aplicaciones distribuidas altamente escalables y altamente confiables. Presenta muchas características nuevas para empaquetar, implementar, actualizar y administrar aplicaciones distribuidas en la nube. 
@@ -81,7 +81,7 @@ Puede usarse el mismo modelo de comunicación en Service Fabric. Esto puede ser 
 ![Comunicación directa de Service Fabric][8]
 
 ## <a name="parity"></a>Parity
-[Cloud Services es similar a Service Fabric en lo que se refiere al grado de control frente a la facilidad de uso, pero es un servicio heredado y Service Fabric se recomienda para los desarrollos nuevos](https://docs.microsoft.com/azure/app-service/overview-compare). A continuación se muestra una comparación de la API:
+[Cloud Services es similar a Service Fabric en lo que se refiere al grado de control frente a la facilidad de uso, pero es un servicio heredado y Service Fabric se recomienda para los desarrollos nuevos](/azure/app-service/overview-compare). A continuación se muestra una comparación de la API:
 
 
 | **API de Cloud Services** | **API de Service Fabric** | **Notas** |

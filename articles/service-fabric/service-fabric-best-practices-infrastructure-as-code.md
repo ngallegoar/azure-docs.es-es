@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 1c044d5fd973d3c577088a887f2fac413d2ab79d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c381c6e7d692eda32fea2033779bacddafc267bb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75551835"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253684"
 ---
 # <a name="infrastructure-as-code"></a>Infraestructura como código
 
@@ -44,7 +44,7 @@ New-AzResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -
 
 ## <a name="azure-service-fabric-resources"></a>Recursos de Azure Service Fabric
 
-Puede implementar aplicaciones y servicios en el clúster de Service Fabric mediante Azure Resource Manager. Consulte [Administración de aplicaciones y servicios como recursos de Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource). Los siguientes son recursos específicos de la aplicación Service Fabric de procedimientos recomendados que incluir en los recursos de la plantilla de Resource Manager.
+Puede implementar aplicaciones y servicios en el clúster de Service Fabric mediante Azure Resource Manager. Consulte [Administración de aplicaciones y servicios como recursos de Azure Resource Manager](./service-fabric-application-arm-resource.md). Los siguientes son recursos específicos de la aplicación Service Fabric de procedimientos recomendados que incluir en los recursos de la plantilla de Resource Manager.
 
 ```json
 {
@@ -73,7 +73,7 @@ Puede implementar aplicaciones y servicios en el clúster de Service Fabric medi
 }
 ```
 
-Para implementar la aplicación con Azure Resource Manager, primero debe [crear un archivo sfpkg](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg) (paquete de aplicación de Service Fabric). El siguiente script de Python es un ejemplo de cómo crear un sfpkg:
+Para implementar la aplicación con Azure Resource Manager, primero debe [crear un archivo sfpkg](./service-fabric-package-apps.md#create-an-sfpkg) (paquete de aplicación de Service Fabric). El siguiente script de Python es un ejemplo de cómo crear un sfpkg:
 
 ```python
 # Create SFPKG that needs to be uploaded to Azure Storage Blob Container
@@ -91,7 +91,7 @@ microservices_sfpkg.close()
 ```
 
 ## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Configuración de actualizaciones automáticas del sistema operativo de máquinas virtuales de Azure 
-La actualización de las máquinas virtuales es una operación iniciada por el usuario y lo recomendable es usar la [actualización automática del sistema operativo del conjunto de escalado de máquinas virtuales](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) para la administración de revisiones del host de clústeres de Azure Service Fabric; la aplicación de orquestación de revisiones (POA) es una solución alternativa que está pensada para el hospedaje fuera de Azure, y aunque se puede usar en Azure, la sobrecarga de hospedar POA en Azure es un motivo habitual para preferir la actualización automática del sistema operativo de máquina virtual sobre POA. Estas son las propiedades de plantilla de Resource Manager del conjunto de escalado de máquinas virtuales para permitir la actualización automática del sistema operativo:
+La actualización de las máquinas virtuales es una operación iniciada por el usuario y lo recomendable es usar la [actualización automática del sistema operativo del conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) para la administración de revisiones del host de clústeres de Azure Service Fabric; la aplicación de orquestación de revisiones (POA) es una solución alternativa que está pensada para el hospedaje fuera de Azure, y aunque se puede usar en Azure, la sobrecarga de hospedar POA en Azure es un motivo habitual para preferir la actualización automática del sistema operativo de máquina virtual sobre POA. Estas son las propiedades de plantilla de Resource Manager del conjunto de escalado de máquinas virtuales para permitir la actualización automática del sistema operativo:
 
 ```json
 "upgradePolicy": {

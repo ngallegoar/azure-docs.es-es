@@ -3,12 +3,12 @@ title: Más información acerca de Azure Service Fabric
 description: Obtenga información acerca de los conceptos básicos y las áreas principales de Azure Service Fabric. Proporciona información general ampliada de Service Fabric y cómo crear microservicios.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 573b1ec662bdc7e72f964698f5e0670860895586
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d578d6b3e0232d0733097d68bac22af566b2083
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82791857"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246267"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>¿Qué desea saber sobre Service Fabric?
 Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables.  Sin embargo, Service Fabric tiene un área expuesta de gran tamaño, y hay mucho por aprender.  En este artículo se proporciona una sinopsis de Service Fabric y se describen los conceptos principales, los modelos de programación, el ciclo de vida de la aplicación, las pruebas, los clústeres y la supervisión del estado. Lea [Información general](service-fabric-overview.md) y [¿Qué son los microservicios?](service-fabric-overview-microservices.md) para obtener una introducción y conocer cómo se puede utilizar Service Fabric para crear microservicios. Este artículo no contiene una lista completa de contenido, pero incluye vínculos a información general y artículos de introducción de cada área de Service Fabric. 
@@ -87,7 +87,7 @@ Un [ejecutable de invitado](service-fabric-guest-executables-introduction.md) es
 ## <a name="application-lifecycle"></a>Ciclo de vida de aplicación
 Al igual que sucede con otras plataformas, una aplicación en Service Fabric normalmente pasa por las siguientes fases: diseño, desarrollo, prueba, implementación, actualización, mantenimiento y eliminación. Service Fabric ofrece compatibilidad de primera clase para todo el ciclo de vida de aplicación de las aplicaciones de nube: desde el desarrollo hasta la implementación, la administración diaria, el mantenimiento y, finalmente, la retirada. El modelo de servicio habilita varios roles distintos para participar de manera independiente en el ciclo de vida de la aplicación. En [Ciclo de vida de la aplicación de Service Fabric](service-fabric-application-lifecycle.md) se proporciona información general de las API y cómo las utilizan los distintos roles durante todas las fases del ciclo de vida de la aplicación de Service Fabric. 
 
-El ciclo de vida completo de la aplicación se puede administrar con [cmdlets de PowerShell](/powershell/module/ServiceFabric/), [comandos de la CLI](service-fabric-sfctl.md), [API de C#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [API de Java](/java/api/overview/azure/servicefabric) y [API de REST](/rest/api/servicefabric/). También puede configurar canalizaciones de implementación continua e integración continua con herramientas como [Azure Pipelines](service-fabric-set-up-continuous-integration.md) o [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
+El ciclo de vida completo de la aplicación se puede administrar con [cmdlets de PowerShell](/powershell/module/ServiceFabric/), [comandos de la CLI](service-fabric-sfctl.md), [API de C#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [API de Java](/java/api/overview/azure/servicefabric) y [API de REST](/rest/api/servicefabric/). También puede configurar canalizaciones de implementación continua e integración continua con herramientas como [Azure Pipelines](./service-fabric-tutorial-deploy-app-with-cicd-vsts.md) o [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
 
 ## <a name="test-applications-and-services"></a>Prueba de aplicaciones y servicios
 Para crear verdaderos servicios de escala en la nube, es fundamental comprobar que las aplicaciones y los servicios pueden admitir errores reales. El servicio de análisis de errores se ha diseñado para probar los servicios incorporados en Service Fabric. Con el [servicio de análisis de errores](service-fabric-testability-overview.md), puede provocar errores significativos y ejecutar escenarios de prueba completos con sus aplicaciones. Estos errores y escenarios ejercen y validan los numerosos estados y transiciones que experimentará un servicio durante su vigencia, y todo ello de forma segura, controlada y uniforme.
@@ -112,7 +112,7 @@ Los clústeres de Service Fabric se pueden crear en cualquier máquina virtual o
 ### <a name="clusters-on-azure"></a>Clústeres en Azure
 La ejecución de clústeres de Service Fabric en Azure proporciona integración con otras características y servicios de Azure, lo que facilita las operaciones y la administración del clúster y hace que sea más confiable. Un clúster es un recurso de Azure Resource Manager, que permite modelar clústeres como cualquier otro recurso de Azure. Resource Manager también permite realizar una administración sencilla de todos los recursos utilizados por el clúster como una sola unidad. Los clústeres de Azure se integran con Diagnósticos de Azure y Registros de Azure Monitor. Los tipos de nodo de clúster son [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets/index), por lo que la funcionalidad de escalado automático está integrada.
 
-Puede crear un clúster en Azure a través de [Azure Portal](service-fabric-cluster-creation-via-portal.md), a partir de una [plantilla](service-fabric-cluster-creation-via-arm.md) o en [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
+Puede crear un clúster en Azure a través de [Azure Portal](service-fabric-cluster-creation-via-portal.md), a partir de una [plantilla](service-fabric-cluster-creation-via-arm.md) o en [Visual Studio](./service-fabric-cluster-creation-via-arm.md).
 
 Service Fabric en Linux permite compilar, implementar y administrar aplicaciones de alta disponibilidad y escalabilidad en Linux de la misma forma que en Windows. Los marcos de Service Fabric (Reliable Services y Reliable Actors) se encuentran disponibles en Java en Linux, además de en C# (.NET Core). Puede compilar igualmente [servicios ejecutables invitados](service-fabric-guest-executables-introduction.md) con cualquier lenguaje o marco. También se admite la organización de contenedores de Docker. Los contenedores de Docker pueden ejecutar archivos ejecutables invitados o servicios de Service Fabric nativos que utilizan los marcos de Service Fabric. Para más información, consulte [Service Fabric en Linux](service-fabric-deploy-anywhere.md).
 
@@ -191,7 +191,7 @@ Hay varios productos que abarcan las tres áreas, y puede elegir tecnologías di
 * Más información sobre la [administración y orquestación de recursos de clúster](service-fabric-cluster-resource-manager-introduction.md).
 * Examine los [ejemplos de Service Fabric](https://aka.ms/servicefabricsamples).
 * Más información sobre las [opciones de soporte técnico de Service Fabric](service-fabric-support.md).
-* Lea el [blog del equipo](https://blogs.msdn.microsoft.com/azureservicefabric/) para consultar artículos y anuncios.
+* Lea el [blog del equipo](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) para consultar artículos y anuncios.
 
 
 [cluster-application-instances]: media/service-fabric-content-roadmap/cluster-application-instances.png

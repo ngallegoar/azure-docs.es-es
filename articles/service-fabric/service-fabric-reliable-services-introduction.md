@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 3/9/2018
 ms.author: masnider
 ms.custom: sfrev
-ms.openlocfilehash: 58259b0d19d68c468779a579bd9c86e77106c18d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 66fc58941de206d0bff086f44852d0f2a31587f1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77083503"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253089"
 ---
 # <a name="reliable-services-overview"></a>Información general sobre Reliable Services
 
@@ -37,7 +37,7 @@ Los servicios de confianza le ofrecen un modelo de programación de nivel superi
   * Usar [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
   * Acceder a muchas otras funciones, todas ellas desde un modelo de programación de primer nivel en varios lenguajes de programación.
 * Un modelo sencillo para ejecutar su propio código parecido a los modelos de programación con los que está familiarizado. El código tiene un punto de entrada bien definido y un ciclo de vida de fácil administración.
-* Un modelo de comunicación acoplable. Use el transporte de su elección, por ejemplo, HTTP con [API web](service-fabric-reliable-services-communication-webapi.md), WebSockets, protocolos TCP personalizados o cualquier otro. Reliable Services proporciona excelentes opciones ya integradas, o puede proporcionar las suyas propias.
+* Un modelo de comunicación acoplable. Use el transporte de su elección, por ejemplo, HTTP con [API web](./service-fabric-reliable-services-communication-aspnetcore.md), WebSockets, protocolos TCP personalizados o cualquier otro. Reliable Services proporciona excelentes opciones ya integradas, o puede proporcionar las suyas propias.
 * En los servicios con estado, el modelo de programación de Reliable Services permite almacenar de forma coherente y confiable su estado justo dentro de su servicio mediante [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). Reliable Collections es un conjunto sencillo de clases de colecciones de alta disponibilidad y confiabilidad que le resultará familiar a cualquiera que haya usado colecciones de C#. Tradicionalmente, los servicios necesitaban sistemas externos para efectuar la administración de estados de confianza. Con Reliable Collections, puede almacenar el estado junto a su proceso con la misma alta disponibilidad y confiabilidad que cabe esperar de los almacenes externos de alta disponibilidad. Este modelo también mejora la latencia porque está ubicando conjuntamente los procesos y el estado que necesita para funcionar.
 
 ## <a name="what-makes-reliable-services-different"></a>¿Qué hace que Reliable Services sea diferente?
@@ -53,7 +53,7 @@ Los servicios de Reliable Services son diferentes de los servicios que haya podi
 
 Tanto si el servicio está con estado como sin estado, Reliable Services proporciona un ciclo de vida simple que permite conectar rápidamente el código y empezar a trabajar.  La puesta en funcionamiento de un nuevo servicio requiere la implementación de dos métodos:
 
-* **CreateServiceReplicaListeners/CreateServiceInstanceListeners**: este método es en el que el servicio define las pilas de comunicación que quiere usar. La pila de comunicación, como [API web](service-fabric-reliable-services-communication-webapi.md), es lo que define los puntos de conexión de escucha o del servicio (cómo se comunicarán los clientes con el servicio). También define cómo los mensajes que aparecen interactúan con el resto del código de servicio.
+* **CreateServiceReplicaListeners/CreateServiceInstanceListeners**: este método es en el que el servicio define las pilas de comunicación que quiere usar. La pila de comunicación, como [API web](./service-fabric-reliable-services-communication-aspnetcore.md), es lo que define los puntos de conexión de escucha o del servicio (cómo se comunicarán los clientes con el servicio). También define cómo los mensajes que aparecen interactúan con el resto del código de servicio.
 * **RunAsync**: este método es en el que su servicio ejecuta su lógica de negocios, y donde debería iniciar las tareas en segundo plano que se deben ejecutar durante la vigencia del servicio. El token de cancelación que se proporciona es una señal de cuándo debe detenerse ese trabajo. Por ejemplo, si el servicio necesita extraer mensajes de una cola de Reliable y procesarlos, aquí es donde se produce ese trabajo.
 
 Si este es su primer contacto con Reliable Services, siga leyendo. Si busca un tutorial detallado del ciclo de vida de Reliable Services, consulte [Información general del ciclo de vida de Reliable Services](service-fabric-reliable-services-lifecycle.md).
@@ -68,7 +68,7 @@ Un *servicio sin estado* es aquel en el que no se mantiene ningún estado en el 
 
 Por ejemplo, tomemos una calculadora que no tiene memoria y que recibe todos los términos y las operaciones que debe realizar a la vez.
 
-En este caso, el `RunAsync()` (C#) o `runAsync()` (Java) del servicio puede estar vacío, ya que no hay ningún procesamiento de tareas en segundo plano que el servicio necesite realizar. Cuando se crea el servicio de calculadora, devuelve un elemento `ICommunicationListener` (C#) o `CommunicationListener` (Java) (por ejemplo, [API web](service-fabric-reliable-services-communication-webapi.md)), que abre un punto de conexión de escucha en algún puerto. Este punto de conexión de escucha se enlaza con los diferentes métodos de cálculo (por ejemplo: "Add(n1, n2)") que definen la API pública de la calculadora.
+En este caso, el `RunAsync()` (C#) o `runAsync()` (Java) del servicio puede estar vacío, ya que no hay ningún procesamiento de tareas en segundo plano que el servicio necesite realizar. Cuando se crea el servicio de calculadora, devuelve un elemento `ICommunicationListener` (C#) o `CommunicationListener` (Java) (por ejemplo, [API web](./service-fabric-reliable-services-communication-aspnetcore.md)), que abre un punto de conexión de escucha en algún puerto. Este punto de conexión de escucha se enlaza con los diferentes métodos de cálculo (por ejemplo: "Add(n1, n2)") que definen la API pública de la calculadora.
 
 Cuando se realiza una llamada desde un cliente, se invoca el método adecuado y el servicio de calculadora realiza las operaciones en los datos proporcionados y devuelve el resultado. No almacena ningún estado.
 

@@ -3,12 +3,12 @@ title: Reliable Actors temporizadores y recordatorios
 description: Introducción a los temporizadores y avisos de Service Fabric Reliable Actors, incluidas instrucciones sobre cuándo usar cada uno.
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.openlocfilehash: 67dc5d9706c2176b2fe70d2540be00d0af79fd80
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: a464fda3f8b0f293efd36cf0a064156bd7795d44
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996350"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245955"
 ---
 # <a name="actor-timers-and-reminders"></a>Recordatorios y temporizadores de los actores
 Los actores pueden programar el trabajo periódico mediante el registro de temporizadores o recordatorios. En este artículo se muestra cómo utilizar temporizadores y recordatorios. Además, se explican las diferencias entre ellos.
@@ -130,7 +130,7 @@ Los recordatorios son un mecanismo para desencadenar devoluciones de llamada per
 > [!NOTE]
 > La confiabilidad de los recordatorios está ligada a las garantías de confiabilidad del estado proporcionadas por el proveedor de estado del actor. Esto significa que para los actores cuya persistencia de estado se establece en *Ninguna*, los recordatorios no se activarán después de una conmutación por error.
 
-Para registrar un recordatorio, un actor llama al método [`RegisterReminderAsync`](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.runtime.actorbase.registerreminderasync?view=azure-dotnet#remarks) que se ofrece en la clase base, tal y como se muestra en el ejemplo siguiente:
+Para registrar un recordatorio, un actor llama al método [`RegisterReminderAsync`](/dotnet/api/microsoft.servicefabric.actors.runtime.actorbase.registerreminderasync?view=azure-dotnet#remarks) que se ofrece en la clase base, tal y como se muestra en el ejemplo siguiente:
 
 ```csharp
 protected override async Task OnActivateAsync()

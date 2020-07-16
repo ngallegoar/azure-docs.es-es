@@ -7,12 +7,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: pepogors
-ms.openlocfilehash: f8d8d5ae677ea438de4baed7d6636c2087277427
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa1499c57ead28bfcee90a2f224ef9c3bb1d7f58
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85602710"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247831"
 ---
 # <a name="service-fabric-guardrails"></a>Protecciones de Service Fabric 
 Al implementar un clúster de Service Fabric, se colocan protecciones, lo que producirá un error en una implementación de Azure Resource Manager en el caso de que haya una configuración de clúster no válida. En las secciones siguientes se proporciona información general sobre los problemas comunes de configuración de clústeres y los pasos necesarios para mitigarlos. 
@@ -68,7 +68,7 @@ Para solucionar un error de coincidencia de durabilidad, que se indica mediante 
 
 ## <a name="seed-node-deletion"></a>Eliminación de nodo de inicialización 
 ### <a name="overview"></a>Información general
-Un clúster de Service Fabric tiene una propiedad de [nivel de confiabilidad](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#reliability-characteristics-of-the-cluster) que se usa para determinar el número de réplicas de los servicios del sistema que se ejecutan en el tipo de nodo principal del clúster. El número de réplicas necesarias determinará el número mínimo de nodos que se deben mantener en el tipo de nodo principal del clúster. Si el número de nodos en el tipo de nodo principal es inferior al mínimo necesario para el nivel de confiabilidad, el clúster se volverá inestable.  
+Un clúster de Service Fabric tiene una propiedad de [nivel de confiabilidad](./service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) que se usa para determinar el número de réplicas de los servicios del sistema que se ejecutan en el tipo de nodo principal del clúster. El número de réplicas necesarias determinará el número mínimo de nodos que se deben mantener en el tipo de nodo principal del clúster. Si el número de nodos en el tipo de nodo principal es inferior al mínimo necesario para el nivel de confiabilidad, el clúster se volverá inestable.  
 
 ### <a name="error-messages"></a>Mensajes de error 
 Se ha detectado una operación de eliminación del nodo de inicialización y se rechazará. 
@@ -79,7 +79,7 @@ Se ha detectado una operación de eliminación del nodo de inicialización y se 
 Asegúrese de que el tipo de nodo principal tenga suficientes máquinas virtuales para la confiabilidad especificada en el clúster. No podrá quitar una máquina virtual si esto hace que el conjunto de escalado de máquinas virtuales quede por debajo del número mínimo de nodos para el nivel de confiabilidad establecido.
 * Si el nivel de confiabilidad se especifica correctamente, asegúrese de tener nodos suficientes en el tipo de nodo principal según sea necesario para el nivel de confiabilidad. 
 * Si el nivel de confiabilidad es incorrecto, inicie un cambio en el recurso de Service Fabric para reducir primero el nivel de confiabilidad antes de iniciar las operaciones con el conjunto de escalado de máquinas virtuales, y espere a que se complete.
-* Si el nivel de confiabilidad es bronce, siga estos [pasos](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) para reducir horizontalmente el clúster correctamente.
+* Si el nivel de confiabilidad es bronce, siga estos [pasos](./service-fabric-cluster-scale-in-out.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) para reducir horizontalmente el clúster correctamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Creación de un clúster en máquinas virtuales o equipos que ejecutan Windows Server: [Creación de un clúster independiente con Windows Server](service-fabric-cluster-creation-for-windows-server.md)

@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 5bb7ab6c861d958f6811ca852363c59cfced3940
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 54edc242260479a8f48cc4aae91845041fc2d376
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76718827"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260101"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Montaje de un volumen basado en Azure Files en una aplicación Service Fabric Mesh 
 
 En este artículo se describe cómo montar un volumen basado en Azure Files en un servicio de una aplicación Service Fabric Mesh.  El controlador de volumen de Azure Files es un controlador de volumen de Docker que se utiliza para montar un recurso compartido de Azure Files en un contenedor, que se utiliza para conservar el estado del servicio. Los volúmenes proporcionan almacenamiento de archivos de propósito general y permiten leer y escribir archivos mediante las API de archivos de E/S de disco normal.  Para obtener más información sobre los volúmenes y las opciones para almacenar datos de la aplicación, lea el artículo sobre cómo [almacenar el estado](service-fabric-mesh-storing-state.md).
 
-Para montar un volumen en un servicio, cree un recurso de volumen en la aplicación Service Fabric Mesh y, a continuación, haga referencia a ese volumen en el servicio.  La declaración del recurso de volumen y la referencia a él en el recurso del servicio se pueden realizar en [archivos de recursos basados en YAML](#declare-a-volume-resource-and-update-the-service-resource-yaml) o en la [plantilla de implementación basada en JSON](#declare-a-volume-resource-and-update-the-service-resource-json). Antes de montar el volumen, primero cree una cuenta de almacenamiento de Azure y un [recurso compartido de archivos en Azure Files](/azure/storage/files/storage-how-to-create-file-share).
+Para montar un volumen en un servicio, cree un recurso de volumen en la aplicación Service Fabric Mesh y, a continuación, haga referencia a ese volumen en el servicio.  La declaración del recurso de volumen y la referencia a él en el recurso del servicio se pueden realizar en [archivos de recursos basados en YAML](#declare-a-volume-resource-and-update-the-service-resource-yaml) o en la [plantilla de implementación basada en JSON](#declare-a-volume-resource-and-update-the-service-resource-json). Antes de montar el volumen, primero cree una cuenta de almacenamiento de Azure y un [recurso compartido de archivos en Azure Files](../storage/files/storage-how-to-create-file-share.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 > [!NOTE]

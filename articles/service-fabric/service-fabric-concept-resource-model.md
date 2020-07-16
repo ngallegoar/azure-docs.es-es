@@ -4,12 +4,12 @@ description: En este artículo se proporciona información general sobre la admi
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
-ms.openlocfilehash: 7a9f59e3e44d3302ac19c7a9e7e77beb51947ce4
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 7ad0d4f6d92ba8d85383df281bd14681f43bb6d4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81682639"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258740"
 ---
 # <a name="service-fabric-application-resource-model"></a>Modelo de recurso de aplicación de Service Fabric
 
@@ -56,7 +56,7 @@ Para proteger los recursos del clúster es preciso establecer el nivel de acceso
 
 * Autorizar el acceso a blobs y colas mediante [Azure Active Directory](../storage/common/storage-auth-aad-app.md).
 * Conceder acceso a los datos de los blobs y las colas de Azure mediante [RBAC en Azure Portal](../storage/common/storage-auth-aad-rbac-portal.md).
-* [Delegar el acceso mediante una firma de acceso compartido](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature).
+* [Delegar el acceso mediante una firma de acceso compartido](/rest/api/storageservices/delegate-access-with-shared-access-signature).
 
 El ejemplo de la siguiente captura de pantalla usa acceso de lectura anónimo para los blobs.
 
@@ -166,13 +166,13 @@ Cualquier aplicación implementada en un clúster de Service Fabric se puede act
 
 Para eliminar una aplicación implementada mediante el modelo de recursos de aplicación en Resource Manager:
 
-1. Use el cmdlet [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource?view=azps-2.5.0) para obtener el identificador de recurso de la aplicación:
+1. Use el cmdlet [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-2.5.0) para obtener el identificador de recurso de la aplicación:
 
     ```powershell
     Get-AzResource  -Name <String> | f1
     ```
 
-1. Use el cmdlet [Remove-AzResource](https://docs.microsoft.com/powershell/module/az.resources/remove-azresource?view=azps-2.5.0) para eliminar los recursos de la aplicación:
+1. Use el cmdlet [Remove-AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.5.0) para eliminar los recursos de la aplicación:
 
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]

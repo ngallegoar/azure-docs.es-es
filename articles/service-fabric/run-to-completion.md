@@ -5,12 +5,12 @@ author: shsha-msft
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: shsha
-ms.openlocfilehash: adf4b11412aa752144d4ed4fef06d2de1d76598d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 6f2f6aa4380fcf6909957118bf682275350ce68c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427468"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261201"
 ---
 # <a name="runtocompletion"></a>RunToCompletion
 
@@ -45,7 +45,7 @@ Veamos un ejemplo completo del uso de la semántica de RunToCompletion.
 > [!IMPORTANT]
 > En el siguiente ejemplo se supone que está familiarizado con la creación de [aplicaciones de contenedor de Windows con Service Fabric y Docker][containers-getting-started-link].
 >
-> En este ejemplo se hace referencia a mcr.microsoft.com/windows/nanoserver:1809. Los contenedores de Windows Server no son compatibles con todas las versiones del sistema operativo de un host. Para más información, consulte [Compatibilidad con versiones de contenedores de Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+> En este ejemplo se hace referencia a mcr.microsoft.com/windows/nanoserver:1809. Los contenedores de Windows Server no son compatibles con todas las versiones del sistema operativo de un host. Para más información, consulte [Compatibilidad con versiones de contenedores de Windows](/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
 En el siguiente archivo ServiceManifest.xml se describe un ServicePackage que consta de dos CodePackages, que representan contenedores. *RunToCompletionCodePackage1* simplemente registra un mensaje en **stdout** y se cierra. *RunToCompletionCodePackage2* hace ping en la dirección de bucle invertido durante un tiempo y luego se cierra con un código de salida de **0**, **1** o **2**.
 
@@ -129,8 +129,7 @@ Para obtener información relacionada, consulte los siguientes artículos.
 [application-and-service-manifests-link]: service-fabric-application-and-service-manifests.md
 [setup-entry-point-link]: service-fabric-run-script-at-service-startup.md
 [deployed-service-package-working-with-link]: service-fabric-hosting-model.md#work-with-a-deployed-service-package
-[deployed-code-package-link]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedcodepackage
-[deployed-service-package-link]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicePackage
-[fabric-client-link]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient
-[deployed-service-package-fabricclient-link]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync
-
+[deployed-code-package-link]: /powershell/module/servicefabric/get-servicefabricdeployedcodepackage
+[deployed-service-package-link]: /powershell/module/servicefabric/get-servicefabricdeployedservicepackage
+[fabric-client-link]: /dotnet/api/system.fabric.fabricclient
+[deployed-service-package-fabricclient-link]: /dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync

@@ -4,12 +4,12 @@ description: Obtenga información sobre las preguntas más frecuentes y respuest
 ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 2a5c2ea63d162eb6fb78ab702e0519f8ac25dcc7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 64eeb43d743d71d5acd456409445a4fadfe91aeb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252501"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260127"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Preguntas frecuentes sobre Service Fabric Mesh
 
@@ -121,7 +121,7 @@ En el clúster de desarrollo local use `{serviceName}.{applicationName}`. En Azu
 
 Azure Mesh no admite actualmente la resolución de DNS en todas las aplicaciones.
 
-Para ver otros problemas conocidos de DNS con la ejecución de un clúster de desarrollo de Service Fabric en Windows 10, consulte: [Depuración de contenedores de Windows](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) y [Problemas conocidos de DNS](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues).
+Para ver otros problemas conocidos de DNS con la ejecución de un clúster de desarrollo de Service Fabric en Windows 10, consulte: [Depuración de contenedores de Windows](../service-fabric/service-fabric-how-to-debug-windows-containers.md) y [Problemas conocidos de DNS](../service-fabric/service-fabric-dnsservice.md#known-issues).
 
 ### <a name="networking"></a>Redes
 

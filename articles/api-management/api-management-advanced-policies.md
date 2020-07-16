@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 5b17b7784691cdf38c45e4f306b2ed14b981a2d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3843ff986fdc37c37690bee9616861f16a334c67
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751260"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243739"
 ---
 # <a name="api-management-advanced-policies"></a>Directivas avanzadas de API Management
 
@@ -38,7 +38,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 -   [Establecer método de solicitud](#SetRequestMethod) : le permite cambiar el método HTTP de una solicitud.
 -   [Establecimiento de código de estado](#SetStatus): cambia el código de estado HTTP al valor especificado.
 -   [Establecimiento de variable](api-management-advanced-policies.md#set-variable): conserva un valor en una variable [context](api-management-policy-expressions.md#ContextVariables) con nombre para su posterior acceso.
--   [Trace](#Trace): agrega seguimientos personalizados a la salida de la [inspección de la API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/), a la telemetría de Application Insights y a los registros de recursos.
+-   [Trace](#Trace): agrega seguimientos personalizados a la salida de la [inspección de la API](./api-management-howto-api-inspector.md), a la telemetría de Application Insights y a los registros de recursos.
 -   [Wait](#Wait) (Esperar): espera a que se completen las directivas adjuntas [Send request](api-management-advanced-policies.md#SendRequest) (Enviar solicitud), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey) (Obtener el valor de caché) o [Control flow](api-management-advanced-policies.md#choose) (Flujo de control) antes de continuar.
 
 ## <a name="control-flow"></a><a name="choose"></a> Flujo de control
@@ -140,7 +140,7 @@ En este ejemplo se muestra cómo filtrar contenido quitando elementos de datos d
 
 ### <a name="usage"></a><a name="ChooseUsage"></a> Uso
 
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error
 
@@ -148,7 +148,7 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 
 ## <a name="forward-request"></a><a name="ForwardRequest"></a> Reenvío de solicitud
 
-La directiva `forward-request` reenvía la solicitud entrante al servicio back-end especificado en el [contexto](api-management-policy-expressions.md#ContextVariables) de la solicitud. La dirección URL del servicio back-end se especifica en la [configuración](https://azure.microsoft.com/documentation/articles/api-management-howto-create-apis/#configure-api-settings) de la API y se puede cambiar mediante la directiva de [establecimiento del servicio back-end](api-management-transformation-policies.md).
+La directiva `forward-request` reenvía la solicitud entrante al servicio back-end especificado en el [contexto](api-management-policy-expressions.md#ContextVariables) de la solicitud. La dirección URL del servicio back-end se especifica en la [configuración](./import-and-publish.md) de la API y se puede cambiar mediante la directiva de [establecimiento del servicio back-end](api-management-transformation-policies.md).
 
 > [!NOTE]
 > Si quita los resultados de esta directiva en la solicitud no se reenviarán al servicio back-end, y las directivas de la sección de salida se evaluarán inmediatamente tras la finalización correcta de las directivas en la sección de entrada.
@@ -259,7 +259,7 @@ Esta directiva de nivel de operación no reenvía solicitudes al servicio back-e
 
 ### <a name="usage"></a>Uso
 
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** back-end
 -   **Ámbitos de la directiva:** todos los ámbitos
@@ -309,7 +309,7 @@ En el ejemplo siguiente se muestra cómo limitar el número de solicitudes que s
 
 ### <a name="usage"></a>Uso
 
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error
 
@@ -320,7 +320,7 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 La directiva `log-to-eventhub` envía mensajes en el formato especificado a un centro de eventos definido por una entidad del registrador. Como su nombre indica, la directiva se usa para guardar información de contexto de respuesta o solicitud que se ha seleccionado para su análisis en línea o sin conexión.
 
 > [!NOTE]
-> Para obtener una guía paso a paso acerca de cómo configurar un centro de eventos y eventos de registro, consulte [Cómo registrar eventos de API Management con Azure Event Hubs](https://azure.microsoft.com/documentation/articles/api-management-howto-log-event-hubs/).
+> Para obtener una guía paso a paso acerca de cómo configurar un centro de eventos y eventos de registro, consulte [Cómo registrar eventos de API Management con Azure Event Hubs](./api-management-howto-log-event-hubs.md).
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
@@ -363,7 +363,7 @@ Puede utilizar cualquier cadena como valor que se registrará en Event Hubs. En 
 
 ### <a name="usage"></a>Uso
 
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error
 
@@ -407,7 +407,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="usage"></a>Uso
 
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** entrante, saliente y en caso de error
 
@@ -475,7 +475,7 @@ En el siguiente ejemplo de solicitud, el reenvío de solicitud se vuelve a inten
 
 ### <a name="usage"></a>Uso
 
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva. Tenga en cuenta que esta directiva heredará las restricciones de uso de directivas secundarias.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva. Tenga en cuenta que esta directiva heredará las restricciones de uso de directivas secundarias.
 
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error
 
@@ -525,7 +525,7 @@ La directiva `return-response` anula la ejecución de la canalización y devuelv
 
 ### <a name="usage"></a>Uso
 
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error
 
@@ -550,7 +550,7 @@ La directiva `send-one-way-request` envía la solicitud proporcionada a la direc
 
 ### <a name="example"></a>Ejemplo
 
-Esto es un ejemplo de cómo usar la directiva `send-one-way-request` para enviar un mensaje a un salón de chat de Slack cuando el código de respuesta HTTP es mayor o igual que 500. Si desea más información sobre este ejemplo, consulte [Uso de servicios externos del servicio Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
+Esto es un ejemplo de cómo usar la directiva `send-one-way-request` para enviar un mensaje a un salón de chat de Slack cuando el código de respuesta HTTP es mayor o igual que 500. Si desea más información sobre este ejemplo, consulte [Uso de servicios externos del servicio Azure API Management](./api-management-sample-send-request.md).
 
 ```xml
 <choose>
@@ -599,7 +599,7 @@ Esto es un ejemplo de cómo usar la directiva `send-one-way-request` para enviar
 
 ### <a name="usage"></a>Uso
 
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error
 
@@ -625,7 +625,7 @@ La directiva `send-request` envía la solicitud proporcionada a la dirección UR
 
 ### <a name="example"></a>Ejemplo
 
-En este ejemplo se muestra una forma de comprobar un token de referencia con un servidor de autorización. Si desea más información sobre este ejemplo, consulte [Uso de servicios externos del servicio Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
+En este ejemplo se muestra una forma de comprobar un token de referencia con un servidor de autorización. Si desea más información sobre este ejemplo, consulte [Uso de servicios externos del servicio Azure API Management](./api-management-sample-send-request.md).
 
 ```xml
 <inbound>
@@ -686,7 +686,7 @@ En este ejemplo se muestra una forma de comprobar un token de referencia con un 
 
 ### <a name="usage"></a>Uso
 
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error
 
@@ -728,7 +728,7 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
 
 ### <a name="usage"></a>Uso
 
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound (entrada)
 
@@ -747,7 +747,7 @@ La directiva `set-method` le permite cambiar el método de solicitud de HTTP par
 
 ### <a name="example"></a>Ejemplo
 
-En este ejemplo, donde se usa la directiva `set-method`, se ilustra cómo enviar un mensaje a un salón de chat de Slack cuando el código de respuesta HTTP es mayor o igual que 500. Si desea más información sobre este ejemplo, consulte [Uso de servicios externos del servicio Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
+En este ejemplo, donde se usa la directiva `set-method`, se ilustra cómo enviar un mensaje a un salón de chat de Slack cuando el código de respuesta HTTP es mayor o igual que 500. Si desea más información sobre este ejemplo, consulte [Uso de servicios externos del servicio Azure API Management](./api-management-sample-send-request.md).
 
 ```xml
 <choose>
@@ -783,7 +783,7 @@ En este ejemplo, donde se usa la directiva `set-method`, se ilustra cómo enviar
 
 ### <a name="usage"></a>Uso
 
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** entrante y en caso de error
 
@@ -802,7 +802,7 @@ La directiva `set-status` establece el código de estado HTTP en el valor especi
 
 ### <a name="example"></a>Ejemplo
 
-En este ejemplo se muestra cómo devolver una respuesta 401 si el token de autorización no es válido. Si desea más información, consulte [Uso de servicios externos del servicio Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
+En este ejemplo se muestra cómo devolver una respuesta 401 si el token de autorización no es válido. Si desea más información, consulte [Uso de servicios externos del servicio Azure API Management](./api-management-sample-send-request.md).
 
 ```xml
 <choose>
@@ -833,7 +833,7 @@ En este ejemplo se muestra cómo devolver una respuesta 401 si el token de autor
 
 ### <a name="usage"></a>Uso
 
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** saliente, back-end y en caso de error
 -   **Ámbitos de la directiva:** todos los ámbitos
@@ -871,7 +871,7 @@ En el ejemplo siguiente se muestra una directiva de establecimiento de variable 
 
 ### <a name="usage"></a>Uso
 
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error
 -   **Ámbitos de la directiva:** todos los ámbitos
@@ -916,9 +916,9 @@ Las expresiones usadas en la directiva `set-variable` deben devolver uno de los 
 
 La directiva `trace` agrega un seguimiento personalizado a la salida de la inspección de la API, a los datos de telemetría de Application Insights o a los registros de recursos.
 
--   La directiva agrega un seguimiento personalizado a la salida de la [inspección de la API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) cuando se desencadena el seguimiento, es decir, cuando el encabezado de solicitud `Ocp-Apim-Trace` está presente y establecido en true y el encabezado de solicitud `Ocp-Apim-Subscription-Key` está presente y contiene una clave válida que permite el seguimiento.
--   La directiva crea una telemetría [Trace](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) en Application Insights cuando está habilitada la integración de [Application Insights](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights) y el nivel de `severity` especificado en la directiva es mayor o igual que el nivel de `verbosity` especificado en la configuración de diagnóstico.
--   La directiva agrega una propiedad en la entrada del registro cuando se habilitan los [registros de recursos](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) y el nivel de gravedad especificado en la directiva es igual o mayor que el nivel de detalle especificado en la configuración de diagnóstico.
+-   La directiva agrega un seguimiento personalizado a la salida de la [inspección de la API](./api-management-howto-api-inspector.md) cuando se desencadena el seguimiento, es decir, cuando el encabezado de solicitud `Ocp-Apim-Trace` está presente y establecido en true y el encabezado de solicitud `Ocp-Apim-Subscription-Key` está presente y contiene una clave válida que permite el seguimiento.
+-   La directiva crea una telemetría [Trace](../azure-monitor/app/data-model-trace-telemetry.md) en Application Insights cuando está habilitada la integración de [Application Insights](./api-management-howto-app-insights.md) y el nivel de `severity` especificado en la directiva es mayor o igual que el nivel de `verbosity` especificado en la configuración de diagnóstico.
+-   La directiva agrega una propiedad en la entrada del registro cuando se habilitan los [registros de recursos](./api-management-howto-use-azure-monitor.md#activity-logs) y el nivel de gravedad especificado en la directiva es igual o mayor que el nivel de detalle especificado en la configuración de diagnóstico.
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
@@ -946,7 +946,7 @@ La directiva `trace` agrega un seguimiento personalizado a la salida de la inspe
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | seguimiento    | Elemento raíz.                                                                                                                                        | Sí      |
 | message  | Cadena o expresión que se va a registrar.                                                                                                                 | Sí      |
-| metadata | Agrega una propiedad personalizada a la telemetría [Trace](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) de Application Insights. | No       |
+| metadata | Agrega una propiedad personalizada a la telemetría [Trace](../azure-monitor/app/data-model-trace-telemetry.md) de Application Insights. | No       |
 
 ### <a name="attributes"></a>Atributos
 
@@ -959,7 +959,7 @@ La directiva `trace` agrega un seguimiento personalizado a la salida de la inspe
 
 ### <a name="usage"></a>Uso
 
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error
 
@@ -1029,7 +1029,7 @@ En el ejemplo siguiente hay dos directivas `choose` que son directivas secundari
 
 ### <a name="usage"></a>Uso
 
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 -   **Secciones de la directiva:** entrante, saliente y back-end
 -   **Ámbitos de la directiva:** todos los ámbitos
@@ -1040,5 +1040,5 @@ Para obtener más información sobre cómo trabajar con directivas, consulte:
 
 -   [Directivas de Azure API Management](api-management-howto-policies.md)
 -   [Expresiones de directiva](api-management-policy-expressions.md)
--   En la [Referencia de directivas](api-management-policy-reference.md) se muestra una lista completa de declaraciones de directivas y su configuración
+-   En la [Referencia de directivas](./api-management-policies.md) se muestra una lista completa de declaraciones de directivas y su configuración
 -   [Ejemplos de directivas](policy-samples.md)

@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 55ee4c7498dcda3060d4e4221711793b80132bdf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b8bf54f9909125030e067bc483ca2fb7e3dc68a7
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79502291"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253361"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>Implementación de características de nivel de servicio en el servicio de actor
 
@@ -143,7 +143,7 @@ public class Program
 
 ## <a name="implement-actor-backup-and-restore"></a>Implementación de la copia de seguridad y la restauración de actores
 
-Un servicio de actor personalizado puede exponer un método para crear una copia de seguridad de los datos de actor mediante el uso del agente de escucha remoto que ya se encuentra presente en `ActorService`: Para obtener un ejemplo, vea [Actores de copia de seguridad y restauración](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
+Un servicio de actor personalizado puede exponer un método para crear una copia de seguridad de los datos de actor mediante el uso del agente de escucha remoto que ya se encuentra presente en `ActorService`: Para obtener un ejemplo, vea [Actores de copia de seguridad y restauración](service-fabric-reliable-actors-backup-and-restore.md).
 
 ## <a name="actor-that-uses-a-remoting-v2-interface-compatible-stack"></a>Actor que usa una pila de comunicación remota V2 (compatible con interfaz)
 
@@ -215,7 +215,7 @@ Este cambio es una actualización en dos pasos. Siga los pasos de esta secuencia
 
 * [Administración de estados de los actores](service-fabric-reliable-actors-state-management.md)
 * [Ciclo de vida de un actor y recolección de elementos no utilizados](service-fabric-reliable-actors-lifecycle.md)
-* [Documentación de referencia de la API de actores](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Documentación de referencia de la API de actores](/previous-versions/azure/dn971626(v=azure.100))
 * [Código de ejemplo de .NET](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Código de ejemplo de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 

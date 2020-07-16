@@ -3,12 +3,12 @@ title: Habilitación de la identidad administrada en el grupo de contenedores
 description: Aprenda a habilitar una identidad administrada en Azure Container Instances que se pueda autenticar con otros servicios de Azure.
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 9bc96ed29039650082bdfa8b7b2b1b48ecb6bd3f
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 23f2347593137a4846c8fd22e3b90f22db39bda3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169789"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259628"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Cómo utilizar una identidad administrada con Azure Container Instances
 
@@ -392,6 +392,6 @@ En este artículo, ha conocido las identidades administradas de Azure Container 
 > * Concesión de acceso a la identidad a una instancia de Azure Key Vault
 > * Uso de la identidad administrada para acceder a un almacén de claves desde un contenedor en ejecución
 
-* Obtenga más información sobre las [identidades administradas para recursos de Azure](/azure/active-directory/managed-identities-azure-resources/).
+* Obtenga más información sobre las [identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/index.yml).
 
 * Vea un [ejemplo de Azure SDK para Go](https://medium.com/@samkreter/c98911206328) sobre el uso de una identidad administrada para acceder a un almacén de claves desde Azure Container Instances.

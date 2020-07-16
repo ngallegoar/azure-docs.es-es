@@ -3,12 +3,12 @@ title: Actualización de un clúster para usar el nombre común del certificado
 description: Obtenga información acerca de cómo puede hacer que un clúster de Service Fabric use el nombre común del certificado en vez de las huellas digitales del mismo.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 1926b0501766eb0a5fe086ceada0c9bf45e3dcf6
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: a90290430616302dbbe9ab9cf717510070936529
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81272634"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247921"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Cambiar el clúster para que use un nombre común en vez de la huella digital del certificado
 No hay dos certificados que puedan tener la misma huella digital, lo que dificulta la sustitución o administración del certificado de clúster. Sin embargo, varios certificados pueden tener el mismo nombre o asunto común.  Si cambia un clúster implementado para que use nombres comunes del certificado en vez de las huellas digitales del mismo, será mucho más fácil administrar los certificados. En este artículo se describe cómo actualizar un clúster activo de Service Fabric para que use un nombre común del certificado en lugar de la huella digital del certificado.
@@ -20,7 +20,7 @@ No hay dos certificados que puedan tener la misma huella digital, lo que dificul
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="get-a-certificate"></a>Obtener un certificado
-Primero, obtenga un certificado de una [entidad de certificación (CA)](https://wikipedia.org/wiki/Certificate_authority).  El nombre común del certificado debe ser para el dominio personalizado que posee, y que ha comprado de un registrador de dominios. Por ejemplo, "azureservicefabricbestpractices.com"; aquellos que no son empleados de Microsoft no pueden aprovisionar certificados para dominios de MS, por lo que no puede usar los nombres DNS del equilibrador de carga o Traffic Manager como los nombres comunes del certificado, y deberá aprovisionar una [zona de Azure DNS](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) para que el dominio personalizado pueda resolverse en Azure. También deberá declarar el dominio personalizado que posee como el valor "managementEndpoint" del clúster si quiere que el portal refleje el alias del dominio personalizado para el clúster.
+Primero, obtenga un certificado de una [entidad de certificación (CA)](https://wikipedia.org/wiki/Certificate_authority).  El nombre común del certificado debe ser para el dominio personalizado que posee, y que ha comprado de un registrador de dominios. Por ejemplo, "azureservicefabricbestpractices.com"; aquellos que no son empleados de Microsoft no pueden aprovisionar certificados para dominios de MS, por lo que no puede usar los nombres DNS del equilibrador de carga o Traffic Manager como los nombres comunes del certificado, y deberá aprovisionar una [zona de Azure DNS](../dns/dns-delegate-domain-azure-dns.md) para que el dominio personalizado pueda resolverse en Azure. También deberá declarar el dominio personalizado que posee como el valor "managementEndpoint" del clúster si quiere que el portal refleje el alias del dominio personalizado para el clúster.
 
 Si quiere realizar pruebas, puede obtener un certificado que haya firmado una CA de una entidad de certificación gratuita o pública.
 
@@ -179,7 +179,7 @@ A continuación, abra el archivo de plantilla en el editor de texto y realice tr
         ...
     ```
 
-Para obtener más información, [Implementar un clúster de Service Fabric que utiliza un nombre común del certificado en lugar de una huella digital.](https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn)
+Para obtener más información, [Implementar un clúster de Service Fabric que utiliza un nombre común del certificado en lugar de una huella digital.](./service-fabric-create-cluster-using-cert-cn.md)
 
 ## <a name="deploy-the-updated-template"></a>Implementar la plantilla actualizada
 Vuelva a implementar la plantilla actualizada después de realizar los cambios.

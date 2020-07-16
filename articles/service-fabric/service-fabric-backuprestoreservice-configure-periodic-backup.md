@@ -5,12 +5,12 @@ author: hrushib
 ms.topic: article
 ms.date: 2/01/2019
 ms.author: hrushib
-ms.openlocfilehash: 34c6495e094a1160f6ac75b9f098934d5cbce967
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c77f069d93e368652c30cd100b0f99ca55341882
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75610155"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261231"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Información sobre la configuración de la copia de seguridad periódica en Azure Service Fabric
 
@@ -158,23 +158,23 @@ Se supone que los requisitos de copia de seguridad de datos de estas aplicacione
 
 Para afrontar estos requisitos de copia de seguridad de datos, se crean las directivas de copia de seguridad BP_1 a BP_5 y la copia de seguridad se habilita de la siguiente manera.
 1. MyApp_A
-    1. Cree una directiva de copia de seguridad, _BP_1_, con la programación de copia de seguridad basada en frecuencia, donde esta se establezca en 24 horas y el almacenamiento de copia de seguridad se configure para usar la ubicación de almacenamiento _BackupStore1_. Habilite esta directiva para la aplicación _MyApp_A_ con la API para [habilitar copia de seguridad de aplicación](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableapplicationbackup). Esta acción habilita la copia de seguridad de datos mediante la directiva de copia de seguridad _BP_1_ para todas las particiones de _servicios con estado de confianza_ y _Reliable Actors_ que pertenezcan a la aplicación _MyApp_A_.
+    1. Cree una directiva de copia de seguridad, _BP_1_, con la programación de copia de seguridad basada en frecuencia, donde esta se establezca en 24 horas y el almacenamiento de copia de seguridad se configure para usar la ubicación de almacenamiento _BackupStore1_. Habilite esta directiva para la aplicación _MyApp_A_ con la API para [habilitar copia de seguridad de aplicación](/rest/api/servicefabric/sfclient-api-enableapplicationbackup). Esta acción habilita la copia de seguridad de datos mediante la directiva de copia de seguridad _BP_1_ para todas las particiones de _servicios con estado de confianza_ y _Reliable Actors_ que pertenezcan a la aplicación _MyApp_A_.
 
-    2. Cree una directiva de copia de seguridad, _BP_2_, con la programación de copia de seguridad basada en frecuencia, donde esta se establezca en 1 hora y el almacenamiento de copia de seguridad se configure para usar la ubicación de almacenamiento _BackupStore1_. Habilite esta directiva para el servicio _SvcA3_ mediante la API para [habilitar copia de seguridad de servicio](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup). Esta acción reemplaza la directiva propagada _BP_1_ por la directiva de copia de seguridad habilitada explícitamente _BP_2_ para todas las particiones del servicio _SvcA3_ lo que da lugar a la copia de seguridad de datos con la directiva de copia de seguridad _BP_2_ para estas particiones.
+    2. Cree una directiva de copia de seguridad, _BP_2_, con la programación de copia de seguridad basada en frecuencia, donde esta se establezca en 1 hora y el almacenamiento de copia de seguridad se configure para usar la ubicación de almacenamiento _BackupStore1_. Habilite esta directiva para el servicio _SvcA3_ mediante la API para [habilitar copia de seguridad de servicio](/rest/api/servicefabric/sfclient-api-enableservicebackup). Esta acción reemplaza la directiva propagada _BP_1_ por la directiva de copia de seguridad habilitada explícitamente _BP_2_ para todas las particiones del servicio _SvcA3_ lo que da lugar a la copia de seguridad de datos con la directiva de copia de seguridad _BP_2_ para estas particiones.
 
-    3. Cree una directiva de copia de seguridad, _BP_3_, con la programación de copia de seguridad basada en frecuencia, donde esta se establezca en 24 horas y el almacenamiento de copia de seguridad se configure para usar la ubicación de almacenamiento _BackupStore2_. Habilite esta directiva para la partición _SvcA1_P2_ mediante la API para [habilitar copia de seguridad de partición](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup). Esta acción reemplaza la directiva propagada _BP_1_ por la directiva de copia de seguridad habilitada explícitamente _BP_3_ para la partición _SvcA1_P2_.
+    3. Cree una directiva de copia de seguridad, _BP_3_, con la programación de copia de seguridad basada en frecuencia, donde esta se establezca en 24 horas y el almacenamiento de copia de seguridad se configure para usar la ubicación de almacenamiento _BackupStore2_. Habilite esta directiva para la partición _SvcA1_P2_ mediante la API para [habilitar copia de seguridad de partición](/rest/api/servicefabric/sfclient-api-enablepartitionbackup). Esta acción reemplaza la directiva propagada _BP_1_ por la directiva de copia de seguridad habilitada explícitamente _BP_3_ para la partición _SvcA1_P2_.
 
 2. MyApp_B
-    1. Cree una directiva de copia de seguridad, _BP_4_, con programación copia de seguridad basada en tiempo donde el tipo de frecuencia de programación se establezca en semanal, los días de ejecución en domingo y las horas de ejecución en 8:00 AM. El almacenamiento de copia de seguridad se configura para usar la ubicación de almacenamiento _BackupStore1_. Habilite esta directiva para el servicio _SvcB1_ mediante la API para [habilitar copia de seguridad de servicio](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup). Esta acción habilita la copia de seguridad de datos con la directiva de copia de seguridad _BP_4_ para todas las particiones del servicio _SvcB1_.
+    1. Cree una directiva de copia de seguridad, _BP_4_, con programación copia de seguridad basada en tiempo donde el tipo de frecuencia de programación se establezca en semanal, los días de ejecución en domingo y las horas de ejecución en 8:00 AM. El almacenamiento de copia de seguridad se configura para usar la ubicación de almacenamiento _BackupStore1_. Habilite esta directiva para el servicio _SvcB1_ mediante la API para [habilitar copia de seguridad de servicio](/rest/api/servicefabric/sfclient-api-enableservicebackup). Esta acción habilita la copia de seguridad de datos con la directiva de copia de seguridad _BP_4_ para todas las particiones del servicio _SvcB1_.
 
-    2. Cree una directiva de copia de seguridad, _BP_5_, con programación de copia de seguridad basada en tiempo donde el tipo de frecuencia de programación se establezca en diaria y las horas de ejecución en 8:00 AM. El almacenamiento de copia de seguridad se configura para usar la ubicación de almacenamiento _BackupStore1_. Habilite esta directiva para la partición _SvcB2_P1_ mediante la API para [habilitar copia de seguridad de partición](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup). Esta acción habilita la copia de seguridad de datos con la directiva de copia de seguridad _BP_5_ para la partición _SvcB2_P1_.
+    2. Cree una directiva de copia de seguridad, _BP_5_, con programación de copia de seguridad basada en tiempo donde el tipo de frecuencia de programación se establezca en diaria y las horas de ejecución en 8:00 AM. El almacenamiento de copia de seguridad se configura para usar la ubicación de almacenamiento _BackupStore1_. Habilite esta directiva para la partición _SvcB2_P1_ mediante la API para [habilitar copia de seguridad de partición](/rest/api/servicefabric/sfclient-api-enablepartitionbackup). Esta acción habilita la copia de seguridad de datos con la directiva de copia de seguridad _BP_5_ para la partición _SvcB2_P1_.
 
 En el diagrama siguiente se representan las directivas de copia de seguridad habilitadas explícitamente y las directivas de copia de seguridad propagadas.
 
 ![Jerarquía de aplicación de Service Fabric][0]
 
 ## <a name="disable-backup"></a>Deshabilitar copias de seguridad
-Cuando no es necesario realizar copias de seguridad, se pueden deshabilitar las directivas de copia de seguridad. La directiva de copia de seguridad habilitada en una _aplicación_ solo se puede deshabilitar en la misma _aplicación_ con la API para [deshabilitar copia de seguridad de aplicación](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableapplicationbackup), la directiva de copia de seguridad habilitada en un _servicio_ se puede deshabilitar en el mismo _servicio_ con la API para [deshabilitar copia de seguridad de servicio](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableservicebackup) y la directiva de copia de seguridad habilitada en una _partición_ se puede deshabilitar en la misma _partición_ con la API para [deshabilitar copia de seguridad de partición](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disablepartitionbackup).
+Cuando no es necesario realizar copias de seguridad, se pueden deshabilitar las directivas de copia de seguridad. La directiva de copia de seguridad habilitada en una _aplicación_ solo se puede deshabilitar en la misma _aplicación_ con la API para [deshabilitar copia de seguridad de aplicación](/rest/api/servicefabric/sfclient-api-disableapplicationbackup), la directiva de copia de seguridad habilitada en un _servicio_ se puede deshabilitar en el mismo _servicio_ con la API para [deshabilitar copia de seguridad de servicio](/rest/api/servicefabric/sfclient-api-disableservicebackup) y la directiva de copia de seguridad habilitada en una _partición_ se puede deshabilitar en la misma _partición_ con la API para [deshabilitar copia de seguridad de partición](/rest/api/servicefabric/sfclient-api-disablepartitionbackup).
 
 * Cuando se deshabilita la directiva de copia de seguridad para una _aplicación_, se detienen todas las copias de seguridad de datos periódicas en ejecución como resultado de la propagación de la directiva de copia de seguridad a las particiones de servicio con estado de confianza o las particiones de Reliable Actor.
 
@@ -192,19 +192,19 @@ Cuando no es necesario realizar copias de seguridad, se pueden deshabilitar las 
 ## <a name="suspend--resume-backup"></a>Suspender y reanudar la copia de seguridad
 Determinadas situaciones pueden requerir la suspensión temporal de la copia de seguridad de datos periódica. En esta situación, en función de los requisitos, se puede usar la API para suspender la copia de seguridad en una _aplicación_, _servicio_ o _partición_. La suspensión de la copia de seguridad periódica es transitiva a través del subárbol de la jerarquía de la aplicación desde el punto en el que se aplica. 
 
-* Cuando se aplica la suspensión en una _aplicación_ mediante la API para [suspender copia de seguridad de aplicación](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendapplicationbackup), se suspende la copia de seguridad de datos periódica en todos los servicios y las particiones de esta aplicación.
+* Cuando se aplica la suspensión en una _aplicación_ mediante la API para [suspender copia de seguridad de aplicación](/rest/api/servicefabric/sfclient-api-suspendapplicationbackup), se suspende la copia de seguridad de datos periódica en todos los servicios y las particiones de esta aplicación.
 
-* Cuando se aplica la suspensión en un _servicio_ mediante la API para [suspender copia de seguridad de servicio](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendservicebackup), se suspende la copia de seguridad de datos periódica en todas las particiones de este servicio.
+* Cuando se aplica la suspensión en un _servicio_ mediante la API para [suspender copia de seguridad de servicio](/rest/api/servicefabric/sfclient-api-suspendservicebackup), se suspende la copia de seguridad de datos periódica en todas las particiones de este servicio.
 
-* Cuando se aplica la suspensión en una _partición_ mediante la API para [suspender copia de seguridad de partición](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendpartitionbackup), se suspende la copia de seguridad de datos periódica en las particiones de este servicio.
+* Cuando se aplica la suspensión en una _partición_ mediante la API para [suspender copia de seguridad de partición](/rest/api/servicefabric/sfclient-api-suspendpartitionbackup), se suspende la copia de seguridad de datos periódica en las particiones de este servicio.
 
 Cuando ya no sea necesaria la suspensión, la copia de seguridad de datos periódica se puede restaurar mediante la respectiva API para reanudar la copia de seguridad. Las copias de seguridad periódicas se deben reanudar en la misma _aplicación_, _servicio_ o _partición_ donde se suspendió.
 
-* Si se aplicó la suspensión en una _aplicación_, se debe reanudar mediante la API para [reanudar copia de seguridad de aplicación](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeapplicationbackup). 
+* Si se aplicó la suspensión en una _aplicación_, se debe reanudar mediante la API para [reanudar copia de seguridad de aplicación](/rest/api/servicefabric/sfclient-api-resumeapplicationbackup). 
 
-* Si se aplicó la suspensión en un _servicio_, se debe reanudar mediante la API para [reanudar copia de seguridad de servicio](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeservicebackup).
+* Si se aplicó la suspensión en un _servicio_, se debe reanudar mediante la API para [reanudar copia de seguridad de servicio](/rest/api/servicefabric/sfclient-api-resumeservicebackup).
 
-* Si se aplicó la suspensión en una _partición_, se debe reanudar mediante la API para [reanudar copia de seguridad de partición](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup).
+* Si se aplicó la suspensión en una _partición_, se debe reanudar mediante la API para [reanudar copia de seguridad de partición](/rest/api/servicefabric/sfclient-api-resumepartitionbackup).
 
 ### <a name="difference-between-suspend-and-disable-backups"></a>Diferencia entre suspender y deshabilitar copias de seguridad
 Deshabilitar copias de seguridad debe usarse cuando las copias de seguridad ya no sean necesarias para una determinada aplicación, servicio o partición. Se puede invocar la solicitud de deshabilitar copias de seguridad junto con el parámetro de limpiar copias de seguridad establecido en verdadero, lo que significaría que también se eliminarían todas las copias de seguridad existentes. Sin embargo, suspender debe usarse en escenarios donde se desea desactivar las copias de seguridad temporalmente, como cuando se llena el disco local o se producen errores al cargar la copia de seguridad debido a un problema de red conocido. 
@@ -217,7 +217,7 @@ La partición de servicio puede perder datos debido a errores inesperados. Por e
 Cuando Service Fabric detecta que la partición está perdiendo datos, invoca al método de interfaz `OnDataLossAsync` en la partición y espera que la partición realice la acción necesaria para dejar de perder datos. En esta situación, si la directiva de copia de seguridad efectiva en la partición tiene la marca `AutoRestoreOnDataLoss` establecida en `true`, la restauración se desencadena automáticamente con la copia de seguridad más reciente disponible para esta partición.
 
 ## <a name="get-backup-configuration"></a>Obtener la configuración de copia de seguridad
-Están disponibles API independientes para obtener la información de configuración de copia de seguridad en el ámbito de una _aplicación_, un _servicio_ y una _partición_. Estas son las API para [obtener información de configuración de copia de seguridad de aplicación](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [obtener información de configuración de copia de seguridad de servicio](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo) y [obtener información de configuración de copia de seguridad de partición](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo), respectivamente. Principalmente, estas API devuelven la directiva de copia de seguridad aplicable, el ámbito en la que la directiva de copia de seguridad se aplica y los detalles de la suspensión de la copia de seguridad. La siguiente es una breve descripción sobre los resultados devueltos de estas API.
+Están disponibles API independientes para obtener la información de configuración de copia de seguridad en el ámbito de una _aplicación_, un _servicio_ y una _partición_. Estas son las API para [obtener información de configuración de copia de seguridad de aplicación](/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [obtener información de configuración de copia de seguridad de servicio](/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo) y [obtener información de configuración de copia de seguridad de partición](/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo), respectivamente. Principalmente, estas API devuelven la directiva de copia de seguridad aplicable, el ámbito en la que la directiva de copia de seguridad se aplica y los detalles de la suspensión de la copia de seguridad. La siguiente es una breve descripción sobre los resultados devueltos de estas API.
 
 - Información de configuración de copia de seguridad de aplicación: proporciona los detalles de la directiva de copia de seguridad aplicada en la aplicación y todas las directivas reemplazadas en servicios y particiones que pertenecen a la aplicación. También incluye la información de la suspensión de la aplicación, los servicios y las particiones.
 
@@ -233,13 +233,13 @@ Estas API también admiten la paginación de los resultados, cuando el parámetr
 
 La información resumida de las variantes admitidas es la siguiente.
 
-- [Obtener lista de copia de seguridad de aplicación](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): devuelve una lista de copias de seguridad disponibles para todas las particiones que pertenecen a la aplicación de Service Fabric específica.
+- [Obtener lista de copia de seguridad de aplicación](/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): devuelve una lista de copias de seguridad disponibles para todas las particiones que pertenecen a la aplicación de Service Fabric específica.
 
-- [Obtener lista de copia de seguridad de servicio](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist): devuelve una lista de copias de seguridad disponibles para todas las particiones que pertenecen al servicio de Service Fabric específico.
+- [Obtener lista de copia de seguridad de servicio](/rest/api/servicefabric/sfclient-api-getservicebackuplist): devuelve una lista de copias de seguridad disponibles para todas las particiones que pertenecen al servicio de Service Fabric específico.
  
-- [Obtener lista de copia de seguridad de partición](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): devuelve una lista de copias de seguridad disponibles para la partición especificada.
+- [Obtener lista de copia de seguridad de partición](/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): devuelve una lista de copias de seguridad disponibles para la partición especificada.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Referencia de la API REST de restauración de copias de seguridad](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+- [Referencia de la API REST de restauración de copias de seguridad](/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/backup-policy-association-example.png

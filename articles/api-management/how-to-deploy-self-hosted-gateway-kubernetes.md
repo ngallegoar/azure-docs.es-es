@@ -9,12 +9,12 @@ ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
-ms.openlocfilehash: 38cfab8a3b73eeef28249f53bd2f5c56e26b21a1
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 51ce2e0dec8b38c9285f4f4e71dd35056b292b66
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854115"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254289"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Implementación de una puerta de enlace autohospedada en Kubernetes
 
@@ -65,7 +65,7 @@ En este artículo se describen los pasos para implementar un componente de puert
 ### <a name="access-token"></a>Access token
 Sin un token de acceso válido, una puerta de enlace autohospedada no puede tener acceso a los datos de configuración del punto de conexión del servicio API Management asociado ni descargarlos. El token de acceso puede ser válido durante 30 días como máximo. Se debe regenerar y el clúster se debe configurar con un token nuevo, ya sea manualmente o mediante automatización antes de que expire. 
 
-Al automatizar la actualización de tokens, use esta [operación de la API de administración](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/gateway/generatetoken) para generar un nuevo token. Para obtener información sobre la administración de secretos de Kubernetes, consulte el [sitio web de Kubernetes](https://kubernetes.io/docs/concepts/configuration/secret).
+Al automatizar la actualización de tokens, use esta [operación de la API de administración](/rest/api/apimanagement/2019-12-01/gateway/generatetoken) para generar un nuevo token. Para obtener información sobre la administración de secretos de Kubernetes, consulte el [sitio web de Kubernetes](https://kubernetes.io/docs/concepts/configuration/secret).
 
 ### <a name="namespace"></a>Espacio de nombres
 Los espacios de nombres de [Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) ayudan a dividir un solo clúster entre varios equipos, proyectos o aplicaciones. Los espacios de nombres proporcionan un ámbito para los recursos y los nombres. Pueden asociarse con una cuota de recursos y directivas de control de acceso.

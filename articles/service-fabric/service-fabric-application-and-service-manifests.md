@@ -3,12 +3,12 @@ title: Descripción de los servicios y las aplicaciones de Azure Service Fabric
 description: Describe cómo se utilizan los manifiestos para describir los servicios y las aplicaciones de Service Fabric.
 ms.topic: conceptual
 ms.date: 8/12/2019
-ms.openlocfilehash: 6014ef6a9b6ec810aafd5e5be96223b8ed92d576
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fcf4c7611f0a6f52c28b234717b9244ac58ad2d4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75349975"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248227"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifiestos de servicio y de aplicación de Service Fabric
 En este artículo se describe cómo se definen y tienen versiones los servicios y las aplicaciones de Service Fabric mediante los archivos ApplicationManifest.xml y ServiceManifest.xml.  Para obtener más ejemplos, consulte los [ejemplos de aplicaciones y manifiesto de servicio](service-fabric-manifest-examples.md).  El esquema XML para estos archivos de manifiesto se documenta en la [documentación del esquema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
@@ -157,7 +157,7 @@ Al igual que los manifiestos de servicio, los atributos **Versión** son cadenas
 
 **Certificates** (sin establecer en el ejemplo anterior) declara los certificados que se usan para [configurar puntos de conexión HTTPS](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) o [cifrar secretos en el manifiesto de aplicación](service-fabric-application-secret-management.md).
 
-Las **restricciones de posición** son las instrucciones que definen dónde deben ejecutarse los servicios. Estas instrucciones se adjuntan a los servicios individuales que se seleccionan en relación con una o más propiedades de nodo. Para más información, vea [Restricciones de ubicación y sintaxis de propiedades de nodo](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax).
+Las **restricciones de posición** son las instrucciones que definen dónde deben ejecutarse los servicios. Estas instrucciones se adjuntan a los servicios individuales que se seleccionan en relación con una o más propiedades de nodo. Para más información, vea [Restricciones de ubicación y sintaxis de propiedades de nodo](./service-fabric-cluster-resource-manager-cluster-description.md#placement-constraints-and-node-property-syntax).
 
 **Policies** (sin establecer en el ejemplo anterior) describe las directivas que se establecerán en el nivel de la aplicación sobre recopilación de registros, [ejecución predeterminada](service-fabric-application-runas-security.md), [mantenimiento](service-fabric-health-introduction.md#health-policies) y [acceso de seguridad](service-fabric-application-runas-security.md), incluido el acceso de los servicios al tiempo de ejecución de Service Fabric.
 
@@ -192,6 +192,3 @@ For more information about other features supported by application manifests, re
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
 [cluster-application-instances]: media/service-fabric-application-model/cluster-application-instances.png
-
-
-

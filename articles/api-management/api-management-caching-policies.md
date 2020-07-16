@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 06c4ede12f939e48973d3e0b502d90b848d199bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e58cd8f19ab98601d37df185656038dbd5679eb2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236032"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255054"
 ---
 # <a name="api-management-caching-policies"></a>Directivas de almacenamiento en caché de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -114,11 +114,11 @@ Para obtener más información, consulte [Policy expressions](api-management-pol
 | caching-type               | Elija entre los siguientes valores del atributo:<br />- `internal` para usar la caché de API Management integrada,<br />- `external` para usar la caché externa tal como se describe en [Uso de una memoria caché de Redis externa en Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` para usar la caché externa si está configurada o, en caso contrario, la caché interna. | No       | `prefer-external` |
 | downstream-caching-type        | Este atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   none: no se permite el almacenamiento en caché de bajada.<br />-   private: se permite el almacenamiento en caché de bajada privado.<br />-   public: se permite el almacenamiento en caché de bajada privado y compartido.                                                                                                          | No       | None              |
 | must-revalidate                | Cuando el almacenamiento en caché de bajada está habilitado, este atributo activa o desactiva la directiva de control de caché `must-revalidate` en las respuestas de puerta de enlace.                                                                                                                                                                                                                      | No       | true              |
-| vary-by-developer              | Se establece en `true` para almacenar en caché las respuestas por [clave de suscripción](https://docs.microsoft.com/azure/api-management/api-management-subscriptions).                                                                                                                                                                                                                                                                                                         | Sí      |         False          |
-| vary-by-developer-groups       | Se establece en `true` para almacenar en caché las respuestas por [grupo de usuarios](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups).                                                                                                                                                                                                                                                                                                             | Sí      |       False            |
+| vary-by-developer              | Se establece en `true` para almacenar en caché las respuestas por [clave de suscripción](./api-management-subscriptions.md).                                                                                                                                                                                                                                                                                                         | Sí      |         False          |
+| vary-by-developer-groups       | Se establece en `true` para almacenar en caché las respuestas por [grupo de usuarios](./api-management-howto-create-groups.md).                                                                                                                                                                                                                                                                                                             | Sí      |       False            |
 
 ### <a name="usage"></a>Uso
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 - **Secciones de la directiva:** inbound (entrada)
 - **Ámbitos de la directiva:** todos los ámbitos
@@ -190,7 +190,7 @@ Para obtener más información, consulte [Policy expressions](api-management-pol
 | duration         | Período de vida de las entradas almacenadas en caché, especificado en segundos.                                                                                                                                                                                                                                                                                                   | Sí      | N/D               |
 
 ### <a name="usage"></a>Uso
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 - **Secciones de la directiva:** outbound
 - **Ámbitos de la directiva:** todos los ámbitos
@@ -211,7 +211,7 @@ Use la directiva `cache-lookup-value` para realizar la búsqueda en la caché po
 ```
 
 ### <a name="example"></a>Ejemplo
-Para más información y ver ejemplos de esta directiva, consulte [Custom caching in Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-cache-by-key/) (Almacenamiento en caché personalizado en Azure API Management).
+Para más información y ver ejemplos de esta directiva, consulte [Custom caching in Azure API Management](./api-management-sample-cache-by-key.md) (Almacenamiento en caché personalizado en Azure API Management).
 
 ```xml
 <cache-lookup-value
@@ -236,7 +236,7 @@ Para más información y ver ejemplos de esta directiva, consulte [Custom cachin
 | variable-name    | Nombre de la [variable de contexto](api-management-policy-expressions.md#ContextVariables) a la que se asignará el valor buscado si la búsqueda tiene éxito. Si se produce un error de búsqueda, se asignará a la variable el valor del atributo `default-value` o `null`, si se omite el atributo `default-value`.                                       | Sí      | N/D               |
 
 ### <a name="usage"></a>Uso
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 - **Secciones de la directiva:** inbound, outbound, backend, on-error
 - **Ámbitos de la directiva:** todos los ámbitos
@@ -254,7 +254,7 @@ La directiva `cache-store-value` realiza el almacenamiento en caché mediante un
 ```
 
 ### <a name="example"></a>Ejemplo
-Para más información y ver ejemplos de esta directiva, consulte [Custom caching in Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-cache-by-key/) (Almacenamiento en caché personalizado en Azure API Management).
+Para más información y ver ejemplos de esta directiva, consulte [Custom caching in Azure API Management](./api-management-sample-cache-by-key.md) (Almacenamiento en caché personalizado en Azure API Management).
 
 ```xml
 <cache-store-value
@@ -278,7 +278,7 @@ Para más información y ver ejemplos de esta directiva, consulte [Custom cachin
 | key              | La clave de caché con la que se almacenará el valor.                                                                                                                                                                                                                                                                                                                   | Sí      | N/D               |
 | value            | El valor que se almacenará en la caché.                                                                                                                                                                                                                                                                                                                                     | Sí      | N/D               |
 ### <a name="usage"></a>Uso
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 - **Secciones de la directiva:** inbound, outbound, backend, on-error
 - **Ámbitos de la directiva:** todos los ámbitos
@@ -316,7 +316,7 @@ La directiva `cache-remove-value` elimina un elemento almacenado en caché ident
 | key              | La clave del valor anteriormente almacenado en caché que se quitará de la memoria caché.                                                                                                                                                                                                                                                                                        | Sí      | N/D               |
 
 #### <a name="usage"></a>Uso
-Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
 
 - **Secciones de la directiva:** inbound, outbound, backend, on-error
 - **Ámbitos de la directiva:** todos los ámbitos
@@ -327,5 +327,5 @@ Para obtener más información sobre cómo trabajar con directivas, consulte:
 
 + [Directivas de Azure API Management](api-management-howto-policies.md)
 + [API de transformación](transform-api.md)
-+ En la [Referencia de directivas](api-management-policy-reference.md) se muestra una lista completa de declaraciones de directivas y su configuración
++ En la [Referencia de directivas](./api-management-policies.md) se muestra una lista completa de declaraciones de directivas y su configuración
 + [Ejemplos de directivas](policy-samples.md)

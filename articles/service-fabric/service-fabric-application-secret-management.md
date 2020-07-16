@@ -3,12 +3,12 @@ title: Administración de secretos en aplicaciones de Azure Service Fabric
 description: Aprenda a proteger los valores de secreto en una aplicación de Service Fabric (independiente de plataforma).
 ms.topic: conceptual
 ms.date: 01/04/2019
-ms.openlocfilehash: 18090dd3e4046da2069e3035be4edb4d2f979204
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af82a55d41c48eebcbcbd1581ec5096a89c49bea
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583238"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248125"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Administración de secretos cifrados en aplicaciones de Service Fabric
 Esta guía le lleva por los pasos para administrar secretos en una aplicación de Service Fabric. Los secretos pueden ser cualquier información confidencial, como cadenas de conexión de almacenamiento, contraseñas u otros valores que no se deben administrar en texto sin formato.
@@ -99,7 +99,7 @@ Para reemplazar los valores en el archivo Settings.xml, declare un parámetro de
 
 Ahora, el valor se puede especificar como un *parámetro de aplicación* al crear una instancia de la aplicación. La creación de una instancia de aplicación se puede generar mediante un script con PowerShell, o escribirse en C#, para facilitar la integración en un proceso de compilación.
 
-Mediante PowerShell, el parámetro se proporciona al comando `New-ServiceFabricApplication` como una [tabla hash](https://technet.microsoft.com/library/ee692803.aspx):
+Mediante PowerShell, el parámetro se proporciona al comando `New-ServiceFabricApplication` como una [tabla hash](/previous-versions/windows/it-pro/windows-powershell-1.0/ee692803(v=technet.10)):
 
 ```powershell
 New-ServiceFabricApplication -ApplicationName fabric:/MyApp -ApplicationTypeName MyAppType -ApplicationTypeVersion 1.0.0 -ApplicationParameter @{"MySecret" = "I6jCCAeYCAxgFhBXABFxzAt ... gNBRyeWFXl2VydmjZNwJIM="}

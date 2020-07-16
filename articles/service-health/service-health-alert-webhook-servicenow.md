@@ -3,12 +3,12 @@ title: Envío de alertas de estado del servicio con ServiceNow
 description: Obtenga notificaciones personalizadas sobre los eventos del estado de servicio en la instancia de ServiceNow.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 3daae05aabff571010d043cf5602847e95ea29f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5cd17af080714fdf2e9e5b168e72f975c8d3a3f6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77654110"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260198"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Envío de alertas de Azure Service Health con ServiceNow mediante webhooks
 
@@ -140,9 +140,10 @@ Este artículo muestra cómo integrar las alertas de estado del servicio de Azur
      ![La "ruta de la API base" in ServiceNow](./media/webhook-alerts/servicenow-base-api-path.png)
 
 1.  La dirección URL completa de integración tiene el siguiente aspecto:
-        
-         https://<yourInstanceName>.service-now.com/<baseApiPath>?apiKey=<secret>
 
+    ```http
+    https://<yourInstanceName>.service-now.com/<baseApiPath>?apiKey=<secret>
+    ```
 
 ## <a name="create-an-alert-using-servicenow-in-the-azure-portal"></a>Creación de una alerta con ServiceNow en Azure Portal
 ### <a name="for-a-new-action-group"></a>Para un nuevo grupo de acciones:
