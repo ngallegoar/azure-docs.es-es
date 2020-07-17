@@ -6,15 +6,15 @@ ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: networking
-ms.date: 07/17/2017
+ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 39539f29df48d19b956b8bab6f63da50473453d4
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 0f8075af53752da0e0abc2dec7ab49c28af2e3ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221293"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374736"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Redes para conjuntos de escalado de máquinas virtuales de Azure
 
@@ -44,7 +44,7 @@ Azure Accelerated Networking mejora el rendimiento de la red al permitir la virt
 
 ## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Conjuntos de escalado de máquinas virtuales de Azure con Azure Load Balancer
 
-Al trabajar con conjuntos de escalado de máquinas virtuales y el equilibrador de carga, debe tener en cuenta lo siguiente:
+Al trabajar con conjuntos de escalado de máquinas virtuales y el equilibrador de carga, debe tener en cuenta los siguientes aspectos:
 
 * **Varios conjuntos de escalado de máquinas virtuales no pueden usar el mismo equilibrador de carga**.
 * **Enrutamiento de puerto y reglas NAT de entrada**:
@@ -52,7 +52,7 @@ Al trabajar con conjuntos de escalado de máquinas virtuales y el equilibrador d
   * Después de crear el conjunto de escalado, no se puede modificar el puerto de back-end para una regla de equilibrio de carga que se usa en un sondeo de estado del equilibrador de carga. Para cambiar el puerto, puede quitar el sondeo de estado mediante la actualización del conjunto de escalado de máquinas virtuales de Azure, actualizar el puerto y, a continuación, volver a configurar el sondeo de estado.
   * Al usar el conjunto de escalado de máquinas virtuales en el grupo de back-end del equilibrador de carga, las reglas NAT de entrada predeterminadas se crean automáticamente.
 * **Grupo NAT de entrada**:
-  * El grupo NAT de entrada es una colección de reglas NAT de entrada. Un grupo NAT de entrada no admite varios VM Scale Sets.
+  * El grupo NAT de entrada es una colección de reglas NAT de entrada. Un grupo NAT de entrada no admite varios conjuntos de escalado de máquinas virtuales.
 * **Reglas de equilibrio de carga**:
   * Al usar el conjunto de escalado de máquinas virtuales en el grupo de back-end del equilibrador de carga, la regla de equilibrio de carga predeterminada se crea automáticamente.
 * **Reglas de salida**:
@@ -146,7 +146,7 @@ El resultado, para un nombre DNS de máquina virtual individual, tendría la for
 ```
 
 ## <a name="public-ipv4-per-virtual-machine"></a>Dirección IPv4 pública por máquina virtual
-En general, las máquinas virtuales del conjunto de escalado de Azure no requieren direcciones IP públicas propias. En la mayoría de los escenarios, resulta más económico y seguro asociar una dirección IP pública a un equilibrador de carga o a una máquina virtual individual (también conocida como jumpbox), que luego enruta las conexiones entrantes a máquinas virtuales del conjunto de escalado según sea necesario (por ejemplo, mediante reglas NAT de entrada).
+En general, las máquinas virtuales del conjunto de escalado de Azure no requieren direcciones IP públicas propias. En la mayoría de los escenarios, resulta más económico y seguro asociar una dirección IP pública a un equilibrador de carga o a una máquina virtual individual (también conocida como jumpbox), que luego enruta las conexiones entrantes a máquinas virtuales del conjunto de escalado según sea necesario (por ejemplo, a través de reglas NAT de entrada).
 
 Sin embargo, algunos escenarios requieren que las máquinas virtuales del conjunto de escalado tengan sus propias direcciones IP públicas. Un ejemplo son los juegos, en los que se necesita una consola para tener una conexión directa a una máquina virtual en la nube, que esté realizando el procesamiento físico de los juegos. Otro ejemplo es cuando las máquinas virtuales necesitan realizar conexiones externas entre sí a través de regiones en una base de datos distribuida.
 

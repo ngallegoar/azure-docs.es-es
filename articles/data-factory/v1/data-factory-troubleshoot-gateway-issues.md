@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 390cddf557905e95e313896f9f172e30b81352b9
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 5d83f05c16004edc3ad4842b7e4e9d4b9babe577
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195940"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85319074"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Solución de problemas con Data Management Gateway
 En este artículo se ofrece información sobre la solución de problemas con Data Management Gateway.
@@ -222,9 +222,9 @@ Puede que vea el error "UserErrorFailedToConnectToSqlserver" después de configu
 Esto puede ocurrir por diferentes motivos y la mitigación varía según la causa.
 
 #### <a name="resolution"></a>Resolución
-Permita las conexiones TCP de salida a través del puerto TCP/1433 en el lado cliente de Puerta de enlace de administración de datos antes de conectar a una SQL Database.
+Permita las conexiones TCP de salida a través del puerto TCP/1433 en el lado cliente de Puerta de enlace de administración de datos antes de conectar a una base de datos SQL.
 
-Si la base de datos de destino es una base de datos de Azure SQL, compruebe también la configuración del firewall de SQL Server para Azure.
+Si la base de datos de destino está en Azure SQL Database, compruebe también la configuración del firewall de SQL Server para Azure.
 
 Vea la sección siguiente para realizar una prueba de conexión en el almacén de datos local.
 

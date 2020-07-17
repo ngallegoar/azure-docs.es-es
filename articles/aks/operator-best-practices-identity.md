@@ -4,13 +4,15 @@ titleSuffix: Azure Kubernetes Service
 description: Obtenga información sobre los procedimientos recomendados del operador de clústeres para saber cómo administrar la autenticación y autorización de los clústeres en Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.openlocfilehash: e02b542f74a2dd7b7e88f1fa075ad6a736895e76
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 07/07/2020
+ms.author: jpalma
+author: palma21
+ms.openlocfilehash: c7e8cd28380a86a671c74af03fa479abce5cfe25
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020054"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107145"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para la autenticación y autorización en Azure Kubernetes Service (AKS)
 
@@ -21,8 +23,9 @@ Este artículo de procedimientos recomendados se centra en cómo un operador de 
 > [!div class="checklist"]
 >
 > * Autenticar a los usuarios de clústeres de AKS con Azure Active Directory.
-> * Controlar el acceso a los recursos con el control de acceso basado en rol (RBAC).
-> * Usar una identidad administrada para autenticarse con otros servicios.
+> * Controlar el acceso a los recursos con el control de acceso basado en rol (RBAC) de Kubernetes.
+> * Use Azure RBAC para controlar de forma granular el acceso al recurso AKS y a la API Kubernetes a escala, así como al kubeconfig.
+> * Use una identidad administrada para autenticar los pods con otros servicios.
 
 ## <a name="use-azure-active-directory"></a>Uso de Azure Active Directory
 
@@ -43,11 +46,11 @@ Con los clústeres integrados de Azure AD en AKS, el usuario crea *Roles* o *Clu
 
 Para crear un clúster de AKS que use Azure AD, consulte [Integración de Azure Active Directory con AKS][aks-aad].
 
-## <a name="use-role-based-access-controls-rbac"></a>Uso de los controles de acceso basado en rol (RBAC)
+## <a name="use-kubernetes-role-based-access-controls-rbac"></a>Use los controles de acceso basado en roles (RBAC) de Kubernetes.
 
 **Guía de procedimientos recomendados**: uso de RBAC de Kubernetes para definir los permisos que los usuarios o grupos tienen en relación con los recursos del clúster. Cree roles y enlaces que asignen la mínima cantidad de permisos necesarios. Realice la integración con Azure AD, para que cualquier cambio en el estado del usuario o la pertenencia al grupo se actualice automáticamente y que el acceso a los recursos del clúster sea como el actual.
 
-En Kubernetes, puede proporcionar un control granular del acceso a los recursos del clúster. Los permisos pueden definirse en el nivel de clúster, así como en espacios de nombres específicos. Puede definir qué recursos se pueden administrar y con qué permisos. Estos roles se aplican a usuarios o grupos con un enlace. Para obtener más información sobre los *roles*, *ClusterRoles* y *enlaces*, consulte [Opciones de acceso e identidad en Azure Kubernetes Service (AKS)][aks-concepts-identity].
+En Kubernetes, puede proporcionar un control granular del acceso a los recursos del clúster. Los permisos se definen en el nivel de clúster, así como en espacios de nombres específicos. Puede definir qué recursos se pueden administrar y con qué permisos. Estos roles se aplican a usuarios o grupos con un enlace. Para obtener más información sobre los *roles*, *ClusterRoles* y *enlaces*, consulte [Opciones de acceso e identidad en Azure Kubernetes Service (AKS)][aks-concepts-identity].
 
 Por ejemplo, puede crear un rol que conceda acceso completo a los recursos en el espacio de nombres denominado *finance-app*, tal y como se muestra en el siguiente ejemplo de manifiesto de YAML:
 
@@ -85,9 +88,19 @@ Cuando *developer1\@contoso.com* se autentica en el clúster de AKS, se tienen l
 
 Para ver cómo usar los grupos de Azure AD para controlar el acceso a los recursos de Kubernetes mediante RBAC, consulte [Controlar el acceso a recursos de clúster mediante el control de acceso basado en roles y las identidades de Azure Active Directory en AKS][azure-ad-rbac].
 
+## <a name="use-azure-rbac"></a>Uso de Azure RBAC 
+**Guía de procedimientos recomendados**: use Azure RBAC para definir los permisos mínimos necesarios que los usuarios o grupos tienen para AKS recursos en una o más suscripciones.
+
+Hay dos niveles de acceso necesarios para operar completamente un clúster de AKS: 
+1. Acceda al recurso de AKS en la suscripción de Azure. Este nivel de acceso permite controlar las cosas que escalan o actualizan el clúster mediante las API de AKS, así como la extracción de kubeconfig.
+Para ver cómo controlar el acceso al recurso AKS y kubeconfig, consulte [Limitar el acceso al archivo de configuración del clúster](control-kubeconfig-access.md).
+
+2. Acceso al API de Kubernetes. Este nivel de acceso se controla mediante [Kubernetes RBAC](#use-kubernetes-role-based-access-controls-rbac) (originalmente) o mediante la integración de Azure RBAC con AKS para la autorización de Kubernetes.
+Para ver cómo conceder permisos de forma granular a la API de Kubernetes con Azure RBAC, consulte [Uso de Azure RBAC para la autorización de Kubernetes](manage-azure-rbac.md).
+
 ## <a name="use-pod-identities"></a>Uso de identidades de pod
 
-**Guía de procedimientos recomendados**: no use credenciales fijas dentro de pods o imágenes de contenedor, ya que corren riesgo de exposición o abuso. En su lugar, use identidades de pod para solicitar acceso automáticamente mediante una solución central de identidades de Azure AD. Las identidades de pod está pensadas para usar únicamente con pods de Linux y las imágenes de contenedor.
+**Guía de procedimientos recomendados**: no use credenciales fijas dentro de pods o imágenes de contenedor, ya que corren riesgo de exposición o abuso. En su lugar, use identidades de pod para solicitar acceso automáticamente mediante una solución central de identidades de Azure AD. Las identidades de pod están pensadas para su uso únicamente con pods de Linux y las imágenes de contenedor.
 
 Cuando los pods necesitan obtener acceso a otros servicios de Azure, como Cosmos DB, Key Vault o Blob Storage, el pod necesita credenciales de acceso. Estas credenciales de acceso pueden definirse con la imagen de contenedor o insertadas como un secreto de Kubernetes, pero es necesario crearlas y asignarlas manualmente. A menudo, las credenciales se reutilizan en los pods y no se rotan de forma periódica.
 

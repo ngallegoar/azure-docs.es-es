@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 29e675f3ae35df9211f58d45ad8450566d67a588
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b06f39de9f977a9f777b21a53e93ca744fccdd93
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77658241"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560160"
 ---
 # <a name="azure-monitor-workbooks"></a>Libros de Azure Monitor
 
@@ -31,9 +31,9 @@ Los libros son compatibles actualmente con los siguientes orígenes de datos:
 * [Métricas](workbooks-data-sources.md#metrics)
 * [Azure Resource Graph](workbooks-data-sources.md#azure-resource-graph)
 * [Alertas (versión preliminar)](workbooks-data-sources.md#alerts-preview)
-* [Mantenimiento de la carga de trabajo (vista previa)](workbooks-data-sources.md#workload-health-preview)
-* [Azure Resource Health (versión preliminar)](workbooks-data-sources.md#azure-resource-health)
-* [Azure Data Explorer (versión preliminar)](workbooks-data-sources.md#azure-data-explorer-preview)
+* [Mantenimiento de la carga de trabajo](workbooks-data-sources.md#workload-health)
+* [Azure Resource Health](workbooks-data-sources.md#azure-resource-health)
+* [Azure Data Explorer](workbooks-data-sources.md#azure-data-explorer)
 
 ## <a name="visualizations"></a>Visualizaciones
 

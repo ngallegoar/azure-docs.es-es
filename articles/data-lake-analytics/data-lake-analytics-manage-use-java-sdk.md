@@ -7,21 +7,21 @@ author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/20/2019
-ms.openlocfilehash: b8c7d2ba1c782c3b6ae3034d6a9aab5eb19be954
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6409ac10a524f75709cbbf185efb03359606e88c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70813639"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121374"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Administración de Azure Data Lake Analytics con una aplicación Java
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 En este artículo se describe cómo administrar cuentas, orígenes de datos, usuarios y trabajos de Azure Data Lake Analytics con una aplicación escrita mediante el SDK de Java de Azure. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 * **Kit de desarrollo de Java (JDK) 8** (con Java versión 1.8).
 * **IntelliJ** u otro entorno de desarrollo de Java adecuado. Las instrucciones de este documento usan IntelliJ.
 * Cree una aplicación de Azure Active Directory (AAD) y recupere su **identificador de cliente**, **identificador de inquilino** y **clave**. Para más información sobre las aplicaciones de AAD y ver instrucciones sobre cómo obtener un id. de cliente, consulte [Creación de una aplicación de Active Directory y una entidad de servicio mediante el portal](../active-directory/develop/howto-create-service-principal-portal.md). El URI de respuesta y la clave estarán disponibles en el portal una vez que se haya creado la aplicación y generado la clave.
@@ -33,9 +33,9 @@ El siguiente fragmento de código proporciona código para la autenticación **n
 ## <a name="create-a-java-application"></a>Creación de una aplicación Java
 1. Abra IntelliJ y cree un proyecto de Java mediante la plantilla **Command-Line App** (Aplicación de línea de comandos).
 2. Haga clic con el botón derecho en el proyecto de la izquierda de la pantalla y haga clic en **Add Framework Support**(Agregar compatibilidad con el marco). Elija **Maven** y haga clic en **Aceptar**.
-3. Abra el archivo **"pom.xml"** recién creado y agregue el siguiente fragmento de código de texto entre las etiquetas **\<</version>** y **\</project>** :
+3. Abra el archivo **"pom.xml"** recién creado y agregue el siguiente fragmento de código de texto entre las etiquetas **\</version>** y **\</project>** :
 
-```
+```xml
 <dependencies>
     <dependency>
         <groupId>com.microsoft.azure</groupId>

@@ -7,17 +7,17 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 07/07/2020
 ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 41c29e55f04f9edf06ba375ad4539e5fb3f82c18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 13665e8738ef1fb5dd6e0e0ff24e1bd196c7d9a7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81733414"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120331"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Envío de mensajes desde la nube al dispositivo con IoT Hub (.NET)
 
@@ -59,7 +59,7 @@ Al final de este tutorial, ejecutará dos aplicaciones de consola de .NET.
 
 En esta sección, modificará la aplicación de dispositivo que creó en [Enviar datos de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-dotnet.md) para recibir mensajes de la nube al dispositivo desde IoT Hub.
 
-1. En Visual Studio, en el proyecto **SimulatedDevice**, agregue el método siguiente a la clase **Program**.
+1. En el proyecto **SimulatedDevice** de Visual Studio, agregue el método siguiente a la clase de **SimulatedDevice**.
 
    ```csharp
     private static async void ReceiveC2dAsync()
@@ -104,7 +104,7 @@ En este artículo, se crea un servicio de back-end para enviar mensajes de la nu
 
 ## <a name="send-a-cloud-to-device-message"></a>Envío de mensajes de nube a dispositivo
 
-Ahora debe escribir una aplicación de consola de .NET que envía mensajes de la nube al dispositivo a la aplicación de dispositivo.
+En esta sección, escribirá una aplicación de consola de .NET que envíe mensajes de nube a dispositivo a la aplicación del dispositivo simulado.
 
 1. En la solución actual de Visual Studio, seleccione **Archivo** > **Nuevo** > **Proyecto**. En **Crear un proyecto**, seleccione **Aplicación de consola (.NET Framework)** y seleccione **Siguiente**.
 
@@ -112,7 +112,7 @@ Ahora debe escribir una aplicación de consola de .NET que envía mensajes de la
 
    ![Configuración de un proyecto nuevo en Visual Studio](./media/iot-hub-csharp-csharp-c2d/sendcloudtodevice-project-configure.png)
 
-1. En el Explorador de soluciones, haga clic con el botón derecho en la nueva solución y, después, seleccione **Administrar paquetes NuGet**.
+1. En el Explorador de soluciones, haga clic con el botón derecho en el nuevo proyecto y, después, seleccione **Administrar paquetes NuGet**.
 
 1. En **Administrar paquetes NuGet**, seleccione **Examinar** y busque y seleccione **Microsoft.Azure.Devices**. Seleccione **Instalar**.
 
@@ -124,25 +124,24 @@ Ahora debe escribir una aplicación de consola de .NET que envía mensajes de la
    using Microsoft.Azure.Devices;
    ```
 
-1. Agregue los campos siguientes a la clase **Program** . Reemplace el valor del marcador de posición por la cadena de conexión del centro de IoT que copió anteriormente en [Obtención de la cadena de conexión de IoT Hub](#get-the-iot-hub-connection-string).
+1. Agregue los campos siguientes a la clase **Program** . Reemplace el valor del marcador de posición `{iot hub connection string}` por la cadena de conexión del centro de IoT que tomó anteriormente de [Obtención de la cadena de conexión del centro de IoT](#get-the-iot-hub-connection-string). Sustituya el marcador de posición `{device id}` por la id. del dispositivo que agregó en el inicio rápido de [Envío de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-dotnet.md).
 
    ``` csharp
    static ServiceClient serviceClient;
    static string connectionString = "{iot hub connection string}";
+   static string targetDevice = "{device id}";
    ```
 
-1. Agregue el método siguiente a la clase **Program**. Escriba el nombre del dispositivo que usó al definir el dispositivo en [Enviar telemetría desde un dispositivo a IoT Hub](quickstart-send-telemetry-dotnet.md).
+1. Agregue el método siguiente a la clase de **Programa** para enviar un mensaje al dispositivo.
 
    ``` csharp
    private async static Task SendCloudToDeviceMessageAsync()
    {
         var commandMessage = new
          Message(Encoding.ASCII.GetBytes("Cloud to device message."));
-        await serviceClient.SendAsync("myFirstDevice", commandMessage);
+        await serviceClient.SendAsync(targetDevice, commandMessage);
    }
    ```
-
-   Este método envía un nuevo mensaje de la nube al dispositivo con el identificador `myFirstDevice`. Cambie este parámetro solo si lo modificó con respecto al utilizado en [Enviar datos de telemetría desde un dispositivo a IoT Hub](quickstart-send-telemetry-dotnet.md).
 
 1. Finalmente, agregue las líneas siguientes al método **Main** .
 
@@ -158,9 +157,9 @@ Ahora debe escribir una aplicación de consola de .NET que envía mensajes de la
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en la solución y seleccione **Establecer proyectos de inicio**.
 
-1. En **Propiedades comunes** > **Proyecto de inicio**, seleccione **Varios proyectos de inicio** y, después, seleccione la acción **Iniciar** para **ReadDeviceToCloudMessages**, **SimulatedDevice** y **SendCloudToDevice**. Seleccione **Aceptar** para guardar los cambios.
+1. En **Propiedades comunes** > **Proyecto de inicio**, seleccione **Varios proyectos de inicio** y, a continuación, seleccione la acción **Iniciar** para **SimulatedDevice** y **SendCloudToDevice**. Seleccione **Aceptar** para guardar los cambios.
 
-1. Presione **F5**. Deberían iniciarse las tres aplicaciones. Seleccione la ventana **SendCloudToDevice** y presione **Intro**. Debería ver el mensaje que recibe la aplicación de dispositivo.
+1. Presione **F5**. Deberían iniciarse las dos aplicaciones. Seleccione la ventana **SendCloudToDevice** y presione **Entrar**. Debería ver el mensaje que recibe la aplicación de dispositivo.
 
    ![Aplicación que recibe el mensaje](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
 
@@ -207,7 +206,7 @@ En esta sección, modificará la aplicación **SendCloudToDevice** para solicita
    commandMessage.Ack = DeliveryAcknowledgement.Full;
    ```
 
-1. Ejecute las aplicaciones presionando **F5**. Debería ver que se inician las tres aplicaciones. Seleccione la ventana **SendCloudToDevice** y presione **Intro**. Verá los mensajes que recibe la aplicación de dispositivo y, al cabo de unos segundos, el mensaje de comentarios que recibe la aplicación **SendCloudToDevice**.
+1. Ejecute las aplicaciones presionando **F5**. Debería ver que se inician ambas aplicaciones. Seleccione la ventana **SendCloudToDevice** y presione **Entrar**. Verá los mensajes que recibe la aplicación de dispositivo y, al cabo de unos segundos, el mensaje de comentarios que recibe la aplicación **SendCloudToDevice**.
 
    ![Aplicación que recibe el mensaje](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 

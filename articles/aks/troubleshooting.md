@@ -3,13 +3,13 @@ title: Solucionar problemas comunes de Azure Kubernetes Service
 description: Obtenga información sobre cómo solucionar problemas y resolver problemas comunes al usar Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: troubleshooting
-ms.date: 05/16/2020
-ms.openlocfilehash: f9831077d1f2850d39e4ef5e5ba35245f16cd683
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.date: 06/20/2020
+ms.openlocfilehash: 08668289faa2341389a80b00cba11a33021da608
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725001"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054396"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 
@@ -31,11 +31,34 @@ La configuración máxima de pods por nodo es 110 de forma predeterminada si imp
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Recibo el error insufficientSubnetSize al implementar un clúster de AKS con redes avanzadas. ¿Cuál debo hacer?
 
-Si se usa el complemento de red Azure CNI, AKS asigna las direcciones IP según el parámetro "--max pods" por nodo. El tamaño de la subred debe ser mayor que el número de nodos multiplicado por el valor de pods máximos por nodo. Esto se describe en la siguiente ecuación:
+Este error indica que una subred en uso para un clúster ya no tiene direcciones IP disponibles dentro de su CIDR para una correcta asignación de recursos. En el caso de los clústeres de Kubenet, el requisito es un espacio de IP suficiente para cada nodo del clúster. En el caso de los clústeres de Azure CNI, el requisito es un espacio de IP suficiente para cada nodo y pod del clúster.
+Obtenga más información sobre el [diseño de Azure CNI para asignar direcciones IP a pods](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
-Tamaño de subred > número de nodos del clúster (teniendo en cuenta los requisitos de escalado futuros) * número máximo de pods por conjunto de nodos.
+Estos errores también se muestran en [Diagnósticos de AKS](https://docs.microsoft.com/azure/aks/concepts-diagnostics), que muestra problemas de manera proactiva, como un tamaño de subred insuficiente.
 
-Para más información, consulte [Planeamiento de direccionamiento IP del clúster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
+Los siguientes tres (3) casos provocan un error de tamaño de subred insuficiente:
+
+1. Escala de AKS o escala de AKS Nodepool
+   1. Si usa Kubenet, esto sucede cuando el `number of free IPs in the subnet` es **menor que** el `number of new nodes requested`.
+   1. Si usa Azure CNI, esto sucede cuando el `number of free IPs in the subnet` es **menor que** el `number of nodes requested times (*) the node pool's --max-pod value`.
+
+1. Actualización de AKS o actualización de AKS Nodepool
+   1. Si usa Kubenet, esto sucede cuando el `number of free IPs in the subnet` es **menor que** el `number of buffer nodes needed to upgrade`.
+   1. Si usa Azure CNI, esto sucede cuando el `number of free IPs in the subnet` es **menor que** el `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value`.
+   
+   De forma predeterminada, los clústeres de AKS establecen un valor de sobrecarga máxima (búfer de actualización) de uno (1), pero este comportamiento de actualización se puede personalizar si se establece el valor de [sobrecarga máxima de un grupo de nodos](upgrade-cluster.md#customize-node-surge-upgrade-preview) que aumentará el número de direcciones IP disponibles necesarias para completar una actualización.
+
+1. Creación de AKS o adición de AKS Nodepool
+   1. Si usa Kubenet, esto sucede cuando el `number of free IPs in the subnet` es **menor que** el `number of nodes requested for the node pool`.
+   1. Si usa Azure CNI, esto sucede cuando el `number of free IPs in the subnet` es **menor que** el `number of nodes requested times (*) the node pool's --max-pod value`.
+
+La siguiente mitigación se puede llevar a cabo mediante la creación de nuevas subredes. El permiso para crear una nueva subred es necesario para la mitigación debido a la incapacidad de actualizar el rango de CIDR de una subred existente.
+
+1. Vuelva a generar una nueva subred con un rango de CIDR mayor que sea suficiente para los objetivos de la operación:
+   1. Cree una nueva subred con un nuevo rango deseado que no se superponga.
+   1. Cree un nuevo grupo de nodos en la nueva subred.
+   1. Vacíe los pods del grupo de nodos antiguo que reside en la subred antigua que se va a reemplazar.
+   1. Elimine la antigua subred y el antiguo grupo de nodos.
 
 ## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Mi pod se ha atascado en el modo CrashLoopBackOff. ¿Cuál debo hacer?
 
@@ -46,6 +69,19 @@ Puede haber varios motivos para que el pod se quede atascado en ese modo. Alguna
 
 Para obtener más información sobre cómo solucionar problemas de los pods, consulte cómo [depurar aplicaciones](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
 
+## <a name="im-receiving-tcp-timeouts-when-using-kubectl-or-other-third-party-tools-connecting-to-the-api-server"></a>Recibo `TCP timeouts` al usar `kubectl` u otras herramientas de terceros que se conectan al servidor de API
+AKS tiene planos de control de alta disponibilidad que se escalan verticalmente según el número de núcleos para garantizar los objetivos de nivel de servicio (SLO) y los acuerdos de nivel de servicio (SLA). Si se agota el tiempo de espera de las conexiones, compruebe lo siguiente:
+
+- **¿Se agota el tiempo de espera de todos los comandos de la API de manera uniforme o solo unos pocos?** Si solo sucede con unos pocos, el pod `tunnelfront` o el pod `aks-link`, responsables de la comunicación del nodo al plano de control, puede que no estén en estado de ejecución. Asegúrese de que los nodos que hospeden este pod no se usen de manera excesiva ni están bajo estrés. Piense en la posibilidad de moverlos a su propio [grupo de nodos del `system`](use-system-pools.md).
+- **¿Ha abierto todos los puertos, FQDN y direcciones IP necesarios indicados en la [documentación de control del tráfico de salida de AKS](limit-egress-traffic.md)?** De lo contrario, se pueden producir errores en varias llamadas a comandos.
+- **¿La dirección IP actual está incluida en los [intervalos de IP autorizados de la API](api-server-authorized-ip-ranges.md)?** Si utiliza esta característica y la dirección IP no está incluida en los intervalos, se bloquearán las llamadas. 
+- **¿Tiene un cliente o aplicación con fuga de llamadas al servidor de la API?** Asegúrese de usar inspecciones en lugar de llamadas get frecuentes, y de que las aplicaciones de terceros no estén perdiendo dichas llamadas. Por ejemplo, un error en Mixer de Istio hace que se cree una nueva conexión de inspección del servidor de la API cada vez que un secreto se lee internamente. Dado que este comportamiento se produce a intervalos regulares, las conexiones de inspección se acumulan rápidamente y, finalmente, hacen que el servidor de la API se sobrecargue sin importar el patrón de escalado. https://github.com/istio/istio/issues/19481
+- **¿Tiene muchas versiones en las implementaciones de Helm?** En este escenario se puede hacer que Tiller use demasiada memoria en los nodos, así como una gran cantidad de `configmaps`, lo que puede provocar picos innecesarios en el servidor de la API. Considere la posibilidad de configurar `--history-max` en `helm init` y aprovechar el nuevo Helm 3. Más información sobre los temas siguientes: 
+    - https://github.com/helm/helm/issues/4821
+    - https://github.com/helm/helm/issues/3500
+    - https://github.com/helm/helm/issues/4543
+
+
 ## <a name="im-trying-to-enable-role-based-access-control-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Estoy intentando habilitar el control de acceso basado en rol (RBAC) en un clúster existente. ¿Cómo puedo hacerlo?
 
 En este momento no se admite la habilitación del control de acceso basado en rol (RBAC) en clústeres existentes; se debe configurar al crear clústeres. RBAC está habilitado de forma predeterminada cuando se usa la CLI, el portal o una versión de API posterior a la `2020-03-01`.
@@ -53,12 +89,6 @@ En este momento no se admite la habilitación del control de acceso basado en ro
 ## <a name="i-created-a-cluster-with-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>He creado un clúster con RBAC habilitado y ahora veo muchas advertencias en el panel de Kubernetes. El panel solía funcionar sin mostrar ninguna advertencia. ¿Cuál debo hacer?
 
 El motivo de las advertencias es que el clúster tiene habilitado RBAC y el acceso al panel ahora está restringido de forma predeterminada. En general, este enfoque es recomendable, puesto que la exposición predeterminada del panel a todos los usuarios del clúster puede dar lugar a amenazas de seguridad. Si desea habilitar el panel, siga los pasos descritos en esta [entrada de blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
-
-## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>No puedo conectarme al panel. ¿Cuál debo hacer?
-
-La manera más fácil de tener acceso al servicio fuera del clúster es ejecutar `kubectl proxy`, que redirigirá mediante proxy las solicitudes para el puerto 8001 de localhost al servidor de API de Kubernetes. Desde allí, el servidor de API puede redirigir mediante proxy a su servicio: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/`.
-
-Si no ve el panel de Kubernetes, compruebe si el pod `kube-proxy` se está ejecutando en el espacio de nombres `kube-system`. Si no está en estado de ejecución, elimine el pod y se reiniciará.
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>No logro obtener los registros mediante kubectl logs ni puedo conectarme al servidor de API. Recibo el mensaje "Error de servidor: error de marcado al back-end: marcar tcp…" ¿Cuál debo hacer?
 
@@ -119,6 +149,7 @@ Tanto AKS como la plataforma de Azure implementan las restricciones de nomenclat
 * El nombre del grupo de recursos *MC_* o del nodo de AKS combina el nombre del grupo de recursos y el nombre del recurso. La sintaxis generada automáticamente de `MC_resourceGroupName_resourceName_AzureRegion` no puede tener más de 80 caracteres. Si es necesario, disminuya la longitud del nombre del grupo de recursos o del nombre del clúster de AKS. También puede [personalizar el nombre del grupo de recursos del nodo](cluster-configuration.md#custom-resource-group-name).
 * *dnsPrefix* debe empezar y terminar con valores alfanuméricos, y debe tener entre 1 y 54 caracteres. Los caracteres válidos incluyen valores alfanuméricos y guiones (-). *dnsPrefix* no puede incluir caracteres especiales, como un punto (.).
 * Los nombres de grupo del nodo de AKS deben estar en minúsculas y tener entre 1 y 11 caracteres, en el caso de grupos de nodos de Linux, y entre 1 y 6 caracteres si son grupos de nodos de Windows. El nombre debe empezar por una letra y los únicos caracteres permitidos son letras y números.
+* El *admin-username*, que establece el nombre de usuario de administrador para los nodos de Linux, debe empezar con una letra, solo puede contener letras, números, guiones y caracteres de subrayado, y tiene una longitud máxima de 64 caracteres.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Recibo errores cuando intento crear, actualizar, escalar, eliminar o actualizar un clúster, donde se indica que no se permite la operación porque hay otra en curso.
 

@@ -2,14 +2,14 @@
 title: Administrar una instancia de Azure Blockchain Service con la CLI de Azure
 description: Administración de Azure Blockchain Service con la CLI de Azure
 ms.date: 11/22/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: ac75be644877905c1517395c1c789b1ea16fd49c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc00bedee5ff55033a1d65c6d5d6bfa766f0f01e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74455587"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85208168"
 ---
 # <a name="manage-azure-blockchain-service-using-azure-cli"></a>Administrar una instancia de Azure Blockchain Service con la CLI de Azure
 
@@ -178,7 +178,7 @@ az resource invoke-action \
 |---------|-------------|
 | **resource-group** | Nombre del grupo de recursos en el que se encuentran los recursos de Azure Blockchain Service. |
 | **name** | Nombre del miembro de la cadena de bloques de Azure Blockchain Service que también incluye el nuevo nombre del nodo de transacción. |
-| **keyName** | Reemplace \<keyValue\> con key1 o key2. |
+| **keyName** | Reemplace \<keyValue\> por key1 o key2. |
 
 ## <a name="delete-a-transaction-node"></a>Eliminar un nodo de transacción
 

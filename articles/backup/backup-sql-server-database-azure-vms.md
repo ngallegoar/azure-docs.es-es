@@ -1,15 +1,14 @@
 ---
 title: Copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure
 description: En este artículo, aprenderá a realizar copias de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure con Azure Backup.
-ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: faf5ffd65f9b3133c504413201d58aee988af71a
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 16e24ed94d8017d9fb922193bb16a33ec7a9cdfd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248114"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84817548"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure
 
@@ -34,9 +33,10 @@ En este artículo, aprenderá a:
 Para poder realizar copias de seguridad de la base de datos de SQL Server, primero debe comprobar si reúne los siguientes criterios:
 
 1. Identifique o cree un [almacén de Recovery Services](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) en la misma región y suscripción que la máquina virtual que hospeda la instancia de SQL Server.
-2. Compruebe que la máquina virtual tenga [conectividad de red](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
-3. Asegúrese de que las bases de datos de SQL Server siguen las [directrices de nomenclatura de bases de datos para Azure Backup](#database-naming-guidelines-for-azure-backup).
-4. Compruebe que no dispone de otras soluciones de copia de seguridad habilitadas para la base de datos. Deshabilite todas las demás copias de seguridad de SQL Server antes de hacer una copia de seguridad de la base de datos.
+1. Compruebe que la máquina virtual tenga [conectividad de red](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
+1. Asegúrese de que las bases de datos de SQL Server siguen las [directrices de nomenclatura de bases de datos para Azure Backup](#database-naming-guidelines-for-azure-backup).
+1. Asegúrese de que la longitud combinada del nombre de la máquina virtual de SQL Server y el nombre del grupo de recursos no supere los 84 caracteres en el caso de Azure Resource Manager (máquinas virtuales ARM_) y los 77 caracteres en el caso de las máquinas virtuales clásicas. Esta limitación se debe a que algunos caracteres están reservados por el servicio.
+1. Compruebe que no dispone de otras soluciones de copia de seguridad habilitadas para la base de datos. Deshabilite todas las demás copias de seguridad de SQL Server antes de hacer una copia de seguridad de la base de datos.
 
 > [!NOTE]
 > Puede habilitar Azure Backup para una máquina virtual de Azure y también para una base de datos de SQL Server que se ejecute en la máquina virtual sin que se produzcan conflictos.
@@ -264,7 +264,7 @@ Para crear una directiva de copia de seguridad:
 
 Puede habilitar la protección automática para hacer una copia de seguridad automática de todas las bases de datos existentes y futuras en una instancia de SQL Server independiente o en un grupo de disponibilidad de AlwaysOn.
 
-* No hay límite en el número de bases de datos que se pueden seleccionar para la protección automática en una sola operación.
+* No hay límite en cuanto al número de bases de datos que se pueden seleccionar para la protección automática en una misma operación. La detección se suele ejecutar cada ocho horas, pero puede detectar y proteger nuevas bases de datos de inmediato si ejecuta manualmente una detección seleccionando la opción **Volver a detectar bases de datos**.
 * No puede proteger o excluir selectivamente las bases de datos de la protección en una instancia en el momento en que habilita la protección automática.
 * Si la instancia ya incluye algunas bases de datos protegidos, permanecerán protegidos en sus respectivas directivas incluso después de activar la protección automática. Todas las bases de datos no protegidas que se agreguen posteriormente tendrán una única directiva que se define en el momento de habilitar la protección automática, indicada en **Configurar copia de seguridad**. Sin embargo, puede cambiar la directiva asociada a una base de datos protegida automáticamente más adelante.  
 

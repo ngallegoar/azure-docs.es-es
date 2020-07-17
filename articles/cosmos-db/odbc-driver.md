@@ -3,15 +3,15 @@ title: Conexión a Azure Cosmos DB mediante herramientas de análisis de BI
 description: Obtenga información sobre cómo usar el controlador ODBC de Azure Cosmos DB para crear tablas y vistas de forma que los datos normalizados puedan verse en el software de análisis de datos y BI.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: 8be17f0b624c5c34709fb420adb434b77dbc0d91
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57db2253cbffa8e16313c7613de6d2ddb2f2b0a2
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76721088"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027246"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Conexión a Azure Cosmos DB mediante herramientas de análisis de BI con el controlador ODBC
 
@@ -46,7 +46,7 @@ Empecemos con el controlador ODBC.
 1. Abra la aplicación **Administrador de orígenes de datos ODBC** en su equipo. Para ello, puede escribir **orígenes de datos ODBC** en el cuadro de búsqueda de Windows. 
     Puede confirmar que el controlador se ha instalado haciendo clic en la pestaña **Controladores** y asegurándose de que **el controlador ODBC de Microsoft Azure Cosmos DB** aparece en la lista.
 
-    ![Administrador de orígenes de datos ODBC de Azure Cosmos DB](./media/odbc-driver/odbc-driver.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver.png" alt-text="Administrador de orígenes de datos ODBC de Azure Cosmos DB":::
 
 ## <a name="step-2-connect-to-your-azure-cosmos-database"></a><a id="connect"></a>Paso 2: Conexión a la base de datos de Azure Cosmos
 
@@ -56,18 +56,18 @@ Empecemos con el controlador ODBC.
 
 1. En la ventana **Azure Cosmos DB ODBC Driver DSN Setup** (Configuración de DSN del controlador ODBC de Azure Cosmos DB), rellene la información siguiente: 
 
-    ![Ventana Azure Cosmos DB ODBC Driver DSN Setup (Configuración de DSN del controlador ODBC de Azure Cosmos DB)](./media/odbc-driver/odbc-driver-dsn-setup.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-dsn-setup.png" alt-text="Ventana Azure Cosmos DB ODBC Driver DSN Setup (Configuración de DSN del controlador ODBC de Azure Cosmos DB)":::
     - **Nombre del origen de datos**: el propio nombre descriptivo para el DSN de ODBC. Este nombre es único en su cuenta de Azure Cosmos DB, por lo que debe ser apropiado si tiene varias cuentas.
     - **Descripción**: Una breve descripción del origen de datos.
     - **Host**: URI de la cuenta de Azure Cosmos DB. Puede recuperar esta información de la página Claves de Azure Cosmos DB en Azure Portal, como se muestra en la captura de pantalla siguiente. 
     - **Clave de acceso**: clave principal o secundaria, de solo escritura o solo lectura de la página Claves de Azure Cosmos DB de Azure Portal, como se muestra en la captura de pantalla siguiente. Se recomienda usar la clave de solo lectura si DSN se utiliza para procesamiento e informes de datos de solo lectura.
-    ![Página Claves de Azure Cosmos DB](./media/odbc-driver/odbc-cosmos-account-keys.png)
+    :::image type="content" source="./media/odbc-driver/odbc-cosmos-account-keys.png" alt-text="Página Claves de Azure Cosmos DB":::
     - **Encrypt Access Key for** (Cifrar la clave de acceso para): seleccione la mejor opción en función de los usuarios de esta máquina. 
     
 1. Haga clic en el botón **Probar** para asegurarse de que puede conectarse a su cuenta de Azure Cosmos DB. 
 
 1.  Haga clic en **Opciones avanzadas** y establezca los siguientes valores:
-    *  **Versión de API REST**: Seleccione la [versión de la API REST](https://docs.microsoft.com/rest/api/cosmos-db/) de las operaciones. El valor predeterminado es 2015-12-16. Si tiene contenedores con [claves de partición grandes](large-partition-keys.md) y necesita la versión 2018-12-31 de la API REST:
+    *  **Versión de API REST**: Seleccione la [versión de la API REST](/rest/api/cosmos-db/) de las operaciones. El valor predeterminado es 2015-12-16. Si tiene contenedores con [claves de partición grandes](large-partition-keys.md) y necesita la versión 2018-12-31 de la API REST:
         - Escriba **2018-12-31** como versión de la API REST.
         - En el menú **Inicio**, escriba "regedit" para buscar y abrir la aplicación **Editor del Registro**.
         - En el Editor del Registro, vaya a la siguiente ruta: **Computer\HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI**
@@ -76,7 +76,7 @@ Empecemos con el controlador ODBC.
         - Haga clic con el botón derecho para agregar un nuevo **valor de cadena**:
             - Nombre del valor: **IgnoreSessionToken**
             - Datos del valor: **1**
-            ![Configuración del Editor del Registro](./media/odbc-driver/cosmos-odbc-edit-registry.png)
+            :::image type="content" source="./media/odbc-driver/cosmos-odbc-edit-registry.png" alt-text="Configuración del Editor del Registro":::
     - **Coherencia de consultas**: seleccione el [nivel de coherencia](consistency-levels.md) para las operaciones. El valor predeterminado es Sesión.
     - **Número de reintentos**: escriba el número de veces que se volverá a intentar una operación si la solicitud inicial no se completa debido a una limitación de la velocidad del servicio.
     - **Archivo de esquema**: Tiene varias opciones.
@@ -86,7 +86,7 @@ Empecemos con el controlador ODBC.
 
 1. Una vez que complete y cierre la ventana **Azure Cosmos DB ODBC Driver DSN Setup** (Configuración de DSN del controlador ODBC de Azure Cosmos DB), el nuevo DSN de usuario se agregará a la pestaña DSN de usuario.
 
-    ![Nuevo DSN de ODBC de Azure Cosmos DB en la pestaña DSN de usuario](./media/odbc-driver/odbc-driver-user-dsn.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-user-dsn.png" alt-text="Nuevo DSN de ODBC de Azure Cosmos DB en la pestaña DSN de usuario":::
 
 ## <a name="step-3-create-a-schema-definition-using-the-container-mapping-method"></a><a id="#container-mapping"></a>Paso 3: Creación de una definición de esquema con el método de asignación de contenedores
 
@@ -94,7 +94,7 @@ Hay dos tipos de métodos de muestreo que puede usar: **asignación de contenedo
 
 1. Después de completar los pasos 1 a 4 de [Conexión a la base de datos de Azure Cosmos](#connect), haga clic en **Editor de esquemas** en la ventana **Azure Cosmos DB ODBC Driver DSN Setup** (Configuración de DSN del controlador ODBC de Azure Cosmos DB).
 
-    ![Botón Editor de esquemas en la ventana Azure Cosmos DB ODBC Driver DSN Setup (Configuración de DSN del controlador ODBC de Azure Cosmos DB)](./media/odbc-driver/odbc-driver-schema-editor.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-schema-editor.png" alt-text="Botón Editor de esquemas en la ventana Azure Cosmos DB ODBC Driver DSN Setup (Configuración de DSN del controlador ODBC de Azure Cosmos DB)":::
 1. En la ventana **Editor de esquemas**, haga clic en **Crear nuevo**.
     En la ventana **Generate Schema** (Generar esquema), se muestran todos los contenedores de la cuenta de Azure Cosmos DB. 
 
@@ -162,7 +162,7 @@ Puede consultar Azure Cosmos DB desde SQL Server Management Studio (SSMS) median
     
 Para ver el nuevo nombre del servidor vinculado, actualice la lista de servidores vinculados.
 
-![Servidor vinculado en SSMS](./media/odbc-driver/odbc-driver-linked-server-ssms.png)
+:::image type="content" source="./media/odbc-driver/odbc-driver-linked-server-ssms.png" alt-text="Servidor vinculado en SSMS":::
 
 ### <a name="query-linked-database"></a>Consulta de la base de datos vinculada
 
@@ -195,7 +195,8 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 Puede definir y crear vistas como parte del proceso de muestreo. Estas vistas son equivalentes a las vistas SQL. Son de solo lectura y con el ámbito de las selecciones y proyecciones de la consulta SQL de Azure Cosmos DB definida. 
 
 Para crear una vista de los datos, en la ventana **Editor de esquemas**, en la columna **View Definitions** (Definiciones de vista), haga clic en **Agregar** en la fila del contenedor que se va a incluir en el muestreo. 
-    ![Creación de una vista de datos](./media/odbc-driver/odbc-driver-create-view.png)
+
+:::image type="content" source="./media/odbc-driver/odbc-driver-create-view.png" alt-text="Creación de una vista de datos":::
 
 
 A continuación, en la ventana **View Definitions** (Definiciones de vista), haga lo siguiente:
@@ -204,7 +205,7 @@ A continuación, en la ventana **View Definitions** (Definiciones de vista), hag
 
 1. En la ventana **Editar vista**, escriba una consulta de Azure Cosmos DB. Debe tratarse de una [consulta de Azure Cosmos DB SQL](how-to-sql-query.md), por ejemplo `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"`, y, a continuación, haga clic en **Aceptar**.
 
-    ![Adición de consultas al crear una vista](./media/odbc-driver/odbc-driver-create-view-2.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-create-view-2.png" alt-text="Adición de consultas al crear una vista":::
 
 
 Puede crear tantas vistas como desee. Una vez que haya terminado de definir las vistas, puede muestrear los datos. 
@@ -217,21 +218,21 @@ Puede utilizar el nuevo DSN para conectar Azure Cosmos DB con cualquier herramie
 
 1. Haga clic en **Obtener datos**.
 
-    ![Obtención de datos en Power BI Desktop](./media/odbc-driver/odbc-driver-power-bi-get-data.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data.png" alt-text="Obtención de datos en Power BI Desktop":::
 
 1. En la ventana **Obtener datos**, haga clic en **Otros** | **ODBC** | **Conectar**.
 
-    ![Elección de origen de datos ODBC en Get Data de Power BI](./media/odbc-driver/odbc-driver-power-bi-get-data-2.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-2.png" alt-text="Elección de origen de datos ODBC en Obtener datos de Power BI":::
 
 1. En la ventana **Desde ODBC**, seleccione el nombre del origen de datos que ha creado el nombre y luego haga clic en **Aceptar**. Puede dejar las entradas **Opciones avanzadas** en blanco.
 
-    ![Elección del nombre del origen de datos (DSN) en Get Data de Power BI](./media/odbc-driver/odbc-driver-power-bi-get-data-3.png)
+   :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-3.png" alt-text="Elección del nombre del origen de datos (DSN) en Get Data de Power BI":::
 
 1. En la ventana **Acceda a un origen de datos a través de un controlador ODBC**, seleccione **Predeterminado o personalizado** y luego haga clic en **Conectar**. No es necesario incluir **Propiedades de la cadena de conexión de credenciales**.
 
 1. En la ventana **Navegador**, en el panel izquierdo, expanda la base de datos, el esquema y luego seleccione la tabla. El panel de resultados incluye los datos que usan el esquema que ha creado.
 
-    ![Selección de la tabla en Get Data de Power BI](./media/odbc-driver/odbc-driver-power-bi-get-data-4.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-4.png" alt-text="Selección de la tabla en Obtener datos de Power BI":::
 
 1. Para visualizar los datos en Power BI Desktop, active la casilla junto al nombre de tabla y luego haga clic en **Cargar**.
 
@@ -243,7 +244,10 @@ Puede utilizar el nuevo DSN para conectar Azure Cosmos DB con cualquier herramie
 
 Si recibe el siguiente error, asegúrese de que los valores de **Host** y **Clave de acceso** copiados de Azure Portal en el [paso 2](#connect) son correctos y luego vuelva a intentarlo. Utilice los botones de copia situados a la derecha de los valores de **Host** y **Clave de acceso** en Azure Portal para copiar los valores sin errores.
 
-    [HY000]: [Microsoft][Azure Cosmos DB] (401) HTTP 401 Authentication Error: {"code":"Unauthorized","message":"The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used. Server used the following payload to sign: 'get\ndbs\n\nfri, 20 jan 2017 03:43:55 gmt\n\n'\r\nActivityId: 9acb3c0d-cb31-4b78-ac0a-413c8d33e373"}`
+```output
+[HY000]: [Microsoft][Azure Cosmos DB] (401) HTTP 401 Authentication Error: {"code":"Unauthorized","message":"The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used. Server used the following payload to sign: 'get\ndbs\n\nfri, 20 jan 2017 03:43:55 gmt\n\n'\r\nActivityId: 9acb3c0d-cb31-4b78-ac0a-413c8d33e373"}
+```
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

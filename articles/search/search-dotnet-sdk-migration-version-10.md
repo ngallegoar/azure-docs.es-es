@@ -9,20 +9,20 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ad912eb0b26354d40a654a1c8782dfcb960235e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ce4e308420fc3ea1928b44013a78d0ae57d2c35
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73847519"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562390"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-10"></a>Actualización a la versión 10 del SDK de .NET para Azure Cognitive Search
 
-Si usa una versión 9.0 o anterior del [SDK de Azure Search para .NET](https://aka.ms/search-sdk), este artículo le ayudará a actualizar la aplicación para que use la versión 10.
+Si usa la versión 9.0 o anterior del [SDK de .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search), este artículo le ayudará a actualizar la aplicación para que use la versión 10.
 
 Se ha cambiado el nombre a Azure Search por el de Azure Cognitive Search en la versión 10, pero los espacios de nombres y los nombres de paquetes no se han modificado. Las versiones anteriores del SDK (9.0 y versiones anteriores) siguen usando el nombre anterior. Para más información sobre el SDK (ejemplos incluidos), consulte [Cómo usar Azure Cognitive Search desde una aplicación .NET](search-howto-dotnet-sdk.md).
 
-La versión 10 agrega varias características y correcciones de errores, lo que la sitúa en el mismo nivel funcional que la versión más reciente de la API REST `2019-05-06`. En los casos en los que un cambio interrumpa el código existente, le guiaremos a lo largo de los [pasos necesarios para resolver el problema.](#UpgradeSteps)
+La versión 10 agrega varias características y correcciones de errores, lo que la sitúa en el mismo nivel funcional que la versión de la API de REST `2019-05-06`. En los casos en los que un cambio interrumpa el código existente, le guiaremos a lo largo de los [pasos necesarios para resolver el problema.](#UpgradeSteps)
 
 > [!NOTE]
 > Si usa la versión 8.0-preview o anterior, debe actualizar primero a la versión 9 y luego a la versión 10. Consulte [Actualización a la versión 9 del SDK de .NET para Azure Search](search-dotnet-sdk-migration-version-9.md) para obtener instrucciones.
@@ -32,7 +32,7 @@ La versión 10 agrega varias características y correcciones de errores, lo que
 <a name="WhatsNew"></a>
 
 ## <a name="whats-new-in-version-10"></a>Novedades de la versión 10
-La versión 10 del SDK de .NET para Azure Cognitive Search tiene como destino la versión más reciente con disponibilidad general de la API REST (`2019-05-06`) con estas actualizaciones:
+La versión 10 del SDK de .NET para Azure Cognitive Search tiene como destino la API de REST `2019-05-06` con estas actualizaciones:
 
 * Introducción de dos nuevas aptitudes: [aptitud Condicional](cognitive-search-skill-conditional.md) y [aptitud Traducción de texto](cognitive-search-skill-text-translation.md).
 * Las entradas de la [aptitud Conformador](cognitive-search-skill-shaper.md) se han reestructurado para dar cabida a la consolidación de contextos anidados. Para más información, consulte esta [definición de JSON de ejemplo](https://docs.microsoft.com/azure/search/cognitive-search-skill-shaper#scenario-3-input-consolidation-from-nested-contexts).

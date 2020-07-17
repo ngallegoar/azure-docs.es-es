@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: c4146dd4988be93475dc4d2d0dade06b8738ad83
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: ec58f8df5507fd9c52950e880c062e6cad964b7a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402452"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106992"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Directivas de soporte técnico para Azure Kubernetes Service
 
@@ -51,9 +51,12 @@ Dado que los nodos de trabajo son confidenciales, Microsoft presta mucha atenci�
 
 Microsoft proporciona soporte técnico para lo siguiente:
 
+> [!NOTE]
+> Todas las acciones de clúster realizadas por Microsoft/AKS se realizan con el consentimiento del usuario en un rol de Kubernetes integrado `aks-service` y el enlace de roles integrado `aks-service-rolebinding`. Este rol permite a AKS solucionar problemas de clústeres, pero no puede modificar permisos ni crear roles, enlaces de roles ni otras acciones de privilegios elevados. El acceso a roles solo se habilita en incidencias de soporte técnico activos con acceso Just-in-Time (JIT).
+
 * Conectividad a todos los componentes de Kubernetes que el servicio Kubernetes proporciona y admite, como el servidor de API.
 * La administración, el tiempo de actividad, la calidad de servicio y las operaciones de los servicios del plano de control de Kubernetes (por ejemplo, los nodos maestros de Kubernetes, el servidor de API, etcd y kube-dns).
-* Etcd. La compatibilidad incluye las copias de seguridad automatizadas y transparentes de todos los datos de etcd cada 30 minutos para la restauración del estado del clúster y la planificación ante desastres. Estas copias de seguridad no están directamente disponibles para los clientes o los usuarios. Garantizan la coherencia y confiabilidad de los datos.
+* Etcd. La compatibilidad incluye las copias de seguridad automatizadas y transparentes de todos los datos de etcd cada 30 minutos para la restauración del estado del clúster y la planificación ante desastres. Estas copias de seguridad no están directamente disponibles para los clientes o los usuarios. Garantizan la coherencia y confiabilidad de los datos. Etcd. la reversión a petición o la restauración no se admiten como una característica.
 * Los puntos de integración en el controlador del proveedor de nube de Azure para Kubernetes. Estos incluyen las integraciones en otros servicios de Azure, como los equilibradores de carga, los volúmenes persistentes o las redes (Kubernetes y Azure CNI).
 * Preguntas o problemas sobre la personalización de los componentes del plano de control, como el servidor de API de Kubernetes, etcd y kube-dns.
 * Problemas relacionados con las redes, como Azure CNI, kubenet, u otros problemas de acceso de red y funcionalidades. Podrían incluir los de resolución de DNS, pérdida de paquetes, enrutamiento, etc. Microsoft admite diversos escenarios de redes:

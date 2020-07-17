@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: 6a1a51ee09422607ae1392704add4d49d3367d57
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 17f98f452764abdc8458cdc38661d464ecb0a60d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759054"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808540"
 ---
 # <a name="limitations"></a>Limitaciones
 
@@ -26,9 +26,10 @@ Algunas características tienen limitaciones de tamaño, recuento u otras.
 * Número total de objetos permitidos de un único tipo (Entity, CutPlaneComponent, etc.): 16 777 215.
 * Número total de planos de corte activo permitidos: 8.
 
-## <a name="materials"></a>Materiales
+## <a name="geometry"></a>Geometría
 
 * Número total de materiales permitidos en un recurso: 65 535.
+* Dimensión máxima de una sola textura: 16 384 x 16 384. El proceso de conversión reducirá la escala de las texturas de origen más grandes.
 
 ## <a name="overall-number-of-polygons"></a>Número total de polígonos
 
@@ -39,12 +40,14 @@ El número de polígonos permitidos para todos los modelos cargados depende del 
 |estándar| 20 millones |
 |prémium| ilimitado |
 
+Vea el capítulo [Tamaños de máquina virtual](../reference/vm-sizes.md) para obtener información más detallada sobre esta limitación.
 
 ## <a name="platform-limitations"></a>Limitaciones de la plataforma
 
 **Escritorio de Windows 10**
 
 * UWP/x86 es la única plataforma UWP compatible. UWP/x64 no es compatible.
+* Win32/x64 es la única plataforma Win32 compatible. Win32/x86 no es compatible.
 
 **HoloLens 2**
 

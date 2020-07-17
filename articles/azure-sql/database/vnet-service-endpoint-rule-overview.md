@@ -11,17 +11,17 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: fb3246564c7902d1a99c28425ee7ee1789b00354
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 51d7ae8671d4b57e1822aa1c4ee5bf30a5f24cbd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171147"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253994"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Uso de reglas y puntos de conexión de servicio de red virtual para servidores de Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Las *reglas de red virtual* son una característica de seguridad del firewall que controla si el servidor de las bases de datos y de los grupos elásticos de [Azure SQL Database](sql-database-paas-overview.md) o de las bases de datos de [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) acepta las comunicaciones que se envían desde subredes específicas de redes virtuales. En este artículo se explica por qué la característica de regla de red virtual a veces es la mejor opción para permitir la comunicación de forma segura con Azure SQL Database y SQL Data Warehouse.
+Las *reglas de red virtual* son una característica de seguridad del firewall que controla si el servidor de las bases de datos y de los grupos elásticos de [Azure SQL Database](sql-database-paas-overview.md) o de las bases de datos de [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) acepta las comunicaciones que se envían desde subredes específicas de redes virtuales. En este artículo se explica por qué la característica de regla de red virtual es a veces la mejor opción para permitir la comunicación de forma segura con su base de datos de Azure SQL Database y SQL Data Warehouse.
 
 > [!NOTE]
 > Este tema se aplica tanto a Azure SQL Database como a Azure Synapse Analytics (anteriormente SQL Data Warehouse). Para simplificar, el término "base de datos" hace referencia a las bases de datos de Azure SQL Database y a las de Azure Synapse Analytics. Del mismo modo, todas las referencias a "servidor" indican el [servidor de SQL Server lógico](logical-servers.md) que hospeda Azure SQL Database y Azure Synapse Analytics.
@@ -74,7 +74,7 @@ Si quiere, puede optar por usar el [control de acceso basado en rol (RBAC)][rbac
 
 Para Azure SQL Database, la característica de regla de red virtual tiene las siguientes limitaciones:
 
-- En el firewall de la base de datos de Azure SQL Database, cada regla de red virtual hace referencia a una subred. Todas estas subredes a las que se hace referencia deben estar hospedadas en la misma región geográfica que hospeda la instancia de Azure SQL Database.
+- En el firewall de la base de datos de Azure SQL Database, cada regla de red virtual hace referencia a una subred. Todas estas subredes a las que se hace referencia deben estar hospedadas en la misma región geográfica que hospeda la base de datos.
 
 - Cada servidor puede tener hasta 128 entradas de ACL para cualquier red virtual proporcionada.
 

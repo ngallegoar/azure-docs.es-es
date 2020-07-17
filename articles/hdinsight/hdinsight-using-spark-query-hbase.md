@@ -5,21 +5,21 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: e5d9d4f215752d95ee1d676e8a5b126b6d0d3ab2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ddb8734a3d15a6cd5f4a43ee069d6364f7523ed
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190629"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087494"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Uso de Apache Spark para leer y escribir datos de Apache HBase
 
 Apache HBase se consulta, normalmente, con su API de bajo nivel (instrucciones scan, get y put) o con una sintaxis SQL que utiliza Apache Phoenix. Apache también proporciona el conector HBase de Apache Spark. Este es una alternativa práctica y eficaz para consultar y modificar los datos que almacena HBase.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Dos clústeres de HDInsight independientes implementados en la misma [red virtual](./hdinsight-plan-virtual-network-deployment.md). HBase y Spark con al menos Spark 2.1 (HDInsight 3.6) instalado. Para obtener más información, consulte [Crear clústeres basados en Linux en HDInsight con Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -113,13 +113,49 @@ exit
 
 ## <a name="run-spark-shell-referencing-the-spark-hbase-connector"></a>Ejecutar el shell Spark haciendo referencia al conector Spark HBase
 
+Después de completar el paso anterior, debería poder ejecutar el shell de Spark con referencia a la versión adecuada del conector Spark HBase. Para encontrar la versión más reciente del núcleo del conector Spark HBase para el escenario del clúster, consulte el [repositorio principal de SHC](https://repo.hortonworks.com/content/groups/public/com/hortonworks/shc/shc-core/).
+
+Como ejemplo, en la tabla siguiente se muestran dos versiones y los comandos correspondientes que el equipo de HDInsight usa actualmente. Si las versiones de HBase y Spark son las mismas que las indicadas en la tabla, puede usar las mismas versiones de los clústeres. 
+
+
 1. En la sesión SSH que tiene abierta del clúster de Spark, escriba el siguiente comando para iniciar un shell de Spark:
 
-    ```bash
-    spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/
-    ```  
+    |Versión de Spark| Versión de HDI de HBase  | Versión de SHC    |  Get-Help  |
+    | :-----------:| :----------: | :-----------: |:----------- |
+    |      2.1    | HDI 3.6 (HBase 1.1) | 1.1.0.3.1.2.2-1    | `spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/` |
+    |      2.4    | HDI 4.0 (HBase 2.0) | 1.1.1-2.1-s_2.11  | `spark-shell --packages com.hortonworks.shc:shc-core:1.1.0.3.1.2.2-1 --repositories http://repo.hortonworks.com/content/groups/public/` |
 
-2. Mantenga abierta esta instancia de shell Spark y continúe con el paso siguiente.
+2. Mantenga abierta esta instancia de shell de Spark y continúe con [Definir un catálogo y una consulta](#define-a-catalog-and-query). Si no encuentra los archivos JAR correspondientes a sus versiones en el repositorio de SHC Core, siga la lectura. 
+
+Puede compilar los archivos JAR directamente desde la rama GitHub de [Spark-HBase-Connector](https://github.com/hortonworks-spark/shc). Por ejemplo, si ejecuta Spark 2.3 y HBase 1.1, siga estos pasos:
+
+1. Clonación del repositorio:
+
+    ```bash
+    git clone https://github.com/hortonworks-spark/shc
+    ```
+    
+2. Vaya a la rama-2.3:
+
+    ```bash
+    git checkout branch-2.3
+    ```
+
+3. Compilar a partir de la rama (crea un archivo .jar):
+
+    ```bash
+    mvn clean package -DskipTests
+    ```
+    
+3. Ejecute el siguiente comando (asegúrese de cambiar el nombre .jar que corresponde al archivo .jar que ha creado):
+
+    ```bash
+    spark-shell --jars <path to your jar>,/usr/hdp/current/hbase-client/lib/htrace-core-3.1.0-incubating.jar,/usr/hdp/current/hbase-client/lib/hbase-client.jar,/usr/hdp/current/hbase-client/lib/hbase-common.jar,/usr/hdp/current/hbase-client/lib/hbase-server.jar,/usr/hdp/current/hbase-client/lib/hbase-protocol.jar,/usr/hdp/current/hbase-client/lib/htrace-core-3.1.0-incubating.jar
+    ```
+    
+4. Mantenga abierta esta instancia de shell de Spark y continúe con el paso siguiente. 
+
+
 
 ## <a name="define-a-catalog-and-query"></a>Definir un catálogo y una consulta
 
@@ -150,11 +186,11 @@ En este paso, se define un objeto de catálogo que asigna el esquema de Apache S
     |}""".stripMargin
     ```
 
-    El código hace lo siguiente:  
+    El código:  
 
-     a. Defina un esquema de catálogo para la tabla HBase denominada `Contacts`.  
-     b. Identifique el objeto rowkey como `key` y asigne los nombres de columna usados en Spark a la familia de columna, el nombre de columna y el tipo de columna tal como se usa en HBase.  
-     c. El objeto rowkey también tiene que definirse con detalle como una columna con nombre (`rowkey`), que tiene una familia de columna específica `cf` de `rowkey`.  
+    1. Define un esquema de catálogo para la tabla HBase denominada `Contacts`.  
+    1. Identifica el objeto rowkey como `key` y asigna los nombres de columna usados en Spark a la familia de columna, el nombre de columna y el tipo de columna tal como se usa en HBase.  
+    1. Define el objeto rowkey en detalle como una columna con nombre (`rowkey`), que tiene una familia de columna específica `cf` de `rowkey`.  
 
 1. Escriba el comando siguiente para definir un método que proporcione un elemento DataFrame alrededor de su tabla `Contacts` en HBase:
 

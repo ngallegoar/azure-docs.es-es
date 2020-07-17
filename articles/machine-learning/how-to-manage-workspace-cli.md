@@ -5,16 +5,16 @@ description: Aprenda a usar la CLI de Azure para crear una nueva área de trabaj
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/05/2020
-ms.openlocfilehash: 9a7d0b75140c50df61ff63f350e5b312a6a684c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/25/2020
+ms.openlocfilehash: 64963bfc28921d195d9ed0f96b2673a9c9e4aa2b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617783"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392716"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Creación de un área de trabajo para Azure Machine Learning con la CLI de Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +59,7 @@ az extension add -n azure-cli-ml
 El área de trabajo de Azure Machine Learning se basa en los siguientes servicios o entidades de Azure:
 
 > [!IMPORTANT]
-> Si no especifica un servicio de Azure existente, se creará uno automáticamente durante la creación del área de trabajo. Siempre debe especificar un grupo de recursos.
+> Si no especifica un servicio de Azure existente, se creará uno automáticamente durante la creación del área de trabajo. Siempre debe especificar un grupo de recursos. Al conectar su propia cuenta de almacenamiento, asegúrese de que tiene habilitadas las funcionalidades Azure BLOB y Azure File, y que el espacio de nombres jerárquico (ADLS Gen 2) está deshabilitado. Siempre puede conectar su propia cuenta de almacenamiento más adelante, después de crear el área de trabajo como almacenes de datos.
 
 | Servicio | Parámetro para especificar una instancia existente |
 | ---- | ---- |
@@ -317,7 +317,7 @@ Para obtener más información, consulte la documentación de [az ml workspace s
 
 ## <a name="sync-keys-for-dependent-resources"></a>Sincronización de claves para recursos dependientes
 
-Si cambia las claves de acceso de uno de los recursos que usa el área de trabajo, use el siguiente comando para sincronizar las nuevas claves con el área de trabajo:
+Si cambia las claves de acceso de uno de los recursos que usa el área de trabajo, esta tarda aproximadamente una hora en sincronizarse con las nuevas claves. Para forzar la sincronización inmediata del área de trabajo con las nuevas claves, use el siguiente comando:
 
 ```azurecli-interactive
 az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>

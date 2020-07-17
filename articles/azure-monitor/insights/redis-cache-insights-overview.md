@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/21/2020
-ms.openlocfilehash: d892c58413803ff65fbd8ca8b25a61bc5ffeb26f
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 469b402c694bcfae5a826c03ea35dbef2c365148
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847368"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945416"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Explore Azure Monitor para Azure Cache for Redis (versión preliminar)
 
@@ -179,6 +179,10 @@ Los libros se guardan dentro de un grupo de recursos ya sea en la sección **Mis
 Después de guardar un libro personalizado, vaya a la galería de libros para abrirlo.
 
 ![Una barra de comandos con la Galería resaltada](./media/cosmosdb-insights-overview/gallery.png)
+
+## <a name="troubleshooting"></a>Solución de problemas
+
+Para obtener instrucciones para la solución de problemas, consulte el [artículo dedicado de solución de problemas](troubleshoot-workbooks.md) de conclusiones basadas en libros.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

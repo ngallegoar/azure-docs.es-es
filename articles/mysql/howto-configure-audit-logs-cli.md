@@ -4,23 +4,20 @@ description: En este artículo se describe cómo configurar los registros de aud
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 4/13/2020
-ms.openlocfilehash: d532e1990586d80d675a8ccb247c0c9f7908bb6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.date: 6/24/2020
+ms.openlocfilehash: 1a26f3c1b57fd750cbb59f32ddc8bd0ea85293ca
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81384121"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112772"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-cli"></a>Configuración y acceso a los registros de auditoría en la CLI de Azure
 
 Puede configurar los [registros de auditoría de Azure Database for MySQL](concepts-audit-logs.md) desde la CLI de Azure.
 
-> [!IMPORTANT]
-> La funcionalidad del registro de auditoría se encuentra actualmente en versión preliminar.
-
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Para seguir esta guía, necesitará:
 
@@ -32,6 +29,9 @@ Para seguir esta guía, necesitará:
 > Esta guía de procedimientos requiere el uso de la CLI de Azure versión 2.0 o posterior. Para confirmar la versión, en el símbolo del sistema de la CLI de Azure, escriba `az --version`. Para la instalación o la actualización, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="configure-audit-logging"></a>Configuración del registro de auditoría
+
+>[!IMPORTANT]
+> Se recomienda registrar solo los tipos de evento y los usuarios necesarios con fines de auditoría para asegurarse de que el rendimiento del servidor no se ve afectado en gran medida.
 
 Habilite y configure el registro de auditoría mediante los pasos siguientes:
 

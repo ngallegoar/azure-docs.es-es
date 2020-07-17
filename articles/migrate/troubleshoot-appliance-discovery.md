@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 3d9e4e54d2b1186278afc72c72cdd6bcf33dd41b
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 40bd39299380c400f945585651a7ad99e3eb3fa7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235457"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114064"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solución de problemas del dispositivo de Azure Migrate y la detección
 
@@ -27,7 +27,7 @@ Este artículo le ayuda a solucionar los problemas que surgen al implementar el 
 
 Si recibe el error "The provided manifest file is invalid: Invalid OVF manifest entry" (El archivo de manifiesto proporcionado no es válido: entrada de manifiesto de OVF no válida), haga lo siguiente:
 
-1. Compruebe si el archivo OVA del dispositivo de Azure Migrate se descargó correctamente; para ello, compruebe el valor hash. [Más información](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware). Si el valor hash no coincide, vuelva a descargar el archivo OVA e intente de nuevo la implementación.
+1. Compruebe si el archivo OVA del dispositivo de Azure Migrate se descargó correctamente; para ello, compruebe el valor hash. [Más información](./tutorial-prepare-vmware.md). Si el valor hash no coincide, vuelva a descargar el archivo OVA e intente de nuevo la implementación.
 2. Si la implementación sigue sin funcionar y utiliza el cliente de VMware vSphere para implementar el archivo OVF, intente implementarlo mediante el cliente web de vSphere. Si la implementación sigue sin funcionar, intente usar otro explorador web.
 3. Si usa el cliente web de vSphere e intenta implementarlo en vCenter Server 6.5 o 6.7, pruebe a implementar el archivo OVA directamente en el host ESXi:
    - Conéctese directamente al host ESXi (en lugar de vCenter Server) con el cliente web (https://<*dirección IP del host*>/ui).
@@ -40,7 +40,7 @@ Esto puede ocurrir si la máquina del dispositivo está detrás de un proxy.
 
 - Asegúrese de proporcionar las credenciales de autorización en caso de que el servidor proxy las necesite.
 - Si usa un proxy de firewall basado en dirección URL para controlar la conectividad de salida, agregue [estas direcciones URL](migrate-appliance.md#url-access) a una lista de permitidos.
-- Si usa un servidor proxy de interceptación para conectarse a Internet, importe el certificado del servidor proxy en la máquina virtual del dispositivo mediante [estos pasos](https://docs.microsoft.com/azure/migrate/concepts-collector).
+- Si usa un servidor proxy de interceptación para conectarse a Internet, importe el certificado del servidor proxy en la máquina virtual del dispositivo mediante [estos pasos](./migrate-appliance.md).
 
 ## <a name="cant-sign-into-azure-from-the-appliance-web-app"></a>No puede iniciar sesión en Azure desde la aplicación web del dispositivo
 
@@ -64,7 +64,7 @@ Un error sobre la sincronización de fecha y hora (802) indica que el reloj del 
 
 Si obtiene este error de conexión, es posible que no pueda conectarse a vCenter Server *NombreDelServidor*.com:9443. Los detalles del error indican que no hay ningún punto de conexión escuchando en `https://\*servername*.com:9443/sdk` que pueda aceptar el mensaje.
 
-- Compruebe si tiene en ejecución la versión más reciente del dispositivo. Si no es así, actualice el dispositivo a la [versión más reciente](https://docs.microsoft.com/azure/migrate/concepts-collector).
+- Compruebe si tiene en ejecución la versión más reciente del dispositivo. Si no es así, actualice el dispositivo a la [versión más reciente](./migrate-appliance.md).
 - Si el problema persiste con la última versión, es posible que el dispositivo no pueda resolver el nombre de vCenter Server especificado o que el puerto especificado sea incorrecto. De forma predeterminada, si no se especifica el puerto, el recopilador intentará conectar con el número de puerto 443.
 
     1. Haga ping a *NombreDelServidor*.com desde el dispositivo.
@@ -77,10 +77,10 @@ Si obtiene este error de conexión, es posible que no pueda conectarse a vCenter
 
 - Se produce el error 60052: "The appliance might not be registered successfully to the Azure Migrate project" (El dispositivo podría no estar registrado correctamente en el proyecto de Azure Migrate) si la cuenta de Azure usada para registrar el dispositivo no tiene permisos suficientes.
     - Asegúrese de que la cuenta de usuario de Azure que se ha usado para registrar el dispositivo tiene al menos el permiso de colaborador de la suscripción.
-    - [Más información](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) sobre los roles y permisos de Azure necesarios.
+    - [Más información](./migrate-appliance.md#appliance---vmware) sobre los roles y permisos de Azure necesarios.
 - Puede producirse el error 60039, "The appliance might not be registered successfully to the Azure Migrate project" (El dispositivo podría no estar registrado correctamente en el proyecto de Azure Migrate) si se produce un error de registro porque no se puede encontrar el proyecto de Azure Migrate utilizado para registrar el dispositivo.
     - En Azure Portal, compruebe si el proyecto existe en el grupo de recursos.
-    - Si el proyecto no existe, cree un nuevo proyecto de Azure Migrate en el grupo de recursos y vuelva a registrar el dispositivo. [Obtenga información sobre](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) cómo crear un nuevo proyecto.
+    - Si el proyecto no existe, cree un nuevo proyecto de Azure Migrate en el grupo de recursos y vuelva a registrar el dispositivo. [Obtenga información sobre](./how-to-add-tool-first-time.md#create-a-project-and-add-a-tool) cómo crear un nuevo proyecto.
 
 ## <a name="error-6003060031-key-vault-management-operation-failed"></a>Error 60030/60031: Error durante la operación de administración de Key Vault
 
@@ -88,7 +88,7 @@ Si recibe el error 60030 o 60031, "An Azure Key Vault management operation faile
 - Asegúrese de que la cuenta de usuario de Azure que se ha usado para registrar el dispositivo tiene al menos el permiso de colaborador de la suscripción.
 - Asegúrese de que la cuenta tiene acceso al almacén de claves especificado en el mensaje de error y vuelva a intentar la operación.
 - Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Microsoft.
-- [Más información](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) sobre los roles y permisos de Azure necesarios.
+- [Más información](./migrate-appliance.md#appliance---vmware) sobre los roles y permisos de Azure necesarios.
 
 ## <a name="error-60028-discovery-couldnt-be-initiated"></a>Error 60028: No se pudo iniciar la detección.
 
@@ -103,7 +103,7 @@ El error 60025: "An Azure AD operation failed. The error occurred while creating
 - Asegúrese de que la cuenta de usuario que inicia la detección es la misma que se ha usado para registrar el dispositivo.
 - Proporcione permisos de acceso de la aplicación de Azure Active Directory a la otra cuenta de usuario para la que se produce el error en la operación de detección.
 - Elimine el grupo de recursos creado previamente para el proyecto de Azure Migrate. Cree otro grupo de recursos para empezar de nuevo.
-- [Aprenda más](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) sobre los permisos de aplicación de Azure Active Directory.
+- [Aprenda más](./migrate-appliance.md#appliance---vmware) sobre los permisos de aplicación de Azure Active Directory.
 
 
 ## <a name="error-50004-cant-connect-to-host-or-cluster"></a>Se produce el error 50004: No se puede conectar al host o clúster
@@ -144,6 +144,10 @@ Si las máquinas virtuales detectadas no aparecen en el portal o si los datos de
 
 Si elimina las máquinas virtuales y siguen apareciendo en el portal, espere treinta minutos. Si siguen apareciendo, actualice como se describió anteriormente.
 
+## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>No veo los datos de rendimiento de algunos adaptadores de red en los servidores físicos.
+
+Esto puede ocurrir si el servidor físico tiene habilitada la virtualización de Hyper-V. Debido a una brecha en el producto, el rendimiento de la red se captura en los adaptadores de red virtuales descubiertos.
+
 ## <a name="error-the-file-uploaded-is-not-in-the-expected-format"></a>Error: el archivo cargado no tiene el formato esperado
 Algunas herramientas tienen una configuración regional que crea el archivo CSV con un punto y coma como delimitador. Cambie la configuración para asegurarse de que el delimitador sea una coma.
 
@@ -168,39 +172,54 @@ Azure Migrate admite la detección de aplicaciones, roles y características med
 Los errores de detección de aplicaciones típicos se resumen en la tabla. 
 
 **Error** | **Causa** | **Acción**
---- | --- | --- | ---
-10000: "No se pueden detectar las aplicaciones instaladas en el servidor" | Esto puede ocurrir si el sistema operativo de la máquina no es Windows o Linux. | Use solo detección de aplicaciones para Windows o Linux.
-10001: "No se pueden recuperar las aplicaciones instaladas en el servidor". | Error interno: faltan algunos archivos en el dispositivo. | Póngase en contacto con el soporte técnico de Microsoft
-10002: "No se pueden recuperar las aplicaciones instaladas en el servidor". | Es posible que el agente de detección del dispositivo no funcione correctamente. | Si el problema no se resuelve en un plazo de 24 horas, póngase en contacto con el soporte técnico.
-10003: "No se pueden recuperar las aplicaciones instaladas en el servidor". | Es posible que el agente de detección del dispositivo no funcione correctamente. | Si el problema no se resuelve en un plazo de 24 horas, póngase en contacto con el soporte técnico.
-10004: "No se pueden descubrir las aplicaciones instaladas para máquinas <Windows o Linux>". |  No se proporcionaron las credenciales para acceder a las máquinas <Windows o Linux> en el dispositivo.| Agregue una credencial al dispositivo que tenga acceso a las máquinas <Windows o Linux>.
-10005: "No se puede acceder al servidor local". | Es posible que las credenciales de acceso sean erróneas. | Actualice las credenciales del dispositivo. Asegúrese de que puede acceder a la máquina pertinente con ellas. 
-10006: "No se puede acceder al servidor local". | Esto puede ocurrir si el sistema operativo de la máquina no es Windows o Linux.|  Use solo detección de aplicaciones para Windows o Linux.
-10007: "Unable to process the metadata retrieved" (No se pueden procesar los metadatos recuperados) | Este error interno se produjo al intentar deserializar JSON | Para resolverlo, póngase en contacto con el servicio de Soporte técnico de Microsoft
-9000/9001/9002: "No se pueden detectar las aplicaciones instaladas en el servidor" | Es posible que las herramientas de VMware no estén instaladas o estén dañadas. | Instale o vuelva a instalar las herramientas de VMware en el equipo correspondiente y compruebe que se está ejecutando.
-9003: "No se pueden descubrir las aplicaciones instaladas en el servidor". | Esto puede ocurrir si el sistema operativo de la máquina no es Windows o Linux. | Use solo detección de aplicaciones para Windows o Linux.
-9004: "No se pueden detectar las aplicaciones instaladas en el servidor" | Esto puede ocurrir si la máquina virtual está apagada. | Para la detección, asegúrese de que la máquina virtual está encendida.
-9005: "No se pueden descubrir las aplicaciones instaladas en la VM". | Esto puede ocurrir si el sistema operativo de la máquina no es Windows o Linux. | Use solo detección de aplicaciones para Windows o Linux.
-9006/9007: "No se pueden recuperar las aplicaciones instaladas en el servidor". | Es posible que el agente de detección del dispositivo no funcione correctamente. | Si la incidencia no se resuelve en un plazo de 24 horas, póngase en contacto con el soporte técnico.
-9008: "No se pueden recuperar las aplicaciones instaladas en el servidor". | Podría ser un error interno.  | Si el problema no se resuelve en un plazo de veinticuatro horas, póngase en contacto con el soporte técnico.
-9009: "No se pueden recuperar las aplicaciones instaladas en el servidor". | Puede producirse si la configuración del Control de cuentas de usuario (UAC) de Windows en el servidor es restrictiva e impide la detección de las aplicaciones instaladas. | Busque la configuración "Control de cuentas de usuario" en el servidor y configure la opción de UAC del servidor en uno de los dos niveles inferiores.
-9010: "La máquina virtual está apagada". | La máquina virtual está apagada.  | Asegúrese de que la VM esté encendida.
-9011: "File to download from guest is not found on the guest VM" (El archivo para descargar desde el invitado no se encuentra en la máquina virtual invitada) | El problema puede producirse debido a un error interno. | El problema debería resolverse automáticamente en 24 horas. Si el problema persiste, póngase en contacto con el soporte técnico de Microsoft.
-9012: "El contenido del archivo de resultados está vacío". | El problema puede producirse debido a un error interno. | El problema debería resolverse automáticamente en 24 horas. Si el problema persiste, póngase en contacto con el soporte técnico de Microsoft.
-9013: "A new temporary profile is created for every login to the VMware VM" (Se crea un nuevo perfil temporal para cada inicio de sesión en la máquina virtual de VMware) | Se crea un nuevo perfil temporal para cada inicio de sesión en la máquina virtual | Asegúrese de que el nombre de usuario proporcionado en las credenciales de la máquina virtual invitada esté en formato UPN.
-9014: "No se pueden recuperar los metadatos del sistema de archivos de la máquina virtual invitada". | Se ha producido una incidencia al conectarse al host ESXi. | Asegúrese de que el dispositivo puede conectarse al puerto 443 en el host ESXi que ejecuta la máquina virtual.
-9015: "Unable to connect to VMware VMs due to insufficient privileges on vCenter" (No se puede conectar a máquinas virtuales de VMware debido a la falta de privilegios suficientes en vCenter) | El rol Operaciones de invitado no está habilitado en la cuenta de usuario de vCenter | Asegúrese de que el rol Operaciones de invitado está habilitado en la cuenta de usuario de vCenter.
-9016: "Unable to connect to VMware VMs as the guest operations agent is out of data" (No se puede conectar a máquinas virtuales de VMware porque el agente de operaciones de invitado no tiene datos) | Las herramientas de VMware no están instalado correctamente o no están actualizadas. | Asegúrese de que las herramientas de VMware están correctamente instaladas y actualizadas.
-9017: "No se encuentra el archivo con los metadatos detectados en la máquina virtual". | El problema puede producirse debido a un error interno. | Para resolverlo, póngase en contacto con el servicio de Soporte técnico de Microsoft.
-9018: "PowerShell no está instalado en las máquinas virtuales invitadas". | PowerShell aún no está disponible en la máquina virtual invitada. | Instale PowerShell en la máquina virtual invitada.
-9019: "Unable to discover due to guest VM operation failures" (No se puede realizar la detección debido a errores de operación de la máquina virtual invitada) | No se pudo realizar la operación de invitado de VMware en la máquina virtual. | Asegúrese de que las credenciales de la máquina virtual sean válidas y que el nombre de usuario proporcionado en las credenciales de la máquina virtual invitada esté en formato UPN.
-9020: "Se ha denegado el permiso se creación de archivo". | El rol asociado al usuario o a la directiva de grupo está restringiendo al usuario a la hora de crear el archivo en la carpeta | Compruebe si el usuario invitado proporcionado tiene permiso de creación para el archivo en la carpeta. Consulte las **notificaciones** en Server Assessment para ver el nombre de la carpeta.
-9021: "Se ha denegado el permiso de creación de archivo en la ruta de acceso temporal del sistema de carpeta". | No se admite la versión de las herramientas de VMware en la máquina virtual | Actualice la versión de las herramientas de VMware a una versión superior a 10.2.0.
-9022: "Se ha denegado el acceso al objeto Get WMI". | El rol asociado al usuario o a la directiva de grupo está restringiendo el acceso del usuario al objeto WMI. | Póngase en contacto con el soporte técnico de Microsoft.
-9023: "El valor de la variable de entorno SystemRoot está vacío". | Desconocido | Póngase en contacto con el soporte técnico de Microsoft.
-9024: "El valor de la variable de entorno TEMP está vacío". | Desconocido | Póngase en contacto con el soporte técnico de Microsoft.
-9025: "PowerShell está dañado en las máquinas virtuales invitadas". | Desconocido | Vuelva a instalar PowerShell en la máquina virtual invitada y compruebe si PowerShell puede ejecutarse en ella.
-8084: "No se pueden detectar las aplicaciones debido a un error de VMware: <Exception from VMware>" | El dispositivo de Azure Migrate usa las API de VMware para detectar aplicaciones. Este problema puede producirse si vCenter Server inicia una excepción al intentar detectar las aplicaciones. El mensaje de error de VMware se muestra en el mensaje de error que aparece en el portal. | Busque el mensaje en la [documentación de VMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html) y siga los pasos para solucionarlo. Si no lo puede solucionar, póngase en contacto con el soporte técnico de Microsoft.
+--- | --- | ---
+9000: No se puede detectar el estado de la herramienta de VMware.     |   Es posible que las herramientas de VMware no estén instaladas o estén dañadas.    |   Asegúrese de que las herramientas de VMware estén instaladas y en ejecución en la máquina virtual.
+9001: Herramientas de VMware no instaladas.     |   Es posible que las herramientas de VMware no estén instaladas o estén dañadas.    |   Asegúrese de que las herramientas de VMware estén instaladas y en ejecución en la máquina virtual.
+9002: Las herramientas de VMware no se están ejecutando.   |   Es posible que las herramientas de VMware no estén instaladas o estén dañadas.    |   Asegúrese de que las herramientas de VMware estén instaladas y en ejecución en la máquina virtual.
+9003: Tipo de sistema operativo no admitido para la detección de máquinas virtuales invitadas.    |   El sistema operativo que se ejecuta en el servidor no es Windows ni Linux.    |   Los tipos de sistema operativo admitidos son solo Windows y Linux. Si el servidor es Windows o Linux, compruebe el tipo de sistema operativo especificado en vCenter Server.
+9004: No se está ejecutando la máquina virtual.     |   La máquina virtual está apagada.  |   Asegúrese de que la VM esté encendida.
+9005: Tipo de sistema operativo no admitido para la detección de máquinas virtuales invitadas.    |   Tipo de sistema operativo no admitido para la detección de máquinas virtuales invitadas.     |   Los tipos de sistema operativo admitidos son solo Windows y Linux.
+9006: La dirección URL para descargar el archivo de metadatos del invitado está vacía.     |   Esto puede ocurrir si el agente de detección no funciona según lo previsto.    |   El problema debería resolverse automáticamente en 24 horas. Si el problema persiste, póngase en contacto con el Soporte técnico de Microsoft.
+9007: No se encuentra el proceso que ejecuta la tarea de detección en la máquina virtual invitada.   |   Esto puede ocurrir si el agente de detección no funciona correctamente.   |   El problema debería resolverse automáticamente en 24 horas. Si el problema persiste, póngase en contacto con el Soporte técnico de Microsoft.
+9008: No se puede recuperar el estado del proceso de la máquina virtual invitada.   |   El problema puede producirse debido a un error interno.   |   El problema debería resolverse automáticamente en 24 horas. Si el problema persiste, póngase en contacto con el Soporte técnico de Microsoft.
+9009: El UAC de Windows ha impedido la ejecución de la tarea de detección en el servidor.  |   La configuración del Control de cuentas de usuario (UAC) de Windows en el servidor es restrictiva e impide la detección de las aplicaciones instaladas.  |   En la configuración "Control de cuentas de usuario" del servidor configure la opción de UAC para que esté en uno de los dos niveles inferiores.
+9010: La máquina virtual está apagada.     |   La máquina virtual está apagada.  |   Asegúrese de que la VM esté encendida.
+9011: Archivo de metadatos detectado no encontrado en el sistema de archivos de la máquina virtual invitada.    |   El problema puede producirse debido a un error interno.   |   El problema debería resolverse automáticamente en 24 horas. Si el problema persiste, póngase en contacto con el Soporte técnico de Microsoft.
+9012: El archivo de metadatos detectado está vacío.     |   El problema puede producirse debido a un error interno.   |   El problema debería resolverse automáticamente en 24 horas. Si el problema persiste, póngase en contacto con el Soporte técnico de Microsoft.
+9013: Se crea un nuevo perfil temporal para cada inicio de sesión.    |   Se crea un nuevo perfil temporal para cada inicio de sesión en la máquina virtual de VMware.    |   Para resolverlo, póngase en contacto con el servicio de Soporte técnico de Microsoft.
+9014: No se pueden recuperar los metadatos del sistema de archivos de la máquina virtual invitada.     |   No hay conectividad con el host ESXi.    |   Asegúrese de que el dispositivo puede conectarse al puerto 443 en el host ESXi que ejecuta la máquina virtual.
+9015: El rol Operaciones de invitado no está habilitado en la cuenta de usuario de vCenter   |   El rol operaciones de invitado no está habilitado en la cuenta de usuario de vCenter.   |   Asegúrese de que el rol Operaciones de invitado está habilitado en la cuenta de usuario de vCenter.
+9016: No se puede detectar porque el agente de operaciones de invitado no está actualizado.   |   Las herramientas de VMware no están instaladas correctamente o no están actualizadas.    |   Asegúrese de que las herramientas de VMware están correctamente instaladas y actualizadas.
+9017: No se encuentra el archivo con los metadatos detectados en la máquina virtual.  |   El problema puede producirse debido a un error interno.   |   Para resolverlo, póngase en contacto con el servicio de Soporte técnico de Microsoft.
+9018: PowerShell no está instalado en las máquinas virtuales invitadas.  |   PowerShell aún no está disponible en la máquina virtual invitada.    |   Instale PowerShell en la máquina virtual invitada.
+9019: No se puede realizar la detección debido a errores de operación de la máquina virtual invitada.     |   No se pudo realizar la operación de invitado de VMware en la máquina virtual.    |   Asegúrese de que las credenciales de la máquina virtual sean válidas y que el nombre de usuario proporcionado en las credenciales de la máquina virtual invitada esté en formato UPN.
+9020: Se ha denegado el permiso se creación de archivo.    |   El rol asociado al usuario o a la directiva de grupo restringe al usuario a la hora de crear el archivo de la carpeta.    |   Compruebe si el usuario invitado proporcionado tiene permiso de creación para el archivo de la carpeta. Consulte las **notificaciones** en Server Assessment para ver el nombre de la carpeta.
+9021: No se puede crear el archivo en la ruta de acceso temporal del sistema.     |   La herramienta de VMware reporta la ruta de acceso temporal del sistema en lugar de la ruta temporal de los usuarios.    |   Actualice la versión de las herramientas de VMware a una versión superior a 10287 (formato de cliente NGC/VI).
+9022: Se ha denegado el acceso al objeto WMI.    |   El rol asociado al usuario o a la directiva de grupo restringe el acceso del usuario al objeto WMI.  |   Póngase en contacto con el soporte técnico de Microsoft.
+9023: No se puede ejecutar PowerShell ya que valor de la variable de entorno SystemRoot está vacío.    |   El valor de la variable de entorno SystemRoot está vacío para la máquina virtual invitada.     |   Para resolverlo, póngase en contacto con el servicio de Soporte técnico de Microsoft.
+9024: No se puede descubrir ya que el valor de la variable de entorno TEMP está vacío.    |   El valor de la variable de entorno TEMP está vacío para la máquina virtual invitada.   |   Póngase en contacto con el soporte técnico de Microsoft.
+9025: PowerShell está dañado en las máquinas virtuales invitadas.  |   PowerShell está dañado en las máquinas virtuales invitadas.    |   Vuelva a instalar PowerShell en la máquina virtual invitada y compruebe si PowerShell puede ejecutarse en ella.
+9026: No se pueden ejecutar operaciones de invitado en la máquina virtual.  |   El estado de la máquina virtual no permite la ejecución de operaciones de invitado en la máquina virtual.   |   Para resolverlo, póngase en contacto con el servicio de Soporte técnico de Microsoft.
+9027: El agente de operaciones de invitado no se ejecuta en la máquina virtual.   |   No se pudo establecer contacto con el agente de operaciones de invitado que se ejecuta en la máquina virtual.    |   Para resolverlo, póngase en contacto con el servicio de Soporte técnico de Microsoft.
+9028: No se puede crear el archivo porque no hay suficiente almacenamiento en disco en la máquina virtual.     |   No hay suficiente espacio en el disco.   |   Asegúrese de que hay suficiente espacio disponible en el almacenamiento en disco de la máquina virtual.
+9029: Las credenciales de la máquina virtual invitada no tienen acceso a PowerShell.   |   El acceso a PowerShell no está disponible para el usuario.     |   Asegúrese de que el usuario agregado en el dispositivo puede acceder a PowerShell en la máquina virtual invitada.
+9030: No se pueden recopilar los metadatos detectados porque el host ESXi está desconectado.     |   El host ESXi está desconectado.   |   Asegúrese de que el host ESXi que ejecuta la máquina virtual está conectado.
+9031: No se pueden recopilar los metadatos detectados porque el host ESXi no responde.   |   El host remoto tiene un estado no válido.    |   Asegúrese de que el host ESXi que ejecuta la máquina virtual se está ejecutando y está conectado.
+9032: No se puede detectar debido a un error interno.   |   El problema puede producirse debido a un error interno.   |   Para resolverlo, póngase en contacto con el servicio de Soporte técnico de Microsoft.
+9033: No se puede detectar porque el nombre de usuario de la máquina virtual contiene caracteres no válidos.     |   Se han detectado caracteres no válidos en el nombre de usuario.   |   Proporcione de nuevo la credencial de máquina virtual asegurándose de que no hay caracteres no válidos.
+9034: El nombre de usuario proporcionado no está en formato UPN.    |   El nombre de usuario no está en formato UPN.  |   Asegúrese de que el nombre de usuario está en formato de nombre principal de usuario (UPN).
+9035: No se puede detectar porque el modo de lenguaje de PowerShell no está establecido en 'Lenguaje completo'.  |   El modo de lenguaje de PowerShell en la máquina virtual invitada no se estableció en idioma completo.   |   Asegúrese de que el modo de lenguaje de PowerShell se estableció en 'Lenguaje completo'.
+10000: El tipo de sistema operativo no es compatible.   |   El sistema operativo que se ejecuta en el servidor no es Windows ni Linux.    |   Los tipos de sistema operativo admitidos son solo Windows y Linux.
+10001: No se encuentra el script de detección de servidores en el dispositivo.    |   La detección no funciona según lo esperado.   |   Para resolverlo, póngase en contacto con el servicio de Soporte técnico de Microsoft.
+10002: La tarea de detección no se ha completado a tiempo.     |   El agente de detección no funciona según lo esperado.     |   El problema debería resolverse automáticamente en 24 horas. Si el problema persiste, póngase en contacto con el Soporte técnico de Microsoft.
+10003: El proceso que ejecuta la tarea de detección salió con un error.    |   El proceso que ejecuta la tarea de detección salió con un error.  |   El problema debería resolverse automáticamente en 24 horas. Si el problema persiste, póngase en contacto con el soporte técnico de Microsoft.
+10004: No se proporcionó ninguna credencial para el tipo de sistema operativo de invitado.  |   No se proporcionaron las credenciales para acceder a las máquinas de este tipo de sistema operativo en el dispositivo de Azure Migrate.    |   Agregar credenciales para equipos en el dispositivo.
+10005: Las credenciales proporcionadas no son válidas.   |   Las credenciales proporcionadas para que el dispositivo tenga acceso al servidor son incorrectas.  |   Actualice las credenciales proporcionadas en el dispositivo y asegúrese de que permiten acceder al servidor.
+10006: El almacén de credenciales no admite el tipo de sistema operativo invitado.  |   El sistema operativo que se ejecuta en el servidor no es Windows ni Linux.    |   Los tipos de sistema operativo admitidos son solo Windows y Linux.
+10007: No se pueden procesar los metadatos detectados.    |   Error al intentar deserializar el código JSON.    |   Para resolverlo, póngase en contacto con el servicio de Soporte técnico de Microsoft.
+10008: No se puede crear un archivo en el servidor.    |  El problema puede producirse debido a un error interno.    |   Para resolverlo, póngase en contacto con el servicio de Soporte técnico de Microsoft.
+10009: No se pueden escribir metadatos detectados en un archivo del servidor.  |   El problema puede producirse debido a un error interno.   |   Para resolverlo, póngase en contacto con el servicio de Soporte técnico de Microsoft.
+
 
 
 

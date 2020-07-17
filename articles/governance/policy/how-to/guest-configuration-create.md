@@ -3,12 +3,12 @@ title: Creación de directivas de Configuración de invitado para Windows
 description: Aprenda a crear una directiva de Configuración de invitado de Azure Policy para Windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: a8231840cc20f03da44d489ae5226e7a0b4e0d48
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: b53c8ec8189516305de8b0b8c05b2be8ea49f7f2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835961"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045134"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Creación de directivas de Configuración de invitado para Windows
 
@@ -84,11 +84,14 @@ Para obtener información general sobre los conceptos y la terminología consult
 
 ### <a name="how-guest-configuration-modules-differ-from-windows-powershell-dsc-modules"></a>Diferencias entre los módulos de Configuración de invitado y los módulos de DSC de Windows PowerShell
 
-Cuando la configuración de invitados audita una máquina:
+Cuando la configuración de invitado audita una máquina, la secuencia de eventos es diferente de la de DSC de Windows PowerShell.
 
 1. el agente primero ejecuta `Test-TargetResource` para determinar si la configuración se encuentra en el estado correcto.
 1. El valor booleano devuelto por la función determina si el estado de Azure Resource Manager para Asignación de invitado debe ser Compatible o No compatible.
 1. El proveedor ejecuta `Get-TargetResource` para devolver el estado actual de cada configuración, de modo que haya detalles disponibles tanto sobre el motivo por el que una máquina no es compatible como para confirmar que el estado actual es compatible.
+
+Los parámetros de Azure Policy que pasan valores a las asignaciones de configuración de invitado deben ser de tipo _String_.
+No es posible pasar matrices mediante parámetros, aunque el recurso de DSC admita matrices.
 
 ### <a name="get-targetresource-requirements"></a>Requisitos de Get-TargetResource
 
@@ -138,7 +141,7 @@ class ResourceName : OMI_BaseResource
 
 ### <a name="configuration-requirements"></a>Requisitos de configuración
 
-El nombre de la configuración personalizada debe ser coherente en todas partes. El nombre del archivo .zip para el paquete de contenido, el nombre de la configuración en el archivo MOF y el nombre de la asignación de invitado en la plantilla de Resource Manager deben ser el mismo.
+El nombre de la configuración personalizada debe ser coherente en todas partes. El nombre del archivo .zip para el paquete de contenido, el nombre de la configuración en el archivo MOF y el nombre de la asignación de invitado en la plantilla de Azure Resource Manager (plantilla de ARM) deben coincidir.
 
 ### <a name="scaffolding-a-guest-configuration-project"></a>Aplicación de la técnica scaffolding a un proyecto de configuración de invitados
 
@@ -163,7 +166,7 @@ El formato del paquete debe ser un archivo .zip.
 ### <a name="storing-guest-configuration-artifacts"></a>Almacenamiento de artefactos de Configuración de invitado
 
 El paquete .zip debe almacenarse en una ubicación a la que puedan obtener acceso las máquinas virtuales administradas.
-Algunos ejemplos son los repositorios de GitHub, un repositorio de Azure o Azure Storage. Si prefiere no hacer que el paquete sea público, puede incluir un [token de SAS](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) en la dirección URL.
+Algunos ejemplos son los repositorios de GitHub, un repositorio de Azure o Azure Storage. Si prefiere no hacer que el paquete sea público, puede incluir un [token de SAS](../../../storage/common/storage-sas-overview.md) en la dirección URL.
 También puede implementar el [punto de conexión de servicio](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) para las máquinas de una red privada, aunque esta configuración solo se aplica para acceder al paquete y no para comunicarse con el servicio.
 
 ## <a name="step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows"></a>Creación de una directiva de auditoría de Configuración de invitado personalizada para Windows, paso a paso
@@ -408,7 +411,7 @@ A continuación se muestra un fragmento de código de ejemplo de una definición
 
 La configuración de invitados admite la invalidación de propiedades de una configuración en tiempo de ejecución. Esta característica significa que los valores del archivo MOF del paquete no tienen que considerarse estáticos. Los valores de invalidación se proporcionan a través de Azure Policy y no afectan al modo en que se crean o se compilan las configuraciones.
 
-Los cmdlets `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` incluyen un parámetro denominado **Parameters**. Este parámetro toma una definición de tabla hash que incluye todos los detalles sobre cada parámetro y crea las secciones necesarias de cada archivo que se usa para crear la definición de Azure Policy.
+Los cmdlets `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` incluyen un parámetro denominado **Parámetros**. Este parámetro toma una definición de tabla hash que incluye todos los detalles sobre cada parámetro y crea las secciones necesarias de cada archivo que se usa para crear la definición de Azure Policy.
 
 En el ejemplo siguiente se crea una definición de directiva para auditar un servicio que el usuario selecciona de una lista en el momento de la asignación de la directiva.
 
@@ -431,15 +434,15 @@ New-GuestConfigurationPolicy
     -DisplayName 'Audit Windows Service.' `
     -Description 'Audit if a Windows Service is not enabled on Windows machine.' `
     -Path '.\policyDefinitions' `
-    -Parameters $PolicyParameterInfo `
+    -Parameter $PolicyParameterInfo `
     -Version 1.0.0
 ```
 
 ## <a name="extending-guest-configuration-with-third-party-tools"></a>Ampliación de Configuración de invitado con herramientas de terceros
 
 > [!Note]
-> Esta característica se encuentra en versión preliminar y requiere la versión 1.20.1 del módulo Configuración de invitado, que se puede instalar mediante `Install-Module GuestConfiguration -AllowPrerelease`.
-> En la versión 1.20.1, esta característica solo está disponible para las definiciones de directiva que auditan máquinas Windows.
+> Esta característica se encuentra en versión preliminar y requiere la versión 1.20.3 del módulo Configuración de invitado, que se puede instalar mediante `Install-Module GuestConfiguration -AllowPrerelease`.
+> En la versión 1.20.3, esta característica solo está disponible para las definiciones de directiva que auditan máquinas Windows.
 
 Los paquetes de artefactos para Configuración de invitado se pueden ampliar para que incluyan herramientas de terceros.
 La ampliación de Configuración de invitados requiere el desarrollo de dos componentes.
@@ -465,7 +468,14 @@ Solo el cmdlet `New-GuestConfigurationPackage` requiere un cambio en la guía pa
 Instale los módulos necesarios en el entorno de desarrollo:
 
 ```azurepowershell-interactive
-Install-Module GuestConfiguration, gcInSpec
+# Update PowerShellGet if needed to allow installing PreRelease versions of modules
+Install-Module PowerShellGet -Force
+
+# Install GuestConfiguration module prerelease version
+Install-Module GuestConfiguration -allowprerelease
+
+# Install commmunity supported gcInSpec module
+Install-Module gcInSpec
 ```
 
 En primer lugar, cree el archivo YaML que usa InSpec. El archivo ofrece información básica sobre el entorno. A continuación encontrará un ejemplo:
@@ -482,7 +492,7 @@ supports:
   - os-family: windows
 ```
 
-Guarde este archivo en una carpeta denominada `wmi_service` en el directorio del proyecto.
+Guarde este archivo denominado `wmi_service.yml` en una carpeta denominada `wmi_service` en el directorio del proyecto.
 
 A continuación, cree el archivo de Ruby con la abstracción de lenguaje de InSpec usada para auditar la máquina.
 
@@ -501,7 +511,7 @@ end
 
 ```
 
-Guarde este archivo en una nueva carpeta denominada `controls` dentro del directorio `wmi_service`.
+Guarde este archivo `wmi_service.rb`en una nueva carpeta denominada `controls` dentro del directorio `wmi_service`.
 
 Por último, cree una configuración, importe el módulo de recursos **GuestConfiguration** y use el recurso `gcInSpec` para establecer el nombre del perfil de InSpec.
 
@@ -509,7 +519,7 @@ Por último, cree una configuración, importe el módulo de recursos **GuestConf
 # Define the configuration and import GuestConfiguration
 Configuration wmi_service
 {
-    Import-DSCResource -Module @{ModuleName = 'gcInSpec'; ModuleVersion = '2.0.0'}
+    Import-DSCResource -Module @{ModuleName = 'gcInSpec'; ModuleVersion = '2.1.0'}
     node 'wmi_service'
     {
         gcInSpec wmi_service
@@ -552,7 +562,8 @@ Ejecute el siguiente comando para crear un paquete con la configuración proporc
 New-GuestConfigurationPackage `
   -Name 'wmi_service' `
   -Configuration './Config/wmi_service.mof' `
-  -FilesToInclude './wmi_service'
+  -FilesToInclude './wmi_service'  `
+  -Path './package' 
 ```
 
 ## <a name="policy-lifecycle"></a>Ciclo de vida de la directiva

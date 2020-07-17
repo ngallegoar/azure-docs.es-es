@@ -1,7 +1,7 @@
 ---
 title: Integración con una aplicación cliente mediante el SDK de Voz
 titleSuffix: Azure Cognitive Services
-description: En este artículo, obtendrá información sobre cómo enviar solicitudes a una aplicación de Comandos personalizados publicada desde el SDK de Voz, que se ejecuta en una aplicación de UWP.
+description: Obtenga información sobre cómo enviar solicitudes a una aplicación de Comandos personalizados publicada desde el SDK de Voz, que se ejecuta en una aplicación de UWP.
 services: cognitive-services
 author: xiaojul
 manager: yetian
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: d87301f09665062a1b56fa33443f1178b42fb42f
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 1d84646fcb6769b7489cc0e03085e95fc47ef56c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307280"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027637"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Integración con una aplicación cliente mediante el SDK de Voz
 
-En este artículo, obtendrá información sobre cómo enviar solicitudes a una aplicación de Comandos personalizados publicada desde el SDK de Voz, que se ejecuta en una aplicación de UWP. Para establecer una conexión con la aplicación de Comandos personalizados, realice las tareas siguientes:
+En este artículo, obtendrá información sobre cómo enviar solicitudes a una aplicación de Comandos personalizados publicada desde el SDK de Voz, que se ejecuta en una aplicación de UWP. Para establecer una conexión con la aplicación de Comandos personalizados, se necesita lo siguiente:
 
 - Publicación de una aplicación de comandos personalizados y obtención de un identificador de aplicación (id. de aplicación)
 - Creación de una aplicación cliente para la Plataforma universal de Windows (UWP) con el SDK de Voz para que pueda comunicarse con su aplicación de comandos personalizados
@@ -32,13 +32,19 @@ Se requiere una aplicación de comandos personalizados para completar este artí
 
 También necesitará:
 > [!div class = "checklist"]
-> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) o cualquier versión posterior. Esta guía se basa en Visual Studio 2019.
 > * Una clave de suscripción de Azure para los servicios de Voz. [Obtenga una gratis](get-started.md) o créela en [Azure Portal](https://portal.azure.com).
 > * [Habilitar el dispositivo para el desarrollo](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
 
 ## <a name="step-1-publish-custom-commands-application"></a>Paso 1: Publicación de la aplicación de comandos personalizados
 
-1. Abra la aplicación de Comandos personalizados creada anteriormente (versión preliminar) y seleccione **Publicar**.
+1. Abra la aplicación de Comandos personalizados creada anteriormente.
+1. Vaya a **Configuración** y seleccione **LUIS resource** (Recurso de LUIS).
+1. Si **Recurso de predicción** no está asignado, seleccione una clave de predicción de consultas o cree una.
+
+    La clave de predicción de consultas siempre es necesaria para poder publicar una aplicación. Para más información sobre los recursos de LUIS, vea [Creación de recursos de LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription).
+
+1. Vuelva a la aplicación de Comandos que está editando y seleccione **Publicar**.
 
    > [!div class="mx-imgBorder"]
    > ![Publicación de la aplicación](media/custom-commands/setup-speech-sdk-publish-application.png)
@@ -131,11 +137,8 @@ Agregue el código fuente subyacente como se muestra a continuación:
    using Microsoft.CognitiveServices.Speech.Audio;
    using Microsoft.CognitiveServices.Speech.Dialog;
    using System;
-   using System.Diagnostics;
    using System.IO;
    using System.Text;
-   using Windows.Foundation;
-   using Windows.Storage.Streams;
    using Windows.UI.Xaml;
    using Windows.UI.Xaml.Controls;
    using Windows.UI.Xaml.Media;
@@ -324,7 +327,7 @@ Agregue el código fuente subyacente como se muestra a continuación:
    // speech recognition results, and other information.
    //
    // ActivityReceived is the main way your client will receive messages, audio, and events
-   connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
+   connector.ActivityReceived += (sender, activityReceivedEventArgs) =>
    {
        NotifyUser(
            $"Activity received, hasAudio={activityReceivedEventArgs.HasAudio} activity={activityReceivedEventArgs.Activity}");

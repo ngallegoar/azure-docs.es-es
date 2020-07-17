@@ -4,14 +4,14 @@ description: 'Aprenda a configurar y administrar el cifrado de datos para Azure 
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
-ms.openlocfilehash: 77c464f51bd17921052b3ae1e9fefb49e777d6c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 731827fb63f8b23d21ea2eddaef3fa9b796d14bc
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181912"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119589"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Cifrado de datos para Azure Database for PostgreSQL: servidor único mediante la CLI de Azure
 
@@ -22,28 +22,28 @@ Aprenda a usar la CLI de Azure para configurar y administrar el cifrado de datos
 * Debe tener una suscripción de Azure y ser un administrador en esa suscripción.
 * Cree un almacén de claves y una clave que se usará como clave administrada por el cliente. Habilite también la protección de purga y la eliminación temporal en el almacén de claves.
 
-    ```azurecli-interactive
-    az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true --enable-purge-protection true
-    ```
+   ```azurecli-interactive
+   az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true --enable-purge-protection true
+   ```
 
 * En la instancia de Azure Key Vault creada, cree la clave que se usará para el cifrado de datos de Azure Database for PostgreSQL: servidor único.
 
-    ```azurecli-interactive
-    az keyvault key create --name <key_name> -p software --vault-name <vault_name>
-    ```
+   ```azurecli-interactive
+   az keyvault key create --name <key_name> -p software --vault-name <vault_name>
+   ```
 
 * Para usar un almacén de claves existente, este debe tener las siguientes propiedades para usarse como una clave administrada por el cliente:
   * [Eliminación temporal](../key-vault/general/overview-soft-delete.md)
 
-    ```azurecli-interactive
-    az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
-    ```
+      ```azurecli-interactive
+      az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
+      ```
 
   * [Protegido contra purgas](../key-vault/general/overview-soft-delete.md#purge-protection)
 
-    ```azurecli-interactive
-    az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
-    ```
+      ```azurecli-interactive
+      az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
+      ```
 
 * La clave debe tener los siguientes atributos para que se pueda usar como clave administrada por el cliente:
   * Sin fecha de expiración
@@ -54,16 +54,16 @@ Aprenda a usar la CLI de Azure para configurar y administrar el cifrado de datos
 
 1. Hay dos maneras de obtener la identidad administrada para Azure Database for PostgreSQL: servidor único.
 
-    ### <a name="create-an-new-azure-database-for-mysql-server-with-a-managed-identity"></a>Cree un servidor de Azure Database for MySQL con una identidad administrada.
+    ### <a name="create-an-new-azure-database-for-postgresql-server-with-a-managed-identity"></a>Cree un servidor de Azure Database for PostgreSQL con una identidad administrada.
 
     ```azurecli-interactive
-    az postgres server create --name -g <resource_group> --location <locations> --storage-size <size>  -u <user>-p <pwd> --backup-retention <7> --sku-name <sku name> --geo-redundant-backup <Enabled/Disabled>  --assign-identity
+    az postgres server create --name <server_name> -g <resource_group> --location <location> --storage-size <size>  -u <user> -p <pwd> --backup-retention <7> --sku-name <sku name> --geo-redundant-backup <Enabled/Disabled> --assign-identity
     ```
 
-    ### <a name="update-an-existing-the-azure-database-for-mysql-server-to-get-a-managed-identity"></a>Actualice un servidor de Azure Database for MySQL existente para obtener una identidad administrada.
+    ### <a name="update-an-existing-the-azure-database-for-postgresql-server-to-get-a-managed-identity"></a>Actualice un servidor de Azure Database for PostgreSQL existente para obtener una identidad administrada.
 
     ```azurecli-interactive
-    az postgres server update –name <server name>  -g <resoure_group> --assign-identity
+    az postgres server update --resource-group <resource_group> --name <server_name> --assign-identity
     ```
 
 2. Establezca el valor de **Permisos de claves** (**Get** [Obtener], **Wrap** [Encapsular], **Unwrap** [Desencapsular]) de **Entidad de seguridad**, que es el nombre del servidor único de PostgreSQL.
@@ -77,7 +77,7 @@ Aprenda a usar la CLI de Azure para configurar y administrar el cifrado de datos
 1. Permita el cifrado de datos para Azure Database for PostgreSQL: servidor único mediante la clave creada en Azure Key Vault.
 
     ```azurecli-interactive
-    az postgres server key create –name  <server name>  -g <resource_group> --kid <key url>
+    az postgres server key create --name <server_name> -g <resource_group> --kid <key_url>
     ```
 
     URL de clave: `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
@@ -88,36 +88,37 @@ Después de cifrar un servidor único de Azure Database for PostgreSQL con la cl
 
 ### <a name="creating-a-restoredreplica-server"></a>Creación de un servidor restaurado o de réplica
 
-  *  [Creación de un servidor de restauración](howto-restore-server-cli.md) 
-  *  [Creación de un servidor de réplica de lectura](howto-read-replicas-cli.md) 
+* [Creación de un servidor de restauración](howto-restore-server-cli.md)
+* [Creación de un servidor de réplica de lectura](howto-read-replicas-cli.md)
 
 ### <a name="once-the-server-is-restored-revalidate-data-encryption-the-restored-server"></a>Una vez restaurado el servidor, vuelva a validar el cifrado de datos del servidor restaurado.
 
-    ```azurecli-interactive
-    az postgres server key create –name  <server name> -g <resource_group> --kid <key url>
-    ```
+```azurecli-interactive
+az postgres server key create –name  <server name> -g <resource_group> --kid <key url>
+```
 
 ## <a name="additional-capability-for-the-key-being-used-for-the-azure-database-for-postgresql-single-server"></a>Funcionalidad adicional para la clave que se usa para Azure Database for PostgreSQL: servidor único
 
 ### <a name="get-the-key-used"></a>Obtención de la clave usada
 
-    ```azurecli-interactive
-    az mysql server key show --name  <server name>  -g <resource_group> --kid <key url>
-    ```
+```azurecli-interactive
+az postgres server key show --name <server name>  -g <resource_group> --kid <key url>
+```
 
-    Key url:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
+Dirección URL de la clave: `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ### <a name="list-the-key-used"></a>Enumeración de la clave usada
 
-    ```azurecli-interactive
-    az postgres server key list --name  <server name>  -g <resource_group>
-    ```
+```azurecli-interactive
+az postgres server key list --name  <server name>  -g <resource_group>
+```
 
 ### <a name="drop-the-key-being-used"></a>Eliminación de la clave usada
 
-    ```azurecli-interactive
-    az postgres server key delete -g <resource_group> --kid <key url> 
-    ```
+```azurecli-interactive
+az postgres server key delete -g <resource_group> --kid <key url> 
+```
+
 ## <a name="using-an-azure-resource-manager-template-to-enable-data-encryption"></a>Uso de una plantilla de Azure Resource Manager para habilitar el cifrado de datos
 
 Además de en Azure Portal, también puede habilitar el cifrado de datos en el servidor único de Azure Database for PostgreSQL mediante plantillas de Azure Resource Manager para los servidores nuevos o ya existentes.

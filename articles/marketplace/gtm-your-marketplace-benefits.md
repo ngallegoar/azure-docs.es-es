@@ -1,18 +1,18 @@
 ---
-title: 'Servicios de comercialización: las ventajas de Marketplace comercial | Azure Marketplace'
+title: 'Servicios de comercialización: las ventajas de Marketplace comercial, Azure Marketplace'
 description: 'Servicios de comercialización: en esta sección se describen los recursos de Microsoft que los anunciantes pueden usar.'
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/23/2020
-ms.author: dsindona
-ms.openlocfilehash: ce8534fae44549c20eceda16e0e12fb0adc52c6f
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.topic: article
+ms.date: 07/06/2020
+author: keferna
+ms.author: keferna
+ms.openlocfilehash: c954e3c685a795942f78bdb19b59ca817252d26b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957773"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135526"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Las ventajas de Marketplace comercial
 
@@ -34,15 +34,15 @@ En el caso de los asociados de transacciones, a medida que aumenta las ventas fa
 
 El requisito mínimo para publicar en los escaparates es un MPNID, por lo que estas ventajas están disponibles para todos los asociados, con independencia del estado de la competencia de MPN o del tipo de asociado. Cada asociado está capacitado para hacer crecer su negocio con Marketplace como plataforma.
 
-Obtendrá ayuda para entender los recursos que tiene disponibles y en la implementación de los procedimientos recomendados, lo que también puede [revisar por su cuenta.](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)
+Obtendrá ayuda para entender los recursos que tiene disponibles y en la implementación de los procedimientos recomendados, que también puede [revisar por su cuenta.](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)
 
 Puede encontrar descripciones detalladas de todas las ventajas del programa en la [presentación del programa Recompensas de Marketplace](https://aka.ms/marketplacerewards).
 
-Los pasos para comenzar son sencillos:
+Comenzar es fácil:
 
 1. Publique una oferta en Microsoft AppSource o en Azure Marketplace.
-2. Vaya al [panel](https://partner.microsoft.com/dashboard/directory) del Centro de partners, seleccione la pestaña **Ventajas de marketing y ventas** en la página Marketplace Rewards para ver la lista de ventajas.
-3. Para activar las ventajas de ventas y marketing, primero debe asignar un contacto de marketing de la empresa. Este contacto recibirá comunicaciones de seguimiento sobre Marketplace Rewards.
+2. Vaya a [Marketplace Rewards](https://partner.microsoft.com/en-us/dashboard/mpn/program/commercialmarketplace) en el Centro de Partners y seleccione **Enroll in Marketplace Rewards Program** (Inscribirse en el programa Marketplace Rewards).
+3. Para activar las ventajas de ventas y marketing, asigne un contacto de marketing de la empresa. Este contacto recibirá comunicaciones de seguimiento sobre Marketplace Rewards.
 4. Para agregar o actualizar la información del contacto de marketing, vaya a la parte superior de la pestaña Ventajas de marketing y ventas en la página Marketplace Rewards y seleccione **Add, update, or change** (Agregar, actualizar o cambiar).  A continuación, haga lo siguiente:
 
     1. Seleccione un usuario en la lista. Si el usuario que desea asignar no está en la lista, puede agregar nuevos usuarios en **Configuración de la cuenta**.
@@ -55,8 +55,8 @@ Los pasos para comenzar son sencillos:
 1. Puede usar sus ventajas técnicas para solicitar asistencia técnica durante las fases de preventa, diseño, implementación y desarrollo de aplicaciones de sus soluciones híbridas y en la nube. Para solicitar asistencia, rellene el formulario de solicitud y, a continuación, seleccione **Enviar solicitud**.
 2. El uso de las ventajas de patrocinio de Azure se compartirá a través de un correo electrónico a medida que desbloquee estas ventajas.
 
->[!Note]
->Si su oferta ha estado activa durante más de cuatro semanas y no ha recibido ningún mensaje, compruebe con la organización quién es el propietario de la oferta en cuestión, mirando en el Centro de partners. Deberían tener la comunicación y los pasos siguientes. <br> <br> Si no puede determinar el propietario o si el propietario ya no trabaja en la empresa, puede generar una incidencia de soporte técnico en [Ayuda y soporte técnico](https://aka.ms/marketplacepublishersupport).
+>[!NOTE]
+>Si su oferta ha estado activa durante más de cuatro semanas y no ha recibido ningún mensaje, compruebe con la organización quién es el propietario de la oferta en cuestión, mirando en el Centro de partners. Deberían tener la comunicación y los pasos siguientes.<br><br>Si no puede determinar el propietario o si el propietario ya no trabaja en la empresa, puede generar una incidencia de soporte técnico en [Ayuda y soporte técnico](https://aka.ms/marketplacepublishersupport).
 
 El ámbito de las actividades disponibles para usted se expande a medida que crecen sus ofertas en Marketplace. Todas las listas reciben un nivel básico de recomendaciones de optimización y promoción como parte de un correo electrónico de autoservicio de recursos y procedimientos recomendados.
 
@@ -74,8 +74,8 @@ Puede encontrar descripciones detalladas de todas estas ventajas en la [presenta
 
 Cuando publique su oferta que permite transacciones en Azure Marketplace o en Microsoft AppSource, podrá tener acceso a ventajas adicionales a medida que crezcan sus transacciones de ventas facturadas o puestos vendidos mediante Marketplace comercial. 
 
->[!Note]
->El umbral de puestos vendidos se aplica solo a las aplicaciones de Microsoft 365 (las aplicaciones SaaS que tienen integraciones con Microsoft Teams, Office, Outlook o SharePoint) y las ventajas deben completarse antes del 30 de junio de 2020.
+>[!NOTE]
+>El umbral de puestos vendidos se aplica solo a las aplicaciones de Microsoft 365 (las aplicaciones de SaaS que tienen integraciones con Microsoft Teams, Office, Outlook o SharePoint) y las ventajas deben haberse completado antes del 30 de junio de 2020.
 
 Estas ventajas están diseñadas para ayudarlo en actividades de marketing, de ventas y técnicas y, por lo tanto, lo ayudan a obtener más visitantes, a recibir más clientes potenciales y a convertir más negocios.
 
@@ -105,9 +105,9 @@ Los anunciantes de ofertas de [lista y prueba](determine-your-listing-type.md) p
 
 Microsoft se reserva el derecho de revocar y finalizar las ventajas de las Recompensas de Marketplace para los anunciantes que: 
 
-* participen en una actividad ilícita con su lista de Marketplace.
-* hayan sido eliminados de las listas de Marketplace comercial. 
-* usen su oferta para mostrar contenido de marketing o de otro tipo que infrinja los derechos de autor o las leyes de marcas comerciales.
+* participen en una actividad ilícita con su lista de Marketplace;
+* hayan sido eliminados de las listas de Marketplace comercial; 
+* usen su oferta para mostrar contenido de marketing o de otro tipo que infrinja los derechos de autor o las leyes de marcas comerciales;
 * infrinjan las directivas del [programa de patrocinio de Azure](https://azure.microsoft.com/offers/ms-azr-0036p/), que incluyen, entre otras, el uso de fondos de patrocinio de Azure para sus propias operaciones internas o minería de bitcoins.
 
 ### <a name="offer-availability"></a>Disponibilidad de la oferta
@@ -123,5 +123,3 @@ Si creó la oferta en el [Centro de partners](https://partner.microsoft.com/dash
 Revise los [recursos de autoservicio disponibles](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
 Regístrese en el [foro de la comunidad de Microsoft AppSource y Azure Marketplace](https://aka.ms/MarketplaceCommunity) y obtenga información sobre los temas pertinentes o únase al debate.
-
----

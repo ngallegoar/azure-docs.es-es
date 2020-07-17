@@ -3,16 +3,16 @@ title: Información general sobre la biblioteca BulkExecutor de Azure Cosmos DB
 description: Realizar operaciones masivas en Azure Cosmos DB a través de las API de importación en bloque y actualización masiva que ofrece la biblioteca BulkExecutor.
 author: tknandu
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: af17f9c2ef7eea5eb531327d4df13d5885a49b7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b2ebe07f5ae2846f48bc5762a49ad018610af73a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985599"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260617"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Información general sobre la biblioteca BulkExecutor de Azure Cosmos DB
  
@@ -42,7 +42,7 @@ La biblioteca BulkExecutor le ayuda a aprovechar esta capacidad de proceso y alm
 
 Cuando se desencadena una operación en masa para importar o actualizar documentos con un lote de entidades, inicialmente se ordenan aleatoriamente en cubos correspondientes a su rango con clave de particiones de Azure Cosmos DB. Dentro de cada cubo correspondiente a un rango con clave de particiones, se dividen en mini lotes y cada mini lote actúa como una carga útil que se confirma en el lado del servidor. La biblioteca BulkExecutor tiene optimizaciones integradas para la ejecución simultánea de estos mini lotes dentro y entre los rangos con clave de particiones. En la siguiente imagen se ilustra cómo BulkExecutor procesa los datos por lotes en diferentes claves de particiones:  
 
-![Arquitectura del ejecutor en masa](./media/bulk-executor-overview/bulk-executor-architecture.png)
+:::image type="content" source="./media/bulk-executor-overview/bulk-executor-architecture.png" alt-text="Arquitectura de Bulk Executor" :::
 
 La biblioteca Bulk Executor se asegura de la máxima utilización de la capacidad de proceso asignada a una colección. Usa un  [mecanismo de control de la congestión del estilo de AIMD](https://tools.ietf.org/html/rfc5681) para que cada rango con clave de particiones de Azure Cosmos DB controle con eficacia las limitaciones de velocidad y los tiempos de espera. 
 

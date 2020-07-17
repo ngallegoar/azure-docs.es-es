@@ -3,21 +3,21 @@ title: Creación de varios desencadenadores independientes de Azure Functions p
 description: Obtenga información sobre cómo configurar varios desencadenadores independientes de Azure Functions para Cosmos DB para crear arquitecturas controladas por eventos.
 author: ealsur
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 32b680acdee29bf97a0e132fee93d5fee3377245
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 695513bb572f5931ee1f0fa54a330cfa0574fc21
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77604946"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261603"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Cómo crear varios desencadenadores de Azure Functions para Cosmos DB
 
 En este artículo se describe cómo puede configurar varios desencadenadores de Azure Functions para Cosmos DB para trabajar en paralelo y reaccionar de forma independiente a los cambios.
 
-![Funciones basadas en eventos sin servidor que funcionan con el desencadenador de Azure Functions para Cosmos DB y comparten un contenedor de concesiones](./media/change-feed-functions/multi-trigger.png)
+:::image type="content" source="./media/change-feed-functions/multi-trigger.png" alt-text="Funciones basadas en eventos sin servidor que funcionan con el desencadenador de Azure Functions para Cosmos DB y comparten un contenedor de concesiones" border="false":::
 
 ## <a name="event-based-architecture-requirements"></a>Requisitos de la arquitectura basada en eventos
 

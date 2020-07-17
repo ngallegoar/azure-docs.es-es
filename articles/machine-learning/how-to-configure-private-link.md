@@ -1,21 +1,21 @@
 ---
-title: Configuración de Azure Private Link
+title: Configuración de un punto de conexión privado (versión preliminar)
 titleSuffix: Azure Machine Learning
 description: Use Azure Private Link para acceder de forma segura al área de trabajo de Azure Machine Learning desde una red virtual.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 5428f24ea5ab780c4b51e0af37908077ddc32232
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: ed3b59b9e6aecb91f4ecb9d569b989b6b2396c48
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891369"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134871"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Configuración de Azure Private Link para un área de trabajo de Azure Machine Learning (versión preliminar)
 
@@ -99,14 +99,13 @@ Para más información, vea [Implementación de recursos con plantillas de Resou
 
 ## <a name="using-a-workspace-over-a-private-endpoint"></a>Uso de un área de trabajo mediante un punto de conexión privado
 
-Dado que la comunicación con el área de trabajo solo se permite desde la red virtual, cualquier entorno de desarrollo que use el área de trabajo debe ser miembro de la red virtual. Por ejemplo, una máquina virtual de la red virtual o una máquina conectada a la red virtual mediante una puerta de enlace de VPN.
+Dado que la comunicación con el área de trabajo solo se permite desde la red virtual, cualquier entorno de desarrollo que use el área de trabajo debe ser miembro de la red virtual. Por ejemplo, una máquina virtual en la red virtual.
 
 > [!IMPORTANT]
 > Para evitar la interrupción temporal de la conectividad, Microsoft recomienda vaciar la memoria caché de DNS en las máquinas que se conectan al área de trabajo después de habilitar Private Link. 
 
 Para más información sobre Azure Virtual Machines, consulte [Documentación sobre Virtual Machines](/azure/virtual-machines/).
 
-Para más información sobre las puertas de enlace de VPN, consulte [¿Qué es VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 
 ## <a name="using-azure-storage"></a>Uso de Azure Storage
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
-ms.openlocfilehash: bb23484903ac3ce129c6e7a7a27e0765c227fb1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dc77f3267813bd049274f44e43c4d64b0eb3801e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68297785"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120286"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Optimización del rendimiento de TCP/IP para máquinas virtuales de Azure
 
@@ -136,7 +136,7 @@ Esta tabla muestra la distancia en línea recta entre dos ubicaciones. En las re
 
 `minimum RTT = 2 * (Distance in kilometers / Speed of propagation)`
 
-Puede usar 200 para la velocidad de propagación. Se trata de la distancia, en metros, que recorre la luz en 1 milisegundo.
+Puede usar 200 para la velocidad de propagación. Se trata de la distancia, en kilómetros, que recorre la luz en 1 milisegundo.
 
 Tomemos de Nueva York a San Francisco como ejemplo. La distancia en línea recta es de 4 148 km. Sustituyendo ese valor en la ecuación, se obtiene lo siguiente:
 

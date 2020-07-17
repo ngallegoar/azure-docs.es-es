@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/02/2020
+ms.date: 06/23/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: aa90775df4462328ed7c39e70c8dd1989248e308
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 1cd18ae9fd3814765e77dad672909343d651913e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900510"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85355512"
 ---
 # <a name="localization-string-ids"></a>Identificadores de cadenas de localización
 
@@ -27,7 +27,7 @@ El elemento **Localization** permite la compatibilidad con varios idiomas o conf
 
 Los siguientes identificadores sirven para una definición de contenido con el identificador `api.signuporsignin`.
 
-| id | Valor predeterminado |
+| ID | Valor predeterminado |
 | -- | ------------- |
 | **local_intro_email** | Inicie sesión con su cuenta existente. |
 | **logonIdentifier_email** | Dirección de correo electrónico |
@@ -56,7 +56,7 @@ En el ejemplo siguiente se muestra el uso de algunos de los elementos de la inte
 
 El identificador de los proveedores de identidades se configura en el elemento **ClaimsExchange** del recorrido del usuario. Para localizar el título del proveedor de identidades, **ElementType** está establecido en `ClaimsProvider`, mientras que **StringId** se establece en el identificador de `ClaimsExchange`.
 
-```XML
+```xml
 <OrchestrationStep Order="2" Type="ClaimsExchange">
   <Preconditions>
     <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
@@ -75,13 +75,13 @@ El identificador de los proveedores de identidades se configura en el elemento *
 
 En el ejemplo siguiente se localiza el proveedor de identidades de Facebook en árabe:
 
-```XML
+```xml
 <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">فيس بوك</LocalizedString>
 ```
 
 ### <a name="sign-up-or-sign-in-error-messages"></a>Mensajes de error al iniciar sesión o registrarse
 
-| id | Valor predeterminado |
+| ID | Valor predeterminado |
 | -- | ------------- |
 | **UserMessageIfInvalidPassword** | La contraseña es incorrecta. |
 | **UserMessageIfClaimsPrincipalDoesNotExist** | Parece que no encontramos su cuenta. |
@@ -95,7 +95,7 @@ En el ejemplo siguiente se localiza el proveedor de identidades de Facebook en �
 
 Los siguientes identificadores corresponden a una definición de contenido con un identificador `api.localaccountsignup` o a cualquier definición de contenido que empiece con `api.selfasserted`, como `api.selfasserted.profileupdate` y `api.localaccountpasswordreset`.
 
-| id | Valor predeterminado |
+| ID | Valor predeterminado |
 | -- | ------------- |
 | **ver_sent** | Se ha enviado el código de verificación a: |
 | **ver_but_default** | Valor predeterminado |
@@ -134,7 +134,7 @@ Los siguientes identificadores corresponden a una definición de contenido con u
 
 ### <a name="sign-up-and-self-asserted-pages-error-messages"></a>Mensajes de error en las páginas autoafirmadas y de registro
 
-| id | Valor predeterminado |
+| ID | Valor predeterminado |
 | -- | ------------- |
 | **UserMessageIfClaimsPrincipalAlreadyExists** | Ya existe un usuario con el identificador especificado. Elija otro. |
 | **UserMessageIfClaimNotVerified** | Reclamación no comprobada: {0} |
@@ -157,7 +157,7 @@ En el ejemplo siguiente se muestra el uso de algunos de los elementos de la inte
 
 Los siguientes identificadores sirven para una definición de contenido con el identificador `api.phonefactor`.
 
-| id | Valor predeterminado |
+| ID | Valor predeterminado |
 | -- | ------------- |
 | **button_verify** | Llamarme |
 | **country_code_label** | Código de país |
@@ -207,7 +207,7 @@ En el ejemplo siguiente se muestra el uso de algunos de los elementos de la inte
 
 Los siguientes son los identificadores de un [control de pantalla de verificación](display-control-verification.md).
 
-| id | Valor predeterminado |
+| ID | Valor predeterminado |
 | -- | ------------- |
 |verification_control_but_change_claims |Change |
 |verification_control_fail_send_code |No se pudo enviar el código; vuelva a intentarlo más tarde. |
@@ -219,7 +219,7 @@ Los siguientes son los identificadores de un [control de pantalla de verificaci�
 
 ### <a name="example"></a>Ejemplo
 
-```XML
+```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
     <LocalizedString ElementType="UxElement" StringId="verification_control_but_change_claims">Change</LocalizedString>
@@ -233,11 +233,36 @@ Los siguientes son los identificadores de un [control de pantalla de verificaci�
 </LocalizedResources>
 ```
 
+## <a name="restful-service-error-messages"></a>Mensajes de error del servicio RESTful
+
+Estos son los identificadores de los mensajes de error de [perfil técnico del servicio RESTful](restful-technical-profile.md):
+
+| ID | Valor predeterminado |
+| -- | ------------- |
+|DefaultUserMessageIfRequestFailed | No se pudo establecer la conexión con el punto de conexión del servicio RESTful. Dirección URL del servicio RESTful: {0} |
+|UserMessageIfCircuitOpen | {0} Dirección URL del servicio RESTful: {1} |
+|UserMessageIfDnsResolutionFailed | No se pudo resolver el nombre de host del punto de conexión de servicio RESTful. Dirección URL del servicio RESTful: {0} |
+|UserMessageIfRequestTimeout | No se pudo establecer la conexión con el punto de conexión del servicio RESTful dentro del límite de tiempo de espera de {0}segundos. Dirección URL del servicio RESTful: {1} |
+
+
+### <a name="example"></a>Ejemplo
+
+```xml
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="DefaultUserMessageIfRequestFailed">Failed to establish connection to restful service end point.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfCircuitOpen">Unable to connect to the restful service end point.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfDnsResolutionFailed">Failed to resolve the hostname of the restful service endpoint.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfRequestTimeout">Failed to establish connection to restful service end point within timeout limit.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
 ## <a name="azure-mfa-error-messages"></a>Mensajes de error de Azure MFA
 
 Los siguientes son los identificadores de los mensajes de error de un [perfil técnico de Azure MFA](multi-factor-auth-technical-profile.md).
 
-| id | Valor predeterminado |
+| ID | Valor predeterminado |
 | -- | ------------- |
 |UserMessageIfCouldntSendSms | No se puede enviar un SMS al teléfono. Pruebe con otro número de teléfono. |
 |UserMessageIfInvalidFormat | El número de teléfono no tiene un formato válido. Corríjalo y vuelva a intentarlo.|
@@ -248,7 +273,7 @@ Los siguientes son los identificadores de los mensajes de error de un [perfil t�
 
 ### <a name="example"></a>Ejemplo
 
-```XML
+```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfCouldntSendSms">Cannot Send SMS to the phone, please try another phone number.</LocalizedString>
@@ -261,11 +286,38 @@ Los siguientes son los identificadores de los mensajes de error de un [perfil t�
 </LocalizedResources>
 ```
 
+## <a name="azure-ad-sspr"></a>Autoservicio de restablecimiento de contraseña de Azure AD
+
+Estos son los identificadores de los mensajes de error de un [perfil técnico de SSPR de Azure AD](aad-sspr-technical-profile.md).
+
+| ID | Valor predeterminado |
+| -- | ------------- |
+|UserMessageIfChallengeExpired | El código ha expirado.|
+|UserMessageIfInternalError | El servicio de correo electrónico ha encontrado un error interno. Vuelva a intentarlo más tarde.|
+|UserMessageIfThrottled | Se han enviado demasiadas solicitudes. Vuelva a intentarlo más tarde.|
+|UserMessageIfVerificationFailedNoRetry | Se ha superado el número máximo de intentos de comprobación.|
+|UserMessageIfVerificationFailedRetryAllowed | Error de comprobación. Vuelva a intentarlo.|
+
+
+### <a name="example"></a>Ejemplo
+
+```XML
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInternalError">We are having trouble verifying your email address. Please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfThrottled">There have been too many requests to verify this email address. Please wait a while, then try again.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfChallengeExpired">That code is expired. Please request a new code.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">You've made too many incorrect attempts. Please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
 ## <a name="one-time-password-error-messages"></a>Mensajes de error de contraseña única
 
 Los siguientes son los identificadores de los mensajes de error de un [perfil técnico de contraseña única](one-time-password-technical-profile.md).
 
-| id | Valor predeterminado |
+| ID | Valor predeterminado |
 | -- | ------------- |
 |UserMessageIfMaxRetryAttempted |La comprobación proporcionada de la contraseña única ha superado el número máximo de intentos. |
 |UserMessageIfSessionDoesNotExist |La sesión de comprobación de contraseña única ha expirado. |
@@ -275,7 +327,7 @@ Los siguientes son los identificadores de los mensajes de error de un [perfil t�
 
 ### <a name="example"></a>Ejemplo
 
-```XML
+```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</LocalizedString>
@@ -287,12 +339,11 @@ Los siguientes son los identificadores de los mensajes de error de un [perfil t�
 </LocalizedResources>
 ```
 
-
 ## <a name="claims-transformations-error-messages"></a>Mensajes de error de transformaciones de notificaciones
 
 Los siguientes son los identificadores de los mensajes de error de transformaciones de notificaciones:
 
-| id | Transformación de notificaciones | Valor predeterminado |
+| ID | Transformación de notificaciones | Valor predeterminado |
 | -- | ------------- |------------- |
 |UserMessageIfClaimsTransformationBooleanValueIsNotEqual |[AssertBooleanClaimIsEqualToValue](boolean-transformations.md#assertbooleanclaimisequaltovalue) | Error de comparación de valores de notificación booleano para el tipo de notificación "inputClaim".| 
 |DateTimeGreaterThan |[AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) | Error al comparar el valor de la notificación: El operando izquierdo proporcionado es mayor que el derecho.|
@@ -300,7 +351,7 @@ Los siguientes son los identificadores de los mensajes de error de transformacio
 
 ### <a name="example"></a>Ejemplo
 
-```XML
+```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Your email address hasn't been verified.</LocalizedString>

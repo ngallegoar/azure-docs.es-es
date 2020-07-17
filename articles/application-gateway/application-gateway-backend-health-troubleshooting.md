@@ -4,15 +4,15 @@ description: Se describe cómo solucionar los problemas de estado del back-end d
 services: application-gateway
 author: surajmb
 ms.service: application-gateway
-ms.topic: article
-ms.date: 08/30/2019
+ms.topic: troubleshooting
+ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: c51d79d55f77468030100fa10973e2a31148ceae
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b5524d0612bf8f5d69979a8392f664e417c5f98d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648445"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808195"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Solución de problemas de estado del back-end en Application Gateway
 ==================================================
@@ -81,7 +81,7 @@ Después de recibir un estado incorrecto para todos los servidores de un grupo b
 El mensaje que se muestra en la columna **Detalles** proporciona información más detallada sobre el problema y, según dicha información, podemos empezar a solucionarlo.
 
 > [!NOTE]
-> La solicitud de sondeo predeterminada se envía en formato de \<protocolo\>://127.0.0.1:\<puerto\>/. Por ejemplo, http://127.0.0.1:80 para un sondeo HTTP en el puerto 80. Solo los códigos de estado HTTP del 200 al 399 se consideran correctos. El protocolo y el puerto de destino se heredan de la configuración de HTTP. Si quiere que Application Gateway sondee en un protocolo, un nombre de host o una ruta de acceso diferentes, y acepte como correcto un código de estado distinto, configure un sondeo personalizado y asócielo con la configuración de HTTP.
+> La solicitud de sondeo predeterminada se envía con el formato \<protocol\>://127.0.0.1:\<port\>/. Por ejemplo, http://127.0.0.1:80 para un sondeo HTTP en el puerto 80. Solo los códigos de estado HTTP del 200 al 399 se consideran correctos. El protocolo y el puerto de destino se heredan de la configuración de HTTP. Si quiere que Application Gateway sondee en un protocolo, un nombre de host o una ruta de acceso diferentes, y acepte como correcto un código de estado distinto, configure un sondeo personalizado y asócielo con la configuración de HTTP.
 
 <a name="error-messages"></a>Mensajes de error
 ------------------------
@@ -170,7 +170,7 @@ Also check whether any NSG/UDR/Firewall is blocking access to the Ip and port of
 
 **Mensaje**: Status code of the backend\'s HTTP response did not match the probe setting. Expected:{HTTPStatusCode0} Received:{HTTPStatusCode1}. (El código de estado de la respuesta HTTP del back-end no coincidía con la configuración de sondeo. Se esperaba: {HTTPStatusCode0} Se recibió: {HTTPStatusCode1}).
 
-**Causa:** cuando haya establecido la conexión TCP y se haya realizado el protocolo de enlace TLS (si TLS está habilitado), Application Gateway enviará el sondeo como una solicitud GET HTTP al servidor back-end. Como se mencionó anteriormente, el sondeo predeterminado será en el \<protocolo\>://127.0.0.1:\<puerto\>/, y se considera que los códigos de estado de respuesta en el intervalo de 200 a 399 son correctos. Si el servidor devuelve cualquier otro código de estado, se marcará como incorrecto con este mensaje.
+**Causa:** cuando haya establecido la conexión TCP y se haya realizado el protocolo de enlace TLS (si TLS está habilitado), Application Gateway enviará el sondeo como una solicitud GET HTTP al servidor back-end. Tal y como se ha mencionado anteriormente, el sondeo predeterminado será en \<protocol\>://127.0.0.1:\<port\>/, y se considera que los códigos de estado de respuesta en el intervalo de 200 a 399 son correctos. Si el servidor devuelve cualquier otro código de estado, se marcará como incorrecto con este mensaje.
 
 **Solución:** según el código de respuesta del servidor back-end, puede realizar los pasos siguientes. A continuación se enumeran algunos de los códigos de estado comunes:
 
@@ -209,7 +209,7 @@ Más información sobre la [coincidencia del sondeo de Application Gateway](http
 
 #### <a name="backend-server-certificate-invalid-ca"></a>Entidad de certificación no válida del certificado de servidor back-end
 
-**Mensaje**: The server certificate used by the backend is not signed by a well-known Certificate Authority (CA). Whitelist the backend on the application gateway by uploading the root certificate of the server certificate used by the backend. (La entidad de certificación conocida no firma el certificado de servidor utilizado por el back-end. Incluya en la lista de elementos permitidos el back-end en la puerta de enlace de aplicaciones mediante la carga del certificado raíz del certificado de servidor utilizado por el back-end).
+**Mensaje**: The server certificate used by the backend is not signed by a well-known Certificate Authority (CA). Allow the backend on the application gateway by uploading the root certificate of the server certificate used by the backend. (La entidad de certificación conocida no ha firmado el certificado de servidor usado por el back-end. Permita el back-end en la puerta de enlace de aplicaciones cargando el certificado raíz del certificado de servidor usado por el back-end).
 
 **Causa:** SSL de un extremo a otro con Application Gateway v2 requiere que se compruebe el certificado del servidor back-end para que el estado del servidor se considere correcto.
 Para que un certificado TLS o SSL sea de confianza, ese certificado del servidor back-end debe haberlo emitido una entidad de certificación incluida en el almacén de confianza de Application Gateway. Si no ha sido así (por ejemplo, se usaron certificados autofirmados), los usuarios deben cargar el certificado del emisor en Application Gateway.

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: e7276dcfca6ba033942d62f347ac3a799524cac4
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: c8cdb75c821f45fe7fcf0f455145beb2b9be2a55
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80519084"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734867"
 ---
 # <a name="azure-active-directory-domain-services-deployment-and-management-for-azure-cloud-solution-providers"></a>Implementación y administración de Azure Active Directory Domain Services para proveedores de soluciones en la nube de Azure
 
@@ -78,11 +78,11 @@ Este modelo de implementación puede ser adecuado para escenarios en que un ISV 
 
 Cuando se administra un dominio administrado en una suscripción a Azure CSP, se aplican las siguientes consideraciones importantes:
 
-* **Los agentes de administrador de CSP pueden aprovisionar un dominio administrado mediante sus credenciales:** Azure AD DS admite suscripciones a Azure CSP. Los usuarios que pertenecen al grupo de agentes de administración del asociado de CSP pueden aprovisionar un nuevo dominio administrado de Azure AD DS.
+* **Los agentes de administrador de CSP pueden aprovisionar un dominio administrado mediante sus credenciales:** Azure AD DS admite suscripciones a Azure CSP. Los usuarios que pertenecen al grupo de agentes de administración del asociado de CSP pueden aprovisionar un nuevo dominio administrado.
 
 * **Los CSP pueden crear con scripts nuevos dominios administrados para sus clientes mediante PowerShell:** Consulte [cómo puede habilitar Azure AD DS mediante PowerShell](powershell-create-instance.md) para ver detalles.
 
-* **Los agentes de administrador de CSP no pueden realizar tareas de administración continuas en el dominio administrado con sus credenciales:** Los usuarios administradores de CSP no pueden llevar a cabo tareas de administración de rutina dentro del dominio administrado mediante el uso de sus credenciales. Estos usuarios son externos al inquilino de Azure AD del cliente y sus credenciales no están disponibles en el inquilino de Azure AD del cliente. Azure AD DS no tiene acceso a los hash de contraseña de Kerberos y NTLM para estos usuarios, por lo que los usuarios no se pueden autenticar en dominios administrados de Azure AD DS.
+* **Los agentes de administrador de CSP no pueden realizar tareas de administración continuas en el dominio administrado con sus credenciales:** Los usuarios administradores de CSP no pueden llevar a cabo tareas de administración de rutina dentro del dominio administrado mediante el uso de sus credenciales. Estos usuarios son externos al inquilino de Azure AD del cliente y sus credenciales no están disponibles en el inquilino de Azure AD del cliente. Azure AD DS no tiene acceso a los hash de contraseña de Kerberos y NTLM para estos usuarios, por lo que los usuarios no se pueden autenticar en dominios administrados.
 
   > [!WARNING]
   > Debe crear una cuenta de usuario en el directorio del cliente para realizar tareas de administración en curso en el dominio administrado.

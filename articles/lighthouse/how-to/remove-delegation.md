@@ -1,18 +1,18 @@
 ---
 title: Quitar el acceso a una delegación
-description: Obtenga información acerca de cómo quitar el acceso a los recursos que se han delegado a un proveedor de servicios para la administración de recursos delegada de Azure.
-ms.date: 04/24/2020
-ms.topic: conceptual
-ms.openlocfilehash: d0db809eb057f8b4bb48bdf9dd127f4d488f0406
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+description: Obtenga información sobre cómo quitar el acceso a los recursos que se han delegado a un proveedor de Azure Lighthouse.
+ms.date: 07/07/2020
+ms.topic: how-to
+ms.openlocfilehash: be1547056bc3ec387ba4cba52f6b6d6fbcaad23c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82149211"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111735"
 ---
 # <a name="remove-access-to-a-delegation"></a>Quitar el acceso a una delegación
 
-Una vez delegada la suscripción o el grupo de recursos de un cliente a un proveedor de servicios para la [administración de recursos delegada de Azure](../concepts/azure-delegated-resource-management.md), la delegación se puede quitar si es necesario. Una vez que se quita una delegación, ya no se aplicará el acceso concedido previamente a los usuarios del inquilino del proveedor de servicios.
+Una vez delegada la suscripción o el grupo de recursos de un cliente a un proveedor de servicios para [Azure Lighthouse](../overview.md), la delegación se puede quitar si es necesario. Una vez que se quita una delegación, el acceso a la [Administración de recursos delegados de Azure](../concepts/azure-delegated-resource-management.md) que había sido concedido previamente a los usuarios del inquilino del proveedor de servicios ya no será aplicado.
 
 La eliminación de una delegación puede realizarla un usuario en el inquilino del cliente o el inquilino del proveedor de servicios, siempre y cuando el usuario tenga los permisos adecuados.
 
@@ -42,7 +42,7 @@ Este rol también se puede seleccionar en una **autorización** durante la [crea
 
 Un usuario con este permiso puede quitar una delegación de una de las siguientes maneras.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 1. Vaya a la página [Mis clientes](view-manage-customers.md).
 2. Seleccione **Delegaciones**.

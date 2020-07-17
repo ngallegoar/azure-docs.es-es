@@ -4,18 +4,18 @@ description: Configure un contenedor de perfil de FSLogix en un recurso comparti
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 06/02/2020
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1ea47dbc743c980b0509a3da42da13d294bc64fc
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 7c6b37cd8c127bf3c7643b39d54bfcdb8093c58c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84302037"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027399"
 ---
-# <a name="create-an-azure-files-file-share-with-a-domain-controller"></a>Creación de un recurso compartido de archivos de Azure Files con un controlador de dominio
+# <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Creación de un contenedor de perfiles con Azure Files y AD DS
 
 En este artículo, aprenderá a crear un recurso compartido de archivos de Azure autenticado por un controlador de dominio, en un grupo host de escritorio virtual de Windows existente. Puede usar este recurso compartido de archivos para almacenar los perfiles de almacenamiento.
 
@@ -43,7 +43,7 @@ Para configurar una cuenta de almacenamiento:
     - Escriba un nombre único para la cuenta de almacenamiento.
     - En **Ubicación**, se recomienda elegir la misma ubicación que el grupo host de Windows Virtual Desktop.
     - En **Rendimiento**, seleccione **Estándar**. (En función de los requisitos de IOPS. Para más información, consulte [Opciones de almacenamiento para los contenedores de perfiles de FSLogix de Windows Virtual Desktop](store-fslogix-profile.md)).
-    - En **Tipo de cuenta**, seleccione **StorageV2**.
+    - En **Tipo de cuenta**, seleccione **StorageV2** o **FileStorage** (solo disponible si el nivel de rendimiento es Premium).
     - En **Replicación**, seleccione **Almacenamiento con redundancia local (LRS)** .
 
 5. Cuando haya terminado, seleccione **Revisar y crear** y, después, **Crear**.
@@ -64,21 +64,22 @@ Para crear un recurso compartido de archivos:
 
 4. Seleccione **Crear**.
 
-## <a name="enable-azure-active-directory-authentication"></a>Habilitación de la autenticación de Azure Active Directory
+## <a name="enable-active-directory-authentication"></a>Habilitar la autenticación de Active Directory
 
-Después, deberá habilitar la autenticación de Azure Active Directory (AD). Para habilitar esta directiva, deberá seguir las instrucciones de esta sección en una máquina que ya esté unida a un dominio. Para habilitar la autenticación, siga estas instrucciones en la máquina virtual que ejecuta el controlador de dominio:
+Después, deberá habilitar la autenticación de Active Directory (AD). Para habilitar esta directiva, deberá seguir las instrucciones de esta sección en una máquina que ya esté unida a un dominio. Para habilitar la autenticación, siga estas instrucciones en la máquina virtual que ejecuta el controlador de dominio:
 
 1. Protocolo de Escritorio remoto en la máquina virtual unida a un dominio.
 
 2. Siga las instrucciones del artículo [Parte 1: Habilitación de la autenticación de AD DS para los recursos compartidos de archivos de Azure](../storage/files/storage-files-identity-ad-ds-enable.md) para instalar el módulo AzFilesHybrid y habilitar la autenticación.
 
-3.  Abra Azure Portal, abra la cuenta de almacenamiento, seleccione **Configuración** y, a continuación, confirme que **Azure Active Directory (AD)** está establecido en **Habilitado**.
+3.  Abra Azure Portal, abra la cuenta de almacenamiento, seleccione **Configuración** y, después, confirme que **Active Directory (AD)** está establecido en **Habilitado**.
 
-     ![Captura de pantalla de la página Configuración con Azure Active Directory (AD) habilitado.](media/active-directory-enabled.png)
+     > [!div class="mx-imgBorder"]
+     > ![Captura de pantalla de la página Configuración con Azure Active Directory (AD) habilitado](media/active-directory-enabled.png)
 
 ## <a name="assign-azure-rbac-permissions-to-windows-virtual-desktop-users"></a>Asignación de permisos de RBAC de Azure a los usuarios de Windows Virtual Desktop
 
-A todos los usuarios que necesiten tener perfiles de FSLogix almacenados en la cuenta de almacenamiento se les debe asignar el rol de colaborador de recursos compartidos de SMB de datos de archivos de almacenamiento. 
+A todos los usuarios que necesiten tener perfiles de FSLogix almacenados en la cuenta de almacenamiento se les debe asignar el rol de colaborador de recursos compartidos de SMB de datos de archivos de almacenamiento.
 
 Los usuarios que inician sesión en los hosts de sesión de Windows Virtual Desktop necesitan permisos de acceso para acceder al recurso compartido de archivos. Conceder acceso a un recurso compartido de archivos de Azure implica configurar permisos tanto en el nivel de recurso compartido como en el nivel de NTFS, de forma similar a un recurso compartido de Windows tradicional.
 
@@ -93,15 +94,17 @@ Para asignar permisos de control de acceso basado en roles (RBAC):
 
 2. Abra la cuenta de almacenamiento que creó en [Configuración de una cuenta de almacenamiento](#set-up-a-storage-account).
 
-3. Seleccione **Access Control (IAM)** .
+3. Seleccione **Recursos compartidos de archivos** y, después, seleccione el nombre del recurso compartido de archivos que tenga previsto usar.
 
-4. Seleccione **Agregar una asignación de roles**.
+4. Seleccione **Access Control (IAM)** .
 
-5. En la pestaña **Agregar asignación de roles**, seleccione **Colaborador con privilegios elevados de recursos compartidos de SMB de datos de archivos de almacenamiento** para la cuenta de administrador.
-   
+5. Seleccione **Agregar una asignación de roles**.
+
+6. En la pestaña **Agregar asignación de roles**, seleccione **Colaborador con privilegios elevados de recursos compartidos de SMB de datos de archivos de almacenamiento** para la cuenta de administrador.
+
      Para asignar permisos de usuario para los perfiles de FSLogix, siga estas mismas instrucciones. Sin embargo, cuando llegue al paso 5, seleccione **Colaborador de recursos compartidos de SMB de datos de archivos de almacenamiento** en su lugar.
 
-6. Seleccione **Guardar**.
+7. Seleccione **Guardar**.
 
 ## <a name="assign-users-permissions-on-the-azure-file-share"></a>Asignación de permisos de usuarios en el recurso compartido de archivos de Azure
 
@@ -126,7 +129,7 @@ Aquí se muestra cómo obtener la ruta de acceso UNC:
 
 5. Después de copiar el URI, realice las siguientes acciones para cambiarlo a la ruta UNC:
 
-    - Se eliminó `https://`.
+    - Quite `https://` y reemplácelo por `\\`.
     - Reemplace la barra diagonal `/` por una barra diagonal inversa `\`.
     - Agregue el nombre del recurso compartido de archivos que creó en [Creación de un recurso compartido de archivos de Azure](#create-an-azure-file-share) al final de la UNC.
 
@@ -157,7 +160,7 @@ Para configurar los permisos NTFS:
      ```
 
 3. Ejecute el siguiente cmdlet para revisar los permisos de acceso al recurso compartido de archivos de Azure:
-    
+
     ```powershell
     icacls <mounted-drive-letter>:
     ```
@@ -167,7 +170,7 @@ Para configurar los permisos NTFS:
     Tanto *NT AUTHORITY\Usuarios autenticados* como *BUILTIN\Usuarios* tienen determinados permisos de forma predeterminada. Estos permisos predeterminados permiten a los usuarios leer los contenedores de perfil de otros usuarios. Sin embargo, los permisos descritos en [Configuración de permisos de almacenamiento para su uso con contenedores de perfiles y contenedores de Office](/fslogix/fslogix-storage-config-ht) no permiten a los usuarios leer los contenedores de perfiles de los demás.
 
 4. Ejecute los siguientes cmdlets para permitir que los usuarios de Windows Virtual Desktop creen sus propios contenedores de perfiles mientras bloquean el acceso a su contenedor de perfiles de otros usuarios.
-     
+
      ```powershell
      icacls <mounted-drive-letter>: /grant <user-email>:(M)
      icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)

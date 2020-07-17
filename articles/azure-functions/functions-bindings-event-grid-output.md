@@ -5,17 +5,17 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 4df0faf3f74ef3423dcd42c2c76af8b39a889a92
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.custom: fasttrack-edit, tracking-python
+ms.openlocfilehash: 2eaa2202ac6c2f0fac0f53c6eeb2f5d08c764f1e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773948"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85413355"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>Enlace de salida de Azure Event Grid para Azure Functions
 
-Use el enlace de salida de Event Hubs para escribir eventos en un tema personalizado. Debe tener una [clave de acceso válida para el tema personalizado](../event-grid/security-authentication.md#authenticate-publishing-clients-using-sas-or-key).
+Use el enlace de salida de Event Hubs para escribir eventos en un tema personalizado. Debe tener una [clave de acceso válida para el tema personalizado](../event-grid/security-authenticate-publishing-clients.md).
 
 Para obtener información sobre los detalles de instalación y configuración, consulte la [información general](./functions-bindings-event-grid.md).
 
@@ -162,7 +162,7 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-En el ejemplo siguiente se muestra un enlace de desencadenador en un archivo *function.json* y una [función de Python](functions-reference-python.md) que usa el enlace. Después, envía un evento al tema de Event Grid personalizado, tal y como se especifica en `topicEndpointUri`.
+En el ejemplo siguiente se muestra un enlace de desencadenador en un archivo *function.json* y una [función de Python](functions-reference-python.md) que usa el enlace. Después, envía un evento al tema personalizado, tal y como se especifica en `topicEndpointUri`.
 
 Estos son los datos de enlace del archivo *function.json*:
 
@@ -187,7 +187,7 @@ Estos son los datos de enlace del archivo *function.json*:
 }
 ```
 
-Este es el ejemplo de Python para enviar un evento a un tema de Event Grid personalizado estableciendo `EventGridOutputEvent`:
+Este es el ejemplo de Python para enviar un evento a un tema personalizado estableciendo `EventGridOutputEvent`:
 
 ```python
 import logging

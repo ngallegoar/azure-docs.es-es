@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 192c91f700dd82f453d52f6891f8aaaaeef8c7ef
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6f52ddbfbdfa30108670b985fba5c5263ce517b2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83642081"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551675"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Llamadas entre servicios que usan la identidad de usuarios delegada en el flujo de On-Behalf-Of
 
@@ -79,7 +79,7 @@ Registre el servicio de nivel intermedio y la aplicación cliente en Azure AD.
 1. Seleccione **Registrar** para crear la aplicación.
 1. Configure permisos para la aplicación. En **Permisos de API**, seleccione **Agregar un permiso** y, luego **Mis API**.
 1. Escriba el nombre del servicio de nivel intermedio en el campo de texto.
-1. Elija **Seleccionar permisos** y, luego, seleccione **Acceder a \<nombre del servicio>** .
+1. Elija **Seleccionar permisos** y, después, seleccione **Acceder a \<service name>** .
 
 ### <a name="configure-known-client-applications"></a>Configuración de aplicaciones cliente conocidas
 
@@ -105,7 +105,7 @@ La aplicación cliente está protegida mediante un secreto compartido o un certi
 
 Cuando se utiliza un secreto compartido, una solicitud de token de acceso entre servicios contiene los parámetros siguientes:
 
-| Parámetro |  | Descripción |
+| Parámetro | Tipo | Descripción |
 | --- | --- | --- |
 | grant_type |requerido | Tipo de la solicitud de token. Una solicitud OBO usa JSON Web Token, por lo que el valor debe ser **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | Aserción |requerido | Valor del token de acceso usado en la solicitud. |
@@ -139,7 +139,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 Una solicitud de token de acceso entre servicios con un certificado contiene los parámetros siguientes:
 
-| Parámetro |  | Descripción |
+| Parámetro | Tipo | Descripción |
 | --- | --- | --- |
 | grant_type |requerido | Tipo de la solicitud de token. Una solicitud OBO usa un token de acceso JWT, por lo que el valor debe ser **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | Aserción |requerido | Valor del token usado en la solicitud. |
@@ -249,7 +249,7 @@ Algunos servicios web basados en OAuth necesitan tener acceso a otras API de ser
 
 Una solicitud de servicio a servicio para una aserción SAML contiene los siguientes parámetros:
 
-| Parámetro |  | Descripción |
+| Parámetro | Tipo | Descripción |
 | --- | --- | --- |
 | grant_type |requerido | Tipo de la solicitud de token. En el caso de una solicitud que usa un JWT, el valor debe ser **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | Aserción |requerido | Valor del token de acceso usado en la solicitud.|
@@ -283,9 +283,9 @@ La respuesta contiene un token SAML codificado con UTF8 y Base64url.
 - ext_expires_in: 0
 - expires_on: 1529627844
 - resource: `https://api.contoso.com`
-- access_token: \<Aserción SAML\>
+- access_token: \<SAML assertion\>
 - issued_token_type: urn:ietf:params:oauth:token-type:saml2
-- refresh_token: \<Token de actualización\>
+- refresh_token: \<Refresh token\>
 
 ## <a name="client-limitations"></a>Limitaciones del cliente
 

@@ -1,18 +1,18 @@
 ---
 title: Administración de clientes potenciales en el marketplace comercial de Microsoft
 description: Aprenda a generar y recibir clientes potenciales a partir de sus ofertas de Microsoft AppSource y Azure Marketplace.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
-ms.openlocfilehash: 6234719216c7ef40df99a26153d7677f7a747f55
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: ca6e9a66d6c4daa4706813f945850b51505adeca
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800925"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133450"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Clientes potenciales a partir de la oferta en el marketplace comercial
 
@@ -87,10 +87,12 @@ La información del cliente se envía a través de varios campos. En el ejemplo 
 
 ## <a name="best-practices-for-lead-management"></a>Procedimientos recomendados para la administración de clientes potenciales
 
+Aquí le presentamos algunas recomendaciones para generar clientes potenciales a lo largo del ciclo de ventas:
+
 - **Proceso**: defina un proceso de ventas claro, con hitos, análisis y una clara propiedad del equipo.
 - **Calificación**: defina los requisitos previos, que indican si un cliente potencial se ha calificado por completo. Asegúrese de que los representantes de ventas o marketing califiquen a los clientes potenciales con cuidado antes de hacerlos pasar por el proceso de ventas completo.
-- **Seguimiento**: no olvide hacer un seguimiento. Cabe esperar que la transacción típica requiera entre 5 y 12 llamadas de seguimiento.
-- **Consolidación**: consolide a los clientes potenciales para encaminarse hacia un aumento del margen de ganancias.
+- **Seguimiento**: no olvide hacer un seguimiento en 24 horas. Incluya al cliente potencial en la herramienta CRM de su elección inmediatamente después de que el cliente implemente la versión de prueba. Envíele un correo electrónico mientras aún tenga el recuerdo reciente. Solicite la programación de una llamada telefónica para comprender mejor si el producto es una buena solución para su problema. Cabe esperar que la transacción típica requiera muchas llamadas de seguimiento.
+- **Consolidación**: consolide a los clientes potenciales para encaminarse hacia un aumento del margen de ganancias. Póngase en contacto con ellos, pero no los bombardee. Le recomendamos que les envíe un correo electrónico varias veces antes de cerrarlos: no abandone al primer intento. Recuerde que estos clientes conocieron directamente el producto y emplearon un tiempo en una evaluación gratuita. Son posibles interesados.
 
 ## <a name="common-questions-about-lead-management"></a>Preguntas habituales sobre la administración de clientes potenciales
 
@@ -107,18 +109,21 @@ La respuesta depende del tipo de oferta que publique. El software como servicio 
 Busque `"MSFT_TEST"` en el destino del cliente potencial. A continuación se incluye un cliente potencial de muestra de Microsoft:
 
 ```
-company = MSFT_TEST_636573304831318844
-country = US
-description = MSFT_TEST_636573304831318844
-email = MSFT_TEST_636573304831318844@test.com
-encoding = UTF-8
-encoding = UTF-8
-first_name = MSFT_TEST_636573304831318844
-last_name = MSFT_TEST_636573304831318844
-lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844|<Offer Name>
-oid = 00Do0000000ZHog
-phone = 1234567890
-title = MSFT_TEST_636573304831318844
+{
+    "UserDetails": {
+      "FirstName": "MSFT_TEST_636573304831318844",
+      "LastName": "MSFT_TEST_636573304831318844",
+      "Email": "MSFT_TEST_636573304831318844@test.com",
+      "Phone": "1234567890",
+      "Country": "US",
+      "Company": "MSFT_TEST_636573304831318844",
+      "Title": "MSFT_TEST_636573304831318844"
+    },
+    "LeadSource": "AzureMarketplace",
+    "ActionCode": "INS",
+    "OfferTitle": "Contoso Test"
+    "Description": "MSFT_TEST_636573304831318844"
+}
 ```
 
 ### <a name="i-have-a-live-offer-but-why-am-i-not-seeing-any-leads"></a>Tengo una oferta activa. ¿Por qué no veo ningún cliente potencial?

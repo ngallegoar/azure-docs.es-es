@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 05/28/2020
+ms.date: 06/03/2020
 ms.author: juliako
-ms.openlocfilehash: e072bcb0edc741b7843f470f14c3c37153338efb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d09fba2130dc302378a59200349a569cc248234b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647636"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86075440"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -32,9 +32,27 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 ## <a name="known-issues"></a>Problemas conocidos
 
 > [!NOTE]
-> Puede usar [Azure Portal](https://portal.azure.com/) para administrar los [eventos en directo](live-events-outputs-concept.md) de la versión 3, ver los [recursos](assets-concept.md) de la versión 3, obtener información sobre el acceso a las API. Para las restantes tareas de administración (por ejemplo, Transformaciones y trabajos y Protección de contenido), use la [API REST](https://aka.ms/ams-v3-rest-ref), la [CLI](https://aka.ms/ams-v3-cli-ref), o uno de los [SDK](media-services-apis-overview.md#sdks) compatibles.
+> Puede usar [Azure Portal](https://portal.azure.com/) para administrar los [eventos en directo](live-events-outputs-concept.md) de la versión 3, ver los [recursos](assets-concept.md) y trabajos de la versión 3, obtener información sobre el acceso a las API y cifrar contenido. Para las tareas de administración restantes (por ejemplo, la administración de transformaciones y trabajos), use la [API REST](https://aka.ms/ams-v3-rest-ref), la [CLI](https://aka.ms/ams-v3-cli-ref), o uno de los [SDK](media-services-apis-overview.md#sdks) compatibles.
+>
+> Para más detalles, consulte [las limitaciones de Azure Portal para Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
 
-Para más información, consulte [Guía de migración para mover de Media Services v2 a v3](migrate-from-v2-to-v3.md#known-issues).
+## <a name="june-2020"></a>Junio de 2020
+
+### <a name="live-video-analytics-on-iot-edge-preview-release"></a>Live Video Analytics on IoT Edge (versión preliminar)
+
+Ya se publicó la versión preliminar de Live Video Analytics on IoT Edge. Para más información, consulte las [notas de la versión](../live-video-analytics-edge/release-notes.md).
+
+Live Video Analytics on IoT Edge es una expansión de la familia de Media Services. Le permite analizar vídeos en directo con los modelos de inteligencia artificial que prefiera en sus propios dispositivos perimetrales y, opcionalmente, capturar y grabar ese vídeo. Ahora puede crear aplicaciones con análisis de vídeo en tiempo real en el perímetro sin preocuparse por la complejidad de crear y operar una canalización de vídeo en directo.
+
+### <a name="search-by-topics"></a>Buscar por temas
+
+Ahora puede usar la API de búsqueda para buscar vídeos con temas específicos (solo API).
+
+Los temas se agregan como parte del `textScope` (parámetro opcional). Consulte [API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Search-Videos) para obtener más información.  
+
+### <a name="labels-enhancement"></a>Renovación de etiquetas
+
+El etiquetador se ha actualizado y ahora incluye más etiquetas visuales que se pueden identificar.
 
 ## <a name="may-2020"></a>Mayo de 2020
 
@@ -199,7 +217,7 @@ Se han agregado actualizaciones que incluyen mejoras de rendimiento de Media Ser
 
 ## <a name="march-2019"></a>Marzo de 2019
 
-Ahora el empaquetado dinámico admite Dolby Atmos. Para más información, consulte [Códecs de audio compatibles con el empaquetado dinámico](dynamic-packaging-overview.md#audio-codecs).
+Ahora el empaquetado dinámico admite Dolby Atmos. Para más información, consulte [Códecs de audio compatibles con el empaquetado dinámico](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
 
 Ahora puede especificar una lista de filtros de recursos o cuentas, que se aplicarían a su localizador de streaming. Para más información, consulte el tema sobre la [asociación de filtros al localizador de streaming](filters-concept.md#associating-filters-with-streaming-locator).
 
@@ -362,11 +380,15 @@ Las características siguientes están disponibles en el SDK de .NET:
 
 ### <a name="known-issues"></a>Problemas conocidos
 
-* Al enviar un trabajo, puede especificar que se ingiera el vídeo de origen mediante direcciones URL HTTPS, URL SAS o rutas de acceso a archivos ubicados en Azure Blob Storage. Actualmente, AMS v3 no admite la codificación de transferencia fragmentada a través de direcciones URL HTTPS.
+* Al enviar un trabajo, puede especificar que se ingiera el vídeo de origen mediante direcciones URL HTTPS, URL SAS o rutas de acceso a archivos ubicados en Azure Blob Storage. Actualmente, Media Services v3 no admite la codificación de transferencia fragmentada a través de direcciones URL HTTPS.
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, realice comentarios y obtenga actualizaciones
 
 Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
+
+## <a name="see-also"></a>Consulte también
+
+[Guía de migración para migrar de Media Services v2 a v3](migrate-from-v2-to-v3.md#known-issues).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

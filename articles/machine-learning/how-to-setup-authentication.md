@@ -3,35 +3,32 @@ title: Configuración de la autenticación
 titleSuffix: Azure Machine Learning
 description: Obtenga información sobre cómo instalar y configurar la autenticación para varios recursos y flujos de trabajo en Azure Machine Learning. Hay varias maneras de configurar y usar la autenticación dentro del servicio, que van desde la autenticación simple basada en la interfaz de usuario con fines de desarrollo o prueba, hasta la autenticación de entidad de servicio de Azure Active Directory completa.
 services: machine-learning
-author: trevorbye
-ms.author: trbye
-ms.reviewer: trbye
+author: larryfr
+ms.author: larryfr
+ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.date: 12/17/2019
+ms.topic: how-to
+ms.date: 06/17/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 6b2cfa85ea412a5ef8bda47a7ff6e99970ba6b0e
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 34641e7a883f6b07fe63595cf5750df2569640f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611847"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84974694"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configuración de la autenticación para recursos y flujos de trabajo de Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-En este artículo obtendrá información sobre cómo instalar y configurar la autenticación para varios recursos y flujos de trabajo en Azure Machine Learning. Hay varias maneras de autenticarse en el servicio, que van desde la autenticación simple basada en la interfaz de usuario con fines de desarrollo o prueba, hasta la autenticación de entidad de servicio de Azure Active Directory completa. En este artículo también se explican las diferencias en la forma en que funciona la autenticación de servicio web, así como la forma de autenticarse en la API REST de Azure Machine Learning.
+Obtenga información sobre cómo autenticarse en el área de trabajo de Azure Machine Learning y en los modelos implementados como servicios web.
 
-Estas instrucciones paso a paso muestran cómo completar las tareas siguientes:
+En general, hay dos tipos de autenticación que se pueden utilizar con Azure Machine Learning:
 
-* Usar la autenticación de interfaz de usuario interactiva para pruebas y desarrollo
-* Configurar la autenticación de entidad de servicio
-* Autenticación en el área de trabajo
-* Obtener tokens de portador de OAuth 2.0 para la API REST de Azure Machine Learning
-* Comprender la autenticación de servicio web
+* __Interactiva:__ el usuario utiliza la cuenta en Azure Active Directory para autenticarse directamente o para obtener un token que se usa para la autenticación. La autenticación interactiva se usa durante la experimentación y el desarrollo iterativo o dónde quiere controlar el acceso a los recursos (por ejemplo, un servicio web) por usuario.
+* __Entidad de servicio__: el usuario crea una cuenta de entidad de servicio en Azure Active Directory y la usa para autenticarse u obtener un token. Una entidad de servicio se usa cuando se necesita un proceso automatizado para autenticarse en el servicio sin necesidad de interacción del usuario. Por ejemplo, un script de implementación e integración continua que entrena y prueba un modelo cada vez que cambia el código de entrenamiento. También puede usar una entidad de servicio para recuperar un token para autenticarse en un servicio web si no quiere exigir que el usuario final del servicio se autentique. O bien cuando la autenticación del usuario final no se realiza directamente mediante Azure Active Directory.
 
-Consulte el [artículo de concepto](concept-enterprise-security.md) para información general sobre la seguridad y la autenticación dentro de Azure Machine Learning.
+Independientemente del tipo de autenticación que se use, el control de acceso basado en roles (RBAC) se usa para limitar el nivel de acceso permitido para los recursos. Por ejemplo, una cuenta que se usa para obtener el token de acceso para un modelo implementado solo necesita acceso de lectura al área de trabajo. Para obtener más información sobre For, consulte [Administración del acceso a un área de trabajo de Azure Machine Learning](how-to-assign-roles.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -40,103 +37,124 @@ Consulte el [artículo de concepto](concept-enterprise-security.md) para informa
 
 ## <a name="interactive-authentication"></a>Autenticación interactiva
 
-La mayoría de los ejemplos de la documentación de este servicio usan la autenticación interactiva en instancias de Jupyter Notebook como método sencillo para pruebas y demostraciones. Se trata de una manera ligera de probar lo que está creando. Hay dos llamadas de función que muestran automáticamente un flujo de autenticación basada en la interfaz de usuario.
+La mayoría de los ejemplos de la documentación usan la autenticación interactiva. Por ejemplo, al usar el SDK hay dos llamadas de función que muestran automáticamente un flujo de autenticación basada en la interfaz de usuario:
 
-La llamada a la función `from_config()` emitirá el mensaje.
+* La llamada a la función `from_config()` emitirá el mensaje.
 
-```python
-from azureml.core import Workspace
-ws = Workspace.from_config()
-```
+    ```python
+    from azureml.core import Workspace
+    ws = Workspace.from_config()
+    ```
 
-La función `from_config()` busca un archivo JSON que contenga la información de conexión del área de trabajo. También puede especificar los detalles de conexión explícitamente mediante el constructor `Workspace`, que también solicitará la autenticación interactiva. Ambas llamadas son equivalentes.
+    La función `from_config()` busca un archivo JSON que contenga la información de conexión del área de trabajo.
 
-```python
-ws = Workspace(subscription_id="your-sub-id",
-               resource_group="your-resource-group-id",
-               workspace_name="your-workspace-name"
-              )
-```
+* Con el constructor `Workspace` para proporcionar información sobre la suscripción, el grupo de recursos y el área de trabajo, también se solicitará la autenticación interactiva.
 
-Si tiene acceso a varios inquilinos, es posible que tenga que importar la clase y definir explícitamente el inquilino que tiene como destino. La llamada al constructor de `InteractiveLoginAuthentication` también le pedirá que inicie sesión de forma similar a las llamadas anteriores.
+    ```python
+    ws = Workspace(subscription_id="your-sub-id",
+                  resource_group="your-resource-group-id",
+                  workspace_name="your-workspace-name"
+                  )
+    ```
 
-```python
-from azureml.core.authentication import InteractiveLoginAuthentication
-interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
-```
+> [!TIP]
+> Si tiene acceso a varios inquilinos, es posible que tenga que importar la clase y definir explícitamente el inquilino que tiene como destino. La llamada al constructor de `InteractiveLoginAuthentication` también le pedirá que inicie sesión de forma similar a las llamadas anteriores.
+>
+> ```python
+> from azureml.core.authentication import InteractiveLoginAuthentication
+> interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
+> ```
 
-Aunque resulta útil para las pruebas y el aprendizaje, la autenticación interactiva no le ayudará a crear flujos de trabajo automatizados o sin periféricos. La configuración de la autenticación de entidad de servicio es el mejor enfoque para los procesos automatizados que usan el SDK.
+## <a name="service-principal-authentication"></a>Autenticación de entidad de servicio
 
-## <a name="set-up-service-principal-authentication"></a>Configurar la autenticación de entidad de servicio
+Para usar la autenticación de entidad de servicio, primero debe crear la entidad de servicio y concederle acceso al área de trabajo. Como se mencionó anteriormente, se usa el control de acceso basado en roles (RBAC) de Azure para controlar el acceso, por lo que también debe decidir qué acceso conceder a la entidad de servicio.
 
-Este proceso es necesario para habilitar la autenticación que está desacoplada desde un inicio de sesión de usuario específico, lo que le permite autenticarse en el SDK de Python para Azure Machine Learning en flujos de trabajo automatizados. La autenticación de entidad de servicio también le permitirá [autenticarse en la API REST](#azure-machine-learning-rest-api-auth).
+> [!IMPORTANT]
+> Cuando use una entidad de servicio, concédale el __acceso mínimo necesario para la tarea__ para la que se usa. Por ejemplo, no debería conceder acceso a un propietario de la entidad de servicio o a un colaborador si todo para lo que se usa es para leer el token de acceso para una implementación web.
+>
+> La razón para conceder el menor acceso es que una entidad de servicio usa una contraseña para autenticarse y la contraseña se puede almacenar como parte de un script de automatización. Si se pierde la contraseña, tener el acceso mínimo necesario para una tarea específica minimiza el uso malintencionado de la entidad de servicio.
 
-Para configurar la autenticación de la entidad de servicio, primero debe crear un registro de aplicación en Azure Active Directory y luego conceder el acceso basado en roles de la aplicación a su área de trabajo de ML. La forma más sencilla de completar esta configuración es a través de [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) en Azure Portal. Después de iniciar sesión en el portal, haga clic en el icono de `>_` en la parte superior derecha de la página cerca de su nombre para abrir el shell.
-
-Si no ha usado Cloud Shell antes en la cuenta de Azure, tendrá que crear un recurso de cuenta de almacenamiento para almacenar todos los archivos que están escritos. En general, esta cuenta de almacenamiento incurrirá en un costo mensual insignificante. Además, instale la extensión de aprendizaje automático si no la ha usado previamente con el siguiente comando.
-
-```azurecli-interactive
-az extension add -n azure-cli-ml
-```
+La forma más fácil de crear una entidad de servicio y de conceder acceso al área de trabajo es mediante la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Para crear una entidad de servicio y concederle acceso al área de trabajo, siga estos pasos:
 
 > [!NOTE]
-> Debe ser un administrador de la suscripción para realizar los pasos siguientes.
+> Debe ser un administrador de la suscripción para realizar todos estos pasos.
 
-Después, ejecute el comando siguiente para crear la entidad de servicio. Asígnele un nombre, en este caso **ml-auth**.
+1. Autentíquese en la suscripción de Azure:
 
-```azurecli-interactive
-az ad sp create-for-rbac --sdk-auth --name ml-auth
-```
+    ```azurecli-interactive
+    az login
+    ```
 
-La salida será un código JSON similar al siguiente. Tome nota de los campos `clientId`, `clientSecret` y `tenantId`, ya que los necesitará para otros pasos de este artículo.
+    Si la CLI puede abrir el explorador predeterminado, lo hará y cargará una página de inicio de sesión. De lo contrario, tendrá que abrir un explorador y seguir las instrucciones de la línea de comandos. Las instrucciones implican navegar a [https://aka.ms/devicelogin](https://aka.ms/devicelogin) y escribir un código de autorización.
 
-```json
-{
-    "clientId": "your-client-id",
-    "clientSecret": "your-client-secret",
-    "subscriptionId": "your-sub-id",
-    "tenantId": "your-tenant-id",
-    "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-    "resourceManagerEndpointUrl": "https://management.azure.com",
-    "activeDirectoryGraphResourceId": "https://graph.windows.net",
-    "sqlManagementEndpointUrl": "https://management.core.windows.net:5555",
-    "galleryEndpointUrl": "https://gallery.azure.com/",
-    "managementEndpointUrl": "https://management.core.windows.net"
-}
-```
+    [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-A continuación, ejecute el siguiente comando para obtener los detalles de la entidad de servicio que acaba de crear, con el valor `clientId` anterior como entrada para el parámetro `--id`.
+    Para obtener otros métodos de autenticación, consulte [Inicio de sesión con la CLI de Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
-```azurecli-interactive
-az ad sp show --id your-client-id
-```
+1. Instale la extensión de Azure Machine Learning:
 
-Lo siguiente es un ejemplo simplificado de la salida JSON del comando. Tome nota del campo `objectId`, ya que necesitará su valor para el paso siguiente.
+    ```azurecli-interactive
+    az extension add -n azure-cli-ml
+    ```
 
-```json
-{
-    "accountEnabled": "True",
-    "addIns": [],
-    "appDisplayName": "ml-auth",
-    ...
-    ...
-    ...
-    "objectId": "your-sp-object-id",
-    "objectType": "ServicePrincipal"
-}
-```
+1. Cree la entidad de servicio. En el ejemplo siguiente, se crea una entidad de servicio denominada **ml-auth**:
 
-A continuación, use el siguiente comando para asignar el acceso de la entidad de servicio al área de trabajo de aprendizaje automático. Necesitará el nombre del área de trabajo y el nombre de su grupo de recursos para los parámetros `-w` y `-g`, respectivamente. Para el parámetro `--user`, use el valor `objectId` del paso anterior. El parámetro `--role` le permite establecer el rol de acceso para la entidad de servicio y, en general, usará **owner** o **contributor**. Ambos tienen acceso de escritura a recursos existentes como clústeres de proceso y almacenes de datos, pero solo **owner** pueden aprovisionar estos recursos.
+    ```azurecli-interactive
+    az ad sp create-for-rbac --sdk-auth --name ml-auth
+    ```
 
-```azurecli-interactive
-az ml workspace share -w your-workspace-name -g your-resource-group-name --user your-sp-object-id --role owner
-```
+    La salida será un código JSON similar al siguiente. Tome nota de los campos `clientId`, `clientSecret` y `tenantId`, ya que los necesitará para otros pasos de este artículo.
 
-Esta llamada no genera ninguna salida, pero ahora tiene la autenticación de entidad de servicio configurada para el área de trabajo.
+    ```json
+    {
+        "clientId": "your-client-id",
+        "clientSecret": "your-client-secret",
+        "subscriptionId": "your-sub-id",
+        "tenantId": "your-tenant-id",
+        "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+        "resourceManagerEndpointUrl": "https://management.azure.com",
+        "activeDirectoryGraphResourceId": "https://graph.windows.net",
+        "sqlManagementEndpointUrl": "https://management.core.windows.net:5555",
+        "galleryEndpointUrl": "https://gallery.azure.com/",
+        "managementEndpointUrl": "https://management.core.windows.net"
+    }
+    ```
 
-## <a name="authenticate-to-your-workspace"></a>Autenticación en el área de trabajo
+1. Recupere los detalles de la entidad de servicio mediante el valor `clientId` devuelto en el paso anterior:
 
-Ahora que tiene habilitada la autenticación de entidad de servicio, puede autenticarse en el área de trabajo en el SDK sin iniciar sesión físicamente como un usuario. Utilice el constructor de clase `ServicePrincipalAuthentication` y use los valores obtenidos en los pasos anteriores como parámetros. El parámetro `tenant_id` se asigna al campo `tenantId` anterior, `service_principal_id` se asigna a `clientId`y `service_principal_password` se asigna a `clientSecret`.
+    ```azurecli-interactive
+    az ad sp show --id your-client-id
+    ```
+
+    El siguiente JSON es un ejemplo simplificado de la salida del comando. Tome nota del campo `objectId`, ya que necesitará su valor para el paso siguiente.
+
+    ```json
+    {
+        "accountEnabled": "True",
+        "addIns": [],
+        "appDisplayName": "ml-auth",
+        ...
+        ...
+        ...
+        "objectId": "your-sp-object-id",
+        "objectType": "ServicePrincipal"
+    }
+    ```
+
+1. Permita que la entidad de servicio tenga acceso al área de trabajo de Azure Machine Learning. Necesitará el nombre del área de trabajo y el nombre de su grupo de recursos para los parámetros `-w` y `-g`, respectivamente. Para el parámetro `--user`, use el valor `objectId` del paso anterior. El parámetro `--role` permite establecer el rol de acceso para la entidad de servicio. En el ejemplo siguiente, la entidad de servicio se asigna al rol de **propietario**. 
+
+    > [!IMPORTANT]
+    > El acceso de propietario permite que la entidad de servicio realice prácticamente cualquier operación en el área de trabajo. Se usa en este documento para demostrar cómo conceder acceso. En un entorno de producción, Microsoft recomienda conceder a la entidad de servicio el acceso mínimo necesario para realizar el rol para el que se pretende usar. Para obtener más información, consulte [Administración del acceso a un área de trabajo de Azure Machine Learning](how-to-assign-roles.md).
+
+    ```azurecli-interactive
+    az ml workspace share -w your-workspace-name -g your-resource-group-name --user your-sp-object-id --role owner
+    ```
+
+    Esta llamada no produce ningún resultado en caso de éxito.
+
+### <a name="use-a-service-principal-from-the-sdk"></a>Uso de una entidad de servicio desde el SDK
+
+Para autenticarse en el área de trabajo desde el SDK mediante la entidad de servicio, use el constructor de clase `ServicePrincipalAuthentication`. Utilice los valores que recibió al crear el proveedor de servicios como parámetros. El parámetro `tenant_id` se asigna al campo `tenantId` anterior, `service_principal_id` se asigna a `clientId`y `service_principal_password` se asigna a `clientSecret`.
 
 ```python
 from azureml.core.authentication import ServicePrincipalAuthentication
@@ -146,7 +164,7 @@ sp = ServicePrincipalAuthentication(tenant_id="your-tenant-id", # tenantID
                                     service_principal_password="your-client-secret") # clientSecret
 ```
 
-La variable `sp` ahora contiene un objeto de autenticación que se usa directamente en el SDK. En general, se recomienda almacenar los identificadores y secretos usados anteriormente en las variables de entorno, tal como se muestra en el código siguiente.
+La variable `sp` ahora contiene un objeto de autenticación que se usa directamente en el SDK. En general, se recomienda almacenar los identificadores y secretos usados anteriormente en las variables de entorno, tal como se muestra en el código siguiente. El almacenamiento en variables de entorno impide que la información se compruebe accidentalmente en un repositorio de GitHub.
 
 ```python
 import os
@@ -167,14 +185,18 @@ ws = Workspace.get(name="ml-example",
 ws.get_details()
 ```
 
-## <a name="azure-machine-learning-rest-api-auth"></a>Autenticación de la API REST de Azure Machine Learning
+### <a name="use-a-service-principal-from-the-azure-cli"></a>Uso de una entidad de servicio desde la CLI de Azure
 
-La entidad de servicio creada en los pasos anteriores también se puede usar para autenticar en la [API REST](https://docs.microsoft.com/rest/api/azureml/) de Azure Machine Learning. Use el [flujo de concesión de credenciales de cliente](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) de Azure Active Directory, que permiten llamadas de servicio a servicio para la autenticación sin periféricos en flujos de trabajo automatizados. Los ejemplos se implementan con la [biblioteca de ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) tanto en Python como en Node.js, pero también puede usar cualquier biblioteca de código abierto que admita OpenID Connect 1.0.
+Puede usar una entidad de servicio para los comandos de la CLI de Azure. Para más información, vea [Inicio de sesión mediante una entidad de servicio](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#sign-in-using-a-service-principal).
+
+### <a name="use-a-service-principal-with-the-rest-api-preview"></a>Uso de una entidad de servicio con la API REST (versión preliminar)
+
+La entidad de servicio también se puede usar para autenticar en la [API REST](https://docs.microsoft.com/rest/api/azureml/) de Azure Machine Learning (versión preliminar). Use el [flujo de concesión de credenciales de cliente](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) de Azure Active Directory, que permiten llamadas de servicio a servicio para la autenticación sin periféricos en flujos de trabajo automatizados. Los ejemplos se implementan con la [biblioteca de ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) tanto en Python como en Node.js, pero también puede usar cualquier biblioteca de código abierto que admita OpenID Connect 1.0.
 
 > [!NOTE]
 > MSAL.js es una biblioteca más reciente que ADAL, pero no puede realizar la autenticación de servicio a servicio mediante las credenciales de cliente con MSAL.js, ya que es principalmente una biblioteca del lado cliente diseñada para la autenticación interactiva o de interfaz de usuario asociada a un usuario específico. Se recomienda usar ADAL como se muestra a continuación para crear flujos de trabajo automatizados con la API REST.
 
-### <a name="nodejs"></a>Node.js
+#### <a name="nodejs"></a>Node.js
 
 Siga estos pasos para generar un token de autenticación mediante Node.js. En su entorno, ejecute `npm install adal-node`. A continuación, use su `tenantId`, `clientId` y `clientSecret` de la entidad de servicio que creó en los pasos anteriores como valores para las variables coincidentes en el siguiente script.
 
@@ -204,7 +226,7 @@ context.acquireTokenWithClientCredentials(
 );
 ```
 
-La variable `tokenResponse` es un objeto que incluye el token y los metadatos asociados, como la fecha de expiración. Los tokens son válidos durante una hora y se pueden actualizar ejecutando la misma llamada de nuevo para recuperar un nuevo token. Lo siguiente es una respuesta de ejemplo.
+La variable `tokenResponse` es un objeto que incluye el token y los metadatos asociados, como la fecha de expiración. Los tokens son válidos durante una hora y se pueden actualizar ejecutando la misma llamada de nuevo para recuperar un nuevo token. El siguiente fragmento es una respuesta de ejemplo.
 
 ```javascript
 {
@@ -221,7 +243,7 @@ La variable `tokenResponse` es un objeto que incluye el token y los metadatos as
 
 Use la propiedad `accessToken` para capturar el token de autenticación. Consulte la [documentación de la API REST](https://github.com/microsoft/MLOps/tree/master/examples/AzureML-REST-API) para ejemplos sobre cómo usar el token para realizar llamadas API.
 
-### <a name="python"></a>Python
+#### <a name="python"></a>Python
 
 Siga estos pasos para generar un token de autenticación mediante Python. En su entorno, ejecute `pip install adal`. A continuación, use su `tenantId`, `clientId` y `clientSecret` de la entidad de servicio que creó en los pasos anteriores como valores para las variables apropiadas en el siguiente script.
 
@@ -239,7 +261,7 @@ token_response = auth_context.acquire_token_with_client_credentials("https://man
 print(token_response)
 ```
 
-La variable `token_response` es un diccionario que incluye el token y los metadatos asociados, como la fecha de expiración. Los tokens son válidos durante una hora y se pueden actualizar ejecutando la misma llamada de nuevo para recuperar un nuevo token. Lo siguiente es una respuesta de ejemplo.
+La variable `token_response` es un diccionario que incluye el token y los metadatos asociados, como la fecha de expiración. Los tokens son válidos durante una hora y se pueden actualizar ejecutando la misma llamada de nuevo para recuperar un nuevo token. El siguiente fragmento es una respuesta de ejemplo.
 
 ```python
 {
@@ -258,9 +280,17 @@ Use `token_response["accessToken"]` para capturar el token de autenticación. Co
 
 ## <a name="web-service-authentication"></a>Autenticación de servicio web
 
-Los servicios web en Azure Machine Learning usan un patrón de autenticación diferente del que se ha descrito anteriormente. La manera más sencilla de autenticarse en los servicios web implementados es usar la **autenticación basada en claves**, que genera claves de autenticación de tipo portador estático que no es necesario actualizar. Si solo necesita autenticarse en un servicio web implementado, no es necesario configurar la autenticación de entidad de servicio como se mostró anteriormente.
+Las implementaciones de modelos creadas por Azure Machine Learning proporcionan dos métodos de autenticación:
 
-Los servicios web implementados en Azure Kubernetes Service tienen habilitada la autenticación basada en claves *habilitada* de forma predeterminada. Los servicios implementados por Azure Container Instances tienen la autenticación basada en claves *deshabilitada* de forma predeterminada, pero puede habilitarla estableciendo `auth_enabled=True` al crear el servicio web de ACI. A continuación se proporciona un ejemplo de creación de una configuración de implementación de ACI con la autenticación basada en claves habilitada.
+* **Basado en claves**: se usa una clave estática para autenticarse en el servicio web.
+* **Basado en tokens**: debe obtenerse un token temporal desde el área de trabajo y usarlo para autenticarse en el servicio web. Este token expira tras un período de tiempo y debe actualizarse para seguir trabajando con el servicio web.
+
+    > [!NOTE]
+    > La autenticación basada en el token solo está disponible al implementarla en Azure Kubernetes Service.
+
+### <a name="key-based-web-service-authentication"></a>Autenticación de servicio web basada en la clave
+
+Los servicios web implementados en Azure Kubernetes Service (AKS) tienen la autenticación basada en claves *habilitada* de manera predeterminada. Los servicios implementados por Azure Container Instances (ACI) tienen la autenticación basada en claves *deshabilitada* de manera predeterminada, pero puede habilitarla estableciendo `auth_enabled=True` al crear el servicio web de ACI. El código siguiente es un ejemplo de creación de una configuración de implementación de ACI con la autenticación basada en claves habilitada.
 
 ```python
 from azureml.core.webservice import AciWebservice
@@ -294,7 +324,7 @@ aci_service.regen_key("Primary")
 aci_service.regen_key("Secondary")
 ```
 
-Los servicios web también admiten la autenticación basada en tokens, pero solo para implementaciones de Azure Kubernetes Service. Vea el [procedimiento](how-to-consume-web-service.md) sobre el consumo de servicios web para información adicional sobre la autenticación.
+Para obtener más información sobre la autenticación en un modelo implementado, vea [Creación de un cliente para un modelo implementado como servicio web](how-to-consume-web-service.md).
 
 ### <a name="token-based-web-service-authentication"></a>Autenticación de servicio web basada en tokens
 
@@ -302,13 +332,40 @@ Cuando se habilita la autenticación por tokens para un servicio web, los usuari
 
 * La autenticación por tokens está **deshabilitada de manera predeterminada** cuando se implementa en Azure Kubernetes Service.
 * La autenticación por tokens **no se admite** cuando se implementa en Azure Container Instances.
+* La autenticación por tokens **no se puede usar al mismo tiempo que la autenticación basada en claves**.
 
-Para controlar la autenticación por tokens, use el parámetro `token_auth_enabled` cuando cree o actualice una implementación.
+Para controlar la autenticación por tokens, use el parámetro `token_auth_enabled` cuando cree o actualice una implementación:
+
+```python
+from azureml.core.webservice import AksWebservice
+from azureml.core.model import Model, InferenceConfig
+
+# Create the config
+aks_config = AksWebservice.deploy_configuration()
+
+#  Enable token auth and disable (key) auth on the webservice
+aks_config = AksWebservice.deploy_configuration(token_auth_enabled=True, auth_enabled=False)
+
+aks_service_name ='aks-service-1'
+
+# deploy the model
+aks_service = Model.deploy(workspace=ws,
+                           name=aks_service_name,
+                           models=[model],
+                           inference_config=inference_config,
+                           deployment_config=aks_config,
+                           deployment_target=aks_target)
+
+aks_service.wait_for_deployment(show_output = True)
+```
 
 Si la autenticación por tokens está habilitada, puede usar el método `get_token` para recuperar un token JSON Web Token (JWT) y la hora de expiración del token:
 
+> [!TIP]
+> Si usa una entidad de servicio para obtener el token y quiere que tenga el acceso mínimo necesario para recuperar un token, asígnela al rol de **lector** para el área de trabajo.
+
 ```python
-token, refresh_by = service.get_token()
+token, refresh_by = aks_service.get_token()
 print(token)
 ```
 
@@ -323,5 +380,6 @@ print(token)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* [Uso de secretos en ejecuciones de entrenamiento](how-to-use-secrets-in-runs.md).
 * [Entrenamiento sobre el modo de clasificación de una imagen y su implementación](tutorial-train-models-with-aml.md).
 * [Consumir un modelo de Azure Machine Learning que está implementado como un servicio web](how-to-consume-web-service.md).

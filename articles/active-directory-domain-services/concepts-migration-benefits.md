@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: iainfou
-ms.openlocfilehash: 29d7772ef688134e8fc9009ec32cffacc3f23ca7
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 837ca3afaf014c41fded09fa8342eed1c13e5dcf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014458"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734935"
 ---
 # <a name="benefits-of-migration-from-the-classic-to-resource-manager-deployment-model-in-azure-active-directory-domain-services"></a>Ventajas de la migración del modelo de implementación clásico al de Resource Manager en Azure Active Directory Domain Services
 
-Azure Active Directory Domain Services (AD DS) le permite migrar un dominio administrado que usa el modelo de implementación clásica al modelo de implementación de Resource Manager. Los dominios administrados de Azure AD DS que usan el modelo de implementación de Resource Manager proporcionan características adicionales, como la directiva de contraseñas específica, los registros de auditoría y la protección de bloqueo de cuentas.
+Azure Active Directory Domain Services (Azure AD DS) le permite migrar un dominio administrado que usa el modelo de implementación clásica al modelo de implementación de Resource Manager. Los dominios administrados de Azure AD DS que usan el modelo de implementación de Resource Manager proporcionan características adicionales, como la directiva de contraseñas específica, los registros de auditoría y la protección de bloqueo de cuentas.
 
 En este artículo se describen las ventajas de la migración. Para empezar, consulte [Migración de Azure AD Domain Services desde el modelo de red virtual clásica a Resource Manager][howto-migrate].
 
@@ -30,7 +30,7 @@ En este artículo se describen las ventajas de la migración. Para empezar, cons
 
 ## <a name="migration-benefits"></a>Ventajas de la migración
 
-El proceso de migración toma una instancia de Azure AD DS existente que usa el modelo de implementación clásica para adoptar el modelo de implementación de Resource Manager. Al migrar un dominio administrado de Azure AD DS del modelo de implementación clásica al mediante este proceso de implementación, evita tener que volver a unir las máquinas al dominio administrado o tener que eliminar la instancia de Azure AD DS y crear una desde cero. Las máquinas virtuales siguen unidas al dominio administrado de Azure AD DS al final del proceso de migración.
+El proceso de migración toma un dominio administrado existente que usa el modelo de implementación clásica para adoptar el modelo de implementación de Resource Manager. Al migrar un dominio administrado del modelo de implementación clásica a Resource Manager, evitará tener que volver a unir las máquinas al dominio administrado o tener que eliminar el dominio administrado y crear uno desde cero. Las máquinas virtuales siguen unidas al dominio administrado al final del proceso de migración.
 
 Después de la migración, Azure AD DS proporciona muchas características que solo están disponibles en los dominios que usan el modelo de implementación de Resource Manager como, por ejemplo:
 
@@ -46,7 +46,7 @@ Después de la migración, Azure AD DS proporciona muchas características que
 * La compatibilidad tiene acceso a más datos de telemetría y puede ayudar a solucionar los problemas de forma más eficaz.
 * El cifrado en reposo mediante [Azure Managed Disks][managed-disks] para los datos de los controladores de dominio administrados.
 
-Los dominios administrados de Azure AD DS que usan el modelo de implementación de Resource Manager ayudan a estar al día de las características más recientes. No hay nuevas características disponibles para los dominios administrados Azure AD DS que utilicen el modelo de implementación clásica.
+Los dominios administrados que usan el modelo de implementación de Resource Manager ayudan a estar al día de las características más recientes. No hay nuevas características disponibles para los dominios administrados que usen el modelo de implementación clásica.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

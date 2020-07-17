@@ -3,25 +3,25 @@ title: Problemas al iniciar sesión en una aplicación de la galería de inicio 
 description: Instrucciones para resolver errores específicos al iniciar sesión en una aplicación que se ha configurado para un inicio de sesión único federado basado en SAML con Azure AD
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 02/18/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 874d273e26a728afc0a1dc1a16852016797067ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 68dc90cdb096849df17bc25ac185b1239b46ec72
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77367903"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85413151"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemas al iniciar sesión en una aplicación de la galería configurada para inicio de sesión único federado
 
@@ -241,7 +241,7 @@ La aplicación debe enviar la solicitud SAML codificada en el encabezado de ubic
 
 **Causa posible**
 
-Durante el inicio de sesión único, si la solicitud de inicio de sesión no contiene una dirección URL de respuesta explícita (URL del Servicio de consumidor de aserciones), Azure AD seleccionará cualquiera de las direcciones URL configuradas para esa aplicación. Incluso si la aplicación tiene una dirección URL de respuesta explícita configurada, el usuario puede ser redirigido a https://127.0.0.1:444. 
+Durante el inicio de sesión único, si la solicitud de inicio de sesión no contiene una dirección URL de respuesta explícita (URL del Servicio de consumidor de aserciones), Azure AD seleccionará cualquiera de las direcciones URL de respuesta configuradas para esa aplicación. Incluso si la aplicación tiene una dirección URL de respuesta explícita configurada, el usuario puede ser redirigido a https://127.0.0.1:444. 
 
 Cuando la aplicación se agregó como una aplicación que no es de la galería, Azure Active Directory creó esta dirección URL de respuesta como un valor predeterminado. Este comportamiento ha cambiado y Azure Active Directory ya no agrega esta dirección URL de forma predeterminada. 
 

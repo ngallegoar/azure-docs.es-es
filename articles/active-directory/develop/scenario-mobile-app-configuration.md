@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/23/2019
+ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 06475b53acf6c9161888e29723feab9cdc4336d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78e3bbfe910ebc3d7f21167c2a15f0c255fdc8ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80882733"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84904803"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configuración de una aplicación móvil que llama a las API web
 
@@ -363,7 +363,7 @@ Este es un ejemplo sobre cómo agregar `LSApplicationQueriesSchemes`:
 
 ### <a name="brokered-authentication-for-xamarinandroid"></a>Autenticación asincrónica para Xamarin.Android
 
-MSAL.NET no es compatible con los agentes para Android.
+Vea [Autenticación con agente en Xamarin.Android](msal-net-use-brokers-with-xamarin-apps.md#brokered-authentication-for-android) para más información sobre cómo habilitar un agente en Android.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

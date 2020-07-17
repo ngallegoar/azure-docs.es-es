@@ -8,16 +8,16 @@ manager: daveba
 ms.subservice: hybrid
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 6a89c5e3fb84f797d9ad7f81626fb7185ce3e076
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 72ec59d0082071746cb8db2b06412d90b4958914
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854153"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85359966"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configuración de notificaciones de grupo para aplicaciones con Azure Active Directory
 
@@ -222,6 +222,6 @@ Para emitir los nombres de grupo que se devolverán en el formato netbiosDomain\
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Asignar un usuario o grupo a una aplicación empresarial](../../active-directory/manage-apps/assign-user-or-group-access-portal.md)
-
-[Configuración de notificaciones de rol](../../active-directory/develop/active-directory-enterprise-app-role-management.md)
+- [Incorporación de autorización mediante grupos y notificaciones de grupos a una aplicación web de ASP.NET Core (código de ejemplo)](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/5-WebApp-AuthZ/5-2-Groups/README.md)
+- [Asignar un usuario o grupo a una aplicación empresarial](../../active-directory/manage-apps/assign-user-or-group-access-portal.md)
+- [Configuración de notificaciones de rol](../../active-directory/develop/active-directory-enterprise-app-role-management.md)

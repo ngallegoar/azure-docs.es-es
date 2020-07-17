@@ -3,13 +3,13 @@ title: Creación de un clúster privado de Azure Kubernetes Service
 description: Aprenda a crear un clúster privado de Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 2/21/2020
-ms.openlocfilehash: 49776fb50eabeef8238e54c7a2f3128c99c2514b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 6/18/2020
+ms.openlocfilehash: ebbe2f754aa70c6c65ec7016da29a4a1b0bd7dd6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849695"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374532"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Creación de un clúster privado de Azure Kubernetes Service
 
@@ -17,7 +17,7 @@ En un clúster privado, el servidor de la API o el plano de control tienen direc
 
 El plano de control o el servidor de la API están en una suscripción de Azure administrada mediante Azure Kubernetes Service (AKS). El grupo de clústeres o nodos de un cliente está en la suscripción del cliente. El servidor y el grupo de clústeres o nodos pueden comunicarse entre sí a través del [servicio de Azure Private Link][private-link-service] en la red virtual del servidor de la API y de un punto de conexión privado expuesto en la subred del clúster de AKS del cliente.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * CLI de Azure, versión 2.2.0 o cualquier versión posterior
 
@@ -71,11 +71,11 @@ La opción más sencilla es crear una máquina virtual en la misma red virtual q
 
 Tal y como se ha dicho, el emparejamiento de red virtual es un mecanismo para acceder a un clúster privado. Si desea usar el emparejamiento de red virtual, tiene que configurar un vínculo entre la red virtual y la zona DNS privada.
     
-1. Vaya al grupo de recursos MC_* en Azure Portal.  
+1. Vaya al grupo de recursos del nodo en Azure Portal.  
 2. Seleccione la zona DNS privada.   
 3. En el panel izquierdo, seleccione el vínculo **red virtual**.  
 4. Cree un nuevo vínculo para agregar la red virtual de la máquina virtual a la zona DNS privada. El vínculo de la zona DNS puede tardar unos minutos en estar disponible.  
-5. Vuelva al grupo de recursos MC_* en Azure Portal.  
+5. En Azure Portal, vaya al grupo de recursos que contiene la red virtual del clúster.  
 6. En el panel derecho, seleccione la red virtual. El nombre de la red virtual tiene el formato *aks-vnet-\** .  
 7. En el panel izquierdo, seleccione **Emparejamientos**.  
 8. Seleccione **Agregar**, agregue la red virtual de la máquina virtual y, después, cree el emparejamiento.  
@@ -91,7 +91,7 @@ Tal y como se ha dicho, el emparejamiento de red virtual es un mecanismo para ac
 
 2. La zona DNS privada solo está vinculada a la red virtual a la que están adjuntados los nodos del clúster (3). Esto significa que el punto de conexión privado solo lo pueden resolver los hosts de esa red virtual vinculada. En escenarios en los que no haya ningún DNS personalizado configurado en la red virtual (valor predeterminado), esto funciona sin incidencias, ya que los hosts apuntan a 168.63.129.16 para DNS, que puede resolver registros en la zona DNS privada debido al vínculo.
 
-3. En escenarios en los que la red virtual que contiene el clúster tenga una configuración de DNS personalizada (4), se produce un error en la implementación del clúster a menos que la zona DNS privada esté vinculada a la red virtual que contiene las resoluciones de DNS personalizadas (5). Este vínculo se puede crear manualmente después de crear la zona privada, durante el aprovisionamiento del clúster, o a través de la automatización si se detecta la creación de la zona mediante Azure Policy u otros mecanismos de implementación basados en eventos (por ejemplo, Azure Event Grid y Azure Functions).
+3. En escenarios en los que la red virtual que contiene el clúster tenga una configuración de DNS personalizada (4), se produce un error en la implementación del clúster a menos que la zona DNS privada esté vinculada a la red virtual que contiene las resoluciones de DNS personalizadas (5). Este vínculo se puede crear manualmente después de crear la zona privada, durante el aprovisionamiento del clúster, o a través de la automatización si se detecta la creación de la zona usando mecanismos de implementación basados en eventos (por ejemplo, Azure Event Grid y Azure Functions).
 
 ## <a name="dependencies"></a>Dependencias  
 
@@ -100,9 +100,8 @@ Tal y como se ha dicho, el emparejamiento de red virtual es un mecanismo para ac
 
 ## <a name="limitations"></a>Limitaciones 
 * Los intervalos autorizados de direcciones IP no se pueden aplicar al punto de conexión del servidor de API privada. Solo se aplican al servidor de API pública.
-* Availability Zones se admite actualmente para determinadas regiones. Consulte el principio de este documento. 
+* Las [zonas de disponibilidad][availability-zones] se admiten actualmente en determinadas regiones. 
 * Las [limitaciones del servicio Azure Private Link][private-link-service] aplican a los clústeres privados.
-* No se pueden usar los nodos virtuales de un clúster privado para poner en marcha Azure Container Instances (ACI) en una red virtual de Azure privada.
 * No se admiten agentes hospedados por Microsoft en Azure DevOps con clústeres privados. Considere la posibilidad de usar [agentes autohospedados][devops-agents]. 
 * En el caso de los clientes que necesitan habilitar Azure Container Registry para trabajar con instancias privadas de AKS, la red virtual de Container Registry debe estar emparejada con la red virtual del clúster del agente.
 * Actualmente no hay compatibilidad con Azure Dev Spaces.
@@ -122,3 +121,4 @@ Tal y como se ha dicho, el emparejamiento de red virtual es un mecanismo para ac
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
 [devops-agents]: https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops
+[availability-zones]: availability-zones.md

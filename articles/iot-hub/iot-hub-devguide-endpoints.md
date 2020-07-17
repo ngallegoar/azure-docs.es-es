@@ -11,12 +11,12 @@ ms.date: 06/10/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 9554713e50e7a2ead2e25f274428ad0ecba4934d
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: d054ff893e1bfdc0f48ede2e2aaa6050885ccc0a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996952"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85314036"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referencia: Puntos de conexión de IoT Hub
 
@@ -38,11 +38,11 @@ En la lista siguiente se describen los puntos de conexión:
 
 * **Administración de identidades de dispositivo**. Cada instancia de IoT Hub muestra un conjunto de puntos de conexión HTTPS REST para administrar las identidades de dispositivo (crear, recuperar, actualizar y eliminar). Las [identidades del dispositivo](iot-hub-devguide-identity-registry.md) se usan para autenticación de dispositivos y control de acceso.
 
-* **Administración de dispositivo gemelo**. Cada instancia de IoT Hub muestra un conjunto de punto de conexión de HTTPS REST orientado a servicios para consultar y actualizar [dispositivos gemelos](iot-hub-devguide-device-twins.md) (actualización de etiquetas y propiedades).
+* **Administración de dispositivo gemelo**. Cada instancia de IoT Hub muestra un conjunto de punto de conexión de HTTPS REST orientado a servicios para consultar y actualizar [dispositivos gemelos](iot-hub-devguide-device-twins.md) (actualización de etiquetas y propiedades). 
 
 * **Administración de trabajos**. Cada instancia de IoT Hub muestra un conjunto de punto de conexión de HTTPS REST orientado a servicios para consultar y administrar [trabajos](iot-hub-devguide-jobs.md).
 
-* **Puntos de conexión de dispositivo**. Para cada dispositivo del registro de identidad, IoT Hub muestra un conjunto de puntos de conexión:
+* **Puntos de conexión de dispositivo**. Por cada dispositivo del registro de identidad, IoT Hub muestra un conjunto de puntos de conexión. Salvo cuando se indique lo contrario, estos puntos de conexión se exponen a través de los protocolos [MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1 y [AMQP 1.0](https://www.amqp.org/). AMQP y MQTT también están disponibles sobre [WebSockets](https://tools.ietf.org/html/rfc6455) en el puerto 443.
 
   * *Envío de mensajes de dispositivo a nube*. Un dispositivo usa este punto de conexión para [enviar mensajes de dispositivo a la nube](iot-hub-devguide-messages-d2c.md).
 
@@ -50,11 +50,9 @@ En la lista siguiente se describen los puntos de conexión:
 
   * *Iniciar cargas de archivos*. Un dispositivo usa este punto de conexión para recibir un URI de SAS de Azure Storage de IoT Hub para [cargar un archivo](iot-hub-devguide-file-upload.md).
 
-  * *Recuperación y actualización de las propiedades del dispositivo gemelo*. Un dispositivo usa este punto de conexión para tener acceso a las propiedades del [dispositivo gemelo](iot-hub-devguide-device-twins.md).
+  * *Recuperación y actualización de las propiedades del dispositivo gemelo*. Un dispositivo usa este punto de conexión para tener acceso a las propiedades del [dispositivo gemelo](iot-hub-devguide-device-twins.md). HTTPS no es compatible.
 
-  * *Recepción de solicitudes de métodos directos*. Un dispositivo usa este punto de conexión para escuchar solicitudes de [métodos directos](iot-hub-devguide-direct-methods.md).
-
-    Estos puntos de conexión se exponen mediante los protocolos[ MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1 y [AMQP 1.0](https://www.amqp.org/). AMQP y MQTT también están disponibles sobre [WebSockets](https://tools.ietf.org/html/rfc6455) en el puerto 443.
+  * *Recepción de solicitudes de métodos directos*. Un dispositivo usa este punto de conexión para escuchar solicitudes de [métodos directos](iot-hub-devguide-direct-methods.md). HTTPS no es compatible.
 
 * **Puntos de conexión de servicio**. Cada instancia de IoT Hub muestra un conjunto de puntos de conexión que el back-end de solución para comunicarse con los dispositivos. Con una excepción, estos puntos de conexión solo se muestran con los protocolo [AMQP](https://www.amqp.org/) y AMQP sobre WebSockets. El punto de conexión de invocación de método directo se muestra en el protocolo HTTPS.
   
@@ -85,14 +83,9 @@ IoT Hub admite actualmente los siguientes servicios de Azure como puntos de cone
 
 Para conocer los límites del número de puntos de conexión que se pueden agregar, consulte [Cuotas y limitación](iot-hub-devguide-quotas-throttling.md).
 
-Puede usar la API REST [Get Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) para obtener el estado de mantenimiento de los puntos de conexión. Se recomienda usar las [métricas de IoT Hub](iot-hub-metrics.md) relativas a la latencia de mensajes de enrutamiento para identificar y depurar errores cuando el estado del punto de conexión no responda o esté en mal estado, ya que se espera que la latencia sea mayor con el punto de conexión en uno de esos estados.
+## <a name="endpoint-health"></a>Mantenimiento del punto de conexión
 
-|Estado de mantenimiento|Descripción|
-|---|---|
-|healthy|El punto de conexión acepta los mensajes según lo previsto.|
-|unhealthy|El punto de conexión no acepta los mensajes según lo previsto e IoT Hub le está intentando volver a enviar datos. El estado del punto de conexión incorrecto se actualizará a correcto cuando IoT Hub haya establecido finalmente un estado de mantenimiento coherente.|
-|unknown|IoT Hub no ha establecido conexión con el punto de conexión. No se han entregado mensajes o el punto de conexión los ha rechazado.|
-|dead|El punto de conexión no acepta los mensajes tras los intentos de IoT Hub por enviar mensajes durante el período establecido para ello.|
+[!INCLUDE [iot-hub-endpoint-health](../../includes/iot-hub-include-endpoint-health.md)]
 
 ## <a name="field-gateways"></a>Puertas de enlace de campo
 

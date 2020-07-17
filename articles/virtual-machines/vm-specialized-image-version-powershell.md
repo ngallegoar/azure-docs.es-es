@@ -9,22 +9,22 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 7d54fa25bc4ab55e62b8f88a3cf76a5ba1130e55
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: fdf1e6cf15279a0ff5be4b45385a13a3b967d22e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793892"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374634"
 ---
 # <a name="create-a-vm-using-a-specialized-image"></a>Creación de una VM con una imagen especializada 
 
-Cree una VM a partir de una versión de imagen especializada que esté almacenada en una instancia de Shared Image Gallery. Si quiere crear una VM con una versión de imagen generalizada, consulte [Creación de una VM a partir de una versión de imagen especializada](vm-generalized-image-version-powershell.md).
+Cree una VM a partir de una versión de imagen especializada que esté almacenada en una instancia de Shared Image Gallery. Si quiere crear una máquina virtual con una versión de imagen generalizada, vea [Creación de una VM con una imagen generalizada](vm-generalized-image-version-powershell.md).
 
 Cuando tenga una versión de una imagen especializada, puede crear una o varias VM. Mediante el uso del cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). 
 
 En este ejemplo, se usa el identificador de definición de imagen para asegurarse de que la nueva VM usará la versión más reciente de una imagen. También puede usar una versión específica con el identificador de la versión de imagen de `Set-AzVMSourceImage -Id`. Por ejemplo, para usar la versión de imagen *1.0.0*, escriba: `Set-AzVMSourceImage -Id "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`. 
 
-Tenga en cuenta que el uso de una versión de imagen específica significa que Automation podría producir un error si dicha versión específica no está disponible porque se eliminó o se quitó de la región. Se recomienda usar el id. de definición de la imagen para crear la nueva VM, a menos que se requiera una versión de imagen específica.
+Tenga en cuenta que el uso de una versión de imagen específica significa que la automatización podría producir un error si dicha versión específica no está disponible porque se eliminó o se quitó de la región. Se recomienda usar el id. de definición de la imagen para crear la nueva VM, a menos que se requiera una versión de imagen específica.
 
 Reemplace los nombres de recursos según sea necesario en este ejemplo. 
 

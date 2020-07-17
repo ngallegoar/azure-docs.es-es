@@ -5,12 +5,12 @@ author: BharatNarasimman
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 4fa4c6e46dd786b833087f892d995e85b5d2ea47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 326075b947ea61384681fb2353c27d3e1450156d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236624"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84735343"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverso en Azure Service Fabric
 El servidor proxy inverso creado en Azure Service Fabric ayuda a que los microservicios que se ejecutan en un clúster de Service Fabric detecten otros servicios que tienen puntos de conexión HTTP y se comuniquen con estos servicios.
@@ -78,7 +78,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 * **TargetReplicaSelector:** especifica cómo se debe seleccionar la instancia o la réplica de destino.
   * Cuando el servicio de destino tiene estado, el valor de TargetReplicaSelector puede ser uno de los siguientes:  "PrimaryReplica", "RandomSecondaryReplica" o "RandomReplica". El valor predeterminado cuando no se especifica este parámetro es "PrimaryReplica".
   * Cuando el servicio de destino no tiene estado, el proxy inverso elige una instancia aleatoria de la partición de servicio a la que reenviar la solicitud.
-* **Tiempo de espera:**  especifica el tiempo de espera de la solicitud HTTP que crea el proxy inverso para conectarse al servicio en nombre de la solicitud de cliente. El valor predeterminado es 60 segundos. Se trata de un parámetro opcional.
+* **Tiempo de espera:**  especifica el tiempo de espera de la solicitud HTTP que crea el proxy inverso para conectarse al servicio en nombre de la solicitud de cliente. El valor predeterminado es 120 segundos. Se trata de un parámetro opcional.
 
 ### <a name="example-usage"></a>Ejemplo de uso
 A modo de ejemplo, veamos el servicio *fabric:/miAplicación/miServicio* que abre un agente de escucha HTTP en la siguiente dirección URL:

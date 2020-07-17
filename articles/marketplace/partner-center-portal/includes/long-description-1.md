@@ -1,20 +1,20 @@
 ---
 title: archivo de inclusión
 description: archivo
-author: anbene
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: include
+author: anbene
+ms.author: mingshen
 ms.date: 05/19/2020
-ms.openlocfilehash: 60358c60ed28b63d97f11ce2ba26474103bcdb54
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: c1f799f1f3aafd8d2d4b9de919ce67214c7150f2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698407"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109689"
 ---
-Proporcione una descripción más larga de la oferta (hasta 3000 caracteres). Los clientes verán esto en la información general sobre los anuncios en marketplace.
+Proporcione una descripción más larga de la oferta (hasta 3000 caracteres). Los clientes verán esto en la información general sobre los anuncios en Marketplace.
 
 Incluya uno o varios de los siguientes elementos en la descripción:
 

@@ -1,15 +1,14 @@
 ---
 title: Solución de problemas de lentitud en la copia de seguridad de archivos y carpetas
 description: Le proporciona una guía para solucionar problemas que le ayudará a diagnosticar la causa de los problemas de rendimiento de Azure Backup
-ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: c229bd836029226a1e042de9bfe706654f97dc26
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 07f596f0900fbd92391a383678ade99df30592f1
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658928"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135051"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Solución de problemas de lentitud en la copia de seguridad de archivos y carpetas en Azure Backup
 
@@ -48,15 +47,15 @@ Windows proporciona una herramienta integrada llamada [Monitor de rendimiento](h
 
 Estos son algunos contadores de rendimiento e intervalos que pueden resultar útiles para diagnosticar cuellos de botella, con el fin de que las copias de seguridad sean óptimas.
 
-| Contador | Status |
+| Contador | Estado |
 | --- | --- |
-| Logical Disk(Physical Disk) [Disco lógico (disco físico)]--% de inactividad |* Entre 100 % y 50 % de inactividad = Correcto</br>* Entre 49 % y 20 % de inactividad = Advertencia o supervisión</br>* Del 19 % al 0 % de inactividad = Situación crítica o fuera de la especificación |
-| Logical Disk(Physical Disk) [Disco lógico (disco físico)]--% promedio Disk Sec Read or Write (Segundos de disco de lectura o escritura) |* De 0,001 ms a 0,015 ms  = Correcto</br>* De 0,015 ms a 0,025 ms = Advertencia o supervisión</br>* 0,026 o más = Situación crítica o fuera de la especificación |
+| Logical Disk(Physical Disk) [Disco lógico (disco físico)]--% de inactividad |<li> Entre 100 % y 50 % de inactividad = Correcto</br><li> Entre 49 % y 20 % de inactividad = Advertencia o supervisión</br><li> Del 19 % al 0 % de inactividad = Situación crítica o fuera de la especificación |
+| Logical Disk(Physical Disk) [Disco lógico (disco físico)]--% promedio Disk Sec Read or Write (Segundos de disco de lectura o escritura) |<li> De 0,001 ms a 0,015 ms  = Correcto</br><li> De 0,015 ms a 0,025 ms = Advertencia o supervisión</br><li> 0,026 o más = Situación crítica o fuera de la especificación |
 | Logical Disk(Physical Disk) [Disco lógico (disco físico)] -- Longitud actual de la cola de disco (para todas las instancias) |80 solicitudes durante más de 6 minutos |
-| Memoria: Pool Non Paged Bytes (Bytes de bloque no paginado) |* Menos del 60 % del grupo consumido = Correcto<br>* Del 61 % al 80 % del grupo consumido = Advertencia o supervisión</br>* Más del 80 % del grupo consumido = Situación crítica o fuera de la especificación |
-| Memoria: Bytes de bloque paginado |* Menos del 60 % del grupo consumido = Correcto</br>* Del 61 % al 80 % del grupo consumido = Advertencia o supervisión</br>* Más del 80 % del grupo consumido = Situación crítica o fuera de la especificación |
-| Memoria: Megabytes disponibles |* 50 % de memoria libre o más disponible = Correcto</br>* 25 % de memoria libre disponible = Supervisión</br>* 10 % de memoria libre disponible = Advertencia</br>* Menos de 100 MB o del 5 % de memoria libre disponible = Situación crítica o fuera de la especificación. |
-| Procesador: \%Tiempo de procesador (todas las instancias) |* Menos del 60 % consumido = Correcto</br>* Del 61 % al 90 % consumido = Supervisión o precaución</br>* Del 91 % al 100 % consumido = Situación crítica |
+| Memoria: Pool Non Paged Bytes (Bytes de bloque no paginado) |<li> Menos del 60 % del grupo consumido = Correcto<br><li> Del 61 % al 80 % del grupo consumido = Advertencia o supervisión</br><li> Más del 80 % del grupo consumido = Situación crítica o fuera de la especificación |
+| Memoria: Bytes de bloque paginado |<li> Menos del 60 % del grupo consumido = Correcto</br><li> Del 61 % al 80 % del grupo consumido = Advertencia o supervisión</br><li> Más del 80 % del grupo consumido = Situación crítica o fuera de la especificación |
+| Memoria: Megabytes disponibles |<li> 50 % de memoria libre o más disponible = Correcto</br><li> 25 % de memoria libre disponible = Supervisión</br><li>10 % de memoria libre disponible = Advertencia</br><li> Menos de 100 MB o del 5 % de memoria libre disponible = Situación crítica o fuera de la especificación. |
+| Procesador: \%Tiempo de procesador (todas las instancias) |<li> Menos del 60 % consumido = Correcto</br><li> Del 61 % al 90 % consumido = Supervisión o precaución</br><li> Del 91 % al 100 % consumido = Situación crítica |
 
 > [!NOTE]
 > Si determina que la causa es la infraestructura, se recomienda desfragmentar los discos periódicamente para mejorar su rendimiento.
@@ -96,7 +95,7 @@ Los siguientes indicadores pueden ayudarle a entender el cuello de botella y tra
 * **La interfaz de usuario muestra el progreso de la transferencia de datos**. La transferencia de datos no ha finalizado. El ancho de banda de la red o el tamaño de datos pueden estar causando retrasos.
 * **La interfaz de usuario no muestra el progreso de la transferencia de datos**. Abra los registros ubicados en "C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Temp" y busque en ellos la entrada FileProvider::EndData. Esta entrada indica que la transferencia de datos ha finalizado y que se está realizando la operación de catálogo. No cancele los trabajos de copia de seguridad. Es preferible que espere hasta que finalice la operación de catálogo. Si el problema persiste, póngase en contacto con el [servicio de soporte técnico de Azure](https://portal.azure.com/#create/Microsoft.Support).
 
-Si está intentando realizar una copia de seguridad de discos de gran tamaño, se recomienda usar [Azure Data Box](https://docs.microsoft.com/azure/backup/offline-backup-azure-data-box)] para la primera copia de seguridad (replicación inicial).  Si no puede usar Data Box, los problemas de red transitorios que se produzcan en el entorno durante las transferencias de datos largas a través de la red pueden provocar errores de copia de seguridad.  Para protegerse frente a estos errores, puede agregar algunas carpetas a la copia de seguridad inicial y seguir agregando más carpetas de manera incremental hasta que se haya realizado correctamente la copia de seguridad de todas las carpetas en Azure.  Las copias de seguridad incrementales posteriores serán relativamente más rápidas.
+Si está intentando realizar una copia de seguridad de discos de gran tamaño, se recomienda usar [Azure Data Box](https://docs.microsoft.com/azure/backup/offline-backup-azure-data-box) para la primera copia de seguridad (replicación inicial).  Si no puede usar Data Box, los problemas de red transitorios que se produzcan en el entorno durante las transferencias de datos largas a través de la red pueden provocar errores de copia de seguridad.  Para protegerse frente a estos errores, puede agregar algunas carpetas a la copia de seguridad inicial y seguir agregando más carpetas de manera incremental hasta que se haya realizado correctamente la copia de seguridad de todas las carpetas en Azure.  Las copias de seguridad incrementales posteriores serán relativamente más rápidas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

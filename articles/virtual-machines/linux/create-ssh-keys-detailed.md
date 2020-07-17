@@ -6,19 +6,19 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 5add789809f274ef5634f3c33dfedd3cd96b36d0
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 8c826f5e0e36d693dd3ba98640bceae228ba34e8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142476"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119215"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Pasos detallados: crear y administrar claves SSH para la autenticación en una VM Linux en Azure 
 Con un par de claves de Secure Shell (SSH), puede crear una máquina virtual Linux en Azure que, de forma predeterminada, use claves SSH para la autenticación, lo que elimina la necesidad de contraseñas para iniciar sesión. Las VM creadas con Azure Portal, CLI de Azure, plantillas de Resource Manager u otras herramientas pueden incluir la clave pública SSH como parte de la implementación, lo que configura la autenticación de clave SSH para las conexiones SSH. 
 
 En este artículo se proporciona información detallada y pasos para crear y administrar un par de archivos de claves RSA de SSH pública y privada para las conexiones de cliente SSH. Si busca comandos rápidos, consulte [Creación de un par de claves SSH pública y privada para VM Linux en Azure](mac-create-ssh-keys.md).
 
-Para ver otras formas de generar y usar claves SSH en un equipo con Windows, consulte [Uso de SSH con Windows en Azure](ssh-from-windows.md).
+Para generar claves SSH y usarlas para conectarse con un equipo con **Windows**, consulte [Uso de claves SSH con Windows en Azure](ssh-from-windows.md).
 
 [!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
 
@@ -41,7 +41,7 @@ Las claves SSH se mantienen de forma predeterminada en el directorio `~/.ssh`.  
 
 ### <a name="basic-example"></a>Ejemplo básico
 
-El siguiente comando `ssh-keygen` genera archivos RSA de SSH de clave pública y privada de 2048 bits de forma predeterminada en el directorio `~/.ssh`. Si existe un par de claves SSH en la ubicación actual, esos archivos se sobrescribirán.
+El siguiente comando `ssh-keygen` genera archivos RSA de SSH de clave pública y privada de 4096 bits de forma predeterminada en el directorio `~/.ssh`. Si existe un par de claves SSH en la ubicación actual, esos archivos se sobrescribirán.
 
 ```bash
 ssh-keygen -m PEM -t rsa -b 4096

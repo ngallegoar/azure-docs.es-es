@@ -1,23 +1,22 @@
 ---
 title: Creación de una nueva oferta de servicio administrado en el Marketplace comercial de Microsoft
 description: Cómo crear una oferta de servicio administrado para la lista de Azure Marketplace mediante el portal de Marketplace comercial en el Centro de partners.
-author: JnHs
-ms.author: jenhayes
-manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 9ab2122fe1dd71a06127cad5ecc064fc42845390
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+author: JnHs
+ms.author: jenhayes
+ms.date: 07/07/2020
+ms.openlocfilehash: 70f0dbff2530b11e92bd0b0cc55ad92a8679ebe9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847726"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121799"
 ---
 # <a name="create-a-managed-service-offer"></a>Creación de una oferta de servicio administrado
 
-Servicio administrado ofrece ayuda para habilitar escenarios de [Azure Lighthouse](../../lighthouse/overview.md). Cuando un cliente acepta una oferta de servicio administrado, puede incorporar recursos para la [administración de recursos delegados de Azure](../../lighthouse/concepts/azure-delegated-resource-management.md). Antes de comenzar, [cree una cuenta de Marketplace comercial en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), si aún no lo ha hecho. Asegúrese de que la cuenta está inscrita en el programa de marketplace comercial.
+Servicio administrado ofrece ayuda para habilitar escenarios de [Azure Lighthouse](../../lighthouse/overview.md). Cuando un cliente acepta una oferta de servicio administrado, puede incorporar recursos para la [administración de recursos delegados de Azure](../../lighthouse/concepts/azure-delegated-resource-management.md). Antes de comenzar, [cree una cuenta de Marketplace comercial en el Centro de partners](create-account.md), si aún no lo ha hecho. Asegúrese de que la cuenta está inscrita en el programa de marketplace comercial.
 
 Debe tener un [nivel de competencia de plataforma en la nube Silver o Gold](https://partner.microsoft.com/membership/cloud-platform-competency) o ser un [MSP experto de Azure](https://partner.microsoft.com/membership/azure-expert-msp) para publicar una oferta de servicio administrado.
 
@@ -80,6 +79,17 @@ Esta página le permite definir los detalles del marketplace (como el nombre de 
 > [!NOTE]
 > No es necesario que la oferta (por ejemplo, la descripción, los documentos, las capturas de pantallas y los términos de uso) esté en inglés si la descripción de la oferta comienza por la frase "Esta aplicación solo está disponible en [idioma distinto del inglés]". También es aceptable proporcionar una *dirección URL de vínculo útil* para ofrecer contenido en un idioma distinto del que se usa en el contenido del anuncio de la oferta.
 
+Este es un ejemplo de cómo aparece la información de la oferta en Azure Portal:
+
+:::image type="content" source="media/example-managed-services.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Portal.":::
+
+#### <a name="call-out-descriptions"></a>Descripciones destacadas
+
+1. Título
+2. Descripción
+3. Vínculos útiles
+4. Capturas de pantalla
+
 ### <a name="name"></a>Nombre
 
 El nombre que escriba aquí se mostrará a los clientes como el título de la descripción de la oferta. Este campo se ha rellenado previamente con el texto introducido para **Alias de la oferta** cuando creó la oferta, pero puede cambiar este valor. Este nombre puede contener marcas comerciales (y puede incluir símbolos de marca comercial o copyright). El nombre no puede tener más de 50 caracteres ni incluir emojis.
@@ -127,9 +137,9 @@ En esta sección, puede proporcionar logotipos e imágenes que se usarán al mos
 
 Proporcione el logotipo de la oferta en cuatro tamaños de píxel:
 
-- **Pequeño (40 x 40)**
+- **Pequeño (48 x 48)**
 - **Medio (90 x 90)**
-- **Grande (115 x 115)**
+- **Grande (216 x 216)**
 - **Ancho (255 x 115)**
 
 Siga estas instrucciones para los logotipos:
@@ -151,11 +161,11 @@ Opcionalmente, puede agregar hasta cinco vídeos que muestren la oferta. Estos v
 
 #### <a name="additional-marketplace-listing-resources"></a>Recursos adicionales de la descripción de Marketplace
 
-- [Procedimientos recomendados la descripción de ofertas en Marketplace](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+- [Procedimientos recomendados la descripción de ofertas en Marketplace](../gtm-offer-listing-best-practices.md)
 
 Seleccione **Guardar borrador** antes de continuar.
 
-## <a name="preview"></a>Vista previa
+## <a name="preview"></a>Versión preliminar
 
 Antes de publicar su oferta en la oferta de Marketplace más amplia, primero deberá ponerla a disposición de un público preliminar limitado. Esto le permite confirmar cómo se muestra la oferta en Azure Marketplace antes de ponerla a disposición de los clientes. Los equipos de soporte técnico y de ingeniería de Microsoft también podrán ver su oferta durante este período de versión preliminar.
 
@@ -220,7 +230,7 @@ Para cada **Autorización**, deberá proporcionar la siguiente información. Pue
 
 - **Id. de objeto de Azure AD**: identificador de Azure AD de un usuario, un grupo de usuarios o una aplicación al que se concederán determinados permisos (según se define en la definición de roles) para los recursos de los clientes.
 - **Nombre para mostrar de objeto de Azure AD**: nombre descriptivo para ayudar al cliente a entender el propósito de esta autorización. El cliente verá este nombre al delegar recursos.
-- **Role Definition**: seleccione uno de los roles integrados de Azure AD disponibles en la lista. Este rol determinará los permisos que el usuario del campo **Id. de objeto de Azure AD** tendrá en los recursos de los clientes. Para obtener descripciones de estos roles, consulte los [roles integrados](../../role-based-access-control/built-in-roles.md) y la [compatibilidad de roles con la administración de recursos delegados de Azure](../../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management).
+- **Role Definition**: seleccione uno de los roles integrados de Azure AD disponibles en la lista. Este rol determinará los permisos que el usuario del campo **Id. de objeto de Azure AD** tendrá en los recursos de los clientes. Para obtener descripciones de estos roles, consulte [Roles integrados](../../role-based-access-control/built-in-roles.md) y [Soporte de roles para Azure Lighthouse](../../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-lighthouse).
   > [!NOTE]
   > A medida que se agreguen nuevos roles integrados a Azure, estarán disponibles aquí, aunque pueden retrasarse un poco en aparecer.
 - **Roles asignables**: esta opción solo aparece si ha seleccionado Administrador de acceso de usuario en **Definición de roles** para esta autorización. En ese caso, debe agregar uno o varios roles asignables aquí. El usuario del campo **Id. de objeto de Azure AD** podrá asignar estos roles a [identidades administradas](../../active-directory/managed-identities-azure-resources/overview.md), algo necesario para [implementar directivas que pueden corregirse](../../lighthouse/how-to/deploy-policy-remediation.md). Tenga en cuenta que no se aplicará a este usuario ningún otro permiso asociado normalmente al rol Administrador de acceso de usuario.

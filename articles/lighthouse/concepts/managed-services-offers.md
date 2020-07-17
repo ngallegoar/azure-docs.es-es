@@ -3,22 +3,22 @@ title: Ofertas de servicios administrados en Azure Marketplace
 description: Las ofertas de servicio administrado permiten a los proveedores de servicios vender ofertas de administración de recursos a los clientes de Azure Marketplace.
 ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 975c9ab98229626a513404b2092b266a9e284279
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 119ecc8d15ef93a265cb5419404840496aaa1572
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792299"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121595"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Ofertas de servicios administrados en Azure Marketplace
 
-En este artículo se describe el tipo de oferta **Servicio administrado** de [Azure Marketplace](https://azuremarketplace.microsoft.com). Las ofertas de servicio administrado le permiten ofrecer servicios de administración de recursos a los clientes mediante la [administración de recursos delegados de Azure](azure-delegated-resource-management.md). Puede hacer que estas ofertas estén disponibles para todos los clientes potenciales o solo para uno o varios clientes más específicos. Dado que los clientes facturan directamente los costos relacionados con estos servicios administrados, Microsoft no aplica ningún cargo.
+En este artículo se describe el tipo de oferta **Servicio administrado** de [Azure Marketplace](https://azuremarketplace.microsoft.com). Las ofertas de servicio administrado le permiten ofrecer servicios de administración de recursos a los clientes mediante [Azure Lighthouse](../overview.md). Puede hacer que estas ofertas estén disponibles para todos los clientes potenciales o solo para uno o varios clientes más específicos. Dado que los clientes facturan directamente los costos relacionados con estos servicios administrados, Microsoft no aplica ningún cargo.
 
 ## <a name="understand-managed-service-offers"></a>Información sobre las ofertas de servicio administrado
 
-Las ofertas de servicio administrado simplifican el proceso de incorporación de clientes para la administración de recursos delegados de Azure. Cuando un cliente compre una oferta en Azure Marketplace, podrá especificar los suscripciones o grupos de recursos que deben incorporarse.
+Las ofertas de servicio administrado simplifican el proceso de incorporación de clientes a Azure Lighthouse. Cuando un cliente compre una oferta en Azure Marketplace, podrá especificar los suscripciones o grupos de recursos que deben incorporarse.
 
-Después, los usuarios de la organización podrán trabajar con esos recursos desde dentro del inquilino de la organización en función del acceso que se haya definido al crear la oferta. Esto se realiza mediante un manifiesto que especifica los usuarios, grupos y entidades de servicio de Azure Active Directory (Azure AD) que tendrán acceso a los recursos del cliente, junto con los roles que definen su nivel de acceso. Al asignar permisos a un grupo de Azure AD, en lugar de una serie de cuentas de usuario o de aplicación individuales, puede agregar o quitar usuarios individuales cuando cambien sus requisitos de acceso.
+Después, los usuarios de la organización podrán trabajar con esos recursos desde dentro del inquilino de la organización a través de la [Administración de recursos delegados de Azure](azure-delegated-resource-management.md), en función del acceso que se haya definido al crear la oferta. Esto se realiza mediante un manifiesto que especifica los usuarios, grupos y entidades de servicio de Azure Active Directory (Azure AD) que tendrán acceso a los recursos del cliente, junto con los roles que definen su nivel de acceso. Al asignar permisos a un grupo de Azure AD, en lugar de una serie de cuentas de usuario o de aplicación individuales, puede agregar o quitar usuarios individuales cuando cambien sus requisitos de acceso.
 
 ## <a name="public-and-private-offers"></a>Ofertas públicas y privadas
 

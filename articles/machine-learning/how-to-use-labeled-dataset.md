@@ -5,16 +5,17 @@ description: Aprenda a exportar etiquetas de datos desde los proyectos de etique
 author: nibaccam
 ms.author: nibaccam
 ms.service: machine-learning
-ms.topic: conceptual
+ms.subservice: core
+ms.topic: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 657b1dbb169d80a3e5563dd1a4fa52eac2278aae
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 80932ebbedeca3f5e0a1b4cc2e68d73ef5b0d63a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655769"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025733"
 ---
-# <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Creación y exploración de un conjunto de datos de Azure Machine Learning con etiquetas
+# <a name="create-and-explore-azure-machine-learning-dataset-with-labels-preview"></a>Creación y exploración de un conjunto de datos de Azure Machine Learning con etiquetas (versión preliminar)
 
 En este artículo, aprenderá a exportar las etiquetas de datos desde un proyecto de etiquetado de datos de Azure Machine Learning y a cargarlos en formatos populares como tramas de datos de Pandas para la exploración de datos o conjuntos de datos de Torchvision para la transformación de imágenes. 
 
@@ -22,7 +23,7 @@ En este artículo, aprenderá a exportar las etiquetas de datos desde un proyect
 
 Los conjuntos de datos de Azure Machine Learning con etiquetas son del tipo [TabularDatasets](how-to-create-register-datasets.md#dataset-types) con una propiedad label y nos referiremos a ellos como conjuntos de datos con etiqueta. Estos tipos específicos de TabularDatasets solo se crean como salida de los proyectos de etiquetados de datos de Azure Machine Learning. Cree un proyecto de etiquetado de datos con [estos pasos](how-to-create-labeling-projects.md). Machine Learning admite proyectos de etiquetado de datos para la clasificación de imágenes (de varias etiquetas o varias clases) y la identificación de objetos mediante rectángulos de selección.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree) antes de empezar.
 * [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) o acceso a [Azure Machine Learning Studio](https://ml.azure.com/).

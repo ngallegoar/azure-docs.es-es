@@ -1,23 +1,19 @@
 ---
 title: 'Azure Event Grid: Habilitación de los registros de diagnóstico de temas o dominios'
 description: En este artículo se proporcionan instrucciones paso a paso sobre cómo habilitar los registros de diagnóstico para un tema de Azure Event Grid.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: how-to
-ms.date: 04/27/2020
-ms.author: spelluru
-ms.openlocfilehash: 13a2168c854475b841b0ebc52bb678c7ca22a1bb
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.date: 07/07/2020
+ms.openlocfilehash: 7811c2eef4379b7e3d5ed07dbd0df8e2a52dba85
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626469"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114710"
 ---
 #  <a name="enable-diagnostic-logs-for-azure-event-grid-topics-or-domains"></a>Habilitación de registros de diagnóstico para los temas o dominios de Azure Event Grid
 La configuración de diagnóstico permite a los usuarios de Event Grid capturar y ver los registros de **error de publicación y entrega** en una cuenta de almacenamiento, un centro de eventos o un área de trabajo de Log Analytics. En este artículo se proporcionan instrucciones paso a paso sobre cómo habilitar estas opciones en un tema de Event Grid.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Un tema de Event Grid aprovisionado.
 - Un destino aprovisionado para capturar registros de diagnóstico. Puede tener uno de los siguientes destinos en la misma ubicación que el tema de Event Grid:
@@ -25,15 +21,19 @@ La configuración de diagnóstico permite a los usuarios de Event Grid capturar 
     - Centro de eventos
     - Área de trabajo de Log Analytics
 
-## <a name="steps-for-enabling-diagnostic-logs-for-a-topic"></a>Pasos para habilitar los registros de diagnóstico para un tema
+## <a name="enable-diagnostic-logs-for-a-custom-topic"></a>Habilitación de los registros de diagnóstico de un tema personalizado
 
 > [!NOTE]
 > El siguiente procedimiento proporciona instrucciones paso a paso para habilitar los registros de diagnóstico para un tema. Los pasos para habilitar los registros de diagnóstico para un dominio son muy similares. En el paso 2, vaya al **dominio** de Event Grid en Azure Portal.  
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Vaya al tema de Event Grid para el que desee habilitar la configuración del registro de diagnóstico. 
-3. Seleccione **Configuración de diagnóstico** en **Supervisión**, en el menú de la izquierda.
-4. En la página **Configuración de diagnóstico**, seleccione **Add New Diagnostic Setting** (Agregar nueva configuración de diagnóstico). 
+    1. En la barra de búsqueda de la parte superior, busque **Temas de Event Grid**. 
+    
+        ![Buscar temas personalizados](./media/enable-diagnostic-logs-topic/search-custom-topics.png)
+    1. Seleccione el **tema** de la lista para el que desea configurar las opciones de diagnóstico. 
+1. Seleccione **Configuración de diagnóstico** en **Supervisión**, en el menú de la izquierda.
+1. En la página **Configuración de diagnóstico**, seleccione **Add New Diagnostic Setting** (Agregar nueva configuración de diagnóstico). 
     
     ![Botón Agregar configuración de diagnóstico](./media/enable-diagnostic-logs-topic/diagnostic-settings-add.png)
 5. Especifique un **nombre** para la configuración de diagnóstico. 
@@ -52,6 +52,38 @@ La configuración de diagnóstico permite a los usuarios de Event Grid capturar 
     ![Configuración de diagnóstico en la lista](./media/enable-diagnostic-logs-topic/diagnostic-setting-list.png)
 
      También puede habilitar la recopilación de todas las métricas del tema. 
+
+## <a name="enable-diagnostic-logs-for-a-system-topic"></a>Habilitación de los registros de diagnóstico de un tema de sistema
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+2. Vaya al tema de Event Grid para el que desee habilitar la configuración del registro de diagnóstico. 
+    1. En la barra de búsqueda de la parte superior, busque **Temas del sistema de Event Grid**. 
+    
+        ![Búsqueda de temas del sistema](./media/enable-diagnostic-logs-topic/search-system-topics.png)
+    1. Seleccione el **tema del sistema** para el que desea configurar las opciones de diagnóstico. 
+    
+        ![Seleccionar el tema del sistema](./media/enable-diagnostic-logs-topic/select-system-topic.png)
+3. Seleccione **Configuración de diagnóstico** en **Supervisión** en el menú izquierdo y, luego, elija **Agregar configuración de diagnóstico**. 
+
+    ![Agregar configuración de diagnóstico: botón](./media/enable-diagnostic-logs-topic/system-topic-add-diagnostic-settings-button.png)
+4. Especifique un **nombre** para la configuración de diagnóstico. 
+7. Seleccione **DeliveryFailures** en la sección de **Registro**. 
+    ![Seleccionar errores de entrega](./media/enable-diagnostic-logs-topic/system-topic-select-delivery-failures.png)
+6. Habilite uno o varios destinos de captura para los registros y, a continuación, configúrelos; para ello, seleccione un recurso de captura creado anteriormente. 
+    - Si selecciona **Send to Log Analytics** (Enviar a Log Analytics), seleccione un área de trabajo de Log Analytics.
+        ![Enviar a Log Analytics](./media/enable-diagnostic-logs-topic/system-topic-select-log-workspace.png) 
+    - Si selecciona **Archive to a storage account** (Archivar en una cuenta de almacenamiento), seleccione **Cuenta de almacenamiento: configurar** y, a continuación, seleccione la cuenta de almacenamiento en la suscripción de Azure. 
+
+        ![Archivo en una cuenta de almacenamiento de Azure](./media/enable-diagnostic-logs-topic/system-topic-select-storage-account.png)
+    - Si selecciona **Stream to an event hub** (Transmitir a un centro de eventos), seleccione **Centro de eventos: Configurar** y, a continuación, seleccione el espacio de nombres de Event Hubs, el centro de eventos y la directiva de acceso. 
+        ![Transmisión a un centro de eventos](./media/enable-diagnostic-logs-topic/system-topic-select-event-hub.png)
+8. Seleccione **Guardar**. Después, Seleccione **X** en la esquina derecha para cerrar la página. 
+9. Ahora, vuelva a la página **Configuración de diagnóstico**, confirme que ve una nueva entrada en la tabla **Configuración de diagnóstico**. 
+    ![Configuración de diagnóstico en la lista](./media/enable-diagnostic-logs-topic/system-topic-diagnostic-settings-targets.png)
+
+     También puede habilitar la recopilación de todas las **métricas** del tema del sistema.
+
+    ![Tema del sistema: habilitar todas las métricas](./media/enable-diagnostic-logs-topic/system-topics-metrics.png)
 
 ## <a name="view-diagnostic-logs-in-azure-storage"></a>Visualización de registros de diagnóstico en Azure Storage 
 

@@ -2,14 +2,14 @@
 title: 'Configuración del acceso a Azure Active Directory: Azure Blockchain Service'
 description: Configuración de Azure Blockchain Service con acceso a Azure Active Directory
 ms.date: 11/22/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 682ab282036fcd592e66942d08a84cdce46d8915
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 337d01abc51d310d06aeea3427b770132be4824c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74455847"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85208780"
 ---
 # <a name="how-to-configure-azure-active-directory-access-for-azure-blockchain-service"></a>Configuración del acceso a Azure Active Directory para Azure Blockchain Service
 
@@ -17,7 +17,7 @@ En este artículo, aprenderá a conceder acceso y conectarse a los nodos de Azur
 
 Azure AD proporciona la administración de identidades basada en la nube y le permite usar una identidad única en toda una empresa y las aplicaciones de acceso en Azure. Azure Blockchain Service se integra con Azure AD y ofrece ventajas como el id. de federación, el inicio de sesión único y la autenticación multifactor.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * [Create a blockchain member using the Azure portal](create-member.md) (Creación de un miembro de cadena de bloques mediante Azure Portal)
 
@@ -63,7 +63,7 @@ Siga la sección de inicio rápido de **Léame** para crear el conector desde el
 
 ### <a name="connect-using-an-azure-ad-user-account"></a>Conectar con una cuenta de usuario de Azure AD
 
-1. Ejecute el siguiente comando para autenticarse con una cuenta de usuario de Azure AD. Reemplace \<myAADDirectory\> por un dominio de Azure AD. Por ejemplo, `yourdomain.onmicrosoft.com`.
+1. Ejecute el siguiente comando para autenticarse con una cuenta de usuario de Azure AD. Reemplace \<myAADDirectory\> por un dominio de Azure AD. Por ejemplo, `yourdomain.onmicrosoft.com`.
 
     ```
     connector.exe -remote <myMemberName>.blockchain.azure.com:3200 -method aadauthcode -tenant-id <myAADDirectory> 
@@ -99,7 +99,7 @@ Para obtener más información sobre cómo registrar una aplicación en Azure AD
 
 Para un dispositivo móvil o explorador basado en texto en los que no es posible la visualización emergente de la autenticación de Azure AD, Azure AD genera un código de acceso de un solo uso. Puede copiar el código de acceso y continuar con la autenticación de Azure AD en otro entorno.
 
-Para generar el código de acceso, reemplace **aadauthcode** por **aaddevice**. Reemplace \<myAADDirectory\> por un dominio de Azure AD. Por ejemplo, `yourdomain.onmicrosoft.com`.
+Para generar el código de acceso, reemplace **aadauthcode** por **aaddevice**. Reemplace \<myAADDirectory\> por un dominio de Azure AD. Por ejemplo, `yourdomain.onmicrosoft.com`.
 
 ```
 connector.exe -remote <myBlockchainEndpoint>  -method aaddevice -tenant-id <myAADDirectory>

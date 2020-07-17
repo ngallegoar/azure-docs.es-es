@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/15/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 102bbfbd1c02c93830f5c7fce89fe95d7fde54c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 800c3dbeb96dfb87c7b495909e21eca929bec726
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230368"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550316"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Modificación de los roles de recurso de un paquete de acceso en la administración de derechos de Azure AD
 
@@ -90,7 +90,7 @@ Para obtener más información, consulte [Comparar grupos](https://docs.microsof
 
     Una vez que seleccione el grupo o equipo, aparecerá uno de los siguientes valores en la columna **Subtipo**:
 
-    |  |  |
+    | Subtipo | Descripción |
     | --- | --- |
     | Seguridad | Se usa para conceder acceso a los recursos de Azure. |
     | Distribución | Se usa para enviar notificaciones a un grupo de personas. |

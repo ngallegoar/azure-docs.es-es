@@ -11,12 +11,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
-ms.openlocfilehash: ef7dc69b69f17f9b9759f767edb2bcaab32792d5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 12a187b29737ba9388d9b33ac8bcfedf1339c059
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84038536"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253790"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Introducción al enmascaramiento dinámico de datos de SQL Database con Azure Portal
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,7 +30,7 @@ En este artículo se muestra cómo implementar el [enmascaramiento dinámico de 
 
 1. Inicie Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 2. Desplácese hasta la hoja de configuración de la base de datos que incluye los datos confidenciales que desea enmascarar.
-3. Haga clic en la hoja **Enmascaramiento dinámico de datos** en la sección **Seguridad** de la base de datos SQL.
+3. Haga clic en la hoja **Enmascaramiento dinámico de datos** en la sección **Seguridad** de la base de datos.
 
    ![Panel de navegación](./media/dynamic-data-masking-configure-portal/4_ddm_settings_tile.png)
 

@@ -1,18 +1,14 @@
 ---
 title: Configuración del firewall de IP para temas o dominios de Azure Event Grid (versión preliminar)
 description: En este artículo se describe cómo configurar las opciones de firewall para los temas o dominios de Event Grid.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.author: spelluru
-ms.openlocfilehash: 0db6c2c346a6eb6ef016340fcfc2974c85958e6c
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 07/07/2020
+ms.openlocfilehash: 1cb285af6a463b2e0f413b1f876df96f82bb7f93
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858096"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116478"
 ---
 # <a name="configure-ip-firewall-for-azure-event-grid-topics-or-domains-preview"></a>Configuración del firewall de IP para temas o dominios de Azure Event Grid (versión preliminar)
 De forma predeterminada, el tema y el dominio son accesibles desde Internet siempre que la solicitud venga con una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones IPv4 o intervalos de direcciones IPv4 en la notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Los publicadores que se originen desde cualquier otra dirección IP se rechazarán y recibirán una respuesta 403 (Prohibido). Para más información sobre las características de seguridad de red admitidas por Event Grid, consulte [Seguridad de red para Event Grid](network-security.md).
@@ -39,7 +35,7 @@ En esta sección se muestra cómo usar Azure Portal para crear reglas de firewal
 En esta sección se muestra cómo usar los comandos de la CLI de Azure para crear temas con reglas de IP de entrada. Los pasos que se muestran en esta sección son para los temas. Puede usar pasos similares para crear reglas de IP de entrada para **dominios**. 
 
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 Actualice la extensión de Azure Event Grid para la CLI mediante el siguiente comando: 
 
 ```azurecli-interactive
@@ -166,7 +162,7 @@ az eventgrid topic update \
 ## <a name="use-powershell"></a>Uso de PowerShell
 En esta sección se muestra cómo usar los comandos de Azure PowerShell para crear temas de Azure Event Grid con reglas de firewall de IP de entrada. Los pasos que se muestran en esta sección son para los temas. Puede usar pasos similares para crear reglas de IP de entrada para **dominios**. 
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 Siga las instrucciones de [Procedimientos: Use el portal para crear una aplicación de Azure AD y una entidad de servicio que pueda acceder a los recursos](../active-directory/develop/howto-create-service-principal-portal.md) para crear una aplicación de Azure Active Directory y anote los siguientes valores:
 
 - Id. de directorio (inquilino)
@@ -280,3 +276,4 @@ Invoke-RestMethod -Method 'Get'
 * Para información sobre la supervisión de las entregas de eventos, consulte [Supervisar la entrega de mensajes de Event Grid](monitor-event-delivery.md).
 * Para más información sobre la clave de autenticación, vea [Seguridad y autenticación de Event Grid](security-authentication.md).
 * Para más información acerca de la creación de una suscripción de Azure Event Grid, consulte [Esquema de suscripción de Event Grid](subscription-creation-schema.md).
+* Para solucionar problemas de conectividad de red, consulte [Solucionar problemas de conectividad de red](troubleshoot-network-connectivity.md).

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: f8a6e0b9f5cc63f79dcd57765f30c527382d51ca
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 8a86c1df5925097fa85d09590b59f8f30fde41d4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193347"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85296328"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Aprovechamiento de la paralelización de consultas en Azure Stream Analytics
 En este artículo se muestra cómo aprovechar la paralelización en Azure Stream Analytics. Aprenda a escalar los trabajos de Stream Analytics mediante la configuración de particiones de entrada y el ajuste de la definición de consultas de análisis.
@@ -290,7 +290,7 @@ La solución [Event Hubs](https://github.com/Azure-Samples/streaming-at-scale/tr
 
 La salida de [Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) de Stream Analytics se ha actualizado para usar la integración nativa en el [nivel de compatibilidad 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). El nivel de compatibilidad 1.2 permite un rendimiento significativamente mayor y reduce el consumo de RU en comparación con el nivel 1.1, que es el nivel de compatibilidad predeterminado de los trabajos nuevos. La solución utiliza contenedores de Cosmos DB particionados en /deviceId y el resto de la solución está configurada de forma idéntica.
 
-Todos los [ejemplos de Azure de streaming a escala](https://github.com/Azure-Samples/streaming-at-scale) usan un centro de eventos alimentado mediante carga que simula clientes de prueba como entrada. Cada evento de entrada es un documento JSON de 1 KB, que convierte fácilmente las tasas de ingesta configuradas en tasas de rendimiento (1 MB/s, 5 MB/s y 10 MB/s). Los eventos simulan un dispositivo IoT que envía los siguientes datos JSON (en formato abreviado) de hasta 1000 dispositivos:
+Todos los [ejemplos de Azure de streaming a escala](https://github.com/Azure-Samples/streaming-at-scale) usan como entrada un centro de eventos que se alimenta de cargas que simulan clientes de prueba. Cada evento de entrada es un documento JSON de 1 KB, que convierte fácilmente las tasas de ingesta configuradas en tasas de rendimiento (1 MB/s, 5 MB/s y 10 MB/s). Los eventos simulan un dispositivo IoT que envía los siguientes datos JSON (en formato abreviado) de hasta 1000 dispositivos:
 
 ```
 {
@@ -315,7 +315,7 @@ Utilice el panel Métricas del trabajo de Azure Stream Analytics para identifica
 
 ## <a name="get-help"></a>Obtener ayuda
 
-Para más ayuda, pruebe nuestra [Página de preguntas y respuestas de Microsoft sobre Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Para más ayuda, pruebe nuestra [página de preguntas y respuestas de Microsoft sobre Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)

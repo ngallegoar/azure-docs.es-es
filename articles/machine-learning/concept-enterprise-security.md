@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: 36012801a2d36b75a0683db6f029a4560150ac2b
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: be0e24977bbb1aeec74e8847b3fb128267a9ec0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683064"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392240"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Seguridad de empresa para Azure Machine Learning
 
@@ -138,7 +138,7 @@ Si necesita __girar o revocar__ la clave, puede hacerlo en cualquier momento. Al
 
 Para más información sobre cómo regenerar una clave de acceso, vea el artículo [Regeneración de las claves de la cuenta de almacenamiento](how-to-change-storage-access-key.md).
 
-#### <a name="azure-cosmos-db"></a>Azure Cosmos DB
+#### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
 Azure Machine Learning almacena métricas y metadatos en una instancia de Azure Cosmos DB. Esta instancia está asociada a una suscripción de Microsoft administrada por Azure Machine Learning. Todos los datos almacenados en Azure Cosmos DB se cifran en reposo con claves administradas por Microsoft.
 
@@ -146,7 +146,7 @@ Si quiere usar sus propias claves (administradas por el cliente) para cifrar su 
 
 Para habilitar el aprovisionamiento de una instancia de Cosmos DB en su suscripción con claves administradas por el cliente, realice estas acciones:
 
-* Si aún no lo ha hecho, registre los proveedores de recursos de Azure Machine Learning y Azure Cosmos DB en su suscripción.
+* Si aún no lo ha hecho, registre los proveedores de recursos de Microsoft.MachineLearning y Microsoft.DocumentDB en su suscripción.
 
 * Autorice la aplicación Machine Learning (en Administración de identidades y acceso) con permisos de colaborador en su suscripción.
 
@@ -176,6 +176,11 @@ Para más información sobre las claves administradas por el cliente con Cosmos 
 Todas las imágenes del contenedor en el registro (Azure Container Registry) se cifran en reposo. Azure cifra automáticamente una imagen antes de almacenarla y la descifra cuando Azure Machine Learning la extrae.
 
 Para usar sus propias claves (administradas por el cliente) para cifrar su instancia de Azure Container Registry, debe crear un ACR y adjuntarlo al aprovisionar el área de trabajo, o bien cifrar la instancia predeterminada que se crea en el momento del aprovisionamiento del área de trabajo.
+
+> [!IMPORTANT]
+> Azure Machine Learning requiere que la cuenta de administrador esté habilitada en el Azure Container Registry. De forma predeterminada, esta opción se deshabilita al crear un registro de contenedor. Para información sobre cómo habilitar la cuenta de administrador, consulte [Cuenta de administrador](/azure/container-registry/container-registry-authentication#admin-account).
+>
+> Cuando se ha creado una instancia de Azure Container Registry para un área de trabajo, no la elimine. Si lo hace, se interrumpirá el área de trabajo de Azure Machine Learning.
 
 Para ver ejemplos de cómo crear un área de trabajo con una instancia existente de Azure Container Registry, vea los siguientes artículos:
 

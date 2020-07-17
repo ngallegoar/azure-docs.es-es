@@ -7,18 +7,18 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 7563eb4d22048021886925f6864e3616bed83a75
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 1c8acd2d8055359288608f7bd2e5f54f8c4f6cc3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858770"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809193"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Registros de Azure Monitor para el equilibrador de carga básica público
 
@@ -31,14 +31,14 @@ Puede usar diferentes tipos de registros en Azure para administrar y solucionar 
 > [!IMPORTANT]
 > Los registros de Azure Monitor solo funcionan con los equilibradores de carga públicos. Los registros solo están disponibles para los recursos implementados en el modelo de implementación del Administrador de recursos. No puede usar los registros de recursos del modelo de implementación clásica. Para más información sobre estos modelos de implementación, consulte [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/management/deployment-models.md) (Descripción de la implementación de Resource Manager y la implementación clásica).
 
-## <a name="enable-logging"></a>Habilitación del registro
+## <a name="enable-logging"></a>Habilitar registro
 
 El registro de actividades se habilita automáticamente para todos los recursos de Resource Manager. Habilite el registro de eventos y de sondeos de estado para iniciar la recopilación de los datos disponibles a través de esos registros. Para habilitar el registro, realice los siguientes pasos.
 
 Inicie sesión en [Azure Portal](https://portal.azure.com). Si aún no tiene un equilibrador de carga, [cree uno](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) antes de continuar.
 
 1. En el portal, haga clic en **Grupos de recursos**.
-2. Seleccione el **\<nombre-grupo-recursos>** donde está el equilibrador de carga.
+2. Seleccione el grupo de recursos **\<resource-group-name>** donde esté el equilibrador de carga.
 3. Seleccione el equilibrador de carga.
 4. Seleccione **Supervisión** > **Configuración de diagnóstico**.
 5. En el panel **Configuración de diagnóstico**, en **Configuración de diagnóstico**, seleccione **+ Agregar configuración de diagnóstico**.

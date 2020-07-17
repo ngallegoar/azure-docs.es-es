@@ -4,51 +4,55 @@ description: 'Obtenga información sobre cómo administrar réplicas de lectura 
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
-ms.date: 01/24/2020
-ms.openlocfilehash: dd79618b8d9f016c92166edb9ecdb0bfb113947e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.date: 06/09/2020
+ms.openlocfilehash: 8e148a3dac8435a08c0f1735cd35d06c700e1e84
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76768961"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106635"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Cree y administre mediante Azure Portal réplicas de lectura en el servicio Azure Database for PostgreSQL: servidor único.
 
 En este artículo, obtendrá información sobre cómo crear y administrar las réplicas de lectura en el servicio Azure Database for PostgreSQL mediante Azure Portal. Para más información acerca de las réplicas de lectura, consulte la [introducción](concepts-read-replicas.md).
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 Un [servidor de Azure Database for PostgreSQL](quickstart-create-server-database-portal.md) que se usará como servidor maestro.
 
+## <a name="azure-replication-support"></a>Soporte de replicación de Azure
+
+Tanto[las réplicas de lectura](concepts-read-replicas.md) como [la descodificación lógica](concepts-logical.md) dependen del registro de escritura previa (WAL) Postgres para obtener información. Estas dos características necesitan diferentes niveles de registro de Postgres. La descodificación lógica requiere un mayor nivel de registro que las réplicas de lectura.
+
+Para configurar el nivel de registro adecuado, use el parámetro de soporte de replicación de Azure. El soporte de la replicación de Azure tiene tres opciones de valor:
+
+* **Off**: coloca la más mínima información en el WAL. Este valor no está disponible en la mayoría de los servidores Azure Database for PostgreSQL.  
+* **Réplica**: más detallado que **Off**. Este es el nivel mínimo de registro necesario para que [las réplicas de lectura](concepts-read-replicas.md) funcionen. Esta es la configuración predeterminada en la mayoría de los servidores.
+* **Lógico**: más detallado que **Réplica**. Este es el nivel mínimo de registro para que funcione la descodificación lógica. Las réplicas de lectura también funcionan con este valor.
+
+El servidor debe reiniciarse después de un cambio de este parámetro. Internamente, este parámetro establece los parámetros Postgres `wal_level`, `max_replication_slots` y `max_wal_senders`.
+
 ## <a name="prepare-the-master-server"></a>Preparación del servidor maestro
-Estos pasos se deben utilizar para preparar un servidor maestro en los niveles de uso general u optimizado para memoria. El servidor maestro se prepara para la replicación mediante el parámetro azure.replication_support. Cuando se cambia el parámetro de replicación, es necesario reiniciar el servidor para que el cambio surta efecto. En Azure Portal, estos dos pasos están encapsulados en un solo botón, denominado **Habilitar compatibilidad con la replicación**.
 
-1. En Azure Portal, seleccione el servidor de Azure Database for PostgreSQL existente para utilizar como servidor maestro.
+1. En Azure Portal, seleccione un servidor de Azure Database for PostgreSQL existente para utilizar como servidor maestro.
 
-2. En la barra lateral del servidor, en **CONFIGURACIÓN**, seleccione **Replicación**.
+2. En el menú del servidor, seleccione **Replicación**. Si la compatibilidad con la replicación de Azure está establecida como mínimo en **Réplica**, puede crear réplicas de lectura. 
 
-> [!NOTE] 
-> Si ve que la opción **Deshabilitar compatibilidad con la replicación** está atenuada, significa que la configuración de replicación ya está establecida en el servidor de forma predeterminada. Puede omitir los pasos siguientes y pasar a crear una réplica de lectura. 
+3. Si la compatibilidad con la replicación de Azure no está establecida como mínimo en **Réplica**, establézcala. Seleccione **Guardar**.
 
-3. Seleccione **Habilitar compatibilidad con la replicación**. 
+   ![Réplica de Azure Database for PostgreSQL: establecer réplica y guardarla](./media/howto-read-replicas-portal/set-replica-save.png)
 
-   ![Habilitar compatibilidad con la replicación](./media/howto-read-replicas-portal/enable-replication-support.png)
+4. Reinicie el servidor para aplicar el cambio seleccionando **Sí**.
 
-4. Confirme que quiere habilitar la compatibilidad con la replicación. Esta operación reiniciará el servidor maestro. 
+   ![Réplica de Azure Database for PostgreSQL: confirmar reinicio](./media/howto-read-replicas-portal/confirm-restart.png)
 
-   ![Confirmación de Habilitar compatibilidad con la replicación](./media/howto-read-replicas-portal/confirm-enable-replication.png)
-   
 5. Recibirá dos notificaciones de Azure Portal una vez que se haya completado la operación: una notificación sobre la actualización del parámetro de servidor y otra sobre el reinicio del servidor, que se producirá inmediatamente después.
 
-   ![Notificaciones habilitadas sobre operaciones realizadas correctamente](./media/howto-read-replicas-portal/success-notifications-enable.png)
+   ![Notificaciones correctas](./media/howto-read-replicas-portal/success-notifications.png)
 
 6. Actualice la página de Azure Portal para actualizar la barra de herramientas de replicación. Ahora puede crear réplicas de lectura para este servidor.
-
-   ![Barra de herramientas actualizada](./media/howto-read-replicas-portal/updated-toolbar.png)
    
-La habilitación de la compatibilidad con la replicación es una operación que se realiza una sola vez por cada servidor maestro. Para mayor comodidad, se proporciona el botón **Deshabilitar compatibilidad con la replicación**. No se recomienda deshabilitar la compatibilidad con la replicación, a menos que esté seguro de que nunca creará una réplica en este servidor principal. No se puede deshabilitar la compatibilidad con la replicación si el servidor maestro tiene réplicas existentes.
-
 
 ## <a name="create-a-read-replica"></a>Creación de una réplica de lectura
 Para crear una réplica de lectura, siga estos pasos:

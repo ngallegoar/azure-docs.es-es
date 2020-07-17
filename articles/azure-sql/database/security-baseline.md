@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 50d408da248bfcea7088af52cd551579da0ad14e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 3c890dc48c97580fd8de5c817c96b62d4eb9c009
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84039926"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045950"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database--sql-managed-instance"></a>Base de referencia de seguridad de Azure para Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -49,7 +49,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>1.2: Supervise y registre la configuración y el tráfico de redes virtuales, subredes y NIC
 
-**Guía**: Use Azure Security Center y siga las recomendaciones de protección de red para la subred en la que ha implementado Azure SQL Database.
+**Instrucciones**: Use Azure Security Center y siga las recomendaciones de protección de red para la subred en la que ha implementado Azure SQL Database.
 
 En el caso de máquinas virtuales (VM) de Azure que se van a conectar a la instancia de Azure SQL Database, habilite los registros de flujo del grupo de seguridad de red (NSG) para los grupos de seguridad de red que protegen esas VM y envíelos a una cuenta de Azure Storage para auditar el tráfico.
 
@@ -85,7 +85,7 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4: Deniegue las comunicaciones con direcciones IP malintencionadas conocidas
 
-**Guía**: Habilite DDoS Protection estándar en las redes virtuales asociadas a su instancia de Azure SQL Database para protegerse de los ataques por denegación de servicio distribuidos. Use la inteligencia sobre amenazas integrada de Azure Security Center para denegar las comunicaciones con direcciones IP malintencionadas conocidas o no utilizadas.
+**Instrucciones**: Habilite DDoS Protection estándar en las redes virtuales asociadas a su instancia de Azure SQL Database para protegerse de los ataques por denegación de servicio distribuidos. Use la inteligencia sobre amenazas integrada de Azure Security Center para denegar las comunicaciones con direcciones IP malintencionadas conocidas o no utilizadas.
 
 Cómo configurar la protección contra DDoS:
 
@@ -153,7 +153,7 @@ https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: Mantenga las configuraciones de seguridad estándar para dispositivos de red
 
-**Guía**: Defina e implemente configuraciones de seguridad de red para la instancia de Azure SQL Database con Azure Policy. Puede usar el espacio de nombres "Microsoft.Sql" para detallar definiciones de directiva personalizadas, o usar cualquiera de las definiciones de directiva integradas diseñadas para la protección de red del servidor. Un ejemplo de una directiva de seguridad de red integrada aplicable para un servidor sería: "SQL Database debe usar un punto de conexión del servicio de red virtual".
+**Instrucciones**: Defina e implemente configuraciones de seguridad de red para la instancia de Azure SQL Database con Azure Policy. Puede usar el espacio de nombres "Microsoft.Sql" para detallar definiciones de directiva personalizadas, o usar cualquiera de las definiciones de directiva integradas diseñadas para la protección de red del servidor. Un ejemplo de una directiva de seguridad de red integrada aplicable para un servidor sería: "SQL Database debe usar un punto de conexión del servicio de red virtual".
 
 Use Azure Blueprints para simplificar las implementaciones de Azure a gran escala mediante el empaquetado de artefactos de entorno clave, como plantillas de Administración de recursos de Azure, control de acceso basado en rol (RBAC) y directivas, en una única definición de plano técnico. Aplique fácilmente el plano técnico a nuevas suscripciones y entornos, y ajuste el control y la administración mediante el control de versiones.
 
@@ -305,7 +305,7 @@ https://docs.microsoft.com/azure/security-center/security-center-managing-and-re
 
 ### <a name="28-centralize-anti-malware-logging"></a>2.8: Centralización del registro antimalware
 
-**Guía**: No aplicable; en el caso de Azure SQL Database, Microsoft administra la solución antimalware en la plataforma subyacente.
+**Instrucciones**: No aplicable; en el caso de Azure SQL Database, Microsoft administra la solución antimalware en la plataforma subyacente.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -353,7 +353,7 @@ https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemem
 
 Configuración y administración de la autenticación de Azure Active Directory con Azure SQL:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-authentication-aad-configure
+https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -445,11 +445,11 @@ Configuración de ubicaciones con nombre en Azure: https://docs.microsoft.com/az
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Uso de Azure Active Directory
 
-**Guía**: Crear un administrador de Azure Active Directory para Azure Synapse.
+**Instrucciones**: Crear un administrador de Azure Active Directory para Azure Synapse.
 
 Configuración y administración de la autenticación de Azure Active Directory con Azure SQL:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-authentication-aad-configure
+https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure
 
 Cómo crear y configurar una instancia de AAD:
 
@@ -477,7 +477,7 @@ https://docs.microsoft.com/azure/active-directory/governance/access-reviews-over
 
 Configuración y administración de la autenticación de Azure Active Directory con Azure SQL:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-authentication-aad-configure
+https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure
 
 Cómo integrar los registros de actividad de Azure en Azure Monitor:
 
@@ -639,7 +639,7 @@ https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: Registro y alerta de cambios en los recursos críticos de Azure
 
-**Instrucciones**: use Azure Monitor con el registro de actividad de Azure para crear alertas para cuando se produzcan cambios en las instancias de producción de Azure SQL Database y otros recursos críticos o relacionados.
+**Instrucciones**: use Azure Monitor con el registro de actividad de Azure para crear alertas para cuando se produzcan cambios en las instancias de producción de Azure SQL Database y otros recursos críticos o relacionados.
 
 Cómo crear alertas para eventos de registro de actividad de Azure:
 
@@ -657,7 +657,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Guía**: Habilite Advanced Data Security para Azure SQL Database y siga las recomendaciones de Azure Security Center sobre cómo realizar evaluaciones de vulnerabilidades en los servidores.
 
-Ejecución de evaluaciones de vulnerabilidades en las instancias de Azure SQL Database:
+Cómo ejecutar evaluaciones de vulnerabilidades en Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment
 
@@ -719,7 +719,7 @@ https://docs.microsoft.com/azure/security-center/security-center-secure-score
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1: Uso de la detección de recursos de Azure
 
-**Guía**: Use Azure Resource Graph para consultar y detectar todos los recursos (incluido Azure SQL Database) dentro de las suscripciones.  Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y de que puede enumerar todas las suscripciones de Azure, así como los recursos de las suscripciones.
+**Instrucciones**: Use Azure Resource Graph para consultar y detectar todos los recursos (incluido Azure SQL Database) dentro de las suscripciones.  Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y de que puede enumerar todas las suscripciones de Azure, así como los recursos de las suscripciones.
 
 Aunque los recursos clásicos de Azure se pueden detectar a través de Resource Graph, se recomienda encarecidamente crear y usar los recursos de Azure Resource Manager que figuran a continuación.
 
@@ -1069,7 +1069,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-business-continuity
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2: Realización de copias de seguridad completas del sistema y copia de seguridad de las claves administradas por el cliente
 
-**Instrucciones**: Azure SQL Database crea automáticamente las copias de seguridad de base de datos que se conservan entre 7 y 35 días, y usa el almacenamiento con redundancia geográfica de acceso de lectura (RA-GRS) para asegurarse de que se conservan incluso si el centro de datos no está disponible. Estas copias de seguridad se crean automáticamente. Si es necesario, habilite las copias de seguridad con redundancia geográfica a largo plazo para las instancias de Azure SQL Database.
+**Instrucciones**: Azure SQL Database crea automáticamente las copias de seguridad de base de datos que se conservan entre 7 y 35 días, y usa el almacenamiento con redundancia geográfica de acceso de lectura (RA-GRS) para asegurarse de que se conservan incluso si el centro de datos no está disponible. Estas copias de seguridad se crean automáticamente. Si es necesario, habilite las copias de seguridad con redundancia geográfica a largo plazo en las bases de datos de Azure SQL.
 
 Si usa claves administradas por el cliente con el Cifrado de datos transparente, asegúrese de que se realiza una copia de seguridad de ellas.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 06/25/2020
 ms.author: aahi
-ms.openlocfilehash: 4fd893691f68c8b51fa3ef234d7828b1bd70cea5
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 367e214a3945ec9d6ed0ffc5b11e6af25dc41503
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465599"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413338"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Idiomas admitidos en Text Analytics API v3 
 
@@ -57,7 +57,7 @@ ms.locfileid: "84465599"
 #### <a name="named-entity-recognition-ner"></a>[Reconocimiento de entidades con nombre (NER)](#tab/named-entity-recognition)
 
 > [!NOTE]
-> * NER v3 actualmente solo admite el idioma inglés. Si llama a NER v3 con un idioma diferente, la API devolverá los resultados de v2.1, siempre que el idioma sea compatible con la versión 2.1.
+> * NER v3 actualmente solo admite los idiomas inglés y español. Si llama a NER v3 con un idioma diferente, la API devolverá los resultados de v2.1, siempre que el idioma sea compatible con la versión 2.1.
 > * La versión 2.1 solo devuelve el conjunto completo de entidades para los idiomas inglés, chino simplificado, francés, alemán y español.  Se devuelven las entidades "Persona", "Ubicación" y "Organización" para los demás idiomas admitidos.
 
 | Idioma               | Código de lenguaje | Compatibilidad con la versión 2.1 | Compatibilidad con la versión 3 | A partir de la versión del modelo de la versión 3: |       Notas        |
@@ -82,7 +82,7 @@ ms.locfileid: "84465599"
 | Portugués (Portugal) |    `pt-PT`    |     ✓      |            |                                 | También se acepta `pt` |
 | Portugués (Brasil)   |    `pt-BR`    |     ✓      |            |                                 |                    |
 | Ruso              |     `ru`      |     ✓      |            |                                 |                    |
-| Español               |     `es`      |     ✓      |            |                                 |                    |
+| Español               |     `es`      |     ✓      |     ✓       |              2020-04-01                   |                    |
 | Sueco               |     `sv`      |     ✓      |            |                                 |                    |
 | Turco               |     `tr`      |     ✓      |            |                                 |                    |
 

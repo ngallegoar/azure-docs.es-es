@@ -4,21 +4,20 @@ description: Obtenga información sobre el uso de la condición de ubicación pa
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.workload: identity
-ms.date: 05/28/2020
+ms.topic: conceptual
+ms.date: 06/15/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 781d8b89dd1b7fa6b2ed9707f6d4c485b4abdf20
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 7db7e64840d248b66a61ff310f9441800e1afc31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220591"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253229"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Uso la condición de ubicación en una directiva de acceso condicional 
 
@@ -34,7 +33,7 @@ Las organizaciones pueden usar esta ubicación de red para tareas comunes como:
 La ubicación de red viene determinada por la dirección IP pública que proporciona un cliente a Azure Active Directory. De forma predeterminada, las directivas de acceso condicional se aplican a todas las direcciones IPv4 e IPv6. 
 
 > [!TIP]
-> Los intervalos de IPv6 solo se admiten en la interfaz de **[Ubicaciones con nombre (versión preliminar)](#preview-features)** . 
+> Los intervalos de IPv6 solo se admiten en la interfaz de **[Ubicación con nombre (versión preliminar)](#preview-features)** . 
 
 ## <a name="named-locations"></a>Ubicaciones con nombre
 
@@ -50,7 +49,7 @@ El número de ubicaciones con nombre que se pueden configurar está restringido 
 - Un máximo de 90 ubicaciones con nombre con un intervalo IP asignado a cada una.
 
 > [!TIP]
-> Los intervalos de IPv6 solo se admiten en la interfaz de **[Ubicaciones con nombre (versión preliminar)](#preview-features)** . 
+> Los intervalos de IPv6 solo se admiten en la interfaz de **[Ubicación con nombre (versión preliminar)](#preview-features)** . 
 
 ### <a name="trusted-locations"></a>Ubicaciones de confianza
 
@@ -65,7 +64,7 @@ Esta opción puede incluirse en las directivas de acceso condicional, donde, por
 Algunas organizaciones pueden optar por definir los límites de IP de países o regiones completos como ubicaciones con nombre para las directivas de acceso condicional. Estas ubicaciones pueden usarse al bloquear tráfico innecesario cuando se sabe que los usuarios válidos nunca provienen de una ubicación como Corea del Norte. Estas asignaciones de dirección IP a países se actualizan periódicamente. 
 
 > [!NOTE]
-> Los países no incluyen los intervalos de direcciones IPv6, solo los intervalos de direcciones IPv4 conocidos.
+> Los países no incluyen intervalos de direcciones IPv6, solo intervalos de direcciones IPv4 conocidos, por lo que no se pueden marcar como de confianza.
 
 ![Crear una nueva ubicación basada en el país o la región en Azure Portal](./media/location-condition/new-named-location-country-region.png)
 
@@ -102,7 +101,7 @@ Con la versión preliminar de las ubicaciones con nombre, puede hacer lo siguien
 
 - Configurar hasta 195 ubicaciones con nombre.
 - Configurar hasta 2000 intervalos IP por ubicación con nombre.
-- Configurar direcciones hasta IPv6.
+- Configurar direcciones IPv6 junto con direcciones IPv4
 
 También hemos agregado algunas comprobaciones adicionales para ayudar a reducir el cambio de configuración incorrecta.
 
@@ -115,7 +114,7 @@ Con la versión preliminar, ahora hay dos opciones de creación:
 - **Ubicación de los intervalos de direcciones IP**
 
 > [!NOTE]
-> Los países no incluyen los intervalos de direcciones IPv6, solo los intervalos de direcciones IPv4 conocidos.
+> Los países no incluyen intervalos de direcciones IPv6, solo intervalos de direcciones IPv4 conocidos, por lo que no se pueden marcar como de confianza.
 
 ![Interfaz de la versión preliminar de ubicaciones con nombre](./media/location-condition/named-location-preview.png)
 
@@ -141,6 +140,30 @@ Esta opción se aplica a:
 ### <a name="selected-locations"></a>Ubicaciones seleccionadas
 
 Con esta opción, puede seleccionar una o varias ubicaciones con nombre. Para una directiva a la que se aplicará esta configuración, el usuario debe conectarse desde cualquiera de las ubicaciones seleccionadas. Al hacer clic en **Seleccionar**, se abrirá el control de selección de red con nombre que muestra la lista de redes con nombre. En la lista también se muestra si la ubicación de red se ha marcado como de confianza. La ubicación con nombre llamada **IP de confianza de MFA** se utiliza para incluir los valores de IP que pueden configurarse en la página de configuración del servicio de la autenticación multifactor.
+
+## <a name="ipv6-traffic"></a>Tráfico de IPv6
+
+De forma predeterminada, las directivas de acceso condicional se aplicarán a todo el tráfico de IPv6. Con la [versión preliminar de la ubicación con nombre](#preview-features), puede excluir intervalos de direcciones IPv6 específicos de una directiva de acceso condicional. Esta opción es útil en los casos en los que no se quiere aplicar la directiva en determinados intervalos IPv6. Por ejemplo, si no quiere aplicar una directiva en la red corporativa, y la red corporativa está hospedada en intervalos IPv6 públicos.  
+
+### <a name="when-will-my-tenant-have-ipv6-traffic"></a>¿Cuándo tendrá mi inquilino tráfico IPv6?
+
+Azure Active Directory (Azure AD) no admite actualmente conexiones de red directas que usan IPv6. No obstante, hay algunos casos en los que el tráfico de autenticación se realiza mediante proxy a través de otro servicio. En estos casos, la dirección IPv6 se usará durante la evaluación de la directiva.
+
+La mayor parte del tráfico IPv6 que se dirige mediante proxy a Azure AD procede de Microsoft Exchange Online. Cuando estén disponibles, Exchange preferirá conexiones IPv6. **Por lo tanto, si tiene directivas de acceso condicional para Exchange que se han configurado para intervalos IPv4 específicos, querrá asegurarse de que también ha agregado los intervalos IPv6 de las organizaciones.** Si no se incluyen intervalos IPv6, se producirá un comportamiento inesperado en los dos casos siguientes:
+
+- Cuando se usa un cliente de correo para conectarse a Exchange Online con autenticación heredada, Azure AD puede recibir una dirección IPv6. La solicitud de autenticación inicial va a Exchange y, después, se dirige mediante proxy a Azure AD.
+- Si se usa Outlook Web Access (OWA) en el explorador, esta aplicación comprueba periódicamente que se están cumpliendo todas las directivas de acceso condicional. Esta comprobación sirve para detectar los casos en los que un usuario puede haber pasado de una dirección IP permitida a una nueva ubicación, como una cafetería de la calle. En este caso, si se usa una dirección IPv6 que no está en un intervalo configurado, es posible que el usuario vea su sesión interrumpida y se le redirija a Azure AD para que se vuelva a autenticar. 
+
+Estos son los motivos más comunes por los que es posible que necesite configurar intervalos IPv6 en sus ubicaciones con nombre. Además, si usa redes virtuales de Azure, tendrá tráfico procedente de una dirección IPv6. Si el tráfico de red virtual está bloqueado por una directiva de acceso condicional, consulte el registro de inicio de sesión de Azure AD. Una vez que haya identificado el tráfico, puede obtener la dirección IPv6 que se está usando y excluirla de la directiva. 
+
+> [!NOTE]
+> Si quiere especificar un intervalo CIDR de IP para una sola dirección, aplique la máscara de /32 bits. Por ejemplo, si queremos excluir la dirección IPv6 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a como un intervalo, se usará 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a/32.
+
+### <a name="identifying-ipv6-traffic-in-the-azure-ad-sign-in-activity-reports"></a>Identificación del tráfico IPv6 en los informes de actividad de inicio de sesión de Azure AD
+
+Para detectar el tráfico IPv6 en el inquilino, vaya a [Informes de actividad de inicio de sesión en Azure AD](../reports-monitoring/concept-sign-ins.md). Una vez que haya abierto el informe de actividad, agregue la columna "dirección IP". Esta columna le permitirá identificar el tráfico IPv6.
+
+También puede ver cuál es la dirección IP del cliente; para ello, haga clic en una fila del informe y, después, vaya a la pestaña "Ubicación" en los detalles de la actividad de inicio de sesión. 
 
 ## <a name="what-you-should-know"></a>Qué debería saber
 

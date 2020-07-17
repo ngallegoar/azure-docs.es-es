@@ -5,12 +5,12 @@ author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: d5f843add0649682bae8c472bc50b6beea33bf93
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 722d3e218272202074820db442ab1592042c7011
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679302"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805010"
 ---
 # <a name="get-information-about-a-converted-model"></a>Obtención de información acerca de un modelo convertido
 
@@ -100,7 +100,7 @@ En esta sección se registra información sobre el formato de archivo de origen.
 Esta sección proporciona información sobre la escena de origen. A menudo habrá discrepancias entre los valores de esta sección y los valores equivalentes de la herramienta que creó el modelo de origen. Tales diferencias están previstas, ya que el modelo se modifica durante los pasos de exportación y conversión.
 
 * `numMeshes`: número de partes de la malla, donde cada parte puede hacer referencia a un único material.
-* `numFaces`: número total de _triángulos_ en todo el modelo. Tenga en cuenta que la malla se triangula durante la conversión.
+* `numFaces`: número total de _triángulos_ en todo el modelo. Tenga en cuenta que la malla se triangula durante la conversión. Este número contribuye al límite de polígonos en el [tamaño de máquina virtual de representación estándar](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-polygons).
 * `numVertices`: número total de vértices en todo el modelo.
 * `numMaterial`: número total de materiales en todo el modelo.
 * `numFacesSmallestMesh`: número de triángulos en la malla más pequeña del modelo.

@@ -1,18 +1,18 @@
 ---
 title: Administración de recursos delegados de Azure
-description: Los servicios administrados permiten a los proveedores de servicios vender ofertas de administración de recursos a los clientes de Azure Marketplace.
+description: La administración de recursos delegados de Azure es una parte clave de Azure Lighthouse, lo que permite a los proveedores de servicios administrar recursos delegados a escala con agilidad y precisión.
 ms.date: 05/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: e6f741ccbf0d52e0859722aa304aa6c273fb5acf
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: bbe3c28cdcd252755b8350eaa5d2e72044981174
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219072"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120898"
 ---
 # <a name="azure-delegated-resource-management"></a>Administración de recursos delegados de Azure
 
-La administración de recursos delegados de Azure es uno de los componentes clave de Azure Lighthouse. Con la administración de recursos delegados de Azure, los proveedores de servicios pueden simplificar las experiencias de involucración e incorporación de clientes, al mismo tiempo que administran los recursos delegados a escala con agilidad y precisión.
+La administración de recursos delegados de Azure es uno de los componentes clave de [Azure Lighthouse](../overview.md). Con la administración de recursos delegados de Azure, los proveedores de servicios pueden simplificar las experiencias de involucración e incorporación de clientes, al mismo tiempo que administran los recursos delegados a escala con agilidad y precisión.
 
 ## <a name="what-is-azure-delegated-resource-management"></a>¿Qué es la administración de recursos delegados de Azure?
 
@@ -25,7 +25,7 @@ Con la administración de recursos delegados de Azure, los usuarios autorizados 
 
 La [experiencia de administración entre inquilinos](cross-tenant-management-experience.md) le ayuda a trabajar de forma más eficaz con los servicios de administración de Azure, como Azure Policy, Azure Security Center, etc. En el registro de actividad se realiza un seguimiento de toda la actividad del proveedor de servicios, que se almacena en el inquilino del cliente (y se puede ver por usuarios en el inquilino administrador). Esto significa que el cliente y el proveedor de servicios pueden identificar fácilmente al usuario asociado con los cambios.
 
-Al incorporar un cliente a la administración de recursos delegados de Azure, tendrá acceso a la nueva página **Proveedores de servicios** de Azure Portal, donde podrán [confirmar y administrar sus ofertas, proveedores de servicios y recursos delegados](../how-to/view-manage-service-providers.md). Si, en algún momento, el cliente quiere revocar el acceso para un proveedor de servicios, puede hacerlo desde aquí cuando quiera.
+Al incorporar un cliente a la administración de recursos delegados de Azure, tendrán acceso a la página de **Proveedores de servicios** de Azure Portal, donde podrán [confirmar y administrar sus ofertas, proveedores de servicios y recursos delegados](../how-to/view-manage-service-providers.md). Si, en algún momento, el cliente quiere revocar el acceso para un proveedor de servicios, puede hacerlo desde aquí cuando quiera.
 
 Puede [publicar el nuevo tipo de oferta de servicio administrado en Azure Marketplace](../how-to/publish-managed-services-offers.md) para incorporar fácilmente clientes en la administración de recursos delegados de Azure. Como alternativa, puede [completar el proceso de incorporación implementando plantillas de Azure Resource Manager ](../how-to/onboard-customer.md).
 

@@ -4,19 +4,19 @@ description: Se proporciona una lista de límites, cuotas y restricciones de sus
 ms.topic: conceptual
 author: davidsmatlak
 ms.author: v-dasmat
-ms.date: 04/21/2020
-ms.openlocfilehash: fb4a21946b848ad05abac9b06999c7982812a361
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/04/2020
+ms.openlocfilehash: 594e34a07cf2c370546e59ebe59df1de88eb2aa4
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021218"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080982"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 
 Este documento enumeran algunos de los límites más comunes de Microsoft Azure, que a veces se denominan cuotas.
 
-Consulte [Precios de Azure](https://azure.microsoft.com/pricing/) para más información sobre precios de Azure. Allí, puede calcular los costos mediante el uso de la [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/). También puede ir a la página de detalles de precios de un servicio determinado, por ejemplo, [Máquinas virtuales Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Si quiere obtener sugerencias para ayudar a administrar los costos, vea [Prevención de costos inesperados con la administración de costos y facturación de Azure](../../billing/billing-getting-started.md).
+Consulte [Precios de Azure](https://azure.microsoft.com/pricing/) para más información sobre precios de Azure. Allí, puede calcular los costos mediante el uso de la [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/). También puede ir a la página de detalles de precios de un servicio determinado, por ejemplo, [Máquinas virtuales Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Si quiere obtener sugerencias para ayudar a administrar los costos, vea [Prevención de costos inesperados con la administración de costos y facturación de Azure](../../cost-management-billing/manage/getting-started.md).
 
 ## <a name="managing-limits"></a>Administración de límites
 
@@ -29,7 +29,7 @@ Consulte [Precios de Azure](https://azure.microsoft.com/pricing/) para más info
 >
 > Si desea aumentar el límite o la cuota por encima del límite predeterminado, [abra una solicitud de soporte técnico al cliente en línea sin cargo alguno](../templates/error-resource-quota.md).
 
-Las [suscripciones de evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) no son aptas para aumentar el límite ni la cuota. Si tiene una [suscripción de evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p), puede actualizar a una suscripción de [Pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/). Para más información, consulte [Actualización de la suscripción de evaluación gratuita de Azure a pago por uso](../../billing/billing-upgrade-azure-subscription.md) y [Preguntas más frecuentes sobre la cuenta gratuita de Azure](https://azure.microsoft.com/free/free-account-faq).
+Las [suscripciones de evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) no son aptas para aumentar el límite ni la cuota. Si tiene una [suscripción de evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p), puede actualizar a una suscripción de [Pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/). Para más información, consulte [Actualización de la suscripción de evaluación gratuita de Azure a pago por uso](../../cost-management-billing/manage/upgrade-azure-subscription.md) y [Preguntas más frecuentes sobre la cuenta gratuita de Azure](https://azure.microsoft.com/free/free-account-faq).
 
 Algunos límites se administran a nivel regional.
 
@@ -127,6 +127,8 @@ Para obtener más información sobre los límites de Azure Database for PostgreS
 
 [!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
 
+Para más información, consulte [Comparación de los planes de hospedaje de Functions](../../azure-functions/functions-scale.md#hosting-plans-comparison).
+
 ## <a name="azure-kubernetes-service-limits"></a>Límites de Azure Kubernetes Service
 
 [!INCLUDE [container-service-limits](../../../includes/container-service-limits.md)]
@@ -217,6 +219,13 @@ En la tabla siguiente se detallan las características y los límites de los [ni
 
 [!INCLUDE [database-migration-service-limits](../../../includes/database-migration-service-limits.md)]
 
+## <a name="digital-twins-limits"></a>Límites de Digital Twins
+
+> [!NOTE]
+> Algunas áreas de este servicio tienen límites ajustables y otras no. Esto se representa en las tablas siguientes con la columna *¿Ajustable?* . Cuando se puede ajustar el límite, el valor de *¿Ajustable?* es *Sí*.
+
+[!INCLUDE [digital-twins-limits](../../../includes/digital-twins-limits.md)]
+
 ## <a name="event-grid-limits"></a>Límites de Event Grid
 
 [!INCLUDE [event-grid-limits](../../../includes/event-grid-limits.md)]
@@ -250,7 +259,7 @@ En la tabla siguiente se detallan las características y los límites de los [ni
 
 ### <a name="media-services-v2-legacy"></a>Media Services v2 (heredado)
 
-Para conocer los límites específicos de Media Services v2 (heredado), vea [Media Services v2 (heredado)](https://docs.microsoft.com/azure/media-services/previous/media-services-quotas-and-limitations).
+Para conocer los límites específicos de Media Services v2 (heredado), vea [Media Services v2 (heredado)](../../media-services/previous/media-services-quotas-and-limitations.md).
 
 ## <a name="mobile-services-limits"></a>Límites de Mobile Services
 
@@ -323,11 +332,11 @@ La tabla siguiente se aplica a v1, v2 y estándar y a SKU de WAF, a menos que se
 
 ## <a name="sql-database-limits"></a>Límites de SQL Database
 
-Para los límites de SQL Database, consulte [Límites de recursos de SQL Database para bases de datos únicas](../../azure-sql/database/resource-limits-vcore-single-databases.md), [Límites de recursos de SQL Database para grupos elásticos y bases de datos agrupadas](../../azure-sql/database/resource-limits-vcore-elastic-pools.md) y [Límites de recursos de SQL Database para instancias administradas](../../azure-sql/managed-instance/resource-limits.md).
+Para los límites de SQL Database, consulte [Límites de recursos de SQL Database para bases de datos únicas](../../azure-sql/database/resource-limits-vcore-single-databases.md), [Límites de recursos de SQL Database para grupos elásticos y bases de datos agrupadas](../../azure-sql/database/resource-limits-vcore-elastic-pools.md) y [Límites de recursos de SQL Database para SQL Managed Instance](../../azure-sql/managed-instance/resource-limits.md).
 
-## <a name="sql-data-warehouse-limits"></a>Límites de SQL Data Warehouse
+## <a name="azure-synapse-analytics-limits"></a>Límites de Azure Synapse Analytics
 
-Para los límites de SQL Data Warehouse, consulte [Límites de recursos de SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
+Para conocer los límites de Azure Synapse Analytics, consulte [Límites de recursos de Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
 ## <a name="storage-limits"></a>Límites de Storage
 

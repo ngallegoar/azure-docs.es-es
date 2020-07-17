@@ -4,19 +4,19 @@ description: Obtenga información sobre cómo puede entender el impacto de las d
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.date: 02/25/2020
+ms.topic: conceptual
+ms.date: 06/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc87b434664ba12cefeb233972e749f631d8a2b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 30d9ca806a7ddaf7d6ba657d8224d312a6aae33b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77620685"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253144"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Solución de problemas con la herramienta What If en el acceso condicional
 
@@ -40,7 +40,7 @@ En la **herramienta What If de Acceso condicional**, primero debe configurar los
      
 Como próximo paso, puede iniciar una ejecución de la simulación que evalúe la configuración. Solo las directivas habilitadas forman parte de una ejecución de evaluación.
 
-Cuando la evaluación finaliza, la herramienta genera un informe de las directivas afectadas.
+Cuando la evaluación finaliza, la herramienta genera un informe de las directivas afectadas. Para recopilar más información sobre una directiva de acceso condicional, en el [libro Conditional Access insights and reporting (Información detallada e informes del acceso condicional)](howto-conditional-access-insights-reporting.md) encontrará más detalles sobre las directivas en modo de solo informes y las directivas que están habilitadas actualmente.
 
 ## <a name="running-the-tool"></a>Ejecución de la herramienta
 
@@ -104,6 +104,5 @@ En la lista de las directivas que no se aplican al usuario, también puede encon
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si quiere saber cómo configurar una directiva de acceso condicional, vea [Requerir MFA para aplicaciones específicas con acceso condicional a Azure Active Directory](app-based-mfa.md).
-- Si está listo para configurar directivas de acceso condicional para su entorno, vea [Procedimientos recomendados para el acceso condicional en Azure Active Directory](best-practices.md). 
-- Si desea migrar directivas clásicas, consulte [Migración de directivas clásicas en Azure Portal](policy-migration.md).  
+- En el libro [Conditional Access insights and reporting (Información detallada e informes del acceso condicional)](howto-conditional-access-insights-reporting.md) encontrará más información sobre la aplicación de directivas de acceso condicional a través del modo de solo informes de directivas.
+- Si lo tiene todo listo para configurar directivas de acceso condicional en su entorno, vea el artículo [Directivas de acceso condicional habituales](concept-conditional-access-policy-common.md). 

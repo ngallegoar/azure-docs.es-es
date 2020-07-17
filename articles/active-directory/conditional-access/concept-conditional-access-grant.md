@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01c625bebbcd2e619a8125fdfb92673cd02966b2
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: d1d30a32a58dd2385a214d813307c645c56afdc8
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583197"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024471"
 ---
 # <a name="conditional-access-grant"></a>Acceso condicional: Conceder
 
@@ -28,7 +28,7 @@ Dentro de una directiva de acceso condicional, un administrador puede hacer uso 
 
 El bloqueo tiene en cuenta las asignaciones y evita el acceso en función de la configuración de la directiva de acceso condicional.
 
-El bloqueo es un control eficaz y se debe manejar con el conocimiento adecuado. Es algo que los administradores deben utilizar en el [modo de solo informe](concept-conditional-access-report-only.md) para probar antes de habilitar.
+El bloqueo es un control eficaz y se debe manejar con el conocimiento adecuado. Las directivas con instrucciones de bloque pueden tener efectos secundarios imprevistos. Las pruebas y la validación adecuadas son vitales antes de habilitarlas a gran escala. Los administradores deben usar herramientas del acceso condicional como el [modo de solo informe](concept-conditional-access-report-only.md) y la [herramienta What If](what-if-tool.md) al realizar cambios.
 
 ## <a name="grant-access"></a>Conceder acceso
 
@@ -39,6 +39,7 @@ Los administradores pueden optar por aplicar uno o varios controles al conceder 
 - [Requerir un dispositivo unido a Azure AD híbrido](../devices/concept-azure-ad-join-hybrid.md)
 - [Requerir aplicación cliente aprobada](app-based-conditional-access.md)
 - [Requerir la directiva de protección de aplicaciones](app-protection-based-conditional-access.md)
+- [Requerir cambio de contraseña](#require-password-change)
 
 Cuando los administradores eligen combinar estas opciones, pueden elegir los siguientes métodos:
 
@@ -62,6 +63,8 @@ Los dispositivos deben estar registrados en Azure AD para poder marcarlos como c
 ### <a name="require-hybrid-azure-ad-joined-device"></a>Requerir un dispositivo unido a Azure AD híbrido
 
 Las organizaciones pueden optar por usar la identidad del dispositivo como parte de la directiva de acceso condicional. Las organizaciones pueden requerir que los dispositivos estén unidos a Azure AD híbrido utilizando esta casilla. Para más información sobre las identidades del dispositivo, consulte el artículo [¿Qué es una identidad de dispositivo?](../devices/overview.md)
+
+Al usar el [flujo de OAuth de código de dispositivo](../develop/v2-oauth2-device-code.md), no se admiten el control de concesión de dispositivo administrado ni la condición de estado de dispositivo. Esto se debe a que el dispositivo que realiza la autenticación no puede proporcionar su estado de dispositivo al que proporciona un código y el estado del dispositivo en el token está bloqueado en el dispositivo que realiza la autenticación. En su lugar, use el control de concesión de autenticación multifactor necesario.
 
 ### <a name="require-approved-client-app"></a>Requerir aplicación cliente aprobada
 
@@ -132,6 +135,21 @@ Esta configuración se aplica a las aplicaciones cliente siguientes:
     - Se requiere una aplicación de agente para registrar el dispositivo. En iOS, la aplicación de agente es Microsoft Authenticator y, en Android, es la aplicación Portal de empresa de Intune.
 
 Consulte el artículo [Uso obligatorio de directivas de protección de aplicaciones y una aplicación cliente aprobada para el acceso a aplicaciones en la nube con acceso condicional](app-protection-based-conditional-access.md) para obtener ejemplos de configuración.
+
+### <a name="require-password-change"></a>Requerir cambio de contraseña 
+
+Cuando se detecta el riesgo del usuario, mediante las condiciones de la directiva de riesgo del usuario, los administradores pueden elegir que el usuario cambie la contraseña de forma segura mediante el autoservicio de restablecimiento de contraseña de Azure AD. Si se detecta un riesgo para el usuario, los usuarios pueden utilizar un autoservicio de restablecimiento de contraseña para que se corrijan automáticamente; esto cerrará el evento de riesgo de usuario para evitar que los administradores tengan ruidos innecesarios. 
+
+Cuando se solicita a un usuario que cambie su contraseña, primero será necesario para completar la autenticación multifactor. Querrá asegurarse de que todos los usuarios se hayan registrado para la autenticación multifactor, de modo que estén preparados en caso de que se detecte un riesgo para su cuenta.  
+
+> [!WARNING]
+> Los usuarios deben haberse registrado previamente para el autoservicio de restablecimiento de contraseña antes de desencadenar la directiva de riesgo de usuario. 
+
+Existe una restricción par cuando se configura una directiva mediante el control de cambios de contraseña.  
+
+1. La directiva debe estar asignada a "todas las aplicaciones en la nube". Esto impide que un atacante use una aplicación diferente para cambiar la contraseña del usuario y restablecer el riesgo de la cuenta, simplemente al iniciar sesión en otra aplicación. 
+1. Requerir cambio de contraseña no se puede usar con otros controles, como requerir un dispositivo compatible.  
+1. El control de cambio de contraseña solo se puede usar con la condición de asignación de grupo y usuario, condición de asignación de aplicación en la nube (que debe establecerse en todos) y condiciones de riesgo del usuario. 
 
 ### <a name="terms-of-use"></a>Términos de uso
 

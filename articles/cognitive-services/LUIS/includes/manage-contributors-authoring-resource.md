@@ -10,18 +10,18 @@ ms.date: 02/14/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.author: diberry
-ms.openlocfilehash: 192d3d1a7bd792779b068a9c0c7ac34c7bee1c80
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cbb79c6c7467306bbc202d317684a5c62835d53c
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80117117"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374886"
 ---
 Si las aplicaciones deben ser creadas por otras personas, debe agregar las direcciones de correo electrónico asociadas en el recurso de creación de Azure Portal.
 
-Si es el **propietario o el administrador de su suscripción a Azure**, puede agregar un colaborador al recurso.
+Si es el propietario o el administrador de su suscripción a Azure, puede agregar un colaborador al recurso.
 
-Si **no es el propietario ni el administrador de su suscripción a Azure**, la cuenta de Azure debe tener los permisos `Microsoft.Authorization/roleAssignments/write`.
+Si no es el propietario ni el administrador de su suscripción a Azure, la cuenta de Azure debe tener los permisos de `Microsoft.Authorization/roleAssignments/write`.
 
 Si tiene problemas con esta asignación de roles, consulte:
 

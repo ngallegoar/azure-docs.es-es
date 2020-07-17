@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0a62cd4ad6d992d8994fbd3e66bd0b90e45aa213
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: fe328de9460efb743037f697c7f564e2c628278d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636997"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388942"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-custom-policy"></a>Integración de intercambios de notificaciones de la API de REST en la directiva personalizada de Azure AD B2C
 
@@ -32,6 +32,9 @@ Mediante Azure AD B2C, puede agregar su propia lógica de negocios a un recorr
 - **Ejecutar una lógica de negocios personalizada**. Puede enviar notificaciones push, actualizar las bases de datos corporativas, ejecutar un proceso de migración de usuarios, administrar permisos, auditar bases de datos y realizar otros flujos de trabajo.
 
 ![Diagrama de un intercambio de notificaciones del servicio RESTful](media/custom-policy-rest-api-intro/restful-service-claims-exchange.png)
+
+> [!NOTE]
+> Si el servicio RESTful es lento o no responde a Azure AD B2C, el tiempo de expiración es de 30 segundos y el número de reintentos es 2 veces (es decir, hay 3 intentos en total). La configuración de tiempo de expiración y el número de reintentos no es configurable actualmente.
 
 ## <a name="calling-a-restful-service"></a>Llamada a un servicio RESTful
 
@@ -142,7 +145,7 @@ La API de REST puede basarse en cualquier plataforma y escribirse en cualquier l
 ## <a name="localize-the-rest-api"></a>Localización de la API de REST
 En un perfil técnico de RESTful, puede querer enviar el idioma o la configuración regional de la sesión actual y, si es necesario, producir un mensaje de error localizado. Mediante el [solucionador de notificaciones](claim-resolver-overview.md), puede enviar una notificación contextual, como el idioma del usuario. En el ejemplo siguiente se muestra un perfil técnico de RESTful que muestra este escenario.
 
-```XML
+```xml
 <TechnicalProfile Id="REST-ValidateUserData">
   <DisplayName>Validate user input data</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -162,7 +165,7 @@ En un perfil técnico de RESTful, puede querer enviar el idioma o la configuraci
 
 ## <a name="handling-error-messages"></a>Control de mensajes de error
 
-Es posible la API de REST tenga que devolver un mensaje de error, como "No se encuentra el usuario en el sistema CRM". Si se produce un error, la API de REST debe devolver un mensaje de error HTTP 409 (código de estado de respuesta de conflicto). Para obtener más información, consulte [Perfil técnico de RESTful](restful-technical-profile.md#returning-error-message).
+Es posible la API de REST tenga que devolver un mensaje de error, como "No se encuentra el usuario en el sistema CRM". Si se produce un error, la API de REST debe devolver un mensaje de error HTTP 409 (código de estado de respuesta de conflicto). Para obtener más información, consulte [Perfil técnico de RESTful](restful-technical-profile.md#returning-validation-error-message).
 
 Esto solo se puede lograr si se llama a un perfil técnico de la API de REST desde un perfil técnico de validación. Esto permite al usuario corregir los datos en la página y volver a ejecutar la validación tras el envío de la página.
 
@@ -180,7 +183,7 @@ Diseñe el servicio de la API de REST y sus componentes subyacentes (como la bas
 
 Consulte los siguientes artículos para obtener ejemplos del uso de un perfil técnico de RESTful:
 
-- [Tutorial: Integración de intercambios de notificaciones de API REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario](custom-policy-rest-api-claims-validation.md)
-- [Tutorial: Agregue los intercambios de notificaciones de la API de REST a directivas personalizadas de Azure Active Directory B2C](custom-policy-rest-api-claims-validation.md)
+- [Tutorial: Integración de intercambios de notificaciones de API de REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario](custom-policy-rest-api-claims-validation.md)
+- [Tutorial: Agregue los intercambios de notificaciones de la API de REST a directivas personalizadas de Azure Active Directory B2C](custom-policy-rest-api-claims-validation.md)
 - [Protección de los servicios de la API de REST](secure-rest-api.md)
 - [Referencia: Perfil técnico de RESTful](restful-technical-profile.md)

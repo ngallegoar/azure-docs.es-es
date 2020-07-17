@@ -1,35 +1,35 @@
 ---
 title: Enfoques de migración de usuarios
 titleSuffix: Azure AD B2C
-description: Migre las cuentas de usuario de otro proveedor de identidades a Azure AD B2C con los métodos de importación en bloque o de migración de conexión directa.
+description: Migre las cuentas de usuario de otro proveedor de identidades a Azure AD B2C con los métodos de migración previa o de migración de conexión directa.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b3ee069985fd39288a562d3caafc50b12290c060
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 60dff717fbd86fa83821575ac90c9dac36dbc4d1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80332328"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85383978"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrar usuarios a Azure AD B2C
 
-La migración desde otro proveedor de identidades a Azure Active Directory B2C (Azure AD B2C) puede requerir también la migración de las cuentas de usuario existentes. Aquí se describen dos métodos de migración, *importación en bloque* y *migración de conexión directa*. Con cualquiera de estos enfoques, es necesario escribir una aplicación o un script que use [Microsoft Graph API](manage-user-accounts-graph-api.md) para crear cuentas de usuario en Azure AD B2C.
+La migración desde otro proveedor de identidades a Azure Active Directory B2C (Azure AD B2C) puede requerir también la migración de las cuentas de usuario existentes. Aquí se describen dos métodos de migración, *migración previa* y *migración de conexión directa*. Con cualquiera de estos enfoques, es necesario escribir una aplicación o un script que use [Microsoft Graph API](manage-user-accounts-graph-api.md) para crear cuentas de usuario en Azure AD B2C.
 
-## <a name="bulk-import"></a>Importación en bloque
+## <a name="pre-migration"></a>Migración previa
 
-En el flujo de importación en bloque, la aplicación de migración realiza estos pasos para cada cuenta de usuario:
+En el flujo de migración previa, la aplicación de migración realiza estos pasos para cada cuenta de usuario:
 
 1. Lea la cuenta de usuario del proveedor de identidades anterior, incluidas sus credenciales actuales (nombre de usuario y contraseña).
 1. Cree una cuenta correspondiente en el directorio de Azure AD B2C con las credenciales actuales.
 
-Use el flujo de importación en bloque en cualquiera de estas dos situaciones:
+Use el flujo de migración previa en cualquiera de estas dos situaciones:
 
 - Tiene acceso a las credenciales de texto no cifrado de un usuario (su nombre de usuario y contraseña).
 - Las credenciales están cifradas, pero puede descifrarlas.
@@ -43,18 +43,18 @@ Use el flujo de migración de conexión directa si no se puede tener acceso a la
 - La contraseña se almacena en formato cifrado unidireccional, como con una función hash.
 - El proveedor de identidades heredado ha almacenado la contraseña de modo que no puede tener acceso. Por ejemplo, cuando el proveedor de identidades valida las credenciales mediante una llamada a un servicio web.
 
-El flujo de migración de conexión directa sigue requiriendo la migración en bloque de las cuentas de usuario, pero después usa una [directiva personalizada](custom-policy-get-started.md) para consultar una [API de REST](custom-policy-rest-api-intro.md) (que usted crea) a fin de establecer la contraseña de cada usuario al iniciar sesión por primera vez.
+El flujo de migración de conexión directa sigue requiriendo la migración previa de las cuentas de usuario, pero después usa una [directiva personalizada](custom-policy-get-started.md) para consultar una [API de REST](custom-policy-rest-api-intro.md) (que usted crea) a fin de establecer la contraseña de cada usuario al iniciar sesión por primera vez.
 
-Por lo tanto, el flujo de migración de conexión directa tiene dos fases: *importación en bloque* y *establecimiento de credenciales*.
+Por lo tanto, el flujo de migración de conexión directa tiene dos fases: *migración previa* y *establecimiento de credenciales*.
 
-### <a name="phase-1-bulk-import"></a>Fase 1: Importación en bloque
+### <a name="phase-1-pre-migration"></a>Fase 1: Migración previa
 
 1. La aplicación de migración lee las cuentas de usuario del proveedor de identidades anterior.
 1. La aplicación de migración crea las cuentas de usuario correspondientes en el directorio de Azure AD B2C, pero *no establece las contraseñas*.
 
 ### <a name="phase-2-set-credentials"></a>Fase 2: Establecer credenciales
 
-Una vez completada la migración en bloque de las cuentas, la directiva personalizada y la API de REST realizan lo siguiente cuando un usuario inicia sesión:
+Una vez completada la migración previa de las cuentas, la directiva personalizada y la API de REST realizan lo siguiente cuando un usuario inicia sesión:
 
 1. Leen la cuenta de usuario de Azure AD B2C correspondiente a la dirección de correo electrónico especificada.
 1. Comprueban si la cuenta está marcada para la migración mediante la evaluación de un atributo de extensión booleano.

@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: 0052657c947f8a9ff9c9d6aef86ff16d9a22adae
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: 538db1f2a757dd5216839ac9ac37ad0c06c5e9ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80803490"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84976072"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para desarrolladores de aplicaciones para administrar recursos en Azure Kubernetes Services (AKS)
 
@@ -76,9 +76,7 @@ Para obtener más información acerca de las asignaciones y medidas de recursos,
 
 **Guía de procedimientos recomendados**: los equipos de desarrollo deben realizar la implementación y depuración en un clúster de AKS mediante Dev Spaces. Este modelo de desarrollo se asegura de que se han implementado las necesidades de red, almacenamiento y controles de acceso basado en rol antes de implementar la aplicación en producción.
 
-Con Azure Dev Spaces, desarrolle, depure y pruebe aplicaciones directamente en un clúster de AKS. Los desarrolladores de un equipo colaboran para realizar compilaciones y pruebas a lo largo del ciclo de vida de la aplicación. Puede seguir usando herramientas existentes, como Visual Studio o Visual Studio Code. Se instala una extensión para Dev Spaces que ofrece una opción para ejecutar y depurar la aplicación en un clúster de AKS:
-
-![Depuración de aplicaciones en un clúster de AKS con Dev Spaces](media/developer-best-practices-resource-management/dev-spaces-debug.png)
+Con Azure Dev Spaces, desarrolle, depure y pruebe aplicaciones directamente en un clúster de AKS. Los desarrolladores de un equipo colaboran para realizar compilaciones y pruebas a lo largo del ciclo de vida de la aplicación. Puede seguir usando herramientas existentes, como Visual Studio o Visual Studio Code. Se instala una extensión para Dev Spaces que ofrece una opción para ejecutar y depurar la aplicación en un clúster de AKS.
 
 Este proceso de desarrollo y pruebas integrado con Dev Spaces reduce la necesidad de entornos de prueba locales, como [minikube][minikube]. En su lugar, desarrolle y haga pruebas con un clúster de AKS. Este clúster se puede proteger y aislar como se indicó en la sección anterior sobre el uso de espacios de nombres para aislar un clúster de forma lógica. Cuando las aplicaciones estén listas para implementarse en producción, podrá implementarlas de forma segura, ya que el desarrollo se realizó totalmente en un clúster de AKS real.
 
@@ -119,7 +117,7 @@ Para implementar algunos de estos procedimientos recomendados, consulte los art�
 
 <!-- INTERNAL LINKS -->
 [aks-kubeadvisor]: kube-advisor-tool.md
-[dev-spaces]: ../dev-spaces/get-started-netcore.md
+[dev-spaces]: ../dev-spaces/how-dev-spaces-works-local-process-kubernetes.md
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
 [k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

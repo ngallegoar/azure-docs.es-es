@@ -2,13 +2,13 @@
 title: Estructura y sintaxis de plantillas
 description: Describe la estructura y las propiedades de plantillas de Azure Resource Manager mediante la sintaxis declarativa de JSON.
 ms.topic: conceptual
-ms.date: 04/20/2020
-ms.openlocfilehash: 60d800eb5251fb3454ba60a67bd109261c6ff9d4
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.date: 06/22/2020
+ms.openlocfilehash: ae2c5a5fe1440c3adbae475cd4c7652a3b01c285
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687879"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116546"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager
 
@@ -35,7 +35,7 @@ En la estructura más simple, una plantilla tiene los siguientes elementos:
 
 | Nombre del elemento | Obligatorio | Descripción |
 |:--- |:--- |:--- |
-| $schema |Sí |Ubicación del archivo de esquema JSON que describe la versión del idioma de la plantilla. El número de versión que use dependerá del ámbito de la implementación y del editor de JSON.<br><br>Si usa [Visual Studio Code con la extensión de herramientas de Azure Resource Manager](use-vs-code-to-create-template.md), use la versión más reciente de las implementaciones del grupo de recursos:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Es posible que otros editores (incluido Visual Studio) no puedan procesar este esquema. Para esos editores, use:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Para implementaciones de suscripciones, use:<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>Para implementaciones del grupo de administración, use:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>Para implementaciones de inquilino, use:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
+| $schema |Sí |Ubicación del archivo de esquema JSON que describe la versión del idioma de la plantilla. El número de versión que use dependerá del ámbito de la implementación y del editor de JSON.<br><br>Si usa [Visual Studio Code con la extensión de herramientas de Azure Resource Manager](quickstart-create-templates-use-visual-studio-code.md), use la versión más reciente de las implementaciones del grupo de recursos:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Es posible que otros editores (incluido Visual Studio) no puedan procesar este esquema. Para esos editores, use:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Para implementaciones de suscripciones, use:<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>Para implementaciones del grupo de administración, use:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>Para implementaciones de inquilino, use:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
 | contentVersion |Sí |Versión de la plantilla (por ejemplo, 1.0.0.0). Puede especificar cualquier valor para este elemento. Use este valor para documentar los cambios importantes de la plantilla. Al implementar los recursos con la plantilla, este valor se puede usar para asegurarse de que se está usando la plantilla correcta. |
 | apiProfile |No | Una versión de API que actúa como una colección de versiones de API para los tipos de recursos. Use este valor para evitar tener que especificar las versiones de API para cada recurso de la plantilla. Si especifica una versión del perfil de API y no especifica una versión de API para el tipo de recurso, Resource Manager usa la versión de API para el tipo de recurso que está definido en el perfil.<br><br>La propiedad del perfil de API es especialmente útil al implementar una plantilla en diferentes entornos, como Azure Stack y Azure global. Use la versión del perfil de API para asegurarse de que la plantilla utilice automáticamente las versiones que se admiten en ambos entornos. Para obtener una lista de las versiones del perfil de API actuales y de las versiones de API de recursos definidas en el perfil, consulte [API Profile](https://github.com/Azure/azure-rest-api-specs/tree/master/profile) (Perfil de API).<br><br>Para más información, consulte [Seguimiento de versiones mediante perfiles de API](templates-cloud-consistency.md#track-versions-using-api-profiles). |
 | [parameters](#parameters) |No |Valores que se proporcionan cuando se ejecuta la implementación para personalizar la implementación de recursos. |
@@ -91,7 +91,7 @@ Al especificar valores booleanos y enteros en la plantilla, no incluya el valor 
 
 Los objetos comienzan con una llave de apertura y terminan con una llave de cierre. Las matrices comienzan con un corchete de apertura y terminan con un corchete de cierre.
 
-Las cadenas seguras y los objetos seguros no se pueden leer después de la implementación de recursos.
+Cuando se establece un parámetro en una cadena segura o un objeto seguro, el valor del parámetro no se guarda en el historial de implementaciones y no se registra. Sin embargo, si establece ese valor seguro en una propiedad que no espera un valor seguro, el valor no está protegido. Por ejemplo, si establece una cadena segura en una etiqueta, ese valor se almacena como texto sin formato. Use cadenas seguras para contraseñas y secretos.
 
 Para obtener ejemplos de tipos de datos de formato, consulte [Formatos de tipo de parámetro](parameter-files.md#parameter-type-formats).
 
@@ -282,7 +282,7 @@ En el ejemplo siguiente se muestra la estructura de una definición de salida:
 
 Para ejemplos sobre cómo usar las salidas, consulte [Salidas en una plantilla de Azure Resource Manager](template-outputs.md).
 
-<a id="comments" />
+<a id="comments"></a>
 
 ## <a name="comments-and-metadata"></a>Comentarios y metadatos
 
@@ -290,7 +290,7 @@ Tiene unas cuantas opciones para agregar comentarios y metadatos a la plantilla.
 
 ### <a name="comments"></a>Comentarios
 
-Para los comentarios en línea, puede usar `//` o `/* ... */`, pero esta sintaxis no funciona con todas las herramientas. No puede usar el editor de plantillas del portal para trabajar en plantillas con comentarios insertados. Si agrega este estilo de comentarios, asegúrese de que las herramientas que use admitan los comentarios JSON insertados.
+Para los comentarios en línea, puede usar `//` o `/* ... */`, pero esta sintaxis no funciona con todas las herramientas. Si agrega este estilo de comentarios, asegúrese de que las herramientas que use admitan los comentarios JSON insertados.
 
 > [!NOTE]
 > Para implementar plantillas con comentarios mediante la CLI de Azure con la versión 2.3.0 o posterior, debe usar el modificador `--handle-extended-json-format`.
@@ -307,7 +307,7 @@ Para los comentarios en línea, puede usar `//` o `/* ... */`, pero esta sintaxi
   ],
 ```
 
-En Visual Studio Code, la [extensión de herramientas de Azure Resource Manager](use-vs-code-to-create-template.md#install-resource-manager-tools-extension) puede detectar automáticamente una plantilla de Resource Manager y cambiar el modo de lenguaje en consecuencia. Si ve **Plantilla de Azure Resource Manager** en la esquina inferior derecha de VS Code, puede usar los comentarios en línea. Los comentarios insertados ya no están marcados como no válidos.
+En Visual Studio Code, la [extensión de herramientas de Azure Resource Manager](quickstart-create-templates-use-visual-studio-code.md) puede detectar automáticamente una plantilla de Resource Manager y cambiar el modo de lenguaje en consecuencia. Si ve **Plantilla de Azure Resource Manager** en la esquina inferior derecha de VS Code, puede usar los comentarios en línea. Los comentarios insertados ya no están marcados como no válidos.
 
 ![Modo de plantillas de Azure Resource Manager en Visual Studio Code](./media/template-syntax/resource-manager-template-editor-mode.png)
 
@@ -412,4 +412,4 @@ Para implementar plantillas con cadenas de varias líneas mediante la CLI de Azu
 * Para obtener información detallada sobre las funciones que se pueden usar dentro de una plantilla, consulte [Funciones de plantilla de Azure Resource Manager](template-functions.md).
 * Para combinar varias plantillas durante la implementación, consulte [Uso de plantillas vinculadas con Azure Resource Manager](linked-templates.md).
 * Para más recomendaciones sobre creación de platillas, consulte [Azure Resource Manager template best practices](template-best-practices.md) (Procedimientos recomendados para plantillas de Azure Resource Manager).
-* Para recomendaciones sobre cómo crear plantillas de Resource Manager que puede usar en todos los entornos de Azure y Azure Stack, consulte [Desarrollo de plantillas de Azure Resource Manager para mantener la coherencia en la nube](templates-cloud-consistency.md).
+* Para obtener respuestas a preguntas comunes, consulte [Preguntas más frecuentes sobre las plantillas de ARM](frequently-asked-questions.md).

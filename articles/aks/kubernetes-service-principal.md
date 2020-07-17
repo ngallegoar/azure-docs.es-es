@@ -3,13 +3,13 @@ title: Entidades de servicio para Azure Kubernetes Service (AKS)
 description: Cree y administre una entidad de servicio de Azure Active Directory para un clúster en Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: conceptual
-ms.date: 04/02/2020
-ms.openlocfilehash: 2c792eb4dc060e3f5d7fa2d8f2176bdd51538c43
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.date: 06/16/2020
+ms.openlocfilehash: 7f62c7dc7aacf9be4a59498aa5c556e9991ad578
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392737"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298555"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entidades de servicio con Azure Kubernetes Service (AKS)
 
@@ -87,7 +87,10 @@ Para delegar permisos, cree una asignación de roles mediante el comando [az rol
 az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
 ```
 
-El elemento `--scope` de un recurso debe ser un identificador de recurso completo, como */subscriptions/\<guid\>/resourceGroups/myResourceGroup* o */subscriptions/\<guid \>/resourceGroups/myResourceGroupVnet/providers/Microsoft.Network/virtualNetworks/myVnet*
+El elemento `--scope` de un recurso debe ser un identificador de recurso completo, como */subscriptions/\<guid\>/resourceGroups/myResourceGroup* o */subscriptions/\<guid\>/resourceGroups/myResourceGroupVnet/providers/Microsoft.Network/virtualNetworks/myVnet*
+
+> [!NOTE]
+> Si ha quitado la asignación del rol Colaborador del grupo de recursos del nodo, se pueden producir errores en las siguientes operaciones.  
 
 Las secciones siguientes detallan las delegaciones comunes que es posible que deba realizar.
 
@@ -106,6 +109,9 @@ Puede usar redes avanzadas en las que la red virtual y la subred o las direccion
   - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft.Network/publicIPAddresses/read*
   - *Microsoft.Network/publicIPAddresses/write*
+  - Si usa [tablas de rutas personalizadas en clústeres de Kubenet](configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet), agregue estos otros permisos:
+    - *Microsoft.Network/routeTables/write*
+    - *Microsoft.Network/routeTables/read*
 - O bien, asigne el rol integrado [Colaborador de la red][rbac-network-contributor] en la subred dentro de la red virtual.
 
 ### <a name="storage"></a>Storage

@@ -1,10 +1,10 @@
 ---
 title: Restauración de una base de datos desde una copia de seguridad
 titleSuffix: Azure SQL Database & SQL Managed Instance
-description: Información acerca de la restauración a un momento dado, que le permite revertir una base de datos de Azure SQL Database o Instancia administrada de Azure SQL hasta 35 días.
+description: Información acerca de la restauración a un momento dado, que le permite revertir una base de datos de Azure SQL Database o una instancia de Instancia administrada de Azure SQL hasta 35 días.
 services: sql-database
-ms.service: sql-database
-ms.subservice: operations
+ms.service: sql-db-mi
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: 45981322eed2828bc2beb12a8cf16b29fba7b918
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e12d5d7e9cfc6cfa80de1032e3d4d5659c44c0a7
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84033286"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86075916"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Recuperación de una base de datos de Azure SQL Database o Instancia administrada de Azure SQL mediante copias de seguridad automatizadas
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -47,24 +47,26 @@ El tiempo de recuperación para restaurar una base de datos mediante copias de s
 - El ancho de banda de red si la restauración se realiza en una región diferente
 - El número de solicitudes de restauración simultáneas que se están procesando en la región de destino.
 
-En bases de datos grandes o muy activas, la restauración puede tardar varias horas. Si se produce una interrupción prolongada en una región, es posible que se inicie un elevado número de solicitudes de restauración geográfica para la recuperación ante desastres. Si hay muchas solicitudes, el tiempo de recuperación de las bases de datos individuales puede aumentar. La mayoría de las restauraciones de bases de datos dura menos de 12 horas.
+En bases de datos grandes o muy activas, la restauración puede tardar varias horas. Si se produce una interrupción prolongada en una región, es posible que se inicie un elevado número de solicitudes de restauración geográfica para la recuperación ante desastres. Si hay muchas solicitudes, el tiempo de recuperación de las bases de datos individuales puede aumentar. La mayoría de las restauraciones de bases de datos se completan en menos de 12 horas.
 
 Para una única suscripción, existen limitaciones en el número de solicitudes simultáneas de restauración. Estas limitaciones se aplican a cualquier combinación de restauraciones a un momento dado, restauraciones geográficas y restauraciones a partir de copias de seguridad de retención a largo plazo.
 
-| | **Número máximo de solicitudes simultáneas que se van a procesar** | **Número máximo de solicitudes simultáneas que se van a enviar** |
+|| **Número máximo de solicitudes simultáneas que se van a procesar** | **Número máximo de solicitudes simultáneas que se van a enviar** |
 | :--- | --: | --: |
-|Base de datos única (por suscripción)|10|60|
-|Grupo elástico (por grupo)|4|200|
-||||
+|**Base de datos única (por suscripción)**|10|60|
+|**Grupo elástico (por grupo)**|4|200|
+
 
 No hay ningún método integrado para restaurar todo el servidor. Para obtener un ejemplo de cómo realizar esta tarea, consulte [Azure SQL Database: Recuperación completa del servidor](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666).
 
 > [!IMPORTANT]
-> Para poder efectuar una recuperación con copias de seguridad automatizadas, tiene que ser miembro del rol de colaborador de SQL Server o de Instancia administrada de SQL (en función del destino de recuperación) en la suscripción, o ser el propietario de la suscripción. Para más información, vea [RBAC: roles integrados](../../role-based-access-control/built-in-roles.md). Las recuperaciones se pueden realizar a través de Azure Portal, PowerShell o la API REST. No se puede utilizar Transact-SQL.
+> Para poder efectuar una recuperación con copias de seguridad automatizadas, tiene que ser miembro del rol de colaborador de SQL Server o de Instancia administrada de SQL (en función del destino de recuperación) en la suscripción, o debe ser el propietario de la suscripción. Para más información, vea [RBAC: roles integrados](../../role-based-access-control/built-in-roles.md). Las recuperaciones se pueden realizar a través de Azure Portal, PowerShell o la API REST. No se puede utilizar Transact-SQL.
 
 ## <a name="point-in-time-restore"></a>Restauración a un momento dado
 
-Puede restaurar una base de datos independiente, agrupada o de instancia a un momento dado anterior mediante Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) o la [API REST](https://docs.microsoft.com/rest/api/sql/databases). La solicitud puede especificar cualquier nivel de servicio o calcular el tamaño de la base de datos restaurada. Asegúrese de que tiene suficientes recursos en el servidor en el que se va a restaurar la base de datos. Una vez completada, la restauración creará una nueva base de datos en el mismo servidor que la base de datos original. La base de datos restaurada se cobra según la tarifa normal en función de su nivel de servicio y tamaño de proceso. No se aplican cargos hasta que finaliza la restauración de la base de datos.
+Puede restaurar una base de datos independiente, agrupada o de instancia a un momento dado anterior mediante Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) o la [API REST](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#creates-a-database-from-pointintimerestore.). La solicitud puede especificar cualquier nivel de servicio o calcular el tamaño de la base de datos restaurada. Asegúrese de que tiene suficientes recursos en el servidor en el que se va a restaurar la base de datos. 
+
+Una vez completada, la restauración creará una nueva base de datos en el mismo servidor que la base de datos original. La base de datos restaurada se cobra según la tarifa normal en función de su nivel de servicio y tamaño de proceso. No se aplican cargos hasta que finaliza la restauración de la base de datos.
 
 Por lo general, una base de datos se restaura a un punto anterior para fines de recuperación. Puede tratar la base de datos restaurada como sustituta de la base de datos original o usarla como origen de datos para actualizar la base de datos original.
 
@@ -82,7 +84,7 @@ Puede recuperar una base de datos única o una base de datos de instancia a un m
 
 #### <a name="sql-database"></a>SQL Database
 
-Para recuperar una base de datos única o agrupada a un momento dado mediante Azure Portal, abra la página de información general de la base de datos y seleccione **Restaurar** en la barra de herramientas. Elija el origen de la copia de seguridad y seleccione el punto de copia de seguridad a un momento dado a partir del cual se creará una nueva base de datos.
+Para recuperar una base de datos en un momento dado mediante Azure Portal, abra la página de información general de la base de datos y seleccione **Restaurar** en la barra de herramientas. Elija el origen de la copia de seguridad y seleccione el punto de copia de seguridad a un momento dado a partir del cual se creará una nueva base de datos.
 
   ![Captura de pantalla de opciones de restauración de base de datos](./media/recovery-using-backups/pitr-backup-sql-database-annotated.png)
 
@@ -108,7 +110,7 @@ La restauración de bases de datos eliminadas de Azure Portal se realiza desde e
 
 #### <a name="sql-database"></a>SQL Database
 
-Para recuperar una base de datos eliminada, única o agrupada, al momento de eliminación con Azure Portal, abra la página de información general del servidor y seleccione **Bases de datos eliminadas**. Seleccione la base de datos eliminada que desea restaurar y escriba el nombre de la nueva base de datos que se creará con los datos restaurados desde la copia de seguridad.
+Para recuperar una base de datos eliminada al momento de eliminación con Azure Portal, abra la página de información general del servidor y seleccione **Bases de datos eliminadas**. Seleccione la base de datos eliminada que desea restaurar y escriba el nombre de la nueva base de datos que se creará con los datos restaurados desde la copia de seguridad.
 
   ![Captura de pantalla de restaurar base de datos eliminada](./media/recovery-using-backups/restore-deleted-sql-database-annotated.png)
 
@@ -116,7 +118,7 @@ Para recuperar una base de datos eliminada, única o agrupada, al momento de eli
 
 Para recuperar una base de datos administrada mediante Azure Portal, abra la página información general de instancia administrada y seleccione bases de datos **eliminadas**. Seleccione la base de datos eliminada que desea restaurar y escriba el nombre de la nueva base de datos que se creará con los datos restaurados desde la copia de seguridad.
 
-  ![Captura de pantalla de restaurar base de datos de instancia de Azure SQL eliminada](./media/recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
+  ![Captura de pantalla de restauración de base de datos de Instancia administrada de Azure SQL eliminada](./media/recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
 
 ### <a name="deleted-database-restore-by-using-powershell"></a>Restauración de bases de datos eliminadas mediante PowerShell
 
@@ -124,7 +126,7 @@ Use los siguientes scripts de ejemplo para restaurar una base de datos eliminada
 
 #### <a name="sql-database"></a>SQL Database
 
-Para obtener un script de PowerShell de ejemplo que muestre cómo realizar una restauración de una base de datos eliminada, consulte [Restauración de una instancia de SQL Database con PowerShell](scripts/restore-database-powershell.md).
+Para obtener un script de PowerShell de ejemplo que muestre cómo realizar una restauración de una base de datos eliminada, consulte [Restauración de una base de datos con PowerShell](scripts/restore-database-powershell.md).
 
 #### <a name="sql-managed-instance"></a>Instancia administrada de SQL
 
@@ -143,11 +145,11 @@ La función de restauración geográfica proporciona la opción de recuperación
 
 ### <a name="geo-restore-by-using-the-azure-portal"></a>Restauración geográfica mediante Azure Portal
 
-En Azure Portal cree una nueva base de datos de instancia única o administrada, y seleccione una copia de seguridad de restauración geográfica que esté disponible. La base de datos recién creada contiene los datos de la copia de seguridad de la restauración geográfica.
+En Azure Portal, cree una nueva base de datos de instancia única o administrada y seleccione una copia de seguridad de restauración geográfica que esté disponible. La base de datos recién creada contiene los datos de la copia de seguridad de la restauración geográfica.
 
 #### <a name="sql-database"></a>SQL Database
 
-Para realizar una restauración geográfica de una base de datos única de SQL a partir de Azure Portal en la región y el servidor de su elección, siga estos pasos:
+Para realizar una restauración geográfica de una base de datos única a partir de Azure Portal en la región y el servidor de su elección, siga estos pasos:
 
 1. En **Panel**, seleccione **Agregar** > **Crear base de datos SQL**. En la pestaña **Aspectos básicos**, escriba la información necesaria.
 2. Seleccione **Configuración adicional**.
@@ -175,7 +177,7 @@ Complete el proceso de creación de una nueva base de datos. Cuando cree la base
 
 #### <a name="sql-database"></a>SQL Database
 
-Para ver un script de PowerShell que indica cómo realizar la restauración geográfica de una base de datos única de Azure SQL, consulte [Uso de PowerShell para restaurar una base de datos única de Azure SQL a un momento anterior](scripts/restore-database-powershell.md).
+Para ver un script de PowerShell que indica cómo realizar la restauración geográfica de una base de datos única, consulte [Uso de PowerShell para restaurar una base de datos única a un momento anterior](scripts/restore-database-powershell.md).
 
 #### <a name="sql-managed-instance"></a>Instancia administrada de SQL
 
@@ -186,9 +188,13 @@ Para ver un script de PowerShell que indica cómo realizar la restauración geog
 No se puede realizar una restauración a un momento dado en una base de datos de replicación geográfica secundaria. Solo puede hacerlo en una base de datos principal. Para obtener información detallada sobre cómo usar la restauración geográfica a fin de recuperarse de una interrupción, consulte [Restauración de una base de datos SQL de Azure o una conmutación por error en una secundaria](../../key-vault/general/disaster-recovery-guidance.md).
 
 > [!IMPORTANT]
-> La restauración geográfica es la solución de recuperación ante desastres más básica que hay disponible en SQL Database e Instancia administrada de SQL. Depende de copias de seguridad con replicación geográfica creadas automáticamente con el objetivo de punto de recuperación (RPO) igual a 1 hora y el tiempo de recuperación estimado de hasta 12 horas. No garantiza que la región de destino tenga la capacidad de restaurar las bases de datos después de una interrupción regional porque es probable que se produzca un fuerte aumento de la demanda. Si la aplicación usa bases de datos relativamente pequeñas y no es de importancia crítica para la empresa, la restauración geográfica es una solución de recuperación ante desastres adecuada. En el caso de las aplicaciones críticas para la empresa que necesitan bases de datos grandes y deben garantizar la continuidad empresarial, use [Grupos de conmutación por error automática](auto-failover-group-overview.md). Ofrecen un RPO y un objetivo de tiempo de recuperación mucho menor, y la capacidad siempre está garantizada. Para más información sobre las opciones de continuidad empresarial, vea [Introducción a la continuidad empresarial](business-continuity-high-availability-disaster-recover-hadr-overview.md).
+> La restauración geográfica es la solución de recuperación ante desastres más básica disponible en SQL Database e Instancia administrada de SQL. Depende de copias de seguridad con replicación geográfica creadas automáticamente con el objetivo de punto de recuperación (RPO) igual a 1 hora y un tiempo de recuperación estimado de hasta 12 horas. No garantiza que la región de destino tenga la capacidad de restaurar las bases de datos después de una interrupción regional porque es probable que se produzca un fuerte aumento de la demanda. Si la aplicación usa bases de datos relativamente pequeñas y no es de importancia crítica para la empresa, la restauración geográfica es una solución de recuperación ante desastres adecuada. 
+>
+> En el caso de las aplicaciones críticas para la empresa que necesitan bases de datos grandes y deben garantizar la continuidad empresarial, use [Grupos de conmutación por error automática](auto-failover-group-overview.md). Ofrecen un RPO y un objetivo de tiempo de recuperación mucho menor, y la capacidad siempre está garantizada. 
+>
+> Para más información sobre las opciones de continuidad empresarial, vea [Introducción a la continuidad empresarial](business-continuity-high-availability-disaster-recover-hadr-overview.md).
 
-## <a name="programmatically-performing-recovery-by-using-automated-backups"></a>Recuperación mediante programación con copias de seguridad automatizadas
+## <a name="programmatic-recovery-using-automated-backups"></a>Recuperación mediante programación con copias de seguridad automatizadas
 
 También puede usar Azure PowerShell o la API REST para la recuperación. En las tablas siguientes se describe el conjunto de comandos disponibles.
 
@@ -196,7 +202,7 @@ También puede usar Azure PowerShell o la API REST para la recuperación. En las
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> El módulo de Azure Resource Manager para PowerShell todavía es compatible con SQL Database e Instancia administrada de Azure SQL, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo Az y en los módulos AzureRm son en gran medida idénticos.
+> El módulo de Azure Resource Manager para PowerShell todavía es compatible con SQL Database e Instancia administrada de Azure SQL, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo Az y en los módulos de Azure Resource Manager son en gran medida idénticos.
 
 #### <a name="sql-database"></a>SQL Database
 
@@ -207,10 +213,10 @@ Para restaurar una base de datos independiente o agrupada, vea [Restore-AzSqlDat
   | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) |Obtiene una o más bases de datos. |
   | [Get-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | Obtiene una base de datos eliminada que se puede restaurar. |
   | [Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup) |Obtiene una copia de seguridad con redundancia geográfica de una base de datos. |
-  | [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) |Restaura una Base de datos SQL. |
+  | [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) |Restaura una base de datos. |
 
   > [!TIP]
-  > Para obtener un script de PowerShell de ejemplo que muestre cómo realizar una restauración de una base de datos a un momento dado, consulte [Restauración de una base de datos de SQL con PowerShell](scripts/restore-database-powershell.md).
+  > Para obtener un script de PowerShell de ejemplo que muestre cómo realizar una restauración de una base de datos a un momento dado, consulte [Restauración de una base de datos con PowerShell](scripts/restore-database-powershell.md).
 
 #### <a name="sql-managed-instance"></a>Instancia administrada de SQL
 
@@ -224,7 +230,7 @@ Para restaurar una base de datos de instancia administrada, consulte [Restore-Az
 
 ### <a name="rest-api"></a>API DE REST
 
-Para restaurar una base de datos única o agrupada mediante la API REST:
+Restaurar una base de datos mediante API de REST:
 
 | API | Descripción |
 | --- | --- |
@@ -235,7 +241,7 @@ Para restaurar una base de datos única o agrupada mediante la API REST:
 
 #### <a name="sql-database"></a>SQL Database
 
-Para restaurar una base de datos única o agrupada mediante la CLI de Azure, consulte la referencia sobre el comando [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
+Para restaurar una base de datos mediante la CLI de Azure, consulte la referencia sobre el comando [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
 
 #### <a name="sql-managed-instance"></a>Instancia administrada de SQL
 

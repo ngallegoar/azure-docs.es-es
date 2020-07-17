@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 035894c80e619851264aae91daa2d7852d156964
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: d89320807c6322120490db85100453edf593aded
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81408542"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045542"
 ---
 # <a name="security-control-data-protection"></a>Control de seguridad: Protección de datos
 
@@ -34,7 +34,7 @@ Use etiquetas para ayudar a realizar el seguimiento de los recursos de Azure que
 |--|--|--|
 | 4,2 | 13.2, 2.10 | Customer |
 
-Implemente el aislamiento mediante suscripciones independientes y grupos de administración para dominios de seguridad individuales, como el tipo de entorno y el nivel de confidencialidad de los datos. Puede restringir el nivel de acceso a los recursos de Azure que necesitan sus aplicaciones y entornos empresariales. Puede controlar el acceso a los recursos de Azure a través de Azure Active Directory el control de acceso basado en rol. 
+Implemente el aislamiento mediante suscripciones independientes y grupos de administración para dominios de seguridad individuales, como el tipo de entorno y el nivel de confidencialidad de los datos. Puede restringir el nivel de acceso a los recursos de Azure que necesitan sus aplicaciones y entornos empresariales. Puede controlar el acceso a los recursos de Azure mediante el control de acceso basado en rol de Azure (Azure RBAC). 
 
 - [Creación de suscripciones adicionales de Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
@@ -76,7 +76,7 @@ Si no hay ninguna característica disponible para el servicio específico en Azu
 
 Use Azure Information Protection para identificar información confidencial en documentos de Office 365.
 
-Use Azure SQL Information Protection para ayudar en la clasificación y el etiquetado de la información almacenada en las instancias de Azure SQL Database.
+Use Information Protection de Azure SQL para ayudar en la clasificación y el etiquetado de la información almacenada en las instancias de Azure SQL Database.
 
 - [Implementación de la detección de datos de Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification)
 

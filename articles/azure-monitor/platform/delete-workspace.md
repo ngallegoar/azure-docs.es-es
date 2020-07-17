@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 3784eda2db5f375f04cdde84108a78ae277baf60
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: c93ba19cc70aa6b5df054dcc2e7e06885b02d661
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860671"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367961"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Eliminación y recuperación de un área de trabajo de Azure Log Analytics
 
@@ -24,7 +24,7 @@ Al eliminar un área de trabajo de Log Analytics, se realiza una operación de 
 > [!NOTE]
 > Si desea invalidar el comportamiento de eliminación temporal y eliminar el área de trabajo de forma permanente, siga los pasos descritos en [Eliminación permanente del área de trabajo](#permanent-workspace-delete).
 
-Debe tener cuidado al eliminar un área de trabajo porque puede haber datos importantes y una configuración que puede afectar negativamente a las operaciones de servicio. Revise qué agentes, soluciones y otros servicios y orígenes de Azure almacenan sus datos en Log Analytics. Por ejemplo:
+Debe tener cuidado al eliminar un área de trabajo porque puede haber datos importantes y una configuración que puede afectar negativamente a las operaciones de servicio. Revise qué agentes, soluciones y otros servicios de Azure almacenan sus datos en Log Analytics. Por ejemplo:
 
 * Soluciones de administración
 * Azure Automation
@@ -64,21 +64,11 @@ Es posible que el método de eliminación temporal no encaje en algunos escenari
 > [!IMPORTANT]
 > Use la operación de eliminación permanente de áreas de trabajo con precaución porque es irreversible y no podrá recuperar el área de trabajo ni sus datos.
 
-Para eliminar el área de trabajo de forma permanente, use la solicitud REST [Áreas de trabajo: eliminar](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) con una etiqueta de forzado:
+Agregue "-force" para eliminar permanentemente el área de trabajo:
 
-```rst
-DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview&force=true
-Authorization: Bearer <token>
+```powershell
+PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -Force
 ```
-
-Como alternativa, puede ejecutar la operación desde el sitio de documentación de REST de Azure:
-1.  Vaya a la API de REST [Áreas de trabajo: eliminar](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) y haga clic en **Probar**. 
-2.  Escriba los detalles del área de trabajo que desea eliminar permanentemente
-3.  Finalice un parámetro nuevo *force* con valor *true*
-4.  Haga clic en el icono "+" situado a la derecha del valor. Esto agregará *force = true* al URI de la solicitud
-5.  Haga clic en el botón *Ejecutar*
-
-La respuesta debe ser 200 OK
 
 ## <a name="recover-workspace"></a>Recuperación de áreas de trabajo
 Al eliminar un área de trabajo de Log Analytics accidental o intencionadamente, el servicio coloca el área de trabajo en un estado de eliminación temporal, lo que hace que sea inaccesible para cualquier operación. El nombre del área de trabajo eliminada se conserva durante el periodo de eliminación temporal y no se puede para crear un área de trabajo nueva. Después del período de eliminación temporal, el área de trabajo no es recuperable, está programada para su eliminación permanente y su nombre se ha liberado y se puede usar para crear una nueva área de trabajo.
@@ -114,11 +104,14 @@ El área de trabajo y todos sus datos se restauran después de la operación de 
 > [!NOTE]
 > * Al volver a crear un área de trabajo durante el período de eliminación temporal, se indica que este nombre de área de trabajo ya está en uso. 
  
-### <a name="troubleshooting"></a>Solución de problemas
-Debe tener al menos permisos de *Colaborador de Log Analytics* para eliminar un área de trabajo.<br>
-Si recibe el mensaje de error *El nombre del área de trabajo ya está en uso* o se produce un *conflicto* al crear un área de trabajo, puede deberse a:
-* el nombre del área de trabajo no está disponible y lo está usando alguien de su organización u otro cliente.
-* El área de trabajo se ha eliminado en los últimos 14 días y su nombre se mantiene reservado durante el período de eliminación temporal. Para invalidar la eliminación temporal y eliminar inmediatamente el área de trabajo y crear una con el mismo nombre, siga estos pasos para recuperar el área de trabajo primero y realizar una eliminación permanente:<br>
-   1. [Recuperar](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) el área de trabajo.
-   2. [Eliminar permanentemente](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) el área de trabajo.
-   3. Crear una nueva área de trabajo con el mismo nombre.
+## <a name="troubleshooting"></a>Solución de problemas
+
+Debe tener al menos permisos de *Colaborador de Log Analytics* para eliminar un área de trabajo.
+
+* Si no está seguro de si el área de trabajo eliminada está en estado de eliminación temporal y se puede recuperar, haga clic en [Recuperar](#recover-workspace) en la página *Áreas de trabajo de Log Analytics* para ver una lista de áreas de trabajo eliminadas temporalmente por suscripción. Las áreas de trabajo eliminadas permanentemente no se incluyen en la lista.
+* Si recibe el mensaje de error *El nombre del área de trabajo ya está en uso* o se produce un *conflicto* al crear un área de trabajo, puede deberse a:
+  * el nombre del área de trabajo no está disponible y lo está usando alguien de su organización u otro cliente.
+  * El área de trabajo se ha eliminado en los últimos 14 días y su nombre se mantiene reservado durante el período de eliminación temporal. Para invalidar la eliminación temporal y eliminar inmediatamente el área de trabajo y crear una con el mismo nombre, siga estos pasos para recuperar el área de trabajo primero y realizar una eliminación permanente:<br>
+     1. [Recuperar](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) el área de trabajo.
+     2. [Eliminar permanentemente](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) el área de trabajo.
+     3. Crear una nueva área de trabajo con el mismo nombre.

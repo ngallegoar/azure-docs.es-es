@@ -1,35 +1,57 @@
 ---
 title: API de suministro de SaaS en el marketplace comercial de Microsoft
 description: Introducción a las API de suministro que le permiten integrar su ofertas de SaaS en Microsoft AppSource y Azure Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.author: dsindona
-ms.openlocfilehash: ba1b158bc529b148a8e3138d122c13ead19e073e
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 05/18/2020
+ms.openlocfilehash: 218a0624f7e4adc1aa188dbd62db217bf79202f8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858091"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109304"
 ---
 # <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>API de suministro de SaaS en el marketplace comercial de Microsoft
 
-Las API de suministro de SaaS permiten que fabricantes de software independientes (ISV) integren sus aplicaciones SaaS con Microsoft AppSource y Azure Marketplace. Estas API permiten a las aplicaciones de ISV participar en todos los canales de comercio: directo, dirigidos por asociados (revendedor) y sobre el terreno. Son necesarios para mostrar las ofertas de SaaS comercializables en Microsoft AppSource y Azure Marketplace.
+Las API de suministro de SaaS permiten que fabricantes de software independientes (ISV) publiquen y vendan sus aplicaciones SaaS con Microsoft AppSource, Azure Marketplace y Azure Portal. Estas API permiten a las aplicaciones de ISV participar en todos los canales de comercio: directo, dirigidos por asociados (revendedor) y sobre el terreno.  La integración con estas API es un requisito para crear y publicar una oferta de SaaS que permite transacciones en el Centro de partners.
 
-> [!WARNING]
-> La versión actual de esta API es la versión 2, que se debe usar para todas las nuevas ofertas de SaaS.  La versión 1 de la API está en desuso y se mantiene para proporcionar soporte a las ofertas existentes.
+Los ISV deben implementar los siguientes flujos de API agregando a su código de servicio SaaS para mantener el mismo estado de suscripción para ISV y Microsoft:
 
-## <a name="business-model-support"></a>Compatibilidad con el modelo de negocio
+* Flujo de la página de aterrizaje:  Microsoft notifica al anunciante que un cliente de Marketplace ha adquirido la oferta de SaaS del publicador.
+* Flujo de activación:  El publicador notifica a Microsoft que se ha configurado una cuenta de SaaS recién adquirida en el lado del publicador.
+* Flujo de actualización: Cambio del plan adquirido y/o el número de puestos comprados.
+* Flujo de suspensión y restablecimiento: Suspender la oferta de SaaS adquirida en caso de que el método de pago del cliente ya no sea válido. La oferta suspendida se puede restablecer cuando se resuelve el problema con el método de pago.
+* Flujos de webhook: Microsoft enviará una notificación al anunciante sobre los cambios de suscripción de SaaS y la cancelación desencadenada por el cliente del lado de Microsoft.
 
-Esta API admite las siguientes capacidades del modelo de negocio; puede:
+Para la cancelación de la suscripción de SaaS adquirida, la integración es opcional porque la puede realizar el cliente del lado de Microsoft.
 
-* Especificar varios planes para una oferta. Estos planes tienen funcionalidades diferentes y es posible que precios diferentes.
-* Proporcionar una oferta por cada modelo de facturación de usuario o sitio.
-* Proporcionar opciones de facturación mensuales y anuales (pagadas por adelantado).
-* Proporcionar precios privados para un cliente en función de un acuerdo empresarial negociado.
+La integración correcta con las API de cumplimiento de SaaS es fundamental para asegurarse de que
 
+* Microsoft factura correctamente a los clientes finales que compraron la oferta de SaaS del anunciante.
+* los clientes finales obtienen la experiencia de usuario correcta para comprar, configurar, usar y administrar las suscripciones de SaaS adquiridas en Marketplace.
+
+Estas API permiten a las ofertas del publicador participar en todos los canales habilitados para comercio:
+
+* direct
+* dirigido por asociados (revendedor, CSP)
+* LED de campo
+
+En el escenario de revendedor (CSP), un proveedor de servicios de cifrado adquiere la oferta de SaaS en nombre del cliente final. Se espera que un cliente use la oferta de SaaS, pero el CSP es la entidad que hace lo siguiente:
+
+* facturación del cliente
+* cambio de los planes de suscripción/cantidad de puestos comprados
+* cancelar suscripciones
+
+No es necesario que el publicador implemente ninguno de los flujos de llamada de API de forma diferente para este escenario.
+
+Para obtener más información acerca de CSP, consulte https://partner.microsoft.com/en-us/licensing.
+
+>[!Warning]
+>La versión actual de esta API es la versión 2, que se debe usar para todas las nuevas ofertas de SaaS. La versión 1 de la API está en desuso y se mantiene para proporcionar soporte a las ofertas existentes.
+
+>[!Note]
+>Las API de cumplimiento de SaaS solo están pensadas para ser llamadas desde un servicio back-end del publicador. No se admite la integración con las API directamente desde la página web del publicador. Solo se debe usar el flujo de autenticación de servicio a servicio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 5bdb77d27b01f576ca06aa5b6d3df0572b3b1ea6
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 0197bb81fdba8bab20742d95aebaa2028bb90c18
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307303"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027688"
 ---
 # <a name="set-up-web-endpoints"></a>Configuración de puntos de conexión web
 
-En este artículo, aprenderá a configurar los puntos de conexión web en una aplicación de Comandos personalizados que le permitirá realizar solicitudes HTTP desde una aplicación cliente. Debe realizar las siguientes tareas:
+En este artículo, aprenderá a configurar los puntos de conexión web en una aplicación de Comandos personalizados que le permitirá realizar solicitudes HTTP desde una aplicación cliente. Deberá completar las siguientes tareas:
 
 - Configurar los puntos de conexión web en la aplicación de Comandos personalizados.
 - Llamar a puntos de conexión web en la aplicación de Comandos personalizados.
@@ -46,11 +46,12 @@ En este artículo, aprenderá a configurar los puntos de conexión web en una ap
    | Nombre | UpdateDeviceState | Nombre del punto de conexión web. |
    | URL | https://webendpointexample.azurewebsites.net/api/DeviceState | Dirección URL del punto de conexión con el que quiere que se comunique la aplicación de comandos personalizados. |
    | Método | POST | Interacciones permitidas (como GET, POST) con el punto de conexión.|
-   | encabezados | Clave: app; valor: un nombre único para la aplicación. | Parámetros de encabezado que se incluirán en el encabezado de solicitud.|
+   | encabezados | Clave: app. Valor: tomar los primeros 8 dígitos de applicationId | Parámetros de encabezado que se incluirán en el encabezado de solicitud.|
 
     > [!NOTE]
     > - El punto de conexión web de ejemplo que se creó con [Azure Functions](https://docs.microsoft.com/azure/azure-functions/), que establece un enlace con la base de datos que guarda el estado del dispositivo tanto del televisor como del ventilador.
     > - El encabezado sugerido solo es necesario para el punto de conexión de ejemplo.
+    > - Para asegurarnos de que el valor del encabezado es único en nuestro punto de conexión de ejemplo, tome los primeros 8 dígitos de applicationId.
     > - En realidad, el punto de conexión web puede ser el punto de conexión a la instancia de [IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) que administra los dispositivos.
 
 1. Haga clic en **Save**(Guardar).
@@ -74,9 +75,11 @@ En este artículo, aprenderá a configurar los puntos de conexión web en una ap
     > - Los parámetros de consulta sugeridos solo son necesarios para el punto de conexión de ejemplo.
 
 1. Desde **En caso de éxito: acción para ejecutar**, seleccione **Send speech response** (enviar respuesta de voz).
+    
+    En **Simple editor** (Editor sencillo), escriba `{SubjectDevice} is {OnOff}`.
    
    > [!div class="mx-imgBorder"]
-   > ![En caso de éxito de la acción para llamar a puntos de conexión web](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
+   > ![En caso de error de la acción para llamar a puntos de conexión web](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
    | Configuración | Valor sugerido | Descripción |
    | ------- | --------------- | ----------- |
@@ -86,6 +89,9 @@ En este artículo, aprenderá a configurar los puntos de conexión web en una ap
    > - También puede acceder directamente a los campos de la respuesta HTTP mediante `{YourWebEndpointName.FieldName}`. Por ejemplo: `{UpdateDeviceState.TV}`
 
 1. Desde **En caso de error: acción para ejecutar**, seleccione **Send speech response** (enviar respuesta de voz).
+
+    En **Simple editor** (Editor sencillo), escriba `Sorry, {WebEndpointErrorMessage}`.
+
    > [!div class="mx-imgBorder"]
    > ![En caso de error de la acción para llamar a puntos de conexión web](media/custom-commands/setup-web-endpoint-edit-action-on-fail.png)
 

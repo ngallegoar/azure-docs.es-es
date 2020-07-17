@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
-ms.openlocfilehash: 99e04c95156e40eed8c2b9aa88a2bee6f39e90c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3106e5a640ed66828558078e6986979ad7195450
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392891"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386222"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Supervisión de Azure AD B2C con Azure Monitor
 
@@ -25,12 +25,12 @@ Use Azure Monitor para enrutar los registros de inicio de sesión y [auditoría]
 Puede enrutar los eventos de registro a:
 
 * Una [cuenta de Azure Storage](../storage/blobs/storage-blobs-introduction.md).
-* Un [centro de eventos](../event-hubs/event-hubs-about.md) de Azure (e integrarlo en sus instancias de Splunk y Sumo Logic).
 * Un [área de trabajo de Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) (para analizar los datos, crear paneles y alertar sobre eventos específicos).
+* Un [centro de eventos](../event-hubs/event-hubs-about.md) de Azure (e integrarlo en sus instancias de Splunk y Sumo Logic).
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar los pasos de este artículo, implementará una plantilla de Azure Resource Manager con el módulo Azure PowerShell.
 
@@ -89,7 +89,7 @@ Descargue la plantilla de Azure Resource Manager y los archivos de parámetros:
 
 A continuación, actualice el archivo de parámetros con los valores que registró anteriormente. En el siguiente fragmento de código JSON se muestra un ejemplo de archivo de parámetros de una plantilla de Azure Resource Manager. Para `authorizations.value.roleDefinitionId`, use el valor [rol integrado](../role-based-access-control/built-in-roles.md) para el *rol Colaborador*, `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
-```JSON
+```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",

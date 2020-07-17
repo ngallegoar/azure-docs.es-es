@@ -3,12 +3,12 @@ title: Novedades de Azure Site Recovery
 description: Proporciona un resumen de las nuevas características y las actualizaciones más recientes en el servicio Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: e0015aa9de51e3cb43473a079d09698fcbeef9a0
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: f774dbd3172199e82509301f520eac4e25deb15b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259225"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131083"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novedades de Site Recovery
 
@@ -22,6 +22,7 @@ En el caso de los componentes de Site Recovery, se admiten las versiones N-4, do
 
 **Actualizar** |  **Instalación unificada** | **Servidor de configuración OVA** | **Agente de Mobility Service** | **Proveedor de Site Recovery** | **Agente de Recovery Services**
 --- | --- | --- | --- | --- | ---
+[Paquete acumulativo 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | 2.0.9183.0
 [Paquete acumulativo 46](https://support.microsoft.com/help/4564347/) | 9.33.5598.1 | 5.1.5900.0 | 9.33.5598.1 | 5.1.5900.0 | 2.0.9175.0
 [Paquete acumulativo 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
 [Paquete acumulativo 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
@@ -32,6 +33,17 @@ En el caso de los componentes de Site Recovery, se admiten las versiones N-4, do
 
 > [!NOTE]
 > El paquete acumulativo de actualizaciones 44 no se muestra en la tabla porque no incluía actualizaciones para los proveedores y agentes de Site Recovery.
+
+## <a name="updates-june-2020"></a>Actualizaciones (junio de 2020)
+
+### <a name="update-rollup-47"></a>Paquete acumulativo de actualizaciones 47
+
+El [paquete acumulativo de actualizaciones 47](https://support.microsoft.com/help/4570609/update-rollup-47-for-azure-site-recovery) proporciona las siguientes actualizaciones:
+
+**Actualizar** | **Detalles**
+--- | ---
+**Proveedores y agentes** | Actualizaciones de los proveedores y agentes de Site Recovery según se detalla en el paquete acumulativo de actualizaciones.
+**Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo).
 
 ## <a name="updates-june-2020"></a>Actualizaciones (junio de 2020)
 
@@ -346,8 +358,8 @@ Las características que se agregaron este mes se resumen en la tabla.
 **Característica** | **Detalles**
 --- | ---
 **Asignación de red** | Para la recuperación ante desastres de VM de Azure, puede usar cualquier red de destino disponible cuando se habilite la replicación.
-**SSD estándar** | Ahora puede configurar la recuperación ante desastres para VM de Azure con [discos SSD estándar](https://docs.microsoft.com/azure/virtual-machines/windows/disks-standard-ssd).
-**Espacios de almacenamiento directo** | Puede configurar la recuperación ante desastres para aplicaciones que se ejecutan en aplicaciones de la VM de Azure mediante el uso de [Espacios de almacenamiento directo ](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview) para lograr alta disponibilidad.  Usar los Espacios de almacenamiento directo (S2D) junto con Site Recovery proporciona una protección exhaustiva de las cargas de trabajo de una VM de Azure. S2D le permite hospedar un clúster invitado en Azure. Esto es especialmente útil cuando una VM hospeda una aplicación crítica, como capa de ASCS de SAP, SQL Server o un servidor de archivos de escalabilidad horizontal.
+**SSD estándar** | Ahora puede configurar la recuperación ante desastres para VM de Azure con [discos SSD estándar](../virtual-machines/windows/disks-types.md#standard-ssd).
+**Espacios de almacenamiento directo** | Puede configurar la recuperación ante desastres para aplicaciones que se ejecutan en aplicaciones de la VM de Azure mediante el uso de [Espacios de almacenamiento directo ](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) para lograr alta disponibilidad.  Usar los Espacios de almacenamiento directo (S2D) junto con Site Recovery proporciona una protección exhaustiva de las cargas de trabajo de una VM de Azure. S2D le permite hospedar un clúster invitado en Azure. Esto es especialmente útil cuando una VM hospeda una aplicación crítica, como capa de ASCS de SAP, SQL Server o un servidor de archivos de escalabilidad horizontal.
 
 
 ### <a name="vmwarephysical-server-disaster-recovery"></a>Recuperación ante desastres de un servidor físico/VMware
@@ -365,7 +377,7 @@ Las características que se agregaron este mes se resumen en la tabla.
 
 ### <a name="accelerated-networking-azure-vms"></a>Redes aceleradas (VM de Azure)
 
-Redes aceleradas habilita la virtualización de E/S de raíz única (SR-IOV) en una máquina virtual, lo que mejora su rendimiento en la red. Al habilitar la replicación de una máquina virtual de Azure, Site Recovery detecta si las redes aceleradas están habilitadas. Si es así, después de la conmutación por error, Site Recovery configura automáticamente las redes aceleradas en la máquina virtual de Azure de réplica de destino, tanto para [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell#enable-accelerated-networking-on-existing-vms) como para [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
+Redes aceleradas habilita la virtualización de E/S de raíz única (SR-IOV) en una máquina virtual, lo que mejora su rendimiento en la red. Al habilitar la replicación de una máquina virtual de Azure, Site Recovery detecta si las redes aceleradas están habilitadas. Si es así, después de la conmutación por error, Site Recovery configura automáticamente las redes aceleradas en la máquina virtual de Azure de réplica de destino, tanto para [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) como para [Linux](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
 [Más información](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
@@ -427,7 +439,7 @@ Las características que se agregaron este mes se resumen en la tabla.
 **Soporte técnico de Linux** | Se ha agregado compatibilidad con Oracle Linux 6.8, Oracle Linux 6.9 y Oracle Linux 7.0 mediante Red Hat Compatible Kernel y con la versión 5 de Unbreakable Enterprise Kernel (UEK).
 **Sistema de archivos BRTFS de Linux** | Compatibilidad con las máquinas virtuales de Azure.
 **Máquinas virtuales de Azure en zonas de disponibilidad** | Puede habilitar la replicación en otra región para VM de Azure implementadas en zonas de disponibilidad. Ahora puede habilitar la replicación de una máquina virtual de Azure y establecer el destino de una conmutación por error en una instancia de máquina virtual única, una máquina virtual en un conjunto de disponibilidad o una máquina virtual en una zona de disponibilidad. La configuración no afecta la replicación. [Lea](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region/) el anuncio.
-**Almacenamiento habilitado para firewall (portal/PowerShell)** | Se agregó compatibilidad para [cuentas de almacenamiento habilitadas para firewall](https://docs.microsoft.com/azure/storage/common/storage-network-security).<br/><br/> Puede replicar VM de Azure con discos no administrados en cuentas de almacenamiento habilitadas mediante firewall en otra región de Azure para recuperación ante desastres.<br/><br/> También puede usar cuentas de almacenamiento habilitadas mediante firewall como cuentas de almacenamiento de destino para discos no administrados.<br/><br/> Compatible con el portal y usando PowerShell.
+**Almacenamiento habilitado para firewall (portal/PowerShell)** | Se agregó compatibilidad para [cuentas de almacenamiento habilitadas para firewall](../storage/common/storage-network-security.md).<br/><br/> Puede replicar VM de Azure con discos no administrados en cuentas de almacenamiento habilitadas mediante firewall en otra región de Azure para recuperación ante desastres.<br/><br/> También puede usar cuentas de almacenamiento habilitadas mediante firewall como cuentas de almacenamiento de destino para discos no administrados.<br/><br/> Compatible con el portal y usando PowerShell.
 
 ## <a name="updates-december-2018"></a>Actualizaciones (diciembre de 2018)
 
@@ -468,7 +480,7 @@ Las características que se agregaron este mes se resumen en la tabla.
 **Regiones admitidas** | Compatibilidad de Site Recovery agregada para Centro de Australia 1 y Centro de Australia 2.
 **Compatibilidad con cifrado del disco** | Se ha agregado compatibilidad para recuperación ante desastres de VM de Azure cifradas con Azure Disk Encryption (ADE) con la aplicación de Azure AD. [Más información](azure-to-azure-how-to-enable-replication-ade-vms.md).
 **Exclusión de disco** | Ahora, los discos no inicializados se excluyen automáticamente durante la replicación de VM de Azure.
-**Almacenamiento habilitado para firewall (PowerShell)** | Se agregó compatibilidad para [cuentas de almacenamiento habilitadas para firewall](https://docs.microsoft.com/azure/storage/common/storage-network-security).<br/><br/> Puede replicar VM de Azure con discos no administrados en cuentas de almacenamiento habilitadas mediante firewall en otra región de Azure para recuperación ante desastres.<br/><br/> También puede usar cuentas de almacenamiento habilitadas mediante firewall como cuentas de almacenamiento de destino para discos no administrados.<br/><br/> Compatible solo con PowerShell.
+**Almacenamiento habilitado para firewall (PowerShell)** | Se agregó compatibilidad para [cuentas de almacenamiento habilitadas para firewall](../storage/common/storage-network-security.md).<br/><br/> Puede replicar VM de Azure con discos no administrados en cuentas de almacenamiento habilitadas mediante firewall en otra región de Azure para recuperación ante desastres.<br/><br/> También puede usar cuentas de almacenamiento habilitadas mediante firewall como cuentas de almacenamiento de destino para discos no administrados.<br/><br/> Compatible solo con PowerShell.
 
 
 ### <a name="update-rollup-29"></a>Paquete acumulativo de actualizaciones 29
@@ -506,7 +518,7 @@ Las características que se agregaron este mes se resumen en la tabla.
 
 **Característica** | **Detalles**
 --- | ---
-**Soporte técnico de Linux** | Se agregó compatibilidad para RedHat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> Ahora se admiten las máquinas virtuales Linux que usan el estilo de partición de tabla de particiones de GUID (GPT) en el modo de compatibilidad BIOS heredado. Revise las [preguntas más frecuentes de VM de Azure](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks) para obtener más información.
+**Soporte técnico de Linux** | Se agregó compatibilidad para RedHat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> Ahora se admiten las máquinas virtuales Linux que usan el estilo de partición de tabla de particiones de GUID (GPT) en el modo de compatibilidad BIOS heredado. Revise las [preguntas más frecuentes de VM de Azure](../virtual-machines/linux/faq-for-disks.md) para obtener más información.
 **Recuperación ante desastres para VM después de la migración** | Compatibilidad para habilitar la recuperación ante desastres en una región secundaria para una VM de VMware local migrada a Azure, sin necesidad de desinstalar el servicio Mobility en la VM antes de habilitar la replicación.
 **Windows Server 2008** | Compatibilidad para migrar máquinas que ejecutan Windows Server 2008 R2/2008 de 64 bits y 32 bits.<br/><br/> Solo migración (conmutación por error y replicación). No se admite la conmutación por recuperación.
 

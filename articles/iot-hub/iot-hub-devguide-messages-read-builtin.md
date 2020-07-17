@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: amqp
-ms.openlocfilehash: 791d41aae7dde3e1ef2ae511de4ffd84141f0232
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: a7ab796ddd35ebe9b9c43509d8e3c2f4c41625c8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310791"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084005"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Leer mensajes del dispositivo a la nube desde el punto de conexión integrado
 
@@ -57,7 +57,7 @@ En el portal, el campo Extremo compatible con Event Hub contiene una cadena de c
 | Hostname | abcd1234namespace.servicebus.windows.net |
 | Espacio de nombres | abcd1234namespace |
 
-A continuación, puede usar cualquier directiva de acceso compartido que tenga permisos **ServiceConnect** para conectarse a la instancia de Event Hub especificada.
+Tras ello, puede elegir cualquier directiva de acceso compartido en la lista desplegable, como se muestra en la captura de pantalla anterior. Solamente aparecerán las directivas que tengan permisos **ServiceConnect** para conectarse a la instancia de Event Hub especificada.
 
 Los SDK que puede usar para conectarse al punto de conexión compatible con Event Hubs integrado que muestra IoT Hub incluyen:
 
@@ -66,7 +66,7 @@ Los SDK que puede usar para conectarse al punto de conexión compatible con Even
 | .NET | https://www.nuget.org/packages/Azure.Messaging.EventHubs | [Guía de inicio rápido](quickstart-send-telemetry-dotnet.md) |
 | Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [Guía de inicio rápido](quickstart-send-telemetry-java.md) |
 | Node.js | https://www.npmjs.com/package/@azure/event-hubs | [Guía de inicio rápido](quickstart-send-telemetry-node.md) |
-| Python | https://pypi.org/project/azure-eventhub/ | https://github.com/Azure-Samples/azure-iot-samples-python/tree/master/iot-hub/Quickstarts/read-d2c-messages |
+| Python | https://pypi.org/project/azure-eventhub/ | [Guía de inicio rápido](quickstart-send-telemetry-python.md) |
 
 Las integraciones del producto que puede usar con el punto de conexión compatible con Event Hubs integrado que muestra IoT Hub incluyen:
 

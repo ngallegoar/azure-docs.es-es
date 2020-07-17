@@ -1,6 +1,6 @@
 ---
 title: Capacidades de búsqueda en Azure Sentinel| Microsoft Docs
-description: En este artículo se describe cómo usar las capacidades de búsqueda de Azure Sentinel.
+description: Use las consultas de búsqueda integradas de Azure Sentinel a modo de guía para formular las preguntas adecuadas que lleven a detectar problemas en los datos.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: yelevin
-ms.openlocfilehash: 52af688917aa531d125f83844df29a988ed7cb7e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: cceeb1fc9715dfd7b1ac714c424421c51d292757
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81686629"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552281"
 ---
 # <a name="hunt-for-threats-with-azure-sentinel"></a>Búsqueda de amenazas con Azure Sentinel
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: ed14d3fb1cd3d9d8af37088811ce62b050778a95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e59a985f59da1b6a40a6b583d5e2a490611a702c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189810"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043859"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introducción al registro de flujo de grupos de seguridad de red
 
@@ -51,7 +51,10 @@ Los registros de flujo son el origen único de toda la actividad de red del ento
 - Los registros se recopilan mediante la plataforma Azure y no afectan a los recursos del cliente ni al rendimiento de la red de ningún modo.
 - Los registros se escriben en formato JSON y muestran flujos entrantes y salientes por cada regla de grupo de seguridad de red.
 - Cada entrada del registro contiene la interfaz de red (NIC) a la que se aplica el flujo, información de 5-tupla, la decisión de tráfico e información de rendimiento (solo en la versión 2). Consulte _Formato del registro_ más adelante para obtener información detallada.
-- Los registros de flujo tienen una característica de retención que permite la eliminación automática de los registros hasta un año después de su creación. **NOTA**: La retención solo está disponible si usa [cuentas de almacenamiento de uso general v2 (GPv2)](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts). 
+- Los registros de flujo tienen una característica de retención que permite la eliminación automática de los registros hasta un año después de su creación. 
+
+> [!NOTE]
+> La retención solo está disponible si usa [cuentas de almacenamiento de uso general v2 (GPv2)](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts). 
 
 **Conceptos principales**
 
@@ -59,6 +62,9 @@ Los registros de flujo son el origen único de toda la actividad de red del ento
 - Un grupo de seguridad de red (NSG) contiene una lista de _reglas de seguridad_ que permiten o deniegan el tráfico de red en recursos a los que está conectado. Los grupos de seguridad de red se pueden asociar a subredes, máquinas virtuales individuales o interfaces de red (NIC) individuales conectadas a máquinas virtuales (Resource Manager). Para más información, consulte [Introducción a los grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/security-overview?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json).
 - Todos los flujos de tráfico de la red se evalúan mediante las reglas de los grupos de seguridad de red correspondientes.
 - El resultado de estas evaluaciones son los registros de flujo de NSG. Los registros de flujo se recopilan mediante la plataforma Azure y no requieren ningún cambio en los recursos del cliente.
+- Nota: Las reglas son de dos tipos: de terminación y no de terminación, cada una con distintos comportamientos de registro.
+- - Las reglas de denegación de NSG son de terminación. El NSG que deniega el tráfico lo registrará en los registros de flujo, y el procesamiento, en este caso, se detendrá después de que NSG deniegue el tráfico. 
+- - Las reglas de permiso de NSG son de no terminación, lo que significa que, aunque un NSG lo permita, el procesamiento continuará hasta el siguiente NSG. El último NSG que permita el tráfico registrará el tráfico en los registros de flujo.
 - Los registros de flujo de NSG se escriben en cuentas de almacenamiento desde donde se puede acceder a ellos.
 - Puede exportar, procesar, analizar y visualizar registros de flujo mediante herramientas como TA, Splunk, Grafana, Stealthwatch, etc.
 
@@ -67,7 +73,7 @@ Los registros de flujo son el origen único de toda la actividad de red del ento
 Los registros de flujo incluyen las siguientes propiedades:
 
 * **time**: la hora en la que se registró el evento
-* **systemId**: el identificador de recurso del grupo de seguridad de red.
+* **systemId**: El identificador del sistema del grupo de seguridad de red.
 * **category**: la categoría del evento. La categoría es siempre **NetworkSecurityGroupFlowEvent**
 * **resourceid**: el identificador del recurso del grupo de seguridad de red.
 * **operationName**: siempre es NetworkSecurityGroupFlowEvents
@@ -104,7 +110,7 @@ El estado de flujo _B_ se registra cuando se inicia un flujo. El estado de flujo
 El texto que sigue es un ejemplo de un registro de flujo. Como puede ver, hay varios registros que siguen la lista de propiedades que se describe en la sección anterior.
 
 > [!NOTE]
-> Los valores de la propiedad **flowTuples* son una lista separada por comas.
+> Los valores de la propiedad *flowTuples* son una lista separada por comas.
  
 **Muestra de formato de la versión 1 del registro de flujo de NSG**
 ```json
@@ -351,9 +357,9 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Costos del registro de flujo**: El registro de flujos de NSG se factura según el volumen de registros generados. Un volumen de tráfico elevado puede producir un volumen de registro de flujo elevado, con los costos asociados. Los precios del registro de flujos de NSG no incluyen los costos de almacenamiento subyacentes. El uso de la característica de directiva de retención con el registro de flujos de NSG implica que se incurre en costos de almacenamiento independientes durante prolongados períodos de tiempo. Si no necesita la característica de directiva de retención, se recomienda que establezca este valor en 0. Para obtener más información, consulte [precios de Network Watcher](https://azure.microsoft.com/pricing/details/network-watcher/) y [precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/) para obtener más detalles.
 
-**Flujos entrantes registrados desde direcciones IP de Internet a VM sin direcciones IP públicas**: Las VM que no tienen una dirección IP pública asignada a través de una dirección IP pública asociada con la NIC como dirección IP pública de nivel de instancia, o que forman parte de un grupo de back-end de equilibrador de carga básico, usan [SNAT predeterminada](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) y tiene una dirección IP asignada por Azure para facilitar la conectividad de salida. Como consecuencia, es posible que vea las entradas de registro de flujo para los flujos desde las direcciones IP de Internet, si el flujo está destinado a un puerto en el intervalo de puertos asignados para SNAT. Si bien Azure no permitirá estos flujos a la VM, el intento se registra y aparece en el registro de flujos de NSG de Network Watcher por diseño. Se recomienda que el tráfico entrante de Internet no deseado se bloquee explícitamente con NSG.
+**Recuentos de bytes y paquetes incorrectos para los flujos de entrada**: [Los grupos de seguridad de red (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) se implementan como [firewall con estado](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). Sin embargo, debido a las limitaciones de la plataforma, las reglas que controlan los flujos de entrada se implementan sin estado. Debido a que estos recuentos de bytes y de paquetes no se registran para estos flujos. Por lo tanto, el número de bytes y paquetes que se indican en los registros de flujo de NSG (y Análisis de tráfico) podrían ser diferentes de los números reales. Además, los flujos de entrada ahora son de no terminación. Está previsto que esta limitación se corrija para diciembre de 2020. 
 
-**Recuentos de bytes y paquetes incorrectos para los flujos sin estado**: [Los grupos de seguridad de red (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) se implementan como [firewall con estado](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). Sin embargo, muchas reglas predeterminadas o internas que controlan el flujo de tráfico se implementan sin estado. Debido a las limitaciones de la plataforma, los recuentos de bytes y paquetes no se registran para los flujos sin estado (es decir, los flujos de tráfico pasan por reglas sin estado), solo se registran para flujos con estado. Por lo tanto, el número de bytes y paquetes que se indican en los registros de flujo de NSG (y Análisis de tráfico) podrían ser diferentes de los flujos reales. Está previsto que esta limitación se corrija en junio de 2020.
+**Flujos entrantes registrados desde direcciones IP de Internet a VM sin direcciones IP públicas**: Las VM que no tienen una dirección IP pública asignada a través de una dirección IP pública asociada con la NIC como dirección IP pública de nivel de instancia, o que forman parte de un grupo de back-end de equilibrador de carga básico, usan [SNAT predeterminada](../load-balancer/load-balancer-outbound-connections.md) y tiene una dirección IP asignada por Azure para facilitar la conectividad de salida. Como consecuencia, es posible que vea las entradas de registro de flujo para los flujos desde las direcciones IP de Internet, si el flujo está destinado a un puerto en el intervalo de puertos asignados para SNAT. Si bien Azure no permitirá estos flujos a la VM, el intento se registra y aparece en el registro de flujos de NSG de Network Watcher por diseño. Se recomienda que el tráfico entrante de Internet no deseado se bloquee explícitamente con NSG.
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: aded023c9f4c045f612e33d32c1e3ac71afddf02
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8af8db6b6853d6b8cbd4ba1105f05ebb9bcf771b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77530209"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84974847"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Pago por adelantado de recursos de proceso de Azure Cache for Redis con capacidad reservada
 
@@ -30,9 +30,9 @@ Para más información sobre cómo se les cobran a los clientes de empresa y a l
 
 ## <a name="determine-the-right-cache-size-before-purchase"></a>Determinación del tamaño de caché adecuado antes de la compra
 
-El tamaño de la reserva se debe basar en la cantidad total de proceso que usa la caché existente o que se va a implementar pronto en una región específica y con el mismo nivel de servicio.
+El tamaño de la reserva se debe basar en la cantidad total de memoria que usa la caché existente o que se va a implementar pronto en una región específica y con el mismo nivel de servicio.
 
-Por ejemplo, imagine que ejecuta una caché de propósito general Gen5 de 32 núcleos virtuales y dos cachés optimizadas para memoria Gen5 de 16 núcleos virtuales. Además, supongamos que planea implementar en el próximo mes un grupo elástico Gen5 de uso general y 32 núcleos virtuales adicionales, y un servidor de bases de datos optimizado para memoria Gen5 de 16 núcleos virtuales. Vamos a suponer que sabe que necesitará estos recursos durante al menos 1 año. En este caso debe comprar una reserva de 1 año de una instancia de Gen5 con 64 núcleos virtuales (2 × 32) para una base de datos única de uso general y otra reserva de 1 año de una instancia de Gen 5 con 48 núcleos virtuales (2 × 16 + 16) para una base de datos única optimizada para memoria.
+Por ejemplo, supongamos que está ejecutando dos memorias caché (una en 13 GB y la otra en 26 GB). Necesitará ambas durante al menos un año. Además, supongamos que planea escalar las cachés existentes de 13 GB a 26 GB durante un mes para satisfacer la demanda estacional y, después, volver a escalar. En este caso, puede adquirir una caché P1 y una caché P2, o bien tres cachés P1 en una reserva de un año para maximizar el ahorro. Recibirá un descuento en la cantidad total de memoria caché que reserva, independientemente de cómo se asigne esa cantidad a través de las cachés.
 
 
 ## <a name="buy-azure-cache-for-redis-reserved-capacity"></a>Compra de capacidad reservada de Azure Cache for Redis
@@ -50,7 +50,7 @@ En la siguiente tabla se describen los campos obligatorios.
 
 | Campo | Descripción |
 | :------------ | :------- |
-| Subscription   | La suscripción usada para pagar la reserva de capacidad reservada de Azure Cache for Redis. Los costos anticipados por la reserva de capacidad reservada de Azure Cache for Redis se cobran mediante el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o un contrato individual con precios de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. Para una suscripción individual con precios de pago por uso, los cargos se cobran en el método de pago de la factura o la tarjeta de crédito de la suscripción.
+| Suscripción   | La suscripción usada para pagar la reserva de capacidad reservada de Azure Cache for Redis. Los costos anticipados por la reserva de capacidad reservada de Azure Cache for Redis se cobran mediante el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o un contrato individual con precios de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. Para una suscripción individual con precios de pago por uso, los cargos se cobran en el método de pago de la factura o la tarjeta de crédito de la suscripción.
 | Ámbito | El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona: </br></br> **Compartido**: el descuento de la reserva se aplica a las instancias de Azure Cache for Redis que se ejecutan en cualquier suscripción en el contexto de facturación. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.</br></br> **Suscripción única**: el descuento de reserva se aplica a las instancias de Azure Cache for Redis de esta suscripción. </br></br> **Grupo de recursos único**: el descuento de reserva se aplica a las instancias de Azure Cache for Redis de la suscripción seleccionada y al grupo de recursos seleccionado de esa suscripción.
 | Region | Región de Azure que abarca la reserva de capacidad reservada de Azure Cache for Redis.
 | Plan de tarifa | Nivel de servicio de los servidores de Azure Cache for Redis.

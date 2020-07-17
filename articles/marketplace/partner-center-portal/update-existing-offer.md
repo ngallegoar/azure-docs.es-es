@@ -1,18 +1,18 @@
 ---
 title: Actualización de una oferta existente de Marketplace comercial
 description: Cómo realizar actualizaciones en una oferta de Marketplace comercial existente, lo que incluye editar y eliminar un borrador, cancelar una solicitud de publicación, detener la venta de una oferta o plan, y sincronizar audiencias privadas.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: 8b8362a4d5ad742f29637ed03133bc6983bd5dd9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 62170df567f552699304710902a1f83b84728af2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80285153"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120711"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Actualización de una oferta existente en Marketplace comercial
 
@@ -37,20 +37,29 @@ Cuando esté listo para publicar la oferta actualizada, seleccione **Publicar** 
 > [!IMPORTANT]
 > Debe revisar la versión preliminar de la oferta una vez que esté disponible y seleccionar **Transmitir** para publicar su oferta actualizada para los destinatarios previstos (públicos o privados).
 
+## <a name="add-a-plan-to-an-existing-offer"></a>Agregar un plan a una oferta existente
+
+Para realizar cambios en un plan dentro de una oferta existente que ya haya publicado:
+
+1. Con la página de **Información general de la oferta** de la oferta existente abierta, vaya a la página de **Información general del plan** y, a continuación, seleccione **Crear un nuevo plan**.
+1. Cree un nuevo plan de acuerdo con las [directrices](./create-new-saas-offer.md#plan-overview) mediante el **modelo de precios de planes existentes**.
+1. Seleccione **Guardar borrador** después de cambiar el nombre del plan. 
+1. Seleccione **Publicar** cuando esté listo para publicar las actualizaciones. Se abrirá la página **[Revisar y publicar](#review-and-publish-an-updated-offer)** proporcionando un estado de finalización para las actualizaciones.
+
 ## <a name="update-a-plan-within-an-existing-offer"></a>Actualización de un plan dentro de una oferta existente
 
 Para realizar cambios en un plan dentro de una oferta existente que ya haya publicado:
 
-- Con la página **Información general de la oferta** abierta para la oferta específica, elija el plan que desee cambiar. Si el plan no es accesible desde la lista **Información general del plan**, seleccione **Ver todos los planes**.
-- Puede elegir seleccionar el **Nombre**, **Modelo de precios** o **Disponibilidad**. *En la actualidad los planes solo están disponibles en inglés (Estados Unidos)* .
-- Seleccione **Guardar** después de realizar los cambios necesarios en el nombre, descripción, precios o disponibilidad para la audiencia del plan. 
-- Seleccione **Publicar** cuando esté listo para publicar las actualizaciones. Se abrirá la página **[Review and publish](#review-and-publish-an-updated-offer)** (Revisar y publicar) proporcionando un estado de finalización para las actualizaciones.
+1. Con la página de **Información general de la oferta** de la oferta existente abierta, elija el plan que quiera cambiar. Si el plan no es accesible desde la lista de **Información general del plan**, seleccione **Ver todos los planes**.
+1. Puede elegir seleccionar el **Nombre**, **Modelo de precios** o **Disponibilidad**. *En la actualidad, los planes solo están disponibles en inglés (Estados Unidos)* .
+1. Seleccione **Guardar** después de realizar los cambios necesarios en el nombre, descripción, precios o disponibilidad para la audiencia del plan. 
+1. Seleccione **Publicar** cuando esté listo para publicar las actualizaciones. Se abrirá la página **[Revisar y publicar](#review-and-publish-an-updated-offer)** proporcionando un estado de finalización para las actualizaciones.
 
 ## <a name="compare-changes-to-marketplace-offers"></a>Comparación de cambios en las ofertas de Marketplace
 
-Puede auditar los cambios que realice en una oferta [publicada](#compare-changes-to-published-offer) o de [versión preliminar](#compare-changes-to-a-preview-offer) antes de que estén en directo utilizando **Compare** (Comparar).
+Puede auditar los cambios que realice en una oferta [publicada](#compare-changes-to-published-offer) o de [versión preliminar](#compare-changes-to-a-preview-offer) antes de que estén en directo utilizando **Comparar**.
 
->[!NOTE]
+> [!NOTE]
 > Una oferta publicada es una oferta que se ha publicado correctamente en estado Versión preliminar o En directo.
 
 A continuación encontrará información general sobre auditorías:
@@ -122,9 +131,9 @@ Después de confirmar que desea eliminar el plan borrador, el plan ya no estará
 
 Para cancelar una oferta con el estado **Publicación en curso**:
 
-- Seleccione el nombre de la oferta para abrir la página **Información general de la oferta**.
-- Seleccione **Cancelar publicación** en la esquina superior derecha de la página.
-- Confirme que desea detener la publicación de la oferta.
+1. Seleccione el nombre de la oferta para abrir la página **Información general de la oferta**.
+1. Seleccione **Cancelar publicación** en la esquina superior derecha de la página.
+1. Confirme que desea detener la publicación de la oferta.
 
 Si desea publicar la oferta más adelante, tendrá que volver a empezar el proceso de publicación.
 

@@ -3,12 +3,12 @@ title: Trabajo con Reliable Collections
 description: Conozca los procedimientos recomendados para trabajar con Reliable Collections dentro de una aplicación de Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 94836a37a62e3eeffb94d891980cc02694bd973e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: f0f1d332b3636e28ffc50ee8b8edcd253474a307
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81409802"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374702"
 ---
 # <a name="working-with-reliable-collections"></a>Trabajo con Reliable Collections
 Service Fabric ofrece un modelo de programación con estado a los desarrolladores de .NET a través de Reliable Collections. En concreto, Service Fabric proporciona un diccionario confiable y clases de cola confiables. Al utilizar estas clases, se crean particiones en el estado (para escalabilidad) y este se replica (para disponibilidad) y se tramita dentro de una partición (para semántica ACID). Veamos un uso típico de un objeto de diccionario de confianza y verá lo que está haciendo realmente.
@@ -42,9 +42,14 @@ Todas las operaciones en los objetos de diccionario de confianza (excepto ClearA
 
 En el código anterior, el objeto ITransaction se pasa al método AddAsync de un diccionario de confianza. Internamente, los métodos de diccionario que aceptan una clave tienen un bloqueo de lectura o escritura asociado a dicha clave. Si el método modifica el valor de la clave, dicho método toma un bloqueo de escritura en la clave; si el método solo lee el valor de la clave, se toma un bloqueo de lectura en la clave. Como AddAsync modifica el valor de la clave al nuevo valor pasado, se toma el bloqueo de escritura de la clave. Por lo tanto, si 2 (o más) subprocesos intentan agregar valores con la misma clave simultáneamente, un subproceso adquirirá el bloqueo de escritura y los otros subprocesos se bloquearán. De forma predeterminada, los métodos se bloquean hasta 4 segundos para adquirir el bloqueo; después de 4 segundos, los métodos inician una excepción TimeoutException. Existen sobrecargas de método que le permiten pasar un valor de tiempo de espera explícito si lo prefiere.
 
-Normalmente, el código se escribe para reaccionar ante una excepción TimeoutException capturándola y reintentando la operación completa (como se muestra en el código anterior). En mi código sencillo, simplemente llamo a Task.Delay y paso 100 milisegundos cada vez. Sin embargo, en realidad, podría ser mejor usar algún tipo de retraso de interrupción exponencial en su lugar.
+Normalmente, el código se escribe para reaccionar ante una excepción TimeoutException capturándola y reintentando la operación completa (como se muestra en el código anterior). En este sencillo código, simplemente llamamos a Task.Delay, pasando 100 milisegundos cada vez. Sin embargo, en realidad, podría ser mejor usar algún tipo de retraso de interrupción exponencial en su lugar.
 
-Una vez que se adquiere el bloqueo, AddAsync agrega las referencias de objeto de clave y valor a un diccionario temporal interno asociado al objeto ITransaction. Esto se hace para proporcionar una semántica de lectura de escrituras propias. Es decir, después de llamar a AddAsync, una llamada posterior a TryGetValueAsync (con el mismo objeto ITransaction) devolverá el valor incluso si todavía no ha confirmado la transacción. A continuación, AddAsync serializa los objetos de clave y valor en matrices de bytes y anexa estas matrices de bytes a un archivo de registro en el nodo local. Finalmente, AddAsync envía las matrices de bytes a todas las réplicas secundarias, por lo que tienen la misma información de clave y valor. Aunque la información de clave y valor se ha escrito en un archivo de registro, la información no se considera parte del diccionario hasta que se ha confirmado la transacción a la que están asociados.
+Una vez que se adquiere el bloqueo, AddAsync agrega las referencias de objeto de clave y valor a un diccionario temporal interno asociado al objeto ITransaction. Esto se hace para proporcionar una semántica de lectura de escrituras propias. Es decir, después de llamar a AddAsync, una llamada posterior a TryGetValueAsync usando el mismo objeto ITransaction devolverá el valor aun cuando todavía no se haya confirmado la transacción.
+
+> [!NOTE]
+> La llamada a TryGetValueAsync con una transacción nueva devolverá una referencia al último valor confirmado. No modifique la referencia directamente, ya que esto hará que se omita el mecanismo de persistencia y replicación de los cambios. Se recomienda que los valores sean de solo lectura, ya que así la única forma de cambiar el valor de una clave será a través de API de diccionario confiables.
+
+A continuación, AddAsync serializa los objetos de clave y valor en matrices de bytes y anexa estas matrices de bytes a un archivo de registro en el nodo local. Finalmente, AddAsync envía las matrices de bytes a todas las réplicas secundarias, por lo que tienen la misma información de clave y valor. Aunque la información de clave y valor se ha escrito en un archivo de registro, la información no se considera parte del diccionario hasta que se ha confirmado la transacción a la que están asociados.
 
 En el código anterior, la llamada a CommitAsync confirma todas las operaciones de la transacción. Específicamente, anexa información de confirmación al archivo de registro en el nodo local y también envía el registro de confirmación a todas las réplicas secundarias. Una vez que un cuórum (mayoría) de las réplicas ha respondido, todos los cambios de datos se consideran permanentes y se liberan todos los bloqueos asociados a las claves que se manipularon a través del objeto ITransaction de forma que otros subprocesos y transacciones puedan manipular las mismas claves y sus valores.
 

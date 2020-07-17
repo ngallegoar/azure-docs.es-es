@@ -3,15 +3,15 @@ title: Configurar y administrar el período de vida en Azure Cosmos DB
 description: Aprenda a configurar y administrar el período de vida en un contenedor y un elemento de Azure Cosmos DB
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/27/2020
 ms.author: anfeldma
-ms.openlocfilehash: 11f5615d44cef4b6717dc9fe2004a64cf2f800ba
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: bbddcb8627c78544d603e1ea3ca33bc410419da1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124132"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263629"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configuración del período de vida en Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Siga estos pasos para habilitar el período de vida de un contenedor para que no
    * Seleccione **Activado (valor no predeterminado)** o seleccione **Activado** y establezca un valor para el período de vida
    * Haga clic en **Guardar** para guardar los cambios.
 
-   ![Configuración del período de vida en Azure Portal](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
+   :::image type="content" source="./media/how-to-time-to-live/how-to-time-to-live-portal.png" alt-text="Configuración del período de vida en Azure Portal":::
 
 * Si el valor de DefaultTimeToLive es null, el de Período de vida será Desactivado
 * Si el valor de DefaultTimeToLive es -1, el de Período de vida será Activado (valor no predeterminado)

@@ -2,21 +2,21 @@
 title: Diferencias de T-SQL entre SQL Server y una Instancia administrada de Azure SQL
 description: En este artículo se describen las diferencias de Transact-SQL (T-SQL) entre una Instancia administrada de Azure SQL y SQL Server.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
-ms.date: 03/11/2020
+ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 190d0bd242a685487480d4da613f354277663d9c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 229a74fe760386b59bc83373cc7b1429bd826929
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84308037"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298454"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferencias de T-SQL entre SQL Server y una Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -432,7 +432,7 @@ Para obtener más información sobre la configuración de la replicación transa
   - La única opción admitida es `FROM URL` (Azure Blob Storage).
   - No se admite `FROM DISK`/`TAPE`/dispositivo de copia de seguridad.
   - No se admiten los conjuntos de copia de seguridad.
-- Las opciones `WITH` no se admiten, como, por ejemplo, `DIFFERENTIAL` o `STATS`.
+- Las opciones `WITH` no se admiten. Los intentos de restauración que incluyan `WITH`, como `DIFFERENTIAL`, `STATS`, `REPLACE`, etc., generarán errores.
 - `ASYNC RESTORE`: la restauración continúa aunque se interrumpa la conexión con el cliente. Si la conexión se interrumpe, puede usar `sys.dm_operation_status` para ver el estado de una operación de restauración y para crear y eliminar una base de datos. Consulte [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). 
 
 Las siguientes opciones de base de datos se establecen o invalidan, y no se pueden cambiar más adelante: 
@@ -506,6 +506,9 @@ Las siguientes variables, funciones y vistas devuelven resultados diferentes:
 - La red virtual se puede implementar mediante el modelo con Resource Manager. No se admite el modelo clásico.
 - Después de crear una Instancia administrada de SQL, no se admite el traslado de dicha Instancia administrada de SQL o la red virtual a otro grupo de recursos o suscripción.
 - Algunos servicios, como App Service Environment, Logic Apps y la Instancia administrada de SQL (que se usan para la replicación geográfica, la replicación transaccional o a través de servidores vinculados), no pueden acceder a la Instancia administrada de SQL de diferentes regiones si sus redes virtuales están conectadas mediante [emparejamiento global](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Se puede conectar a estos recursos a través de ExpressRoute o de red virtual a red virtual a través de puertas de enlace de red virtuales.
+
+### <a name="failover-groups"></a>Grupos de conmutación por error
+Las bases de datos del sistema no se replican en la instancia secundaria de un grupo de conmutación por error. Por lo tanto, los escenarios que dependen de objetos de las bases de datos del sistema serán imposibles en la instancia secundaria, a menos que los objetos se creen manualmente en la secundaria.
 
 ### <a name="failover-groups"></a>Grupos de conmutación por error
 Las bases de datos del sistema no se replican en la instancia secundaria de un grupo de conmutación por error. Por lo tanto, los escenarios que dependen de objetos de las bases de datos del sistema serán imposibles en la instancia secundaria, a menos que los objetos se creen manualmente en la secundaria.

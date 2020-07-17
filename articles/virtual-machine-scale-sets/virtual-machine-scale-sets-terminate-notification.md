@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 695fd03d7c1856ad39b7672d826f85bc4c68a99c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 65fc822250ae8284c9f87af262356730ff1d54c4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125186"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207522"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Notificación de finalización para instancias de conjunto de escalado de máquinas virtuales de Azure
 Las instancias de conjunto de escalado pueden optar por recibir notificaciones de finalización de instancias y establecer un tiempo de espera de retraso predefinido para la operación de finalización. La notificación de finalización se envía mediante Azure Metadata Service – [Scheduled Events](../virtual-machines/windows/scheduled-events.md), que proporciona notificaciones y retrasa las operaciones importantes, como reinicios o reimplementaciones. La solución agrega otro evento, Terminate, a la lista de Scheduled Events, y el retraso asociado de este evento dependerá del límite del retraso especificado por los usuarios en su configuración del modelo del conjunto de escalado.
@@ -24,7 +24,7 @@ Una vez inscritas en la característica, las instancias de conjunto de escalado 
 ## <a name="enable-terminate-notifications"></a>Habilitar notificaciones de finalización
 Hay varias maneras de habilitar las notificaciones de terminación en las instancias de conjunto de escalado, tal como se describe en los siguientes ejemplos.
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure portal
 
 Los pasos siguientes habilitan la notificación de finalización al crear un nuevo conjunto de escalado. 
 
@@ -178,7 +178,7 @@ A continuación se muestra el JSON esperado en el cuerpo de la solicitud POST. L
 
 Asegúrese de que todas las máquinas virtuales del conjunto de escalado solo aprueban el EventID pertinente para esa máquina virtual. Una máquina virtual puede obtener su propio nombre de máquina virtual [mediante Instance Metadata Service](virtual-machine-scale-sets-instance-ids.md#instance-metadata-vm-name). Este nombre toma la forma "{nombreDelConjuntoDeEscalado}_{ID-instancia}" y se mostrará en la sección "Resources" de la respuesta de consulta descrita anteriormente.
 
-También puede hacer referencia a los scripts de ejemplo para consultar y responder a eventos mediante [PowerShell](../virtual-machines/windows/scheduled-events.md#powershell-sample) y [Python](../virtual-machines/linux/scheduled-events.md#python-sample).
+También puede hacer referencia a los scripts de ejemplo para consultar y responder a eventos usando [Python](../virtual-machines/linux/scheduled-events.md#python-sample).
 
 ## <a name="tips-and-best-practices"></a>Sugerencias y prácticas recomendadas
 -   Notificaciones de finalización solo en operaciones "de eliminación": todas las operaciones de eliminación (eliminación manual o reducción horizontal iniciada mediante escalabilidad automática) generará eventos de finalización si el conjunto de escalado tiene *scheduledEventsProfile* habilitado. Otras operaciones como reiniciar, restablecer la imagen inicial, volver a implementar y detener/desasignar no generan eventos de finalización. Las notificaciones de finalización no se pueden habilitar para máquinas virtuales de prioridad baja.

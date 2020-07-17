@@ -6,17 +6,20 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: bfb0a73631564c96a4af745fe9d7540a3a84f9c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c0f31ddb0e0aeabff06d14d40d254c2577b38b5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77655368"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84906809"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Creación de campos personalizados en un área de trabajo de Log Analytics en Azure Monitor (versión preliminar)
 
 > [!NOTE]
 > En este artículo se describe cómo analizar los datos de texto en un área de trabajo de Log Analytics cuando se recopilan. Se recomienda analizar los datos de texto en un filtro de consulta después de que se recopilan siguiendo las instrucciones de [Análisis de datos de texto en Azure Monitor](../log-query/parse-text.md). Proporciona varias ventajas sobre el uso de campos personalizados.
+
+> [!IMPORTANT]
+> Los campos personalizados aumentan la cantidad de datos recopilados en el área de trabajo Log Analytics, lo que puede aumentar el costo. Consulte [Administración del uso y los costos con los registros de Azure Monitor](manage-cost-storage.md#pricing-model) para más información.
 
 La característica **Campos personalizados** de Azure Monitor le permite ampliar los registros existentes del área de trabajo de Log Analytics agregando sus propios campos de búsqueda.  Los campos personalizados se rellenan automáticamente a partir de los datos extraídos de otras propiedades del mismo registro.
 

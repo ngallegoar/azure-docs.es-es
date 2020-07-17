@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: b1f11a1ff25117c07e61475e7e83fc0c170cd552
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a19f81fab525b44f0b55244281930977e0e1f476
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414649"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254623"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Formatos de archivo y códecs de compresión admitidos en Azure Data Factory (heredados)
 
@@ -224,7 +224,7 @@ En esta ejemplo, se espera un objeto JSON de raíz que se asigna al registro ind
 
 y quiere copiarlo en una tabla de SQL de Azure con el formato siguiente extrayendo datos tanto de los objetos como de la matriz:
 
-| id | deviceType | targetResourceType | resourceManagementProcessRunId | occurrenceTime |
+| ID | deviceType | targetResourceType | resourceManagementProcessRunId | occurrenceTime |
 | --- | --- | --- | --- | --- |
 | ed0e4960-d9c5-11e6-85dc-d7996816aad3 | PC | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 1/13/2017 11:24:37 AM |
 
@@ -356,7 +356,7 @@ El conjunto de datos de entrada con el tipo **JsonFormat** se define de la sigui
 
 Si tiene la siguiente tabla en SQL Database:
 
-| id | order_date | order_price | order_by |
+| ID | order_date | order_price | order_by |
 | --- | --- | --- | --- |
 | 1 | 20170119 | 2000 | David |
 | 2 | 20170120 | 3500 | Patrick |
@@ -542,7 +542,7 @@ Tenga en cuenta los siguientes puntos:
 
 Azure Data Factory admite datos de compresión y descompresión durante la copia. Cuando se especifica la propiedad `compression` en un conjunto de datos de entrada, la actividad de copia lee los datos comprimidos del origen y los descomprime; y cuando se especifica la propiedad en un conjunto de datos de salida, la actividad de copia comprime los datos y luego los escribe en el receptor. Estos son algunos escenarios de ejemplo:
 
-* Leer datos comprimidos con GZIP de un blob de Azure, descomprimirlos y escribir los datos de resultado en una base de datos de Azure SQL. Debe definir el conjunto de datos de Azure Blob de entrada con la propiedad `compression` `type` como GZIP.
+* Leer datos comprimidos GZIP de un blob de Azure, descomprimirlos y escribir los datos de resultado en Azure SQL Database. Debe definir el conjunto de datos de Azure Blob de entrada con la propiedad `compression` `type` como GZIP.
 * Leer datos de un archivo de texto sin formato del sistema de archivos local, comprimirlos con formato GZip y escribir los datos comprimidos en un blob de Azure. Debe definir el conjunto de datos de Azure Blob de salida con la propiedad `compression` `type` como GZIP.
 * Leer el archivo .zip del servidor FTP, descomprimirlo para obtener los archivos que contiene y colocar dichos archivos en Azure Data Lake Store. Debe definir un conjunto de datos de FTP de entrada con la propiedad `compression` `type` como ZipDeflate.
 * Leer datos comprimidos con GZIP de un blob de Azure, descomprimirlos, comprimirlos con BZIP2 y escribir los datos de resultado en un blob de Azure. Debe definir el conjunto de datos de Azure Blob de entrada con `compression` `type` establecido en GZIP y el conjunto de datos de salida con `compression` `type` establecido en BZIP2.

@@ -9,25 +9,25 @@ editor: ''
 ms.assetid: ''
 ms.service: role-based-access-control
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 568cb7602d9cb454685ef69e820288bcc68563c4
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 870c9c91e285988cdc1fb294b3fc9b3270de7483
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735766"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361911"
 ---
 # <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Incorporación o eliminación de asignaciones de roles de Azure para usuarios externos invitados mediante Azure Portal
 
 El [control de acceso basado en rol (RBAC) de Azure](overview.md) permite una mejor administración de la seguridad para organizaciones grandes y para PYMES que trabajan con colaboradores externos, proveedores o autónomos que necesitan tener acceso a recursos específicos de su entorno, pero no necesariamente a toda la infraestructura ni a los ámbitos relacionados con la facturación. Puede usar las funcionalidades de [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) para colaborar con usuarios invitados externos y puede usar RBAC para conceder solo los permisos que los usuarios invitados necesitan en su entorno.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para agregar o quitar asignaciones de roles, debe tener:
 
@@ -89,7 +89,9 @@ En RBAC, para conceder acceso es preciso asignar un rol. Para agregar una asigna
 
     Si no tiene permisos para asignar roles, la opción Agregar asignación de roles se deshabilitará.
 
-    ![Menú Agregar](./media/role-assignments-external-users/add-menu.png)
+    ![Menú Agregar asignación de roles](./media/shared/add-role-assignment-menu.png)
+
+    Se abre el panel Agregar asignación de roles.
 
 1. En la lista desplegable **Rol**, seleccione un rol como **Colaborador de la máquina virtual**.
 
@@ -119,7 +121,9 @@ Si el usuario invitado todavía no está en el directorio, puede invitar al usua
 
 1. Haga clic en **Agregar** > **Agregar asignación de roles** para abrir el panel Agregar asignación de roles.
 
-    ![Menú Agregar](./media/role-assignments-external-users/add-menu.png)
+    ![Menú Agregar asignación de roles](./media/shared/add-role-assignment-menu.png)
+
+    Se abre el panel Agregar asignación de roles.
 
 1. En la lista desplegable **Rol**, seleccione un rol como **Colaborador de la máquina virtual**.
 

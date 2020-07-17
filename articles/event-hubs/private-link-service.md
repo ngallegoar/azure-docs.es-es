@@ -1,18 +1,14 @@
 ---
 title: Integración de Azure Event Hubs con Azure Private Link
 description: Aprenda a integrar Azure Event Hubs con Azure Private Link
-services: event-hubs
-author: spelluru
-ms.author: spelluru
-ms.date: 03/12/2020
-ms.service: event-hubs
+ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: bb4c46ecd64958b1daf6c3f7fb5fe613dc9ba729
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: aa1eb4df425d83a37fbf4ac69e0e256c464dc5c9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649902"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85312820"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link"></a>Integración de Azure Event Hubs en Azure Private Link
 Azure Private Link le permite acceder a los servicios de Azure (por ejemplo, Azure Event Hubs, Azure Storage y Azure Cosmos DB) y a los servicios de asociados o clientes hospedados de Azure mediante un **punto de conexión privado** de la red virtual.
@@ -22,7 +18,7 @@ Un punto de conexión privado es una interfaz de red que le conecta de forma pri
 Para más información, consulte [¿Qué es Azure Private Link?](../private-link/private-link-overview.md)
 
 > [!IMPORTANT]
-> Esta característica solo se admite con el nivel **Dedicado**. Para más información acerca del nivel Dedicado, consulte [Introducción a Event Hubs dedicado](event-hubs-dedicated-overview.md). 
+> Esta característica se admite en los niveles tanto **estándar** como **dedicado**. 
 
 >[!WARNING]
 > La habilitación de los puntos de conexión privados puede evitar que otros servicios de Azure interactúen con Event Hubs.
@@ -42,7 +38,7 @@ Para más información, consulte [¿Qué es Azure Private Link?](../private-link
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Incorporación de un punto de conexión privado mediante Azure Portal
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 Para integrar un espacio de nombres de Event Hubs con Azure Private Link, necesitará las siguientes entidades o permisos:
 
@@ -62,7 +58,7 @@ Si ya tiene un espacio de nombres de Event Hubs, puede crear una conexión de v�
 2. En la barra de búsqueda, escriba **Event Hubs**.
 3. En la lista, seleccione el **espacio de nombres** al que desea agregar un punto de conexión privado.
 4. Seleccione la pestaña **Redes** en **Configuración**.
-5. Seleccione la pestaña **Conexiones de puntos de conexión privadas** en la parte superior de la página. Si no está usando un nivel Dedicado de Event Hubs, verá un mensaje: **Las conexiones de puntos de conexión privados en Event Hubs solo se admiten en los espacios de nombres creados en un clúster dedicado**.
+5. Seleccione la pestaña **Conexiones de puntos de conexión privadas** en la parte superior de la página. 
 6. Seleccione el botón **+ Punto de conexión privado** en la parte superior de la página.
 
     ![Imagen](./media/private-link-service/private-link-service-3.png)

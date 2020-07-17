@@ -4,7 +4,7 @@ description: Fedérese con Facebook para permitir que los usuarios externos (inv
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: mimart
 author: msmimart
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0428671cf41bf148bc76bbd963bdd8fd90fce8e5
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 0b5e1db2c86f6118c3cd333974c9cfd64f747128
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712277"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551443"
 ---
 # <a name="add-facebook-as-an-identity-provider-for-external-identities"></a>Incorporación de Facebook como proveedor de identidades para identidades externas
 
@@ -32,7 +32,7 @@ Para usar una cuenta de Facebook como [proveedor de identidades](identity-provid
 
 > [!NOTE]  
 > Use las direcciones URL siguientes en los pasos 9 y 16 que verá a continuación.
-> - En la **dirección URL del sitio** escriba `https://login.microsoftonline.com`.
+> - En **URL del sitio**, escriba la dirección de la aplicación, como `https://contoso.com`.
 > - En **Valid OAuth redirect URIs** (URI de redireccionamiento OAuth válidos), escriba `https://login.microsoftonline.com/te/<tenant-id>/oauth2/authresp`. Puede encontrar el valor `<tenant-ID>` en la hoja de información general de Azure Active Directory.
 
 

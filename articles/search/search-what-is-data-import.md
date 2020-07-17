@@ -7,21 +7,25 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: cc3f38e9bb96ce76263a3124f8bfdc49dc638bfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/30/2020
+ms.openlocfilehash: 9a4b6bc8ae20789c1420e68f91cee34ac5b3a3ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236788"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554252"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Introducción a la importación de datos: Azure Cognitive Search
 
 En Azure Cognitive Search, las consultas se ejecutan sobre el contenido cargado y guardado en un [índice de búsqueda](search-what-is-an-index.md). Este artículo examina los dos enfoques básicos para rellenar un índice: *insertar* los datos en el índice mediante programación o apuntar un [indizador de Azure Cognitive Search](search-indexer-overview.md) en un origen de datos admitido para *extraer* en los datos.
 
-Con cualquier enfoque, el objetivo consiste en *cargar datos* de un origen de datos externo en un índice de Azure Cognitive Search. Azure Cognitive Search le permitirá crear un índice vacío, pero, hasta que se inserten o extraigan datos en él, no es consultable.
+En ambos métodos, el objetivo consiste en cargar datos de un origen de datos externo en un índice de Azure Cognitive Search. Azure Cognitive Search le permitirá crear un índice vacío, pero, hasta que se inserten o extraigan datos en él, no es consultable.
+
+> [!NOTE]
+> Si el [enriquecimiento con IA](cognitive-search-concept-intro.md) es un requisito de la solución, debe usar el modelo de extracción (indexadores) para cargar un índice. El procesamiento externo solo es posible a través de conjuntos de aptitudes conectados a un indexador.
 
 ## <a name="pushing-data-to-an-index"></a>Inserción de datos en un índice
+
 El modelo de inserción, que se usa para enviar a Azure Cognitive Search los datos mediante programación, es el enfoque más flexible. En primer lugar, no tiene ninguna restricción en el tipo de origen de datos. Cualquier conjunto de datos que se compone de documentos JSON se puede insertar en un índice de Azure Cognitive Search si cada documento en el conjunto de datos tiene campos asignados a los campos definidos en el esquema de índice. En segundo lugar, no tiene ninguna restricción en la frecuencia de ejecución. Puede insertar los cambios a un índice tantas veces como desee. En el caso de las aplicaciones con requisitos de latencia muy baja (por ejemplo, si se necesita que las operaciones de búsqueda estén sincronizadas con las bases de datos dinámicas del inventario), la única opción es un modelo de inserción.
 
 Este enfoque es más flexible que el modelo de extracción, ya que los documentos se pueden cargar individualmente o en lotes (hasta 1000 por lote o 16 MB, lo que ocurra primero). El modelo de inserción también le permite cargar documentos en Azure Cognitive Search independientemente de dónde están los datos.
@@ -55,27 +59,26 @@ En el SDK de .NET, empaquete los datos en un objeto `IndexBatch`. Un `IndexBatch
 | `mergeOrUpload` |Esta acción se comporta como `merge` si ya existe un documento con la clave especificada en el índice. Si el documento no existe, se comporta como `upload` con un nuevo documento. |la clave, además de cualquier otro campo que desee definir |- |
 | `delete` |Quita el documento especificado del índice. |solo la clave |Todos los campos que especifique que no sean el campo de clave, se omitirán. Si desea quitar un campo individual de un documento, use `merge` en su lugar y establezca el campo explícitamente con el valor NULL. |
 
-## <a name="decide-which-indexing-action-to-use"></a>Elección de la acción de indexación que va a usar
-Importar datos mediante el SDK de .NET (carga, combinación, eliminación y mergeOrUpload). Dependiendo de cuál de las acciones siguientes elija, se deberán incluir solo ciertos campos para cada documento:
-
-
 ### <a name="formulate-your-query"></a>Formulación de la consulta
+
 Hay dos maneras de [realizar búsquedas en el índice mediante la API de REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Una de ellas es emitir una solicitud HTTP POST en la que los parámetros de consulta se definen en un objeto JSON del cuerpo de la solicitud. La otra es emitir una solicitud HTTP GET en la que los parámetros de la consulta se definen en la dirección URL de la solicitud. POST tiene unos [límites más flexibles](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) en relación con el tamaño de los parámetros de la consulta que GET. Por este motivo, se recomienda usar la solicitud POST a menos que haya circunstancias especiales en las que utilizar la solicitud GET sea más adecuado.
 
-Tanto para la solicitud POST como para la GET, deberá proporcionar el *nombre del servicio*, el *nombre del índice*, así como la *versión adecuada de la API* (la versión actual de la API es `2019-05-06` en el momento de publicar este documento) en la URL de la solicitud. En el caso de GET, la *cadena de consulta* del final de la dirección URL es donde se proporcionar los parámetros de la consulta. Consulte a continuación el formato de dirección URL:
+Tanto en POST como en GET, debe indicar su *nombre del servicio*, el *nombre del índice*y una *versión de la API* en la dirección URL de la solicitud. 
 
-    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2019-05-06
+En el caso de GET, la *cadena de consulta* del final de la dirección URL es donde se proporcionar los parámetros de la consulta. Consulte a continuación el formato de dirección URL:
 
-El formato de la solicitud POST es el mismo, pero solo con la versión de API en los parámetros de la cadena de consulta.
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2020-06-30
 
+El formato de la solicitud POST es el mismo, pero con `api-version` en los parámetros de la cadena de consulta.
 
 ## <a name="pulling-data-into-an-index"></a>Extracción de datos en un índice
+
 El modelo de extracción rastrea un origen de datos compatible y carga automáticamente los datos en el índice. En Azure Cognitive Search, esta funcionalidad se implementa a través de *indizadores*, que en este momento se encuentran disponibles en las siguientes plataformas:
 
 + [Blob Storage](search-howto-indexing-azure-blob-storage.md)
 + [Table storage](search-howto-indexing-azure-tables.md)
-+ [Azure Cosmos DB](https://aka.ms/documentdb-search-indexer)
-+ [Azure SQL Database y SQL Server on Azure VMs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
++ [Azure Cosmos DB](search-howto-index-cosmosdb.md)
++ [Azure SQL Database, Instancia administrada de SQL y SQL Server en máquinas virtuales de Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
 Los indexadores conectan un índice a un origen de datos (normalmente una tabla, vista o estructura equivalente) y asignan campos de origen a los campos equivalentes del índice. Durante la ejecución, el conjunto de filas se transforma automáticamente en JSON y se carga en el índice especificado. Todos los indexadores admiten la programación, de modo que se puede especificar con qué frecuencia se deben actualizar los datos. La mayoría de los indexadores proporcionan seguimiento de cambios, siempre el origen de datos lo admita. Mediante el seguimiento de cambios y eliminaciones en documentos existentes, además de reconocer nuevos documentos, los indexadores eliminan la necesidad de administrar activamente los datos del índice. 
 

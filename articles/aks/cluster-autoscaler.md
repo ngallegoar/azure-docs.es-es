@@ -4,12 +4,12 @@ description: Aprenda a usar el escalado automático de clústeres para escalar a
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: f40d13b6b9a37f4c5efcc73e52b631bd2eec659a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: e87470e577f4d2613b43cc02755ccc2d500c0ef8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683560"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84730023"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Escalar automáticamente un clúster para satisfacer las necesidades de la aplicación en Azure Kubernetes Service (AKS)
 
@@ -99,7 +99,7 @@ az aks update \
 En el ejemplo anterior se actualiza el escalado automático del clúster en el único grupo de nodos de *myAKSCluster* a un mínimo de *1* y un máximo de *5* nodos.
 
 > [!NOTE]
-El escalador automático del clúster toma sus decisiones de escalado en función de los recuentos mínimo y máximo establecidos en cada grupo de nodos, pero no los aplica. Por ejemplo, si se establece un recuento mínimo de 5 cuando el recuento de nodos actual es 3, no se escala inmediatamente el grupo hasta 5. Si cambia el recuento mínimo en el grupo de nodos a un valor superior al número actual de nodos, se respeta este nuevo límite si hay suficientes pods que no se pueden programar que requieren 2 nuevos nodos adicionales y desencadenan un evento del escalador automático. Cuando sucede esto, se respeta el nuevo límite de recuento mínimo para el escalador automático del clúster.
+> El escalador automático del clúster toma sus decisiones de escalado en función de los recuentos mínimo y máximo establecidos en cada grupo de nodos, pero no los aplica después de actualizar los recuentos mínimo o máximo. Por ejemplo, si se establece un recuento mínimo de 5 cuando el recuento de nodos actual es 3, no se escala inmediatamente el grupo hasta 5. Si el recuento mínimo en el grupo de nodos tiene un valor superior al número actual de nodos, la nueva configuración mínima o máxima se respeta si hay suficientes pods que no se pueden programar que requieren dos nuevos nodos más y desencadenan un evento del escalador automático. Tras el evento de escala, se respetan los nuevos límites de recuento.
 
 Supervise el rendimiento de las aplicaciones y los servicios y ajuste la cantidad de nodos del escalado automático de clústeres para que coincida con el rendimiento necesario.
 

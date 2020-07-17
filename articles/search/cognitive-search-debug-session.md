@@ -1,5 +1,5 @@
 ---
-title: Depuración de conjunto de aptitudes de enriquecimiento con IA (versión preliminar)
+title: Conceptos de las sesiones de depuración (versión preliminar)
 titleSuffix: Azure Cognitive Search
 description: Las sesiones de depuración, a las que se accede desde Azure Portal, proporcionan un entorno similar a un IDE en el que se pueden identificar y corregir errores, validar cambios y enviar cambios en conjuntos de aptitudes de la canalización de enriquecimiento con IA. Sesiones de depuración está en versión preliminar.
 manager: nitinme
@@ -8,21 +8,20 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 04b221d772abf923d7aabfe767a6424b72ed8fb2
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: edce8f3460e92eef4f6665b1b38a61582d6841ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662413"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560372"
 ---
-# <a name="debug-sessions"></a>Sesiones de depuración
+# <a name="debug-sessions-in-azure-cognitive-search"></a>Sesiones de depuración en Azure Cognitive Search
 
 Sesiones de depuración es un editor visual que funciona con un conjunto de aptitudes existente en Azure Portal. En una sesión de depuración, puede identificar y resolver errores, validar cambios e introducir cambios en un conjunto de aptitudes en la canalización de enriquecimiento con IA.
 
 > [!Important]
-> La compatibilidad de las sesiones de depuración con Azure Cognitive Search está disponible [a petición](https://aka.ms/DebugSessions) como versión preliminar de acceso limitado. Las características de la versión preliminar se ofrecen sin Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Las sesiones de depuración constituyen una característica en versión preliminar que se ofrece sin Acuerdo de Nivel de Servicio, por lo que no se recomienda usarlas con cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Una vez que se le haya concedido acceso a la versión preliminar, podrá acceder a las sesiones de depuración y utilizarlas para el servicio con Azure Portal.
 
 ## <a name="using-debug-sessions"></a>Uso de sesiones de depuración
 
@@ -86,6 +85,10 @@ El **evaluador de expresiones** ofrece un vistazo rápido al valor de cualquier 
 ## <a name="errorswarnings"></a>Errores o advertencias
 
 Esta ventana muestra todos los errores y advertencias que genera el conjunto de aptitudes al ejecutarse para el documento en la sesión de depuración.
+
+## <a name="limitations"></a>Limitaciones
+
+Las sesiones de depuración funcionan con todos los orígenes de datos disponibles en general, así como con la mayoría de los orígenes de datos de versión preliminar. La API de MongoDB (versión preliminar) y Cassandra API (versión preliminar) de Cosmos DB no se admiten actualmente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

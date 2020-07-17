@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 778a18edafadc0bd043df1e9a5ab1d660fab6525
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 561ec6d59349fca585beda8b1bd60073d2603077
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869726"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552179"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 
@@ -130,13 +130,14 @@ Invoke-AzStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
  
 Para probar solo los requisitos del sistema:
 ```powershell
-Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name>
+Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name> -SkipNamespaceChecks
 ```
  
 Para mostrar los resultados en CSV:
 ```powershell
 $errors = Invoke-AzStorageSyncCompatibilityCheck […]
-$errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
+$validation.Results | Select-Object -Property Type, Path, Level, Description, Result | Export-Csv -Path
+    C:\results.csv -Encoding utf8
 ```
 
 ### <a name="file-system-compatibility"></a>Compatibilidad del sistema de archivos
@@ -254,9 +255,7 @@ En función de los requisitos normativos únicos y de la directiva de su organiz
 - Configurar Azure File Sync para que admita su proxy en su entorno.
 - Limitar la actividad de la red desde Azure File Sync.
 
-Para más información sobre cómo configurar la funcionalidad de red de Azure File Sync, consulte:
-- [Configuración del proxy y el firewall de Azure File Sync](storage-sync-files-firewall-and-proxy.md)
-- [Configuración de Azure File Sync para que sea un buen vecino en el centro de datos](storage-sync-files-server-registration.md)
+Para más información sobre Azure File Sync y las redes, vea [Consideraciones de redes para Azure File Sync](storage-sync-files-networking-overview.md).
 
 ## <a name="encryption"></a>Cifrado
 Cuando se usa Azure File Sync, hay que tener en cuenta tres capas diferentes de cifrado: cifrado en el almacenamiento en reposo de Windows Server, cifrado en tránsito entre el agente de Azure File Sync y Azure, y cifrado en reposo de los datos del recurso compartido de archivos de Azure. 
@@ -325,7 +324,7 @@ Azure File Sync está disponible en las siguientes regiones:
 | Público | Sudáfrica | Oeste de Sudáfrica* | `southafricawest` |
 | Público | Emiratos Árabes Unidos | Centro de Emiratos Árabes Unidos* | `uaecentral` |
 | Público | Emiratos Árabes Unidos | Norte de Emiratos Árabes Unidos | `uaenorth` |
-| Público | Reino Unido | Sur de Reino Unido 2 | `uksouth` |
+| Público | Reino Unido | Sur de Reino Unido | `uksouth` |
 | Público | Reino Unido | Oeste de Reino Unido | `ukwest` |
 | Público | US | Centro de EE. UU. | `centralus` |
 | Público | US | Este de EE. UU. | `eastus` |
@@ -358,7 +357,7 @@ Si tiene un servidor de archivos de Windows existente, Azure File Sync se puede 
 
 También se puede usar Data Box para migrar datos a una implementación de Azure File Sync. La mayor parte del tiempo, si los clientes desean usar Data Box para ingerir datos, lo hacen porque creen que aumentará la velocidad de su implementación o porque ayudará en aquellos escenarios en los que el ancho de banda está restringido. Aunque es cierto que usar Data Box para ingerir datos en la implementación de Azure File Sync reducirá el uso del ancho de banda, es probable que sea más rápido en la mayor parte de los escenarios para perseguir una carga de datos en línea mediante uno de los métodos ya descritos. Para más información sobre el uso de Data Box para ingerir datos en su implementación de Azure File Sync, consulte [Migración de datos a Azure File Sync con Azure Data Box](storage-sync-offline-data-transfer.md).
 
-Un error común que cometen los clientes al migrar datos a su nueva implementación de Azure File Sync es copiar los datos directamente en el recurso compartido de archivos de Azure, en lugar de en sus servidores de archivos de Windows. Aunque Azure File Sync identificará todos los archivos nuevos del recurso compartido de archivos de Azure y los sincronizará con sus recursos compartidos de archivos de Windows, por lo general la operación es más lenta que la carga de datos mediante el servidor de archivos de Windows. Muchas herramientas de copia de Azure, como AzCopy, tienen el inconveniente adicional de que no copian todos los metadatos importantes de un archivo, como las marchas de tiempo y las listas de control de acceso.
+Un error común que cometen los clientes al migrar datos a su nueva implementación de Azure File Sync es copiar los datos directamente en el recurso compartido de archivos de Azure, en lugar de en sus servidores de archivos de Windows. Aunque Azure File Sync identificará todos los archivos nuevos del recurso compartido de archivos de Azure y los sincronizará con sus recursos compartidos de archivos de Windows, por lo general la operación es más lenta que la carga de datos mediante el servidor de archivos de Windows. Al usar las herramientas de copia de Azure, como AzCopy, es importante usar la versión más reciente. Eche un vistazo a la [tabla de herramientas de copia de archivos](storage-files-migration-overview.md#file-copy-tools) para obtener información general sobre las herramientas de copia de Azure, lo que le permitirá asegurarse de que puede copiar todos los metadatos importantes de un archivo, como marcas de tiempo y listas de control de acceso.
 
 ## <a name="antivirus"></a>Antivirus
 Dado que un antivirus funciona examinando los archivos en busca de código malintencionado conocido, puede provocar la recuperación de archivos con niveles. En las versiones 4.0 y posteriores del agente de Azure File Sync, los archivos en niveles tienen establecido el atributo seguro de Windows FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS. Se recomienda consultar con el proveedor de software cómo configurar su solución para omitir la lectura de archivos que tengan establecido este atributo (muchas realizan la omisión automáticamente). 

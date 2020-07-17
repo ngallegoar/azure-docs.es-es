@@ -6,19 +6,19 @@ author: curtand
 ms.author: curtand
 manager: mtillman
 ms.date: 04/27/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b83b0687db72c78a0c7788933acf07f5cb9e0ed
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 755e59a029b0a12e51db53c6c7d3bb00358af635
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83679326"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84742019"
 ---
 # <a name="bulk-add-group-members-in-azure-active-directory"></a>Adición masiva de miembros de un grupo en Azure Active Directory
 
@@ -44,6 +44,7 @@ Las filas de una plantilla CSV descargada son las siguientes:
 - Las columnas necesarias se enumeran en primer lugar.
 - No se recomienda agregar nuevas columnas a la plantilla. Cualquier columna adicional que agregue se omitirá y no se procesará.
 - Se recomienda que descargue la versión más reciente de la plantilla CSV tan a menudo como sea posible.
+- Agregue como mínimo los UPN de dos usuarios o identificadores de objeto para cargar correctamente el archivo.
 
 ## <a name="to-bulk-import-group-members"></a>Para importar de forma masiva miembros de grupo
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: db36033ea524603416f16db27f40d5eefb8bf613
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: a49e5fbe9eac689b630a0f3b443729faf29cdb0d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437118"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84974524"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas del Explorador de Azure Storage
 
@@ -48,7 +48,7 @@ Se le debe haber asignado al menos un rol que conceda acceso para leer datos de 
 
 Azure Storage tiene dos capas de acceso: _administración_ y _datos_. Se accede a las suscripciones y cuentas de almacenamiento mediante la capa de administración. Se accede a los contenedores, blobs y otros recursos de datos mediante la capa de datos. Por ejemplo, si desea obtener una lista de las cuentas de almacenamiento de Azure, debe enviar una solicitud al punto de conexión de administración. Si desea obtener una lista de los contenedores de blobs de una cuenta, envíe una solicitud al punto de conexión de servicio adecuado.
 
-Los roles de RBAC pueden contener los permisos para acceder a la capa de datos o de administración. Por ejemplo, el rol Lector otorga acceso de solo lectura a los recursos de la capa de administración.
+Los roles de RBAC pueden concederle los permisos para acceder a la capa de datos o de administración. Por ejemplo, el rol Lector otorga acceso de solo lectura a los recursos de la capa de administración.
 
 Estrictamente hablando, el rol Lector no proporciona permisos para la capa de datos y no es necesario para acceder a esa capa.
 
@@ -58,7 +58,14 @@ Si no tiene ningún rol que conceda permisos para la capa de administración, el
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>¿Qué sucede si no puedo obtener los permisos de la capa de administración que necesito de mi administrador?
 
-Actualmente no tenemos una solución relacionada con RBAC para este problema. Como alternativa, puede solicitar un URI de SAS para que se [adjunte al recurso](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+Si quiere acceder a los contenedores de blobs o a las colas, puede adjuntarlos a esos recursos con las credenciales de Azure.
+
+1. Abra el cuadro de diálogo Conectar.
+2. Seleccione Agregar un recurso a través de Azure Active Directory (Azure AD). Haga clic en Siguiente.
+3. Seleccione la cuenta de usuario y el inquilino asociados al recurso al que los está adjuntando. Haga clic en Siguiente.
+4. Seleccione el tipo de recurso, escriba la dirección URL del recurso y escriba un nombre para mostrar único para la conexión. Haga clic en Siguiente. Haga clic en Conectar.
+
+Actualmente no tenemos una solución relacionada con RBAC para otros tipos de recursos. Como alternativa, puede solicitar un URI de SAS para que se [adjunte al recurso](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
 ### <a name="recommended-built-in-rbac-roles"></a>Roles de RBAC integrados recomendados
 
@@ -75,7 +82,7 @@ Hay varios roles de RBAC integrados que pueden proporcionar los permisos necesar
 
 Los errores de certificado habitualmente se producen en una de las situaciones siguientes:
 
-- La aplicación se conecta a través de un _proxy transparente_, lo que significa que un servidor (por ejemplo, el servidor de la empresa) intercepta el tráfico HTTPS, lo descifra y, después, lo cifra mediante un certificado autofirmado.
+- La aplicación se conecta a través de un _proxy transparente_. Esto significa que un servidor (por ejemplo, el servidor de la empresa) intercepta el tráfico HTTPS, lo descifra y, después, lo cifra mediante un certificado autofirmado.
 - Ejecuta una aplicación que inserta un certificado TLS/SSL autofirmado en los mensajes HTTPS que recibe. Entre los ejemplos de aplicaciones que insertan certificados se incluyen los antivirus y el software de inspección del tráfico de red.
 
 Cuando el Explorador de Storage ve un certificado autofirmado o que no es de confianza, ya no sabe si se ha modificado el mensaje HTTPS recibido. Si tiene una copia del certificado autofirmado, puede indicar a Explorador de Storage que confíe en él. Para ello, debe seguir estos pasos:
@@ -297,6 +304,8 @@ Si por error realizó la asociación mediante una dirección URL de SAS no váli
 
 ## <a name="linux-dependencies"></a>Dependencias de Linux
 
+### <a name="snap"></a>Ajustar
+
 Tanto el Explorador de Storage 1.10.0 como las versiones posteriores en forma de complemento están disponibles en Snap Store. El complemento de Explorador de Storage instala automáticamente todas sus dependencias y se actualiza cuando hay una nueva versión del complemento disponible. La instalación del complemento de Explorador de Storage es el método recomendado de instalación.
 
 El Explorador de Storage requiere el uso de un administrador de contraseñas, que puede que se necesite para establecer una conexión manualmente para que el Explorador de Storage funcione correctamente. Puede conectar el Explorador de Storage al administrador de contraseñas del sistema mediante la ejecución del siguiente comando:
@@ -305,57 +314,76 @@ El Explorador de Storage requiere el uso de un administrador de contraseñas, qu
 snap connect storage-explorer:password-manager-service :password-manager-service
 ```
 
+### <a name="targz-file"></a>Archivo .tar.gz
+
 También puede descargar la aplicación en forma de archivo .tar.gz, pero tendrá que instalar las dependencias manualmente.
 
-> [!IMPORTANT]
-> El Explorador de Storage, tal como se proporciona en el .tar.gz descargado, solo es compatible con las distribuciones de Ubuntu. Las restantes distribuciones no se han verificado y pueden requerir paquetes alternativos o adicionales.
+El Explorador de Storage tal y como se proporciona en la descarga .tar.gz solo es compatible con las siguientes versiones de Ubuntu. Es posible que el Explorador de Storage funcione en otras distribuciones de Linux, pero no se admiten oficialmente.
 
-Estos paquetes son los requisitos más comunes del Explorador de Storage en Linux:
+- Ubuntu 20.04 x64
+- Ubuntu 18.04 x64
+- Ubuntu 16.04 x64
 
-* [Entorno de ejecución de .NET Core 2.2](/dotnet/core/install/dependencies?tabs=netcore22&pivots=os-linux)
-* `libgconf-2-4`
-* `libgnome-keyring0` o `libgnome-keyring-dev`
-* `libgnome-keyring-common`
+El Explorador de Storage requiere que .NET Core esté instalado en el sistema. Se recomienda .NET Core 2,1, pero el Explorador de Storage funcionará también con 2.2.
 
 > [!NOTE]
-> La versión 1.7.0 del Explorador de Storage y anteriores requieren .NET Core 2.0. Si tiene una versión más reciente de .NET Core instalada, tendrá que [aplicar un parche al Explorador de Storage](#patching-storage-explorer-for-newer-versions-of-net-core). Si ejecuta el Explorador de Storage 1.8.0, o cualquier versión posterior, debería poder usar hasta .NET Core 2.2. Las versiones superiores a la 2.2 no se han comprobado para que funcionen en este momento.
+> La versión 1.7.0 del Explorador de Storage y anteriores requieren .NET Core 2.0. Si tiene una versión más reciente de .NET Core instalada, tendrá que [aplicar un parche al Explorador de Storage](#patching-storage-explorer-for-newer-versions-of-net-core). Si ejecuta el Explorador de Storage 1.8.0, o cualquier versión posterior, por lo menos necesita .NET Core 2.1.
 
-# <a name="ubuntu-1904"></a>[Ubuntu 19.04](#tab/1904)
+# <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 
-1. Descargue el Explorador de Storage.
-2. Instale el [entorno de ejecución de .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
-3. Ejecute el siguiente comando:
+1. Descargue el archivo .tar.gz del Explorador de Storage.
+2. Instale el [entorno de ejecución de .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
-   sudo apt-get install libgconf-2-4 libgnome-keyring0
+   wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 
 # <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
-1. Descargue el Explorador de Storage.
-2. Instale el [entorno de ejecución de .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
-3. Ejecute el siguiente comando:
+1. Descargue el archivo .tar.gz del Explorador de Storage.
+2. Instale el [entorno de ejecución de .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
-   sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
+   wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 
 # <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
-1. Descargue el Explorador de Storage.
-2. Instale el [entorno de ejecución de .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current).
-3. Ejecute el siguiente comando:
+1. Descargue el archivo .tar.gz del Explorador de Storage.
+2. Instale el [entorno de ejecución de .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
-   sudo apt install libgnome-keyring-dev
-   ```
-
-# <a name="ubuntu-1404"></a>[Ubuntu 14.04](#tab/1404)
-
-1. Descargue el Explorador de Storage.
-2. Instale el [entorno de ejecución de .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current).
-3. Ejecute el siguiente comando:
-   ```bash
-   sudo apt install libgnome-keyring-dev
+   wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 ---
+
+Muchas de las bibliotecas que necesita el Explorador de Storage viene preinstaladas con las instalaciones estándar de Canonical de Ubuntu. Es posible que falten algunas de estas bibliotecas en los entornos personalizados. Si tiene problemas para iniciar el Explorador de Storage, se recomienda que se asegure de que los siguientes paquetes están instalados en el sistema:
+
+- iproute2
+- libasound2
+- libatm1
+- libgconf2-4
+- libnspr4
+- libnss3
+- libpulse0
+- libsecret-1-0
+- libx11-xcb1
+- libxss1
+- libxtables11
+- libxtst6
+- xdg-utils
 
 ### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Revisión del Explorador de Storage para las versiones más recientes de .NET Core
 

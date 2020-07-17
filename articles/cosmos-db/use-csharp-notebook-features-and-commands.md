@@ -3,15 +3,16 @@ title: Uso de los comandos y las características de cuadernos integrados en cua
 description: Aprenda a usar los comandos y las características integradas para realizar operaciones comunes con los cuadernos en C# integrados de Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: 94cb23b1795a93462a0356fb0af215601edb9d64
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.custom: tracking-python
+ms.openlocfilehash: d9d48e825adeecd54375ce13c612d4a0c6eaaa18
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662473"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263422"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-c-notebooks-preview"></a>Uso de los comandos y las características de cuadernos integrados en cuadernos en C# de Azure Cosmos DB (versión preliminar)
 
@@ -114,14 +115,14 @@ Puede usar el [explorador de datos integrado nteract](https://blog.nteract.io/de
 
 En el ejemplo *GetingStarted_Csharp.ipynb*, podemos imprimir la variable con nuestro resultado: ``telemetryEvents``. Puede consultar toda la muestra en el [cuaderno GettingStarted_Csharp.ipynb](https://github.com/Azure-Samples/cosmos-notebooks/blob/master/CSharp_quickstarts/GettingStarted_CSharp.ipynb). 
 
-![Celda de consulta de C Sharp](media/use-notebook-features-and-commands/csharp-query-cell.png)
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-query-cell.png" alt-text="Celda de consulta de CSharp":::
 
-![Explorador de datos nteract](media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png)
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png" alt-text="Explorador de datos nteract":::
 
 ## <a name="use-built-in-dictionary-viewer"></a>Uso del visor de diccionario integrado
 Puede usar el visor de diccionario integrado para ver una variable. En una celda, coloque la variable que quiera visualizar en la última línea, que se mostrará automáticamente al ejecutar la celda.
 
-![Visor de diccionario integrado](media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png)
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png" alt-text="Visor de diccionario integrado":::
 
 ## <a name="upload-json-items-to-a-container"></a>Carga de elementos JSON en un contenedor
 Puede usar el comando mágico ``%%upload`` para cargar datos de un archivo JSON en un contenedor específico de Azure Cosmos. Ejecute el siguiente comando para cargar los elementos:
@@ -154,12 +155,12 @@ Puede usar el comando mágico ``%%run`` para ejecutar otro cuaderno en el área 
 ```csharp
 %%run ./path/to/{notebookName}.ipynb
 ```
-Reemplace ``{notebookName}`` con el nombre del cuaderno que quiere ejecutar. El cuaderno debe estar en el área de trabajo "My Notebooks" (Mis cuadernos) actual. 
+Reemplace ``{notebookName}`` por el nombre del cuaderno que quiere ejecutar. El cuaderno debe estar en el área de trabajo "My Notebooks" (Mis cuadernos) actual. 
 
 ## <a name="reset-notebooks-workspace"></a>Restablecer el área de trabajo de los cuadernos
 Para restablecer la configuración predeterminada del área de trabajo de los cuadernos, seleccione **Reset Workspace** (Restablecer el área de trabajo) en la barra de comandos. Se quitarán todos los paquetes instalados personalizados y se reiniciará el servidor de Jupyter. Los cuadernos, los archivos y los recursos de Azure Cosmos no se verán afectados.  
 
-![Restablecer el área de trabajo de los cuadernos](media/use-notebook-features-and-commands/reset-workspace.png)
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Restablecer el área de trabajo de los cuadernos":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

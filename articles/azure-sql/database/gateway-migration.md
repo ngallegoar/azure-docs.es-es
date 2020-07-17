@@ -2,32 +2,47 @@
 title: Aviso de migración de tráfico de puertas de enlace
 description: El artículo proporciona un aviso a los usuarios sobre la migración de direcciones IP de puertas de enlace de Azure SQL Database
 services: sql-database
-ms.service: sql-database
-ms.subservice: development
+ms.service: sql-db-mi
+ms.subservice: service
 ms.custom: sqldbrb=1 
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: f5e45a4625b1cf9422f7ef7e10e9080a7878172d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e9bf1f06b1ec1f99da1ce653b4bc72f4638ba451
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84028756"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084960"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migración de tráfico de Azure SQL Database a puertas de enlace más recientes
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 A media que la infraestructura de Azure mejora, Microsoft actualizará periódicamente el hardware para asegurarse de que ofrecemos la mejor experiencia de cliente posible. En los próximos meses, tenemos previsto agregar puertas de enlace basadas en generaciones de hardware más recientes, migrar el tráfico a ellas y retirar puertas de enlace basadas en hardware más antiguo en algunas regiones.  
 
-Se enviará un aviso a los clientes por correo electrónico y en Azure Portal con antelación de cualquier cambios en las puertas de enlace disponibles en cada región. La información más actualizada se mantendrá en la tabla [Direcciones IP de la puerta de enlace de Azure SQL Database](connectivity-architecture.md#gateway-ip-addresses).
+Se enviará un aviso a los clientes por correo electrónico y en Azure Portal con antelación de cualquier cambio en las puertas de enlace disponibles en cada región. La información más actualizada se mantendrá en la tabla [Direcciones IP de la puerta de enlace de Azure SQL Database](connectivity-architecture.md#gateway-ip-addresses).
 
-## <a name="impact-of-this-change"></a>Impacto de este cambio
+## <a name="status-updates"></a>Actualizaciones de estado
 
-La primera ronda de migración del tráfico a las puertas de enlace más recientes está programada para el **14 de octubre de 2019** en las siguientes regiones:
+# <a name="in-progress"></a>[En curso](#tab/in-progress-ip)
 
+### <a name="august-2020"></a>Agosto de 2020
+
+Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones:
+
+- Este de Australia: 13.70.112.9
+- Centro de Canadá: 52.246.152.0, 20.38.144.1 
+- Oeste de EE. UU. 2: 40.78.240.8
+
+Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente el 10 de agosto de 2020. 
+
+# <a name="completed"></a>[Completado](#tab/completed-ip)
+
+Se han completado las siguientes migraciones de puerta de enlace: 
+
+### <a name="october-2019"></a>Octubre de 2019
 - Sur de Brasil
 - Oeste de EE. UU.
 - Oeste de Europa
@@ -42,11 +57,16 @@ La primera ronda de migración del tráfico a las puertas de enlace más recient
 - Este de EE. UU. 2
 - Este de Asia
 
-La migración del tráfico cambiará la dirección IP pública que DNS resuelve para su instancia de SQL Database.
-Se verá afectado en los siguientes casos:
+---
+
+## <a name="impact-of-this-change"></a>Impacto de este cambio
+
+La migración del tráfico puede cambiar la dirección IP pública que DNS resuelve para su base de datos en Azure SQL Database.
+Puede verse afectado si:
 
 - Ha codificado de forma rígida la dirección IP de una puerta de enlace determinada en el firewall local.
 - Tiene subredes que usan Microsoft.SQL como punto de conexión de servicio, pero no se puede comunicar con las direcciones IP de puerta de enlace.
+- Usa la [configuración con redundancia de zona](high-availability-sla.md#zone-redundant-configuration) para la base de datos
 
 No se verá afectado en los siguientes casos:
 

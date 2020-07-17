@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: mimckitt
 ms.custom: include file
-ms.openlocfilehash: 8ee5238fd8043161271eef2c130a8e0a385a0bc0
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 5c898721102177a0d796db3b8b0f194c4ec3efae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84269165"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84793631"
 ---
 Algunas cargas de trabajo de base de datos como SQL Server u Oracle requieren mucha memoria, almacenamiento y ancho de banda de E/S, pero no un recuento de núcleos alto. Muchas cargas de trabajo de base de datos no consumen demasiados recursos de CPU. Azure ofrece determinados tamaños de VM que permiten restringir el recuento de vCPU de VM para reducir el costo de licencias de software y mantener la misma memoria, almacenamiento y ancho de banda de E/S.
 
@@ -45,6 +45,15 @@ Las tarifas de licencias que se cobran para SQL Server u Oracle están restringi
 | Standard_E32-8s_v3  | 8    | Igual que E32s_v3 |
 | Standard_E64-32s_v3 | 32   | Igual que E64s_v3 |
 | Standard_E64-16s_v3 | 16   | Igual que E64s_v3 |
+| Standard_E4-2s_v4   | 2    | Igual que E4s_v4  |
+| Standard_E8-4s_v4   | 4    | Igual que E8s_v4  |
+| Standard_E8-2s_v4   | 2    | Igual que E8s_v4  |
+| Standard_E16-8s_v4  | 8    | Igual que E16s_v4 |
+| Standard_E16-4s_v4  | 4    | Igual que E16s_v4 |
+| Standard_E32-16s_v4 | 16   | Igual que E32s_v4 |
+| Standard_E32-8s_v4  | 8    | Igual que E32s_v4 |
+| Standard_E64-32s_v4 | 32   | Igual que E64s_v4 |
+| Standard_E64-16s_v4 | 16   | Igual que E64s_v4 |
 | Standard_E4-2ds_v4  | 2    | Igual que E4ds_v4 |
 | Standard_E8-4ds_v4  | 4    | Igual que E8ds_v4 |
 | Standard_E8-2ds_v4  | 2    | Igual que E8ds_v4 |

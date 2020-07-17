@@ -1,29 +1,19 @@
 ---
-title: Supervisar la entrega de mensajes de Azure Event Grid
-description: En este artículo se describe cómo usar Azure Portal para ver el estado de entrega de los mensajes de Azure Event Grid.
-services: event-grid
-author: spelluru
-manager: timlt
-ms.service: event-grid
+title: Visualización de las métricas de Azure Event Grid y configuración de alertas
+description: En este artículo se describe cómo usar Azure Portal para ver las métricas de temas y suscripciones de Azure Event Grid, y cómo crear alertas en ellas.
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.author: spelluru
-ms.openlocfilehash: 7a01ab91fe84aaa1fe55018754eddbf8b8f89643
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.date: 07/07/2020
+ms.openlocfilehash: 518d34d39e6fbecc408fe9a44d899fe4745d60d0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890853"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114890"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Supervisar la entrega de mensajes de Event Grid 
+En este artículo se describe cómo usar el portal para ver las métricas de temas y suscripciones de Event Grid, y cómo crear alertas en ellas. 
 
-En este artículo se describe cómo usar el portal para ver el estado de las entregas de eventos.
-
-Event Grid ofrece entrega duradera. Entrega cada mensaje por lo menos una vez en cada suscripción. Los eventos se envían inmediatamente al webhook registrado de cada suscripción. Si un webhook no acusa recibo de un evento en los 60 segundos siguientes al primer intento, Event Grid reintenta la entrega del evento.
-
-Para obtener información acerca de los reintentos y las entregas de eventos, consulte [Entrega y reintento de entrega de mensajes de Event Grid](delivery-and-retry.md).
-
-## <a name="delivery-metrics"></a>Métricas de entrega
+## <a name="metrics"></a>Métricas
 
 El portal muestra las métricas para el estado de la entrega de mensajes de eventos.
 
@@ -43,50 +33,69 @@ En el caso de las suscripciones, estas son algunas de las métricas:
     > [!NOTE]
     > Para obtener la lista completa de las métricas, consulte [Métricas compatibles con Azure Event Grid](metrics.md).
 
-## <a name="event-subscription-status"></a>Estado de la suscripción a eventos
+## <a name="view-custom-topic-metrics"></a>Ver métricas de temas personalizados
 
-Para ver las métricas para una suscripción de eventos, puede buscar por tipo de suscripción o por suscripciones para un recurso concreto.
+Si ha publicado un tema personalizado, puede consultar sus métricas. 
 
-Para buscar por tipo de suscripción de eventos, seleccione **Todos los servicios**.
+1. Inicie sesión en el [portal de Azure](https://portal.azure.com/).
+2. En la barra de búsqueda del tema, escriba **Temas de Event Grid** y, a continuación, seleccione **Temas de Event Grid** en la lista desplegable. 
 
-![Seleccionar todos los servicios](./media/monitor-event-delivery/all-services.png)
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Búsqueda y selección de temas de Event Grid":::
+3. Seleccione el tema personalizado en la lista de temas. 
 
-Busque **Event Grid** y seleccione **Suscripciones de Event Grid** entre las opciones disponibles.
+    :::image type="content" source="./media/monitor-event-delivery/select-custom-topic.png" alt-text="Seleccione el tema personalizado":::
+4. Vea las métricas del tema de evento personalizado en la página de **Temas de Event Grid**. En la imagen siguiente, se minimiza la sección de **Essentials** que muestra el grupo de recursos, la suscripción, etc. 
 
-![Buscar suscripciones a eventos](./media/monitor-event-delivery/search-and-select.png)
+    :::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics.png" alt-text="Visualización de las métricas de eventos":::
 
-Filtre por el tipo de evento, la suscripción y la ubicación. Seleccione **Métricas** para la suscripción que quiere consultar.
+Puede crear gráficos con métricas compatibles mediante la pestaña de **Métricas** de la página de **Temas de Event Grid**.
 
-![Filtrar suscripciones a eventos](./media/monitor-event-delivery/filter-events.png)
+:::image type="content" source="./media/monitor-event-delivery/topics-metrics-page.png" alt-text="Temas: página de métricas":::
 
-Consulte las métricas para el tema del evento y la suscripción.
+Para obtener más información sobre las métricas, consulte [Métricas en Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
 
-![Ver métricas de eventos](./media/monitor-event-delivery/subscription-metrics.png)
+Por ejemplo, vea el gráfico de métricas para la métrica de **Eventos publicados**.
 
-Para buscar las métricas de un recurso concreto, seleccione ese recurso. Después, seleccione **Eventos**.
+:::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics-example.png" alt-text="Métrica de eventos publicados":::
 
-![Seleccionar eventos para un recurso](./media/monitor-event-delivery/select-events.png)
 
-Puede ver las métricas para las suscripciones para ese recurso.
+## <a name="view-subscription-metrics"></a>Visualización de las métricas de suscripción
+1. Desplácese hasta la página de **Temas de Event Grid** siguiendo los pasos de la sección anterior. 
+2. Seleccione la suscripción en el panel inferior, tal y como se muestra en el ejemplo siguiente. 
 
-## <a name="custom-event-status"></a>Estado de evento personalizado
+    :::image type="content" source="./media/monitor-event-delivery/select-event-subscription.png" alt-text="Selección de la suscripción de eventos":::    
 
-Si ha publicado un tema personalizado, puede consultar sus métricas. Seleccione el grupo de recursos del tema y seleccione el tema.
+    También puede buscar **Suscripciones de Event Grid** en la barra de búsqueda de Azure Portal, seleccionar **Tipo de temas**, **Suscripción** y **Ubicación** para ver una suscripción de eventos. 
 
-![Seleccionar tema personalizado](./media/monitor-event-delivery/select-custom-topic.png)
+    :::image type="content" source="./media/monitor-event-delivery/event-subscriptions-page.png" alt-text="Seleccionar suscripción de eventos desde la página de suscripciones de Event Grid":::        
 
-Consulte las métricas para el tema de eventos personalizado.
+    Para los temas personalizados, seleccione **Temas de Event Grid** como **Tipo de temas**. Para los temas del sistema, seleccione el tipo de recurso de Azure, por ejemplo **Cuentas de almacenamiento (Blob, GPv2)** . 
+3. Vea las métricas de la suscripción en la Página principal de la suscripción en un gráfico. Puede ver las métricas de **General**, **Error**, **Latencia** y **Mensajes no enviados** durante la hora, 6 horas, 12 horas, 1 día, 7 días o 30 días anteriores. 
 
-![Ver métricas de eventos](./media/monitor-event-delivery/custom-topic-metrics.png)
+    :::image type="content" source="./media/monitor-event-delivery/subscription-home-page-metrics.png" alt-text="Métricas en la página principal de la suscripción":::    
 
-## <a name="set-alerts"></a>Establecer alertas
+## <a name="view-system-topic-metrics"></a>Ver las métricas de los temas del sistema
 
-Puede establecer alertas en las métricas de nivel de tema y de dominio para temas personalizados y dominios de eventos. En la hoja de información general, seleccione **Alertas** en el menú de recursos de la izquierda para ver, administrar y crear reglas de alertas. [Obtener más información sobre alertas de Azure Monitor](../azure-monitor/platform/alerts-overview.md)
+1. Inicie sesión en el [portal de Azure](https://portal.azure.com/).
+2. En la barra de búsqueda del tema, escriba **Temas del sistema de Event Grid** y, a continuación, seleccione **Temas de sistema de Event Grid** en la lista desplegable. 
 
-![Ver métricas de eventos](./media/monitor-event-delivery/select-alerts.png)
+    :::image type="content" source="./media/monitor-event-delivery/search-system-topics.png" alt-text="Búsqueda y selección de temas del sistema de Event Grid":::
+3. Seleccione el tema del sistema en la lista de temas. 
+
+    :::image type="content" source="./media/monitor-event-delivery/select-system-topic.png" alt-text="Seleccione el tema del sistema":::.
+4. Vea las métricas de tema de sistema en la página de **Temas del sistema de Event Grid**. En la imagen siguiente, se minimiza la sección de **Essentials** que muestra el grupo de recursos, la suscripción, etc. 
+
+    :::image type="content" source="./media/monitor-event-delivery/system-topic-overview-metrics.png" alt-text="Ver las métricas de los temas del sistema en la página información general":::
+
+Puede crear gráficos con métricas compatibles mediante la pestaña de **Métricas** de la página de **Temas de Event Grid**.
+
+:::image type="content" source="./media/monitor-event-delivery/system-topic-metrics-page.png" alt-text="Temas del sistema: página de métricas":::
+
+Para obtener más información sobre las métricas, consulte [Métricas en Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
+
 
 ## <a name="next-steps"></a>Pasos siguientes
+Vea los artículos siguientes:
 
-* Para obtener información acerca de los reintentos y las entregas de eventos, consulte [Entrega y reintento de entrega de mensajes de Event Grid](delivery-and-retry.md).
-* Para obtener una introducción a Event Grid, vea [Acerca de Event Grid](overview.md).
-* Para comenzar a usar rápidamente Event Grid, vea [Creación y enrutamiento de eventos personalizados con Azure Event Grid](custom-event-quickstart.md).
+- Para obtener información sobre cómo crear alertas de métricas y operaciones de registro de actividad, consulte [Establecer alertas](set-alerts.md).
+- Para obtener información acerca de los reintentos y las entregas de eventos, consulte [Entrega y reintento de entrega de mensajes de Event Grid](delivery-and-retry.md).

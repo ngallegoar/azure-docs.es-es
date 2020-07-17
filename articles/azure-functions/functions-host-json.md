@@ -3,12 +3,12 @@ title: Referencia de host.json para Azure Functions 2.x
 description: Documentación de referencia para el archivo host.json de Azure Functions con el entorno en tiempo de ejecución de la versión 2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 39e6ce5d6807a554cc1714a3970bed8303c31ce8
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 8d9ea01ffd5bcf2adb25d4f1b3900ff291438ac8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690901"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298504"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referencia de host.json para Azure Functions 2.x y versiones posteriores 
 
@@ -242,11 +242,16 @@ Lista de las funciones que el host de trabajo ejecuta. Una matriz vacía signifi
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Indica la duración del tiempo de espera para todas las funciones. Sigue el formato de cadena TimeSpan. En un plan de consumo sin servidor, el intervalo válido es de 1 segundo a 10 minutos, y el valor predeterminado es 5 minutos.  
+Indica la duración del tiempo de espera para todas las funciones. Sigue el formato de cadena TimeSpan. 
 
-En el plan Premium, el intervalo válido es de entre 1 segundo y 60 minutos, y el valor predeterminado es 30 minutos.
+| Tipo de plan | Predeterminado (min) | Máximo (min) |
+| -- | -- | -- |
+| Consumo | 5 | 10 |
+| Premium<sup>1</sup> | 30 | -1 (sin enlazar)<sup>2</sup> |
+| Dedicado (App Service) | 30 | -1 (sin enlazar)<sup>2</sup> |
 
-En un plan de App Service dedicado, no hay ningún límite general y el valor predeterminado es 30 minutos. Un valor de `-1` indica una ejecución no vinculada, pero se recomienda mantener un límite superior fijo.
+<sup>1</sup> La ejecución del plan Premium solo está garantizada durante 60 minutos, pero sin enlazar técnicamente.   
+<sup>2</sup> Un valor de `-1` indica una ejecución sin enlazar, pero se recomienda mantener un límite superior fijo.
 
 ```json
 {

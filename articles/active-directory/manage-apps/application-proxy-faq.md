@@ -3,24 +3,24 @@ title: Preguntas más frecuentes sobre Azure AD Application Proxy| Microsoft Do
 description: Obtenga respuestas a las preguntas más frecuentes (p+f) sobre el uso de Azure AD Application Proxy para publicar aplicaciones internas y locales en usuarios remotos.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/03/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: a6efe74008b2271b960f877f5f0f6b2b6b549a8d
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 839ce418fa8ad72e18537cf673c8af0479409ba7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583085"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386290"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Preguntas más frecuentes sobre Active Directory (Azure AD) Application Proxy
 
@@ -71,6 +71,13 @@ Hay contadores del monitor de rendimiento que se instalan junto con el conector.
 ### <a name="does-the-azure-ad-application-proxy-connector-have-to-be-on-the-same-subnet-as-the-resource"></a>¿El conector de Azure AD Application Proxy debe estar en la misma subred que el recurso?
 
 No es necesario que el conector esté en la misma subred. Sin embargo, este necesita tener la resolución de nombres (DNS, archivo de hosts) en el recurso y la conectividad de red necesaria (enrutamiento al recurso, puertos abiertos en el recurso, etc.). Para obtener más información, consulte [Consideraciones sobre la topología de red al utilizar el Azure Active Directory Application Proxy](application-proxy-network-topology.md).
+
+### <a name="what-versions-of-windows-server-can-i-install-a-connector-on"></a>¿En qué versiones de Windows Server se puede instalar un conector?
+El proxy de aplicación requiere Windows Server 2012 R2 o versiones posteriores. Actualmente hay una limitación en HTTP2 para Windows Server 2019. Para usar correctamente el conector en Windows Server 2019, deberá agregar la siguiente clave del Registro y reiniciar el servidor:
+    ```
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+    ```
+
 
 ## <a name="application-configuration"></a>Configuración de aplicaciones
 

@@ -6,21 +6,21 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: troubleshooting
-ms.reviewer: trbye, jmartens, larryfr, vaidyas
+ms.reviewer: trbye, jmartens, larryfr, vaidyas, laobri
 ms.author: trmccorm
 author: tmccrmck
-ms.date: 01/15/2020
-ms.openlocfilehash: 7f05133f15f1df39a61c34b43f18828ee494b735
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/06/2020
+ms.openlocfilehash: 870563a1a27ee00c2f14935e5200f722136011a1
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433459"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027008"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>Depuración y solución de problemas de ParallelRunStep
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-En este artículo aprenderá a depurar y resolver los problemas de la clase [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py) con el [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+En este artículo aprenderá a depurar y resolver los problemas de la clase [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py) con el [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 ## <a name="testing-scripts-locally"></a>Prueba de scripts de forma local
 
@@ -40,7 +40,7 @@ Dada la naturaleza distribuida de los trabajos de ParallelRunStep, hay registros
 
 Los registros generados a partir del script de entrada mediante el asistente EntryScript y las instrucciones print se encuentran en los siguientes archivos:
 
-- `~/logs/user/<ip_address>/<node_name>.log.txt`: estos son los registros escritos desde entry_script mediante el asistente EntryScript. También contiene la instrucción print (stdout) de entry_script.
+- `~/logs/user/<ip_address>/<node_name>.log.txt`: estos archivos son los registros escritos desde entry_script con el asistente EntryScript. También contiene la instrucción print (stdout) de entry_script.
 
 Para obtener una descripción concisa de los errores del script, hay lo siguiente:
 
@@ -52,13 +52,13 @@ Para obtener más información sobre los errores del script, hay lo siguiente:
 
 Cuando necesite comprender en detalle cómo ejecuta cada nodo el script de puntuación, examine los registros de proceso individuales para cada nodo. Los registros de proceso se pueden encontrar en la carpeta `sys/node`, agrupados por nodos de trabajo:
 
-- `~/logs/sys/node/<node_name>.txt`: Este archivo proporciona información detallada sobre cada uno de los minilotes a medida que un trabajo lo recoge o lo completa. Para cada minilote, este archivo incluye:
+- `~/logs/sys/node/<node_name>.txt`: este archivo proporciona información detallada sobre cada uno de los minilotes a medida que un trabajo lo elige o lo completa. Para cada minilote, este archivo incluye:
 
     - La dirección IP y el PID del proceso de trabajo. 
     - El número total de elementos, el número de elementos procesados correctamente y el número de elementos con errores.
     - Hora de inicio, duración, tiempo de proceso y tiempo del método de ejecución.
 
-También puede encontrar información sobre el uso de recursos de los procesos para cada trabajo. Esta información está en formato CSV y se encuentra en `~/logs/sys/perf/overview.csv`. Puede encontrar información sobre cada proceso en `~logs/sys/processes.csv`.
+También puede encontrar información sobre el uso de recursos de los procesos para cada trabajo. Esta información está en formato CSV y se encuentra en `~/logs/sys/perf/overview.csv`. En `~logs/sys/processes.csv` encontrará información sobre cada proceso.
 
 ### <a name="how-do-i-log-from-my-user-script-from-a-remote-context"></a>¿Cómo me puedo registrar desde mi script de usuario en un contexto remoto?
 Puede obtener un registrador de EntryScript, como se muestra en el código de ejemplo siguiente, para que los registros aparezcan en la carpeta **logs/user** del portal.
@@ -113,6 +113,6 @@ labels_path = args.labels_dir
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte la referencia del SDK para obtener ayuda con el paquete [azureml-contrib-pipeline-step](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps?view=azure-ml-py) y la [documentación](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps.parallelrunstep?view=azure-ml-py) para la clase ParallelRunStep.
+* Vea la referencia del SDK para obtener ayuda con el paquete [azureml-pipeline-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py). Vea la [documentación](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py) de referencia de la clase ParallelRunStep.
 
-* Siga el [tutorial avanzado](tutorial-pipeline-batch-scoring-classification.md) sobre el uso de canalizaciones con ParallelRunStep y para ver un ejemplo de cómo pasar otro archivo como entrada lateral. 
+* Realice el [tutorial avanzado](tutorial-pipeline-batch-scoring-classification.md) sobre cómo usar canalizaciones con ParallelRunStep. En este tutorial se explica cómo pasar otro archivo como entrada lateral. 

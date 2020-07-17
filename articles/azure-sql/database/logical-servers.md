@@ -1,7 +1,7 @@
 ---
-title: ¿Qué es un servidor en Azure SQL Database y Azure Synapse?
+title: ¿Qué es un servidor en Azure SQL Database y Azure Synapse Analytics?
 titleSuffix: ''
-description: Obtenga información sobre los servidores SQL lógicos usados por Azure SQL Database y Azure Synapse, y cómo administrarlos.
+description: Obtenga información sobre los servidores SQL lógicos usados por Azure SQL Database y Azure Synapse Analytics, y cómo administrarlos.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -12,17 +12,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 6df3cd82413f9a1c352be4349006accd52c24490
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b45714489f13d33d90b5694f458e6339e33595f3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84035936"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367585"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>¿Qué es un servidor SQL lógico en Azure SQL Database y Azure Synapse?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-En Azure SQL Database y Azure Synapse, un servidor es una construcción lógica que actúa como punto administrativo central para una colección de bases de datos. En el nivel de servidor, puede administrar [inicios de sesión](logins-create-manage.md), [reglas de firewall](firewall-configure.md), [reglas de auditoría](../../azure-sql/database/auditing-overview.md), [directivas de detección de amenazas](threat-detection-configure.md) y [grupos de conmutación por error automática](auto-failover-group-overview.md). Un servidor puede estar en una región distinta a la de su grupo de recursos. El servidor debe existir antes de poder crear una base de datos en Azure SQL Database o una base de datos de almacenamiento de datos en Azure Synapse. Todas las bases de datos que administra un servidor único se crean en la misma región que ese servidor.
+En Azure SQL Database y Azure Synapse Analytics, un servidor es una construcción lógica que actúa como punto administrativo central para una colección de bases de datos. En el nivel de servidor, puede administrar [inicios de sesión](logins-create-manage.md), [reglas de firewall](firewall-configure.md), [reglas de auditoría](../../azure-sql/database/auditing-overview.md), [directivas de detección de amenazas](threat-detection-configure.md) y [grupos de conmutación por error automática](auto-failover-group-overview.md). Un servidor puede estar en una región distinta a la de su grupo de recursos. El servidor debe existir antes de poder crear una base de datos en Azure SQL Database o una base de datos de almacenamiento de datos en Azure Synapse Analytics. Todas las bases de datos que administra un servidor único se crean en la misma región que ese servidor.
 
 Un servidor es diferente a una instancia de SQL Server, con la que puede estar familiarizado en el mundo de los entornos locales. En concreto, no hay ninguna garantía relacionada con la ubicación de las bases de datos ni la base de datos de almacenamiento de datos con respecto al servidor que las administra. Además, ni Azure SQL Database ni Azure Synapse exponen ninguna característica ni acceso de nivel de instancia. En cambio, las bases de datos de instancia correspondientes a una instancia administrada están coubicadas físicamente, de la misma manera en que SQL Server las usa en entornos locales o máquinas virtuales.
 
@@ -53,9 +53,9 @@ Puede crear el grupo de recursos para un servidor con antelación o mientras cre
 
 ### <a name="create-a-blank-server"></a>Creación de un servidor en blanco
 
-Para crear un servidor (sin una base de datos, grupo elástico ni base de datos de almacenamiento de datos) en [Azure Portal](https://portal.azure.com), vaya a un formulario vacío de servidor SQL (servidor lógico).
+Para crear un servidor (sin una base de datos, grupo elástico ni base de datos de almacenamiento de datos) en [Azure Portal](https://portal.azure.com), vaya a un formulario vacío de SQL Server (servidor lógico).
 
-### <a name="create-a-blank-or-sample-sql-database-in-azure-sql-database"></a>Creación de una base de datos SQL en blanco o de muestra en Azure SQL Database
+### <a name="create-a-blank-or-sample-database-in-azure-sql-database"></a>Creación de una base de datos en blanco o de muestra en Azure SQL Database
 
 Para crear una base de datos en SQL Database mediante [Azure Portal](https://portal.azure.com), vaya al formulario en blanco de SQL Database y facilite la información requerida. Puede crear el grupo de recursos y el servidor con antelación o mientras crea la propia base de datos. Puede crear una base de datos en blanco o de ejemplo basada en Adventure Works LT.
 
@@ -105,7 +105,7 @@ Para crear y administrar servidores, bases de datos y firewalls con Azure PowerS
 | New-AzSqlServerVirtualNetworkRule | Permite crear una [*regla de red virtual*](vnet-service-endpoint-rule-overview.md) basada en una subred que es un punto de conexión de servicio de red virtual. |
 
 > [!TIP]
-> Para obtener una guía de inicio rápido de PowerShell, consulte [Create an Azure SQL single database using PowerShell](single-database-create-quickstart.md) (Creación de una instancia de Azure SQL Database con PowerShell). Para obtener información sobre los scripts de ejemplo de PowerShell, consulte [Uso de PowerShell para crear una instancia única de Azure SQL Database y configurar una regla de firewall](scripts/create-and-configure-database-powershell.md) y [Supervisión y escalado de una instancia única de Azure SQL Database mediante PowerShell](scripts/monitor-and-scale-database-powershell.md).
+> Para acceder a una guía de inicio rápido de PowerShell, consulte [Creación de una base de datos en Azure SQL Database con PowerShell](single-database-create-quickstart.md). Para ver scripts de PowerShell de ejemplo, consulte [Uso de PowerShell para crear una base de datos en Azure SQL Database y configurar una regla de firewall](scripts/create-and-configure-database-powershell.md) y [Supervisión y escalado de una base de datos en Azure SQL Database con PowerShell](scripts/monitor-and-scale-database-powershell.md).
 >
 
 ## <a name="manage-servers-databases-and-firewalls-using-the-azure-cli"></a>Administración de servidores, bases de datos y firewalls con la CLI de Azure
@@ -135,7 +135,7 @@ Para crear y administrar servidores, bases de datos y firewalls con la [CLI de A
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Elimina una regla de firewall.|
 
 > [!TIP]
-> Para obtener una guía de inicio rápido de la CLI de Azure, consulte [Ejemplos de la CLI de Azure para Azure SQL Database](az-cli-script-samples-content-guide.md). Para obtener información sobre los scripts de ejemplo de la CLI de Azure, consulte [Uso de la CLI para crear una instancia única de Azure SQL Database y configurar una regla de firewall](scripts/create-and-configure-database-cli.md) y [Uso de la CLI para supervisar y escalar una instancia de Azure SQL Database](scripts/monitor-and-scale-database-cli.md).
+> Para ver un artículo de inicio rápido de la CLI de Azure, consulte [Creación de una base de datos de Azure SQL Database con la CLI de Azure](az-cli-script-samples-content-guide.md). Para ver scripts de ejemplo de la CLI de Azure, consulte [Uso de la CLI para crear una base de datos en Azure SQL Database y configurar una regla de firewall](scripts/create-and-configure-database-cli.md) y [Uso de la CLI para supervisar y escalar una base de datos de Azure SQL Database](scripts/monitor-and-scale-database-cli.md).
 >
 
 ## <a name="manage-servers-databases-and-firewalls-using-transact-sql"></a>Administración de servidores, bases de datos y firewalls con Transact-SQL
@@ -150,11 +150,11 @@ Para crear y administrar servidores, bases de datos y firewalls con Transact-SQL
 |[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Crea una nueva base de datos en Azure SQL Database. Debe estar conectado a la base de datos maestra para crear una base de datos.|
 |[CREATE DATABASE (Azure Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Crea una nueva base de datos de almacenamiento de datos en Azure Synapse. Debe estar conectado a la base de datos maestra para crear una base de datos.|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifica una base de datos o grupo elástico. |
-|[ALTER DATABASE (Azure SQL Data Warehouse)](/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)|Modifica una base de datos de almacenamiento de datos en Azure Synapse.|
+|[ALTER DATABASE (Azure SQL Data Warehouse)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Modifica una base de datos de almacenamiento de datos en Azure Synapse.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Permite eliminar una base de datos.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Devuelve la edición (nivel de servicio), el objetivo de servicio (plan de tarifa) y el nombre del grupo elástico, si existe, para una base de datos. Si inició sesión en la base de datos maestra en un servidor, devuelve información sobre todas las bases de datos. Para Azure Synapse, debe estar conectado a la base de datos maestra.|
 |[sys.dm_db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Devuelve el consumo de CPU, E/S y memoria para una base de datos en Azure SQL Database. Hay una fila para cada 15 segundos, incluso si no hay ninguna actividad en la base de datos.|
-|[sys.resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Devuelve datos de almacenamiento y uso de CPU para una base de datos de Azure SQL. Los datos se recopilan y se agregan en intervalos de cinco minutos.|
+|[sys.resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Devuelve datos de almacenamiento y uso de CPU para una base de datos de Azure SQL Database. Los datos se recopilan y se agregan en intervalos de cinco minutos.|
 |[sys.database_connection_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|Contiene estadísticas de eventos de conectividad a bases de datos para Azure SQL Database, que proporcionan una visión general de los aciertos y errores de conexión a bases de datos. |
 |[sys.event_log (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database)|Devuelve las conexiones establecidas correctamente a la base de datos de Azure SQL Database, los errores de conexión y los interbloqueos para Azure SQL Database. Puede utilizar esta información para realizar el seguimiento de la actividad de las bases de datos o solucionar problemas.|
 |[sp_set_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database)|Crea o actualiza la configuración del firewall de nivel de servidor para el servidor. Este procedimiento almacenado solo está disponible en la base de datos maestra para el inicio de sesión principal de nivel de servidor. Solo se puede crear una regla de firewall de nivel de servidor mediante Transact-SQL después de que un usuario con permisos a nivel de Azure haya creado la primera regla de firewall de nivel de servidor.|

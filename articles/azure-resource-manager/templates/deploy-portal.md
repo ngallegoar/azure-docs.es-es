@@ -3,12 +3,12 @@ title: Implementación de recursos con Azure Portal
 description: Utilice Azure Portal y Azure Resource Manager para implementar los recursos en un grupo de recursos de su suscripción.
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: ea2faf810b3a5d1b8fa46575201022a501cc7d58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 31f80eb617820def871633dac1541c7dc3bed691
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80153444"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255269"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>Implementación de recursos con plantillas de ARM y Azure Portal
 
@@ -86,7 +86,7 @@ Si desea ejecutar una implementación sin usar las plantillas de Marketplace, pu
 1. Tiene varias opciones para crear una plantilla:
 
     - **Crear su propia plantilla en el editor**: cree una plantilla mediante el editor de plantillas del portal.  El editor tiene la capacidad para agregar un esquema de plantilla de recursos.
-    - **Plantillas comunes**: Hay cuatro plantillas comunes para crear una máquina virtual Linux, una máquina virtual Windows, una aplicación web y una base de datos de Azure SQL respectivamente.
+    - **Plantillas comunes**: Hay cuatro plantillas comunes para crear una máquina virtual Linux, una máquina virtual Windows, una aplicación web y una base de datos de Azure SQL Database respectivamente.
     - **Cargar una plantilla de inicio rápido de GitHub**: use una [plantilla de inicio rápido](https://azure.microsoft.com/resources/templates/) existente.
 
    ![Ver las opciones](./media/deploy-portal/see-options.png)

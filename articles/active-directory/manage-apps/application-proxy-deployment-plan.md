@@ -3,8 +3,8 @@ title: Planear la implementación de Azure Active Directory Application Proxy
 description: Una guía completa para planear la implementación de Application Proxy en la organización
 services: active-directory
 documentationcenter: azure
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: baselden
-ms.custom: has-adal-ref
-ms.openlocfilehash: 040ad734cdf3b2d382baa55006fbda02fdcf457d
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.author: kenwith
+ms.openlocfilehash: fdcea318fcd0796a790818794f6dd7cd949c17cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169515"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367791"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planear una implementación de Azure AD Application Proxy
 
@@ -254,7 +253,7 @@ Lea [Inicio de sesión único en aplicaciones de Azure Active Directory](what-
 
 ###  <a name="working-with-other-types-of-applications"></a>Trabajar con otros tipos de aplicaciones
 
-Azure AD Application Proxy también puede admitir aplicaciones que se han desarrollado para usar nuestra biblioteca de autenticación de Microsoft ([MSAL](https://azure.microsoft.com/blog/start-writing-applications-today-with-the-new-microsoft-authentication-sdks/)). Admite aplicaciones cliente nativas, ya que consume los tokens emitidos recibidos en la información de encabezado de la solicitud del cliente para realizar la autenticación previa en nombre de los usuarios.
+Azure AD Application Proxy también puede admitir aplicaciones que se han desarrollado para usar nuestra biblioteca de autenticación de Microsoft ([MSAL](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)). Admite aplicaciones cliente nativas, ya que consume los tokens emitidos recibidos en la información de encabezado de la solicitud del cliente para realizar la autenticación previa en nombre de los usuarios.
 
 Lea [Publicar aplicaciones cliente nativas y móviles](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-native-client) y [Aplicaciones basadas en notificaciones](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-claims-aware-apps) para obtener información sobre las configuraciones disponibles de Application Proxy.
 
@@ -318,7 +317,7 @@ Los siguientes artículos cubren escenarios comunes que también se pueden usar 
 * [Página de aplicación que muestra los problemas](application-proxy-page-appearance-broken-problem.md)
 * [La carga de la aplicación es demasiado larga](application-proxy-page-load-speed-problem.md)
 * [Los vínculos en la página de aplicación no funcionan](application-proxy-page-links-broken-problem.md)
-* [¿Qué puertos se deben abrir para mi aplicación?](application-proxy-connectivity-ports-how-to.md)
+* [¿Qué puertos se deben abrir para mi aplicación?](application-proxy-add-on-premises-application.md)
 * [No hay ningún conector funcionando en un grupo de conectores para mi aplicación](application-proxy-connectivity-no-working-connector.md)
 * [Configuración en el portal de administración](application-proxy-config-how-to.md)
 * [Configuración del inicio de sesión único en mi aplicación](application-proxy-config-sso-how-to.md)

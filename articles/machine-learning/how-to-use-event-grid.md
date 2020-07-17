@@ -1,5 +1,5 @@
 ---
-title: Desencadenar eventos en flujos de trabajo de aprendizaje automático
+title: Desencadenar eventos en flujos de trabajo de aprendizaje automático (versión preliminar)
 titleSuffix: Azure Machine Learning
 description: Configure aplicaciones basadas en eventos, procesos o flujos de trabajo de aprendizaje automático de CI/CD en Azure Machine Learning.
 services: machine-learning
@@ -10,14 +10,14 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 5aeec1c2dae1d8a8cc11b5e8b3181d9b22069a43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c4eae49b849b7dc5dbf7c27d50e241b2a4f36e4
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338310"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135962"
 ---
-# <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Desencadenar aplicaciones, procesos o flujos de trabajo CI/CD basados en eventos de Azure Machine Learning (versión preliminar)
+# <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Desencadenar aplicaciones, procesos o flujos de trabajo de CI/CD basados en eventos de Azure Machine Learning (versión preliminar)
 
 En este artículo, aprenderá a configurar aplicaciones, procesos o flujos de trabajo de CI/CD basados en eventos de Azure Machine Learning, como correos electrónicos de notificación de errores o ejecuciones de canalización de ML, cuando se detecten determinadas condiciones en [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/). 
 
@@ -32,7 +32,7 @@ Cuándo usar Event Grid para las acciones controladas por eventos:
 > [!NOTE] 
 > Actualmente, los eventos runStatusChanged solo se desencadenan cuando el estado de ejecución es **failed**
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Para usar Event Grid, necesita acceso de colaborador o propietario al área de trabajo de Azure Machine Learning para la que se crearán los eventos.
 
 ## <a name="the-event-model--types"></a>Modelo de evento y tipos

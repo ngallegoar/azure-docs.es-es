@@ -4,16 +4,16 @@ description: Procedimiento para instalar paquetes de idioma para VM multisesión
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/03/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c40df9d821e069e2cd5ff0c42d5841f6b9041c96
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 70592d940e3766597475f4a7b90a3902a53406d5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80634133"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361309"
 ---
 # <a name="install-language-packs"></a>Instalación de paquetes de idioma
 
@@ -36,7 +36,8 @@ Para instalar paquetes de idioma:
 4. En **País o región**, seleccione su país o región de preferencia en el menú desplegable.
     En este ejemplo, vamos a seleccionar **Francia**, tal como se muestra en la siguiente captura de pantalla:
 
-    ![Captura de pantalla de la página Región. La región seleccionada actualmente es Francia.](media/region-page-france.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de la página Región. La región seleccionada actualmente es Francia.](media/region-page-france.png)
 
 5. Después, seleccione **Idioma** y, a continuación, seleccione **Agregar un idioma**. Elija de la lista el idioma que desea instalar y, a continuación, seleccione **Siguiente**.
 6. Cuando se abra la ventana **Install language features** (Instalar características de idioma), active la casilla **Install language pack and set as my Windows display language** (Instalar paquete de idioma y establecer como mi idioma para mostrar de Windows).
@@ -45,15 +46,19 @@ Para instalar paquetes de idioma:
 
     Vamos a ver una demostración visual rápida. En las imágenes siguientes se muestra cómo instalar los paquetes de idioma francés y holandés y, a continuación, establecer francés como idioma para mostrar.
 
-    ![Captura de pantalla de la página Idioma al principio del proceso. El idioma para mostrar de Windows seleccionado es el inglés.](media/language-page-default.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de la página Idioma al principio del proceso. El idioma para mostrar de Windows seleccionado es el inglés.](media/language-page-default.png)
 
-    ![Captura de pantalla de la ventana de selección de idioma. El usuario ha escrito "francés" en la barra de búsqueda para encontrar los paquetes de idioma francés.](media/select-language-french.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de la ventana de selección de idioma. El usuario ha escrito "francés" en la barra de búsqueda para encontrar los paquetes de idioma francés.](media/select-language-french.png)
 
-    ![Captura de pantalla de la página Instalar características de idioma. Francés está seleccionado como idioma preferido. Las opciones seleccionadas son "Set as my display language" (Establecer como mi idioma para mostrar), "Instalar paquetes de idioma", "Reconocimiento de voz" y "Escritura a mano".](media/install-language-features.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de la página Instalar características de idioma. Francés está seleccionado como idioma preferido. Las opciones seleccionadas son "Set as my display language" (Establecer como mi idioma para mostrar), "Instalar paquetes de idioma", "Reconocimiento de voz" y "Escritura a mano".](media/install-language-features.png)
 
     Una vez instalados los paquetes de idioma, debería ver los nombres de los paquetes de idioma en la lista de idiomas.
 
-    ![Captura de pantalla de la página Idioma con los nuevos paquetes de idioma instalados. Los paquetes de idioma francés y holandés aparecen en la lista "Idiomas preferidos".](media/language-page-complete.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de la página Idioma con los nuevos paquetes de idioma instalados. Los paquetes de idioma francés y holandés aparecen en la lista "Idiomas preferidos".](media/language-page-complete.png)
 
 9. Si aparece una ventana donde se le pide que cierre la sesión, cierre la sesión y vuelva a iniciarla. El idioma para mostrar debería ser ahora el idioma seleccionado.
 
@@ -89,13 +94,13 @@ Para ejecutar Sysprep en la máquina:
 
 1. Abra PowerShell como administrador.
 2. Ejecute el siguiente cmdlet para ir al directorio correcto:
-   
+
     ```powershell
     cd Windows\System32\Sysprep
     ```
 
 3. A continuación, ejecute el cmdlet siguiente:
-    
+
     ```powershell
     .\sysprep.exe
     ```
@@ -113,7 +118,8 @@ Si ve un mensaje de error durante el proceso de Sysprep, esto es lo que debe hac
 
    El texto del archivo de error le indicará que debe desinstalar un paquete de idioma específico, como se muestra en la siguiente imagen. Copie el nombre del paquete de idioma para el siguiente paso.
 
-   ![Captura de pantalla del archivo setuperr. El texto con el nombre del paquete está resaltado en azul marino.](media/setuperr-package-name.png)
+   > [!div class="mx-imgBorder"]
+   > ![Captura de pantalla del archivo setuperr. El texto con el nombre del paquete está resaltado en azul marino.](media/setuperr-package-name.png)
 
 2. Abra una nueva ventana de PowerShell y ejecute el siguiente cmdlet con el nombre del paquete que copió en el paso 2 para quitar el paquete de idioma:
 
@@ -137,7 +143,8 @@ Para capturar una imagen:
 
 3. Escriba un nombre para la imagen en el campo **Nombre** y asígnela al grupo de recursos mediante el menú desplegable **Grupo de recursos**, como se muestra en la siguiente imagen.
 
-   ![Captura de pantalla de la ventana Crear imagen. El nombre que el usuario ha dado a esta imagen de prueba es "vmwvd-image-fr" y la ha asignado al grupo de recursos "testwvdimagerg".](media/create-image.png)
+   > [!div class="mx-imgBorder"]
+   > ![Captura de pantalla de la ventana Crear imagen. El nombre que el usuario ha dado a esta imagen de prueba es "vmwvd-image-fr" y la ha asignado al grupo de recursos "testwvdimagerg".](media/create-image.png)
 
 4. Seleccione **Crear**.
 

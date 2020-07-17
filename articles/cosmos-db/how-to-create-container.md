@@ -3,15 +3,15 @@ title: Creación de un contenedor en Azure Cosmos DB
 description: Aprenda a crear un contenedor en Azure Cosmos DB mediante Azure Portal, .NET, Java, Python, Node.js y otros SDK.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: mjbrown
-ms.openlocfilehash: 809ebe848e38a7c99c96ef44f130da917fb35942
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 22c51497a9c9a331f1337134fbaf7c781b9c8ba7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82161629"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85390897"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Creación de un contenedor de Azure Cosmos
 
@@ -36,7 +36,7 @@ En este artículo se explican las distintas formas de crear un contenedor de Azu
    * Escriba el rendimiento que se va a aprovisionar (por ejemplo, 1000 RU).
    * Seleccione **Aceptar**.
 
-    ![Captura de pantalla del panel Data Explorer con la opción Contenedor nuevo resaltada](./media/how-to-create-container/partitioned-collection-create-sql.png)
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-sql.png" alt-text="Captura de pantalla del panel de Data Explorer con la opción Contenedor nuevo resaltada":::
 
 ### <a name="azure-cosmos-db-api-for-mongodb"></a><a id="portal-mongodb"></a>Azure Cosmos DB API para MongoDB
 
@@ -52,7 +52,7 @@ En este artículo se explican las distintas formas de crear un contenedor de Azu
    * Escriba el rendimiento que se va a aprovisionar (por ejemplo, 1000 RU).
    * Seleccione **Aceptar**.
 
-    ![Captura de pantalla del cuadro de diálogo Agregar contenedor de Azure Cosmos DB API para MongoDB](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="Captura de pantalla del cuadro de diálogo Agregar contenedor de Azure Cosmos DB API para MongoDB":::
 
 ### <a name="cassandra-api"></a><a id="portal-cassandra"></a>Cassandra API
 
@@ -68,7 +68,7 @@ En este artículo se explican las distintas formas de crear un contenedor de Azu
    * Escriba el rendimiento que se va a aprovisionar (por ejemplo, 1000 RU).
    * Seleccione **Aceptar**.
 
-    ![Captura de pantalla del cuadro de diálogo Agregar tabla de Cassandra API](./media/how-to-create-container/partitioned-collection-create-cassandra.png)
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="Captura de pantalla del cuadro de diálogo Agregar tabla de Cassandra API":::
 
 > [!NOTE]
 > Con Cassandra API, la clave principal se usa como clave de partición.
@@ -88,7 +88,7 @@ En este artículo se explican las distintas formas de crear un contenedor de Azu
    * Escriba el rendimiento que se va a aprovisionar (por ejemplo, 1000 RU).
    * Seleccione **Aceptar**.
 
-    ![Captura de pantalla del cuadro de diálogo Agregar grafo de la API Gremlin](./media/how-to-create-container/partitioned-collection-create-gremlin.png)
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="Captura de pantalla del cuadro de diálogo Agregar grafo de la API Gremlin":::
 
 ### <a name="table-api"></a><a id="portal-table"></a>Table API
 
@@ -102,7 +102,7 @@ En este artículo se explican las distintas formas de crear un contenedor de Azu
    * Escriba el rendimiento que se va a aprovisionar (por ejemplo, 1000 RU).
    * Seleccione **Aceptar**.
 
-    ![Captura de pantalla del cuadro de diálogo Agregar tabla de Table API](./media/how-to-create-container/partitioned-collection-create-table.png)
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-table.png" alt-text="Captura de pantalla del cuadro de diálogo Agregar tabla de Table API":::
 
 > [!Note]
 > Con Table API, la clave de partición se especifica cada vez que se agrega una nueva fila.
@@ -132,6 +132,8 @@ Para ver todos los ejemplos de la CLI de Azure para API de Azure Cosmos DB, con
 * [Creación de una tabla de Table API con PowerShell](./scripts/powershell/table/ps-table-create.md)
 
 ## <a name="create-a-container-using-net-sdk"></a>Creación de un contenedor mediante el SDK para .NET
+
+Si se produce una excepción de tiempo de espera al crear una colección, realice una operación de lectura para validar si la colección se ha creado correctamente. La operación de lectura emite una excepción hasta que la operación de creación de la colección se realiza correctamente. Para la lista de códigos de estado admitidos por la operación de creación, consulte el artículo [Códigos de estado HTTP para Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 ### <a name="sql-api-and-gremlin-api"></a><a id="dotnet-sql-graph"></a>SQL API y Gremlin API
 

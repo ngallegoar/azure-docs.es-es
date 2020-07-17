@@ -9,20 +9,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: efe76323b4159af01f1eaf470d9c1833edd0a186
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 8d08a0ab8f817d70343686f907ac444af392ea06
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702131"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108997"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalación y ejecución de contenedores de Text Analytics
 
 > [!NOTE]
 > * El contenedor de Análisis de sentimiento v3 ya está disponible con carácter general. Los contenedores de extracción de frases clave y de detección de idioma están disponibles como versión preliminar pública no validada.
 > * La vinculación de entidades y NER no están disponibles actualmente como contenedor.
+> * Actualmente, no se le facturará el uso del contenedor de mantenimiento por Text Analytics.
 
 Los contenedores permiten ejecutar las API Text Analytics en su propio entorno y son ideales para sus requisitos específicos de seguridad y gobernanza de datos. Los contenedores de Text Analytics proporcionan un procesamiento avanzado de lenguaje natural sobre texto sin formato, e incluye tres funciones principales: análisis de sentimiento, extracción de frases clave y detección de idioma. 
 
@@ -31,7 +32,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 > [!IMPORTANT]
 > La cuenta gratuita se limita a 5.000 transacciones al mes y solo las **gratis** y **estándar** <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">los planes de tarifa <span class="docon docon-navigate-external x-hidden-focus"></span></a> son válidas para los contenedores. Para más información sobre las tasas de solicitudes de las transacciones, consulte [Límites de datos](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview#data-limits).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para ejecutar cualquiera de los contenedores de Text Analytics, debe tener un equipo host y los entornos de contenedores.
 
@@ -59,6 +60,8 @@ En la tabla siguiente se describen las especificaciones mínima y recomendada pa
 |---|---------|-------------|--|--|
 | **Detección de idioma, extracción de frases clave**   | 1 núcleo, 2 GB de memoria | 1 núcleo, 4 GB de memoria |15 | 30|
 | **Análisis de sentimiento, versión 3**   | 1 núcleo, 2 GB de memoria | 4 núcleos, 8 GB de memoria |15 | 30|
+| **Text Analytics para el estado: 1 documento/solicitud**   |  4 núcleos, 10 GB de memoria | 6 núcleos, 12 GB de memoria |15 | 30|
+| **Text Analytics para el estado: 10 documento/solicitud**   |  6 núcleos, 16 GB de memoria | 8 núcleos, 20 GB de memoria |15 | 30|
 
 El núcleo de CPU y la memoria corresponden a los valores de `--cpus` y `--memory` que se usan como parte del comando `docker run`.
 
@@ -80,6 +83,10 @@ Las imágenes de contenedor de Text Analytics están disponibles en Microsoft C
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
+# <a name="text-analytics-for-health-preview"></a>[Text Analytics para el estado (versión preliminar)](#tab/healthcare)
+
+[!INCLUDE [docker-pull-health-container](../includes/docker-pull-health-container.md)]
+
 ***
 
 ## <a name="how-to-use-the-container"></a>Uso del contenedor
@@ -92,13 +99,6 @@ Una vez que el contenedor esté en el [equipo host](#the-host-computer), utilice
 ## <a name="run-the-container-with-docker-run"></a>Ejecute el contenedor con `docker run`.
 
 Utilice el comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para ejecutar los contenedores. El contenedor continuará ejecutándose hasta que lo detenga.
-
-Reemplace los marcadores de posición por sus propios valores:
-
-| Marcador de posición | Value | Formato o ejemplo |
-|-------------|-------|---|
-| **{CLAVE_API}** | Clave del recurso de Text Analytics. Puede encontrarla en la página **Clave y punto de conexión** del recurso en Azure Portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{URI_PUNTODECONEXIÓN}** | Punto de conexión para acceder a Text Analytics API. Puede encontrarla en la página **Clave y punto de conexión** del recurso en Azure Portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 
 > [!IMPORTANT]
 > * Los comandos de Docker de las secciones siguientes usan la barra diagonal inversa, `\`, como un carácter de continuación de línea. Puede quitarla o reemplazarla en función de los requisitos del sistema operativo del host. 
@@ -116,6 +116,10 @@ Reemplace los marcadores de posición por sus propios valores:
 # <a name="language-detection-preview"></a>[Detección de idioma (versión preliminar)](#tab/language)
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
+
+# <a name="text-analytics-for-health-preview"></a>[Text Analytics para el estado (versión preliminar)](#tab/healthcare)
+
+[!INCLUDE [docker-run-health-container](../includes/docker-run-health-container.md)]
 
 ***
 
@@ -161,8 +165,8 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo para la desc
    * *Análisis de sentimiento*
    * *Extracción de frases clave (versión preliminar)* 
    * *Detección de idioma (versión preliminar)*
-   
-* Las imágenes del contenedor se descargan desde Microsoft Container Registry (MCR) en Azure.
+   * *Text Analytics para el estado (versión preliminar)*
+* Las imágenes del contenedor se descargan desde Microsoft Container Registry (MCR) o del repositorio del contenedor de versión preliminar.
 * Las imágenes de contenedor se ejecutan en Docker.
 * Puede usar la API REST o el SDK para llamar a operaciones en contenedores de Text Analytics mediante la especificación del URI del host del contenedor.
 * Debe especificar la información de facturación al crear una instancia de un contenedor.

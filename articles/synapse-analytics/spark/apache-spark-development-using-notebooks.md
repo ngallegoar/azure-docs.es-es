@@ -1,24 +1,25 @@
 ---
-title: Creación, desarrollo y mantenimiento de cuadernos de Azure Synapse Studio (versión preliminar)
+title: Cuadernos de Synapse Studio
 description: En este artículo, aprenderá a crear y desarrollar cuadernos de Azure Synapse Studio (versión preliminar) para la preparación y visualización de datos.
 services: synapse analytics
 author: ruixinxu
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
-ms.openlocfilehash: 21e3ba8cbf60cbbdc6480719016fc48db4fe390c
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.custom: tracking-python
+ms.openlocfilehash: e0b0525035732a54965f7c391ac6041b114d7304
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702103"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045695"
 ---
-# <a name="create-develop-and-maintain-azure-synapse-studio-preview-notebooks"></a>Creación, desarrollo y mantenimiento de cuadernos de Azure Synapse Studio (versión preliminar)
+# <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Creación, desarrollo y mantenimiento de cuadernos de Synapse Studio (versión preliminar) en Azure Synapse Analytics
 
-Un cuaderno de Azure Synapse Studio (versión preliminar) es una interfaz web para que cree archivos que contienen código de producción, visualizaciones y texto narrativo. Los cuadernos son un buen lugar para validar ideas y aplicar experimentos rápidos para sacar conclusiones a partir de los datos. Los cuadernos también se usan ampliamente en la preparación de datos, la visualización de datos, el aprendizaje automático y otros escenarios de macrodatos.
+Un cuaderno de Synapse Studio (versión preliminar) es una interfaz web para crear archivos que contengan código activo, visualizaciones y texto narrativo. Los cuadernos son un buen lugar para validar ideas y aplicar experimentos rápidos para sacar conclusiones a partir de los datos. Los cuadernos también se usan ampliamente en la preparación de datos, la visualización de datos, el aprendizaje automático y otros escenarios de macrodatos.
 
 Con un cuaderno de Azure Synapse Studio, puede hacer lo siguiente:
 
@@ -109,7 +110,7 @@ No puede hacer referencia a datos o variables directamente en distintos lenguaje
 
 ### <a name="ide-style-intellisense"></a>IntelliSense de estilo IDE
 
-Los cuadernos de Azure Synapse Studio se integran en el editor Monaco para incluir IntelliSense de estilo IDE en el editor de celdas. El resaltado de la sintaxis, el creador de errores y la finalización automática de código le ayudan a escribir código y a identificar problemas más rápido.
+Los cuadernos de Azure Synapse Studio se integran en el editor Monaco para incluir IntelliSense de estilo IDE en el editor de celdas. El resaltado de la sintaxis, el marcador de errores y la finalización automática de código le ayudan a escribir código y a identificar problemas más rápido.
 
 Las características de IntelliSense tienen distintos niveles de madurez para distintos lenguajes. Use la tabla a continuación para ver lo que se admite.
 
@@ -357,7 +358,7 @@ Con los siguientes métodos abreviados de teclado, puede navegar y ejecutar cód
 |Ejecutar la celda actual e insertar una a continuación | Alt+Entrar |
 |Seleccionar la celda anterior| Arriba |
 |Seleccionar la celda siguiente| Bajar |
-|Insertar una celda encima| Un |
+|Insertar una celda encima| A |
 |Insertar una celda debajo| B |
 |Extender las celdas seleccionadas encima| Mayús+Arriba |
 |Extender las celdas seleccionadas debajo| Mayús+Abajo|

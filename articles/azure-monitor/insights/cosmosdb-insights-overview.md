@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 05000f4c670860be249d80b0e695a8a8760510be
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 3fd4bcd13b4d92d2c6e61d10ae9e62996b5dfcf5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797591"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945501"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Exploración de Azure Monitor para Azure Cosmos DB
 
@@ -119,6 +119,10 @@ Puesto que esta experiencia se basa en plantillas de Azure Monitor, tiene la po
 Los libros se guardan en un recurso compartido, bien en la sección **Mis informes** o en la sección **Informes compartidos** accesibles a cualquiera con acceso al grupo de recursos. Después de guardar el libro personalizado, debe ir a la galería de libros para iniciarlo.
 
 ![Inicio de la galería de libros desde la barra de comandos](./media/cosmosdb-insights-overview/gallery.png)
+
+## <a name="troubleshooting"></a>Solución de problemas
+
+Para obtener instrucciones para la solución de problemas, consulte el [artículo dedicado de solución de problemas](troubleshoot-workbooks.md) de conclusiones basadas en libros.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

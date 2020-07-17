@@ -6,17 +6,17 @@ author: mabasile-MSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 23e3ccff11dc33858249565d3ad8396b19dd87c6
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: e529e398b90050bf654c702ec34686bdc173c9e5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698896"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85299337"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Asociados de inteligencia empresarial de Azure Synapse Analytics
 
@@ -38,12 +38,12 @@ Para crear la solución de almacenamiento de datos completa con un grupo de SQL 
 | ![SiSense](./media/sql-data-warehouse-partner-business-intelligence/sisense_logo.png) |**SiSense**<br>SiSense es un software de inteligencia empresarial completo que incluye herramientas que un negocio necesita para analizar y visualizar datos: una base de datos analítica de alto rendimiento, la capacidad de unir varios orígenes, la extracción de datos simples (ETL) y la visualización de datos basada en web. Comience hoy mismo a analizar y visualizar conjuntos de datos de gran tamaño con análisis e inteligencia empresarial de SiSense. |[Página de producto](https://www.sisense.com/product/)<br> |
 | ![Tableau](./media/sql-data-warehouse-partner-business-intelligence/tableau_sparkle_logo.png) |**Tableau**<br>El análisis de autoservicio de Tableau ayuda que todos los usuarios vean y comprendan muchos tipos de datos, desde archivos planos a bases de datos. Tableau cuenta con un conector optimizado nativo para el grupo de SQL de Synapse que es compatible con el análisis de datos activos y el análisis en memoria. |[Página de producto](https://www.tableau.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/tableau.tableau-server)<br>|
 | ![Targit](./media/sql-data-warehouse-partner-business-intelligence/targit_logo.png) |**Targit (Decision Suite)**<br>Targit Decision Suite proporciona una plataforma de inteligencia empresarial y análisis que ofrece paneles en tiempo real, análisis de autoservicio, informes fáciles de usar, excelentes funcionalidades móviles y una tecnología de detección de datos simple en una solución coherente y única. Targit le da a las empresas el valor para actuar. |[Página de producto](https://www.targit.com/targit-decision-suite/analytics)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/targit.targit-decision-suite)<br> |
-| ![ThoughtSpot](./media/sql-data-warehouse-partner-business-intelligence/thoughtspot-logo.png) |**ThoughtSpot**<br>Use la búsqueda para obtener información detallada a partir de miles de millones de filas de datos, o bien deje que la inteligencia artificial descubra información a partir de preguntas que es posible que no haya pensado en formular. ThoughtSpot ayuda a los empresarios a encontrar información oculta en los datos de sus empresa en cuestión de segundos. Use la búsqueda para analizar los datos y obtener conclusiones automatizadas cuando las necesite.|[Página de producto](https://www.thoughtspot.com)<br>|
+| ![ThoughtSpot](./media/sql-data-warehouse-partner-business-intelligence/thoughtspot-logo.png) |**ThoughtSpot**<br>Use la búsqueda para obtener información detallada a partir de miles de millones de filas de datos, o bien deje que la inteligencia artificial descubra información a partir de preguntas que podría no haber considerado. ThoughtSpot ayuda a los empresarios a encontrar información detallada oculta en los datos de sus empresas en cuestión de segundos. Use la búsqueda para analizar los datos y obtener información detallada de forma automática cuando lo necesite.|[Página de producto](https://www.thoughtspot.com)<br>|
 | ![Yellowfin](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_logo.png) |**Yellowfin**<br>Yellowfin es un proveedor de inteligencia empresarial en la nube para los informes y paneles ad-hoc de The BI Survey de BARC. Conéctese al grupo de SQL de Synapse y, luego, cree y comparta atractivos informes y paneles con las galardonadas características de inteligencia de ubicación e inteligencia empresarial de colaboración. |[Página de producto](https://www.yellowfinbi.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/yellowfin.yellowfin-for-azure-byol) |
 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre otros partners nuestros, consulte [Partners de integración de datos](sql-data-warehouse-partner-data-integration.md) y [Partners de Administración de datos](sql-data-warehouse-partner-data-management.md).
+Para más información sobre algunos de nuestros otros asociados, vea [Asociados de integración de datos](sql-data-warehouse-partner-data-integration.md), [Asociados de administración de datos](sql-data-warehouse-partner-data-management.md) y [Asociados de IA y aprendizaje automático](sql-data-warehouse-partner-machine-learning-ai.md).
 
  

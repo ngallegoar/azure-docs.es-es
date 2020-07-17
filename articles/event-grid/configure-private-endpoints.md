@@ -1,18 +1,14 @@
 ---
 title: Configuración de puntos de conexión privados para temas o dominios de Azure Event Grid
 description: En este artículo se describe cómo configurar los puntos de conexión privados para los temas o dominios de Azure Event Grid.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: how-to
-ms.date: 04/22/2020
-ms.author: spelluru
-ms.openlocfilehash: b72462334fa2311b017be49860ed422dfa35430c
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.date: 07/07/2020
+ms.openlocfilehash: ace3f7f59e4f26388652d7bda1a5ee28800a414b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890819"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115342"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configuración de puntos de conexión privados para temas o dominios de Azure Event Grid
 Puede usar [puntos de conexión privados](../private-link/private-endpoint-overview.md) para permitir la entrada de eventos directamente desde su red virtual a sus temas y dominios de forma segura a través de un [vínculo privado](../private-link/private-link-overview.md) sin tener que ir a la red pública de Internet. El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual para el tema o dominio. Para más información conceptual, consulte [Seguridad de las redes](network-security.md).
@@ -154,7 +150,7 @@ az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --nam
 
 
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 Actualice la extensión de Azure Event Grid para la CLI mediante el siguiente comando: 
 
 ```azurecli-interactive
@@ -484,4 +480,5 @@ Invoke-RestMethod -Method 'Get'
 Puede aprobar la conexión incluso después de que esta se haya rechazado mediante la API. Si usa Azure Portal, no puede aprobar un punto de conexión que se haya rechazado. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre cómo configurar las opciones de firewall de IP, consulte [Configuración del firewall de IP para temas o dominios de Azure Event Grid](configure-firewall.md).
+* Para más información sobre cómo configurar las opciones de firewall de IP, consulte [Configuración del firewall de IP para temas o dominios de Azure Event Grid](configure-firewall.md).
+* Para solucionar problemas de conectividad de red, consulte [Solucionar problemas de conectividad de red](troubleshoot-network-connectivity.md).

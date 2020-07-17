@@ -1,92 +1,33 @@
 ---
-title: Seguridad y autenticación de Azure Event Grid
-description: En este artículo se describen las distintas formas de autenticar el acceso a los recursos de Event Grid (webhook, suscripciones, temas personalizados).
-services: event-grid
-author: banisadr
-manager: timlt
-ms.service: event-grid
+title: Autenticación de la entrega de eventos en los controladores de eventos (Azure Event Grid).
+description: En este artículo se describen diferentes formas de autenticar los controladores de eventos en Azure Event Grid.
 ms.topic: conceptual
-ms.date: 03/06/2020
-ms.author: babanisa
-ms.openlocfilehash: bca450022322db7a7569fa1dc7ce80ec75a9ce69
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.date: 07/07/2020
+ms.openlocfilehash: d48930ac9cfdd1ecd3e7d6c64067d5389323f8bc
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774305"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119946"
 ---
-# <a name="authenticating-access-to-azure-event-grid-resources"></a>Autenticación de acceso a recursos de Azure Event Grid
-En este artículo se proporciona información sobre los siguientes escenarios:  
+# <a name="authenticate-event-delivery-to-event-handlers-azure-event-grid"></a>Autenticación de la entrega de eventos en los controladores de eventos (Azure Event Grid).
+En este artículo se proporciona información sobre cómo autenticar la entrega de eventos a los controladores de eventos. También muestra como proteger los puntos de conexión de webhook que se usan para recibir eventos de Event Grid mediante Azure Active Directory (Azure AD) o un secreto compartido.
 
-- Autentique a los clientes que publican eventos en temas de Azure Event Grid mediante la clave o la firma de acceso compartido (SAS) o la clave. 
-- Proteja el punto de conexión de webhook que se usa para recibir eventos de Event Grid mediante Azure Active Directory (Azure AD) o un secreto compartido.
+## <a name="use-system-assigned-identities-for-event-delivery"></a>Usar identidades asignadas por el sistema para la entrega de eventos.
+Puede habilitar una identidad administrada asignada por el sistema para un tema o dominio y usar la identidad para reenviar eventos a destinos compatibles, como colas y temas de Service Bus, centros de eventos y cuentas de almacenamiento.
 
-## <a name="authenticate-publishing-clients-using-sas-or-key"></a>Autenticación de clientes de publicación mediante SAS o una clave
-Los temas personalizados utilizan la Firma de acceso compartido (SAS) o la autenticación de clave. Se recomienda el uso de SAS, pero la autenticación de clave proporciona programación simple y es compatible con muchos editores de webhook existentes.
+He aquí los pasos: 
 
-Incluya el valor de autenticación en el encabezado HTTP. Para SAS, use **aeg-sas-token** para el valor del encabezado. Para autenticación de clave, utilice **aeg-sas-key** para el valor del encabezado.
+1. Cree un tema o un dominio con una identidad asignada por el sistema, o bien actualice un tema o dominio existente para habilitar la identidad. 
+1. Agregue la identidad a un rol adecuado (por ejemplo, Remitente de los datos de Service Bus) en el destino (por ejemplo, una cola de Service Bus).
+1. Al crear suscripciones de eventos, habilite el uso de la identidad para enviar eventos al destino. 
 
-### <a name="key-authentication"></a>Autenticación de clave
+Para obtener instrucciones paso a paso detalladas, consulte [Entrega de eventos con una identidad administrada](managed-service-identity.md).
 
-La autenticación de clave es la forma más sencilla de autenticación. Use el formato `aeg-sas-key: <your key>` en el encabezado del mensaje.
-
-Por ejemplo, pasa una clave con:
-
-```
-aeg-sas-key: XXXXXXXX53249XX8XXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
-```
-
-También puede especificar `aeg-sas-key` como parámetro de consulta. 
-
-```
-https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01&&aeg-sas-key=XXXXXXXX53249XX8XXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
-```
-
-### <a name="sas-tokens"></a>Tokens de SAS
-
-Los tokens de SAS para Event Grid incluyen el recurso, un tiempo de expiración y una firma. El formato del token de SAS es: `r={resource}&e={expiration}&s={signature}`.
-
-El recurso es la ruta de acceso del tema de Event Grid al que envía los eventos. Por ejemplo, una ruta de acceso de recurso válida es: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01`. Para ver todas las versiones de API compatibles, vea [Tipos de recursos de Microsoft.EventGrid](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions). 
-
-Genere la firma a partir de una clave.
-
-Por ejemplo, un valor **aeg-sas-token** válido es:
-
-```http
-aeg-sas-token: r=https%3a%2f%2fmytopic.eventgrid.azure.net%2feventGrid%2fapi%2fevent&e=6%2f15%2f2017+6%3a20%3a15+PM&s=a4oNHpRZygINC%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
-```
-
-En el ejemplo siguiente se crea un token de SAS para su uso con Event Grid:
-
-```cs
-static string BuildSharedAccessSignature(string resource, DateTime expirationUtc, string key)
-{
-    const char Resource = 'r';
-    const char Expiration = 'e';
-    const char Signature = 's';
-
-    string encodedResource = HttpUtility.UrlEncode(resource);
-    var culture = CultureInfo.CreateSpecificCulture("en-US");
-    var encodedExpirationUtc = HttpUtility.UrlEncode(expirationUtc.ToString(culture));
-
-    string unsignedSas = $"{Resource}={encodedResource}&{Expiration}={encodedExpirationUtc}";
-    using (var hmac = new HMACSHA256(Convert.FromBase64String(key)))
-    {
-        string signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(unsignedSas)));
-        string encodedSignature = HttpUtility.UrlEncode(signature);
-        string signedSas = $"{unsignedSas}&{Signature}={encodedSignature}";
-
-        return signedSas;
-    }
-}
-```
-
-### <a name="encryption-at-rest"></a>Cifrado en reposo
-
-Todos los eventos o datos escritos en el disco por el servicio Event Grid se cifran mediante una clave administrada por Microsoft, lo que garantiza que se cifran en reposo. Además, el período máximo que se conservan los eventos o los datos es de 24 horas, conforme a la [directiva de reintentos de Event Grid](delivery-and-retry.md). Event Grid elimina automáticamente todos los eventos o datos tras 24 horas, o el período de vida del evento, lo que sea menor.
 
 ## <a name="authenticate-event-delivery-to-webhook-endpoints"></a>Autenticación de la entrega de eventos a los puntos de conexión de webhook
 En las secciones siguientes se describe cómo autenticar la entrega de eventos a los puntos de conexión de webhook. Debe usar un mecanismo de protocolo de enlace de validación con independencia del método que use. Consulte [Entrega de eventos de webhook](webhook-event-delivery.md) para detalles. 
+
 
 ### <a name="using-azure-active-directory-azure-ad"></a>Uso de Azure Active Directory (Azure AD)
 Puede proteger el punto de conexión de webhook que se usa para recibir eventos de Event Grid mediante Azure AD. Tendrá que crear una aplicación de Azure AD, crear un rol y una entidad de servicio en la aplicación que autorice a Event Grid, y configurar la suscripción de eventos para usar la aplicación de Azure AD. Obtenga información sobre cómo [configurar Azure Active Directory con Event Grid](secure-webhook-delivery.md).
@@ -101,6 +42,6 @@ Para más información sobre cómo entregar eventos a webhooks, consulte [Entreg
 > [!IMPORTANT]
 Azure Event Grid solo admite puntos de conexión de webhook **HTTPS**. 
 
-## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener una introducción a Event Grid, vea [About Event Grid](overview.md) (Acerca de Event Grid).
+## <a name="next-steps"></a>Pasos siguientes
+Consulte [autenticación de publicación de clientes](security-authenticate-publishing-clients.md) para obtener información sobre la autenticación de clientes que publican eventos en temas o dominios. 

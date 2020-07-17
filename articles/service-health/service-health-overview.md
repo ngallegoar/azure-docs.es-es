@@ -3,12 +3,12 @@ title: Información general de Service Health | Microsoft Docs
 description: Información personalizada sobre cómo las aplicaciones de Azure se ven afectadas por el mantenimiento y los problemas de servicios de Azure actuales y futuros.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 2d98a909a45c9dd00b3174f495a15cd18ced11f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bc1d07fdbba6da3540336438973fb1cfbb0c356b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146918"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563374"
 ---
 # <a name="service-health-overview"></a>Información general de Service Health
 
@@ -21,7 +21,7 @@ Service Health realiza un seguimiento de cuatro tipos de eventos de estado que p
 1. **Problemas de servicios**: problemas en los servicios de Azure que le afectan ahora mismo. 
 2. **Mantenimiento planeado**: próximas acciones de mantenimiento que pueden afectar a la disponibilidad de los servicios en el futuro.  
 3. **Avisos de estado**: cambios en los servicios de Azure que requieren su atención. Algunos ejemplos son el desuso de las características de Azure o los requisitos de actualización (por ejemplo, la actualización a un marco PHP compatible).
-4. **Avisos de seguridad (versión preliminar**): notificaciones relacionadas con la seguridad que pueden afectar a la disponibilidad de los servicios de Azure.
+4. **Avisos de seguridad**: infracciones o notificaciones relacionadas con la seguridad que pueden afectar a la disponibilidad de los servicios de Azure.
 
 > [!NOTE]
 > Para ver los eventos de Service Health, a los usuarios se les debe [conceder el rol de lector](../role-based-access-control/role-assignments-portal.md) en una suscripción.
@@ -36,11 +36,11 @@ Para iniciar el panel de Service Health, seleccione el icono de Service Health e
 
 La vista **Problemas del servicio** muestra los problemas en curso en servicios de Azure que afectan a los recursos. Puede saber cuándo se inició el problema y qué servicios y regiones se ven afectados. También puede leer la actualización más reciente para entender lo que está haciendo Azure para resolver el problema. 
 
-![Administrar problemas de servicios](./media/service-health-overview/azure-service-health-overview-2.png)
+[![Administrar problemas de servicios](./media/service-health-overview/azure-service-health-overview-2.png)](./media/service-health-overview/azure-service-health-overview-2.png#lightbox)
 
 Elija la pestaña **Posible impacto** para ver la lista específica de sus propios recursos a los que podría afectar el problema. Puede descargar una lista CSV de estos recursos para compartirla con su equipo.
 
-![Administrar problemas de servicios - Impacto](./media/service-health-overview/azure-service-health-overview-4.png)
+[![Administrar problemas de servicios: impacto](./media/service-health-overview/azure-service-health-overview-4.png)](./media/service-health-overview/azure-service-health-overview-4.png#lightbox)
 
 ## <a name="see-emerging-issues-which-may-impact-your-services"></a>Visualización de problemas emergentes que podrían afectar sus servicios
 
@@ -52,7 +52,7 @@ Existen situaciones en las que se pueden publicar problemas de servicio generali
 
 Puede obtener un vínculo para el problema para que se use el su sistema de administración de problemas. También puede descargar el archivo PDF y a veces archivos CSV para compartir con personas que no tienen acceso a Azure Portal.   
 
-![Administrar problemas de servicios - Administración de problemas](./media/service-health-overview/azure-service-health-overview-3.png)
+[![Administrar problemas de servicios: administración de problemas](./media/service-health-overview/azure-service-health-overview-3.png)](./media/service-health-overview/azure-service-health-overview-3.png#lightbox)
 
 ## <a name="get-support-from-microsoft"></a>Obtención de soporte técnico de Microsoft
 
@@ -62,7 +62,7 @@ Si el recurso se deja en mal estado, incluso después de que se resuelve el prob
 
 Filtre Service Health para mostrar las suscripciones, regiones y tipos de recursos críticos para la empresa. Guardar el filtro y ancle un mapa del mundo de estado personalizado al panel del portal. 
 
-![Filtrar el mapa de estado personalizado](./media/service-health-overview/azure-service-health-overview-6a.png)
+[![Filtrar el mapa de estado personalizado](./media/service-health-overview/azure-service-health-overview-6a.png)](./media/service-health-overview/azure-service-health-overview-6a.png#lightbox)
 
 ![Anclar un mapa de estado personalizado](./media/service-health-overview/azure-service-health-overview-6b.png)
 

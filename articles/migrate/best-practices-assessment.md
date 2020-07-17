@@ -6,30 +6,39 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: de6953b6648613595bc9975b17941b3a453a6d60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 648ec2d9fea3e4e112e65cec44a0518b653ddbea
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74185981"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119980"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Procedimientos recomendados para crear evaluaciones
 
-[Azure Migrate](migrate-overview.md) proporciona un centro de herramientas que le ayuda a detecta las aplicaciones, la infraestructura y las cargas de trabajo, a evaluarlas y a migrarlas a Microsoft Azure. Este centro incluye herramientas de Azure Migrate y ofertas de fabricantes de software independientes (ISV) de terceros.
+[Azure Migrate](./migrate-services-overview.md) proporciona un centro de herramientas que le ayuda a detecta las aplicaciones, la infraestructura y las cargas de trabajo, a evaluarlas y a migrarlas a Microsoft Azure. Este centro incluye herramientas de Azure Migrate y ofertas de fabricantes de software independientes (ISV) de terceros.
 
 En este artículo se resumen los procedimientos recomendados para crear evaluaciones mediante la herramienta Azure Migrate Server Assessment.
 
 ## <a name="about-assessments"></a>Acerca de las evaluaciones
 
-Las evaluaciones que crea con Azure Migrate Server Assessment son una instantánea de datos de un momento dado. En Azure Migrate, existen dos tipos de evaluaciones.
+Las evaluaciones que crea con Azure Migrate Server Assessment son una instantánea de datos de un momento dado. Con Azure Migrate: Server Assessment se pueden crear dos Server Assessment:
 
-**Tipo de evaluación** | **Detalles** | **Data**
+**Tipo de evaluación** | **Detalles**
+--- | --- 
+**MV de Azure** | Evaluaciones para la migración de los servidores locales a máquinas virtuales de Azure. <br/><br/> Puede evaluar las [máquinas virtuales de VMware](how-to-set-up-appliance-vmware.md), las [máquinas virtuales de Hyper-V](how-to-set-up-appliance-hyper-v.md) y los [servidores físicos](how-to-set-up-appliance-physical.md) locales para la migración a Azure con este tipo de evaluación. [Más información](concepts-assessment-calculation.md)
+**Azure VMware Solution (AVS)** | Evaluaciones para la migración de los servidores locales a [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> Puede evaluar las [máquinas virtuales de VMware](how-to-set-up-appliance-vmware.md) locales para la migración a Azure VMware Solution (AVS) con este tipo de evaluación. [Más información](concepts-azure-vmware-solution-assessment-calculation.md)
+
+
+### <a name="sizing-criteria"></a>Criterios de dimensionamiento
+Server Assessment proporciona dos opciones de criterios de dimensionamiento:
+
+**Criterio de tamaño** | **Detalles** | **Data**
 --- | --- | ---
-**Basada en el rendimiento** | Evaluaciones que realizan recomendaciones basadas en datos de rendimiento recopilados | La recomendación del tamaño de VM se basa en los datos de uso de la CPU y la memoria.<br/><br/> La recomendación de tipo de disco (SSD/disco duro estándar o discos administrados prémium) se basa en el IOPS y el rendimiento de los discos locales.
-**Tal cual en el entorno local** | Evaluaciones que no usan datos de rendimiento para hacer recomendaciones. | La recomendación de tamaño de la máquina virtual se basa en el tamaño de la máquina virtual local.<br/><br> El tipo de disco recomendado se basa en lo que selecciona en la configuración de tipo de almacenamiento para la evaluación.
+**Basada en el rendimiento** | Evaluaciones que realizan recomendaciones basadas en datos de rendimiento recopilados | **Evaluación de máquinas virtuales de Azure**: La recomendación del tamaño de VM se basa en los datos de uso de la CPU y la memoria.<br/><br/> La recomendación de tipo de disco (SSD/disco duro estándar o discos administrados prémium) se basa en el IOPS y el rendimiento de los discos locales.<br/><br/> **Evaluación de Azure VMware Solution (AVS)** : La recomendación de los nodos de AVS se basa en los datos de uso de la CPU y la memoria.
+**Tal cual en el entorno local** | Evaluaciones que no usan datos de rendimiento para hacer recomendaciones. | **Evaluación de máquinas virtuales de Azure**: La recomendación de tamaño de la máquina virtual se basa en el tamaño de la máquina virtual local.<br/><br> El tipo de disco recomendado se basa en lo que selecciona en la configuración de tipo de almacenamiento para la evaluación.<br/><br/> **Evaluación de Azure VMware Solution (AVS)** : La recomendación de los nodos de AVS se basa en el tamaño de la máquina virtual local.
 
-### <a name="example"></a>Ejemplo
-Como ejemplo, si tiene una máquina virtual local con cuatro núcleos con un uso del 20 % y una memoria de 8 GB con un uso del 10 %, las evaluaciones serán las siguientes:
+#### <a name="example"></a>Ejemplo
+Como ejemplo, si tiene una máquina virtual local con cuatro núcleos con un uso del 20 % y una memoria de 8 GB con un uso del 10 %, la evaluación de las máquinas virtuales de Azure será la siguiente:
 
 - **Evaluación basada en el rendimiento**:
     - Identifica la memoria y los núcleos efectivos según el uso del núcleo (4 x 0,20 = 0,8) y la memoria (8 GB x 0,10 = 0,8).
@@ -38,6 +47,7 @@ Como ejemplo, si tiene una máquina virtual local con cuatro núcleos con un uso
 
 - **Evaluación tal cual (como en el entorno local)** :
     -  Recomienda una máquina virtual con cuatro núcleos; 8 GB de memoria.
+
 
 ## <a name="best-practices-for-creating-assessments"></a>Procedimientos recomendados para crear evaluaciones
 
@@ -54,6 +64,19 @@ Siga estos procedimientos recomendados para evaluar los servidores importados en
 - **Crear evaluaciones tal cual**: puede crear evaluaciones tal cual inmediatamente después de que se muestren las máquinas en el portal de Azure Migrate.
 - **Crear una evaluación basada en el rendimiento**: ayuda a obtener una mejor estimación de los costos, en especial si se ha aprovisionado en exceso la capacidad del servidor en el entorno local. Sin embargo, la precisión de la evaluación basada en el rendimiento depende de los datos de rendimiento que se especifiquen para los servidores. 
 - **Recalcular evaluaciones**: dado que las evaluaciones son instantáneas de un momento dado, no se actualizan automáticamente con los datos más recientes. Para actualizar una evaluación con los datos importados más recientes, debe volver a calcularla.
+ 
+### <a name="ftt-sizing-parameters-for-avs-assessments"></a>Parámetros de dimensionamiento de FTT para las evaluaciones de AVS
+
+El motor de almacenamiento usado en AVS es vSAN. Las directivas de almacenamiento vSAN definen los requisitos de almacenamiento de las máquinas virtuales. Estas directivas garantizan el nivel de servicio requerido para las máquinas virtuales, ya que determinan cómo se asigna el almacenamiento a la máquina virtual. Estas son las combinaciones FTT-RAID disponibles: 
+
+**Errores tolerables (FTT)** | **Configuración de RAID** | **Mínimo de hosts requeridos** | **Consideración de dimensionamiento**
+--- | --- | --- | --- 
+1 | RAID-1 (creación de reflejo) | 3 | Una máquina virtual de 100 GB consumiría 200 GB.
+1 | RAID-5 (codificación de borrado) | 4 | Una máquina virtual de 100 GB consumiría 133,33 GB.
+2 | RAID-1 (creación de reflejo) | 5 | Una máquina virtual de 100 GB consumiría 300 GB.
+2 | RAID-6 (codificación de borrado) | 6 | Una máquina virtual de 100 GB consumiría 150 GB.
+3 | RAID-1 (creación de reflejo) | 7 | Una máquina virtual de 100 GB consumirá 400 GB.
+
 
 ## <a name="best-practices-for-confidence-ratings"></a>Procedimientos recomendados para las clasificaciones de confianza
 
@@ -83,7 +106,18 @@ Si agrega o quita máquinas de un grupo después de crear una evaluación, la ev
 
 ### <a name="outdated-assessments"></a>Evaluaciones obsoletas
 
-Si hay cambios en el entorno local de las máquinas virtuales que se encuentran en un grupo que se ha evaluado, la evaluación se marca como **Obsoleta**. Para reflejar los cambios, vuelva a ejecutar la evaluación.
+Si hay cambios en el entorno local de las máquinas virtuales que se encuentran en un grupo que se ha evaluado, la evaluación se marca como **Obsoleta**. Una valoración se puede marcar como "obsoleta" debido a uno o varios cambios en las siguientes propiedades:
+
+- Número de núcleos de procesador
+- Memoria asignada
+- Tipo de arranque o firmware
+- Nombre, versión y arquitectura del sistema operativo
+- Número de discos
+- Número de adaptadores de red
+- Cambio de tamaño de disco (GB asignados)
+- Actualización de las propiedades de NIC. Ejemplo: Cambios de dirección Mac, adición de direcciones IP, etc.
+
+Vuelva a ejecutar la valoración (**Recalcular**) para reflejar los cambios en el grupo.
 
 ### <a name="low-confidence-rating"></a>Clasificación de confianza baja
 
@@ -94,6 +128,12 @@ Puede que una evaluación no tenga todos los puntos de datos debido a varios mot
 - Se apagaron algunas máquinas virtuales en el período durante el que se calcula la valoración. Si alguna máquina virtual se apagó por algún tiempo, Server Assessment no podrá recopilar los datos de rendimiento durante ese período.
 
 - Algunas máquinas virtuales se crearon después de iniciar la detección en Server Assessment. Por ejemplo, si va a crear una valoración para el historial de rendimiento del último mes, pero algunas máquinas virtuales se crearon en el entorno hace solo una semana. En este caso, los datos de rendimiento de las nuevas máquinas virtuales no estarán disponibles en ningún momento y la clasificación de confianza sería baja.
+
+### <a name="migration-tool-guidance-for-avs-assessments"></a>Guía de la herramienta de migración para valoraciones de AVS
+
+En el informe preparación de Azure para la valoración de Azure VMware Solution (AVS), puede ver las siguientes herramientas sugeridas: 
+- **VMware HCX o Enterprise**: En el caso de las máquinas de VMware, la solución Hybrid Cloud Extension (HCX) de VMWare es la herramienta de migración sugerida para migrar la carga de trabajo local a la nube privada de Azure VMware Solution (AVS). [Más información](../azure-vmware/hybrid-cloud-extension-installation.md).
+- **Desconocido**: En el caso de las máquinas importadas mediante un archivo CSV, se desconoce la herramienta de migración predeterminada. Sin embargo, para las máquinas de VMware, se recomienda usar la solución Hybrid Cloud Extension (HCX) de VMWare.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

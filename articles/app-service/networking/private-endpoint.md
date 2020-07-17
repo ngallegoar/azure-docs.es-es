@@ -1,20 +1,20 @@
 ---
-title: Conexión privada a una aplicación web mediante un punto de conexión privado de Azure
-description: Conexión privada a una aplicación web mediante el punto de conexión privado de Azure
+title: Conexión privada a una aplicación web de Azure mediante un punto de conexión privado
+description: Conexión privada a una aplicación web mediante un punto de conexión privado de Azure
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 07/07/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 15b3f2e48b78036c02ef86446f2ab920f22f7c76
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: fdad2f7c2ce4f82529866b4235ebebab8da664d3
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295446"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054583"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Uso de puntos de conexión privados para una aplicación web de Azure (versión preliminar)
 
@@ -31,7 +31,7 @@ El uso de un punto de conexión privado para la aplicación web le permite:
 - Conectarse de forma segura a la aplicación web desde las redes locales que se conectan a la red virtual mediante VPN o el emparejamiento privado de ExpressRoute.
 - Evite la filtración de datos desde la red virtual. 
 
-Si solo necesita una conexión segura entre la red virtual y la aplicación web, los puntos de conexión de servicio son la solución más sencilla. Si también necesita acceso a la aplicación web desde el entorno local mediante una puerta de enlace de Azure, una red virtual emparejada de forma regional o globalmente, el punto de conexión privado es la solución.  
+Si solo necesita una conexión segura entre la red virtual y la aplicación web, los puntos de conexión de servicio son la solución más sencilla. Si también necesita acceso a la aplicación web desde el entorno local mediante una instancia de Azure Gateway, una red virtual emparejada de forma regional o globalmente, el punto de conexión privado es la solución.  
 
 Para obtener más información, consulte [Puntos de conexión de servicio][serviceendpoint].
 
@@ -57,7 +57,7 @@ Desde la perspectiva de seguridad:
 - Al habilitar un punto de conexión privado en la aplicación web, no se evalúa la configuración de [restricciones de acceso ][accessrestrictions] de la aplicación web.
 - Puede eliminar el riesgo de filtración de datos desde la red virtual mediante la eliminación de todas las reglas de grupo de seguridad de red en las que el destino es la etiqueta Internet o servicios de Azure. Al implementar un punto de conexión privado para una aplicación web, solo puede acceder a esta aplicación web específica a través del punto de conexión privado. Si tiene otra aplicación web, tendrá que implementar en ella otro punto de conexión privado dedicado.
 
-En los registros HTTP web de la aplicación web, encontrará la dirección IP de origen del cliente. Se implementa mediante el protocolo proxy TCP, reenviando la propiedad de la dirección IP de cliente hasta la aplicación web. Para obtener más información, consulte [Cómo obtener información de conexión mediante el proxy TCP V2][tcpproxy].
+En los registros HTTP web de la aplicación web, encontrará la dirección IP de origen del cliente. Esta característica se implementa mediante el protocolo proxy TCP, reenviando la propiedad de la dirección IP de cliente a la aplicación web. Para obtener más información, consulte [Cómo obtener información de conexión mediante el proxy TCP V2][tcpproxy].
 
 
   > [!div class="mx-imgBorder"]
@@ -65,12 +65,50 @@ En los registros HTTP web de la aplicación web, encontrará la dirección IP d
 
 ## <a name="dns"></a>DNS
 
-Como esta característica está en la versión preliminar, durante la versión preliminar no se cambia la entrada DNS. Debe administrar la entrada DNS en el servidor DNS privado o en la zona privada de Azure DNS.
+Cuando se usa un punto de conexión privado para la aplicación web, la dirección URL solicitada debe coincidir con el nombre de la aplicación web. De forma predeterminada, mywebappname.azurewebsites.net.
+
+De forma predeterminada, sin el punto de conexión privado, el nombre público de la aplicación web es un nombre canónico para el clúster.
+Por ejemplo, la resolución de nombres será:
+
+|Nombre |Tipo |Value |
+|-----|-----|------|
+|mywebapp.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
+|clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
+|cloudservicename.cloudapp.net|A|40.122.110.154| 
+
+
+Cuando se implementa un punto de conexión privado, se actualiza la entrada DNS para apuntar al nombre canónico mywebapp.privatelink.azurewebsites.net.
+Por ejemplo, la resolución de nombres será:
+
+|Nombre |Tipo |Value |Comentario |
+|-----|-----|------|-------|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
+|mywebapp.privatelink.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
+|clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
+|cloudservicename.cloudapp.net|A|40.122.110.154|<-- esta dirección IP pública no es su punto de conexión privado; recibirá un error 403.|
+
+Debe configurar un servidor DNS privado o una zona privada de Azure DNS para las pruebas en las que puede modificar la entrada del host de la máquina de prueba.
+La zona DNS que debe crear es: **privatelink.azurewebsites.net**. Realice el registro de la aplicación web con un registro A y la dirección IP del punto de conexión privado.
+Por ejemplo, la resolución de nombres será:
+
+|Nombre |Tipo |Value |Comentario |
+|-----|-----|------|-------|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
+|mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|<--Esta entrada se administra en el sistema DNS para apuntar a la dirección IP del punto de conexión privado.|
+
+Después de esta configuración de DNS, puede acceder a la aplicación web de forma privada con el nombre predeterminado mywebappname.azurewebsites.net.
+
+
 Si necesita usar un nombre DNS personalizado, debe agregarlo en la aplicación web. Durante la versión preliminar, el nombre personalizado se debe validar como cualquier otro mediante la resolución DNS pública. Para obtener más información, vea [Validación de un DNS personalizado][dnsvalidation].
 
-Si necesita usar la consola de Kudu o la API REST de Kudu (implementación con agentes autohospedados de Azure DevOps, por ejemplo), tendrá que crear dos registros en la zona privada de Azure DNS o en el servidor DNS personalizado. 
-- PrivateEndpointIP yourwebappname.azurewebsites.net 
-- PrivateEndpointIP yourwebappname.scm.azurewebsites.net 
+En el caso de la consola de Kudu o la API de REST de Kudu (implementación con agentes autohospedados de Azure DevOps, por ejemplo), debe crear dos registros en la zona privada de Azure DNS o en el servidor DNS personalizado. 
+
+| Nombre | Tipo | Value |
+|-----|-----|-----|
+| mywebapp.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
+| mywebapp.scm.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
+
+
 
 ## <a name="pricing"></a>Precios
 
@@ -86,8 +124,9 @@ Estamos mejorando la característica Private Link y el punto de conexión privad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para implementar un punto de conexión privado para la aplicación web mediante el portal, consulte [Cómo conectarse de forma privada a una aplicación web][howtoguide]
-
+- Para implementar un punto de conexión privado para la aplicación web mediante el portal, consulte [Cómo conectarse de forma privada a una aplicación web con el Portal][howtoguide1].
+- Para implementar un punto de conexión privado para la aplicación web con el CLI de Azure, consulte [Cómo conectarse de forma privada a una aplicación web con CLI de Azure][howtoguide2].
+- Para implementar un punto de conexión privado para la aplicación web con PowerShell, consulte [Cómo conectarse de forma privada a una aplicación web con PowerShell][howtoguide3].
 
 
 
@@ -101,4 +140,6 @@ Para implementar un punto de conexión privado para la aplicación web mediante 
 [dnsvalidation]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain
 [pllimitations]: https://docs.microsoft.com/azure/private-link/private-endpoint-overview#limitations
 [pricing]: https://azure.microsoft.com/pricing/details/private-link/
-[howtoguide]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
+[howtoguide1]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
+[howtoguide2]: https://docs.microsoft.com/azure/app-service/scripts/cli-deploy-privateendpoint
+[howtoguide3]: https://docs.microsoft.com/azure/app-service/scripts/powershell-deploy-private-endpoint

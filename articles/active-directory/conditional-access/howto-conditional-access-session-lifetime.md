@@ -4,19 +4,19 @@ description: Personalice la configuración de la sesión de autenticación de Az
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 05/26/2020
+ms.topic: how-to
+ms.date: 06/29/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc75b300704ef7f8218134c9d384b0718fca1e97
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 2cf89864eb6e52baf925f82aa590619d7cfeabb2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220695"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552108"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configuración de la administración de las sesiones de autenticación con el acceso condicional
 
@@ -39,7 +39,7 @@ La configuración predeterminada de Azure Active Directory (Azure AD) para la f
 
 Puede parecer alarmante no pedir a un usuario que vuelva a iniciar sesión; en realidad, cualquier infracción de las directivas de TI revocará la sesión. Algunos ejemplos incluyen, pero sin limitarse, un cambio de contraseña, un dispositivo que no cumple con las normas o la deshabilitación de la cuenta. También puede explícitamente [revocar sesiones de usuarios mediante PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). La configuración predeterminada de Azure AD se reduce a "no pedir a los usuarios que proporcionen sus credenciales si la posición de seguridad de sus sesiones no ha cambiado".
 
-La configuración de la frecuencia de inicio de sesión funciona con aplicaciones que han implementado los protocolos OAUTH2 o OIDC de acuerdo con los estándares. La mayoría de aplicaciones nativas de Microsoft para Windows, Mac y dispositivos móviles que incluyen las aplicaciones web siguientes cumplen con la configuración.
+La configuración de la frecuencia de inicio de sesión funciona con aplicaciones que han implementado los protocolos OAUTH2 u OIDC de acuerdo con los estándares. La mayoría de aplicaciones nativas de Microsoft para Windows, Mac y dispositivos móviles que incluyen las aplicaciones web siguientes cumplen con la configuración.
 
 - Word, Excel y PowerPoint Online
 - OneNote Online
@@ -51,13 +51,17 @@ La configuración de la frecuencia de inicio de sesión funciona con aplicacione
 - Dynamics CRM Online
 - Azure portal
 
+La configuración de la frecuencia de inicio de sesión también funciona con aplicaciones SAML, siempre y cuando no se eliminen sus propias cookies y se redirijan de nuevo a Azure AD regularmente para la autenticación.
+
 ### <a name="user-sign-in-frequency-and-multi-factor-authentication"></a>Frecuencia de inicio de sesión de usuario y autenticación multifactor
 
-Anteriormente, la frecuencia de inicio de sesión se aplicaba solo a la autenticación del primer factor en los dispositivos unidos a Azure AD, unidos a Azure AD híbrido y registrados en Azure AD. No había ninguna manera fácil de que nuestros clientes reforzaran la autenticación multifactor (MFA) en esos dispositivos. Teniendo en cuenta los comentarios de los clientes, ahora la frecuencia de inicio de sesión se aplica también a la autenticación multifactor.
+Antes, la frecuencia de inicio de sesión se aplicaba solo a la autenticación del primer factor en los dispositivos unidos a Azure AD, unidos a Azure AD híbrido y registrados en Azure AD. No había ninguna manera fácil de que nuestros clientes reforzaran la autenticación multifactor (MFA) en esos dispositivos. Teniendo en cuenta los comentarios de los clientes, ahora la frecuencia de inicio de sesión se aplica también a la autenticación multifactor.
+
+[![Frecuencia de inicio de sesión y MFA](media/howto-conditional-access-session-lifetime/conditional-access-flow-chart-small.png)](media/howto-conditional-access-session-lifetime/conditional-access-flow-chart.png#lightbox)
 
 ### <a name="user-sign-in-frequency-and-device-identities"></a>Frecuencia de inicio de sesión de usuario e identidades de dispositivos
 
-Si tiene dispositivos unidos a Azure AD, unidos a Azure AD híbrido o registrados en Azure AD, cuando un usuario desbloquea su dispositivo o inicia sesión de forma interactiva, este evento también cumplirá la directiva de frecuencia de inicio de sesión. En los siguientes 2 ejemplos, la frecuencia de inicio de sesión de usuario está establecida en 1 hora:
+Si tiene dispositivos unidos a Azure AD, unidos a Azure AD híbrido o registrados en Azure AD, cuando un usuario desbloquea su dispositivo o inicia sesión de forma interactiva, este evento también cumplirá la directiva de frecuencia de inicio de sesión. En los dos ejemplos siguientes, la frecuencia de inicio de sesión de usuario está establecida en 1 hora:
 
 Ejemplo 1:
 
@@ -101,7 +105,7 @@ El acceso condicional es una funcionalidad de Azure AD Premium y requiere una l
 
 ![Directiva de acceso condicional configurada para la frecuencia de inicio de sesión](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 
-En los dispositivos de Windows registrados en Azure AD, el inicio de sesión en el dispositivo se considera un aviso. Por ejemplo, si ha configurado la frecuencia de inicio de sesión a 24 horas para aplicaciones de Office, los usuarios de dispositivos de Windows registrados en Azure AD cumplirán la directiva de frecuencia de inicio de sesión mediante el inicio de sesión en el dispositivo y no se les volverá a preguntar cuando abran las aplicaciones de Office.
+En los dispositivos de Windows registrados en Azure AD, el inicio de sesión en el dispositivo se considera un aviso. Por ejemplo, si ha configurado la frecuencia de inicio de sesión a 24 horas para aplicaciones de Office, los usuarios de dispositivos de Windows registrados en Azure AD cumplirán la directiva de frecuencia de inicio de sesión por medio del inicio de sesión en el dispositivo, y no se les volverá a preguntar cuando abran las aplicaciones de Office.
 
 Si ha configurado una frecuencia de inicio de sesión diferente para distintas aplicaciones web que se ejecutan en la misma sesión del navegador, se aplicará la directiva más estricta a ambas aplicaciones porque todas las aplicaciones que se ejecutan en la misma sesión del explorador comparten un único token de sesión.
 

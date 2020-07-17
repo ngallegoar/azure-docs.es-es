@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4bb315991846b115070854b6e81caf16232fef6b
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 3dfa5d6bc5707679bbe5dada9f28046202e7aae5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607188"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808534"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opciones de almacenamiento para los contenedores de perfiles de FSLogix de Windows Virtual Desktop
 
-Azure ofrece varias soluciones de almacenamiento que puede usar para almacenar el contenedor de perfiles de FSLogix. En este artículo se comparan las soluciones de almacenamiento que Azure ofrece para los contenedores de perfiles de usuario de FSLogix de Windows Virtual Desktop.
+Azure ofrece varias soluciones de almacenamiento que puede usar para almacenar el contenedor de perfiles de FSLogix. En este artículo se comparan las soluciones de almacenamiento que Azure ofrece para los contenedores de perfiles de usuario de FSLogix de Windows Virtual Desktop. Se recomienda almacenar contenedores de perfil de FSLogix en Azure Files en el caso de la mayoría de nuestros clientes. 
 
 Windows Virtual Desktop ofrece contenedores de perfiles de FSLogix como solución recomendada para los perfiles de usuario. FSLogix está diseñado para itinerar perfiles en entornos informáticos remotos, como Windows Virtual Desktop. Al iniciar sesión, este contenedor se adjunta dinámicamente al entorno informático mediante el disco duro virtual (VHD) compatible de forma nativa y el disco duro virtual de Hyper-V (VHDX). El perfil de usuario está disponible inmediatamente y aparece en el sistema exactamente como un perfil de usuario nativo.
 
@@ -25,7 +25,7 @@ En las siguientes tablas se comparan las soluciones de almacenamiento que Azure 
 
 ## <a name="azure-platform-details"></a>Detalles de la plataforma Azure
 
-|Características|Archivos de Azure|Azure NetApp Files|Espacios de almacenamiento directo|
+|Características|Azure Files|Azure NetApp Files|Espacios de almacenamiento directo|
 |--------|-----------|------------------|---------------------|
 |Caso de uso|Uso general|Ultrarrendimiento o migración desde NetApp local|Multiplataforma|
 |Servicio de plataforma|Sí, solución nativa de Azure|Sí, solución nativa de Azure|No, administración automática|
@@ -38,7 +38,7 @@ En las siguientes tablas se comparan las soluciones de almacenamiento que Azure 
 
 ## <a name="azure-management-details"></a>Detalles de administración de Azure
 
-|Características|Archivos de Azure|Azure NetApp Files|Espacios de almacenamiento directo|
+|Características|Azure Files|Azure NetApp Files|Espacios de almacenamiento directo|
 |--------|-----------|------------------|---------------------|
 |Acceso|En la nube, locales e híbridos (Azure File Sync)|En la nube, locales (mediante Express Route)|En la nube o en el entorno local|
 |Copia de seguridad|Integración de instantáneas de copia de seguridad de Azure|Instantáneas de Azure NetApp Files|Integración de instantáneas de copia de seguridad de Azure|

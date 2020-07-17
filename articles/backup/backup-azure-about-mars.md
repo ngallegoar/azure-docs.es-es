@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo el agente de MARS admite los escen
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 5656c113a6823a1708854a547b199bd16c521b04
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 64f43f42fc23b1ca9591b6a49c3acce6c52c09d6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611490"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134973"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Acerca del agente de Microsoft Azure Recovery Services (MARS)
 
@@ -53,7 +53,7 @@ El agente de MARS admite los siguientes escenarios de restauración:
 
 - Se ejecutan **copias de seguridad incrementales (subsiguientes)** según la programación que especifique. Durante las copias de seguridad incrementales, se identifican los archivos modificados y se crea un disco duro virtual. Este disco se comprime y cifra, y se envía al almacén. Una vez finalizada la copia de seguridad incremental, el nuevo disco duro virtual se combina con el disco duro virtual creado después de la replicación inicial. Este disco duro virtual combinado proporciona el estado más reciente que se usará para la comparación de la copia de seguridad en curso.
 
-- El agente de MARS puede ejecutar el trabajo de copia de seguridad en **modo optimizado** con el diario de cambios USN (número de secuencia actualizada) o **modo no optimizado** al comprobar los cambios en los directorios o archivos examinando todo el volumen. El modo no optimizado es más lento porque el agente tiene que examinar cada uno de los archivos del volumen y compararlo con los metadatos para establecer qué archivos se han modificado.  La **copia de seguridad inicial** siempre se ejecutará en modo no optimizado. Si se produce un error en el trabajo de copia de seguridad anterior, el siguiente trabajo de copia de seguridad programado se ejecutará en modo no optimizado.
+- El agente de MARS puede ejecutar el trabajo de copia de seguridad en **modo optimizado** con el diario de cambios USN (número de secuencia actualizada) o **modo no optimizado** al comprobar los cambios en los directorios o archivos examinando todo el volumen. El modo no optimizado es más lento porque el agente tiene que examinar cada uno de los archivos del volumen y compararlo con los metadatos para establecer qué archivos se han modificado.  La **copia de seguridad inicial** siempre se ejecutará en modo no optimizado. Si se produce un error en el trabajo de copia de seguridad anterior, el siguiente trabajo de copia de seguridad programado se ejecutará en modo no optimizado. Para obtener más información sobre estos modos y cómo verificarlos, consulte [este artículo](backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-backup-job-running-in-unoptimized-mode).
 
 ### <a name="additional-scenarios"></a>Otros escenarios
 

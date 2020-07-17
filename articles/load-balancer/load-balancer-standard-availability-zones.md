@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 6deb5714a43d61f5ceb793757d49bd099f09f2b7
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: e6f788689b4e817aae6dc84f66703f4f88b8d44a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82977669"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027569"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Estándar y zonas de disponibilidad
 
@@ -50,7 +50,9 @@ Una única dirección IP de servidor front-end sobrevivirá a los errores de zon
 
 La dirección IP del front-end se suministra a la vez en varias implementaciones de infraestructura independientes de varias zonas de disponibilidad. Los reintentos o el restablecimiento se realizarán correctamente en otras zonas a las que no haya afectado por el error de zona. 
 
-:::image type="content" source="./media/az-zonal/zone-redundant-lb-1.svg" alt-text="Con redundancia de zona" border="true":::
+<p align="center">
+  <img src="./media/az-zonal/zone-redundant-lb-1.svg" width="512" title="Virtual Network NAT">
+</p>
 
 *Ilustración: Equilibrador de carga con redundancia de zona*
 
@@ -60,7 +62,12 @@ Puede optar por tener un front-end garantizado para una sola zona, que se conoce
 
 Además, se admite el uso de servidores front-end zonales directamente para puntos de conexión con equilibrio de carga dentro de cada zona. Puede usar esta configuración para exponer puntos de conexión con equilibrio de carga por zona para supervisar de forma individual cada zona. En el caso de los puntos de conexión públicos, puede integrarlos con un producto de equilibrio de carga de DNS como [Traffic Manager](../traffic-manager/traffic-manager-overview.md) y usar un nombre DNS único.
 
-:::image type="content" source="./media/az-zonal/zonal-lb-1.svg" alt-text="Con redundancia de zona" border="true":::
+
+<p align="center">
+  <img src="./media/az-zonal/zonal-lb-1.svg" width="512" title="Virtual Network NAT">
+</p>
+
+*Ilustración: Equilibrador de carga con redundancia de zona*
 
 Si desea combinar estos conceptos (con redundancia de zona y zonal para el mismo back-end), consulte [varios front-end en Azure Load Balancer](load-balancer-multivip-overview.md).
 
@@ -98,7 +105,7 @@ Otras zonas que puedan llegar a esta máquina virtual pueden continuar sirviendo
 
 Load Balancer es flexible en el contexto de las zonas de disponibilidad. Puede optar por alinearse con zonas y por la redundancia de zona para cada regla. Una mayor disponibilidad puede suponer una mayor complejidad. Al diseñar, tenga en mente la disponibilidad para lograr un rendimiento óptimo.
 
-### <a name="automatic-zone-redundancy"></a>Redundancia de zona automática
+### <a name="zone-redundancy"></a>Redundancia de zona
 
 Load Balancer hace sencillo tener una dirección IP única como un front-end con redundancia de zona. Una dirección IP con redundancia de zona puede servir a un recurso zonal en cualquier zona.  La IP puede sobrevivir a uno o más errores de zona siempre que una de las zonas tenga un estado correcto dentro de la región.  En su lugar, un servidor front-end zonal es una reducción del servicio a una única zona y comparte el mismo destino que la zona correspondiente.
 

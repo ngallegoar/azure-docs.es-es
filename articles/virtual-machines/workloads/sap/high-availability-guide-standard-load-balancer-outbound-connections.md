@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/12/2020
+ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: a89c848f5c6e57aba01c7156cdc61f9e69c30d0b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 9419ed320089ff85722e0d9c0582e92491377ab1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660163"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84907472"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Conectividad del punto de conexión público para las máquinas virtuales que usan Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP
 
@@ -222,7 +222,10 @@ Para permitir que Pacemaker se comunique con la API de administración de Azure,
 
 ## <a name="other-solutions"></a>Otras soluciones
 
-Si el tráfico saliente se enruta a través de un firewall de terceros, asegúrese de que la configuración del firewall permita la conectividad de salida a la API de administración de Azure: `https://management.azure.com` y `https://login.microsoftonline.com`.  
+Si el tráfico saliente se enruta a través de un firewall de terceros:
+
+- Si se usa un agente de barrera de Azure, asegúrese de que la configuración del firewall permita la conectividad de salida a la API de administración de Azure: `https://management.azure.com` y `https://login.microsoftonline.com`.   
+- Si se usa la infraestructura de actualización de la nube pública de Azure de SUSE para aplicar actualizaciones y revisiones, vea [Infraestructura de actualización de la nube pública de Azure 101](https://suse.com/c/azure-public-cloud-update-infrastructure-101/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

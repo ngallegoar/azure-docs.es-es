@@ -4,45 +4,54 @@ description: 'Aprenda a administrar réplicas de lectura desde la CLI de Azure c
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
-ms.date: 01/23/2020
-ms.openlocfilehash: b10ac3b4bc9dacd723b8b1265911df721b781189
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.date: 06/09/2020
+ms.openlocfilehash: b8da326ea48133d2029f385fc55450c00aecf656
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76774800"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106618"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Creación y administración de réplicas de lectura desde la CLI de Azure con API REST
 
 En este artículo aprenderá a crear y administrar réplicas de lectura en Azure Database for PostgreSQL desde la CLI de Azure con API REST. Para más información acerca de las réplicas de lectura, consulte la [introducción](concepts-read-replicas.md).
 
+## <a name="azure-replication-support"></a>Soporte de replicación de Azure
+Tanto[las réplicas de lectura](concepts-read-replicas.md) como [la descodificación lógica](concepts-logical.md) dependen del registro de escritura previa (WAL) Postgres para obtener información. Estas dos características necesitan diferentes niveles de registro de Postgres. La descodificación lógica requiere un mayor nivel de registro que las réplicas de lectura.
+
+Para configurar el nivel de registro adecuado, use el parámetro de soporte de replicación de Azure. El soporte de la replicación de Azure tiene tres opciones de valor:
+
+* **Off**: coloca la más mínima información en el WAL. Este valor no está disponible en la mayoría de los servidores Azure Database for PostgreSQL.  
+* **Réplica**: más detallado que **Off**. Este es el nivel mínimo de registro necesario para que [las réplicas de lectura](concepts-read-replicas.md) funcionen. Esta es la configuración predeterminada en la mayoría de los servidores.
+* **Lógico**: más detallado que **Réplica**. Este es el nivel mínimo de registro para que funcione la descodificación lógica. Las réplicas de lectura también funcionan con este valor.
+
+El servidor debe reiniciarse después de un cambio de este parámetro. Internamente, este parámetro establece los parámetros Postgres `wal_level`, `max_replication_slots` y `max_wal_senders`.
+
 ## <a name="azure-cli"></a>Azure CLI
 Puede crear y administrar réplicas de lectura mediante la CLI de Azure.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Requisitos previos
 
 - [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - Un [servidor de Azure Database for PostgreSQL](quickstart-create-server-up-azure-cli.md) que se usará como servidor maestro.
 
 
 ### <a name="prepare-the-master-server"></a>Preparación del servidor maestro
-Estos pasos se deben utilizar para preparar un servidor maestro en los niveles de uso general u optimizado para memoria.
 
-El parámetro `azure.replication_support` debe establecerse en **REPLICA** en el servidor maestro. Cuando se cambia este parámetro estático, es necesario reiniciar el servidor para que el cambio surta efecto.
+1. Compruebe el valor de `azure.replication_support` del servidor maestro. Debe ser al menos una réplica para que las réplicas de lectura funcionen.
 
-1. Establezca `azure.replication_support` en REPLICA (réplica).
+   ```azurecli-interactive
+   az postgres server configuration show --resource-group myresourcegroup --server-name mydemoserver --name azure.replication_support
+   ```
+
+2. Si `azure.replication_support` no es al menos una réplica, establézcala. 
 
    ```azurecli-interactive
    az postgres server configuration set --resource-group myresourcegroup --server-name mydemoserver --name azure.replication_support --value REPLICA
    ```
 
-> [!NOTE]
-> Si al intentar establecer azure.replication_support desde la CLI de Azure recibe un error que indica que el valor proporcionado no es válido, es probable que el servidor ya tenga establecido REPLICA de forma predeterminada. Un error impide que esta configuración se refleje correctamente en los servidores más recientes donde REPLICA es el valor predeterminado interno. <br><br>
-> Puede omitir los pasos de preparación maestros y pasar a crear la réplica. <br><br>
-> Si quiere confirmar que el servidor está en esta categoría, visite la página de replicación del servidor de Azure Portal. "Deshabilitar replicación" estará atenuada y "Agregar réplica" estará activa en la barra de herramientas.
-
-2. Reinicie el servidor para aplicar el cambio.
+3. Reinicie el servidor para aplicar el cambio.
 
    ```azurecli-interactive
    az postgres server restart --name mydemoserver --resource-group myresourcegroup
@@ -56,7 +65,7 @@ El comando [az postgres server replica create](/cli/azure/postgres/server/replic
 | --- | --- | --- |
 | resource-group | myresourcegroup |  Grupo de recursos donde se creará el servidor de réplica.  |
 | name | mydemoserver-replica | Nombre del nuevo servidor de réplica que se crea. |
-| source-server | mydemoserver | Nombre o identificador de recurso del servidor maestro existente desde el que replicar. |
+| source-server | mydemoserver | Nombre o identificador de recurso del servidor maestro existente desde el que replicar. Use el identificador de recurso si quiere que los grupos de recursos de la réplica y del maestro sean diferentes. |
 
 En el siguiente ejemplo de la CLI, la réplica se crea en la misma región que el maestro.
 
@@ -109,11 +118,14 @@ az postgres server delete --name myserver --resource-group myresourcegroup
 Puede crear y administrar réplicas de lectura mediante [API REST de Azure](/rest/api/azure/).
 
 ### <a name="prepare-the-master-server"></a>Preparación del servidor maestro
-Estos pasos se deben utilizar para preparar un servidor maestro en los niveles de uso general u optimizado para memoria.
 
-El parámetro `azure.replication_support` debe establecerse en **REPLICA** en el servidor maestro. Cuando se cambia este parámetro estático, es necesario reiniciar el servidor para que el cambio surta efecto.
+1. Compruebe el valor de `azure.replication_support` del servidor maestro. Debe ser al menos una réplica para que las réplicas de lectura funcionen.
 
-1. Establezca `azure.replication_support` en REPLICA (réplica).
+   ```http
+   GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}/configurations/azure.replication_support?api-version=2017-12-01
+   ```
+
+2. Si `azure.replication_support` no es al menos una réplica, establézcala.
 
    ```http
    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}/configurations/azure.replication_support?api-version=2017-12-01

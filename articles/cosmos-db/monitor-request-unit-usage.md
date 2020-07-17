@@ -2,16 +2,16 @@
 title: Supervisión del uso de rendimiento de una operación en Azure Cosmos DB
 description: Obtenga información sobre cómo supervisar el rendimiento o el uso de unidades de solicitud de una operación en Azure Cosmos DB. Los propietarios de una cuenta de Azure Cosmos DB pueden conocer qué operaciones toman más unidades de solicitud.
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 author: kanshiG
 ms.author: govindk
 ms.date: 04/09/2020
-ms.openlocfilehash: 4ea195dfbf9eddbf10680196c9c75646b45380ae
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: e3ec3bc0e0c6028eb5d7a90ee1920938d792941b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83119001"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260753"
 ---
 # <a name="how-to-monitor-throughput-or-request-unit-usage-of-an-operation-in-azure-cosmos-db"></a>Cómo supervisar el rendimiento o el uso de unidades de solicitud de una operación en Azure Cosmos DB
 
@@ -38,15 +38,15 @@ Si observa que algunas consultas están tomando más unidades de solicitud, pued
 
 1. Seleccione **Monitor** en la barra de navegación izquierda y, a continuación, seleccione **Métricas**.
 
-   ![Panel Métricas en Azure Monitor](./media/monitor-request-unit-usage/monitor-metrics-blade.png)
+   :::image type="content" source="./media/monitor-request-unit-usage/monitor-metrics-blade.png" alt-text="Panel Métricas en Azure Monitor":::
 
 1. En el panel **Métricas** panel > **Seleccionar un recurso** > elija la **suscripción**, y el **grupo de recursos** requeridos. En **Tipo de recurso**, seleccione **Cuentas de Azure Cosmos DB**, elija una de las cuentas de Azure Cosmos existentes y seleccione **Aplicar**.
 
-   ![Elección de una cuenta de Cosmos DB para ver las métricas](./media/monitor-request-unit-usage/select-cosmos-db-account.png)
+   :::image type="content" source="./media/monitor-request-unit-usage/select-cosmos-db-account.png" alt-text="Elección de la cuenta de Azure Cosmos DB para ver métricas":::
 
 1. A continuación, seleccione la métrica **Unidades de solicitud totales** en la lista de métricas disponibles. Para conocer los detalles de todas las métricas disponibles en esta lista, consulte el artículo [Métricas por categoría](monitor-cosmos-db-reference.md). En este ejemplo, vamos a seleccionar **Unidades de solicitud totales** y **Promedio** como valor de agregación. Además de estos detalles, también puede seleccionar los valores de **Intervalo de tiempo** y **Granularidad de tiempo** de las métricas. Como máximo, puede ver las métricas de los últimos 30 días.  Después de aplicar el filtro, se muestra un gráfico basado en dicho filtro. Puede ver el número medio de unidades de solicitud consumidas por minuto durante el período seleccionado.  
 
-   ![Elegir una métrica en Azure Portal](./media/monitor-request-unit-usage/request-unit-usage-metric.png)
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-metric.png" alt-text="Elección de una métrica en Azure Portal":::
 
 ## <a name="filters-for-request-unit-usage"></a>Filtros para el uso de unidades de solicitud
 
@@ -54,11 +54,11 @@ También puede filtrar las métricas y hacer que se muestren grafos para una pro
 
 Para obtener el uso de la unidad de solicitud de cada operación en total (suma) o promedio, seleccione **Aplicar división** y elija **Tipo de operación**, y el valor de filtro tal como se muestra en la siguiente imagen:
 
-   ![Unidades de solicitud de Cosmos DB para las operaciones en Azure Monitor](./media/monitor-request-unit-usage/request-unit-usage-operations.png)
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-operations.png" alt-text="Unidades de solicitud de Cosmos DB para operaciones en Azure Monitor":::
 
 Si desea ver el uso de unidades de solicitud por colección, seleccione **Aplicar división** y elija el nombre de la colección como filtro. Verá un chat similar al siguiente con una selección de colecciones en el panel. Después, puede seleccionar un nombre de colección específico para ver más detalles:
 
-   ![Unidades de solicitud de Cosmos DB para todas las operaciones de la colección en Azure Monitor](./media/monitor-request-unit-usage/request-unit-usage-collection.png)
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-collection.png" alt-text="Unidades de solicitud de Cosmos DB para todas las operaciones de la colección en Azure Monitor":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

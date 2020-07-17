@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 06/24/2020
 ms.author: aahi
-ms.openlocfilehash: fe6e0a0f3ffd3680c75c086222a4a390ce15d4df
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: a014628a9664e33aa855cc4fbf40979236d765f9
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213200"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85355614"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Instalación y ejecución de contenedores de Form Recognizer (versión preliminar)
 
@@ -31,7 +31,7 @@ Para reducir la complejidad e integrar fácilmente un modelo de Form Recognizer 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de utilizar los contenedores de Form Recognizer, debe cumplir los siguientes requisitos previos:
 
@@ -138,6 +138,9 @@ Utilice el comando [docker run](https://docs.docker.com/engine/reference/command
 Hay disponibles [ejemplos](form-recognizer-container-configuration.md#example-docker-run-commands) del comando `docker run`.
 
 ### <a name="form-recognizer"></a>Form Recognizer
+
+> [!NOTE]
+> Los directorios que se usan con `--mount` en estos ejemplos son rutas de acceso de directorios de Windows. Si usa Linux o macOS, cambie el parámetro de su entorno. 
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 06/25/2020
 ms.author: aahi
-ms.openlocfilehash: 2fd6c908aa95ef22cbf7ea0b62b925d84d66cd28
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 12c09ad8e1db3914263fcc864c9c2d09069d63a6
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84143249"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85412590"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Migración a la versión 3.x de la API Text Analytics
 
@@ -44,7 +44,7 @@ Si la aplicación usa la API REST, actualice su punto de conexión de solicitud 
 ## <a name="feature-changes"></a>Cambios de características
 
 > [!NOTE] 
-> Actualmente, las [categorías de entidades v3](named-entity-types.md) solo se devuelven en texto en inglés. La API devuelve los resultados de la versión 2.1 para las solicitudes en otros idiomas, siempre que se admitan en la versión 2.1.
+> Actualmente, las [categorías de entidades v3](named-entity-types.md) solo se devuelven en texto en inglés y español. La API devuelve los resultados de la versión 2.1 para las solicitudes en otros idiomas, siempre que se admitan en la versión 2.1.
 
 En la versión 2.1, la API Text Analytics utiliza un punto de conexión para Reconocimiento de entidades con nombre (NER) y la vinculación de entidad. La versión 3 proporciona detección de entidades con nombre expandida y usa puntos de conexión independientes para las solicitudes de vinculación de entidad y NER. A partir de la versión de 3.1-Preview. 1, NER puede detectar además la información personal `pii` y de salud `phi`. 
 

@@ -3,12 +3,12 @@ title: Desarrollo de Azure Functions con Visual Studio Code
 description: Aprenda a desarrollar y probar Azure Functions mediante la extensión de Azure Functions para Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 2d33b7dddf29d37d174bdb7734e9048bc1658840
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 459162c277a9510297580a99acb8a88b0702a290
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235068"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84732484"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desarrollo de Azure Functions con Visual Studio Code
 
@@ -38,7 +38,7 @@ En este artículo se dan detalles sobre cómo usar la extensión de Azure Functi
 > [!IMPORTANT]
 > No mezcle el desarrollo local con el desarrollo del portal en una aplicación de funciones individual. Al publicar desde un proyecto local en una aplicación de la función, el proceso de implementación sobrescribe todas las funciones que ha desarrollado en el portal.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de instalar y ejecutar la [extensión de Azure Functions][extensión de azure functions para visual studio code], es necesario cumplir estos requisitos:
 
@@ -96,11 +96,15 @@ En función del lenguaje utilizado, se crean estos otros archivos:
 
 * [Archivo de biblioteca de clases HttpExample.cs](functions-dotnet-class-library.md#functions-class-library-project) que implementa la función.
 
+En este momento, puede agregar enlaces de entrada y de salida a la función [incorporando un parámetro a una función de biblioteca de clases de C#](#add-input-and-output-bindings).
+
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 * Archivo package.json de la carpeta raíz.
 
 * Carpeta HttpExample que contiene el [archivo de definición function.json](functions-reference-node.md#folder-structure) y el [archivo index.js](functions-reference-node.md#exporting-a-function), así como un archivo Node.js que contiene el código de la función.
+
+Llegado este punto, puede agregar enlaces de entrada y salida a la función [modificando el archivo function.json](#add-input-and-output-bindings).
 
 <!-- # [PowerShell](#tab/powershell)
 
@@ -113,8 +117,6 @@ En función del lenguaje utilizado, se crean estos otros archivos:
 * An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the \_\_init\_\_.py file, which contains the function code.
      -->
 ---
-
-En este momento, puede agregar los enlaces de entrada y de salida a la función mediante la [modificación del archivo de function.json](#add-a-function-to-your-project) o [la incorporación de un parámetro a una función de biblioteca de clases de C#](#add-a-function-to-your-project).
 
 También puede [agregar una nueva función al proyecto](#add-a-function-to-your-project).
 
@@ -267,13 +269,7 @@ Al configurar [implementación continua](functions-continuous-deployment.md), la
 > [!IMPORTANT]
 > La publicación en una aplicación de función existente sobrescribe el contenido de esa aplicación en Azure.
 
-1. En Visual Studio Code, seleccione F1 para abrir la paleta de comandos. En la paleta de comandos, busque y seleccione **Azure Functions: Deploy to function app** (Azure Functions: Implementar en la aplicación de funciones).
-
-1. Se le pedirá que **inicie sesión en Azure** si todavía no lo ha hecho. Después de iniciar sesión en el explorador, vuelva a Visual Studio Code. Si tiene varias suscripciones, **seleccione una suscripción** que contenga la aplicación de funciones.
-
-1. Seleccione la aplicación de funciones existente en Azure. Cuando se le presente una advertencia sobre cómo sobrescribir todos los archivos de la aplicación de funciones, seleccione **Deploy** (Implementar) para confirmar la advertencia y continuar.
-
-El proyecto se vuelve a compilar y empaquetar, y se carga en Azure. El proyecto existente se reemplaza por el nuevo paquete y se reinicia la aplicación de funciones.
+[!INCLUDE [functions-republish-vscode](../../includes/functions-republish-vscode.md)]
 
 ## <a name="get-the-url-of-the-deployed-function"></a>Obtención de la dirección URL de la función implementada
 

@@ -1,19 +1,19 @@
 ---
 title: Creación de una plantilla de Azure Image Builder, versión preliminar
 description: Obtenga información sobre cómo crear una plantilla para usarla con Azure Image Builder.
-author: danis
+author: danielsollondon
 ms.author: danis
-ms.date: 03/24/2020
+ms.date: 06/23/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: f567114613f484f0765a6e007c3f0ba97480a968
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 975d6842110ffa864a534e09cf35d0d33612d7d5
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779342"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135085"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Vista previa: Creación de una plantilla de Azure Image Builder 
 
@@ -29,7 +29,7 @@ Este es el formato de plantilla básico:
     "tags": {
         "<name": "<value>",
         "<name>": "<value>"
-             }
+     },
     "identity":{},           
     "dependsOn": [], 
     "properties": { 
@@ -88,7 +88,7 @@ De forma predeterminada, el generador de imágenes usará una máquina virtual d
 
 ## <a name="osdisksizegb"></a>osDiskSizeGB
 
-De forma predeterminada, el generador de imágenes no cambiará el tamaño de la imagen, sino que usará el tamaño de la imagen de origen. Puede aumentar el tamaño del disco del sistema operativo (Win y Linux), es opcional y un valor de 0 significa dejar el mismo tamaño que la imagen de origen. 
+De forma predeterminada, el generador de imágenes no cambiará el tamaño de la imagen, sino que usará el tamaño de la imagen de origen. **Solo** puede aumentar el tamaño del disco del sistema operativo (Win y Linux), opcionalmente, y un valor de 0 significa que se aplica el mismo tamaño de la imagen de origen. No se puede reducir el tamaño del disco del sistema operativo a un tamaño inferior al de la imagen de origen.
 
 ```json
  {
@@ -391,7 +391,8 @@ Los archivos del personalizador de archivos se pueden descargar desde Azure Stor
 
 ### <a name="windows-update-customizer"></a>Personalizador de Windows Update
 Este personalizador se basa en el [aprovisionador de Windows Update de la comunidad](https://packer.io/docs/provisioners/community-supported.html) para Packer, que es un proyecto de código abierto que mantiene la comunidad de Packer. Microsoft comprueba y valida el aprovisionamiento con el servicio Image Builder, y permite investigar problemas con él, así como trabajar para resolver problemas, pero Microsoft no admite oficialmente el proyecto de código abierto. Para obtener documentación detallada y ayuda con el aprovisionamiento de Windows Update, vea el repositorio del proyecto.
- 
+
+```json
      "customize": [
             {
                 "type": "WindowsUpdate",
@@ -403,7 +404,8 @@ Este personalizador se basa en el [aprovisionador de Windows Update de la comuni
                 "updateLimit": 20
             }
                ], 
-SO compatible: Windows
+OS support: Windows
+```
 
 Propiedades de personalización:
 - **type**: WindowsUpdate.
@@ -521,7 +523,7 @@ El resultado de la imagen será un recurso de imagen administrada.
  
 Propiedades de la distribución:
 - **type**: managedImage 
-- **imageId**: identificador de recurso de la imagen de destino, formato esperado: /subscriptions/\<subscriptionId>/resourceGroups/\<destinationResourceGroupName>/providers/Microsoft.Compute/images/\<imageName>
+- **imageId**: id. de recurso de la imagen de destino; el formato previsto es: /subscriptions/\<subscriptionId>/resourceGroups/\<destinationResourceGroupName>/providers/Microsoft.Compute/images/\<imageName>
 - **location**: ubicación de la imagen administrada.  
 - **runOutputName**: nombre único para identificar la distribución.  
 - **artifactTags**: etiquetas de par clave-valor opcionales especificadas por el usuario.

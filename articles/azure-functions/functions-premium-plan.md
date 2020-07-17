@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: dd7f6d0760f2b848435e7c77657e261517d29dd8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d59335c5c4ebd2688097539594f11ea349939eff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234988"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298521"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan prémium de Azure Functions
 
@@ -61,7 +61,9 @@ Para más información, consulte [Integración de una aplicación de funciones c
 
 ### <a name="rapid-elastic-scale"></a>Escalado elástico rápido
 
-Otras instancias de proceso se agregan automáticamente a la aplicación utilizando la misma lógica de escalado rápido que el plan de consumo.  Para más información sobre el funcionamiento del escalado, consulte este artículo sobre el [escalado y hospedaje de funciones](./functions-scale.md#how-the-consumption-and-premium-plans-work).
+Otras instancias de proceso se agregan automáticamente a la aplicación utilizando la misma lógica de escalado rápido que el plan de consumo. Las aplicaciones dentro del mismo plan de App Service se escalan de forma independiente entre sí y en función de las necesidades de una aplicación individual, pero las aplicaciones de Functions dentro del mismo plan de App Service sí comparten recursos de máquina virtual para contribuir a reducir los costes, siempre que sea posible. El número de aplicaciones asociadas a una máquina virtual depende de la superficie de cada aplicación y del tamaño de la máquina virtual en cuestión.
+
+Para más información sobre el funcionamiento del escalado, consulte este artículo sobre el [escalado y hospedaje de funciones](./functions-scale.md#how-the-consumption-and-premium-plans-work).
 
 ### <a name="longer-run-duration"></a>Duración de la ejecución más larga
 
@@ -128,7 +130,7 @@ Consulte la disponibilidad regional completa de Functions aquí: [Azure.com](htt
 |Centro-sur de EE. UU.| 100 | 20 |
 |Sur de la India | 100 | No disponible |
 |Sudeste de Asia| 100 | 20 |
-|Sur de Reino Unido 2| 100 | 20 |
+|Sur de Reino Unido| 100 | 20 |
 |Oeste de Reino Unido| 100 | 20 |
 |Oeste de Europa| 100 | 20 |
 |Oeste de la India| 100 | 20 |

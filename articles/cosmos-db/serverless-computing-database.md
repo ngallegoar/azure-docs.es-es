@@ -3,15 +3,15 @@ title: Informática de base de datos sin servidor con Azure Cosmos DB y Azure Fu
 description: Obtenga información sobre cómo Azure Cosmos DB y Azure Functions se pueden usar en conjunto para crear aplicaciones informáticas sin servidor basadas en eventos.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 079c246f87bb8294f3c7ad6dea3391f5c67ba0ad
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: d6399da204ba930fad2dd3656d27a807a83b1b13
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985259"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263269"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Informática de base de datos sin servidor con Azure Cosmos DB y Azure Functions
 
@@ -33,7 +33,7 @@ Azure Cosmos DB y Azure Functions permite integrar las aplicaciones sin servidor
 
 En el diagrama siguiente se muestran cada una de estas tres integraciones: 
 
-![Integración de Azure Cosmos DB y Azure Functions](./media/serverless-computing-database/cosmos-db-azure-functions-integration.png)
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-azure-functions-integration.png" alt-text="Integración de Azure Cosmos DB y Azure Functions" border="false":::
 
 El desencadenador de Azure Functions, el enlace de entrada y el enlace de salida para Azure Cosmos DB se pueden usar en las combinaciones siguientes:
 
@@ -61,7 +61,7 @@ En las implementaciones de IoT, puede invocar una función cuando la luz de comp
 
 La imagen siguiente muestra el código escrito en Azure Portal para este desencadenador.
 
-![Creación de un desencadenador de Azure Functions para Cosmos DB en Azure Portal](./media/serverless-computing-database/cosmos-db-trigger-portal.png)
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-trigger-portal.png" alt-text="Creación de un desencadenador de Azure Functions para Cosmos DB en Azure Portal":::
 
 ### <a name="financial-use-case---timer-trigger-and-input-binding"></a>Caso de uso financiero: desencadenador de temporizador y enlace de entrada
 
@@ -75,13 +75,13 @@ En implementaciones financieras, puede invocar una función cuando el saldo de u
 
 En las imágenes siguientes se muestra el código de Azure Portal para este escenario.
 
-![Archivo Index.js para un desencadenador de temporizador en un escenario financiero](./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png)
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png" alt-text="Archivo Index.js para un desencadenador de temporizador en un escenario financiero":::
 
-![Archivo Run.csx para un desencadenador de temporizador en un escenario financiero](./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png)
+:::image type="content" source="./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png" alt-text="Archivo Run.csx para un desencadenador de temporizador en un escenario financiero":::
 
 ### <a name="gaming-use-case---azure-functions-trigger-and-output-binding-for-cosmos-db"></a>Caso de uso de juegos: desencadenador de Azure Functions y enlace de salida para Cosmos DB 
 
-En el ámbito de los juegos, cuando se crea un usuario nuevo, puede buscar otros usuarios que tal vez lo conozcan con [Azure Cosmos DB Gremlin API](graph-introduction.md). A continuación, puede escribir los resultados en una [base de datos SQL de Azure Cosmos DB] para poder recuperarlos fácilmente.
+En el ámbito de los juegos, cuando se crea un usuario nuevo, puede buscar otros usuarios que tal vez lo conozcan con [Azure Cosmos DB Gremlin API](graph-introduction.md). Luego, puede escribir los resultados en una [base de datos SQL o de Azure Cosmos DB ]() para poder recuperarlos fácilmente.
 
 **Implementación**: uso de un desencadenador de Azure Functions y un enlace de salida para Cosmos DB
 

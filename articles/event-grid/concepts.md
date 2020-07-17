@@ -1,18 +1,14 @@
 ---
 title: Conceptos de Azure Event Grid
 description: Describe Azure Event Grid y sus conceptos. Define varios componentes clave de Event Grid.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/03/2018
-ms.author: spelluru
-ms.openlocfilehash: 348d82f704b89b97e11a09b8f88e92831901b3bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/07/2020
+ms.openlocfilehash: 003139374a056da6ddc22dd1453d28761ff58871
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393459"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116495"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepts de Azure Event Grid
 
@@ -41,9 +37,9 @@ Para información sobre la implementación de cualquiera de los orígenes de Eve
 
 En el tema de Event Grid se proporciona un punto de conexión al que el origen envía los eventos. El publicador crea el tema de Event Grid y decide si un origen de evento necesita un tema o más de un tema. Un tema se usa para una colección de eventos relacionados. Para responder a determinados tipos de eventos, los suscriptores deciden los temas a los que se suscriben.
 
-Los temas del sistema son temas integrados que ofrecen los servicios de Azure. No ve los temas del sistema en la suscripción de Azure porque el publicador posee los temas, pero puede suscribirse a ellos. Para suscribirse, proporciona información sobre el recurso del que quiere recibir eventos. Siempre y cuando tenga acceso al recurso, puede suscribirse a sus eventos.
+Los temas del sistema son temas integrados que proporcionan los servicios de Azure, como Azure Storage, Azure Event Hubs y Azure Service Bus. Puede crear temas del sistema en su suscripción de Azure y suscribirse a ellos. Para obtener más información, consulte [Información general sobre los temas del sistema](system-topics.md). 
 
-Los temas personalizados son temas de terceros y de aplicación. Cuando cree un tema personalizado, o se le asigne acceso al mismo, verá ese tema personalizado en su suscripción.
+Los temas personalizados son temas de terceros y de aplicación. Cuando cree un tema personalizado, o se le asigne acceso al mismo, verá ese tema personalizado en su suscripción. Para obtener más información, consulte [Temas personalizados](custom-topics.md).
 
 Cuando diseñe la aplicación, tiene flexibilidad al decidir cuántos temas se crean. Para soluciones grandes, cree un tema personalizado para cada categoría de eventos relacionados. Por ejemplo, considere una aplicación que envía eventos relacionados con la modificación de las cuentas de usuario y el procesamiento de pedidos. Es poco probable que algún controlador de eventos quiera ambas categorías de eventos. Cree dos temas personalizados y deje que los controladores de eventos se suscriban a uno que les interese. Para soluciones pequeñas, puede que prefiera enviar todos los eventos a un solo tema. Los suscriptores de eventos se pueden filtrar por los tipos de evento que desean.
 

@@ -5,18 +5,18 @@ description: Obtenga información sobre cómo llamar a un punto de conexión de 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 04/14/2020
-ms.custom: seodec18
-ms.openlocfilehash: 0222b63323c4e546628d790fabb881eba006494e
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.date: 06/17/2020
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: ced9453982615485e25b56be9b7a36dc8f6ce988
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383391"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84974677"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir un modelo de Azure Machine Learning que está implementado como un servicio web
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -128,8 +128,16 @@ token, refresh_by = service.get_token()
 print(token)
 ```
 
+Si tiene la [CLI de Azure y la extensión de Machine Learning](reference-azure-machine-learning-cli.md), puede usar el siguiente comando para obtener un token:
+
+```azurecli
+az ml service get-access-token -n <service-name>
+```
+
 > [!IMPORTANT]
-> Tendrá que solicitar un nuevo token después de la hora del token `refresh_by`. 
+> Actualmente, la única manera de recuperar el token es mediante el SDK de Azure Machine Learning o la extensión de Machine Learning de la CLI de Azure.
+
+Tendrá que solicitar un nuevo token después de la hora del token `refresh_by`. 
 
 ## <a name="request-data"></a>Datos de la solicitud
 

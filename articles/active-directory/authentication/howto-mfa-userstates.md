@@ -11,21 +11,21 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0db72e30fbced17665c112ad56510d7c2ca23d12
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e8ef25df8fdb11715ebba954e31a97939d6ac0e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83639620"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85476842"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Habilitación de Azure Multi-Factor Authentication por usuario para proteger los eventos de inicio de sesión
 
 Hay dos maneras de proteger los eventos de inicio de sesión de usuario mediante la autenticación multifactor en Azure AD. La primera opción (y preferida) consiste en configurar una directiva de acceso condicional que requiere la autenticación multifactor en determinadas condiciones. La segunda opción consiste en habilitar a cada usuario para Azure Multi-factor Authentication. Cuando los usuarios se habilitan de forma individual, realizan la autenticación multifactor cada vez que inician sesión (con algunas excepciones, como cuando inician sesión desde direcciones IP de confianza o si se activa la característica de _dispositivos recordados_).
 
 > [!NOTE]
-> La habilitación de Azure Multi-Factor Authentication mediante directivas de acceso condicional es el enfoque recomendado. El cambio de estado del usuario ya no se recomienda, a menos que las licencias no incluyan el acceso condicional, ya que este requiere que los usuarios realicen la autenticación multifactor cada vez que inicien sesión.
+> La habilitación de Azure Multi-Factor Authentication mediante directivas de acceso condicional es el enfoque recomendado. El cambio de estado del usuario ya no se recomienda, a menos que las licencias no incluyan el acceso condicional, ya que este requiere que los usuarios realicen la autenticación multifactor cada vez que inicien sesión. Para empezar a usar el acceso condicional, consulte [Tutorial: Protección de eventos de inicio de sesión de usuario con Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >
-> Para empezar a usar el acceso condicional, consulte [Tutorial: Protección de eventos de inicio de sesión de usuario con Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+> En el caso de inquilinos gratuitos de Azure AD sin acceso condicional, puede [usar valores predeterminados de seguridad para proteger a los usuarios](../fundamentals/concept-fundamentals-security-defaults.md).
 
 ## <a name="azure-multi-factor-authentication-user-states"></a>Estados de usuario de Azure Multi-Factor Authentication
 
@@ -36,10 +36,10 @@ Las cuentas de usuario de Azure Multi-Factor Authentication tienen los siguiente
 >
 > **No debería habilitar a los usuarios ni aplicarles otro estado si usa directivas de acceso condicional.**
 
-| Status | Descripción | Aplicaciones que no son de explorador afectadas | Aplicaciones que son de explorador afectadas | Autenticación moderna afectada |
+| Estado | Descripción | Aplicaciones que no son de explorador afectadas | Aplicaciones que son de explorador afectadas | Autenticación moderna afectada |
 |:---:| --- |:---:|:--:|:--:|
 | Disabled | Estado predeterminado de un nuevo usuario no inscrito en Azure Multi-Factor Authentication. | No | No | No |
-| habilitado | El usuario está inscrito en Azure Multi-Factor Authentication, pero no se ha registrado. La próxima vez que inicie sesión, se le pedirá registrarse. | No.  Continúa funcionando hasta que se complete el proceso de registro. | Sí. Una vez que expire la sesión, se requerirá el registro en Azure Multi-Factor Authentication.| Sí. Una vez que expire el token de acceso, se requerirá el registro en Azure Multi-Factor Authentication. |
+| habilitado | El usuario está inscrito en Azure Multi-Factor Authentication, pero no se ha registrado en métodos de autenticación. La próxima vez que inicie sesión, se le pedirá registrarse. | No.  Continúa funcionando hasta que se complete el proceso de registro. | Sí. Una vez que expire la sesión, se requerirá el registro en Azure Multi-Factor Authentication.| Sí. Una vez que expire el token de acceso, se requerirá el registro en Azure Multi-Factor Authentication. |
 | Aplicado | El usuario se ha inscrito y ha completado el proceso de registro para Azure Multi-Factor Authentication. | Sí. Las aplicaciones requieren contraseñas de aplicación. | Sí. Se requiere Azure Multi-Factor Authentication en el inicio de sesión. | Sí. Se requiere Azure Multi-Factor Authentication en el inicio de sesión. |
 
 El estado de un usuario refleja si un administrador lo ha inscrito en Azure Multi-Factor Authentication y si ha completado el proceso de registro.
@@ -84,7 +84,7 @@ Para cambiar el estado del usuario mediante [PowerShell de Azure AD](/powershel
 * *Aplicado*
 * *Deshabilitada*  
 
-No mueva a los usuarios directamente a estado *Aplicado*. Si lo hace, las aplicaciones que no se basan en el explorador dejan de funcionar porque el usuario no ha pasado el proceso de registro de Azure Multi-Factor Authentication para obtener una [contraseña de aplicación](howto-mfa-mfasettings.md#app-passwords).
+No mueva a los usuarios directamente a estado *Aplicado*. Si lo hace, las aplicaciones que no se basan en el explorador dejan de funcionar porque el usuario no ha pasado el proceso de registro de Azure Multi-Factor Authentication para obtener una [contraseña de aplicación](howto-mfa-app-passwords.md).
 
 Para empezar, instale el módulo *MSOnline* mediante [Install-Module](/powershell/module/powershellget/install-module) como se indica a continuación:
 

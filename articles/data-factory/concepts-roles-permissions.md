@@ -10,12 +10,12 @@ ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 3955d3b9370a1cd2ee88c27e42b107f5ae0f87c2
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 923b3fbb617f46ba0551f6b21c384331559da2f9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833564"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263252"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Roles y permisos para Azure Data Factory
 
@@ -82,9 +82,9 @@ Estos son algunos ejemplos que muestran lo que se puede lograr con los roles per
   1. Asigne el rol integrado **colaborador** a nivel de la factoría de datos.
   2. Cree un rol personalizado con el permiso **Microsoft.Resources/deployments/** . Asigne este rol personalizado al usuario a nivel del grupo de recursos.
 
-- Permitir que un usuario solo pueda probar la conexión en un servicio vinculado
+- Permitir que un usuario pueda probar la conexión en un servicio vinculado u obtener una vista previa de los datos de un conjunto de datos
 
-    Cree un rol personalizado con permisos para las siguientes acciones: **Microsoft.DataFactory/factories/getFeatureValue/read** y **Microsoft.DataFactory/factories/getDataPlaneAccess/read**. Asigne este rol personalizado en el recurso de la factoría de datos para el usuario.
+    Cree un rol personalizado con permisos para las siguientes acciones: **Microsoft.DataFactory/factories/getFeatureValue/read** y **Microsoft.DataFactory/factories/getDataPlaneAccess/action**. Asigne este rol personalizado en el recurso de la factoría de datos para el usuario.
 
 - Permitir que un usuario actualice una factoría de datos desde PowerShell o el SDK, pero no en Azure Portal.
 

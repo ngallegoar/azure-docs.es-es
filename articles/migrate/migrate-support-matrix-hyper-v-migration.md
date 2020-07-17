@@ -3,12 +3,12 @@ title: Compatibilidad con la evaluación y migración de Hyper-V en Azure Migra
 description: Obtenga información sobre la compatibilidad con la evaluación y migración de Hyper-V en Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 8ec0b72cac75518ac938faa202b28d055409e8dc
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 1ea7d139b3d3cc8c14e43ccfb7c233fcbe4c564c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538195"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86122071"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matriz de compatibilidad para la migración de Hyper-V
 
@@ -19,7 +19,7 @@ En este artículo se resumen los valores de compatibilidad y las limitaciones pa
 Puede seleccionar hasta 10 máquinas virtuales a la vez para la replicación. Si quiere migrar más máquinas, replique en grupos de 10.
 
 
-## <a name="hyper-v-hosts"></a>Hosts de Hyper-V
+## <a name="hyper-v-host-requirements"></a>Requisitos del host de Hyper-V:
 
 | **Soporte técnico**                | **Detalles**               
 | :-------------------       | :------------------- |
@@ -27,6 +27,30 @@ Puede seleccionar hasta 10 máquinas virtuales a la vez para la replicación. Si
 | **Permisos**           | Necesita permisos de administrador en el host de Hyper-V. |
 | **Sistema operativo host** | Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2. |
 | **Acceso a puertos** |  Conexiones salientes en el puerto HTTPS 443 para enviar datos de replicación de VM.
+
+
+## <a name="hyper-v-vms"></a>Máquinas virtuales de Hyper-V
+
+| **Soporte técnico**                  | **Detalles**               
+| :----------------------------- | :------------------- |
+| **Sistema operativo** | Azure admite todos los sistemas operativos [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) y [Linux](../virtual-machines/linux/endorsed-distros.md). |
+**Windows Server 2003** | En el caso de las máquinas virtuales que ejecutan Windows Server 2003, debe [instalar Integration Services de Hyper-V](prepare-windows-server-2003-migration.md) antes de la migración. | 
+**Máquinas virtuales de Linux en Azure** | Es posible que algunas máquinas virtuales requieran cambios para poder ejecutarse en Azure.<br/><br/> En el caso de Linux, Azure Migrate realiza los cambios automáticamente en estos sistemas operativos:<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> -Debian 7, 8. En el caso de otros sistemas operativos, realice [los cambios necesarios](prepare-for-migration.md#linux-machines) manualmente.
+| **Cambios necesarios para Azure** | Es posible que algunas máquinas virtuales requieran cambios para poder ejecutarse en Azure. Haga los ajustes manualmente antes de la migración. Los artículos pertinentes contienen instrucciones sobre cómo hacerlo. |
+| **Arranque de Linux**                 | Si/boot está en una partición dedicada, debe residir en el disco del sistema operativo y no distribuirse en varios discos.<br/> Si /boot forma parte de la partición raíz (/), la partición "/" debe estar en el disco del sistema operativo y no abarcar otros discos. |
+| **Arranque UEFI**                  | La máquina virtual migrada en Azure se convertirá automáticamente en una VM de arranque del BIOS. La máquina virtual debe estar ejecutando Windows Server 2012 o una versión posterior. El disco del sistema operativo debe tener un máximo de cinco particiones y el tamaño del disco del sistema operativo debe ser inferior a 300 GB.|
+| **Tamaño del disco**                  | 2 TB para el disco del sistema operativo y 4 TB para los discos de datos.|
+| **Número de discos** | Un máximo de 16 discos por VM.|
+| **Discos/volúmenes cifrados**    | No se admiten para la migración.|
+| **Discos RDM/de acceso directo**      | No se admiten para la migración.|
+| **Disco compartido** | Las VM que usan discos compartidos no se admiten para la migración.|
+| **NFS**                        | Los volúmenes NFS montados como volúmenes en las máquinas virtuales no se replicarán.|
+| **ISCSI**                      | Las VM con destinos iSCSI no se admiten para la migración.
+| **Disco de destino**                | Puede migrar las VM de Azure con discos administrados únicamente. |
+| **IPv6** | No compatible.|
+| **Formación de equipos NIC** | No compatible.|
+| **Azure Site Recovery** | No se puede replicar mediante la migración del servidor de Azure Migrate si la VM está habilitada para la replicación con Azure Site Recovery.|
+| **Puertos** | Conexiones salientes en el puerto HTTPS 443 para enviar datos de replicación de VM.|
 
 ### <a name="url-access-public-cloud"></a>Acceso URL (nube pública)
 
@@ -36,7 +60,7 @@ El software del proveedor de replicación en los hosts de Hyper-V necesitará te
 --- | ---
 login.microsoftonline.com | Control de acceso y administración de identidades mediante Active Directory.
 backup.windowsazure.com | Transferencia y coordinación de datos de replicación.
-*.hypervrecoverymanager.windowsazure.com | Se usa para la migración.
+*.hypervrecoverymanager.windowsazure.com | Se usa para la administración de la replicación.
 *.blob.core.windows.net | Cargar los datos en las cuentas de almacenamiento. 
 dc.services.visualstudio.com | Cargue los registros de aplicaciones que se usan para la supervisión interna.
 time.windows.com | Verificación de la sincronización de la hora entre el sistema y la hora global.
@@ -49,33 +73,10 @@ El software del proveedor de replicación en los hosts de Hyper-V necesitará te
 --- | ---
 login.microsoftonline.us | Control de acceso y administración de identidades mediante Active Directory.
 backup.windowsazure.us | Transferencia y coordinación de datos de replicación.
-*.hypervrecoverymanager.windowsazure.us | Se usa para la migración.
+*.hypervrecoverymanager.windowsazure.us | Se usa para la administración de replicación.
 *.blob.core.usgovcloudapi.net | Cargar los datos en las cuentas de almacenamiento.
 dc.services.visualstudio.com | Cargue los registros de aplicaciones que se usan para la supervisión interna.
 time.nist.gov | Verificación de la sincronización de la hora entre el sistema y la hora global.
-
-
-## <a name="hyper-v-vms"></a>Máquinas virtuales de Hyper-V
-
-| **Soporte técnico**                  | **Detalles**               
-| :----------------------------- | :------------------- |
-| **Sistema operativo** | Azure admite todos los sistemas operativos [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) y [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros). |
-| **Cambios necesarios para Azure** | Es posible que algunas máquinas virtuales requieran cambios para poder ejecutarse en Azure. Haga los ajustes manualmente antes de la migración. Los artículos pertinentes contienen instrucciones sobre cómo hacerlo. |
-| **Arranque de Linux**                 | Si/boot está en una partición dedicada, debe residir en el disco del sistema operativo y no distribuirse en varios discos.<br/> Si /boot forma parte de la partición raíz (/), la partición "/" debe estar en el disco del sistema operativo y no abarcar otros discos. |
-| **Arranque UEFI**                  | La máquina virtual migrada en Azure se convertirá automáticamente en una VM de arranque del BIOS. La máquina virtual debe estar ejecutando Windows Server 2012 o una versión posterior. El disco del sistema operativo debe tener un máximo de cinco particiones y el tamaño del disco del sistema operativo debe ser inferior a 300 GB.
-  |
-| **Tamaño del disco**                  | 2 TB para el disco del sistema operativo y 4 TB para los discos de datos.
-| **Número de discos** | Un máximo de 16 discos por VM.
-| **Discos/volúmenes cifrados**    | No se admiten para la migración. |
-| **Discos RDM/de acceso directo**      | No se admiten para la migración. |
-| **Disco compartido** | Las VM que usan discos compartidos no se admiten para la migración.
-| **NFS**                        | Los volúmenes NFS montados como volúmenes en las máquinas virtuales no se replicarán. |
-| **ISCSI**                      | Las VM con destinos iSCSI no se admiten para la migración.
-| **Disco de destino**                | Puede migrar las VM de Azure con discos administrados únicamente. |
-| **IPv6** | No compatible.
-| **Formación de equipos NIC** | No compatible.
-| **Azure Site Recovery** | No se puede replicar mediante la migración del servidor de Azure Migrate si la VM está habilitada para la replicación con Azure Site Recovery.
-| **Puertos** | Conexiones salientes en el puerto HTTPS 443 para enviar datos de replicación de VM.
 
 ## <a name="azure-vm-requirements"></a>Requisitos de VM de Azure
 
@@ -92,8 +93,8 @@ VHD compartido | No compatible. | Se produce un error en la comprobación si no 
 Disco FC | No compatible. | Se produce un error en la comprobación si no es compatible.
 BitLocker | No compatible. | Debe deshabilitar BitLocker antes de habilitar la replicación de una máquina.
 Nombre de la máquina virtual | Entre 1 y 63 caracteres.<br/> Restringido a letras, números y guiones.<br/><br/> El nombre de la máquina debe empezar y terminar con una letra o un número. |  Actualice el valor de las propiedades de la máquina en Site Recovery.
-Conexión después de la migración: Windows | Para conectarse a máquinas virtuales de Azure que se ejecutan en Windows después de la migración, siga estos pasos:<br/> -Antes de la migración, habilita RDP en la máquina virtual local. Asegúrese de que se hayan agregado las reglas de TCP y UDP para el perfil **Público**, y que RDP se permite en **Firewall de Windows** > **Aplicaciones permitidas** para todos los perfiles.<br/> Para el acceso a VPN de sitio a sitio, habilite RDP y permítalo en **Firewall de Windows** -> **Aplicaciones y características permitidas** para redes de **dominio y privadas**. Además, compruebe que la directiva SAN del sistema operativo está establecida en **OnlineAll**. [Más información](prepare-for-migration.md). |
-Conexión después de la migración: Linux | Para conectarse a máquinas virtuales de Azure después de la migración mediante SSH, siga estos pasos:<br/> Antes de la migración, en la máquina local, compruebe que el servicio Secure Shell está establecido en Iniciar y que las reglas de firewall permiten una conexión SSH.<br/> Tras la conmutación por error, en la máquina virtual de Azure, permita conexiones entrantes al puerto SSH para las reglas del grupo de seguridad de red de la máquina virtual conmutada por error y para la subred de Azure a la que esta se conecta. Además, agregue una dirección IP pública para la máquina virtual. |  
+Conexión después de la migración: Windows | Para conectarse a máquinas virtuales de Azure que se ejecutan en Windows después de la migración, siga estos pasos:<br/><br/> -Antes de la migración, habilite RDP en la máquina virtual local. Asegúrese de que se hayan agregado las reglas de TCP y UDP para el perfil **Público**, y que RDP se permite en **Firewall de Windows** > **Aplicaciones permitidas** para todos los perfiles.<br/><br/> - Para el acceso a VPN de sitio a sitio, habilite RDP y permítalo en  -> **Aplicaciones y características permitidas** de **Firewall de Windows** para redes de **Dominio y privadas**. Además, compruebe que la directiva SAN del sistema operativo está establecida en **OnlineAll**. [Más información](prepare-for-migration.md). |
+Conexión después de la migración: Linux | Para conectarse a máquinas virtuales de Azure después de la migración mediante SSH, siga estos pasos:<br/><br/> - Antes de la migración, en la máquina local, compruebe que el servicio Secure Shell está establecido en Iniciar y que las reglas de firewall permiten una conexión SSH.<br/><br/> - Tras la migración, en la máquina virtual de Azure, permita conexiones entrantes al puerto SSH para las reglas del grupo de seguridad de red de la máquina virtual conmutada por error y para la subred de Azure a la que esta se conecta. Además, agregue una dirección IP pública para la máquina virtual. |  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

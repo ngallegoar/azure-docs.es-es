@@ -4,12 +4,12 @@ description: Introducción a los patrones de integración de contratos inteligen
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.reviewer: mmercuri
-ms.openlocfilehash: f9626edd5bd655e3de5d0f9648041faf832e3b84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 716255f5e71ec19b5b9c5a0a32740abc39f1a40b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74325962"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254640"
 ---
 # <a name="smart-contract-integration-patterns"></a>Patrones de integración de contratos inteligentes
 
@@ -31,7 +31,7 @@ Las funcionalidades de la aplicación web que generó Azure Blockchain Workbench
 
 La API REST se usa principalmente con clientes interactivos como aplicaciones web, móviles y bot.
 
-Esta sección describe patrones que se centran en los aspectos de la API REST que envían transacciones a un libro de contabilidad distribuida, además de patrones que consultan datos sobre transacciones de la base de datos SQL *fuera de la cadena* de Azure Blockchain Workbench.
+En esta sección se describen patrones que se centran en los aspectos de la API de REST que envían transacciones a un libro de contabilidad distribuida, además de patrones que consultan datos sobre transacciones de la base de datos *fuera de la cadena* de Azure Blockchain Workbench.
 
 ### <a name="sending-transactions-to-a-distributed-ledger-from-an-external-system"></a>Envío de transacciones a un libro de contabilidad distribuida desde un sistema externo
 
@@ -204,7 +204,7 @@ La integración de datos es bien conocida:
 
 -   Azure Blockchain Workbench almacena metadatos acerca de aplicaciones, flujos de trabajo, contratos y transacciones como parte de su funcionamiento normal.
 -   Los sistemas o herramientas externos proporcionan uno o más cuadros de diálogo para facilitar la recopilación de información acerca de la base de datos. Información como, por ejemplo, el nombre del servidor de bases de datos, el nombre de la base de datos, el tipo de autenticación, las credenciales de inicio de sesión y qué vistas de la base de datos se pueden utilizar.
--   Las consultas se escriben en las vistas de la base de datos SQL para facilitar el consumo en niveles inferiores por parte de sistemas externos, servicios, informes, herramientas para desarrolladores y herramientas de productividad empresarial.
+-   Las consultas se escriben en las vistas de la base de datos para facilitar el consumo en niveles inferiores por parte de sistemas externos, servicios, informes, herramientas para desarrolladores y herramientas de productividad empresarial.
 
 ## <a name="storage-integration"></a>Integración del almacenamiento
 

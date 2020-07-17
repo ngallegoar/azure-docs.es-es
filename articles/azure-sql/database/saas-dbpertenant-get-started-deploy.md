@@ -11,19 +11,20 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: d94f7219c5a29de9a707aa9ae4ed25ac4b2bf03e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 15a623068c46109b95ce9a9300348d29f95610a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84028166"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254317"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Implementación y exploración de una aplicación SaaS multiinquilino que usa el patrón de base de datos por inquilino con Azure SQL Database
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 En este tutorial, se implementa y explora la aplicación de base de datos por inquilino de SaaS Wingtip Tickets (Wingtip). La aplicación usa un patrón de base de datos por inquilino para almacenar los datos de varios inquilinos. La aplicación está diseñada para presentar las características de Azure SQL Database que simplifican la habilitación de escenarios de SaaS.
 
-Cinco minutos después de que seleccione **Implementar en Azure**, tendrá una aplicación de SaaS multiinquilino. La aplicación incluye una base de datos SQL que se ejecuta en la nube. La aplicación se implementa con tres inquilinos de ejemplo, cada uno con su propia base de datos. Todas las bases de datos se implementan en un grupo elástico de SQL. La aplicación se implementa en la suscripción de Azure. Tiene acceso completo para explorar y trabajar con los componentes individuales de la aplicación. El código fuente C# de la aplicación y los scripts de administración están disponibles en el [repositorio de GitHub WingtipTicketsSaaS-DbPerTenant][github-wingtip-dpt].
+Cinco minutos después de que seleccione **Implementar en Azure**, tendrá una aplicación de SaaS multiinquilino. La aplicación incluye una base de datos que se ejecuta en Azure SQL Database. La aplicación se implementa con tres inquilinos de ejemplo, cada uno con su propia base de datos. Todas las bases de datos se implementan en un grupo elástico de SQL. La aplicación se implementa en la suscripción de Azure. Tiene acceso completo para explorar y trabajar con los componentes individuales de la aplicación. El código fuente C# de la aplicación y los scripts de administración están disponibles en el [repositorio de GitHub WingtipTicketsSaaS-DbPerTenant][github-wingtip-dpt].
 
 En este tutorial, obtendrá información:
 
@@ -107,7 +108,7 @@ A estos valores se hacen referencia en casi todos los scripts.
 
 La aplicación presenta lugares que albergan eventos. Entre los tipos de lugares hay salas de concierto, clubs de jazz y clubs deportivos. En Wingtip Tickets, los lugares se registran como inquilinos. El hecho de ser un inquilino ofrece a un lugar una manera sencilla de enumerar eventos y vender entradas para estos a sus clientes. Cada lugar obtiene un sitio web personalizado para mostrar sus eventos y vender entradas.
 
-Dentro de la aplicación, cada inquilino obtiene una base de datos SQL implementada en un grupo elástico de SQL.
+Dentro de la aplicación, cada inquilino obtiene una base de datos implementada en un grupo elástico.
 
 Una página de **Event Hubs** central proporciona una lista de vínculos a los inquilinos en su implementación.
 

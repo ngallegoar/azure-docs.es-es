@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 903881a1d15c1f043e381f50e5b69d661cd08192
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: f4bfffe54fb87953ae737ecf83ea898cfe78743c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80476443"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040340"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Funcionamiento de las relaciones de confianza para los bosques de recursos en Azure Active Directory Domain Services
 
@@ -26,6 +26,10 @@ Para comprobar si existe esta relación de confianza, el sistema de seguridad de
 Los mecanismos de control de acceso que se proporcionan en AD DS y el modelo de seguridad distribuida de Windows ofrecen un entorno para el funcionamiento de las confianzas de dominio y bosque. Para que estas confianzas funcionen correctamente, todos los recursos o equipos deben tener una ruta de acceso de confianza directa a un controlador de dominio en el dominio donde se encuentran.
 
 La ruta de acceso de confianza se implementa a través del servicio de Net Logon, mediante una conexión de llamada a procedimiento remoto (RPC) autenticada a la entidad del dominio de confianza. También se extiende un canal seguro a otros dominios de AD DS a través de relaciones de confianza entre dominios. Este canal seguro se utiliza para obtener y comprobar la información de seguridad, incluidos los identificadores de seguridad (SID) para usuarios y grupos.
+
+Para obtener información general sobre cómo se aplican las confianzas a Azure AD DS, consulte [Conceptos y características del bosque de recursos][create-forest-trust].
+
+Para empezar a usar confianzas en Azure AD DS, [cree un dominio administrado que use confianzas de bosque][tutorial-create-advanced].
 
 ## <a name="trust-relationship-flows"></a>Flujos de una relación de confianza
 
@@ -70,7 +74,7 @@ Una confianza de bosque solo se puede crear entre el dominio raíz de un bosque 
 
 En el siguiente diagrama se muestran dos relaciones de confianza de bosque independientes entre tres bosques de AD DS de una única organización.
 
-![Diagrama de relaciones de confianza de bosque dentro de una única organización](./media/concepts-forest-trust/forest-trusts.png)
+![Diagrama de relaciones de confianza de bosque dentro de una única organización](./media/concepts-forest-trust/forest-trusts-diagram.png)
 
 En esta configuración de ejemplo se proporciona el siguiente acceso:
 
@@ -152,7 +156,7 @@ Cuando dos bosques están conectados mediante una confianza de bosque, las solic
 
 Cuando se establece una confianza de bosque por primera vez, cada bosque recopila todos los espacios de nombres de confianza del bosque asociado y almacena la información en un [objeto de dominio de confianza](#trusted-domain-object) (TDO). Los espacios de nombres de confianza incluyen los nombres de los árboles de dominio, los sufijos de nombre principal de usuario (UPN), los sufijos de nombre de entidad de seguridad de servicio (SPN) y los espacios de nombres de identificador de seguridad (SID) usados en el otro bosque. Los objetos TDO se replican en el catálogo global.
 
-Para que los protocolos de autenticación puedan seguir la ruta de acceso de confianza del bosque, el nombre de entidad de seguridad de servicio (SPN) del equipo de recursos debe resolverse en una ubicación del otro bosque. Este SPN puede ser uno de los siguientes:
+Para que los protocolos de autenticación puedan seguir la ruta de acceso de confianza del bosque, el nombre de entidad de seguridad de servicio (SPN) del equipo de recursos debe resolverse en una ubicación del otro bosque. Este SPN puede ser uno de los siguientes nombres:
 
 * El nombre DNS de un host.
 * El nombre DNS de un dominio.
@@ -162,7 +166,7 @@ Cuando una estación de trabajo de un bosque intenta acceder a los datos de un e
 
 En el diagrama y los pasos siguientes se proporciona una descripción detallada del proceso de autenticación de Kerberos que se utiliza cuando los equipos que ejecutan Windows intentan acceder a recursos de un equipo ubicado en otro bosque.
 
-![Diagrama del proceso de Kerberos a través de una confianza de bosque](media/concepts-forest-trust/kerberos-over-forest-trust-process.png)
+![Diagrama del proceso de Kerberos a través de una confianza de bosque](media/concepts-forest-trust/kerberos-over-forest-trust-process-diagram.png)
 
 1. El *Usuario 1* inicia sesión en la *Estación de trabajo 1* con las credenciales del dominio *europe.tailspintoys.com*. A continuación, el usuario intenta acceder a un recurso compartido en el *Servidor de archivos 1* ubicado en el bosque *usa.wingtiptoys.com*.
 
@@ -276,7 +280,7 @@ Los administradores pueden usar *Dominios y confianzas de Active Directory*, *N
 
 Para más información sobre los bosques de recursos, consulte [Funcionamiento de la confianza de bosque en Azure AD DS][concepts-trust].
 
-Para empezar a crear un dominio administrado de Azure AD DS con un bosque de recursos, consulte [Creación y configuración de un dominio administrado de Azure AD DS][tutorial-create-advanced]. Después puede continuar en [Creación de una confianza de bosque de salida a un dominio local (versión preliminar)][create-forest-trust].
+Para empezar a crear un dominio administrado con un bosque de recursos, consulte [Creación y configuración de un dominio administrado de Azure AD DS][tutorial-create-advanced]. Después puede continuar en [Creación de una confianza de bosque de salida a un dominio local (versión preliminar)][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

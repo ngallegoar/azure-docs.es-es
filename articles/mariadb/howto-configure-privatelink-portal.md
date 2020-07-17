@@ -4,14 +4,14 @@ description: Aprenda a configurar una instancia de Private Link para Azure Datab
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 3f421cad64caf91b898bb1ec13dc909b93b7f72d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: db2fa377cc10759fc57c3e4a27bd7815a5724bd7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79370345"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114744"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Creación y administración de Private Link en Azure Database for MariaDB mediante el portal
 
@@ -39,7 +39,7 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
     | ------- | ----- |
     | Nombre | Escriba *MyVirtualNetwork*. |
     | Espacio de direcciones | Escriba *10.1.0.0/16*. |
-    | Subscription | Seleccione su suscripción.|
+    | Suscripción | Seleccione su suscripción.|
     | Resource group | Seleccione **Crear nuevo**, escriba *myResourceGroup* y, después, seleccione **Aceptar**. |
     | Location | Seleccione **Oeste de Europa**.|
     | Subred: nombre | Escriba *mySubnet*. |
@@ -56,7 +56,7 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
     | Configuración | Value |
     | ------- | ----- |
     | **DETALLES DEL PROYECTO** | |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.  |
     | **DETALLES DE INSTANCIA** |  |
     | Nombre de la máquina virtual | Escriba *myVm*. |
@@ -106,7 +106,7 @@ En esta sección, creará un servidor de Azure Database for MariaDB en Azure.
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.|
     | **Detalles del servidor** |  |
     |Nombre de servidor  | Escriba *miServidor*. Si el nombre ya existe, cree uno único.|
@@ -116,11 +116,15 @@ En esta sección, creará un servidor de Azure Database for MariaDB en Azure.
     |Versión  | Seleccione la versión de la base de datos del servidor MariaDB que se requiere.|
     | Proceso y almacenamiento| Seleccione el plan de tarifa que sea necesario para el servidor en función de la carga de trabajo. |
     |||
- 
+
 7. Seleccione **Aceptar**. 
 8. Seleccione **Revisar + crear**. Se le remitirá a la página **Revisar y crear**, donde Azure validará la configuración. 
 9. Cuando reciba el mensaje Validación superada, seleccione **Crear**. 
 10. Cuando reciba el mensaje Validación superada, seleccione Crear. 
+
+> [!NOTE]
+> En algunos casos, Azure Database for MariaDB y la subred de red virtual se encuentran en distintas suscripciones. En estos casos debe garantizar las siguientes configuraciones:
+> - Asegúrese de que ambas suscripciones tengan registrado el proveedor de recursos **Microsoft.DBforMariaDB**. Para más información, consulte [resource-manager-registration][resource-manager-portal].
 
 ## <a name="create-a-private-endpoint"></a>Creación de un punto de conexión privado
 
@@ -136,7 +140,7 @@ En esta sección, creará un punto de conexión privado, que agregará al servid
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.|
     | **Detalles de instancia** |  |
     | Nombre | Escriba *myPrivateEndpoint*. Si el nombre ya existe, cree uno único. |
@@ -148,9 +152,9 @@ En esta sección, creará un punto de conexión privado, que agregará al servid
     | Configuración | Value |
     | ------- | ----- |
     |Método de conexión  | Seleccione Connect to an Azure resource in my directory (Conectarse a un recurso de Azure en mi directorio).|
-    | Subscription| Seleccione su suscripción. |
+    | Suscripción| Seleccione su suscripción. |
     | Tipo de recurso | Seleccione **Microsoft.DBforMariaDB/servers**. |
-    | Resource |Seleccione *miServidor*.|
+    | Recurso |Seleccione *miServidor*.|
     |Recurso secundario de destino |Seleccione *mariadbServer*.|
     |||
 7. Seleccione **Siguiente: Configuration** (Siguiente: Configuración).
@@ -165,6 +169,9 @@ En esta sección, creará un punto de conexión privado, que agregará al servid
     |Integración con una zona DNS privada |Seleccione **Sí**. |
     |Zona DNS privada |Seleccione *(New)privatelink.mariadb.database.azure.com* |
     |||
+
+    > [!Note] 
+    > Use la zona DNS privada predefinida para su servicio o proporcione el nombre de la zona DNS que prefiera. Consulte la [configuración de la zona DNS de los servicios de Azure](../private-link/private-endpoint-dns.md) para obtener más información.
 
 1. Seleccione **Revisar + crear**. Se le remitirá a la página **Revisar y crear**, donde Azure validará la configuración. 
 2. Cuando reciba el mensaje **Validación superada**, seleccione **Crear**. 
@@ -245,3 +252,6 @@ Cuando haya terminado de usar el punto de conexión privado, el servidor MariaDB
 ## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía paso a paso ha creado una máquina virtual en una red virtual, una instancia de Azure Database for MariaDB y un punto de conexión privado para acceso privado. Se ha conectado a una máquina virtual desde Internet y se ha comunicado de forma segura con el servidor MariaDB mediante Private Link. Para obtener más información sobre los puntos de conexión privados, vea [¿Qué es un punto de conexión privado de Azure?](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

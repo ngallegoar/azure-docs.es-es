@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fa815d9fb653ee61d647023f7867549aa8d655aa
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 7d853a8e935f7732a05b33d9b8581dcf753d8873
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005797"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84975340"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Transformaciones y asignaciones de campos mediante indexadores de Azure Cognitive Search
 
@@ -39,6 +39,9 @@ Una asignación de campos consta de tres partes:
 3. `mappingFunction`opcional, que puede transformar sus datos con una de las diversas funciones predefinidas. Se puede aplicar en las asignaciones de campos de entrada y de salida. La lista completa de funciones se encuentra [a continuación](#mappingFunctions).
 
 Las asignaciones de campos se agregan a la matriz `fieldMappings` de la definición del indexador.
+
+> [!NOTE]
+> Si no se agregan asignaciones de campo, los indizadores asumen que los campos de origen de datos deben asignarse a campos de índice con el mismo nombre. Al agregar una asignación de campos, se quitan estas asignaciones de campos predeterminadas para el campo de origen y de destino. Algunos indizadores, como [el indizador de Blob Storage](search-howto-indexing-azure-blob-storage.md), agregan asignaciones de campos predeterminadas para el campo clave del índice.
 
 ## <a name="map-fields-using-the-rest-api"></a>Asignación de campos usando la API de REST
 
@@ -136,6 +139,27 @@ Al recuperar la clave codificada en el tiempo de búsqueda, puede usar la funci�
     }
   }]
  ```
+
+#### <a name="example---preserve-original-values"></a>Ejemplo: conservación de los valores originales
+
+El [indizador de Blob Storage](search-howto-indexing-azure-blob-storage.md) agrega automáticamente una asignación de campos de `metadata_storage_path`, el URI del blob, al campo clave del índice si no se especifica ninguna asignación de campos. Este valor está codificado en Base64, por lo que es seguro usarlo como una clave de documento de Azure Cognitive Search. En el ejemplo siguiente, se muestra cómo asignar simultáneamente una versión codificada en Base64 con *seguridad de direcciones URL* de un campo `metadata_storage_path` a `index_key` y conservar el valor original en un campo `metadata_storage_path`:
+
+```JSON
+
+"fieldMappings": [
+  {
+    "sourceFieldName": "metadata_storage_path",
+    "targetFieldName": "metadata_storage_path"
+  },
+  {
+    "sourceFieldName": "metadata_storage_path",
+    "targetFieldName": "index_key",
+    "mappingFunction": {
+       "name": "base64Encode"
+    }
+  }
+]
+```
 
 Si no incluye una propiedad de parámetros de la función de asignación, el valor `{"useHttpServerUtilityUrlTokenEncode" : true}` se establece como valor predeterminado.
 

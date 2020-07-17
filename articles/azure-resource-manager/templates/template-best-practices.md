@@ -2,25 +2,21 @@
 title: Procedimientos recomendados para las plantillas
 description: En este artículo se describen los enfoques recomendados para la creación de plantillas de Azure Resource Manager. Se ofrecen sugerencias para evitar problemas comunes al usar las plantillas.
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 870636d6457d842c89f261c2537644c17a335294
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/09/2020
+ms.openlocfilehash: a85e9afd64c416628c35bd36d16086f28d0732d3
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156419"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058068"
 ---
 # <a name="arm-template-best-practices"></a>Procedimientos recomendados para plantilla de Resource Manager
 
-En este artículo se proporcionan recomendaciones sobre cómo construir la plantilla de Azure Resource Manager (ARM). Estas recomendaciones ayudan a evitar problemas comunes al usar una plantilla de Resource Manager para implementar una solución.
-
-Para obtener recomendaciones sobre cómo controlar las suscripciones de Azure, vea [Scaffolding empresarial de Azure: gobernanza de suscripción prescriptiva](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
-
-Para obtener recomendaciones sobre cómo crear plantillas que funcionan en todos los entornos de nube de Azure, vea [Desarrollo de plantillas de Azure Resource Manager para mantener la coherencia en la nube](templates-cloud-consistency.md).
+En este artículo se explica cómo usar procedimientos recomendados al crear la plantilla ARM. Estas recomendaciones ayudan a evitar problemas comunes al usar una plantilla de Resource Manager para implementar una solución.
 
 ## <a name="template-limits"></a>Límites de plantilla
 
-Limite el tamaño de la plantilla a 4 MB y cada archivo de parámetros a 64 KB. El límite de 4 MB se aplica al estado final de la plantilla una vez se ha ampliado con definiciones de recursos iterativas y los valores de variables y parámetros. 
+Limite el tamaño de la plantilla a 4 MB y cada archivo de parámetros a 64 KB. El límite de 4 MB se aplica al estado final de la plantilla una vez se ha ampliado con definiciones de recursos iterativas y los valores de variables y parámetros.
 
 También está limitado a:
 
@@ -234,7 +230,7 @@ La información siguiente puede ser útil cuando se trabaja con [recursos](templ
    * [Configuración de acceso a WinRM para máquinas virtuales en Azure Resource Manager](../../virtual-machines/windows/winrm.md)
    * [Habilitación del acceso externo a la máquina virtual mediante Azure Portal](../../virtual-machines/windows/nsg-quickstart-portal.md)
    * [Habilitación del acceso externo a la máquina virtual mediante PowerShell](../../virtual-machines/windows/nsg-quickstart-powershell.md)
-   * [Habilitación del acceso externo a la máquina virtual Linux mediante la CLI de Azure](../../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
+   * [Habilitación del acceso externo a la máquina virtual Linux mediante la CLI de Azure](../../virtual-machines/linux/nsg-quickstart.md)
 
 * La propiedad **domainNameLabel** para las direcciones IP públicas debe ser única. El valor **domainNameLabel** debe contener entre 3 y 63 caracteres y seguir las reglas especificadas por esta expresión regular: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Como la función **uniqueString** genera una cadena de 13 caracteres, el parámetro **dnsPrefixString** se limita a no más de 50 caracteres:
 
@@ -275,7 +271,12 @@ La información siguiente puede ser útil cuando se trabaja con [recursos](templ
    > [!NOTE]
    > Para garantizar que los secretos se cifran cuando se transmiten como parámetros a máquinas virtuales y extensiones, use la propiedad **protectedSettings** de las extensiones pertinentes.
    > 
-   > 
+
+## <a name="use-test-toolkit"></a>Uso del kit de herramientas para pruebas
+
+El kit de herramientas para pruebas de plantillas de ARM comprueba si la plantilla usa los procedimientos recomendados. Cuando la plantilla no es compatible con los procedimientos recomendados, devuelve una lista de advertencias con los cambios sugeridos. El kit de herramientas para pruebas le puede servir para aprender a implementar procedimientos recomendados en la plantilla.
+
+Una vez completada la plantilla, ejecute el kit de herramientas para pruebas para ver si hay alguna forma de mejorar la implementación. Para más información, vea [Kit de herramientas para pruebas de plantillas de ARM](test-toolkit.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

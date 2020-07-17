@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: 542861afe49d03a179a9740d5a58b9d27e0d7f20
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 97bea90e67b9449a8f5fd7b333b9ac149abef2f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84302497"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945467"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Supervisión del servicio de almacén de claves con Azure Monitor para Key Vault (versión preliminar)
 Azure Monitor para Key Vault (versión preliminar) proporciona una supervisión completa de los almacenes de claves proporcionando una vista unificada del rendimiento, los errores, la latencia y las solicitudes de Key Vault.
@@ -158,6 +158,8 @@ Puede configurar los libros Información general o Errores de varias suscripcion
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
+Para obtener instrucciones generales para la solución de problemas, consulte el [artículo dedicado de solución de problemas](troubleshoot-workbooks.md) de conclusiones basadas en libros.
+
 Esta sección le ayudará con el diagnóstico y la solución de algunos de los problemas habituales que pueden producirse en la aplicación al usar Azure Monitor para Almacén de claves (versión preliminar). Utilice la siguiente lista para buscar la información relacionada con el problema específico.
 
 ### <a name="resolving-performance-issues-or-failures"></a>Resolución de problemas de rendimiento o errores
@@ -167,12 +169,6 @@ Para ayudar a solucionar los problemas relacionados con el almacén de claves qu
 ### <a name="why-can-i-only-see-200-key-vaults"></a>¿Por qué solo puedo ver doscientos almacenes de claves?
 
 Hay un límite de doscientos almacenes de claves que se pueden seleccionar y ver. Independientemente del número de suscripciones seleccionadas, el número de almacenes de claves seleccionados tiene un límite de doscientos.
-
-### <a name="what-will-happen-when-a-pinned-item-is-clicked"></a>¿Qué ocurrirá cuando se haga clic en un elemento anclado?
-
-Cuando se hace clic en un elemento anclado en el panel, se abre una de estas dos cosas:
-* Si las conclusiones se guardaron, se abrirá la instancia de conclusiones desde la que se guardó la chincheta.
-* Si las conclusiones no se guardaron, se abrirá una nueva instancia de conclusiones predeterminada.
 
 ### <a name="why-dont-i-see-all-my-subscriptions-in-the-subscription-picker"></a>¿Por qué veo todas mis suscripciones en el selector de suscripciones?
 
@@ -184,7 +180,7 @@ Solo se muestran las suscripciones que contienen almacenes de claves, que se eli
 
 Actualmente, hay un límite de veinticinco regiones y doscientas áreas de trabajo. Para ver los datos, debe reducir el número de suscripciones o grupos de recursos.
 
-### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-key-vault-insights-how-do-i-do-so"></a>Deseo realizar cambios o agregar visualizaciones adicionales a las conclusiones de Key Vault, ¿cómo lo hago?
+### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-key-vault-insights-how-do-i-do-so"></a>Quiero realizar cambios o agregar visualizaciones adicionales a las conclusiones de Key Vault, ¿cómo lo hago?
 
 Para realizar cambios, seleccione "Modo de edición" para modificar el libro y después puede guardar el trabajo como un libro nuevo que esté asociado a una suscripción y un grupo de recursos designados.
 
@@ -196,11 +192,11 @@ Se usa el intervalo de agregación "automático", por lo que depende del interva
 
 El intervalo de agregación dependerá de la configuración del panel.
 
-### <a name="why-do-i-not-see-any-data-for-my-key-vault-under-the-operations--latency-sections"></a>¿Por qué no veo ningún dato para mi Key Vault en las secciones Operaciones & Latency (Operaciones y latencia)?
+### <a name="why-do-i-not-see-any-data-for-my-key-vault-under-the-operations--latency-sections"></a>¿Por qué no veo ningún dato para mi Key Vault en las secciones Operaciones y latencia?
 
 Para ver los datos basados en registros, deberá habilitar los registros para cada uno de los almacenes de claves que desee supervisar. Esto puede realizarse en la configuración de diagnóstico de cada almacén de claves. Tendrá que enviar los datos a un área de trabajo de Log Analytics designada.
 
-### <a name="i-have-already-enabled-logs-for-my-key-vault-why-am-i-still-unable-to-see-my-data-under-operations--latency"></a>Ya he habilitado los registros para mi Key Vault. ¿Por qué sigo sin poder ver mis datos en Operations & Latency (Operaciones y latencia)?
+### <a name="i-have-already-enabled-logs-for-my-key-vault-why-am-i-still-unable-to-see-my-data-under-operations--latency"></a>Ya he habilitado los registros para mi Key Vault. ¿Por qué sigo sin poder ver mis datos en Operaciones y latencia?
 
 Actualmente, los registros de diagnóstico no funcionan de forma retroactiva, por lo que los datos solo comenzarán a aparecer una vez que se hayan realizado acciones en los almacenes de claves. Por lo tanto, pueden tardar algún tiempo, desde horas hasta un día, en función de la actividad que presente el almacén de claves.
 

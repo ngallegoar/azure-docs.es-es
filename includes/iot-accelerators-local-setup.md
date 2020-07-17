@@ -9,10 +9,10 @@ ms.date: 01/17/2019
 ms.author: avneet723
 ms.custom: include file
 ms.openlocfilehash: 1f567b3d083853f9bb342bfad462e8545caa6480
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67186748"
 ---
 ## <a name="download-the-source-code"></a>Descarga del código fuente
@@ -62,7 +62,7 @@ Si aún no ha creado los recursos de Azure necesarios, siga estos pasos:
      El script también agrega un conjunto de variables de entorno con un prefijo **PCS** en el equipo local. Estas variables de entorno proporcionan los detalles de Supervisión remota para poder leer desde un recurso de Azure Key Vault. Este recurso de Key Vault es desde donde Supervisión remota leerá sus valores de configuración.
 
      > [!TIP]
-     > Cuando se completa el script, también guarda las variables de entorno en un archivo denominado **\<la carpeta principal\>\\.pcs\\\<nombre de la solución\>.env**. Puede usarlos para las implementaciones del acelerador de soluciones futuras. Tenga en cuenta que cualquier variable de entorno establecida en el equipo local invalida los valores del archivo **services\\scripts\\local\\.env** al ejecutar **docker-compose**.
+     > Cuando el script finaliza, también guarda las variables de entorno en un archivo denominado **\<your home folder\>\\.pcs\\\<solution name\>.env**. Puede usarlos para las implementaciones del acelerador de soluciones futuras. Tenga en cuenta que cualquier variable de entorno establecida en el equipo local invalida los valores del archivo **services\\scripts\\local\\.env** al ejecutar **docker-compose**.
 
 1. Salga del entorno de la línea de comandos.
 
@@ -74,6 +74,6 @@ Establezca las variables de entorno para lo siguiente:
 * **PCS_AAD_APPID**: id. de aplicación de AAD
 * **PCS_AAD_APPSECRET**: secreto de aplicación de AAD
 
-Los valores de configuración se leerán desde este recurso de Azure Key Vault. Estas variables de entorno pueden guardarse en el archivo **\<carpeta particular\>\\.pcs\\\<nombre de la solución\>.env** de la implementación. Tenga en cuenta que las variables de entorno establecidas en el equipo local invalidan los valores del archivo **services\\scripts\\local\\.env** al ejecutar **docker-compose**.
+Los valores de configuración se leerán desde este recurso de Azure Key Vault. Estas variables de entorno pueden guardarse en el archivo **\<your home folder\>\\.pcs\\\<solution name\>.env** de la implementación. Tenga en cuenta que las variables de entorno establecidas en el equipo local invalidan los valores del archivo **services\\scripts\\local\\.env** al ejecutar **docker-compose**.
 
 Parte de la configuración necesaria para el microservicio se almacena en una instancia de **Key Vault** que se ha creado en la implementación inicial. Las variables correspondientes del almacén de claves deben modificarse según sea necesario.

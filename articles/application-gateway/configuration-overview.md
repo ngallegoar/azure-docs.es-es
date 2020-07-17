@@ -4,15 +4,15 @@ description: En este artículo se describe cómo configurar los componentes de A
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: bd6f04ca7e24e380ad657f967284704ad613375a
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 1e3ef1133628f0470ee92237abf20d3bb0a9e21a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996404"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254674"
 ---
 # <a name="application-gateway-configuration-overview"></a>Introducción a la configuración de Application Gateway
 
@@ -307,7 +307,7 @@ Tenga en cuenta que el nombre predeterminado de la cookie de afinidad es *Applic
 
 ### <a name="connection-draining"></a>Purga de la conexión
 
-La purga de conexión ayuda a la correcta eliminación de miembros del grupo de servidores back-end durante las actualizaciones de servicio planeadas. Puede aplicar esta configuración a todos los miembros de un grupo de servidores back-end durante la creación de reglas. Garantiza que todas las instancias de anulación del registro de un grupo de back-end sigan manteniendo las conexiones existentes y atiendan las solicitudes en curso durante un tiempo de espera configurable y no reciban solicitudes o conexiones nuevas. La única excepción a esto son las solicitudes enlazadas para cancelar el registro de instancias debido a la afinidad de la sesión administrada por la puerta de enlace y que se seguirán reenviando a las instancias de cancelación del registro. La purga de conexión se aplica a instancias de back-end que se eliminan explícitamente del grupo de servidores back-end.
+La purga de conexión ayuda a la correcta eliminación de miembros del grupo de servidores back-end durante las actualizaciones de servicio planeadas. Puede aplicar esta configuración a todos los miembros de un grupo back-end habilitando la purga de conexión en la configuración de HTTP. Garantiza que todas las instancias de anulación del registro de un grupo de back-end sigan manteniendo las conexiones existentes y atiendan las solicitudes en curso durante un tiempo de espera configurable y no reciban solicitudes o conexiones nuevas. La única excepción a esto son las solicitudes enlazadas para cancelar el registro de instancias debido a la afinidad de la sesión administrada por la puerta de enlace y que se seguirán reenviando a las instancias de cancelación del registro. La purga de conexión se aplica a instancias de back-end que se eliminan explícitamente del grupo de servidores back-end.
 
 ### <a name="protocol"></a>Protocolo
 

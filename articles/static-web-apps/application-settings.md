@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 36aa0a4a87e439c128c5247b6850100a7f2e826e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 66ad9c27ca69df230d9ce1d2282e734420fa14f3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595574"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85373679"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Configuración de las opciones de la aplicación para la versión preliminar de Azure Static Web Apps
 
@@ -30,7 +30,7 @@ A las opciones de configuración de la aplicación también se les conoce a vece
 >
 > Para obtener información sobre el uso de variables de entorno con la aplicación web de front-end, consulte la documentación de su [marco de JavaScript](#javascript-frameworks-and-libraries) o [generador de sitios estáticos](#static-site-generators).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una aplicación de Azure Static Web Apps
 - [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -107,7 +107,9 @@ Azure Portal proporciona una interfaz para crear, actualizar y eliminar la confi
 
 1. Proporcione un **nombre** y un **valor**.
 
-1. Haga clic en **Aceptar**
+1. Haga clic en **OK**.
+
+1. Haga clic en **Save**(Guardar).
 
 ### <a name="using-the-azure-cli"></a>Uso de la CLI de Azure
 
@@ -156,7 +158,7 @@ El comando de la CLI de Azure requiere una serie de valores específicos de la c
 
 La configuración de la aplicación está disponible para visualizarse a través de la CLI de Azure.
 
-1. Desde un terminal o línea de comandos, ejecute el siguiente comando. Asegúrese de reemplazar los marcadores de posición `<YOUR_SUBSCRIPTION_ID>`, `<YOUR_RESOURCE_GROUP_NAME>` y `<YOUR_STATIC_SITE_NAME>` por sus valores.
+- Desde un terminal o línea de comandos, ejecute el siguiente comando. Asegúrese de reemplazar los marcadores de posición `<YOUR_SUBSCRIPTION_ID>`, `<YOUR_RESOURCE_GROUP_NAME>` y `<YOUR_STATIC_SITE_NAME>` por sus valores.
 
    ```bash
    az rest --method post --uri "/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP_NAME>/providers/Microsoft.Web/staticSites/<YOUR_STATIC_SITE_NAME>/listFunctionAppSettings?api-version=2019-12-01-preview"

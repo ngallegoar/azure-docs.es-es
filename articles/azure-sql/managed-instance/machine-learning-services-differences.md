@@ -2,7 +2,7 @@
 title: Principales diferencias de Machine Learning Services (versión preliminar)
 description: En este tema se describen las principales diferencias entre Machine Learning Services de Instancia administrada de Azure SQL y Machine Learning Services de SQL Server.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: machine-learning
 ms.custom: ''
 ms.devlang: ''
@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: carlrab, davidph
 manager: cgronlun
 ms.date: 05/27/2020
-ms.openlocfilehash: 02211a09df2d2744119ea8fbe6f0ecaa63dba020
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: da97938736e7a3719da9d280e60e6a636b86e0e5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84031206"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254755"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-managed-instance-and-sql-server"></a>Principales diferencias entre Machine Learning Services de Instancia administrada de Azure SQL y SQL Server
 
@@ -48,7 +48,7 @@ Machine Learning Services de Instancia administrada de SQL y SQL Server admiten 
   | Instancia administrada de SQL | 3.7.1  | 3.5.2 |
   | SQL Server           | 3.5.2  | 3.3.3 |
 
-- No es necesario configurar `external scripts enabled` mediante `sp_configure`. Una vez que se haya [registrado](machine-learning-services-overview.md#signup) en la versión preliminar, el aprendizaje automático está habilitado para la base de datos SQL.
+- No es necesario configurar `external scripts enabled` mediante `sp_configure`. Una vez que se haya [registrado](machine-learning-services-overview.md#signup) en la versión preliminar, el aprendizaje automático estará habilitado para Instancia administrada de Azure SQL.
 
 ## <a name="packages"></a>Paquetes
 

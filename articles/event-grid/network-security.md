@@ -1,25 +1,23 @@
 ---
 title: Seguridad de red para recursos de Azure Event Grid
 description: En este artículo se describe cómo configurar el acceso desde puntos de conexión privados
-services: event-grid
 author: VidyaKukke
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: d6d6d8df8f3c5da762ac672b304ec072a723e7d7
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 1887b6b5919a8b0f6e8f570b2471d74d9541df31
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857052"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119249"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Seguridad de red para recursos de Azure Event Grid
 En este artículo se describe cómo usar las siguientes características de seguridad con Azure Event Grid: 
 
-- Etiquetas de servicio para salida (versión preliminar)
+- Etiquetas de servicio para salida
 - Reglas de firewall de IP para entrada (versión preliminar)
-- Puntos de conexión privados para entrada (versión preliminar)
+- Puntos de conexión privados para entrada
 
 
 ## <a name="service-tags"></a>Etiquetas de servicio
@@ -28,15 +26,16 @@ Una etiqueta de servicio representa un grupo de prefijos de direcciones IP de un
 Puede usar etiquetas de servicio para definir controles de acceso a la red en [grupos de seguridad de red](../virtual-network/security-overview.md#security-rules)  o  [Azure Firewall](../firewall/service-tags.md). Utilice etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. Al especificar el nombre de la etiqueta de servicio (por ejemplo, **AzureEventGrid**) en el campo de *origen* o *destino* apropiado de una regla, puede permitir o denegar el tráfico para el servicio correspondiente.
 
 | Etiqueta de servicio | Propósito | ¿Se puede usar para tráfico entrante o saliente? | ¿Puede ser regional? | ¿Se puede usar con Azure Firewall? |
-| --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| AzureEventGrid | Azure Event Grid. <br/><br/>*Nota:* Esta etiqueta cubre los puntos de conexión de Azure Event Grid en Centro y Sur de EE. UU., Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU. 2 y Centro de EE. UU. solamente. | Ambos | No | No |
+| --- | -------- |:---:|:---:|:---:|
+| AzureEventGrid | Azure Event Grid. | Ambos | No | No |
 
 
 ## <a name="ip-firewall"></a>Firewall de dirección IP 
 Azure Event Grid admite controles de acceso basados en IP para la publicación en temas y dominios. Con los controles basados en IP, puede limitar los publicadores de un tema o dominio a solo un conjunto aprobado de máquinas y servicios en la nube. Esta característica complementa los [mecanismos de autenticación](security-authentication.md) compatibles con Event Grid.
 
-De forma predeterminada, el tema y el dominio son accesibles desde Internet siempre que la solicitud venga con una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones IP o intervalos de direcciones IP en la notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Los publicadores originados desde cualquier otra dirección IP se rechazarán y recibirán una respuesta 403 (Prohibido).
+De forma predeterminada, el tema y el dominio son accesibles desde Internet siempre que la solicitud venga con una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones IP o intervalos de direcciones IP en la notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Los publicadores que se originen desde cualquier otra dirección IP se rechazarán y recibirán una respuesta 403 (Prohibido).
 
+A fin de obtener instrucciones paso a paso para configurar el firewall de IP para temas y dominios, consulte [configurar el firewall de IP](configure-firewall.md).
 
 ## <a name="private-endpoints"></a>Puntos de conexión privados
 Puede usar [puntos de conexión privados](../private-link/private-endpoint-overview.md) para permitir la entrada de eventos directamente desde su red virtual a sus temas y dominios de forma segura a través de un [vínculo privado](../private-link/private-link-overview.md) sin tener que ir a la red pública de Internet. Un punto de conexión privado es una interfaz de red especial para un servicio de Azure de una red virtual. Cuando se crea un punto de conexión privado para un tema o dominio, este proporciona conectividad segura entre los clientes de la red virtual y el recurso de Event Grid. Al punto de conexión privado se le asigna una dirección IP del intervalo de direcciones IP de la red virtual. La conexión entre el punto de conexión privado y el servicio de Event Grid usa un vínculo privado seguro.
@@ -61,7 +60,7 @@ Cuando se resuelve la dirección URL del punto de conexión del tema o dominio d
 | Nombre                                          | Tipo      | Value                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
-| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Perfil de Azure Traffic Manager\>
+| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Azure traffic manager profile\>
 
 Puede denegar o controlar el acceso de un cliente de fuera de la red virtual a través del punto de conexión público mediante el [firewall de IP](#ip-firewall). 
 
@@ -70,7 +69,7 @@ Cuando se resuelve desde la red virtual que hospeda el punto de conexión privad
 | Nombre                                          | Tipo      | Value                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
-| `topicA.westus.privatelink.eventgrid.azure.net` | Un         | 10.0.0.5
+| `topicA.westus.privatelink.eventgrid.azure.net` | A         | 10.0.0.5
 
 Este enfoque permite el acceso al tema o dominio mediante la misma cadena de conexión para los clientes de la red virtual que hospeda los puntos de conexión privados y los clientes que están fuera de esta.
 
@@ -99,4 +98,6 @@ La característica **Firewall de IP** está disponible en los niveles Básico y 
 ## <a name="next-steps"></a>Pasos siguientes
 Puede configurar el firewall de IP para el recurso de Event Grid con el fin de restringir el acceso a través de Internet público desde únicamente un conjunto seleccionado de direcciones IP o intervalos de direcciones IP. Para obtener instrucciones paso a paso, consulte [Configuración del firewall de IP](configure-firewall.md).
 
-Puede configurar puntos de conexión privados para restringir el acceso solo desde redes virtuales seleccionadas. Para obtener instrucciones paso a paso, consulte [Configuración de puntos de conexión privados](configure-private-endpoints.md).
+Puede configurar puntos de conexión privados para restringir el acceso solo desde redes virtuales seleccionadas. Para obtener instrucciones detalladas, consulte [Configuración de puntos de conexión privados](configure-private-endpoints.md).
+
+Para solucionar problemas de conectividad de red, consulte [Solucionar problemas de conectividad de red](troubleshoot-network-connectivity.md).

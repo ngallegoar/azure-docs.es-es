@@ -4,12 +4,12 @@ description: Aprenda a llamar orquestaciones desde otras orquestaciones en la ex
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d4d599063f727510cbf504ea3d121bdabfe001c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5625bc2ddfa4b6f527ca16f19f33d257a1834d4b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76261524"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340815"
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Suborquestaciones en Durable Functions (Azure Functions)
 
@@ -18,6 +18,10 @@ Además de llamar a funciones de actividad, las funciones de orquestador pueden 
 Una función de orquestador puede llamar a otra función de orquestador con los métodos `CallSubOrchestratorAsync` o `CallSubOrchestratorWithRetryAsync` en .NET o los métodos `callSubOrchestrator` o `callSubOrchestratorWithRetry` en JavaScript. En el artículo [Control de errores y compensación](durable-functions-error-handling.md#automatic-retry-on-failure) se ofrece más información sobre los reintentos automáticos.
 
 Las funciones de suborquestador se comportan como funciones de actividad desde la perspectiva del llamador. Pueden devolver un valor, producir una excepción y ser esperadas por la función de orquestador primaria. 
+
+> [!NOTE]
+> Actualmente, las suborquestaciones se admiten en .NET y JavaScript.
+
 ## <a name="example"></a>Ejemplo
 
 En el ejemplo siguiente se muestra un escenario de IoT ("Internet de las cosas") donde hay varios dispositivos que deben aprovisionarse. La siguiente función representa el flujo de trabajo de aprovisionamiento que se hay que ejecutar para cada dispositivo:

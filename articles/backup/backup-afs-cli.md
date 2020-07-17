@@ -3,12 +3,12 @@ title: Copia de seguridad de recursos compartidos de archivos de Azure con la CL
 description: Aprenda a usar la CLI de Azure para realizar copias de seguridad de recursos compartidos de archivos de Azure en el almacén de Recovery Services
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: ff1d8c6245521d2d0262b0440177d65713058742
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ee83d4df5a857f0ae5b554514ecda0c257a829ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76844048"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85391101"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Copia de seguridad de recursos compartidos de archivos de Azure con la CLI
 
@@ -42,7 +42,7 @@ Siga estos pasos para crear un almacén de Recovery Services.
     eastus      AzureFiles
     ```
 
-2. Use el cmdlet [az backup vault create](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-create) para crear el almacén. Especifique para el almacén la misma ubicación del grupo de recursos.
+1. Use el cmdlet [az backup vault create](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-create) para crear el almacén. Especifique para el almacén la misma ubicación del grupo de recursos.
 
     En el ejemplo siguiente se crea un almacén de Recovery Services denominado *azurefilesvault* en la región Este de EE. UU.
 
@@ -54,28 +54,6 @@ Siga estos pasos para crear un almacén de Recovery Services.
     Location    Name                ResourceGroup
     ----------  ----------------    ---------------
     eastus      azurefilesvault     azurefiles
-    ```
-
-3. Especifique el tipo de redundancia para el almacenamiento. Puede usar [almacenamiento con redundancia local](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs) o [almacenamiento con redundancia geográfica](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
-
-    En el ejemplo siguiente se establece la opción de redundancia de almacenamiento para *azurefilesvault* en **Georedundant** mediante el cmdlet [az backup vault backup-properties set](https://docs.microsoft.com/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set).
-
-    ```azurecli-interactive
-    az backup vault backup-properties set --name azurefilesvault --resource-group azurefiles --backup-storage-redundancy Georedundant
-    ```
-
-    Para comprobar si el almacén se ha creado correctamente, puede usar el cmdlet [az backup vault show](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-show) para obtener los detalles del almacén. En el ejemplo siguiente se muestran los detalles del almacén *azurefilesvault* creado en los pasos anteriores.
-
-    ```azurecli-interactive
-    az backup vault show --name azurefilesvault --resource-group azurefiles --output table
-    ```
-
-    El resultado será similar a la respuesta siguiente:
-
-    ```output
-    Location     Name               ResourceGroup
-    ----------   ---------------    ---------------
-    eastus       azurefilesvault    azurefiles
     ```
 
 ## <a name="enable-backup-for-azure-file-shares"></a>Habilitación de la copia de seguridad de los recursos compartidos de archivos de Azure

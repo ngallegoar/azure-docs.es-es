@@ -7,19 +7,19 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: bdb510113a8d65ac04b54e77158f46d03cccd9de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/17/2020
+ms.openlocfilehash: 27fbc669a81364bcb71160200504d61502169eae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72791923"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609357"
 ---
 # <a name="ocr-cognitive-skill"></a>Aptitud cognitiva de OCR
 
 La aptitud de **reconocimiento óptico de caracteres (OCR)** reconoce texto impreso y manuscrito en archivos de imágenes. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) en Cognitive Services. La aptitud de **reconocimiento óptico de caracteres** se asocia a la siguiente funcionalidad:
 
-+ La API ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-optical-character-recognition-api) se usa para idiomas distintos del inglés. 
++ La API ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-api) se usa para idiomas distintos del inglés. 
 + En inglés, se usa la nueva API ["Read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api).
 
 La aptitud de **OCR** extrae texto de los archivos de imagen. Entre otros, estos son los formatos de archivos admitidos:
@@ -34,7 +34,7 @@ La aptitud de **OCR** extrae texto de los archivos de imagen. Entre otros, estos
 > [!NOTE]
 > A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y por la extracción de imágenes como parte de la fase de descifrado de documentos de Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.
 >
-> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Búsqueda cognitiva de Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
+> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Búsqueda cognitiva de Azure](https://azure.microsoft.com/pricing/details/search/).
 
 
 ## <a name="skill-parameters"></a>Parámetros de la aptitud
@@ -43,9 +43,9 @@ Los parámetros distinguen mayúsculas de minúsculas.
 
 | Nombre de parámetro     | Descripción |
 |--------------------|-------------|
-| detectOrientation | Permite la detección automática de la orientación de la imagen. <br/> Valores válidos: true / false.|
-|defaultLanguageCode | <p>  Código de idioma del texto de entrada. Los lenguajes compatibles incluyen: <br/> zh-Hans (chino simplificado) <br/> zh-Hant (chino tradicional) <br/>cs (checo) <br/>da (danés) <br/>nl (neerlandés) <br/>en (inglés) <br/>fi (finés)  <br/>fr (francés) <br/>  de (alemán) <br/>el (griego) <br/> hu (húngaro) <br/> it (italiano) <br/>  ja (japonés) <br/> ko (coreano) <br/> nb (noruego) <br/>   pl (polaco) <br/> pt (portugués) <br/>  ru (ruso) <br/>  es (español) <br/>  sv (sueco) <br/>  tr (turco) <br/> ar (árabe) <br/> ro (rumano) <br/> sr-Cyrl (serbio cirílico) <br/> sr-Latn (serbio latino) <br/>  sk (eslovaco) <br/>  unk (desconocido) <br/><br/> Si el código de idioma no está especificado o es nulo, el idioma que se establezca será "inglés". Si el idioma se establece explícitamente en "unk", el idioma se detectará automáticamente. </p> |
-|lineEnding | Valor que se va a usar entre cada línea detectada. Valores posibles: 'Space','CarriageReturn','LineFeed'.  El valor predeterminado es 'Space' |
+| `detectOrientation`   | Permite la detección automática de la orientación de la imagen. <br/> Valores válidos: true / false.|
+| `defaultLanguageCode` | <p>   Código de idioma del texto de entrada. Los lenguajes compatibles incluyen: <br/> zh-Hans (chino simplificado) <br/> zh-Hant (chino tradicional) <br/>cs (checo) <br/>da (danés) <br/>nl (neerlandés) <br/>en (inglés) <br/>fi (finés)  <br/>fr (francés) <br/>  de (alemán) <br/>el (griego) <br/> hu (húngaro) <br/> it (italiano) <br/>  ja (japonés) <br/> ko (coreano) <br/> nb (noruego) <br/>   pl (polaco) <br/> pt (portugués) <br/>  ru (ruso) <br/>  es (español) <br/>  sv (sueco) <br/>  tr (turco) <br/> ar (árabe) <br/> ro (rumano) <br/> sr-Cyrl (serbio cirílico) <br/> sr-Latn (serbio latino) <br/>  sk (eslovaco) <br/>  unk (desconocido) <br/><br/> Si el código de idioma no está especificado o es nulo, el idioma que se establezca será "inglés". Si el idioma se establece explícitamente en "unk", el idioma se detectará automáticamente. </p> |
+| `lineEnding` | Valor que se va a usar entre cada línea detectada. Valores posibles: "Space", "CarriageReturn", "LineFeed".  El valor predeterminado es "Space". |
 
 Anteriormente, había un parámetro denominado "textExtractionAlgorithm" para especificar si la aptitud debe extraer texto "impreso" o "escrito a mano".  Este parámetro está en desuso y ya no es necesario, porque el algoritmo de Read API más reciente es capaz de extraer ambos tipos de texto a la vez.  Si la definición de la aptitud ya incluye este parámetro, no necesita quitarlo, pero ya no se usará y ambos tipos de texto se extraerán independientemente de su configuración.
 
@@ -53,14 +53,14 @@ Anteriormente, había un parámetro denominado "textExtractionAlgorithm" para es
 
 | Nombre de entrada      | Descripción                                          |
 |---------------|------------------------------------------------------|
-| imagen         | Tipo complejo. Actualmente, solo funciona con el campo "/document/normalized_images", que crea el indexador de Azure Blob cuando ```imageAction``` está establecido en un valor diferente a ```none```. Para obtener más información, consulte este [ejemplo](#sample-output).|
+| `image`         | Tipo complejo. Actualmente, solo funciona con el campo "/document/normalized_images", que crea el indexador de Azure Blob cuando ```imageAction``` está establecido en un valor diferente a ```none```. Para obtener más información, consulte este [ejemplo](#sample-output).|
 
 
 ## <a name="skill-outputs"></a>Salidas de la aptitud
 | Nombre de salida     | Descripción                   |
 |---------------|-------------------------------|
-| text          | Texto sin formato extraído de la imagen.   |
-| layoutText    | Tipo complejo que describe el texto extraído, así como la ubicación donde se encontró.|
+| `text`            | Texto sin formato extraído de la imagen.   |
+| `layoutText`    | Tipo complejo que describe el texto extraído, así como la ubicación donde se encontró.|
 
 
 ## <a name="sample-definition"></a>Definición de ejemplo
@@ -172,18 +172,22 @@ El siguiente conjunto de aptitudes de ejemplo crea un campo *merged_text*. Este 
       "insertPostTag": " ",
       "inputs": [
         {
-          "name":"text", "source": "/document/content"
+          "name":"text",
+          "source": "/document/content"
         },
         {
-          "name": "itemsToInsert", "source": "/document/normalized_images/*/text"
+          "name": "itemsToInsert", 
+          "source": "/document/normalized_images/*/text"
         },
         {
-          "name":"offsets", "source": "/document/normalized_images/*/contentOffset"
+          "name":"offsets", 
+          "source": "/document/normalized_images/*/contentOffset"
         }
       ],
       "outputs": [
         {
-          "name": "mergedText", "targetName" : "merged_text"
+          "name": "mergedText", 
+          "targetName" : "merged_text"
         }
       ]
     }

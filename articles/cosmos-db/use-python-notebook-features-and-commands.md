@@ -3,15 +3,15 @@ title: Uso de los comandos y las características de cuadernos integrados en cua
 description: Aprenda a usar los comandos y las características integrados para realizar operaciones comunes con los cuadernos de Python integrados de Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: a16b95249562db98d9382f8ca56bf4a27beba2fd
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c35c34d5ffe3f3349430f17e71ad8192f4d8256e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743486"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263371"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Uso de los comandos y las características de cuadernos integrados en cuadernos de Python de Azure Cosmos DB (versión preliminar)
 
@@ -23,7 +23,7 @@ Después de habilitar la compatibilidad con el cuaderno en sus cuentas de Azure�
 En una nueva celda de código, inserte y ejecute el código siguiente, reemplazando ``PackageToBeInstalled`` con el paquete de Python que quiera usar.
 ```python
 import sys
-!{sys.executable} -m pip install PackageToBeInstalled –user
+!{sys.executable} -m pip install PackageToBeInstalled --user
 ```
 Este paquete estará disponible en cualquier cuaderno del área de trabajo de la cuenta de Azure Cosmos. 
 
@@ -140,7 +140,7 @@ pd.options.display.max_rows = None
 
 df_cosmos.groupby("Item").size()
 ```
-![Explorador de datos nteract](media/use-notebook-features-and-commands/nteract-built-in-chart.png)
+:::image type="content" source="media/use-notebook-features-and-commands/nteract-built-in-chart.png" alt-text="Explorador de datos nteract":::
 
 ## <a name="use-the-built-in-python-sdk"></a>Uso del SDK de Python integrado
 La versión 4 del [SDK de Python de Azure Cosmos DB para la API de SQL](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos) está instalada e incluida en el entorno del cuaderno para la cuenta de Azure Cosmos.
@@ -200,7 +200,7 @@ primary_key = COSMOS.KEY
 ## <a name="reset-notebooks-workspace"></a>Restablecer el área de trabajo de los cuadernos
 Para restablecer la configuración predeterminada del área de trabajo de los cuadernos, seleccione **Reset Workspace** (Restablecer el área de trabajo) en la barra de comandos. Se quitarán todos los paquetes instalados personalizados y se reiniciará el servidor de Jupyter. Los cuadernos, los archivos y los recursos de Azure Cosmos no se verán afectados.  
 
-![Restablecer el área de trabajo de los cuadernos](media/use-notebook-features-and-commands/reset-workspace.png)
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Restablecer el área de trabajo de los cuadernos":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

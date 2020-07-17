@@ -7,18 +7,18 @@ author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: baf309a93f8ba976cb6511c05ba5032ad07a0fc9
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: e26f2ed498b8bfcf6b1518ea34815efb75a8eabe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83874052"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392461"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Incorporación de asignaciones de roles mediante plantillas de Azure Resource Manager
 
@@ -66,9 +66,9 @@ objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output ts
 
 ## <a name="add-a-role-assignment"></a>Adición de una asignación de roles
 
-En Azure RBAC, para conceder acceso es preciso agregar una asignación de roles.
+En Azure RBAC, para conceder acceso es preciso agregar una asignación de roles.
 
-### <a name="resource-group-without-parameters"></a>Grupo de recursos (sin parámetros)
+### <a name="resource-group-scope-without-parameters"></a>Ámbito del grupo de recursos (sin parámetros)
 
 La plantilla siguiente muestra una manera básica de agregar una asignación de roles. Algunos valores se especifican en la plantilla. La plantilla siguiente muestra:
 
@@ -111,7 +111,7 @@ A continuación se muestra un ejemplo de la asignación del rol de lector a un u
 
 ![Asignación de roles en el ámbito de un grupo de recursos](./media/role-assignments-template/role-assignment-template.png)
 
-### <a name="resource-group-or-subscription"></a>Grupo de recursos o suscripción
+### <a name="resource-group-or-subscription-scope"></a>Ámbito del grupo de recursos o suscripción
 
 La plantilla anterior no es muy flexible. La siguiente plantilla usa parámetros y se puede emplear en distintos ámbitos. La plantilla siguiente muestra:
 
@@ -195,7 +195,7 @@ New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $
 az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
-### <a name="resource"></a>Resource
+### <a name="resource-scope"></a>Ámbito de recursos
 
 Si necesita agregar una asignación de roles en el nivel de un recurso, el formato de la asignación de roles es diferente. Proporcione el espacio de nombres del proveedor de recursos y el tipo de recurso del recurso al que se va a asignar el rol. Incluya también el nombre del recurso en el nombre de la asignación de roles.
 

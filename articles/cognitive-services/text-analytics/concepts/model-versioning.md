@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 04/21/2020
 ms.author: aahi
-ms.openlocfilehash: 9431ff862dd987a1a806087053014e7c880bf801
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: c9c598d385768e604d9b42e3ea055629e6ae2866
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84143261"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108556"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>Control de versiones de modelos en Text Analytics API
 
@@ -37,6 +37,19 @@ Use la tabla siguiente para averiguar qué versiones del modelo son compatibles 
 
 
 Encontrará más detalles sobre las actualizaciones de estos modelos en [Novedades](../whats-new.md).
+
+## <a name="text-analytics-for-health"></a>Text Analytics for Health
+
+El contenedor de [Text Analytics for Health](../how-tos/text-analytics-for-health.md) usa versiones de modelo independientes de los puntos de conexión de API anteriores.  Tenga en cuenta que solo hay una versión de modelo disponible por cada imagen de contenedor.
+
+| Punto de conexión                        | Etiqueta de la imagen de contenedor                     | Versión del modelo |
+|---------------------------------|-----------------------------------------|---------------|
+| `/domains/health`               | `1.1.012640001-amd64-preview` o más reciente | `2020-05-08`  |
+| `/domains/health`               | `1.1.012420001-amd64-preview`           | `2020-05-08`  |
+| `/domains/health`               | `1.1.012070001-amd64-preview`           | `2020-04-16`  |
+
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

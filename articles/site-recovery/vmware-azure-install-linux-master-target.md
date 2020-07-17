@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 9ab4db53086046ff831fe91d003599841aa8148c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 281743268364b0e9d39c7bea28afc17d753db2f6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83829790"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130151"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalación de un servidor de destino maestro de Linux para la conmutación por recuperación
 Después de conmutar por error las máquinas virtuales a Azure, puede conmutarlas por recuperación en el sitio local. Para ello, debe volver a proteger la máquina virtual de Azure en el sitio local. Para realizar este proceso, necesitará un servidor de destino maestro local que reciba el tráfico. 
@@ -27,7 +27,7 @@ Si la máquina virtual protegida es una máquina virtual Windows, necesitará un
 ## <a name="overview"></a>Información general
 En este artículo se proporcionan instrucciones para instalar un destino maestro Linux.
 
-Publique cualquier comentario o pregunta que tenga al final del artículo, o bien en la [Página de preguntas y respuestas de Microsoft sobre Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
+Publique cualquier comentario o pregunta que tenga al final del artículo, o bien en la [Página de preguntas y respuestas de Microsoft sobre Azure Recovery Services](/answers/topics/azure-site-recovery.html).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -37,6 +37,9 @@ Publique cualquier comentario o pregunta que tenga al final del artículo, o bie
 * El destino maestro debe estar en una red que pueda comunicarse con el servidor de procesos y el servidor de configuración.
 * La versión del destino maestro debe ser igual o anterior a las versiones del servidor de procesos y el servidor de configuración. Por ejemplo, si la versión del servidor de configuración es 9.4, la versión del destino maestro puede ser 9.4 o 9.3, pero no 9.5.
 * El destino maestro solo puede ser una máquina virtual de VMware y no un servidor físico.
+
+> [!NOTE]
+> Asegúrese de no activar Storage vMotion en ningún componente de administración como, por ejemplo, un destino maestro. Si el destino maestro se mueve después de un reprotección correcta, no se pueden desasociar los discos de máquina virtual (VMDK). En este caso se produce un error en la conmutación por recuperación.
 
 ## <a name="sizing-guidelines-for-creating-master-target-server"></a>Directrices de ajuste de tamaño para la creación del servidor de destino maestro
 
@@ -274,16 +277,22 @@ Use los pasos siguientes para crear un disco de retención:
 > [!NOTE]
 > Antes de instalar el servidor de destino maestro, compruebe que el archivo **/etc/hosts** de la máquina virtual contiene entradas que asignan el nombre de host local a las direcciones IP asociadas a todos los adaptadores de red.
 
-1. Copie la frase de contraseña de **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase** en el servidor de configuración. Luego guarde como **passphrase.txt** en el mismo directorio local al ejecutar el comando siguiente:
+1. Ejecute el siguiente comando para instalar el destino maestro.
+
+    ```
+    ./install -q -d /usr/local/ASR -r MT -v VmWare
+    ```
+
+2. Copie la frase de contraseña de **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase** en el servidor de configuración. Luego guarde como **passphrase.txt** en el mismo directorio local al ejecutar el comando siguiente:
 
     `echo <passphrase> >passphrase.txt`
 
     Ejemplo: 
 
-       `echo itUx70I47uxDuUVY >passphrase.txt`
+    `echo itUx70I47uxDuUVY >passphrase.txt`
     
 
-2. Anote la dirección IP del servidor de configuración. Ejecute el siguiente comando para instalar el servidor de destino maestro y registre el servidor con el servidor de configuración.
+3. Anote la dirección IP del servidor de configuración. Ejecute el siguiente comando para registrar el servidor con el servidor de configuración.
 
     ```
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
@@ -314,16 +323,10 @@ Una vez finalizada la instalación, registre el servidor de configuración media
 
 1. Anote la dirección IP del servidor de configuración. La necesitará en el paso siguiente.
 
-2. Ejecute el siguiente comando para instalar el servidor de destino maestro y registre el servidor con el servidor de configuración.
+2. Ejecute el siguiente comando para registrar el servidor con el servidor de configuración.
 
     ```
-    ./install -q -d /usr/local/ASR -r MT -v VmWare
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
-    ```
-    Ejemplo: 
-
-    ```
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh
     ```
 
      Espere a que finalice el script. Si el destino maestro se ha registrado correctamente, aparece en la página **Infraestructura de Site Recovery** del portal.
@@ -348,9 +351,13 @@ Verá que el campo **Versión** indica el número de versión del destino maestr
 
 * La máquina de destino maestro no debe contener ninguna instantánea en la máquina virtual. Si hay instantáneas, se produce un error en la conmutación por recuperación.
 
-* Debido a ciertas configuraciones de NIC personalizadas, la interfaz de red está deshabilitada durante el inicio, por lo que el agente del destino maestro no se puede inicializar. Asegúrese de que se han definido correctamente las siguientes propiedades. Compruebe estas propiedades en /etc/sysconfig/network-scripts/ifcfg-eth* del archivo de la tarjeta Ethernet.
-    * BOOTPROTO=dhcp
-    * ONBOOT=yes
+* Debido a ciertas configuraciones de NIC personalizadas, la interfaz de red está deshabilitada durante el inicio, por lo que el agente del destino maestro no se puede inicializar. Asegúrese de que se han definido correctamente las siguientes propiedades. Compruebe estas propiedades en /etc/network/interfaces del archivo de la tarjeta Ethernet.
+    * auto eth0
+    * iface eth0 inet dhcp <br>
+
+    Reinicie el servicio de redes con el comando siguiente: <br>
+
+`sudo systemctl restart networking`
 
 
 ## <a name="next-steps"></a>Pasos siguientes

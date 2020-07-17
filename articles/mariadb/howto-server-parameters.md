@@ -4,20 +4,20 @@ description: En este artículo se explica cómo configurar los parámetros del s
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
-ms.date: 4/16/2020
-ms.openlocfilehash: f39e9450fb922e5b93d7b4b809df73cf5ab007c1
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.topic: how-to
+ms.date: 6/11/2020
+ms.openlocfilehash: 53ba3c71679ebda1e8e2bf0a59a6ef69d051df4f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81602407"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120422"
 ---
-# <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Configuración de parámetros del servidor en Azure Database for MariaDB mediante Azure Portal
+# <a name="configure-server-parameters-in-azure-database-for-mariadb-using-the-azure-portal"></a>Configuración de parámetros del servidor en Azure Database for MariaDB mediante Azure Portal.
 
 Azure Database for MariaDB admite la configuración de algunos parámetros del servidor. En este artículo se explica cómo configurar estos parámetros mediante Azure Portal. No es posible ajustar todos los parámetros del servidor.
 
-## <a name="navigate-to-server-parameters-on-azure-portal"></a>Ir a Parámetros del servidor de Azure Portal
+## <a name="configure-server-parameters"></a>Configuración de parámetros del servidor
 
 1. Inicie sesión en Azure Portal y luego localice su servidor de Azure Database for MariaDB.
 2. En la sección **CONFIGURACIÓN**, haga clic en **Parámetros del servidor** para abrir la página Parámetros del servidor de Azure Database for MariaDB.
@@ -29,41 +29,16 @@ Azure Database for MariaDB admite la configuración de algunos parámetros del s
 5. Si ha guardado los nuevos valores para los parámetros, siempre puede revertir todos los elementos a los valores predeterminados; para ello, seleccione **Restablecer todos los valores predeterminados**.
 ![Restablecer todos los valores predeterminados](./media/howto-server-parameters/5-reset_parameters.png)
 
-## <a name="list-of-configurable-server-parameters"></a>Lista de parámetros configurables del servidor
+## <a name="setting-parameters-not-listed"></a>Ajustar parámetros que no aparecen en la lista
 
-La lista de parámetros del servidor admitidos crece constantemente. Use la pestaña Parámetros del servidor en Azure Portal para obtener la definición y configurar parámetros del servidor basados en los requisitos de la aplicación.
+Si el parámetro de servidor que desea actualizar no aparece en Azure Portal, también puede establecer el parámetro en el nivel de conexión mediante `init_connect`. De este modo se establecen los parámetros del servidor para cada cliente con conexión al servidor. 
 
-## <a name="non-configurable-server-parameters"></a>Parámetros no configurables del servidor
+1. En la sección **CONFIGURACIÓN**, haga clic en **Parámetros del servidor** para abrir la página Parámetros del servidor de Azure Database for MariaDB.
+2. Busque `init_connect`.
+3. Agregue los parámetros del servidor con el formato: `SET parameter_name=YOUR_DESIRED_VALUE` en valor la columna de valor.
 
-El grupo de búferes de InnoDB y el número máximo de conexiones no son configurables y están vinculados a su [plan de tarifa](concepts-pricing-tiers.md).
-
-|**Plan de tarifa**| **Núcleos virtuales**|**Grupo de búferes InnoDB (MB)**|
-|---|---|---|
-|Básica| 1| 1024|
-|Básica| 2| 2560|
-|Uso general| 2| 3584|
-|Uso general| 4| 7680|
-|Uso general| 8| 15360|
-|Uso general| 16| 31232|
-|Uso general| 32| 62976|
-|Uso general| 64| 125952|
-|Memoria optimizada| 2| 7168|
-|Memoria optimizada| 4| 15360|
-|Memoria optimizada| 8| 30720|
-|Memoria optimizada| 16| 62464|
-|Memoria optimizada| 32| 125952|
-
-Estos parámetros adicionales del servidor no son configurables en el sistema:
-
-|**Parámetro**|**Valor fijo**|
-| :------------------------ | :-------- |
-|innodb_file_per_table en el nivel básico|Apagado|
-|innodb_flush_log_at_trx_commit|1|
-|sync_binlog|1|
-|innodb_log_file_size|256 MB|
-|innodb_log_files_in_group|2|
-
-Los demás parámetros del servidor que no aparecen aquí se establecen en sus valores predeterminados de MariaDB para [MariaDB](https://mariadb.com/kb/en/library/xtradbinnodb-server-system-variables/).
+    Por ejemplo, puede cambiar el conjunto de caracteres del servidor estableciendo `init_connect` en `SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;`.
+4. Haga clic en **Guardar** para guardar los cambios.
 
 ## <a name="working-with-the-time-zone-parameter"></a>Trabajo con el parámetro de zona horaria
 
@@ -102,8 +77,6 @@ SET time_zone = 'US/Pacific';
 
 Consulte en la documentación de MariaDB las [Funciones de fecha y hora](https://mariadb.com/kb/en/library/convert_tz/).
 
-<!--
-## Next steps
+## <a name="next-steps"></a>Pasos siguientes
 
-- [Connection libraries for Azure Database for MariaDB](concepts-connection-libraries.md).
--->
+- Obtenga más información sobre los [parámetros del servidor](concepts-server-parameters.md).

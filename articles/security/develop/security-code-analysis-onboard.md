@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 5b7e36c12dab65f4bcc6c05a1ee902301c402d5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a7fab9515051180fdb1b894602478768a60177ef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147682"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362064"
 ---
 # <a name="onboarding-and-installing"></a>Incorporación e instalación
 
@@ -48,8 +48,9 @@ Si cumple las cualificaciones anteriores, póngase en contacto con un asociado d
 
 >**Asociados:**
 
-- Zonas - Información de contacto cloudsupport@zones.com
+- Zones - Información de contacto: cloudsupport@zones.com
 - Wortell - Información de contacto: info@wortell.nl
+- Logicalis – Información de contacto: Matthew.Curtis@us.logicalis.com 
 
 ### <a name="become-a-partner"></a>Convertirse en asociado
 

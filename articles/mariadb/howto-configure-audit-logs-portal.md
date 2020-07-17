@@ -4,29 +4,29 @@ description: En este artículo se describe cómo configurar los registros de aud
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
-ms.date: 4/13/2020
-ms.openlocfilehash: 506bf076c955beb5c5e57811bbdb42bfedb8cbe3
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.topic: how-to
+ms.date: 6/24/2020
+ms.openlocfilehash: 30ca62305c325943e17ee574873cfbbbaee97f77
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382964"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113044"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Configuración y acceso a los registros de auditoría en Azure Portal
 
 Puede configurar los [registros de auditoría de Azure Database for MariaDB](concepts-audit-logs.md) y realizar un diagnóstico de la configuración desde Azure Portal.
 
-> [!IMPORTANT]
-> La funcionalidad del registro de auditoría se encuentra actualmente en versión preliminar.
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para seguir esta guía, necesitará:
 
 - [Servidor de Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md)
 
 ## <a name="configure-audit-logging"></a>Configuración del registro de auditoría
+
+>[!IMPORTANT]
+> Se recomienda registrar solo los tipos de evento y los usuarios necesarios con fines de auditoría para asegurarse de que el rendimiento del servidor no se ve afectado en gran medida.
 
 Habilite y configure el registro de auditoría.
 

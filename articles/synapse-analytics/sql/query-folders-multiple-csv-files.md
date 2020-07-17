@@ -1,22 +1,22 @@
 ---
-title: Consulta de carpetas y varios archivos CSV mediante SQL a petición (versión preliminar)
+title: Consulta de carpetas y varios archivos por medio de SQL a petición (versión preliminar)
 description: SQL a petición (versión preliminar) admite la lectura de varios archivos o carpetas mediante caracteres comodín, que son similares a los caracteres comodín usados en el sistema operativo Windows.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: cb136fa9a3dc63144d26820b7170250b3598ba77
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 6c61bd420121800ade48de88cbcaadf37343262d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235424"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207638"
 ---
-# <a name="query-folders-and-multiple-csv-files"></a>Consulta de carpetas y varios archivos CSV  
+# <a name="query-folders-and-multiple-files"></a>Consulta de carpetas y varios archivos  
 
 En este artículo, aprenderá a escribir una consulta con SQL a petición (versión preliminar) en Azure Synapse Analytics.
 
