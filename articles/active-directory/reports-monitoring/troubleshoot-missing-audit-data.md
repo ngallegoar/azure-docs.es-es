@@ -9,7 +9,7 @@ editor: ''
 ms.assetid: 7cbe4337-bb77-4ee0-b254-3e368be06db7
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -17,12 +17,12 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c335a4d30846f7c1b4dbd6b6aedc4d100a9b43a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e1ac0033b7ed2de90ece481cd02d64970ff5f9f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74014282"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608116"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Solución de problemas: Faltan datos en los registros de actividad de Azure Active Directory 
 
@@ -38,12 +38,12 @@ Realice algunas acciones en Azure Portal y esperaba ver los registros de auditor
 
 Las acciones no aparecen inmediatamente en los registro de actividad. En la tabla siguiente se enumeran el tiempo de latencia de los registros de actividad. 
 
-| Informe | &nbsp; | Latencia (P95) | Latencia (P99) |
-|--------|--------|---------------|---------------|
-| Auditoría de directorio | &nbsp; | 2 minutos | 5 minutos |
-| Actividad de inicio de sesión | &nbsp; | 2 minutos | 5 minutos | 
+| Informe | Latencia (P95) | Latencia (P99) |
+|--------|---------------|---------------|
+| Auditoría de directorio | 2 minutos | 5 minutos |
+| Actividad de inicio de sesión | 2 minutos | 5 minutos |
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Espere entre 15 minutos y dos horas para ver si las acciones aparecen en el registro. Si no ve los registros incluso después de dos horas, [cree una incidencia de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) y la examinaremos.
 
@@ -59,12 +59,12 @@ Hace poco he iniciado sesión en Azure Portal y esperaba ver los registros de in
 
 Las acciones no aparecen inmediatamente en los registro de actividad. En la tabla siguiente se enumeran el tiempo de latencia de los registros de actividad. 
 
-| Informe | &nbsp; | Latencia (P95) | Latencia (P99) |
-|--------|--------|---------------|---------------|
-| Auditoría de directorio | &nbsp; | 2 minutos | 5 minutos |
-| Actividad de inicio de sesión | &nbsp; | 2 minutos | 5 minutos | 
+| Informe | Latencia (P95) | Latencia (P99) |
+|--------|---------------|---------------|
+| Auditoría de directorio | 2 minutos | 5 minutos |
+| Actividad de inicio de sesión 2 minutos | 5 minutos |
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Espere entre 15 minutos y dos horas para ver si las acciones aparecen en el registro. Si no ve los registros incluso después de dos horas, [cree una incidencia de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) y la examinaremos.
 
@@ -80,14 +80,14 @@ No puedo ver más de 30 días de datos de inicio de sesión y auditoría en Azur
 
 En función de su licencia, las acciones de Azure Active Directory almacenan los informes de actividad durante el siguiente tiempo:
 
-| Informe           | &nbsp; |  Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
-| ---              | ----   |  ---           | ---                 | ---                 |
-| Auditoría de directorio  | &nbsp; |   7 días     | 30 días             | 30 días             |
-| Actividad de inicio de sesión | &nbsp; | No disponible. Puede acceder a sus propios inicios de sesión durante 7 días en la hoja del perfil de usuario individual. | 30 días | 30 días             |
+| Informe           | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| ---              | ---           | ---                 | ---                 |
+| Auditoría de directorio  |  7 días       | 30 días             | 30 días             |
+| Actividad de inicio de sesión | No disponible. Puede acceder a sus propios inicios de sesión durante 7 días en la hoja del perfil de usuario individual. | 30 días | 30 días             |
 
 Para más información, consulte [Directivas de retención de informes de Azure Active Directory](reference-reports-data-retention.md).  
 
-### <a name="resolution"></a>Solución
+### <a name="resolution"></a>Resolución
 
 Tiene dos opciones para conservar los datos durante más de 30 días. Puede usar las [API de generación de informes de Azure AD](concept-reporting-api.md) para recuperar los datos mediante programación y almacenarlos en una base de datos. Como alternativa, puede integrar los registros de auditoría en un sistema SIEM de terceros como Splunk o SumoLogic.
 

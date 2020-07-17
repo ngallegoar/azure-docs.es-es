@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 143410f0bf0659161427f4b5391124f53f712972
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 218ec6a5beab32729e106a7397d58ebaa2a30123
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612000"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086932"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Preguntas frecuentes sobre la sesión múltiple de Windows 10 Enterprise
 
@@ -53,7 +53,7 @@ Actualmente, se admite unir la sesión múltiple de Windows 10 Enterprise a Az
  
 ## <a name="where-can-i-find-the-windows-10-enterprise-multi-session-image"></a>¿Dónde se puede encontrar la imagen de la sesión múltiple de Windows 10 Enterprise?
 
-La sesión múltiple de Windows 10 Enterprise se encuentra en la galería de Azure. Para encontrarla, vaya a Azure Portal y busque la versión Windows 10 Enterprise para escritorios virtuales. Para obtener una imagen integrada con Office Pro Plus, vaya a Azure Portal y busque Microsoft Windows 10 + Office 365 ProPlus.
+La sesión múltiple de Windows 10 Enterprise se encuentra en la galería de Azure. Para encontrarla, vaya a Azure Portal y busque la versión Windows 10 Enterprise para escritorios virtuales. En el caso de una imagen integrada con aplicaciones de Microsoft 365 para empresas, vaya al Azure Portal y busque **Microsoft Windows 10 + Aplicaciones de Microsoft 365 para empresas**.
 
 ## <a name="which-windows-10-enterprise-multi-session-image-should-i-use"></a>¿Qué imagen de sesión múltiple de Windows 10 Enterprise debo usar?
 
@@ -61,7 +61,7 @@ La galería de Azure tiene varias versiones, entre las que se incluyen la sesió
  
 ## <a name="which-windows-10-enterprise-multi-session-versions-are-supported"></a>¿Qué versiones de sesión múltiple de Windows 10 Enterprise se admiten?
 
-Se admiten la versión 1809 y versiones posteriores de la sesión múltiple de Windows 10 Enterprise, y están disponibles en la galería de Azure. Estas versiones siguen la misma directiva de ciclo de vida de compatibilidad que Windows 10 Enterprise, lo que significa que la versión de primavera es compatible durante 18 meses y la versión de otoño durante 30 meses.
+Se admiten la versión 1809 y versiones posteriores de la sesión múltiple de Windows 10 Enterprise, y están disponibles en la galería de Azure. Estas versiones siguen la misma directiva de ciclo de vida de compatibilidad que Windows 10 Enterprise, lo que significa que la versión de marzo es compatible durante 18 meses y la versión de septiembre, durante 30 meses.
  
 ## <a name="which-profile-management-solution-should-i-use-for-windows-10-enterprise-multi-session"></a>¿Qué solución de administración de perfiles debo usar para la sesión múltiple de Windows 10 Enterprise?
 

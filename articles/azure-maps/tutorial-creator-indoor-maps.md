@@ -3,17 +3,17 @@ title: Uso de Creator para crear planos interiores
 description: Use Azure Maps Creator para crear planos interiores.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 06/17/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4d150135e15fb167a9c2d56c74e7bc4fc91c0953
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c3c34ea9e32e100d5756a3930ce9d0147363e379
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745935"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027876"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Uso de Creator para crear planos interiores
 
@@ -28,7 +28,7 @@ En este tutorial verá cómo crear planos interiores. En este tutorial, aprender
 > * Crear un conjunto de estados de características mediante las características del plano y los datos del conjunto de datos.
 > * Actualizar el conjunto de estados de características.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para crear planos interiores:
 
@@ -38,6 +38,9 @@ Para crear planos interiores:
 4. Descargue el [paquete de dibujo de ejemplo](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 En este tutorial se usa la aplicación [Postman](https://www.postman.com/), pero puede elegir un entorno de desarrollo de API diferente.
+
+>[!IMPORTANT]
+> Es posible que las direcciones URL de la API de este documento tengan que ajustarse según la ubicación del recurso del Creador. Para más información, consulte [Acceso a Servicios del creador](how-to-manage-creator.md#access-to-creator-services).
 
 ## <a name="upload-a-drawing-package"></a>Carga de un paquete de dibujo
 
@@ -61,25 +64,30 @@ Data Upload API es una transacción de larga duración que implementa el patrón
 
 5. Haga clic en el botón azul **Send** (Enviar) y espere a que se procese la solicitud. Una vez finalizada la solicitud, vaya a la pestaña **Headers** (Encabezados) de la respuesta. Copie el valor de la clave **Location** (Ubicación), que es `status URL`.
 
-6. Para comprobar el estado de la llamada de API, cree una solicitud HTTP GET en el elemento `status URL`. Tendrá que anexar la clave de suscripción principal a la dirección URL para realizar la autenticación.
+6. Para comprobar el estado de la llamada de API, cree una solicitud HTTP **GET** en el elemento `status URL`. Tendrá que anexar la clave de suscripción principal a la dirección URL para realizar la autenticación. La solicitud **GET** debe ser como la siguiente dirección URL:
 
     ```http
-    https://atlas.microsoft.com/mapData/operations/{operationsId}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/mapData/operations/{operationId}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-7. Cuando la solicitud HTTP **GET** se complete correctamente, puede usar la dirección URL `resourceLocation` para recuperar los metadatos de este recurso en el paso siguiente.
+7. Cuando a solicitud HTTP **GET** se completa correctamente, devolverá una `resourceLocation`. El `resourceLocation` contiene el `udid` único para el contenido cargado. Opcionalmente, puede usar la dirección URL del `resourceLocation` para recuperar los metadatos de este recurso en el siguiente paso.
 
     ```json
     {
-        "operationId": "{operationId}",
         "status": "Succeeded",
-        "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{upload-udid}?api-version=1.0"
+        "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0"
     }
     ```
 
-8. Para recuperar los metadatos de contenido, cree una solicitud HTTP **GET** en la dirección URL `resourceLocation` que copió en el paso 7. El cuerpo de la respuesta contiene un valor `udid` único para el contenido cargado, la ubicación para acceder al contenido y descargarlo y otros metadatos sobre el contenido, como la fecha de creación o actualización, el tamaño, etc. Un ejemplo de la respuesta general es:
+8. Para recuperar metadatos de contenido, cree una solicitud HTTP **GET** en la dirección URL `resourceLocation` que se recuperó en el paso 7. Asegúrese de anexar la clave de suscripción principal a la dirección URL para la autenticación. La solicitud **GET** debe ser como la siguiente dirección URL:
 
-     ```json
+    ```http
+   https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    ```
+
+9. Cuando la solicitud HTTP **GET** se completa correctamente, el cuerpo de la respuesta contendrá el `udid` especificado en el `resourceLocation` del paso 7, la ubicación para obtener acceso o descargar el contenido en el futuro y otros metadatos sobre el contenido, como la fecha de creación o actualización, el tamaño, etc. Un ejemplo de la respuesta general es:
+
+    ```json
     {
         "udid": "{udid}",
         "location": "https://atlas.microsoft.com/mapData/{udid}?api-version=1.0",
@@ -99,8 +107,10 @@ Data Upload API es una transacción de larga duración que implementa el patrón
 2. Seleccione el método HTTP **POST** en la pestaña del generador y escriba la siguiente dirección URL para convertir el paquete de dibujo cargado en los datos del plano. Use el valor `udid` en el paquete cargado.
 
     ```http
-    https://atlas.microsoft.com/conversion/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={upload-udid}&inputType=DWG
+    https://atlas.microsoft.com/conversion/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={udid}&inputType=DWG
     ```
+    >[!IMPORTANT]
+    > Es posible que las direcciones URL de la API de este documento tengan que ajustarse según la ubicación del recurso del Creador. Para más información, consulte [Acceso a Servicios del creador](how-to-manage-creator.md#access-to-creator-services).
 
 3. Haga clic en el botón **Send** (Enviar) y espere a que se procese la solicitud. Una vez finalizada la solicitud, vaya a la pestaña **Headers** (Encabezados) de la respuesta y busque la clave **Location** (Ubicación). Copie el valor de la clave **Location** (Ubicación), que es `status URL` en la solicitud de conversión.
 
@@ -160,7 +170,7 @@ Un conjunto de datos es una colección de características de plano, como edific
 4. Realice una solicitud **GET** en `statusURL` para obtener el valor de `datasetId`. Anexe la clave de suscripción principal de Azure Maps para realizar la autenticación. La solicitud debe tener un aspecto similar a la siguiente dirección URL:
 
     ```http
-    https://atlas.microsoft.com/dataset/operations/{operationsId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/dataset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
 5. Cuando la solicitud HTTP **GET** se completa correctamente, el encabezado de respuesta contendrá el valor `datasetId` del conjunto de datos creado. Copie el valor de `datasetId`. Deberá usar `datasetId` para crear un conjunto de mosaicos.
@@ -189,7 +199,7 @@ Un conjunto de mosaicos es un conjunto de mosaicos vectoriales que se representa
 3. Realice una solicitud **GET** en `statusURL` para obtener el conjunto de mosaicos. Anexe la clave de suscripción principal de Azure Maps para realizar la autenticación. La solicitud debe tener un aspecto similar a la siguiente dirección URL:
 
    ```http
-    https://atlas.microsoft.com/tileset/operations/{operationsId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/tileset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
 4. Cuando la solicitud HTTP **GET** se complete correctamente, el encabezado de respuesta contendrá el valor `tilesetId` del conjunto de mosaicos creado. Copie el valor de `tilesetId`.
@@ -421,7 +431,7 @@ Obtenga más información sobre los diferentes servicios de Azure Maps que se de
 > [Conjunto de mosaicos](creator-indoor-maps.md#tilesets)
 
 > [!div class="nextstepaction"]
-> [Conjunto de estados de característica](creator-indoor-maps.md#feature-statesets)
+> [Conjunto de estados de características](creator-indoor-maps.md#feature-statesets)
 
 > [!div class="nextstepaction"]
 > [Servicio WFS](creator-indoor-maps.md#web-feature-service-api)

@@ -3,12 +3,12 @@ title: Planeación de una implementación de clúster de Azure Service Fabric
 description: Obtenga información sobre la planificación y preparación de la implementación de un clúster de producción de Service Fabric.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: ad6a7a6ea9a90bea4a3b6bc553da67a46144dc03
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 462548d7f32a015701ef12e9777e8d9b1b1350f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422277"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610598"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planeamiento y preparación de la implementación de un clúster
 
@@ -28,7 +28,7 @@ En cualquier implementación de producción, la planeación de capacidad es un p
 * Características de confiabilidad y durabilidad del clúster
 
 ### <a name="select-the-initial-number-of-node-types"></a>Selección del número inicial de tipos de nodo
-En primer lugar, debe decidir para qué va a servir el clúster que va a crear. ¿Qué tipos de aplicaciones planea que se van a implementar en este clúster? ¿Tiene la aplicación varios servicios y alguno de ellos ha de ser público o accesible desde Internet? ¿Tienen los servicios (que componen la aplicación) distintos requisitos de infraestructura, como, por ejemplo, una RAM mayor o un número más alto de ciclos de CPU? Un clúster de Service Fabric puede constar de más de un tipo de nodo: un tipo de nodo principal o más tipos de nodo no principales. Cada tipo de nodo se asigna a un conjunto de escalado de máquinas virtuales. Cada tipo de nodo se puede escalar o reducir verticalmente de forma independiente. Cada uno tiene diferentes conjuntos de puertos abiertos y puede tener distintas métricas de capacidad. Se pueden configurar [restricciones de ubicación y propiedades de nodo][placementconstraints] para limitar servicios específicos para tipos de nodo determinados.  Para obtener más información, consulte [Número de tipos de nodo necesarios para el inicio del clúster](service-fabric-cluster-capacity.md#the-number-of-node-types-your-cluster-needs-to-start-out-with).
+En primer lugar, debe decidir para qué va a servir el clúster que va a crear. ¿Qué tipos de aplicaciones planea que se van a implementar en este clúster? ¿Tiene la aplicación varios servicios y alguno de ellos ha de ser público o accesible desde Internet? ¿Tienen los servicios (que componen la aplicación) distintos requisitos de infraestructura, como, por ejemplo, una RAM mayor o un número más alto de ciclos de CPU? Un clúster de Service Fabric puede constar de más de un tipo de nodo: un tipo de nodo principal o más tipos de nodo no principales. Cada tipo de nodo se asigna a un conjunto de escalado de máquinas virtuales. Cada tipo de nodo se puede escalar o reducir verticalmente de forma independiente. Cada uno tiene diferentes conjuntos de puertos abiertos y puede tener distintas métricas de capacidad. Se pueden configurar [restricciones de ubicación y propiedades de nodo][placementconstraints] para limitar servicios específicos para tipos de nodo determinados.  Para más información, consulte [planeamiento de capacidad del clúster de Service Fabric](service-fabric-cluster-capacity.md).
 
 ### <a name="select-node-properties-for-each-node-type"></a>Selección de propiedades de nodo para cada tipo de nodo
 Los tipos de nodo definen la SKU de máquina virtual el número y las propiedades de las máquinas virtuales en el conjunto de escalado asociado.
@@ -37,7 +37,7 @@ El tamaño mínimo de las máquinas virtuales para cada tipo de nodo está deter
 
 El número mínimo de máquinas virtuales del tipo de nodo principal se determina mediante el [nivel de confiabilidad][reliability] que se elija.
 
-Consulte las recomendaciones mínimas para [tipos de nodo principales](service-fabric-cluster-capacity.md#primary-node-type---capacity-guidance), [cargas de trabajo con estado en tipos de nodo no principales](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateful-workloads) y [cargas de trabajo sin estado en tipos de nodo no principales](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateless-workloads).
+Consulte las recomendaciones mínimas para [tipos de nodo principales](service-fabric-cluster-capacity.md#primary-node-type), [cargas de trabajo con estado en tipos de nodo no principales](service-fabric-cluster-capacity.md#stateful-workloads) y [cargas de trabajo sin estado en tipos de nodo no principales](service-fabric-cluster-capacity.md#stateless-workloads).
 
 Los números de nodos superiores al mínimo deben basarse en el número de réplicas de la aplicación o los servicios que desee ejecutar en ese tipo de nodo.  [Planeamiento de capacidad para aplicaciones de Service Fabric](service-fabric-capacity-planning.md) le ayuda a estimar los recursos que necesita para ejecutar las aplicaciones. Siempre puede escalar o reducir verticalmente el clúster más tarde para ajustarlo a una carga de trabajo de aplicaciones cambiante. 
 
@@ -123,5 +123,5 @@ Una parte fundamental de la entrega de alta disponibilidad es garantizar que los
 * [Creación de un clúster de Service Fabric que ejecuta Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 
 [placementconstraints]: service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster

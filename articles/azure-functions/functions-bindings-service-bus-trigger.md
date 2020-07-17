@@ -1,17 +1,18 @@
 ---
-title: Enlaces de Azure Service Bus en Azure Functions
+title: Desencadenador de Azure Service Bus para Azure Functions
 description: Aprenda a ejecutar una función de Azure cuando se crean mensajes de Azure Service Bus.
 author: craigshoemaker
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: b5e7f1b70aca50b4e42d056beb0b17795430091c
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.custom: tracking-python
+ms.openlocfilehash: ee4961c6c1bb8cafe25ec2c84affdf0f1789e9f2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690700"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603033"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Desencadenador de Azure Service Bus para Azure Functions
 
@@ -312,6 +313,7 @@ Los siguientes tipos de parámetro están disponibles para el mensaje de cola o 
 * `byte[]`: útil para datos binarios.
 * Un tipo personalizado: si el mensaje contiene el archivo JSON, Azure Functions intenta deserializar los datos JSON.
 * `BrokeredMessage`: proporciona el mensaje deserializado con el método [BrokeredMessage.GetBody\<T>()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1).
+* [`MessageReceiver`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet): se usa para recibir y confirmar mensajes del contenedor de mensajes (necesario cuando [`autoComplete`](functions-bindings-service-bus-output.md#hostjson-settings) está establecido en `false`).
 
 Estos tipos de parámetro son para la versión 1.x de Azure Functions; para la versión 2.x y versiones posteriores, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) en lugar de `BrokeredMessage`.
 

@@ -1,54 +1,76 @@
 ---
 title: DevOps para una canalización de ingesta de datos
 titleSuffix: Azure Machine Learning
-description: Aprenda a aplicar procedimientos de DevOps a una implementación de canalización de ingesta de datos usada para preparar los datos para el entrenamiento de un modelo.
+description: Obtenga información sobre cómo aplicar procedimientos de DevOps para crear una canalización de ingesta de datos para preparar los datos que se usarán con Azure Machine Learning. La canalización de ingesta usa Azure Data Factory y Azure Databricks. Se usa una instancia de Azure Pipelines para crear un proceso de integración y entrega continuos para la canalización de ingesta.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: iefedore
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
-ms.date: 01/30/2020
-ms.openlocfilehash: d987171d41bd6d80bab4cce91ef9ecec1f0dc7a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/23/2020
+ms.custom: tracking-python
+ms.openlocfilehash: db263150905e59993a875df2f30fcebb8ca8087a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80247187"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261501"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps para una canalización de ingesta de datos
 
-En la mayoría de los escenarios, una solución de ingesta de datos es una composición de scripts e invocaciones de servicio, junto con una canalización que organiza todas las actividades. En este artículo, se aprender a aplicar procedimientos de DevOps al ciclo de vida de desarrollo de una canalización de ingesta de datos común. La canalización prepara los datos para el entrenamiento de modelos de Machine Learning.
+En la mayoría de los escenarios, una solución de ingesta de datos es una composición de scripts e invocaciones de servicio, junto con una canalización que organiza todas las actividades. En este artículo, obtendrá información sobre cómo aplicar procedimientos de DevOps al ciclo de vida de desarrollo de una canalización de ingesta de datos común que prepare los datos para el entrenamiento de un modelo de Machine Learning. La canalización se crea con los siguientes servicios de Azure:
 
-## <a name="the-solution"></a>La solución
+* __Azure Data Factory__: Lee los datos sin procesar y organiza la preparación de datos.
+* __Azure Databricks__: Ejecuta un cuaderno de Python que transforma los datos.
+* __Azure Pipelines__: Automatiza un proceso de desarrollo e integración continua.
 
-Considere el siguiente flujo de trabajo de ingesta de datos:
+## <a name="data-ingestion-pipeline-workflow"></a>Flujo de una canalización de ingesta de datos
 
-![data-ingestion-pipeline](media/how-to-cicd-data-ingestion/data-ingestion-pipeline.png)
+La canalización de ingesta de datos implementa el siguiente flujo de trabajo:
 
-En este enfoque, los datos de entrenamiento se almacenan en Azure Blob Storage. Una canalización de Azure Data Factory captura los datos de un contenedor de blobs de entrada, los transforma y los guarda en el contenedor de blobs de salida. Este contenedor actúa como [almacenamiento de datos](concept-data.md) para Azure Machine Learning Service. Una vez preparados los datos, la canalización de Data Factory invoca una canalización de Machine Learning de entrenamiento para entrenar un modelo. En este ejemplo concreto, un cuaderno de Python, que se ejecuta en un clúster de Azure Databricks, realiza la transformación de datos. 
+1. Una canalización de Azure Data Factory (ADF) lee los datos sin procesar.
+1. La canalización de ADF envía los datos a un clúster de Azure Databricks, que ejecuta un cuaderno de Python para transformar los datos.
+1. Los datos se almacenan en un contenedor de blobs, en el que se puede usar Azure Machine Learning para entrenar un modelo.
 
-## <a name="what-we-are-building"></a>Lo que se va a crear
+![flujo de una canalización de ingesta de datos](media/how-to-cicd-data-ingestion/data-ingestion-pipeline.png)
 
-Al igual que sucede con cualquier solución de software, hay un equipo (por ejemplo, ingenieros de datos) que trabaja en ello. 
+## <a name="continuous-integration-and-delivery-overview"></a>Información general de integración y entrega continuas
 
-![cicd-data-ingestion](media/how-to-cicd-data-ingestion/cicd-data-ingestion.png)
+Al igual que sucede con muchas soluciones de software, hay un equipo (por ejemplo, ingenieros de datos) que trabaja en ello. Sus miembros colaboran y comparten los mismos recursos de Azure, como cuentas de Azure Data Factory, Azure Databricks y Azure Storage. La colección de estos recursos es un entorno de desarrollo. Los ingenieros de datos contribuyen a la misma base de código fuente.
 
-Sus miembros colaboran y comparten los mismos recursos de Azure, como Azure Data Factory, Azure Databricks, la cuenta de Azure Storage, etc. La colección de estos recursos es un entorno de desarrollo. Los ingenieros de datos contribuyen a la misma base de código fuente. En el proceso de integración continua se ensambla el código, se comprueba con las pruebas de calidad del código y las pruebas unitarias y se generan artefactos como código probado y plantillas de Azure Resource Manager. En el proceso de entrega continua se implementan los artefactos en los entornos de bajada. En este artículo se muestra cómo automatizar los procesos de CI y CD con [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/).
+Un sistema de integración y entrega continuas automatiza el proceso de creación, prueba y entrega (implementación) de la solución. El proceso de integración continua (CI) realiza las siguientes tareas:
+
+* Ensambla el código
+* Lo comprueba con las pruebas de calidad del código
+* Ejecuta pruebas unitarias
+* Genera artefactos, como código probado y plantillas de Azure Resource Manager
+
+El proceso de entrega continua (CD) implementa los artefactos en los entornos de bajada.
+
+![diagrama de ingesta de datos de CI/CD](media/how-to-cicd-data-ingestion/cicd-data-ingestion.png)
+
+En este artículo se muestra cómo automatizar los procesos de CI y CD con [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/).
 
 ## <a name="source-control-management"></a>Administración del control de código fuente
 
-Los miembros del equipo tienen formas ligeramente diferente de colaborar en el código fuente del cuaderno de Python y el código fuente de Azure Data Factory. Sin embargo, en ambos casos, el código se almacena en un repositorio de control de código fuente (por ejemplo, Azure DevOps, GitHub, GitLab) y la colaboración se basa normalmente en algún modelo de bifurcación (por ejemplo, [GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html)).
+La administración del control de código fuente es necesaria para realizar un seguimiento de los cambios y permitir la colaboración entre los miembros del equipo.
+Por ejemplo, el código se almacenaría en un repositorio de Azure DevOps, GitHub o GitLab. El flujo de trabajo de colaboración está basado en un modelo de ramificación. Por ejemplo, [GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html).
 
 ### <a name="python-notebook-source-code"></a>Código fuente del cuaderno de Python
 
-Los ingenieros de datos trabajan con el código fuente del cuaderno de Python bien de forma local en un IDE (por ejemplo, [Visual Studio Code](https://code.visualstudio.com)) o directamente en el área de trabajo de Databricks. Este último ofrece la posibilidad de depurar el código en el entorno de desarrollo. En cualquier caso, el código se va a combinar con el repositorio siguiendo una directiva de bifurcación. Se recomienda encarecidamente almacenar el código en archivos `.py` en lugar de `.ipynb`, que es el formato de cuadernos de Jupyter. El motivo es que la legibilidad del código mejora y permite comprobaciones automáticas de calidad del código en el proceso de CI.
+Los ingenieros de datos trabajan con el código fuente del cuaderno de Python bien de forma local en un IDE (por ejemplo, [Visual Studio Code](https://code.visualstudio.com)) o directamente en el área de trabajo de Databricks. Una vez completados los cambios del código, se fusionan mediante combinación siguiendo una directiva de ramificación.
+
+> [!TIP] 
+> Se recomienda almacenar el código en archivos `.py` en lugar de `.ipynb`, que es el formato de los cuadernos de Jupyter. El motivo es que la legibilidad del código mejora y permite comprobaciones automáticas de calidad del código en el proceso de CI.
 
 ### <a name="azure-data-factory-source-code"></a>Código fuente de Azure Data Factory
 
-El código fuente de las canalizaciones de Azure Data Factory es una colección de archivos JSON que se generan en un área de trabajo. Normalmente, los ingenieros de datos trabajan con un diseñador visual en el área de trabajo de Azure Data Factory en lugar de con los archivos de código fuente directamente. Configure el área de trabajo con un repositorio de control de código fuente, como se describe en la [documentación de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/source-control#author-with-azure-repos-git-integration). Con esta configuración realizada, los ingenieros de datos pueden colaborar en el código fuente siguiendo un flujo de trabajo de bifurcación preferido.    
+El código fuente de las canalizaciones de Azure Data Factory es una colección de archivos JSON que genera un área de trabajo de Azure Data Factory. Normalmente, los ingenieros de datos trabajan con un diseñador visual en el área de trabajo de Azure Data Factory en lugar de con los archivos de código fuente directamente. 
+
+Si quiere configurar el área de trabajo para usar un repositorio de control de código fuente, consulte [Creación con la integración de Git de Azure Repos](../data-factory/source-control.md#author-with-azure-repos-git-integration).   
 
 ## <a name="continuous-integration-ci"></a>Integración continua (CI)
 
@@ -84,21 +106,25 @@ steps:
 
 - publish: $(Build.SourcesDirectory)
     artifact: di-notebooks
-
 ```
 
-La canalización usa ***flake8*** para realizar la búsqueda de errores en el código de Python. Se ejecutan las pruebas unitarias definidas en el código fuente y se publican los resultados de las pruebas y la búsqueda de errores para que estén disponibles en la pantalla de ejecución de la canalización de Azure:
+La canalización usa [flake8](https://pypi.org/project/flake8/) para realizar la búsqueda de errores en el código de Python. Se ejecutan las pruebas unitarias definidas en el código fuente y se publican los resultados de las pruebas y la búsqueda de errores para que estén disponibles en la pantalla de ejecución de la canalización de Azure:
 
-![linting-unit-tests](media/how-to-cicd-data-ingestion/linting-unit-tests.png)
+![realización de linting para pruebas unitarias](media/how-to-cicd-data-ingestion/linting-unit-tests.png)
 
 Si las pruebas unitarias y la búsqueda de errores se realizan correctamente, la canalización copia el código fuente en el repositorio de artefactos para usarlo en los pasos posteriores de implementación.
 
 ### <a name="azure-data-factory-ci"></a>CI de Azure Data Factory
 
-El proceso de CI para una canalización Azure Data Factory es un cuello de botella de todo el proceso de CI/CD de una canalización de ingesta de datos. No hay integración ***continua***. Un artefacto implementable para Azure Data Factory es una colección de plantillas de Azure Resource Manager. La única manera de generar esas plantillas es hacer clic en el botón ***Publish*** (Publicar) en el área de trabajo de Azure Data Factory. Aquí no hay automatización.
-Los ingenieros de datos combinan el código fuente de sus ramas de características en la rama de colaboración, por ejemplo, ***maestra*** o ***desarrollo***. Luego, un usuario al que se le han concedido los permisos hace clic en el botón ***Publish*** (Publicar) para generar plantillas de Azure Resource Manager a partir del código fuente de la rama de colaboración. Cuando se hace clic en el botón, el área de trabajo valida las canalizaciones (es decir, se realiza la búsqueda de errores y las pruebas unitarias), genera plantillas de Azure Resource Manager (es decir, se realiza la compilación) y guarda las plantillas generadas en una rama técnica ***adf_publish*** en el mismo repositorio de código (es decir, se publican los artefactos). Esta rama se crea automáticamente en el área de trabajo de Azure Data Factory. Este proceso se describe de manera detallada en la [documentación de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment).
+El proceso de CI para una canalización Azure Data Factory es un cuello de botella para una canalización de ingesta de datos. No hay integración continua. Un artefacto implementable para Azure Data Factory es una colección de plantillas de Azure Resource Manager. La única manera de generar esas plantillas es hacer clic en el botón ***Publish*** (Publicar) en el área de trabajo de Azure Data Factory.
 
-Es importante asegurarse de que las plantillas de Azure Resource Manager generadas sean independientes del entorno. Esto significa que todos los valores que puedan diferir de un entorno a otro se parametrizan. Azure Data Factory es lo suficientemente inteligente como para exponer la mayoría de estos valores como parámetros. Por ejemplo, en la siguiente plantilla las propiedades de conexión a un área de trabajo de Azure Machine Learning se exponen como parámetros:
+1. Los ingenieros de datos combinan el código fuente de sus ramas de características en la rama de colaboración, por ejemplo, ***maestra*** o ***desarrollo***. 
+1. Un usuario al que se le han concedido los permisos hace clic en el botón ***Publicar*** para generar plantillas de Azure Resource Manager a partir del código fuente de la rama de colaboración. 
+1. El área de trabajo valida las canalizaciones (es decir, se realiza el linting y las pruebas unitarias), genera plantillas de Azure Resource Manager (es decir, se realiza la compilación) y guarda las plantillas generadas en una rama técnica ***adf_publish*** en el mismo repositorio de código (es decir, se publican los artefactos). Esta rama se crea automáticamente en el área de trabajo de Azure Data Factory. 
+
+Para obtener más información sobre este proceso, consulte [Integración y entrega continuas en Azure Data Factory](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment).
+
+Es importante asegurarse de que las plantillas de Azure Resource Manager generadas sean independientes del entorno. Esto significa que todos los valores que puedan diferir entre entornos se parametrizan. Azure Data Factory es lo suficientemente inteligente como para exponer la mayoría de estos valores como parámetros. Por ejemplo, en la siguiente plantilla las propiedades de conexión a un área de trabajo de Azure Machine Learning se exponen como parámetros:
 
 ```json
 {
@@ -148,7 +174,7 @@ Las actividades de canalización pueden hacer referencia a las variables de cana
 
 ![adf-notebook-parameters](media/how-to-cicd-data-ingestion/adf-notebook-parameters.png)
 
-El área de trabajo de Azure Data Factory ***no*** expone variables de canalización como parámetros de plantilla de Azure Resource Manager de forma predeterminada. El área de trabajo usa la [plantilla de parametrización predeterminada](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) que dictamina qué propiedades de canalización deben exponerse como parámetros de plantilla de Azure Resource Manager. Para agregar variables de canalización a la lista, actualice la sección "Microsoft.DataFactory/factories/pipelines" de la [plantilla de parametrización predeterminada](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) con el siguiente fragmento de código y coloque el archivo JSON resultante en la raíz de la carpeta de origen:
+El área de trabajo de Azure Data Factory ***no*** expone variables de canalización como parámetros de plantilla de Azure Resource Manager de forma predeterminada. El área de trabajo usa la [plantilla de parametrización predeterminada](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) que dictamina qué propiedades de canalización deben exponerse como parámetros de plantilla de Azure Resource Manager. Para agregar variables de canalización a la lista, actualice la sección `"Microsoft.DataFactory/factories/pipelines"` de la [plantilla de parametrización predeterminada](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) con el siguiente fragmento de código y coloque el archivo JSON resultante en la raíz de la carpeta de origen:
 
 ```json
 "Microsoft.DataFactory/factories/pipelines": {
@@ -184,7 +210,10 @@ Los valores del archivo JSON son valores predeterminados configurados en la defi
 
 ## <a name="continuous-delivery-cd"></a>Entrega continua (CD)
 
-El proceso de entrega continua toma los artefactos y los implementa en el primer entorno de destino. Para garantizar que la solución funcione, se ejecutan pruebas. Si se superan, se pasa al entorno siguiente. La canalización de Azure de CD consta de varias fases que representan los entornos. Cada fase contiene [implementaciones](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) y [trabajos](https://docs.microsoft.com/azure/devops/pipelines/process/phases?view=azure-devops&tabs=yaml) que realizan los siguientes pasos:
+El proceso de entrega continua toma los artefactos y los implementa en el primer entorno de destino. Para garantizar que la solución funcione, se ejecutan pruebas. Si se superan, se pasa al entorno siguiente. 
+
+La canalización de Azure de CD consta de varias fases que representan los entornos. Cada fase contiene [implementaciones](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) y [trabajos](https://docs.microsoft.com/azure/devops/pipelines/process/phases?view=azure-devops&tabs=yaml) que realizan los siguientes pasos:
+
 * Implementación de un cuaderno de Python en un área de trabajo de Azure Databricks
 * Implementación de una canalización de Azure Data Factory 
 * Ejecución de la canalización
@@ -230,12 +259,13 @@ El siguiente fragmento de código define una [implementación](https://docs.micr
               displayName: 'Deploy (copy) data processing notebook to the Databricks cluster'       
 ```            
 
-Los artefactos generados en el proceso de CI se copian automáticamente en el agente de implementación y están disponibles en la carpeta ***$(Pipeline.Workspace)***. En este caso, la tarea de implementación hace referencia al artefacto ***di-notebooks*** que contiene el cuaderno de Python. Esta [implementación](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) usa la [extensión de Azure DevOps para Databricks](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks) para copiar los archivos de cuaderno en el área de trabajo de Databricks.
-La fase ***Deploy_to_QA*** contiene una referencia al grupo de variables ***devops-ds-qa-vg*** definido en el proyecto de Azure DevOps. Los pasos de esta fase hacen referencia a las variables de este grupo de variables (por ejemplo, $(DATABRICKS_URL), $(DATABRICKS_TOKEN)). La idea es que la siguiente fase (por ejemplo, ***Deploy_to_UAT***) funcione con los mismos nombres de variable definidos en su propio grupo de variables con ámbito de UAT.
+Los artefactos generados en el proceso de CI se copian automáticamente en el agente de implementación y están disponibles en la carpeta `$(Pipeline.Workspace)`. En este caso, la tarea de implementación hace referencia al artefacto `di-notebooks` que contiene el cuaderno de Python. Esta [implementación](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) usa la [extensión de Azure DevOps para Databricks](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks) para copiar los archivos de cuaderno en el área de trabajo de Databricks.
+
+La fase `Deploy_to_QA` contiene una referencia al grupo de variables `devops-ds-qa-vg` definido en el proyecto de Azure DevOps. Los pasos de esta fase hacen referencia a las variables de este grupo de variables (por ejemplo, `$(DATABRICKS_URL)` y `$(DATABRICKS_TOKEN)`). La idea es que la siguiente fase (por ejemplo, `Deploy_to_UAT`) funcione con los mismos nombres de variable definidos en su propio grupo de variables con ámbito de UAT.
 
 ### <a name="deploy-an-azure-data-factory-pipeline"></a>Implementación de una canalización de Azure Data Factory
 
-Un artefacto implementable para Azure Data Factory es una plantilla de Azure Resource Manager. Por lo tanto, se implementará con la tarea ***Implementación del grupo de recursos de Azure***, como se muestra en el siguiente fragmento de código:
+Un artefacto implementable para Azure Data Factory es una plantilla de Azure Resource Manager. Se implementará con la tarea ***Implementación del grupo de recursos de Azure***, como se muestra en el siguiente fragmento de código:
 
 ```yaml
   - deployment: "Deploy_to_ADF"
@@ -256,11 +286,11 @@ Un artefacto implementable para Azure Data Factory es una plantilla de Azure Res
                 csmParametersFile: '$(Pipeline.Workspace)/adf-pipelines/ARMTemplateParametersForFactory.json'
                 overrideParameters: -data-ingestion-pipeline_properties_variables_data_file_name_defaultValue "$(DATA_FILE_NAME)"
 ```
-El valor del parámetro de nombre de archivo de datos procede de la variable $(DATA_FILE_NAME) definida en un grupo de variables de la fase QA. Del mismo modo, todos los parámetros definidos en ***ARMTemplateForFactory.json*** se pueden reemplazar. En caso contrario, se usan los valores predeterminados.
+El valor del parámetro de nombre de archivo de datos procede de la variable `$(DATA_FILE_NAME)` definida en un grupo de variables de la fase QA. Del mismo modo, todos los parámetros definidos en ***ARMTemplateForFactory.json*** se pueden reemplazar. En caso contrario, se usan los valores predeterminados.
 
 ### <a name="run-the-pipeline-and-check-the-data-ingestion-result"></a>Ejecución de la canalización y comprobación del resultado de la ingesta de datos
 
-El siguiente paso consiste en asegurarse de que la solución implementada funciona. La siguiente definición de trabajo ejecuta una canalización de Azure Data Factory con un [script de PowerShell](https://github.com/microsoft/DataOps/tree/master/adf/utils) y ejecuta un cuaderno de Python en un clúster de Azure Databricks. El cuaderno comprueba si los datos se han ingerido correctamente y valida el archivo de datos de resultados con el nombre $(bin_FILE_NAME).
+El siguiente paso consiste en asegurarse de que la solución implementada funciona. La siguiente definición de trabajo ejecuta una canalización de Azure Data Factory con un [script de PowerShell](https://github.com/microsoft/DataOps/tree/master/adf/utils) y ejecuta un cuaderno de Python en un clúster de Azure Databricks. El cuaderno comprueba si los datos se han ingerido correctamente y valida el archivo de datos de resultados con el nombre `$(bin_FILE_NAME)`.
 
 ```yaml
   - job: "Integration_test_job"
@@ -305,7 +335,7 @@ La tarea final del trabajo comprueba el resultado de la ejecución del cuaderno.
 
 ## <a name="putting-pieces-together"></a>Conclusión
 
-El resultado de este artículo es una canalización de Azure de CI/CD que consta de las siguientes fases:
+La canalización de Azure de CI/CD consta de las siguientes fases:
 * CI
 * Implementar en QA
     * Implementar en Databricks + implementar en ADF

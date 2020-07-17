@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 4c97c1be81f1aef393f4aa101fc84972e3ae9ac7
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 1865e1a2ff9a01f75b9849fb340dc0d080feabc1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193837"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85248291"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de datos en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -38,7 +38,7 @@ Una actividad puede tomar diversos **conjuntos de datos** de entrada, o ninguno,
 
 Antes de crear un conjunto de datos, cree un **servicio vinculado** para vincular su almacén de datos a la factoría de datos. Los servicios vinculados son muy similares a las cadenas de conexión que definen la información de conexión necesaria para que Data Factory se conecte a recursos externos. Los conjuntos de datos identifican datos en los almacenes de datos vinculados, como tablas, archivos, carpetas y documentos de SQL. Por ejemplo, un servicio vinculado Azure Storage vincula una cuenta de almacenamiento a la factoría de datos. Un conjunto de datos de blobs de Azure representa el contenedor de blobs y la carpeta que contiene los blobs de entrada que se van a procesar.
 
-Este es un escenario de ejemplo. Para copiar datos de Blob Storage a una base de datos SQL, creará dos servicios vinculados: Microsoft Azure Storage y Azure SQL Database. Después, creará dos conjuntos de datos: el conjunto de datos de un blob de Azure (que hace referencia al servicio vinculado Azure Storage) y el conjunto de datos de Azure SQL Table (que hace referencia al servicio vinculado Azure SQL Database). Los servicios vinculados de Azure Storage y Azure SQL Database contienen cadenas de conexión que Data Factory usa en tiempo de ejecución para conectarse a las instancias de Azure Storage y Azure SQL Database, respectivamente. El conjunto de datos Azure Blob especifica el contenedor de blobs y la carpeta de blobs que contiene los blobs de entrada de Blob Storage. El conjunto de datos Azure SQL Table especifica la tabla de SQL de la base de datos SQL en la que se van a copiar los datos.
+Este es un escenario de ejemplo. Para copiar datos de Blob Storage en SQL Database, se crean dos servicios vinculados: Microsoft Azure Storage y Azure SQL Database. Después, creará dos conjuntos de datos: el conjunto de datos de un blob de Azure (que hace referencia al servicio vinculado Azure Storage) y el conjunto de datos de Azure SQL Table (que hace referencia al servicio vinculado Azure SQL Database). Los servicios vinculados de Azure Storage y Azure SQL Database contienen cadenas de conexión que Data Factory usa en tiempo de ejecución para conectarse a las instancias de Azure Storage y Azure SQL Database, respectivamente. El conjunto de datos Azure Blob especifica el contenedor de blobs y la carpeta de blobs que contiene los blobs de entrada de Blob Storage. El conjunto de datos Azure SQL Table especifica la tabla de SQL de la base de datos SQL en la que se van a copiar los datos.
 
 En el siguiente diagrama se muestra la relación entre la canalización, la actividad, el conjunto de datos y el servicio vinculado en Data Factory:
 
@@ -281,7 +281,7 @@ En la sección **policy** de la definición del conjunto de datos se definen los
 | Nombre de la directiva | Descripción | Se aplica a | Obligatorio | Valor predeterminado |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Valida que los datos de **Azure Blob Storage** satisfacen los requisitos de tamaño mínimo (en megabytes). |Azure Blob Storage |No |N/D |
-| minimumRows |Valida que los datos de una **base de datos de Azure SQL** o una **tabla de Azure** contienen el número mínimo de filas. |<ul><li>Azure SQL Database</li><li>Tabla de Azure</li></ul> |No |N/D |
+| minimumRows |Valida que los datos de una **base de datos de Azure SQL** o una **tabla de Azure** contienen el número mínimo de filas. |<ul><li>Azure SQL Database</li><li>Tabla de Azure</li></ul> |No |N/D |
 
 #### <a name="examples"></a>Ejemplos
 **minimumSizeMB:**

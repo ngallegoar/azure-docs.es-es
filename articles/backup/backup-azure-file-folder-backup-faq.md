@@ -3,12 +3,12 @@ title: 'Copias de seguridad de archivos y carpetas: preguntas comunes'
 description: Responde las preguntas habituales acerca de la realización de copias de seguridad de archivos y carpetas con Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 6e9f265672ff15e40444a46a3e440e73a0051a5b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 0ecff00fdfaf9b0ca494cd1c78d0a5e16b198995
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81254757"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056181"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Preguntas comunes acerca de la realización de copias de seguridad de archivos y carpetas
 
@@ -159,7 +159,8 @@ Sí, puede usar la opción **Cambiar propiedades** del agente de MARS para ajust
 
 ### <a name="manage"></a>Administrar
 
-**¿Puedo recuperar mi frase de contraseña si la olvidé?**
+#### <a name="can-i-recover-if-i-forgot-my-passphrase"></a>¿Puedo recuperar mi frase de contraseña si la olvidé?
+
 El agente de Azure Backup requiere una frase de contraseña (que proporcionó durante el registro) para descifrar los datos de los que se ha realizado una copia de seguridad durante la restauración. Revise los escenarios siguientes para conocer las opciones de control de una frase de contraseña perdida:
 
 | Máquina original <br> *(máquina de origen donde se realizaron las copias de seguridad)* | Passphrase | Opciones disponibles |
@@ -177,7 +178,7 @@ Tenga en cuenta las siguientes condiciones:
   * *una frase de contraseña diferente*, no podrá restaurar los datos de copia de seguridad.
 * Si la máquina original está dañada (lo que impide volver a generar la frase de contraseña a través de la consola de MARS), pero puede restaurar o acceder a la carpeta temporal original utilizada por el agente de MARS, es posible que pueda realizar una restauración (si olvidó la contraseña). Para obtener más ayuda, póngase en contacto con el servicio de soporte al cliente.
 
-**¿Cómo recupero las copias de seguridad si perdí mi máquina original (donde se realizaban las copias de seguridad)?**
+#### <a name="how-do-i-recover-if-i-lost-my-original-machine-where-backups-were-taken"></a>¿Cómo recupero las copias de seguridad si perdí mi máquina original (donde se realizaban las copias de seguridad)?
 
 Si tiene la misma frase de contraseña (que proporcionó durante el registro) de la máquina original, puede restaurar los datos de copia de seguridad en una máquina alternativa. Revise los escenarios siguientes para conocer las opciones de restauración.
 
@@ -185,6 +186,10 @@ Si tiene la misma frase de contraseña (que proporcionó durante el registro) de
 | --- | --- | --- |
 | Perdida |Disponible |Puede instalar y registrar el agente de MARS en otro equipo con la misma frase de contraseña que proporcionó durante el registro de la máquina original. Elija **Opción de recuperación** > **Otra ubicación** para realizar la restauración. Para más información, consulte este [artículo](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
 | Perdida |Perdida |No es posible recuperar los datos o los datos no están disponibles |
+
+### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>Se produjo un error en los trabajos de copia de seguridad o no se están ejecutando durante mucho tiempo. Ya pasé el período de retención. ¿Todavía puedo restaurarlo?
+
+Como medida de seguridad, Azure Backup conservará el último punto de recuperación, aunque haya pasado el período de retención. Una vez que se reanudan las copias de seguridad y los puntos de recuperación nuevos están disponibles, se elimina el punto de recuperación anterior según la retención especificada.
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>¿Qué ocurre si se cancela un trabajo de restauración en curso?
 

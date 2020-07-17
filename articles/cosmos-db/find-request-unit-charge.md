@@ -3,15 +3,15 @@ title: Búsqueda del cargo de unidad de solicitud (RU) en Azure Cosmos DB
 description: Sepa cómo encontrar el cargo de unidad de solicitud (RU) de cualquier operación que se ejecuta en un contenedor de Azure Cosmos.
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/01/2019
 ms.author: thweiss
-ms.openlocfilehash: e5420b9b765fffcf7b4ccd6775d05795b1b13871
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: bf109d3f15c9865a8e9ad1d27a1e8d320d172761
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872234"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261841"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Búsqueda del cargo de unidad de solicitud en Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Actualmente, puede buscar el cargo de solicitud solo en Azure Portal para una co
 
 1. Seleccione **Query Stats** (Estadísticas de consulta) para mostrar el cargo de solicitud real correspondiente a la solicitud que ha ejecutado.
 
-![Captura de pantalla del cargo de solicitud de una consulta SQL en Azure Portal](./media/find-request-unit-charge/portal-sql-query.png)
+:::image type="content" source="./media/find-request-unit-charge/portal-sql-query.png" alt-text="Captura de pantalla del cargo de solicitud de una consulta SQL en Azure Portal":::
 
 ### <a name="use-the-net-sdk"></a>Uso del SDK de .NET
 
@@ -187,7 +187,7 @@ Actualmente, puede buscar el cargo de solicitud solo en Azure Portal para una co
 
 1. Seleccione **Query Stats** (Estadísticas de consulta) para mostrar el cargo de solicitud real correspondiente a la solicitud que ha ejecutado.
 
-![Captura de pantalla del cargo de solicitud de una consulta de MongoDB en Azure Portal](./media/find-request-unit-charge/portal-mongodb-query.png)
+:::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Captura de pantalla del cargo de solicitud de una consulta de MongoDB en Azure Portal":::
 
 ### <a name="use-the-mongodb-net-driver"></a>Uso del controlador de .NET de MongoDB
 

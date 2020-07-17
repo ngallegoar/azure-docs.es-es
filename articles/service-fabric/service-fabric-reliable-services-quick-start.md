@@ -4,12 +4,12 @@ description: Introducción a la creación de una aplicación de Service Fabric d
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: sfrev
-ms.openlocfilehash: 15dd9bf6ac19bdac7bc8b50fc70e0b3b0a4e9a83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a8d5a05f922cd01067abbc3e98320a32cd9d256
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77083768"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038028"
 ---
 # <a name="get-started-with-reliable-services"></a>Introducción a los servicios de confianza
 
@@ -30,7 +30,7 @@ Para empezar a trabajar con Reliable Services, solo es necesario comprender cuat
 
 ## <a name="create-a-stateless-service"></a>Creación de un servicio sin estado
 
-Un servicio sin estado es un tipo de servicio que es el que se encuentra actualmente en las aplicaciones en la nube. Se considera sin estado porque el propio servicio no contiene datos que tengan que almacenarse de manera fiable o requieran tener una alta disponibilidad. Si se cierra una instancia de un servicio sin estado, todo su estado interno se pierde. En este tipo de servicio, el estado debe almacenarse en un almacén externo, como Tablas de Azure o una base de datos SQL, para que resulte fiable y tenga una alta disponibilidad.
+Un servicio sin estado es un tipo de servicio que es el que se encuentra actualmente en las aplicaciones en la nube. Se considera sin estado porque el propio servicio no contiene datos que tengan que almacenarse de manera fiable o requieran tener una alta disponibilidad. Si se cierra una instancia de un servicio sin estado, todo su estado interno se pierde. En este tipo de servicio, el estado debe conservarse en un almacén externo, como Tablas de Azure o SQL Database, para que sea de alta disponibilidad y confiable.
 
 Inicie Visual Studio 2017 o Visual Studio 2019 como administrador y cree un nuevo proyecto de aplicación de Service Fabric denominado *HelloWorld*:
 

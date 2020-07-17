@@ -1,15 +1,15 @@
 ---
 title: Consorcio Hyperledger Fabric en Azure Kubernetes Service (AKS)
 description: Implementación y configuración de una red del consorcio de Hyperledger Fabric en Azure Kubernetes Service
-ms.date: 01/08/2020
-ms.topic: article
-ms.reviewer: v-umha
-ms.openlocfilehash: da4ec99f1b9d73ab67a2312094feaa1a89aee394
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.date: 07/07/2020
+ms.topic: how-to
+ms.reviewer: ravastra
+ms.openlocfilehash: e1cbfa56f1e4ea9f8cbaa0ad973d06e8b8d486ca
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980239"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085818"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Consorcio Hyperledger Fabric en Azure Kubernetes Service (AKS)
 
@@ -19,6 +19,18 @@ Después de leer este artículo, habrá aprendido lo siguiente:
 
 - Obtendrá conocimiento práctico de Hyperledger Fabric y de los distintos componentes que forman los bloques de creación de la red de la cadena de bloques de Hyperledger Fabric.
 - Aprenderá a implementar y configurar un consorcio de Hyperledger Fabric en Azure Kubernetes Service para sus escenarios de producción.
+
+[!INCLUDE [Preview note](./includes/preview.md)]
+
+## <a name="choose-an-azure-blockchain-solution"></a>Elegir una solución de Azure Blockchain
+
+Antes de optar por usar la plantilla de solución, compare su escenario con los casos de uso comunes de las opciones de Azure Blockchain disponibles.
+
+Opción | Modelo de servicio | Caso de uso común
+-------|---------------|-----------------
+Plantillas de solución | IaaS | Las plantillas de solución son plantillas de Azure Resource Manager que puede usar para aprovisionar una topología de red de cadena de bloques totalmente configurada. Las plantillas implementan y configuran servicios de proceso, redes y almacenamiento de Microsoft Azure para un tipo de red de cadena de bloques determinado. Las plantillas de solución se proporcionan sin un contrato de nivel de servicio. Use la [página de preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) para obtener soporte técnico.
+[Azure Blockchain Service](../service/overview.md) | PaaS | Azure Blockchain Service Preview simplifica la formación, administración y regulación de las redes de cadena de bloques del consorcio. Use Azure Blockchain Service para soluciones que requieran PaaS, administración de consorcios o privacidad de contratos y transacciones.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS y PaaS | La versión preliminar de Azure Blockchain Workbench es una colección de servicios y funcionalidades de Azure diseñada para ayudarle a crear e implementar aplicaciones de cadena de bloques para compartir datos y procesos empresariales con otras organizaciones. Use Azure Blockchain Workbench para crear un prototipo de una solución de cadena de bloques o una prueba de concepto de la aplicación de cadena de bloques. Azure Blockchain Workbench se proporciona sin un acuerdo de nivel de servicio. Use la [página de preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) para obtener soporte técnico.
 
 ## <a name="hyperledger-fabric-consortium-architecture"></a>Arquitectura del consorcio de Hyperledger Fabric
 
@@ -190,7 +202,7 @@ CHANNEL_NAME=<channelName>
 > [!NOTE]
 > Según el número de organizaciones del mismo nivel en el consorcio, es posible que deba repetir los comandos del mismo nivel y establecer la variable de entorno según corresponda.
 
-**Configuración de las siguientes variables de entorno para configurar una cuenta de almacenamiento de Azure**
+**Configuración de las siguientes variables de entorno para configurar una cuenta de Azure Storage**
 
 ```bash
 STORAGE_SUBSCRIPTION=<subscriptionId>
@@ -200,7 +212,7 @@ STORAGE_LOCATION=<azureStorageAccountLocation>
 STORAGE_FILE_SHARE=<azureFileShareName>
 ```
 
-Siga los pasos que se indican a continuación para la creación de una cuenta de almacenamiento de Azure. Si ya ha creado una cuenta de almacenamiento de Azure, omita estos pasos
+Siga los pasos que se indican a continuación para la creación de una cuenta de Azure Storage. Si ya ha creado una cuenta de Azure Storage, omita estos pasos
 
 ```bash
 az account set --subscription $STORAGE_SUBSCRIPTION
@@ -208,7 +220,7 @@ az group create -l $STORAGE_LOCATION -n $STORAGE_RESOURCE_GROUP
 az storage account create -n $STORAGE_ACCOUNT -g  $STORAGE_RESOURCE_GROUP -l $STORAGE_LOCATION --sku Standard_LRS
 ```
 
-Siga los pasos que se indican a continuación para la creación de un recurso compartido de archivos en una cuenta de almacenamiento de Azure. Si ya ha creado un recurso compartido de archivos, omita estos pasos
+Siga los pasos que se indican a continuación para la creación de un recurso compartido de archivos en una cuenta de Azure Storage. Si ya ha creado un recurso compartido de archivos, omita estos pasos
 
 ```bash
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
@@ -284,7 +296,7 @@ En el cliente de la organización del mismo nivel, emita el comando siguiente pa
 > Antes de comenzar con las operaciones de consorcio, asegúrese de que se ha realizado la configuración inicial de la aplicación cliente.  
 
 Ejecute los comandos siguientes en el orden indicado para agregar una organización del mismo nivel en un canal y un consorcio.
-1.  Desde el cliente de la organización del mismo nivel, cargue el MSP de la organización del mismo nivel en Azure Storage.
+1.  Desde el cliente de la organización del mismo nivel, cargue el MSP de la organización del mismo nivel en Azure Storage
 
       ```bash
       ./azhlf msp export toAzureStorage -f  $AZURE_FILE_CONNECTION_STRING -o $PEER_ORG_NAME
@@ -297,13 +309,13 @@ Ejecute los comandos siguientes en el orden indicado para agregar una organizaci
       ./azhlf consortium join -o $ORDERER_ORG_NAME  -u $ORDERER_ADMIN_IDENTITY -p $PEER_ORG_NAME
       ```
 
-3.  Desde el cliente de la organización solicitante, cargue el perfil de conexión del solicitante en Azure Storage. De este modo, la organización del mismo nivel podrá conectarse a los nodos del solicitante con dicho perfil de conexión.
+3.  Desde el cliente de la organización solicitante, cargue el perfil de conexión del solicitante en Azure Storage. De este modo, la organización del mismo nivel podrá conectarse a los nodos del solicitante con dicho perfil de conexión
 
       ```bash
       ./azhlf connectionProfile  export toAzureStorage -o $ORDERER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
       ```
 
-4.  Desde el cliente de la organización del mismo nivel, descargue el perfil de conexión del solicitante de Azure Storage y, después, emita el comando para agregar nodos del mismo nivel en el canal.
+4.  Desde el cliente de la organización del mismo nivel, descargue el perfil de conexión del solicitante de Azure Storage y, después, emita el comando para agregar nodos del mismo nivel en el canal
 
       ```bash
       ./azhlf connectionProfile  import fromAzureStorage -o $ORDERER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
@@ -418,3 +430,17 @@ SWITCH_TO_AKS_CLUSTER $AKS_CLUSTER_RESOURCE_GROUP $AKS_CLUSTER_NAME $AKS_CLUSTER
 kubectl describe pod fabric-tools -n tools | grep "Image:" | cut -d ":" -f 3
 
 ```
+
+## <a name="support-and-feedback"></a>Soporte y comentarios
+
+Para leer noticias acerca de Azure Blockchain, visite el [blog de Azure Blockchain](https://azure.microsoft.com/blog/topics/blockchain/), que le permitirá mantenerse al día sobre las ofertas de servicio de Blockchain y le proporcionará información del equipo de ingeniería de Azure Blockchain.
+
+Para proporcionar comentarios sobre el producto o solicitar nuevas características, publique o vote una idea a través del [Foro de comentarios de Azure para Blockchain](https://aka.ms/blockchainuservoice).
+
+### <a name="community-support"></a>Soporte técnico de la comunidad
+
+Interactúe con los ingenieros de Microsoft y con expertos de la comunidad de Azure Blockchain.
+
+- [Página de preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). El soporte técnico para plantillas con cadena de bloques se limita a los problemas de implementación.
+- [Comunidad tecnológica de Microsoft](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)

@@ -8,24 +8,22 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/09/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 742d716ecdfff6ab67dedc281aa6134020f57add
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: d9738d3abfdf30e133ae241c497823be349d25da
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655051"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040085"
 ---
-# <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Administración de directivas de grupo en un dominio administrado con Azure AD Domain Services
+# <a name="administer-group-policy-in-an-azure-active-directory-domain-services-managed-domain"></a>Administrar directiva de grupo en un dominio administrado de Azure Active Directory Domain Services
 
 La configuración de los objetos de usuario y de equipo en Azure Active Directory Domain Services (Azure AD DS) se suele administrar con objetos de directiva de grupo (GPO). Azure AD DS incluye GPO integrados para los contenedores de *usuarios del controlador de dominio de AAD* y *equipos del controlador de dominio de AAD*. Puede personalizar estos GPO integrados para configurar la directiva de grupo según las necesidades del entorno. Los miembros del grupo de *administradores de Azure AD DC* tienen privilegios de administración de directivas de grupo en el dominio de Azure AD DS y también pueden crear GPO personalizados y unidades organizativas (UO). Para obtener más información sobre qué es la directiva de grupo y cómo funciona, consulte [Introducción a la directiva de grupo][group-policy-overview].
 
 En un entorno híbrido, las directivas de grupo configuradas en un entorno de AD DS local no se sincronizan con Azure AD DS. Para definir los valores de configuración de los usuarios o equipos en Azure AD DS, edite uno de los GPO predeterminados o cree un GPO personalizado.
 
 En este artículo se muestra cómo se instalan las herramientas de Administración de directivas de grupo y, posteriormente, cómo se editan los GPO integrados y se crean otros personalizados.
-
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -36,7 +34,7 @@ Para completar este artículo, necesitará los siguientes recursos y privilegios
 * Un inquilino de Azure Active Directory asociado a su suscripción, ya sea sincronizado con un directorio en el entorno local o con un directorio solo en la nube.
     * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
 * Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
-    * Si es necesario, complete el tutorial para [crear y configurar una instancia de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Si es necesario, complete el tutorial para [crear y configurar un dominio administrado de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Una máquina virtual de administración de Windows Server que esté unida al dominio administrado de Azure AD DS.
     * Si es necesario, complete el tutorial para [crear una máquina virtual de Windows Server y unirla a un dominio administrado][create-join-windows-vm].
 * Una cuenta de usuario que sea miembro del grupo de *administradores de Azure AD DC* en el inquilino de Azure AD.
@@ -46,7 +44,7 @@ Para completar este artículo, necesitará los siguientes recursos y privilegios
 >
 > Por ejemplo, copie la versión Inglés - Estados Unidos de los archivos *.adml* en la carpeta `\en-us`.
 >
-> También puede almacenar de forma centralizada la plantilla administrativa de la directiva de grupo en los controladores de dominio que forman parte del dominio administrado de Azure AD DS. Para más información, consulte [Cómo crear y administrar el almacén central de plantillas administrativas de la directiva de grupo en Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
+> Como alternativa, puede almacenar de forma centralizada la plantilla administrativa de la directiva de grupo en los controladores de dominio que forman parte del dominio administrado. Para más información, consulte [Cómo crear y administrar el almacén central de plantillas administrativas de la directiva de grupo en Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
 
 ## <a name="install-group-policy-management-tools"></a>Instalación de las herramientas de Administración de directivas de grupo
 
@@ -68,17 +66,17 @@ Para crear y configurar objetos de directiva de grupo (GPO), debe instalar las h
 
 ## <a name="open-the-group-policy-management-console-and-edit-an-object"></a>Apertura de la Consola de administración de directivas de grupo y edición de un objeto
 
-En los dominios administrados con Azure AD DS, existen objetos de directiva de grupo (GPO) predeterminados para los usuarios y los equipos. Después de instalar la característica Administración de directivas de grupo en la sección anterior, vamos a ver y editar un GPO existente. En la sección siguiente, crearemos un GPO personalizado.
+Existen objetos de directiva de grupo (GPO) predeterminados para usuarios y equipos en un dominio administrado. Después de instalar la característica Administración de directivas de grupo en la sección anterior, vamos a ver y editar un GPO existente. En la sección siguiente, crearemos un GPO personalizado.
 
 > [!NOTE]
-> Para administrar una directiva de grupo en un dominio administrado con Azure AD DS, debe haber iniciado sesión en una cuenta de usuario que sea miembro del grupo *Administradores del controlador de dominio de AAD*.
+> Para administrar la directiva de grupo en un dominio administrado, debe haber iniciado sesión en una cuenta de usuario que sea miembro del grupo *Administradores del controlador de dominio de AAD*.
 
 1. En la pantalla Inicio, seleccione **Herramientas administrativas**. Se muestra una lista de las herramientas de administración disponibles, incluida la **Administración de directivas de grupo**, instalada en la sección anterior.
 1. Para abrir la Consola de administración de directivas de grupo (GPMC), seleccione **Administración de directivas de grupo**.
 
     ![La Consola de administración de directivas de grupo se abre preparada para editar objetos de directiva de grupo](./media/active-directory-domain-services-admin-guide/gp-management-console.png)
 
-Hay dos objetos de directiva de grupo (GPO) integrados en el dominio administrado con Azure AD DS: uno para el contenedor de *equipos del controlador de dominio de AAD* y otro para los *usuarios del controlador de dominio de AAD*. Puede personalizar estos GPO para configurar la directiva de grupo según sea necesario en el dominio administrado con Azure AD DS.
+Hay dos objetos de directiva de grupo integrados (GPO) en un dominio administrado: uno para el contenedor de *equipos de AADDC* y otro para el contenedor de *usuarios de AADDC*. Puede personalizar estos GPO para configurar la directiva de grupo según sea necesario en el dominio administrado.
 
 1. En la consola de **Administración de directivas de grupo**, expanda el nodo **Bosque: aaddscontoso.com**. Después, expanda los nodos **Dominios**.
 
@@ -86,7 +84,7 @@ Hay dos objetos de directiva de grupo (GPO) integrados en el dominio administrad
 
     ![GPO integrados aplicados a los contenedores predeterminados de equipos y los usuarios del controlador de dominio de AAD](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
 
-1. Estos GPO integrados se pueden personalizar para configurar directivas de grupo específicas en el dominio administrado con Azure AD DS. Haga clic con el botón derecho en uno de los GPO, como *AADDC Computers GPO* (GPO de equipos del controlador de dominio de AAD), y seleccione **Editar…**
+1. Estos GPO integrados se pueden personalizar para configurar directivas de grupo específicas en el dominio administrado. Haga clic con el botón derecho en uno de los GPO, como *AADDC Computers GPO* (GPO de equipos del controlador de dominio de AAD), y seleccione **Editar…**
 
     ![Selección de la opción para editar uno de los GPO integrados](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
 
@@ -98,7 +96,7 @@ Hay dos objetos de directiva de grupo (GPO) integrados en el dominio administrad
 
 ## <a name="create-a-custom-group-policy-object"></a>Creación de un objeto de directiva de grupo personalizado
 
-Para agrupar opciones de configuración de directiva similares, lo habitual es crear GPO adicionales en lugar de aplicar todas las opciones necesarias en el mismo GPO predeterminado. Con Azure AD DS, puede crear o importar sus propios objetos de directiva de grupo personalizados y vincularlos a una unidad organizativa personalizada. Si necesita crear primero una unidad organizativa personalizada, consulte [Creación de una unidad organizativa personalizada en un dominio administrado con Azure AD DS](create-ou.md).
+Para agrupar opciones de configuración de directiva similares, lo habitual es crear GPO adicionales en lugar de aplicar todas las opciones necesarias en el mismo GPO predeterminado. Con Azure AD DS, puede crear o importar sus propios objetos de directiva de grupo personalizados y vincularlos a una unidad organizativa personalizada. Si tiene que crear primero una unidad organizativa personalizada, consulte [Crear una unidad organizativa personalizada en un dominio administrado](create-ou.md).
 
 1. En la consola de **Administración de directivas de grupo**, seleccione la unidad organizativa (UO) personalizada, como *MyCustomOU*. Haga clic con el botón derecho en la unidad organizativa y seleccione **Crear un GPO en este dominio y vincularlo aquí…** :
 

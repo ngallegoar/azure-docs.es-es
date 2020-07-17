@@ -2,13 +2,13 @@
 title: Traslado de máquinas virtuales de Azure a una nueva suscripción o grupo de recursos
 description: Use Azure Resource Manager para trasladar máquinas virtuales a un nuevo grupo de recursos o a una nueva suscripción.
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: e5bd004b6619db9c9882b8e9e6005309317b8ca5
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.date: 07/06/2020
+ms.openlocfilehash: c85ec175d802a29de7a8a87ee7a51c0916762a5a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744632"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044556"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Guía del traslado de máquinas virtuales
 
@@ -24,6 +24,18 @@ Todavía no se admiten los siguientes escenarios:
 * Las máquinas virtuales de una red virtual existente no se pueden mover a una suscripción nueva si no se van a mover todos los recursos de la red virtual.
 * Las máquinas virtuales de prioridad baja y los conjuntos de escalado de máquinas virtuales de prioridad baja no pueden moverse entre grupos de recursos o suscripciones.
 * Las máquinas virtuales de un conjunto de disponibilidad no se pueden mover individualmente.
+
+## <a name="azure-disk-encryption"></a>Azure Disk Encryption
+
+No puede mover una VM que esté integrada con un almacén de claves para implementar [Azure Disk Encryption para máquinas virtuales Linux](../../../virtual-machines/linux/disk-encryption-overview.md) o [Azure Disk Encryption para máquinas virtuales Windows](../../../virtual-machines/windows/disk-encryption-overview.md). Para mover la VM, debe deshabilitar el cifrado.
+
+```azurecli-interactive
+az vm encryption disable --resource-group demoRG --name myVm1
+```
+
+```azurepowershell-interactive
+Disable-AzVMDiskEncryption -ResourceGroupName demoRG -VMName myVm1
+```
 
 ## <a name="virtual-machines-with-azure-backup"></a>Máquinas virtuales con Azure Backup
 

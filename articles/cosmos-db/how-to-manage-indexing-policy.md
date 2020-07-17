@@ -3,15 +3,16 @@ title: Administración de directivas de indexación en Azure Cosmos DB
 description: Obtenga información sobre cómo administrar directivas de indexación, incluir o excluir una propiedad de la indexación y cómo definir la indexación mediante diferentes SDK de Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/28/2020
 ms.author: tisande
-ms.openlocfilehash: b913ba58252f4cb84d010aea39d371316582bd6d
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.custom: tracking-python
+ms.openlocfilehash: 8b41a92f16fe7d71c17b6460289db76bf02c62ce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82869916"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261518"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Administración de directivas de indexación en Azure Cosmos DB
 
@@ -361,7 +362,7 @@ Los contenedores de Azure Cosmos almacenan su directiva de indexación en forma
 
 1. Cuando haya terminado, haga clic en **Guardar**.
 
-![Administración de la indexación mediante Azure Portal](./media/how-to-manage-indexing-policy/indexing-policy-portal.png)
+:::image type="content" source="./media/how-to-manage-indexing-policy/indexing-policy-portal.png" alt-text="Administración de la indexación mediante Azure Portal":::
 
 ## <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: d124fdc15bd34743b237985a66cc35625f5d9a4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e47cb1180bbc6eaaaffd79b78563ab1b1d5e016a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79456206"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611822"
 ---
 # <a name="import-data-module"></a>Módulo Importación de datos
 
@@ -35,7 +35,7 @@ El módulo **Importación de datos** admite la lectura de datos de los siguiente
     - Recurso compartido de archivos de Azure
     - Azure Data Lake
     - Azure Data Lake Gen2
-    - Azure SQL Database
+    - Azure SQL Database
     - Azure PostgreSQL    
 
 Antes de usar el almacenamiento en la nube, debe registrar un almacén de datos en el área de trabajo de Azure Machine Learning. Para obtener más información, consulte [Cómo acceder a datos](../how-to-access-data.md). 
@@ -43,6 +43,10 @@ Antes de usar el almacenamiento en la nube, debe registrar un almacén de datos 
 Después de definir los datos que desee y conectarse al origen, **[Importación de datos](./import-data.md)** deduce el tipo de datos de cada columna basándose en los valores que contiene y carga los datos en la canalización del diseñador. La salida de **Importación de datos** es un conjunto de datos que puede utilizarse con todas las canalizaciones del diseñador.
 
 Si cambian los datos de origen, puede actualizar el conjunto de datos y agregar nuevos datos volviendo a ejecutar la [Importación de datos](./import-data.md).
+
+> [!WARNING]
+> Si el área de trabajo está en una red virtual, debe configurar los almacenes de datos para usar las características de visualización de datos del diseñador. Para más información sobre cómo usar los almacenes de datos y los conjuntos de datos en una red virtual, consulte [Aislamiento de red durante el entrenamiento e inferencia con redes virtuales privadas](../how-to-enable-virtual-network.md#machine-learning-studio).
+
 
 ## <a name="how-to-configure-import-data"></a>Procedimiento para configurar la importación de datos
 

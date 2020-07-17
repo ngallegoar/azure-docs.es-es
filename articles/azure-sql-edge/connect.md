@@ -1,24 +1,24 @@
 ---
 title: Conexión a Azure SQL Edge y consulta (versión preliminar)
-description: Información sobre la conexión a una instancia de Azure SQL Edge y su consulta (versión preliminar)
+description: Obtenga información sobre cómo conectarse a Azure SQL Edge (versión preliminar) y enviarle consultas.
 keywords: ''
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 17bb5afebe0335bcdcf40298490f94999c04a621
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6d82446a915863e6aa95cc79a421f86b8c4dd3a2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593954"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85252651"
 ---
 # <a name="connect-and-query-azure-sql-edge-preview"></a>Conexión a Azure SQL Edge y consulta (versión preliminar)
 
-Después de implementar el contenedor de Azure SQL Edge, puede conectarse al motor de base de datos de SQL desde cualquiera de las siguientes ubicaciones.
+En Azure SQL Edge, después de implementar un contenedor, puede conectarse al motor de base de datos desde cualquiera de las siguientes ubicaciones:
 
 - En el contenedor.
 - Desde otro contenedor de Docker que se ejecute en el mismo host.
@@ -27,17 +27,17 @@ Después de implementar el contenedor de Azure SQL Edge, puede conectarse al mot
 
 ## <a name="tools-to-connect-to-azure-sql-edge"></a>Herramientas para conectarse a Azure SQL Edge
 
-Las conexiones a una instancia de Azure SQL Edge se pueden realizar desde cualquiera de las herramientas comunes que se mencionan a continuación.
+Puede conectarse a una instancia de Azure SQL Edge desde cualquiera de las siguientes herramientas comunes:
 
-* [sqlcmd](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools): las herramientas de cliente de sqlcmd ya están incluidas en la imagen de contenedor de Azure SQL Edge. Si adjunta un contenedor en ejecución con un shell de Bash interactivo, puede ejecutar las herramientas de forma local.
+* [sqlcmd](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools): la imagen de contenedor de Azure SQL Edge ya incluye las herramientas de cliente de sqlcmd. Si adjunta un contenedor en ejecución con un shell de Bash interactivo, puede ejecutar las herramientas de forma local.
 * [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)
 * [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)
 * [Visual Studio Code](https://docs.microsoft.com/sql/visual-studio-code/sql-server-develop-use-vscode)
 
 Para conectarse a un motor de base de datos de Azure SQL Edge desde un equipo de red, necesitará lo siguiente:
 
-- *Dirección IP o nombre de red del equipo host*: es el equipo host donde se ejecuta el contenedor de Azure SQL Edge.
-- *Asignación del puerto de host del contenedor de Azure SQL Edge*: se trata de la asignación del puerto para el puerto del contenedor de Docker a un puerto en el host. Dentro del contenedor, SQL Edge siempre se asigna al puerto 1433. Esto se puede cambiar como parte de la implementación de Azure SQL Edge. Para cambiar el número de puerto, actualice las "opciones de creación de contenedores" para el módulo de SQL Edge en Azure IoT Edge. En el ejemplo que se muestra a continuación, el puerto 1433 del contenedor está asignado al puerto 1600 en el host.
+- **Dirección IP o nombre de red del equipo host**: Este es el equipo host en el que se ejecuta el contenedor de Azure SQL Edge.
+- **Asignación de puertos de host del contenedor de Azure SQL Edge**: Esta es la asignación de un puerto de contenedor de Docker a un puerto en el host. Dentro del contenedor, Azure SQL Edge siempre se asigna al puerto 1433. Si quiere, puede cambiarlo. Para cambiar el número de puerto, actualice las **Opciones de creación de contenedores** para el módulo de Azure SQL Edge en Azure IoT Edge. En el siguiente ejemplo, el puerto 1433 del contenedor está asignado al puerto 1600 en el host.
 
     ```JSON
     {
@@ -51,34 +51,34 @@ Para conectarse a un motor de base de datos de Azure SQL Edge desde un equipo de
     }
     ```
 
-- *Contraseña de administrador del sistema para la instancia de SQL Edge*: este es el valor especificado para la variable de entorno **SA_PASSWORD** durante la implementación de SQL Edge.
+- **Contraseña de administrador del sistema para la instancia de Azure SQL Edge**: Este es el valor especificado para la variable de entorno `SA_PASSWORD` durante la implementación de Azure SQL Edge.
 
-## <a name="connecting-to-the-database-engine-from-within-the-container"></a>Conexión al motor de base de datos desde el contenedor
+## <a name="connect-to-the-database-engine-from-within-the-container"></a>Conexión al motor de base de datos dentro del contenedor
 
-Las [herramientas de línea de comandos de SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) se incluyen en la imagen de contenedor de Azure SQL Edge. Si se asocia el contenedor con un símbolo del sistema interactivo, puede ejecutar las herramientas de forma local.
+Las [herramientas de línea de comandos de SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) están incluidas en la imagen de contenedor de Azure SQL Edge. Si se asocia el contenedor con un símbolo del sistema interactivo, puede ejecutar las herramientas de forma local.
 
 1. Use el comando `docker exec -it` para iniciar un shell de Bash interactivo dentro de su contenedor en ejecución. En el ejemplo siguiente, `e69e056c702d` es el identificador del contenedor.
 
     ```bash
-    docker exec -it <Azure SQL Edge container id or name> /bin/bash
+    docker exec -it <Azure SQL Edge container ID or name> /bin/bash
     ```
 
     > [!TIP]
-    > No siempre tiene que especificar el identificador completo del contenedor. Solo tiene que especificar suficientes caracteres para identificarlo de forma única. Por lo tanto, en este ejemplo, podría ser suficiente usar `e6` o `e69` en lugar del identificador completo.
+    > No siempre tiene que especificar el id. completo del contenedor. Solo tiene que especificar suficientes caracteres para identificarlo de forma única. Por lo tanto, en este ejemplo, podría ser suficiente usar `e6` o `e69` en lugar del id. completo.
 
-2. Una vez dentro del contenedor, conecte localmente con sqlcmd. Sqlcmd no está en la ruta de acceso de forma predeterminada, por lo que deberá especificar la ruta de acceso completa.
+2. Cuando esté dentro del contenedor, conéctese localmente con sqlcmd. Sqlcmd no está en la ruta de acceso de forma predeterminada, por lo que deberá especificar la ruta de acceso completa.
 
     ```bash
     /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P '<YourPassword>'
     ```
 
-3. Cuando termine con sqlcmd, escriba `exit`.
+3. Cuando haya terminado con sqlcmd, escriba `exit`.
 
-4. Cuando termine con el símbolo del sistema interactivo, escriba `exit`. El contenedor continuará ejecutándose después de salir del shell de Bash interactivo.
+4. Cuando haya terminado con el símbolo del sistema interactivo, escriba `exit`. El contenedor continuará ejecutándose después de salir del shell de Bash interactivo.
 
-## <a name="connect-to-sql-edge-from-another-container-on-the-same-host"></a>Conexión a SQL Edge desde otro contenedor en el mismo host
+## <a name="connect-to-azure-sql-edge-from-another-container-on-the-same-host"></a>Conexión a Azure SQL Edge desde otro contenedor en el mismo host
 
-Dado que dos contenedores que se ejecutan en el mismo host se encuentran en la misma red de Docker, se puede acceder fácilmente a ellos mediante el nombre del contenedor y la dirección del puerto para el servicio. Por ejemplo, si se va a conectar a la instancia de SQL Edge desde otro módulo de Python (contenedor) en el mismo host, puede utilizar una cadena de conexión similar a la siguiente. En el ejemplo siguiente se supone que SQL Edge está configurado para escuchar en el puerto predeterminado.
+Ya que dos contenedores que se ejecutan en el mismo host se encuentran en la misma red de Docker, se puede acceder fácilmente a ellos mediante el nombre del contenedor y la dirección del puerto para el servicio. Por ejemplo, si se va a conectar a la instancia de Azure SQL Edge desde otro módulo de Python (contenedor) en el mismo host, puede usar una cadena de conexión similar a la siguiente. (En este ejemplo se supone que Azure SQL Edge está configurado para escuchar en el puerto predeterminado).
 
 ```python
 
@@ -92,9 +92,9 @@ conn = pyodbc.connect(db_connection_string, autocommit=True)
 
 ```
 
-## <a name="connect-to-sql-edge-from-another-network-machine"></a>Conexión a SQL Edge desde otro equipo de red
+## <a name="connect-to-azure-sql-edge-from-another-network-machine"></a>Conexión a Azure SQL Edge desde otro equipo de red
 
-Para conectarse a la instancia de SQL Edge desde otro equipo de la red, debe usar la dirección IP del host de Docker y el puerto de host al que está asignado el contenedor de SQL Edge. Por ejemplo, si la dirección IP del host de Docker es *xxx.xxx.xxx.xxx" y el contenedor de SQL Edge está asignado al puerto de host *1600*, la dirección del servidor para la instancia de SQL Edge sería **xxx.xxx.xxx.xxx,1600**. El script de Python actualizado tendría el siguiente aspecto:
+Es posible que quiera conectarse a la instancia de Azure SQL Edge desde otro equipo de la red. Para ello, use la dirección IP del host de Docker y el puerto de host al que está asignado el contenedor perimetral de Azure SQL Edge. Por ejemplo, si la dirección IP del host de Docker es *xxx.xxx.xxx.xxx* y el contenedor de Azure SQL Edge está asignado al puerto de host *1600*, la dirección del servidor para la instancia de Azure SQL Edge sería *xxx.xxx.xxx.xxx,1600*. El script de Python actualizado es:
 
 ```python
 
@@ -108,13 +108,13 @@ conn = pyodbc.connect(db_connection_string, autocommit=True)
 
 ```
 
-Para conectarse a una instancia de SQL Edge con SQL Server Management Studio en ejecución en un equipo Windows, consulte [SQL Server Management Studio](https://docs.microsoft.com/sql/linux/sql-server-linux-manage-ssms).
+Para conectarse a una instancia de Azure SQL Edge con SQL Server Management Studio en ejecución en un equipo Windows, consulte [SQL Server Management Studio](https://docs.microsoft.com/sql/linux/sql-server-linux-manage-ssms).
 
-Para conectarse a una instancia de SQL Edge con Visual Studio Code en un equipo Windows, Mac o Linux, consulte [Visual Studio Code](https://docs.microsoft.com/sql/visual-studio-code/sql-server-develop-use-vscode).
+Para conectarse a una instancia de Azure SQL Edge con Visual Studio Code en un equipo Windows, Mac o Linux, consulte [Visual Studio Code](https://docs.microsoft.com/sql/visual-studio-code/sql-server-develop-use-vscode).
 
-Para conectarse a una instancia de SQL Edge con Azure Data Studio en un equipo Windows, Mac o Linux, consulte [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-server).
+Para conectarse a una instancia de Azure SQL Edge con Azure Data Studio en un equipo Windows, Mac o Linux, consulte [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-server).
 
-## <a name="see-also"></a>Consulte también
+## <a name="next-steps"></a>Pasos siguientes
 
 [Conexión y consultas](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-docker#connect-and-query)
 

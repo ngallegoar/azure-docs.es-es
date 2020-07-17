@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 811feb26e492efeb505f43202bee484d3edfb8a5
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 391851927d03a557483afa2656e315b28c613956
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658610"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322635"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Marco de seguridad: Administración de configuración | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -288,7 +288,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | SQL Azure, OnPrem |
 | **Atributos**              | N/A, SQL Version: V12 |
-| **Referencias**              | [Procedimientos para configurar un firewall de Azure SQL Database](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/), [Configuración de Firewall de Windows para el acceso al motor de base de datos](https://msdn.microsoft.com/library/ms175043) |
+| **Referencias**              | [Procedimientos para configurar un firewall de Azure SQL Database](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/), [Configuración de firewall de Windows para el acceso al motor de base de datos](https://msdn.microsoft.com/library/ms175043) |
 | **Pasos** | Los sistemas de firewall ayudan a evitar el acceso no autorizado a los recursos de los equipos. Si desea acceder a una instancia del motor de base de datos de SQL Server a través de un firewall, debe configurar el firewall en el equipo que ejecuta SQL Server para que lo permita |
 
 ## <a name="ensure-that-only-trusted-origins-are-allowed-if-cors-is-enabled-on-aspnet-web-api"></a><a id="cors-api"></a>Comprobación de que solo se permiten orígenes de confianza si CORS está activado en ASP.NET Web API

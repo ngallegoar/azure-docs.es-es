@@ -8,24 +8,23 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 12/13/2019
-ms.openlocfilehash: 8c03df8fb0cd8f5f092450ebe4c66266d2ff4293
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.date: 06/22/2020
+ms.openlocfilehash: b53a2c0cb3c709a6f22b57b45bef8b2894594a4d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816359"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602469"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>¿Qué es una instancia de proceso de Azure Machine Learning?
 
-Una instancia de proceso de Azure Machine Learning (versión preliminar) es una estación de trabajo basada en la nube totalmente administrada para científicos de datos. 
+Una instancia de proceso de Azure Machine Learning es una estación de trabajo administrada basada en la nube para científicos de datos.
 
 Las instancias de proceso permiten que sea fácil comenzar a desarrollar con Azure Machine Learning y proporcionan funcionalidades de administración y preparación empresarial para los administradores de TI.  
 
-Use una instancia de proceso como entorno de desarrollo completamente configurado y administrado en la nube.
+Use una instancia de proceso como el entorno de desarrollo completamente configurado y administrado en la nube para el aprendizaje automático. También se pueden usar como destino de proceso para el entrenamiento y la inferencia con fines de desarrollo y pruebas.  
 
-Las instancias de proceso se usan normalmente como entornos de desarrollo.  También se pueden usar como destino de proceso para la formación y la inferencia para el desarrollo y las pruebas.  Para las tareas de gran tamaño, un[ clúster de proceso de Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) con las funcionalidades de escalado de varios nodos es una mejor opción de destino de proceso.
-
+Para el entrenamiento del modelo de calidad de producción, use un [clúster de proceso de Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) con capacidades de escalado de varios nodos. Para la implementación del modelo de calidad de producción, use el [clúster de Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
 ## <a name="why-use-a-compute-instance"></a>¿Por qué usar una instancia de proceso?
 
@@ -33,9 +32,9 @@ Una instancia de proceso es una estación de trabajo totalmente administrada bas
 
 |Ventajas principales||
 |----|----|
-|Productividad|Los científicos de datos pueden crear e implementar modelos mediante cuadernos integrados y las siguientes herramientas en su explorador web:<br/>-  Jupyter<br/>-  JupyterLab<br/>-  RStudio|
-|Administrada y segura|Reduzca la superficie de seguridad y agregue compatibilidad con los requisitos de seguridad empresariales. Las instancias de proceso proporcionan directivas de administración sólidas y configuraciones de red seguras, como:<br/><br/>- Aprovisionamiento automatizado a partir de plantillas de Resource Manager o del SDK de Azure Machine Learning<br/>- [Control de acceso basado en rol (RBAC)](/azure/role-based-access-control/overview)<br/>- [Compatibilidad con redes virtuales](how-to-enable-virtual-network.md#compute-instance)<br/>- Directiva SSH para habilitar o deshabilitar el acceso SSH|
-|Preconfigurada&nbsp;o&nbsp;ML|Ahorre tiempo en las tareas de configuración con paquetes de ML preconfigurados y actualizados, marcos de aprendizaje profundo y controladores de GPU.|
+|Productividad|Puede compilar e implementar modelos con cuadernos integrados y las siguientes herramientas en Azure Machine Learning Studio:<br/>-  Jupyter<br/>-  JupyterLab<br/>-RStudio (versión preliminar)<br/>La instancia de proceso está totalmente integrada con el área de trabajo y estudio de Azure Machine Learning. Puede compartir cuadernos y datos con otros científicos de datos en el área de trabajo. También puede configurar el desarrollo remoto VS Code con [SSH](how-to-set-up-vs-code-remote.md) |
+|Administrada y segura|Reduzca la superficie de seguridad y agregue compatibilidad con los requisitos de seguridad empresariales. Las instancias de proceso proporcionan directivas de administración sólidas y configuraciones de red seguras, como:<br/><br/>- Aprovisionamiento automatizado a partir de plantillas de Resource Manager o del SDK de Azure Machine Learning<br/>- [Control de acceso basado en rol (RBAC)](/azure/role-based-access-control/overview)<br/>- [Compatibilidad con redes virtuales](how-to-enable-virtual-network.md#compute-instance)<br/>- Directiva SSH para habilitar o deshabilitar el acceso SSH<br/>TLS 1.2 habilitado |
+|Preconfigurado &nbsp;para&nbsp;ML|Ahorre tiempo en las tareas de configuración con paquetes de ML preconfigurados y actualizados, marcos de aprendizaje profundo y controladores de GPU.|
 |Totalmente personalizable|La amplia compatibilidad con los tipos de máquina virtual de Azure, incluidas las GPU y la personalización de bajo nivel persistente, como la instalación de paquetes y controladores, hace que los escenarios avanzados sean muy sencillos. |
 
 ## <a name="tools-and-environments"></a><a name="contents"></a>Herramientas y entornos
@@ -58,7 +57,7 @@ Las siguientes herramientas y entornos están instalados en la instancia de proc
 
 |Herramientas y entornos de **R**|Detalles|
 |----|:----:|
-|RStudio Server Edición de código abierto||
+|Edición de código abierto de RStudio Server (versión preliminar)||
 |R kernel||
 |SDK de Azure Machine Learning para R|[azuremlsdk](https://azure.github.io/azureml-sdk-for-r/reference/index.html)</br>Ejemplos del SDK|
 
@@ -75,8 +74,6 @@ Las siguientes herramientas y entornos están instalados en la instancia de proc
 |Ejemplos del SDK de Python y R para Azure Machine Learning||
 
 Todos los paquetes de Python se instalan en el entorno de **Python 3.6: AzureML**.  
-
-Las instancias de proceso se usan normalmente como entornos de desarrollo.  También se pueden usar como destino de proceso para la formación y la inferencia para el desarrollo y las pruebas.  Para las tareas de gran tamaño, un[ clúster de proceso de Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) con las funcionalidades de escalado de varios nodos es una mejor opción de destino de proceso.
 
 ### <a name="installing-packages"></a>Instalación de paquetes
 
@@ -96,13 +93,15 @@ También puede acceder a una ventana de terminal de cualquiera de estas formas:
 
 Los cuadernos y los scripts de R se almacenan en la cuenta de almacenamiento predeterminada del área de trabajo en el recurso compartido de archivos de Azure.  Estos archivos se encuentran en el directorio "Archivos de usuario". Este almacenamiento facilita el uso compartido de cuadernos entre instancias de proceso. La cuenta de almacenamiento también evita que los cuadernos se conserven de forma segura al detener o eliminar una instancia de proceso.
 
-La cuenta de recurso compartido de archivos de Azure del área de trabajo se monta como una unidad en la instancia de proceso. Esta unidad es el directorio de trabajo predeterminado para Jupyter, Jupyter Labs y RStudio.
+La cuenta de recurso compartido de archivos de Azure del área de trabajo se monta como una unidad en la instancia de proceso. Esta unidad es el directorio de trabajo predeterminado para Jupyter, Jupyter Labs y RStudio. Esto significa que los cuadernos y otros archivos creados en Jupyter, JupyterLab o RStudio se almacenan automáticamente en el recurso compartido de archivos y están disponibles para usarse también en otras instancias de proceso.
 
 Se puede tener acceso a los archivos del recurso compartido de archivos desde todas las instancias de proceso de la misma área de trabajo. Los cambios que se realicen en estos archivos en la instancia de proceso se conservarán de forma confiable en el recurso compartido de archivos.
 
 También puede clonar los ejemplos de Azure Machine Learning más recientes en la carpeta situada en el directorio de archivos de usuario del recurso compartido de archivos del área de trabajo.
 
-La escritura de archivos pequeños puede ser más lenta en las unidades de red que escribir en la propia máquina virtual.  Si escribe muchos archivos pequeños, pruebe usar un directorio directamente en la instancia de proceso, como un directorio`/tmp`. Tenga en cuenta que estos archivos no serán accesibles desde otras instancias de proceso en el área de trabajo.
+La escritura de archivos pequeños puede ser más lenta en las unidades de red que la escritura en el propio disco local de la instancia de proceso.  Si escribe muchos archivos pequeños, pruebe usar un directorio directamente en la instancia de proceso, como un directorio`/tmp`. Tenga en cuenta que estos archivos no serán accesibles desde otras instancias de proceso. 
+
+Puede usar el directorio `/tmp` en la instancia de proceso para los datos temporales.  Pero no escriba grandes archivos de datos en el disco del sistema operativo de la instancia de proceso.  En su lugar, use [almacenes de datos](concept-azure-machine-learning-architecture.md#datasets-and-datastores). Si instaló la extensión git de JupyterLab, también puede provocar una ralentización en el rendimiento de la instancia de proceso.
 
 ## <a name="managing-a-compute-instance"></a>Administración de una instancia de proceso
 
@@ -112,38 +111,75 @@ En el área de trabajo de Azure Machine Learning Studio, seleccione **Compute** 
 
 Puede realizar las siguientes acciones:
 
-* Crear de una instancia de proceso. Especifique el nombre, el tipo de VM de Azure, incluidas las GPU (tenga en cuenta que el tipo de VM no puede cambiarse después de la creación), habilite o deshabilite el acceso SSH y, si lo desea, configure las opciones de red virtual. También puede crear una instancia directamente desde cuadernos integrados, Azure Portal, plantilla de Resource Manager o SDK de Azure Machine Learning. La cuota de núcleos dedicados por región que se aplica a la creación de instancias de proceso se unifica y comparte con la cuota de clúster de proceso de Azure Machine Learning.
-* Actualice la pestaña instancias de proceso
-* Iniciar, detener y reiniciar una instancia de proceso. Detenga la máquina virtual cuando no esté utilizándola para reducir los costos. A continuación, inícielo de nuevo cuando lo necesite.
-* Eliminar una instancia de proceso.
+* [Crear una instancia de proceso](#create). 
+* Actualizar la pestaña instancias de proceso.
+* Iniciar, detener y reiniciar una instancia de proceso.  Se paga por la instancia cada vez que se ejecuta. Detenga la instancia de proceso cuando no la use para reducir el costo. Al detener una instancia de proceso, se cancela su asignación. A continuación, inícielo de nuevo cuando lo necesite. 
+* Elimine una instancia de proceso.
+* Filtre la lista de instancias de proceso a las que creó.  Se trata de las instancias de proceso a las que se puede tener acceso.
 
-Para cada instancia de proceso del área de trabajo, puede:
+Para cada instancia de proceso en el área de trabajo a la que tenga acceso, puede:
 
 * Acceder a Jupyter, JupyterLab y RStudio en la instancia de proceso.
 * SSH en la instancia de proceso. El acceso SSH está deshabilitado de forma predeterminada, pero se puede habilitar en el momento de la creación de la instancia de proceso. El acceso SSH se realiza a través del mecanismo de claves pública y privada. La pestaña le proporcionará detalles sobre la conexión SSH, como la dirección IP, el nombre de usuario y el número de puerto.
 * Más detalles sobre una instancia de proceso específica, como la dirección IP y la región.
 
-[RBAC](/azure/role-based-access-control/overview) permite controlar qué usuarios del área de trabajo pueden crear, eliminar, iniciar, detener y reiniciar una instancia de proceso. Todos los usuarios del rol colaborador y propietario del área de trabajo pueden crear, eliminar, iniciar, detener y reiniciar las instancias de proceso en el área de trabajo. Sin embargo, solo el creador de una instancia de proceso específica tiene permiso para acceder a Jupyter, JupyterLab y RStudio en esa instancia de proceso. El creador de la instancia de proceso tiene la instancia de proceso dedicada, tiene acceso raíz y puede conectarse mediante un terminal con Jupyter. Solo el usuario creador de la instancia de proceso puede iniciar sesión en ella y todas las acciones usarán la identidad de ese usuario para RBAC y la atribución de ejecuciones de experimentos. El acceso SSH se controla mediante un mecanismo de clave pública-privada.
+[RBAC](/azure/role-based-access-control/overview) permite controlar qué usuarios del área de trabajo pueden crear, eliminar, iniciar, detener y reiniciar una instancia de proceso. Todos los usuarios del rol colaborador y propietario del área de trabajo pueden crear, eliminar, iniciar, detener y reiniciar las instancias de proceso en el área de trabajo. Sin embargo, solo el creador de una instancia de proceso específica tiene permiso para acceder a Jupyter, JupyterLab y RStudio en esa instancia de proceso. El creador de la instancia de proceso tiene la instancia de proceso dedicada a ellas, tiene acceso raíz y puede realizar el terminal en a través de Jupyter/JupyterLab/RStudio. Solo el usuario creador de la instancia de proceso puede iniciar sesión en ella y todas las acciones usarán la identidad de ese usuario para RBAC y la atribución de ejecuciones de experimentos. El acceso SSH se controla mediante un mecanismo de clave pública-privada.
+
+RBAC puede controlar estas acciones:
+* *Microsoft.MachineLearningServices/workspaces/computes/read*
+* *Microsoft.MachineLearningServices/workspaces/computes/write*
+* *Microsoft.MachineLearningServices/workspaces/computes/delete*
+* *Microsoft.MachineLearningServices/workspaces/computes/start/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
+
+### <a name="create-a-compute-instance"></a><a name="create"></a>Crear de una instancia de proceso
+
+En el área de trabajo de Azure Machine Learning Studio, cree una nueva instancia de proceso desde la sección **Proceso** o en la sección **Notebooks** cuando esté listo para ejecutar uno de sus cuadernos.
+
+:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Crear una nueva instancia de proceso":::
+
+
+|Campo  |Descripción  |
+|---------|---------|
+|Nombre del proceso     |  <li>El nombre es obligatorio y debe tener una longitud de entre 3 y 24 caracteres.</li><li>Los caracteres válidos son mayúsculas y minúsculas, dígitos y el carácter **-** .</li><li>El nombre debe empezar con una letra</li><li>El nombre debe ser único en todos los procesos existentes dentro de una región de Azure. Verá una alerta si el nombre elegido no es único</li><li>Si se usa el carácter **-** , debe ir seguido de al menos una letra más adelante en el nombre</li>     |
+|Tipo de máquina virtual |  Elija CPU o GPU. Este tipo no se puede cambiar después de la creación     |
+|Tamaño de la máquina virtual     |  Los tamaños de máquina virtual admitidos podrían estar restringidos en su región. Comprobación de la [lista de disponibilidad](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
+|Habilitación o deshabilitación del acceso SSH     |   El acceso SSH está deshabilitado de forma predeterminada.  El acceso SSH no se puede. cambiar después de la creación. Asegúrese de habilitar el acceso si tiene previsto depurar de forma interactiva con [VS Code Remote](how-to-set-up-vs-code-remote.md)   |
+|Configuración avanzada     |  Opcional. Configurar una red virtual. Especifique el **Grupo de recursos**, **Red virtual** y **Subred** para crear la instancia de proceso dentro de una Azure Virtual Network (vnet). Para más información, consulte estos [requisitos de red](how-to-enable-virtual-network.md#compute-instance) para la red virtual.        |
 
 Usted también puede crear una instancia
-* Directamente de la experiencia de cuadernos integrados
+* Directamente de la [experiencia de cuadernos integrados](tutorial-1st-experiment-sdk-setup.md#azure)
 * En Azure Portal
 * A partir de una plantilla de Azure Resource Manager
-* Con SDK de Azure Machine Learning
+* Con [SDK de Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb)
+* Desde la extensión de la [CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
 
-La cuota de núcleos dedicados por región que se aplica a la creación de instancias de proceso se unifica y comparte con la cuota de clúster de formación de Azure Machine Learning. 
+Los núcleos dedicados por región por cuota de la familia de máquinas virtuales y la cuota regional total, que se aplica a la creación de la instancia de proceso. está unificada y compartida con la cuota de clúster de proceso de entrenamiento Azure Machine Learning. La detención de la instancia de proceso no libera la cuota para garantizar que pueda reiniciar la instancia de proceso.
 
 ## <a name="compute-target"></a>Destino de proceso
 
-Las instancias de proceso se pueden usar como [destino de proceso de entrenamiento](concept-compute-target.md#train) de forma similar a los clústeres de entrenamiento de Azure Machine Learning. Aprovisione una máquina virtual de varias GPU para ejecutar trabajos de formación distribuidos con estimaciones de TensorFlow/PyTorch. También puede crear una configuración de ejecución y usarla para ejecutar el experimento en la instancia de proceso. Puede usar una instancia de proceso como destino de implementación de inferencia local para escenarios de prueba o depuración.
+Las instancias de proceso se pueden usar como [destino de proceso de entrenamiento](concept-compute-target.md#train) de forma similar a los clústeres de entrenamiento de Azure Machine Learning. 
+
+Una instancia de proceso:
+* Tiene una cola de trabajo.
+* Ejecuta trabajos de forma segura en un entorno de red virtual, sin necesidad de que las empresas abran el puerto SSH. El trabajo se ejecuta en un entorno en contenedor y empaqueta las dependencias del modelo en un contenedor de Docker.
+* Puede ejecutar varios trabajos pequeños en paralelo (versión preliminar).  Se pueden ejecutar dos trabajos por núcleo en paralelo mientras el resto de los trabajos se ponen en cola.
+
+Puede usar la instancia de proceso como destino de implementación de inferencia local para escenarios de prueba o depuración.
+
+> [!NOTE]
+> No se admiten trabajos de entrenamiento distribuidos en la instancia de proceso.  Use (clústeres de proceso](how-to-set-up-training-targets.md#amlcompute) para aprendizaje distribuido.
+
+Para más información, consulte el cuaderno [train-on-computeinstance](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb). Este cuaderno también está disponible en la carpeta Studio **Muestras** en *training/train-on-computeinstance*.
 
 ## <a name="what-happened-to-notebook-vm"></a><a name="notebookvm"></a>¿Qué ha ocurrido con la VM de cuaderno?
 
 Las instancias de proceso reemplazan la VM de cuaderno.  
 
-Los archivos de cuaderno almacenados en el recurso compartido de archivos del área de trabajo y los almacenes de datos del área de trabajo serán accesibles desde una instancia de proceso. Sin embargo, los paquetes personalizados que se instalaron previamente en una VM de Notebook deberán volver a instalarse en la instancia de proceso. Las limitaciones de cuota que se aplican a la creación de clústeres de proceso se aplicarán también a la creación de instancias de proceso. 
+Los archivos de cuaderno almacenados en el recurso compartido de archivos del área de trabajo y los almacenes de datos del área de trabajo serán accesibles desde una instancia de proceso. Sin embargo, los paquetes personalizados que se instalaron previamente en una VM de Notebook deberán volver a instalarse en la instancia de proceso. Las limitaciones de cuota que se aplican a la creación de clústeres de proceso se aplicarán también a la creación de instancias de proceso.
 
-No se pueden crear las nuevas máquinas virtuales de Notebook. Sin embargo, todavía puede tener acceso a las VMs de Notebook que ha creado y utilizarlas con toda funcionalidad. Las instancias de proceso se pueden crear en la misma área de trabajo que las VMs de Notebook existentes. 
+No se pueden crear las nuevas máquinas virtuales de Notebook. Sin embargo, todavía puede tener acceso a las VMs de Notebook que ha creado y utilizarlas con toda funcionalidad. Las instancias de proceso se pueden crear en la misma área de trabajo que las VMs de Notebook existentes.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

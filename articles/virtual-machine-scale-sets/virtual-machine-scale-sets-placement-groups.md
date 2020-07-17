@@ -6,15 +6,15 @@ ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: management
-ms.date: 11/9/2017
+ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: c2490d8dc1d828992d309f07de1f75fa61ecb3be
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 0848d092c342b29c1839a4dd4cebd0bad62ea3ca
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200956"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023013"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Uso de grandes conjuntos de escalado de máquinas virtuales
 Ahora puede crear [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets/) de Azure con una capacidad de hasta 1000 máquinas virtuales. En este documento, un _conjunto de escalado de máquinas virtuales grande_ se define como un conjunto de escalado capaz de escalar a más de 100 máquinas virtuales. Esta funcionalidad se establece con una propiedad de conjunto de escalado (_singlePlacementGroup=False_). 
@@ -33,6 +33,7 @@ Para decidir si la aplicación puede hacer un uso eficaz de los conjuntos de esc
 - Los conjuntos de escalado creados a partir de imágenes de Azure Marketplace pueden escalar a un máximo de 1000 máquinas virtuales.
 - Los conjuntos de escalado creados a partir de imágenes personalizadas (imágenes de máquina virtual que crea y carga el usuario) actualmente pueden escalar a 600 máquinas virtuales, como máximo.
 - Los conjuntos de escalado grandes necesitan Azure Managed Disks. Los conjuntos de escalado grandes que no se crean con Managed Disks requieren varias cuentas de almacenamiento (una por cada 20 máquinas virtuales). Los conjuntos de escalado grandes están diseñados para trabajar exclusivamente con Managed Disks para reducir la sobrecarga de administración del almacenamiento y para evitar el riesgo de alcanzar los límites de suscripción de las cuentas de almacenamiento. 
+- Gran escala (SPG=false) no es compatible con redes InfiniBand
 - El equilibrio de carga de nivel 4 con conjuntos de escalado compuestos por varios grupos de selección de ubicación necesita la [SKU estándar de Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md). La SKU estándar de Load Balancer proporciona ventajas adicionales, como la capacidad de equilibrar la carga entre varios conjuntos de escalado. La SKU estándar también necesita que el conjunto de escalado tenga un grupo de seguridad de red asociado a ella, en caso contrario, los grupos NAT no funcionarán correctamente. Si necesita usar la SKU básica de Azure Load Balancer, asegúrese de que el conjunto de escalado está configurado para usar un único grupo de selección de ubicación, que es el valor predeterminado.
 - Se admite el equilibrio de carga de nivel 7 con Azure Application Gateway para todos los conjuntos de escalado.
 - Un conjunto de escalado se define con una sola subred; asegúrese de que la subred tenga suficiente espacio de direcciones para todas las máquinas virtuales que necesita. De forma predeterminada, un conjunto de escalado se aprovisiona en exceso (crea máquinas virtuales adicionales durante la implementación o durante el escalado horizontal, que no se le cobran) para mejorar el rendimiento y la confiabilidad de la implementación. Deje un 20 % más de espacio que el número de máquinas virtuales al que tiene pensado escalar.
@@ -42,7 +43,7 @@ Para decidir si la aplicación puede hacer un uso eficaz de los conjuntos de esc
 ## <a name="creating-a-large-scale-set"></a>Creación de un conjunto de escalado grande
 Al crear un conjunto de escalado en Azure Portal, simplemente especifique un valor de *Recuento de instancias* de hasta 1000. Si hay más de 100 instancias, en *Habilitar el escalado con más de 100 instancias* está seleccionado *Sí*, lo que le permitirá escalar a varios grupos de selección de ubicación. 
 
-![](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
+![En esta imagen se muestra la hoja de instancias de Azure Portal. Están disponibles las opciones para seleccionar el Recuento de instancias y el tamaño de la Instancia.](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 
 Puede crear un conjunto de escalado de máquinas virtuales de gran tamaño con el comando _az vmss create_ de la [CLI de Azure](https://github.com/Azure/azure-cli). Este comando establece valores predeterminados inteligentes, como el tamaño de la subred, en función del argumento _instance-count_:
 
@@ -76,7 +77,7 @@ Si para crear un conjunto de escalado grande va a utilizar una plantilla de Azur
     }
 ```
 
-Para ver un ejemplo completo de una plantilla de conjunto de escalado de gran tamaño, consulte [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json).
+Para ver un ejemplo completo de una plantilla de conjunto de escalado de gran tamaño, consulte [https://github.com/gbowerman/azure-myriad/blob/main/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/main/bigtest/bigbottle.json).
 
 ## <a name="converting-an-existing-scale-set-to-span-multiple-placement-groups"></a>Conversión de un conjunto de escalado existente para incluir varios grupos de selección de ubicación
 Para que un conjunto de escalado de máquinas virtuales existente pueda escalar a más de 100 máquinas virtuales, tiene que cambiar la propiedad _singlePlacementGroup_ a _false_ en el modelo del conjunto de escalado. Puede probar a cambiar esta propiedad con el [Explorador de recursos de Azure](https://resources.azure.com/). Buscar un conjunto de escalado existente, seleccione _Editar_ y cambie la propiedad _singlePlacementGroup_. Si no ve esta propiedad, quizás esté viendo el conjunto de escalado con una versión anterior de la API Microsoft.Compute.

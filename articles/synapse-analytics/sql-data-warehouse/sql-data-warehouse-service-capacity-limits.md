@@ -6,17 +6,17 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fbdf0fda51ae35fac4f3f8ae45bfcd788fc406ae
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: c0fcbe59aa4393f1266c0840cf05c3dc7b1f6d90
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81413999"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204989"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Límites de capacidad de Azure Synapse Analytics (anteriormente SQL DW)
 
@@ -30,8 +30,8 @@ Valores máximos permitidos para los distintos componentes de Azure Synapse.
 | [Unidades de almacenamiento de datos (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Valor predeterminado de la DTU por servidor |54 000<br></br>De forma predeterminada, cada servidor SQL (por ejemplo, myserver.database.windows.net) tiene una cuota de DTU de 54 000, lo que permite un máximo de DW5000c. Esta cuota es simplemente un límite de seguridad. Puede aumentar su cuota mediante la [creación de una incidencia de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md) y la selección de *Cuota* como el tipo de solicitud.  Para calcular las necesidades de la DTU, multiplique 7,5 por el total de DWU necesarias o multiplique 9,5 por el total de cDWU necesarias. Por ejemplo:<br></br>DW6000 x 7,5 = 45 000 DTU<br></br>DW5000c x 9,5 = 47 500 DTU<br></br>Puede ver el consumo de DTU actual en la opción de SQL Server en el portal. Tanto las bases de datos en pausa como las no pausadas cuentan en la cuota de DTU. |
 | Conexión de base de datos |Número máximo de sesiones abiertas simultáneas |1024<br/><br/>El número de sesiones abiertas simultáneas variará en función de la DWU seleccionada. DWU600c y versiones posteriores admiten 1024 sesiones abiertas como máximo. DWU500c y las versiones anteriores admiten un límite máximo de 512 sesiones abiertas simultáneas. Tenga en cuenta que no hay límite en el número de consultas que se pueden ejecutar a la vez. Cuando se supera el límite de simultaneidad, la solicitud entra en una cola interna donde espera para su proceso. |
 | Conexión de base de datos |Memoria máxima para instrucciones preparadas |20 MB |
-| [Administración de cargas de trabajo](resource-classes-for-workload-management.md) |Número máximo de consultas concurrentes |128<br/><br/>  Se ejecutará un máximo de 128 consultas simultáneas y las consultas restantes se pondrán en cola.<br/><br/>El número de consultas simultáneas se puede reducir cuando los usuarios se asignan a clases de recursos superiores o cuando se reduce el ajuste de la [unidad de almacenamiento de datos](memory-concurrency-limits.md). Algunas consultas, como las consultas DMV, siempre se pueden ejecutar y no afectan al límite de consultas simultáneas. Para más detalles sobre la ejecución de consultas simultáneas, consulte el artículo sobre [valores máximos de simultaneidad](memory-concurrency-limits.md). |
-| [tempdb](sql-data-warehouse-tables-temporary.md) |GB máximos: |399 GB por DW100c. Por lo tanto, en DWU1000c el tamaño de tempdb es de 3,99 TB. |
+| [Administración de cargas de trabajo](resource-classes-for-workload-management.md) |Número máximo de consultas concurrentes |128<br/><br/>  Se ejecutará un máximo de 128 consultas simultáneas y las consultas restantes se pondrán en cola.<br/><br/>El número de consultas simultáneas se puede reducir cuando los usuarios se asignan a clases de recursos superiores o cuando se reduce el ajuste de la [unidad de almacenamiento de datos](memory-concurrency-limits.md). Algunas consultas, como las consultas DMV, siempre se pueden ejecutar y no afectan al límite de consultas simultáneas. Para más información sobre la ejecución de consultas simultáneas, consulte el artículo sobre [valores máximos de simultaneidad](memory-concurrency-limits.md). |
+| [tempdb](sql-data-warehouse-tables-temporary.md) |GB máximos: |399 GB por DW100c. En DWU1000c el tamaño de tempdb es de 3,99 TB. |
 ||||
 
 ## <a name="database-objects"></a>Objetos de base de datos
@@ -43,7 +43,7 @@ Valores máximos permitidos para los distintos componentes de Azure Synapse.
 | Tabla |Tablas por base de datos | 100 000 |
 | Tabla |Columnas por tabla |1024 columnas |
 | Tabla |Bytes por columna |Depende de la columna de [tipo de datos](sql-data-warehouse-tables-data-types.md). El límite es 8000 para los tipos de datos char, 4000 para nvarchar o 2 GB para los tipos de datos MAX. |
-| Tabla |Bytes por fila, tamaño definido |8060 bytes<br/><br/>El número de bytes por fila se calcula de la misma forma que para SQL Server con la compresión de página. Al igual que SQL Server, se admite el almacenamiento con desbordamiento de fila, lo que permite insertar **columnas de longitud variable** de forma no consecutiva. Cuando se insertan filas de longitud variable, solo se almacena la raíz de 24 bytes en el registro principal. Para obtener más información, consulte [Datos de desbordamiento de fila superiores a 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
+| Tabla |Bytes por fila, tamaño definido |8060 bytes<br/><br/>El número de bytes por fila se calcula de la misma forma que para SQL Server con la compresión de página. Al igual que SQL Server, se admite el almacenamiento con desbordamiento de fila, lo que permite insertar **columnas de longitud variable** de forma no consecutiva. Cuando se insertan filas de longitud variable, solo se almacena la raíz de 24 bytes en el registro principal. Para obtener más información, consulte [Datos de desbordamiento de filas superiores a 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
 | Tabla |Particiones por tabla |15,000<br/><br/>Para obtener un alto rendimiento, se recomienda reducir al mínimo el número de particiones que necesita, pero sin perder de vista sus requisitos empresariales. A medida que crece el número de particiones, la sobrecarga de operaciones de lenguaje de definición de datos (DDL) y lenguaje de manipulación de datos (DML) crece y da lugar a un rendimiento más lento. |
 | Tabla |Caracteres por valor de límite de partición |4000 |
 | Índice |Índices no agrupados por tabla |50<br/><br/>Solo se aplica a tablas de almacén de filas. |

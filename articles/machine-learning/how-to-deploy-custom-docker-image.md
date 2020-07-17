@@ -5,17 +5,18 @@ description: Aprenda a usar una imagen base de Docker personalizada al implement
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 03/16/2020
-ms.openlocfilehash: a237beb72e35a236e353c58db520a8d611fdfdcd
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.date: 06/17/2020
+ms.custom: tracking-python
+ms.openlocfilehash: 8ad3ec9f257289abab1c2d881a798a43a2c1d8ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81618007"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84976768"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implementación de un modelo con una imagen base de Docker personalizada
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,7 +42,7 @@ Este documento se divide en dos secciones:
 * Creación de una imagen base personalizada: proporciona información para administradores y DevOps para crear una imagen personalizada y configurar la autenticación en Azure Container Registry mediante la CLI de Azure y la CLI de Machine Learning.
 * Implementación de un modelo con una imagen base personalizada: proporciona información a los científicos de datos y DevOps/ingenieros de ML sobre el uso de imágenes personalizadas al implementar un modelo entrenado desde el SDK de Python o la CLI de ML.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Un grupo de trabajo de Azure Machine Learning. Para más información, consulte el artículo [Crear un área de trabajo](how-to-manage-workspace.md).
 * El [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). 
@@ -174,7 +175,7 @@ Para más información acerca de cómo cargar imágenes existentes en una instan
 
 Para usar una imagen personalizada, necesitará la siguiente información:
 
-* El __nombre de la imagen__. Por ejemplo, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` es la ruta de acceso a una imagen de Docker básica que proporciona Microsoft.
+* El __nombre de la imagen__. Por ejemplo, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` es la ruta de acceso a una imagen de Docker básica que proporciona Microsoft.
 
     > [!IMPORTANT]
     > En el caso de las imágenes personalizadas que haya creado, asegúrese de incluir todas las etiquetas que se usaron con la imagen. Por ejemplo, si la imagen se creó con una etiqueta específica, como `:v1`. Si no usó ninguna etiqueta específica al crear la imagen, se aplicó una etiqueta de `:latest`.
@@ -204,15 +205,7 @@ Para más información acerca de las imágenes base de tiempo de ejecución de O
 > [!TIP]
 > Puesto que estas imágenes están disponibles públicamente, no es necesario proporcionar ninguna dirección, nombre de usuario ni contraseña para usarlas.
 
-Para más información, consulte [Contenedores de Azure Machine Learning](https://github.com/Azure/AzureML-Containers).
-
-> [!TIP]
->__Si el modelo se entrena en el Proceso de Azure Machine Learning__, con la __versión 1.0.22 o posterior__ del SDK de Azure Machine Learning, se crea una imagen durante el entrenamiento. Para conocer el nombre de esta imagen, use `run.properties["AzureML.DerivedImageName"]`. En el siguiente ejemplo se muestra cómo usar esta imagen:
->
-> ```python
-> # Use an image built during training with SDK 1.0.22 or greater
-> image_config.base_image = run.properties["AzureML.DerivedImageName"]
-> ```
+Para más información, consulte el repositorio de GitHub de [Contenedores de Azure Machine Learning](https://github.com/Azure/AzureML-Containers).
 
 ### <a name="use-an-image-with-the-azure-machine-learning-sdk"></a>Usar una imagen con el SDK de Azure Machine Learning
 
@@ -227,7 +220,7 @@ from azureml.core.environment import Environment
 myenv = Environment(name="myenv")
 # Enable Docker and reference an image
 myenv.docker.enabled = True
-myenv.docker.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
+myenv.docker.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest"
 ```
 
 Para usar una imagen desde un __registro de contenedor privado__ que no esté en el área de trabajo, debe usar `docker.base_image_registry` para especificar la dirección del repositorio y un nombre de usuario y contraseña:
@@ -288,7 +281,7 @@ Antes de implementar un modelo mediante la CLI de Machine Learning, cree un [ent
         "docker": {
             "arguments": [],
             "baseDockerfile": null,
-            "baseImage": "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda",
+            "baseImage": "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest",
             "enabled": false,
             "sharedVolumes": true,
             "shmSize": null

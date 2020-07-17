@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Conexión de un clúster de Kubernetes habilitado para Azure Arc
 keywords: Kubernetes, Arc, Azure, K8s, contenedores
 ms.custom: references_regions
-ms.openlocfilehash: 868964361e6089eb3417b0f2e2681d82d4aa0b75
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 1a186ac3bf2297de5ffc7ff478ba9b4350dae4c8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299650"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104288"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Conexión de un clúster de Kubernetes habilitado para Azure Arc (versión preliminar)
 
@@ -24,10 +24,33 @@ Conecte un clúster de Kubernetes a Azure Arc.
 
 Compruebe que tiene listos los requisitos siguientes:
 
-* Un clúster de Kubernetes en funcionamiento
-* Necesitará acceso con kubeconfig y acceso de administrador de clústeres.
+* Un clúster de Kubernetes en funcionamiento. Si no tiene un clúster de Kubernetes existente, puede usar una de las siguientes guías para crear un clúster de prueba:
+  * Creación de un clúster de Kubernetes con [Kubernetes en Docker (Kind)](https://kind.sigs.k8s.io/)
+  * Creación de un clúster de Kubernetes con Docker para [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) o [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
+* Necesitará un archivo kubeconfig para acceder al clúster y a al rol administrador del clúster en el clúster para la implementación de los agentes de Kubernetes habilitados para Arc.
 * El usuario o la entidad de servicio que se usa con los comandos `az login` y `az connectedk8s connect` debe tener los permisos de "Lectura" y "Escritura" en el tipo de recurso "Microsoft.Kubernetes/connectedclusters". El rol "Azure Arc para la incorporación de Kubernetes" que tiene estos permisos se puede usar para las asignaciones de roles en el usuario o la entidad de servicio que se utiliza con la CLI de Azure para la incorporación.
-* La versión más reciente de las extensiones *connectedk8s* y *k8sconfiguration*.
+* Helm 3 es necesario para incorporar el clúster con la extensión connectedk8s. [Instale la última versión de Helm 3](https://helm.sh/docs/intro/install) para cumplir este requisito.
+* Se requiere la versión 2.3 o posteriores de la CLI de Azure para instalar las extensiones de la CLI de Kubernetes habilitado para Azure Arc. [Instale la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o actualice a la última versión para asegurarse de que tiene la versión 2.3 o posterior de la CLI de Azure.
+* Instale las extensiones de CLI de Kubernetes habilitadas para Arc:
+  
+  Instale la extensión `connectedk8s`, que ayuda a conectar clústeres de Kubernetes a Azure:
+  
+  ```console
+  az extension add --name connectedk8s
+  ```
+  
+  Instale la extensión `k8sconfiguration`:
+  
+  ```console
+  az extension add --name k8sconfiguration
+  ```
+  
+  Si quiere actualizar estas extensiones más adelante, ejecute los siguientes comandos:
+  
+  ```console
+  az extension update --name connectedk8s
+  az extension update --name k8sconfiguration
+  ```
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
@@ -54,10 +77,8 @@ Los agentes de Azure Arc requieren que funcionen los siguientes protocolos, puer
 
 ```console
 az provider register --namespace Microsoft.Kubernetes
-Registering is still on-going. You can monitor using 'az provider show -n Microsoft.Kubernetes'
 
 az provider register --namespace Microsoft.KubernetesConfiguration
-Registering is still on-going. You can monitor using 'az provider show -n Microsoft.KubernetesConfiguration'
 ```
 
 El registro es un proceso asincrónico. Puede tardar 10 minutos, aproximadamente. Puede supervisar el proceso de registro con los comandos siguientes:
@@ -69,31 +90,6 @@ az provider show -n Microsoft.Kubernetes -o table
 ```console
 az provider show -n Microsoft.KubernetesConfiguration -o table
 ```
-
-## <a name="install-azure-cli-and-arc-enabled-kubernetes-extensions"></a>Instalación de las extensiones de Kubernetes habilitado para Arc y de la CLI de Azure
-Se requiere la versión 2.3 o posteriores de la CLI de Azure para instalar las extensiones de la CLI de Kubernetes habilitado para Azure Arc. [Instale la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) o actualice a la última versión para asegurarse de que tiene la versión 2.3 o posterior de la CLI de Azure.
-
-Instale la extensión `connectedk8s`, que ayuda a conectar clústeres de Kubernetes a Azure:
-
-```console
-az extension add --name connectedk8s
-```
-
-Instale la extensión `k8sconfiguration`:
-
-```console
-az extension add --name k8sconfiguration
-```
-
-Para actualizar las extensiones a las versiones más recientes, ejecute los comandos siguientes.
-
-```console
-az extension update --name connectedk8s
-az extension update --name k8sconfiguration
-```
-
-## <a name="install-helm"></a>Instalación de Helm
-Helm 3 es necesario para incorporar el clúster con la extensión connectedk8s. [Instale la última versión de Helm 3](https://helm.sh/docs/intro/install) para cumplir este requisito.
 
 ## <a name="create-a-resource-group"></a>Creación de un grupo de recursos
 
@@ -171,7 +167,7 @@ Name           Location    ResourceGroup
 AzureArcTest1  eastus      AzureArcTest
 ```
 
-También puede ver este recurso en el [Portal de vista previa de Azure](https://preview.portal.azure.com/). Una vez que tenga el portal abierto en el explorador, navegue hasta el grupo de recursos y el recurso Kubernetes habilitado para Azure Arc según las entradas de nombre de recurso y nombre del grupo de recursos que se usaron anteriormente en el comando `az connectedk8s connect`.
+También puede ver este recurso en [Azure Portal](https://portal.azure.com/). Una vez que tenga el portal abierto en el explorador, navegue hasta el grupo de recursos y el recurso Kubernetes habilitado para Azure Arc según las entradas de nombre de recurso y nombre del grupo de recursos que se usaron anteriormente en el comando `az connectedk8s connect`.
 
 Kubernetes habilitado para Azure Arc implementa algunos operadores en el espacio de nombres `azure-arc`. Puede ver estas implementaciones y pods aquí:
 
@@ -210,7 +206,7 @@ Kubernetes habilitado para Azure Arc consta de algunos agentes (operadores) que 
 * `deployment.apps/metrics-agent`: recopila métricas de otros agentes de Arc para asegurarse de que presentan un rendimiento óptimo.
 * `deployment.apps/cluster-metadata-operator`: recopila metadatos del clúster: la versión, el número de nodos y la versión del agente de Arc.
 * `deployment.apps/resource-sync-agent`: sincroniza con Azure los metadatos de clúster mencionados anteriormente.
-* `deployment.apps/clusteridentityoperator`: mantiene el certificado de Managed Service Identity (MSI) que usan otros agentes para la comunicación con Azure.
+* `deployment.apps/clusteridentityoperator`: Kubernetes habilitado para Azure Arc admite actualmente la identidad asignada por el sistema. clusteridentityoperator mantiene el certificado de Managed Service Identity (MSI) que usan otros agentes para la comunicación con Azure.
 * `deployment.apps/flux-logs-agent`: recopila registros de los operadores de Flux implementados como parte de la configuración de control de código fuente.
 
 ## <a name="delete-a-connected-cluster"></a>Eliminación de un clúster conectado

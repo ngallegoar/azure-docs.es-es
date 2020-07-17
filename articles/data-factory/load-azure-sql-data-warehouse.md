@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/29/2020
-ms.openlocfilehash: 2f3932f3374367e260685ae5145da8858384c3a2
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 06/08/2020
+ms.openlocfilehash: 8891c65707822abeb2bcca52280d9b56dc725e4f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194768"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85252005"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Carga de datos en Azure Synapse Analytics mediante Azure Data Factory
 
@@ -42,7 +42,7 @@ En este artículo se muestra cómo usar la herramienta Copiar datos de Data Fact
 
 * Suscripción de Azure: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 * Azure Synapse Analytics: Este almacén de datos contiene los datos que se copian de SQL Database. Si no tiene una instancia de Azure Synapse Analytics, consulte las instrucciones de [Creación de una instancia de Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
-* Azure SQL Database: este tutorial copia los datos de una base de datos de Azure SQL con los datos de ejemplo de Adventure Works LT. Puede crear una base de datos SQL si sigue las instrucciones que aparecen en [Creación de una base de datos de Azure SQL](../azure-sql/database/single-database-create-quickstart.md).
+* Azure SQL Database: este tutorial copia los datos del conjunto de datos de ejemplo Adventure Works LT en Azure SQL Database. Puede crear esta base de datos de ejemplo en SQL Database si sigue las instrucciones que aparecen en [Creación de una base de datos de ejemplo en Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 * Cuenta de almacenamiento de Azure: Azure Storage se usa como blob de _almacenamiento provisional_ en la operación de copia masiva. Si no dispone de una cuenta de almacenamiento de Azure, consulte las instrucciones de [Creación de una cuenta de almacenamiento](../storage/common/storage-account-create.md).
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
@@ -136,11 +136,13 @@ En este artículo se muestra cómo usar la herramienta Copiar datos de Data Fact
 1. En la página **Resumen**, revise la configuración y seleccione **Siguiente**.
 
     ![Página de resumen](./media/load-azure-sql-data-warehouse/summary-page.png)
-1. En la página **Implementación**, seleccione **Supervisión** para supervisar la canalización (tarea).
 
-1. Observe que la pestaña **Monitor** (Supervisión) de la izquierda se selecciona automáticamente. Cuando la ejecución de la canalización finalice correctamente, seleccione el vínculo **CopyFromSQLToSQLDW** en la columna **PIPELINE NAME** para ver los detalles de la ejecución de actividad y volver a ejecutar la canalización.
+1. En la página **Deployment** (Implementación), seleccione **Monitor** (Supervisión) para supervisar la canalización (tarea). 
+ 
+1. Observe que la pestaña **Monitor** (Supervisión) de la izquierda se selecciona automáticamente. Cuando la ejecución de la canalización finalice correctamente, seleccione el vínculo **CopyFromSQLToSQLDW** en la columna **PIPELINE NAME** para ver los detalles de la ejecución de actividad o volver a ejecutar la canalización.
 
     [![Supervisión de las ejecuciones de canalización](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png)](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png#lightbox)
+
 1. Para volver a la vista de ejecuciones de canalización, seleccione el vínculo **Todas las ejecuciones de la canalización**. Seleccione **Refresh** (Actualizar) para actualizar la lista.
 
     ![Supervisión de las ejecuciones de actividad](./media/load-azure-sql-data-warehouse/activity-monitoring.png)

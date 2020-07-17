@@ -6,17 +6,14 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 4ef5d89ea58c5c27f4344633afa2fe8048948719
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 1300ef64b6081135c400baa10aa73b8139aec170
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849488"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025597"
 ---
-# <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Cifrado de datos del servidor único de Azure Database for PostgreSQL con la clave administrada por el cliente
-
-> [!NOTE]
-> Por el momento, debe solicitar acceso para poder usar esta función. Para ello, póngase en contacto con AskAzureDBforPostgreSQL@service.microsoft.com.
+# <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Cifrado de datos del servidor único de Azure Database for PostgreSQL con clave administrada por el cliente
 
 El cifrado de datos con claves administradas por el cliente del servidor único de Azure Database for PostgreSQL le permite traer su propia clave (BYOK) para la protección de datos en reposo. También permite a las organizaciones implementar la separación de tareas en la administración de claves y datos. Con el cifrado administrado por el cliente, el usuario es responsable y tiene el control total del ciclo de vida de una clave, los permisos de uso de la clave y la auditoría de operaciones con claves.
 
@@ -129,6 +126,19 @@ Para evitar incidencias al configurar el cifrado de datos administrado por el cl
 * Inicie el proceso de restauración o creación de réplica de lectura desde el servidor único de Azure Database for PostgreSQL.
 * Mantenga el servidor recién creado (de réplica o restaurado) en un estado inaccesible, ya que su identidad única todavía no tiene permisos para Key Vault.
 * En el servidor de réplica o restaurado, vuelva a validar la clave administrada por el cliente en la configuración de cifrado de datos. De esta forma se garantiza que el servidor recién creado recibe los permisos para encapsular y desencapsular la clave almacenada en Key Vault.
+
+## <a name="limitations"></a>Limitaciones
+
+Para Azure Database for PostgreSQL, la compatibilidad con el cifrado de datos en reposo con la clave administrada de clientes (CMK) tiene algunas limitaciones:
+
+* La compatibilidad con esta funcionalidad se limita a **De uso general** y los planes de tarifa **Optimizados para memoria**.
+* Esta característica solo se admite en regiones y servidores que admiten almacenamiento de hasta 16 TB. Para ver la lista de regiones de Azure que admiten almacenamiento de hasta 16 TB, consulte la sección de almacenamiento de la documentación [aquí](concepts-pricing-tiers.md#storage)
+
+    > [!NOTE]
+    > - En todos los nuevos servidores PostgreSQL creados en las regiones mencionadas anteriormente, el soporte para el cifrado con claves de administrador de clientes está **disponible**. El servidor Point In Time Restored (PITR) o la réplica de lectura no calificarán, aunque en teoría son "nuevos".
+    > - Para validar si el servidor aprovisionado admite hasta 16 TB, puede ir a la hoja del plan de tarifa en el portal y ver el tamaño de almacenamiento máximo admitido por el servidor aprovisionado. Si puede subir el control deslizante hasta 4 TB, es posible que el servidor no admita el cifrado con claves administradas por el cliente. Pero los datos se cifran en todo momento con claves administradas por el servicio. Póngase en contacto con AskAzureDBforPostgreSQL@service.microsoft.com si tiene alguna pregunta.
+
+* El cifrado solo se admite con la clave criptográfica RSA 2048.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

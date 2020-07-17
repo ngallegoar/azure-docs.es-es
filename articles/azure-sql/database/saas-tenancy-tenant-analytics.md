@@ -1,6 +1,6 @@
 ---
 title: Análisis entre inquilinos mediante datos extraídos
-description: Consultas de análisis entre inquilinos mediante datos extraídos de varias instancias de Azure SQL Database en una aplicación de un solo inquilino.
+description: Consultas de análisis entre inquilinos mediante datos extraídos de varias instancias de base de datos de Azure SQL en una aplicación de un solo inquilino.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 3078cf7a7b16d5932e861f28a352002aa01cea45
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: cc748e8a816b944a20a12c8e8e345dca21dfaabd
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84026756"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043519"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análisis entre inquilinos mediante datos extraídos: aplicación de un solo inquilino
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9550684ad154f28a02ee347fd0a79c1ec286beb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db61a3f9034908043695bc7db3a16551bf4659c3
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74382196"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024084"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Información general de seguridad de Azure Active Directory Identity Protection
 
@@ -56,7 +56,7 @@ El mosaico "Inicios de sesión de riesgo sin protección" muestra el recuento de
 
 ### <a name="legacy-authentication"></a>Autenticación heredada
 
-El icono "Autenticación heredada" muestra el recuento de la semana pasada de autenticaciones heredadas de su organización. Los protocolos de autenticación heredados no admiten métodos de seguridad modernos como una MFA. Para evitar la autenticación heredada, puede aplicar una directiva de acceso condicional. Al hacer clic en el icono "Autenticación heredada" se le redirigirá a la "Puntuación segura de identidad'.
+El icono "Autenticación heredada" muestra el recuento de las autenticaciones heredadas de la última semana con el riesgo presente en la organización. Los protocolos de autenticación heredados no admiten métodos de seguridad modernos como una MFA. Para evitar la autenticación heredada, puede aplicar una directiva de acceso condicional. Al hacer clic en el icono "Autenticación heredada" se le redirigirá a la "Puntuación segura de identidad'.
 
 ### <a name="identity-secure-score"></a>Puntuación segura de identidad
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 1d74bf089f3e5bc1fd04232b58ce95c649a170e1
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: d2a14a501ebcf0913804ce39019a3fa4018ca141
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307256"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362380"
 ---
 # <a name="add-parameters-to-commands"></a>Adición de parámetros a comandos
 
@@ -60,9 +60,10 @@ Edite el comando **TurnOn** existente para encender y apagar varios dispositivos
        | Configuración      | Aceptar valores de entrada predefinidos del catálogo interno | En el caso de las cadenas, esto limita las entradas a un conjunto de valores posibles. |
        | Valores de entrada predefinidos     | `on`, `off`           | Conjunto de valores posibles y sus alias         |
        
-        > [!div class="mx-imgBorder"]
+        
+   1. Para agregar valores de entrada predefinidos, seleccione **Agregar una entrada predefinida** y, en la ventana **Nuevo elemento**, escriba **Nombre** como se indica en la tabla anterior. En este caso, no usamos alias, por lo que puede dejarlo en blanco. 
+    > [!div class="mx-imgBorder"]
         > ![Crear parámetro](media/custom-commands/create-on-off-parameter.png)
-
    1. Seleccione **Guardar** para guardar todas las configuraciones del parámetro.
  
  ### <a name="add-subjectdevice-parameter"></a>Adición del parámetro SubjectDevice 

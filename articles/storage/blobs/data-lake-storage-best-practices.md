@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 79c4f051318113ebe0c7e0085539d2f24405b4f9
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: e008bad2043d8cd633f0849aefc62c4ed7a7e89d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857881"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104884"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Procedimientos recomendados para usar Azure Data Lake Storage Gen2
 
@@ -77,11 +77,11 @@ Cuando se colocan los datos en una instancia de Data Lake Store, es importante p
 
 En las cargas de trabajo de IoT, puede haber una gran cantidad de datos que se colocan en el almacén de datos que abarca varios productos, dispositivos, organizaciones y clientes. Es importante planear previamente el diseño del directorio para la organización, la seguridad y un procesamiento eficaz de los datos para los consumidores de nivel inferior. Una plantilla general a tener en cuenta podría tener el siguiente diseño:
 
-    {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/
+*{Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/*
 
 Por ejemplo, la telemetría de aterrizaje de un motor de un avión del Reino Unido podría ser parecida a la estructura siguiente:
 
-    UK/Planes/BA1293/Engine1/2017/08/11/12/
+*UK/Planes/BA1293/Engine1/2017/08/11/12/*
 
 Existe un motivo importante para poner la fecha al final de la estructura de directorios. Si desea bloquear determinadas regiones o asuntos a usuarios o grupos, puede hacerlo fácilmente con los permisos POSIX. En caso contrario, si fuera necesario aplicar restricciones a un determinado grupo de seguridad para que solo vea los datos del Reino Unido o de determinados aviones con la estructura de fechas delante, se requeriría un permiso independiente para varios directorios bajo el directorio de cada hora. Además, el hecho de tener la estructura de fecha delante, aumentaría exponencialmente el número de directorios a medida que transcurriera el tiempo.
 
@@ -91,13 +91,13 @@ Desde una perspectiva general, un enfoque utilizado habitualmente en el procesam
 
 En algunas ocasiones, el procesamiento de archivos es incorrecto debido a datos dañados o a formatos imprevistos. En tales casos, podría resultar útil que la estructura de directorios tuviera una carpeta **/bad** a la que mover los archivos para una mayor inspección. El trabajo por lotes también puede controlar el informe o notificación de estos archivos *incorrectos* para una posterior intervención manual. Tenga en cuenta la siguiente estructura de plantilla:
 
-    {Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/
+*{Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/* \
+*{Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/* \
+*{Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/*
 
 Por ejemplo, una empresa de marketing recibe a diario extractos de datos de actualizaciones de los clientes de Norteamérica. Podría tener el aspecto del siguiente fragmento de código antes y después del procesamiento:
 
-    NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv
-    NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv
+*NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv*\
+*NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv*
 
 En el caso habitual de datos por lotes que se procesan directamente en bases de datos como Hive o instancias tradicionales de SQL Database, no es necesaria una carpeta **/in** o **/out** puesto que la salida ya va a una carpeta independiente de la tabla de Hive o a una base de datos externa. Por ejemplo, los extractos diarios de los clientes se colocarían en sus respectivas carpetas y la orquestación de Azure Data Factory, Apache Oozie o Apache Airflow desencadenaría un trabajo diario de Hive o Spark que procesaría y escribiría los datos en una tabla de Hive.

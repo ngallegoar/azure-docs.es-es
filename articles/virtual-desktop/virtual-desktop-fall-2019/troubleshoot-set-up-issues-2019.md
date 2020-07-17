@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 195668886a0c1ba9f96939a7e5e3960a6932dee5
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: aad3bffeba4395ba415fb99a3667d04d18769a47
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235902"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026702"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Creación de los grupos de inquilinos y de host
 
@@ -30,7 +30,8 @@ Visite la [Comunidad técnica de Windows Virtual Desktop](https://techcommunity.
 
 Para usar la imagen de sesión múltiple de Windows 10 Enterprise, vaya a Azure Marketplace, seleccione **Comenzar** > **Microsoft Windows 10** > y [Windows 10 Enterprise para escritorios virtuales, versión 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
-![Captura de pantalla de selección de Windows 10 Enterprise para escritorios virtuales, versión 1809.](../media/AzureMarketPlace.png)
+> [!div class="mx-imgBorder"]
+> ![Una captura de pantalla de selección de Windows 10 Enterprise para escritorios virtuales, versión 1809.](../media/AzureMarketPlace.png)
 
 ## <a name="creating-windows-virtual-desktop-tenant"></a>Crear un inquilino de Windows Virtual Desktop
 
@@ -54,7 +55,8 @@ Contact your IT Admin to review the configuration of your service subscriptions.
 
 ### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Error: El usuario no está autorizado para consultar el servicio de administración
 
-![Captura de pantalla de una ventana de PowerShell en que un usuario no está autorizado para consultar el servicio de administración.](../media/UserNotAuthorizedNewTenant.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla de una ventana de PowerShell en que un usuario no está autorizado para consultar el servicio de administración.](../media/UserNotAuthorizedNewTenant.png)
 
 Ejemplo de error no procesado:
 
@@ -75,7 +77,8 @@ Ejemplo de error no procesado:
 
 **Solución:** Siga las instrucciones de [Asignar el rol de aplicación TenantCreator a un usuario en el inquilino de Azure Active Directory](tenant-setup-azure-active-directory.md#assign-the-tenantcreator-application-role). Después de seguir las instrucciones, tendrá un usuario asignado al rol TenantCreator.
 
-![Captura de pantalla del rol TenantCreator asignado.](../media/TenantCreatorRoleAssigned.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla del rol TenantCreator asignado.](../media/TenantCreatorRoleAssigned.png)
 
 ## <a name="creating-windows-virtual-desktop-session-host-vms"></a>Creación de máquinas virtuales de host de sesión de Windows Virtual Desktop
 
@@ -87,7 +90,8 @@ Windows Virtual Desktop: en Azure Marketplace está disponible una plantilla de 
 
 ### <a name="error-when-using-the-link-from-github-the-message-create-a-free-account-appears"></a>Error: El mensaje "Crear una cuenta gratuita" se muestra al utilizar el vínculo de GitHub
 
-![Captura de pantalla para crear una cuenta gratuita.](../media/be615904ace9832754f0669de28abd94.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla para crear una cuenta gratuita.](../media/be615904ace9832754f0669de28abd94.png)
 
 **Causa 1:** No existen suscripciones activas en la cuenta utilizada para iniciar sesión en Azure, o bien la cuenta utilizada no tiene permisos para ver las suscripciones.
 
@@ -110,7 +114,8 @@ Windows Virtual Desktop: en Azure Marketplace está disponible una plantilla de 
 
 ### <a name="error-you-receive-template-deployment-is-not-valid-error"></a>Error: recibe el error "la implementación de la plantilla no es válida"
 
-![Captura de pantalla del error "la implementación de la plantilla no es válida"](../media/troubleshooting-marketplace-validation-error-generic.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla del error "la implementación de la plantilla no es válida"](../media/troubleshooting-marketplace-validation-error-generic.png)
 
 Antes de realizar una acción específica, deberá comprobar el registro de actividad para ver el error detallado de la validación de la implementación con errores.
 
@@ -119,10 +124,14 @@ Para ver el error en el registro de actividad:
 1. Salga de la oferta de implementación de Azure Marketplace actual.
 2. En la barra de búsqueda superior, busque y seleccione **Registro de actividad**.
 3. Busque una actividad denominada **Validar implementación** que tenga el estado **Erróneo** y seleccione la actividad.
-   ![Captura de pantalla de la actividad individual **Validar implementación** con un estado *Erróneo*](../media/troubleshooting-marketplace-validation-error-activity-summary.png)
+   
+   > [!div class="mx-imgBorder"]
+   > ![Captura de pantalla de la actividad individual **Validar implementación** con un estado *Erróneo*](../media/troubleshooting-marketplace-validation-error-activity-summary.png)
 
 4. Seleccione JSON y, a continuación, desplácese hacia abajo hasta la parte inferior de la pantalla hasta que vea el campo "statusMessage".
-   ![Captura de pantalla de la actividad con errores, con un cuadro rojo alrededor de la propiedad statusMessage del texto JSON.](../media/troubleshooting-marketplace-validation-error-json-boxed.png)
+   
+   > [!div class="mx-imgBorder"]
+   > ![Captura de pantalla de la actividad con errores, con un cuadro rojo alrededor de la propiedad statusMessage del texto JSON.](../media/troubleshooting-marketplace-validation-error-json-boxed.png)
 
 Si la plantilla de la operación supera el límite de cuota, puede realizar una de las siguientes acciones para solucionarlo:
 
@@ -140,7 +149,8 @@ Siga estas instrucciones para solucionar problemas de implementaciones incorrect
 
 ### <a name="error-your-deployment-failedhostnamejoindomain"></a>Error: La implementación no se pudo…\<hostname>/joindomain
 
-![Captura de pantalla de error de implementación.](../media/e72df4d5c05d390620e07f0d7328d50f.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla de error de implementación.](../media/e72df4d5c05d390620e07f0d7328d50f.png)
 
 Ejemplo de error no procesado:
 
@@ -181,7 +191,8 @@ Para corregirlo, siga estos pasos:
 
 ### <a name="error-vmextensionprovisioningerror"></a>Error: VMExtensionProvisioningError
 
-![Captura de pantalla de error de implementación con error de estado de aprovisionamiento terminal.](../media/7aaf15615309c18a984673be73ac969a.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla de error de implementación con error de estado de aprovisionamiento terminal.](../media/7aaf15615309c18a984673be73ac969a.png)
 
 **Causa 1:** Error transitorio del entorno de Windows Virtual Desktop.
 
@@ -191,7 +202,8 @@ Para corregirlo, siga estos pasos:
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>Error: El nombre de usuario de administrador especificado no está permitido
 
-![Captura de pantalla de error de implementación en que un administrador especificado no está permitido.](../media/f2b3d3700e9517463ef88fa41875bac9.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla de error de implementación en que un administrador especificado no está permitido.](../media/f2b3d3700e9517463ef88fa41875bac9.png)
 
 Ejemplo de error no procesado:
 
@@ -210,7 +222,8 @@ Ejemplo de error no procesado:
 
 ### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Error: La máquina virtual ha indicado un error al procesar la extensión
 
-![Captura de pantalla de la operación de recursos completa con un estado de aprovisionamiento terminal de Error de implementación.](../media/49c4a1836a55d91cd65125cf227f411f.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla de la operación de recursos completa con un estado de aprovisionamiento terminal de Error de implementación.](../media/49c4a1836a55d91cd65125cf227f411f.png)
 
 Ejemplo de error no procesado:
 
@@ -236,7 +249,8 @@ Ejemplo de error no procesado:
 
 ### <a name="error-deploymentfailed--powershell-dsc-configuration-firstsessionhost-completed-with-errors"></a>Error: DeploymentFailed: la configuración de DSC de PowerShell "FirstSessionHost" se ha completado con errores
 
-![Captura de pantalla de error de implementación con la configuración de DSC de PowerShell "FirstSessionHost" completada con errores.](../media/64870370bcbe1286906f34cf0a8646ab.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla de error de implementación con la configuración de DSC de PowerShell "FirstSessionHost" completada con errores.](../media/64870370bcbe1286906f34cf0a8646ab.png)
 
 Ejemplo de error no procesado:
 
@@ -365,7 +379,8 @@ New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDef
 
 ### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Error: El usuario requiere autenticación multifactor (MFA) de Azure
 
-![Captura de pantalla de error de implementación debido a la falta de autenticación multifactor (MFA)](../media/MFARequiredError.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla de error de implementación debido a la falta de Autenticación multifactor (MFA)](../media/MFARequiredError.png)
 
 Ejemplo de error no procesado:
 
@@ -390,6 +405,12 @@ Si está ejecutando la plantilla de GitHub Azure Resource Manager, proporcione v
 - Contraseña del administrador de inquilinos: El secreto de contraseña generado para la entidad de servicio
 - IsServicePrincipal: **true**
 - AadTenantId: El identificador de inquilino de Azure AD de la entidad de servicio que ha creado
+
+### <a name="error-vmsubnet-not-available-when-configuring-virtual-networks"></a>Error: vmSubnet no disponible al configurar redes virtuales
+
+**Causa:** En la plantilla WVD Marketplace, la interfaz de usuario solo muestra las subredes que tienen al menos tantas direcciones IP disponibles como el número total de máquinas virtuales especificadas en la plantilla. El número real de direcciones IP disponibles en la subred solo debe ser igual al número de nuevas máquinas virtuales que se implementan, pero no puede calcularse con la interfaz de usuario actual.
+
+**Solución:** Puede especificar una subred con al menos tantas direcciones IP disponibles como la cantidad de máquinas virtuales que se agregan al no usar la interfaz de usuario de Marketplace, esto se puede hacer especificando el nombre de subred en el parámetro "**existingSubnetName**" cuando [volver a implementar una implementación existente](expand-existing-host-pool-2019.md#redeploy-from-azure) o [implementar usando la plantilla ARM subyacente de GitHub](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

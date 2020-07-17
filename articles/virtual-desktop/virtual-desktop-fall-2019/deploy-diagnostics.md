@@ -4,16 +4,16 @@ description: Procedimiento para implementar la herramienta de diagnósticos de e
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6635fff957512b601fe0927769e4ea91e9270450
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 544610f4011f7ad12d5b311aab3afd4bc1373ac5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614193"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362346"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Implementación de la herramienta de diagnósticos
 
@@ -34,7 +34,7 @@ Esto es lo que la herramienta de diagnósticos para Windows Virtual Desktop pued
 - Enviar un mensaje a los usuarios activos en un host de sesión específico.
 - Cerrar la sesión de los usuarios de un host de sesión.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Debe crear un registro de aplicaciones de Azure Active Directory y un área de trabajo de Log Analytics antes de implementar la plantilla de Azure Resource Manager para la herramienta. El usuario o el administrador necesitan estos permisos para hacerlo:
 
@@ -195,7 +195,8 @@ Para establecer el URI de redirección:
 6. Seleccione **Web** en el menú desplegable debajo de Tipo.
 7. Escriba la dirección URL de la página de información general de la aplicación y agregue **/security/signin-callback** al final. Por ejemplo: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
-   ![Página URI de redirección](../media/redirect-uri-page.png)
+   > [!div class="mx-imgBorder"]
+   > ![Página de redirección de URI](../media/redirect-uri-page.png)
 
 8. Ahora, vaya a los recursos de Azure, seleccione el recurso de Azure App Services con el nombre proporcionado en la plantilla y vaya a la dirección URL asociada a él. (Por ejemplo, si el nombre de la aplicación que usó en la plantilla era `contosoapp45`, la dirección URL asociada es <https://contosoapp45.azurewebsites.net>).
 9. Inicie sesión con la cuenta de usuario de Azure Active Directory adecuada.
@@ -226,7 +227,7 @@ Las actividades se ordenan por marca de tiempo, con la actividad más reciente e
 
 Las actividades de conexión podrían tener más de un error. Puede expandir el tipo de actividad para ver cualquier otro error que haya incluido el usuario. Seleccione el nombre del código de error para abrir un cuadro de diálogo y ver más información sobre él.
 
-### <a name="investigate-the-session-host"></a>Investigación del host de sesión 
+### <a name="investigate-the-session-host"></a>Investigación del host de sesión
 
 En los resultados de la búsqueda, busque y seleccione el host de sesión sobre el que desea obtener información.
 

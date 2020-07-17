@@ -1,5 +1,5 @@
 ---
-title: Depuración y solución de problemas de canalizaciones de aprendizaje automático en Application Insights
+title: Supervisar y recopilar archivos de registro de canalización
 titleSuffix: Azure Machine Learning
 description: Agregue el registro a las canalizaciones de entrenamiento y puntuación por lotes y vea los resultados registrados en Application Insights.
 services: machine-learning
@@ -7,25 +7,24 @@ author: sanpil
 ms.author: sanpil
 ms.service: machine-learning
 ms.subservice: core
-ms.workload: data-services
 ms.topic: how-to
 ms.date: 01/16/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: faf83ad35e6aed191d07d7a297a547ec0d9921b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a87ceb5a216b05f3fae6d570bbfed1c4a622c911
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84555747"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055722"
 ---
-# <a name="debug-and-troubleshoot-machine-learning-pipelines-in-application-insights"></a>Depuración y solución de problemas de canalizaciones de aprendizaje automático en Application Insights
+# <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Recopilación de archivos de registro de canalización de aprendizaje automático en Application Insights para alertas y depuración
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 La biblioteca [OpenCensus](https://opencensus.io/quickstart/python/) de Python se puede usar para enrutar los registros a Application Insights desde sus scripts. La agregación de registros de ejecuciones de canalización en un solo lugar le permite generar consultas y diagnosticar problemas. El uso de Application Insights le permitirá realizar un seguimiento de los registros a lo largo del tiempo y la comparación de los registros de la canalización entre las ejecuciones.
 
 El hecho de tener los registros en un lugar permite proporcionar un historial de excepciones y mensajes de error. Como Application Insights se integra con alertas de Azure, también puede crear alertas basadas en consultas de Application Insights.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 * Siga los pasos para crear un área de trabajo de [Azure Machine Learning](./how-to-manage-workspace.md) y [su primera canalización](./how-to-create-your-first-pipeline.md).
 * [Configure un entorno de desarrollo](./how-to-configure-environment.md) para instalar el SDK de Azure Machine Learning.

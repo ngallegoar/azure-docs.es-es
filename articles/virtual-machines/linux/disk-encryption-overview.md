@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c227c6ab24d6b71445354d1b17d238e80bf6313
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 75e469b30632bb7e7e8f6445db78acda784ac5da
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655850"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601282"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption para VM Linux 
 
@@ -64,7 +64,6 @@ Las distribuciones de servidores Linux que no están aprobadas por Azure no admi
 | Canonical | Ubuntu 14.04.5</br>[con kernel optimizado para Azure 4.15 o posterior](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Canonical:UbuntuServer:14.04.5-LTS:latest | Sistema operativo y disco de datos |
 | Canonical | Ubuntu 14.04.5</br>[con kernel optimizado para Azure 4.15 o posterior](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | Sistema operativo y disco de datos |
 | RedHat | RHEL 7.7 | 7,7 | RedHat:RHEL:7.7:latest | Sistema operativo y disco de datos (véase la nota siguiente) |
-| RedHat | RHEL 7.7 | 7-RAW | RedHat:RHEL:7-RAW:latest | Sistema operativo y disco de datos (véase la nota siguiente) |
 | RedHat | RHEL 7.7 | 7-LVM | RedHat:RHEL:7-LVM:latest | Sistema operativo y disco de datos (véase la nota siguiente) |
 | RedHat | RHEL 7.6 | 7.6 | RedHat:RHEL:7.6:latest | Sistema operativo y disco de datos (véase la nota siguiente) |
 | RedHat | RHEL 7.5 | 7.5 | RedHat:RHEL:7.5:latest | Sistema operativo y disco de datos (véase la nota siguiente) |
@@ -94,7 +93,7 @@ Las distribuciones de servidores Linux que no están aprobadas por Azure no admi
 
 ## <a name="additional-vm-requirements"></a>Requisitos adicionales de VM
 
-Azure Disk Encryption requiere que los módulos dm-crypt y vfat estén presentes en el sistema. Quitar o deshabilitar vfat desde la imagen predeterminada impedirá que el sistema lea el volumen clave y obtenga la clave necesaria para desbloquear los discos en los reinicios posteriores. Los pasos de protección del sistema que quitan el módulo vfat del sistema no se admiten en Azure Disk Encryption. 
+Azure Disk Encryption requiere que los módulos dm-crypt y vfat estén presentes en el sistema. Quitar o deshabilitar vfat desde la imagen predeterminada impedirá que el sistema lea el volumen clave y obtenga la clave necesaria para desbloquear los discos en los reinicios posteriores. Los pasos de protección del sistema que quitan el módulo vfat del sistema o aplican la expansión de las carpetas montaje del sistema operativo en las unidades de datos no son compatibles con Azure Disk Encryption. 
 
 Antes de habilitar el cifrado, los discos de datos que se van a cifrar deben aparecer correctamente en /etc/fstab. Use la opción "nofail" al crear entradas y elija un nombre de dispositivo de bloque persistente (dado que los nombres de dispositivo en el formato "/dev/sdX" podrían no asociarse al mismo disco en los diferentes reinicios, especialmente después del cifrado; para obtener más información sobre este comportamiento, vea: [Solución de problemas de cambio de nombre de dispositivo de las máquinas virtuales Linux](troubleshoot-device-names-problems.md)).
 

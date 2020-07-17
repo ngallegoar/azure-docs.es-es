@@ -1,17 +1,17 @@
 ---
-title: Creación de una instancia de Azure HPC Cache
+title: Creación de una instancia de Azure HPC Cache
 description: Creación de una instancia de Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: aaa939051a1aeafdb0650119772fc7214506aa8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be09d8b903d63b9fb2b57f8b9b7486b02a60085c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73582178"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045814"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Planeamiento del espacio de nombres agregado
 
@@ -29,14 +29,14 @@ Por ejemplo, supongamos que cuenta con un sistema donde se usa una instancia de 
 
 Los datos de plantilla se almacenan en un centro de datos y la información necesaria para este trabajo se almacena en estos subdirectorios:
 
-    /goldline/templates/acme2017/sku798
-    /goldline/templates/acme2017/sku980 
+* */goldline/templates/acme2017/sku798*
+* */goldline/templates/acme2017/sku980* 
 
 El sistema de almacenamiento del centro de datos expone estas exportaciones:
 
-    /
-    /goldline
-    /goldline/templates
+* */*
+* */goldline*
+* */goldline/templates*
 
 Los datos que se van a analizar se han copiado en un contenedor de Azure Blob Storage denominado "sourcecollection" mediante la [utilidad CLFSLoad](hpc-cache-ingest.md#pre-load-data-in-blob-storage-with-clfsload).
 

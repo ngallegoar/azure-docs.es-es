@@ -9,23 +9,23 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: b14fed07c9bd9b5fcb6a5489719481902351fc0d
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: e3e524df2e98229698a86a721b7312a4d054ff70
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654879"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040051"
 ---
-# <a name="password-and-account-lockout-policies-on-managed-domains"></a>Directivas de bloqueo de cuenta y contraseña en dominios administrados
+# <a name="password-and-account-lockout-policies-on-active-directory-domain-services-managed-domains"></a>Directivas de bloqueo de cuentas y contraseñas en dominios administrados de Active Directory Domain Services
 
 Para administrar la seguridad del usuario en Azure Active Directory Domain Services (Azure AD DS), puede definir directivas de contraseña específicas que controlen la configuración de bloqueo de cuenta o la longitud mínima y la complejidad de la contraseña. Se crea y aplica una directiva de contraseñas específica predeterminada a todos los usuarios de un dominio administrado de Azure AD DS. Para proporcionar un control pormenorizado y satisfacer las necesidades específicas de la empresa o las de cumplimiento, se pueden crear y aplicar directivas adicionales a grupos de usuarios específicos.
 
 En este artículo se muestra cómo crear y configurar una directiva de contraseñas específica en Azure AD DS mediante el Centro de administración de Active Directory.
 
 > [!NOTE]
-> Las directivas de contraseña solo están disponibles para dominios administrados de Azure AD DS creados con el modelo de implementación de Resource Manager. En el caso de los dominios administrados más antiguos creados con el modelo clásico, [migre desde el modelo de red virtual clásico al de Resource Manager][migrate-from-classic].
+> Las directivas de contraseña solo están disponibles para los dominios administrados creados con el modelo de implementación de Resource Manager. En el caso de los dominios administrados más antiguos creados con el modelo clásico, [migre desde el modelo de red virtual clásico al de Resource Manager][migrate-from-classic].
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -36,28 +36,28 @@ Para completar este artículo, necesitará los siguientes recursos y privilegios
 * Un inquilino de Azure Active Directory asociado a su suscripción, ya sea sincronizado con un directorio en el entorno local o con un directorio solo en la nube.
   * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
 * Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
-  * Si es necesario, complete el tutorial para [crear y configurar una instancia de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-  * La instancia de Azure AD DS debe haberse creado mediante el modelo de implementación de Resource Manager. Si fuera necesario, [migre desde el modelo de red virtual clásica a Resource Manager][migrate-from-classic].
-* Una máquina virtual de administración de Windows Server que esté unida al dominio administrado de Azure AD DS.
+  * Si es necesario, complete el tutorial para [crear y configurar un dominio administrado de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+  * El dominio administrado se debe haber creado con el modelo de implementación de Resource Manager. Si fuera necesario, [migre desde el modelo de red virtual clásica a Resource Manager][migrate-from-classic].
+* Una máquina virtual de administración de Windows Server que está unida al dominio administrado.
   * Si es necesario, complete el tutorial para [crear una máquina virtual de administración][tutorial-create-management-vm].
 * Una cuenta de usuario que sea miembro del grupo de *administradores de Azure AD DC* en el inquilino de Azure AD.
 
 ## <a name="default-password-policy-settings"></a>Configuración de directiva de contraseña predeterminada
 
-Las directivas de contraseñas específicas (FGPP) le permiten aplicar restricciones específicas de directivas de bloqueo de cuentas y contraseñas a diferentes usuarios de un dominio. Por ejemplo, para proteger las cuentas con privilegios, puede aplicar una configuración de bloqueo de cuenta más estricta que para las cuentas normales sin privilegios. Puede crear varias FGPP en un dominio administrado de Azure AD DS y especificar el orden de prioridad para aplicarlas a los usuarios.
+Las directivas de contraseñas específicas (FGPP) le permiten aplicar restricciones específicas de directivas de bloqueo de cuentas y contraseñas a diferentes usuarios de un dominio. Por ejemplo, para proteger las cuentas con privilegios, puede aplicar una configuración de bloqueo de cuenta más estricta que para las cuentas normales sin privilegios. Puede crear varias Fgpp asignadas dentro de un dominio administrado y especificar el orden de prioridad para aplicarlas a los usuarios.
 
 Para más información acerca de las directivas de contraseñas y el uso del centro de administración de Active Directory, consulte los siguientes artículos:
 
 * [Más información sobre las directivas de contraseñas específicas](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770394(v=ws.10))
 * [Configuración de directivas de contraseñas específicas mediante el Centro de administración de AD](/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-#fine_grained_pswd_policy_mgmt)
 
-Las directivas se distribuyen, mediante la asociación de grupos, en un dominio administrado de Azure AD DS y los cambios que realice se aplicarán en el siguiente inicio de sesión de usuario. Al cambiar la directiva, no se desbloquea una cuenta de usuario que ya esté bloqueada.
+Las directivas se distribuyen a través de la asociación de grupo en un dominio administrado y los cambios que realice se aplican en el siguiente inicio de sesión de usuario. Al cambiar la directiva, no se desbloquea una cuenta de usuario que ya esté bloqueada.
 
 Las directivas de contraseñas se comportan de un modo un poco diferente dependiendo de cómo se creó la cuenta de usuario a la que se aplican. Una cuenta de usuario se puede crear en Azure AD DS de dos formas:
 
 * La cuenta de usuario se puede sincronizar desde Azure AD. Esto incluye las cuentas de usuario solo en la nube creadas directamente en Azure y las cuentas de usuario híbridas sincronizadas desde un entorno de AD DS local mediante Azure AD Connect.
     * La mayoría de las cuentas de usuario en Azure AD DS se crean a través del proceso de sincronización de Azure AD.
-* La cuenta de usuario se puede crear manualmente en un dominio administrado de Azure AD DS y no existe en Azure AD.
+* La cuenta de usuario se puede crear manualmente en un dominio administrado y no existe en Azure AD.
 
 Todos los usuarios, independientemente de cómo se crean, tienen aplicadas las siguientes directivas de bloqueo de cuenta por medio de la directiva de contraseñas predeterminada en Azure AD DS:
 
@@ -72,7 +72,7 @@ Los bloqueos de cuenta solo se producen en el dominio administrado. Las cuentas 
 
 Si tiene una directiva de contraseñas de Azure AD que especifica una antigüedad de contraseña máxima mayor que 90 días, dicha antigüedad de contraseña se aplica a la directiva predeterminada en Azure AD DS. Puede configurar una directiva de contraseñas personalizada para definir una antigüedad de contraseña máxima diferente en Azure AD DS. Tenga cuidado si tiene una menor antigüedad de contraseña máxima configurada en una directiva de contraseñas de Azure AD DS que en Azure AD o un entorno de AD DS local. En ese escenario, la contraseña de un usuario puede expirar en Azure AD DS antes de que se le pida que la cambie en Azure AD o en un entorno de AD DS local.
 
-Para las cuentas de usuario creadas manualmente en un dominio administrado de Azure AD DS, también se aplica la siguiente configuración de contraseña adicional. Estas opciones de configuración no se aplican a cuentas de usuario sincronizadas desde Azure AD, ya que un usuario no puede actualizar su contraseña directamente en Azure AD DS.
+Para las cuentas de usuario creadas manualmente en un dominio administrado, también se aplica la siguiente configuración de contraseña adicional de la directiva predeterminada. Estas opciones de configuración no se aplican a cuentas de usuario sincronizadas desde Azure AD, ya que un usuario no puede actualizar su contraseña directamente en Azure AD DS.
 
 * **Longitud mínima de contraseña (caracteres):** 7
 * **Las contraseñas deben satisfacer los requisitos de complejidad**
@@ -83,19 +83,19 @@ No puede modificar la configuración de la contraseña ni de bloqueo de cuenta e
 
 Cuando compile y ejecute aplicaciones en Azure, puede que desee configurar una directiva de contraseñas personalizada. Por ejemplo, podría crear una directiva para establecer otras opciones de configuración de bloqueo de cuenta.
 
-Se aplican directivas de contraseñas personalizadas a los grupos de un dominio administrado de Azure AD DS. Esta configuración invalida eficazmente la directiva predeterminada.
+Las directivas de contraseñas personalizadas se aplican a los grupos de un dominio administrado. Esta configuración invalida eficazmente la directiva predeterminada.
 
-Para crear una directiva de contraseñas personalizada, use las herramientas administrativas de Active Directory desde una máquina virtual unida a un dominio. El Centro de administración de Active Directory le permite ver, editar y crear recursos en un dominio administrado de Azure AD DS, incluidas las unidades organizativas.
+Para crear una directiva de contraseñas personalizada, use las herramientas administrativas de Active Directory desde una máquina virtual unida a un dominio. El Centro de administración de Active Directory le permite ver, editar y crear recursos en un dominio administrado, incluidas las unidades organizativas.
 
 > [!NOTE]
-> Para crear una directiva de contraseñas personalizada en un dominio administrado de Azure AD DS, debe haber iniciado sesión en una cuenta de usuario que sea miembro del grupo *Administradores del controlador de dominio de AAD*.
+> Para crear una directiva de contraseñas personalizada en un dominio administrado, debe haber iniciado sesión en una cuenta de usuario que sea miembro del grupo *Administradores AAD DC*.
 
 1. En la pantalla Inicio, seleccione **Herramientas administrativas**. Se muestra una lista de las herramientas de administración disponibles que se instalaron en el tutorial para [crear una máquina virtual de administración][tutorial-create-management-vm].
 1. Para crear y administrar unidades organizativas, seleccione **Centro de administración de Active Directory** de la lista de herramientas administrativas.
-1. En el panel izquierdo, seleccione el dominio administrado de Azure AD DS, como *aaddscontoso.com*.
+1. En el panel izquierdo, elija el dominio administrado, como *aaddscontoso.com*.
 1. Abra el contenedor **Sistema** y el **contenedor Configuración de contraseña**.
 
-    Aparecerá una directiva de contraseñas integrada para el dominio administrado de Azure AD DS. No se puede modificar esta directiva integrada. En su lugar, cree una directiva de contraseñas personalizada para reemplazar la directiva predeterminada.
+    Aparecerá una directiva de contraseñas integrada para el dominio administrado. No se puede modificar esta directiva integrada. En su lugar, cree una directiva de contraseñas personalizada para reemplazar la directiva predeterminada.
 
     ![Creación de una directiva de contraseñas en el Centro de administración de Active Directory.](./media/password-policy/create-password-policy-adac.png)
 
@@ -107,7 +107,7 @@ Para crear una directiva de contraseñas personalizada, use las herramientas adm
 
 1. Edite otras opciones de configuración de directiva de contraseña como desee. Recuerde los siguientes puntos clave:
 
-    * Opciones de configuración como la fecha de expiración, la antigüedad o la complejidad de la contraseña solo para usuarios creados manualmente en un dominio administrado de Azure AD DS.
+    * Opciones de configuración como la fecha de expiración, la antigüedad o la complejidad de la contraseña solo para usuarios creados manualmente en un dominio administrado.
     * La configuración de bloqueo de cuenta se aplica a todos los usuarios, pero solo surte efecto en el dominio administrado y no en el mismo Azure AD.
 
     ![Creación de una directiva de contraseñas específica personalizada](./media/password-policy/custom-fgpp.png)

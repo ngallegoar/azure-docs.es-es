@@ -6,15 +6,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/31/2020
-ms.openlocfilehash: 79cd3ddd21af700fd36d0e565b9f5a1be1e56343
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f3bfd430023330d3a399a0a760fd353b6ee60941
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015138"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085895"
 ---
 # <a name="migrate-hdinsight-cluster-to-a-newer-version"></a>Migración del clúster de HDInsight a una versión más reciente
 
@@ -51,7 +51,7 @@ En los siguientes documentos se proporcionan instrucciones sobre cómo migrar ca
 
 ## <a name="backup-and-restore"></a>Copia de seguridad y restauración
 
-Para más información sobre la copia de seguridad y restauración de bases de datos, consulte [Recuperación de una base de datos de Azure SQL mediante copias de seguridad de datos automatizadas](../azure-sql/database/recovery-using-backups.md).
+Para más información sobre la copia de seguridad y restauración de bases de datos, consulte [Recuperación de una base de datos de Azure SQL Database mediante copias de seguridad de datos automatizadas](../azure-sql/database/recovery-using-backups.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -5,12 +5,12 @@ description: Obtenga información sobre los procedimientos recomendados del oper
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 305d4c15aaf72a47549497902e3027064fbfd608
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 72808f315f28a996a88e6cc56ae232a136726451
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208098"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298028"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para administrar la seguridad y las actualizaciones de los clústeres en Azure Kubernetes Service (AKS)
 
@@ -173,7 +173,7 @@ Para más información sobre los filtros disponibles, consulte [Perfiles de segu
 
 ## <a name="regularly-update-to-the-latest-version-of-kubernetes"></a>Actualización regular a la versión más reciente de Kubernetes
 
-**Orientación con procedimientos recomendados**: para mantenerse al día de las nuevas características y correcciones de errores, actualice regularmente la versión de Kubernetes en el clúster de AKS.
+**Orientación con procedimientos recomendados**: para mantenerse al día con las nuevas características y correcciones de errores, actualice regularmente la versión de Kubernetes en el clúster de AKS.
 
 Kubernetes presenta nuevas características a un ritmo más rápido que otras plataformas de infraestructura más tradicionales. Las actualizaciones de Kubernetes incluyen nuevas características y correcciones de seguridad o errores. Las características nuevas pasan normalmente de un estado *alfa* a un estado *beta*, hasta que acaban siendo *estables*, están disponibles en general y se recomienda su uso en producción. Este ciclo de lanzamiento debería permitirle actualizar Kubernetes sin encontrar regularmente cambios importantes ni tener que ajustar las implementaciones ni las plantillas.
 

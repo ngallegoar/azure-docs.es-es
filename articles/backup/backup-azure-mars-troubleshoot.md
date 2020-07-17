@@ -4,12 +4,12 @@ description: En este artículo se explica cómo solucionar problemas de instalac
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 1d1397519b39ffbc439cdd0d3e78d9b553ea302e
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: cb9e5cf48f960a70c6a699df1163089eb4e8bc31
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598018"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056628"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Solución de problemas del agente de Microsoft Azure Recovery Services (MARS)
 
@@ -166,6 +166,25 @@ Error | Causas posibles | Acciones recomendadas
 --- | --- | ---
 Error en la operación actual debido a un error interno del servicio de tipo "Recurso no aprovisionado en marca de servicio". Vuelva a intentar la operación más tarde. (Id.: 230006) | Se cambió el nombre del servidor protegido. | <li> Revierta el nombre del servidor al original, tal como está registrado en el almacén. <br> <li> Vuelva a registrar el servidor en el almacén con el nuevo nombre.
 
+## <a name="job-could-not-be-started-as-another-job-was-in-progress"></a>No se pudo iniciar el trabajo porque había otro trabajo en curso
+
+Si aparece un mensaje de advertencia en la **consola de MARS** > **Historial de trabajos**, que dice: "El trabajo no puede iniciarse mientras otro trabajo está en curso", podría deberse a una duplicación del trabajo desencadenada por el Programador de tareas.
+
+![No se pudo iniciar el trabajo porque había otro trabajo en curso](./media/backup-azure-mars-troubleshoot/job-could-not-be-started.png)
+
+Para solucionar este problema:
+
+1. Inicie el complemento del Programador de tareas, en la ventana de ejecución. Para hacerlo, escriba *taskschd.msc*
+1. En el panel izquierdo, vaya a **biblioteca del Programador de tareas** -> **Microsoft** -> **OnlineBackup**.
+1. Para cada tarea de esta biblioteca, haga doble clic en la tarea para abrir propiedades y realice los pasos siguientes:
+    1. Cambie a la pestaña **Configuración** .
+
+         ![Pestaña Settings](./media/backup-azure-mars-troubleshoot/settings-tab.png)
+
+    1. Cambie la opción  **si la tarea ya está en ejecución, entonces se aplica la siguiente regla**. Elija **No iniciar una instancia nueva**.
+
+         ![Cambie la regla a no iniciar nueva instancia](./media/backup-azure-mars-troubleshoot/change-rule.png)
+
 ## <a name="troubleshoot-restore-problems"></a>Solución de problemas de restauración
 
 Es posible que Azure Backup no monte correctamente el volumen de recuperación, incluso tras varios minutos. También se podrían producir mensajes de error durante el proceso. Para empezar la recuperación normalmente, siga estos pasos:
@@ -198,7 +217,7 @@ Si la recuperación sigue sin funcionar, reinicie el cliente o el servidor. Si n
 
 Se puede producir un error en la operación de copia de seguridad si la carpeta de caché (también denominada carpeta temporal) no está configurada correctamente, tiene acceso restringido o faltan requisitos previos.
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 Para que las operaciones del agente de MARS se realicen correctamente, la carpeta de caché debe cumplir los siguientes requisitos:
 

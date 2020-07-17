@@ -8,19 +8,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43eba1b2f3373555e871b586ae633dcb64abfd9b
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 79552c099adfa94f3515ff1b9c78103cb82830a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582695"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611295"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificación y resolución de problemas de asignación de licencias de un grupo en Azure Active Directory
 
@@ -68,8 +68,8 @@ Para ver qué usuarios y grupos consumen las licencias, seleccione un producto. 
 
 Considere el ejemplo siguiente. Un usuario tiene una licencia de Office 365 Enterprise *E1* asignada directamente, con todos los planes habilitados. Se ha agregado el usuario a un grupo que tiene asignado el producto Office 365 Enterprise *E3*. El producto E3 contiene planes de servicio que no pueden superponerse con los planes incluidos en E1, por lo que la asignación de licencia de grupo genera el error “Planes de servicio en conflicto”. En este ejemplo, los planes de servicio en conflicto son:
 
-- SharePoint Online (Plan 2) entra en conflicto con SharePoint Online (Plan 1).
-- Exchange Online (Plan 2) entra en conflicto con Exchange Online (Plan 1).
+- SharePoint Online (Plan 2) entra en conflicto con SharePoint Online (Plan 1).
+- Exchange Online (Plan 2) entra en conflicto con Exchange Online (Plan 1).
 
 Para resolver este conflicto, debe deshabilitar dos de los planes. Puede deshabilitar la licencia de E1 que se ha asignado directamente al usuario. O bien, debe modificar toda la asignación de licencias de grupo y deshabilitar los planes de la licencia de E3. Como alternativa, puede quitar la licencia de E1 al usuario si es redundante en el contexto de la licencia de E3.
 
@@ -120,7 +120,7 @@ Si actualiza la asignación de licencias en un usuario, se desencadenará el cá
 ## <a name="licenseassignmentattributeconcurrencyexception-in-audit-logs"></a>LicenseAssignmentAttributeConcurrencyException en registros de auditoría
 
 **Problema:** El usuario tiene LicenseAssignmentAttributeConcurrencyException como asignación de licencia en los registros de auditoría.
-Cuando la licencia basada en grupos intenta procesar la asignación simultánea de la misma licencia para un usuario, se registra esta excepción en el usuario. Esto suele suceder cuando un usuario es miembro de más de un grupo con la misma licencia asignada. Azure AD intentará procesar la licencia del usuario y resolverá el problema. No es necesario que el cliente tome ninguna medida para corregir este problema.
+Cuando la licencia basada en grupos intenta procesar la asignación simultánea de la misma licencia para un usuario, se registra esta excepción en el usuario. Esto suele suceder cuando un usuario es miembro de más de un grupo con la misma licencia asignada. Azure AD reintentará procesar la licencia de usuario y resolverá el problema. No es necesario que el cliente tome ninguna medida para corregir este problema.
 
 ## <a name="more-than-one-product-license-assigned-to-a-group"></a>Más de una licencia de producto asignada a un grupo
 
@@ -181,5 +181,5 @@ Para más información sobre otros escenarios de administración de licencias a 
 * [Asignación de licencias a un grupo en Azure Active Directory](licensing-groups-assign.md)
 * [Migración de usuarios individuales con licencia a licencias basadas en grupos en Azure Active Directory](licensing-groups-migrate-users.md)
 * [Cómo migrar usuarios entre diferentes licencias de productos con licencias basadas en grupos de Azure Active Directory](licensing-groups-change-licenses.md)
-* [Azure Active Directory group-based licensing additional scenarios](licensing-group-advanced.md) (Escenarios adicionales de licencias basadas en grupos de Azure Active Directory)
+* [Escenarios adicionales de licencias basadas en grupos de Azure Active Directory](licensing-group-advanced.md)
 * [Ejemplos de PowerShell para licencias basadas en grupos de Azure AD](licensing-ps-examples.md)

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: 96b23696164514ad2f16de72f0f76aa237ffce2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5403abab0f93edf14237dcc73f29ffb00a6581f0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415836"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081322"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copia de datos desde SAP Business Warehouse mediante Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -26,7 +26,7 @@ Este artículo muestra el uso de Azure Data Factory para copiar datos en Azure D
 > [!TIP]
 > Para obtener información general sobre cómo copiar datos desde SAP BW, incluida la Integración de Open Hub con SAP BW y el flujo de extracción delta, consulte [Copia de datos desde SAP Business Warehouse con Open Hub en Azure Data Factory](connector-sap-business-warehouse-open-hub.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - **Azure Data Factory**: Siga los pasos necesarios para [crear una factoría de datos](quickstart-create-data-factory-portal.md#create-a-data-factory), si aún no tiene ninguna.
 
@@ -269,7 +269,7 @@ Después de esto, todos los DTP delta y las extracciones delta de Data Factory f
 
 Para establecer el estado de los DTP delta en **Fetched** (Obtenido), puede usar la siguiente opción para ejecutar manualmente el DTP delta:
 
-    *No Data Transfer; Delta Status in Source: Fetched*
+*Sin transferencia de datos. Estado Delta en origen: Fetched* (Obtenido)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

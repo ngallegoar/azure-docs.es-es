@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: a27f37f9c69dcadd1234faf67e23eaaa46d33f7a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a77f40f554e459ad1f28b11969421689cd29b4bb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651061"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609402"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Cifrado del lado servidor de Azure Managed Disks
 
@@ -75,63 +75,18 @@ Por ahora, las claves administradas por el cliente tienen las siguientes restric
 
 - Si esta característica está habilitada para el disco, no puede deshabilitarla.
     Si necesita encontrar una solución alternativa, debe [copiar todos los datos](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) en un disco administrado totalmente diferente que no use claves administradas por el cliente.
-- Solo se admiten las [claves RSA "suaves" y "fuertes"](../../key-vault/keys/about-keys.md) con un tamaño de 2048, sin incluir ninguna otra clave ni tamaño.
+- Solo se admiten [software y claves RSA de HSM](../../key-vault/keys/about-keys.md) de tamaño 2048, sin otras claves o tamaños.
 - Los discos creados a partir de imágenes personalizadas que están cifradas con cifrado del lado servidor y las claves administradas por el cliente deben cifrarse con las mismas claves administradas por el cliente y deben estar en la misma suscripción.
 - Las instantáneas creadas a partir de discos que están cifrados con cifrado del lado servidor y claves administradas por el cliente deben cifrarse con las mismas claves administradas por el cliente.
 - Todos los recursos relacionados con las claves administradas por el cliente (instancias de Azure Key Vault, conjuntos de cifrado de disco, máquinas virtuales, discos e instantáneas) deben estar en la misma suscripción y región.
 - Los discos, las instantáneas y las imágenes cifrados con claves administradas por el cliente no se pueden trasladar a otra suscripción.
-- Si usa Azure Portal para crear el conjunto de cifrado de disco, no puede usar instantáneas por ahora.
 - Los discos administrados cifrados mediante claves administradas por el cliente tampoco se pueden cifrar con Azure Disk Encryption.
 - Para obtener información sobre el uso de claves administradas por el cliente con galerías de imágenes compartidas, consulte [Versión preliminar: uso de claves administradas por el cliente para el cifrado de imágenes](../image-version-encryption.md).
 
 ### <a name="cli"></a>CLI
 #### <a name="setting-up-your-azure-key-vault-and-diskencryptionset"></a>Configuración de Azure Key Vault y DiskEncryptionSet
 
-1. Asegúrese de que ha instalado la versión más reciente de la [CLI de Azure](/cli/azure/install-az-cli2) e iniciado sesión en una cuenta de Azure con [az login](/cli/azure/reference-index).
-
-1. Cree una instancia de Azure Key Vault y la clave de cifrado.
-
-    Al crear la instancia de Key Vault, debe habilitar la eliminación temporal y la protección de purgas. La eliminación temporal garantiza que la instancia de Key Vault conserva una clave eliminada durante un período de retención determinado (valor predeterminado de 90 días). La protección de purgas garantiza que una clave eliminada no se puede eliminar permanentemente hasta que transcurra el período de retención. Esta configuración le protege contra la pérdida de datos debido a la eliminación accidental. Estos valores son obligatorios cuando se usa una instancia de Key Vault para cifrar discos administrados.
-
-    > [!IMPORTANT]
-    > No use el estilo CamelCase para la región. Si lo hace, podría experimentar problemas al asignar discos adicionales al recurso en Azure Portal.
-
-    ```azurecli
-    subscriptionId=yourSubscriptionID
-    rgName=yourResourceGroupName
-    location=westcentralus
-    keyVaultName=yourKeyVaultName
-    keyName=yourKeyName
-    diskEncryptionSetName=yourDiskEncryptionSetName
-    diskName=yourDiskName
-
-    az account set --subscription $subscriptionId
-
-    az keyvault create -n $keyVaultName -g $rgName -l $location --enable-purge-protection true --enable-soft-delete true
-
-    az keyvault key create --vault-name $keyVaultName -n $keyName --protection software
-    ```
-
-1.    Cree una instancia de un objeto DiskEncryptionSet. 
-    
-        ```azurecli
-        keyVaultId=$(az keyvault show --name $keyVaultName --query [id] -o tsv)
-    
-        keyVaultKeyUrl=$(az keyvault key show --vault-name $keyVaultName --name $keyName --query [key.kid] -o tsv)
-    
-        az disk-encryption-set create -n $diskEncryptionSetName -l $location -g $rgName --source-vault $keyVaultId --key-url $keyVaultKeyUrl
-        ```
-
-1.    Conceda al recurso DiskEncryptionSet acceso al almacén de claves. 
-
-        > [!NOTE]
-        > Azure puede tardar unos minutos en crear la identidad del elemento DiskEncryptionSet en Azure Active Directory. Si recibe un error similar a "No se encuentra el objeto en Active Directory" al ejecutar el siguiente comando, espere unos minutos y vuelva a intentarlo.
-
-        ```azurecli
-        desIdentity=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [identity.principalId] -o tsv)
-    
-        az keyvault set-policy -n $keyVaultName -g $rgName --object-id $desIdentity --key-permissions wrapkey unwrapkey get
-        ```
+[!INCLUDE [virtual-machines-disks-encryption-create-key-vault](../../../includes/virtual-machines-disks-encryption-create-key-vault-cli.md)]
 
 #### <a name="create-a-vm-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys"></a>Creación de una máquina virtual con una imagen de Marketplace, cifrado del sistema operativo y de los discos de datos con claves administradas por el cliente
 
@@ -158,7 +113,7 @@ rgName=yourResourceGroupName
 diskName=yourDiskName
 diskEncryptionSetName=yourDiskEncryptionSetName
  
-az disk update -n $diskName -g $rgName --encryption-type EncryptionAtRestWithCustomerKey --disk-encryption-set $diskEncryptionSetId
+az disk update -n $diskName -g $rgName --encryption-type EncryptionAtRestWithCustomerKey --disk-encryption-set $diskEncryptionSetName
 ```
 
 #### <a name="create-a-virtual-machine-scale-set-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys"></a>Creación de un conjunto de escalado de máquinas virtuales con una imagen de Marketplace, cifrado del sistema operativo y de los discos de datos con claves administradas por el cliente
@@ -218,11 +173,7 @@ az disk-encryption-set update -n keyrotationdes -g keyrotationtesting --key-url 
 
 #### <a name="find-the-status-of-server-side-encryption-of-a-disk"></a>Buscar el estado de cifrado del lado servidor de un disco
 
-```azurecli
-
-az disk show -g yourResourceGroupName -n yourDiskName --query [encryption.type] -o tsv
-
-```
+[!INCLUDE [virtual-machines-disks-encryption-status-cli](../../../includes/virtual-machines-disks-encryption-status-cli.md)]
 
 > [!IMPORTANT]
 > Las claves administradas por el cliente dependen de identidades administradas para los recursos de Azure, una característica de Azure Active Directory (Azure AD). Al configurar claves administradas por el cliente, se asigna automáticamente una identidad administrada a los recursos en segundo plano. Si posteriormente mueve la suscripción, el grupo de recursos o el disco administrado de un directorio de Azure AD a otro, la identidad administrada asociada a los discos administrados no se transfiere al nuevo inquilino, por lo que es posible que las claves administradas por el cliente dejen de funcionar. Para obtener más información, consulte [Transferencia de una suscripción entre directorios de Azure AD](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).

@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 79014d318da1732d48eeb893aa383e948e1036cd
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 972eb3f9983004ec7dbb3cb0df7bb3c59bdc9122
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267110"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042021"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Creación de un recurso del Lector inmersivo y configuración de la autenticación de Azure Active Directory
 
@@ -184,8 +184,9 @@ El script está diseñado para ser flexible. En primer lugar, buscará los recur
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Consulte el [inicio rápido de Node.js](./quickstarts/client-libraries.md?pivots=programming-language-nodejs) para ver qué más puede hacer con el SDK del Lector inmersivo con Node.js
+* Consulte el [tutorial de Android](./tutorial-android.md) para ver qué más puede hacer con el SDK del Lector inmersivo con Java o Kotlin para Android.
+* Consulte el [tutorial de iOS](./tutorial-ios.md) para ver qué más puede hacer con el SDK del Lector inmersivo con Swift para iOS.
 * Vea el [tutorial para Python](./tutorial-python.md) para consultar qué más puede hacer con el SDK del Lector inmersivo con Python.
-* Vea el [tutorial para Swift](./tutorial-ios-picture-immersive-reader.md) para consultar qué más puede hacer con el SDK del Lector inmersivo con Swift.
 * Explorar el [SDK del Lector inmersivo](https://github.com/microsoft/immersive-reader-sdk) y agregar la [Referencia del SDK del Lector inmersivo](./reference.md)
 
 

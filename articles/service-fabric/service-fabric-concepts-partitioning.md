@@ -3,12 +3,12 @@ title: Creación de particiones de los servicios de Service Fabric
 description: Describe cómo crear particiones en los servicios con estado de Service Fabric. Particiones permiten el almacenamiento de datos en las máquinas locales de forma que los datos y el proceso pueden escalarse juntos.
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: 4edfaa74fe109c688cad733d16031e87fff1e46f
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: e395fc31550dfdbedf963db0d648191453d016b2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115159"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045423"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partición de Reliable Services de Service Fabric
 Este artículo proporciona una introducción a los conceptos básicos de la creación de particiones en Reliable Services de Azure Service Fabric. El código fuente que se usa en el artículo también está disponible en [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -21,11 +21,11 @@ Para los servicios sin estado, puede pensar en una partición como en una unidad
 
 ![Servicio sin estado](./media/service-fabric-concepts-partitioning/statelessinstances.png)
 
-En realidad hay dos tipos de soluciones de servicios sin estado. La primera corresponde a un servicio que conserva su estado de forma externa, por ejemplo en una base de datos de Azure SQL (como un sitio web que almacena la información de sesión y los datos). La segunda corresponde a servicios solo de procesamiento (como una calculadora o un generador de imágenes en miniatura) que no administran ningún estado persistente.
+En realidad hay dos tipos de soluciones de servicios sin estado. La primera corresponde a un servicio que conserva su estado de forma externa, por ejemplo en una base de datos en Azure SQL Database (como un sitio web que almacena la información de sesión y los datos). La segunda corresponde a servicios solo de procesamiento (como una calculadora o un generador de imágenes en miniatura) que no administran ningún estado persistente.
 
 En cualquier caso, la partición de un servicio sin estado es un escenarios muy poco frecuente en el que la escalabilidad y la disponibilidad normalmente se consiguen agregando más instancias. Las únicas ocasiones en las que posiblemente quiera plantearse varias particiones para las instancias de servicios sin estado es cuando tenga que satisfacer solicitudes de enrutamiento especiales.
 
-Por ejemplo, piense en un caso en el que los usuarios con identificadores dentro de un intervalo específico deberán ser atendidos únicamente por una instancia de servicio determinada. Otro ejemplo de cuándo se puede particionar un servicio sin estado es cuando tiene un back-end con particiones, por ejemplo, una base de datos SQL particionada, y desea controlar qué instancia del servicio debe escribir en la partición de la base de datos o realizar otro trabajo de preparación en el servicio sin estado que requiera la misma información de partición que se usa en el back-end. Estos tipos de escenarios también se pueden resolver de maneras diferentes y no requieren necesariamente el particionamiento del servicio.
+Por ejemplo, piense en un caso en el que los usuarios con identificadores dentro de un intervalo específico deberán ser atendidos únicamente por una instancia de servicio determinada. Otro ejemplo de cuándo se puede particionar un servicio sin estado es cuando tiene un back-end con particiones, por ejemplo, una base de datos particionada en SQL Database, y desea controlar qué instancia del servicio debe escribir en la partición de la base de datos o realizar otro trabajo de preparación en el servicio sin estado que requiera la misma información de partición que se usa en el back-end. Estos tipos de escenarios también se pueden resolver de maneras diferentes y no requieren necesariamente el particionamiento del servicio.
 
 El resto de este tutorial se centra en los servicios con estado.
 

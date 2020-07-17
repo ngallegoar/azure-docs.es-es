@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: f1ec7328363cf835c733a4d0c266732c6748c829
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 3fbbeaeafd8de5a38489034a13738ca3a9b934d5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84218614"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601399"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Escenarios de Azure Disk Encryption en máquinas virtuales Linux
 
@@ -38,7 +38,7 @@ En todos los casos es preciso [hacer una instantánea](snapshot-copy-managed-dis
 
 ## <a name="install-tools-and-connect-to-azure"></a>Instalación de herramientas y conexión a Azure
 
-Azure Disk Encryption se puede habilitar y administrar mediante la [CLI de Azure](/cli/azure) y [Azure PowerShell](/powershell/azure/new-azureps-module-az). Para ello, es preciso instalar las herramientas localmente y conectarse a la suscripción de Azure.
+Azure Disk Encryption se puede habilitar y administrar mediante la [CLI de Azure](/cli/azure) y [Azure PowerShell](/powershell/azure/new-azureps-module-az). Para ello, es preciso instalar las herramientas de forma local y conectarse a su suscripción de Azure.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -388,23 +388,7 @@ A diferencia de la sintaxis de PowerShell, la CLI no requiere que el usuario pro
 
 
 ## <a name="disable-encryption-for-linux-vms"></a>Deshabilitación del cifrado para máquinas virtuales Linux
-Puede deshabilitar el cifrado con Azure PowerShell, la CLI de Azure o una plantilla de Resource Manager. 
-
->[!IMPORTANT]
->Solo se puede deshabilitar el cifrado con Azure Disk Encryption en máquinas virtuales Linux para volúmenes de datos. No se admite en volúmenes de datos o volúmenes del sistema operativo si el volumen del sistema operativo se ha cifrado.  
-
-- **Deshabilitar el cifrado de disco con Azure PowerShell:** para deshabilitar el cifrado, use el cmdlet [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption). 
-     ```azurepowershell-interactive
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' [-VolumeType DATA]
-     ```
-
-- **Deshabilitar el cifrado con la CLI de Azure:** para deshabilitar el cifrado, use el comando [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable). 
-     ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type DATA
-     ```
-- **Deshabilitar el cifrado con una plantilla de Resource Manager:** use la plantilla [Deshabilitación del cifrado en una máquina virtual Linux en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) para deshabilitar el cifrado.
-     1. Haga clic en **Implementar en Azure**.
-     2. Seleccione la suscripción, el grupo de recursos, la ubicación, la máquina virtual, los términos legales y el contrato.
+[!INCLUDE [disk-encryption-disable-encryption-cli](../../../includes/disk-encryption-disable-cli.md)]
 
 ## <a name="unsupported-scenarios"></a>Escenarios no admitidos
 
@@ -412,7 +396,7 @@ Azure Disk Encryption no funciona en los siguientes escenarios, características
 
 - VM de cifrado de nivel básico o VM creadas a través del método de creación de VM clásico.
 - Deshabilitación del cifrado en una unidad de SO o datos de una VM Linux cuando se cifra la unidad de SO.
-- Cifrado de la unidad de SO para el conjunto de escalado de máquinas virtuales.
+- Cifrado de la unidad del sistema operativo para los conjuntos de escalado de máquinas virtuales Linux.
 - Cifrado de imágenes personalizadas en VM Linux.
 - Integración con un sistema de administración de claves local.
 - Azure Files (sistema de archivos compartido).
@@ -420,12 +404,15 @@ Azure Disk Encryption no funciona en los siguientes escenarios, características
 - Volúmenes dinámicos.
 - Discos de sistema operativo efímero.
 - Cifrado de sistemas de archivos compartidos o distribuidos como (pero no limitados a): DFS, GFS, DRDB y CephFS.
-- Traslado de máquinas virtuales cifradas a otra suscripción.
+- Traslado de una máquina virtual cifrada a otra suscripción o región.
+- Creación de una imagen o instantánea de una máquina virtual cifrada y su uso para implementar máquinas virtuales adicionales.
 - Volcado de memoria de kernel (kdump).
 - Oracle ACFS (ASM Cluster File System).
 - Máquinas virtuales de Gen2 (consulte: [Compatibilidad con máquinas virtuales de generación 2 en Azure](generation-2.md#generation-1-vs-generation-2-capabilities)).
 - Máquinas virtuales de serie Lsv2 (consulte: [Serie Lsv2](../lsv2-series.md)).
 - Una máquina virtual con "puntos de montaje anidados", es decir, varios puntos de montaje en una sola ruta de acceso (como "/1stmountpoint/data/2stmountpoint").
+- Una máquina virtual con una unidad de datos montada en la parte superior de una carpeta de sistema operativo.
+- Máquinas virtuales de la serie M con discos de Acelerador de escritura.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -14,12 +14,12 @@ ms.date: 05/18/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 155816a9cd171b42e1def5cafa09cb9e310d5ee7
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: a68c0248ce364be486610c406388586b69cbb3f4
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771679"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076953"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de inicio de sesión único
 
@@ -46,9 +46,9 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 </samlp:AuthnRequest>
 ```
 
-| Parámetro |  | Descripción |
+| Parámetro | Tipo | Descripción |
 | --- | --- | --- |
-| id | Obligatorio | Azure AD usa este atributo para rellenar el atributo `InResponseTo` de la respuesta devuelta. El id. no debe empezar con un número. La estrategia habitual consiste en anteponer una cadena como "id" en la representación de cadena de un GUID. Por ejemplo, `id6c1c178c166d486687be4aaf5e482730` es un id. válido. |
+| ID | Obligatorio | Azure AD usa este atributo para rellenar el atributo `InResponseTo` de la respuesta devuelta. El id. no debe empezar con un número. La estrategia habitual consiste en anteponer una cadena como "id" en la representación de cadena de un GUID. Por ejemplo, `id6c1c178c166d486687be4aaf5e482730` es un id. válido. |
 | Versión | Obligatorio | Este parámetro debe establecerse en **2.0**. |
 | IssueInstant | Obligatorio | Se trata de una cadena DateTime con un valor de hora UTC y un [formato de tiempo de ida y vuelta ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD espera un valor DateTime de este tipo, pero no evalúa ni utiliza el valor. |
 | AssertionConsumerServiceUrl | Opcional | Si se proporciona, este parámetro debe coincidir con el elemento `RedirectUri` del servicio en la nube de Azure AD. |
@@ -86,6 +86,8 @@ Si se proporciona `NameIDPolicy`, puede incluir su atributo `Format` opcional. E
 * `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: este valor permite a Azure Active Directory seleccionar el formato de notificación. Azure Active Directory emite la notificación NameID como identificador en pares.
 * `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: Azure Active Directory emite la notificación NameID como un valor generado aleatoriamente que es único para la operación de SSO actual. Esto significa que el valor es temporal y no se puede usar para identificar al usuario en proceso de autenticación.
 
+Si se especifica `SPNameQualifier`, Azure AD incluirá el mismo valor de `SPNameQualifier` en la respuesta.
+
 Azure AD omite el atributo `AllowCreate` .
 
 ### <a name="requestauthncontext"></a>RequestAuthnContext
@@ -97,7 +99,7 @@ El elemento `Scoping`, que incluye una lista de proveedores de identidades, es o
 Si se proporciona, no incluya el atributo `ProxyCount` ni el elemento `IDPListOption` o `RequesterID`, ya que no se admiten.
 
 ### <a name="signature"></a>Signature
-No incluya un elemento `Signature` en elementos `AuthnRequest`. Azure AD no valida las solicitudes de autenticación firmadas. La verificación del solicitante solo se cumple respondiendo a las direcciones URL del Servicio de consumidor de aserciones registradas.
+Un elemento `Signature` de `AuthnRequest` elementos es opcional. Azure AD no valida las solicitudes de autenticación firmadas si hay una firma. La verificación del solicitante solo se cumple respondiendo a las direcciones URL del Servicio de consumidor de aserciones registradas.
 
 ### <a name="subject"></a>Asunto
 No incluya un elemento `Subject`. Azure AD no admite la especificación de un asunto para una solicitud y devolverá un error si se proporciona uno.
@@ -157,7 +159,7 @@ El elemento `Response` incluye el resultado de la solicitud de autorización. Az
 
 ### <a name="issuer"></a>Emisor
 
-Azure AD establece el elemento `Issuer` en `https://sts.windows.net/<TenantIDGUID>/`, donde \<TenantIdGUID> es el identificador del inquilino de Azure AD.
+Azure AD establece el elemento `Issuer` en `https://sts.windows.net/<TenantIDGUID>/`, donde \<TenantIDGUID> es el identificador del inquilino de Azure AD.
 
 Por ejemplo, una respuesta con el elemento Issuer podría ser similar a la siguiente:
 
@@ -165,7 +167,7 @@ Por ejemplo, una respuesta con el elemento Issuer podría ser similar a la sigui
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
-### <a name="status"></a>Status
+### <a name="status"></a>Estado
 
 El elemento `Status` transmite el éxito o el fracaso del inicio de sesión. Incluye el elemento `StatusCode`, que contiene un código o un conjunto de códigos anidados que representan el estado de la solicitud. También incluye el elemento `StatusMessage` , que contiene mensajes de error personalizados que se generan durante el proceso de inicio de sesión.
 
@@ -192,7 +194,7 @@ Además de `ID`, `IssueInstant` y `Version`, Azure AD establece los elementos si
 
 #### <a name="issuer"></a>Emisor
 
-Se establece en `https://sts.windows.net/<TenantIDGUID>/`, donde \<TenantIDGUID> es el identificador del inquilino de Azure AD.
+Se establece en `https://sts.windows.net/<TenantIDGUID>/`, donde \<TenantIDGUID> es el identificador del inquilino de Azure AD.
 
 ```
 <Issuer>https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>

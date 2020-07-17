@@ -3,19 +3,19 @@ title: Seguridad
 titleSuffix: Azure Cognitive Services
 description: Conozca las distintas consideraciones relativas a la seguridad en el uso de Cognitive Services.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.author: dapine
+ms.date: 06/30/2020
+ms.author: aahi
 ms.custom: tracking-python
-ms.openlocfilehash: be1f6bd05069024194cb9312b17941c609d544dd
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: d97b944d5d18a39d6eaf84b55363f487a2c17dbf
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608458"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611414"
 ---
 # <a name="azure-cognitive-services-security"></a>Seguridad de Azure Cognitive Services
 
@@ -205,7 +205,7 @@ La Caja de seguridad del cliente está disponible para esta instancia de Cogniti
 
 En cuanto a Language Understanding, los ingenieros de Microsoft no obtendrán acceso a los datos de clientes de la SKU de E0. Para solicitar la capacidad de usar la SKU de E0, rellene y envíe el  [formulario de solicitud de servicio LUIS](https://aka.ms/cogsvc-cmk). Tardará de tres a cinco días hábiles aproximadamente en recibir una respuesta sobre el estado de la solicitud. En función de la demanda, es posible que se coloque en una cola y se apruebe a medida que haya espacio disponible. Una vez aprobado el uso de E0 SKU con LUIS, deberá crear un nuevo recurso de Language Understanding desde Azure Portal y seleccionar E0 como el plan de tarifa. Los usuarios no podrán realizar la actualización de F0 a la nueva SKU de E0.
 
-El servicio de voz no admite actualmente la Caja de seguridad del cliente. Sin embargo, los datos del cliente pueden almacenarse mediante BYOS, lo que le permite lograr controles de datos similares para la [Caja de seguridad del cliente](../security/fundamentals/customer-lockbox-overview.md). Tenga en cuenta que los datos del servicio de voz permanecen y se procesan en la región en la que se creó el recurso de voz. Esto se aplica a los datos en reposo y a los datos en tránsito. Cuando se usan características de personalización, como el Habla personalizada y la Voz personalizada, todos los datos del cliente se transfieren, almacenan y procesan en la misma región donde residen el recurso de BYOS (si se usa) y el servicio de voz.
+El servicio de voz no admite actualmente la Caja de seguridad del cliente. Pero los datos del cliente se pueden almacenar con BYOS ("Traiga su propio almacenamiento"), lo que le permite lograr controles de datos similares para la [Caja de seguridad del cliente](../security/fundamentals/customer-lockbox-overview.md). Tenga en cuenta que los datos del servicio de voz permanecen y se procesan en la región en la que se creó el recurso de voz. Esto se aplica a los datos en reposo y a los datos en tránsito. Cuando se usan características de personalización, como el Habla personalizada y la Voz personalizada, todos los datos del cliente se transfieren, almacenan y procesan en la misma región donde residen el recurso de BYOS (si se usa) y el servicio de voz.
 
 > [!IMPORTANT]
 > Microsoft **no** usa los datos del cliente para mejorar sus modelos de voz. Además, si el registro de puntos de conexión está deshabilitado y no se usa ninguna personalización, no se almacenan los datos de clientes. 

@@ -8,14 +8,14 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/05/2019
-ms.openlocfilehash: a7827349166ce55b1604f949f1d78a1ddce7c5e0
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 119f26f8d5a425462382a873d7ca4bcfdd6f3d03
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116019"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85214509"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Descripción de los resultados de aprendizaje automático automatizado
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ Más información sobre:
 + [Métricas, gráficos y grafos para los modelos de regresión](#regression)
 + [Interpretabilidad del modelo e importancia de las características](#explain-model)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -265,6 +265,9 @@ Un buen modelo normalmente tendrá una curva de campana o errores en torno a cer
 ## <a name="model-interpretability-and-feature-importance"></a><a name="explain-model"></a> Interpretabilidad del modelo e importancia de las características
 ML automatizado proporciona un panel de interoperabilidad de aprendizaje automático de las ejecuciones.
 Para más información sobre cómo habilitar las características de interpretabilidad, consulte los [procedimientos](how-to-machine-learning-interpretability-automl.md) sobre cómo habilitar la interpretabilidad en experimentos de ML automatizado.
+
+> [!NOTE]
+> El modelo ForecastTCN no es compatible actualmente con el cliente de explicación. Este modelo no devolverá un panel de explicación si se devuelve como el mejor modelo, y no admite ejecuciones de explicación a petición.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

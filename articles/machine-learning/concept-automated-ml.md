@@ -10,16 +10,16 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: dc40668ec7008042b5f1600214184cbf8bba4701
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: f12f080f2b1b7379b622fe4d7c5e0b35e358d0ef
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119083"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041734"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>¿Qué es el aprendizaje automático automatizado (AutoML)?
 
-El aprendizaje automático automatizado, también denominado ML automatizado o AutoML, es el proceso de automatizar las tareas lentas e iterativas del desarrollo de modelos de aprendizaje automático. Permite que los desarrolladores, analistas y científicos de datos creen modelos de aprendizaje automático con un escalado, eficiencia y productividad altos, al mismo tiempo que mantiene la calidad del modelo. El aprendizaje automático se basa en un adelanto de nuestra [división de investigación de Microsoft](https://arxiv.org/abs/1705.05355).
+El aprendizaje automático automatizado, también denominado ML automatizado o AutoML, es el proceso de automatizar las tareas lentas e iterativas del desarrollo de modelos de aprendizaje automático. Permite que los desarrolladores, analistas y científicos de datos creen modelos de aprendizaje automático con un escalado, eficiencia y productividad altos, al mismo tiempo que mantiene la calidad del modelo. El aprendizaje automático se basa en un adelanto de nuestra [división de investigación de Microsoft](https://www.microsoft.com/research/project/automl/).
 
 El desarrollo de modelos de Machine Learning tradicional consume muchos recursos, que requieren un conocimiento del dominio y tiempo significativos para generar y comparar docenas de modelos. Gracias al aprendizaje automático automatizado, reducirá el tiempo necesario para obtener modelos de aprendizaje automático listos para producción con gran eficiencia y facilidad.
 
@@ -37,7 +37,7 @@ Los científicos de datos, analistas y desarrolladores de todos los sectores pue
 
 La clasificación es una tarea común del aprendizaje automático. La clasificación es un tipo de aprendizaje supervisado en el que los modelos aprenden mediante datos de entrenamiento y aplican lo que han aprendido a nuevos datos. Azure Machine Learning ofrece caracterizaciones específicas para estas tareas, como los caracterizadores de texto de red neuronal profunda para la clasificación. Más información sobre las [opciones de caracterización](how-to-configure-auto-features.md#featurization). 
 
-El objetivo principal de los modelos de clasificación es predecir en qué categorías se incluirán los nuevos datos en función de lo aprendido de los datos de entrenamiento. Algunos ejemplos comunes de clasificación son la detección de fraudes, el reconocimiento de escritura a mano y la detección de objetos.  Puede encontrar más información y ver un ejemplo en el artículo sobre la [clasificación con aprendizaje automático automatizado](tutorial-train-models-with-aml.md).
+El objetivo principal de los modelos de clasificación es predecir en qué categorías se incluirán los nuevos datos en función de lo aprendido de los datos de entrenamiento. Algunos ejemplos comunes de clasificación son la detección de fraudes, el reconocimiento de escritura a mano y la detección de objetos. Obtenga más información y vea un ejemplo en [Creación de un modelo de clasificación con aprendizaje automático](tutorial-first-experiment-automated-ml.md).
 
 Consulte ejemplos de clasificación y aprendizaje automático automatizado en estos cuadernos de Python: [Detección de fraudes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [Predicción de Marketing](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) y [Clasificación de datos de grupo de noticias](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb)
 
@@ -97,6 +97,10 @@ En el siguiente diagrama se muestra este proceso.
 También puede inspeccionar la información de ejecución registrada, que [contiene las métricas](how-to-understand-automated-ml.md) que se recopilan durante la ejecución. La ejecución del entrenamiento genera un objeto serializado de Python (archivo `.pkl`) que contiene el modelo y el preprocesamiento de los datos.
 
 Aunque se automatiza la creación del modelo, también puede [conocer las características importantes o pertinentes](how-to-configure-auto-train.md#explain) de los modelos generados.
+
+Aprenda a usar un [destino de proceso remoto](how-to-auto-train-remote.md).
+
+
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
@@ -267,17 +271,30 @@ El entorno de ejecución de ONNX también es compatible con C#, por lo que puede
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Vea ejemplos y aprenda cómo generar modelos mediante aprendizaje automático automatizado:
+Hay varios recursos que le ayudarán a ponerse en marcha con AutoML. 
 
-+ Configure el experimento de entrenamiento automático:
-  + En Azure Machine Learning Studio, [siga estos pasos](how-to-use-automated-ml-for-ml-models.md).
-  + Con el SDK de Python, [siga estos pasos](how-to-configure-auto-train.md).
+### <a name="tutorials-how-tos"></a>Tutoriales y procedimientos
+Los tutoriales son ejemplos de introducción de un extremo a otro de escenarios de AutoML.
++ **Para una primera experiencia de código**, siga el Tutorial[: Entrenar automáticamente un modelo de regresión con Azure Machine Learning SDK de Python](tutorial-auto-train-models.md).
 
-+ Aprenda a usar un [destino de proceso remoto](how-to-auto-train-remote.md).
+ + **Para obtener una experiencia de poco o sin código**, consulte el [Tutorial: Cree modelos de clasificación de ML de aprendizaje automático con Azure Machine Learning Studio](tutorial-first-experiment-automated-ml.md).
 
-+ Lea el [Tutorial: Entrenamiento automático de un modelo de regresión con Azure Machine Learning](tutorial-auto-train-models.md). 
+Los artículos de procedimientos proporcionan información adicional sobre la funcionalidad que ofrece AutoML. Por ejemplo, 
 
-+ Obtenga información sobre cómo realizar entrenamientos automáticos con datos de series temporales [con estos pasos](how-to-auto-train-forecast.md).
++ Configure de los experimentos de aprendizaje automáticos
+    + En Azure Machine Learning Studio, [siga estos pasos](how-to-use-automated-ml-for-ml-models.md). 
+    + Con el SDK de Python, [siga estos pasos](how-to-configure-auto-train.md).
 
-+ Pruebe los [ejemplos de Jupyter Notebook para aprendizaje automático automatizado](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/).
-* El aprendizaje automático automatizado también está disponible en otras soluciones de Microsoft como [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) y [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)
++  Aprenda a entrenar automáticamente con los datos de series temporales, [con estos pasos](how-to-auto-train-forecast.md).
+
+### <a name="jupyter-notebook-samples"></a>Muestras de cuaderno de Jupyter 
+
+Revise los ejemplos de código y los casos de uso detallados en el repositorio del [cuaderno de Github para obtener muestras de aprendizaje automático automatizado](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/).
+
+### <a name="python-sdk-reference"></a>Referencia de SDK de Python 
+
+Profundizar en sus conocimientos sobre los patrones de diseño y las especificaciones de clases del SDK con la [documentación de referencia de la clase AutoML](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py). 
+
+> [!Note]
+> Las funcionalidades del aprendizaje automático automatizado también están disponibles en otras soluciones de Microsoft como,[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) y [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)
+

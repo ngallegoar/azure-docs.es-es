@@ -1,5 +1,5 @@
 ---
-title: Migración de paquetes de SSIS a una instancia administrada de SQL
+title: Migración de paquetes de SQL Server Integration Services a una instancia administrada de Azure SQL Database
 titleSuffix: Azure Database Migration Service
 description: Obtenga información sobre cómo migrar paquetes y proyectos de SQL Server Integration Services (SSIS) a Instancia administrada de Azure SQL mediante Azure Database Migration Service o Data Migration Assistant.
 services: database-migration
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: d27905acc60e953ec5ed92e77d7a352c1c3fec8b
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 13fcda03f3ccd0c28e1dce594c46b8c0d9449054
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196563"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086575"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-managed-instance"></a>Migración de paquetes de SQL Server Integration Services a Instancia administrada de Azure SQL
 Si usa SQL Server Integration Services (SSIS) y quiere migrar sus proyectos o paquetes de SSIS desde la SSISDB de origen, que está hospedada en SQL Server, a la SSISDB de destino, que está hospedada en Instancia administrada de Azure SQL, puede usar Azure Database Migration Service.
@@ -85,7 +85,7 @@ Mientras que la evaluación de la SSISDB de origen aún no está integrada en Da
 
     Para más información sobre cómo crear una red virtual en Azure Portal, consulte el artículo [Creación de una red virtual mediante Azure Portal](https://aka.ms/DMSVnet).
 
-    Para obtener detalles adicionales, consulte el artículo [Topologías de red para migraciones a la instancia administrada de Azure SQL Database con Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
+    Para obtener detalles adicionales, consulte el artículo [Topologías de red para migraciones a Azure SQL Managed Instance Database con Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
 
 6. Seleccione un plan de tarifa.
 

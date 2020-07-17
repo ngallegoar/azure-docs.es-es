@@ -4,14 +4,18 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: glenga
-ms.openlocfilehash: 926434d7110877e234888682cb6c946afe3ae685
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 046bd8fcbb8fab50269c8d35da0956bdc63f2304
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648963"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298606"
 ---
 Functions permite usar claves para dificultar el acceso a los puntos de conexión de función HTTP durante el desarrollo. A menos que el nivel de acceso HTTP en una función desencadenada por HTTP se establezca en `anonymous`, las solicitudes deben incluir una clave de acceso de API. 
+
+Aunque las claves proporcionan un mecanismo de seguridad predeterminado, podría plantearse la posibilidad de opciones adicionales para proteger un punto de conexión HTTP en producción. Por ejemplo, por lo general, no es recomendable distribuir un secreto compartido en las aplicaciones públicas. Si se llama a la función desde un cliente público, podría considerar la posibilidad de implementar otro mecanismo de seguridad. Para obtener más información, vea [Proteger un punto de conexión HTTP en producción](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production).
+
+Al renovar los valores de la clave de función, debe redistribuir manualmente los valores de clave actualizados a todos los clientes que llaman a la función.  
 
 #### <a name="authorization-scopes-function-level"></a>Ámbitos de autorización (nivel de función)
 

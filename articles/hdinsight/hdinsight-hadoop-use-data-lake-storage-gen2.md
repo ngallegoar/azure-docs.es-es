@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: cd41c162d44320fc19af904118f202423e68e96a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a534bd0cb89e837ff2315cb3fb9cfe70ad01f5f
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195356"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078993"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Uso de Azure Data Lake Storage Gen2 con clústeres de Azure HDInsight
 
@@ -169,7 +169,7 @@ La capacidad que el clúster de HDInsight tiene de acceder a los archivos en Dat
 
 Los servicios de Azure tienen dos tipos de identidades administradas: asignadas por el sistema y asignadas por el usuario. HDInsight usa las identidades administradas asignadas por el usuario para acceder a Data Lake Storage Gen2. Una `user-assigned managed identity` se crea como un recurso de Azure independiente. Mediante un proceso de creación, Azure crea una identidad en el inquilino de Azure AD de confianza para la suscripción que se utiliza. Una vez creada la identidad, esta puede asignarse a una o varias instancias de servicio de Azure.
 
-El ciclo de vida de una identidad asignada por el usuario no se administra junto con el ciclo de vida de las instancias de servicio de Azure a las que se asigna. Para más información sobre las identidades administradas, consulte [¿Cómo funcionan las identidades administradas para los recursos de Azure?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work).
+El ciclo de vida de una identidad asignada por el usuario no se administra junto con el ciclo de vida de las instancias de servicio de Azure a las que se asigna. Para más información sobre las identidades administradas, consulte el artículo sobre [¿Qué son las identidades administradas para recursos de Azure?](../active-directory/managed-identities-azure-resources/overview.md).
 
 ### <a name="how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services"></a>¿Cómo puedo establecer los permisos para que los usuarios de Azure AD consulten los datos en Data Lake Storage Gen2 mediante Hive u otros servicios?
 
@@ -199,9 +199,9 @@ Existen varias maneras de acceder a los archivos de Data Lake Storage Gen2 desde
 
 ### <a name="data-access-examples"></a>Ejemplos de acceso a datos
 
-Los ejemplos se basan en una [conexión SSH](./hdinsight-hadoop-linux-use-ssh-unix.md) al nodo principal del clúster. En los ejemplos se usan los tres esquemas de URI. Reemplace `CONTAINERNAME` y `STORAGEACCOUNT` por los valores pertinentes.
+Los ejemplos se basan en una [conexión SSH](./hdinsight-hadoop-linux-use-ssh-unix.md) al nodo principal del clúster. En los ejemplos se usan los tres esquemas de URI. Reemplace `CONTAINERNAME` y `STORAGEACCOUNT` por los valores pertinentes.
 
-#### <a name="a-few-hdfs-commands"></a>Algunos comandos hdfs
+#### <a name="a-few-hdfs-commands"></a>Algunos comandos HDFS
 
 1. Crear un archivo en el almacenamiento local.
 
@@ -217,7 +217,7 @@ Los ejemplos se basan en una [conexión SSH](./hdinsight-hadoop-linux-use-ssh-un
     hdfs dfs -mkdir /sampledata3/
     ```
 
-1. Copia de datos del almacenamiento local al almacenamiento de clúster.
+1. Copiar datos del almacenamiento local al almacenamiento de clúster.
 
     ```bash
     hdfs dfs -copyFromLocal testFile.txt  abfs://CONTAINERNAME@STORAGEACCOUNT.dfs.core.windows.net/sampledata1/
@@ -225,7 +225,7 @@ Los ejemplos se basan en una [conexión SSH](./hdinsight-hadoop-linux-use-ssh-un
     hdfs dfs -copyFromLocal testFile.txt  /sampledata3/
     ```
 
-1. Enumerar el contenido del directorio en el almacenamiento de clúster.
+1. Mostrar el contenido del directorio en el almacenamiento de clúster.
 
     ```bash
     hdfs dfs -ls abfs://CONTAINERNAME@STORAGEACCOUNT.dfs.core.windows.net/sampledata1/
@@ -235,7 +235,7 @@ Los ejemplos se basan en una [conexión SSH](./hdinsight-hadoop-linux-use-ssh-un
 
 #### <a name="creating-a-hive-table"></a>Creación de una tabla de Hive
 
-Con fines de ilustración, se muestran tres ubicaciones de archivos. En la ejecución real, use solo una de las entradas `LOCATION`.
+A efectos ilustrativos, se muestran tres ubicaciones de archivos. En la ejecución real, use solo una de las entradas `LOCATION`.
 
 ```hql
 DROP TABLE myTable;
@@ -258,4 +258,4 @@ LOCATION '/example/data/';
 
 * [Azure HDInsight integration with Data Lake Storage Gen2 preview - ACL and security update](https://azure.microsoft.com/blog/azure-hdinsight-integration-with-data-lake-storage-gen-2-preview-acl-and-security-update/) (Integración de Azure HDInsight con Data Lake Storage Gen2 [versión preliminar]: ACL y actualización de seguridad)
 * [Introducción a Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
-* [Tutorial: Extracción, transformación y carga de datos mediante Interactive Query en Azure HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
+* [Tutorial: Extracción, transformación y carga de datos mediante Interactive Query en Azure HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)

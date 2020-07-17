@@ -11,19 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 301d881e2065234bbd1a38e39eb1806d23c6809a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 43e28774625db0217dde1227bad160ba87750c8c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84025656"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254997"
 ---
 # <a name="create-and-manage-servers-and-single-databases-in-azure-sql-database"></a>Creación y administración de servidores y bases de datos únicas en Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Puede crear y administrar servidores y bases de datos únicas en Azure SQL Database con Azure Portal, PowerShell, la CLI de Azure, la API REST y Transact-SQL.
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="the-azure-portal"></a>El Portal de Azure
 
 Puede crear el grupo de recursos para Azure SQL Database con antelación o mientras crea el propio servidor.
 
@@ -44,7 +43,7 @@ Para crear una única instancia de Azure SQL Database mediante [Azure Portal](ht
 
 ## <a name="manage-an-existing-server"></a>Administración de un servidor existente
 
-Para administrar un servidor existente, vaya al servidor mediante una serie de métodos, como la página específica de SQL Database, la página de **Servidores SQL Server** o la página de **Todos los recursos**.
+Para administrar un servidor existente, vaya al servidor mediante una serie de métodos, como la página específica de la base de datos, la página **Servidores SQL Server** o la página **Todos los recursos**.
 
 Para administrar una base de datos existente, vaya a la página de **SQL Database** y seleccione la base de datos que desea administrar. En la captura de pantalla siguiente se muestra cómo empezar a configurar un firewall de nivel de servidor para una base de datos desde la página de **información general** de una base de datos.
 
@@ -64,7 +63,7 @@ Para administrar una base de datos existente, vaya a la página de **SQL Databas
 Para crear y administrar servidores, bases de datos únicas y agrupadas y firewalls de servidor con Azure PowerShell, use los siguientes cmdlets de PowerShell. Si necesita instalar o actualizar PowerShell, consulte [Install and configure Azure PowerShell](/powershell/azure/install-az-ps) (Instalación y configuración de Azure PowerShell).
 
 > [!TIP]
-> Para ver scripts de PowerShell de ejemplo, consulte [Uso de PowerShell para crear una base de datos de Azure SQL única y configurar una regla de firewall de servidor](scripts/create-and-configure-database-powershell.md) y [Uso de PowerShell para supervisar y escalar una base de datos SQL única](scripts/monitor-and-scale-database-powershell.md).
+> Para ver scripts de PowerShell de ejemplo, consulte [Uso de PowerShell para crear una base de datos SQL Database y configurar una regla de firewall de servidor](scripts/create-and-configure-database-powershell.md) y [Uso de PowerShell para supervisar y escalar una base de datos en SQL Database](scripts/monitor-and-scale-database-powershell.md).
 
 | Cmdlet | Descripción |
 | --- | --- |
@@ -83,12 +82,12 @@ Para crear y administrar servidores, bases de datos únicas y agrupadas y firewa
 |[Remove-AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule)|Obtiene una regla de firewall de un servidor.|
 | New-AzSqlServerVirtualNetworkRule | Permite crear una [*regla de red virtual*](vnet-service-endpoint-rule-overview.md) basada en una subred que es un punto de conexión de servicio de red virtual. |
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="the-azure-cli"></a>La CLI de Azure
 
 Para crear y administrar los servidores, bases de datos y firewalls con la [CLI de Azure](/cli/azure), use los siguientes comandos de la [CLI de Azure](/cli/azure/sql/db). Use [Cloud Shell](/azure/cloud-shell/overview) para ejecutar la CLI en el explorador o [instálela](/cli/azure/install-azure-cli) en Windows, Linux o macOS. Para crear y administrar grupos elásticos, consulte [Grupos elásticos](elastic-pool-overview.md).
 
 > [!TIP]
-> Para ver un artículo de inicio rápido de la CLI de Azure, consulte [Creación de una base de datos única de Azure SQL Database con la CLI de Azure](az-cli-script-samples-content-guide.md). Para obtener información sobre los scripts de ejemplo de la CLI de Azure, consulte [Uso de la CLI para crear una instancia de Azure SQL Database única y configurar una regla de firewall de SQL Database](scripts/create-and-configure-database-cli.md) y [Uso de la CLI para supervisar y escalar una instancia de Azure SQL Database única](scripts/monitor-and-scale-database-cli.md).
+> Para ver un artículo de inicio rápido de la CLI de Azure, consulte [Creación de una base de datos única de Azure SQL Database con la CLI de Azure](az-cli-script-samples-content-guide.md). Para ver los scripts de ejemplo de la CLI de Azure, consulte [Uso de la CLI para crear una base de datos en Azure SQL Database y configurar una regla de firewall de SQL Database](scripts/create-and-configure-database-cli.md) y [Uso de la CLI para supervisar y escalar una base de datos de Azure SQL Database](scripts/monitor-and-scale-database-cli.md).
 >
 
 | Cmdlet | Descripción |
@@ -127,16 +126,16 @@ Para crear y administrar los servidores, bases de datos y firewalls con Transact
 |[CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)|Crea una base de datos. Debe estar conectado a la base de datos maestra para crear una base de datos.|
 | [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifica una base de datos o un grupo elástico. |
 |[DROP DATABASE](/sql/t-sql/statements/drop-database-transact-sql)|Permite eliminar una base de datos.|
-|[sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Devuelve la edición (nivel de servicio), el objetivo de servicio (plan de tarifa) y el nombre del grupo elástico, si existe, para una instancia de Azure SQL Database o un grupo de SQL de Azure Synapse. Si inició sesión en la base de datos maestra en SQL Database, devuelve información sobre todas las bases de datos. Para Azure Synapse, debe estar conectado a la base de datos maestra.|
-|[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Devuelve el consumo de CPU, E/S y memoria para una instancia de Azure SQL Database. Hay una fila para cada 15 segundos, incluso si no hay ninguna actividad en la base de datos.|
-|[sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Devuelve datos de almacenamiento y uso de CPU para una base de datos de Azure SQL. Los datos se recopilan y se agregan en intervalos de cinco minutos.|
+|[sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Devuelve la edición (nivel de servicio), el objetivo de servicio (plan de tarifa) y el nombre del grupo elástico, si existe, para una instancia de Azure SQL Database o un grupo de SQL de Azure Synapse Analytics. Si inició sesión en la base de datos maestra en SQL Database, devuelve información sobre todas las bases de datos. Para Azure Synapse Analytics, debe estar conectado a la base de datos maestra.|
+|[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Devuelve el consumo de CPU, E/S y memoria para una base de datos en Azure SQL Database. Hay una fila para cada 15 segundos, incluso si no hay ninguna actividad en la base de datos.|
+|[sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Devuelve datos de almacenamiento y uso de CPU para una base de datos de Azure SQL Database. Los datos se recopilan y se agregan en intervalos de cinco minutos.|
 |[sys.database_connection_stats](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|Contiene estadísticas de eventos de conectividad de SQL Database, que proporcionan una visión general de los aciertos y errores de conexión a la base de datos. |
 |[sys.event_log](/sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database)|Devuelve las conexiones realizadas correctamente a Azure SQL Database, los errores de conexión y los interbloqueos. Puede usar esta información para realizar el seguimiento de la actividad de base de datos o solucionar problemas con SQL Database.|
 |[sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database)|Crea o actualiza la configuración del firewall de nivel de servidor para su servidor. Este procedimiento almacenado solo está disponible en la base de datos maestra para el inicio de sesión principal de nivel de servidor. Solo se puede crear una regla de firewall de nivel de servidor mediante Transact-SQL después de que un usuario con permisos a nivel de Azure haya creado la primera regla de firewall de nivel de servidor.|
-|[sys.firewall_rules](/sql/relational-databases/system-catalog-views/sys-firewall-rules-azure-sql-database)|Devuelve información sobre la configuración del firewall de nivel de servidor asociada a Azure SQL Database.|
+|[sys.firewall_rules](/sql/relational-databases/system-catalog-views/sys-firewall-rules-azure-sql-database)|Devuelve información sobre la configuración del firewall de nivel de servidor asociada a la base de datos de Azure SQL Database.|
 |[sp_delete_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-delete-firewall-rule-azure-sql-database)|Quita la configuración del firewall de nivel de servidor de su servidor. Este procedimiento almacenado solo está disponible en la base de datos maestra para el inicio de sesión principal de nivel de servidor.|
-|[sp_set_database_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)|Crea o actualiza las reglas de firewall de nivel de base de datos para su instancia de Azure SQL Database. Las reglas de firewall de base de datos pueden configurarse para la base de datos maestra y las bases de datos de usuario de SQL Database. Las reglas de firewall de base de datos son útiles cuando se usan usuarios de base de datos independientes. |
-|[sys.database_firewall_rules](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|Devuelve información sobre la configuración del firewall de nivel de base de datos asociada a Azure SQL Database. |
+|[sp_set_database_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)|Crea o actualiza las reglas de firewall de nivel de base de datos para la base de datos en Azure SQL Database. Las reglas de firewall de base de datos pueden configurarse para la base de datos maestra y las bases de datos de usuario de SQL Database. Las reglas de firewall de base de datos son útiles cuando se usan usuarios de base de datos independientes. |
+|[sys.database_firewall_rules](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|Devuelve información sobre la configuración del firewall de nivel de base de datos asociada a la base de datos de Azure SQL Database. |
 |[sp_delete_database_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Quita la configuración del firewall de nivel de base de datos de una base de datos. |
 
 ## <a name="rest-api"></a>API DE REST
@@ -166,3 +165,4 @@ Para crear y administrar los servidores, bases de datos y firewalls, use estas s
 
 - Para obtener información sobre cómo migrar una base de datos de SQL Server a Azure, vea [Migración a Azure SQL Database](migrate-to-database-from-sql-server.md).
 - Para obtener información sobre las características admitidas, consulte el [artículo que trata sobre dicho tema](features-comparison.md).
+ 

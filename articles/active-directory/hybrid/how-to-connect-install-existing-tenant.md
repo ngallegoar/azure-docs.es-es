@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3636b88b14cf7e76e4fb023434316e7ee31ded04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 001706d63b22899016cc2c45e384597db3d6747f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71336817"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358835"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: Cuando tiene un inquilino
 En la mayoría de los temas sobre cómo usar Azure AD Connect se da por supuesto que empieza con un nuevo inquilino de Azure AD sin objetos ni usuarios. Sin embargo, si ha empezado con un inquilino de Azure AD, rellenado con usuarios y otros objetos, y ahora desea utilizar Connect, eche un vistazo a este tema.
@@ -34,7 +34,7 @@ Puede administrar algunos usuarios locales y otros en la nube. Un escenario com�
 Si ya comenzó a administrar usuarios en Azure AD que también se encuentran en AD local y, posteriormente, desea volver a utilizar Connect, debe tener en cuenta más escenarios.
 
 ## <a name="sync-with-existing-users-in-azure-ad"></a>Sincronización con los usuarios existentes de Azure AD
-Al instalar Azure AD Connect y empezar a sincronizar, el servicio de sincronización de Azure AD (en Azure AD) realiza una comprobación de cada nuevo objeto y trata de buscar un objeto coincidente que ya existe. Hay tres atributos que se utilizan para este proceso: **userPrincipalName**, **proxyAddresses** y **sourceAnchor**/**immutableID**. Una coincidencia de **userPrincipalName** y **proxyAddresses** se conoce como **coincidencia parcial**. Una coincidencia de **sourceAnchor** se conoce como **coincidencia exacta**. En el caso del atributo **proxyAddresses**, solo se usa para la evaluación el valor con el atributo **SMTP:** , que es la dirección de correo electrónico principal.
+Al instalar Azure AD Connect y empezar la sincronización, el servicio de sincronización de Azure AD (en Azure AD) realiza una comprobación de cada nuevo objeto y trata de buscar un objeto coincidente que ya existe. Hay tres atributos que se utilizan para este proceso: **userPrincipalName**, **proxyAddresses** y **sourceAnchor**/**immutableID**. Una coincidencia de **userPrincipalName** y **proxyAddresses** se conoce como **coincidencia parcial**. Una coincidencia de **sourceAnchor** se conoce como **coincidencia exacta**. En el caso del atributo **proxyAddresses**, solo se usa para la evaluación el valor con el atributo **SMTP:** , que es la dirección de correo electrónico principal.
 
 La coincidencia solo se evalúa para los nuevos objetos procedentes de Connect. Si cambia uno que ya exista para que coincida con alguno de estos atributos, verá un error en su lugar.
 

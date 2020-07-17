@@ -4,17 +4,17 @@ description: Obtenga información sobre cómo usar el marco Mongoose para almace
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
 ms.custom: seodec18
-ms.openlocfilehash: ff4455571aa5cfa5c9214bdf18af1853b0cef352
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 2ccd352950117d8427809616f78f4a0691319cdf
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585404"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023676"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Conexión de una aplicación Mongoose de Node.js a Azure Cosmos DB
 
@@ -22,7 +22,7 @@ En este tutorial se muestra cómo usar el [marco Mongoose](https://mongoosejs.co
 
 Cosmos DB es el servicio de base de datos de varios modelos de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y grafos, y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Cosmos DB.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -194,7 +194,7 @@ En esta sección le indicaremos cómo puede lograrlo gracias a la API de Azure C
 
 1. A continuación, vaya a Azure Portal y verá dos colecciones que se crearon en Cosmos DB.
 
-    ![Tutorial de Node.js: captura de pantalla de Azure Portal que muestra una cuenta de Azure Cosmos DB con varios nombres de la colección resaltados (base de datos de Node).][multiple-coll]
+   :::image type="content" source="./media/mongodb-mongoose/mongo-mutliple-collections.png" alt-text="Tutorial de Node.js: captura de pantalla de Azure Portal, donde se muestra una cuenta de Azure Cosmos DB con varios nombres de colección resaltados: base de datos de Node":::
 
 1. Por último, lea los datos de Cosmos DB. Puesto que vamos a usar el modelo de funcionamiento predeterminado de Mongoose, las lecturas son las mismas que cualquier otra en Mongoose.
 
@@ -299,7 +299,7 @@ En este caso, crearemos un modelo de objeto base, definiremos una clave diferenc
 
 1. Si vuelve a Azure Portal, verá que solo tiene una colección denominada ```alldata``` con los datos de "Family" y "VacationDestinations".
 
-    ![Tutorial de Node.js: captura de pantalla de Azure Portal que muestra una cuenta de Azure Cosmos DB con el nombre de la colección resaltado (base de datos de Node).][alldata]
+   :::image type="content" source="./media/mongodb-mongoose/mongo-collections-alldata.png" alt-text="Tutorial de Node.js: captura de pantalla de Azure Portal, que muestra una cuenta de Azure Cosmos DB con el nombre de la colección resaltado: base de datos de Node":::
 
 1. Además, tenga en cuenta que cada objeto tiene otro atributo denominado "```__type```", que le ayudará a diferenciar entre los dos modelos de objetos diferentes.
 
@@ -323,6 +323,4 @@ Como puede ver, es muy fácil trabajar con discriminadores de Mongoose. Así pue
 - Aprenda a [usar Robo 3T](mongodb-robomongo.md) con la API de Azure Cosmos DB para MongoDB.
 - Explore [ejemplos](mongodb-samples.md) de MongoDB con la API de Azure Cosmos DB para MongoDB.
 
-[alldata]: ./media/mongodb-mongoose/mongo-collections-alldata.png
-[multiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png
 [dbleveltp]: ./media/mongodb-mongoose/db-level-throughput.png

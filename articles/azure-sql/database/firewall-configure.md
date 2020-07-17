@@ -1,28 +1,28 @@
 ---
 title: Reglas de firewall de IP
-description: Configure reglas de firewall de IP de nivel de servidor para un firewall de SQL Database o de Azure Synapse Analytics. Administre el acceso y configure reglas de firewall de IP en el nivel de base de datos para una base de datos única o agrupada.
+description: Configure reglas de firewall de IP de nivel de servidor para un firewall de base de datos de Azure SQL Database o de Azure Synapse Analytics. Administre el acceso y configure reglas de firewall de IP en el nivel de base de datos para SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and Azure Synapse
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 03/18/2019
-ms.openlocfilehash: 4ebb430945a00007f3b7260da87369bf6fd61ae2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/17/2020
+ms.openlocfilehash: e18c0470a2d1be8323c2fe1c0780bfd47f3f64cb
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84028806"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085113"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Reglas de firewall de Azure SQL Database y Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Al crear un servidor en Azure SQL Database y Azure Synapse denominado *miServidorSQL*, por ejemplo, el firewall de nivel de servidor bloquea todo el acceso al punto de conexión público para el servidor (al que se puede acceder en *miServidorSQL.database.windows.net*). Para simplificar, se usa *SQL Database* para hacer referencia tanto a SQL Database como a Azure Synapse (anteriormente Azure SQL Data Warehouse).
+Al crear un servidor en Azure SQL Database y Azure Synapse Analytics denominado *miServidorSQL*, por ejemplo, el firewall de nivel de servidor bloquea todo el acceso al punto de conexión público para el servidor (al que se puede acceder en *miServidorSQL.database.windows.net*). Para simplificar, se usa *SQL Database* para hacer referencia tanto a SQL Database como a Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse).
 
 > [!IMPORTANT]
 > Este artículo *no* se aplica a *Instancia administrada de Azure SQL*. Para obtener información sobre la configuración de red, vea [Conexión de una aplicación a Instancia administrada de Azure SQL](../managed-instance/connect-application-instance.md).
@@ -102,6 +102,14 @@ Para permitir que las aplicaciones hospedadas en Azure se conecten al servidor S
 
 > [!IMPORTANT]
 > Esta opción configura el firewall para permitir todas las conexiones desde Azure, incluidas las procedentes de las suscripciones de otros clientes. Si selecciona esta opción, asegúrese de que los permisos de usuario y el inicio de sesión solo dejan acceder a los usuarios autorizados.
+
+## <a name="permissions"></a>Permisos
+
+Para poder crear y administrar las reglas de firewall de IP para Azure SQL Server, debe:
+
+- en el rol de [colaborador de SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
+- en el rol [Administrador de seguridad de SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager)
+- el propietario del recurso que contiene Azure SQL Server
 
 ## <a name="create-and-manage-ip-firewall-rules"></a>Creación y administración de reglas de firewall de IP
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 850ace7af15ab37ab9a4a124d20ed4588771f4d4
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 0b278841fc3693d79821d25caf7c9a208341dea1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594545"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85242127"
 ---
 ## <a name="common-scenarios"></a>Escenarios frecuentes
 Los siguientes escenarios pueden beneficiarse en gran medida de la expansión:
@@ -24,9 +24,11 @@ Los siguientes escenarios pueden beneficiarse en gran medida de la expansión:
 ## <a name="bursting-flow"></a>Flujo de expansión
 El sistema de crédito de expansión se aplica de la misma manera en el nivel de máquina virtual y en el de disco. El recurso, ya sea una VM o un disco, se iniciará con un gran abastecimiento de créditos. Estos créditos le permitirán expansiones de 30 minutos a la velocidad máxima de expansión. Los créditos de expansión se acumulan cuando el recurso se ejecuta por debajo de sus límites de almacenamiento en disco de rendimiento. Por todas las IOPS y MB/s que el recurso use por debajo del límite de rendimiento, empezará a acumular créditos. Si el recurso ha acumulado créditos para usarlos para la expansión y la carga de trabajo necesita un rendimiento adicional, el recurso puede usar esos créditos para superar el límite de rendimiento y proporcionar el rendimiento de E/S de disco que necesita para satisfacer la demanda.
 
+
+
 ![Diagrama de cubos de expansión](media/managed-disks-bursting/bucket-diagram.jpg)
 
-Una cuestión que hay que tener en cuenta sobre la acumulación de la expansión es que es diferente para cada recurso, ya que se basa en las IOPS no utilizadas y en los MB/s por debajo de sus cantidades de rendimiento. Esto significa que los productos de mayor rendimiento de base de referencia pueden acumular sus cantidades de expansión más rápido que los productos con un rendimiento de base de referencia inferior. Por ejemplo, un disco P1 inactivo acumulará 120 IOPS por segundo, mientras que un disco P20 acumula 2300 IOPS por segundo si está inactivo.
+Cómo quiere usar los 30 minutos de expansión es una decisión exclusivamente suya. Puede usar la expansión durante 30 minutos consecutivos o esporádicamente a lo largo del día. Cuando el producto se implementa, está listo para recibir créditos completos y, cuando se agotan, se tarda menos de un día en reabastecer completamente todos los créditos. Puede acumular y gastar sus créditos de expansión como crea adecuado y no es necesario que el depósito de 30 minutos se llene de nuevo para realizar una expansión. Una cuestión que hay que tener en cuenta sobre la acumulación de la expansión es que es diferente para cada recurso, ya que se basa en las IOPS no utilizadas y en los MB/s por debajo de sus cantidades de rendimiento. Esto significa que los productos de mayor rendimiento de base de referencia pueden acumular sus cantidades de expansión más rápido que los productos con un rendimiento de base de referencia inferior. Por ejemplo, un disco P1 inactivo acumulará 120 IOPS por segundo, mientras que un disco P20 acumula 2300 IOPS por segundo si está inactivo.
 
 ## <a name="bursting-states"></a>Estados de expansión
 Hay tres estados que puede tener el recurso con la expansión habilitada:

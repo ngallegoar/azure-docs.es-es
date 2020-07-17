@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: ace818adb4c5157675ac3b1d88f5df2ef61d69ee
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a264e40814952577d3a7db3b36c168dfc396f388
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84027056"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85249177"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Análisis entre inquilinos mediante datos extraídos: aplicación multiinquilino
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -90,8 +90,8 @@ A menudo, hay numerosas bases de datos transaccionales y con particiones que jun
 En los pasos siguientes, se implementa el almacén de análisis, que se denomina **tenantanalytics**. También va a implementar tablas predefinidas que se rellenan más adelante en el tutorial:
 1. En PowerShell ISE, abra *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1*. 
 2. Establezca la variable $DemoScenario en el script para que coincida con el almacén de análisis elegido. Con fines de aprendizaje, se recomienda usar la base de datos sin almacén de columnas.
-    - Para usar la base de datos SQL sin almacén de columnas, establezca **$DemoScenario** = **2**.
-    - Para usar la base de datos SQL con almacén de columnas, establezca **$DemoScenario** = **3**.  
+    - Para usar SQL Database sin almacén de columnas, establezca **$DemoScenario** = **2**.
+    - Para usar SQL Database con almacén de columnas, establezca **$DemoScenario** = **3**.  
 3. Presione **F5** para ejecutar el script de demostración (que llama al script *Deploy-TenantAnalytics\<XX>.ps1*) que crea el almacén de análisis de inquilino. 
 
 Ahora que ya ha implementado la aplicación y la ha completado con datos de inquilino interesantes, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para conectar los servidores **tenants1-mt-\<User\>** y **catalog-mt-\<User\>** con las credenciales Login = *developer* y Password = *P\@ssword1*.

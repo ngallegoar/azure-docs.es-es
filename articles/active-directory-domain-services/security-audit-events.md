@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: ce910b553e14d09eefa35efc5f2973337dfa1309
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: c86f98fb20af2cd5ac969867cabfdc5dcb62db54
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654674"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039898"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Habilitación de auditorías de seguridad para Azure Active Directory Domain Services
 
@@ -25,7 +25,7 @@ Las auditorías de seguridad de Azure Active Directory Domain Services (Azure AD
 Puede archivar eventos en Azure Storage y transmitir eventos a software de administración de eventos e información de seguridad (SIEM) (o equivalente) mediante Azure Event Hubs, o bien realizar sus propios análisis y usar áreas de trabajo de Azure Log Analytics en Azure Portal.
 
 > [!IMPORTANT]
-> Las auditorías de seguridad de Azure AD DS solo están disponibles para instancias basadas en Azure Resource Manager. Para obtener información sobre cómo migrar, vea [Versión preliminar: Migración de Azure AD Domain Services desde el modelo de red virtual clásica a Resource Manager][migrate-azure-adds].
+> Las auditorías de seguridad de Azure AD DS solo están disponibles para los dominios administrados basados en Azure Resource Manager. Para obtener información sobre cómo migrar, vea [Versión preliminar: Migración de Azure AD Domain Services desde el modelo de red virtual clásica a Resource Manager][migrate-azure-adds].
 
 ## <a name="security-audit-destinations"></a>Destinos de auditorías de seguridad
 
@@ -159,11 +159,11 @@ AADDomainServicesAccountManagement
 
 ### <a name="sample-query-2"></a>Consulta de ejemplo 2
 
-Vea todos los eventos de bloqueo de cuentas (*4740*) entre el 3 de febrero de 2020 a las 9:00 y el 10 de febrero de 2020 a medianoche, ordenados de forma ascendente por fecha y hora:
+Vea todos los eventos de bloqueo de cuenta (*4740*) entre el 3 de junio de 2020 a las 9:00 a. m. y el 10 de junio de 2020 a la medianoche, ordenados de forma ascendente por la fecha y la hora:
 
 ```Kusto
 AADDomainServicesAccountManagement
-| where TimeGenerated >= datetime(2020-02-03 09:00) and TimeGenerated <= datetime(2020-02-10)
+| where TimeGenerated >= datetime(2020-06-03 09:00) and TimeGenerated <= datetime(2020-06-10)
 | where OperationName has "4740"
 | sort by TimeGenerated asc
 ```

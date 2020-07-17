@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d05c2b03a0c498144f37c9b6205053120a596b09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f687901601ba517a50710610d4c827524b8ec565
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74924100"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320988"
 ---
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Invocación del procedimiento almacenado desde la actividad de copia en Azure Data Factory
 > [!NOTE]
@@ -29,7 +29,7 @@ Cuando se copian datos en [SQL Server](data-factory-sqlserver-connector.md) o [A
 En el ejemplo siguiente se muestra cómo invocar un procedimiento almacenado en una base de datos SQL Server desde una canalización de Data Factory (actividad de copia):  
 
 ## <a name="output-dataset-json"></a>JSON de conjunto de datos de salida
-En el JSON de conjunto de datos de salida, establezca el **tipo** en **SqlServerTable**. Establézcalo en **AzureSqlTable** para usarlo con una base de datos de Azure SQL Database. El valor de la propiedad **tableName** debe coincidir con el nombre del primer parámetro del procedimiento almacenado.  
+En el JSON de conjunto de datos de salida, establezca el **tipo** en **SqlServerTable**. Establézcalo en **AzureSqlTable** para usarlo con Azure SQL Database. El valor de la propiedad **tableName** debe coincidir con el nombre del primer parámetro del procedimiento almacenado.  
 
 ```json
 {

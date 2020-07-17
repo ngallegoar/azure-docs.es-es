@@ -8,18 +8,35 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 7ab886b65e665bdd38e2461e49fa051213602f0e
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 3d9fb7f3fa01c06cc778e4062dd1d136e9c6e342
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84462808"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103405"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novedades de Text Analytics API
 
 Text Analytics API se actualiza constantemente. Para mantenerse al día con los avances recientes, en este artículo se proporciona información sobre las nuevas versiones y características.
+
+## <a name="july-2020"></a>Julio de 2020
+
+### <a name="text-analytics-for-health-container-public-gated-preview"></a>Text Analytics para la versión preliminar pública de contenedor de estado
+
+Text Analytics para el contenedor de estado está ahora en versión preliminar pública, lo que le permite extraer información de texto en inglés no estructurado en documentos clínicos como los formularios de ingesta de pacientes, las notas del doctor, los documentos de investigación y los resúmenes de descarga. Actualmente, no se le facturará el uso de Text Analytics para el contenedor de estado. 
+
+El contenedor ofrece las siguientes características:
+
+* Reconocimiento de entidades con nombre
+* Extracción de relaciones
+* Vinculación de entidad
+* Negación
+
+
+> [!div class="nextstepaction"]
+> [Más información sobre la versión preliminar de Text Analytics para el contenedor de estado](how-tos/text-analytics-for-health.md)
 
 ## <a name="may-2020"></a>Mayo de 2020
 
@@ -61,9 +78,6 @@ Se han cambiado los nombres de las siguientes propiedades en la respuesta JSON, 
 ### <a name="text-analytics-api-v31-public-preview"></a>Versión preliminar pública de Text Analytics API v3.1
    * Nueva característica de Análisis de sentimiento: [minería de opiniones](how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining)
    * Nuevo [filtro de dominio personal (`PII`)](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) para obtener información de salud protegida (`PHI`).
-   * Nuevas categorías personales (`PII`):
-      * Clasificación internacional de enfermedades (ICD-9-CM)
-      * Clasificación Internacional de enfermedades (ICD-10-CM)
 
 > [!div class="nextstepaction"]
 > [Más información sobre la versión preliminar de Text Analytics API v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)

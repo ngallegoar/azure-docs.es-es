@@ -1,89 +1,73 @@
 ---
-title: 'Acceso condicional: acceso condicional basado en el riesgo (Azure Active Directory)'
-description: Creación de directivas de acceso condicional para permitir mejoras de Identity Protection en las directivas
+title: 'Acceso condicional basado en riesgos de inicio de sesión: Azure Active Directory'
+description: Crear directivas de acceso condicional con el riesgo de inicio de sesión de Identity Protection
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9cfba377aba30d4687bab4ba7c5a311c70c4905
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce687ae1f47b20bb5fff3827e7bcbd5d7edf2d83
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83995163"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024369"
 ---
-# <a name="conditional-access-risk-based-conditional-access"></a>Acceso condicional: Acceso condicional basado en el riesgo
+# <a name="conditional-access-sign-in-risk-based-conditional-access"></a>Acceso condicional: Acceso condicional basado en el riesgo del inicio de sesión
 
-Las organizaciones con licencias de Azure AD Premium P2 pueden crear directivas de acceso condicional que incorporen detecciones de riesgo de Azure AD Identity Protection. Hay tres directivas predeterminadas que se pueden habilitar inmediatamente. 
+La mayoría de los usuarios tienen un comportamiento normal que puede seguirse, cuando se salen de esta norma, podría ser peligroso permitirles que simplemente inicien sesión. Es posible que sea conveniente bloquear a ese usuario o quizás simplemente puede pedirle que lleve a cabo la autenticación multifactor para demostrar que realmente es quien dice ser. 
 
-* Require all users to register for Azure Multi-Factor Authentication (Exigir que todos los usuarios se registren para la autenticación multifactor [MFA])
-* Require a password change for users that are high risk (Exigir un cambio de contraseña para los usuarios que son de alto riesgo)
-* Require multi-factor authentication for users with medium or high sign-in risk (Exigir la autenticación multifactor los usuarios con un riesgo medio o alto de inicio de sesión)
+Un riesgo de inicio de sesión representa la probabilidad de que el propietario de la identidad no haya autorizado una solicitud de autenticación determinada. Las organizaciones con licencias de Azure AD Premium P2 pueden crear directivas de acceso condicional que incorporen [detecciones de riesgo de inicio de sesión de Azure AD Identity Protection](../identity-protection/concept-identity-protection-risks.md#sign-in-risk).
 
-## <a name="require-all-users-to-register-for-azure-multi-factor-authentication"></a>Require all users to register for Azure Multi-Factor Authentication (Exigir que todos los usuarios se registren para la autenticación multifactor [MFA])
+Hay dos ubicaciones en las que se puede asignar esta directiva. Las organizaciones deben elegir una de las siguientes opciones para habilitar una directiva de acceso condicional basada en riesgos de inicio de sesión que requiere un cambio de contraseña segura.
 
-Al habilitar esta directiva, todos los usuarios deberán registrarse para Azure Multi-factor Authentication en el plazo de 14 días. 
+## <a name="enable-with-conditional-access-policy"></a>Habilitar la directiva de acceso condicional
 
-1. Inicie sesión en **Azure Portal**.
-1. Haga clic en **Todos los servicios** y, a continuación, vaya a **Azure AD Identity Protection**.
-1. Haga clic en **Registro de MFA**.
-1. En **Asignaciones**, seleccione **Usuarios**.
+1. Inicie sesión en **Azure Portal** como administrador global, administrador de seguridad o administrador de acceso condicional.
+1. Vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional**.
+1. Seleccione **Nueva directiva**.
+1. Asigne un nombre a la directiva. Se recomienda que las organizaciones creen un estándar significativo para los nombres de sus directivas.
+1. En **Asignaciones**, seleccione **Usuarios y grupos**.
    1. En **Incluir**, seleccione **Todos los usuarios**.
-   1. En **Excluir**, elija **Seleccionar usuarios excluidos**, elija las cuentas de acceso de emergencia de la organización y elija **Seleccionar**. 
+   1. En **Excluir**, seleccione **Usuarios y grupos** y, luego, elija las cuentas de acceso de emergencia de la organización. 
    1. Seleccione **Listo**.
-1. Establezca **Aplicar directiva** en **Activado**.
-1. Haga clic en **Save**(Guardar).
+1. En **Aplicaciones en la nube o acciones** > **Incluir**, seleccione **Todas las aplicaciones en la nube**.
+1. En **Condiciones** > **Riesgo de usuario**, establezca **Configurar** en **Sí**. En **Seleccionar el nivel de riesgo de inicio de sesión, esta directiva se aplicará a** 
+   1. Seleccione **Alto** y **Medio**.
+   1. Seleccione **Listo**.
+1. En **Controles de acceso** > **Conceder**, seleccione **Conceder acceso**, **Requerir autenticación multifactor** y **Seleccionar**.
+1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
+1. Seleccione **Crear** para crear la directiva.
 
-## <a name="require-a-password-change-high-risk-users"></a>Require a password change high-risk users (Exigir el cambio de contraseña para usuarios de alto riesgo)
-
-Microsoft trabaja con los investigadores, las autoridades judiciales, varios equipos de seguridad de Microsoft y otros orígenes de confianza para buscar pares de nombre de usuario y contraseña. Cuando uno de estos pares encaja con una cuenta de su entorno, se puede desencadenar un cambio de contraseña en función del riesgo mediante la siguiente directiva.
+## <a name="enable-through-identity-protection"></a>Habilitar a través de Identity Protection
 
 1. Inicie sesión en **Azure Portal**.
-1. Haga clic en **Todos los servicios** y, a continuación, vaya a **Azure AD Identity Protection**.
-1. Haga clic en **Directiva de riesgo de usuario**.
-1. En **Asignaciones**, seleccione **Usuarios**.
-   1. En **Incluir**, seleccione **Todos los usuarios**.
-   1. En **Excluir**, elija **Seleccionar usuarios excluidos**, elija las cuentas de acceso de emergencia de la organización y elija **Seleccionar**.
-   1. Seleccione **Listo**.
-1. En **Condiciones**, seleccione **Riesgo de usuario** y, luego, elija **Alto**.
-   1. Haga clic en **Seleccionar** y en **Listo**.
-1. En **Controles** > **Acceso**, elija **Permitir acceso** y, luego, seleccione **Requerir cambio de contraseña**.
-   1. Haga clic en **Seleccionar**.
-1. Establezca **Aplicar directiva** en **Activado**.
-1. Haga clic en **Save**(Guardar).
-
-## <a name="require-mfa-medium-or-high-sign-in-risk-users"></a>Require MFA medium or high sign-in risk users (Exigir MFA para los usuarios con un riesgo de inicio de sesión medio o alto)
-
-La mayoría de los usuarios tienen un comportamiento normal que puede seguirse, cuando se salen de esta norma, podría ser peligroso permitirles que simplemente inicien sesión. Es posible que sea conveniente bloquear a ese usuario o quizás simplemente puede pedirle que lleve a cabo la autenticación multifactor para demostrar que realmente es quien dice ser. Para habilitar una directiva que requiera MFA cuando se detecta un inicio de sesión peligroso, habilite la directiva siguiente.
-
-1. Inicie sesión en **Azure Portal**.
-1. Haga clic en **Todos los servicios** y, a continuación, vaya a **Azure AD Identity Protection**.
-1. Haga clic en **Directiva de riesgo de inicio de sesión**.
+1. Seleccione **Todos los servicios** y, después, vaya a **Azure AD Identity Protection**.
+1. Seleccione **Directiva de riesgo de inicio de sesión**.
 1. En **Asignaciones**, seleccione **Usuarios**.
    1. En **Incluir**, seleccione **Todos los usuarios**.
    1. En **Excluir**, elija **Seleccionar usuarios excluidos**, elija las cuentas de acceso de emergencia de la organización y elija **Seleccionar**.
    1. Seleccione **Listo**.
 1. En **Condiciones**, seleccione **Riesgo de inicio de sesión** y, luego, elija **Medio y superior**.
-   1. Haga clic en **Seleccionar** y en **Listo**.
+   1. Seleccione **Seleccionar** y, después, **Listo**.
 1. En **Controles** > **Acceso**, elija **Permitir acceso** y, luego, seleccione **Requerir autenticación multifactor**.
-   1. Haga clic en **Seleccionar**.
+   1. Elija **Seleccionar**.
 1. Establezca **Aplicar directiva** en **Activado**.
-1. Haga clic en **Save**(Guardar).
+1. Seleccione **Guardar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Directivas de acceso condicional habituales](concept-conditional-access-policy-common.md)
 
+[Acceso condicional basado en riesgos de usuario](howto-conditional-access-policy-risk-user.md)
+
 [Determinación del impacto mediante el modo de solo informe de acceso condicional](howto-conditional-access-report-only.md)
 
 [Simulación del comportamiento de inicio de sesión mediante la herramienta What If de acceso condicional](troubleshoot-conditional-access-what-if.md)
-
-[Funcionamiento: Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
 
 [¿Qué es Azure Active Directory Identity Protection?](../identity-protection/overview.md)

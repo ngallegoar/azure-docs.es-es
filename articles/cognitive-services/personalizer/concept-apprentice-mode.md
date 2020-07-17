@@ -3,12 +3,12 @@ title: 'Modo de aprendiz: Personalizer'
 description: ''
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 2697ab4b32edbd4841f2b11725fda46e90e7ae7e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 5ee8242fbc9ab5bed4e3eed8997feb122b131062
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599308"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087204"
 ---
 # <a name="use-apprentice-mode-to-train-personalizer-without-affecting-your-existing-application"></a>Uso del modo de aprendiz para el entrenamiento de Personalizer sin que ello afecte a la aplicación existente
 
@@ -30,7 +30,7 @@ El modo de aprendiz le proporciona confianza en el servicio Personalizer y sus c
 
 Las dos razones principales para usar el modo de aprendiz son las siguientes:
 
-* Mitigación de los **arranques en frío**: el modo de aprendiz ayuda a administrar y evaluar el costo del tiempo de aprendizaje de un "nuevo" modelo (cuando no se devuelve la mejor acción y no se logra un nivel de efectividad satisfactorio alrededor del 75-85 %).
+* Mitigación de los **arranques en frío**: El modo de aprendiz ayuda a administrar y evaluar el costo del tiempo de aprendizaje de un "nuevo" modelo (cuando no se devuelve la mejor acción y no se logra un nivel de efectividad satisfactorio alrededor del 60-80 %).
 * **Validación de las características de acción y contexto**: las características enviadas en acciones y en el contexto pueden ser inadecuadas o inexactas (escasas, excesivas, incorrectas o demasiado específicas para entrenar Personalizer para alcanzar el grado de eficacia ideal). Use las [evaluaciones de características](concept-feature-evaluation.md) para buscar y corregir problemas con las características.
 
 ## <a name="when-should-you-use-apprentice-mode"></a>¿Cuándo se debe usar el modo de aprendiz?
@@ -68,7 +68,7 @@ Aprendizaje cuando el modo de aprendiz difiere del modo en línea de las siguien
 Nota sobre la eficacia del modo de aprendiz:
 
 * La eficacia de Personalizer en el modo de aprendiz no suele acercarse al 100 % de la línea de base de la aplicación y nunca lo supera.
-* Los procedimientos recomendados serían no intentar llegar al 100 %. El objetivo sería un intervalo del 75 al 85 % en función del caso de uso.
+* Los procedimientos recomendados serían no intentar llegar al 100 %. El objetivo sería un intervalo del 60 al 80 % en función del caso de uso.
 
 ## <a name="using-apprentice-mode-to-train-with-historical-data"></a>Uso del modo de aprendiz para el entrenamiento con datos históricos
 

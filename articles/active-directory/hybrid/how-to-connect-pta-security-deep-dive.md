@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8c8d6c1aca81d59b42ceca17ecfb071ee5f13bd
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ce5f47fe662092219180064f7ea49f5573b27818
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014373"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358249"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Información de seguridad detallada sobre la autenticación de paso a través de Azure Active Directory
 
@@ -106,7 +106,7 @@ Los agentes de autenticación realizan los siguientes pasos para registrarse con
     - Esa entidad de certificación se usa solo con la característica de autenticación de paso a través. La entidad de certificación solo se usa para firmar CSR durante el registro del agente de autenticación.
     -  Ninguno de los demás servicios de Azure AD usa esta entidad de certificación.
     - El sujeto del certificado (nombre distintivo o DN) se establece en su id. de inquilino. Este DN es un GUID que identifica al inquilino de forma exclusiva. Asimismo, limita el uso del certificado a dicho inquilino.
-6. Azure AD almacena la clave pública del agente de autenticación en una base de datos de Azure SQL, a la que solo Azure AD tiene acceso.
+6. Azure AD almacena la clave pública del agente de autenticación en una base de datos de Azure SQL Database, a la que solo Azure AD tiene acceso.
 7. El nuevo certificado (que se emitió en el paso 5) se almacena en el servidor local del almacén de certificados de Windows (concretamente, en la ubicación [CERT_SYSTEM_STORE_CURRENT_USER](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_LOCAL_MACHINE)). Tenga en cuenta que este certificado lo usan tanto el agente de autenticación como las aplicaciones de actualización.
 
 ### <a name="authentication-agent-initialization"></a>Inicialización del agente de autenticación
@@ -139,7 +139,7 @@ La autenticación de paso a través administra una solicitud de inicio de sesió
 4. El usuario escribe su nombre de usuario en la página **Inicio de sesión del usuario** y después selecciona el botón **Siguiente**.
 5. El usuario escribe su contraseña en la página **Inicio de sesión de usuario** y después selecciona el botón **Inicio de sesión**.
 6. El nombre de usuario y la contraseña se envían al STS de Azure AD en una solicitud POST HTTPS.
-7. El STS de Azure AD recupera las claves públicas de todos los agentes de autenticación registrados en el inquilino de la base de datos de Azure SQL y las usa para cifrar la contraseña.
+7. El STS de Azure AD recupera las claves públicas de todos los agentes de autenticación registrados en el inquilino de Azure SQL Database y las usa para cifrar la contraseña.
     - Genera "N" valores de contraseñas cifradas para "N" agentes de autenticación registrados en el inquilino.
 8. El STS de Azure AD coloca la solicitud de validación de contraseña (que se compone del nombre de usuario y los valores de las contraseñas cifradas) en la cola de Service Bus específica del inquilino.
 9. Puesto que los agentes de autenticación inicializados están conectados de forma persistente a la cola de Service Bus, uno de los agentes de autenticación disponibles recupera la solicitud de validación de contraseña.
@@ -178,7 +178,7 @@ Para renovar la confianza de un agente de autenticación con Azure AD:
 6. Si ha expirado el certificado existente, Azure AD elimina el agente de autenticación de lista de los agentes de autenticación registrados en el inquilino. A continuación, un administrador global debe instalar y registrar manualmente un nuevo agente de autenticación.
     - Use la CA raíz de Azure AD para firmar el certificado.
     - El sujeto del certificado (nombre distintivo o DN) se establece en su id. de inquilino, que es un GUID que identifica al inquilino de forma exclusiva. Es decir, el DN limita el certificado solo al inquilino.
-6. Azure AD almacena la nueva clave pública del agente de autenticación en una base de datos de Azure SQL, a la que solo Azure AD tiene acceso. Además, invalida la antigua clave pública asociada con el agente de autenticación.
+6. Azure AD almacena la nueva clave pública del agente de autenticación en una base de datos de Azure SQL Database, a la que solo Azure AD tiene acceso. Además, invalida la antigua clave pública asociada con el agente de autenticación.
 7. El nuevo certificado (que se emitió en el paso 5) se almacena en el servidor en el almacén de certificados de Windows (concretamente, en la ubicación [CERT_SYSTEM_STORE_CURRENT_USER](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_CURRENT_USER)).
     - Puesto que el procedimiento de renovación de confianza ocurre de manera no interactiva (sin la presencia del administrador global), el agente de autenticación ya no tiene acceso para actualizar el certificado existente en la ubicación CERT_SYSTEM_STORE_LOCAL_MACHINE. 
     

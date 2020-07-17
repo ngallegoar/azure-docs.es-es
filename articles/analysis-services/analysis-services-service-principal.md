@@ -4,15 +4,15 @@ description: Aprenda a crear una entidad de servicio para automatizar las tareas
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9797b4c8f8059f9cfefbb70672aa202c7a3f4825
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 28947d1fa4ece5d6285651ef07342cae06ad8bc8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168359"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077378"
 ---
 # <a name="automation-with-service-principals"></a>Automatización con entidades de servicio
 
@@ -20,7 +20,7 @@ Las entidades de servicio son un recurso de aplicación de Azure Active Director
 
 En Analysis Services, las entidades de servicio se usan con Azure Automation, el modo desatendido de PowerShell, las aplicaciones cliente personalizadas y las aplicaciones web para automatizar tareas comunes. Por ejemplo, las tareas de aprovisionamiento de servidores, implementación de modelos, actualización de datos, escalado vertical y reducción vertical y pausa y reanudación pueden automatizarse con el uso de las entidades de servicio. Los permisos se asignan a las entidades de servicio con la pertenencia a roles, como las cuentas de UPN de Azure AD regulares.
 
-Analysis Services también admite las operaciones realizadas por las identidades administradas mediante entidades de servicio. Para obtener más información, vea [¿Qué es Managed Identities for Azure Resources?](../active-directory/managed-identities-azure-resources/overview.md) y [Servicios de Azure que admiten la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).  
+Analysis Services también admite las operaciones realizadas por las identidades administradas mediante entidades de servicio. Para obtener más información, vea [¿Qué es Managed Identities for Azure Resources?](../active-directory/managed-identities-azure-resources/overview.md) y [Servicios de Azure que admiten la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).    
 
 ## <a name="create-service-principals"></a>Creación de entidades de servicio
  
@@ -38,7 +38,7 @@ Las credenciales y los certificados de las entidades de servicio se pueden almac
 
 ## <a name="add-service-principals-to-server-admin-role"></a>Incorporación de entidades de servicio al rol de administrador del servidor
 
-Antes de poder usar una entidad de servicio para las operaciones de administración del servidor de Analysis Services, debe agregarla al rol de administradores del servidor. Para más información, vea [Incorporación de una entidad de servicio al rol de administrador del servidor](analysis-services-addservprinc-admins.md).
+Antes de poder usar una entidad de servicio para las operaciones de administración del servidor de Analysis Services, debe agregarla al rol de administradores del servidor. Las entidades de servicio deben agregarse directamente al rol Administrador del servidor. La incorporación de una entidad de servicio a un grupo de seguridad y, posteriormente, de ese grupo de seguridad al rol Administrador del servidor, no se admite. Para más información, vea [Incorporación de una entidad de servicio al rol de administrador del servidor](analysis-services-addservprinc-admins.md).
 
 ## <a name="service-principals-in-connection-strings"></a>Entidades de servicio en las cadenas de conexión
 
@@ -92,7 +92,7 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO y ADOMD 
 
-Al conectarse con aplicaciones cliente y aplicaciones web, los paquetes instalables de la versión 15.0.2 y versiones posteriores de las [bibliotecas cliente de AMO y ADOMD](analysis-services-data-providers.md) de NuGet admiten entidades de servicio en las cadenas de conexión con el uso de la siguiente sintaxis: `app:AppID` y la contraseña o `cert:thumbprint`. 
+Al conectarse con aplicaciones cliente y aplicaciones web, los paquetes instalables de la versión 15.0.2 y versiones posteriores de las [bibliotecas cliente de AMO y ADOMD](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) de NuGet admiten entidades de servicio en las cadenas de conexión con el uso de la siguiente sintaxis: `app:AppID` y la contraseña o `cert:thumbprint`. 
 
 En el ejemplo siguiente, se usan un `appID` y una `password` para realizar una operación de actualización de la base de datos modelo:
 

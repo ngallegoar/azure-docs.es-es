@@ -9,40 +9,40 @@ ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: sandeo
+ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9d8c0cd803424e117bd4dc7a3382b7b32df2d05
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 149b01401cd6feb7610510efeb1ad9a3c69f3ecf
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78672716"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024050"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Funcionamiento del inicio de sesión único en recursos locales de dispositivos unidos a Azure AD
 
-Probablemente no sea una sorpresa le sorprenda que un dispositivo unido a Azure Active Directory (Azure AD) le ofrezca una experiencia de inicio de sesión único (SSO) para aplicaciones de nube de su inquilino. Si su entorno tiene un entorno local de Active Directory (AD), puede ampliar la experiencia de inicio de sesión único en estos dispositivos con ello.
+Probablemente no sea una sorpresa le sorprenda que un dispositivo unido a Azure Active Directory (Azure AD) le ofrezca una experiencia de inicio de sesión único (SSO) para aplicaciones de nube de su inquilino. Si su entorno tiene una Active Directory local (AD), puede ampliar la experiencia de SSO en estos dispositivos a los recursos y las aplicaciones que se basan también en AD local. 
 
 En este artículo se explica cómo funciona.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
  Si las máquinas unidas a Azure AD no están conectadas a la red de su organización, se requiere una red privada virtual u otra infraestructura de red. El inicio de sesión único local requiere una comunicación de campo visual con los controladores de dominio de AD DS local.
 
 ## <a name="how-it-works"></a>Funcionamiento 
 
-Como debe recordar un solo nombre de usuario y contraseña, el inicio de sesión único simplifica el acceso a los recursos y mejora la seguridad del entorno. Con un dispositivo unido a Azure AD, los usuarios ya tienen una experiencia de inicio de sesión único para las aplicaciones de nube en el entorno. Si el entorno tiene una instancia de Azure AD y una instancia de AD local, probablemente desee ampliar el alcance de la experiencia de inicio de sesión único a sus aplicaciones de línea de negocio (LOB) locales, recursos compartidos de archivos e impresoras.
+Con un dispositivo unido a Azure AD, los usuarios ya tienen una experiencia de inicio de sesión único para las aplicaciones de nube en el entorno. Si su entorno tiene una Azure AD y una instancia de AD local, es posible que desee ampliar el ámbito de su experiencia de SSO a sus aplicaciones locales de línea de negocio (LOB), recursos compartidos de archivos e impresoras.
 
 Los dispositivos unidos a Azure AD no tienen ningún conocimiento acerca del entorno de AD porque no están unidos a él. Sin embargo, puede proporcionar información adicional acerca de su instancia de AD local a estos dispositivos con Azure AD Connect.
 
 Un entorno con ambos, Azure AD y AD local, también se conoce como entorno híbrido. Si tiene un entorno híbrido, es probable que tenga ya implementado Azure AD Connect para sincronizar la información de identidad local con la de la nube. Como parte del proceso de sincronización, Azure AD Connect sincroniza la información de usuario local con Azure AD. Cuando un usuario inicia sesión en un dispositivo de Azure AD en un entorno híbrido:
 
-1. Azure AD envía el nombre del dominio local del usuario como miembro de vuelta al dispositivo.
-1. El servicio de la autoridad de seguridad local (LSA) permite la autenticación de Kerberos en el dispositivo.
+1. Azure AD envía los detalles del dominio local del usuario de nuevo al dispositivo, junto con el [token de actualización principal](concept-primary-refresh-token.md)
+1. El servicio de autoridad de seguridad local (LSA) permite la autenticación Kerberos y NTLM en el dispositivo.
 
-Durante un intento de acceso a un recurso que solicita Kerberos en el entorno local del usuario, el dispositivo:
+Durante un intento de acceso a un recurso que solicita Kerberos o NTLM en el entorno local del usuario, el dispositivo:
 
 1. Envía las credenciales de usuario y la información de dominio local al controlador de dominio encontrado para autenticar al usuario.
-1. Recibe un [vale de concesión de vales (TGT)](/windows/desktop/secauthn/ticket-granting-tickets) de Kerberos que se utiliza para acceder a los recursos unidos a AD. Si se produce un error al intentar obtener el TGT del dominio de AAD Connect (el tiempo de espera de DCLocator puede producir un retraso), se intentan las entradas del Administrador de credenciales o el usuario puede recibir un mensaje emergente de autenticación que solicita las credenciales para el recurso de destino.
+1. Recibe un [ vale de concesión de vales (TGT) de Kerberos](/windows/desktop/secauthn/ticket-granting-tickets) o un token de NTLM basado en el protocolo que admite la aplicación o el recurso local. Si se produce un error al intentar obtener el identificador TGT de Kerberos o el token de NTLM para el dominio (el tiempo de espera de DCLocator puede producir un retraso), se intentan las entradas del Administrador de credenciales o el usuario puede recibir una ventana emergente de autenticación que solicita credenciales para el recurso de destino.
 
 Todas las aplicaciones que están configuradas para la **autenticación integrada de Windows** tienen un inicio de sesión único perfecto al intentar el usuario acceder.
 

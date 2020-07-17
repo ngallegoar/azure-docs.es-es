@@ -1,33 +1,34 @@
 ---
-title: 'Lista de comprobación para la creación de ofertas de SaaS: Marketplace comercial para Azure'
-description: Los detalles que puede incluir en el proceso de creación de ofertas de SaaS. - Marketplace comercial para Azure
-author: dsindona
-ms.author: dsindona
+title: Lista de comprobación para la creación de ofertas de SaaS en Microsoft Commercial Marketplace
+description: Los detalles que puede incluir en el proceso de creación de ofertas de SaaS en el Centro de partners.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: ec276c765c2a574dbbc2fc14b7b23507b4cc4798
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 05/08/2020
+ms.openlocfilehash: c56295f1e56e4ba3b6af9caf8ba38ce1f0552eeb
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83850018"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101715"
 ---
-# <a name="saas-offer-creation-checklist"></a>Lista de comprobación de creación de ofertas de SaaS
+# <a name="saas-offer-creation-checklist-in-partner-center"></a>Lista de comprobación de creación de ofertas de SaaS
 
-El proceso de creación de ofertas de SaaS le llevará a través de varias páginas. Estos son los detalles que puede proporcionar en cada una de ellas, con vínculos para obtener más información acerca de cada elemento.
+El proceso de creación de ofertas de SaaS le llevará a través de varias páginas.  Estos son los detalles que puede proporcionar en cada una de ellas, con vínculos para obtener más información acerca de cada elemento.
 
-Los elementos que tiene que proporcionar o especificar se detallan a continuación. Algunas áreas son opcionales o tienen aplicados los valores proporcionados, que puede cambiar según desee. No es necesario que trabaje en estas secciones en el orden que se muestra aquí.
+Los elementos que tiene que proporcionar o especificar se detallan a continuación.  Algunas áreas son opcionales o tienen aplicados los valores proporcionados, que puede cambiar según desee.  No es necesario que trabaje en estas secciones en el orden que se muestra aquí.
+
+>[!Note]
+>Si va a crear una oferta de SaaS comercializable, asegúrese de implementar la integración con la [API de suministro de SaaS](./pc-saas-fulfillment-apis.md).  La integración con las API es la única manera de que la transacción de Marketplace funcione correctamente.
 
 | **Elemento**    | **Propósito**  |
 | :---------- | :-------------------|
 | [**Modal de nueva oferta**](#new-offer-modal) | Recopila información sobre la identidad de la oferta.  |
 | [Página de configuración de la oferta](#offer-setup-page) | Le permite optar por usar las características clave y elegir cómo vender su oferta a través de Microsoft.  |
 | [Página de propiedades](#properties-page) | Defina las categorías y los sectores que se usan para agrupar su oferta en los catálogos de soluciones, los contratos legales que dan soporte a su oferta y su versión de la aplicación. |
-| [Página de descripción de la oferta](#offer-listing-page) | Defina los detalles de la oferta que se muestran en Marketplace, lo que incluye descripciones de la oferta y los recursos de marketing. |
-| [Página de versión preliminar](#preview-page) | Defina un público preliminar limitado para publicar la oferta antes de ponerla a disposición de un público más amplio de Marketplace. |
-| [Página de configuración técnica de la oferta](#technical-configuration-page)  | Solo está disponible si selecciona vender la oferta a través de Microsoft. Define los detalles técnicos (ruta de acceso de la dirección URL, webhook, identificador de inquilino e identificador de aplicación) que se usan para conectarse a su oferta. |
+| [Página de descripción de la oferta](#offer-listing-page) | Defina los detalles de la oferta que se muestran en Marketplace, lo que incluye descripciones de la oferta y los recursos de marketing.|
+| [Página de versión preliminar](#preview-page) | Defina un público preliminar limitado para publicar la oferta antes de ponerla a disposición de un público más amplio de Marketplace.|
+| [Página de configuración técnica de la oferta](#technical-configuration-page)  |  Solo está disponible si selecciona vender la oferta a través de Microsoft.  Defina los detalles técnicos (dirección URL de la página de aterrizaje, dirección URL del webhook de conexión, Id. de inquilino de Azure AD e Id. de la aplicación de Azure AD) que usa Marketplace para conectarse a la oferta.  Estos parámetros son necesarios para integrarse correctamente con la realización de SaaS y las API de facturación según el uso de Marketplace.|
 | [**Modal de nuevo plan**](#plan-identity-modal) | Recopila información sobre la identidad del plan.  |
 | [Página de descripción del plan](#plan-listing-page)  | Solo está disponible si selecciona vender la oferta a través de Microsoft. Defina los detalles usados para mostrar el plan en Marketplace.  |
 | [Página de precios y disponibilidad del plan](#plan-pricing--availability-page)  | Solo está disponible si selecciona vender la oferta a través de Microsoft.  Recopila las características empresariales (modelo de precios), el público y la disponibilidad de mercado para cada plan (versión) de su oferta.  |
@@ -89,7 +90,7 @@ La página de descripción es donde debe proporcionar el texto y las imágenes q
 | Título + dirección URL de vínculos útiles  | Opcional. |
 | Título + archivo de documentos de apoyo  | Requerido, mín. 1 y máx. 3. Debe estar en formato de archivo PDF. |
 | Capturas de pantalla  | Requerido, mín. 1 captura de pantalla y máx. 5; se recomienda 4 o más. Debe ser 1280 x 720 en formato PNG. |
-| Logotipos del almacén (pequeño, mediano, grande, ancho, prominente)  | Se requiere pequeño (48 x 48) y grande (216 x 216); otros tamaños opcionales pero recomendados: mediano (90 x 90), ancho (255 x 115), prominente (815 x 290). Debe tener el formato PNG. |
+| Logotipos del almacén (pequeño, mediano, grande, ancho)  | Se requiere pequeño (48 x 48) y grande (216 x 216); otros tamaños opcionales pero recomendados: Mediano (90 x 90), ancho (255 x 115). Debe tener el formato .PNG. |
 | Nombre + dirección URL + miniatura de vídeos  | Opcional, recomendado, máx. 4 vídeos. La miniatura debe tener el tamaño 1280 x 720 y estar en formato PNG. El vídeo debe estar hospedado en YouTube o Vimeo. |
 | Contactos (programa CSP, ingeniería, soporte técnico)  | Se requiere el contacto de ingeniería y soporte técnico (nombre, correo electrónico y número de teléfono); el contacto del programa CSP es opcional pero está recomendado. |
 | Dirección URL de soporte técnico  | Necesario. |

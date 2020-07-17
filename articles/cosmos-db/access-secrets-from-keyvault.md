@@ -6,15 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 225221635f978e3d70cec4ce7e9d78d6b100b4fd
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 50a9d5e3d3bbb608160ee160c5f1aede8f70e530
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618771"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262674"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Protección de las claves de Azure Cosmos con Azure Key Vault 
 
@@ -51,7 +51,7 @@ Los pasos siguientes son necesarios para almacenar y leer las claves de acceso d
    * Proporcione un **nombre** para el secreto.
    * Especifique la cadena de conexión de la cuenta de Cosmos DB en el campo **Valor**. Después, seleccione **Crear**.
 
-   ![Crear un secreto](./media/access-secrets-from-keyvault/create-a-secret.png)
+   :::image type="content" source="./media/access-secrets-from-keyvault/create-a-secret.png" alt-text="Crear un secreto":::
 
 4. Una vez creado el secreto, ábralo y copie el **Identificador secreto que se encuentra en el siguiente formato. Usará este identificador en la siguiente sección. 
 
@@ -70,11 +70,11 @@ Los pasos siguientes son necesarios para almacenar y leer las claves de acceso d
 
 5. Una vez implementada la aplicación: En Azure Portal, vaya a la aplicación web implementada y active la opción **Managed Service Identity** de esta aplicación.  
 
-   ![Managed Service Identity](./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png)
+   :::image type="content" source="./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png" alt-text="Identidad de servicio administrado":::
 
 Si va a ejecutar la aplicación ahora, verá el siguiente error, ya que no tienen ningún permiso para esta aplicación en Key Vault.
 
-![Aplicación implementada sin acceso](./media/access-secrets-from-keyvault/app-deployed-without-access.png)
+:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-without-access.png" alt-text="Aplicación implementada sin acceso":::
 
 ## <a name="register-the-application--grant-permissions-to-read-the-key-vault"></a>Registro de la aplicación y concesión de permisos para leer el almacén de claves
 
@@ -84,11 +84,11 @@ En esta sección, registre la aplicación en Azure Active Directory y conceda pe
 
 2. Abra **Directivas de acceso**, seleccione **+ Agregar nuevo**, busque la aplicación web que implementó, seleccione los permisos y seleccione **Aceptar**.  
 
-   ![Agregar directiva de acceso](./media/access-secrets-from-keyvault/add-access-policy.png)
+   :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="Agregar directiva de acceso":::
 
 Ahora, si ejecuta la aplicación, puede leer el secreto del almacén de claves.
 
-![Aplicación implementada con secreto](./media/access-secrets-from-keyvault/app-deployed-with-access.png)
+:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-with-access.png" alt-text="Aplicación implementada con secreto":::
  
 De forma similar, puede agregar un usuario para acceder al almacén de claves. Debe agregarse al almacén de claves; para ello, seleccione **Directivas de acceso** y después conceda todos los permisos que necesita para ejecutar la aplicación desde Visual Studio. Cuando se ejecuta esta aplicación desde el escritorio, usa su identidad.
 

@@ -5,19 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
-ms.topic: conceptual
-ms.date: 4/1/2020
-ms.openlocfilehash: ca5f80e57f90e4dd26ac2e4a175998ff3de2c102
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.topic: how-to
+ms.date: 6/11/2020
+ms.openlocfilehash: 7c62eb9db2bbde8038f192c9e29a804a0b24cfdb
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546436"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101535"
 ---
-# <a name="customize-server-parameters-by-using-azure-cli"></a>Personalización de los parámetros del servidor con la CLI de Azure
+# <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-cli"></a>Configuración de parámetros del servidor en Azure Database for MySQL mediante la CLI de Azure
 Puede enumerar, mostrar y actualizar los parámetros de configuración de un servidor de Azure Database for MySQL con la CLI de Azure, la utilidad de línea de comandos de Azure. En el nivel del servidor, se expone y se puede modificar un subconjunto de las opciones de configuración del motor. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Para seguir esta guía, necesitará:
 - [Un servidor de Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
 - La utilidad de línea de comandos [CLI de Azure](/cli/azure/install-azure-cli) o usar Azure Cloud Shell en el explorador.
@@ -50,6 +50,14 @@ Si desea restablecer el valor de un parámetro de configuración, omita el pará
 az mysql server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver
 ```
 Este código restablece la configuración **slow\_query\_log** en el valor predeterminado **Apagado**. 
+
+## <a name="setting-parameters-not-listed"></a>Valor de parámetros que no aparecen en la lista
+Si el parámetro de servidor que desea actualizar no aparece en Azure Portal, también puede establecer el parámetro en el nivel de conexión mediante `init_connect`. De este modo, se establecen los parámetros del servidor para cada cliente con conexión al servidor. 
+
+Actualice el parámetro de configuración del servidor **init\_connect** del servidor **mydemoserver.mysql.database.azure.com** en el grupo de recursos **myresourcegroup** para establecer valores como el juego de caracteres.
+```azurecli-interactive
+az mysql server configuration set --name init_connect --resource-group myresourcegroup --server mydemoserver --value "SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;"
+```
 
 ## <a name="working-with-the-time-zone-parameter"></a>Trabajo con el parámetro de zona horaria
 

@@ -4,19 +4,19 @@ description: Aprenda a mejorar su seguridad mediante el bloqueo de la autenticac
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/13/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83e657114f4e51775fb73267322a48e362f57b1c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: bd66bc742d0832cba5d6f302bfe30c85e2d82716
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83641694"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253348"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedimientos: Bloqueo de la autenticación heredada en Azure AD con acceso condicional   
 
@@ -35,7 +35,7 @@ En su entrada de blog del 12 de marzo de 2020, [New tools to block legacy authen
 
 Si el entorno está listo para bloquear la autenticación heredada con el fin de mejorar la protección del inquilino, puede lograr este objetivo con el acceso condicional. En este artículo se explica cómo configurar las directivas de acceso condicional que bloquean la autenticación heredada para el inquilino.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se asume que está familiarizado con: 
 
@@ -65,6 +65,7 @@ Las siguientes opciones se consideran protocolos de autenticación heredados.
 
 - SMTP autenticado: usado por clientes POP e IMAP para enviar mensajes de correo electrónico.
 - Detección automática: usada por clientes Outlook y EAS para buscar y conectarse a buzones en Exchange Online.
+- Exchange ActiveSync (EAS): se usa para conectarse a los buzones en Exchange Online.
 - Exchange Online PowerShell: se usa para conectarse a Exchange Online con PowerShell remoto. Si bloquea la autenticación básica para Exchange Online PowerShell, debe usar el módulo de Exchange Online PowerShell para conectarse. Para obtener instrucciones, consulte [Conexión a Exchange Online PowerShell con autenticación multifactor](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
 - Servicios web Exchange (EWS): una interfaz de programación que se usa en Outlook, Outlook para Mac y aplicaciones de terceros.
 - IMAP4: usado por clientes de correo electrónico IMAP.

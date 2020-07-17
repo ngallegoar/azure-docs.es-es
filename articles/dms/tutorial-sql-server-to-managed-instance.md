@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Migración de SQL Server a una instancia administrada de SQL'
+title: 'Tutorial: Migración de SQL Server a SQL Managed Instance'
 titleSuffix: Azure Database Migration Service
 description: Aprenda a migrar de SQL Server a una instancia administrada de Azure SQL Database mediante Azure Database Migration Service.
 services: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 36efd3e90731e7659f023ad99df1eb9cb3c0198f
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: f20b9236631057449a337e4e161b7468f995e306
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84247451"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085538"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>Tutorial: Migración de SQL Server a Instancia administrada de Azure SQL sin conexión con Database Migration Service
 
@@ -61,7 +61,7 @@ Para completar este tutorial, necesita:
 - Si se ejecutan varias instancias con nombre de SQL Server con puertos dinámicos, puede ser conveniente habilitar el servicio SQL Browser y permitir el acceso al puerto UDP 1434 mediante los firewalls para que Azure Database Migration Service pueda conectarse a una instancia con nombre en el servidor de origen.
 - Si va a usar un dispositivo de firewall delante de las bases de datos de origen, puede que sea necesario agregar reglas de firewall para permitir que Azure Database Migration Service acceda a las bases de datos de origen para realizar la migración, así como archivos a través del puerto SMB 445.
 - Cree una Instancia administrada de SQL mediante los pasos que se describen en el artículo [Creación de una Instancia administrada de SQL en Azure Portal](https://aka.ms/sqldbmi).
-- Asegúrese de que los inicios de sesión usados para conectar la instancia de SQL Server de origen y la instancia administrada de destino son miembros del rol de servidor sysadmin.
+- Asegúrese de que los inicios de sesión usados para conectar SQL Server de origen y SQL Managed Instance de destino son miembros del rol de servidor sysadmin.
 
     >[!NOTE]
     >De forma predeterminada, Azure Database Migration Service solo admite la migración de inicios de sesión de SQL. Sin embargo, puede habilitar la capacidad de migrar inicios de sesión de Windows de la siguiente manera:
@@ -113,7 +113,7 @@ Para completar este tutorial, necesita:
 
     Para más información sobre cómo crear una red virtual en Azure Portal, consulte el artículo [Creación de una red virtual mediante Azure Portal](https://aka.ms/DMSVnet).
 
-    Para más información, consulte el artículo [Topologías de red para migraciones a la instancia administrada de Azure SQL Database con Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
+    Para más información, consulte el artículo [Topologías de red para migraciones de Azure SQL Managed Instance mediante Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
 
 6. Seleccione un plan de tarifa.
 
@@ -245,6 +245,6 @@ Después de crear una instancia del servicio, búsquela en Azure Portal, ábrala
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para consultar un tutorial que muestra cómo migrar una base de datos a una instancia administrada mediante el comando T-SQL RESTORE, consulte [Restauración de una copia de seguridad para una instancia administrada mediante el comando Restore](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
-- Para más información acerca de la instancia administrada, consulte [¿Qué es una instancia administrada?](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
-- Para más información sobre cómo conectar las aplicaciones a una instancia administrada, consulte [Conexión de aplicaciones](../azure-sql/managed-instance/connect-application-instance.md).
+- Para consultar un tutorial que muestra cómo migrar una base de datos a SQL Managed Instance mediante el comando T-SQL RESTORE, consulte [Restauración de una copia de seguridad para SQL Managed Instance mediante el comando Restore](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
+- Para más información sobre SQL Managed Instance, consulte [¿Qué es SQL Managed Instance?](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
+- Para más información sobre cómo conectar las aplicaciones a SQL Managed Instance, consulte [Conexión de aplicaciones](../azure-sql/managed-instance/connect-application-instance.md).

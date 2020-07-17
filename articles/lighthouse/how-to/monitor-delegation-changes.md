@@ -1,18 +1,18 @@
 ---
 title: Supervisión de los cambios en la delegación en el inquilino de administración
 description: Aprenda a supervisar la actividad de delegación en los inquilinos de clientes o en el inquilino de administración.
-ms.date: 03/30/2020
+ms.date: 07/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 9a772cc577392558f050211b7f767928ecbb707b
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: b30cbc025f97ab76be55f0f83e15603b40092ce3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919141"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105173"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Supervisión de los cambios en la delegación en el inquilino de administración
 
-Como proveedor de servicios, es posible que desee conocer cuándo se delegan las suscripciones o grupos de recursos del cliente al inquilino mediante la [administración de recursos delegada de Azure](../concepts/azure-delegated-resource-management.md), o cuándo se eliminan los recursos delegados anteriormente.
+Como proveedor de servicios, es posible que desee conocer cuándo se delegan las suscripciones o grupos de recursos del cliente al inquilino mediante [Azure Lighthouse](../overview.md), o cuándo se eliminan los recursos delegados anteriormente.
 
 En el inquilino de administración, el [registro de actividad de Azure](../../azure-monitor/platform/platform-logs-overview.md) realiza un seguimiento de la actividad de delegación en el nivel del inquilino. Esta actividad registrada incluye cualquier delegación agregada o eliminada de todos los inquilinos del cliente.
 
@@ -158,5 +158,5 @@ else
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Aprenda a incorporar clientes a la [administración de recursos delegados de Azure](../concepts/azure-delegated-resource-management.md).
+- Obtenga información sobre cómo incorporar clientes a [Azure Lighthouse](../concepts/azure-delegated-resource-management.md).
 - Más información sobre [Azure Monitor](../../azure-monitor/index.yml) y el [registro de actividad de Azure](../../azure-monitor/platform/platform-logs-overview.md).

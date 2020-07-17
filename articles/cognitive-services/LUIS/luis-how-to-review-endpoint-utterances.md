@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: diberry
-ms.openlocfilehash: 687f2a80b362ca559d054b81d464daf2f6f85c09
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 58674bf38ec1efb970fa8e79f7d970ecefb36712
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340613"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055620"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Cómo mejorar la aplicación LUIS revisando las expresiones de punto de conexión
 
-El proceso de revisión de las expresiones de punto de conexión para obtener predicciones correctas se denomina [Aprendizaje activo](luis-concept-review-endpoint-utterances.md). El aprendizaje activo captura las consultas de punto de conexión y selecciona las expresiones de punto de conexión del usuario de las que no está seguro. Revise estas expresiones para seleccionar la intención y marque las entidades para estas expresiones de lectura. Acepte estos cambios en sus expresiones de ejemplo, entrene y publique. LUIS identificará después las expresiones con mayor precisión.
+El proceso de revisión de las expresiones de punto de conexión para obtener predicciones correctas se denomina [Aprendizaje activo](luis-concept-review-endpoint-utterances.md). El aprendizaje activo captura las consultas de punto de conexión y selecciona las expresiones de punto de conexión del usuario de las que no está seguro. Revise estas expresiones para seleccionar la intención y marque las entidades para estas expresiones del mundo real. Acepte estos cambios en sus expresiones de ejemplo, entrene y publique. LUIS identificará después las expresiones con mayor precisión.
 
 ## <a name="enable-active-learning"></a>Habilitación del aprendizaje activo
 

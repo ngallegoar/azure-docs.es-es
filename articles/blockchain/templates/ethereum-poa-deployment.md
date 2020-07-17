@@ -1,15 +1,15 @@
 ---
 title: Implementación de la solución Consorcio de prueba de autoridad de Ethereum en Azure
 description: Usar la solución del consorcio de prueba de autoridad de Ethereum para implementar y configurar una red con varios miembros del consorcio Ethereum en Azure
-ms.date: 12/18/2019
-ms.topic: article
-ms.reviewer: coborn
-ms.openlocfilehash: 7e9af5c501b58f6828360ee280440ea85698bf16
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/07/2020
+ms.topic: how-to
+ms.reviewer: ravastra
+ms.openlocfilehash: 859be5d779663e429ef333c8fd8163c0aa60eab5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75387678"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085929"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Implementación de la solución Consorcio de prueba de autoridad de Ethereum en Azure
 
@@ -17,15 +17,17 @@ Puede utilizar [la plantilla de solución de Azure Consorcio de prueba de autori
 
 Todos los miembros del consorcio pueden usar la plantilla de solución para aprovisionar una superficie de red de cadena de bloques mediante los servicios de proceso, redes y almacenamiento de Microsoft Azure. La superficie de red de cada miembro del consorcio se compone de un conjunto de nodos de validador de carga equilibrada con el que una aplicación o un usuario pueden interactuar para enviar las transacciones de Ethereum.
 
+[!INCLUDE [Preview note](./includes/preview.md)]
+
 ## <a name="choose-an-azure-blockchain-solution"></a>Elegir una solución de Azure Blockchain
 
 Antes de optar por usar la plantilla de solución Consorcio de prueba de autoridad de Ethereum, compare su escenario con los casos de uso comunes de las opciones de Azure Blockchain disponibles.
 
 Opción | Modelo de servicio | Caso de uso común
 -------|---------------|-----------------
-Plantillas de solución | IaaS | Las plantillas de solución son plantillas de Azure Resource Manager que puede usar para aprovisionar una topología de red de cadena de bloques totalmente configurada. Las plantillas implementan y configuran servicios de proceso, redes y almacenamiento de Microsoft Azure para un tipo de red de cadena de bloques determinado.
+Plantillas de solución | IaaS | Las plantillas de solución son plantillas de Azure Resource Manager que puede usar para aprovisionar una topología de red de cadena de bloques totalmente configurada. Las plantillas implementan y configuran servicios de proceso, redes y almacenamiento de Microsoft Azure para un tipo de red de cadena de bloques determinado. Las plantillas de solución se proporcionan sin un contrato de nivel de servicio. Use la [página de preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) para obtener soporte técnico.
 [Azure Blockchain Service](../service/overview.md) | PaaS | Azure Blockchain Service Preview simplifica la formación, administración y regulación de las redes de cadena de bloques del consorcio. Use Azure Blockchain Service para soluciones que requieran PaaS, administración de consorcios o privacidad de contratos y transacciones.
-[Azure Blockchain Workbench](../workbench/overview.md) | IaaS y PaaS | La versión preliminar de Azure Blockchain Workbench es una colección de servicios y funcionalidades de Azure diseñada para ayudarle a crear e implementar aplicaciones de cadena de bloques para compartir datos y procesos empresariales con otras organizaciones. Use Azure Blockchain Workbench para crear un prototipo de una solución de cadena de bloques o una prueba de concepto de la aplicación de cadena de bloques.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS y PaaS | La versión preliminar de Azure Blockchain Workbench es una colección de servicios y funcionalidades de Azure diseñada para ayudarle a crear e implementar aplicaciones de cadena de bloques para compartir datos y procesos empresariales con otras organizaciones. Use Azure Blockchain Workbench para crear un prototipo de una solución de cadena de bloques o una prueba de concepto de la aplicación de cadena de bloques. Azure Blockchain Workbench se proporciona sin un acuerdo de nivel de servicio. Use la [página de preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) para obtener soporte técnico.
 
 ## <a name="solution-architecture"></a>Arquitectura de la solución
 
@@ -91,7 +93,7 @@ Dirección de correo electrónico | Recibirá una notificación por correo elect
 Nombre de usuario de máquina virtual | Nombre de usuario del administrador de cada una de las máquinas virtuales que se ha implementado | 1-64 caracteres alfanuméricos
 Tipo de autenticación | El método de autenticación en la máquina virtual. | Contraseña
 Contraseña | La contraseña de la cuenta de administrador para cada una de las máquinas virtuales implementadas. Inicialmente, todas las VM tienen la misma contraseña. Puede cambiar la contraseña después del aprovisionamiento. | De 12 a 72 caracteres 
-Subscription | La suscripción en la que se va a implementar la red del consorcio. |
+Suscripción | La suscripción en la que se va a implementar la red del consorcio. |
 Grupo de recursos| El grupo de recursos en el que se va a implementar la red del consorcio. | myResourceGroup
 Location | La región de Azure para el grupo de recursos. | Oeste de EE. UU. 2
 
@@ -555,7 +557,7 @@ Para compilar, implementar y probar contratos inteligentes, estas son algunas de
 
 En el ejemplo siguiente, se crea un contrato inteligente sencillo. Use Truffle para compilar e implementar el contrato inteligente en la red de cadena de bloques. Una vez implementado, puede llamar a una función de contrato inteligente mediante una transacción.
 
-#### <a name="prerequisites"></a>Prerrequisitos
+#### <a name="prerequisites"></a>Requisitos previos
 
 * Instale [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Python es necesario para Truffle y Web3. Seleccione la opción de instalación para incluir Python en su ruta de acceso.
 * Instale Truffle v5.0.5 `npm install -g truffle@v5.0.5`. Para usar Truffle es necesario instalar varias herramientas, como [Node.js](https://nodejs.org) y [Git](https://git-scm.com/). Consulte la [documentación de Truffle](https://github.com/trufflesuite/truffle) para más información.
@@ -718,6 +720,20 @@ El rendimiento de las transacciones dependerá en gran medida de los tipos de tr
 ### <a name="how-do-i-subscribe-to-smart-contract-events"></a>¿Cómo puedo suscribirme a eventos de contrato inteligente?
 
 Ahora la prueba de autoridad de Ethereum admite sockets web.  Consulte el resultado de la implementación para buscar el puerto y la URL de socket web.
+
+## <a name="support-and-feedback"></a>Soporte y comentarios
+
+Para leer noticias acerca de Azure Blockchain, visite el [blog de Azure Blockchain](https://azure.microsoft.com/blog/topics/blockchain/), que le permitirá mantenerse al día sobre las ofertas de servicio de Blockchain y le proporcionará información del equipo de ingeniería de Azure Blockchain.
+
+Para proporcionar comentarios sobre el producto o solicitar nuevas características, publique o vote una idea a través del [Foro de comentarios de Azure para Blockchain](https://aka.ms/blockchainuservoice).
+
+### <a name="community-support"></a>Soporte técnico de la comunidad
+
+Interactúe con los ingenieros de Microsoft y con expertos de la comunidad de Azure Blockchain.
+
+* [Página de preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). El soporte técnico para plantillas con cadena de bloques se limita a los problemas de implementación.
+* [Comunidad tecnológica de Microsoft](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

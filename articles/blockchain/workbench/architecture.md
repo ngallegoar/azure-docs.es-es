@@ -4,12 +4,12 @@ description: Introducción a la arquitectura de Azure Blockchain Workbench (vers
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.reviewer: brendal
-ms.openlocfilehash: aa972e8ae486d181f0c48df72ec89c925c940451
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ef56d0fdac74bf447fce01e772abed8a2b07c27b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74324898"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253433"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Arquitectura de Azure Blockchain Workbench
 
@@ -43,12 +43,12 @@ Para obtener más información, consulte las[Aplicaciones cliente de ejemplo de 
 
 ## <a name="gateway-service-api"></a>API del servicio de puerta de enlace
 
-Blockchain Workbench incluye una API REST del servicio de puerta de enlace. Al escribir en una cadena de bloques, la API genera y envía mensajes a un agente de eventos. Cuando se solicitan datos mediante la API, las consultas se envían a la base de datos SQL fuera de la cadena. La base de datos SQL contiene una réplica de los datos de la cadena y metadatos que proporcionan contexto e información de configuración para los contratos inteligentes admitidos. Las consultas devuelven los datos solicitados desde la réplica fuera de la cadena en un formato informado por los metadatos del contrato.
+Blockchain Workbench incluye una API REST del servicio de puerta de enlace. Al escribir en una cadena de bloques, la API genera y envía mensajes a un agente de eventos. Cuando se solicitan datos mediante la API, las consultas se envían a la base de datos fuera de la cadena. La base de datos contiene una réplica de los datos de la cadena y metadatos que proporcionan contexto e información de configuración para los contratos inteligentes admitidos. Las consultas devuelven los datos solicitados desde la réplica fuera de la cadena en un formato informado por los metadatos del contrato.
 
 Los desarrolladores pueden acceder a la API del servicio de puerta de enlace para generar o integrar soluciones de cadena de bloques sin tener que depender de las aplicaciones cliente de Blockchain Workbench.
 
 > [!NOTE]
-> Para habilitar el acceso autenticado a la API, se registran dos aplicaciones cliente en Azure Active Directory. Azure Active Directory requiere registros de aplicación distintos para cada tipo de aplicación (nativo y web). 
+> Para habilitar el acceso autenticado a la API, se registran dos aplicaciones cliente en Azure Active Directory. Azure Active Directory requiere registros de aplicación distintos para cada tipo de aplicación (nativo y web).
 
 ## <a name="message-broker-for-incoming-messages"></a>Agente de mensajes para mensajes entrantes
 
@@ -70,7 +70,7 @@ Los mensajes de la tecnología de libro de contabilidad distribuida (DLT) contie
 
 ### <a name="database-consumer"></a>Consumidor de base de datos
 
-El consumidor de base de datos toma mensajes de Service Bus e inserta datos en una base de datos conectada, por ejemplo, una base de datos SQL.
+El consumidor de base de datos toma mensajes de Service Bus e inserta datos en una base de datos asociada; por ejemplo, una base de datos de Azure SQL Database.
 
 ### <a name="storage-consumer"></a>Consumidor de almacenamiento
 
@@ -91,11 +91,11 @@ Los libros de contabilidad y enrutadores de transacciones toman transacciones fi
 Un inspector de tecnología de libro de contabilidad distribuida (DLT) supervisa los eventos que ocurren en las cadenas de bloques conectadas a Blockchain Workbench.
 Los eventos reflejan información pertinente para las personas y los sistemas. Por ejemplo, la creación de nuevas instancias de contrato, la ejecución de transacciones y los cambios de estado. Los eventos se capturan y se envían al agente de mensajes salientes, por lo que pueden ser utilizados por los consumidores de nivel final.
 
-Por ejemplo, el consumidor de SQL supervisa los eventos, los consume y alimenta la base de datos SQL con los valores incluidos. La copia permite la creación de una réplica de los datos de la cadena en un almacén fuera de la cadena.
+Por ejemplo, el consumidor de SQL supervisa los eventos, los consume y alimenta la base de datos con los valores incluidos. La copia permite la creación de una réplica de los datos de la cadena en un almacén fuera de la cadena.
 
-## <a name="azure-sql-database"></a>Azure SQL Database
+## <a name="azure-sql-database"></a>Azure SQL Database
 
-La base de datos de Azure SQL Database asociada a Blockchain Workbench almacena definiciones de contratos, metadatos de configuración y una réplica accesible mediante SQL de los datos almacenados en la cadena de bloques. Estos datos se pueden consultar, visualizar o analizar fácilmente accediendo directamente a la base de datos. Los desarrolladores y otros usuarios pueden usar la base de datos para informes, análisis u otras integraciones centradas en datos. Por ejemplo, los usuarios pueden visualizar los datos de las transacciones con Power BI.
+La base de datos asociada a Blockchain Workbench almacena definiciones de contratos, metadatos de configuración y una réplica accesible mediante SQL de los datos almacenados en la cadena de bloques. Estos datos se pueden consultar, visualizar o analizar fácilmente accediendo directamente a la base de datos. Los desarrolladores y otros usuarios pueden usar la base de datos para informes, análisis u otras integraciones centradas en datos. Por ejemplo, los usuarios pueden visualizar los datos de las transacciones con Power BI.
 
 Este almacenamiento fuera de la cadena proporciona a las organizaciones empresariales la posibilidad de consultar los datos desde SQL en lugar de en un libro de contabilidad de la cadena de bloques. Además, gracias a la estandarización en un esquema estándar que es independiente de las pilas de tecnologías de cadena de bloques, el almacenamiento fuera de la cadena permite la reutilización de los informes y otros artefactos en varios proyectos, escenarios y organizaciones.
 

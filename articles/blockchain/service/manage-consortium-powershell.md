@@ -2,20 +2,20 @@
 title: 'Administración de los miembros del consorcio de Azure Blockchain Service: PowerShell'
 description: Aprenda a administrar los miembros de un consorcio de Azure Blockchain Service mediante Azure PowerShell.
 ms.date: 10/14/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: zeyadr
-ms.openlocfilehash: e819dd39481b58d446384a5e2253c548ce0c267c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d40e55f177bda9edb40383b6e2c61c32633cd005
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77505985"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211347"
 ---
 # <a name="manage-consortium-members-in-azure-blockchain-service-using-powershell"></a>Administración de los miembros del consorcio en Azure Blockchain Service mediante PowerShell
 
 Puede usar PowerShell para administrar los miembros del consorcio de una cadena de bloques para Azure Blockchain Service. Los miembros que tienen privilegios de administrador pueden invitar, agregar, quitar y cambiar los roles para todos los participantes en el consorcio de la cadena de bloques. Los miembros que tienen privilegios de usuario pueden ver a todos los participantes en el consorcio de la cadena de bloques y cambiar su nombre para mostrar miembros.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Cree un miembro de la cadena de bloques con [Azure Portal](create-member.md).
 * Para obtener más información acerca de los consorcios, los miembros y los nodos, consulte [Consorcio de Azure Blockchain Service](consortium.md).
@@ -55,7 +55,7 @@ $MemberAccount = Import-Web3Account -ManagedAccountAddress '<Member account addr
 $ContractConnection = Import-ConsortiumManagementContracts -RootContractAddress '<RootContract address>' -Web3Client $Connection
 ```
 
-Reemplace la *\<contraseña de la cuenta de miembro\>* con la contraseña de cuenta de miembro que usó cuando creó el miembro.
+Reemplace la *\<Member account password\>* con la contraseña de cuenta de miembro que usó cuando creó el miembro.
 
 Busque los otros valores registrados en Azure Portal:
 
@@ -64,14 +64,14 @@ Busque los otros valores registrados en Azure Portal:
 
     ![Información general sobre miembros](./media/manage-consortium-powershell/member-overview.png)
 
-    Reemplace *\<Member account\>* (Cuenta de miembro) y *\<RootContract address\>* (Dirección de RootContract) con los valores del portal.
+    Reemplace *\<Member account\>* y *\<RootContract address\>* por los valores del portal.
 
 1. Para la dirección de punto de conexión, seleccione **Nodos de transacción** y, a continuación, seleccione el **nodo de transacciones predeterminado**. El nodo predeterminado tiene el mismo nombre que el miembro de la cadena de bloques.
 1. Seleccione **Cadenas de conexión**.
 
     ![Cadenas de conexión](./media/manage-consortium-powershell/connection-strings.png)
 
-    Reemplace *\<Endpoint address\>* (Dirección de punto de conexión) con el valor de **HTTPS (tecla de acceso 1)** o **HTTPS (tecla de acceso 2)** .
+    Reemplace *\<Endpoint address\>* con el valor de **HTTPS (clave de acceso 1)** o **HTTPS (clave de acceso 2)** .
 
 ## <a name="manage-the-network-and-smart-contracts"></a>Administración de la red y los contratos inteligentes
 

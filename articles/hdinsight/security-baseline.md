@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 62188aefffd05af49bb00c242b266e808b991c84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bbc421baddf03068ac72907aaa88a71a81d208d0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82188181"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041326"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Línea de base de seguridad de Azure para HDInsight
 
@@ -918,7 +918,7 @@ Configuración del acceso condicional para bloquear el acceso a Azure Resource M
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12: Limitación de capacidad de los usuarios para ejecutar scripts en recursos de proceso
 
-**Guía**: no aplicable; no se aplica a Azure HDInsight, ya que los usuarios (que no son administradores) del clúster no necesitan acceso a los nodos individuales para ejecutar trabajos. El administrador del clúster tiene acceso raíz a todos los nodos del clúster.
+**Instrucciones**: no aplicable; no se aplica a Azure HDInsight, ya que los usuarios (que no son administradores) del clúster no necesitan acceso a los nodos individuales para ejecutar trabajos. El administrador del clúster tiene acceso raíz a todos los nodos del clúster.
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -1152,7 +1152,7 @@ Configuración de la redundancia del almacenamiento para cuentas de Azure Storag
 
 https://docs.microsoft.com/azure/storage/common/storage-redundancy
 
-Configuración de la redundancia para las instancias de Azure SQL Database:
+Cómo configurar la redundancia para Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication
 

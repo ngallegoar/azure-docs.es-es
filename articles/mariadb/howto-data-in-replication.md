@@ -4,20 +4,20 @@ description: En este artículo se describe la configuración de la replicación 
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
-ms.date: 3/30/2020
-ms.openlocfilehash: 332feffead74174ba0b9b278d8de1c5957d5b9e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.date: 6/11/2020
+ms.openlocfilehash: 623c072cb8cb2c7fb1b9b6ec7d3ea661302d5e6a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422467"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104680"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configuración de la replicación de datos de entrada en Azure Database for MariaDB
 
-En este artículo se describe cómo configurar la replicación de datos de entrada en Azure Database for MariaDB mediante la configuración de los servidores maestros y de réplica. En este artículo se asume que tiene alguna experiencia previa con servidores y bases de datos MariaDB.
+En este artículo se describe cómo configurar la [Replicación de datos de entrada](concepts-data-in-replication.md) en Azure Database for MariaDB mediante la configuración de los servidores maestros y de réplica. En este artículo se asume que tiene alguna experiencia previa con servidores y bases de datos MariaDB.
 
-Para crear una réplica en el servicio Azure Database for MariaDB, la replicación de datos de entrada sincroniza los datos que proceden de un servidor MariaDB maestro local, de máquinas virtuales (VM) o de servicios de base de datos en la nube.
+Para crear una réplica en el servicio Azure Database for MariaDB, la [Replicación de datos de entrada](concepts-data-in-replication.md) sincroniza los datos que proceden de un servidor MariaDB maestro local, de máquinas virtuales (VM) o de servicios de base de datos en la nube. La Replicación de datos de entrada se basa en la replicación según la posición del archivo de registro binario (binlog), que es nativa de MariaDB. Para obtener más información sobre la replicación de binlog, consulte la [introducción a la replicación de binlog](https://mariadb.com/kb/en/library/replication-overview/).
 
 Revise las [limitaciones y los requisitos](concepts-data-in-replication.md#limitations-and-considerations) de la replicación de datos de entrada antes de seguir los pasos de este artículo.
 
@@ -41,6 +41,12 @@ Revise las [limitaciones y los requisitos](concepts-data-in-replication.md#limit
 3. Agregue la dirección IP del servidor maestro a las reglas de firewall de la réplica. 
 
    Actualice las reglas de firewall mediante [Azure Portal](howto-manage-firewall-portal.md) o la [CLI de Azure](howto-manage-firewall-cli.md).
+
+> [!NOTE]
+> Comunicación sin prejuicios
+>
+> Microsoft admite un entorno diverso e inclusivo. En este artículo se incluyen referencias a la palabra _esclavo_. En la [guía de estilo para la comunicación sin prejuicios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) de Microsoft se reconoce que se trata de una palabra excluyente. Se usa en este artículo por coherencia, ya que actualmente es la palabra que aparece en el software. Cuando se actualice el software para quitarla, este artículo se actualizará para que esté alineado.
+>
 
 ## <a name="configure-the-master-server"></a>Configurar el servidor maestro
 

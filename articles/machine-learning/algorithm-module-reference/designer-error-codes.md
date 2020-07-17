@@ -5,16 +5,16 @@ description: Solucione las excepciones de módulos en el diseñador de Azure Mac
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: reference
+ms.topic: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: 540c3eace72a1692a927916a48f772047115375f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 2e84d2f7c1a45f1ef18e5dc32b58d75bb17e2516
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167254"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213761"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Excepciones y códigos de error para el diseñador (versión preliminar)
 
@@ -1515,7 +1515,7 @@ Excepción interna de biblioteca.
 
 Este error se proporciona para capturar los errores de motor interno que no se controlan de otra forma. Por lo tanto, la causa de este error puede variar según el módulo que generó el error.  
 
-Para obtener más ayuda, se recomienda que publique el mensaje detallado que acompaña al error en el foro de Azure Machine Learning, junto con una descripción del escenario. Incluya los datos que se usaron como entradas. Estos comentarios nos ayudarán a dar prioridad a los errores e identificar los problemas más importantes para operaciones futuras.  
+Para obtener más ayuda, se recomienda que publique el mensaje detallado que acompaña al error en el [foro de Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning.html), junto con una descripción del escenario. Incluya los datos que se usaron como entradas. Estos comentarios nos ayudarán a dar prioridad a los errores e identificar los problemas más importantes para operaciones futuras.  
 
 |Mensajes de excepción|
 |------------------------|

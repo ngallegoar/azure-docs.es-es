@@ -3,12 +3,12 @@ title: 'Implementación de Live Video Analytics en un dispositivo IoT Edge: Azur
 description: En este artículo se enumeran los pasos que ayudarán a implementar Live Video Analytics en el dispositivo IoT Edge. Hará esto, por ejemplo, si tiene acceso a una máquina Linux local o ha creado previamente una cuenta de Azure Media Services.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: db0addfbc2fc5b322c2f6dd9b51f3ace10935589
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: eaaa793bb5b84ac4ae352f242215b8d3e7d56cf1
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84260868"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026974"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implementación de Live Video Analytics en un dispositivo IoT Edge
 
@@ -23,7 +23,7 @@ En este artículo se enumeran los pasos que ayudarán a implementar Live Video A
 * [Registro de un dispositivo de IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-register-device).
 * [Instalación del entorno de ejecución de Azure IoT Edge en sistemas Linux basados en Debian](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
 * [Creación de una cuenta de Azure Media Services](../latest/create-account-howto.md)
-    * Use una de estas regiones: Este de EE. UU. 2, Centro de EE. UU., Centro-norte de EE. UU., Japón Occidental, Oeste de EE. UU. 2, Centro-oeste de EE. UU., Este de Canadá, Sur de Reino Unido, Centro de Francia, Sur de Francia, Norte de Suiza y Oeste de Suiza.
+    * Use una de estas regiones: Este de EE. UU. 2, Centro de EE. UU., Centro-norte de EE. UU., Japón Oriental, Oeste de EE. UU. 2, Centro-oeste de EE. UU., Este de Canadá, Sur de Reino Unido, Centro de Francia, Sur de Francia, Norte de Suiza, Oeste de Suiza y Japón Occidental.
     * Se recomienda usar cuentas de almacenamiento V2 de uso general (GPv2).
 
 ## <a name="configuring-azure-resources-for-using-live-video-analytics"></a>Configuración de recursos de Azure para usar Live Video Analytics
@@ -259,4 +259,4 @@ Después, vamos a probar el ejemplo con la invocación de un método directo. Le
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Inicio rápido: Introducción: Live Video Analytics en IoT Edge](get-started-detect-motion-emit-events-quickstart.md)
+[Inicio rápido: Introducción: Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md)

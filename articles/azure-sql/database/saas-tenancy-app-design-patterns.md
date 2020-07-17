@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: efb25a16b5a3ae7de831436d255358aca19b828f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 493c18efa8bad2e366424c8c8130754ce0098913
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84027036"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85250721"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Patrones de inquilinato de base de datos SaaS multiinquilino
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -78,7 +78,7 @@ Cada base de datos de inquilino se implementa como una base de datos única.  Es
 
 #### <a name="vendor-management"></a>Administración por el proveedor
 
-El proveedor puede tener acceso a todas las bases de datos en todas las instancias de aplicación independientes, incluso si las instancias de la aplicación se instalan en suscripciones de inquilinos diferentes.  El acceso se consigue a través de conexiones SQL.  Este acceso entre instancias puede permitir al proveedor centralizar la administración de esquemas y las consultas entre bases de datos con fines de elaboración de informes o análisis.  Si se desea este tipo de administración centralizada, se debe implementar un catálogo que asigne identificadores de inquilino a los identificadores URI de la base de datos.  Azure SQL Database proporciona una biblioteca de particionamiento que se usa junto con una base de datos SQL para proporcionar un catálogo.  La biblioteca de particionamiento se llama formalmente [biblioteca cliente Elastic Database][docu-elastic-db-client-library-536r].
+El proveedor puede tener acceso a todas las bases de datos en todas las instancias de aplicación independientes, incluso si las instancias de la aplicación se instalan en suscripciones de inquilinos diferentes.  El acceso se consigue a través de conexiones SQL.  Este acceso entre instancias puede permitir al proveedor centralizar la administración de esquemas y las consultas entre bases de datos con fines de elaboración de informes o análisis.  Si se desea este tipo de administración centralizada, se debe implementar un catálogo que asigne identificadores de inquilino a los identificadores URI de la base de datos.  Azure SQL Database proporciona una biblioteca de particionamiento que se usan juntos para proporcionar un catálogo.  La biblioteca de particionamiento se llama formalmente [biblioteca cliente Elastic Database][docu-elastic-db-client-library-536r].
 
 ## <a name="d-multi-tenant-app-with-database-per-tenant"></a>D. Aplicación multiinquilino con una base de datos por inquilino
 

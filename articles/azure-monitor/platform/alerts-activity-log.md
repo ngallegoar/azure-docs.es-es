@@ -4,12 +4,12 @@ description: Crear alertas del registro de actividad mediante Azure Portal, una 
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 45345d06e64194224df48a33fab1e74433a1eaac
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 242192118d59f972cebe2837d74c34310cac74aa
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744262"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056283"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor  
 
@@ -29,7 +29,7 @@ Cuando cree reglas de alertas, asegúrese de lo siguiente:
 - No hay condición "anyOf" o condiciones anidadas en la configuración de alertas JSON. Básicamente, solo se permite una condición "allOf" sin más condiciones "allOf" o "anyOf".
 - Cuando la categoría es "administrativo", debe especificar al menos uno de los criterios anteriores en la alerta. No puede crear una alerta que se active cada vez que se crea un evento en los registros de actividad.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 
 Puede usar Azure Portal para crear y modificar las reglas de alertas del registro de actividad. Asimismo, se integra la experiencia con el registro de actividad de Azure para garantizar la creación de alertas sin problemas para eventos específicos de interés.
 
@@ -200,6 +200,11 @@ Para crear una regla de alerta del registro de actividad mediante una plantilla 
 }
 ```
 El ejemplo JSON anterior se puede guardar, por ejemplo, como sampleActivityLogAlert.json a los efectos de este tutorial, y puede implementarse con [Azure Resource Manager en Azure Portal](../../azure-resource-manager/templates/deploy-portal.md).
+
+  > [!NOTE]
+  > 
+  > Tenga en cuenta que las alertas del registro de actividad de nivel más alto se pueden definir como suscripción.
+  > Lo que significa que no hay opción para definir la alerta en un par de suscripciones, por lo tanto, la definición debe ser una alerta por suscripción.
 
 Los campos siguientes son las opciones que puede usar en la plantilla de Azure Resource Manager para los campos de condiciones: Observe que "Resource Health", "Advisor" y "Service Health" tienen campos de propiedades adicionales para sus campos especiales. 
 1. resourceId:  el identificador del recurso afectado en el evento del registro de actividad en el que se debe generar la alerta.

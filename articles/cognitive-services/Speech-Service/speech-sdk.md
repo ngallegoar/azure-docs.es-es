@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: f663c9af8c352d0170c633fe76b3fbc5268aad1e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5dc0a7fc9797948e834b8b3cb802bb92fce0eb59
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81400020"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85610768"
 ---
 # <a name="about-the-speech-sdk"></a>Acerca del SDK de Voz
 
@@ -37,7 +37,7 @@ La [conversión de texto en voz](text-to-speech.md) (también conocido como *sí
 
 ### <a name="voice-assistants"></a>Asistentes de voz
 
-Los asistentes de voz que utilizan el SDK de voz permiten a los desarrolladores crear interfaces de conversación naturales, similares a la humana, para sus aplicaciones y experiencias. El servicio del asistente de voz proporciona una interacción rápida y confiable entre un dispositivo y un asistente. La implementación utiliza el canal Direct Line Speech de Bot Framework o el servicio integrado de comandos personalizados (versión preliminar) para la finalización de tareas. Además, los asistentes de voz se pueden crear mediante el [portal de Voz personalizada](https://aka.ms/customvoice) para crear una experiencia de voz única.
+Los [asistentes de voz](voice-assistants.md) que usan el SDK de voz permiten a los desarrolladores crear interfaces de conversación naturales, similares a la humana, para sus aplicaciones y experiencias. El servicio del asistente de voz proporciona una interacción rápida y confiable entre un dispositivo y un asistente. La implementación utiliza el canal Direct Line Speech de Bot Framework o el servicio integrado de comandos personalizados (versión preliminar) para la finalización de tareas. Además, los asistentes de voz pueden usar las voces personalizadas creadas en el [Portal de voz personalizado](https://aka.ms/customvoice) para agregar una experiencia de salida de voz única.
 
 #### <a name="keyword-spotting"></a>Detección de palabras clave
 

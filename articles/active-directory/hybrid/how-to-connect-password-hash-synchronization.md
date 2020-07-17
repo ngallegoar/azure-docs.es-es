@@ -8,19 +8,19 @@ manager: daveba
 ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c41b11ab65f5710d338ce0041579e1eb4678ec42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 47f0dea435af56f6994b57079983a63b3a29600d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80331360"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358569"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect
 En este artículo se ofrece información que se necesita para sincronizar las contraseñas de usuario desde una instancia de Active Directory local con otra de Azure Active Directory (Azure AD) basado en la nube.
@@ -89,14 +89,13 @@ Si un usuario está en el ámbito de sincronización de hash de contraseñas, de
 
 Puede seguir iniciando sesión en los servicios en la nube con una contraseña sincronizada que haya expirado en su entorno local. La contraseña en la nube se actualizará la próxima vez que cambie la contraseña en el entorno local.
 
-##### <a name="public-preview-of-the-enforcecloudpasswordpolicyforpasswordsyncedusers-feature"></a>Versión preliminar pública de la característica *EnforceCloudPasswordPolicyForPasswordSyncedUsers*
+##### <a name="enforcecloudpasswordpolicyforpasswordsyncedusers"></a>EnforceCloudPasswordPolicyForPasswordSyncedUsers
 
 Si hay usuarios sincronizados que solo interactúan con servicios integrados de Azure AD y también deben cumplir una directiva de expiración de contraseñas, puede obligarlos a cumplir con la directiva de expiración de contraseñas de Azure AD mediante la habilitación de la característica *EnforceCloudPasswordPolicyForPasswordSyncedUsers*.
 
 Cuando *EnforceCloudPasswordPolicyForPasswordSyncedUsers* está deshabilitado (que es la configuración predeterminada), Azure AD Connect establece el atributo PasswordPolicies de los usuarios sincronizados en "DisablePasswordExpiration". Esto se hace cada vez que se sincroniza la contraseña de un usuario e indica a Azure AD que omita la directiva de expiración de contraseñas en la nube para ese usuario. Puede comprobar el valor del atributo mediante el módulo de Azure AD PowerShell con el siguiente comando:
 
 `(Get-AzureADUser -objectID <User Object ID>).passwordpolicies`
-
 
 Para habilitar la característica EnforceCloudPasswordPolicyForPasswordSyncedUsers, ejecute el siguiente comando con el módulo MSOnline de PowerShell, tal como se muestra a continuación. Tendrá que escribir yes en el parámetro Enable, como se muestra a continuación:
 
@@ -123,10 +122,9 @@ Advertencia: Si hay cuentas sincronizadas que necesiten contraseñas que no expi
 `Set-AzureADUser -ObjectID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
 
 > [!NOTE]
-> Esta característica está ahora en versión preliminar pública.
 > El comando de PowerShell Set-MsolPasswordPolicy no funcionará en dominios federados. 
 
-#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>Versión preliminar pública de la sincronización de contraseñas temporales y "Forzar cambio de contraseña en el siguiente inicio de sesión"
+#### <a name="synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>Sincronización de contraseñas temporales y "Forzar cambio de contraseña en el siguiente inicio de sesión"
 
 Es habitual exigir al usuario a cambiar la contraseña durante el primer inicio de sesión, especialmente después de que se produzca un restablecimiento de la contraseña de administrador.  Normalmente se conoce como establecer una contraseña "temporal" y se completa mediante la comprobación de la marca "El usuario debe cambiar la contraseña en el siguiente inicio de sesión" en un objeto de usuario de Active Directory (AD).
   
@@ -141,9 +139,6 @@ Para admitir contraseñas temporales en Azure AD para usuarios sincronizados, p
 
 > [!CAUTION]
 > Solo debe usar esta característica cuando SSPR y la escritura diferida de contraseñas estén habilitados en el inquilino.  De este modo, si un usuario cambia la contraseña a través de SSPR, se sincroniza con Active Directory.
-
-> [!NOTE]
-> Esta característica está ahora en versión preliminar pública.
 
 #### <a name="account-expiration"></a>Expiración de la cuenta
 

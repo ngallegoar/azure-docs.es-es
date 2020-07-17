@@ -1,25 +1,14 @@
 ---
 title: Azure Service Bus con .NET y AMQP 1.0 | Microsoft Docs
 description: En este artículo se describe cómo usar Azure Service Bus desde una aplicación .NET mediante AMQP (Advanced Message Queuing Protocol).
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 8157efac5ff1fc135659a84b4f4825ff36307480
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/23/2020
+ms.openlocfilehash: d969607a28759af3b6ee36d79638bb27d0d53808
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297666"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340182"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Uso de Service Bus desde .NET con AMQP 1.0
 
@@ -27,7 +16,7 @@ La compatibilidad con AMQP 1.0 está disponible en el paquete de Service Bus ver
 
 ## <a name="configure-net-applications-to-use-amqp-10"></a>Configuración de aplicaciones .NET para usar AMQP 1.0
 
-De manera predeterminada, la biblioteca de clientes .NET de Service Bus se comunica con el servicio de Service Bus utilizando un protocolo dedicado basado en SOAP. Para usar AMQP 1.0 en lugar del protocolo predeterminado, es necesario configurar de manera explícita la cadena de conexión de Service Bus tal y como se describe en la sección siguiente. Aparte de este cambio, el código de la aplicación permanece invariable al utilizar AMQP 1.0.
+De manera predeterminada, la biblioteca de clientes .NET de Service Bus se comunica con el servicio de Service Bus mediante un protocolo AMQP. También puede especificar explícitamente AMQP como el tipo de transporte, tal y como se muestra en la sección siguiente. 
 
 La versión actual incluye unas cuantas funciones de la API que no son compatibles con el uso de AMQP. Estas funciones incompatibles se enumeran en la sección [Diferencias de comportamiento](#behavioral-differences). Algunos de los parámetros de configuración avanzados también adquieren un significado diferente cuando se usa AMQP.
 

@@ -8,14 +8,14 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 07/06/2020
 ms.author: jingwang
-ms.openlocfilehash: d47450f3252074d3bae8df97766bf8858fca5972
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c1de2b6ef59efdaaed64fcf687fed0c834683c0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416593"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037603"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidad administrada de Data Factory
 
@@ -163,7 +163,7 @@ Puede encontrar la información de la identidad administrada en Azure Portal -> 
 - Inquilino de identidad administrada
 - Id. de aplicación de identidad administrada
 
-La información de la identidad administrada también se mostrará al crear un servicio vinculado que admita la autenticación con identidad administrada, como Azure Blob, Azure Data Lake Storage, Azure Key Vault, etc.
+La información de identidad administrada también se mostrará cuando se crea un servicio vinculado que admita la autenticación de identidad administrada, como Azure Blob, Azure Data Lake Storage, Azure Key Vault, etc.
 
 Al conceder el permiso, use el identificador de objeto o el nombre de la factoría de datos como nombre de la identidad administrada para buscarla.
 
@@ -191,8 +191,63 @@ Id                    : 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
 Type                  : ServicePrincipal
 ```
 
+### <a name="retrieve-managed-identity-using-rest-api"></a>Recuperación de identidad administrada mediante la API de REST
+
+Al obtener una factoría de datos específicas, se devuelven el identificador de identidad de seguridad y el de inquilino de la identidad administrada del modo siguiente.
+
+Llame a la siguiente API en la solicitud:
+
+```
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}?api-version=2018-06-01
+```
+
+**Respuesta**: Obtendrá una respuesta como la que se muestra en el siguiente ejemplo. La sección "identity" se rellena en consecuencia.
+
+```json
+{
+    "name":"<dataFactoryName>",
+    "identity":{
+        "type":"SystemAssigned",
+        "principalId":"554cff9e-XXXX-XXXX-XXXX-90c7d9ff2ead",
+        "tenantId":"72f988bf-XXXX-XXXX-XXXX-2d7cd011db47"
+    },
+    "id":"/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>",
+    "type":"Microsoft.DataFactory/factories",
+    "properties":{
+        "provisioningState":"Succeeded",
+        "createTime":"2020-02-12T02:22:50.2384387Z",
+        "version":"2018-06-01",
+        "factoryStatistics":{
+            "totalResourceCount":0,
+            "maxAllowedResourceCount":0,
+            "factorySizeInGbUnits":0,
+            "maxAllowedFactorySizeInGbUnits":0
+        }
+    },
+    "eTag":"\"03006b40-XXXX-XXXX-XXXX-5e43617a0000\"",
+    "location":"<region>",
+    "tags":{
+
+    }
+}
+```
+
+> [!TIP] 
+> Para recuperar la identidad administrada de una plantilla de ARM, agregue una sección de **salidas** en el código JSON de ARM:
+
+```json
+{
+    "outputs":{
+        "managedIdentityObjectId":{
+            "type":"string",
+            "value":"[reference(resourceId('Microsoft.DataFactory/factories', parameters('<dataFactoryName>')), '2018-06-01', 'Full').identity.principalId]"
+        }
+    }
+}
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
-Vea los siguientes temas en los que se habla de cuándo y cómo usar la identidad administrada de Data Factory:
+Consulte los siguientes temas que presentan cuándo y cómo usar la identidad administrada de la factoría de datos:
 
 - [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md)
 - [Copia de datos con Azure Data Lake Storage Gen1 como origen o destino mediante Azure Data Factory](connector-azure-data-lake-store.md)

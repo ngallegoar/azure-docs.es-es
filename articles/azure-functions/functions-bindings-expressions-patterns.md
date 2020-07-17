@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 2d0cf18de09932c5d66e269a85919f4d85383c5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ca3e342d42e6baf2bc4caaed07dc196203d8a032
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235216"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261076"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Patrones de expresiones de enlace de Azure Functions
 
@@ -37,7 +37,8 @@ Las expresiones de enlace de configuración de aplicación se identifican de for
 
 Cuando una función se ejecuta localmente, los valores de configuración de aplicación proceden del archivo *local.settings.json*.
 
-Tenga en cuenta que la propiedad `connection` de los desencadenadores y enlaces es un caso especial, ya que resuelve automáticamente los valores como configuración de aplicación, sin símbolos de porcentaje. 
+> [!NOTE]
+> La propiedad `connection` de los desencadenadores y enlaces es un caso especial, ya que resuelve automáticamente los valores como configuración de aplicación, sin símbolos de porcentaje. 
 
 En el ejemplo siguiente, aparece un desencadenador de Azure Queue Storage que se sirve del valor de configuración de la aplicación `%input-queue-name%` para definir la cola que se desencadenará.
 

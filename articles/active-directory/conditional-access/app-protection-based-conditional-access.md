@@ -4,19 +4,19 @@ description: Aprenda a establecer el uso obligatorio de directivas de protecció
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4476502896705c2133b09b203bea0d6f5d74f121
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: dae584bdfa97b2c30cab5f15881323c26366592c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681418"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253365"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Procedimientos: Uso obligatorio de directivas de protección de aplicaciones y una aplicación aprobada por el cliente para el acceso a aplicaciones en la nube con acceso condicional
 
@@ -37,7 +37,7 @@ Para obtener una lista de aplicaciones cliente aptas, consulte [Requisito de dir
 
 ## <a name="scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies"></a>Escenario 1: Las aplicaciones de Office 365 requieren aplicaciones aprobadas con directivas de protección de aplicaciones
 
-En este escenario, Contoso ha decidido que todo el acceso móvil a los recursos de Office 365 debe usar aplicaciones cliente aprobadas, como Outlook Mobile, OneDrive y Microsoft Teams, protegidas por una directiva de protección de aplicaciones antes de recibir acceso. Todos sus usuarios ya inician sesión con credenciales de Azure AD y tienen licencias asignadas que incluyen Azure AD Premium P1 o P2 y Microsoft Intune.
+En este escenario, Contoso ha decidido que todo el acceso móvil a los recursos de Office 365 debe usar aplicaciones cliente aprobadas, como Outlook Mobile y OneDrive, protegidas por una directiva de protección de aplicaciones antes de recibir acceso. Todos sus usuarios ya inician sesión con credenciales de Azure AD y tienen licencias asignadas que incluyen Azure AD Premium P1 o P2 y Microsoft Intune.
 
 Las organizaciones deben completar los pasos siguientes para requerir el uso de una aplicación cliente aprobada en dispositivos móviles.
 

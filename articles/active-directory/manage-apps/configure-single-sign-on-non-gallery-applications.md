@@ -2,22 +2,22 @@
 title: 'Inicio de sesión único de SAML en aplicaciones que no están en la galería: plataforma de identidad de Microsoft | Microsoft Docs'
 description: Configuración del inicio de sesión único (SSO) en aplicaciones que no estén en la galería en la plataforma de identidad de Microsoft (Azure AD)
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
-ms.date: 07/19/2019
-ms.author: celested
+ms.date: 06/08/2020
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d97cef332b24700920693bab55dcbd396015dc7
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 3cee2b9a0ea32a3b331849263c8a97f55930542d
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758374"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024238"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Configuración del inicio de sesión único basado en SAML en aplicaciones que no están en la galería
 
@@ -41,6 +41,8 @@ Si la aplicación no se ha agregado a su inquilino de Azure AD, consulte [Incor
    - Para buscar la aplicación, en el menú **Tipo de aplicación**, seleccione **Todas las aplicaciones** y, después, **Aplicar**. Escriba el nombre de la aplicación en el cuadro de búsqueda y seleccione la aplicación en los resultados.
 
 3. En la sección **Administrar**, seleccione **Inicio de sesión único**. 
+
+   - Tenga en cuenta que hay algunos escenarios en los que no estará presente la opción de **Inicio de sesión único**. Por ejemplo, si la aplicación se registró mediante **Registros de aplicaciones**, la capacidad de inicio de sesión único está configurada para usar OAuth de OIDC de forma predeterminada. En este caso, la opción de **Inicio de sesión único** no se mostrará en la navegación en **Aplicaciones empresariales**. Cuando use **Registros de aplicaciones** para agregar su aplicación personalizada, configure las opciones en el archivo de manifiesto. Para más información acerca del archivo de manifiesto, consulte (https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Para más información acerca de los estándares de SSO, consulte (https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). Otros escenarios en los que falta **inicio de sesión único** en la navegación incluyen cuándo se hospeda una aplicación en otro inquilino o si su cuenta no tiene los permisos necesarios (Administrador global, Administrador de aplicaciones en la nube, Administrador de la aplicación o propietario de la entidad de servicio). Los permisos también pueden provocar un escenario en el que puede abrir **Inicio de sesión único** pero no podrá guardar. Para más información acerca de los roles administrativos de Azure AD, consulte (https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
 
 4. Seleccione **SAML**. Se muestra la página **Configurar el inicio de sesión único con SAML (versión preliminar)** .
 
@@ -122,9 +124,9 @@ Desde Azure AD, puede descargar el certificado activo en formato Base64 o Raw d
 
 ## <a name="step-4-set-up-the-application-to-use-azure-ad"></a>Paso 4. Configuración de la aplicación para que use Azure AD
 
-En la sección **Configurar \<applicationName>** se enumeran los valores que tienen que configurarse en la aplicación para que use Azure AD como proveedor de identidades de SAML. Los valores necesarios varían dependiendo de la aplicación. Para más información, consulte la documentación de SAML de la aplicación. Para encontrar la documentación, vaya al encabezado **Configurar \<nombreDeAplicación>** y seleccione **Ver instrucciones detalladas**. La documentación aparece en la página **Configurar inicio de sesión**. Esta página le guiará para rellenar los valores de **Dirección URL de inicio de sesión**, **Identificador de Azure AD** y **URL de cierre de sesión** en el encabezado **Configurar \<nombreDeAplicación>** .
+En la sección **Configurar \<applicationName>** se muestran los valores que deben configurarse en la aplicación para que usen Azure AD como proveedor de identidades de SAML. Los valores necesarios varían dependiendo de la aplicación. Para más información, consulte la documentación de SAML de la aplicación. Para encontrar la documentación, vaya al encabezado **Configurar \<application name>** y seleccione **Ver instrucciones paso a paso**. La documentación aparece en la página **Configurar inicio de sesión**. Esta página le guiará para rellenar los valores de la **Dirección URL de inicio de sesión**, **Identificador de Azure AD** y **URL de cierre de sesión** en el encabezado **Configurar\<application name>** .
 
-1. Desplácese hacia abajo hasta la sección **Configurar \<applicationName>** . 
+1. Desplácese hacia abajo hasta la sección **Configurar\<applicationName>** . 
    
    ![Paso 4: Configuración de la aplicación](media/configure-single-sign-on-non-gallery-applications/step-four-app-config.png)
 

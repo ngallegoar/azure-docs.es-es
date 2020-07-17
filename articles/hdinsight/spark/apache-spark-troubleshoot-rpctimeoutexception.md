@@ -7,18 +7,18 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: b15ac80295a0113eb0c384e1cc3185f3304c39c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a29d36c5ba6fdd51de27afa3ab4dfe1258332200
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75894281"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85208423"
 ---
 # <a name="scenario-rpctimeoutexception-for-apache-spark-thrift-server-in-azure-hdinsight"></a>Escenario: RpcTimeoutException para el servidor Thrift de Apache Spark en Azure HDInsight
 
 En este artículo se describen los pasos de solución de problemas y las posibles soluciones para los problemas que se producen al usar componentes de Apache Spark en clústeres de Azure HDInsight.
 
-## <a name="issue"></a>Problema
+## <a name="issue"></a>Incidencia
 
 Se produce un error `org.apache.spark.rpc.RpcTimeoutException` en la aplicación Spark con el mensaje `Futures timed out`, como en el ejemplo siguiente:
 
@@ -36,9 +36,9 @@ java.lang.OutOfMemoryError: GC overhead limit exceeded
 
 ## <a name="cause"></a>Causa
 
-Estos errores se deben a una falta de recursos de memoria durante el procesamiento de datos. Si se inicia el proceso de recolección de elementos no utilizados de Java, la aplicación Spark podría bloquearse. Las consultas comenzarán a agotar el tiempo de espera y el procesamiento se detendrá. El error `Futures timed out` indica que un clúster está sometido a una sobrecarga severa.
+Estos errores se deben a una falta de recursos de memoria durante el procesamiento de datos. Si se inicia el proceso de recolección de elementos no utilizados de Java, la aplicación Spark podría dejar de responder. Las consultas comenzarán a agotar el tiempo de espera y el procesamiento se detendrá. El error `Futures timed out` indica que un clúster está sometido a una sobrecarga severa.
 
-## <a name="resolution"></a>Solución
+## <a name="resolution"></a>Resolución
 
 Aumente el tamaño del clúster; para hacerlo, agregue más nodos de trabajo o incremente la capacidad de memoria en los nodos de clúster existentes. También puede ajustar la canalización de datos para reducir la cantidad de datos que se procesan de manera simultánea.
 
@@ -46,7 +46,7 @@ Aumente el tamaño del clúster; para hacerlo, agregue más nodos de trabajo o i
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros canales para obtener ayuda adicional:
+Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros canales para obtener más soporte técnico:
 
 * Obtenga respuestas de expertos de Azure mediante el [soporte técnico de la comunidad de Azure](https://azure.microsoft.com/support/community/).
 

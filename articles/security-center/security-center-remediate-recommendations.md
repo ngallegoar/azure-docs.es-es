@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 8f191fffd1c8d66ac959953c55cbc79b3807c803
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 9beb617ed8626b1fda1c9db98d626ca70ee01755
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204559"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042924"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Recomendaciones de corrección en Azure Security Center
 
@@ -79,7 +79,7 @@ La operación de corrección usa una implementación de plantilla o una llamada 
 |Evaluación de vulnerabilidad debe estar habilitado en Instancia administrada de SQL|Esta acción habilitará Evaluación de vulnerabilidad de SQL en la instancia administrada de SQL seleccionada. <br>**Nota**:<ul><li>La evaluación de vulnerabilidad de SQL forma parte del paquete Advanced Data Security (ADS) de SQL. Si ADS no está habilitado, se habilitará automáticamente en la instancia administrada.</li><li>Para cada región y grupo de recursos de la instancia administrada de SQL seleccionada, se creará una cuenta de almacenamiento para almacenar los resultados del examen y dicha cuenta la compartirán todas las instancias de esa región.</li><li>El precio de ADS es de 15 $ por SQL Database.</li></ul>||
 |Advanced Data Security debe estar habilitado en SQL Database|Esta acción habilitará Advanced Data Security (ADS) en estos servidores seleccionados y sus bases de datos. <br>**Nota**:<ul><li>Para cada región y grupo de recursos de la instancia de SQL Database seleccionada, se creará una cuenta de almacenamiento para almacenar los resultados del examen y dicha cuenta la compartirán todos los servidores de esa región.<</li><li>El precio de ADS es de 15 $ por SQL Database.</li></ul>||
 |Evaluación de vulnerabilidad debe estar habilitado en SQL Database|Esta acción habilitará la evaluación de vulnerabilidad de SQL en estos servidores seleccionados y sus bases de datos. <br>**Nota**:<ul><li>La evaluación de vulnerabilidad de SQL forma parte del paquete Advanced Data Security (ADS) de SQL. Si ADS no se ha habilitado aún, se habilitará automáticamente en la instancia de SQL Database.</li><li>Para cada región y grupo de recursos de la instancia de SQL Database seleccionada, se creará una cuenta de almacenamiento para almacenar los resultados del examen y dicha cuenta la compartirán todas las instancias de esa región.</li><li>El precio de ADS es de 15 $ por SQL Database.</li></ul>||
-|El cifrado de datos transparente en bases de datos SQL debe estar habilitado.|Esta acción habilita el cifrado de datos transparente de SQL Database en las bases de datos seleccionadas. <br>**Nota**: De forma predeterminada, se usarán las claves del cifrado de datos transparente administradas por el servicio.
+|El cifrado de datos transparente en base de datos SQL debe estar habilitado|Esta acción habilita el cifrado de datos transparente de SQL Database en las bases de datos seleccionadas. <br>**Nota**: De forma predeterminada, se usarán las claves del cifrado de datos transparente administradas por el servicio.
 |Se debe habilitar la transferencia segura a las cuentas de almacenamiento|Esta acción actualiza la seguridad de la cuenta de almacenamiento para permitir solo las solicitudes de conexiones seguras (HTTPS). <br>**Nota**:<ul><li>Se rechazarán todas las solicitudes que usen HTTP.</li><li>Cuando se use el servicio Azure Files, se producirá un error en la conexión sin cifrado, incluidos los escenarios que usan SMB 2.1 y SMB 3.0 sin cifrado, y algunas versiones del cliente SMB de Linux. Más información.</li></ul>|
 |Acceso a la aplicación web solo a través de HTTPS|Esta acción redirigirá todo el tráfico de HTTP a HTTPS en los recursos seleccionados. <br>**Nota**:<ul><li>Se mostrará un punto de conexión HTTPS que no tiene un certificado SSL en el explorador con un error de privacidad. Por tanto, los usuarios que tienen un dominio personalizado deben comprobar que han configurado un certificado SSL.</li><li>Asegúrese de que los firewalls de aplicaciones web y de paquetes que protegen App Service permiten el reenvío de sesiones HTTPS.</li></ul>|
 |Acceso a Function App solo a través de HTTPS|Esta acción redirigirá todo el tráfico de HTTP a HTTPS en los recursos seleccionados. <br>**Nota**:<ul><li>Se mostrará un punto de conexión HTTPS que no tiene un certificado SSL en el explorador con un error de privacidad. Por tanto, los usuarios que tienen un dominio personalizado deben comprobar que han configurado un certificado SSL.</li><li>Asegúrese de que los firewalls de aplicaciones web y de paquetes que protegen App Service permiten el reenvío de sesiones HTTPS.</li></ul>|

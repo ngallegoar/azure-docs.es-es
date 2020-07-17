@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Obtenga información sobre las limitaciones conocidas al ejecutar cargas de trabajo de aplicaciones y grupos de nodos de Windows Server en Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/18/2019
-ms.openlocfilehash: 935b049ce5e1951952b4af4e7df9574df764b6e8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/28/2020
+ms.openlocfilehash: c420eb850313900d3726b93dd97f911a428d3560
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208013"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85339875"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitaciones actuales para las cargas de trabajo de aplicaciones y los grupos de nodos de Windows Server en Azure Kubernetes Service (AKS)
 
@@ -58,6 +58,19 @@ Los nodos de Windows Server en AKS deben estar *actualizados* para obtener las 
 > La imagen de Windows Server actualizada solo se usará si se ha realizado una actualización de clúster (actualización del plano de control) antes de actualizar el grupo de nodos.
 >
 
+## <a name="why-am-i-seeing-an-error-when-i-try-to-create-a-new-windows-agent-pool"></a>¿Por qué se muestra un error al tratar de crear un nuevo grupo de agentes de Windows?
+
+Si creó el clúster antes de febrero de 2020 y nunca ha realizado ninguna operación de actualización del clúster, este sigue usando una imagen de Windows antigua. Es posible que se haya mostrado un error similar al siguiente:
+
+"No se encuentra la siguiente lista de imágenes a las que se hace referencia desde la plantilla de implementación: Publicador: MicrosoftWindowsServer, Oferta: WindowsServer, SKU: 2019-datacenter-core-smalldisk-2004, Versión: más reciente. Consulte https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage para obtener instrucciones sobre cómo buscar las imágenes disponibles".
+
+Para solucionar este error:
+
+1. Actualice el [plano de control del clúster][upgrade-cluster-cp]. De este modo, se actualizará la oferta y el publicador de la imagen.
+1. Cree nuevos grupos de agentes de Windows.
+1. Mueva los pods de Windows de los grupos de agentes de Windows existentes a los nuevos.
+1. Elimine los grupos de agentes de Windows anteriores.
+
 ## <a name="how-do-i-rotate-the-service-principal-for-my-windows-node-pool"></a>¿Cómo se realiza la rotación de la entidad de servicio para el grupo de nodos de Windows?
 
 Los grupos de nodos de Windows no admiten la rotación de la entidad de servicio. Para actualizar la entidad de servicio, cree un nuevo grupo de nodos de Windows y migre los pods del grupo anterior al nuevo. Cuando termine, elimine el grupo de nodos antiguo.
@@ -72,7 +85,7 @@ El nombre debe tener un máximo de 6 (seis) caracteres. Esta es una limitación 
 
 ## <a name="are-all-features-supported-with-windows-nodes"></a>¿Son todas las características compatibles con los nodos de Windows?
 
-Las directivas de red y de kubenet no se admiten actualmente en los nodos de Windows. 
+Las directivas de red y de kubenet no se admiten actualmente en los nodos de Windows.
 
 ## <a name="can-i-run-ingress-controllers-on-windows-nodes"></a>¿Puedo ejecutar controladores de entrada en los nodos de Windows?
 
@@ -88,7 +101,7 @@ La compatibilidad con las cuentas de servicio administradas de grupo (gMSA) no e
 
 ## <a name="can-i-use-azure-monitor-for-containers-with-windows-nodes-and-containers"></a>¿Puedo usar Azure Monitor para contenedores con nodos y contenedores de Windows?
 
-Sí, sin embargo, Azure Monitor no recopila registros (stdout) de los contenedores de Windows. Puede adjuntar a streaming en vivo de registros de stdout desde un contenedor de Windows.
+Sí puede; no obstante, Azure Monitor se encuentra en versión preliminar pública para la recopilación de registros (stdout, stderr) y métricas de los contenedores de Windows. También puede conectarse al streaming en vivo de registros de stdout desde un contenedor de Windows.
 
 ## <a name="what-if-i-need-a-feature-which-is-not-supported"></a>¿Qué ocurre si necesito una característica que no se admite?
 
@@ -112,7 +125,10 @@ Para comenzar con los contenedores de Windows Server en AKS, [cree un grupo de n
 [windows-node-cli]: windows-container-cli.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[upgrade-cluster]: upgrade-cluster.md
+[upgrade-cluster-cp]: use-multiple-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
 [maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
+[azure-monitor]: ../azure-monitor/insights/container-insights-overview.md#what-does-azure-monitor-for-containers-provide

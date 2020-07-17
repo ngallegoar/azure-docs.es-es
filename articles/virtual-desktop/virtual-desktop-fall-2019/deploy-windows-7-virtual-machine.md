@@ -4,16 +4,16 @@ description: Implementación de una máquina virtual con Windows 7 en Windows V
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0cb5b2ee8b8391dc4fcb78cc1d3bd212c44f1803
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: eafe2050f834fdd9aecba492c7121be9c1e121e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614265"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85206009"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Implementación de una máquina virtual Windows 7 en Windows Virtual Desktop
 
@@ -22,7 +22,7 @@ ms.locfileid: "82614265"
 
 El proceso de implementación de una máquina virtual con Windows 7 en Windows Virtual Desktop es ligeramente diferente al de las máquinas virtuales que ejecutan versiones posteriores de Windows. En esta guía se explica cómo implementar Windows 7.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar, siga las instrucciones de [Creación de un grupo hosts con PowerShell](create-host-pools-powershell-2019.md) para crear un grupo de hosts. Después, siga las instrucciones de [Creación de grupos de hosts en Azure Marketplace](create-host-pools-azure-marketplace-2019.md#optional-assign-additional-users-to-the-desktop-application-group) para asignar uno o varios usuarios al grupo de aplicaciones de escritorio.
 
@@ -32,9 +32,9 @@ Una vez que haya realizado los requisitos previos, estará listo para configurar
 
 Para configurar una máquina virtual de Windows 7 en Windows Virtual Desktop:
 
-1. Inicie sesión en el Azure Portal y busque la imagen de Windows 7 Enterprise o cargue su propia imagen personalizada de Windows 7 Enterprise (x64).  
+1. Inicie sesión en el Azure Portal y busque la imagen de Windows 7 Enterprise o cargue su propia imagen personalizada de Windows 7 Enterprise (x64).
 2. Implemente una o varias máquinas virtuales con Windows 7 Enterprise como sistema operativo host. Asegúrese de que las máquinas virtuales permiten el Protocolo de escritorio remoto (RDP) (el puerto TCP/3389).
-3. Conéctese al host de Windows 7 Enterprise mediante el RDP y autentíquese con las credenciales que definió al configurar la implementación. 
+3. Conéctese al host de Windows 7 Enterprise mediante el RDP y autentíquese con las credenciales que definió al configurar la implementación.
 4. Agregue la cuenta que usó al conectarse al host con RDP al grupo "Usuario de Escritorio remoto". Si no lo hace, es posible que no pueda conectarse a la máquina virtual después de conectarla a su dominio de Active Directory.
 5. Vaya a Windows Update en la máquina virtual.
 6. Instale todas las actualizaciones de Windows en la categoría Importante.
@@ -43,17 +43,18 @@ Para configurar una máquina virtual de Windows 7 en Windows Virtual Desktop:
 9. Habilite la directiva del Protocolo de escritorio remoto 8.0.
 10. Una esta máquina virtual al dominio de Active Directory.
 11. Reinicie la máquina virtual, para lo que debe ejecutar el siguiente comando:
-    
+
      ```cmd
      shutdown /r /t 0
      ```
-    
+
 12. Siga las instrucciones descritas [aquí](/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo/) para obtener un token de registro.
 13. [Descargue el agente de Windows Virtual Desktop para Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
 14. [Descargue el administrador de agente de Windows Virtual Desktop para Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
 15. Abra el instalador del agente de Windows Virtual Desktop y siga las instrucciones. Cuando se le solicite, proporcione la clave de registro que ha creado en el paso 12.
-16. Abra el instalador de Windows Virtual Desktop y siga las instrucciones.
+16. Abra Windows Virtual Desktop Agent Manager y siga las instrucciones.
 17. Opcionalmente, bloquee el puerto TCP/3389 para quitar el acceso directo del protocolo de escritorio remoto a la máquina virtual.
+18. También puede confirmar que .NET Framework se encuentra al menos en la versión 4.7.2. Esto es especialmente importante si va a crear una imagen personalizada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

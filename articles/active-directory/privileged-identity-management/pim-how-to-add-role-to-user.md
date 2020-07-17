@@ -7,18 +7,18 @@ author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/07/2020
+ms.date: 07/01/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5048cefaae10cd55091dd72f0b73a3cf9d731a35
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7cdea30e7b630b2fa62b004f98cb67fd1994f915
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227716"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024196"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Asignación de roles de Azure AD en Privileged Identity Management
 
@@ -26,7 +26,7 @@ Con Azure Active Directory (Azure AD), un administrador global puede realizar as
 
 El servicio Azure AD Privileged Identity Management (PIM) permite también a los administradores de roles con privilegios realizar asignaciones de roles de administrador permanentes. Además, los administradores de rol con privilegios pueden hacer que los usuarios sean **aptos** para roles de administrador de Azure AD. Un administrador apto puede activar el rol cuando lo necesite y, cuando termina, sus permisos caducan.
 
-## <a name="determine-your-version-of-pim"></a>Determinación de la versión de PIM
+## <a name="determine-your-version-of-pim"></a>Determinar la versión de PIM
 
 Desde noviembre de 2019, la parte de roles de Azure AD de Privileged Identity Management se está actualizando a una nueva versión que coincide con las experiencias de los roles de recursos de Azure. Esta actualización introduce características adicionales y [cambios en la API existente](azure-ad-roles-features.md#api-changes). Mientras se implementa la nueva versión, los procedimientos que seguirá en este artículo dependerán de la versión de Privileged Identity Management que tenga actualmente. Siga los pasos de esta sección para determinar la versión de Privileged Identity Management que tiene. Cuando averigüe la versión de Privileged Identity Management, puede seleccionar los procedimientos de este artículo que coincidan con esa versión.
 
@@ -53,15 +53,13 @@ Siga estos pasos para hacer que un usuario sea elegible para un rol de administr
 
     ![Roles de Azure AD](./media/pim-how-to-add-role-to-user/roles-list.png)
 
-1. Seleccione **Agregar miembro** para abrir la página **Nueva asignación**.
+1. Seleccione **Agregar asignaciones** para abrir la página **Agregar asignaciones**.
 
-1. Elija **Seleccionar un rol** para abrir la página Seleccionar un rol.
+1. Elija **Seleccionar un rol** para abrir la página **Seleccionar un rol**.
 
     ![Panel Nueva asignación](./media/pim-how-to-add-role-to-user/select-role.png)
 
-1. Seleccione el rol que quiera asignar y luego haga clic en **Seleccionar**.
-
-1. Seleccione un miembro que quiera asignar al rol y luego elija **Seleccionar**.
+1. Seleccione el rol que desea asignar, seleccione un miembro al que desee asignar el rol y luego, seleccione **Siguiente**.
 
 1. En la lista **Tipo de asignación** en el panel **Configuración de pertenencia**, seleccione **Apto** o **Activo**.
 
@@ -69,15 +67,11 @@ Siga estos pasos para hacer que un usuario sea elegible para un rol de administr
 
     - Las asignaciones tipo **Activo** no requieren que el miembro realice ninguna acción para usar el rol. Los miembros asignados como activos tienen siempre los privilegios asignados al rol.
 
-1. Si la asignación debe ser permanente (siempre apta o asignada de forma permanente), active la casilla **Permanentemente**.
-
-    Según la configuración del rol, es posible que la casilla no aparezca o que no se pueda modificar.
-
-1. Para especificar una duración de asignación específica, desactive la casilla y modifique los cuadros de fecha y hora de inicio o finalización. Cuando termine, seleccione **Listo**.
+1. Para especificar una duración de asignación específica, agregue un cuadro de fecha y hora de inicio y de finalización. Cuando termine, seleccione **Asignar** para crear la nueva asignación de roles.
 
     ![Configuración de pertenencias: fecha y hora](./media/pim-how-to-add-role-to-user/start-and-end-dates.png)
 
-1. Para crear la nueva asignación de roles, seleccione **Agregar**. Se muestra una notificación del estado.
+1. Una vez asignado el rol, se muestra una notificación de estado de la asignación.
 
     ![Nueva asignación: notificación](./media/pim-how-to-add-role-to-user/assignment-notification.png)
 
@@ -129,7 +123,7 @@ Siga estos pasos para hacer que un usuario sea elegible para un rol de administr
 
 1. Ahora que el usuario es apto para el rol, hágale saber que puede activarlo de acuerdo con las instrucciones que se describen en [Activación de mis roles de Azure AD en Privileged Identity Management](pim-how-to-activate-role.md).
 
-    A los administradores aptos se les pide que se registren en Azure Multi-factor Authentication (MFA) durante la activación. Si un usuario no puede registrarse en MFA o usa una cuenta de Microsoft (como @outlook.com), deberá establecerlo como permanente en todos sus roles.
+    Se pide a los administradores válidos que se registren en Azure Multi-Factor Authentication durante la activación. Si un usuario no puede registrarse en MFA o usa una cuenta de Microsoft (como @outlook.com), deberá establecerlo como permanente en todos sus roles.
 
 ## <a name="make-a-role-assignment-permanent"></a>Hacer que una asignación de roles sea permanente
 

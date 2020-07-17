@@ -4,22 +4,22 @@ description: Cómo habilitar la representación y codificación de aceleración 
 services: virtual-desktop
 author: gundarev
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 99393ed518df590140f79933623a9f7ec96edc85
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: f7a26b6a622368fe9601ea3b6555386b6a121540
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402295"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081101"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configuración de la aceleración por la unidad de procesamiento gráfico (GPU) para Windows Virtual Desktop
 
 >[!IMPORTANT]
 >Este contenido se aplica a la actualización Spring 2020 con objetos de Windows Virtual Desktop para Azure Resource Manager. Si usa la versión de otoño de 2019 de Windows Virtual Desktop sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
 >
-> La actualización de primavera de 2020 de Windows Virtual Desktop se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. 
+> La actualización de primavera de 2020 de Windows Virtual Desktop se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Windows Virtual Desktop admite la representación y codificación de la aceleración por GPU para mejorar el rendimiento y la escalabilidad de las aplicaciones. La aceleración de la GPU es especialmente importante para las aplicaciones que contienen muchos gráficos.
@@ -60,22 +60,36 @@ De forma predeterminada, las aplicaciones y los escritorios que se ejecutan en c
 
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>Configuración de la codificación de marcos de aceleración por GPU
 
-El Escritorio remoto codifica todos los gráficos que representan las aplicaciones y los escritorios (tanto si se representan mediante GPU como si lo hacen mediante CPU) para la transmisión a los clientes de Escritorio remoto. De forma predeterminada, el Escritorio remoto no aprovecha las GPU disponibles para esta codificación. Configure la directiva de grupo para el host de sesión para habilitar la codificación de marcos de aceleración por GPU. Continúe con los pasos anteriores:
+El Escritorio remoto codifica todos los gráficos que representan las aplicaciones y los escritorios (tanto si se representan mediante GPU como si lo hacen mediante CPU) para la transmisión a los clientes de Escritorio remoto. Cuando parte de la pantalla se actualiza con frecuencia, esta parte de la pantalla se codifica con un códec de vídeo (H.264/AVC). De forma predeterminada, el Escritorio remoto no aprovecha las GPU disponibles para esta codificación. Configure la directiva de grupo para el host de sesión para habilitar la codificación de marcos de aceleración por GPU. Continúe con los pasos anteriores:
+ 
+>[!NOTE]
+>La codificación de fotogramas acelerados por GPU no está disponible en las máquinas virtuales de la Serie NVv4.
 
-1. Seleccione la directiva **Priorizar el modo de gráficos H.264/AVC 444 para las conexiones de Escritorio remoto** y establezca esta directiva en **Habilitada** para aplicar el códec H.264/AVC 444 en la sesión remota.
-2. Seleccione la directiva **Configurar la codificación de hardware H.264/AVC para las conexiones de Escritorio remoto** y establezca esta directiva en **Habilitada** para habilitar la codificación de hardware para AVC/H.264 en la sesión remota.
+1. Seleccione la directiva **Configurar la codificación de hardware H.264/AVC para las conexiones de Escritorio remoto** y establezca esta directiva en **Habilitada** para habilitar la codificación de hardware para AVC/H.264 en la sesión remota.
 
     >[!NOTE]
     >En Windows Server 2016, establezca la opción **Preferir la codificación de hardware AVC** en **Intentar siempre**.
 
-3. Ahora que se han editado las directivas de grupo, fuerce una actualización de las directivas de grupo. Abra el símbolo del sistema y escriba:
+2. Ahora que se han editado las directivas de grupo, fuerce una actualización de las directivas de grupo. Abra el símbolo del sistema y escriba:
 
     ```batch
     gpupdate.exe /force
     ```
 
-4. Cierre sesión en la sesión de Escritorio remoto.
+3. Cierre sesión en la sesión de Escritorio remoto.
 
+## <a name="configure-fullscreen-video-encoding"></a>Configuración de la codificación de vídeo de pantalla completa
+
+Si suele usar aplicaciones que producen un contenido de velocidad de fotogramas alto, como aplicaciones de modelado 3D, CAD o CAM y de vídeo, puede habilitar una codificación de vídeo de pantalla completa para una sesión remota. El perfil de vídeo de pantalla completa proporciona una velocidad de fotogramas mayor y una mejor experiencia de usuario para estas aplicaciones a costa del ancho de banda de la red y de los recursos tanto del host de sesión como del cliente. Se recomienda usar la codificación de fotogramas acelerada por GPU para una codificación de vídeo a pantalla completa. Configure la directiva de grupo para el host de sesión para habilitar la codificación de vídeo de pantalla completa. Continúe con los pasos anteriores:
+
+1. Seleccione la directiva **Priorizar el modo de gráficos H.264/AVC 444 para las conexiones de Escritorio remoto** y establezca esta directiva en **Habilitada** para aplicar el códec H.264/AVC 444 en la sesión remota.
+2. Ahora que se han editado las directivas de grupo, fuerce una actualización de las directivas de grupo. Abra el símbolo del sistema y escriba:
+
+    ```batch
+    gpupdate.exe /force
+    ```
+
+3. Cierre sesión en la sesión de Escritorio remoto.
 ## <a name="verify-gpu-accelerated-app-rendering"></a>Comprobación de la representación de aplicaciones de aceleración por GPU
 
 Para comprobar que las aplicaciones usan la GPU para la representación, lleve a cabo cualquiera de las siguientes acciones:
@@ -90,7 +104,14 @@ Para comprobar que Escritorio remoto utiliza la codificación de aceleración po
 1. Conéctese al escritorio de la máquina virtual mediante el cliente de Windows Virtual Desktop.
 2. Inicie el Visor de eventos y vaya hasta el siguiente nodo: **Registros de aplicaciones y servicios** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operativo**
 3. Para determinar si se utiliza la codificación de aceleración por GPU, busque el id. de evento 170. Si ve "Codificador de hardware AVC habilitado: 1", significa que se usa la codificación por GPU.
-4. Para determinar si se usa el modo de AVC 444, busque el id. de evento 162. Si ve "AVC disponible: 1 perfil inicial: 2048", significa que se usa AVC 444.
+
+## <a name="verify-fullscreen-video-encoding"></a>Comprobar la codificación de vídeo de pantalla completa
+
+Para comprobar que Escritorio remoto utiliza la codificación de vídeo de pantalla completa:
+
+1. Conéctese al escritorio de la máquina virtual mediante el cliente de Windows Virtual Desktop.
+2. Inicie el Visor de eventos y vaya hasta el siguiente nodo: **Registros de aplicaciones y servicios** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operativo**
+3. Para determinar si se utiliza la codificación de vídeo de pantalla completa, busque el id. de evento 162. Si ve "AVC disponible: 1 perfil inicial: 2048", significa que se usa AVC 444.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

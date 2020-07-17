@@ -3,12 +3,12 @@ title: Actualización de nodos de clúster para usar discos administrados de Azu
 description: Aquí se muestra cómo actualizar un clúster de Service Fabric existente para usar Azure Managed Disks con poco o ningún tiempo de inactividad del clúster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 5f4698718a35970e47de2a0ee6d053802c8ef919
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 46dec6ae29fdd8f2a418f695c31900e6df4483e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991218"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611635"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Actualización de nodos de clúster para usar Azure Managed Disks
 
@@ -22,7 +22,7 @@ La estrategia general para actualizar un nodo de clúster de Service Fabric para
 
 3. Compruebe que el clúster y los nuevos nodos tengan un estado correcto y, a continuación, quite el conjunto de escalado original y el estado del nodo de los nodos eliminados.
 
-Este artículo le guiará a lo largo de los pasos necesarios para actualizar el tipo de nodo principal de un clúster de ejemplo para usar discos administrados, al tiempo que evita cualquier tiempo de inactividad del clúster (vea la nota siguiente). El estado inicial del clúster de prueba de ejemplo consta de un tipo de nodo de [durabilidad Silver](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster), respaldado por un solo conjunto de escalado con cinco nodos.
+Este artículo le guiará a lo largo de los pasos necesarios para actualizar el tipo de nodo principal de un clúster de ejemplo para usar discos administrados, al tiempo que evita cualquier tiempo de inactividad del clúster (vea la nota siguiente). El estado inicial del clúster de prueba de ejemplo consta de un tipo de nodo de [durabilidad Silver](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), respaldado por un solo conjunto de escalado con cinco nodos.
 
 > [!CAUTION]
 > Experimentará una interrupción con este procedimiento solo si tiene dependencias en el DNS del clúster (por ejemplo, al acceder a [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). El [procedimiento recomendado para los servicios de front-end](https://docs.microsoft.com/azure/architecture/microservices/design/gateway) en el nivel de arquitectura es tener algún tipo de [equilibrador de carga](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) delante de los tipos de nodo para que el intercambio de nodos sea posible sin interrupción.

@@ -2,24 +2,20 @@
 title: 'Enumeración de asignaciones de roles de Azure mediante Azure Portal: RBAC de Azure'
 description: Obtenga información sobre cómo determinar a qué recursos tienen acceso los usuarios, grupos, entidades de servicio e identidades administradas mediante Azure Portal y el control de acceso basado en roles (RBAC) de Azure (RBAC de Azure).
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: identity
-ms.date: 03/18/2020
+ms.date: 06/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 04a13b2b3b8cd6e696f0ac6601b5f23b9d6cb24d
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: f7d56ecc7fc6bd850fced33c2c1cf20902bb2df4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996643"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361888"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Enumeración de asignaciones de roles de Azure mediante Azure Portal
 
@@ -30,7 +26,7 @@ ms.locfileid: "82996643"
 
 ## <a name="list-role-assignments-for-a-user-or-group"></a>Lista de las asignaciones de rol de un usuario o grupo
 
-La forma más fácil de ver los roles asignados a un usuario o grupo de una suscripción es usar el panel **Recursos de Azure**.
+La forma más fácil de ver los roles asignados a un usuario o grupo de una suscripción es usar el panel **Asignaciones de roles de Azure**.
 
 1. En el menú de Azure Portal, seleccione **Todos los servicios**.
 
@@ -38,11 +34,11 @@ La forma más fácil de ver los roles asignados a un usuario o grupo de una susc
 
 1. Haga clic en el usuario o grupo del que desea enumerar las asignaciones de roles.
 
-1. Haga clic en **Recursos de Azure**.
+1. Haga clic en **Asignaciones de roles de Azure**.
 
     Verá una lista de los roles asignados al usuario o grupo seleccionado en varios ámbitos como los de grupo de administración, suscripción, grupo de recursos o recurso. En esta lista se incluyen todas las asignaciones de roles de las que tenga permiso para leer.
 
-    ![Asignaciones de roles de un usuario](./media/role-assignments-list-portal/azure-resources-user.png)    
+    ![Asignaciones de roles de un usuario](./media/role-assignments-list-portal/azure-role-assignments-user.png)    
 
 1. Para cambiar la suscripción, haga clic en la lista **Suscripciones**.
 
@@ -102,31 +98,37 @@ Para mostrar el acceso de un usuario, grupo, entidad de servicio o identidad adm
 
     En este panel puede ver los roles asignados a la entidad de seguridad seleccionada y el ámbito. Si hay asignaciones denegadas en este ámbito o heredadas en este ámbito, se mostrarán.
 
-## <a name="list-role-assignments-for-a-system-assigned-managed-identity"></a>Lista de asignaciones de roles para una identidad administrada asignada por el sistema
+## <a name="list-role-assignments-for-a-managed-identity"></a>Lista de asignaciones de roles para una identidad administrada
+
+Puede mostrar las asignaciones de roles para las identidades administradas asignadas por el usuario y por el sistema en un ámbito determinado mediante la hoja **Control de acceso (IAM)** como se describió anteriormente. En esta sección se describe cómo mostrar asignaciones de roles solo para la identidad administrada.
+
+### <a name="system-assigned-managed-identity"></a>Identidad administrada asignada por el sistema
 
 1. En Azure Portal, abra una identidad administrada asignada por el sistema.
 
 1. En el menú izquierdo, haga clic en **Identidad**.
 
-    ![Identidad administrada asignada por el sistema](./media/role-assignments-list-portal/identity-system-assigned.png)
+    ![Identidad administrada asignada por el sistema](./media/shared/identity-system-assigned.png)
 
-1. En **Asignaciones de roles**, haga clic en **Mostrar los roles RBAC de Azure asignados a esta identidad administrada**.
+1. En **Permisos**, haga clic en **Asignaciones de roles de Azure**.
 
     Verá una lista de los roles asignados a la identidad administrada asignada por el sistema seleccionada en varios ámbitos como los de grupo de administración, suscripción, grupo de recursos o recurso. En esta lista se incluyen todas las asignaciones de roles de las que tenga permiso para leer.
 
-    ![Asignaciones de roles para una identidad administrada asignada por el sistema](./media/role-assignments-list-portal/azure-resources-system-assigned.png)
+    ![Asignaciones de roles para una identidad administrada asignada por el sistema](./media/shared/role-assignments-system-assigned.png)
 
-## <a name="list-role-assignments-for-a-user-assigned-managed-identity"></a>Lista de asignaciones de roles para una identidad administrada asignada por el usuario
+1. Para cambiar la suscripción, haga clic en la lista **Suscripción**.
+
+### <a name="user-assigned-managed-identity"></a>Identidad administrada asignada por el usuario
 
 1. En Azure Portal, abra una identidad administrada asignada por el usuario.
 
-1. Haga clic en **Recursos de Azure**.
+1. Haga clic en **Asignaciones de roles de Azure**.
 
     Verá una lista de los roles asignados a la identidad administrada asignada por el usuario seleccionada en varios ámbitos como los de grupo de administración, suscripción, grupo de recursos o recurso. En esta lista se incluyen todas las asignaciones de roles de las que tenga permiso para leer.
 
-    ![Asignaciones de roles para una identidad administrada asignada por el sistema](./media/role-assignments-list-portal/azure-resources-user-assigned.png)
+    ![Asignaciones de roles para una identidad administrada asignada por el sistema](./media/shared/role-assignments-user-assigned.png)
 
-1. Para cambiar la suscripción, haga clic en la lista **Suscripciones**.
+1. Para cambiar la suscripción, haga clic en la lista **Suscripción**.
 
 ## <a name="list-number-of-role-assignments"></a>Enumeración del número de asignaciones de roles
 
@@ -137,6 +139,51 @@ Puede tener hasta **2000** asignaciones de roles en cada suscripción. Este lím
 Si está cerca del número máximo e intenta agregar más asignaciones de roles, verá una advertencia en el panel **Agregar asignación de roles**. Para saber cómo puede reducir el número de asignaciones de roles, vea [Solución de problemas de RBAC de Azure](troubleshooting.md#azure-role-assignments-limit).
 
 ![Advertencia de control de acceso - agregar asignación de roles](./media/role-assignments-list-portal/add-role-assignment-warning.png)
+
+## <a name="download-role-assignments-preview"></a>Descarga de asignaciones de roles (versión preliminar)
+
+Puede descargar las asignaciones de roles en un ámbito en formato CSV o JSON. Esto puede ser útil si necesita inspeccionar la lista en una hoja de cálculo o realizar un inventario al efectuar una suscripción.
+
+> [!IMPORTANT]
+> La descarga de las asignaciones de roles se encuentra actualmente en versión preliminar pública.
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Al descargar asignaciones de roles, debe tener en cuenta los siguientes criterios:
+
+- Si no tiene permisos para leer el directorio, como el rol de lectores de directorio, las columnas DisplayName, SignInName y ObjectType estarán en blanco.
+- No se incluyen las asignaciones de roles cuya entidad de seguridad se haya eliminado.
+- No se incluye el acceso concedido a los administradores clásicos.
+
+Siga estos pasos para descargar asignaciones de roles en un ámbito.
+
+1. En Azure Portal, haga clic en **Todos los servicios** y, a continuación, seleccione el ámbito del que quiere descargar las asignaciones de roles. Por ejemplo, puede seleccionar **Grupos de administración**, **Suscripciones**, **Grupos de recursos** o un recurso.
+
+1. Haga clic en el recurso específico.
+
+1. Haga clic en **Control de acceso (IAM).**
+
+1. Haga clic en **Descargar asignaciones de roles (versión preliminar)** para abrir el panel Descargar asignaciones de roles.
+
+    ![Control de acceso: descargar asignaciones de roles](./media/role-assignments-list-portal/download-role-assignments.png)
+
+1. Use las casillas para seleccionar las asignaciones de roles que quiere incluir en el archivo descargado.
+
+    - **Heredadas**: incluye asignaciones de roles heredadas para el ámbito actual.
+    - **En el ámbito actual**: incluye asignaciones de roles para el ámbito actual.
+    - **Elementos secundarios**: incluye asignaciones de roles en niveles inferiores al ámbito actual. Esta casilla está deshabilitada para el ámbito del grupo de administración.
+
+1. Seleccione el formato de archivo, que puede ser con valores separados por comas (CSV) o notación de objetos JavaScript (JSON).
+
+1. Especifique el nombre de archivo.
+
+1. Haga clic en **Iniciar** para iniciar la descarga.
+
+    A continuación se muestran ejemplos de la salida para cada formato de archivo.
+
+    ![Descargar asignaciones de roles como un CSV](./media/role-assignments-list-portal/download-role-assignments-csv.png)
+
+    ![Descargar asignaciones de roles como un CSV](./media/role-assignments-list-portal/download-role-assignments-json.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

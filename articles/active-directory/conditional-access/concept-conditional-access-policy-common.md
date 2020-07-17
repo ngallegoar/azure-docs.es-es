@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20b699f0672b49dd2f947e0cf00d0ffcef7961e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fbf4d7b9f622ff590eee401544bf62655fd8d096
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295301"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024390"
 ---
 # <a name="common-conditional-access-policies"></a>Directivas de acceso condicional habituales
 
@@ -38,11 +38,12 @@ En los siguientes artículos encontrará más información sobre las cuentas de 
 * [Exigir autenticación multifactor para la administración de Azure](howto-conditional-access-policy-azure-management.md)\*
 * [Exigir autenticación multifactor para todos los usuarios](howto-conditional-access-policy-all-users-mfa.md)\*
 
-\* Cuando estas cuatro directivas se configuran de forma conjunta, imitan la funcionalidad habilitada por los [valores predeterminados de seguridad](../fundamentals/concept-fundamentals-security-defaults.md).
+\*Cuando se configuran juntas estas cuatro directivas, imitan la funcionalidad habilitada por [valores predeterminados de seguridad](../fundamentals/concept-fundamentals-security-defaults.md).
 
 ## <a name="additional-policies"></a>Directivas adicionales
 
-* [Acceso condicional basado en el riesgo (se necesita Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
+* [Acceso condicional basado en riesgos de inicio de sesión (requiere Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
+* [Acceso condicional basado en el riesgo (se necesita Azure AD Premium P2)](howto-conditional-access-policy-risk-user.md)
 * [Exigir ubicaciones de confianza para el registro de la autenticación multifactor](howto-conditional-access-policy-registration.md)
 * [Bloquear el acceso por ubicación](howto-conditional-access-policy-location.md)
 * [Requerir dispositivo compatible](howto-conditional-access-policy-compliant-device.md)

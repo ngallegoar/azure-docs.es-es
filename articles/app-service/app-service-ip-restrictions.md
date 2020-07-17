@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 298555da2056bc4c16d4d7b16615604f9798b91b
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: a77172aacc4c58e6430339328410744cc866def3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81639265"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207131"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restricciones de acceso de Azure App Service
 
@@ -59,6 +59,10 @@ Los puntos de conexión de servicio permiten restringir el acceso a las subredes
 Los puntos de conexión de servicio no se pueden usar para restringir el acceso a las aplicaciones que se ejecutan en un App Service Environment. Si está en un App Service Environment, puede controlar el acceso a la aplicación con reglas de acceso de IP. 
 
 Si se usan puntos de conexión de servicio, la aplicación se puede configurar con Application Gateway u otros dispositivos de WAF. También se pueden configurar aplicaciones de varios niveles con back-ends seguros. Para más información sobre algunas de las posibilidades, lea [Características de redes de App Service](networking-features.md) e [Integración de Application Gateway con puntos de conexión de servicio](networking/app-gateway-with-service-endpoints.md).
+
+> [!NOTE]
+> Actualmente no se admiten puntos de conexión de servicio para las aplicaciones web que usan IP virtual (VIP) con SSL de IP. 
+>
 
 ## <a name="managing-access-restriction-rules"></a>Administración de reglas de restricción de acceso
 

@@ -12,12 +12,12 @@ ms.workload: mobile
 ms.topic: article
 ms.date: 06/24/2020
 ms.author: apimpm
-ms.openlocfilehash: 72899e743e167eef5ee7d1be04cb50cafc1f2a95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 455444fe78171e3e2b37a309fd5708f283121ed6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445515"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243416"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Protección de una API mediante OAuth 2.0 con Azure Active Directory API Management
 
@@ -146,7 +146,7 @@ En este ejemplo, la consola del desarrollador es la aplicación cliente. En los 
 
 1. Si usa puntos de conexión **v1**, agregue un parámetro de cuerpo denominado **resource**. Como valor de este parámetro, use el **id. de aplicación** de la aplicación de back-end. 
 
-1. Si usa puntos de conexión **v2**, use el ámbito que creó para la aplicación de back-end en el campo **Ámbito predeterminado**. Además, asegúrese de establecer el valor de la propiedad [`accessTokenAcceptedVersion`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) en `2` en el [manifiesto de aplicación](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest).
+1. Si usa puntos de conexión **v2**, use el ámbito que creó para la aplicación de back-end en el campo **Ámbito predeterminado**. Además, asegúrese de establecer el valor de la propiedad [`accessTokenAcceptedVersion`](../active-directory/develop/reference-app-manifest.md#accesstokenacceptedversion-attribute) en `2` en el [manifiesto de aplicación](../active-directory/develop/reference-app-manifest.md).
 
 1. A continuación, especifique las credenciales del cliente. Estas son las credenciales para la aplicación cliente.
 
@@ -203,7 +203,7 @@ En este momento, si un usuario intenta realizar una llamada desde la consola del
 
 Sin embargo, ¿qué ocurre si alguien llama a la API sin un token o con uno no válido? Por ejemplo, si intenta llamar a la API sin el encabezado `Authorization`, la llamada continuará de todos modos. La razón es que API Management no valida el token de acceso en este momento. Simplemente pasa el encabezado `Authorization` a la API de back-end.
 
-Use la directiva de [validación de JWT](https://docs.microsoft.com/azure/api-management/api-management-access-restriction-policies#ValidateJWT) para autorizar previamente las solicitudes en API Management validando los tokens de acceso de cada solicitud entrante. Si una solicitud no tiene un token válido, API Management la bloquea. Por ejemplo, agregue la directiva siguiente a la sección de la directiva `<inbound>` de `Echo API`. Comprueba la notificación de audiencia en un token de acceso y devuelve un mensaje de error si el token no es válido. Para información sobre cómo configurar directivas, consulte el artículo sobre [edición o establecimiento de directivas](https://docs.microsoft.com/azure/api-management/set-edit-policies).
+Use la directiva de [validación de JWT](./api-management-access-restriction-policies.md#ValidateJWT) para autorizar previamente las solicitudes en API Management validando los tokens de acceso de cada solicitud entrante. Si una solicitud no tiene un token válido, API Management la bloquea. Por ejemplo, agregue la directiva siguiente a la sección de la directiva `<inbound>` de `Echo API`. Comprueba la notificación de audiencia en un token de acceso y devuelve un mensaje de error si el token no es válido. Para información sobre cómo configurar directivas, consulte el artículo sobre [edición o establecimiento de directivas](./set-edit-policies.md).
 
 
 ```xml
@@ -228,7 +228,7 @@ En esta guía, se utiliza la consola del desarrollador en API Management como la
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre [Escenarios de autenticación para Azure AD](../active-directory/develop/authentication-scenarios.md).
+- Obtenga más información sobre [Escenarios de autenticación para Azure AD](../active-directory/develop/authentication-vs-authorization.md).
 - Consulte más [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sobre la administración de API.
 - Para conocer otras formas de proteger el servicio back-end, consulte [Autenticación de certificado mutua](./api-management-howto-mutual-certificates.md).
 - [Creación de una instancia del servicio de API Management](./get-started-create-service-instance.md).

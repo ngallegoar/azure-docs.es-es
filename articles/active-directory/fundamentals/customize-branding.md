@@ -7,23 +7,23 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
-ms.date: 05/07/2020
+ms.topic: how-to
+ms.date: 06/24/2020
 ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e0fc3cb450c253882ed34a2c4f5748efe55d0ec
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 14e1e84fa96b1e6b686d039abedd38e080b5720e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982044"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603917"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Incorporación de la personalización de marca en la página de inicio de sesión de Azure Active Directory de la organización
 Use el logotipo de la organización y combinaciones de colores personalizadas para proporcionar un aspecto coherente en las páginas de inicio de sesión de Azure Active Directory (Azure AD). Las páginas de inicio de sesión aparecen cuando los usuarios inician sesión en las aplicaciones web de su organización, como Office 365, que usan Azure AD como proveedor de identidades.
 
->[!Note]
+>[!NOTE]
 >Para agregar personalización de marca, es necesario usar las ediciones de Azure Active Directory Premium 1, Premium 2 o Basic, o bien tener una licencia de Office 365. Para obtener más información acerca de las ediciones y licencias, consulte [Suscripción a Azure AD Premium](active-directory-get-started-premium.md).<br><br>Las ediciones Azure AD Premium y Basic están disponibles para los clientes de China que utilizan la instancia de Azure Active Directory en todo el mundo. Las ediciones Azure AD Premium y Basic no se admiten actualmente en el servicio de Azure administrado por 21Vianet en China. Para más información, póngase en contacto con nosotros en el [foro de Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Personalización de la página de inicio de sesión de Azure AD
@@ -43,7 +43,7 @@ La personalización de marca no aparecerá inmediatamente cuando los usuarios te
 
 3. En la página **Configurar personalización de marca de empresa**, proporcione parte o la totalidad de la siguiente información.
 
-    >[!Important]
+    >[!IMPORTANT]
     >Todas las imágenes personalizadas que agregue en esta página tienen restricciones de tamaño de imagen (píxeles) y del posible tamaño de archivo (KB). Debido a estas restricciones, lo más probable es que necesite usar un editor de fotografía para crear imágenes con el tamaño adecuado.
 
     - **Configuración general**
@@ -62,7 +62,17 @@ La personalización de marca no aparecerá inmediatamente cuando los usuarios te
 
         - **Sugerencia de nombre de usuario**. Escriba el texto de sugerencia que se muestra a los usuarios en caso de que olviden su nombre de usuario. Este texto debe ser Unicode, sin código ni vínculos y no puede superar los 64 caracteres. Si un invitado inicia sesión en la aplicación, se recomienda no agregar esta sugerencia.
 
-        - **Texto de la página de inicio de sesión**. Escriba el texto que aparece en la parte inferior de la página de inicio de sesión. Puede usar este texto para comunicar información adicional, como el número de teléfono de su departamento de soporte técnico o una declaración legal. Este texto debe ser Unicode y no superar los 256 caracteres.
+        - **Texto y formato de la página de inicio de sesión.** Escriba el texto que aparece en la parte inferior de la página de inicio de sesión. Puede usar este texto para comunicar información adicional, como el número de teléfono de su departamento de soporte técnico o una declaración legal. Este texto debe ser Unicode y no superar los 1024 caracteres.
+
+           Puede personalizar el texto de la página de inicio de sesión que ingresó. Para comenzar un párrafo nuevo, use la tecla Intro dos veces. También puede cambiar el formato del texto para incluir negrita, cursiva, un subrayado o un enlace en el que se pueda hacer clic. Use la siguiente sintaxis para agregar formato al texto: 
+
+          > Hipervínculo: ```[text](link)``` 
+          
+          > Negrita: ``` **text** ``` o ``` __text__ ``` 
+          
+          > Cursiva: ``` *text* ``` o ``` _text_ ``` 
+          
+          > Subrayado: ``` ++text++ ``` 
 
     - **Configuración avanzada**
             
@@ -77,8 +87,10 @@ La personalización de marca no aparecerá inmediatamente cuando los usuarios te
         - **Logotipo cuadrado, tema oscuro**. Igual que la imagen de logotipo cuadrado anterior. Esta imagen de logotipo ocupa el lugar de la imagen de logotipo cuadrado cuando se usa con un fondo oscuro, como con las pantallas unidas a Azure AD de Windows 10 en la configuración rápida (OOBE).  Si el logotipo se ve bien en un fondo blanco, azul oscuro o negro, no es necesario agregar esta imagen. 
         
         - **Visualización de la opción para seguir conectado**. Puede optar por permitir que los usuarios permanezcan con la sesión iniciada en Azure AD hasta que cierren sesión explícitamente. Si elige **No**, esta opción se oculta y los usuarios deberán iniciar sesión cada vez que el explorador se cierre y se vuelva a abrir.
+
+            Para más información sobre la configuración y la solución de problemas de la opción para mantener la sesión iniciada, consulte [Configurar el símbolo del sistema "¿Mantener la sesión iniciada?" para cuentas de Azure AD](keep-me-signed-in.md)
         
-            >[!Note]
+            >[!NOTE]
             >Algunas características de SharePoint Online y Office 2010 dependen de que los usuarios puedan elegir seguir conectados. Si establece esta opción en **No**, puede que los usuarios reciban solicitudes adicionales e inesperadas de inicio de sesión.
    
 
@@ -86,7 +98,7 @@ La personalización de marca no aparecerá inmediatamente cuando los usuarios te
 
     Si este proceso supone la creación de la primera configuración de personalización de marca personalizada, se convertirá en el valor predeterminado del inquilino. Si tiene configuraciones adicionales, podrá elegir la configuración predeterminada.
     
-    >[!Important]
+    >[!IMPORTANT]
     >Para agregar más configuraciones de personalización de marca corporativa al inquilino, debe elegir **Nuevo idioma** en la página **Contoso: personalización de marca de empresa**. Se abrirá la página **Configurar personalización de marca de empresa**, donde puede seguir los pasos anteriores.
 
 ## <a name="update-your-custom-branding"></a>Actualización de la personalización de marca personalizada
@@ -134,5 +146,3 @@ Agregue la personalización de marca personalizada a páginas mediante la modifi
 
 **Dirección URL original:** https://aka.ms/SSPR<br>
 **Dirección URL personalizada:** `https://passwordreset.microsoftonline.com/?whr=contoso.com`
-
- 

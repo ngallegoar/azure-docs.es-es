@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: christoc
 ms.reviewer: xpouyat; juliako
-ms.openlocfilehash: 1ab70d56bd3def58d0e814035070cf027a88cd3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 67d3591a22ba68c0ddb5c4e2b467e133ef20102b
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227020"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057473"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Tutoriales avanzados sobre el flujo de trabajo premium del codificador multimedia
 ## <a name="overview"></a>Información general
@@ -187,7 +187,7 @@ Para que el flujo de trabajo determine automáticamente la propiedad de nombre d
 
 El editor de expresiones permite escribir cualquier valor literal y combinarlo con una o más variables. Las variables comienzan con un signo de dólar. Al pulsar la tecla $, el editor muestra un cuadro de lista desplegable con las opciones de variables disponibles. En nuestro caso, vamos a utilizar una combinación de la variable del directorio de salida y la variable de nombre de archivo de entrada de base:
 
-    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}.MP4
+`${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}.MP4`
 
 ![Editor de expresiones relleno](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-expression-editor.png)
 
@@ -265,16 +265,16 @@ Tenemos más de un único archivo agregado al recurso de salida. Esto hace que s
 
 La nomenclatura de archivos de salida se puede controlar mediante expresiones en el diseñador. Abra el panel de propiedades para uno de los componentes de salida de archivo y abra el editor de expresiones para la propiedad del archivo. Nuestro primer archivo de salida se configuró mediante la siguiente expresión (consulte el tutorial para pasar de [MXF a una salida MP4 de velocidad de bits única](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)):
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}.MP4`
 
 Esto significa que el nombre de archivo viene determinado por dos variables: el directorio de salida en el que escribir y el nombre base del archivo de origen. El primero se expone como una propiedad en la raíz del flujo de trabajo mientras que el segundo viene determinado por el archivo entrante. El directorio de salida es el que se usa para las pruebas locales. El motor del flujo de trabajo invalidará esta propiedad cuando el procesador de multimedia basado en la nube ejecute el flujo de trabajo en Azure Media Services.
 Para dar a todos nuestros archivos de salida un nombre de salida coherente, cambie la primera expresión de nomenclatura de archivos a:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4`
 
 y la segunda a:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_960x540_2.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_960x540_2.MP4`
 
 Ejecute una prueba intermedia para asegurarse de que ambos archivos MP4 de salida se generan correctamente.
 
@@ -287,7 +287,7 @@ Como veremos más adelante, cuando se genera un archivo .ism para que vaya con l
 
 Cree un tercer componente de salida de archivo para generar la transmisión saliente del multiplexor y configure la expresión de nomenclatura de archivos de la siguiente manera:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_128kbps_audio.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_128kbps_audio.MP4`
 
 ![Multiplexor de audio creando una salida de archivo](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-audio-muxer-creating-file-output.png)
 
@@ -319,7 +319,7 @@ Se puede generar el archivo de manifiesto para nuestro conjunto de archivos MP4 
 
 Al igual que con nuestros otros componentes de salida archivo, configure el nombre de salida del archivo .ism con una expresión:
 
-    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_manifest.ism
+`${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_manifest.ism`
 
 El flujo de trabajo finalizado tiene el siguiente aspecto:
 
@@ -342,11 +342,11 @@ En el flujo de trabajo anterior se especificó una expresión simple como base p
 
 Por ejemplo, el componente de salida de archivo del primer archivo de vídeo se configura con esta expresión:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4`
 
 Mientras que para la segunda salida de vídeo, tenemos la siguiente expresión:
 
-    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_960x540_2.MP4
+`${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_960x540_2.MP4`
 
 ¿No sería más limpio, menos propenso a errores y más fácil que pudiéramos eliminar parte de esta duplicación y hacer las cosas más configurables? Afortunadamente, podemos: las funcionalidades de expresión del diseñador en combinación con la posibilidad de crear propiedades personalizadas en la raíz del flujo de trabajo proporcionará un nivel adicional de comodidad.
 
@@ -391,7 +391,7 @@ Si se cambia cualquiera de estos tres valores también se volverán a configurar
 ### <a name="have-generated-output-file-names-rely-on-published-property-values"></a><a id="MXF_to__multibitrate_MP4_output_files"></a>Se han generado nombres de archivo de salida que se basan en los valores de propiedad publicados
 En vez de codificar los nombres de archivo generados, es posible cambiar ahora la expresión de nombre de archivo en cada uno de los componentes de salida de archivo que se basan en las propiedades de velocidad de bits que acabamos de publicar en la raíz del grafo. A partir de nuestra primera salida de archivo, busque la propiedad de archivo y edite la expresión de la siguiente forma:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video1bitrate}kbps.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video1bitrate}kbps.MP4`
 
 Se puede obtener acceso a los distintos parámetros de esta expresión y modificarlos pulsando el signo de dólar en el teclado mientras está en la ventana de la expresión. Uno de los parámetros disponibles es la propiedad video1bitrate que hemos publicado anteriormente.
 
@@ -401,11 +401,11 @@ Se puede obtener acceso a los distintos parámetros de esta expresión y modific
 
 Haga lo mismo para la salida de archivo del segundo vídeo:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video2bitrate}kbps.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video2bitrate}kbps.MP4`
 
 y para la salida de archivo de solo audio:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_audio1bitrate}bps_audio.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_audio1bitrate}bps_audio.MP4`
 
 Si ahora cambiamos la velocidad de bits de cualquiera de los archivos de audio o vídeo, se volverá a configurar el codificador respectivo y la convención de nomenclatura de archivo basada en la velocidad de bits se respetará de forma automática.
 
@@ -462,11 +462,11 @@ A diferencia del vídeo MP4, el componente de codificador JPG genera más de un 
 
 *Presentación de la escritura de archivos JPG de búsqueda de escenas*
 
-Configure la propiedad de ruta de acceso de la carpeta de salida con la expresión: ${ROOT_outputWriteDirectory}
+Configure la propiedad de ruta de acceso de la carpeta de salida con la expresión: `${ROOT_outputWriteDirectory}`
 
 y la propiedad del prefijo del nombre de archivo con:
 
-    ${ROOT_sourceFileBaseName}_thumb_
+`${ROOT_sourceFileBaseName}_thumb_`
 
 El prefijo determina cómo se denominan los archivos de miniaturas. Se les agrega como sufijo un número que indica la posición de la miniatura en la secuencia.
 
@@ -551,11 +551,11 @@ Ahora, abra las propiedades de recorte del recortador de audio y configure los t
 
 Para el tiempo de inicio del recorte de audio:
 
-    ${ROOT_TrimmingStartTime}
+`${ROOT_TrimmingStartTime}`
 
 y para el tiempo de finalización:
 
-    ${ROOT_TrimmingEndTime}
+`${ROOT_TrimmingEndTime}`
 
 ### <a name="finished-workflow"></a><a id="time_based_trim_finish"></a>Flujo de trabajo finalizado
 ![Flujo de trabajo finalizado](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow-time-base-trimming.png)
@@ -591,7 +591,7 @@ Los scripts se escriben en Groovy, un lenguaje de scripting compilado dinámicam
 
 Vamos a escribir un script de Groovy simple de “hola a todos” en el contexto de nuestro script realizeScript. En el editor, escriba lo siguiente:
 
-    node.log("hello world");
+`node.log("hello world");`
 
 A continuación, ejecute una prueba de forma local. Después de esta ejecución, inspeccione la propiedad Logs (Registros) (a través de la pestaña System (Sistema) en el componente generado por scripts.
 

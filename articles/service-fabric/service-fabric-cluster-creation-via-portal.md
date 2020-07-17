@@ -3,12 +3,12 @@ title: Creación de un clúster de Service Fabric en Azure Portal
 description: Obtenga información sobre cómo configurar un clúster de Service Fabric seguro en Azure mediante Azure Portal y Azure Key Vault.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: 64a4c430cc7402419d64b77fdcc9a6389cf9de6d
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: eeadfcf24ad2448c845f3d612247686347600001
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792486"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611159"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creación de un clúster de Service Fabric en Azure mediante el Portal de Azure
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ Esta guía paso a paso le ayudará en la configuración de un clúster de Servic
 ## <a name="cluster-security"></a>Seguridad de clúster 
 Los certificados se usan en Service Fabric para proporcionar autenticación y cifrado con el fin de proteger diversos aspectos de un clúster y sus aplicaciones. Para más información sobre el modo en que se usan los certificados en Service Fabric, consulte los [Escenarios de seguridad de los clústeres de Service Fabric][service-fabric-cluster-security].
 
-Si es la primera vez que crea un clúster de Service Fabric o que implementa un clúster para las cargas de trabajo de prueba, puede ir a la sección siguiente (**Crear un clúster en Azure Portal**) y permitir que el sistema genere los certificados necesarios para los clústeres que ejecutan cargas de trabajo de prueba. Si va a configurar un clúster para las cargas de trabajo de producción, siga leyendo.
+Si es la primera vez que crea un clúster de Service Fabric o que implementa un clúster para las cargas de trabajo de prueba, puede ir a la siguiente sección (**Crear un clúster en Azure Portal**) y permitir que el sistema genere los certificados necesarios para los clústeres que ejecutan cargas de trabajo de prueba. Si va a configurar un clúster para las cargas de trabajo de producción, siga leyendo.
 
 #### <a name="cluster-and-server-certificate-required"></a>Certificado de clúster y servidor (obligatorio)
 Este certificado es necesario para proteger un clúster e impedir el acceso no autorizado. La seguridad adopta dos formas:
@@ -107,7 +107,7 @@ Configure los nodos del clúster. Los tipos de nodos definen los tamaños de má
 2. El **tamaño** mínimo de máquinas virtuales para el tipo de nodo principal depende del nivel de **durabilidad** que elija para el clúster. El valor predeterminado del nivel de durabilidad es Bronze. Para obtener más información sobre la durabilidad, vea [Elección de los niveles de durabilidad del clúster de Service Fabric][service-fabric-cluster-durability].
 3. Seleccione el **tamaño de la máquina virtual**. Las máquinas virtuales de la serie D tienen unidades SSD y son muy recomendables para aplicaciones con estado. No use cualquier SKU de VM que tenga núcleos parciales o menos de 10 GB de capacidad de disco disponible. Consulte el documento [Consideraciones de planeación de capacidad del clúster de Service Fabric][service-fabric-cluster-capacity] para obtener ayuda con la selección del tamaño de la máquina virtual.
 4.  Los **clúster de un solo nodo y clústeres de tres nodos** están diseñados únicamente con fines de prueba. Estos clústeres no se admiten para la ejecución de cargas de trabajo de producción.
-5. Elija la **capacidad inicial del conjunto de escalado de la máquina virtual** para el tipo de nodo. Puede escalar o reducir horizontalmente el número de VM en un tipo de nodo más adelante, pero en el tipo de nodo principal, el número mínimo necesario para cargas de trabajo de producción es de cinco máquinas. Otros tipos de nodo pueden tener una máquina virtual como mínimo. El **número** mínimo de máquinas virtuales para el tipo de nodo principal afecta al nivel de **confiabilidad** que elija.  
+5. Elija la **capacidad inicial del conjunto de escalado de máquina virtual** para el tipo de nodo. Puede escalar o reducir horizontalmente el número de VM en un tipo de nodo más adelante, pero en el tipo de nodo principal, el número mínimo necesario para cargas de trabajo de producción es de cinco máquinas. Otros tipos de nodo pueden tener una máquina virtual como mínimo. El **número** mínimo de máquinas virtuales para el tipo de nodo principal afecta al nivel de **confiabilidad** que elija.  
 6. Configure los **puntos de conexión personalizados**. Este campo le permite especificar una lista de puertos separados por coma que quiere exponer mediante Azure Load Balancer a la Internet pública para sus aplicaciones. Por ejemplo, si planea implementar una aplicación web en el clúster, escriba aquí "80" para permitir el paso del tráfico del puerto 80 al clúster. Para más información sobre los puntos de conexión, vea la [comunicación con las aplicaciones][service-fabric-connect-and-communicate-with-services].
 7. **Habilitación del proxy inverso**.  El [proxy inverso de Service Fabric](service-fabric-reverseproxy.md) ayuda a que los microservicios que se ejecutan en un clúster de Service Fabric detecten otros servicios que tienen puntos de conexión HTTP y se comuniquen con dichos servicios.
 8. En la hoja **Configuración del clúster**, en **+Mostrar configuración opcional**, configure el **diagnóstico** del clúster. De forma predeterminada, los diagnósticos se habilitan en el clúster para ayudar a solucionar los problemas. Si quiere deshabilitar los diagnósticos, cambie el botón de alternancia **Estado** a **Desactivado**. **No** se recomienda desactivar los diagnósticos. Si ya creó el proyecto de Application Insights, proporcione su clave para que los rastros de la aplicación se enruten hacia ella.
@@ -177,7 +177,7 @@ Para completar la creación del clúster, haga clic en **Crear**. De manera opci
 
 Puede ver el progreso de creación en las notificaciones. (Haga clic en el icono de la "campana" cerca de la barra de estado en la parte superior derecha de la pantalla). Si hizo clic en **Anclar a Panel de inicio** al crear el clúster, verá **Deploying Service Fabric Cluster** (Implementando clúster de Service Fabric) anclado al panel de **Inicio**. Este proceso puede tardar un tiempo. 
 
-Para realizar operaciones de administración en el clúster con Powershell o la CLI, deberá conectarse a su clúster. Puede obtener más información al respecto en [Conexión a un clúster seguro](service-fabric-connect-to-secure-cluster.md).
+Para realizar operaciones de administración en el clúster con Powershell o la CLI, deberá conectarse a su clúster. Para más información al respecto en [Conexión a un clúster seguro](service-fabric-connect-to-secure-cluster.md).
 
 ## <a name="view-your-cluster-status"></a>Visualización del estado del clúster
 ![Captura de pantalla de los detalles del clúster en el panel.][ClusterDashboard]
@@ -209,7 +209,7 @@ En este punto, tiene un clúster seguro mediante certificados para la autenticac
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [service-fabric-cluster-security-roles]: service-fabric-cluster-security-roles.md
 [service-fabric-cluster-capacity]: service-fabric-cluster-capacity.md
-[service-fabric-cluster-durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
+[service-fabric-cluster-durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
 [service-fabric-connect-and-communicate-with-services]: service-fabric-connect-and-communicate-with-services.md
 [service-fabric-health-introduction]: service-fabric-health-introduction.md
 [service-fabric-reliable-services-backup-restore]: service-fabric-reliable-services-backup-restore.md

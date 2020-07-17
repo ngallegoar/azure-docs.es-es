@@ -6,12 +6,12 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: f62ad6952170f22fe0f94a792a137f991a0e5026
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9c851a172fcfe89e6e7aa31c298a5b3d7931a528
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208727"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023591"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Protección del acceso a los datos de Azure Cosmos DB
 
@@ -41,7 +41,7 @@ Además de las dos claves maestras de la cuenta de Cosmos DB, hay dos claves de 
 
 Las claves maestras principal, secundaria, de solo lectura y de lectura y escritura se pueden recuperar y volver a generar desde Azure Portal. Para ver instrucciones al respecto, consulte [Visualización, copia y regeneración de las claves de acceso](manage-with-cli.md#regenerate-account-key).
 
-![Control de acceso (IAM) en Azure Portal: demostración de la seguridad de bases de datos NoSQL](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Control de acceso (IAM) en Azure Portal: demostración de la seguridad de bases de datos NoSQL":::
 
 ### <a name="key-rotation"></a>Rotación de claves<a id="key-rotation"></a>
 
@@ -53,7 +53,7 @@ El proceso de rotación de la clave maestra es simple.
 4. Valide que la nueva clave principal funcione en todos los recursos. El proceso de rotación de claves puede tardar entre menos de un minuto y unas horas, en función del tamaño de la cuenta de Cosmos DB.
 5. Reemplace la clave secundaria por la nueva clave principal.
 
-![Rotación de la clave maestra en Azure Portal: demostración de la seguridad de bases de datos NoSQL](./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png)
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Rotación de la clave maestra en Azure Portal: demostración de la seguridad de bases de datos NoSQL" border="false":::
 
 ### <a name="code-sample-to-use-a-master-key"></a>Ejemplo de código para usar una clave maestra
 
@@ -97,9 +97,9 @@ Este es un patrón de diseño típico para solicitar, generar y entregar tokens 
 7. La aplicación de teléfono puede seguir usando el token de recurso para obtener acceso directo a los recursos de Cosmos DB con los permisos definidos por el token de recurso y para el intervalo permitido por dicho token.
 8. Cuando el token de recurso expira, las solicitudes posteriores reciben un mensaje 401 de excepción no autorizada.  En este punto, la aplicación de teléfono restablece la identidad y solicita un nuevo token de recurso.
 
-    ![Flujo de trabajo de tokens de recursos de Azure Cosmos DB](./media/secure-access-to-data/resourcekeyworkflow.png)
+    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Flujo de trabajo de tokens de recursos de Azure Cosmos DB" border="false":::
 
-La generación y administración de los tokens de recursos las controlan las bibliotecas de cliente de Cosmos DB nativas; sin embargo, si se usa REST, debe construir los encabezados de solicitud o autenticación. Para más información sobre cómo crear encabezados de autenticación para REST, consulte [Control de acceso en recursos de Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) o el código fuente de nuestros [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/AuthorizationHelper.cs) o [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
+La generación y administración de los tokens de recursos las controlan las bibliotecas de cliente de Cosmos DB nativas; sin embargo, si se usa REST, debe construir los encabezados de solicitud o autenticación. Para más información sobre cómo crear encabezados de autenticación para REST, consulte [Control de acceso en recursos de Cosmos DB](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) o el código fuente de nuestros [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/AuthorizationHelper.cs) o [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
 
 Para ver un ejemplo de un servicio de nivel intermedio que se usa para generarlo o los tokens de recursos del agente, consulte la [aplicación ResourceTokenBroker](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
@@ -176,5 +176,5 @@ Azure Cosmos DB le permite buscar, seleccionar, modificar y eliminar cualquier d
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información sobre la seguridad de las bases de datos de Cosmos, consulte [Cosmos DB: seguridad de bases de datos](database-security.md).
-- Para aprender a construir tokens de autorización de Azure Cosmos DB, consulte [Access Control on Azure Cosmos DB Resources](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) (Control de acceso en recursos de Azure Cosmos DB).
+- Para aprender a construir tokens de autorización de Azure Cosmos DB, consulte [Access Control on Azure Cosmos DB Resources](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) (Control de acceso en recursos de Azure Cosmos DB).
 - Ejemplos de administración de usuarios con usuarios y permisos, [ejemplos de administración de usuarios del SDK de .NET v3](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/UserManagement/UserManagementProgram.cs)

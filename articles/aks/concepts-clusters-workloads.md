@@ -4,12 +4,12 @@ description: Obtenga información sobre el clúster básico y los componentes de
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 13169628aff2fe4bff64fed36db54d18d4f830b8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9b54bdbfcbc37d3863d4e6b86ae6fe5522bb5be9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208166"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85336635"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)
 
@@ -105,9 +105,9 @@ Para mantener la funcionalidad y el rendimiento de los nodos, AKS reserva los si
 
 Las reglas anteriores para la asignación de memoria y CPU se usan para mantener el estado correcto de los nodos del agente, incluidos algunos pods del sistema de hospedaje que son críticos para el mantenimiento del clúster. Estas reglas de asignación también hacen que el nodo informe una menor memoria y CPU asignables que la que informaría si no formase parte de un clúster de Kubernetes. Las reservas de recursos anteriores no se pueden cambiar.
 
-Por ejemplo, si un nodo ofrece 7 GB, informará del 34 % de la memoria no asignable por encima del umbral de expulsión estricto de 750 Mi.
+Por ejemplo, si un nodo ofrece 7 GB, informará del 34 % de la memoria no asignable, incluido el umbral de expulsión estricto de 750 Mi.
 
-`(0.25*4) + (0.20*3) = + 1 GB + 0.6GB = 1.6GB / 7GB = 22.86% reserved`
+`0.75 + (0.25*4) + (0.20*3) = 0.75GB + 1GB + 0.6GB = 2.35GB / 7GB = 33.57% reserved`
 
 Además de las reservas para Kubernetes mismo, el sistema operativo del nodo subyacente también reserva una cantidad de recursos de CPU y memoria para mantener las funciones del sistema operativo.
 
@@ -204,11 +204,7 @@ Para más información, consulte el artículo sobre las [implementaciones de Kub
 
 Un enfoque común para la administración de aplicaciones en Kubernetes es con [Helm][helm]. Puede compilar y usar *gráficos* públicos de Helm existentes que contienen una versión empaquetada del código de la aplicación y los manifiestos de YAML de Kubernetes para la implementación de recursos. Estos gráficos de Helm pueden almacenarse localmente o, con frecuencia, en un repositorio remoto, como un [repositorio de gráficos de Helm para Azure Container Registry][acr-helm].
 
-Para usar Helm, se instala un componente de servidor denominado *Tiller* en el clúster de Kubernetes. Tiller administra la instalación de gráficos dentro del clúster. El propio cliente de Helm se instala localmente en el equipo, o bien puede utilizarse dentro de [Azure Cloud Shell][azure-cloud-shell]. Puede buscar o crear gráficos de Helm con el cliente y, a continuación, instalarlos en el clúster de Kubernetes.
-
-![Helm incluye un componente de cliente y un componente de Tiller del lado del servidor que crea recursos dentro del clúster de Kubernetes.](media/concepts-clusters-workloads/use-helm.png)
-
-Para más información, consulte [Instalación de aplicaciones con Helm en Azure Kubernetes Service (AKS)][aks-helm].
+Para usar Helm, instale el cliente de Helm en el equipo o use el cliente de Helm en [Azure Cloud Shell][azure-cloud-shell]. Puede buscar o crear gráficos de Helm con el cliente y, a continuación, instalarlos en el clúster de Kubernetes. Para más información, consulte [Instalación de aplicaciones existentes con Helm en AKS][aks-helm].
 
 ## <a name="statefulsets-and-daemonsets"></a>StatefulSets y DaemonSets
 

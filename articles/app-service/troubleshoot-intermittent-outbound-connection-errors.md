@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 03/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations
-ms.openlocfilehash: 028ddccdb989d35710e387081b08a3b973d75bdc
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 704c6b026ab656ce52b34e5ac70ba7e2087ccbcd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80367272"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85252447"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Solución de errores intermitentes en la conexión de salida en Azure App Service
 
@@ -116,7 +116,7 @@ En el caso de otros entornos, revise la documentación específica del proveedor
 ### <a name="additional-guidance-specific-to-app-service"></a>Instrucciones adicionales específicas para App Service:
 
 * Una [prueba de carga](https://docs.microsoft.com/azure/devops/test/load-test/app-service-web-app-performance-test) debe simular datos reales a una velocidad de alimentación estable. La prueba de las aplicaciones y funciones sometidas a esfuerzo real permite identificar y resolver los problemas de agotamiento de puertos SNAT con anterioridad.
-* Asegúrese de que los servicios back-end puedan devolver respuestas con rapidez. Para solucionar problemas de rendimiento de base de datos de Azure SQL, revise [Solución de problemas de rendimiento de Azure SQL Database con Intelligent Insights](https://docs.microsoft.com/azure/sql-database/sql-database-intelligent-insights-troubleshoot-performance#recommended-troubleshooting-flow).
+* Asegúrese de que los servicios back-end puedan devolver respuestas con rapidez. Para solucionar problemas de rendimiento de base de datos de Azure SQL Database, revise [Solución de problemas de rendimiento de Azure SQL Database con Intelligent Insights](https://docs.microsoft.com/azure/sql-database/sql-database-intelligent-insights-troubleshoot-performance#recommended-troubleshooting-flow).
 * Escale horizontalmente el plan de App Service a más instancias. Para obtener más información sobre el escalado, consulte [Escalado de una aplicación en Azure App Service](https://docs.microsoft.com/azure/app-service/manage-scale-up). A cada instancia de trabajo de un plan de App Service se le asigna un número de puertos SNAT. Si distribuye el uso entre más instancias, es posible que consiga reducir el uso de puertos SNAT por instancia por debajo del límite recomendado de 100 conexiones salientes, por punto de conexión remoto único.
 * Considere la posibilidad de cambiar a [App Service Environment (ASE)](https://docs.microsoft.com/azure/app-service/environment/using-an-ase), donde se le asigna una sola dirección IP de salida, y los límites de conexiones y puertos SNAT son mucho mayores.
 
@@ -160,7 +160,7 @@ Las conexiones TCP y los puertos SNAT no están directamente relacionados. Un de
 
 ### <a name="webjobs-and-database-connections"></a>Trabajos web y conexiones de base de datos
  
-Si se agotan los puertos SNAT y los trabajos web no se pueden conectar a la base de datos de Azure SQL, no hay ninguna métrica para mostrar el número de conexiones abiertas por cada proceso de aplicación web individual. Para encontrar el trabajo web con el problema, puede transferir varios trabajos web a otro plan de App Service para ver si la situación mejora, o bien si un problema se mantiene en uno de los planes. Repita el proceso hasta que encuentre el trabajo web con el problema.
+Si se agotan los puertos SNAT y los trabajos web no se pueden conectar a SQL Database, no hay ninguna métrica para mostrar el número de conexiones abiertas por cada proceso de aplicación web individual. Para encontrar el trabajo web con el problema, puede transferir varios trabajos web a otro plan de App Service para ver si la situación mejora, o bien si un problema se mantiene en uno de los planes. Repita el proceso hasta que encuentre el trabajo web con el problema.
 
 ### <a name="using-snat-ports-sooner"></a>Uso temprano de puertos SNAT
 

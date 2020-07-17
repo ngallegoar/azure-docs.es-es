@@ -7,20 +7,20 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 07/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34051a31c6ccf69356f330d7c5ecb009f760857a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 985342b19baad8b9210e985c9c7dfb9482708a0c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231804"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023778"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Asignación de roles de recursos de Azure en Privileged Identity Management
 
@@ -47,33 +47,31 @@ Siga estos pasos para hacer que un usuario sea elegible para un rol de directori
 
 1. Seleccione **Azure resources** (Recursos de Azure).
 
-1. Use **Filtro de recursos** para filtrar la lista de recursos administrados.
+1. Use el filtro de recursos para buscar los recursos administrados que está buscando.
 
     ![Lista de recursos de Azure para administrar](./media/pim-resource-roles-assign-roles/resources-list.png)
 
-1. Seleccione el recurso que desea administrar, por ejemplo, una suscripción o un grupo de administración.
+1. Seleccione el recurso que desea administrar para abrir la página de información general de recursos.
 
-1. En Administrar, seleccione **Roles** para ver la lista de roles de los recursos de Azure.
+1. En **Administrar**, seleccione **Roles** para ver la lista de roles de los recursos de Azure.
 
     ![Roles de recursos de Azure](./media/pim-resource-roles-assign-roles/resources-roles.png)
 
-1. Seleccione **Agregar miembro** para abrir el panel Nueva asignación.
+1. Seleccione **Agregar asignaciones** para abrir el panel **Agregar asignaciones**.
 
-1. Seleccione **Seleccionar un rol** para abrir el panel Seleccionar un rol.
+1. Elija **Seleccionar un rol** para abrir la página **Seleccionar un rol**.
 
     ![Panel Nueva asignación](./media/pim-resource-roles-assign-roles/resources-select-role.png)
 
 1. Seleccione el rol que quiera asignar y luego haga clic en **Seleccionar**.
 
-    Se abre el panel Seleccionar un miembro o grupo.
+    Se abre el panel **Seleccionar un miembro o grupo**.
 
 1. Seleccione el miembro o grupo que quiera asignar al rol y luego haga clic en **Seleccionar**.
 
     ![Panel Seleccionar un miembro o grupo](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
 
-    Se abre el panel Configuración de pertenencia.
-
-1. En la lista **Tipo de asignación**, seleccione **Apto** o **Activo**.
+1. En la pestaña **Configuración**, en la lista **Tipo de asignación**, seleccione **Apto** o **Activo**.
 
     ![Panel Configuración de pertenencia](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
 
@@ -83,19 +81,11 @@ Siga estos pasos para hacer que un usuario sea elegible para un rol de directori
 
     - Las asignaciones tipo **Activo** no requieren que el miembro realice ninguna acción para usar el rol. Los miembros asignados como activos tienen siempre los privilegios asignados al rol.
 
-1. Si la asignación debe ser permanente (siempre apta o asignada de forma permanente), active la casilla **Permanentemente**.
+1. Para especificar una duración de asignación específica, cambie las fechas y horas de inicio y finalización.
 
-    Según la configuración del rol, es posible que la casilla no aparezca o que no se pueda modificar.
+1. Cuando termine, seleccione **Asignar**.
 
-1. Para especificar una duración de asignación específica, desactive la casilla y modifique los cuadros de fecha y hora de inicio o finalización.
-
-    ![Configuración de pertenencias: fecha y hora](./media/pim-resource-roles-assign-roles/resources-membership-settings-date.png)
-
-1. Cuando termine, seleccione **Listo**.
-
-    ![Nueva asignación: agregar](./media/pim-resource-roles-assign-roles/resources-new-assignment-add.png)
-
-1. Para crear la nueva asignación de roles, seleccione **Agregar**. Se muestra una notificación del estado.
+1. Una vez creada la nueva asignación de roles, se muestra una notificación de estado.
 
     ![Nueva asignación: notificación](./media/pim-resource-roles-assign-roles/resources-new-assignment-notification.png)
 
@@ -107,9 +97,9 @@ Siga estos pasos para actualizar o quiotar una asignación de roles existente.
 
 1. Seleccione **Azure resources** (Recursos de Azure).
 
-1. Seleccione el recurso que desea administrar, por ejemplo, una suscripción o un grupo de administración.
+1. Seleccione el recurso que desea administrar para abrir su página de información general.
 
-1. En Administrar, seleccione **Roles** para ver la lista de roles de los recursos de Azure.
+1. En **Administrar**, seleccione **Roles** para ver la lista de roles de los recursos de Azure.
 
     ![Roles de recursos de Azure: seleccionar rol](./media/pim-resource-roles-assign-roles/resources-update-select-role.png)
 

@@ -3,15 +3,15 @@ title: Configuración del acceso basado en red virtual para la cuenta de Azure C
 description: En este documento se describen los pasos necesarios para configurar un punto de conexión de servicio de red virtual en Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 03/26/2020
+ms.topic: how-to
+ms.date: 06/04/2020
 ms.author: mjbrown
-ms.openlocfilehash: 442623880c1b95f3d7e038ae44832b74853d2c4a
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: a061676714c35b4e8868ce3df9c71be05297ba99
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366236"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261671"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Configuración del acceso desde redes virtuales (VNET)
 
@@ -42,11 +42,11 @@ En las secciones siguientes se describe cómo configurar un punto de conexión d
 
 1. Seleccione la **suscripción** en la que quiere agregar una red virtual de Azure. Seleccione las **redes virtuales** y las **subredes** de Azure a las que desea conceder acceso a la cuenta de Azure Cosmos DB. A continuación, seleccione **Habilitar** para habilitar las redes seleccionadas con los puntos de conexión de servicio para "Microsoft.AzureCosmosDB". Cuando haya finalizado, seleccione **Agregar**.
 
-   ![Selección de la red virtual y la subred](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png)
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png" alt-text="Selección de la red virtual y la subred":::
 
 1. Después de que la cuenta de Azure Cosmos DB esté habilitada para obtener acceso desde una red virtual, solo permitirá el tráfico desde esta subred seleccionada. La red virtual y subred que agregó deben aparecer como se muestra en la captura de pantalla siguiente:
 
-   ![Red virtual y subred configuradas correctamente](./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png)
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png" alt-text="Red virtual y subred configuradas correctamente":::
 
 > [!NOTE]
 > Para habilitar los puntos de conexión de servicio de red virtual, necesitará los siguientes permisos de suscripción:
@@ -66,7 +66,7 @@ Estas son las instrucciones para registrar la suscripción con el proveedor de r
 
 1. Proporcione los detalles necesarios para crear una red virtual y, a continuación, seleccione **Crear**. La subred se creará con un punto de conexión de servicio para "Microsoft.AzureCosmosDB" habilitado.
 
-   ![Selección de la red virtual y la subred para una red virtual nueva](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png)
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png" alt-text="Selección de la red virtual y la subred para una red virtual nueva":::
 
 Si otros servicios de Azure, como Azure Cognitive Search, usan la cuenta de Azure Cosmos DB, o si se accede a ella desde Stream Analytics o Power BI, permita el acceso al seleccionar **Accept connections from within global Azure datacenters** (Aceptar conexiones desde centros de datos globales de Azure).
 
@@ -80,7 +80,7 @@ Para garantizar el acceso a las métricas de Azure Cosmos DB desde el portal, de
 
 1. Para eliminar una regla de subred o red virtual, seleccione **...** junto a la red virtual o subred y luego **Eliminar**.
 
-   ![Eliminación de una red virtual](./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png)
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png" alt-text="Eliminación de una red virtual":::
 
 1. Seleccione **Guardar** para aplicar los cambios.
 
@@ -257,6 +257,10 @@ az network vnet subnet update \
    --vnet-name $vnetName \
    --service-endpoints Microsoft.AzureCosmosDB
 ```
+
+## <a name="port-range-when-using-direct-mode"></a>Intervalo de puertos al usar el modo directo
+
+Cuando use los puntos de conexión de servicio con una cuenta de Azure Cosmos a través de una conexión de modo directo, debe asegurarse de que el intervalo de puertos TCP de 10000 a 20000 esté disponible.
 
 ## <a name="migrating-from-an-ip-firewall-rule-to-a-virtual-network-acl"></a><a id="migrate-from-firewall-to-vnet"></a>Migración desde una regla de firewall de IP a una lista de control de acceso de red virtual
 

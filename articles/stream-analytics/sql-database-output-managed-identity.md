@@ -4,14 +4,14 @@ description: En este artículo se describe cómo usar identidades administradas 
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: a8699b3942fe3a4b23f1d72036b7364cdab36f8e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 757dd7280867e9b31fdc0750fc0848de8f266770
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651956"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045627"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Uso de identidades administradas para acceder a Azure SQL Database desde un trabajo de Azure Stream Analytics (versión preliminar)
 
@@ -19,7 +19,7 @@ Azure Stream Analytics admite la [autenticación de identidades administradas](.
 
 Una identidad administrada es una aplicación administrada registrada en Azure Active Directory que representa un trabajo de Stream Analytics determinado. La aplicación administrada se usa para la autenticación en un recurso de destino. En este artículo se muestra cómo habilitar la identidad administrada para las salidas de Azure SQL Database de un trabajo de Stream Analytics a través de Azure Portal.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para usar esta característica se requiere lo siguiente:
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 3e5507069a3e1eeadfaf4c3eeee288b2651e88a1
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 637bdb02cd9fc5296c74633bbfa381e62673a4bf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996047"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85355665"
 ---
 # <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Administración y búsqueda de datos en Azure Blob Storage con el Índice de blobs (versión preliminar)
 
@@ -63,7 +63,7 @@ Puede aplicar varias etiquetas en el blob para una mayor descripción de los dat
 > "Priority" = '01' 
 >
 
-Para modificar los atributos de etiqueta del índice existentes, primero debe recuperar los atributos de etiqueta existentes, modificar los atributos de etiqueta y reemplazar por la operación SetBlobTags. Para quitar todas las etiquetas de índice del blob, llame a la operación SetBlobTags sin especificar atributos de etiqueta. Como las etiquetas de índice del blob son un subrecurso del contenido de los datos del blob, SetBlobTags no modifica ningún contenido subyacente y no cambia la hora de la última modificación del blob.
+Para modificar los atributos de etiqueta del índice existentes, primero debe recuperar los atributos de etiqueta existentes, modificar los atributos de etiqueta y reemplazar por la operación SetBlobTags. Para quitar todas las etiquetas de índice del blob, llame a la operación SetBlobTags sin especificar atributos de etiqueta. Como las etiquetas de índice del blob son un recurso secundario del contenido de los datos del blob, SetBlobTags no modifica ningún contenido subyacente y no cambia la hora de la última modificación o ETag (etiqueta de entidad) del blob. Puede crear o modificar etiquetas de índice para todos los blobs base actuales y versiones anteriores. Sin embargo, las etiquetas de las instantáneas o los blobs eliminados temporalmente no se pueden modificar. 
 
 Los límites siguientes se aplican a las etiquetas del Índice de blobs:
 - Cada blob puede tener hasta 10 etiquetas de índice del blob
@@ -208,7 +208,7 @@ A los autores de llamadas que usan una [identidad de AAD](../common/storage-auth
 
 |   Operaciones con blobs   |  Acción de RBAC   |
 |---------------------|----------------|
-| Buscar blobs por etiquetas  | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter |
+| Buscar blobs por etiquetas  | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action |
 | Establecer etiquetas de blobs         | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write | 
 | Obtener etiquetas de blobs         | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read |
 

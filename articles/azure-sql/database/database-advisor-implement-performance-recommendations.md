@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: 14f304e3846cab25691da347732de50924356540
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5a81ceea151b937b63544cbe51cc22de11d25230
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84036586"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254946"
 ---
 # <a name="database-advisor-performance-recommendations-for-azure-sql-database"></a>Recomendaciones de rendimiento de Database Advisor para Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -43,7 +43,7 @@ Las opciones de recomendaciones de rendimiento disponibles en Azure SQL Databas
 | **Recomendaciones Crear índice**: recomienda la creación de índices que podrían mejorar el rendimiento de la carga de trabajo. | Sí | No |
 | **Recomendaciones Quitar índice**: recomienda la eliminación diaria de los índices duplicados y redundantes, excepto los índices únicos y los que no se han usado durante mucho tiempo (más de 90 días). Tenga en cuenta que esta opción no es compatible con las aplicaciones que usan sugerencias de índice y la conmutación de particiones. No se admite la eliminación de índices sin usar para los niveles de servicio Prémium y Crítico para la empresa. | Sí | No |
 | **Recomendaciones Parametrizar consultas (versión preliminar)** : recomienda la parametrización forzada en aquellos casos en que hay una o varias consultas que se recompilan constantemente, pero acaban con el mismo plan de ejecución de consulta. | Sí | No |
-| **Recomendaciones Solucionar problemas de esquema (versión preliminar)** : las recomendaciones de corrección de esquema aparecen cuando Azure SQL Database advierte alguna anomalía en el número de errores de SQL relacionados con el esquema que se producen en la base de datos SQL. Microsoft está dejando de usar las recomendaciones de corrección de problemas de esquema. | Sí | No |
+| **Recomendaciones Solucionar problemas de esquema (versión preliminar)** : las recomendaciones de corrección de esquema aparecen cuando Azure SQL Database detecta alguna anomalía en el número de errores de SQL relacionados con el esquema que se producen en la base de datos. Microsoft está dejando de usar las recomendaciones de corrección de problemas de esquema. | Sí | No |
 
 ![Recomendaciones de rendimiento para Azure SQL Database](./media/database-advisor-implement-performance-recommendations/performance-recommendations-annotated.png)
 
@@ -97,11 +97,11 @@ Después de aplicar esta recomendación, se habilita la parametrización forzada
 > [!IMPORTANT]
 > Microsoft está dejando de usar las recomendaciones de corrección de problemas de esquema. Se recomienda usar [Intelligent Insights](intelligent-insights-overview.md) para supervisar los problemas de rendimiento de la base de datos, incluidos los problemas de esquema que anteriormente trataban las recomendaciones de corrección de problemas de esquema.
 
-Las recomendaciones **Solucionar problemas de esquema** aparecen cuando Azure SQL Database advierte alguna anomalía en el número de errores de SQL relacionados con el esquema que se producen en la base de datos SQL. Esta recomendación suele aparecer cuando la base de datos encuentra varios errores relacionados con el esquema (nombre de columna no válido, nombre de objeto no válido, etc.) en el curso de una hora.
+Las recomendaciones **Solucionar problemas de esquema** aparecen cuando Azure SQL Database detecta alguna anomalía en el número de errores de SQL relacionados con el esquema que se producen en la base de datos. Esta recomendación suele aparecer cuando la base de datos encuentra varios errores relacionados con el esquema (nombre de columna no válido, nombre de objeto no válido, etc.) en el curso de una hora.
 
 Los "problemas de esquema" son un tipo de errores de sintaxis. Se producen cuando la definición de la consulta SQL y la definición del esquema de base de datos no concuerdan. Por ejemplo, puede que en la tabla de destino falte una de las columnas que espera la consulta o viceversa.
 
-La recomendación "Solucionar problema de esquema" aparece cuando Azure SQL Database advierte alguna anomalía en el número de errores de SQL relacionados con el esquema que se producen en una base de datos SQL. En la tabla siguiente se muestran los errores relacionados con los problemas del esquema:
+Las recomendaciones "Solucionar problemas de esquema" aparecen cuando Azure SQL Database detecta alguna anomalía en el número de errores de SQL relacionados con el esquema que se producen en la base de datos. En la tabla siguiente se muestran los errores relacionados con los problemas del esquema:
 
 | Código de error SQL | Message |
 | --- | --- |

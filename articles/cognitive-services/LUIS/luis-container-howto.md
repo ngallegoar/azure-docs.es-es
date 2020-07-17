@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 2df36d80aea34da1693cecde524d239abd2bb04a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8c5e384e85861cdced3ed6dbe60733128b499407
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100250"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039014"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar y ejecutar contenedores de docker de LUIS
 
@@ -28,7 +28,7 @@ En el siguiente vídeo, se explica cómo se utiliza este contenedor.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para ejecutar el contenedor de LUIS, tenga en cuenta los siguientes requisitos previos:
 
@@ -89,7 +89,7 @@ Una vez que el contenedor esté en el [equipo host](#the-host-computer), utilice
 1. Cuando haya terminado con el contenedor, [importe los registros de punto de conexión](#import-the-endpoint-logs-for-active-learning) desde la salida de montaje en el portal de LUIS y [detenga](#stop-the-container) el contenedor.
 1. En el portal de LUIS, utilice el [aprendizaje activo ](luis-how-to-review-endpoint-utterances.md) de la página sobre la **revisión de expresiones de puntos de conexión** para mejorar la aplicación.
 
-La aplicación que se ejecuta en el contenedor no se puede modificar. Para poder cambiar la aplicación del contenedor, tiene que modificarla en el servicio de LUIS utilizando el portal o las [API de creación](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) de [LUIS](https://www.luis.ai). Después de realizar el entrenamiento o la publicación, descargue un nuevo paquete y ejecute de nuevo el contenedor.
+La aplicación que se ejecuta en el contenedor no se puede modificar. Con el fin de cambiar la aplicación en el contenedor, debe cambiar la aplicación en el servicio LUIS con el portal de [LUIS](https://www.luis.ai) o usar las [API de creación](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) de LUIS. Después de realizar el entrenamiento o la publicación, descargue un nuevo paquete y ejecute de nuevo el contenedor.
 
 La aplicación de LUIS que está dentro del contenedor no puede exportarse de nuevo al servicio de LUIS. Solo se pueden cargar los registros de consulta.
 

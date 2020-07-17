@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: dfd75ad2c6ae246bfe6ee8b983744b3db07a841f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b585a903267386358552154228705c1921df619
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82194948"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255337"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Sintaxis de consulta simple en Azure Cognitive Search
 
@@ -62,6 +62,14 @@ Asegúrese de que todos los caracteres reservados y no seguros están codificado
 
 Los caracteres no seguros son ``" ` < > # % { } | \ ^ ~ [ ]``. Los caracteres reservados son `; / ? : @ = + &`.
 
+### <a name="querying-for-special-characters"></a>Consulta para caracteres especiales
+
+En algunas circunstancias, es posible que quiera buscar un carácter especial, como el emoji "❤" o el signo "€". En ese caso, asegúrese de que el analizador que usa no filtre esos caracteres.  El analizador estándar omite muchos de los caracteres especiales para que no se conviertan en tokens del índice.
+
+Por lo tanto, el primer paso consiste en asegurarse de que se usa un analizador que tomará en cuenta los tokens de los elementos. Por ejemplo, el analizador "whitespace" incluye todas las secuencias de caracteres separadas por espacios en blanco como tokens, por lo que la cadena "❤" se consideraría un token. Además, un analizador como el del idioma inglés de Microsoft ("en.microsoft") debe incluir la cadena "€" como un token. Puede [probar un analizador](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) para ver qué tokens genera para una consulta determinada.
+
+Al usar caracteres Unicode, asegúrese de que los símbolos se escapen correctamente en la dirección URL de la consulta (por ejemplo, para "❤" usaría la secuencia de escape `%E2%9D%A4+`). Postman realiza esta traducción automáticamente.
+
 ###  <a name="query-size-limits"></a><a name="bkmk_querysizelimits"></a> Límites de tamaño de consulta
 
  Existe un límite en el tamaño de las consultas que se pueden enviar a Azure Cognitive Search. En concreto, puede tener como máximo 1024 cláusulas (expresiones separadas por AND, OR, etc.). También hay un límite de aproximadamente 32 KB en el tamaño de cualquier término individual en una consulta. Si la aplicación genera consultas de búsqueda mediante programación, se recomienda que la diseña de manera que no genere consultas de tamaño ilimitado.  
@@ -94,17 +102,17 @@ Al decidir sobre una configuración de **searchMode**, tenga en cuenta los patro
 
 <a name="prefix-search"></a>
 
-## <a name="prefix-search"></a>Búsqueda de prefijo
+## <a name="wildcard-prefix-matching--"></a>Coincidencia de prefijos de los caracteres comodín (*, ?)
 
-El operador de sufijo es un asterisco `*`. Por ejemplo, `lingui*` encontrará "linguistic" o "Linguini", sin distinción de mayúsculas y minúsculas. 
+En el caso de las consultas "empieza por", agregue un operador de sufijo como marcador de posición para la última parte de un término. Use un asterisco `*` para varios caracteres o `?` para caracteres individuales. Por ejemplo, `lingui*` coincidirá con "linguistic" o "linguini", sin distinción de mayúsculas y minúsculas. 
 
-De forma similar a los filtros, una consulta de prefijo busca una coincidencia exacta. Como tal, no hay ninguna puntuación de relevancia (todos los resultados reciben una puntuación de búsqueda de 1,0). Las consultas de prefijo pueden ser lentas, en especial si el índice es grande y el prefijo está formado por un número pequeño de caracteres. 
+De forma similar a los filtros, una consulta de prefijo busca una coincidencia exacta. Como tal, no hay ninguna puntuación de relevancia (todos los resultados reciben una puntuación de búsqueda de 1,0). Tenga en cuenta que las consultas de prefijo pueden ser lentas, en especial si el índice es grande y el prefijo está formado por un número pequeño de caracteres. Podría funcionar más rápido una metodología alternativa, como la tokenización de n-gramas perimetrales.
 
-Si desea ejecutar una consulta de sufijo, que coincida en la última parte de la cadena, utilice una [búsqueda con caracteres comodín](query-lucene-syntax.md#bkmk_wildcard) y la sintaxis de Lucene completa.
+Para otras variantes de consulta con caracteres comodín, como la coincidencia de sufijos o interfijos en la parte inicial o intermedia de un término, use la [sintaxis de Lucene completa para la búsqueda con caracteres comodín](query-lucene-syntax.md#bkmk_wildcard).
 
 ## <a name="phrase-search-"></a>Búsqueda de frases `"`
 
-Una búsqueda de términos es una consulta para uno o varios términos, donde cualquiera de los términos se considera una coincidencia. Una búsqueda de frases es una frase exacta entre comillas `" "`. Por ejemplo, mientras que `Roach Motel` (sin comillas) buscaría documentos que contuvieran `Roach` y/o `Motel` en cualquier lugar y en cualquier orden, `"Roach Motel"` (con comillas) solo encontrará coincidencias en documentos que contengan esa frase completa junta y en ese orden (el análisis de texto sigue aplicándose).
+Una búsqueda de términos es una consulta para uno o varios términos, donde cualquiera de los términos se considera una coincidencia. Una búsqueda de frases es una frase exacta entre comillas `" "`. Por ejemplo, mientras que `Roach Motel` (sin comillas) buscaría documentos que contuvieran `Roach` y/o `Motel` en cualquier lugar y en cualquier orden, `"Roach Motel"` (con comillas) solo encontrará coincidencias en documentos que contengan esa frase completa junta y en ese orden (el análisis léxico sigue aplicándose).
 
 ## <a name="see-also"></a>Consulte también  
 

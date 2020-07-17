@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 01/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 65a61babe58e1cb9438262186a7f4cf37cb10a34
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 3e248e7af5fc9ed2bc144a4b302577be56524d7d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612614"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361174"
 ---
 # <a name="host-pool-creation"></a>Creación de grupos de hosts
 
@@ -37,7 +37,8 @@ Para usar la imagen de sesión múltiple de Windows 10 Enterprise, vaya a Azure
 
 ### <a name="error-create-a-free-account-appears-when-accessing-the-service"></a>Error: El mensaje "Crear una cuenta gratuita" aparece al acceder al servicio
 
-![Imagen que muestra Azure Portal con el mensaje "Crear una cuenta gratuita"](media/create-new-account.png)
+> [!div class="mx-imgBorder"]
+> ![Imagen que muestra Azure Portal con el mensaje "Crear una cuenta gratuita"](media/create-new-account.png)
 
 **Causa**: No existen suscripciones activas en la cuenta con la que inició sesión en Azure, o bien la cuenta no tiene permisos para ver las suscripciones. 
 
@@ -60,9 +61,10 @@ Siga estas instrucciones para solucionar problemas de implementaciones incorrect
 3. Una vez identificado el error, utilice el mensaje de error y los recursos de [Solucionar errores comunes de implementación de Azure con Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md) para solucionar el problema.
 4. Elimine los recursos creados durante la implementación anterior y vuelva a intentar implementar la plantilla.
 
-### <a name="error-your-deployment-failedhostnamejoindomain"></a>Error: Error al realizar la implementación...\<hostname>/joindomain
+### <a name="error-your-deployment-failedhostnamejoindomain"></a>Error: La implementación no se pudo…\<hostname>/joindomain
 
-![Captura de pantalla de error de implementación.](media/failure-joindomain.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla de error de implementación.](media/failure-joindomain.png)
 
 Ejemplo de error no procesado:
 
@@ -103,7 +105,8 @@ Para corregirlo, siga estos pasos:
 
 ### <a name="error-vmextensionprovisioningerror"></a>Error: VMExtensionProvisioningError
 
-![Captura de pantalla de error de implementación con error de estado de aprovisionamiento terminal.](media/failure-vmextensionprovisioning.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla de error de implementación con error de estado de aprovisionamiento terminal.](media/failure-vmextensionprovisioning.png)
 
 **Causa 1:** Error transitorio del entorno de Windows Virtual Desktop.
 
@@ -113,7 +116,8 @@ Para corregirlo, siga estos pasos:
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>Error: El nombre de usuario de administrador especificado no está permitido
 
-![Captura de pantalla de error de implementación en que un administrador especificado no está permitido.](media/failure-username.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla de error de implementación en que un administrador especificado no está permitido.](media/failure-username.png)
 
 Ejemplo de error no procesado:
 
@@ -130,7 +134,8 @@ Ejemplo de error no procesado:
 
 ### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Error: La máquina virtual ha indicado un error al procesar la extensión
 
-![Captura de pantalla de la operación de recursos completa con un estado de aprovisionamiento terminal de Error de implementación.](media/failure-processing.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla de la operación de recursos completa con un estado de aprovisionamiento terminal de Error de implementación.](media/failure-processing.png)
 
 Ejemplo de error no procesado:
 
@@ -149,7 +154,8 @@ Ejemplo de error no procesado:
 
 ### <a name="error-deploymentfailed--powershell-dsc-configuration-firstsessionhost-completed-with-errors"></a>Error: DeploymentFailed: la configuración de DSC de PowerShell "FirstSessionHost" se ha completado con errores
 
-![Captura de pantalla de error de implementación con la configuración de DSC de PowerShell "FirstSessionHost" completada con errores.](media/failure-dsc.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla de error de implementación con la configuración de DSC de PowerShell "FirstSessionHost" completada con errores.](media/failure-dsc.png)
 
 Ejemplo de error no procesado:
 

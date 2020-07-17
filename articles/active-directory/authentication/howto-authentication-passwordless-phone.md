@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3412938cfc2ad3fbec293fd33f64e114e14e6f7e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 8b5dbf26bc636107576af15a0217eb16302f63f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81450979"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601639"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Habilitar el inicio de sesión sin contraseña en Azure AD con la aplicación Microsoft Authenticator (versión preliminar)
 
@@ -29,7 +29,7 @@ En lugar de ver la petición de una contraseña después de escribir un nombre d
 > [!NOTE]
 > Esta funcionalidad se incluye en la aplicación Microsoft Authenticator desde marzo de 2017, por lo que existe la posibilidad de que, cuando la directiva esté habilitada para un directorio, los usuarios puedan encontrar este flujo inmediatamente y vean un mensaje de error si no se han habilitado mediante la directiva. Tenga esto en cuenta y prepare a los usuarios para este cambio.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Azure Multi-Factor Authentication, con notificaciones de inserción permitidas como método de comprobación 
 - Versión más reciente de Microsoft Authenticator instalada en dispositivos que ejecutan iOS 8.0 o superior o Android 6.0 o superior.
@@ -82,9 +82,9 @@ El administrador puede optar por permitir que el usuario use el inicio de sesió
 
 ### <a name="ad-fs-integration"></a>Integración de AD FS
 
-Cuando un usuario ha habilitado la credencial sin contraseña de Microsoft Authenticator, la autenticación predeterminada para ese usuario siempre será enviar una notificación para su aprobación. Esta lógica evita que los usuarios de un inquilino híbrido sean dirigidos a ADFS para la comprobación de inicio de sesión sin que el usuario realice ningún paso adicional para hacer clic en "Use su contraseña en su lugar". En este proceso también se omitirán las directivas de acceso condicional del entorno local y los flujos de autenticación de paso a través. 
+Cuando un usuario ha habilitado la credencial sin contraseña de Microsoft Authenticator, la autenticación predeterminada para ese usuario siempre será enviar una notificación para su aprobación. Esta lógica evita que los usuarios de un inquilino híbrido se dirijan a AD FS para la comprobación de inicios de sesión sin que el usuario realice un paso adicional para hacer clic en "Use su contraseña en su lugar". En este proceso también se omitirán las directivas de acceso condicional del entorno local y los flujos de autenticación de paso a través. 
 
-Si un usuario tiene pendiente una comprobación de inicio de sesión en el teléfono sin contraseña sin contestar e intenta volver a iniciar sesión, es posible que se dirija al usuario a ADFS para que escriba una contraseña en su lugar.  
+Si un usuario tiene pendiente una comprobación de inicio de sesión en el teléfono sin contraseña sin contestar e intenta volver a iniciar sesión, es posible que se dirija al usuario a AD FS para que escriba una contraseña en su lugar.  
 
 ### <a name="azure-mfa-server"></a>Servidor de Azure MFA
 
@@ -103,7 +103,7 @@ Los usuarios finales que estén sujetos a una directiva que requiera la administ
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[What is passwordless?](concept-authentication-passwordless.md) (¿Qué quiere decir sin contraseña?)
+[Obtener información sobre cómo funciona la autenticación con contraseñas](concept-authentication-passwordless.md)
 
 [Obtenga información sobre el registro de dispositivos](../devices/overview.md#getting-devices-in-azure-ad)
 

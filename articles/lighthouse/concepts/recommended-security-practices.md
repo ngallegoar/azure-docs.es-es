@@ -1,18 +1,18 @@
 ---
 title: Procedimientos de seguridad recomendados
-description: Al usar la administración de recursos delegados de Azure, es importante tener en cuenta la seguridad y el control de acceso.
-ms.date: 03/24/2020
+description: Al usar Azure Lighthouse, es importante tener en cuenta la seguridad y el control de acceso.
+ms.date: 07/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: d9b806aaf988fedfde6ce468f3eff948aa8ce344
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c620feabf5bcedc35a36104c3ba305ac9337ff0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80246915"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105428"
 ---
 # <a name="recommended-security-practices"></a>Procedimientos de seguridad recomendados
 
-Al usar la [administración de recursos delegados de Azure](azure-delegated-resource-management.md), es importante tener en cuenta la seguridad y el control de acceso. Los usuarios de su inquilino tendrán acceso directo a las suscripciones y los grupos de recursos del cliente, por lo que es recomendable tomar medidas para proteger la seguridad del inquilino. También es recomendable asegurarse de que solo se permite el acceso necesario para administrar de forma eficaz los recursos de los clientes. En este tema se proporcionan recomendaciones para ayudarle a hacerlo.
+Al usar [Azure Lighthouse](../overview.md), es importante tener en cuenta la seguridad y el control de acceso. Los usuarios de su inquilino tendrán acceso directo a las suscripciones y los grupos de recursos del cliente, por lo que es recomendable tomar medidas para proteger la seguridad del inquilino. También es recomendable asegurarse de que solo se permite el acceso necesario para administrar de forma eficaz los recursos de los clientes. En este tema se proporcionan recomendaciones para ayudarle a hacerlo.
 
 ## <a name="require-azure-multi-factor-authentication"></a>Requerir Azure Multi-Factor Authentication
 

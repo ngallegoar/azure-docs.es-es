@@ -3,12 +3,12 @@ title: Supervisión de un clúster de Azure Kubernetes Service (AKS) implementad
 description: Obtenga información sobre cómo habilitar la supervisión de un clúster de Azure Kubernetes Service (AKS) con Azure Monitor para contenedores ya implementados en la suscripción.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 5b7450f5eb132dab9961de712d8cddb33bd2c521
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 2dabbe7a5c0e183363fe05bc4e75da0b6a346e6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84264217"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337967"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Habilitar la supervisión de un clúster de Azure Kubernetes Service (AKS) ya implementado
 
@@ -27,10 +27,10 @@ Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 ## <a name="enable-using-azure-cli"></a>Habilitación del uso de la CLI de Azure
 
-El paso siguiente habilita la supervisión del clúster de AKS mediante la CLI de Azure. En este ejemplo, no es necesario que cree o especifique un área de trabajo. Este comando le simplifica el proceso al crear un área de trabajo predeterminada en el grupo de recursos predeterminado de la suscripción del clúster de AKS, si aún no existe en la región.  El área de trabajo predeterminada creada es similar al formato de *DefaultWorkspace-\<GUID>-\<Region>* .  
+El paso siguiente habilita la supervisión del clúster de AKS mediante la CLI de Azure. En este ejemplo, no es necesario que cree o especifique un área de trabajo. Este comando le simplifica el proceso al crear un área de trabajo predeterminada en el grupo de recursos predeterminado de la suscripción del clúster de AKS, si aún no existe en la región.  El área de trabajo predeterminada creada es similar al formato de *DefaultWorkspace-\<GUID>-\<Region>* .
 
 ```azurecli
-az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  
+az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
 ```
 
 La salida será similar a la siguiente:
@@ -41,7 +41,7 @@ provisioningState       : Succeeded
 
 ### <a name="integrate-with-an-existing-workspace"></a>Integración en un área de trabajo existente
 
-Si prefiere realizar la integración en un área de trabajo existente, realice los pasos siguientes para detectar primero el identificador del recurso completo de su área de trabajo de Log Analytics necesario para el parámetro `--workspace-resource-id` y ejecute el comando para habilitar el complemento de supervisión en el área de trabajo especificada.  
+Si prefiere realizar la integración en un área de trabajo existente, realice los pasos siguientes para detectar primero el identificador del recurso completo de su área de trabajo de Log Analytics necesario para el parámetro `--workspace-resource-id` y ejecute el comando para habilitar el complemento de supervisión en el área de trabajo especificada.
 
 1. Enumere todas las suscripciones a las que tiene acceso con el siguiente comando:
 
@@ -112,7 +112,7 @@ Para habilitar la supervisión de un clúster de AKS en Azure Portal desde Azure
 
 4. En la lista de clústeres sin supervisar, busque el contenedor y haga clic en **Habilitar**.
 
-5. En la página **Incorporación a Azure Monitor para contenedores**, si tiene un área de trabajo de Log Analytics ya existente en la misma suscripción que el clúster, selecciónela de la lista desplegable.  
+5. En la página **Incorporación a Azure Monitor para contenedores**, si tiene un área de trabajo de Log Analytics ya existente en la misma suscripción que el clúster, selecciónela de la lista desplegable.
     La lista preselecciona el área de trabajo y la ubicación predeterminadas en las que se implementa el contenedor de AKS en la suscripción.
 
     ![Habilitación de la supervisión de conclusiones de contenedores de AKS](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
@@ -130,15 +130,15 @@ Para habilitar la supervisión directamente desde un clúster de AKS en Azure Po
 
 2. En la lista de recursos, empiece a escribir **Containers**.  La lista se filtra en función de lo que escriba.
 
-3. Seleccione **servicios de Kubernetes**.  
+3. Seleccione **servicios de Kubernetes**.
 
     ![El vínculo de Servicios de Kubernetes](./media/container-insights-onboard/portal-search-containers-01.png)
 
 4. En la lista de contenedores, seleccione uno de ellos.
 
-5. En la página de información general del contenedor, seleccione **Contenedores de Monitor**.  
+5. En la página de información general del contenedor, seleccione **Contenedores de Monitor**.
 
-6. En la página **Incorporación a Azure Monitor para contenedores**, si tiene un área de trabajo de Log Analytics ya existente en la misma suscripción que el clúster, selecciónela de la lista desplegable.  
+6. En la página **Incorporación a Azure Monitor para contenedores**, si tiene un área de trabajo de Log Analytics ya existente en la misma suscripción que el clúster, selecciónela de la lista desplegable.
     La lista preselecciona el área de trabajo y la ubicación predeterminadas en las que se implementa el contenedor de AKS en la suscripción.
 
     ![Habilitación de la supervisión del mantenimiento de contenedores de AKS](./media/container-insights-onboard/kubernetes-onboard-brownfield-02.png)
@@ -310,7 +310,21 @@ Si la salida se parece a la siguiente, la implementación se ha realizado correc
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
-```  
+```
+
+Si hay nodos de Windows Server en el clúster, puede ejecutar el siguiente comando para comprobar que el agente se ha implementado correctamente.
+
+```
+kubectl get ds omsagent-win --namespace=kube-system
+```
+
+Si la salida se parece a la siguiente, la implementación se ha realizado correctamente:
+
+```output
+User@aksuser:~$ kubectl get ds omsagent-win --namespace=kube-system
+NAME                   DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                   AGE
+omsagent-win           2         2         2         2            2           beta.kubernetes.io/os=windows   1d
+```
 
 Para comprobar la implementación de la solución, ejecute el siguiente comando:
 
@@ -328,23 +342,23 @@ omsagent   1         1         1            1            3h
 
 ### <a name="agent-version-earlier-than-06072018"></a>Versión del agente anterior a 06072018
 
-Para comprobar que la versión del agente de Log Analytics anterior a *06072018* se ha implementado correctamente, ejecute el comando siguiente:  
+Para comprobar que la versión del agente de Log Analytics anterior a *06072018* se ha implementado correctamente, ejecute el comando siguiente:
 
 ```
 kubectl get ds omsagent --namespace=kube-system
 ```
 
-Si la salida se parece a la siguiente, la implementación se ha realizado correctamente:  
+Si la salida se parece a la siguiente, la implementación se ha realizado correctamente:
 
 ```output
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
-```  
+```
 
 ## <a name="view-configuration-with-cli"></a>Visualización de la configuración con la CLI
 
-Use el comando `aks show` para obtener detalles como si la solución está habilitada o no, cuál es el valor del identificador de recursos del área de trabajo de Log Analytics y detalles de resumen acerca del clúster.  
+Use el comando `aks show` para obtener detalles como si la solución está habilitada o no, cuál es el valor del identificador de recursos del área de trabajo de Log Analytics y detalles de resumen acerca del clúster.
 
 ```azurecli
 az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>

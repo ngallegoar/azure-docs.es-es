@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: df06c4c55941f4424d6b90d2846af17bf055b2e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: df5755c585d99333bf0c64ca08705309b4d4fc58
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80885470"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253127"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Escenario: Aplicación de demonio que llama a las API web
 
 Obtenga toda la información necesaria para compilar una aplicación de demonio que llama a las API web.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
@@ -38,7 +38,7 @@ Estos son algunos ejemplos de casos de usos para aplicaciones de demonio:
 - Aplicaciones de escritorio (como servicios de Windows en Windows o procesos de demonio en Linux) que realizan trabajos por lotes, o un servicio de sistema operativo que se ejecuta en segundo plano
 - API Web que necesitan manipular directorios, no usuarios específicos
 
-Hay otro caso habitual en el que las aplicaciones que no son demonios usan las credenciales del cliente: incluso cuando actúan en nombre de usuarios, necesitan acceder a una API web o a un recurso con su propia identidad por motivos técnicos. Un ejemplo es el acceso a los secretos de Azure Key Vault o una base de datos de Azure SQL de una caché.
+Hay otro caso habitual en el que las aplicaciones que no son demonios usan las credenciales del cliente: incluso cuando actúan en nombre de usuarios, necesitan acceder a una API web o a un recurso con su propia identidad por motivos técnicos. Un ejemplo es el acceso a los secretos de Azure Key Vault o Azure SQL Database de una caché.
 
 Las aplicaciones que adquieren un token para sus propias identidades:
 

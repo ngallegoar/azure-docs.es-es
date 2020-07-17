@@ -9,12 +9,12 @@ ms.reviewer: valthom, estfan, logicappspm
 ms.topic: article
 ms.date: 05/14/2020
 tags: connectors
-ms.openlocfilehash: 17143257fcb6b9c71bb56e1f4c4958dce503c234
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e9e554fdc092e49f5a87049de0e3dc3163105f58
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652472"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609510"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Conectarse a un servidor IBM MQ desde Azure Logic Apps
 
@@ -35,7 +35,7 @@ Estas son las versiones oficialmente compatibles de IBM WebSphere MQ:
   * MQ 9.0
   * MQ 9.1
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Si usa un servidor MQ local, [instale la puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md) en un servidor de la red. El servidor donde está instalada la puerta de enlace de datos local también debe tener .NET Framework 4.6 instalado para que el conector de MQ funcione.
 
@@ -94,7 +94,7 @@ Cuando la aplicación lógica intente conectarse al servidor MQ local, puede que
      > [!IMPORTANT]
      > Asegúrese de instalar el certificado en el almacén **Certificados: Equipo local** > **Entidades de certificación raíz de confianza**.
 
-* El servidor MQ requiere que defina la especificación de cifrado que quiere usar para las conexiones SSL. Sin embargo, SsLStream en .NET no permite especificar el orden de las especificaciones de cifrado. Para evitar esta limitación, puede cambiar la configuración del servidor MQ para que coincida con la primera especificación de cifrado del conjunto que el conector envía en la negociación SSL.
+* El servidor MQ requiere que defina la especificación de cifrado que desea usar para las conexiones TLS/SSL. Pero SslStream en .NET no permite especificar el orden de las especificaciones de cifrado. Para evitar esta limitación, puede cambiar la configuración del servidor MQ para que coincida con la primera especificación de cifrado del conjunto que el conector envía en la negociación de TLS/SSL.
 
   Al intentar la conexión, el servidor MQ registra un mensaje de evento que indica que se produjo un error en la conexión porque el otro extremo usaba una especificación de cifrado incorrecta. El mensaje de evento contiene la especificación de cifrado que aparece en primer lugar en la lista. Actualice la especificación de cifrado en la configuración del canal para que coincida con la especificación de cifrado del mensaje de evento.
 

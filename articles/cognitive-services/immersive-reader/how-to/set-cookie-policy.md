@@ -10,18 +10,18 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: pasta
-ms.openlocfilehash: 876379a211038933cf665bd1a4a4daae9c9b2787
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: eb31fa271496b0eeedf4a2b845ab05e5f241e167
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267076"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041989"
 ---
 # <a name="how-to-set-the-cookie-policy-for-the-immersive-reader"></a>Cómo establecer la directiva de cookies del Lector inmersivo
 
 El Lector inmersivo deshabilitará el uso de cookies de forma predeterminada. Si habilita el uso de cookies, el Lector inmersivo puede usar las cookies para mantener las preferencias del usuario y realizar un seguimiento del uso de características. Si habilita el uso de cookies en el Lector inmersivo, tenga en cuenta los requisitos de la directiva de cumplimiento de cookies de la UE. Es responsabilidad de la aplicación host obtener cualquier consentimiento del usuario necesario según la directiva de cumplimiento de cookies de la UE.
 
-La directiva de cookies se puede establecer a través de las opciones de [Lector inmersivo](../reference.md#options). Consulte la [enumeración CookiePolicy](../reference.md#cookiepolicy-enum) para obtener más información.
+La directiva de cookies se puede establecer a través de las opciones de [Lector inmersivo](../reference.md#options).
 
 ## <a name="enable-cookie-usage"></a>Habilitar uso de cookies
 
@@ -46,6 +46,7 @@ ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, YOUR_DATA, options);
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Consulte el [inicio rápido de Node.js](../quickstarts/client-libraries.md?pivots=programming-language-nodejs) para ver qué más puede hacer con el SDK del Lector inmersivo con Node.js
+* Vea el [tutorial de Android](../tutorial-android.md) para ver qué más puede hacer con el SDK del Lector inmersivo con Java o Kotlin para Android
+* Vea el [tutorial de iOS](../tutorial-ios.md) para ver qué más puede hacer con el SDK del Lector inmersivo con Swift para iOS
 * Vea el [tutorial para Python](../tutorial-python.md) para consultar qué más puede hacer con el SDK del Lector inmersivo con Python.
-* Vea el [tutorial para Swift](../tutorial-ios-picture-immersive-reader.md) para consultar qué más puede hacer con el SDK del Lector inmersivo con Swift.
 * Explorar el [SDK del Lector inmersivo](https://github.com/microsoft/immersive-reader-sdk) y agregar la [Referencia del SDK del Lector inmersivo](../reference.md)

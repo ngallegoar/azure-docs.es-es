@@ -3,7 +3,7 @@ title: Replicación transaccional
 titleSuffix: Azure SQL Managed Instance
 description: Aprenda a usar la replicación transaccional de SQL Server con Instancia administrada de Azure SQL.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 04/20/2020
-ms.openlocfilehash: e23b772c6f57a2649d626e879d404e76ab2ab380
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 00f456d87bd5791b7d49644cb801dca20431b0b5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219342"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086405"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance"></a>Replicación transaccional con Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -29,8 +29,8 @@ La replicación transaccional es una característica de Instancia administrada d
 Puede usar la replicación transaccional para insertar los cambios realizados en una instancia administrada de Azure SQL en:
 
 - Una base de datos de SQL Server, en el entorno local o en una máquina virtual de Azure
-- Una base de datos única o agrupada de Azure SQL Database
-- Una base de datos única o agrupada de Instancia administrada de Azure SQL
+- Una base de datos de Azure SQL Database
+- Una base de datos de instancia en Azure SQL Managed Instance
 
   > [!NOTE]
   > Para usar todas las características de Instancia administrada de Azure SQL, debe tener las versiones más recientes de [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) y [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).

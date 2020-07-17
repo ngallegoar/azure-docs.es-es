@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af0f68ca9520c1715463212da80aaabed48f8269
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8576088069f419872db57b063163e8d9b1968b33
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128692"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85338215"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Gobernanza del acceso de los usuarios externos en la administración de derechos de Azure AD
 
@@ -103,13 +103,13 @@ Para asegurarse de que los usuarios ajenos a la organización puedan solicitar p
 
 - Asegúrese de que la configuración de nivel de sitio habilite el acceso de invitado (las mismas selecciones que se muestran anteriormente). Para más información, consulte [Activar o desactivar el uso compartido externo de un sitio](https://docs.microsoft.com/sharepoint/change-external-sharing-site).
 
-### <a name="review-your-office-365-group-sharing-settings"></a>Revisar la configuración de uso compartido de grupos de Office 365
+### <a name="review-your-microsoft-365-group-sharing-settings"></a>Revisión de la configuración de uso compartido de grupos de Microsoft 365
 
-- Si quiere incluir grupos de Office 365 en los paquetes de acceso para usuarios externos, asegúrese de que la opción **Permitir que los usuarios agreguen nuevos invitados a la organización** se haya establecido en **Activado** para permitir el acceso de invitado. Para más información, consulte [Administrar el acceso de invitado a grupos de Office 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
+- Si quiere incluir grupos de Microsoft 365 en los paquetes de acceso para usuarios externos, asegúrese de que la opción **Permitir que los usuarios agreguen nuevos invitados a la organización** se haya establecido en **Activado** para permitir el acceso de invitado. Para más información, consulte [Administrar el acceso de invitado a grupos de Microsoft 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
 
-- Si desea que los usuarios externos puedan acceder al sitio de SharePoint Online y a los recursos asociados a un grupo de Office 365, asegúrese de activar el uso compartido externo de SharePoint Online. Para más información, consulta [Activar o desactivar el uso compartido externo](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+- Si quiere que los usuarios externos puedan acceder al sitio de SharePoint Online y a los recursos asociados a un grupo de Microsoft 365, asegúrese de activar el uso compartido externo de SharePoint Online. Para más información, consulta [Activar o desactivar el uso compartido externo](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
-- Para obtener información sobre cómo establecer la directiva de invitado para los grupos de Office 365 en el nivel de directorio de PowerShell, consulte [Ejemplo: Configuración de la directiva de invitado para grupos en el nivel de directorio](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
+- Para obtener información sobre cómo establecer la directiva de invitado para los grupos de Microsoft 365 en el nivel de directorio de PowerShell, consulte [Ejemplo: Configuración de la directiva de invitado para grupos en el nivel de directorio](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
 
 ### <a name="review-your-teams-sharing-settings"></a>Revisar la configuración de uso compartido de Teams
 

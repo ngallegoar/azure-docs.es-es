@@ -3,15 +3,15 @@ title: Estimación de los costos mediante Capacity Planner de Azure Cosmos DB
 description: Capacity Planner de Azure Cosmos DB permite estimar el rendimiento (RU/s) necesario y el costo de la carga de trabajo. En este artículo se describe cómo usar la nueva versión de Capacity Planner para calcular el rendimiento y los costos necesarios.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: dech
-ms.openlocfilehash: f10ace47f774e31b586f7736f5fb8e5dfea0c948
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6a30535ac3aaa90dc3553f6901a83ab300546fb5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68707457"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261858"
 ---
 # <a name="estimate-rus-using-the-azure-cosmos-db-capacity-planner"></a>Estimación de RU/s mediante Capacity Planner de Azure Cosmos DB
 
@@ -23,7 +23,7 @@ Capacity Planner se puede usar en dos modos.
 
 |**Modo**  |**Descripción**  |
 |---------|---------|
-|Básica|Proporciona una estimación de costos y RU/s rápida y de alto nivel. Este modo asume la configuración de Azure Cosmos DB predeterminada para la directiva de indexación, la coherencia y otros parámetros. <br/><br/>Use el modo básico para una estimación rápida y de alto nivel cuando evalúe una carga de trabajo potencial para que se ejecute en Azure Cosmos DB.|
+|Básico|Proporciona una estimación de costos y RU/s rápida y de alto nivel. Este modo asume la configuración de Azure Cosmos DB predeterminada para la directiva de indexación, la coherencia y otros parámetros. <br/><br/>Use el modo básico para una estimación rápida y de alto nivel cuando evalúe una carga de trabajo potencial para que se ejecute en Azure Cosmos DB.|
 |Avanzado|Proporciona una estimación de costos y RU más detalladas, con la posibilidad de ajustar opciones de configuración adicionales, como la Directiva de indexación, el nivel de coherencia y otros parámetros que afectan al costo y al rendimiento. <br/><br/>Use el modo avanzado cuando esté calculando RU/s para un nuevo proyecto o desee una estimación más detallada. |
 
 
@@ -41,7 +41,7 @@ Para obtener una estimación rápida de la carga de trabajo mediante el modo bá
 
 Después de rellenar los detalles necesarios, seleccione **Calcular**. La pestaña **Cost Estimate** (Estimación del costo) muestra el costo total del almacenamiento y el rendimiento aprovisionado. Puede expandir el vínculo **Mostrar detalles** de esta pestaña para obtener el desglose del rendimiento necesario para las solicitudes de lectura y escritura. Cada vez que cambie el valor de cualquier campo, seleccione **Calcular** para volver a calcular el costo estimado. 
 
-![Modo básico de Capacity Planner](./media/estimate-ru-with-capacity-planner/basic-mode.png)
+:::image type="content" source="./media/estimate-ru-with-capacity-planner/basic-mode.png" alt-text="Modo básico de Capacity Planner":::
 
 ## <a name="estimate-provisioned-throughput-and-cost-using-advanced-mode"></a>Estimación del rendimiento aprovisionado y del costo mediante el modo avanzado
 
@@ -62,7 +62,7 @@ Después de iniciar sesión, puede ver campos adicionales en comparación con lo
 
 También puede usar el botón **Guardar estimación** para descargar un archivo CSV que contenga la estimación actual. 
 
-![Modo avanzado de Capacity Planner](./media/estimate-ru-with-capacity-planner/advanced-mode.png)
+:::image type="content" source="./media/estimate-ru-with-capacity-planner/advanced-mode.png" alt-text="Modo avanzado de Capacity Planner":::
 
 Los precios que se muestran en Capacity Planner de Azure Cosmos DB son estimaciones en función de las tarifas de precios públicas para el rendimiento y el almacenamiento. Todos los precios se muestran en dólares estadounidenses. Consulte la [página de precios de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para ver todas las tarifas por región.  
 

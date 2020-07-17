@@ -3,22 +3,19 @@ title: Escalado vertical de un tipo de nodo de Azure Service Fabric
 description: Aprenda a escalar un clúster de Service Fabric mediante la adición de un conjunto de escalado de máquinas virtuales.
 ms.topic: article
 ms.date: 02/13/2019
-ms.openlocfilehash: 5ea4f37a6c088c6f738ef05db8b5b295982c27fe
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 2d700367049e0bf9bf710aad110c850a78c26220
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83674227"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610700"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Escalado vertical del tipo de nodo principal de un clúster de Service Fabric
 En este artículo, se explica cómo se escala verticalmente el tipo de nodo principal de un clúster Service Fabric aumentando los recursos de las máquinas virtuales. Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Un equipo o máquina virtual que forma parte de un clúster se denomina nodo. Los conjuntos de escalado de máquinas virtuales son un recurso de proceso de Azure que se puede usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Cada tipo de nodo que se define en un clúster de Azure está [configurado como un conjunto de escalado independiente](service-fabric-cluster-nodetypes.md). Cada tipo de nodo, a continuación, se puede administrar por separado. Después de crear un clúster de Service Fabric, puede escalar el tipo de nodo del clúster verticalmente (cambiar los recursos de los nodos) o actualizar el sistema operativo de las máquinas virtuales del tipo de nodo.  Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster.  Según se escala el clúster, las aplicaciones se escalan automáticamente.
 
 > [!WARNING]
-> No comience cambiando el tipo de nodo principal VM SKU, si el estado del clúster no es bueno. En este caso, si intenta cambiar la SKU de las máquinas virtuales, solo desestabilizará aún más el clúster.
+> No intente un procedimiento de escalado vertical de tipo de nodo principal si el estado del clúster es incorrecto, ya que esto solo desestabilizará el clúster.
 >
-> Se recomienda no cambiar la SKU de las máquinas virtuales de un tipo de nodo o conjunto de escalado a menos que se esté ejecutando en la [durabilidad Silver o mayor](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Modificar el tamaño de la SKU de VM constituye una operación de infraestructura local de destrucción de datos. Sin la posibilidad de retrasar o supervisar este cambio, es posible que la operación pueda provocar una pérdida de datos en los servicios con estado o bien causar otros problemas de funcionamiento imprevistos, incluso en las cargas de trabajo sin estado. Esto significa el tipo de nodo principal, que ejecuta servicios del sistema de Service Fabric con estado, o cualquier tipo de nodo que ejecute sus cargas de trabajo de aplicaciones con estado.
->
-
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -159,6 +156,8 @@ Get-ServiceFabricClusterHealth
 ## <a name="migrate-nodes-to-the-new-scale-set"></a>Migración de nodos al nuevo conjunto de escalado
 
 Estamos preparados para empezar a deshabilitar los nodos del conjunto de escalado original. A medida que estos nodos se inhabilitan, los servicios del sistema y los nodos de inicialización se migran a las VM del nuevo conjunto de escalado porque también está marcado como tipo de nodo principal.
+
+Para el escalado vertical de tipos de nodo no principales, en este paso se modificaría la restricción de selección de ubicación del servicio para incluir el nuevo tipo de nodo o conjunto de escalado de máquinas virtuales y luego, se reducirá el número de instancias del conjunto de escalado de máquinas virtuales antiguo a cero, un nodo a la vez (para asegurarse de que la eliminación de nodos no afecte la confiabilidad del clúster).
 
 ```powershell
 # Disable the nodes in the original scale set.

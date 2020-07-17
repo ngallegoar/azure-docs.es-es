@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 01/21/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 84efe294533186fdcf2e0a3356a7d6b01eccaf5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7642a32ce69dbbbb5ddebbe56b74f3202b2e6422
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654403"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039575"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Errores comunes y pasos de solución de problemas para Azure Active Directory Domain Services
 
@@ -45,7 +45,7 @@ Si tiene problemas para habilitar Azure AD DS, revise los siguientes errores c
 
 Compruebe que no tenga un entorno de AD DS con el mismo nombre de dominio en la misma red virtual o una emparejada. Por ejemplo, puede tener un dominio de AD DS denominado *aaddscontoso.com* que se ejecute en máquinas virtuales de Azure. Al intentar habilitar un dominio administrado de Azure AD DS con el mismo nombre de dominio (*aaddscontoso.com*) en esa red virtual, la operación solicitada genera un error
 
-que se debe a los conflictos de nombre en el nombre de dominio de la red virtual. Una búsqueda DNS comprueba si un entorno de AD DS existente responde en el nombre de dominio solicitado. Para resolver este problema, use un nombre diferente para configurar el dominio administrado de Azure AD DS o desaprovisione el dominio de AD DS existente y vuelva a intentar habilitar Azure AD DS.
+que se debe a los conflictos de nombre en el nombre de dominio de la red virtual. Una búsqueda DNS comprueba si un entorno de AD DS existente responde en el nombre de dominio solicitado. Para resolver este error, use un nombre diferente para configurar el dominio administrado o anule el aprovisionamiento del dominio de AD DS existente e inténtelo de nuevo para habilitar Azure AD DS.
 
 ### <a name="inadequate-permissions"></a>Permisos insuficientes
 
@@ -126,7 +126,7 @@ Para comprobar el estado de esta aplicación y habilitarla si es necesario, comp
 
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Los usuarios no pueden iniciar sesión en el dominio administrado de los Servicios de dominio de Azure AD
 
-Si uno o más usuarios de su inquilino de Azure AD no pueden iniciar sesión en el dominio administrado de Azure AD DS, lleve a cabo los siguientes pasos de solución de problemas:
+Si uno o más usuarios de su inquilino de Azure AD no pueden iniciar sesión en el dominio administrado, complete los siguientes pasos de solución de problemas:
 
 * **Formato de las credenciales**: pruebe a usar el formato UPN para especificar las credenciales, por ejemplo, `dee@aaddscontoso.onmicrosoft.com`. El formato UPN es el recomendado para especificar las credenciales en Azure AD DS. Asegúrese de que este UPN está configurado correctamente en Azure AD.
 
@@ -137,35 +137,35 @@ Si uno o más usuarios de su inquilino de Azure AD no pueden iniciar sesión en
     
       * Implementar la [versión más reciente recomendada de Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) o actualizar a esta versión.
       * Configurar Azure AD Connect para [realizar una sincronización completa][hybrid-phs].
-      * En función del tamaño de su directorio, las cuentas de usuario y los hash de credenciales pueden tardar en estar disponibles en Azure AD DS. Espere el tiempo necesario antes de intentar autenticarse en el dominio administrado.
-      * Si el problema persiste después de comprobar los pasos anteriores, pruebe a reiniciar los *servicios de sincronización de Microsoft Azure Active Directory*. Desde el servidor de Azure AD Connect, abra un símbolo del sistema y ejecute los comandos siguientes:
+      * En función del tamaño de su directorio, las cuentas de usuario y los hash de credenciales pueden tardar unos minutos en estar disponibles en el dominio administrado. Espere el tiempo necesario antes de intentar autenticarse en el dominio administrado.
+      * Si el problema persiste después de comprobar los pasos anteriores, pruebe a reiniciar los *servicios de sincronización de Microsoft Azure Active Directory*. En el servidor de Azure AD Connect, abra un símbolo del sistema y luego, ejecute los siguientes comandos:
     
         ```console
         net stop 'Microsoft Azure AD Sync'
         net start 'Microsoft Azure AD Sync'
         ```
 
-    * **Cuentas de solo nube**: Si la cuenta de usuario afectada es solo para la nube, asegúrese de que el [usuario ha cambiado su contraseña después de habilitar Azure AD DS][cloud-only-passwords]. Este restablecimiento de contraseña hace que se generen los hash de credenciales necesarios para Azure AD Domain Services.
+    * **Cuentas de solo nube**: Si la cuenta de usuario afectada es solo para la nube, asegúrese de que el [usuario ha cambiado su contraseña después de habilitar Azure AD DS][cloud-only-passwords]. Este restablecimiento de contraseña hace que se generen los hash de credenciales necesarios para el dominio administrado.
 
 * **Verifique que la cuenta de usuario está activa**: De manera predeterminada, si se escribe una contraseña incorrecta en el dominio administrado cinco veces en un lapso de dos minutos, la cuenta de usuario quedará bloqueada durante 30 minutos. El usuario no podrá iniciar sesión mientras la cuenta esté bloqueada. Pasados los 30 minutos, la cuenta de usuario se desbloqueará automáticamente.
-  * Los intentos no válidos de escribir la contraseña en el dominio administrado de Azure AD DS no provocan el bloqueo de la cuenta de usuario en Azure AD. La cuenta de usuario solo se bloquea en el dominio administrado. Compruebe el estado de la cuenta de usuario en la *consola de administración de Active Directory (ADAC)* desde la [máquina virtual de administración][management-vm], no en Azure AD.
+  * Los intentos no válidos de escribir la contraseña del dominio administrado no provocarán el bloqueo de la cuenta de usuario en Azure AD. La cuenta de usuario solo se bloquea en el dominio administrado. Compruebe el estado de la cuenta de usuario en la *consola de administración de Active Directory (ADAC)* desde la [máquina virtual de administración][management-vm], no en Azure AD.
   * También puede [configurar directivas de contraseña específica][password-policy] para cambiar el umbral y la duración de bloqueo predeterminados.
 
 * **Cuentas externas**: asegúrese de que la cuenta de usuario afectada no es una cuenta externa del inquilino de Azure AD. Entre los ejemplos de las cuentas externas se incluyen las cuentas de Microsoft como `dee@live.com` o las cuentas de usuario de un directorio de Azure AD externo. Azure AD DS no almacena las credenciales de las cuentas de usuario externas, por lo que estas no pueden iniciar sesión en el dominio administrado.
 
 ## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Hay una o varias alertas en el dominio administrado
 
-Si hay alertas activas en el dominio administrado de Azure AD DS, esto puede impedir que el proceso de autenticación funcione correctamente.
+Si hay alertas activas en el dominio administrado, puede impedir que el proceso de autenticación funcione correctamente.
 
-Para ver si hay alguna alerta activa, [compruebe el estado de mantenimiento del dominio administrado de Azure AD DS][check-health]. Si se muestra alguna alerta, [solucione los problemas][troubleshoot-alerts].
+Para ver si hay alguna alerta activa, [compruebe el estado de mantenimiento de un de dominio administrado][check-health]. Si se muestra alguna alerta, [solucione los problemas][troubleshoot-alerts].
 
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Los usuarios quitados del inquilino de Azure AD no se quitan de su dominio administrado
 
-Azure AD protege contra la eliminación accidental de objetos de usuario. Al eliminar una cuenta de usuario del inquilino de Azure AD, se mueve el objeto de usuario correspondiente a la papelera de reciclaje. Cuando esta operación de eliminación se sincroniza con el dominio administrado de Azure AD DS, la cuenta de usuario correspondiente se marca como deshabilitada. Esta característica ayuda a recuperar o restaurar la cuenta de usuario.
+Azure AD protege contra la eliminación accidental de objetos de usuario. Al eliminar una cuenta de usuario del inquilino de Azure AD, se mueve el objeto de usuario correspondiente a la papelera de reciclaje. Cuando esta operación de eliminación se sincroniza con el dominio administrado, la cuenta de usuario correspondiente se marca como deshabilitada. Esta característica ayuda a recuperar o restaurar la cuenta de usuario.
 
-La cuenta de usuario permanecerá en estado deshabilitado en el dominio administrado de Azure AD DS aunque vuelva a crear una cuenta de usuario con el mismo UPN en el directorio de Azure AD. Para quitar la cuenta de usuario del dominio administrado de Azure AD DS, tiene que forzar su eliminación en el inquilino de Azure AD.
+La cuenta de usuario permanece en estado deshabilitado en el dominio administrado, incluso si vuelve a crear una cuenta de usuario con el mismo UPN en el directorio de Azure AD. Para quitar la cuenta de usuario del dominio administrado, debe eliminarla forzosamente del inquilino de Azure AD.
 
-Para quitar completamente una cuenta de usuario de un dominio administrado de Azure AD DS, elimine el usuario de forma permanente del inquilino de Azure AD con el cmdlet [Remove-MsolUser][Remove-MsolUser] de PowerShell con el parámetro `-RemoveFromRecycleBin`.
+Para quitar completamente una cuenta de usuario de un dominio administrado, elimine el usuario de forma permanente del inquilino de Azure AD con el cmdlet [Remove-MsolUser][Remove-MsolUser] de PowerShell con el parámetro `-RemoveFromRecycleBin`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

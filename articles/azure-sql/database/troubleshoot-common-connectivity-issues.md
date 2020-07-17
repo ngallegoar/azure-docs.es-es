@@ -9,16 +9,15 @@ ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
 author: dalechen
-manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: 4aa8d35e48c28cadecb6acc1f56ca6c44a145719
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: acc61cefbc9d89f11eae5b6549add57871035ddb
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266974"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078976"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Solución de problemas de errores de conexión transitorios en SQL Database e Instancia administrada de SQL
 
@@ -106,7 +105,7 @@ Para llevar a cabo esta prueba, desconecte el equipo de la red antes de iniciar 
 - Pause la ejecución mediante el método **Console.ReadLine** o un cuadro de diálogo con un botón Aceptar. El usuario presiona la tecla Entrar después de que se conecte el equipo a la red.
 - Nuevo intento de conexión, se espera una realización correcta.
 
-#### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Realización de la prueba escribiendo mal el nombre de la base de datos al conectarse
+#### <a name="test-by-misspelling-the-user-name-when-connecting"></a>Realización de la prueba escribiendo mal el nombre del usuario al conectarse
 
 El programa deliberadamente escribe mal el nombre de usuario antes del primer intento de conexión. El error es:
 

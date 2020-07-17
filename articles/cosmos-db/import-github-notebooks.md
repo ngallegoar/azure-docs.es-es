@@ -4,14 +4,14 @@ description: Obtenga información sobre cómo conectarse a GitHub e importar cua
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: 9ce65d316b8236b83435388d2c1883cb9b89b03a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: d85f020152fa3cadb1d437c125d327f5e895e14e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83690411"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262895"
 ---
 # <a name="import-notebooks-from-a-github-repo-into-azure-cosmos-db"></a>Importación de cuadernos desde un repositorio de GitHub en Azure Cosmos DB
 
@@ -29,7 +29,7 @@ Puede conectarse a sus propios repositorios de GitHub u otros repositorios de Gi
 
 1. Se abre una pestaña en la que puede elegir conectarse solo a **Repositorios públicos** o a **Repositorios públicos y privados**.  Después de elegir la opción necesaria, seleccione **Autorizar acceso**. Se necesita la autorización para que Azure Cosmos DB tenga acceso a los repositorios de la cuenta de GitHub.
 
-   ![Autorización a Azure Cosmos DB para acceder a los repositorios de GitHub](./media/import-github-notebooks/authorize-access-github.png)
+   :::image type="content" source="./media/import-github-notebooks/authorize-access-github.png" alt-text="Autorización a Azure Cosmos DB para acceder a los repositorios de GitHub":::
 
 1. Se le redirigirá a la página web "github.com", en la que podrá confirmar la autorización. Seleccione el botón **Autorizar AzureCosmosDBNotebooks** y escriba la contraseña de la cuenta de GitHub en el símbolo del sistema.
 
@@ -37,7 +37,7 @@ Puede conectarse a sus propios repositorios de GitHub u otros repositorios de Gi
 
 1. Una vez que haya seleccionado el repositorio correspondiente, la entrada del repositorio se moverá de la sección **Repositorios anclados** a la sección **Repositorios anclados**. Si es necesario, también puede elegir una rama específica de ese repositorio para realizar la importación de cuadernos desde la misma.
 
-   ![Elección de un repositorio y una rama](./media/import-github-notebooks/choose-repo-branch.png)
+   :::image type="content" source="./media/import-github-notebooks/choose-repo-branch.png" alt-text="Elección de un repositorio y una rama":::
 
 1. Seleccione **Aceptar** para completar la operación de importación. Todos los cuadernos disponibles en la rama seleccionada del repositorio se importarán en su cuenta de Azure Cosmos.
 
@@ -53,7 +53,7 @@ Después de editar un cuaderno existente, seleccione **Guardar**. Se abrirá un 
 
 En el flujo de GitHub normal, después de confirmar los cambios, normalmente estos se envían a un repositorio remoto. Sin embargo, en este caso, la opción de confirmación tiene el propósito de "almacenar de forma provisional, confirmar y enviar" las actualizaciones en GitHub.
 
-![Edición de cuadernos y confirmación de cambios en GitHub](./media/import-github-notebooks/commit-changes-github.png)
+:::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Edición de cuadernos y confirmación de cambios en GitHub":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

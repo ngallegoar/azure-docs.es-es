@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 8072dec6b5f5dbd35c86573dd43d3925a271bc43
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 430b1c044ac5fc22dbf3a4f4df33ff9017e21d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849678"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361962"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Supervisión de recursos de Azure con Azure Monitor
 Si tiene aplicaciones y procesos empresariales críticos que dependen de recursos de Azure, querrá supervisar esos recursos para su disponibilidad, rendimiento y funcionamiento. En este artículo se describen los datos de supervisión generados por los recursos de Azure y cómo puede usar las características de Azure Monitor para analizar y alertar sobre estos datos.
@@ -90,7 +90,7 @@ Siga el procedimiento de [Creación de una configuración de diagnóstico para r
  Puede acceder a los datos de supervisión para la mayoría de los recursos de Azure en el menú del recurso en Azure Portal. Esto le proporcionará acceso a los datos de un solo recurso con las herramientas de Azure Monitor estándar. Algunos servicios de Azure proporcionarán opciones diferentes, por lo que debe consultar la documentación de ese servicio para obtener información adicional. Use el menú **Azure Monitor** para analizar los datos de todos los recursos supervisados. 
 
 ### <a name="overview"></a>Información general
-Muchos servicios incluirán datos de supervisión en su página **Información general** para una vista rápida de su funcionamiento. Esto se basará, normalmente, en un subconjunto de métricas de plataforma almacenadas en Métricas de Azure Monitor. En general, habrá otras opciones de supervisión disponibles en una sección **Supervisión** del menú de servicios .
+Muchos servicios incluirán datos de supervisión en su página **Información general** para una vista rápida de su funcionamiento. Esto se basará, normalmente, en un subconjunto de métricas de plataforma almacenadas en Métricas de Azure Monitor. En general, habrá otras opciones de supervisión disponibles en una sección **Supervisión** del menú de servicio.
 
 ![Página de información general](media/monitor-azure-resource/overview-page.png)
 

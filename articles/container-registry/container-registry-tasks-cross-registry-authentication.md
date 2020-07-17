@@ -2,13 +2,13 @@
 title: Autenticación entre registros desde la tarea de ACR
 description: Configuración de una tarea de Azure Container Registry (Tarea de ACR) para acceder a otro registro de contenedor privado de Azure mediante una identidad administrada de recursos de Azure
 ms.topic: article
-ms.date: 01/14/2020
-ms.openlocfilehash: 47b2a50784cf56b089fea0981e5a06d581b8ba3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/06/2020
+ms.openlocfilehash: 8b961a2ff6a795f03798cc6f6a7d303391036ef8
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76842507"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057369"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autenticación entre registros en una tarea de ACR mediante una identidad administrada por Azure 
 
@@ -44,6 +44,7 @@ En primer lugar, cree un directorio de trabajo y, después, cree un archivo deno
 ```bash
 echo FROM node:9-alpine > Dockerfile
 ```
+
 En el directorio actual, ejecute el comando [az acr build][az-acr-build] para compilar e insertar la imagen base en el registro base. En la práctica, otro equipo o proceso de la organización podría mantener el registro base.
     
 ```azurecli
@@ -85,6 +86,27 @@ az acr task create \
 
 [!INCLUDE [container-registry-tasks-user-id-properties](../../includes/container-registry-tasks-user-id-properties.md)]
 
+### <a name="give-identity-pull-permissions-to-the-base-registry"></a>Concesión a la identidad de permisos de extracción del registro base
+
+En esta sección se conceden permisos a la identidad administrada para extraer del registro base, *mybaseregistry*.
+
+Use el comando [az acr show][az-acr-show] para obtener el identificador de recurso del registro base y almacenarlo en una variable:
+
+```azurecli
+baseregID=$(az acr show --name mybaseregistry --query id --output tsv)
+```
+
+Use el comando [az role assignment create][az-role-assignment-create] para asignar a la identidad el rol `acrpull` al registro base. Este rol solo tiene permisos para extraer imágenes del registro.
+
+```azurecli
+az role assignment create \
+  --assignee $principalID \
+  --scope $baseregID \
+  --role acrpull
+```
+
+Continúe con la [Incorporación de las credenciales del registro de destino a la tarea](#add-target-registry-credentials-to-task).
+
 ## <a name="option-2-create-task-with-system-assigned-identity"></a>Opción 2: Creación de una tarea con una identidad asignada por el sistema
 
 En los pasos de esta sección se crea una tarea y se habilita una identidad asignada por el sistema. Si, en cambio, quiere habilitar una identidad asignada por el usuario, consulte [Opción 1: Creación de una tarea con una identidad asignada por el usuario](#option-1-create-task-with-user-assigned-identity). 
@@ -103,7 +125,7 @@ az acr task create \
 ```
 [!INCLUDE [container-registry-tasks-system-id-properties](../../includes/container-registry-tasks-system-id-properties.md)]
 
-## <a name="give-identity-pull-permissions-to-the-base-registry"></a>Concesión a la identidad de permisos de extracción del registro base
+### <a name="give-identity-pull-permissions-to-the-base-registry"></a>Concesión a la identidad de permisos de extracción del registro base
 
 En esta sección se conceden permisos a la identidad administrada para extraer del registro base, *mybaseregistry*.
 

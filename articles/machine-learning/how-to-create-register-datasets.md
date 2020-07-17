@@ -5,18 +5,18 @@ description: Aprenda a crear conjuntos de datos de Azure Machine Learning para a
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 02/10/2020
-ms.openlocfilehash: 23984bdbcfc649c2bfe04a08787bc10149a1ed91
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/29/2020
+ms.openlocfilehash: baa238f36c41b5f494e8748cd5cd563bd212f483
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231901"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610717"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Creación de conjuntos de datos de Azure Machine Learning
 
@@ -32,7 +32,7 @@ Con los conjuntos de datos de Azure Machine Learning, puede:
 
 * Compartir datos y colaborar con otros usuarios.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Para crear y trabajar con conjuntos de datos, necesita lo siguiente:
 
 * Suscripción a Azure. Si no tiene una, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
@@ -42,7 +42,7 @@ Para crear y trabajar con conjuntos de datos, necesita lo siguiente:
 * El [SDK de Azure Machine Learning para Python instalado](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), que incluye el paquete azureml-datasets.
 
 > [!NOTE]
-> Algunas clases Dataset tienen dependencias del paquete [azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py). Para los usuarios de Linux, estas clases solo se admiten en las siguientes distribuciones:  Red Hat Enterprise Linux, Ubuntu, Fedora y CentOS.
+> Algunas clases de conjunto de tipos tienen dependencias en el paquete [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py), que solo es compatible con Python de 64 bits. Para los usuarios de Linux, estas clases solo se admiten en las siguientes distribuciones:  Red Hat Enterprise Linux, Ubuntu, Fedora y CentOS.
 
 ## <a name="compute-size-guidance"></a>Orientación sobre el tamaño de proceso
 
@@ -304,6 +304,10 @@ titanic_ds = Dataset.get_by_name(workspace=workspace, name=dataset_name)
 # Load a TabularDataset into pandas DataFrame
 df = titanic_ds.to_pandas_dataframe()
 ```
+
+## <a name="access-datasets-in-a-virtual-network"></a>Obtener acceso a los conjuntos de valores de una red virtual
+
+Si el área de trabajo está en una red virtual, debe configurar el conjunto de datos para omitir la validación. Para más información sobre cómo usar los almacenes de datos y los conjuntos de datos en una red virtual, consulte [Aislamiento de red durante el entrenamiento e inferencia con redes virtuales privadas](how-to-enable-virtual-network.md#use-datastores-and-datasets).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

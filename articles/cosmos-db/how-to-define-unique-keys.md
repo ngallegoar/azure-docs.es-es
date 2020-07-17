@@ -3,15 +3,16 @@ title: Definición de claves únicas para un contenedor de Azure Cosmos
 description: Aprenda a definir claves únicas para un contenedor de Azure Cosmos mediante Azure Portal, PowerShell, .Net, Java y otros SDK.
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
-ms.openlocfilehash: af68d733dfb0e0d1c257c8db03656112eec7381b
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.custom: tracking-python
+ms.openlocfilehash: 056cd77104fe73f19588f3d13e11dc06fd93c3f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871011"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261552"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definición de claves únicas para un contenedor de Azure Cosmos
 
@@ -33,7 +34,7 @@ En este artículo se presentan las distintas formas de definir [claves únicas](
 
 1. Si es necesario, puede agregar más entradas de clave única si hace clic en **+ Add unique key** (+ Agregar clave única).
 
-    ![Captura de pantalla de una entrada de restricción de clave única en Azure Portal](./media/how-to-define-unique-keys/unique-keys-portal.png)
+    :::image type="content" source="./media/how-to-define-unique-keys/unique-keys-portal.png" alt-text="Captura de pantalla de una entrada de restricción de clave única en Azure Portal":::
 
 ## <a name="use-powershell"></a>Uso de PowerShell
 

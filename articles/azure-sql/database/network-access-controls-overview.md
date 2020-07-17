@@ -1,7 +1,7 @@
 ---
 title: Controles de acceso a la red
 titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Información general sobre cómo administrar y controlar el acceso a la red para Azure SQL Database y SQL Data Warehouse (antiguamente SQL Data Warehouse).
+description: Información general sobre cómo administrar y controlar el acceso a la red para Azure SQL Database y Azure Synapse Analytics (antiguamente Azure SQL Data Warehouse).
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,15 +12,14 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 95fa7a22f88d8c6a53a6459e0f5d6a123b2f728b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 435a5fe6f5900ffe742d4459e8e402d2e698ca9f
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84031876"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085470"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Controles de acceso a la red de Azure SQL Database y Azure Synapse Analytics
-[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 Al crear un servidor SQL lógico en [Azure Portal](single-database-create-quickstart.md) para Azure SQL Database y Azure Synapse Analytics, el resultado es un punto de conexión público con el formato *nombreDelServidor.database.windows.net*.
 
@@ -31,7 +30,7 @@ Puede usar los siguientes controles de acceso a la red para permitir el acceso a
 
 También puede permitir el acceso privado a la base de datos desde [redes virtuales](../../virtual-network/virtual-networks-overview.md) a través de:
 
-- Reglas de firewall de la red virtual: use esta característica para permitir el tráfico desde una red virtual específica dentro de los límites de Azure.
+- Reglas de firewall de la red virtual: Use esta característica para permitir el tráfico desde una red virtual específica dentro de los límites de Azure
 - Private Link: Use esta característica para crear un punto de conexión privado para un [servidor SQL lógico](logical-servers.md) dentro de una red virtual específica
 
 > [!IMPORTANT]
@@ -53,7 +52,7 @@ Cuando se establece en **ACTIVADO**, el servidor permite la comunicación de tod
 
 En muchos casos, el valor **ACTIVADO** es más permisivo de lo que desea la mayoría de los clientes. Es posible que desee establecer esta opción en **DESACTIVADO** y reemplazarla por reglas de firewall de IP más restrictivas o reglas de firewall de red virtual. 
 
-Sin embargo, esto afecta a las siguientes características que se ejecutan en máquinas virtuales de Azure que no forman parte de la red virtual y, por tanto, se conectan a la base de datos a través de una dirección IP de Azure.
+Sin embargo, esto afecta a las siguientes características que se ejecutan en máquinas virtuales de Azure que no forman parte de la red virtual y, por tanto, se conectan a la base de datos a través de una dirección IP de Azure:
 
 ### <a name="import-export-service"></a>Import Export Service
 
@@ -62,7 +61,7 @@ El servicio de importación y exportación no funciona cuando **Permitir el acce
 ### <a name="data-sync"></a>Sincronización de datos
 
 Para usar la característica de sincronización de datos con **Permitir el acceso a servicios de Azure** establecido en **DESACTIVADO**, debe crear entradas de reglas de firewall individuales para [agregar direcciones IP](firewall-create-server-level-portal-quickstart.md) de la **etiqueta de servicio SQL** para la región que hospeda la base de datos **central**.
-Agregue estas reglas de firewall de nivel de servidor a los servidores que hospedan las bases de datos **central** y **miembro** (que pueden estar en regiones diferentes).
+Agregue estas reglas de firewall de nivel de servidor a los servidores que hospedan las bases de datos **central** y **miembro** (que pueden estar en regiones diferentes)
 
 Use el siguiente script de PowerShell para generar las direcciones IP correspondientes a la etiqueta de servicio de SQL para la región Oeste de EE. UU.
 
@@ -83,7 +82,7 @@ PS C:\> $sql.Properties.AddressPrefixes
 > [!TIP]
 > Get-AzNetworkServiceTag devuelve el intervalo global de la etiqueta de servicio SQL a pesar de que se especificó el parámetro Location. Asegúrese de filtrar para usarlo en la región que hospeda la base de datos central que usa el grupo de sincronización.
 
-Tenga en cuenta que los resultados del script de PowerShell están en la notación Enrutamiento de interdominios sin clases (CIDR) y deben convertirse a un formato de dirección IP inicial y final con [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) de la siguiente forma:
+Tenga en cuenta que la salida del script de PowerShell está en notación de enrutamiento de interdominios sin clases (CIDR). Esto se debe convertir a un formato de dirección IP inicial y final mediante [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) similar al siguiente:
 
 ```powershell
 PS C:\> Get-IPrangeStartEnd -ip 52.229.17.93 -cidr 26
@@ -107,9 +106,9 @@ Ahora puede agregarlas como reglas de firewall independientes y, a continuación
 
 ## <a name="ip-firewall-rules"></a>Reglas de firewall de IP
 
-El firewall basado en IP es una característica del servidor SQL lógico en Azure, que impide todo acceso al servidor de bases de datos hasta que [agregue direcciones IP](firewall-create-server-level-portal-quickstart.md) explícitamente de las máquinas cliente.
+El firewall basado en IP es una característica del servidor SQL lógico en Azure, que impide todo acceso al servidor hasta que [agregue direcciones IP](firewall-create-server-level-portal-quickstart.md) explícitamente de las máquinas cliente.
 
-## <a name="virtual-network-firewall-rules"></a>reglas de firewall de red virtual
+## <a name="virtual-network-firewall-rules"></a>Reglas de firewall de red virtual
 
 Además de las reglas de IP, el firewall del servidor permite definir *reglas de red virtual*.  
 Para más información, consulte [Uso de reglas y puntos de conexión de servicio de red virtual para Azure SQL Database y SQL Data Warehouse](vnet-service-endpoint-rule-overview.md) o vea este vídeo:
@@ -124,15 +123,15 @@ Tenga en cuenta los siguientes términos de redes en Azure a medida que explora 
 
 **Subred:** una red virtual contiene **subredes**. Cualquier máquina virtual (VM) de Azure que tenga se asignará a las subredes. Una subred puede contener varias máquinas virtuales u otros nodos de proceso. Los nodos de proceso que se encuentran fuera de la red virtual no pueden tener acceso a su red virtual a menos que configure la seguridad para que permita el acceso.
 
-**Punto de conexión de servicio de red virtual:** un [punto de conexión de servicio de red virtual](../../virtual-network/virtual-network-service-endpoints-overview.md) es una subred cuyos valores de propiedad incluyen uno o más nombres formales de tipo de servicio de Azure. En este artículo nos interesa el nombre de tipo de **Microsoft.Sql**, que hace referencia al servicio de Azure denominado SQL Database.
+**Punto de conexión de servicio de red virtual:** Un [punto de conexión de servicio de red virtual](../../virtual-network/virtual-network-service-endpoints-overview.md) es una subred cuyos valores de propiedad incluyen uno o más nombres formales de tipo de servicio de Azure. En este artículo nos interesa el nombre de tipo de **Microsoft.Sql**, que hace referencia al servicio de Azure denominado SQL Database.
 
-**Regla de red virtual:** Una regla de red virtual para el servidor es una subred que se muestra en la lista de control de acceso (ACL) del servidor. Para estar en la ACL de su SQL Database, la subred debe contener el nombre de tipo **Microsoft.Sql**. Una regla de red virtual indica al servidor que acepte las comunicaciones procedentes de todos los nodos que están en la subred.
+**Regla de red virtual:** Una regla de red virtual para el servidor es una subred que se muestra en la lista de control de acceso (ACL) del servidor. Para estar en la ACL de su base de datos en SQL Database, la subred debe contener el nombre de tipo **Microsoft.Sql**. Una regla de red virtual indica al servidor que acepte las comunicaciones procedentes de todos los nodos que están en la subred.
 
-## <a name="ip-vs-virtual-network-firewall-rules"></a>Reglas de IP frente a reglas de firewall de red virtual
+## <a name="ip-vs-virtual-network-firewall-rules"></a>Reglas de IP frente a Reglas de firewall de red virtual
 
 El firewall de Azure SQL Database le permite especificar intervalos de direcciones IP desde los que se aceptan las comunicaciones en SQL Database. Este enfoque es preciso para las direcciones IP estables que están fuera de la red privada de Azure. Sin embargo, las máquinas virtuales de la red privada de Azure se configuran con direcciones IP *dinámicas*. Las direcciones IP dinámicas pueden cambiar cuando se reinicia la máquina virtual y, a su vez, invalidar la regla de firewall basada en IP. Sería una locura especificar una dirección IP dinámica en una regla de firewall, en un entorno de producción.
 
-Para superar esta limitación, puede obtener una dirección IP *estática* para la máquina virtual. Para más información, consulte [Configuración de direcciones IP privadas para una máquina virtual mediante Azure Portal](../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). Sin embargo, el enfoque de IP estática puede resultar difícil de administrar, y es costoso si se realiza a escala.
+Para superar esta limitación, puede obtener una dirección IP *estática* para la máquina virtual. Para obtener más información, consulte [Creación de una máquina virtual con una dirección IP pública estática mediante Azure Portal](../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md). Sin embargo, el enfoque de IP estática puede resultar difícil de administrar, y es costoso si se realiza a escala.
 
 Las reglas de red virtual son alternativas más fáciles de establecer y su acceso, de administrar desde una subred específica que contenga las máquinas virtuales.
 
@@ -160,3 +159,4 @@ Private Link le permite conectarse a un servidor mediante un **punto de conexió
 <!--Image references-->
 [1]: media/quickstart-create-single-database/new-server2.png
 [2]: media/quickstart-create-single-database/manage-server-firewall.png
+ 

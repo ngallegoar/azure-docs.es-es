@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: f7f460b01674359847427296e4526fc5771658f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8c3993d8208a9a9e2ab54be44d88de0b20a2e586
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191964"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084722"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels para Jupyter Notebook en clústeres Apache Spark en Azure HDInsight
 
@@ -25,7 +25,7 @@ Los clústeres de HDInsight Spark proporcionan kernels que se pueden utilizar co
 
 En este artículo, aprenderá a usar estos kernels y las ventajas de utilizarlos.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](apache-spark-jupyter-spark-sql.md).
 
@@ -59,8 +59,10 @@ Estas son algunas ventajas de usar los kernels nuevo con el cuaderno de Jupyter 
 
     Por tanto, **no** tiene que ejecutar instrucciones como la siguiente para definir los contextos:
 
-         sc = SparkContext('yarn-client')
-         sqlContext = HiveContext(sc)
+    ```sql
+    sc = SparkContext('yarn-client')
+    sqlContext = HiveContext(sc)
+    ```
 
     En su lugar, puede utilizar directamente los contextos preestablecidos en la aplicación.
 
@@ -98,8 +100,10 @@ El comando mágico `%%sql` es compatible con distintos parámetros que se pueden
 
 **Ejemplo**:
 
-    %%sql -q -m sample -r 0.1 -n 500 -o query2
-    SELECT * FROM hivesampletable
+```sql
+%%sql -q -m sample -r 0.1 -n 500 -o query2
+SELECT * FROM hivesampletable
+```
 
 La instrucción anterior hace lo siguiente:
 
@@ -121,9 +125,11 @@ Si el clúster usa Azure Storage como la cuenta de almacenamiento predeterminada
 
 La forma de guardar los cuadernos en la cuenta de almacenamiento es compatible con [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html). Si se usa SSH en el clúster, puede usar los comandos de administración de archivos:
 
-    hdfs dfs -ls /HdiNotebooks                            # List everything at the root directory – everything in this directory is visible to Jupyter from the home page
-    hdfs dfs –copyToLocal /HdiNotebooks                   # Download the contents of the HdiNotebooks folder
-    hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it's visible from Jupyter
+| Get-Help | Descripción |
+|---------|-------------|
+| `hdfs dfs -ls /HdiNotebooks` | # Enumera todo en el directorio raíz: todo lo que se encuentra en este directorio es visible para Jupyter en la página principal. |
+| `hdfs dfs –copyToLocal /HdiNotebooks` | # Descargar el contenido de la carpeta HdiNotebooks|
+| `hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks` | # Carga un cuaderno example.ipynb en la carpeta raíz para que sea visible desde Jupyter |
 
 Independientemente de si el clúster usa Azure Storage o Azure Data Lake Storage como la cuenta de almacenamiento predeterminada, los cuadernos también se guardan en el nodo principal del clúster en `/var/lib/jupyter`.
 
@@ -131,7 +137,7 @@ Independientemente de si el clúster usa Azure Storage o Azure Data Lake Storage
 
 Los cuadernos de Jupyter Notebook que se ejecutan en clústeres Spark de HDInsight solo son compatibles con Google Chrome.
 
-## <a name="feedback"></a>Comentarios
+## <a name="suggestions"></a>Sugerencias
 
 El nuevo kernel está en la fase de evolución y se desarrollará con el tiempo. Por lo tanto, las API podrían cambiar a medida que estos kernels se consoliden. Agradecemos cualquier comentario que tenga al utilizar estos nuevos kernels. La información es útil para dar forma a la versión final de estos kernels. Puede dejar sus comentarios la sección **Comentarios** al final de este artículo.
 

@@ -7,20 +7,20 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 07/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d35c81f7bb478d91bd207327ea37c80aa1778142
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6f38ef7db114705392bd1d3dc6f9a4562a809e20
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74023145"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023892"
 ---
 # <a name="activate-my-azure-resource-roles-in-privileged-identity-management"></a>Active mis roles de recursos de Azure en Privileged Identity Management
 
@@ -42,13 +42,15 @@ Cuando necesite asumir un rol de recurso de Azure, puede solicitar la activació
 
 1. Seleccione **Roles de recursos de Azure** para ver una lista de los roles de recursos de Azure válidos.
 
-   ![Mis roles: página de roles de recursos de Azure](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png) 
+   ![Mis roles: página de roles de recursos de Azure](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png)
 
 1. En la lista **Roles de recursos de Azure**, busque el rol que desea activar.
 
     ![Roles de recursos de Azure: mi lista de roles elegibles](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate.png)
 
-1. Seleccione **Activar** para abrir el Panel de activación.
+1. Seleccione **Activar** para abrir la Página de activación.
+
+     ![El panel de activación abierto con el ámbito, la hora de inicio, la duración y el motivo](./media/pim-resource-roles-activate-your-roles/azure-role-eligible-activate.png)
 
 1. Si el rol requiere la autenticación multifactor, seleccione **Compruebe su identidad antes de proceder**. Solo tiene que autenticarse una vez por sesión.
 
@@ -72,27 +74,9 @@ Cuando necesite asumir un rol de recurso de Azure, puede solicitar la activació
 
 1. Seleccione **Activar**.
 
-    Si el rol no requiere aprobación, se activa y se agrega a la lista de roles activos. Si quiere usar el rol, siga los pasos de la siguiente sección.
-
     Si el [rol requiere aprobación](pim-resource-roles-approval-workflow.md) para activarse, aparecerá una notificación en la esquina superior del explorador que le informa de que la solicitud está pendiente de aprobación.
 
     ![La solicitud de activación está pendiente de notificación de aprobación](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
-
-## <a name="use-a-role-immediately-after-activation"></a>Uso de un rol inmediatamente después de la activación
-
-En caso de cualquier retraso tras la activación, siga estos pasos para usar los roles de recursos de Azure de forma inmediata.
-
-1. Abra Azure AD Privileged Identity Management.
-
-1. Seleccione **Mis roles** para ver una lista de los roles de Azure AD válidos y los roles de recursos de Azure.
-
-1. Seleccione **Roles de recursos de Azure**.
-
-1. Seleccione la pestaña **Roles activos**.
-
-1. Cuando el rol esté activo, cierre sesión en el portal e iníciela de nuevo.
-
-    El rol debe estar ahora disponible para su uso.
 
 ## <a name="view-the-status-of-your-requests"></a>Visualización del estado de las solicitudes
 
@@ -127,9 +111,6 @@ Si no necesita activar un rol que requiera aprobación, puede cancelar una solic
 Al activar un rol en Privileged Identity Management, la activación podría no propagarse al instante a todos los portales que requieren el rol con privilegios. A veces, incluso si el cambio se propaga, el almacenamiento en caché web en un portal puede provocar que el cambio no surta efecto de inmediato. Esto es lo que debe de hacer si se retrasa la activación.
 
 1. Cierre sesión en Azure Portal y vuelva a iniciar sesión.
-
-    Al activar un rol de recurso de Azure, verá las fases de la activación. Una vez que finalizan todas las fases, verá un vínculo para **Cerrar sesión**. Puede usar este vínculo para cerrar la sesión. Esto solucionará la mayoría de los casos de retraso de activación.
-
 1. En Privileged Identity Management, compruebe que aparece como miembro del rol.
 
 ## <a name="next-steps"></a>Pasos siguientes

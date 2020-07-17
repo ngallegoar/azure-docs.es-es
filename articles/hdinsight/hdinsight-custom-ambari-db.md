@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 10/29/2019
+ms.topic: how-to
+ms.date: 06/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4cb96e1299010636e0bce3cb99fbba9862822564
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 1858e06567a0ab0907e6d2cb60358ff4ac00f9a2
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022272"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086354"
 ---
 # <a name="set-up-hdinsight-clusters-with-a-custom-ambari-db"></a>Configuración de clústeres de HDInsight con una base de datos de Ambari personalizada
 
@@ -38,6 +38,7 @@ Puede implementar una base de datos personalizada de Ambari con todos los tipos 
 
 La base de datos personalizada de Ambari tiene los siguientes requisitos:
 
+- El nombre de la base de datos no puede contener guiones ni espacios
 - Debe tener una base de datos y un servidor de Azure SQL Database existentes.
 - La base de datos que se proporciona para la configuración de Ambari debe estar vacía. No debe haber ninguna tabla en el esquema DBO predeterminado.
 - El usuario utilizado para conectarse a la base de datos debe tener permisos SELECT, CREATE TABLE e INSERT en la base de datos.

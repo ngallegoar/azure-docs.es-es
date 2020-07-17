@@ -4,12 +4,12 @@ description: Alerta de cambios no habituales en la frecuencia de solicitudes con
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: e4a629b4c33c22bf5663d6f8e8b9d0ba11ac24dc
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 35c1769672e11cd7d1ec2f628b9d763dc8b90ac3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700775"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254793"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Detección inteligente: anomalías de error
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) le avisa automáticamente casi en tiempo real si la aplicación web sufre un aumento anómalo en la frecuencia de solicitudes erróneas. Asimismo, detecta un aumento inusual de la tasa de solicitudes HTTP o llamadas de dependencia notificadas como errores. En el caso de las solicitudes, las solicitudes con error suelen tener códigos de respuesta de 400 o superiores. Para ayudarle a evaluar las prioridades y a diagnosticar el problema, en los detalles de la alerta se proporciona un análisis de las características de los errores, así como datos de la aplicación relacionados. También hay vínculos en el portal de Application Insights para obtener un diagnóstico más amplio. La característica no necesita ninguna instalación o configuración, ya que usa algoritmos de aprendizaje automático para predecir la tasa normal de errores.
@@ -304,7 +304,7 @@ Puede determinar la urgencia del problema a partir del porcentaje de solicitudes
 
 En muchos casos, podrá diagnosticar el problema rápidamente a partir del nombre de la solicitud, las excepciones, los errores de dependencias y otros datos de seguimiento proporcionados.
 
-En este ejemplo, se produjo una excepción de la base de datos SQL debido a que se alcanzó el límite de solicitudes.
+En este ejemplo, se produjo una excepción de SQL Database debido a que se alcanzó el límite de solicitudes.
 
 [![](./media/proactive-failure-diagnostics/052.png "Failed request details")](./media/proactive-failure-diagnostics/052.png#lightbox)
 

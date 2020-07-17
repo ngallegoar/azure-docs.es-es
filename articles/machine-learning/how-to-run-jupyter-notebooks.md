@@ -8,16 +8,16 @@ ms.author: osomorog
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.date: 04/21/2020
-ms.openlocfilehash: ccdb2b24499c86a54909b2617abd7e9bf294a261
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.topic: how-to
+ms.date: 06/27/2020
+ms.openlocfilehash: 476f3925886a6de68b49e1861d22e6cfaf594202
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220189"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601467"
 ---
-# <a name="how-to-run-jupyter-notebooks-in-your-workspace-preview"></a>Ejecución de los cuadernos de Jupyter Notebook en el área de trabajo (versión preliminar)
+# <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Ejecución de los cuadernos de Jupyter Notebook en el área de trabajo
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Aprenda a ejecutar sus cuadernos de Jupyter Notebook directamente en el área de trabajo en Azure Machine Learning Studio. Aunque puede iniciar [Jupyter](https://jupyter.org/) o [JupyterLab](https://jupyterlab.readthedocs.io), también puede editar y ejecutar los cuadernos sin tener que salir del área de trabajo.
@@ -51,10 +51,12 @@ Para crear un nuevo cuaderno:
 1. Seleccione un directorio de archivos.
 1. Seleccione **Crear**.
 
-> [!TIP]
-> También puede crear archivos de texto.  Seleccione **Texto** como el tipo de archivo y agregue la extensión al nombre (por ejemplo, miarchivo.py o miarchivo.txt).  
+También puede crear archivos de texto.  Seleccione **Texto** como el tipo de archivo y agregue la extensión al nombre (por ejemplo, miarchivo.py o miarchivo.txt).  
 
 También puede cargar carpetas y archivos, incluidos cuadernos, con las herramientas que se encuentra en la parte superior de la página Notebooks.  Los cuadernos y la mayoría de los tipos de archivo de texto se muestran en la sección de vista previa.  Para la mayoría de los demás tipos de archivo la vista previa no está disponible.
+
+> [!IMPORTANT]
+> El contenido de los cuadernos y scripts puede leer los datos de las sesiones y acceder a los datos sin su organización en Azure.  Cargar solo archivos de fuentes de confianza. Para más información, vea [Prácticas recomendadas de código seguro](concept-secure-code-best-practice.md#azure-ml-studio-notebooks).
 
 ### <a name="clone-samples"></a>Clonación de ejemplos
 
@@ -95,15 +97,37 @@ Copie y pegue la dirección URL para compartir un bloc de notas o un archivo.  S
 
 Para editar un cuaderno, abra cualquiera que esté situado en la sección **Archivos de usuario** de su área de trabajo. Haga clic en la celda que desee editar. 
 
-Cuando se ejecuta una instancia de proceso en ejecución, también puede usar la finalización de código, con la tecnología [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense), en cualquier cuaderno de Python.
+Puede editar el cuaderno sin necesidad de conectarse a una instancia de proceso.  Cuando desee ejecutar las celdas en el cuaderno, seleccione o cree una instancia de proceso.  Si selecciona una instancia de proceso detenida, se iniciará automáticamente al ejecutar la primera celda.
+
+Cuando se ejecuta una instancia de proceso, también puede usar la finalización de código, con la tecnología [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense), en cualquier Python Notebook.
 
 También puede iniciar Jupyter o JupyterLab desde la barra de herramientas de Notebook.  Azure Machine Learning no proporciona actualizaciones ni corrige errores de Jupyter o JupyterLab, ya que son productos de código abierto fuera de los límites del servicio de soporte técnico de Microsoft.
+
+### <a name="use-intellisense"></a>Usar IntelliSense
+
+[IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) es una ayuda de finalización de código que incluye una serie de características: enumerar miembros, información de parámetros, información rápida y completar palabra. Estas características le ayudan a obtener más información sobre el código que está usando, realizar un seguimiento de los parámetros que está escribiendo y agregar llamadas a propiedades y métodos con solo unas cuantas pulsaciones de tecla.  
+
+Al escribir código, use Ctrl + barra espaciadora para desencadenar IntelliSense.
+
+### <a name="save-and-checkpoint-a-notebook"></a>Guardar y revisar un cuaderno
+
+Azure Machine Learning crea un archivo de punto de comprobación cuando se crea un archivo  *ipynb* .
+
+En la barra de herramientas del cuaderno, seleccione el menú y luego, **Archivo&gt;Guardar y punto de control** para guardar manualmente el cuaderno y agregará un archivo de punto de control asociado con el cuaderno.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Captura de pantalla de la herramienta guardar en la barra de herramientas del cuaderno":::
+
+Cada cuaderno se guarda automáticamente cada 30 segundos. El guardado automático actualiza solo el archivo inicial  *ipynb* , no el archivo de punto de control.
+ 
+Seleccione **Puntos de control** en el menú del cuaderno para crear un punto de control con nombre y revertir el cuaderno a un punto de control guardado.
+
 
 ### <a name="useful-keyboard-shortcuts"></a>Métodos abreviados de teclado útiles
 
 |Teclado  |Acción  |
 |---------|---------|
 |Mayús+Entrar     |  Ejecución de una celda       |
+|Ctrl + barra espaciadora | Activar IntelliSense |
 |Ctrl + M (Windows)     |  Habilitación o deshabilitación de captura de pestañas en Notebook.       |
 |Ctrl + Mayús + M (Mac & Linux)     |    Habilitación o deshabilitación de captura de pestañas en Notebook.     |
 |Tab (cuando está habilitada la captura de pestañas) | Incorporación de un carácter '\t' (sangría)

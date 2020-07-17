@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
-ms.openlocfilehash: e945fd77c2615e6f5213a9aa4fc996f0c4d2f3dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8b415c9582af2303451a8076307f07ee92ac08d0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81769998"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261348"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar el registro de diagnósticos para las aplicaciones de Azure App Service
 ## <a name="overview"></a>Información general
@@ -193,6 +193,8 @@ En la tabla siguiente se muestran las descripciones y los tipos de registros adm
 | AppServiceAuditLogs | Sí | Sí | Actividad de inicio de sesión a través de FTP y KUDU |
 | AppServiceFileAuditLogs | Sí | TBD | Cambios de archivos a través de FTP y KUDU |
 | AppServiceAppLogs | TBA | Java SE y Tomcat | Registros de aplicación |
+| AppServiceIPSecAuditLogs  | Sí | Sí | Solicitudes de reglas IP |
+| AppServicePlatformLogs  | TBA | Sí | Registros de contenedor |
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Pasos siguientes
 * [Consulta de registros con Azure Monitor](../azure-monitor/log-query/log-query-overview.md)

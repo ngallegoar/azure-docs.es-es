@@ -4,12 +4,12 @@ description: Supervise la disponibilidad, el rendimiento y el uso de las aplicac
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.reviewer: lmolkova
-ms.openlocfilehash: 302d96544a719f0e818d942bff1011c6a4368ef7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d3d1d8aafaea8dcb9e67b842acfbd493e02e4854
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807322"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086252"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights para aplicaciones de consola .NET
 
@@ -18,7 +18,7 @@ ms.locfileid: "85807322"
 Necesita una suscripción a [Microsoft Azure](https://azure.com). Inicie sesión con una cuenta Microsoft, que podría tener para Windows, Xbox Live u otros servicios en la nube de Microsoft. Si su equipo tiene una suscripción organizativa a Azure, el propietario puede agregarle a esta con la cuenta de Microsoft.
 
 > [!NOTE]
-> Hay un nuevo SDK de Application Insights llamado [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) que se puede usar para habilitar Application Insights en cualquier aplicación de consola. Se recomienda usar este paquete y las instrucciones asociadas que se indican [aquí](../../azure-monitor/app/worker-service.md). Este paquete va dirigido a [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard) y, por lo tanto, se puede usar en .NET Core 2.0 o una versión posterior, y .NET Framework 4.7.2 o una versión posterior.
+> Es *muy recomendable* utilizar el paquete de [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) y las instrucciones asociadas que se especifican [aquí](../../azure-monitor/app/worker-service.md) para cualquier aplicación de consola. Este paquete va dirigido a [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard) y, por lo tanto, se puede usar en .NET Core 2.1 o una versión posterior, y .NET Framework 4.7.2 o una versión posterior.
 
 ## <a name="getting-started"></a>Introducción
 

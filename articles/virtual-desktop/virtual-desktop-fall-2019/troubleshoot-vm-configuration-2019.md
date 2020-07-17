@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: eeccf0031e28bdcb719c0d534874d2c240ba46d3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 0dd03508a745a231f10cfc6d09953067618043e9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117434"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362516"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuración de máquina virtual de host de sesión
 
@@ -118,7 +118,8 @@ Cuando el agente de Windows Virtual Desktop se instala por primera vez en las VM
 
 ### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>Error: El estado archivado en el cmdlet Get-RdsSessionHost muestra el estado como no disponible
 
-![El cmdlet Get-RdsSessionHost muestra el estado como no disponible.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![El cmdlet Get-RdsSessionHost muestra el estado como no disponible.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Causa:** El agente no puede actualizarse automáticamente a una nueva versión.
 
@@ -191,7 +192,8 @@ Si tiene problemas con la pila en paralelo de Windows Virtual Desktop, escriba e
 
 La salida de **qwinsta** enumerará **rdp-sxs** en el resultado si la pila en paralelo está instalada y habilitada.
 
-![La pila en paralelo instalada o habilitada, donde qwinsta aparece como rdp-sxs en la salida.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![La pila en paralelo instalada o habilitada, en la que qwinsta aparece como rdp-sxs en la salida.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 Examine las entradas del Registro que se enumeran a continuación y confirme que coincidan con sus valores. Si faltan las claves del Registro o los valores no coinciden, siga las instrucciones de [Creación de un grupo host con PowerShell](create-host-pools-powershell-2019.md) para conocer cómo reinstalar la pila en paralelo.
 
@@ -205,7 +207,8 @@ Examine las entradas del Registro que se enumeran a continuación y confirme que
 
 ### <a name="error-o_reverse_connect_stack_failure"></a>Error: O_REVERSE_CONNECT_STACK_FAILURE
 
-![Código de error de O_REVERSE_CONNECT_STACK_FAILURE.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![Código de error de O_REVERSE_CONNECT_STACK_FAILURE.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Causa:** La pila en paralelo no está instalada en la VM del host de sesión.
 
@@ -247,19 +250,21 @@ Siga estas instrucciones para ejecutar la corrección desde la misma subred y do
             psexec.exe \\<VMname> cmd
     ```
 
-    >[!Note]
+    >[!NOTE]
     >VMname es el nombre de equipo de la VM con la pila en paralelo con error de funcionamiento.
 
 7. Para aceptar el contrato de licencia de PsExec, haga clic en Aceptar.
 
-    ![Captura de pantalla del contrato de licencia de software.](../media/SoftwareLicenseTerms.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla del contrato de licencia de software.](../media/SoftwareLicenseTerms.png)
 
-    >[!Note]
+    >[!NOTE]
     >Este cuadro de diálogo se muestra solo la primera vez que se ejecuta PsExec.
 
 8. Una vez que se abre la sesión de símbolo del sistema en la VM con la pila en paralelo con error de funcionamiento, ejecute qwinsta y confirme que haya disponible una entrada denominada rdp-sxs. Si no es así, no hay una pila en paralelo en la VM, así que el problema no está vinculado a la pila en paralelo.
 
-    ![Símbolo del sistema de administrador](../media/AdministratorCommandPrompt.png)
+    > [!div class="mx-imgBorder"]
+    > ![Símbolo del sistema de administrador](../media/AdministratorCommandPrompt.png)
 
 9. Ejecute el comando siguiente, que mostrará una lista de componentes de Microsoft instalados en la VM con la pila en paralelo con error de funcionamiento.
 
@@ -327,7 +332,8 @@ Para consultar la versión de Windows 10 Enterprise multisesión que tiene:
 3. Seleccione **Acerca de tu PC**.
 4. Consulte el número que aparece junto a "Versión". El número debe ser "1809" o "1903", tal como se muestra en la siguiente imagen.
 
-    ![Captura de pantalla de la ventana de especificaciones de Windows. El número de versión está resaltado en azul.](../media/windows-specifications.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de la ventana de especificaciones de Windows. El número de versión está resaltado en azul.](../media/windows-specifications.png)
 
 Ahora que conoce el número de versión, vaya directamente a la sección correspondiente.
 

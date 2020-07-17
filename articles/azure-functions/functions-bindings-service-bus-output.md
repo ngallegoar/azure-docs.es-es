@@ -1,17 +1,18 @@
 ---
-title: Enlaces de Azure Service Bus en Azure Functions
+title: Enlaces de salida de Azure Service Bus para Azure Functions
 description: Obtenga información sobre cómo enviar mensajes de Azure Service Bus desde Azure Functions.
 author: craigshoemaker
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: d6817ac4ebc272747776eab8b11dba62f318e4ed
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.custom: tracking-python
+ms.openlocfilehash: 6159ea7c9e00e822019a0d6542be2e84dbbdc335
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690719"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603645"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Enlace de salida de Azure Service Bus para Azure Functions
 
@@ -304,7 +305,7 @@ Puede usar los siguientes tipos de parámetro para el enlace de salida:
 * `out byte[]`: si el valor del parámetro es null cuando finaliza la función, Functions no crea ningún mensaje.
 * `out BrokeredMessage`: si el valor del parámetro es null cuando finaliza la función, Functions no crea ningún mensaje (en el caso de Functions 1.x)
 * `out Message`: si el valor del parámetro es null cuando finaliza la función, Functions no crea ningún mensaje (en el caso de Functions 2.x y versiones posteriores)
-* `ICollector<T>` o `IAsyncCollector<T>`: para crear varios mensajes. Se crea un mensaje al llamar al método `Add` .
+* `ICollector<T>` o `IAsyncCollector<T>` (para métodos asincrónicos): para crear varios mensajes. Se crea un mensaje al llamar al método `Add` .
 
 Cuando trabaje con funciones de C#:
 
@@ -380,13 +381,14 @@ En esta sección se describen las opciones de configuración globales disponible
     }
 }
 ```
+
 Si `isSessionsEnabled` se ha establecido en `true`, se respetará `sessionHandlerOptions`.  Si `isSessionsEnabled` se ha establecido en `false`, se respetará `messageHandlerOptions`.
 
 |Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------|
 |prefetchCount|0|Obtiene o establece el número de mensajes que el destinatario del mensaje puede solicitar simultáneamente.|
 |maxAutoRenewDuration|00:05:00|Duración máxima dentro de la cual el bloqueo de mensajes se renovará automáticamente.|
-|autoComplete|true|Si el desencadenador debe llamar automáticamente a Complete después del procesamiento o si el código de la función llamará manualmente a Complete.|
+|autoComplete|true|Si el desencadenador debe llamar automáticamente a Complete después del procesamiento o si el código de la función llamará manualmente a Complete.<br><br>La configuración en `false` solo se admite en C#.<br><br>Si se establece en `true`, el desencadenador completa automáticamente el mensaje si la ejecución de la función se completa correctamente y abandona el mensaje en caso contrario.<br><br>Cuando se establece en `false`, usted es responsable de llamar a los métodos [MessageReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) para completar, abandonar o cerrar el mensaje. Si se produce una excepción (y no se llama a ninguno de los métodos `MessageReceiver`), se mantiene el bloqueo. Una vez que el bloqueo expira, el mensaje se vuelve a poner en cola con la `DeliveryCount` incrementada y el bloqueo se renueva automáticamente.<br><br>En las funciones que no son C#, las excepciones en la función dan como resultado las llamadas en tiempo de ejecución `abandonAsync` en segundo plano. Si no se produce ninguna excepción, se llama a `completeAsync` en segundo plano. |
 |maxConcurrentCalls|16|Número máximo de llamadas simultáneas a la devolución de llamada que el bombeo de mensajes debe iniciar por instancia con escala. De forma predeterminada, el entorno de ejecución de Functions procesa simultáneamente varios mensajes.|
 |maxConcurrentSessions|2000|Número máximo de sesiones que se puede administrar simultáneamente por instancia con escala.|
 

@@ -3,12 +3,12 @@ title: Importación de imágenes de contenedor
 description: Importe imágenes de contenedor en un registro de contenedor de Azure mediante las API de Azure, sin necesidad de ejecutar comandos de Docker.
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: caf7a47ac8f7ff0e72d2e049a7013542d274a225
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a7a6566540880d027b1dc3428d394b352f34318d
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051922"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023523"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importación de imágenes de contenedor en un registro de contenedor
 
@@ -34,7 +34,7 @@ Para importar imágenes de contenedor, este artículo requiere que ejecute la CL
 > Si tiene que distribuir imágenes de contenedor idénticas en varias regiones de Azure, Azure Container Registry también admite la [replicación geográfica](container-registry-geo-replication.md). Mediante la replicación geográfica de un registro (es necesario el nivel de servicio Premium), puede atender varias regiones con nombres idénticos de imagen y etiqueta desde un único registro.
 >
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si aún no tiene un registro de contenedor de Azure, cree un registro. Para obtener instrucciones, consulte [Guía de inicio rápido: Creación de un registro de contenedor privado con la CLI de Azure](container-registry-get-started-azure-cli.md).
 
@@ -72,13 +72,13 @@ az acr import \
 
 ### <a name="import-from-microsoft-container-registry"></a>Importación desde el Registro de contenedor de Microsoft
 
-Por ejemplo, importe la imagen de Windows Server Core más reciente desde el repositorio de `windows` en el Registro de contenedor de Microsoft.
+Por ejemplo, importe la imagen de Windows Server Core `ltsc2019` del repositorio de `windows` en Microsoft Container Registry.
 
 ```azurecli
 az acr import \
 --name myregistry \
---source mcr.microsoft.com/windows/servercore:latest \
---image servercore:latest
+--source mcr.microsoft.com/windows/servercore:ltsc2019 \
+--image servercore:ltsc2019
 ```
 
 ## <a name="import-from-another-azure-container-registry"></a>Importación desde otro registro de contenedor de Azure

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 734876380d22f5d4d6dae0dd375b238fd5f6ffed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 236153612f6056e90cb9b5af128f49ed550e3fe9
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74559343"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080880"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtención de visibilidad de todos los inquilinos en Azure Security Center
 En este artículo se explica cómo administrar la posición de seguridad de la organización a escala mediante la aplicación de directivas de seguridad a todas las suscripciones vinculadas al inquilino de Azure Active Directory.
@@ -74,7 +74,7 @@ Un administrador de inquilino de Azure Active Directory no tiene acceso directo 
 
 3. En **Access management for Azure resources** (Administración de acceso a recursos de Azure), establezca el modificador en **Sí**.
 
-   ![El administrador global puede gestionar las suscripciones s Azure y los grupos de administración (captura de pantalla)](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
+   ![Captura de pantalla de administración de acceso a recursos de Azure](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
    - Al establecer el modificador en Sí, se le asigna el rol de administrador de acceso de usuario en Azure RBAC en el ámbito raíz (/). Esto le concede permiso para asignar roles en todas las suscripciones de Azure y los grupos de administración asociados a este directorio de Azure AD. Este modificador solo está disponible para los usuarios que tienen asignado el rol de administrador global de Azure AD.
 
@@ -161,7 +161,7 @@ Después de asignar los roles de RBAC a los usuarios, el administrador de inquil
 
 2. En la lista de navegación, haga clic en **Azure Active Directory** y, luego, haga clic en **Propiedades**.
 
-3. En **El administrador global puede administrar suscripciones de Azure y grupos de administración**, seleccione **No**.
+3. En **Administración de acceso a recursos de Azure**, establezca el modificador en **No**.
 
 4. Haga clic en **Guardar** para guardar la configuración.
 

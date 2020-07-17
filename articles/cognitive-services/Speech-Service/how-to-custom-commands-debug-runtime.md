@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 2032ba11c307adda7035d64828d5089da49bedba
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 1c9b0b48c7862990cfa2c8ba38bde0851058a228
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307328"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023030"
 ---
 # <a name="debug-errors-when-running-a-custom-commands-application"></a>Depuración de errores durante la ejecución de una aplicación de Comandos personalizados
 
@@ -27,9 +27,8 @@ Si ejecuta la aplicación de Comandos personalizados desde una [aplicación clie
 
 | Código de error | Detalles |
 | ------- | -------- |
-| 401 | AuthenticationFailure: Error de actualización de WebSocket con un error de autenticación |
-| 1000 | Se superó la duración máxima de inactividad de la conexión de WebSocket (> 300 000 ms) |
-| 1002 | El servidor devolvió el código de estado ''404" cuando se esperaba el código "101". |
+| [401](#error-401) | AuthenticationFailure: Error de actualización de WebSocket con un error de autenticación |
+| [1002](#error-1002)] | El servidor devolvió el código de estado ''404" cuando se esperaba el código "101". |
 
 ### <a name="error-401"></a>Error 401
 - La región especificada en la aplicación cliente no coincide con la región de la aplicación de comandos personalizados.
@@ -37,9 +36,6 @@ Si ejecuta la aplicación de Comandos personalizados desde una [aplicación clie
 - La clave de recurso de voz no es válida.
     
     Asegúrese de que la clave de recurso de voz esté correcta.
-
-### <a name="error-1000"></a>Error 1000 
-El servidor finaliza las conexiones inactivas después de 5 minutos. Trate de volver a conectarse.
 
 ### <a name="error-1002"></a>Error 1002 
 - No está publicada la aplicación de comandos personalizados.
@@ -49,10 +45,12 @@ El servidor finaliza las conexiones inactivas después de 5 minutos. Trate de v
 - El applicationId de comandos personalizados no es válido.
 
     Asegúrese de que el id. de la aplicación de comandos personalizados esté correcto.
-
-- Está intentando acceder a una aplicación de comandos personalizados fuera del recurso de voz.
+ aplicación de comandos personalizada fuera del recurso de voz
 
     Asegúrese de que la aplicación de comandos personalizada se cree en el recurso de voz.
+
+Para más información acerca de la solución de problemas de conexión, consulte [Solución de problemas de cliente de Windows Voice Assistant](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/master/clients/csharp-wpf#troubleshooting)
+
 
 ## <a name="dialog-is-canceled"></a>Diálogo cancelado
 
@@ -70,14 +68,14 @@ El evento CancelledDialog se compone del código y la descripción de cancelaci�
 
 | Código de cancelación | Descripción de cancelación |
 | ------- | --------------- | ----------- |
-| MaxTurnThresholdReached | No hubo ningún avance después del número máximo de turnos permitidos |
-| RecognizerQuotaExceeded | Se superó la cuota de uso del reconocedor |
-| RecognizerConnectionFailed | No se pudo establecer la conexión con el reconocedor |
-| RecognizerUnauthorized | No se puede acceder a esta aplicación con la suscripción actual |
-| RecognizerInputExceededAllowedLength | La entrada supera la longitud máxima que admite el reconocedor |
-| RecognizerNotFound | No se encontró el reconocedor |
-| RecognizerInvalidQuery | Consulta no válida para el reconocedor |
-| RecognizerError | El reconocedor devuelve un error |
+| [MaxTurnThresholdReached](#no-progress-was-made-after-the-max-number-of-turns-allowed) | No hubo ningún avance después del número máximo de turnos permitidos |
+| [RecognizerQuotaExceeded](#recognizer-usage-quota-exceeded) | Se superó la cuota de uso del reconocedor |
+| [RecognizerConnectionFailed](#connection-to-the-recognizer-failed) | No se pudo establecer la conexión con el reconocedor |
+| [RecognizerUnauthorized](#this-application-cannot-be-accessed-with-the-current-subscription) | No se puede acceder a esta aplicación con la suscripción actual |
+| [RecognizerInputExceededAllowedLength](#input-exceeds-the-maximum-supported-length) | La entrada supera la longitud máxima que admite el reconocedor |
+| [RecognizerNotFound](#recognizer-not-found) | No se encontró el reconocedor |
+| [RecognizerInvalidQuery](#invalid-query-for-the-recognizer) | Consulta no válida para el reconocedor |
+| [RecognizerError](#recognizer-return-an-error) | El reconocedor devuelve un error |
 
 ### <a name="no-progress-was-made-after-the-max-number-of-turns-allowed"></a>No hubo ningún avance después del número máximo de turnos permitidos
 El diálogo se cancela cuando una ranura necesaria no se actualiza correctamente después de cierto número de turnos. El número máximo integrado es 3.

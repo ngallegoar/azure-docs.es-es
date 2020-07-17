@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/19/2019
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 959f1e3f25602938d769c574ea975c4bba9300e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 584c03dc798bc21ddd5538e58d0f9047c55c5372
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71258000"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040459"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>Problemas conocidos: Alertas de configuración de red en Azure Active Directory Domain Services
 
-Para permitir que las aplicaciones y los servicios se comuniquen correctamente con Azure Active Directory Domain Services (Azure AD DS), los puertos de red específicos deben estar abiertos para permitir el flujo de tráfico. En Azure, puede controlar el flujo de tráfico mediante grupos de seguridad de red. El estado de mantenimiento de un dominio administrado de Azure AD DS muestra una alerta si las reglas de grupo de seguridad de red necesarias no están en su lugar.
+Para permitir que las aplicaciones y los servicios se comuniquen correctamente con un dominio administrado de Azure Active Directory Domain Services (Azure AD DS), los puertos de red específicos deben estar abiertos para permitir el flujo del tráfico. En Azure, puede controlar el flujo de tráfico mediante grupos de seguridad de red. El estado de mantenimiento de un dominio administrado de Azure AD DS muestra una alerta si las reglas de grupo de seguridad de red necesarias no están en su lugar.
 
 Este artículo le ayuda a comprender y resolver alertas comunes de problemas de configuración de grupos de seguridad de red.
 
@@ -30,11 +30,11 @@ Este artículo le ayuda a comprender y resolver alertas comunes de problemas de 
 
 *Microsoft no puede tener acceso a los controladores de dominio de este dominio administrado. Esto puede ocurrir si un grupo de seguridad de red (NSG) configurado en la red virtual bloquea el acceso al dominio administrado. Otro motivo posible es que hay una ruta definida por el usuario que bloquea el tráfico entrante desde Internet.*
 
-Las reglas de grupo de seguridad de red no válidas son la causa más común de los errores de red en Azure AD DS. El grupo de seguridad de red para la red virtual debe permitir el acceso a puertos y protocolos específicos. Si estos puertos están bloqueados, la plataforma Azure no puede supervisar ni actualizar el dominio administrado. Además, se afecta la sincronización entre el directorio de Azure AD y el dominio administrado de Azure AD DS. Asegúrese de mantener abiertos los puertos predeterminados para evitar la interrupción del servicio.
+Las reglas de grupo de seguridad de red no válidas son la causa más común de los errores de red en Azure AD DS. El grupo de seguridad de red para la red virtual debe permitir el acceso a puertos y protocolos específicos. Si estos puertos están bloqueados, la plataforma Azure no puede supervisar ni actualizar el dominio administrado. También se verá afectada la sincronización entre el directorio de Azure AD y Azure AD DS. Asegúrese de mantener abiertos los puertos predeterminados para evitar la interrupción del servicio.
 
 ## <a name="default-security-rules"></a>reglas de seguridad predeterminadas
 
-Las siguientes reglas de seguridad de entrada y salida predeterminadas se aplican al grupo de seguridad de red para un dominio administrado de Azure AD DS. Estas reglas mantienen Azure AD DS seguro y permiten que la plataforma de Azure supervise, administre y actualice el dominio administrado. También puede tener una regla adicional que permita el tráfico entrante si [configura LDAP seguro][configure-ldaps].
+Las siguientes reglas de seguridad de entrada y de salida predeterminadas se aplican al grupo de seguridad de red para un dominio administrado. Estas reglas mantienen Azure AD DS seguro y permiten que la plataforma de Azure supervise, administre y actualice el dominio administrado.
 
 ### <a name="inbound-security-rules"></a>Reglas de seguridad de entrada
 
@@ -46,6 +46,9 @@ Las siguientes reglas de seguridad de entrada y salida predeterminadas se aplica
 | 65000    | AllVnetInBound | Any | Any | VirtualNetwork | VirtualNetwork | Allow |
 | 65001    | AllowAzureLoadBalancerInBound | Any | Any | AzureLoadBalancer | Any | Allow |
 | 65500    | DenyAllInBound | Any | Any | Any | Any | Denegar |
+
+> [!NOTE]
+> También puede tener una regla adicional que permita el tráfico entrante si [configura LDAP seguro][configure-ldaps]. Esta regla adicional es necesaria para la comunicación LDAP correcta.
 
 ### <a name="outbound-security-rules"></a>Reglas de seguridad de entrada
 
@@ -68,7 +71,7 @@ Para comprobar las reglas de seguridad existentes y asegurarse de que los puerto
 
     Revise las reglas de entrada y de salida, y compárelas con la lista de reglas necesarias en la sección anterior. Si es necesario, seleccione las reglas personalizadas que bloqueen el tráfico necesario y, a continuación, elimínelas. Si falta alguna de las reglas necesarias, agregue una regla en la sección siguiente.
 
-    Tras agregar o elimina las reglas para permitir el tráfico requerido, el estado del dominio administrado de Azure AD DS se actualiza automáticamente en dos horas y quita la alerta.
+    Después de agregar o eliminar reglas para permitir el tráfico necesario, el estado del dominio administrado se actualiza automáticamente en dos horas y quita la alerta.
 
 ### <a name="add-a-security-rule"></a>Agregar una regla de seguridad
 

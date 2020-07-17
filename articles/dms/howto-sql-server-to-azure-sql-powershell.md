@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 494ef67938df161915390d9adc74093bafa550f5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: a092ec3d211ed3fafadd73c37b3e58c353b618d6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84192656"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253416"
 ---
 # <a name="migrate-a-sql-server-database-to-azure-sql-database-using-azure-powershell"></a>Migración de una base de datos de SQL Server a Azure SQL Database mediante Azure PowerShell
 
-En este artículo, migrará la base de datos **Adventureworks2012** restaurada en una instancia local de SQL Server 2016 a una base de datos de Azure SQL mediante Microsoft Azure PowerShell. Puede migrar bases de datos desde una instancia de SQL Server a Azure SQL Database mediante el módulo `Az.DataMigration` en Microsoft Azure PowerShell.
+En este artículo, migrará la base de datos **Adventureworks2012** restaurada en una instancia local de SQL Server 2016 o posterior a Azure SQL mediante Microsoft Azure PowerShell. Puede migrar bases de datos desde una instancia de SQL Server a Azure SQL Database mediante el módulo `Az.DataMigration` en Microsoft Azure PowerShell.
 
 En este artículo aprenderá a:
 > [!div class="checklist"]
@@ -38,7 +38,7 @@ Para completar estos pasos, necesitará lo siguiente:
 * [SQL Server 2016 o posterior](https://www.microsoft.com/sql-server/sql-server-downloads) (cualquier edición).
 * Para habilitar el protocolo TCP/IP, que se deshabilita de forma predeterminada con la instalación de SQL Server Express. Habilite el protocolo TCP/IP siguiendo el artículo [Habilitar o deshabilitar un protocolo de red de servidor](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 * Configurar [Firewall de Windows para el acceso al motor de base de datos](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-* Una base de datos de Azure SQL. Puede crear una base de datos de Azure SQL siguiendo la información del artículo sobre cómo [crear una base de datos de Azure SQL en Azure Portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
+* Una base de datos de Azure SQL. Puede crear una instancia de Azure SQL Database mediante la información del artículo [Creación de una base de datos de Azure SQL Database en Azure Portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 * [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (versión 3.3 o posterior).
 * Haber creado una instancia de Microsoft Azure Virtual Network con el modelo de implementación de Azure Resource Manager, que proporciona a Azure Database Migration Service conectividad de sitio a sitio a los servidores de origen locales a través de [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 * Haber completado la evaluación de su base de datos local y la migración de esquemas con Data Migration Assistant, tal y como se describe en el artículo [Realizar una evaluación de migración de SQL Server con Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem).

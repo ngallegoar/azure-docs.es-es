@@ -2,13 +2,13 @@
 title: Autenticación externa desde una tarea de ACR
 description: Configure una tarea de Azure Container Registry (tarea de ACR) para leer las credenciales de Docker Hub almacenadas en un almacén de claves de Azure mediante una identidad administrada para recursos de Azure.
 ms.topic: article
-ms.date: 01/14/2020
-ms.openlocfilehash: 47d3d643ee1287ef4f444095a2c6cfe6dcab294b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/06/2020
+ms.openlocfilehash: 0bc43f958a14016146160a06372af0b36a9fff75
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76842527"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058136"
 ---
 # <a name="external-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autenticación externa en una tarea de ACR mediante una identidad administrada por Azure 
 
@@ -26,7 +26,7 @@ Los pasos que se muestran en este ejemplo utilizan una identidad administrada, b
 
 En un escenario real, una empresa puede publicar imágenes en un repositorio privado de Docker Hub como parte de un proceso de compilación. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Necesita un registro de contenedor de Azure en el que ejecutar la tarea. En este artículo, este registro se denomina *myregistry*. Reemplácelo por su propio nombre de registro en los pasos posteriores.
 
@@ -117,6 +117,20 @@ az acr task create \
 
 [!INCLUDE [container-registry-tasks-user-id-properties](../../includes/container-registry-tasks-user-id-properties.md)]
 
+
+### <a name="grant-identity-access-to-key-vault"></a>Concesión a la identidad acceso al almacén de claves
+
+Ejecute el comando [az keyvault set-policy][az-keyvault-set-policy] siguiente para establecer una directiva de acceso en el almacén de claves. En el ejemplo siguiente se permite que la identidad lea secretos del almacén de claves. 
+
+```azurecli
+az keyvault set-policy --name mykeyvault \
+  --resource-group myResourceGroup \
+  --object-id $principalID \
+  --secret-permissions get
+```
+
+Proceda a [Ejecutar manualmente la tarea](#manually-run-the-task).
+
 ## <a name="option-2-create-task-with-system-assigned-identity"></a>Opción 2: Creación de una tarea con una identidad asignada por el sistema
 
 En los pasos de esta sección se crea una tarea y se habilita una identidad asignada por el sistema. Si, en cambio, quiere habilitar una identidad asignada por el usuario, consulte [Opción 1: Creación de una tarea con una identidad asignada por el usuario](#option-1-create-task-with-user-assigned-identity). 
@@ -136,7 +150,7 @@ az acr task create \
 
 [!INCLUDE [container-registry-tasks-system-id-properties](../../includes/container-registry-tasks-system-id-properties.md)]
 
-## <a name="grant-identity-access-to-key-vault"></a>Concesión a la identidad acceso al almacén de claves
+### <a name="grant-identity-access-to-key-vault"></a>Concesión a la identidad acceso al almacén de claves
 
 Ejecute el comando [az keyvault set-policy][az-keyvault-set-policy] siguiente para establecer una directiva de acceso en el almacén de claves. En el ejemplo siguiente se permite que la identidad lea secretos del almacén de claves. 
 

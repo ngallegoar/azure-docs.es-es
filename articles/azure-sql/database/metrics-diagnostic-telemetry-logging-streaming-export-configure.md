@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 04/06/2020
-ms.openlocfilehash: 1a7a45433c2db71cbfaf16ab7107f233f1dd0eb9
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: efb99e23466e4615dfa1f4a429addcd8c4ac68f5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985523"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085623"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Configuración de la exportación de streaming de los datos de telemetría de diagnóstico de Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -133,9 +133,9 @@ Para habilitar el streaming de datos de telemetría de diagnóstico para un recu
 > [!IMPORTANT]
 > Aparte de configurar los datos de telemetría de diagnóstico de un grupo elástico, también es preciso que configure los datos de telemetría de diagnóstico de cada una de las bases de datos del grupo elástico.
 
-### <a name="single-and-pooled-databases-in-azure-sql-database"></a>Bases de datos únicas y agrupadas en Azure SQL Database
+### <a name="databases-in-azure-sql-database"></a>Bases de datos en Azure SQL Database
 
-Puede configurar un recurso de base de datos única o agrupada para recopilar los siguientes datos de telemetría de diagnóstico:
+Puede configurar un recurso de base de datos para recopilar los siguientes datos de telemetría de diagnóstico:
 
 | Recurso | Telemetría de supervisión |
 | :------------------- | ------------------- |

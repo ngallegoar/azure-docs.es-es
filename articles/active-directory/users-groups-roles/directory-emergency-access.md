@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c26b4e04970dd6c35fc6a71a1aade94d949b520
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 0339d9d47752c194eeda96cd2df4859d6b97518b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816189"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85338284"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Administración de cuentas de acceso de emergencia en Azure AD
 
@@ -72,7 +72,7 @@ Si usa contraseñas, asegúrese de que las cuentas tengan contraseñas seguras y
 
 Las organizaciones deben supervisar la actividad de registro de auditoría e inicio de sesión de las cuentas de emergencia y desencadenar el envío de notificaciones a otros administradores. Al supervisar la actividad en las cuentas de emergencia, puede comprobar que estas cuentas solo se usen para pruebas o emergencias reales. Puede usar Azure Log Analytics para supervisar los registros de inicio de sesión y desencadenar alertas por SMS y correo electrónico a los administradores cuando las cuentas de emergencia inicien sesión.
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 1. [Envíe registros de inicio de sesión de Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) a Azure Monitor.
 
@@ -156,5 +156,5 @@ Estos pasos deben realizarse a intervalos regulares y para cambios de claves:
 - [Adición de usuarios con Azure AD](../fundamentals/add-users-azure-active-directory.md) y [Asignación de un nuevo usuario al rol de Administrador global](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 - [Suscripción a Azure AD Premium](../fundamentals/active-directory-get-started-premium.md), si no lo ha hecho anteriormente.
 - [Exigencia de verificación en dos pasos para un usuario](../authentication/howto-mfa-userstates.md).
-- [Configuración de otras protecciones adicionales para los administradores globales de Office 365](https://docs.microsoft.com/office365/enterprise/protect-your-global-administrator-accounts), si lo usa.
+- [Configuración de otras protecciones adicionales para los administradores globales de Microsoft 365](https://docs.microsoft.com/office365/enterprise/protect-your-global-administrator-accounts), si lo usa.
 - [Inicio de una revisión de acceso de los administradores globales](../privileged-identity-management/pim-how-to-start-security-review.md) y [cambio de los administradores globales existentes a roles de administrador más específicos](directory-assign-admin-roles.md).
