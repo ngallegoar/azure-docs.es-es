@@ -4,20 +4,20 @@ description: Obtenga respuestas a las preguntas más frecuentes sobre el acceso 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.date: 05/28/2020
+ms.topic: troubleshooting
+ms.date: 06/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1704fb50586168be6f960e62b918019cb67ce4c8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 5e75f7214e3a9aa5b44a763cc3448583b47185f9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167815"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253246"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Preguntas más frecuentes sobre el acceso condicional de Azure Active Directory
 
@@ -54,6 +54,12 @@ Microsoft Teams también se admite por separado como una aplicación en la nube 
 Los clientes de escritorio de Microsoft Teams para Windows y Mac admiten la autenticación moderna. La autenticación moderna proporciona un inicio de sesión basado en la biblioteca de autenticación de Azure Active Directory (ADAL) para las aplicaciones cliente de Microsoft Office en distintas plataformas.
 
 Para obtener más información, vea el artículo sobre las [dependencias del acceso condicional](service-dependencies.md) y considere dirigir las directivas a la [aplicación Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) en su lugar.
+
+## <a name="why-are-some-tabs-not-working-in-microsoft-teams-after-enabling-conditional-access-policies"></a>¿Por qué algunas pestañas no funcionan en Microsoft Teams después de habilitar las directivas de acceso condicional?
+
+Después de habilitar algunas directivas de acceso condicional en el inquilino en Microsoft Teams, es posible que algunas pestañas dejen de funcionar en el cliente de escritorio según lo previsto. Sin embargo, las pestañas afectadas funcionan cuando se usa el cliente web de Microsoft Teams. Las pestañas afectadas pueden incluir Power BI, formularios, VSTS, PowerApps y la lista de SharePoint.
+
+Para ver las pestañas afectadas, debe usar el cliente web de Teams en Edge, Internet Explorer o Chrome con la extensión de cuentas de Windows 10 instalada. Algunas pestañas dependen de la autenticación web, que no funciona en el cliente de escritorio de Microsoft Teams cuando está habilitado el acceso condicional. Microsoft está trabajando con asociados para habilitar estos escenarios. Hasta la fecha, hemos habilitado escenarios relacionados con Planner, OneNote y Stream.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

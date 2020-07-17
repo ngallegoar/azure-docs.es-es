@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo solucionar problemas y resolver pr
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 08668289faa2341389a80b00cba11a33021da608
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: f334f501335e9e384cfcc35b356e61ab66efe7a8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054396"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243688"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 
@@ -22,7 +22,7 @@ Además, existe una [guía para la solución de problemas](https://github.com/fe
 
 ## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>Obtengo un error de "cuota excedida" durante la creación o actualización. ¿Cuál debo hacer? 
 
- [Solicitar más núcleos](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+ [Solicitar más núcleos](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 ## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>¿Cuál es la configuración máxima de pods por nodo de AKS?
 
@@ -34,7 +34,7 @@ La configuración máxima de pods por nodo es 110 de forma predeterminada si imp
 Este error indica que una subred en uso para un clúster ya no tiene direcciones IP disponibles dentro de su CIDR para una correcta asignación de recursos. En el caso de los clústeres de Kubenet, el requisito es un espacio de IP suficiente para cada nodo del clúster. En el caso de los clústeres de Azure CNI, el requisito es un espacio de IP suficiente para cada nodo y pod del clúster.
 Obtenga más información sobre el [diseño de Azure CNI para asignar direcciones IP a pods](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
-Estos errores también se muestran en [Diagnósticos de AKS](https://docs.microsoft.com/azure/aks/concepts-diagnostics), que muestra problemas de manera proactiva, como un tamaño de subred insuficiente.
+Estos errores también se muestran en [Diagnósticos de AKS](./concepts-diagnostics.md), que muestra problemas de manera proactiva, como un tamaño de subred insuficiente.
 
 Los siguientes tres (3) casos provocan un error de tamaño de subred insuficiente:
 

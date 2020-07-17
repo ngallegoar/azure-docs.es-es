@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 07/08/2020
 ms.author: jgao
-ms.openlocfilehash: e3f3301ac78480c4d8ebbf909bafcefa025ff395
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 8906ac7a00a349e2312eb80f5e25e32292a089ab
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168580"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134572"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Uso de scripts de implementación en plantillas (versión preliminar)
 
@@ -74,10 +74,10 @@ El recurso de script de implementación solo está disponible en las regiones do
 
   ---
 
-- **Azure PowerShell** o la **CLI de Azure**. Para una lista de las versiones compatibles de Azure PowerShell, consulte [aquí](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list); para una lista de las versiones compatibles de la CLI de Azure, vaya [aquí](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list).
+- **Azure PowerShell** o la **CLI de Azure**. Consulte una lista de [versiones de Azure PowerShell compatibles](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Consulte una lista de [versiones de la CLI de Azure compatibles](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
     >[!IMPORTANT]
-    > El script de implementación usa las imágenes de la CLI disponibles de Microsoft Container Registry (MCR). Se tarda aproximadamente un mes en certificar una imagen de la CLI para el script de implementación. No utilice las versiones de la CLI que se publicaron en un plazo de 30 días. Para buscar las fechas de publicación de las imágenes, consulte las [notas de la versión de la CLI de Azure](https://docs.microsoft.com/cli/azure/release-notes-azure-cli?view=azure-cli-latest). Si se usa una versión no compatible, el mensaje de error enumera las versiones admitidas.
+    > El script de implementación usa las imágenes de la CLI disponibles de Microsoft Container Registry (MCR). Se tarda aproximadamente un mes en certificar una imagen de la CLI para el script de implementación. No utilice las versiones de la CLI que se publicaron en un plazo de 30 días. Para buscar las fechas de publicación de las imágenes, consulte las [notas de la versión de la CLI de Azure](/cli/azure/release-notes-azure-cli?view=azure-cli-latest). Si se usa una versión no compatible, el mensaje de error enumera las versiones admitidas.
 
     No necesita estas versiones para implementar plantillas. Pero estas versiones son necesarias para probar los scripts de implementación de forma local. Consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Puede usar una imagen de Docker preconfigurada.  Consulte [Configuración del entorno de desarrollo](#configure-development-environment).
 
@@ -108,7 +108,7 @@ El código JSON siguiente es un ejemplo.  [Aquí](/azure/templates/microsoft.res
       "storageAccountKey": "myKey"
     },
     "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
-    "arguments": "[concat('-name ', parameters('name'))]",
+    "arguments": "-name \\\"John Dole\\\"",
     "environmentVariables": [
       {
         "name": "someSecret",
@@ -131,7 +131,7 @@ El código JSON siguiente es un ejemplo.  [Aquí](/azure/templates/microsoft.res
 ```
 
 > [!NOTE]
-> Este ejemplo se ofrece con fines de demostración.  **scriptContent** y **primaryScriptUris** no pueden coexistir en una plantilla.
+> Este ejemplo se ofrece con fines de demostración.  **scriptContent** y **primaryScriptUri** no pueden coexistir en una plantilla.
 
 Detalles de los valores de propiedad:
 
@@ -139,22 +139,35 @@ Detalles de los valores de propiedad:
 - **kind**: especifique el tipo de script. Actualmente, se admiten los scripts de Azure PowerShell y de la CLI de Azure. Los valores son **AzurePowerShell** y **AzureCLI**.
 - **forceUpdateTag**: el cambio de este valor entre implementaciones de plantilla obliga a que se vuelva a ejecutar el script de implementación. Utilice la función newGuid() o utcNow() que hay que establecer como defaultValue de un parámetro. Para más información, consulte la sección [Ejecución de un script varias veces](#run-script-more-than-once).
 - **containerSettings**: permite especificar la configuración para personalizar la instancia de contenedor de Azure.  **containerGroupName** es para especificar el nombre del grupo de contenedores.  Si no se especifica, el nombre de grupo se generará automáticamente.
-- **storageAccountSettings**: permite especificar la configuración para usar una cuenta de almacenamiento existente. Si no se especifica, se crea una cuenta de almacenamiento automáticamente. Consulte [Uso de una cuenta de almacenamiento existente](#use-an-existing-storage-account).
+- **storageAccountSettings**: permite especificar la configuración para usar una cuenta de almacenamiento existente. Si no se especifica, se crea una cuenta de almacenamiento automáticamente. Consulte [Uso de una cuenta de almacenamiento existente](#use-existing-storage-account).
 - **azPowerShellVersion**/**azCliVersion**: Especifique la versión del módulo que se va a usar. Para una lista de las versiones compatibles de PowerShell y de la CLI, consulte los [requisitos previos](#prerequisites).
 - **arguments**: Especifique los valores de los parámetros. Los valores se separan con espacios.
+
+    Los scripts de implementación dividen los argumentos en una matriz de cadenas mediante la invocación de la llamada del sistema [CommandLineToArgvW](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw). Esto es necesario porque los argumentos se pasan como [propiedad del comando](/rest/api/container-instances/containergroups/createorupdate#containerexec) a Azure Container Instances, y la propiedad del comando es una matriz de cadena.
+
+    Si los argumentos contienen caracteres de escape, use [JsonEscaper](https://www.jsonescaper.com/) para que estos caracteres sean de escape doble. Pegue la cadena de escape original en la herramienta y, a continuación, seleccione **Escape**.  La herramienta genera una cadena de escape doble. Por ejemplo, en la plantilla de ejemplo anterior, el argumento es **-name \\"John Dole\\"**.  La cadena de escape es **-name \\\\\\"John dole\\\\\\"**.
+
+    Para pasar un parámetro de plantilla de Resource Manager del tipo Objeto como argumento, convierta el objeto en una cadena mediante la función [string()](./template-functions-string.md#string) y, a continuación, use la función [replace()](./template-functions-string.md#replace) para reemplazar cualquier **\\"** en **\\\\\\"**. Por ejemplo:
+
+    ```json
+    replace(string(parameters('tables')), '\"', '\\\"')
+    ```
+
+    Para ver una plantilla de ejemplo, seleccione [aquí](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-jsonEscape.json).
+
 - **environmentVariables**: especifique las variables de entorno que se van a pasar al script. Para más información, consulte [Desarrollo de scripts de implementación](#develop-deployment-scripts).
 - **scriptContent**: especifique el contenido del script. Para ejecutar un script externo, use `primaryScriptUri` en su lugar. Para ver ejemplos, consulte [Uso scripts en línea](#use-inline-scripts) y [Uso de scripts externos](#use-external-scripts).
 - **primaryScriptUri**: Especifique una dirección URL de acceso público al script de implementación principal con las extensiones de archivo compatibles.
 - **supportingScriptUris**: Especifique una matriz de direcciones URL de acceso público a los archivos auxiliares a los que se llame en `ScriptContent` o `PrimaryScriptUri`.
 - **timeout**: especifique el tiempo máximo de ejecución de scripts permitido en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). El valor predeterminado es **P1D**.
 - **cleanupPreference**. especifique la preferencia de limpieza de recursos de implementación cuando la ejecución del script llegue a un estado terminal. La configuración predeterminada es **Siempre**, lo que significa que se eliminan los recursos a pesar del estado terminal (correcto, error, cancelado). Para obtener más información, vea el artículo sobre [limpieza de los recursos del script de implementación](#clean-up-deployment-script-resources).
-- **retentionInterval**: especifique el intervalo durante el que el servicio conserva los recursos del script de implementación cuando este llega a un estado terminal. Los recursos del script de implementación se eliminarán cuando expire este periodo. La duración se basa en el [patrón ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). El valor predeterminado es **P1D**, lo que significa siete días. Esta propiedad se usa cuando cleanupPreference se establece en *OnExpiration*. La propiedad *OnExpiration* no está habilitada actualmente. Para más información, consulte [Limpieza de los recursos del script de implementación](#clean-up-deployment-script-resources).
+- **retentionInterval**: especifique el intervalo durante el que el servicio conserva los recursos del script de implementación cuando este llega a un estado terminal. Los recursos del script de implementación se eliminarán cuando expire este periodo. La duración se basa en el [patrón ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). El valor predeterminado es **P1D**, lo que significa un día. Esta propiedad se usa cuando cleanupPreference se establece en *OnExpiration*. La propiedad *OnExpiration* no está habilitada actualmente. Para más información, consulte [Limpieza de los recursos del script de implementación](#clean-up-deployment-script-resources).
 
 ### <a name="additional-samples"></a>Ejemplos adicionales
 
-- [Cree y asigne un certificado a un almacén de claves](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json).
-
-- [Cree y asigne una identidad administrada asignada por el usuario a un grupo de recursos y ejecute un script de implementación](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-mi.json).
+- [Ejemplo 1](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json): cree un almacén de claves y use el script de implementación para asignar un certificado al almacén de claves.
+- [Ejemplo 2](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-subscription.json): cree un grupo de recursos en el nivel de suscripción, cree un almacén de claves en el grupo de recursos y, a continuación, use el script de implementación para asignar un certificado al almacén de claves.
+- [Ejemplo 3](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-mi.json): cree una identidad administrada asignada por el usuario, asigne el rol de colaborador a la identidad en el nivel de grupo de recursos, cree un almacén de claves y, a continuación, use el script de implementación para asignar un certificado al almacén de claves.
 
 > [!NOTE]
 > Se recomienda crear una identidad asignada por el usuario y conceder permisos por anticipado. Podría obtener errores relacionados con los inicios de sesión y los permisos si crea la identidad y concede permisos en la misma plantilla en la que se ejecutan los scripts de implementación. Se necesita tiempo para que los permisos entren en vigor.
@@ -166,9 +179,9 @@ La plantilla siguiente tiene un recurso definido con el tipo `Microsoft.Resource
 :::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-54" highlight="34-40":::
 
 > [!NOTE]
-> Como los scripts de implementación insertados se escriben entre comillas dobles, las cadenas dentro de los scripts de implementación deben incluirse entre comillas simples o entre caracteres de escape como **&#92;** . También puede plantearse la posibilidad de usar la sustitución de cadenas tal y como se muestra en el ejemplo anterior de JSON.
+> Como los scripts de implementación insertados se escriben entre comillas dobles, las cadenas dentro de los scripts de implementación deben incluirse entre comillas simples o entre caracteres de escape como **&#92;**. También puede plantearse la posibilidad de usar la sustitución de cadenas tal y como se muestra en el ejemplo anterior de JSON.
 
-El script toma un parámetro y genera el valor del parámetro. **DeploymentScriptOutputs** se usa para almacenar las salidas.  En la sección de salidas, la línea **value** muestra cómo acceder a los valores almacenados. `Write-Output` se utiliza con fines de depuración. Para obtener información sobre cómo acceder al archivo de salida, vea [Depuración de scripts de implementación](#debug-deployment-scripts).  Para ver las descripciones de las propiedades, consulte [Plantillas de ejemplo](#sample-templates).
+El script toma un parámetro y genera el valor del parámetro. **DeploymentScriptOutputs** se usa para almacenar las salidas.  En la sección de salidas, la línea **value** muestra cómo acceder a los valores almacenados. `Write-Output` se utiliza con fines de depuración. Para obtener información sobre cómo acceder al archivo de salida, consulte la sección sobre cómo [supervisar y solucionar problemas de los scripts de implementación](#monitor-and-troubleshoot-deployment-scripts).  Para ver las descripciones de las propiedades, consulte [Plantillas de ejemplo](#sample-templates).
 
 Para ejecutar el script, seleccione **Pruébelo** para abrir Cloud Shell y luego pegue el código siguiente en el panel de Shell.
 
@@ -244,65 +257,7 @@ Las salidas del script de implementación se deben guardar en la ubicación AZ_S
 
 [jq](https://stedolan.github.io/jq/) se usa en el ejemplo anterior. Se incluye con las imágenes de contenedor. Consulte [Configuración del entorno de desarrollo](#configure-development-environment).
 
-## <a name="develop-deployment-scripts"></a>Desarrollo de scripts de implementación
-
-### <a name="handle-non-terminating-errors"></a>Control de errores de no terminación
-
-Puede controlar el modo en que PowerShell responde a los errores de no terminación mediante la variable [ **$ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
-) en el script de implementación. El servicio de script no establece ni cambia el valor.  A pesar del valor establecido para $ErrorActionPreference, el script de implementación establece el estado de aprovisionamiento de los recursos en *Error* cuando el script encuentra un error.
-
-### <a name="pass-secured-strings-to-deployment-script"></a>Paso de cadenas protegidas al script de implementación
-
-El establecimiento de variables de entorno (EnvironmentVariable) en las instancias de contenedor le permite proporcionar configuración dinámica de la aplicación o el script ejecutados por el contenedor. El script de implementación controla las variables de entorno no protegidas y protegidas de la misma manera que Azure Container Instance. Para más información, consulte [Establecimiento de variables de entorno en instancias de contenedor](../../container-instances/container-instances-environment-variables.md#secure-values).
-
-El tamaño máximo permitido para las variables de entorno es de 64 KB.
-
-## <a name="debug-deployment-scripts"></a>Depuración de scripts de implementación
-
-El servicio de script crea una [cuenta de almacenamiento](../../storage/common/storage-account-overview.md) (a menos que especifique una cuenta de almacenamiento existente) y una [instancia de contenedor](../../container-instances/container-instances-overview.md) para la ejecución de scripts. Si el servicio de script crea estos recursos automáticamente, ambos recursos tienen el sufijo **azscripts** en los nombres de los recursos.
-
-![Nombres de recursos del script de implementación de la plantilla de Resource Manager](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
-
-El script de usuario, los resultados de la ejecución y el archivo stdout se almacenan en los recursos compartidos de archivos de la cuenta de almacenamiento. Hay una carpeta llamada **azscripts**. En la carpeta hay otras dos carpetas para los archivos de entrada y salida: **azscriptinput** y **azscriptoutput**.
-
-La carpeta de salida contiene un archivo **executionresult.json** y el archivo de salida del script. Puede ver el mensaje de error de ejecución del script en **executionresult.json**. El archivo de salida solo se crea cuando el script se ejecuta correctamente. La carpeta de entrada contiene un archivo de script de PowerShell del sistema y los archivos de script de implementación del usuario. Puede reemplazar el archivo de script de implementación de usuario por uno revisado y volver a ejecutar el script de implementación en la instancia de Azure Container.
-
-Puede obtener la información de implementación de recursos del script de implementación en el nivel de grupo de recursos y en el nivel de suscripción mediante API REST:
-
-```rest
-/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.resources/deploymentScripts/<DeploymentScriptResourceName>?api-version=2019-10-01-preview
-```
-
-```rest
-/subscriptions/<SubscriptionID>/providers/microsoft.resources/deploymentScripts?api-version=2019-10-01-preview
-```
-
-En el ejemplo siguiente se usa [ARMClient](https://github.com/projectkudu/ARMClient):
-
-```azurepowershell
-armclient login
-armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups/myrg/providers/microsoft.resources/deploymentScripts/myDeployementScript?api-version=2019-10-01-preview
-```
-
-La salida es parecida a esta:
-
-:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-status.json" range="1-37" highlight="15,34":::
-
-La salida muestra el estado de implementación y los identificadores de recursos del script de implementación.
-
-La siguiente API REST devuelve el registro:
-
-```rest
-/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.resources/deploymentScripts/<DeploymentScriptResourceName>/logs?api-version=2019-10-01-preview
-```
-
-Solo funciona antes de que se eliminen los recursos del script de implementación.
-
-Para ver el recurso deploymentScripts en el portal, seleccione **Mostrar tipos ocultos**:
-
-![Script de implementación de la plantilla de Resource Manager, mostrar tipos ocultos, portal](./media/deployment-script-template/resource-manager-deployment-script-portal-show-hidden-types.png)
-
-## <a name="use-an-existing-storage-account"></a>Uso de una cuenta de almacenamiento existente
+## <a name="use-existing-storage-account"></a>Uso de la cuenta de almacenamiento existente
 
 Se necesita una cuenta de almacenamiento y una instancia de contenedor para la ejecución de scripts y la solución de problemas. Tiene las opciones para especificar una cuenta de almacenamiento existente; de lo contrario, el servicio de script crea automáticamente la cuenta de almacenamiento, junto con la instancia de contenedor. Requisitos para usar una cuenta de almacenamiento existente:
 
@@ -346,6 +301,228 @@ Consulte [Plantillas de ejemplo](#sample-templates) para obtener una muestra de 
 
 Cuando se usa una cuenta de almacenamiento existente, el servicio de script crea un recurso compartido de archivos con un nombre único. Consulte [Limpieza de los recursos del script de implementación](#clean-up-deployment-script-resources) para obtener información sobre cómo el servicio de script limpia el recurso compartido de archivos.
 
+## <a name="develop-deployment-scripts"></a>Desarrollo de scripts de implementación
+
+### <a name="handle-non-terminating-errors"></a>Control de errores de no terminación
+
+Puede controlar el modo en que PowerShell responde a los errores de no terminación mediante la variable **$ErrorActionPreference** en el script de implementación. Si la variable no se establece en el script de implementación, el servicio de script utiliza el valor predeterminado **Continuar**.
+
+El servicio de script establece el estado de aprovisionamiento de los recursos en **Error** cuando el script encuentra un error a pesar de la configuración de $ErrorActionPreference.
+
+### <a name="pass-secured-strings-to-deployment-script"></a>Paso de cadenas protegidas al script de implementación
+
+El establecimiento de variables de entorno (EnvironmentVariable) en las instancias de contenedor le permite proporcionar configuración dinámica de la aplicación o el script ejecutados por el contenedor. El script de implementación controla las variables de entorno no protegidas y protegidas de la misma manera que Azure Container Instance. Para más información, consulte [Establecimiento de variables de entorno en instancias de contenedor](../../container-instances/container-instances-environment-variables.md#secure-values).
+
+El tamaño máximo permitido para las variables de entorno es de 64 KB.
+
+## <a name="monitor-and-troubleshoot-deployment-scripts"></a>Supervisar y solucionar problemas de los scripts de implementación
+
+El servicio de script crea una [cuenta de almacenamiento](../../storage/common/storage-account-overview.md) (a menos que especifique una cuenta de almacenamiento existente) y una [instancia de contenedor](../../container-instances/container-instances-overview.md) para la ejecución de scripts. Si el servicio de script crea estos recursos automáticamente, ambos recursos tienen el sufijo **azscripts** en los nombres de los recursos.
+
+![Nombres de recursos del script de implementación de la plantilla de Resource Manager](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
+
+El script de usuario, los resultados de la ejecución y el archivo stdout se almacenan en los recursos compartidos de archivos de la cuenta de almacenamiento. Hay una carpeta llamada **azscripts**. En la carpeta hay otras dos carpetas para los archivos de entrada y salida: **azscriptinput** y **azscriptoutput**.
+
+La carpeta de salida contiene un archivo **executionresult.json** y el archivo de salida del script. Puede ver el mensaje de error de ejecución del script en **executionresult.json**. El archivo de salida solo se crea cuando el script se ejecuta correctamente. La carpeta de entrada contiene un archivo de script de PowerShell del sistema y los archivos de script de implementación del usuario. Puede reemplazar el archivo de script de implementación de usuario por uno revisado y volver a ejecutar el script de implementación en la instancia de Azure Container.
+
+### <a name="use-the-azure-portal"></a>Uso de Azure Portal
+
+Después de implementar un recurso de script de implementación, el recurso se muestra en el grupo de recursos de Azure Portal. En la captura de pantalla siguiente se muestra la página de información general de un recurso de script de implementación:
+
+![Información general del portal de script de implementación de plantilla de Resource Manager](./media/deployment-script-template/resource-manager-deployment-script-portal.png)
+
+En la página de información general se muestra información importante del recurso, como **Estado de aprovisionamiento**, **Cuenta de almacenamiento**, **Instancia de contenedor** y **Registros**.
+
+En el menú de la izquierda, puede ver el contenido del script de implementación, los argumentos pasados al script y la salida.  También puede exportar una plantilla para el script de implementación, incluido el script de implementación.
+
+### <a name="use-powershell"></a>Uso de PowerShell
+
+Al usar Azure PowerShell, puede administrar scripts de implementación en el ámbito del grupo de recursos o la suscripción:
+
+- [Get-AzDeploymentScript](/powershell/module/az.resources/get-azdeploymentscript): obtiene o enumera scripts de implementación.
+- [Get-AzDeploymentScriptLog](/powershell/module/az.resources/get-azdeploymentscriptlog): obtiene el registro de la ejecución de un script de implementación.
+- [Remove-AzDeploymentScript](/powershell/module/az.resources/remove-azdeploymentscript): quita un script de implementación y sus recursos asociados.
+- [Save-AzDeploymentScriptLog](/powershell/module/az.resources/save-azdeploymentscriptlog): guarda el registro de la ejecución de un script de implementación en el disco.
+
+La salida Get-AzDeploymentScript es similar a:
+
+```output
+Name                : runPowerShellInlineWithOutput
+Id                  : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput
+ResourceGroupName   : myds0618rg
+Location            : centralus
+SubscriptionId      : 01234567-89AB-CDEF-0123-456789ABCDEF
+ProvisioningState   : Succeeded
+Identity            : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/mydentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami
+ScriptKind          : AzurePowerShell
+AzPowerShellVersion : 3.0
+StartTime           : 6/18/2020 7:46:45 PM
+EndTime             : 6/18/2020 7:49:45 PM
+ExpirationDate      : 6/19/2020 7:49:45 PM
+CleanupPreference   : OnSuccess
+StorageAccountId    : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.Storage/storageAccounts/ftnlvo6rlrvo2azscripts
+ContainerInstanceId : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.ContainerInstance/containerGroups/ftnlvo6rlrvo2azscripts
+Outputs             :
+                      Key                 Value
+                      ==================  ==================
+                      text                Hello John Dole
+
+RetentionInterval   : P1D
+Timeout             : PT1H
+```
+
+### <a name="use-azure-cli"></a>Uso de CLI de Azure
+
+Al usar la CLI de Azure, puede administrar scripts de implementación en el ámbito del grupo de recursos o la suscripción:
+
+- [az deployment-scripts delete](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-delete): elimina un script de implementación.
+- [az deployment-scripts list](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-list): muestra todos los scripts de implementación.
+- [az deployment-scripts show](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show): recupera un script de implementación.
+- [az deployment-scripts show-log](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show-log): muestra registros de scripts de implementación.
+
+La salida del comando de lista es similar a:
+
+```json
+[
+  {
+    "arguments": "-name \\\"John Dole\\\"",
+    "azPowerShellVersion": "3.0",
+    "cleanupPreference": "OnSuccess",
+    "containerSettings": {
+      "containerGroupName": null
+    },
+    "environmentVariables": null,
+    "forceUpdateTag": "20200625T025902Z",
+    "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput",
+    "identity": {
+      "tenantId": "01234567-89AB-CDEF-0123-456789ABCDEF",
+      "type": "userAssigned",
+      "userAssignedIdentities": {
+        "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myidentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami": {
+          "clientId": "01234567-89AB-CDEF-0123-456789ABCDEF",
+          "principalId": "01234567-89AB-CDEF-0123-456789ABCDEF"
+        }
+      }
+    },
+    "kind": "AzurePowerShell",
+    "location": "centralus",
+    "name": "runPowerShellInlineWithOutput",
+    "outputs": {
+      "text": "Hello John Dole"
+    },
+    "primaryScriptUri": null,
+    "provisioningState": "Succeeded",
+    "resourceGroup": "myds0624rg",
+    "retentionInterval": "1 day, 0:00:00",
+    "scriptContent": "\r\n          param([string] $name)\r\n          $output = \"Hello {0}\" -f $name\r\n          Write-Output $output\r\n          $DeploymentScriptOutputs = @{}\r\n          $DeploymentScriptOutputs['text'] = $output\r\n        ",
+    "status": {
+      "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.ContainerInstance/containerGroups/64lxews2qfa5uazscripts",
+      "endTime": "2020-06-25T03:00:16.796923+00:00",
+      "error": null,
+      "expirationTime": "2020-06-26T03:00:16.796923+00:00",
+      "startTime": "2020-06-25T02:59:07.595140+00:00",
+      "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Storage/storageAccounts/64lxews2qfa5uazscripts"
+    },
+    "storageAccountSettings": null,
+    "supportingScriptUris": null,
+    "systemData": {
+      "createdAt": "2020-06-25T02:59:04.750195+00:00",
+      "createdBy": "someone@contoso.com",
+      "createdByType": "User",
+      "lastModifiedAt": "2020-06-25T02:59:04.750195+00:00",
+      "lastModifiedBy": "someone@contoso.com",
+      "lastModifiedByType": "User"
+    },
+    "tags": null,
+    "timeout": "1:00:00",
+    "type": "Microsoft.Resources/deploymentScripts"
+  }
+]
+```
+
+### <a name="use-rest-api"></a>Uso de la API de REST
+
+Puede obtener la información de implementación de recursos del script de implementación en el nivel de grupo de recursos y en el nivel de suscripción mediante API REST:
+
+```rest
+/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.resources/deploymentScripts/<DeploymentScriptResourceName>?api-version=2019-10-01-preview
+```
+
+```rest
+/subscriptions/<SubscriptionID>/providers/microsoft.resources/deploymentScripts?api-version=2019-10-01-preview
+```
+
+En el ejemplo siguiente se usa [ARMClient](https://github.com/projectkudu/ARMClient):
+
+```azurepowershell
+armclient login
+armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups/myrg/providers/microsoft.resources/deploymentScripts/myDeployementScript?api-version=2019-10-01-preview
+```
+
+La salida es parecida a esta:
+
+```json
+{
+  "kind": "AzurePowerShell",
+  "identity": {
+    "type": "userAssigned",
+    "tenantId": "01234567-89AB-CDEF-0123-456789ABCDEF",
+    "userAssignedIdentities": {
+      "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myidentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami": {
+        "principalId": "01234567-89AB-CDEF-0123-456789ABCDEF",
+        "clientId": "01234567-89AB-CDEF-0123-456789ABCDEF"
+      }
+    }
+  },
+  "location": "centralus",
+  "systemData": {
+    "createdBy": "someone@contoso.com",
+    "createdByType": "User",
+    "createdAt": "2020-06-25T02:59:04.7501955Z",
+    "lastModifiedBy": "someone@contoso.com",
+    "lastModifiedByType": "User",
+    "lastModifiedAt": "2020-06-25T02:59:04.7501955Z"
+  },
+  "properties": {
+    "provisioningState": "Succeeded",
+    "forceUpdateTag": "20200625T025902Z",
+    "azPowerShellVersion": "3.0",
+    "scriptContent": "\r\n          param([string] $name)\r\n          $output = \"Hello {0}\" -f $name\r\n          Write-Output $output\r\n          $DeploymentScriptOutputs = @{}\r\n          $DeploymentScriptOutputs['text'] = $output\r\n        ",
+    "arguments": "-name \\\"John Dole\\\"",
+    "retentionInterval": "P1D",
+    "timeout": "PT1H",
+    "containerSettings": {},
+    "status": {
+      "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.ContainerInstance/containerGroups/64lxews2qfa5uazscripts",
+      "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Storage/storageAccounts/64lxews2qfa5uazscripts",
+      "startTime": "2020-06-25T02:59:07.5951401Z",
+      "endTime": "2020-06-25T03:00:16.7969234Z",
+      "expirationTime": "2020-06-26T03:00:16.7969234Z"
+    },
+    "outputs": {
+      "text": "Hello John Dole"
+    },
+    "cleanupPreference": "OnSuccess"
+  },
+  "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput",
+  "type": "Microsoft.Resources/deploymentScripts",
+  "name": "runPowerShellInlineWithOutput"
+}
+
+```
+
+La siguiente API REST devuelve el registro:
+
+```rest
+/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.resources/deploymentScripts/<DeploymentScriptResourceName>/logs?api-version=2019-10-01-preview
+```
+
+Solo funciona antes de que se eliminen los recursos del script de implementación.
+
+Para ver el recurso deploymentScripts en el portal, seleccione **Mostrar tipos ocultos**:
+
+![Script de implementación de la plantilla de Resource Manager, mostrar tipos ocultos, portal](./media/deployment-script-template/resource-manager-deployment-script-portal-show-hidden-types.png)
+
 ## <a name="clean-up-deployment-script-resources"></a>Limpieza de los recursos del script de implementación
 
 Se necesita una cuenta de almacenamiento y una instancia de contenedor para la ejecución de scripts y la solución de problemas. Tiene opciones para especificar una cuenta de almacenamiento existente; de lo contrario, el servicio de script crea automáticamente una cuenta de almacenamiento, junto con una instancia de contenedor. El servicio de script elimina los dos recursos creados automáticamente cuando la ejecución del script de implementación llega a un estado terminal. Los recursos se le facturarán hasta que se eliminen. Para obtener información sobre los precios, consulte los [precios de Container Instances](https://azure.microsoft.com/pricing/details/container-instances/) y los [precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
@@ -379,17 +556,9 @@ La ejecución del script de implementación es una operación idempotente. Si no
 
 ## <a name="configure-development-environment"></a>Configuración del entorno de desarrollo
 
-Puede usar una imagen de contenedor de Docker preconfigurada como entorno de desarrollo del script de implementación. En el procedimiento siguiente se muestra cómo configurar la imagen de Docker en Windows. En el caso de Linux y Mac, puede encontrar la información en Internet.
+Puede usar una imagen de contenedor de Docker preconfigurada como entorno de desarrollo del script de implementación. Para instalar Docker, consulte [Obtener Docker](https://docs.docker.com/get-docker/).
+También debe configurar el uso compartido de archivos para montar el directorio que contiene los scripts de implementación en el contenedor de Docker.
 
-1. Instale [Docker Desktop](https://www.docker.com/products/docker-desktop) en el equipo de desarrollo.
-1. Abra Docker Desktop.
-1. Seleccione el icono de Docker Desktop en la barra de tareas y elija **Configuración**.
-1. Seleccione **Shared Drives**, una unidad local que quiera que esté disponible para los contenedores y luego elija **Aplicar**
-
-    ![Unidad compartida del script de implementación de la plantilla de Resource Manager](./media/deployment-script-template/resource-manager-deployment-script-docker-setting-drive.png)
-
-1. Escriba sus credenciales de Windows en el símbolo del sistema.
-1. Abra una ventana de terminal, ya sea desde el símbolo del sistema o desde Windows PowerShell (no use PowerShell ISE).
 1. Extraiga la imagen del contenedor de scripts de implementación en el equipo local:
 
     ```command
@@ -426,12 +595,11 @@ Puede usar una imagen de contenedor de Docker preconfigurada como entorno de des
     docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
     ```
 
-1. Seleccione **Share it** (Compartir) cuando reciba un mensaje.
-1. En la siguiente captura de pantalla se muestra cómo ejecutar un script de PowerShell, dado que tiene un archivo helloworld.ps1 en la carpeta d:\docker.
+1. En la siguiente captura de pantalla se muestra cómo ejecutar un script de PowerShell, dado que tiene un archivo helloworld.ps1 en la unidad compartida.
 
     ![CMD de Docker del script de implementación de plantilla de Resource Manager](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
 
-Después de que el script se pruebe correctamente, puede usarlo como script de implementación.
+Después de que el script se pruebe correctamente, puede usarlo como script de implementación en sus plantillas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

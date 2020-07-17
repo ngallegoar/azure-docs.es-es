@@ -8,27 +8,28 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
-ms.openlocfilehash: b222a94ee754b24192261451d8ddc429886e705c
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: aa5e741d8578253b8b3e8e5c692873c39cec8f79
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725659"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85412641"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Versión 4 del SDK de Java para la API SQL de Azure Cosmos DB: notas de la versión y recursos
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-sdk-dotnet.md)
-> * [Fuente de cambios de .NET](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
+> * [SDK de .NET, versión 2](sql-api-sdk-dotnet.md)
+> * [SDK de .NET Core, versión 2](sql-api-sdk-dotnet-core.md)
+> * [SDK de fuente de cambios de .NET, versión 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Versión 4 del SDK de Java](sql-api-sdk-java-v4.md)
+> * [SDK de Java v4](sql-api-sdk-java-v4.md)
 > * [Versión 2 del SDK de Java asincrónico](sql-api-sdk-async-java.md)
-> * [Versión 2 del SDK de Java sincrónico](sql-api-sdk-java.md)
+> * [SDK de Java v2 sincrónico](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
-> * [Proveedor de recursos de REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
+> * [REST](/rest/api/cosmos-db/)
+> * [Proveedor de recursos de REST](/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Bulk Executor: .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Bulk Executor: .NET, versión 2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk Executor: Java](sql-api-sdk-bulk-executor-java.md)
 
 La versión 4 del SDK de Java de Azure Cosmos DB para Core (SQL) combina una API asincrónica y una API de sincronización en un solo artefacto de Maven. El SDK v4 ofrece rendimiento mejorado, nuevas características de API y compatibilidad asincrónica basada en Project Reactor y la [biblioteca Netty](https://netty.io/). Los usuarios pueden esperar un rendimiento mejorado con la versión 4 del SDK de Java de Azure Cosmos DB en comparación con la [versión 2 del SDK de Java asincrónico de Azure Cosmos DB](sql-api-sdk-async-java.md) y la [versión 2 del SDK de Java sincrónico de Azure Cosmos DB](sql-api-sdk-java.md).
@@ -47,7 +48,7 @@ La versión 4 del SDK de Java de Azure Cosmos DB para Core (SQL) combina una A
 | |  |
 |---|---|
 | **Descarga del SDK** | [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos) |
-|**Documentación de la API** | [Documentación de referencia de API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-cosmos/4.0.1-beta.3/index.html) |
+|**Documentación de la API** | [Documentación de referencia de API](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client?view=azure-java-stable) |
 |**Contribuya al SDK** | [Repositorio central del SDK de Azure para Java en GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos) | 
 |**Introducción** | [Inicio rápido: Creación de una aplicación Java para administrar los datos de la API SQL de Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-java) · [Repositorio de GitHub con código de inicio rápido](https://github.com/Azure-Samples/azure-cosmos-java-getting-started) | 
 |**Ejemplos de código básicos** | [Azure Cosmos DB: ejemplos de Java para la API SQL](sql-api-java-sdk-samples.md) · [Repositorio de GitHub con código de ejemplo](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples)|
@@ -59,3 +60,83 @@ La versión 4 del SDK de Java de Azure Cosmos DB para Core (SQL) combina una A
 | **Tiempo de ejecución mínimo admitido**|[JDK 8](/java/azure/jdk/?view=azure-java-stable) | 
 | **Talleres y laboratorios de Azure Cosmos DB** |[Página principal de talleres de Cosmos DB](https://aka.ms/cosmosworkshop)
 
+## <a name="release-history"></a>Historial de versiones
+
+### <a name="410-2020-06-25"></a>4.1.0 (25-06-2020)
+#### <a name="new-features"></a>Nuevas características
+* Se ha agregado compatibilidad con la consulta `GROUP BY`.
+* Se ha aumentado a 130 el valor predeterminado de maxConnectionsPerEndpoint en DirectConnectionConfig.
+* Se ha aumentado a 30 el valor predeterminado de maxRequestsPerConnection en DirectConnectionConfig.
+#### <a name="key-bug-fixes"></a>Correcciones de errores clave
+* Se han corregido problemas con el orden por consulta, que devolvía resultados duplicados al reanudar mediante un token de continuación. 
+* Se han corregido problemas con la consulta de valores que devolvía valores NULL para el objeto anidado.
+* Se ha corregido la excepción del puntero nulo en el administrador de solicitudes en RntbdClientChannelPool.
+
+### <a name="401-2020-06-10"></a>4.0.1 (10-06-2020)
+#### <a name="new-features"></a>Nuevas características
+* Se ha cambiado el nombre de `QueryRequestOptions` por `CosmosQueryRequestOptions`.
+* Se ha actualizado `ChangeFeedProcessorBuilder` al patrón de compilador.
+* Se ha actualizado `CosmosPermissionProperties` con el nuevo nombre del contenedor y las API de los recursos secundarios.
+* Se han agregado más ejemplos y documentos enriquecidos a `CosmosClientBuilder`. 
+* Se han actualizado las API `CosmosDatabase` y `CosmosContainer` con throughputProperties para la compatibilidad con la escalabilidad automática y el autopiloto. 
+* Se ha cambiado el nombre de `CosmosClientException` por `CosmosException`. 
+* Se ha reemplazado `AccessCondition` y `AccessConditionType` por las API `ifMatchETag()` y `ifNoneMatchETag()`. 
+* Se han combinado todos los tipos de `Cosmos*AsyncResponse` y `CosmosResponse` en un tipo único `CosmosResponse`.
+* Se ha cambiado el nombre de `CosmosResponseDiagnostics` por `CosmosDiagnostics`.  
+* Se ha resumido `FeedResponseDiagnostics` en `CosmosDiagnostics`. 
+* Se ha quitado la dependencia `jackson` de azure-cosmos y ahora depende de azure-core. 
+* Se ha reemplazado `CosmosKeyCredential` por el tipo `AzureKeyCredential`. 
+* Se han agregado las API `ProxyOptions` a `GatewayConnectionConfig`. 
+* Se ha actualizado el SDK para que usara el tipo `Instant` en vez de `OffsetDateTime`. 
+* Se ha agregado el nuevo tipo de enumeración `OperationKind`. 
+* Se ha cambiado el nombre de `FeedOptions` por `QueryRequestOptions`. 
+* Se han agregado las API `getETag()` y `getTimestamp()` a los tipos `Cosmos*Properties`. 
+* Se ha agregado información de `userAgent` a `CosmosException` y `CosmosDiagnostics`. 
+* Se ha actualizado el carácter de nueva línea en `Diagnostics` al carácter de nueva línea del sistema. 
+* Se han quitado las API `readAll*` para usar la consulta para seleccionar todas las API en su lugar.
+* Se ha agregado la API de retardo estimada `ChangeFeedProcessor`.   
+* Se ha agregado compatibilidad del SDK con el aprovisionamiento de rendimiento de la escalabilidad automática y el autopiloto.  
+* Se ha reemplazado `ConnectionPolicy` por nuevas configuraciones de conexión. Se han expuesto las API `DirectConnectionConfig` y `GatewayConnectionConfig` a través de `CosmosClientBuilder` para las configuraciones de conexión del modo directo o de puerta de enlace.
+* Se han trasladado `JsonSerializable` y `Resource` al paquete de implementación. 
+* Se ha agregado la API `contentResponseOnWriteEnabled` a CosmosClientBuilder, que deshabilita el contenido de la respuesta completa en las operaciones de escritura.
+* Se han expuesto las API `getETag()` en tipos de respuesta.
+* Se ha movido `CosmosAuthorizationTokenResolver` a la implementación. 
+* Se ha cambiado el nombre de las API `preferredLocations` y `multipleWriteLocations` por `preferredRegions` y `multipleWriteRegions`. 
+* Se han actualizado las versiones `reactor-core` a 3.3.5.RELEASE, `reactor-netty` a 0.9.7.RELEASE y `netty` a 4.1.49.Final. 
+* Se ha agregado compatibilidad con `analyticalStoreTimeToLive` en el SDK.     
+* `CosmosClientException` amplía `AzureException`. 
+* Se han quitado las API `maxItemCount` y `requestContinuationToken` de `FeedOptions` en vez de usar las API `byPage()` de `CosmosPagedFlux` y `CosmosPagedIterable`.
+* Se ha presentado `CosmosPermissionProperties` en la superficie pública para las API `Permission`.
+* Se ha quitado el tipo `SqlParameterList` y se ha reemplazado por `List`.
+* Se han corregido varias fugas de memoria el cliente TCP directo. 
+* Se ha agregado compatibilidad con las consultas `DISTINCT`. 
+* Se han eliminado las dependencias externas en `fasterxml.uuid, guava, commons-io, commons-collection4, commons-text`.  
+* Se ha trasladado `CosmosPagedFlux` y `CosmosPagedIterable` al paquete `utils`. 
+* Se ha actualizado Netty a la versión 4.1.45.Final y Project Reactor a la versión 3.3.3.
+* Se han actualizado los contratos Rest públicos a las clases `Final`.
+* Se ha agregado compatibilidad con diagnósticos avanzados para operaciones de punto.
+* Se ha actualizado el paquete a `com.azure.cosmos`
+* Se ha agregado el paquete `models` a los contratos modelo y de REST.
+* Se ha agregado el paquete `utils` a los tipos `CosmosPagedFlux` y `CosmosPagedIterable`. 
+* Se han actualizado las API públicas para usar `Duration` en el SDK.
+* Se han agregado todos los contratos de REST al paquete `models`.
+* `RetryOptions` cambia su nombre a `ThrottlingRetryOptions`.
+* Se han agregado los tipos de paginación `CosmosPagedFlux` & `CosmosPagedIterable` a las API de consulta. 
+* Se ha agregado compatibilidad para compartir TransportClient entre varias instancias de CosmosClients con una nueva API en `CosmosClientBuilder#connectionSharingAcrossClientsEnabled(true)`.
+* Se han optimizado las consultas quitando la doble serialización o deserialización. 
+* Se han optimizado los encabezados de respuesta quitando copias innecesarias hacia adelante y hacia atrás. 
+* Se ha optimizado la serialización y deserialización de `ByteBuffer` quitando las creaciones de instancias de cadena intermedias.
+#### <a name="key-bug-fixes"></a>Correcciones de errores clave
+* Se ha corregido la excepción del puntero nulo ConnectionPolicy `toString()`.
+* Se ha corregido un problema con el análisis de los resultados de la consulta al ordenar los valores por consulta. 
+* Se han corregido problemas de pérdida de sockets con el cliente TCP directo.
+* Se ha corregido `orderByQuery` con un error continuado en el token.
+* Se ha corregido el error `ChangeFeedProcessor` que se producía al controlar las divisiones de particiones y al no encontrar la partición.
+* Se ha corregido el error `ChangeFeedProcessor` que se producía al sincronizar las actualizaciones de concesión entre distintos subprocesos.
+* Se ha corregido la condición de carrera que provocaba la excepción `ArrayIndexOutOfBound` en StoreReader.
+
+## <a name="faq"></a>Preguntas más frecuentes
+[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
+
+## <a name="see-also"></a>Consulte también
+Para más información sobre Cosmos DB, consulte la página del servicio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

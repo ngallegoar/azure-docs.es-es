@@ -5,16 +5,16 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 08/21/2019
+ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: b4f666415a96307b89022c6caf6af90581f294f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 596374d4f3f188e08a10bd25b36b178cc79a6e57
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115370"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808950"
 ---
-# <a name="azure-web-application-firewall-monitoring-and-logging"></a>Supervisión y registro del firewall de aplicaciones web de Azure 
+# <a name="azure-web-application-firewall-monitoring-and-logging"></a>Supervisión y registro del firewall de aplicaciones web de Azure
 
 La supervisión y el registro del firewall de aplicaciones web de Azure (WAF) se proporcionan mediante el registro y la integración con Azure Monitor y con los registros de Azure Monitor.
 
@@ -24,7 +24,7 @@ WAF con el registro de FrontDoor se integra con [Azure Monitor](../../azure-moni
 
 Desde Azure Portal, vaya al tipo de recurso Front Door. En la pestaña **Supervisión**/**Métricas** a la izquierda, puede agregar **WebApplicationFirewallRequestCount** para realizar un seguimiento del número de solicitudes que coinciden con las reglas de WAF. Se pueden crear filtros personalizados en función de los tipos de acción y los nombres de las reglas.
 
-![WAFMetrics](../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png)
+:::image type="content" source="../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png" alt-text="WAFMetrics ":::
 
 ## <a name="logs-and-diagnostics"></a>Registros y diagnósticos
 
@@ -32,9 +32,25 @@ WAF con Front Door ofrece informes detallados sobre cada amenaza que detecta. El
 
 ![WAFDiag](../media/waf-frontdoor-monitor/waf-frontdoor-diagnostics.png)
 
-FrontdoorAccessLog registra todas las solicitudes que se reenvían a los back-ends del cliente. FrontdoorWebApplicationFirewallLog registra cualquier solicitud que coincida con una regla de WAF.
+[FrontdoorAccessLog](../../frontdoor/front-door-diagnostics.md) registra todas las solicitudes. FrontdoorWebApplicationFirewallLog registra cualquier solicitud que coincida con una regla de WAF y que tenga el siguiente esquema:
 
-La siguiente consulta de ejemplo obtiene los registros de WAF en las solicitudes bloqueadas:
+| Propiedad  | Descripción |
+| ------------- | ------------- |
+|Acción|Acción realizada en la solicitud|
+| ClientIp | Dirección IP del cliente que realizó la solicitud. Si hubiera un encabezado X-Forwarded-For en la solicitud, la dirección IP del cliente se seleccionaría del mismo campo de encabezado. |
+| ClientPort | Puerto IP del cliente que realizó la solicitud. |
+| Detalles|Detalles adicionales sobre la solicitud coincidente |
+|| matchVariableName: el nombre del parámetro http de la solicitud coincidente, por ejemplo, los nombres de encabezado|
+|| matchVariableValue: valores que desencadenaron la coincidencia|
+| Host | El encabezado de host de la solicitud coincidente |
+| Directiva | El nombre de la directiva WAF que coincidió con la solicitud. |
+| PolicyMode | Modo de operaciones de la directiva WAF. Los valores posibles son: "Prevention" y "Detection" |
+| RequestUri | URI completo de la solicitud coincidente. |
+| RuleName | El nombre de la regla de WAF que coincidió con la solicitud. |
+| SocketIp | La dirección IP de origen que WAF detectó. Esta dirección IP se basa en la sesión de TCP, independientemente de los encabezados de solicitud.|
+| TrackingReference | La cadena de referencia exclusiva que identifica una solicitud atendida por Front Door, que también se envía como encabezado X-Azure-Ref al cliente. Se requiere para buscar los detalles en los registros de acceso para una solicitud específica. |
+
+La siguiente consulta de ejemplo devuelve los registros de WAF en las solicitudes bloqueadas:
 
 ``` WAFlogQuery
 AzureDiagnostics
@@ -47,26 +63,34 @@ Este es un ejemplo de una solicitud registrada en el registro de WAF:
 
 ``` WAFlogQuerySample
 {
-    "PreciseTimeStamp": "2020-01-25T00:11:19.3866091Z",
-    "time": "2020-01-25T00:11:19.3866091Z",
+    "time":  "2020-06-09T22:32:17.8376810Z",
     "category": "FrontdoorWebApplicationFirewallLog",
-    "operationName": "Microsoft.Network/FrontDoor/WebApplicationFirewallLog/Write",
-    "properties": {
-        "clientIP": "xx.xx.xxx.xxx",
-        "socketIP": "xx.xx.xxx.xxx",
-        "requestUri": "https://wafdemofrontdoorwebapp.azurefd.net:443/?q=../../x",
-        "ruleName": "Microsoft_DefaultRuleSet-1.1-LFI-930100",
-        "policy": "WafDemoCustomPolicy",
-        "action": "Block",
-        "host": "wafdemofrontdoorwebapp.azurefd.net",
-        "refString": "0p4crXgAAAABgMq5aIpu0T6AUfCYOroltV1NURURHRTA2MTMANjMxNTAwZDAtOTRiNS00YzIwLTljY2YtNjFhNzMyOWQyYTgy",
-        "policyMode": "prevention"
-    }
+    "operationName": "Microsoft.Network/FrontDoorWebApplicationFirewallLog/Write",
+    "properties":
+    {
+        "clientIP":"xxx.xxx.xxx.xxx",
+        "clientPort":"52097",
+        "socketIP":"xxx.xxx.xxx.xxx",
+        "requestUri":"https://wafdemofrontdoorwebapp.azurefd.net:443/?q=%27%20or%201=1",
+        "ruleName":"Microsoft_DefaultRuleSet-1.1-SQLI-942100",
+        "policy":"WafDemoCustomPolicy",
+        "action":"Block",
+        "host":"wafdemofrontdoorwebapp.azurefd.net",
+        "trackingReference":"08Q3gXgAAAAAe0s71BET/QYwmqtpHO7uAU0pDRURHRTA1MDgANjMxNTAwZDAtOTRiNS00YzIwLTljY2YtNjFhNzMyOWQyYTgy",
+        "policyMode":"prevention",
+        "details":
+            {
+            "matches":
+                [{
+                "matchVariableName":"QueryParamValue:q",
+                "matchVariableValue":"' or 1=1"
+                }]
+            }
+     }
 }
+```
 
-``` 
-
-La siguiente consulta de ejemplo obtiene las entradas de AccessLogs:
+La siguiente consulta de ejemplo devuelve las entradas de AccessLogs:
 
 ``` AccessLogQuery
 AzureDiagnostics
@@ -78,26 +102,31 @@ Este es un ejemplo de una solicitud registrada en el registro de acceso:
 
 ``` AccessLogSample
 {
-    "PreciseTimeStamp": "2020-01-25T00:11:12.0160150Z",
-    "time": "2020-01-25T00:11:12.0160150Z",
-    "category": "FrontdoorAccessLog",
-    "operationName": "Microsoft.Network/FrontDoor/AccessLog/Write",
-    "properties": {
-        "trackingReference": "0n4crXgAAAACnRKbdALbyToAqNfSHssDvV1NURURHRTA2MTMANjMxNTAwZDAtOTRiNS00YzIwLTljY2YtNjFhNzMyOWQyYTgy",
-        "httpMethod": "GET",
-        "httpVersion": "2.0",
-        "requestUri": "https://wafdemofrontdoorwebapp.azurefd.net:443/",
-        "requestBytes": "710",
-        "responseBytes": "3116",
-        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4017.0 Safari/537.36 Edg/81.0.389.2",
-        "clientIp": "xx.xx.xxx.xxx",
-        "timeTaken": "0.598",
-        "securityProtocol": "TLS 1.2",
-        "routingRuleName": "WAFdemoWebAppRouting",
-        "backendHostname": "wafdemouksouth.azurewebsites.net:443",
-        "sentToOriginShield": false,
-        "httpStatusCode": "200",
-        "httpStatusDetails": "200"
+"time": "2020-06-09T22:32:17.8383427Z",
+"category": "FrontdoorAccessLog",
+"operationName": "Microsoft.Network/FrontDoor/AccessLog/Write",
+ "properties":
+    {
+    "trackingReference":"08Q3gXgAAAAAe0s71BET/QYwmqtpHO7uAU0pDRURHRTA1MDgANjMxNTAwZDAtOTRiNS00YzIwLTljY2YtNjFhNzMyOWQyYTgy",
+    "httpMethod":"GET",
+    "httpVersion":"2.0",
+    "requestUri":"https://wafdemofrontdoorwebapp.azurefd.net:443/?q=%27%20or%201=1",
+    "requestBytes":"715",
+    "responseBytes":"380",
+    "userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4157.0 Safari/537.36 Edg/85.0.531.1",
+    "clientIp":"xxx.xxx.xxx.xxx",
+    "socketIp":"xxx.xxx.xxx.xxx",
+    "clientPort":"52097",
+    "timeTaken":"0.003",
+    "securityProtocol":"TLS 1.2",
+    "routingRuleName":"WAFdemoWebAppRouting",
+    "rulesEngineMatchNames":[],
+    "backendHostname":"wafdemowebappuscentral.azurewebsites.net:443",
+    "sentToOriginShield":false,
+    "httpStatusCode":"403",
+    "httpStatusDetails":"403",
+    "pop":"SJC",
+    "cacheStatus":"CONFIG_NOCACHE"
     }
 }
 

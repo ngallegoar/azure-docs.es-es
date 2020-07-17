@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 06/03/2020
 ms.custom: seodec18, contperfq4, tracking-python
-ms.openlocfilehash: 636d16c4fbbd662d6fccb811fb4a88b2d862b533
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ace657efaac323dcf48cfba95629abc59ca0cac3
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107332"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231767"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Descripción de las matrices de puertas programables por campo (FPGA) y procedimiento para realizar la implementación
 
@@ -65,7 +65,7 @@ El diagrama y la tabla siguientes muestran cómo se comparan las FPGA con otros 
 
 ![Diagrama de comparación de FPGA de Azure Machine Learning](./media/how-to-deploy-fpga-web-service/azure-machine-learning-fpga-comparison.png)
 
-|Procesador||Descripción|
+|Procesador| Abreviatura |Descripción|
 |---|:-------:|------|
 |Circuitos integrados específicos de la aplicación|ASIC|Los circuitos personalizados, como las unidades de procesador TensorFlow (TPU) de Google, proporcionan la máxima eficacia. No pueden reconfigurarse según las necesidades.|
 |Matrices de puertas programables por campo|FPGA|Las FPGA como, por ejemplo, las disponibles en Azure, proporcionan un rendimiento similar al de los ASIC. También son flexibles y se pueden volver a configurar con el tiempo, para implementar una lógica nueva.|

@@ -5,22 +5,22 @@ author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 05/02/2020
-ms.openlocfilehash: 7f671e2a77a0a00fd1cc4338e29c14f7b8fca4f2
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.date: 06/16/2020
+ms.openlocfilehash: 9c5d6359ce0e79fce2e80911ff78d19cc88162b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734729"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85208712"
 ---
-# <a name="prepay-for-azure-database-for-postgresql-compute-resources-with-reserved-capacity"></a>Pago por adelantado de recursos de proceso de Azure Database for PostgreSQL con capacidad reservada
+# <a name="prepay-for-azure-database-for-postgresql---single-server-compute-resources-with-reserved-capacity"></a>Pago por adelantado de recursos de proceso servidor único de Azure Database for PostgreSQL con capacidad reservada
 
 Ahora Azure Database for PostgreSQL le ayuda a ahorrar mediante el pago por adelantado de los recursos de proceso en comparación con los precios de pago por uso. Con la capacidad reservada de Azure Database for PostgreSQL, se realiza un compromiso inicial en el servidor de PostgreSQL durante un periodo de un año o tres años con el fin de obtener un descuento importante en los costos de proceso. Para comprar capacidad reservada de Azure Database for PostgreSQL, debe especificar la región de Azure, el tipo de implementación, el nivel de rendimiento y el periodo. </br>
 
-No es necesario asignar la reserva a servidores concretos de Azure Database for PostgreSQL. Una instancia de Azure Database for PostgreSQL que ya está en ejecución, o las que se han implementado recientemente, obtendrán de forma automática la ventaja de los precios reservados. Al comprar una reserva, se adelanta el pago de los costos de proceso durante un período de uno a tres años. En cuanto se compra una reserva, los costos de proceso de Azure Database for PostgreSQL que coincidan con los atributos de reserva dejan de pagarse según las tarifas de pago por uso. La reserva no cubre los cargos por software, redes o almacenamiento asociados al servidor de bases de datos de PostgreSQL. Al final del plazo de reserva, la ventaja en la facturación expira y las instancias de Azure Database for PostgreSQL se facturan según los precios de pago por uso. Las reservas no se renuevan automáticamente. Para obtener información sobre precios, vea [Oferta de capacidad reservada de Azure Database for PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/). </br>
+No es necesario asignar la reserva a servidores concretos de Azure Database for PostgreSQL. Una instancia de Azure Database for PostgreSQL que ya está en ejecución (o las que se han implementado recientemente) obtendrá de forma automática la ventaja de los precios reservados. Al comprar una reserva, se adelanta el pago de los costos de proceso durante un período de uno a tres años. En cuanto se compra una reserva, los costos de proceso de Azure Database for PostgreSQL que coincidan con los atributos de reserva dejan de pagarse según las tarifas de pago por uso. La reserva no cubre los cargos por software, redes o almacenamiento asociados al servidor de bases de datos de PostgreSQL. Al final del plazo de reserva, la ventaja en la facturación expira y las instancias de Azure Database for PostgreSQL se facturan según los precios de pago por uso. Las reservas no se renuevan automáticamente. Para obtener información sobre precios, vea [Oferta de capacidad reservada de Azure Database for PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/). </br>
 
 > [!IMPORTANT]
-> Los precios de la capacidad reservada solo están disponibles para la implementación [de un solo servidor](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) de Azure Database for PostgreSQL y no para la implementación [Hyperscale Citus](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus).
+> Los precios de la capacidad reservada están disponibles para Azure Database for PostgreSQL tanto en las opciones de implementación [de un solo servidor](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) y de [Hyperscale Citus](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus). Para obtener información sobre los precios de la instancia reservada en Hyperscale (Citus), consulte [esta página](concepts-hyperscale-reserved-pricing.md).
 
 Puede comprar capacidad reservada de Azure Database for PostgreSQL en [Azure Portal](https://portal.azure.com/). Pague la reserva [por adelantado o mensualmente](../cost-management-billing/reservations/monthly-payments-reservations.md). Para comprar capacidad reservada:
 
@@ -35,7 +35,7 @@ Para información sobre cómo se les cobra a los clientes de empresa y a los de 
 
 El tamaño de la reserva se debe basar en la cantidad total de proceso que van a usar los servidores existentes o que se van a implementar pronto en una región específica y con el mismo nivel de rendimiento y generación de hardware.</br>
 
-Por ejemplo, imagine que ejecuta una base de datos PostgreSQL de propósito general Gen5 de 32 núcleos virtuales y dos bases de datos PostgreSQL optimizadas para memoria Gen5 de 16 núcleos virtuales. Además, supongamos que planea implementar en el próximo mes un grupo elástico Gen5 de uso general y 32 núcleos virtuales adicionales, y un servidor de bases de datos optimizado para memoria Gen5 de 16 núcleos virtuales. Vamos a suponer que sabe que necesitará estos recursos durante al menos 1 año. En este caso debe comprar una reserva de 1 año de una instancia de Gen5 con 64 núcleos virtuales (2 × 32) para una base de datos única de uso general y otra reserva de 1 año de una instancia de Gen 5 con 48 núcleos virtuales (2 × 16 + 16) para una base de datos única optimizada para memoria.
+Por ejemplo, imagine que ejecuta una base de datos PostgreSQL de propósito general Gen5 de 32 núcleos virtuales y dos bases de datos PostgreSQL optimizadas para memoria Gen5 de 16 núcleos virtuales. Además, supongamos que planea implementar en el próximo mes un grupo elástico Gen5 de uso general y 32 núcleos virtuales adicionales, y un servidor de bases de datos optimizado para memoria Gen5 de 16 núcleos virtuales. Vamos a suponer que sabe que necesitará estos recursos durante al menos un año. En este caso debe comprar una reserva de un año de una instancia de Gen5 con 64 núcleos virtuales (2 × 32) para una base de datos única de uso general y otra reserva de un año de una instancia de Gen 5 con 48 núcleos virtuales (2 × 16 + 16) para una base de datos única optimizada para memoria.
 
 
 ## <a name="buy-azure-database-for-postgresql-reserved-capacity"></a>Compra de capacidad reservada de Azure Database for PostgreSQL
@@ -53,7 +53,7 @@ En la siguiente tabla se describen los campos obligatorios.
 
 | Campo | Descripción |
 | :------------ | :------- |
-| Subscription   | La suscripción usada para pagar la reserva de capacidad reservada de Azure Database for PostgreSQL. Los costos anticipados por la reserva de capacidad reservada de Azure Database for PostgreSQL se cobran mediante el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o un contrato individual con precios de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. Para una suscripción individual con precios de pago por uso, los cargos se cobran en el método de pago de la factura o la tarjeta de crédito de la suscripción.
+| Suscripción   | La suscripción usada para pagar la reserva de capacidad reservada de Azure Database for PostgreSQL. Los costos anticipados por la reserva de capacidad reservada de Azure Database for PostgreSQL se cobran mediante el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o un contrato individual con precios de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. Para una suscripción individual con precios de pago por uso, los cargos se cobran en el método de pago de la factura o la tarjeta de crédito de la suscripción.
 | Ámbito | El ámbito de la reserva de núcleos virtuales puede cubrir una suscripción o varias (ámbito compartido). Si selecciona: </br></br> **Compartido**, el descuento por la reserva de núcleos virtuales se aplica a los servidores de Azure Database for PostgreSQL en ejecución en cualquiera de las suscripciones en el contexto de facturación. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.</br></br> **Suscripción única**, el descuento por la reserva de núcleos virtuales se aplica a los servidores de Azure Database for PostgreSQL de esta suscripción. </br></br> **Grupo de recursos único**, el descuento de reserva se aplica a los servidores de Azure Database for PostgreSQL de la suscripción seleccionada y al grupo de recursos seleccionado de esa suscripción.
 | Region | La región de Azure que abarca la reserva de capacidad reservada de Azure Database for PostgreSQL.
 | Tipo de implementación | El tipo de recurso de Azure Database for PostgreSQL para el que quiere comprar la reserva.
@@ -75,8 +75,7 @@ Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técni
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-El descuento por la reserva de núcleos virtuales se aplica automáticamente al número de servidores de Azure Database for PostgreSQL que coincidan con el ámbito y los atributos de la reserva de capacidad reservada de Azure Database for PostgreSQL. Se puede actualizar el ámbito de la reserva de capacidad reservada de Azure Database for PostgreSQL a través de Azure Portal, PowerShell, la CLI o la API. </br></br>
-Para obtener información sobre cómo administrar la capacidad reservada de Azure Database for PostgreSQL, vea la sección Administración de la capacidad reservada de Azure Database for PostgreSQL.
+El descuento por la reserva de núcleos virtuales se aplica automáticamente al número de servidores de Azure Database for PostgreSQL que coincidan con el ámbito y los atributos de la reserva de capacidad reservada de Azure Database for PostgreSQL. Se puede actualizar el ámbito de la reserva de capacidad reservada de Azure Database for PostgreSQL a través de Azure Portal, PowerShell, la CLI o la API.
 
 Para obtener más información acerca de Azure Reservations, consulte los siguientes artículos:
 

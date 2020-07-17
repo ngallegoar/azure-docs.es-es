@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: f53c7ccec5e82b79966807f12978adfb00940354
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: c9da25a7d7521108195d3183f52b914e13105e8d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195383"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082291"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Uso de Instancia administrada de Azure SQL con SQL Server Integration Services (SSIS) en Azure Data Factory
 
@@ -41,20 +41,20 @@ Ahora los proyectos, paquetes y cargas de trabajo de SQL Server Integration Serv
     - A través de un punto de conexión privado (preferido)
 
         1. Elija la red virtual a la que se va a unir Azure-SSIS IR:
-            - Dentro de la misma red virtual que Instancia administrada de SQL, con de **subred diferente**.
-            - Dentro de una red virtual diferente a la de Instancia administrada de SQL, a través del emparejamiento de redes virtuales (que está limitado a la misma región debido a las restricciones de emparejamiento de VNet global) o una conexión de red virtual a red virtual.
+            - Dentro de la misma red virtual que la instancia administrada, con una **subred diferente**.
+            - Dentro de una red virtual diferente a la de la instancia administrada, a través del emparejamiento de redes virtuales (que está limitado a la misma región debido a las restricciones de emparejamiento de VNet global) o una conexión de red virtual a red virtual.
 
-            Para más información sobre la conectividad de Instancia administrada de Azure SQL, vea [Conexión de la aplicación a Instancia administrada de Azure SQL](https://review.docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app).
+            Para más información sobre la conectividad de la instancia administrada de Azure SQL, vea [Conexión de la aplicación a Instancia administrada de Azure SQL](https://review.docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app).
 
         1. [Configure la red virtual](#configure-virtual-network).
 
     - A través de un punto de conexión público
 
-        Instancia administrada de Azure SQL puede proporcionar conectividad a través de [puntos de conexión públicos](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure). Los requisitos de entrada y salida deben cumplirse para permitir el tráfico entre la Instancia administrada de SQL y Azure-SSIS IR:
+        Instancia administrada de Azure SQL puede proporcionar conectividad a través de [puntos de conexión públicos](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure). Los requisitos de entrada y salida deben cumplirse para permitir el tráfico entre la instancia administrada de SQL y Azure-SSIS IR:
 
         - Cuando Azure-SSIS IR no está dentro de una red virtual (opción preferida).
 
-            **Requisito de entrada de Instancia administrada de SQL**, para permitir el tráfico entrante desde Azure-SSIS IR.
+            **Requisito de entrada de la instancia administrada de SQL**, para permitir el tráfico entrante desde Azure-SSIS IR.
 
             | Protocolo de transporte | Source | Intervalo de puertos de origen | Destination | Destination port range |
             |---|---|---|---|---|
@@ -64,19 +64,19 @@ Ahora los proyectos, paquetes y cargas de trabajo de SQL Server Integration Serv
 
         - Cuando Azure-SSIS IR está en una red virtual
 
-            Hay un escenario especial en que Instancia administrada de SQL se encuentra en una región que Azure-SSIS IR no admite y Azure-SSIS IR se encuentra dentro de una red virtual sin emparejamiento de VNet debido a una limitación de emparejamiento de VNet global. En este escenario, **Azure-SSIS IR dentro de una red virtual** conecta la Instancia administrada de SQL **a través del punto de conexión público**. Use las reglas de grupo de seguridad de red (NSG) siguientes para permitir el tráfico entre Instancia administrada de SQL y Azure-SSIS IR:
+            Hay un escenario especial en que la instancia administrada de SQL se encuentra en una región que Azure-SSIS IR no admite y Azure-SSIS IR se encuentra dentro de una red virtual sin emparejamiento de VNet debido a una limitación de emparejamiento de VNet global. En este escenario, **Azure-SSIS IR dentro de una red virtual** conecta la instancia administrada de SQL **a través del punto de conexión público**. Use las reglas de grupo de seguridad de red (NSG) siguientes para permitir el tráfico entre la instancia administrada de SQL y Azure-SSIS IR:
 
-            1. **Requisito de entrada de Instancia administrada de SQL**, para permitir el tráfico entrante desde Azure-SSIS IR.
+            1. **Requisito de entrada de la instancia administrada de SQL**, para permitir el tráfico entrante desde Azure-SSIS IR.
 
                 | Protocolo de transporte | Source | Intervalo de puertos de origen | Destination |Destination port range |
                 |---|---|---|---|---|
                 |TCP|Dirección IP estática de Azure-SSIS IR <br> Para obtener más información, consulte el apartado [Traiga su propia dirección IP pública para Azure-SSIS IR](join-azure-ssis-integration-runtime-virtual-network.md#publicIP).|*|VirtualNetwork|3342|
 
-             1. **Requisito de salida de Azure-SSIS IR** para permitir el tráfico saliente a Instancia administrada de SQL.
+             1. **Requisito de salida de Azure-SSIS IR** para permitir el tráfico saliente a la instancia administrada de SQL.
 
                 | Protocolo de transporte | Source | Intervalo de puertos de origen | Destination |Destination port range |
                 |---|---|---|---|---|
-                |TCP|VirtualNetwork|*|[Dirección IP del punto de conexión público de Instancia administrada de SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-find-management-endpoint-ip-address)|3342|
+                |TCP|VirtualNetwork|*|[Dirección IP del punto de conexión público de la instancia administrada de SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-find-management-endpoint-ip-address)|3342|
 
 ### <a name="configure-virtual-network"></a>Configurar la red virtual
 
@@ -102,18 +102,18 @@ Ahora los proyectos, paquetes y cargas de trabajo de SQL Server Integration Serv
         - Microsoft.Network/LoadBalancers
         - Microsoft.Network/NetworkSecurityGroups
 
-    1. Regla para permitir el tráfico en el grupo de seguridad de red (NSG), para permitir el tráfico entre Instancia administrada de SQL y Azure-SSIS IR, y el tráfico necesario para Azure-SSIS IR.
-        1. **Requisito de entrada de Instancia administrada de SQL**, para permitir el tráfico entrante desde Azure-SSIS IR.
+    1. Regla para permitir el tráfico en el grupo de seguridad de red (NSG), para permitir el tráfico entre la instancia administrada de SQL y Azure-SSIS IR, y el tráfico necesario para Azure-SSIS IR.
+        1. **Requisito de entrada de la instancia administrada de SQL**, para permitir el tráfico entrante desde Azure-SSIS IR.
 
             | Protocolo de transporte | Source | Intervalo de puertos de origen | Destination | Destination port range | Comentarios |
             |---|---|---|---|---|---|
             |TCP|VirtualNetwork|*|VirtualNetwork|1433, 11000-11999|Si la directiva de conexión del servidor de SQL Database está establecida en **Proxy**, en lugar de **Redirigir**, solo se necesita el puerto 1433.|
 
-        1. **Requisito de salida de Azure-SSIS IR** para permitir el tráfico saliente a Instancia administrada de SQL y el resto de tráfico necesario para Azure-SSIS IR.
+        1. **Requisito de salida de Azure-SSIS IR** para permitir el tráfico saliente a la instancia administrada de SQL y el resto de tráfico necesario para Azure-SSIS IR.
 
         | Protocolo de transporte | Source | Intervalo de puertos de origen | Destination | Destination port range | Comentarios |
         |---|---|---|---|---|---|
-        | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 |Permitir el tráfico saliente a Instancia administrada de SQL. Si la directiva de conexión se establece en **Proxy** en lugar de en **Redirigir**, solo se necesita el puerto 1433. |
+        | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 |Permitir el tráfico saliente a la instancia administrada de SQL. Si la directiva de conexión se establece en **Proxy** en lugar de en **Redirigir**, solo se necesita el puerto 1433. |
         | TCP | VirtualNetwork | * | AzureCloud | 443 | Los nodos de Azure-SSIS Integration Runtime en la red virtual usan este puerto para acceder a servicios de Azure, como Azure Storage y Azure Event Hubs. |
         | TCP | VirtualNetwork | * | Internet | 80 | (Opcional). Los nodos de Azure-SSIS Integration Runtime en la red virtual usan este puerto para descargar una lista de revocación de certificados de Internet. Si bloquea este tráfico, puede experimentar una degradación del rendimiento al iniciar el entorno de ejecución de integración y perder capacidad para comprobar el uso de certificados en la lista de revocación de certificados. Si desea restringir aún más el destino a determinados FQDN, consulte [Uso de Azure ExpressRoute o de una ruta definida por el usuario](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#route).|
         | TCP | VirtualNetwork | * | Storage | 445 | (Opcional). Esta regla solo es necesaria cuando quiera ejecutar un paquete SSIS almacenado en Azure Files. |
@@ -135,9 +135,9 @@ Ahora los proyectos, paquetes y cargas de trabajo de SQL Server Integration Serv
 
 ### <a name="provision-azure-ssis-integration-runtime"></a>Aprovisionamiento de Azure-SSIS Integration Runtime
 
-1. Seleccione el punto de conexión privado o el punto de conexión público de Instancia administrada de SQL.
+1. Seleccione el punto de conexión privado o el punto de conexión público de la instancia administrada de SQL.
 
-    Si [aprovisionamiento de Azure-SSIS IR](create-azure-ssis-integration-runtime.md#provision-an-azure-ssis-integration-runtime) tiene lugar en la aplicación Azure Portal/ADF, en la página Configuración de SQL, use el **punto de conexión privado** o el **punto de conexión público** de Instancia administrada de SQL al crear el catálogo de SSIS (SSISDB).
+    Si [aprovisionamiento de Azure-SSIS IR](create-azure-ssis-integration-runtime.md#provision-an-azure-ssis-integration-runtime) tiene lugar en la aplicación Azure Portal/ADF, en la página Configuración de SQL, use el **punto de conexión privado** o el **punto de conexión público** de la instancia administrada de SQL al crear el catálogo de SSIS (SSISDB).
 
     El nombre de host del punto de conexión público tiene el formato <mi_nombre>.public.<zona_dns>.database.windows.net y el puerto usado para la conexión es 3342.  
 
@@ -153,7 +153,7 @@ Ahora los proyectos, paquetes y cargas de trabajo de SQL Server Integration Serv
 
     En la página Configuración avanzada, seleccione Virtual Network y la subred con la que se realizará la unión.
     
-    Cuando esté dentro de la misma red virtual que Instancia administrada de SQL, elija una **subred diferente** de Instancia administrada de SQL. 
+    Cuando esté dentro de la misma red virtual que la instancia administrada de SQL, elija una **subred diferente** de instancia administrada de SQL. 
 
     Para obtener más información sobre cómo unir Azure-SSIS IR a una red virtual, consulte [Unión de una instancia de Azure-SSIS Integration Runtime a una red virtual](join-azure-ssis-integration-runtime-virtual-network.md).
 
@@ -173,7 +173,7 @@ La directiva de retención de registros de SSISDB se define mediante las siguien
 
     Número de días que los detalles y los mensajes de la operación estarán almacenados en el catálogo. Si el valor es -1, la ventana de retención es infinita. Nota: Si no quiere realizar ninguna limpieza, establezca OPERATION_CLEANUP_ENABLED en FALSE.
 
-Para eliminar registros de SSISDB que están fuera del intervalo de retención establecido por el administrador, puede desencadenar el procedimiento almacenado `[internal].[cleanup_server_retention_window_exclusive]`. De manera opcional, puede programar la ejecución del trabajo del agente de Instancia administrada de SQL para desencadenar el procedimiento almacenado.
+Para eliminar registros de SSISDB que están fuera del intervalo de retención establecido por el administrador, puede desencadenar el procedimiento almacenado `[internal].[cleanup_server_retention_window_exclusive]`. De manera opcional, puede programar la ejecución del trabajo del agente de la instancia administrada de SQL para desencadenar el procedimiento almacenado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -5,24 +5,25 @@ description: AutoMLStep permite usar el aprendizaje automático automatizado en 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: laobri
 author: lobrien
 manager: cgronlun
-ms.date: 04/28/2020
-ms.openlocfilehash: 9bf17512d0b14c7106101d98598e2914020afc7a
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 06/15/2020
+ms.custom: tracking-python
+ms.openlocfilehash: f162aca8c30d890ecf662a88fb5f2182edb14c9e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857957"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298249"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Uso de ML automatizado en una canalización de Azure Machine Learning en Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 La funcionalidad de ML automatizada de Azure Machine Learning le ayuda a detectar modelos de alto rendimiento sin necesidad de volver a implementar todos los enfoques posibles. En combinación con las canalizaciones de Azure Machine Learning, puede crear flujos de trabajo que se pueden implementar y que pueden detectar rápidamente el algoritmo que funcione mejor para sus datos. En este artículo se muestra cómo unir de forma eficaz un paso de preparación de datos a un paso de ML automatizado. ML automatizado puede detectar rápidamente el algoritmo que funciona mejor para sus datos, al tiempo que le conduce hacia MLOps y a la operacionalización del ciclo de vida del modelo con las canalizaciones.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -110,18 +111,27 @@ El siguiente paso consiste en asegurarse de que la ejecución del entrenamiento 
 ```python
 from azureml.core.runconfig import RunConfiguration
 from azureml.core.conda_dependencies import CondaDependencies
+from azureml.core import Environment 
 
 aml_run_config = RunConfiguration()
 # Use just-specified compute target ("cpu-cluster")
 aml_run_config.target = compute_target
-aml_run_config.environment.python.user_managed_dependencies = False
 
-# Add some packages relied on by data prep step
-aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
-    conda_packages=['pandas','scikit-learn'], 
-    pip_packages=['azureml-sdk[automl,explain]', 'azureml-dataprep[fuse,pandas]'], 
-    pin_sdk_version=False)
+USE_CURATED_ENV = True
+if USE_CURATED_ENV :
+    curated_environment = Environment.get(workspace=ws, name="AzureML-Tutorial")
+    aml_run_config.environment = curated_environment
+else:
+    aml_run_config.environment.python.user_managed_dependencies = False
+    
+    # Add some packages relied on by data prep step
+    aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
+        conda_packages=['pandas','scikit-learn'], 
+        pip_packages=['azureml-sdk[automl,explain]', 'azureml-dataprep[fuse,pandas]'], 
+        pin_sdk_version=False)
 ```
+
+El código anterior muestra dos opciones para administrar las dependencias. Tal como se presenta, con `USE_CURATED_ENV = True`, la configuración se basa en un entorno seleccionado. Los entornos seleccionados están preparados con bibliotecas interdependientes comunes y pueden ser mucho más rápidos para ponerlos en línea. Los entornos seleccionados tienen imágenes de Docker creadas previamente en [Microsoft Container Registry](https://hub.docker.com/publishers/microsoftowner). La ruta de acceso que se toma si cambia `USE_CURATED_ENV` a `False` muestra el patrón para establecer explícitamente las dependencias. En ese escenario, se creará una nueva imagen de Docker personalizada y se registrará en Azure Container Registry dentro del grupo de recursos (consulte [Introducción a los registros de contenedores privados de Docker en Azure](https://docs.microsoft.com/azure/container-registry/container-registry-intro)). La creación y el registro de esta imagen pueden tardar unos minutos. 
 
 ## <a name="prepare-data-for-automated-machine-learning"></a>Preparación de datos para el aprendizaje automático automatizado
 

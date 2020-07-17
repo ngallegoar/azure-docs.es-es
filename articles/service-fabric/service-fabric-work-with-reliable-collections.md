@@ -3,12 +3,12 @@ title: Trabajo con Reliable Collections
 description: Conozca los procedimientos recomendados para trabajar con Reliable Collections dentro de una aplicación de Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: f0f1d332b3636e28ffc50ee8b8edcd253474a307
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7df48bc0dfbef6fc85335801e64484914a218eb7
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374702"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255802"
 ---
 # <a name="working-with-reliable-collections"></a>Trabajo con Reliable Collections
 Service Fabric ofrece un modelo de programación con estado a los desarrolladores de .NET a través de Reliable Collections. En concreto, Service Fabric proporciona un diccionario confiable y clases de cola confiables. Al utilizar estas clases, se crean particiones en el estado (para escalabilidad) y este se replica (para disponibilidad) y se tramita dentro de una partición (para semántica ACID). Veamos un uso típico de un objeto de diccionario de confianza y verá lo que está haciendo realmente.
@@ -219,10 +219,10 @@ Además, el código de servicio se actualiza con un dominio de actualización en
 Como alternativa, puede realizar lo que se conoce normalmente como una actualización en dos fases. Gracias a la actualización en dos fases, se actualizará el servicio de V1 a V2: V2 contiene el código que sabe cómo tratar el nuevo cambio de esquema, pero este código no se ejecuta. Cuando el código de V2 lee datos de V1, opera en ellos y escribe datos de V1. Luego, después de que la actualización se complete en todos los dominios de actualización, puede indicar de algún modo a las instancias de V2 en ejecución que la actualización se ha completado. (Una forma de indicar esto es lanzar una actualización de la configuración; esta característica es la que convierte a esto en una actualización de dos fases). Ahora, las instancias de V2 pueden leer datos de V1, convertirlos en datos de V2, operar en ellos y escribirlos como datos de V2. Cuando otras instancias lean datos de V2, no necesitarán convertirlos; simplemente operarán en ellos y escribirán datos de V2.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre la creación de contratos de datos compatibles con versiones posteriores, consulte [Forward-Compatible Data Contracts](https://msdn.microsoft.com/library/ms731083.aspx) (Contratos de datos compatibles con versiones posteriores).
+Para obtener más información sobre la creación de contratos de datos compatibles con versiones posteriores, consulte [Forward-Compatible Data Contracts](/dotnet/framework/wcf/feature-details/forward-compatible-data-contracts) (Contratos de datos compatibles con versiones posteriores).
 
-Para obtener los procedimientos recomendados sobre el control de versiones de contratos de datos, consulte [Data Contract Versioning](https://msdn.microsoft.com/library/ms731138.aspx) (Versiones de contratos de datos).
+Para obtener los procedimientos recomendados sobre el control de versiones de contratos de datos, consulte [Data Contract Versioning](/dotnet/framework/wcf/feature-details/data-contract-versioning) (Versiones de contratos de datos).
 
-Para obtener más información sobre cómo implementar contratos de datos tolerantes a versiones, consulte [Version-Tolerant Serialization Callbacks](https://msdn.microsoft.com/library/ms733734.aspx) (Devoluciones de llamadas en la serialización tolerante a versiones).
+Para obtener más información sobre cómo implementar contratos de datos tolerantes a versiones, consulte [Version-Tolerant Serialization Callbacks](/dotnet/framework/wcf/feature-details/version-tolerant-serialization-callbacks) (Devoluciones de llamadas en la serialización tolerante a versiones).
 
-Para obtener más información sobre cómo proporcionar una estructura de datos que pueda interoperar entre varias versiones, consulte [IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx).
+Para obtener más información sobre cómo proporcionar una estructura de datos que pueda interoperar entre varias versiones, consulte [IExtensibleDataObject](/dotnet/api/system.runtime.serialization.iextensibledataobject?view=netcore-3.1).

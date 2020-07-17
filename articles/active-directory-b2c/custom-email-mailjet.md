@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/25/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2b66ef1a28faf97759045d40ea0f649282b2d837
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91360776c50ce514985ad36242606223becbd933
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85398021"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230883"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Verificación de correo electrónico personalizado con Mailjet
 
@@ -57,7 +57,7 @@ A continuación, almacene la clave de API de Mailjet en una clave de directiva d
 
 ## <a name="create-a-mailjet-template"></a>Creación de una plantilla de Mailjet
 
-Con la cuenta de Mailjet creada y la clave de API de Mailjet almacenada en una clave de directiva de Azure AD B2C, cree una [plantilla transaccional dinámica](https://Mailjet.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/) de Mailjet.
+Con la cuenta de Mailjet creada y la clave de API de Mailjet almacenada en una clave de directiva de Azure AD B2C, cree una [plantilla transaccional dinámica](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/) de Mailjet.
 
 1. En el sitio de Mailjet, abra la página [Transactional Templates](https://app.mailjet.com/templates/transactional) (Plantillas transaccionales) y seleccione **Create Template** (Crear plantilla nueva).
 1. Seleccione **By coding it in HTML** (Con codificación HTML) y después seleccione **Code from scratch** (Codificar desde cero).

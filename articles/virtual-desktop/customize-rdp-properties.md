@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4cbfe03c48c6d971c140dc332c38a47bc9234173
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d41df8fe4f411cf28af83c8b4b667f1e86bdb45d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135115"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259920"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personalización de las propiedades de Protocolo de escritorio remoto para un grupo de hosts
 
@@ -132,7 +132,7 @@ CustomRdpProperty : <CustomRDPpropertystring>
 
 Ahora que ha personalizado las propiedades de RDP grupo de hosts especificado, puede iniciar sesión en un cliente de Windows Virtual Desktop para realizar pruebas como parte de una sesión de usuario. En estas guías de procedimientos se indica cómo conectarse a una sesión mediante el cliente que elija:
 
-- [Conexión con el cliente de Escritorio de Windows](connect-windows-7-and-10.md)
+- [Conexión con el cliente de Escritorio de Windows](connect-windows-7-10.md)
 - [Conexión con el cliente web](connect-web.md)
 - [Conexión con el cliente de Android](connect-android.md)
 - [Conexión con el cliente macOS](connect-macos.md)

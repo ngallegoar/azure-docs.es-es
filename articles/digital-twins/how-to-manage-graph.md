@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bfdf1263ccee78b57ccf79c63efcc01d95dd13c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d51abab46cd8450dd3a09e5e5ef47e6267b990d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392257"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258087"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Administración de un grafo de gemelos digitales con relaciones
 
@@ -21,6 +21,8 @@ El corazón de Azure Digital Twins es el [grafo de gemelos](concepts-twins-graph
 Una vez que tenga una [instancia de Azure Digital Twins](how-to-set-up-instance.md) en funcionamiento y que haya configurado la [autenticación](how-to-authenticate-client.md) para la aplicación cliente, puede usar las [**API DigitalTwins**](how-to-use-apis-sdks.md) para crear, modificar y eliminar gemelos digitales y sus relaciones en una instancia de Azure Digital Twins. También puede usar el [SDK de .NET ( C# )](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) o la [CLI de Azure Digital Twins](how-to-use-cli.md).
 
 Este artículo está centrado en la administración de las relaciones y el grafo en conjunto; para trabajar con gemelos digitales individuales, consulte [Procedimiento: Administración de Digital Twins](how-to-manage-twin.md).
+
+[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
 ## <a name="create-relationships"></a>Crear relaciones
 
@@ -305,4 +307,4 @@ Los gemelos y sus relaciones también se pueden administrar mediante la CLI de A
 
 Obtenga información sobre cómo consultar un grafo de gemelos de Azure Digital Twins:
 * [Conceptos: Lenguaje de consulta](concepts-query-language.md)
-* [Procedimiento: Consultar el grafo de gemelos](how-to-query-graph.md)
+* [Procedimiento: Consulta del grafo de gemelos](how-to-query-graph.md)

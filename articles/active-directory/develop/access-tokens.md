@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 3e1d000ed316a1a92e6dcdab0f9b7d577fd33d8b
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 75c211ea61359c244c6280b9664a4f412b3d2279
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772240"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552017"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acceso de la Plataforma de identidad de Microsoft
 
@@ -230,11 +230,13 @@ La lógica de negocio de la aplicación dictará este paso; a continuación se p
 
 ## <a name="user-and-application-tokens"></a>Tokens de usuario y de aplicación
 
-La aplicación puede recibir tokens en nombre de un usuario (el flujo habitual) o directamente desde una aplicación (mediante el flujo de credenciales de cliente [[v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md) y [v2.0](v2-oauth2-client-creds-grant-flow.md)]). Estos tokens de solo aplicación indican que esta llamada proviene de una aplicación y no tiene un usuario que la respalde. Estos tokens se usan en gran medida de la misma manera, con algunas diferencias:
+La aplicación puede recibir tokens para usuario (el flujo habitual) o directamente desde una aplicación (mediante el [flujo de credenciales de cliente](v1-oauth2-client-creds-grant-flow.md)). Estos tokens de solo aplicación indican que esta llamada proviene de una aplicación y no tiene un usuario que la respalde. Estos tokens se usan en gran medida de la misma manera:
 
-* Los tokens de solo aplicación no tendrán una notificación `scp`, y en su lugar pueden tener una notificación `roles`. Aquí es donde se registrarán los permisos de aplicación (a diferencia de los permisos delegados). Para obtener más información acerca de los permisos delegados y de aplicación, consulte los permisos y consentimiento ([v1.0](../azuread-dev/v1-permissions-consent.md) y [v2.0](v2-permissions-and-consent.md)).
-* Faltan muchas notificaciones específicas de usuarios, como `name` o `upn`.
-* Las notificaciones `sub` y `oid` serán las mismas.
+* Use `roles` para ver los permisos que se han concedido al sujeto del token (la entidad de servicio, en lugar de un usuario en este caso).
+* Utilice `oid` o `sub` para validar que la entidad de servicio que realiza la llamada es la que se espera.
+
+Si la aplicación necesita distinguir entre tokens de acceso de solo aplicación y tokens de acceso para los usuarios, use la [notificación opcional](active-directory-optional-claims.md) `idtyp`.  Al agregar la notificación `idtyp` al campo `accessToken` y comprobar el valor `app`, puede detectar tokens de acceso de solo aplicación.  Los tokens de identificador y los tokens de acceso para los usuarios no tendrán incluida la notificación `idtyp`.
+
 
 ## <a name="token-revocation"></a>Revocación de tokens
 
@@ -254,7 +256,7 @@ Con la [configuración de vigencia de los tokens](active-directory-configurable-
 
 El servidor puede revocar los tokens de actualización debido a un cambio en las credenciales o a una acción de administración o uso.  Los tokens de actualización se dividen en dos clases: emitidos para clientes confidenciales (la columna situada más a la derecha) y emitidos para clientes públicos (el resto de columnas).   
 
-|   | Cookie basada en contraseñas | Token basado en contraseñas | Cookie no basada en contraseñas | Token no basado en contraseñas | Token de cliente confidencial |
+| Change | Cookie basada en contraseñas | Token basado en contraseñas | Cookie no basada en contraseñas | Token no basado en contraseñas | Token de cliente confidencial |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
 | La contraseña expira | Permanece activa | Permanece activa | Permanece activa | Permanece activa | Permanece activa |
 | Contraseña cambiada por el usuario | Revocada | Revocada | Permanece activa | Permanece activa | Permanece activa |

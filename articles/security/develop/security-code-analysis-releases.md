@@ -12,18 +12,17 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: d4281d3b6132e551283a71cd1801ef462fbfc68c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 33ce2a496caa52609d8bdf8c92e29064ca4ae349
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146124"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362047"
 ---
 # <a name="microsoft-security-code-analysis-releases-and-roadmap"></a>Versiones y hoja de ruta de Análisis de código de seguridad de Microsoft
 
-El equipo de Análisis de código de seguridad de Microsoft, en colaboración con soporte técnico Developer, está orgulloso de anunciar mejoras recientes y futuras a nuestra extensión MSCA. Consulte el mapa de ruta a continuación.
+El equipo de Análisis de código de seguridad de Microsoft, en colaboración con soporte técnico Developer, está orgulloso de anunciar mejoras recientes y futuras a nuestra extensión MSCA.
 
-![Lanzamientos](./media/security-code-analysis-releases/releases.png)
 
 ## <a name="credential-scanner-v20-released-in-april-2020"></a>Credential Scanner v2.0: Publicado en abril de 2020
 
@@ -54,18 +53,25 @@ El equipo de Análisis de código de seguridad de Microsoft, en colaboración co
 
 ### <a name="improvements"></a>Mejoras
 
-- CARACTERÍSTICA: Actualice a la versión final de SARIF V2 (versión 2.1.16). Esto habilita el almacenamiento en caché de resultados al pasar --hashes en la línea de comandos, una mejora significativa del rendimiento cuando se analizan de forma recursiva directorios con varias copias de destinos de examen.
+- CARACTERÍSTICA: Actualice a la versión final de SARIF V2 (versión 2.1.16). Esta actualización habilita el almacenamiento en caché de resultados al pasar: hashes en la línea de comandos, una mejora significativa del rendimiento cuando se analizan de forma recursiva directorios con varias copias de destinos de examen.
 - CORRECCIÓN DE ERRORES: Corrección de errores tipográficos en la salida BA2021.DoNotMarkWritableSectionsAsExecutable.
 - RENDIMIENTO: Elimine la carga de PDB para todos los modos no mixtos para los ensamblados administrados, incluidos los archivos binarios de la biblioteca IL (precompilados).
 - CORRECCIÓN DE FALSOS NEGATIVOS: Verifique que un PDB colocado junto con un binario coincida realmente con el binario analizado.
 - CARACTERÍSTICA: Proporcione el argumento --local-symbol-directories para especificar las ubicaciones de búsqueda de PDB adicionales (locales, sin servidor de símbolos)
 - CORRECCIÓN DE FALSOS POSITIVOS: Omita el análisis controlado por PDB para el ejecutable de arranque nativo de .NET Core generado (que no es código controlable por el usuario).
 
-## <a name="whats-next-in-fy20"></a>¿Novedades para el ejercicio fiscal 2020?
+## <a name="whats-next-in-q3-cy20"></a>¿Novedades para el tercer trimestre del ejercicio fiscal 2020?
 
 - Herramienta de análisis de seguridad de Java
 - Herramienta de análisis de seguridad de Python
 - ES Lint reemplazará a TS Lint para TypeScript y JavaScript
+- Herramienta de análisis de plantillas de Resource Manager
+
+## <a name="tool-deprecation-notification"></a>Notificación de desuso de la herramienta
+
+### <a name="microsoft-security-risk-detection-msrd-is-deprecated-on-june-26-2020"></a>La detección de riesgos de seguridad de Microsoft (MSRD) está en desuso a partir del 26 de junio de 2020.
+
+El servicio de pruebas de vulnerabilidad ante datos aleatorios o inesperados de MSRD en desuso se sustituirá por una plataforma de pruebas de vulnerabilidad de desarrolladores autohospedados de código abierto para Azure. Actualmente, esta plataforma se está desarrollando y probando en colaboración con muchos de los equipos de producto principales de Microsoft. Esta plataforma de pruebas de vulnerabilidad ante datos aleatorios o inesperados integrará correctores y permitirá pruebas de aprendizaje y adaptables integradas en canalizaciones de CI/CD que crecen con el tiempo con los proyectos de software. La versión de código abierto de esta plataforma está programada para la segunda mitad de 2020.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

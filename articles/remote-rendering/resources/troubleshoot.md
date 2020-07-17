@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 59dc64c952aab6b37e6a779ab1e7e85b9a8ab4b7
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 2cb143e08e3901b1d0ab7181df68f06887069012
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84018827"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563264"
 ---
 # <a name="troubleshoot"></a>Solución de problemas
 
@@ -105,7 +105,7 @@ Si estos dos pasos no ayudan, debe averiguar si el cliente recibe fotogramas de 
 
 **El modelo supera los límites de la VM seleccionada, específicamente el número máximo de polígonos:**
 
-Consulte las [limitaciones específicas del tamaño de la máquina virtual ](../reference/limits.md#overall-number-of-polygons).
+Consulte los [límites específicos del tamaño de la máquina virtual](../reference/limits.md#overall-number-of-polygons).
 
 **El modelo no está dentro del tronco de la cámara:**
 
@@ -146,6 +146,16 @@ Azure Remote Rendering se enlaza a la canalización de representación de Unit
 
 ![Unity Frame Debugger](./media/troubleshoot-unity-pipeline.png)
 
+## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>El patrón de tablero de damas se representa después de cargar el modelo
+
+Si la imagen representada tiene el siguiente aspecto: ![Tablero de damas](../reference/media/checkerboard.png), el representador alcanza los [límites del polígono para el tamaño de máquina virtual estándar](../reference/vm-sizes.md). Para mitigarlo, cambie al tamaño de **máquina virtual premium** o reduzca el número de polígonos visibles.
+
+## <a name="the-rendered-image-in-unity-is-upside-down"></a>La imagen representada en Unity está al revés
+
+Asegúrese de seguir el [Tutorial de Unity: Visualización de modelos remotos](../tutorials/unity/view-remote-models/view-remote-models.md) con exactitud. Una imagen al revés indica que Unity debe crear un destino de representación fuera de la pantalla. Este comportamiento no se admite en la actualidad y ocasiona un gran impacto en el rendimiento de HoloLens 2.
+
+Los motivos de este problema podrían ser MSAA, HDR o la habilitación del procesamiento posterior. Asegúrese de que el perfil de baja calidad esté seleccionado y establecido como predeterminado en Unity. Para ello, vaya a *Editar > Configuración del proyecto... > Calidad*.
+
 ## <a name="unity-code-using-the-remote-rendering-api-doesnt-compile"></a>El código de Unity que usa la API de Remote Rendering no se compila
 
 ### <a name="use-debug-when-compiling-for-unity-editor"></a>Uso de Depurar al compilar para el Editor de Unity
@@ -162,6 +172,10 @@ Detectamos errores falsos al intentar compilar los ejemplos de Unity (quickstart
     reg.exe ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection" /v groupIds /t REG_SZ /d "Unity”
     ```
     
+### <a name="arm64-builds-for-unity-projects-fail-because-audiopluginmshrtfdll-is-missing"></a>Se producen errores en las compilaciones Arm64 para proyectos de Unity porque falta AudioPluginMsHRTF.dll
+
+`AudioPluginMsHRTF.dll` para Arm64 se agregó al paquete de *Windows Mixed Reality* *(com.unity.xr.windowsmr.metro)* en la versión 3.0.1. Asegúrese de que tiene instalada la versión 3.0.1 o una versión posterior a través del administrador de paquetes de Unity. En la barra de menús de Unity, vaya a *Ventana > Administrador de paquetes* y busque el paquete *Windows Mixed Reality*.
+
 ## <a name="unstable-holograms"></a>Hologramas inestables
 
 En caso de que parezca que los objetos representados se mueven con movimientos de cabeza, es posible que experimente problemas de *reproyección de fases con demora* (LSR). Consulte la sección sobre la [reproyección de fases con demora](../overview/features/late-stage-reprojection.md) para obtener instrucciones sobre cómo enfocar esta situación.
@@ -171,6 +185,56 @@ Otra causa de los hologramas inestables (hologramas con tambaleo, deformación, 
 Otro valor que se debe examinar es `ARRServiceStats.LatencyPoseToReceiveAvg`. Debe estar siempre por debajo de 100 ms. Si ve valores más altos, significa que está conectado a un centro de datos que está demasiado lejos.
 
 Para obtener una lista de posibles mitigaciones, consulte las [instrucciones sobre la conectividad de red](../reference/network-requirements.md#guidelines-for-network-connectivity).
+
+## <a name="z-fighting"></a>Z-fighting
+
+Si bien ARR ofrece la [funcionalidad de mitigación de Z-fighting](../overview/features/z-fighting-mitigation.md), Z-fighting todavía puede mostrarse en la escena. Esta guía pretende solucionar estos problemas restantes.
+
+### <a name="recommended-steps"></a>Pasos recomendados
+
+Use el siguiente flujo de trabajo para mitigar Z-fighting:
+
+1. Pruebe la escena con la configuración predeterminada de ARR (mitigación de Z-fighting activada).
+
+1. Deshabilite la mitigación de Z-fighting mediante su [API](../overview/features/z-fighting-mitigation.md). 
+
+1. Cambie el plano de cámara de cera y lejos a un intervalo más cercano.
+
+1. Solucione los problemas de escena mediante la sección siguiente.
+
+### <a name="investigating-remaining-z-fighting"></a>Investigación del Z-fighting restante
+
+Si se han agotado los pasos anteriores y el Z-fighting restante es inaceptable, es necesario investigar la causa subyacente del Z-fighting. Como se indica en la [página de la característica de mitigación de Z-fighting](../overview/features/z-fighting-mitigation.md), hay dos razones principales para el Z-fighting: la pérdida de precisión de profundidad en el extremo del rango de profundidad y las superficies que forman una intersección siendo coplanarias. La pérdida de precisión de profundidad es una eventualidad matemática y solo puede mitigarse siguiendo el paso 3 anterior. Las superficies coplanarias indican un defecto del recurso de origen y se corrigen mejor en los datos de origen.
+
+ARR tiene una característica para determinar si las superficies podrían producir Z-fighting: [Resaltado de tablero de damas](../overview/features/z-fighting-mitigation.md). También puede determinar visualmente lo que provoca el Z-fighting. En la primera animación que hay a continuación se muestra un ejemplo de pérdida de precisión de profundidad en la distancia y en la segunda, un ejemplo de superficies prácticamente coplanarias:
+
+![Z-fighting debido a la precisión de profundidad](./media/depth-precision-z-fighting.gif)  ![Z-fighting coplanario](./media/coplanar-z-fighting.gif)
+
+Compare estos ejemplos con su Z-fighting para determinar la causa o, si quiere, siga este flujo de trabajo paso a paso:
+
+1. Coloque la cámara sobre las superficies de Z-fighting para mirar directamente la superficie.
+1. Mueva lentamente la cámara hacia atrás, alejándose de las superficies.
+1. Si el Z-fighting es visible todo el tiempo, las superficies son perfectamente coplanarias. 
+1. Si el Z-fighting es visible la mayor parte del tiempo, las superficies son prácticamente coplanarias.
+1. Si el Z-fighting solo es visible desde lejos, la causa es la falta de precisión de profundidad.
+
+Las superficies coplanarias pueden tener varias causas:
+
+* La aplicación de exportación duplicó un objeto debido a un error o a distintos enfoques de flujo de trabajo.
+
+    Compruebe estos problemas con la aplicación correspondiente y el soporte técnico de la aplicación.
+
+* Las superficies se duplican y se voltean para que aparezcan dos caras en los representadores que usan la selección frontal o posterior.
+
+    La importación mediante la [conversión del modelo](../how-tos/conversion/model-conversion.md) determina la lateralidad principal del modelo. Se presupone que el valor predeterminado es la bilateralidad. La superficie se representará como una pared delgada con una iluminación físicamente correcta desde ambos lados. La unilateralidad puede estar implícita en el recurso de origen o bien puede aplicarse de forma explícita en la [conversión del modelo](../how-tos/conversion/model-conversion.md). Además, pero opcionalmente, el [modo unilateral](../overview/features/single-sided-rendering.md) se puede establecer en "normal".
+
+* Los objetos forman una intersección en los recursos de origen.
+
+     Los objetos transformados de forma que algunas de sus superficies se superpongan también crean Z-fighting. Las partes de transformación del árbol de la escena en la escena importada de ARR también pueden ocasionar este problema.
+
+* Las superficies se han creado de forma intencionada para tocarse, como las marcas o el texto en las paredes.
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,12 +4,12 @@ description: Aprenda a usar el escalado automático de clústeres para escalar a
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: e87470e577f4d2613b43cc02755ccc2d500c0ef8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9aa06ea2fbc3aff218a4940fa60da767fabca500
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84730023"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252035"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Escalar automáticamente un clúster para satisfacer las necesidades de la aplicación en Azure Kubernetes Service (AKS)
 
@@ -213,7 +213,7 @@ AKS administra el escalador automático del clúster en su nombre y lo ejecuta e
 
 Para configurar los registros que se van a insertar desde el escalador automático del clúster en Log Analytics, siga estos pasos.
 
-1. Configure una regla para que los registros de recursos inserten registros del escalador automático del clúster en Log Analytics. [Las instrucciones se detallan aquí](https://docs.microsoft.com/azure/aks/view-master-logs#enable-resource-logs), asegúrese de activar la casilla correspondiente a `cluster-autoscaler` al seleccionar las opciones para "Registros".
+1. Configure una regla para que los registros de recursos inserten registros del escalador automático del clúster en Log Analytics. [Las instrucciones se detallan aquí](./view-master-logs.md#enable-resource-logs), asegúrese de activar la casilla correspondiente a `cluster-autoscaler` al seleccionar las opciones para "Registros".
 1. Haga clic en la sección "Registros" en el clúster mediante Azure Portal.
 1. Escriba la consulta de ejemplo siguiente en Log Analytics:
 

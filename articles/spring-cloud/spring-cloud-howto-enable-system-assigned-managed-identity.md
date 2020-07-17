@@ -6,12 +6,12 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
-ms.openlocfilehash: d113d20e87d58bad007a35fce47d597a67849a6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2aadc5806f0c5c610dc28b32039ca944af87ab13
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445209"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231733"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Habilitación de la identidad administrada asignada por el sistema para una aplicación de Azure Spring Cloud
 Las identidades administradas para los recursos de Azure proporcionan una identidad administrada automática en Azure Active Directory a un recurso de Azure, como la aplicación de Azure Spring Cloud. Puede usar esta identidad para autenticar a cualquier servicio que admita la autenticación de Azure AD, sin necesidad de tener credenciales en el código.
@@ -81,6 +81,6 @@ az spring-cloud app identity remove -n app_name -s service_name -g resource_grou
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Cómo usar identidades administradas con el SDK de Java](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
-* [Acceso a Azure Key Vault con identidades administradas en el iniciador de Spring Boot](https://github.com/microsoft/azure-spring-boot/blob/master/azure-spring-boot-starters/azure-keyvault-secrets-spring-boot-starter/README.md#use-msi--managed-identities)
+* [Acceso a Azure Key Vault con identidades administradas en el iniciador de Spring Boot](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets/README.md#use-msi--managed-identities)
 * [Más información sobre las identidades administradas para recursos de Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
 

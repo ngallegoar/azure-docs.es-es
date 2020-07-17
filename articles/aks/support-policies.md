@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: ec58f8df5507fd9c52950e880c062e6cad964b7a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ce014fc338ebfad18b91ba65b614ca0a380a3f7c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106992"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243858"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Directivas de soporte técnico para Azure Kubernetes Service
 
@@ -75,7 +75,7 @@ Microsoft no proporciona soporte técnico para lo siguiente:
   > Microsoft puede hacer lo posible por ayudar con proyectos de código abierto de terceros como Helm y Kured. Cuando la herramienta de código abierto de terceros integre el proveedor de nube de Azure de Kubernetes u otros errores específicos de AKS, Microsoft es compatible con ejemplos y aplicaciones de la documentación de Microsoft.
 * Software de código cerrado de terceros. Este software puede incluir herramientas de análisis de seguridad y dispositivos o software de red.
 * Problemas relacionados con la nube múltiple o con construcciones de varios proveedores. Por ejemplo, Microsoft no admite los problemas relacionados con la ejecución de una solución de proveedor en la nube federado para distintas audiencias.
-* Personalizaciones de red distintas de las que se enumeran en la [documentación de AKS](https://docs.microsoft.com/azure/aks/).
+* Personalizaciones de red distintas de las que se enumeran en la [documentación de AKS](./index.yml).
   > [!NOTE]
   > Microsoft sí que admite problemas y errores relacionados con los grupos de seguridad de red (NSG). Por ejemplo, el Soporte técnico de Microsoft puede responder preguntas sobre errores de actualización de los grupos de seguridad de red o un comportamiento imprevisto de estos o del equilibrador de carga.
 

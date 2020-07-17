@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 4bdfe1609d80a0e3198a9e428a148be2f28c72d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: adee8064a97c7757ae7a6d3c9475bc5a3044e50d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392121"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232311"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java asincrónico de Azure Cosmos DB para API de SQL: Notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -27,9 +27,9 @@ ms.locfileid: "85392121"
 > * [SDK de Java v2 sincrónico](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api
-> * [Proveedor de recursos de REST](/rest/apier/)
+> * [Proveedor de recursos de REST](/azure/azure-resource-manager/management/azure-services-resource-providers)
 > * [SQL](sql-api-query-reference.md)
-> * [Bulk Executor: .NET, versión 2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Bulk Executor: .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk Executor: Java](sql-api-sdk-bulk-executor-java.md)
 
 El SDK de Java asincrónico de API de SQL es distinto al SDK de Java de API de SQL al proporcionar a las operaciones asincrónicas compatibilidad con la [biblioteca de Netty](https://netty.io/). El [SDK de Java de API de SQL](sql-api-sdk-java.md) no admite las operaciones asincrónicas. 

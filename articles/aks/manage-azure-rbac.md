@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 84800f978790a114b80c415a5e5e3dad77eaf8da
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fc0464c226b8edc2dae01f8ea54c3e5b2e11f2d6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122207"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244267"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Uso de Azure RBAC para la autorización de Kubernetes (versión preliminar)
 
@@ -215,7 +215,7 @@ az aks get-credentials -g MyResourceGroup -n MyManagedCluster
 ```
 
 > [!IMPORTANT]
-> Necesitará el rol integrado del [usuario del clúster de Azure Kubernetes Service](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-user-role) para realizar el paso anterior.
+> Necesitará el rol integrado del [usuario del clúster de Azure Kubernetes Service](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) para realizar el paso anterior.
 
 Ahora puede usar kubectl para, por ejemplo, enumerar los nodos del clúster. La primera vez que la ejecute, deberá iniciar sesión y los comandos subsiguientes usarán el token de acceso correspondiente.
 
