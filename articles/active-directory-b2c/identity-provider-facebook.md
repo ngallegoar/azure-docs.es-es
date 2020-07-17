@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/26/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cd0e19de88a6a65d72a2e7e19f7fca2a94d8da55
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 394af855b7968d38bf99afada246ae661dc0459a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78188280"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549487"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de Facebook mediante Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Para usar una cuenta de Facebook como [proveedor de identidades](authorization-c
 1. Seleccione **Settings** (Configuración)  > **Basic** (Básica).
 1. Elija una **Categoría**, por ejemplo, `Business and Pages`. Este valor es obligatorio para Facebook, pero no se usa para Azure AD B2C.
 1. En la parte inferior de la página, seleccione **Add Platform** (Agregar plataforma) y, después, seleccione **Website** (Sitio web).
-1. En **URL del sitio**, escriba `https://your-tenant-name.b2clogin.com/`, pero sustituya `your-tenant-name` por el nombre del inquilino. Escriba una dirección URL en **Privacy Policy URL** (URL de directiva de privacidad), por ejemplo `http://www.contoso.com`. La dirección URL de directiva es una página que sirve para proporcionar información de privacidad de la aplicación.
+1. En **URL del sitio**, escriba la dirección del sitio web, por ejemplo `https://contoso.com`. Escriba una dirección URL en **Privacy Policy URL** (URL de directiva de privacidad), por ejemplo `http://www.contoso.com/privacy`. La dirección URL de directiva es una página que sirve para proporcionar información de privacidad de la aplicación.
 1. Seleccione **Save changes** (Guardar los cambios).
 1. En la parte superior de la página, copie el valor de **App ID** (Id. de la aplicación).
 1. Seleccione **Show** (Mostrar) y copie el valor de **App Secret** (Secreto de la aplicación). Use ambos para configurar Facebook como proveedor de identidades de su inquilino. El **secreto de la aplicación** es una credencial de seguridad importante.

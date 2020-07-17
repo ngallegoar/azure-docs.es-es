@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 948090d0ee956ca1798d7b0f46bb33276c4d6354
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0d963d6491574bf630061749ba4d3538549fa34
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143578"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85570217"
 ---
 En este paso, se evalúan cuántos recursos compartidos de archivos de Azure son necesarios. Una sola instancia de Windows Server (o clúster) puede sincronizar hasta 30 recursos compartidos de archivos de Azure.
 
@@ -58,7 +58,7 @@ Otro aspecto importante de Azure File Sync y de una experiencia y un rendimiento
 > [!IMPORTANT]
 > El vector de escala más importante para Azure File Sync es el número de elementos (archivos y carpetas) que deben sincronizarse.
 
-Azure File Sync admite la sincronización de hasta 100 000 elementos con un recurso compartido de archivos de Azure. Este límite se puede superar y solo muestra lo que prueba el equipo de Azure File Sync de forma regular.
+Azure File Sync admite la sincronización de hasta 100  millones de elementos con un recurso compartido de archivos de Azure. Este límite se puede superar y solo muestra lo que prueba el equipo de Azure File Sync de forma regular.
 
 Se recomienda mantener bajo el número de elementos por ámbito de sincronización. Ese es un factor importante que se debe tener en cuenta en la asignación de carpetas a recursos compartidos de archivos de Azure.
 

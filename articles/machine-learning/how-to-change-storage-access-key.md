@@ -5,17 +5,17 @@ description: Obtenga información sobre cómo cambiar las claves de acceso de la
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/06/2020
-ms.openlocfilehash: f1541c177cea2d223a5e7df576d95fab7eafb310
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/19/2020
+ms.openlocfilehash: 3a99bff20eb7135b384bfef5be4ece9c5fff0461
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80296933"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85483319"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Regeneración de las claves de acceso de la cuenta de almacenamiento
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -24,7 +24,10 @@ Obtenga información sobre cómo cambiar las claves de acceso de las cuentas de 
 
 Por motivos de seguridad, es posible que necesite cambiar las claves de acceso de una cuenta de Azure Storage. Cuando se regenera la clave de acceso, es necesario actualizar Azure Machine Learning para que use la nueva clave. Azure Machine Learning podría estar usando la cuenta de almacenamiento para el almacenamiento de modelos y como almacén de datos.
 
-## <a name="prerequisites"></a>Prerrequisitos
+> [!IMPORTANT]
+> Las credenciales que se registran en almacenes de almacenamiento se guardan en la instancia de Azure Key Vault asociada al área de trabajo. Si tiene habilitada la [eliminación temporal](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete) para Key Vault, asegúrese de seguir este artículo para actualizar las credenciales. Se producirá un error si anula el registro del almacén de datos y vuelve a registrarlo con el mismo nombre.
+
+## <a name="prerequisites"></a>Requisitos previos
 
 * Un área de trabajo de Azure Machine Learning. Para más información, consulte el artículo [Crear un área de trabajo](how-to-manage-workspace.md).
 
@@ -85,7 +88,7 @@ Para actualizar Azure Machine Learning de modo que use la clave nueva, siga esto
 
 1. Regenere la clave. Para obtener información sobre cómo regenerar una clave de acceso, vea [Administración de claves de acceso de cuenta de almacenamiento](../storage/common/storage-account-keys-manage.md). Guarde la clave nueva.
 
-1. Para actualizar el área de trabajo de modo que use la clave nueva, siga estos pasos:
+1. El área de trabajo de Azure Machine Learning sincronizará automáticamente la nueva clave y comenzará a utilizarla después de una hora. Para forzar la sincronización inmediata del área de trabajo con la nueva clave, siga estos pasos:
 
     1. Para iniciar sesión en la suscripción de Azure que contiene el área de trabajo, use el siguiente comando de la CLI de Azure:
 
@@ -105,27 +108,35 @@ Para actualizar Azure Machine Learning de modo que use la clave nueva, siga esto
 
         Este comando sincroniza automáticamente las nuevas claves de la cuenta de Azure Storage que usa el área de trabajo.
 
-1. Para volver a registrar los almacenes de datos que usan la cuenta de almacenamiento, use los valores de la sección [¿Qué se debe actualizar?](#whattoupdate) y la clave del paso 1 con el código siguiente:
-
-    ```python
-    # Re-register the blob container
-    ds_blob = Datastore.register_azure_blob_container(workspace=ws,
+1. Puede volver a registrar los almacenes de datos que usan la cuenta de almacenamiento a través del SDK o [Azure Machine Learning Studio](https://ml.azure.com).
+    1. **Para volver a registrar los almacenes de datos mediante el SDK de Python**, use los valores de la sección [¿Qué se debe actualizar?](#whattoupdate) y la clave del paso 1 con el código siguiente. 
+    
+        Puesto que se ha especificado `overwrite=True`, este código sobrescribe el registro existente y lo actualiza para que use la clave nueva.
+    
+        ```python
+        # Re-register the blob container
+        ds_blob = Datastore.register_azure_blob_container(workspace=ws,
+                                                  datastore_name='your datastore name',
+                                                  container_name='your container name',
+                                                  account_name='your storage account name',
+                                                  account_key='new storage account key',
+                                                  overwrite=True)
+        # Re-register file shares
+        ds_file = Datastore.register_azure_file_share(workspace=ws,
                                               datastore_name='your datastore name',
-                                              container_name='your container name',
+                                              file_share_name='your container name',
                                               account_name='your storage account name',
                                               account_key='new storage account key',
                                               overwrite=True)
-    # Re-register file shares
-    ds_file = Datastore.register_azure_file_share(workspace=ws,
-                                          datastore_name='your datastore name',
-                                          file_share_name='your container name',
-                                          account_name='your storage account name',
-                                          account_key='new storage account key',
-                                          overwrite=True)
+        
+        ```
     
-    ```
-
-    Puesto que se ha especificado `overwrite=True`, este código sobrescribe el registro existente y lo actualiza para que use la clave nueva.
+    1. **Para volver a registrar los almacenes de datos a través de Studio**, seleccione **Almacenes de datos** en el panel izquierdo de Studio. 
+        1. Seleccione el almacén de datos que desea actualizar.
+        1. Seleccione el botón **Actualizar credenciales** en la parte superior izquierda. 
+        1. Use la nueva clave de acceso del paso 1 para rellenar el formulario y haga clic en **Guardar**.
+        
+            Si va a actualizar las credenciales para el **almacén de datos predeterminado**, complete este paso y repita el paso 2B para volver a sincronizar la nueva clave con el almacén de datos predeterminado del área de trabajo. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

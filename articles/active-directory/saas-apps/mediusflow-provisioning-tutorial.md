@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: cd2217046a725f0bb0a05f1eb0afc5434bf3b6fa
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 838542bf4c3d566c76987754c8f336e00250d04a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662723"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482418"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Tutorial: Configuración de MediusFlow para el aprovisionamiento automático de usuarios
 
@@ -35,7 +35,7 @@ En este tutorial se describen los pasos que debe realizar en MediusFlow y Azure�
 > * Aprovisionamiento de grupos y pertenencias a grupos en MediusFlow
 > * Inicio de sesión único en MediusFlow (recomendado)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
@@ -52,11 +52,11 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 
 ## <a name="step-2-configure-mediusflow-to-support-provisioning-with-azure-ad"></a>Paso 2. Configuración de MediusFlow para admitir el aprovisionamiento con Azure AD
 
-### <a name="activate-the-office-365-app-within-mediusflow"></a>Activación de la aplicación de Office 365 en MediusFlow
+### <a name="activate-the-microsoft-365-app-within-mediusflow"></a>Activación de la aplicación de Microsoft 365 en MediusFlow
 Para empezar, habilite el acceso del inicio de sesión de Azure AD y la característica de configuración de Azure AD en MediusFlow mediante los pasos siguientes:
 
 #### <a name="user-login"></a>Inicio de sesión de usuario
-Para habilitar el flujo de inicio de sesión en Office 365/Azure AD, consulte el artículo https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup).
+Para habilitar el flujo de inicio de sesión en Microsoft 365/Azure AD, consulte este artículo (https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup).
 
 #### <a name="user-transfer-configuration"></a>Configuración de transferencia de usuarios
 Para habilitar el portal de configuración de los usuarios para el aprovisionamiento desde Azure AD, consulte [este](

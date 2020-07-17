@@ -1,6 +1,6 @@
 ---
 title: Conexión de datos de Azure ATP con Azure Sentinel | Microsoft Docs
-description: Aprenda a conectar datos de Azure ATP a Azure Sentinel.
+description: Obtenga información sobre cómo transmitir registros desde Azure Advanced Threat Protection (ATP) a Azure Sentinel con tan solo un clic.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 387d04cbbb125006efcc4efc53a02015fe3f5919
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f58c38ccfa234752a80c05c300d245c6c9e97cf0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77588593"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559171"
 ---
 # <a name="connect-data-from-azure-advanced-threat-protection-atp"></a>Conectar datos de Azure Advanced Threat Protection (ATP)
 
@@ -29,7 +29,7 @@ ms.locfileid: "77588593"
 
 Se pueden transmitir registros desde [Azure Advanced Threat Protection](https://docs.microsoft.com/azure-advanced-threat-protection/what-is-atp) a Azure Sentinel con tan solo un clic.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 - Un usuario que sea administrador global o que tenga permisos de administrador de seguridad
 - Debe ser cliente de versión preliminar de Azure ATP y habilitar la integración entre Azure ATP y Microsoft Cloud App Security. Para obtener más información, consulte [Integración de Azure Advanced Threat Protection](https://docs.microsoft.com/cloud-app-security/aatp-integration).

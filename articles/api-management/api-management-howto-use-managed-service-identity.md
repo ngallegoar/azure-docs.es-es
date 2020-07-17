@@ -1,6 +1,6 @@
 ---
 title: Uso de identidades administradas en Azure API Management | Microsoft Docs
-description: Aprenda a usar las identidades administradas en API Management.
+description: Obtenga información sobre cómo crear identidades asignadas por el sistema y asignadas por el usuario en API Management mediante Azure Portal, PowerShell y una plantilla de Resource Manager.
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -9,32 +9,66 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 06/12/2020
 ms.author: apimpm
-ms.openlocfilehash: 49576b805e6c6d01340e663bfb5d8e9013917625
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a7fa295bdc8881c0c1ba58c95872a9380231b81
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226596"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85558025"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Uso de identidades administradas en Azure API Management
 
-En este artículo se muestra cómo crear una identidad administrada para una instancia de servicio de API Management y cómo acceder a otros recursos. Una identidad administrada generada por Azure Active Directory (Azure AD) permite a la instancia de API Management acceder de forma fácil y segura a otros recursos protegidos de Azure AD, como Azure Key Vault. Esta identidad está administrada por Azure y no requiere que aprovisione o rote los secretos. Para más información sobre las identidades administradas, consulte el artículo sobre [qué son las identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
+En este artículo se muestra cómo crear una identidad administrada para una instancia de Azure API Management y cómo acceder a otros recursos. Una identidad administrada generada por Azure Active Directory (Azure AD) permite a la instancia de API Management acceder de forma fácil y segura a otros recursos protegidos de Azure AD, como Azure Key Vault. Azure administra esta identidad, por lo que usted no tiene que aprovisionar ni rotar ningún secreto. Para obtener más información sobre las identidades administradas, consulte el artículo sobre [Qué son las identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
-## <a name="create-a-managed-identity-for-an-api-management-instance"></a>Creación de una identidad administrada para una instancia de API Management
+Puede conceder dos tipos de identidades a una instancia de API Management:
 
-### <a name="using-the-azure-portal"></a>Uso de Azure Portal
+- Una *identidad asignada por el sistema* está asociada al servicio y se elimina si se elimina el servicio. El servicio solo puede tener una identidad asignada por el sistema.
+- Una *identidad asignada por el usuario* es un recurso de Azure independiente que puede asignarse al servicio. El servicio puede tener varias identidades asignadas por el usuario.
 
-Para configurar una identidad administrada en el portal, primero tendrá que crear una instancia de API Management como lo hace normalmente y, a continuación, habilitar la característica.
+## <a name="create-a-system-assigned-managed-identity"></a>Creación de una identidad administrada asignada por el sistema
 
-1. Cree una instancia de API Management en el portal como lo haría normalmente. Navegue hasta el portal.
-2. Seleccione **Identidades de servicio administradas**.
-3. Cambie Registrar en Azure Active Directory a Activado. Haga clic en Guardar.
+### <a name="azure-portal"></a>Azure portal
 
-![Habilitación de MSI](./media/api-management-msi/enable-msi.png)
+Para configurar una identidad administrada en Azure Portal, primero tendrá que crear una instancia de API Management y, a continuación, habilitar la característica.
 
-### <a name="using-the-azure-resource-manager-template"></a>Uso de la plantilla de Azure Resource Manager
+1. Cree una instancia de API Management en el portal como lo haría normalmente. Búsquela en el portal.
+2. Seleccione **Identidades administradas**.
+3. En la pestaña **Asignado por el sistema**, cambie **Estado** a **Activado**. Seleccione **Guardar**.
+
+    :::image type="content" source="./media/api-management-msi/enable-system-msi.png" alt-text="Selecciones para habilitar una identidad administrada asignada por el sistema" border="true":::
+
+
+### <a name="azure-powershell"></a>Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Los siguientes pasos le guiarán por la creación de una instancia de API Management y la asignación de una identidad a esta mediante Azure PowerShell. 
+
+1. Si es necesario, instale Azure PowerShell con las instrucciones que se encuentra en la [Guía de Azure PowerShell](/powershell/azure/install-az-ps). Luego, ejecute `Connect-AzAccount` para crear una conexión con Azure.
+
+2. Use el código siguiente para crear la instancia. Para ver más ejemplos de cómo utilizar Azure PowerShell con la instancia de API Management, consulte los [ejemplos de PowerShell de API Management](powershell-samples.md).
+
+    ```azurepowershell-interactive
+    # Create a resource group.
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+
+    # Create an API Management Consumption Sku service.
+    New-AzApiManagement -ResourceGroupName $resourceGroupName -Name consumptionskuservice -Location $location -Sku Consumption -Organization contoso -AdminEmail contoso@contoso.com -SystemAssignedIdentity
+    ```
+
+3. Actualice una instancia existente para crear la identidad:
+
+    ```azurepowershell-interactive
+    # Get an API Management instance
+    $apimService = Get-AzApiManagement -ResourceGroupName $resourceGroupName -Name $apiManagementName
+
+    # Update an API Management instance
+    Set-AzApiManagement -InputObject $apimService -SystemAssignedIdentity
+    ```
+
+### <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure
 
 Puede crear una instancia de API Management con una identidad mediante la inclusión de la siguiente propiedad en la definición de recursos:
 
@@ -44,7 +78,7 @@ Puede crear una instancia de API Management con una identidad mediante la inclus
 }
 ```
 
-Esto indica a Azure que debe crear y administrar la identidad para la instancia de API Management.
+Esta propiedad indica a Azure que debe crear y administrar la identidad para la instancia de API Management.
 
 Por ejemplo, una plantilla de Azure Resource Manager completa podría tener el aspecto siguiente:
 
@@ -53,7 +87,7 @@ Por ejemplo, una plantilla de Azure Resource Manager completa podría tener el a
     "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "0.9.0.0",
     "resources": [{
-        "apiVersion": "2017-03-01",
+        "apiVersion": "2019-01-01",
         "name": "contoso",
         "type": "Microsoft.ApiManagement/service",
         "location": "[resourceGroup().location]",
@@ -72,36 +106,33 @@ Por ejemplo, una plantilla de Azure Resource Manager completa podría tener el a
     }]
 }
 ```
-## <a name="use-the-managed-service-identity-to-access-other-resources"></a>Uso de la identidad de servicio administrada para acceder a otros recursos
 
-> [!NOTE]
-> Actualmente, las identidades administradas se pueden utilizar para obtener certificados de Azure Key Vault para los nombres de dominio personalizados de API Management. Pronto se admitirán más escenarios.
->
->
+Cuando se crea la instancia, tiene las siguientes propiedades adicionales:
 
-
-### <a name="obtain-a-certificate-from-azure-key-vault"></a>Obtención de un certificado en Azure Key Vault
-
-#### <a name="prerequisites"></a>Prerequisites
-1. El almacén de claves que contiene los certificados pfx debe estar en la misma suscripción de Azure y el mismo grupo de recursos que el servicio API Management. Se trata de un requisito de la plantilla de Azure Resource Manager.
-2. El tipo de contenido del secreto debe ser *application/x-pkcs12*. Puede usar el siguiente script para cargar el certificado:
-
-```powershell
-$pfxFilePath = "PFX_CERTIFICATE_FILE_PATH" # Change this path 
-$pwd = "PFX_CERTIFICATE_PASSWORD" # Change this password 
-$flag = [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable 
-$collection = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2Collection 
-$collection.Import($pfxFilePath, $pwd, $flag) 
-$pkcs12ContentType = [System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12 
-$clearBytes = $collection.Export($pkcs12ContentType) 
-$fileContentEncoded = [System.Convert]::ToBase64String($clearBytes) 
-$secret = ConvertTo-SecureString -String $fileContentEncoded -AsPlainText –Force 
-$secretContentType = 'application/x-pkcs12' 
-Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -SecretValue $Secret -ContentType $secretContentType
+```json
+"identity": {
+    "type": "SystemAssigned",
+    "tenantId": "<TENANTID>",
+    "principalId": "<PRINCIPALID>"
+}
 ```
 
+La propiedad `tenantId` identifica a qué inquilino de Azure AD pertenece la identidad. La propiedad `principalId` es un identificador único para la nueva identidad de la instancia. En Azure AD, la entidad de servicio tiene el mismo nombre que asignó a la instancia de API Management.
+
+
+> [!NOTE]
+> Una instancia de API Management puede tener identidades asignadas por el sistema y asignadas por el usuario al mismo tiempo. En este caso, la propiedad `type` sería `SystemAssigned,UserAssigned`.
+
+### <a name="supported-scenarios"></a>Escenarios admitidos
+
+#### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault"></a>Obtención de un certificado TLS/SSL personalizado para la instancia de API Management desde Azure Key Vault
+Puede usar la identidad asignada por el sistema de una instancia de API Management para recuperar los certificados de TLS/SSL personalizados almacenados en Azure Key Vault. Después, puede asignar estos certificados a dominios personalizados en la instancia de API Management. Tenga en cuenta las consideraciones siguientes:
+
+- El tipo de contenido del secreto debe ser *application/x-pkcs12*.
+- Use el punto de conexión del secreto de certificado de Key Vault, que contiene el secreto.
+
 > [!Important]
-> Si no se proporciona la versión del objeto del certificado, API Management obtiene automáticamente la versión más reciente del certificado una vez cargado a Key Vault.
+> Si no se proporciona la versión del objeto del certificado, API Management obtendrá automáticamente la versión más reciente del certificado dentro del plazo de cuatro horas a partir de que se cargue en Key Vault.
 
 En el ejemplo siguiente se muestra una plantilla de Azure Resource Manager que contiene los siguientes pasos:
 
@@ -136,14 +167,14 @@ En el ejemplo siguiente se muestra una plantilla de Azure Resource Manager que c
             "Premium"],
             "defaultValue": "Developer",
             "metadata": {
-                "description": "The pricing tier of this API Management service"
+                "description": "The pricing tier of this API Management instance"
             }
         },
         "skuCount": {
             "type": "int",
             "defaultValue": 1,
             "metadata": {
-                "description": "The instance size of this API Management service."
+                "description": "The instance size of this API Management instance."
             }
         },
         "keyVaultName": {
@@ -161,7 +192,7 @@ En el ejemplo siguiente se muestra una plantilla de Azure Resource Manager que c
         "keyVaultIdToCertificate": {
             "type": "string",
             "metadata": {
-                "description": "Reference to the KeyVault certificate. https://contoso.vault.azure.net/secrets/contosogatewaycertificate."
+                "description": "Reference to the Key Vault certificate. https://contoso.vault.azure.net/secrets/contosogatewaycertificate."
             }
         }
     },
@@ -170,7 +201,7 @@ En el ejemplo siguiente se muestra una plantilla de Azure Resource Manager que c
         "apimServiceIdentityResourceId": "[concat(resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName')),'/providers/Microsoft.ManagedIdentity/Identities/default')]"
     },
     "resources": [{
-        "apiVersion": "2017-03-01",
+        "apiVersion": "2019-01-01",
         "name": "[variables('apiManagementServiceName')]",
         "type": "Microsoft.ApiManagement/service",
         "location": "[resourceGroup().location]",
@@ -230,6 +261,157 @@ En el ejemplo siguiente se muestra una plantilla de Azure Resource Manager que c
     }]
 }
 ```
+
+#### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>Autenticación en el back-end mediante una identidad de API Management
+
+Puede usar la identidad asignada por el sistema para autenticarse en el back-end a través de la directiva [authentication-managed-identity](api-management-authentication-policies.md#ManagedIdentity).
+
+
+## <a name="create-a-user-assigned-managed-identity"></a>Crear una identidad administrada asignada por el usuario
+
+> [!NOTE]
+> Puede asociar una instancia de API Management con hasta 10 identidades administradas asignadas por el usuario.
+
+### <a name="azure-portal"></a>Azure portal
+
+Para configurar una identidad administrada en el portal, primero tendrá que crear una instancia de API Management y, a continuación, habilitar la característica.
+
+1. Cree una instancia de API Management en el portal como lo haría normalmente. Búsquela en el portal.
+2. Seleccione **Identidades administradas**.
+3. En la pestaña **Usuario asignado**, seleccione **Agregar**.
+4. Busque la identidad que creó anteriormente y selecciónela. Seleccione **Agregar**.
+
+   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Selecciones para habilitar una identidad administrada asignada por el usuario" border="true":::
+
+### <a name="azure-powershell"></a>Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Los siguientes pasos le guiarán por la creación de una instancia de API Management y la asignación de una identidad a esta mediante Azure PowerShell. 
+
+1. Si es necesario, instale Azure PowerShell con las instrucciones que se encuentra en la [Guía de Azure PowerShell](/powershell/azure/install-az-ps). Luego, ejecute `Connect-AzAccount` para crear una conexión con Azure.
+
+2. Use el código siguiente para crear la instancia. Para ver más ejemplos de cómo utilizar Azure PowerShell con la instancia de API Management, consulte los [ejemplos de PowerShell de API Management](powershell-samples.md).
+
+    ```azurepowershell-interactive
+    # Create a resource group.
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+
+    # Create a user-assigned identity. This requires installation of the "Az.ManagedServiceIdentity" module.
+    $userAssignedIdentity = New-AzUserAssignedIdentity -Name $userAssignedIdentityName -ResourceGroupName $resourceGroupName
+
+    # Create an API Management Consumption Sku service.
+    $userIdentities = @($userAssignedIdentity.Id)
+
+    New-AzApiManagement -ResourceGroupName $resourceGroupName -Location $location -Name $apiManagementName -Organization contoso -AdminEmail admin@contoso.com -Sku Consumption -UserAssignedIdentity $userIdentities
+    ```
+
+3. Actualice un servicio existente para asignar una identidad al servicio:
+
+    ```azurepowershell-interactive
+    # Get an API Management instance
+    $apimService = Get-AzApiManagement -ResourceGroupName $resourceGroupName -Name $apiManagementName
+
+    # Create a user-assigned identity. This requires installation of the "Az.ManagedServiceIdentity" module.
+    $userAssignedIdentity = New-AzUserAssignedIdentity -Name $userAssignedIdentityName -ResourceGroupName $resourceGroupName
+
+    # Update an API Management instance
+    $userIdentities = @($userAssignedIdentity.Id)
+    Set-AzApiManagement -InputObject $apimService -UserAssignedIdentity $userIdentities
+    ```
+
+### <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure
+
+Puede crear una instancia de API Management con una identidad mediante la inclusión de la siguiente propiedad en la definición de recursos:
+
+```json
+"identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+        "<RESOURCEID>": {}
+    }
+}
+```
+
+Al agregar el tipo asignado por el usuario se indica a Azure que use la identidad asignada por el usuario especificada para la instancia.
+
+Por ejemplo, una plantilla de Azure Resource Manager completa podría tener el aspecto siguiente:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "0.9.0.0",
+    "resources": [{
+        "apiVersion": "2019-12-01",
+        "name": "contoso",
+        "type": "Microsoft.ApiManagement/service",
+        "location": "[resourceGroup().location]",
+        "tags": {},
+        "sku": {
+            "name": "Developer",
+            "capacity": "1"
+        },
+        "properties": {
+            "publisherEmail": "admin@contoso.com",
+            "publisherName": "Contoso"
+        },
+        "identity": {
+            "type": "UserAssigned",
+             "userAssignedIdentities": {
+                "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('identityName'))]": {}
+             }
+        },
+        "dependsOn": [       
+          "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('identityName'))]"
+        ]
+    }]
+}
+```
+
+Cuando se crea el servicio, tiene las siguientes propiedades adicionales:
+
+```json
+"identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+        "<RESOURCEID>": {
+            "principalId": "<PRINCIPALID>",
+            "clientId": "<CLIENTID>"
+        }
+    }
+}
+```
+
+El valor `principalId` es un identificador único de la identidad que se usa para la administración de Azure AD. El la propiedad `clientId` es un identificador único de la nueva identidad de la aplicación que se usa para especificar qué identidad utilizar durante las llamadas de runtime.
+
+> [!NOTE]
+> Una instancia de API Management puede tener identidades asignadas por el sistema y asignadas por el usuario al mismo tiempo. En este caso, la propiedad `type` sería `SystemAssigned,UserAssigned`.
+
+### <a name="supported-scenarios"></a>Escenarios admitidos
+
+#### <a name="authenticate-to-the-back-end-by-using-a-user-assigned-identity"></a>Autenticación en el back-end mediante una identidad de asignada por el usuario
+
+Puede usar la identidad asignada por el usuario para autenticarse en el back-end a través de la directiva [authentication-managed-identity](api-management-authentication-policies.md#ManagedIdentity).
+
+
+## <a name="remove-an-identity"></a><a name="remove"></a>Eliminación de una identidad
+
+Para quitar una identidad asignada por el sistema, puede deshabilitar la característica a través del portal o de la plantilla de Azure Resource Manager de la misma manera en que la creó. Las identidades asignadas por el usuario se pueden quitar individualmente. Para quitar todas las identidades, establezca el tipo de identidad en `"None"`.
+
+Al quitar una identidad asignada por el sistema de esta manera también se eliminará de Azure AD. Las identidades asignadas por el sistema también se quitan automáticamente de Azure AD cuando se elimina la instancia de API Management.
+
+Para quitar todas las identidades mediante la plantilla de Azure Resource Manager, actualice esta sección:
+
+```json
+"identity": {
+    "type": "None"
+}
+```
+
+> [!Important]
+> Si una instancia de API Management se configura con un certificado SSL personalizado de Key Vault e intenta deshabilitar una identidad administrada, se producirá un error en la solicitud.
+>
+> Para desbloquearse, puede cambiar de un certificado de Azure Key Vault a un certificado codificado insertado y, a continuación, deshabilitar la identidad administrada. Para obtener más información, consulte [Configuración de un nombre de dominio personalizado](configure-custom-domain.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

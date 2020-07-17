@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: hamusa
-ms.openlocfilehash: 13c640d25265b2663520ef7ab203b0b0a33829e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 867124a08bbad88b7dac5386ee6bc1c9c4d99c12
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68301709"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549900"
 ---
 # <a name="create-a-group-for-assessment"></a>Creación de un grupo para su valoración
 
@@ -43,11 +43,11 @@ Si quiere crear un grupo manualmente fuera de la creación de una valoración, h
 
 2. Haga clic en el icono **Grupos**.
 3. En **Crear grupo**, especifique un nombre de grupo y, en **Nombre del dispositivo**, seleccione el dispositivo de Azure Migrate que está usando para la detección de máquinas.
-1. En la lista de máquinas, seleccione las máquinas que quiere agregar al grupo > **Crear**.
+4. En la lista de máquinas, seleccione las máquinas que quiere agregar al grupo > **Crear**.
 
     ![Crear grupo](./media/how-to-create-a-group/create-group.png)
 
-Ahora puede usar este grupo al [crear una valoración](how-to-create-assessment.md).
+Ahora puede usar este grupo al [crear una valoración de VM de Azure](how-to-create-assessment.md) o [una valoración de Azure VMware Solution (AVS)](how-to-create-azure-vmware-solution-assessment.md). Tenga en cuenta que puede crear una valoración de AVS en grupos solo con VM de VMware. 
 
 ## <a name="refine-a-group-with-dependency-mapping"></a>Restricción de un grupo con la asignación de dependencias
 

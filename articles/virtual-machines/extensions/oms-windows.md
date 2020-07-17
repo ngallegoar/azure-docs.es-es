@@ -12,20 +12,20 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/30/2020
+ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 85977819d30ddc8745eb9231242eb1990222676c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aa8f5fa9901055957c5c94923ebd74c3d57ce41a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530995"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85481789"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Log Analytics para Windows
 
 Los registros de Azure Monitor proporcionan funcionalidades de supervisión de recursos locales y en la nube. Microsoft, como editor de la extensión de máquina virtual del agente de Log Analytics para Windows, es quien presta los servicios de soporte técnico para esta solución. La extensión instala el agente de Log Analytics en Azure Virtual Machines e inscribe las máquinas virtuales en un área de trabajo de Log Analytics. En este documento se especifican las plataformas compatibles, configuraciones y opciones de implementación de la extensión de máquina virtual de Log Analytics para Windows.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="operating-system"></a>Sistema operativo
 
@@ -36,6 +36,7 @@ En la tabla siguiente se proporciona una asignación de la versión de la extens
 
 | Versión del conjunto de productos Windows para Log Analytics | Versión de extensión de VM Windows de Log Analytics | Fecha de la versión | Notas de la versión |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18038 | 1.0.18038 | Abril de 2020   | <ul><li>Permite la conectividad a través de Private Link mediante ámbitos de Private Link de Azure Monitor.</li><li>Agrega la limitación de ingesta para evitar un influjo repentino y accidental de ingesta en un área de trabajo.</li><li>Agrega compatibilidad con regiones y nubes de Azure Government adicionales.</li><li>Resuelve un error en el que se bloqueaba HealthService.exe.</li></ul> |
 | 10.20.18029 | 1.0.18029 | Marzo de 2020   | <ul><li>Agrega compatibilidad con la firma de código SHA-2.</li><li>Mejora la instalación y administración de extensiones de máquina virtual.</li><li>Resuelve un error en Azure Arc de integración de servidores.</li><li>Agrega una herramienta de solución de problemas integrada de soporte al cliente.</li><li>Agrega compatibilidad con más regiones de Azure Government.</li> |
 | 10.20.18018 | 1.0.18018 | Octubre de 2019 | <ul><li> Correcciones de errores menores y mejoras de estabilización </li></ul> |
 | 10.20.18011 | 1.0.18011 | Julio de 2019 | <ul><li> Correcciones de errores menores y mejoras de estabilización </li><li> Aumento de MaxExpressionDepth a 10 000 </li></ul> |

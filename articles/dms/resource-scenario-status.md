@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 09/05/2019
-ms.openlocfilehash: 9652b78674d6a6b905eb049564d1b17cdc7c17b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/08/2020
+ms.openlocfilehash: 4e6f8a115e996ac6862f2fb04e5050b94f9f823b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78254926"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132742"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Estado de los escenarios de migración que admite Azure Database Migration Service
 
@@ -45,42 +45,49 @@ En las siguientes tablas se muestran qué escenarios de migración se admiten cu
 
 En la siguiente tabla se muestra la compatibilidad de Azure Database Migration Service con las migraciones sin conexión.
 
-| Destino  | Source | Soporte técnico | Status |
+| Destino  | Source | Soporte técnico | Estado |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Azure SQL DB** | SQL Server | ✔ | GA |
-|   | SQL de RDS |  |  |
-|   | Oracle |  |  |
-| **Azure SQL DB MI** | SQL Server | ✔ | GA |
-|   | SQL de RDS |  |  |
-|   | Oracle |  |   |
-| **Máquina virtual de Azure SQL** | SQL Server | ✔ | GA |
-|   | Oracle |   |   |
-| **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Azure DB para MySQL** | MySQL |   |   |
-|   | MySQL de RDS |   |   |
-| **Azure DB para PostgreSQL** | PostgreSQL |  |
-|  | PostgreSQL de RDS |   |   |
+| **Azure SQL DB** | SQL Server | ✔ | Disponibilidad general |
+|   | SQL de RDS | X |  |
+|   | Oracle | X |  |
+| **Azure SQL DB MI** | SQL Server | ✔ | Disponibilidad general |
+|   | SQL de RDS | X |  |
+|   | Oracle | X |   |
+| **Máquina virtual de Azure SQL** | SQL Server | ✔ | Disponibilidad general |
+|   | Oracle | X |   |
+| **Azure Cosmos DB** | MongoDB | ✔ | Disponibilidad general |
+| **Azure DB para MySQL** | MySQL | X |   |
+|   | MySQL de RDS | X |   |
+| **Azure DB for PostgreSQL: servidor único** | PostgreSQL | X |
+|  | PostgreSQL de RDS | X |   |
+| **Azure DB for PostgreSQL: Hiperescala (Citus)** | PostgreSQL | X |
+|  | PostgreSQL de RDS | X |   |
 
 ### <a name="online-continuous-sync-migration-support"></a>Compatibilidad con la migración en línea (sincronización continua)
 
 En la siguiente tabla se muestra la compatibilidad de Azure Database Migration Service con las migraciones en línea.
 
-| Destino  | Source | Soporte técnico | Status |
+| Destino  | Source | Soporte técnico | Estado |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Azure SQL DB** | SQL Server | ✔ | GA |
-|   | SQL de RDS | ✔ | GA |
-|   | Oracle |  |  |
-| **Azure SQL DB MI** | SQL Server | ✔ | GA |
-|   | SQL de RDS | ✔ | GA |
-|   | Oracle | ✔ | Versión preliminar privada |
-| **Máquina virtual de Azure SQL** | SQL Server |   |   |
-|   | Oracle  |  |  |
-| **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Azure DB para MySQL** | MySQL | ✔ | GA |
-|   | MySQL de RDS | ✔ | GA |
-| **Azure DB para PostgreSQL** | PostgreSQL | ✔ | GA |
-|   | PostgreSQL de RDS | ✔ | GA |
+| **Azure SQL DB** | SQL Server | ✔ | Disponibilidad general |
+|   | SQL de RDS | ✔ | Disponibilidad general |
+|   | Oracle | X |  |
+| **Azure SQL DB MI** | SQL Server | ✔ | Disponibilidad general |
+|   | SQL de RDS | ✔ | Disponibilidad general |
+|   | Oracle | X |  |
+| **Máquina virtual de Azure SQL** | SQL Server | X |   |
+|   | Oracle  | X |  |
+| **Azure Cosmos DB** | MongoDB | ✔ | Disponibilidad general |
+| **Azure DB para MySQL** | MySQL | ✔ | Disponibilidad general |
+|   | MySQL de RDS | ✔ | Disponibilidad general |
+| **Azure DB for PostgreSQL: servidor único** | PostgreSQL | ✔ | Disponibilidad general |
+|   | Azure DB for PostgreSQL: servidor único* | ✔ | Disponibilidad general |
+|   | PostgreSQL de RDS | ✔ | Disponibilidad general |
 |   | Oracle | ✔ | Versión preliminar pública |
+| **Azure DB for PostgreSQL: Hiperescala (Citus)** | PostgreSQL | ✔ | Disponibilidad general |
+|   | PostgreSQL de RDS | ✔ | Disponibilidad general |
+
+\* Se admite para la versión 10 o posterior de PostgreSQL.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

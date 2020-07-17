@@ -1,6 +1,6 @@
 ---
 title: Conectar datos de Firewall de Windows a Azure Sentinel| Microsoft Docs
-description: Aprenda a conectar datos de Firewall de Windows a Azure Sentinel.
+description: Habilite el conector de Firewall de Windows en Azure Sentinel para transmitir fácilmente los eventos de firewall desde las máquinas Windows que tienen instalados agentes de Log Analytics.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 5d2f68261143c3fc5bbcda0b739af17251eeee63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d33ba0dbb62cd7206829ed9ae580ea2aa3334bcf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77588066"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559477"
 ---
 # <a name="connect-windows-firewall"></a>Conexión del firewall de Windows
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: d2dfaab3d01ea29b0f9ecba1e9d748415bed2edc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: de25a3f9df04b09a7337dc889a688a171d98db28
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228924"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129911"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Aprenda a configurar la recuperación ante desastres de máquinas virtuales de VMware en Azure con PowerShell.
 
@@ -31,13 +31,13 @@ Aprenderá a:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar:
 
 - Asegúrese de entender la [arquitectura y los componentes del escenario](vmware-azure-architecture.md).
-- Revise los [requisitos de compatibilidad](site-recovery-support-matrix-to-azure.md) de todos los componentes.
-- Tiene el módulo `Az` de Azure PowerShell. Si necesita instalar o actualizar Azure PowerShell, siga la guía [Cómo instalar y configurar Azure PowerShell](/powershell/azure/install-az-ps).
+- Revise los [requisitos de compatibilidad](./vmware-physical-azure-support-matrix.md) de todos los componentes.
+- Tiene el módulo `Az` de Azure PowerShell. Si necesita instalar o actualizar Azure PowerShell, siga esta [Guía para instalar y configurar Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="log-into-azure"></a>Inicio de sesión en Azure
 
@@ -105,7 +105,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 Establezca el contexto de almacén mediante el cmdlet Set-ASRVaultContext. Una vez establecido, las operaciones posteriores de Azure Site Recovery de la sesión de PowerShell se realizan en el contexto de almacén seleccionado.
 
 > [!TIP]
-> El módulo PowerShell de Azure Site Recovery (módulo Az.RecoveryServices) viene con alias fáciles de usar para la mayoría de los cmdlets. Los cmdlets del módulo adoptan la forma *\<Operación>-**AzRecoveryServicesAsr**\<Objeto>* y tienen alias equivalentes que adoptan la forma *\<Operación>-**ASR**\<Objeto>* . Puede reemplazar los alias de cmdlet para facilitar su uso.
+> El módulo PowerShell de Azure Site Recovery (módulo Az.RecoveryServices) viene con alias fáciles de usar para la mayoría de los cmdlets. Los cmdlets del módulo adoptan la forma *\<Operation>-**AzRecoveryServicesAsr**\<Object>* y tienen alias equivalentes que adoptan la forma *\<Operation>-**ASR**\<Object>* . Puede reemplazar los alias de cmdlet para facilitar su uso.
 
 En el ejemplo siguiente, los detalles del almacén desde la variable $vault se usan para especificar el contexto de almacén para la sesión de PowerShell.
 
@@ -497,4 +497,4 @@ En este paso, se conmuta por error la máquina virtual Win2K12VM1 en un punto de
 2. Después de realizar la conmutación por error correctamente, puede confirmar la operación y configurar la replicación inversa desde Azure nuevamente en el sitio de VMware local.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Aprenda a automatizar más tareas mediante la [referencia de PowerShell de Azure Site Recovery](https://docs.microsoft.com/powershell/module/Az.RecoveryServices).
+Aprenda a automatizar más tareas mediante la [referencia de PowerShell de Azure Site Recovery](/powershell/module/Az.RecoveryServices).

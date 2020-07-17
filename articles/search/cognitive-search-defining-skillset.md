@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 43251783cbcd6501562913b7b9cafb4f9f7cb3f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bdbe157198ad62578613d86f3b3a55b72ca0acf8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75754563"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557455"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Creación de un conjunto de aptitudes en una canalización de enriquecimiento de inteligencia artificial en Azure Cognitive Search 
 
@@ -55,7 +55,7 @@ En el diagrama, el paso de *descifrado de documentos* se realiza automáticament
 Un conjunto de aptitudes se define como una matriz de aptitudes. Cada aptitud define el origen de sus entradas y el nombre de las salidas generadas. Mediante la [API REST de creación de conjuntos de aptitudes](https://docs.microsoft.com/rest/api/searchservice/create-skillset), puede definir un conjunto de aptitudes que se corresponde con el diagrama anterior: 
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -247,7 +247,7 @@ Hasta ahora, esta estructura ha sido solo de uso interno y solo de memoria, adem
 
 ## <a name="add-a-knowledge-store"></a>Agregar un almacén de conocimiento
 
-El [almacén de conocimiento](knowledge-store-concept-intro.md) es una característica en versión preliminar de Azure Cognitive Search para guardar el documento enriquecido. Un almacén de conocimiento que se crea, respaldado por una cuenta de Azure Storage, es el repositorio donde se colocan los datos enriquecidos. 
+El [almacén de conocimiento](knowledge-store-concept-intro.md) es una característica de Azure Cognitive Search para guardar el documento enriquecido. Un almacén de conocimiento que se crea, respaldado por una cuenta de Azure Storage, es el repositorio donde se colocan los datos enriquecidos. 
 
 Una definición de almacén de conocimiento se agrega a un conjunto de aptitudes. Para obtener un tutorial de todo el proceso, vea [Creación de un almacén de conocimiento mediante REST](knowledge-store-create-rest.md).
 

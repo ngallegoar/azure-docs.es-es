@@ -7,12 +7,12 @@ ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
-ms.openlocfilehash: a964a28b728a2b1741fb555f47fe6e329bc9902a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 10d4c2d6650502510bd160cc452ac2289130263b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655709"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549504"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Instalación y configuración de la extensión de Azure Diagnostics (WAD) para Windows
 [Azure Diagnostics Extension](diagnostics-extension-overview.md) es un agente de Azure Monitor que recopila datos de supervisión del sistema operativo invitado y de las cargas de trabajo de las máquinas virtuales de Azure y de otros recursos de proceso. En este artículo se proporcionan detalles sobre cómo instalar y configurar la extensión de diagnósticos para Windows y una descripción de cómo se almacenan los datos en la cuenta de Azure Storage.
@@ -20,7 +20,7 @@ ms.locfileid: "83655709"
 La extensión de diagnósticos se implementa como una [extensión de máquina virtual](../../virtual-machines/extensions/overview.md) en Azure, por lo que admite las mismas opciones de instalación mediante las plantillas de Resource Manager, PowerShell y la CLI. Consulte [Características y extensiones de las máquinas virtuales para Windows](../../virtual-machines/extensions/features-windows.md) para más información sobre la instalación y el mantenimiento de extensiones de máquina virtual.
 
 ## <a name="overview"></a>Información general
-Al configurar la extensión de diagnósticos de Windows Azure, debe especificar una cuenta de almacenamiento a la que se enviarán todos los datos especificados. Opcionalmente, puede agregar una para más *receptores de datos* con el fin de enviar los datos a ubicaciones diferentes.
+Al configurar la extensión de diagnósticos de Windows Azure, debe especificar una cuenta de almacenamiento a la que se enviarán todos los datos especificados. Opcionalmente, puede agregar uno o más *receptores de datos* con el fin de enviar los datos a ubicaciones diferentes.
 
 - Receptor de Azure Monitor: envíe datos de rendimiento de invitados a métricas de Azure Monitor.
 - Receptor de centros de eventos: envíe datos de registro y de rendimiento de invitados a centros de eventos de Azure para reenviarlos fuera de Azure. No se puede configurar este receptor en Azure Portal.

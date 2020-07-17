@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 4146553d59607e1512d8f15391d143d44815cea9
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 34cfafadabd9a6328cbe85a5444211828df9db6d
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84016481"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133717"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configuración de la recuperación ante desastres para SQL Server
 
@@ -34,11 +34,11 @@ La elección de una tecnología de BCDR para recuperar instancias de SQL Server 
 
 Tipo de implementación | Tecnología de BCDR | RTO esperado para SQL Server | RPO esperado para SQL Server |
 --- | --- | --- | ---
-SQL Server en una máquina virtual de infraestructura como servicio (IaaS) de Azure o en un entorno local.| [Grupos de disponibilidad AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017) | El tiempo necesario para convertir la réplica secundaria en principal. | Como la replicación a la réplica secundaria es asincrónica, se produce una pérdida de datos.
-SQL Server en una máquina virtual IaaS de Azure o en un entorno local.| [Clústeres de conmutación por error (FCI AlwaysOn)](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-2017) | El tiempo necesario para realizar la conmutación por error entre los nodos. | Como Always On FCI usa almacenamiento compartido, está disponible la misma vista de la instancia de almacenamiento en la conmutación por error.
-SQL Server en una máquina virtual IaaS de Azure o en un entorno local.| [Creación de reflejo (modo de alto rendimiento)](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017) | El tiempo necesario para forzar el servicio, que utiliza el servidor reflejado como servidor en espera semiactiva. | La replicación es asincrónica. La base de datos reflejada puede retrasarse un poco respecto a la base de datos principal. El retraso suele ser pequeño. Pero puede ser grande si el sistema de la entidad de seguridad o del servidor reflejado están sobrecargados.<br/><br/>El trasvase de registros puede ser un complemento a la creación de reflejo de la base de datos. Es una alternativa favorable a la creación de reflejo de la base de datos asincrónica.
+SQL Server en una máquina virtual de infraestructura como servicio (IaaS) de Azure o en un entorno local.| [Grupos de disponibilidad AlwaysOn](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017) | El tiempo necesario para convertir la réplica secundaria en principal. | Como la replicación a la réplica secundaria es asincrónica, se produce una pérdida de datos.
+SQL Server en una máquina virtual IaaS de Azure o en un entorno local.| [Clústeres de conmutación por error (FCI AlwaysOn)](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-2017) | El tiempo necesario para realizar la conmutación por error entre los nodos. | Como Always On FCI usa almacenamiento compartido, está disponible la misma vista de la instancia de almacenamiento en la conmutación por error.
+SQL Server en una máquina virtual IaaS de Azure o en un entorno local.| [Creación de reflejo (modo de alto rendimiento)](/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017) | El tiempo necesario para forzar el servicio, que utiliza el servidor reflejado como servidor en espera semiactiva. | La replicación es asincrónica. La base de datos reflejada puede retrasarse un poco respecto a la base de datos principal. El retraso suele ser pequeño. Pero puede ser grande si el sistema de la entidad de seguridad o del servidor reflejado están sobrecargados.<br/><br/>El trasvase de registros puede ser un complemento a la creación de reflejo de la base de datos. Es una alternativa favorable a la creación de reflejo de la base de datos asincrónica.
 SQL como plataforma como servicio (PaaS) en Azure.<br/><br/>Este tipo de implementación incluye las bases de datos únicas y los grupos elásticos. | Replicación geográfica activa | 30 segundos después de que se desencadene la conmutación por error.<br/><br/>Cuando se activa la conmutación por error a una de las bases de datos secundarias, las demás bases de datos secundarias se vinculan automáticamente a la nueva base de datos principal. | RPO de cinco segundos.<br/><br/>La replicación geográfica activa usa la tecnología Always On de SQL Server. Esta permite replicar de forma asincrónica las transacciones confirmadas en la base de datos principal a una base de datos secundaria mediante el aislamiento de instantánea.<br/><br/>Se garantiza que los datos secundarios nunca tengan transacciones parciales.
-SQL como PaaS configurado con replicación geográfica activa en Azure.<br/><br/>Este tipo de implementación incluye instancias administradas de SQL Database, grupos elásticos y bases de datos únicas. | Grupos de conmutación por error automática | RTO de una hora. | RPO de cinco segundos.<br/><br/>Los grupos de conmutación por error automática proporcionan la semántica de grupo sobre la replicación geográfica activa. Pero se usa el mismo mecanismo de replicación asincrónico.
+SQL como PaaS configurado con replicación geográfica activa en Azure.<br/><br/>Este tipo de implementación incluye instancias administradas, grupos elásticos y bases de datos únicas. | Grupos de conmutación por error automática | RTO de una hora. | RPO de cinco segundos.<br/><br/>Los grupos de conmutación por error automática proporcionan la semántica de grupo sobre la replicación geográfica activa. Pero se usa el mismo mecanismo de replicación asincrónico.
 SQL Server en una máquina virtual IaaS de Azure o en un entorno local.| Replicación con Azure Site Recovery | El RTO es normalmente de menos de 15 minutos. Para más información, lea el [contrato de nivel de servicio de RTO proporcionado por Site Recovery](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). | Una hora para la coherencia de la aplicación y cinco minutos para la coherencia de bloqueo. Si busca un RPO más bajo, use otras tecnologías BCDR.
 
 > [!NOTE]
@@ -95,13 +95,13 @@ Las tecnologías de BCDR de Always On, la replicación geográfica activa y los 
 
 Algunas tecnologías de BCDR, como SQL Always On, no admiten de forma nativa la conmutación por error de prueba. Se recomienda el siguiente enfoque *solo al usar estas tecnologías*.
 
-1. Configure [Azure Backup](../backup/backup-azure-arm-vms.md) en la máquina virtual que hospeda la réplica del grupo de disponibilidad en Azure.
+1. Configure [Azure Backup](../backup/backup-azure-vms-first-look-arm.md) en la máquina virtual que hospeda la réplica del grupo de disponibilidad en Azure.
 
 1. Antes de desencadenar la conmutación por error del plan de recuperación, recupere la máquina virtual a partir de la copia de seguridad realizada en el paso anterior.
 
     ![Captura de pantalla que muestra la ventana para restaurar una configuración desde Azure Backup](./media/site-recovery-sql/restore-from-backup.png)
 
-1. [Fuerce un quórum](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) en la máquina virtual que se restauró desde la copia de seguridad.
+1. [Fuerce un quórum](/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) en la máquina virtual que se restauró desde la copia de seguridad.
 
 1. Actualice la dirección IP del cliente de escucha para que sea una dirección IP disponible en la red de conmutación por error de prueba.
 
@@ -139,7 +139,7 @@ Site Recovery no proporciona la compatibilidad con clústeres invitados al repli
 
 1. Configure esta instancia para actuar como un reflejo para las bases de datos que desea proteger. Configure el reflejo en modo de alta seguridad.
 
-1. Configure Site Recovery en el sitio principal para [Azure](azure-to-azure-tutorial-enable-replication.md), [Hyper-V](site-recovery-hyper-v-site-to-azure.md) o [máquinas virtuales y servidores físicos de VMware](site-recovery-vmware-to-azure-classic.md).
+1. Configure Site Recovery en el sitio principal para [Azure](azure-to-azure-tutorial-enable-replication.md), [Hyper-V](./hyper-v-azure-tutorial.md) o [máquinas virtuales y servidores físicos de VMware](./vmware-azure-tutorial.md).
 
 1. Utilice la replicación de Site Recovery para replicar la nueva instancia de SQL Server en el sitio secundario. Como es una copia de alta seguridad de reflejo, se sincronizará con el clúster principal, pero se replicará con la replicación de Site Recovery.
 
@@ -161,7 +161,7 @@ Site Recovery es independiente de la aplicación. Site Recovery puede ayudar a p
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información acerca de la [arquitectura de Site Recovery](site-recovery-components.md).
+* Más información acerca de la [arquitectura de Site Recovery](./azure-to-azure-architecture.md).
 * Para SQL Server en Azure, obtenga más información sobre las [soluciones de alta disponibilidad](../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md#azure-only-high-availability-solutions) para la recuperación en una región secundaria de Azure.
 * Para SQL Database, obtenga más información sobre las opciones de [continuidad del negocio](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md) y [alta disponibilidad](../azure-sql/database/high-availability-sla.md) para la recuperación en una región secundaria de Azure.
 * Para máquinas SQL Server en el entorno local, obtenga más información acerca de las [opciones de alta disponibilidad](../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md#hybrid-it-disaster-recovery-solutions) para la recuperación en Azure Virtual Machines.

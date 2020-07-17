@@ -3,12 +3,12 @@ title: Directrices para colecciones de confianza
 description: Directrices y recomendaciones para el uso de colecciones de confianza de Service Fabric en una aplicación de Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: db37067069b2a9eb08009eb6bb373f6fce1cafa9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: f196df4b58f1acb01a497b5fa08e9af99a4707d0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81398539"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85483132"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Directrices y recomendaciones de Reliable Collections en Azure Service Fabric
 Esta sección proporciona directrices para el uso de Reliable State Manager y Reliable Collections. El objetivo es ayudar a los usuarios a evitar problemas comunes.
@@ -39,7 +39,8 @@ Algunos aspectos que debe tener en cuenta:
 * Las operaciones de lectura de la base de datos secundaria pueden leer versiones que no están confirmadas en el cuórum.
   Esto significa que una versión de datos leída desde una única base de datos secundaria podría progresar como false.
   Las lecturas de la base de datos principal siempre son estables, es decir, que nunca pueden progresar como false.
-* La seguridad y privacidad de los datos que la aplicación conserva en una colección de confianza es su decisión, y está sujeta a las protecciones proporcionadas por la administración de almacenamiento; ES DECIR El cifrado de disco de sistema operativo puede utilizarse para proteger los datos en reposo.  
+* La seguridad y privacidad de los datos que la aplicación conserva en una colección de confianza es su decisión, y está sujeta a las protecciones proporcionadas por la administración de almacenamiento; ES DECIR El cifrado de disco de sistema operativo puede utilizarse para proteger los datos en reposo.
+* La enumeración `ReliableDictionary` utiliza una estructura de datos organizada ordenada por clave. Para que la enumeración sea eficaz, las confirmaciones se agregan a una tabla hash temporal y después se mueven a la estructura de datos organizada principal después del punto de control. Las adiciones, actualizaciones y eliminaciones tienen un mejor tiempo de ejecución de O(1) y un peor tiempo de ejecución de O(log n), en el caso de comprobaciones de validación en presencia de la clave. Las obtenciones pueden ser O(1), o bien O(log n) en función de si se lee de una confirmación reciente o de una confirmación anterior.
 
 ## <a name="volatile-reliable-collections"></a>Colecciones volátiles de confianza
 Cuando decida usar colecciones volátiles de confianza, tenga en cuenta lo siguiente:

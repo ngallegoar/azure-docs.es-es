@@ -9,17 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4b725c8a1bf0649a640c02a9a1828ec9014d36d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e86721d9f8644adabd1e01920c432217354d654
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76905662"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556227"
 ---
 # <a name="indexing-documents-in-azure-data-lake-storage-gen2"></a>Indexación de documentos en Azure Data Lake Storage Gen2
 
 > [!IMPORTANT] 
-> La compatibilidad de Azure Data Lake Storage Gen2 está actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para solicitar acceso a las versiones preliminares, rellene [este formulario](https://aka.ms/azure-cognitive-search/indexer-preview). En la [API REST, versión 2019-05-06-Preview](search-api-preview.md) se proporciona esta característica. Actualmente no hay compatibilidad con el portal ni con el SDK de .NET.
+> La compatibilidad de Azure Data Lake Storage Gen2 está actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para solicitar acceso a las versiones preliminares, rellene [este formulario](https://aka.ms/azure-cognitive-search/indexer-preview). En la [API de REST, versión 2020-06-30-Preview](search-api-preview.md) se proporciona esta característica. Actualmente no hay compatibilidad con el portal ni con el SDK de .NET.
 
 
 Al configurar una cuenta de almacenamiento de Azure, tiene la opción de habilitar el [espacio de nombres jerárquico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace). Esto permite que la colección de contenido de una cuenta se organice en una jerarquía de directorios y subdirectorios anidados. Al habilitar un espacio de nombres jerárquico, habilita a su vez [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
@@ -38,7 +38,7 @@ Regístrese para obtener la versión preliminar del indizador Data Lake Storag
 
 Cuando haya recibido la confirmación de que el registro de la versión preliminar se ha realizado correctamente, está listo para crear la canalización de indexación.
 
-Se pueden indexar el contenido y los metadatos de Data Lake Storage Gen2 mediante el uso de la [API REST, versión 2019-05-06-Preview](search-api-preview.md). Por el momento, no hay compatibilidad con el portal ni con .NET SDK.
+Se pueden indexar el contenido y los metadatos de Data Lake Storage Gen2 mediante el uso de la [API de REST, versión 2020-06-30-Preview](search-api-preview.md). Por el momento, no hay compatibilidad con el portal ni con .NET SDK.
 
 La indexación de contenido en Data Lake Storage Gen2 es idéntica a la indexación de contenido en el almacenamiento de blobs de Azure. De modo que, para entender cómo configurar el origen de datos de Data Lake Storage Gen2, el índice y el indizador, consulte [Cómo indexar documentos en Azure Blob Storage con Azure Cognitive Search](search-howto-indexing-azure-blob-storage.md). En el artículo de almacenamiento de blobs también se proporciona información sobre los formatos de documento que se admiten, las propiedades de metadatos de blobs que se extraen, la indexación incremental, etc. Esta información será la misma para Data Lake Storage Gen2.
 

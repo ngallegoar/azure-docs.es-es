@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: c0d19d68d016a47762fb5d2646ea6ccf74d3ef75
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: bb94703a78cd2c025efc1f3c6c16e296fece206e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80476556"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560003"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales
 
@@ -225,7 +225,8 @@ Aquí encontrará otras consideraciones sobre el funcionamiento de los canales y
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="feedback"></a>Comentarios
+## <a name="suggestions-and-feedback"></a>Sugerencias y comentarios
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Temas relacionados

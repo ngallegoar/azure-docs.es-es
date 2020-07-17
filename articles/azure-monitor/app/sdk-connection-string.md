@@ -6,12 +6,12 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 92c4ccf7246c4e763cbf92aee3c48398d79e0ecc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d9906e43bad296cc850942c01c83c6bfee2651fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125713"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482129"
 ---
 # <a name="connection-strings"></a>Cadenas de conexión
 
@@ -149,7 +149,7 @@ En este ejemplo, esta cadena de conexión especifica invalidaciones explícitas 
 Se admiten cadenas de conexión en las siguientes versiones del SDK:
 - .NET y .NET Core v2.12.0
 - Java v2.5.1 y Java 3.0
-- Javascript v2.3.0
+- JavaScript v2.3.0
 - NodeJS v1.5.0
 - Python v1.0.0
 
@@ -182,6 +182,14 @@ Archivo de configuración .NET:
 </ApplicationInsights>
 ```
 
+NetCore establecido explícitamente:
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    var options = new ApplicationInsightsServiceOptions { ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;" };
+    services.AddApplicationInsightsTelemetry(options: options);
+}
+```
 
 NetCore config.json: 
 

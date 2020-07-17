@@ -4,12 +4,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/11/2020
-ms.openlocfilehash: eeaab547a1f0648d2e7a59fda24454d7bfe1fadf
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 6bbdd3eb62229c3f8f180d2618dd25062ff0c1e9
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84754630"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86062672"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Autenticación mediante Azure Active Directory
 
@@ -86,6 +86,10 @@ En este ejemplo, se usa una contraseña para autenticar la entidad de servicio. 
    ```
 
 2. Obtenga un token:
+   > [!NOTE]
+   > Si está usando Azure Cloud Shell, la clase `SecureClientSecret` no está disponible. 
+
+   #### <a name="powershell"></a>[PowerShell](#tab/powershell)
    ```powershell-interactive
    $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList "https://login.windows.net/<TENANT_ID>"
    $secureSecretObject = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.SecureClientSecret" -ArgumentList $SecureStringPassword   
@@ -93,6 +97,17 @@ En este ejemplo, se usa una contraseña para autenticar la entidad de servicio. 
    $token=$authContext.AcquireTokenAsync("https://cognitiveservices.azure.com/", $clientCredential).Result
    $token
    ```
+   
+   #### <a name="azure-cloud-shell"></a>[Azure Cloud Shell](#tab/azure-cloud-shell)
+   ```Azure Cloud Shell
+   $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList "https://login.windows.net/<TENANT_ID>"
+   $clientCredential = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential" -ArgumentList $app.ApplicationId, <YOUR_PASSWORD>
+   $token=$authContext.AcquireTokenAsync("https://cognitiveservices.azure.com/", $clientCredential).Result
+   $token
+   ``` 
+
+   ---
+
 3. Llame a la API Computer Vision:
    ```powershell-interactive
    $url = $account.Endpoint+"vision/v1.0/models"

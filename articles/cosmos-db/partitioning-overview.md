@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: a9368e67abf3c45981cf1f85fe46a2a2799a6877
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: aa7d67cd6bd1bd422bd257b75ac5bde3bd534d7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864341"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85481840"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Creación de particiones en Azure Cosmos DB
 
@@ -34,6 +34,14 @@ Las transacciones (en procedimientos almacenados o desencadenadores) solo se per
 Puede obtener más información sobre [cómo Azure Cosmos DB administra las particiones](partition-data.md). No es necesario conocer los detalles internos para compilar o ejecutar las aplicaciones, pero se recopilan aquí para que pueda consultarlos.
 
 ## <a name="choosing-a-partition-key"></a><a id="choose-partitionkey"></a>Elegir una clave de partición
+
+Una clave de partición tiene dos componentes: **ruta de acceso de la clave de partición** y **valor de la clave de partición**. Por ejemplo, considere un elemento { "userId" : "Andrew", "worksFor": "Microsoft" }, si elige "userId" como clave de partición, los siguientes serán los dos componentes de la clave de partición:
+
+* La ruta de acceso de la clave de partición (por ejemplo: "/userId"). La ruta de acceso de la clave de partición acepta caracteres alfanuméricos y guiones bajos (_). También puede usar objetos anidados mediante la notación de ruta de acceso estándar (/).
+
+* El valor de la clave de partición (por ejemplo: "Andrew"). El valor de la clave de partición puede ser de tipo cadena o numérico.
+
+Para obtener información sobre los límites de rendimiento, almacenamiento y longitud de la clave de partición, consulte el artículo [Cuotas de servicio de Azure Cosmos DB](concepts-limits.md).
 
 La selección de la clave de partición es una decisión de diseño sencilla pero importante en Azure Cosmos DB. Una vez que haya seleccionado la clave de partición, no es posible cambiarla en contexto. Si necesita cambiarla, debe trasladar los datos a un nuevo contenedor con la nueva clave de partición deseada.
 

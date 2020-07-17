@@ -4,13 +4,13 @@ description: Azure Monitor se integra sin problemas en las aplicaciones que se e
 ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
-ms.date: 05/20/2020
-ms.openlocfilehash: a936c77abb9aed5886fae8b2ec4a10bb076b7cb5
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.date: 06/26/2020
+ms.openlocfilehash: 093448ad0280ada039f1d4e5abd0e83e4be19b03
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83776301"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482112"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-application-insights"></a>Supervisión de Azure Functions con Application Insights de Azure Monitor
 
@@ -20,11 +20,10 @@ Application Insights recopila datos de registros, de rendimiento y de errores, y
 
 La instrumentación de Application Insights necesaria está integrada en Azure Functions. Lo único que necesita es una clave de instrumentación válida para conectar la aplicación de funciones a un recurso de Application Insights. La clave de instrumentación debe agregarse a la configuración de la aplicación cuando se cree el recurso de la aplicación de funciones en Azure. Si la aplicación de funciones aún no tiene esta clave, puede establecerla de forma manual. Para obtener más información, lea sobre la [supervisión de Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring?tabs=cmd).
 
-## <a name="distributed-tracing-for-java-applications-public-preview"></a>Seguimiento distribuido para aplicaciones Java (versión preliminar pública)
-
+## <a name="distributed-tracing-for-java-applications-on-windows-public-preview"></a>Seguimiento distribuido para aplicaciones Java en Windows (versión preliminar pública)
 
 > [!IMPORTANT]
-> Esta característica está actualmente en versión preliminar pública para Azure Functions en Java. En el plan de consumo, el arranque en frío demora de 8 a 9 segundos.
+> Esta característica se encuentra actualmente en versión preliminar pública para Java Azure Functions en Windows; no se admite el seguimiento distribuido para Java Azure Functions en Linux. En el plan de consumo, tiene un arranque en frío de 8 a 9 segundos.
 
 Si las aplicaciones están escritas en Java, puede ver los datos enriquecidos de las aplicaciones de funciones, incluidas las solicitudes, las dependencias, los registros y las métricas. Los datos adicionales también le permiten ver y diagnosticar transacciones de un extremo a otro y ver el mapa de aplicación, que agrega muchas transacciones para mostrar una vista topológica de cómo interactúan los sistemas y cuáles son las tasas promedio de rendimiento y de errores.
 

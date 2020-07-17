@@ -11,17 +11,17 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 06/19/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: cded8fef70e22ffebc412ea37898100cda4bb3df
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 4906ea7c3ed3486a4ce089f51916fb8322761fe9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219017"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559549"
 ---
-# <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Administrar el uso y los costos con los registros de Azure Monitor
+# <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Administrar el uso y los costos con los registros de Azure Monitor    
 
 > [!NOTE]
 > En este artículo se describe cómo entender y controlar los costos de los registros de Azure Monitor. En un artículo relacionado, [Supervisión del uso y costos estimados](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs), se describe cómo ver el uso y los costos estimados mediante varias características de supervisión de Azure para los distintos modelos de precios. Todos los precios y costos que se muestran en este artículo son solo para fines de ejemplo. 
@@ -32,7 +32,7 @@ En este artículo se revisa cómo supervisar de forma activa el crecimiento del 
 
 ## <a name="pricing-model"></a>Modelo de precios
 
-Los precios predeterminados de Log Analytics son de un modelo de **Pago por uso**, que se basa en el volumen de datos ingeridos y, opcionalmente, permite obtener una mayor retención de datos. El volumen de datos se mide como el tamaño de los datos que se almacenarán. Cada área de trabajo de Log Analytics se cobra como un servicio independiente y contribuye a la factura de la suscripción a Azure. La cantidad de ingesta de datos puede ser considerable dependiendo de los factores siguientes: 
+Los precios predeterminados de Log Analytics son de un modelo de **Pago por uso**, que se basa en el volumen de datos ingeridos y, opcionalmente, permite obtener una mayor retención de datos. El volumen de datos se mide como el tamaño de los datos que se almacenarán, en GB (10^9 bytes). Cada área de trabajo de Log Analytics se cobra como un servicio independiente y contribuye a la factura de la suscripción a Azure. La cantidad de ingesta de datos puede ser considerable dependiendo de los factores siguientes: 
 
   - Número de soluciones de administración habilitadas y su configuración
   - Número de máquinas virtuales supervisadas
@@ -40,7 +40,7 @@ Los precios predeterminados de Log Analytics son de un modelo de **Pago por uso*
   
 Además del modelo de pago por uso, Log Analytics tiene niveles de **Reserva de capacidad** que le permiten ahorrar hasta un 25 % en comparación con el precio de pago por uso. Los precios de la reserva de capacidad permiten comprar una reserva a partir de 100 GB/día. Cualquier uso por encima del nivel de reserva se facturará según la tarifa de pago por uso. Los niveles de Reserva de capacidad tienen un período de compromiso de 31 días. Durante el período de compromiso, puede cambiar a un nivel de Reserva de capacidad de nivel superior (que reiniciará el período de compromiso de 31 días), pero no podrá volver a la versión de pago por uso o a un nivel de Reserva de capacidad inferior hasta que el período de compromiso finalice. La facturación de los niveles de reserva de capacidad se realiza cada día. [Más información](https://azure.microsoft.com/pricing/details/monitor/) sobre los precios de Pago por uso y de Reserva de capacidad de Log Analytics. 
 
-En todos los planes de tarifa, el volumen de datos se calcula a partir de una representación de cadena de los datos tal y como están preparados para su almacenamiento. Varias [propiedades comunes a todos los tipos de datos](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties) no se incluyen en el cálculo del tamaño del evento, incluidas `_ResourceId`, `_ItemId`, `_IsBillable` y `_BilledSize`.
+En todos los planes de tarifa, el tamaño de los datos de un evento se calcula a partir de una representación de cadena de las propiedades que se almacenan en Log Analytics para ese evento, tanto si los datos se envían desde un agente como si se agregan durante el proceso de ingesta. Esto incluye cualquier [campo personalizado](https://docs.microsoft.com/azure/azure-monitor/platform/custom-fields) que se agregue a medida que se recopilen datos y luego se almacenen en Log Analytics. Varias propiedades comunes a todos los tipos de datos, incluidas algunas [propiedades estándar de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties), se excluyen del cálculo del tamaño del evento. Esto incluye `_ResourceId`, `_ItemId`, `_IsBillable`, `_BilledSize` y `Type`. Todas las demás propiedades almacenadas en Log Analytics se incluyen en el cálculo del tamaño del evento. Algunos tipos de datos están libres de los cargos de ingesta de datos, por ejemplo, los tipos AzureActivity, Latido y Uso. Para determinar si un evento se ha excluido de la facturación relacionada con la ingesta de datos, puede usar la propiedad `_IsBillable`, como se muestra [más adelante](#data-volume-for-specific-events). El uso se informa en GB (1,0E9 bytes). 
 
 Además, tenga en cuenta que algunas soluciones, como [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/), [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) y [Administración de configuración](https://azure.microsoft.com/pricing/details/automation/) tienen sus propios modelos de precios. 
 
@@ -55,7 +55,6 @@ Hay dos modos de facturación para el uso en un clúster. Estos pueden especific
 1. **Clúster**: en este caso (que es el modo predeterminado), la facturación de los datos ingeridos se realiza en el nivel de clúster. Las cantidades de datos ingeridas desde cada área de trabajo asociada a un clúster se suman para calcular la factura diaria del clúster. Tenga en cuenta las asignaciones por nodo de [Azure Security Center](https://docs.microsoft.com/azure/security-center/) que se aplican en el nivel de área de trabajo antes de esta agregación de datos agregados en todas las áreas de trabajo del clúster. 
 
 2. **Áreas de trabajo**: los costos de reserva de capacidad para el clúster se atribuyen proporcionalmente a las áreas de trabajo del clúster (después de tener en cuenta las asignaciones por nodo de [Azure Security Center](https://docs.microsoft.com/azure/security-center/) para cada área de trabajo). Si el volumen total de datos ingeridos en un área de trabajo durante un día es menor que la reserva de capacidad, cada área de trabajo se factura por sus datos ingeridos con la tasa de reserva de capacidad por GB efectiva y la facturación de una fracción de la reserva de capacidad. La parte sin usar de la reserva de capacidad se factura al recurso de clúster. Si el volumen total de datos ingeridos en un área de trabajo durante un día es superior al de la reserva de capacidad, se factura a cada área de trabajo una fracción de la reserva de capacidad en función de su fracción de la cantidad de datos ingeridos ese día, y también una fracción de los datos ingeridos por encima de la reserva de capacidad. No se factura nada al recurso de clúster si el volumen total de datos ingeridos en un área de trabajo durante un día supera la reserva de capacidad.
-
 
 En las opciones de facturación del clúster, la retención de datos se factura en el nivel del área de trabajo. Tenga en cuenta que la facturación del clúster comienza cuando se crea este, independientemente de si las áreas de trabajo se han asociado al clúster. Además, tenga en cuenta que las áreas de trabajo asociadas a un clúster ya no tienen un plan de tarifa.
 
@@ -192,10 +191,12 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 
 Puede configurar un límite diario y limitar la ingesta diaria para el área de trabajo, pero tenga cuidado de establecer el límite diario como el objetivo al que llegar.  En caso contrario, perderá los datos para el resto del día, lo que puede afectar a otros servicios y soluciones de Azure cuya funcionalidad puede depender de la disponibilidad de datos actualizados en el área de trabajo.  Como resultado, esto afecta a la capacidad de observar y recibir alertas cuando cambian las condiciones de mantenimiento de los recursos que respaldan los servicios de TI.  El límite diario está pensado para usarse como una manera de administrar el aumento inesperado del volumen de datos de los recursos administrados y permanecer dentro de su límite, o simplemente cuando desee limitar cargos no planeados para el área de trabajo.  
 
-Poco después de alcanzar el límite diario, la recopilación de tipos de datos facturables se detiene durante el resto del día. (La latencia inherente a la aplicación del límite diario puede significar que el límite no se aplica con precisión al nivel de límite diario especificado.) Un mensaje emergente de advertencia aparece en la parte superior de la página del área de trabajo de Log Analytics seleccionada, y se envía un evento de operación para la tabla *Operación* en la categoría **LogManagement**. La recopilación de datos se reanuda después de que se restablezca el tiempo definido en *Daily limit will be set at* (El límite diario se establecerá en). Se recomienda definir una regla de alerta en función de este evento de operación que esté configurada para notificar cuando se ha alcanzado el límite diario de datos. 
+A cada área de trabajo se le aplica su límite diario en una hora diferente del día. La hora de restablecimiento se muestra en la página **Límite diario** (consulte más adelante). Esta hora de restablecimiento no se puede configurar. 
+
+Poco después de alcanzar el límite diario, la recopilación de tipos de datos facturables se detiene durante el resto del día. (La latencia inherente a la aplicación del límite diario significa que el límite no se aplica con precisión al nivel de límite diario especificado). Un mensaje emergente de advertencia aparece en la parte superior de la página del área de trabajo de Log Analytics seleccionada, y se envía un evento de operación para la tabla *Operación* en la categoría **LogManagement**. La recopilación de datos se reanuda después de que se restablezca el tiempo definido en *Daily limit will be set at* (El límite diario se establecerá en). Se recomienda definir una regla de alerta en función de este evento de operación que esté configurada para notificar cuando se ha alcanzado el límite diario de datos. 
 
 > [!WARNING]
-> El límite diario no detiene la recopilación de datos de Azure Security Center, excepto en el caso de las áreas de trabajo en las que Azure Security Center se instaló antes del 19 de junio de 2017. 
+> El límite diario no detiene la recopilación de datos de Azure Sentinel o Azure Security Center, excepto en el caso de las áreas de trabajo en las que Azure Security Center se instaló antes del 19 de junio de 2017. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identificación del límite diario de datos para definir
 
@@ -206,10 +207,12 @@ Revise el [uso de Log Analytics y costos estimados](usage-estimated-costs.md) pa
 Los pasos siguientes describen cómo configurar un límite para administrar el volumen de datos que el área de trabajo de Log Analytics ingiere por día.  
 
 1. En el área de trabajo seleccione **Usage and estimated costs** (Uso y costos estimados) en el panel izquierdo.
-2. En la página **Usage and estimated costs** (Uso y costos estimados) del área de trabajo seleccionada, haga clic en **Administración del volumen de datos** en la parte superior de la página. 
+2. En la página **Usage and estimated costs** (Uso y costos estimados) del área de trabajo seleccionada, haga clic en **Límite de datos** en la parte superior de la página. 
 3. ¿Está el límite diario **desactivado** de forma predeterminada? Haga clic en **ON** (ACTIVADO) para habilitarlo y, luego, establezca el límite de volumen diario en GB/día.
 
     ![Configuración del límite de datos con Log Analytics](media/manage-cost-storage/set-daily-volume-cap-01.png)
+    
+El límite diario se puede configurar mediante ARM si se establece el parámetro `dailyQuotaGb` en `WorkspaceCapping`, como se describe [aquí](https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate#workspacecapping). 
 
 ### <a name="alert-when-daily-cap-reached"></a>Alerta cuando se alcanza el límite diario
 
@@ -250,7 +253,7 @@ Heartbeat
 Para obtener un recuento de los nodos que han enviado datos en las últimas 24 horas, use la consulta: 
 
 ```kusto
-union withsource = tt * 
+union * 
 | where TimeGenerated > ago(24h)
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
@@ -260,7 +263,7 @@ union withsource = tt *
 Para obtener una lista de nodos que envían datos (y la cantidad de datos que envía cada uno) se puede usar la consulta siguiente:
 
 ```kusto
-union withsource = tt * 
+union * 
 | where TimeGenerated > ago(24h)
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
@@ -286,7 +289,7 @@ Event
 | summarize count(), Bytes=sum(_BilledSize) by EventID, bin(TimeGenerated, 1d)
 ``` 
 
-Tenga en cuenta que la cláusula `where IsBillable = true` filtra los tipos de datos de determinadas soluciones para las que no hay ningún cargo de ingesta. 
+Tenga en cuenta que la cláusula `where _IsBillable = true` filtra los tipos de datos de determinadas soluciones para las que no hay ningún cargo de ingesta. [Más información](log-standard-properties.md#_isbillable) sobre `_IsBillable`.
 
 ### <a name="data-volume-by-solution"></a>Data volume by solution (Volumen de datos por solución)
 
@@ -330,11 +333,12 @@ Usage
 El tipo de datos `Usage` no incluye información en el nivel de equipo. Para ver el **tamaño** de los datos ingeridos por cada equipo, use la [propiedad](log-standard-properties.md#_billedsize) `_BilledSize`, que proporciona el tamaño en bytes:
 
 ```kusto
-union withsource = tt * 
+union * 
 | where TimeGenerated > ago(24h)
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| summarize BillableDataBytes = sum(_BilledSize) by  computerName | sort by Bytes nulls last
+| summarize BillableDataBytes = sum(_BilledSize) by  computerName 
+| sort by BillableDataBytes nulls last
 ```
 
 La [propiedad](log-standard-properties.md#_isbillable) `_IsBillable` especifica si los datos ingeridos generarán gastos. 
@@ -342,11 +346,12 @@ La [propiedad](log-standard-properties.md#_isbillable) `_IsBillable` especifica 
 Para ver el **recuento** de eventos facturables que ingirió cada equipo, use: 
 
 ```kusto
-union withsource = tt * 
+union * 
 | where TimeGenerated > ago(24h)
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| summarize eventCount = count() by computerName  | sort by eventCount nulls last
+| summarize eventCount = count() by computerName  
+| sort by eventCount nulls last
 ```
 
 > [!TIP]
@@ -357,24 +362,40 @@ union withsource = tt *
 Para los datos de los nodos hospedados en Azure, puede obtener el **tamaño** de los eventos ingeridos __por cada equipo__; para ello, use la [propiedad](log-standard-properties.md#_resourceid) _ResourceId, que proporciona la ruta completa al recurso:
 
 ```kusto
-union withsource = tt * 
+union * 
 | where TimeGenerated > ago(24h)
 | where _IsBillable == true 
-| summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
+| summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by BillableDataBytes nulls last
 ```
 
-Para los datos de los nodos hospedados en Azure, puede obtener el **tamaño** de los datos ingeridos __por cada suscripción de Azure__; para ello, analice la propiedad `_ResourceId` como:
+Para los datos de los nodos hospedados en Azure, puede obtener el **tamaño** de los datos ingeridos __por cada suscripción de Azure__; obtenga el id. de suscripción de la propiedad `_ResourceId` como:
 
 ```kusto
-union withsource = tt * 
+union * 
 | where TimeGenerated > ago(24h)
 | where _IsBillable == true 
-| parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
-    resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
-| summarize BillableDataBytes = sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
+| summarize BillableDataBytes = sum(_BilledSize) by _ResourceId
+| extend subscriptionId = split(_ResourceId, "/")[2] 
+| summarize BillableDataBytes = sum(BillableDataBytes) by subscriptionId | sort by BillableDataBytes nulls last
 ```
 
-El cambio de `subscriptionId` a `resourceGroup` mostrará el volumen de datos ingeridos facturable en función del grupo de recursos de Azure. 
+Del mismo modo, para obtener el volumen de datos por grupo de recursos, sería:
+
+```kusto
+union * 
+| where TimeGenerated > ago(24h)
+| where _IsBillable == true 
+| summarize BillableDataBytes = sum(_BilledSize) by _ResourceId
+| extend resourceGroup = split(_ResourceId, "/")[4] 
+| summarize BillableDataBytes = sum(BillableDataBytes) by resourceGroup | sort by BillableDataBytes nulls last
+```
+
+Además, de ser necesario, puede analizar la propiedad `_ResourceId` más atentamente con:
+
+```Kusto
+| parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
+    resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
+```
 
 > [!TIP]
 > Use estas consultas `union  *` con moderación, ya que la ejecución de exámenes entre tipos de datos [consume muchos recursos](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane). Si no necesita resultados por suscripción, grupo de recursos ni nombre de recurso, consulte el tipo de datos Usage.
@@ -424,7 +445,7 @@ Algunas sugerencias para reducir el volumen de registros recopilados incluyen:
 Para obtener una lista de equipos que se facturarán como nodos si el área de trabajo se encuentra en el plan de tarifa heredado de cada nodo, busque los nodos que envían **tipos de datos facturados** (algunos tipos de datos son gratuitos). Para hacer esto, use la [propiedad](log-standard-properties.md#_isbillable) `_IsBillable` y el campo situado más a la izquierda del nombre de dominio completo. De este modo se devuelve el recuento de equipos con datos facturados por hora (que es la granularidad con la que se contabilizan y se facturan los nodos):
 
 ```kusto
-union withsource = tt * 
+union * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
@@ -498,7 +519,7 @@ let daysToEvaluate = 7; // Enter number of previous days look at (reduce if the 
 let SecurityDataTypes=dynamic(["SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent", "Update", "UpdateSummary"]);
 let StartDate = startofday(datetime_add("Day",-1*daysToEvaluate,now()));
 let EndDate = startofday(now());
-union withsource = tt * 
+union * 
 | where TimeGenerated >= StartDate and TimeGenerated < EndDate
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
@@ -542,64 +563,23 @@ Esta consulta no es una replicación exacta de cómo se calcula el uso, pero fun
 
 ## <a name="create-an-alert-when-data-collection-is-high"></a>Creación de una alerta cuando la colección de datos es mayor
 
-En esta sección se describe cómo crear una alerta si:
-- El volumen de datos supera una cantidad especificada.
-- Se prevé que el volumen de datos supere un importe especificado.
+En esta sección se describe cómo crear una alerta si el volumen de datos en las últimas 24 horas ha superado una cantidad especificada, mediante [Alertas de registro](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log) de Azure Monitor. 
 
-Alertas de Azure admite [alertas de registro](alerts-unified-log.md) que usen consultas de búsqueda. 
-
-La consulta siguiente produce un resultado cuando hay más de 100 GB de datos recopilados en las últimas 24 horas:
-
-```kusto
-union withsource = $table Usage 
-| where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true 
-| extend Type = $table | summarize DataGB = sum((Quantity / 1000.)) by Type 
-| where DataGB > 100
-```
-
-La consulta siguiente utiliza una fórmula simple para predecir cuándo se enviarán más de 100 GB de datos en un día: 
-
-```kusto
-union withsource = $table Usage 
-| where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true 
-| extend Type = $table 
-| summarize EstimatedGB = sum(((Quantity * 8) / 1000.)) by Type 
-| where EstimatedGB > 100
-```
-
-Para generar una alerta en un volumen de datos diferente, cambie el 100 de las consultas por el número de GB sobre el que desea alertar.
-
-Siga los pasos explicados en [crear una nueva regla de alerta](alerts-metric.md) para recibir una notificación cuando la colección de datos sea mayor de lo previsto.
-
-Al crear la alerta en la primera consulta; cuando hay más de 100 GB de datos en 24 horas, establezca los siguientes valores:  
+Para generar una alerta si la ingesta del volumen de datos facturable en las últimas 24 horas fue superior a 50 GB, siga estos pasos: 
 
 - **Definición de la condición de alerta**: especifique el área de trabajo de Log Analytics como el destino del recurso.
 - **Criterios de alerta**: especifique lo siguiente:
    - **Nombre de señal**: seleccione **Custom log search** (Búsqueda de registros personalizada)
-   - **Consulta de búsqueda** en `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1000.)) by Type | where DataGB > 100`
+   - **Consulta de búsqueda** en `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50`. Si desea otro 
    - El valor de **Lógica de alerta** está **Basado en** el *número de resultados*, mientras que el valor de **Condición** es *Mayor que* un **Umbral**  de *0*.
-   - **Período de tiempo** de *1440* minutos y **Frecuencia de la alerta** cada *60* minutos ya que los datos de uso solo se actualizan una vez por hora.
+   - **Período de tiempo** de *1440* minutos y **Frecuencia de alerta** cada *1440* minutos para ejecutarse una vez al día.
 - **Definición de los detalles de la alerta**: especifique lo siguiente:
-   - **Nombre** en *Volumen de datos mayor que 100 GB en 24 horas*
+   - **Nombre** en *Billable data volume greater than 50 GB in 24 hours* (Volumen de datos facturable mayor que 50 GB en 24 horas)
    - **Gravedad** en *Advertencia*
 
 Especifique un [grupo de acciones](action-groups.md) existente o cree uno nuevo para que cuando la alerta de registro coincida con criterios, se le notifique.
 
-Al crear la alerta para la segunda consulta; cuando se prevé que va a haber más de 100 GB de datos en 24 horas, establezca los siguientes valores:
-
-- **Definición de la condición de alerta**: especifique el área de trabajo de Log Analytics como el destino del recurso.
-- **Criterios de alerta**: especifique lo siguiente:
-   - **Nombre de señal**: seleccione **Custom log search** (Búsqueda de registros personalizada)
-   - **Consulta de búsqueda** en `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1000.)) by Type | where EstimatedGB > 100`
-   - El valor de **Lógica de alerta** está **Basado en** el *número de resultados*, mientras que el valor de **Condición** es *Mayor que* un **Umbral**  de *0*.
-   - **Período de tiempo** de *180* minutos y **Frecuencia de la alerta** cada *60* minutos ya que los datos de uso solo se actualizan una vez por hora.
-- **Definición de los detalles de la alerta**: especifique lo siguiente:
-   - **Nombre** en *Volumen de datos que se espera que sea mayor que 100 GB en 24 horas*
-   - **Gravedad** en *Advertencia*
-
-Especifique un [grupo de acciones](action-groups.md) existente o cree uno nuevo para que cuando la alerta de registro coincida con criterios, se le notifique.
-
-Cuando se recibe una alerta, siga los pasos de la sección siguiente para solucionar el problema del uso mayor de lo esperado.
+Cuando se recibe una alerta, siga los pasos de las secciones siguientes sobre cómo solucionar el problema del uso mayor de lo esperado.
 
 ## <a name="data-transfer-charges-using-log-analytics"></a>Cargos por transferencia de datos mediante Log Analytics
 

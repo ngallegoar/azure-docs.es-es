@@ -3,16 +3,18 @@ title: Restricciones de nomenclatura de recursos
 description: Muestra las reglas y las restricciones de nomenclatura de recursos de Azure.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 73e5f7ce7f5c13a0ce456372d299e49033c7e704
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: ca13203b6d31c1eeb939c668a58e67f0d462a905
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170586"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554341"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reglas y restricciones de nomenclatura para los recursos de Azure
 
 En este artículo se resumen las reglas y las restricciones de nomenclatura de los recursos de Azure. Para obtener recomendaciones sobre cómo asignar nombres a los recursos, vea [Convenciones de nomenclatura y etiquetado recomendados](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+
+En este artículo se enumeran los recursos por espacio de nombres del proveedor de recursos. Para obtener una lista de cómo se asocian los proveedores de recursos a los servicios de Azure, consulte [Proveedores de recursos para servicios de Azure](azure-services-resource-providers.md).
 
 Los nombres de los recursos no distinguen mayúsculas de minúsculas, a menos que se indique específicamente en la columna de caracteres válidos.
 
@@ -34,7 +36,7 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > [!div class="mx-tableFixed"]
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | service | global | 1-50 | Caracteres alfanuméricos.<br><br>Comience con una letra. |
+> | service | global | 1-50 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
 > | service/apis | service | 1-256 | No puede usar:<br> `*#&+:<>?` |
 > | service/apis/issues | api | 1-256 | No puede usar:<br> `*#&+:<>?` |
 > | service/apis/issues/attachments | issue | 1-256 | No puede usar:<br> `*#&+:<>?` |
@@ -172,8 +174,8 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | galleries/images/versions | imagen | Entero de 32 bits | Números y puntos. |
 > | images | resource group | 1-80 | Caracteres alfanuméricos, de subrayado, puntos y guiones.<br><br>Comience con un carácter alfanumérico. Termine con un carácter alfanumérico o de subrayado. |
 > | snapshots | resource group | 1-80 | Caracteres alfanuméricos, de subrayado, puntos y guiones.<br><br>Comience con un carácter alfanumérico. Termine con un carácter alfanumérico o de subrayado. |
-> | virtualMachines | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vea la nota siguiente. | No puede usar:<br> `\/""[]:|<>+=;,?*@&`<br><br>No puede comenzar con un carácter de subrayado. No puede terminar con un punto ni un guion. |
-> | virtualMachineScaleSets | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vea la nota siguiente. | No puede usar:<br> `\/""[]:|<>+=;,?*@&`<br><br>No puede comenzar con un carácter de subrayado. No puede terminar con un punto ni un guion. |
+> | virtualMachines | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vea la nota siguiente. | No puede usar:<br> `\/"'[]:|<>+=;,?*@&`<br><br>No puede comenzar con un carácter de subrayado. No puede terminar con un punto ni un guion. |
+> | virtualMachineScaleSets | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vea la nota siguiente. | No puede usar:<br> `\/"'[]:|<>+=;,?*@&`<br><br>No puede comenzar con un carácter de subrayado. No puede terminar con un punto ni un guion. |
 
 > [!NOTE]
 > Las máquinas virtuales de Azure tienen dos nombres distintos: el nombre de recurso y el nombre de host. Cuando se crea una máquina virtual en el portal, se usa el mismo valor para ambos nombres. Las restricciones de la tabla anterior son para el nombre de host. El nombre de recurso real puede tener hasta 64 caracteres.
@@ -522,7 +524,7 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > [!div class="mx-tableFixed"]
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | espacios de nombres | global | 6-50 | Caracteres alfanuméricos y guiones.<br><br>Comience y termine con un carácter alfanumérico. |
+> | espacios de nombres | global | 6-50 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra. Termine con un carácter alfanumérico. |
 > | namespaces/AuthorizationRules | espacio de nombres | 1-256 | Caracteres alfanuméricos, de subrayado, guiones y puntos.<br><br>Comience con carácter alfanumérico. |
 > | namespaces/notificationHubs | espacio de nombres | 1-260 | Caracteres alfanuméricos, de subrayado, guiones y puntos.<br><br>Comience con carácter alfanumérico. |
 > | namespaces/notificationHubs/AuthorizationRules | centro de notificaciones | 1-256 | Caracteres alfanuméricos, de subrayado, guiones y puntos.<br><br>Comience con carácter alfanumérico. |

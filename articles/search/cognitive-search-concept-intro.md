@@ -1,5 +1,5 @@
 ---
-title: Introducción al enriquecimiento con inteligencia artificial
+title: Conceptos de enriquecimiento con IA
 titleSuffix: Azure Cognitive Search
 description: La extracción de contenido, el procesamiento de lenguaje natural (NLP) y el procesamiento de imágenes se usan para crear contenido en el que se puedan realizar búsquedas en índices de Azure Cognitive Search mediante aptitudes cognitivas predefinidas y algoritmos de inteligencia artificial personalizados.
 manager: nitinme
@@ -7,17 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/24/2020
-ms.openlocfilehash: cdff42c6ff0cadb5ce4b3d7fc469d648349d1e88
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.date: 06/18/2020
+ms.openlocfilehash: cb9214dcd79e45b4c587c7ab47e425f2fdd8714c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84265206"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564429"
 ---
-# <a name="getting-started-with-ai-enrichment"></a>Introducción al enriquecimiento con IA
+# <a name="ai-enrichment-in-azure-cognitive-search"></a>Enriquecimiento con IA en Azure Cognitive Search
 
-El enriquecimiento con IA es una funcionalidad de la indexación de Azure Cognitive Search que se usa para extraer texto de imágenes, blobs y otros orígenes de datos no estructurados. El enriquecimiento y la extracción permiten que se puedan realizar búsquedas en el contenido en un [índic](search-what-is-an-index.md)e o [almacén de conocimiento](knowledge-store-concept-intro.md). La extracción y el enriquecimiento se implementan mediante *aptitudes cognitivas* asociadas a una canalización de indexación. Las aptitudes cognitivas integradas en el servicio se dividen en estas categorías: 
+El enriquecimiento con IA es una extensión de [indexadores](search-indexer-overview.md) que se puede usar para extraer texto de imágenes, blobs y otros orígenes de datos no estructurados. El enriquecimiento y la extracción permiten que se puedan realizar búsquedas en los objetos de salida de indexadores, ya sea un [índice de búsqueda](search-what-is-an-index.md) o un [almacén de conocimiento](knowledge-store-concept-intro.md). 
+
+La extracción y el enriquecimiento se implementan mediante *aptitudes cognitivas* asociadas a una canalización controlada por indexadores. Puede usar las aptitudes integradas de Microsoft o insertar el procesamiento externo en una [*aptitud personalizada*](cognitive-search-create-custom-skill-example.md) que cree. Algunos ejemplos de aptitudes personalizadas pueden ser un módulo de entidad personalizado o un clasificador de documentos que tiene como destino un dominio específico, como finanzas, publicaciones científicas o medicina.
+
+Las aptitudes integradas se encuadran en estas categorías: 
 
 + Las aptitudes del **procesamiento de lenguaje natural** incluyen [reconocimiento de entidades](cognitive-search-skill-entity-recognition.md), [detección de idioma](cognitive-search-skill-language-detection.md), [extracción de frases clave](cognitive-search-skill-keyphrases.md), manipulación de texto, [detección de opiniones](cognitive-search-skill-sentiment.md) y [detección de información de identificación personal](cognitive-search-skill-pii-detection.md). Con estas aptitudes, un texto no estructurado se asigna como campos en los que se pueden realizar búsquedas y aplicar filtros en un índice.
 
@@ -25,9 +29,9 @@ El enriquecimiento con IA es una funcionalidad de la indexación de Azure Cognit
 
 ![Diagrama de una canalización de enriquecimiento](./media/cognitive-search-intro/cogsearch-architecture.png "introducción a la canalización de enriquecimiento")
 
-Las aptitudes cognitivas de Azure Cognitive Search se basan en los modelos de aprendizaje automático previamente entrenados de Cognitive Services APIs: [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) y [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). 
+Las aptitudes integradas de Azure Cognitive Search se basan en los modelos de aprendizaje automático previamente entrenados de Cognitive Services APIs: [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) y [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). Puede adjuntar un recurso de Cognitive Services si desea aprovechar estos recursos durante el procesamiento de contenido.
 
-Tanto el lenguaje natural como el procesamiento de imágenes se aplican durante la fase de ingesta de datos, con resultados que forman parte de la composición de un documento en un índice en el que se pueden realizar búsquedas en Azure Cognitive Search. Los datos se obtienen como un conjunto de datos de Azure y luego se insertan a través de una canalización de indexación mediante las [aptitudes integradas](cognitive-search-predefined-skills.md) que necesite. La arquitectura es extensible, por lo que si las aptitudes integradas no son suficientes, puede crear y adjuntar [aptitudes personalizadas](cognitive-search-create-custom-skill-example.md) para integrar el procesamiento personalizado. Algunos ejemplos pueden ser un módulo de entidad personalizado o un clasificador de documentos que tiene como destino un dominio específico, como finanzas, publicaciones científicas o medicina.
+Tanto el lenguaje natural como el procesamiento de imágenes se aplican durante la fase de ingesta de datos, con resultados que forman parte de la composición de un documento en un índice en el que se pueden realizar búsquedas en Azure Cognitive Search. Los datos se obtienen como un conjunto de datos de Azure y luego se insertan a través de una canalización de indexación mediante las [aptitudes integradas](cognitive-search-predefined-skills.md) que necesite.  
 
 ## <a name="when-to-use-ai-enrichment"></a>Cuándo usar el enriquecimiento con IA
 
@@ -55,8 +59,7 @@ Los [conjuntos de aptitudes](cognitive-search-defining-skillset.md) que se ensam
 
 Las aptitudes personalizadas pueden admitir escenarios más complejos, como el reconocimiento de formularios o la detección de entidades personalizadas mediante un modelo que se proporciona y se encapsula en la [interfaz web de aptitudes personalizadas](cognitive-search-custom-skill-interface.md). Entre los ejemplos de aptitudes personalizadas se incluyen [Form Recognizer](/azure/cognitive-services/form-recognizer/overview), la integración de [Bing Entity Search API](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example) y el [reconocimiento de entidades personalizadas](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
-
-## <a name="steps-in-an-enrichment-pipeline"></a>Pasos en una canalización de enriquecimiento
+<a name="enrichment-steps"> ## Pasos en una canalización de enriquecimiento </a>
 
 Una canalización de enriquecimiento se basa en [*indizadores*](search-indexer-overview.md). Los indizadores rellenan un índice basándose en las asignaciones de campo a campo entre el índice y el origen de datos para la descifrado de documentos. Las aptitudes, ahora asociadas a los indizadores, interceptan y enriquecen los documentos en función del conjunto de aptitudes que se definen. Una vez que se indexa, puede acceder al contenido mediante solicitudes de búsqueda a través de todos los [tipos de consulta compatibles con Azure Cognitive Search](search-query-overview.md).  Si es la primera vez que usa los indexadores, esta sección lo guiará a través de los pasos.
 
@@ -80,7 +83,7 @@ Internamente, la canalización genera una colección de documentos enriquecidos.
 
 #### <a name="add-a-knowledgestore-element-to-save-enrichments"></a>Adición de un elemento knowledgeStore para guardar enriquecimientos
 
-El elemento [api-version=2019-05-06 de REST de Search](search-api-preview.md) extiende los conjuntos de aptitudes con una definición de `knowledgeStore` que proporciona una conexión al almacenamiento de Azure y proyecciones que describen cómo se almacenan los enriquecimientos. Esto se suma al índice. En una canalización estándar de inteligencia artificial, los documentos enriquecidos son transitorios, solo se usan durante la indexación y después se descartan. Los documentos enriquecidos se conservan mediante el almacén de conocimiento. Para más información, consulte [Knowledge Store (versión preliminar)](knowledge-store-concept-intro.md).
+El elemento [api-version=2020-06-30 de REST de Search](https://docs.microsoft.com/rest/api/searchservice/) extiende los conjuntos de aptitudes con una definición de `knowledgeStore` que proporciona una conexión al almacenamiento de Azure y proyecciones que describen cómo se almacenan los enriquecimientos. Esto se suma al índice. En una canalización estándar de inteligencia artificial, los documentos enriquecidos son transitorios, solo se usan durante la indexación y después se descartan. Los documentos enriquecidos se conservan mediante el almacén de conocimiento. Para obtener más información, consulte [Almacén de conocimiento](knowledge-store-concept-intro.md).
 
 ### <a name="step-3-search-index-and-query-based-access"></a>Paso 3: Índice de búsqueda y acceso basado en consulta
 
@@ -118,6 +121,6 @@ Los índices se generan a partir de un esquema de índice que define los campos,
 + [Ejemplo: Creación de una aptitud personalizada para el enriquecimiento con inteligencia artificial (C#)](cognitive-search-create-custom-skill-example.md)
 + [Inicio rápido: Tutorial de la prueba del enriquecimiento con IA en un portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Más información sobre las API de enriquecimiento con inteligencia artificial](cognitive-search-tutorial-blob.md)
-+ [Almacén de conocimiento (versión preliminar)](knowledge-store-concept-intro.md)
++ [Almacén de conocimiento](knowledge-store-concept-intro.md)
 + [Creación de un almacén de conocimiento con REST](knowledge-store-create-rest.md)
 + [Sugerencias para la solución de problemas](cognitive-search-concept-troubleshooting.md)

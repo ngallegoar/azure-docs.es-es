@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 74e58c316651a1604984ac14c70a3a65d46d6d9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 70026173d1cb932d30a59ea2b876ef22217a81bc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73511937"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563682"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Lógica de procesamiento de reglas de Azure Firewall
 
@@ -30,8 +30,8 @@ Para habilitar la conectividad entrante, configure Traducción de direcciones de
 
 Las colecciones de reglas de red heredadas de una directiva primaria siempre se priorizan por encima de las colecciones de reglas de red definidas como parte de la nueva directiva. La misma lógica también se aplica a las colecciones de reglas de aplicación. Las colecciones de reglas de red siempre se procesan antes que las colecciones de reglas de aplicación independientemente de la herencia.
 
-De forma predeterminada, la directiva hereda su modo de inteligencia de amenazas de directivas primaria. Puede invalidar esto al establecer el modo de inteligencia de amenazas en un valor diferente en la página de configuración de la directiva. Solo es posible invalidar con un valor más estricto. Por ejemplo, si la directiva primaria está establecida en *solo Alerta*, puede configurar esta directiva local para *Alertar y denegar*, pero no puede desactivarla.
+De forma predeterminada, la directiva hereda su modo de inteligencia de amenazas de directivas primaria. Puede invalidar esto al establecer el modo de inteligencia de amenazas en un valor diferente en la página de configuración de la directiva. Solo es posible invalidarlo con un valor más estricto. Por ejemplo, si la directiva primaria está establecida en *solo Alerta*, puede configurar esta directiva local para *Alertar y denegar*, pero no puede desactivarla.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Más información sobre la versión preliminar de Azure Firewall](overview.md)
+- [Más información sobre Azure Firewall Manager](overview.md)

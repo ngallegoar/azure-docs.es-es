@@ -5,18 +5,18 @@ description: Cree y ejecute una canalización de aprendizaje automático con el 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
 ms.date: 12/05/2019
-ms.custom: seodec18
-ms.openlocfilehash: 006a2f5775fc053feda1efd568660f29c81fe599
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 50bd9d620fac4031ff398bb13d40b288488dda95
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872218"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559389"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning
 
@@ -34,7 +34,7 @@ Las canalizaciones de Machine Learning usan destinos de proceso remotos para el 
 
 Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Cree un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md) que contendrá todos los recursos de la canalización.
 
@@ -448,7 +448,7 @@ Puede publicar una canalización para ejecutarla con diferentes entradas más ad
 
 ### <a name="run-a-published-pipeline"></a>Ejecutar una canalización publicada
 
-Todas las canalizaciones publicadas tienen un punto de conexión REST. Este punto de conexión invoca la ejecución de la canalización desde sistemas externos, como los clientes que no son de Python. Este punto de conexión habilita la "repetibilidad administrada" en los escenarios de puntuación y nuevo entrenamiento.
+Todas las canalizaciones publicadas tienen un punto de conexión REST. Con el punto de conexión de canalización, puede desencadenar una ejecución de la canalización desde cualquier sistema externo, incluidos los clientes que no sean de Python. Este punto de conexión habilita la "repetibilidad administrada" en los escenarios de puntuación y nuevo entrenamiento.
 
 Para invocar la ejecución de la canalización anterior, necesitará un token de encabezado de autenticación de Azure Active Directory, tal como se describe en la referencia a la [clase AzureCliAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py) u obtener más detalles en el notebook [Autenticación en Azure Machine Learning](https://aka.ms/pl-restep-auth).
 

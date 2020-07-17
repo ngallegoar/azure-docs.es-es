@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 12/05/2019
-ms.openlocfilehash: 9069ec574af54c5c44efac5a6a9df1da62053219
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 0497356e536632d179f4f64a6a9df8551a7a1897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195089"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557859"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Información general sobre las consultas elásticas de Azure SQL Database (versión preliminar)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -148,7 +148,7 @@ La consulta elástica se incluye en el costo de Azure SQL Database. Tenga en cue
 * Actualmente no se admiten estadísticas de columna con tablas externas. Se admiten las estadísticas de las tablas, pero se deben crear manualmente.
 * Las consultas elásticas solo funcionan con Azure SQL Database. No se puede usar para consultar una instancia de SQL Server.
 
-## <a name="feedback"></a>Comentarios
+## <a name="share-your-feedback"></a>Comparta sus comentarios
 
 Escriba más abajo sus comentarios sobre su experiencia con las consultas elásticas, en los foros de MSDN o en Stack Overflow. Estamos interesados en todo tipo de comentarios sobre el servicio (defectos, particularidades, deficiencias de característica, etc.).
 

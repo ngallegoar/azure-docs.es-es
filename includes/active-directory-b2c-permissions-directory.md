@@ -5,14 +5,14 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 02/12/2020
 ms.author: mimart
-ms.openlocfilehash: 587a4bfed00415499bcca6d6054d4ab25cddf0b8
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: f8c972bdb9195008c2983d3993e8d9369749b284
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298942"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85200180"
 ---
-#### <a name="app-registrations-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[Registros de aplicaciones](#tab/app-reg-ga/) 
 
 1. En **Administrar**, seleccione **Permisos de API**.
 1. En **Permisos configurados**, seleccione **Agregar un permiso**.
@@ -24,11 +24,10 @@ ms.locfileid: "84298942"
     * **Policy** > **Policy.ReadWrite.TrustFramework**: para escenarios de integración continua o entrega continua (CI/CD). Por ejemplo, la implementación de directivas personalizadas con Azure Pipelines.
 1. Seleccione **Agregar permisos**. Como se indicó, espere unos minutos antes de continuar con el paso siguiente.
 1. Seleccione **Conceder consentimiento de administrador para (el nombre de inquilino)** .
-1. Seleccione la cuenta de administrador que tiene actualmente la sesión iniciada o inicie sesión con una cuenta en el inquilino de Azure AD B2C que tenga asignado al menos el rol *Administrador de aplicaciones en la nube*.
-1. Seleccione **Aceptar**.
+1. Si no tiene la sesión iniciada con una cuenta de administrador global, inicie sesión con una cuenta en el inquilino de Azure AD B2C que tenga asignado al menos el rol *Administrador de aplicaciones en la nube* y, a continuación, seleccione **Conceder consentimiento de administrador para (nombre del inquilino)** .
 1. Seleccione **Actualizar** y, a continuación, compruebe que aparece "Concedido para..." bajo **Estado**. Los permisos pueden tardar unos minutos en propagarse.
 
-#### <a name="applications"></a>[Aplicaciones](#tab/applications/)
+#### <a name="applications-legacy"></a>[Aplicaciones (heredado)](#tab/applications-legacy/)
 
 1. En la página de información general **Aplicación registrada**, seleccione **Configuración**.
 1. En **Acceso de API**, seleccione **Permisos necesarios**.

@@ -4,20 +4,20 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
-ms.openlocfilehash: 17d8c0157fcd478d01452167d240fb67daeeda5b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e83536042df1cebb1bb22d6c18d99ae4c3d87873
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399582"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035860"
 ---
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se da por sentado que tiene una cuenta de Azure y una suscripción al servicio de voz. Si no dispone de una cuenta y una suscripción, [pruebe el servicio de voz de forma gratuita](../../../get-started.md).
 
 ## <a name="install-the-speech-sdk"></a>Instalación de Speech SDK
 
-En primer lugar, deberá instalar Speech SDK. Dependiendo de la plataforma, siga las instrucciones de la sección <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">Obtención del SDK de Voz<span class="docon docon-navigate-external x-hidden-focus"></span></a> del artículo sobre el SDK de Voz.
+En primer lugar, deberá instalar Speech SDK. Dependiendo de la plataforma, siga las instrucciones de la sección <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">Obtención del SDK de Voz<span class="docon docon-navigate-external x-hidden-focus"></span></a> del artículo _Acerca del SDK de Voz_.
 
 ## <a name="import-dependencies"></a>Dependencias de importación
 
@@ -77,7 +77,7 @@ La propiedad [`speech_recognition_language`][recognitionlang] espera una cadena 
 
 ## <a name="add-translation-language"></a>Incorporación del idioma de traducción
 
-Otra tarea común de la traducción de voz es especificar los idiomas de traducción de destino; se requiere al menos uno, pero se admiten varios. En el fragmento de código siguiente, se ha especificado el francés y el alemán como destinos del idioma de traducción.
+Otra tarea común de la traducción de voz es especificar los idiomas de traducción de destino; se requiere al menos uno, pero se admiten varios. En el fragmento de código siguiente, se han especificado el francés y el alemán como destinos del idioma de traducción.
 
 ```python
 def translate_speech_to_text():

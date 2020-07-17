@@ -5,14 +5,14 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 11/01/2019
+ms.date: 06/22/2020
 ms.author: allensu
-ms.openlocfilehash: 6d4fa4451c3db3d6f2a506eabd5676d18b0219f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6260a4b78197329e020bebaa3bc08db5ad792086
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259908"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559307"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Referencia del motor de reglas estándar de Azure CDN
 
@@ -32,9 +32,16 @@ Para definir una regla en el motor de reglas, establezca las [condiciones de coi
 
  ![Estructura de reglas de Azure CDN](./media/cdn-standard-rules-engine-reference/cdn-rules-structure.png)
 
-Cada regla puede tener hasta cuatro condiciones de coincidencia y tres acciones. Cada punto de conexión de Azure CDN puede tener hasta cinco reglas. 
+Cada regla puede tener hasta diez condiciones de coincidencia y cinco acciones. Cada punto de conexión de Azure CDN puede tener hasta 25 reglas. 
 
-Se incluye en el límite actual de cinco reglas para un punto de conexión de Azure CDN una *regla global* predeterminada. La regla global no tiene condiciones de coincidencia, y las acciones que se definen en una regla global siempre se desencadenan.
+En este límite se incluye una *regla global* predeterminada. La regla global no tiene condiciones de coincidencia, y las acciones que se definen en una regla global siempre se desencadenan.
+
+## <a name="limits-and-pricing"></a>Límites y precios 
+
+Cada punto de conexión de Azure CDN puede tener hasta 25 reglas. Cada regla puede tener hasta diez condiciones de coincidencia y cinco acciones. Los precios del motor de reglas siguen las dimensiones a continuación: 
+- Reglas: 1 USD por regla al mes 
+- Solicitudes procesadas: 0,60 USD por millón de solicitudes
+- Las primeras 5 reglas seguirán siendo gratuitas
 
 ## <a name="syntax"></a>Sintaxis
 

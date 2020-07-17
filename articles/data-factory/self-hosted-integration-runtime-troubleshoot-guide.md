@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/07/2019
+ms.date: 06/24/2020
 ms.author: abnarain
-ms.openlocfilehash: f27132eb21d245d0d26de910abba088ba3b8efde
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: e77d621d5699c434e691de0a523e58e49166d8d6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170983"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85315144"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solución de problemas del entorno de ejecución de integración autohospedado
 
@@ -22,7 +22,9 @@ En este artículo se exploran los métodos comunes de solución de problemas del
 
 ## <a name="common-errors-and-resolutions"></a>Errores comunes y soluciones
 
-### <a name="error-message-self-hosted-integration-runtime-cant-connect-to-cloud-service"></a>Mensaje de error: El entorno de ejecución de integración autohospedado no puede conectarse al servicio en la nube.
+### <a name="error-message"></a>Mensaje de error: 
+
+`Self-hosted integration runtime can't connect to cloud service`
 
 ![Problema de conexión de IR autohospedado](media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png)
 
@@ -30,7 +32,7 @@ En este artículo se exploran los métodos comunes de solución de problemas del
 
 El entorno de ejecución de integración autohospedado no puede conectarse al servicio Data Factory (back-end). Este problema se debe normalmente a la configuración de red en el firewall.
 
-#### <a name="resolution"></a>Solución
+#### <a name="resolution"></a>Resolución
 
 1. Compruebe si el servicio de entorno de ejecución de integración está en ejecución.
     
@@ -86,7 +88,8 @@ La respuesta esperada es la siguiente:
 > *    Compruebe que el certificado TLS/SSL de "wu2.frontend.clouddatahub.net/" es de confianza en el servidor proxy.
 > *    Si usa la autenticación de Active Directory en el proxy, cambie la cuenta de servicio por la cuenta de usuario que pueda acceder al proxy como "Integration Runtime Service".
 
-### <a name="error-message-self-hosted-integration-runtime-node-logical-shir-is-in-inactive-running-limited-state"></a>Mensaje de error: El nodo del entorno de ejecución de integración autohospedado/SHIR lógico está en estado inactivo/"en ejecución (limitado)"
+### <a name="error-message"></a>Mensaje de error: 
+`Self-hosted integration runtime node/ logical SHIR is in Inactive/ "Running (Limited)" state`
 
 #### <a name="cause"></a>Causa 
 
@@ -96,7 +99,7 @@ El nodo de tiempo de ejecución integrado autohospedado podría tener un estado 
 
 Este comportamiento se produce cuando los nodos no pueden comunicarse entre sí.
 
-#### <a name="resolution"></a>Solución
+#### <a name="resolution"></a>Resolución
 
 1. Inicie sesión en la máquina virtual hospedada en el nodo. En **Registros de aplicaciones y servicios** > **Integration Runtime**, abra el visor de eventos y filtre todos los registros de errores.
 
@@ -130,6 +133,146 @@ Este comportamiento se produce cuando los nodos no pueden comunicarse entre sí.
 1. Para solucionar este problema, pruebe uno de los métodos siguientes o ambos:
     - Colocar todos los nodos en el mismo dominio
     - Agregar la asignación de IP a host en todos los archivos de hosts de la máquina virtual hospedada
+
+
+## <a name="troubleshoot-connectivity-issue"></a>Solución del problema de conectividad
+
+### <a name="troubleshoot-connectivity-issue-between-self-hosted-ir-and-data-factory-or-self-hosted-ir-and-data-sourcesink"></a>Solución del problema de conectividad entre el IR autohospedado y Data Factory, o bien el IR autohospedado y el origen de datos o receptor
+
+Para solucionar el problema de conectividad de red, debe saber cómo [recopilar el seguimiento de red](#how-to-collect-netmon-trace), entender cómo usarlo y [analizar el seguimiento de netmon](#how-to-analyze-netmon-trace) antes de aplicar las herramientas de Netmon en casos reales desde el IR autohospedado.
+
+En ocasiones, cuando se solucionan problemas de conectividad como el siguiente entre el IR autohospedado y Data Factory: 
+
+![Error de la solicitud HTTP](media/self-hosted-integration-runtime-troubleshoot-guide/http-request-error.png)
+
+O bien entre el IR autohospedado y el origen de datos o el receptor, encontrará los errores siguientes:
+
+**Mensaje de error:** 
+`Copy failed with error:Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Cannot connect to SQL Server: ‘IP address’`
+
+**Mensaje de error:** 
+`One or more errors occurred. An error occurred while sending the request. The underlying connection was closed: An unexpected error occurred on a receive. Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host. An existing connection was forcibly closed by the remote host Activity ID.`
+
+**Resolución:** Al encontrar los problemas anteriores, consulte las instrucciones siguientes para solucionarlos:
+
+Profundice en el análisis con el seguimiento de netmon.
+- En primer lugar, puede establecer el filtro para ver cualquier restablecimiento del servidor en el lado cliente. En el ejemplo siguiente, puede ver que el lado servidor es el servidor de Data Factory.
+
+    ![Servidor de Data Factory](media/self-hosted-integration-runtime-troubleshoot-guide/data-factory-server.png)
+
+- Al obtener el paquete de restablecimiento, puede encontrar la conversación si sigue el TCP.
+
+    ![Búsqueda de la conversación](media/self-hosted-integration-runtime-troubleshoot-guide/find-conversation.png)
+
+- Después, puede obtener la conversación entre el cliente y el servidor de Data Factory si quita el filtro.
+
+    ![Obtención de la conversación](media/self-hosted-integration-runtime-troubleshoot-guide/get-conversation.png)
+- En función del seguimiento de netmon recopilado, se puede saber que el total de TTL (TimeToLive) es 64. Según los **valores predeterminados de TTL y límite de salto** mencionados en [este artículo](https://packetpushers.net/ip-time-to-live-and-hop-limit-basics/) (como se extrae a continuación), se aprecia que es el sistema Linux el que restablece el paquete y provoca la desconexión.
+
+    Los valores predeterminados de TTL y límite de salto varían entre distintos sistemas operativos; estos son los de algunos de ellos:
+    - Kernel de Linux 2.4 (2001 aproximadamente): 255 para TCP, UDP e ICMP
+    - Kernel de Linux 4.10 (2015): 64 para TCP, UDP e ICMP
+    - Windows XP (2001): 128 para TCP, UDP e ICMP
+    - Windows 10 (2015): 128 para TCP, UDP e ICMP
+    - Windows Server 2008: 128 para TCP, UDP e ICMP
+    - Windows Server 2019 (2018): 128 para TCP, UDP e ICMP
+    - macOS (2001): 64 para TCP, UDP e ICMP
+
+    ![TTL 61](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-61.png)
+    
+    Pero en el ejemplo anterior se muestra como 61 en lugar de 64, porque cuando el paquete de red alcanza el destino, debe pasar por varios saltos, como enrutadores o dispositivos de red. El número de enrutadores o dispositivos de red se deduce en el valor TTL final.
+    En este caso, se ve que es posible que el restablecimiento se haya enviado desde el sistema Linux con TTL 64.
+
+- Es necesario comprobar el cuarto salto desde IR autohospedado para confirmar de dónde puede provenir el dispositivo de restablecimiento.
+ 
+    *Paquete de red del sistema Linux A con TTL 64 -> B TTL 64 menos 1 = 63 -> C TTL 63 menos 1 = 62 -> TTL 62 menos 1 = 61 IR autohospedado*
+
+- En una situación idónea, el valor TTL será 128, lo que significa que el sistema Windows ejecuta la instancia de Data Factory. Como se muestra en el ejemplo siguiente, *128 – 107 = 21 saltos*, lo que significa que se han enviado 21 saltos para el paquete desde Data Factory a IR autohospedado durante el protocolo de enlace TCP 3.
+ 
+    ![TTL 107](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
+
+    Por tanto, debe comunicarle al equipo de red que compruebe cuál es el cuarto salto desde el IR autohospedado. Si es el firewall como sistema Linux, compruebe en los registros por qué el dispositivo restablece el paquete después del protocolo de enlace TCP 3. Pero si no está seguro de dónde investigar, intente obtener el seguimiento de netmon conjunto del IR autohospedado y el firewall durante el período problemático para determinar qué dispositivo ha podido restablecer este paquete y provocar la desconexión. En este caso, también debe indicarle al equipo de red que avance.
+
+### <a name="how-to-collect-netmon-trace"></a>Procedimiento para recopilar el seguimiento de netmon
+
+1.  Descargue las herramientas de Netmon desde [este sitio web](https://www.microsoft.com/en-sg/download/details.aspx?id=4865) e instálelas en el equipo del servidor (en cualquier servidor que tenga el problema) y en el cliente (por ejemplo el IR autohospedado).
+
+2.  Cree una carpeta, por ejemplo, en la ruta de acceso siguiente: *D:\netmon*. Asegúrese de que tiene espacio suficiente para guardar el registro.
+
+3.  Capture la información de puerto y dirección IP. 
+    1. Inicie un símbolo del sistema CMD.
+    2. Seleccione Ejecutar como administrador y ejecute el comando siguiente:
+       
+        ```
+        Ipconfig /all >D:\netmon\IP.txt
+        netstat -abno > D:\netmon\ServerNetstat.txt
+        ```
+
+4.  Capture el seguimiento de netmon (paquete de red).
+    1. Inicie un símbolo del sistema CMD.
+    2. Seleccione Ejecutar como administrador y ejecute el comando siguiente:
+        
+        ```
+        cd C:\Program Files\Microsoft Network Monitor 3
+        ```
+    3. Puede usar tres comandos diferentes para capturar la página de red:
+        - Opción A: comando de archivo RoundRobin (capturará un solo archivo y sobrescribirá los registros antiguos).
+
+            ```
+            nmcap /network * /capture /file D:\netmon\ServerConnection.cap:200M
+            ```         
+        - Opción B: comando de archivo encadenado (creará un archivo si se alcanzan los 200 MB).
+        
+            ```
+            nmcap /network * /capture /file D:\netmon\ServerConnection.chn:200M
+            ```          
+        - Opción C: comando de archivo programado.
+
+            ```
+            nmcap /network * /capture /StartWhen /Time 10:30:00 AM 10/28/2011 /StopWhen /Time 11:30:00 AM 10/28/2011 /file D:\netmon\ServerConnection.chn:200M
+            ```  
+
+5.  Presione **Ctrl+C** para detener la captura del seguimiento de Netmon.
+ 
+> [!NOTE]
+> Si solo puede recopilar el seguimiento de netmon en el equipo cliente, obtenga la dirección IP del servidor para ayudarle a analizar el seguimiento.
+
+### <a name="how-to-analyze-netmon-trace"></a>Procedimiento para analizar el seguimiento de netmon
+
+Al intentar telnet **8.8.8.8 888** con el seguimiento de netmon recopilado anterior, debería ver el seguimiento siguiente:
+
+![seguimiento de netmon 1](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-1.png)
+
+![seguimiento de netmon 2](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-2.png)
+ 
+
+Esto significa que no puede establecer una conexión TCP con el lado servidor **8.8.8.8** en función del puerto **888**, por lo que verá dos paquetes **SynReTransmit** adicionales. Como el origen **SELF-HOST2** no ha podido establecer la conexión con **8.8.8.8** en el primer paquete, seguirá intentándolo.
+
+> [!TIP]
+> - Puede hacer clic en **Cargar filtro** -> **Filtro estándar** -> **Direcciones** -> **Direcciones IPv4**.
+> - Escriba **Dirección IPv4 = = 8.8.8.8** como filtro y haga clic en **Aplicar**. Después, solo verá la comunicación desde el equipo local al destino **8.8.8.8**.
+
+![direcciones de filtro 1](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png)
+        
+![direcciones de filtro 2](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-2.png)
+
+En el ejemplo siguiente se muestra el aspecto que tendría un escenario correcto. 
+
+- Si Telnet **8.8.8.8 53** funciona correctamente sin ningún problema, puede ver el protocolo de enlace TCP 3 y, después, la sesión finaliza con el protocolo de enlace TCP 4.
+
+    ![Escenario de ejemplo correcto 1](media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-1.png)
+     
+    ![Escenario de ejemplo correcto 2](media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-2.png)
+
+- En función del protocolo de enlace TCP 3 anterior, puede ver el flujo de trabajo siguiente:
+
+    ![Flujo de trabajo del protocolo de enlace TCP 3](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-3-handshake-workflow.png)
+ 
+- El protocolo de enlace TCP 4 para finalizar la sesión y su flujo de trabajo se mostrarán de esta manera:
+
+    ![Protocolo de enlace TCP 4](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake.png)
+
+    ![Flujo de trabajo del protocolo de enlace TCP 4](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png) 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 06/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 775ff6b3ba003bed22ccd5a42cb4da005c4dbb69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: de905c61642c36a07c7f87e0be910b0f035bffc1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227844"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555255"
 ---
 # <a name="what-is-risk"></a>¿Qué es el riesgo?
 
@@ -38,7 +38,7 @@ Estos riesgos se calculan sin conexión, usando orígenes de inteligencia sobre 
 
 | Detección de riesgos | Descripción |
 | --- | --- |
-| Credenciales con fugas | Este tipo de detección de riesgo indica que se han filtrado las credenciales válidas del usuario. Cuando los cibercriminales llegan a poner en peligro las contraseñas válidas de usuarios legítimos, es frecuente que las compartan. Normalmente lo hacen publicándolas en la Web oscura, los sitios de pegado, o bien mediante el intercambio o la venta de esas credenciales en el mercado negro. Cuando el servicio de credenciales filtradas de Microsoft adquiere las credenciales de usuario de la Web oscura, los sitios de pegado u otros orígenes, se comparan con las credenciales válidas actuales de los usuarios de Azure AD para encontrar coincidencias válidas. |
+| Credenciales con fugas | Este tipo de detección de riesgo indica que se han filtrado las credenciales válidas del usuario. Cuando los cibercriminales llegan a poner en peligro las contraseñas válidas de usuarios legítimos, es frecuente que las compartan. Normalmente lo hacen publicándolas en la Web oscura, los sitios de pegado, o bien mediante el intercambio o la venta de esas credenciales en el mercado negro. Cuando el servicio de credenciales filtradas de Microsoft adquiere las credenciales de usuario de la Web oscura, los sitios de pegado u otros orígenes, se comparan con las credenciales válidas actuales de los usuarios de Azure AD para encontrar coincidencias válidas. Para obtener más información sobre las credenciales filtradas, consulte [Preguntas frecuentes](#common-questions). |
 | Inteligencia de Azure AD sobre amenazas | Este tipo de detección de riesgo indica una actividad de usuario poco común para el usuario en cuestión o coherente con patrones de ataque conocidos basados en orígenes de inteligencia sobre amenazas internas y externas de Microsoft. |
 
 ### <a name="sign-in-risk"></a>Riesgo de inicio de sesión
@@ -55,7 +55,7 @@ Estos riesgos se pueden calcular en tiempo real o sin conexión, usando orígene
 | Propiedades de inicio de sesión desconocidas | Tiempo real | Este tipo de detección de riesgos tiene en cuenta el historial de inicio de sesión anterior (dirección IP, latitud/longitud y ASN) para determinar inicios de sesión anómalos. El sistema almacena información acerca de las ubicaciones anteriores que ha utilizado un usuario y considera estas ubicaciones "conocidas". La detección de riesgos se desencadena cuando el inicio de sesión se produce desde una ubicación que no está en la lista de ubicaciones conocidas. Los usuarios recién creados estarán en "modo de aprendizaje" durante un período de tiempo, en el que las detecciones de riesgo de las propiedades de inicio de sesión desconocidas estarán desactivadas mientras nuestros algoritmos aprenden el comportamiento del usuario. La duración del modo de aprendizaje es dinámica y depende de cuánto tiempo tarde el algoritmo en recopilar información suficiente sobre los patrones de inicio de sesión del usuario. La duración mínima es de cinco días. Un usuario puede volver al modo de aprendizaje tras un largo período de inactividad. El sistema también ignora los inicios de sesión desde dispositivos conocidos y ubicaciones geográficamente cercanas a una ubicación conocida. <br><br> También se ejecuta esta detección para una autenticación básica o para protocolos heredados. Dado que estos protocolos no tienen propiedades modernas como el identificador de cliente, hay una telemetría limitada para reducir los falsos positivos. Se recomienda que los clientes realicen la migración a la autenticación moderna. |
 | Vulneración de identidad de usuario confirmada por el administrador | Sin conexión | Esta detección indica que un administrador ha seleccionado "Confirmar vulneración de la identidad del usuario" en la interfaz de usuario de Usuarios de riesgo o mediante riskyUsers API. Para ver qué administrador ha confirmado este usuario comprometido, compruebe el historial de riesgos del usuario (a través de la interfaz de usuario o la API). |
 | Dirección IP malintencionada | Sin conexión | Esta detección indica el inicio de sesión desde una dirección IP malintencionada. Una dirección IP se considera malintencionada si se recibe una alta tasa de errores debidos a credenciales no válidas desde la dirección IP u otros orígenes de reputación de IP. |
-| Reglas de manipulación sospechosa de la bandeja de entrada | Sin conexión | Esta detección se debe a [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-manipulation-rules). Esta detección genera un perfil del entorno y activa alertas cuando se establecen reglas sospechosas que eliminan o mueven mensajes o carpetas en la bandeja de entrada de un usuario. Esto puede indicar que la cuenta del usuario está en peligro, que los mensajes se están ocultando intencionadamente y que el buzón se está usando para distribuir correo no deseado o malware en su organización. |
+| Reglas de manipulación sospechosa de la bandeja de entrada | Sin conexión | Esta detección se debe a [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-manipulation-rules). Esta detección genera un perfil del entorno y activa alertas cuando se establecen reglas sospechosas que eliminan o mueven mensajes o carpetas en la bandeja de entrada de un usuario. Esta detección puede indicar que la cuenta del usuario está en peligro, que los mensajes se están ocultando intencionadamente y que el buzón se está usando para distribuir correo no deseado o malware en su organización. |
 | Viaje imposible | Sin conexión | Esta detección se debe a [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#impossible-travel). Esta detección identifica dos actividades de usuario (en una o varias sesiones) que se originan desde ubicaciones geográficamente distantes dentro de un período de tiempo menor que el tiempo que habría tardado el usuario para viajar de la primera ubicación a la segunda, lo que indica que otro usuario está usando las mismas credenciales. |
 
 ### <a name="other-risk-detections"></a>Otras detecciones de riesgo
@@ -64,8 +64,34 @@ Estos riesgos se pueden calcular en tiempo real o sin conexión, usando orígene
 | --- | --- | --- |
 | Riesgo adicional detectado | En tiempo real o sin conexión | Esta detección indica que se descubrió una de las detecciones prémium anteriores. Dado que las detecciones premium solo son visibles para los clientes de Azure AD Premium P2, se denominan "Riesgo adicional detectado" para los clientes sin licencias de Azure AD Premium P2. |
 
+## <a name="common-questions"></a>Preguntas frecuentes
+
+### <a name="leaked-credentials"></a>Credenciales con fugas
+
+#### <a name="where-does-microsoft-find-leaked-credentials"></a>¿Dónde busca Microsoft las credenciales filtradas?
+
+Microsoft busca las credenciales filtradas en una gran variedad de lugares, entre otros:
+
+- Los sitios de pegado públicos, como pastebin.com y paste.ca, en los que los infiltrados normalmente publican este material. Esta ubicación es la parada obligada para la mayoría de los infiltrados en su búsqueda de credenciales robadas.
+- Organismos de autoridad judicial.
+- Otros grupos de Microsoft que investigan la web oscura.
+
+#### <a name="why-arent-i-seeing-any-leaked-credentials"></a>¿Por qué no veo ninguna credencial filtrada?
+
+Las credenciales filtradas se procesan siempre que Microsoft encuentra un nuevo lote disponible públicamente. Debido a la naturaleza confidencial, las credenciales filtradas se eliminan poco después de su procesamiento. Solo se procesarán en el inquilino las nuevas credenciales filtradas que se encuentren después de habilitar la sincronización de hash de contraseñas (PHS). No se comprueban los pares de credenciales detectados anteriormente. 
+
+#### <a name="i-havent-seen-any-leaked-credential-risk-events-for-quite-some-time"></a>No he encontrado ningún evento de riesgo de credenciales filtradas durante bastante tiempo.
+
+Si no ha detectado ningún evento de riesgo de credenciales filtradas, se debe a los siguientes motivos:
+
+- No tiene PHS habilitada para el inquilino.
+- Microsoft no ha encontrado ningún par de credenciales filtradas que coincida con sus usuarios.
+
+#### <a name="how-often-does-microsoft-process-new-credentials"></a>¿Con qué frecuencia Microsoft procesa nuevas credenciales?
+
+Las credenciales se procesan inmediatamente después de que se han encontrado, normalmente varios lotes al día.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Directivas disponibles para mitigar los riesgos](concept-identity-protection-policies.md)
-
 - [Información general sobre seguridad](concept-identity-protection-security-overview.md)

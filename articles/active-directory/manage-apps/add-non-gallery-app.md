@@ -2,22 +2,22 @@
 title: 'Agregar aplicaciones que no están en la galería: plataforma de identidad de Microsoft | Microsoft Docs'
 description: Agregue una aplicación que no esté en la galería a su inquilino de Azure AD
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 10/24/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd5a5f100dbe09c3b82f58183a118ee3bf455f70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cbefcec884fcf179c182cd50efeb58a0fc357378
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77063618"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555118"
 ---
 # <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>Agregue una aplicación no enumerada (que no esté en la galería) a su organización de Azure AD
 
@@ -70,7 +70,7 @@ En este artículo se describe cómo agregar una aplicación que no esté en la g
 
       Comportamiento para los usuarios **asignados**:
 
-       | Configuración de propiedades de la aplicación | | | Experiencia del usuario asignado | |
+       | Propiedad de la aplicación | Propiedad de la aplicación | Propiedad de la aplicación | Experiencia del usuario asignado | Experiencia del usuario asignado |
        |---|---|---|---|---|
        | ¿Habilitado para que los usuarios inicien sesión? | ¿Se requiere la asignación de usuarios? | ¿Es visible para los usuarios? | ¿Pueden los usuarios asignados iniciar sesión? | ¿Pueden ver los usuarios asignados la aplicación?* |
        | sí | sí | sí | sí | sí  |
@@ -84,7 +84,7 @@ En este artículo se describe cómo agregar una aplicación que no esté en la g
 
       Comportamiento para los usuarios **no asignados**:
 
-       | Configuración de propiedades de la aplicación | | | Experiencia del usuario no asignado | |
+       | Propiedad de la aplicación | Propiedad de la aplicación | Propiedad de la aplicación | Experiencia del usuario no asignado | Experiencia del usuario no asignado |
        |---|---|---|---|---|
        | ¿Está habilitado para que los usuarios inicien sesión? | ¿Se requiere la asignación de usuarios? | ¿Es visible para los usuarios? | ¿Pueden iniciar sesión los usuarios no asignados? | ¿Pueden ver la aplicación los usuarios no asignados?* |
        | sí | sí | sí | no  | no   |

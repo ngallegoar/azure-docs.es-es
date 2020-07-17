@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: mimart
 ms.openlocfilehash: af11283f9e9dbd925ec994dcb1d96393332b90fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80117014"
 ---
 ## <a name="use-custom-page-content"></a>Uso del contenido de la página personalizada
@@ -89,7 +89,7 @@ A continuación se muestra una información general acerca del proceso:
 
 Puede crear contenido de la página personalizada con el nombre de la marca del producto en el título.
 
-1. Copie el siguiente fragmento de código HTML. Es HTML5 bien formado con un elemento vacío denominado *\<div id="api"\>\</div\>* situado en las etiquetas *\<body\>* . Este elemento indica dónde se va a insertar el contenido de Azure AD B2C.
+1. Copie el siguiente fragmento de código HTML. Se trata de código HTML5 con formato correcto con un elemento vacío llamado *\<div id="api"\>\</div\>* situado en las etiquetas *\<body\>* . Este elemento indica dónde se va a insertar el contenido de Azure AD B2C.
 
    ```html
    <!DOCTYPE html>

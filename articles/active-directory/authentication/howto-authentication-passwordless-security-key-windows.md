@@ -11,21 +11,19 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b8f5d6aaa96c24eb37eb78d237a489f1d25293c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: acf7f89ab7c84d74dcd6e3dff2c2c688da1cefea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80653996"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550613"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Habilitar el inicio de sesión con una clave de seguridad sin contraseña en dispositivos Windows 10 con Azure Active Directory (versión preliminar)
 
 Este documento se centra en la habilitación de la autenticación sin contraseña basada en claves de seguridad FIDO2 para dispositivos Windows 10. Al final de este artículo, será capaz de iniciar sesión en los dispositivos Windows 10 unidos a Azure AD y a Azure AD híbrido con la cuenta de Azure AD mediante una clave de seguridad FIDO2.
 
-|     |
-| --- |
-| Las claves de seguridad FIDO2 son una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+> [!NOTE]
+> Las claves de seguridad FIDO2 son una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="requirements"></a>Requisitos
 
@@ -36,7 +34,7 @@ Este documento se centra en la habilitación de la autenticación sin contraseñ
 | [Claves de seguridad FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatibles | X | X |
 | WebAuthN requiere Windows 10 versión 1809 o superior | X | X |
 | [Los dispositivos unidos a Azure AD](../devices/concept-azure-ad-join.md) requieren Windows 10 versión 1903 o superior | X |   |
-| [Los dispositivos unidos a Azure AD híbrido](../devices/concept-azure-ad-join-hybrid.md) requieren Windows 10 Insider Build 18945 o una versión posterior. |   | X |
+| [Los dispositivos unidos a Azure AD híbrido](../devices/concept-azure-ad-join-hybrid.md) requieren Windows 10 versión 2004 o superior |   | X |
 | Controladores de dominio de Windows Server 2016/2019 totalmente revisados |   | X |
 | [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect), versión 1.4.32.0 o posterior |   | X |
 | [Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/what-is-intune) (opcional) | X | X |
@@ -60,7 +58,7 @@ No se admiten los escenarios siguientes:
 
 Los dispositivos unidos a Azure AD de los que realiza una prueba piloto durante la versión preliminar de características deben ejecutar Windows 10, versión 1809 o posterior. La mejor experiencia se logra con Windows 10 versión 1903 o superior.
 
-Los dispositivos unidos a Azure AD híbrido deben ejecutar Windows 10 Insider Build 18945 o una versión más reciente.
+Los dispositivos unidos a Azure AD híbrido deben ejecutar Windows 10, versión 2004 o una versión más reciente.
 
 ## <a name="enable-security-keys-for-windows-sign-in"></a>Habilitación de claves de seguridad para el inicio de sesión de Windows
 

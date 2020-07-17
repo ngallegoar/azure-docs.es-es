@@ -4,20 +4,20 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
-ms.openlocfilehash: 73e6e117428808aae39e361a3b119e9b2af1ac27
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 60d5fb524d07590ed28641a6c91b87dbeb7dfc9f
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399640"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035677"
 ---
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se da por sentado que tiene una cuenta de Azure y una suscripción al servicio de voz. Si no dispone de una cuenta y una suscripción, [pruebe el servicio de voz de forma gratuita](../../../get-started.md).
 
 ## <a name="install-the-speech-sdk"></a>Instalación de Speech SDK
 
-En primer lugar, deberá instalar Speech SDK. Dependiendo de la plataforma, siga las instrucciones de la sección <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">Obtención del SDK de Voz<span class="docon docon-navigate-external x-hidden-focus"></span></a> del artículo sobre el SDK de Voz.
+En primer lugar, deberá instalar Speech SDK. Dependiendo de la plataforma, siga las instrucciones de la sección <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">Obtención del SDK de Voz<span class="docon docon-navigate-external x-hidden-focus"></span></a> del artículo _Acerca del SDK de Voz_.
 
 ## <a name="import-dependencies"></a>Dependencias de importación
 
@@ -103,9 +103,9 @@ static void translateSpeech() {
 
 La función [`setSpeechRecognitionLanguage`][recognitionlang] espera una cadena con formato de configuración regional de idioma. En la columna **Locale**, puede proporcionar cualquier valor de la lista de idiomas o configuraciones regionales [compatibles](../../../language-support.md).
 
-## <a name="add-translation-language"></a>Adición del idioma de traducción
+## <a name="add-translation-language"></a>Incorporación del idioma de traducción
 
-Otra tarea común de la traducción de voz es especificar los idiomas de traducción de destino; se requiere al menos uno, pero se admiten varios. En el siguiente fragmento de código, se ha especificado el francés y el alemán como destinos del idioma de traducción.
+Otra tarea común de la traducción de voz es especificar los idiomas de traducción de destino; se requiere al menos uno, pero se admiten varios. En el fragmento de código siguiente, se han especificado el francés y el alemán como destinos del idioma de traducción.
 
 ```java
 static void translateSpeech() {
@@ -194,7 +194,7 @@ static void translateSpeech() {
 
 ## <a name="translate-speech"></a>Traducir voz
 
-Para traducir la voz, el SDK de voz depende de un micrófono o en una entrada de archivo de audio. El reconocimiento de voz tiene lugar antes de la traducción de voz. Cuando todos los objetos se hayan inicializado, llame a la función recognize-once y obtenga el resultado.
+Para traducir la voz, el SDK de Voz depende de un micrófono o en una entrada de archivo de audio. El reconocimiento de voz tiene lugar antes de la traducción de voz. Cuando todos los objetos se hayan inicializado, llame a la función recognize-once y obtenga el resultado.
 
 ```java
 static void translateSpeech() throws ExecutionException, InterruptedException {

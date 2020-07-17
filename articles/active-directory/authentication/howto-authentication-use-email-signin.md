@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/22/2020
+ms.date: 06/24/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: scottsta
-ms.openlocfilehash: 9a02a01bb55e63322964b52a5f4d6113b3280360
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 0a7048e79ddd4a86d7e14e573cf5b8556f462f03
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220716"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550325"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Iniciar sesión en Azure mediante el correo electrónico como id. de inicio de sesión alternativo (versión preliminar)
 
@@ -29,10 +29,8 @@ Algunas organizaciones no han migrado a la autenticación híbrida por las sigui
 
 Para facilitar la adopción de la autenticación híbrida, ahora puede configurar Azure AD para que los usuarios puedan iniciar sesión en Azure con un correo electrónico en su dominio verificado como un identificador de inicio de sesión alternativo. Por ejemplo, si *Contoso* cambia de nombre a *Fabrikam*, en lugar de seguir iniciando sesión con el UPN heredado `balas@contoso.com`, ahora se puede usar el correo electrónico como id. de inicio de sesión alternativo. Para acceder a una aplicación o a servicios, los usuarios inician sesión en Azure AD con su correo electrónico asignado, como `balas@fabrikam.com`.
 
-|     |
-| --- |
-| Iniciar sesión en Azure AD con el correo electrónico como id. de inicio de sesión alternativo es una característica en vista previa (GB) pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+> [!NOTE]
+> Iniciar sesión en Azure AD con el correo electrónico como id. de inicio de sesión alternativo es una característica en vista previa (GB) pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="overview-of-azure-ad-sign-in-approaches"></a>Información general de los métodos de inicio de sesión Azure AD
 
@@ -45,6 +43,19 @@ Sin embargo, en algunas organizaciones el UPN local no se usaba como nombre de i
 La solución habitual a este problema era configurar el UPN de Azure AD con la dirección de correo electrónico con la que el usuario espera iniciar sesión. Este enfoque funciona, aunque genera distintos UPN entre AD local y Azure AD, y esta configuración no es compatible con todas las cargas de trabajo de Microsoft 365.
 
 Un enfoque diferente consiste en sincronizar los UPN de Azure AD y AD local con el mismo valor y, a continuación, configurar Azure AD para permitir que los usuarios inicien sesión con un correo electrónico verificado. Para ello, defina una o más direcciones de correo electrónico en el atributo *ProxyAddresses* del usuario en el directorio local. El atributo *ProxyAddresses* se sincroniza en Azure AD automáticamente mediante Azure AD Connect.
+
+## <a name="preview-limitations"></a>Limitaciones de vista previa
+
+En el estado de versión preliminar actual, rigen las siguientes limitaciones cuando un usuario inicia sesión con un correo electrónico que no es UPN como identificador de inicio de sesión alternativo:
+
+* Los usuarios pueden ver su UPN, incluso cuando han iniciado sesión con su correo electrónico que no sea UPN. Se puede observar el siguiente comportamiento de ejemplo:
+    * Al usuario se le solicita que inicie sesión con su UPN cuando se le dirige al inicio de sesión de Azure AD con `login_hint=<non-UPN email>`.
+    * Cuando un usuario inicia sesión con un correo electrónico que no es UPN y escribe una contraseña incorrecta, la página *"Escriba la contraseña"* cambia para mostrar el UPN.
+    * En algunos sitios y aplicaciones de Microsoft, como [https://portal.azure.com](https://portal.azure.com) y Microsoft Office, el control **Administrador de cuentas** que se muestra normalmente en la esquina superior derecha puede mostrar el UPN del usuario en lugar del correo electrónico que no sea UPN usado para iniciar sesión.
+
+* Actualmente, algunos flujos no son compatibles con el correo electrónico que no sea UPN, como los siguientes:
+    * Identity Protection no coincide actualmente con los identificadores de inicio de sesión alternativos de correo electrónico con la detección de riesgo *Credenciales filtradas*. Esta detección de riesgo usa el UPN para asociar las credenciales que se han filtrado. Para obtener más información, consulte [Detección y corrección de riesgos de Azure AD Identity Protection][identity-protection].
+    * Las invitaciones B2B enviadas a un correo electrónico de identificador de inicio de sesión alternativo no se admiten totalmente. Después de aceptar una invitación enviada a un correo electrónico como identificador de inicio de sesión alternativo, es posible que el inicio de sesión con el correo electrónico alternativo no funcione para el usuario en el punto de conexión de inquilino.
 
 ## <a name="synchronize-sign-in-email-addresses-to-azure-ad"></a>Sincronizar las direcciones de correo electrónico de inicio de sesión con Azure AD
 
@@ -177,6 +188,7 @@ Para obtener más información sobre las operaciones de identidad híbrida, cons
 [hybrid-overview]: ../hybrid/cloud-governed-management-for-on-premises.md
 [phs-overview]: ../hybrid/how-to-connect-password-hash-synchronization.md
 [pta-overview]: ../hybrid/how-to-connect-pta-how-it-works.md
+[identity-protection]: ../identity-protection/overview-identity-protection.md#risk-detection-and-remediation
 
 <!-- EXTERNAL LINKS -->
 [Install-Module]: /powershell/module/powershellget/install-module

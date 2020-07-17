@@ -8,12 +8,12 @@ ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 56757d1c2810efe608601c231946b2242df82b19
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 4bc5897401a62d45e8b1c987d7ef50e0c8a6de08
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890177"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565354"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Incorporación de perfiles de puntuación a un índice de Azure Cognitive Search
 
@@ -61,7 +61,7 @@ La *puntuación* calcula una puntuación de la búsqueda para cada elemento de u
  Para usar este perfil de puntuación, se formula la consulta para especificar el perfil en la cadena de consulta. En la siguiente consulta, observe el parámetro de consulta `scoringProfile=geo` en la solicitud.  
 
 ```  
-GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2019-05-06 
+GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2020-06-30 
 ```  
 
  Esta consulta busca el término «inn» y pasa la ubicación actual. Tenga en cuenta que esta consulta incluye otros parámetros, como `scoringParameter`. Los parámetros de consulta se describen en [Búsqueda de documentos &#40;API REST de Azure Cognitive&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).  
@@ -77,7 +77,7 @@ La puntuación de búsqueda se calcula en función de las propiedades estadísti
 
  Los valores de puntuación de búsqueda pueden repetirse a lo largo de un conjunto de resultados. Por ejemplo, puede tener 10 elementos con una puntuación de 1,2, 20 elementos con una puntuación de 1,0 y 20 elementos con una puntuación de 0,5. Cuando varios resultados tienen la misma puntuación de búsqueda, el orden de estos elementos puntuados no se define y no es estable. Vuelva a ejecutar la consulta verá cómo los elementos cambian de posición. Si dos elementos disponen de la misma puntuación, no hay ninguna garantía de cuál aparecerá en primer lugar.  
 
-## <a name="when-to-use-custom-scoring"></a>Cuándo usar la puntuación personalizada  
+## <a name="when-to-add-scoring-logic"></a>Cuándo agregar lógica de puntuación 
  Debe crear uno o más perfiles de puntuación cuando el comportamiento de clasificación predeterminado no logre cumplir los objetivos de su empresa. Por ejemplo, podría decidir que la relevancia de la búsqueda debe favorecer a los elementos recién agregados. Asimismo, podría tener un campo que contenga el margen de beneficio, o algún otro campo que indique los ingresos potenciales. Aumentar los resultados que ofrecen beneficios a su empresa puede ser un factor importante a la hora de decidir usar perfiles de puntuación.  
 
  El orden basado en relevancia también se implementa a través de perfiles de puntuación. Tenga en cuenta los resultados de búsqueda que ha usado en el pasado que le permiten ordenar por relevancia, fecha, clasificación o precio. En Azure Cognitive Search, los perfiles de puntuación determinan la opción "relevancia". La definición de relevancia está controlada por usted, se afirma en los objetivos empresariales y en el tipo de experiencia de búsqueda que desee ofrecer.  

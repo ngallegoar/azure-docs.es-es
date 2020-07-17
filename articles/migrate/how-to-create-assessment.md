@@ -1,21 +1,21 @@
 ---
-title: Creación de una evaluación con la herramienta de evaluación de servidores de Azure Migrate | Microsoft Docs
-description: En este artículo se describe cómo crear una evaluación con la herramienta de evaluación de servidores de Azure Migrate.
+title: Creación de una valoración de VM de Azure con la herramienta de valoración de servidores de Azure Migrate | Microsoft Docs
+description: En este artículo se describe cómo crear una valoración de VM de Azure con la herramienta de valoración de servidores de Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
-ms.openlocfilehash: cffde2a677650387dffd19733e082ff7002ccb55
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ec95cde1f023b4d034c2fae9cc5a54744ccdc9a7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68228979"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549802"
 ---
-# <a name="create-an-assessment"></a>Crear una evaluación
+# <a name="create-an-azure-vm-assessment"></a>Creación de una valoración de máquina virtual de Azure
 
-En este artículo se describe cómo crear una evaluación para máquinas virtuales locales de VMware o de Hyper-V con Azure Migrate: Server Assessment.
+En este artículo se describe cómo crear una valoración de VM de Azure para máquinas virtuales locales de VMware o de Hyper-V con Azure Migrate: Server Assessment.
 
 [Azure Migrate](migrate-services-overview.md) le ayuda a migrar a Azure. Azure Migrate proporciona un centro principal para realizar el seguimiento de la detección, valoración y migración de infraestructuras, aplicaciones y datos locales a Azure. El centro proporciona herramientas de Azure para la valoración y migración, así como ofertas de proveedores de software independientes (ISV) externos. 
 
@@ -26,8 +26,8 @@ En este artículo se describe cómo crear una evaluación para máquinas virtual
 - Para crear una evaluación, debe configurar una aplicación Azure Migrate para [VMware](how-to-set-up-appliance-vmware.md) o [Hyper-V](how-to-set-up-appliance-hyper-v.md). El dispositivo detecta máquinas locales y envía metadatos y datos de rendimiento a Azure Migrate: Server Assessment. [Más información](migrate-appliance.md).
 
 
-## <a name="assessment-overview"></a>Introducción a la valoración
-Con Azure Migrate: Server Assessment se pueden crear dos Server Assessment.
+## <a name="azure-vm-assessment-overview"></a>Introducción a las valoraciones de VM de Azure
+Existen dos tipos de criterios de tamaño que puede usar para crear valoraciones de VM de Azure mediante Azure Migrate: Server Assessment.
 
 **Valoración** | **Detalles** | **Data**
 --- | --- | ---
@@ -45,31 +45,35 @@ Las evaluaciones se realizan como se indica a continuación:
 
     ![Evaluar](./media/how-to-create-assessment/assess.png)
 
-2. En **Evaluar los servidores**, especifique el nombre de la evaluación.
-3. Haga clic en **View all** (Ver todo) para revisar la configuración de la valoración.
+3. En **Evaluar los servidores**, seleccione el tipo de evaluación como "Máquina virtual de Azure", seleccione el origen de detección y especifique el nombre de la evaluación.
+
+    ![Aspectos básicos de la valoración](./media/how-to-create-assessment/assess-servers-azurevm.png)
+
+4. Haga clic en **View all** (Ver todo) para revisar la configuración de la valoración.
 
     ![Propiedades de la evaluación](./media/how-to-create-assessment//view-all.png)
 
-3. En **Seleccionar o crear un grupo**, seleccione **Crear nuevo** y especifique un nombre de grupo. Un grupo recopila una o varias máquinas virtuales para su evaluación.
-4. En **Agregar máquinas al grupo**, seleccione las máquinas virtuales que se van a agregar al grupo.
-5. Haga clic en **Crear evaluación** para crear el grupo y realizar la evaluación.
+5. Haga clic en **Siguiente** para **seleccionar las máquinas que se van a evaluar**. En **Seleccionar o crear un grupo**, seleccione **Crear nuevo** y especifique un nombre de grupo. Un grupo recopila una o varias máquinas virtuales para su evaluación.
+6. En **Agregar máquinas al grupo**, seleccione las máquinas virtuales que se van a agregar al grupo.
+7. Haga clic en **Siguiente** para **Revisar y crear evaluación** para revisar los detalles de la evaluación.
+8. Haga clic en **Crear evaluación** para crear el grupo y realizar la evaluación.
 
     ![Crear una evaluación](./media/how-to-create-assessment//assessment-create.png)
 
-6. Una vez creada la evaluación, se puede ver en **Servidores** > **Azure Migrate: Server Assessment** > **Evaluaciones**.
-7. Haga clic en **Exportar la evaluación** para descargarla como un archivo de Excel.
+9. Una vez creada la evaluación, se puede ver en **Servidores** > **Azure Migrate: Server Assessment** > **Evaluaciones**.
+10. Haga clic en **Exportar la evaluación** para descargarla como un archivo de Excel.
 
 
 
-## <a name="review-an-assessment"></a>Revisión de una evaluación
+## <a name="review-an-azure-vm-assessment"></a>Revisión de una valoración de VM de Azure
 
-Una evaluación describe:
+Una valoración de VM de Azure describe:
 
 - **Preparación para Azure**: si las máquinas virtuales son adecuadas para la migración a Azure.
 - **Estimación del costo mensual**: los costos mensuales estimados de proceso y almacenamiento por ejecutar las máquinas virtuales en Azure.
 - **Estimación del costo mensual de almacenamiento**: costos estimados del almacenamiento en disco después de la migración.
 
-### <a name="view-an-assessment"></a>Visualización de una evaluación
+### <a name="view-an-azure-vm-assessment"></a>Visualización de una valoración de VM de Azure
 
 1. En **Objetivos de migración** >  **Servidores**, haga clic en **Evaluaciones** en **Azure Migrate: Server Assessment**.
 2. En **Evaluaciones**, haga clic en una evaluación para abrirla.
@@ -85,7 +89,7 @@ Una evaluación describe:
     - **No está preparado para Azure**: muestra los problemas y las soluciones que se sugieren.
     - **Preparación desconocida**: se usa cuando Azure Migrate no puede evaluar la preparación debido a problemas de disponibilidad de datos.
 
-2. Haga clic en cualquiera de los estados de **Preparación para Azure**. Puede ver los detalles de la preparación de la máquina virtual y explorar en profundidad los detalles de esta, entre los que se incluye la configuración de proceso, almacenamiento y red.
+3. Haga clic en cualquiera de los estados de **Preparación para Azure**. Puede ver los detalles de la preparación de la máquina virtual y explorar en profundidad los detalles de esta, entre los que se incluye la configuración de proceso, almacenamiento y red.
 
 
 

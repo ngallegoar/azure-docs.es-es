@@ -5,26 +5,26 @@ description: Pasos para configurar un túnel del dispositivo VPN Always On en Vi
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
-ms.date: 03/13/2020
+ms.topic: how-to
+ms.date: 06/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: e3eea639eaa52c07e877476e9215144e916618d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7adeb9682336b19cc87d8c73a7f9ad8bda5e7828
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79504040"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564074"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel-for-virtual-wan"></a>Configuración de un túnel de dispositivo VPN Always On para Virtual WAN
 
 [!INCLUDE [intro](../../includes/vpn-gateway-vwan-always-on-intro.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Debe crear una configuración de punto a sitio y editar la asignación del concentrador virtual. Consulte las secciones siguientes para ver instrucciones:
 
 * [Creación de una configuración de P2S](virtual-wan-point-to-site-portal.md#p2sconfig)
-* [Edición de la asignación del concentrador](virtual-wan-point-to-site-portal.md#edit)
+* [Creación de un centro de conectividad con puerta de enlace P2S](virtual-wan-point-to-site-portal.md#hub)
 
 ## <a name="configure-the-device-tunnel"></a>Configuración del túnel de dispositivo
 

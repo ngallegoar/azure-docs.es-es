@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 450e6aa1b22806fbd4d142e47caee720d7f63648
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 55e64fad910aba25354d8d7829fc1189b744ca16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860178"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550487"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Configuración y habilitación de los usuarios para la autenticación basada en SMS mediante Azure Active Directory (versión preliminar)
 
@@ -24,10 +24,8 @@ Para reducir la complejidad y los riesgos de seguridad para los usuarios al inic
 
 En este artículo se muestra cómo habilitar la autenticación basada en SMS para usuarios o grupos seleccionados en Azure AD.
 
-|     |
-| --- |
-| La autenticación basada en SMS para los usuarios es una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+> [!NOTE]
+> La autenticación basada en SMS para los usuarios es una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -150,12 +148,16 @@ Si recibe un error al intentar establecer un número de teléfono para una cuent
 
 Puede encontrar más formas de iniciar sesión en Azure AD sin una contraseña, como las claves de seguridad de la aplicación Microsoft Authenticator o FIDO2, en [Opciones de autenticación sin contraseñas de Azure AD][concepts-passwordless].
 
+También puede usar la versión beta de la API de REST de Microsoft Graph para [habilitar][rest-enable] o [deshabilitar][rest-disable] el inicio de sesión basado en SMS.
+
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../fundamentals/active-directory-how-subscriptions-associated-directory.md
 [concepts-passwordless]: concept-authentication-passwordless.md
 [tutorial-azure-mfa]: tutorial-enable-azure-mfa.md
 [tutorial-sspr]: tutorial-enable-sspr.md
+[rest-enable]: /graph/api/phoneauthenticationmethod-enablesmssignin?view=graph-rest-beta&tabs=http
+[rest-disable]: /graph/api/phoneauthenticationmethod-disablesmssignin?view=graph-rest-beta&tabs=http
 
 <!-- EXTERNAL LINKS -->
 [azure-portal]: https://portal.azure.com

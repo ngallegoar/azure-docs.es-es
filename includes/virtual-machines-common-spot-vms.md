@@ -4,15 +4,15 @@ description: archivo de inclusión
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/23/2019
+ms.date: 06/26/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e7dbac1f4fad940b817befa3a45447cf7367c28c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 8ee5973afb9312688178abd9a186c5319032c493
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84317746"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506059"
 ---
 El uso de máquinas virtuales de Spot permite aprovechar las ventajas de nuestra capacidad no utilizada con un importante ahorro en los costos. Siempre que Azure necesite recuperar la capacidad, su infraestructura expulsará las máquinas virtuales de Spot. Por lo tanto, estas son excelentes para cargas de trabajo que soportan interrupciones, como los trabajos de procesamiento por lotes, los entornos de desarrollo y pruebas, las grandes cargas de trabajo de proceso, etc.
 
@@ -21,9 +21,17 @@ La cantidad de capacidad sin usar disponible varía, por ejemplo, en función de
 
 ## <a name="eviction-policy"></a>Directiva de expulsión
 
-Las máquinas virtuales se pueden expulsar en función de la capacidad o del precio máximo establecido. Para las máquinas virtuales, la directiva de expulsión se establece en *Deallocate* (Desasignar); por lo tanto, las que se hayan expulsado pasan al estado stopped-deallocated para que pueda volver a implementarlas posteriormente. Sin embargo, la reasignación de máquinas virtuales de Spot dependerá de la disponibilidad de capacidad de Spot. Las máquinas virtuales desasignadas se siguen teniendo en cuenta en la cuota de vCPU de Spot y se cobra por los discos subyacentes. 
+Las máquinas virtuales se pueden expulsar en función de la capacidad o del precio máximo establecido. Al crear VM de Spot, puede establecer la directiva de expulsión en *Deallocate* (Desasignar) (valor predeterminado) o *Delete* (Eliminar). 
 
-Los usuarios pueden optar por recibir notificaciones en las máquinas virtuales mediante [Azure Scheduled Events](../articles/virtual-machines/linux/scheduled-events.md). De este modo se le notificará que se van a expulsar las máquinas virtuales y tendrá 30 segundos para terminar los trabajos y cerrar las tareas antes de que esto ocurra. 
+La directiva *Deallocate* (Desasignar) mueve las VM al estado stopped-deallocated, lo que le permite volver a implementarlas más tarde. Sin embargo, no hay ninguna garantía de que la asignación se realizará correctamente. Las VM desasignadas se siguen teniendo en cuenta en la cuota y se cobrarán los costos de almacenamiento de los discos subyacentes. 
+
+Si quiere que la VM se elimine al expulsarse, puede establecer la directiva de expulsión en *delete* (eliminar). Las VM expulsadas se eliminan junto con sus discos subyacentes y, por tanto, no se le cobrará el almacenamiento. 
+
+> [!NOTE]
+>
+> El portal no admite actualmente `Delete` como opción de expulsión. Solo puede establecer `Delete` mediante PowerShell, la CLI y las plantillas.
+
+Puede optar por recibir notificaciones en las VM mediante [Azure Scheduled Events](../articles/virtual-machines/linux/scheduled-events.md). De este modo se le notificará que se van a expulsar las máquinas virtuales y tendrá 30 segundos para terminar los trabajos y cerrar las tareas antes de que esto ocurra. 
 
 
 | Opción | Resultado |
@@ -37,15 +45,29 @@ Los usuarios pueden optar por recibir notificaciones en las máquinas virtuales 
 | Si el precio máximo está establecido en `-1` | La máquina virtual no se expulsará por motivos de precio. El precio máximo será el precio actual, hasta como máximo el precio de las máquinas virtuales estándar. No se le cobrará por encima del precio estándar.| 
 | Cambio del precio máximo | Debe desasignar la máquina virtual para cambiar el precio máximo. Desasigne la máquina virtual, establezca un nuevo precio máximo y actualícela. |
 
+
 ## <a name="limitations"></a>Limitaciones
 
 No se admiten los siguientes tamaños de máquina virtual para Spot:
  - Serie B
  - Versiones de promoción de cualquier tamaño (como los tamaños de promoción Dv2, NV, NC, H)
 
-En la actualidad, las máquinas virtuales de Spot no pueden usar discos de sistema operativo efímeros.
-
 Las máquinas virtuales de Spot se pueden implementar en cualquier región, excepto Microsoft Azure China 21Vianet.
+
+Algunos canales de suscripción no se admiten:
+
+<a name="channel"></a>
+
+| Canales de Azure               | Disponibilidad de las máquinas virtuales de Azure       |
+|------------------------------|-----------------------------------|
+| Contrato Enterprise         | Sí                               |
+| Pago por uso                | Sí                               |
+| Proveedor de servicios en la nube (CSP) | [Póngase en contacto con su asociado](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
+| Ventajas                     | No disponible                     |
+| Patrocinados                    | Sí                               |
+| Versión de prueba gratuita                   | No disponible                     |
+
+
 
 ## <a name="pricing"></a>Precios
 
@@ -75,23 +97,6 @@ La variabilidad en los precios permite establecer un precio máximo, en dólares
 **P:** ¿Puedo solicitar una cuota adicional para Spot?
 
 **R:** Sí, podrá enviar la solicitud para aumentar su cuota para las máquinas virtuales de Spot mediante el [proceso de solicitud de cuota estándar](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
-
-
-**P:** ¿Qué canales admiten las máquinas virtuales de Spot?
-
-**R:** Consulte la tabla siguiente para la disponibilidad de máquinas virtuales de Spot.
-
-<a name="channel"></a>
-
-| Canales de Azure               | Disponibilidad de las máquinas virtuales de Azure       |
-|------------------------------|-----------------------------------|
-| Contrato Enterprise         | Sí                               |
-| Pago por uso                | Sí                               |
-| Proveedor de servicios en la nube (CSP) | [Póngase en contacto con su asociado](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| Contrato de cliente de Microsoft | Sí                               |
-| Ventajas                     | No disponible                     |
-| Patrocinados                    | Sí                               |
-| Versión de prueba gratuita                   | No disponible                     |
 
 
 **P:** ¿Dónde puedo publicar preguntas?

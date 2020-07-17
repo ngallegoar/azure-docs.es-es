@@ -2,14 +2,14 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 04/15/2020
+ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: f7208307df51ecefb76f9adaedea59b327cdc19e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee81b391587b994bd79e9f0950d041de70153b5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81604868"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488804"
 ---
 Cuando se utiliza la versión regional de Integración con red virtual, la aplicación puede acceder a:
 
@@ -56,11 +56,7 @@ Se usa una dirección para cada instancia del plan. Si escala la aplicación a c
 
 Si quiere que las aplicaciones de otro plan lleguen a una VNet a la que ya están conectadas aplicaciones de otro plan, debe seleccionar una subred distinta a la usada por la característica Integración con VNet ya existente.
 
-Esta característica se encuentra en versión preliminar para Linux. La versión para Linux de esta característica solo permite realizar llamadas a direcciones RFC 1918 (10.0.0.0/8, 172.16.0.0/12 y 192.168.0.0/16).
-
-### <a name="web-or-function-app-for-containers"></a>Web o Function App for Containers
-
-Si hospeda la aplicación en Linux con las imágenes integradas, Integración con red virtual regional funciona sin necesidad de más cambios. Si usa Web o Function App for Containers, debe modificar la imagen de Docker para usar Integración con red virtual. En la imagen de Docker, use la variable de entorno PORT como puerto de escucha del servidor web principal, en lugar de un número de puerto codificado de forma rígida. La variable de entorno PORT la establece automáticamente la plataforma al iniciar el contenedor. Si usa SSH, el demonio de SSH debe estar configurado para escuchar en el número de puerto que especificó la variable de entorno SSH_PORT al usar Integración con red virtual regional. En Linux, no se admite la versión de Integración con red virtual que necesita una puerta de enlace.
+La característica es totalmente compatible con aplicaciones web para Windows y Linux. Todos los comportamientos actúan del mismo modo entre aplicaciones para Windows y Linux.
 
 ### <a name="service-endpoints"></a>Puntos de conexión del servicio
 

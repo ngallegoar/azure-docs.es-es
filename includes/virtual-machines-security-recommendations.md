@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/13/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: df577ab2b5e9658fd55324c8fd6fd008621b4d46
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 30f852f1bf4994f525ccb65c3827af8f8ae02f96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545899"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85838742"
 ---
 En este artículo se incluyen recomendaciones de seguridad para Azure Virtual Machines. Estas recomendaciones le ayudarán a cumplir las obligaciones de seguridad descritas en nuestro modelo de responsabilidad compartida. También le ayudarán a mejorar la seguridad general de las soluciones de aplicaciones web. Para más información acerca de lo que hace Microsoft para cumplir sus responsabilidades como proveedor de servicios, consulte [Responsabilidades compartidas de la informática en la nube](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
 
@@ -38,7 +38,7 @@ Para más información sobre Azure Security Center, consulte [¿Qué es Azure Se
 | Cifre los discos del sistema operativo. | [Azure Disk Encryption](../articles/security/azure-security-disk-encryption-overview.md) le ayuda a cifrar los discos de máquina virtual IaaS de Windows y Linux. Sin las claves necesarias, el contenido de los discos cifrado no se puede leer. El cifrado de disco protege los datos almacenados contra el acceso no autorizado que, de lo contrario, sería posible si se copiara el disco.| [Sí](../articles/security-center/security-center-apply-disk-encryption.md) |
 | Cifre los discos de datos. | [Azure Disk Encryption](../articles/security/azure-security-disk-encryption-overview.md) le ayuda a cifrar los discos de máquina virtual IaaS de Windows y Linux. Sin las claves necesarias, el contenido de los discos cifrado no se puede leer. El cifrado de disco protege los datos almacenados contra el acceso no autorizado que, de lo contrario, sería posible si se copiara el disco.| -  |
 | Limite el software instalado. | Limite el software instalado al estrictamente necesario para aplicar correctamente la solución. Esta guía ayuda a reducir la superficie de la solución expuesta a ataques. | - |
-| Use antivirus o antimalware. | En Azure, puede usar software antimalware de proveedores de seguridad como Microsoft, Symantec, Trend Micro y Kaspersky. Este software ayudará a proteger las máquinas virtuales contra archivos malintencionados, adware y otras amenazas. Puede implementar Microsoft Antimalware en función de las cargas de trabajo de las aplicaciones. Use la configuración de seguridad básica predeterminada o una configuración personalizada avanzada. Para más información, consulte [Microsoft Antimalware para Azure Cloud Services y Virtual Machines](../articles/security/azure-security-antimalware.md). | - |
+| Use antivirus o antimalware. | En Azure, puede usar software antimalware de proveedores de seguridad como Microsoft, Symantec, Trend Micro y Kaspersky. Este software ayudará a proteger las máquinas virtuales contra archivos malintencionados, adware y otras amenazas. Puede implementar Microsoft Antimalware en función de las cargas de trabajo de las aplicaciones. Microsoft Antimalware solo está disponible para máquinas Windows. Use la configuración de seguridad básica predeterminada o una configuración personalizada avanzada. Para más información, consulte [Microsoft Antimalware para Azure Cloud Services y Virtual Machines](../articles/security/azure-security-antimalware.md). | - |
 | Almacene de forma segura claves y secretos. | Simplifique la administración de los secretos y claves proporcionando a los propietarios de la aplicación una opción segura administrada centralmente. Esta administración reduce el riesgo de que se produzca una pérdida o una amenaza accidental. Azure Key Vault puede almacenar de forma segura claves en módulos de seguridad de hardware (HSM) que tienen la certificación FIPS 140-2 nivel 2. Si necesita usar FIPs 140.2 nivel 3 para almacenar las claves y secretos, puede usar [Azure Dedicated HSM](../articles/dedicated-hsm/overview.md). | - |
 
 ## <a name="identity-and-access-management"></a>Administración de identidades y acceso 

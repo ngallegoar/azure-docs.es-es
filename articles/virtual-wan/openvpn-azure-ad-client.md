@@ -4,15 +4,15 @@ description: Puede usar la P2S VPN para conectarse a la red virtual con la auten
 services: vpn-gateway
 author: anzaman
 ms.service: virtual-wan
-ms.topic: conceptual
-ms.date: 03/27/2020
+ms.topic: how-to
+ms.date: 06/26/2020
 ms.author: alzam
-ms.openlocfilehash: edb509d43742aeecf74107ae8cb625aeafbccb9f
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: bf507ff75d88ac4c549233e50a44ea60ab212886
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385369"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482996"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Configuración de un cliente VPN para conexiones P2S de protocolo OpenVPN: Autenticación de Azure AD
 
@@ -176,7 +176,7 @@ Puede modificar el archivo XML de perfil descargado y agregar las etiquetas **\<
 
 ### <a name="how-do-i-add-custom-dns-servers-to-the-vpn-client"></a>¿Cómo agrego servidores DNS personalizados al cliente VPN?
 
-Puede modificar el archivo XML de perfil descargado y agregar las etiquetas **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** .
+Puede modificar el archivo XML de perfil descargado y agregar las etiquetas **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>**
 
 ```
 <azvpnprofile>
@@ -197,7 +197,7 @@ Puede modificar el archivo XML de perfil descargado y agregar las etiquetas **\<
 
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>¿Cómo agrego rutas personalizadas al cliente VPN?
 
-Puede modificar el archivo XML de perfil descargado y agregar las etiquetas **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** .
+Puede modificar el archivo XML de perfil descargado y agregar las etiquetas **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>**
 
 ```
 <azvpnprofile>
@@ -212,10 +212,30 @@ Puede modificar el archivo XML de perfil descargado y agregar las etiquetas **\<
 </clientconfig>
 </azvpnprofile>
 ```
+### <a name="how-do-i-direct-all-traffic-to-the-vpn-tunnel-force-tunnel"></a>¿Cómo dirijo todo el tráfico al túnel VPN (forzar túnel)?
+
+Puede modificar el archivo XML de perfil descargado y agregar las etiquetas **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>**
+
+```
+<azvpnprofile>
+<clientconfig>
+
+    <includeroutes>
+        <route>
+            <destination>0.0.0.0</destination><mask>1</mask>
+        </route>
+        <route>
+            <destination>128.0.0.0</destination><mask>1</mask>
+        </route>
+    </includeroutes>
+    
+</clientconfig>
+</azvpnprofile>
+```
 
 ### <a name="how-do-i-block-exclude-routes-from-the-vpn-client"></a>¿Cómo bloqueo (excluyo) las rutas del cliente VPN?
 
-Puede modificar el archivo XML de perfil descargado y agregar las etiquetas **\<excluderoutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</excluderoutes>** .
+Puede modificar el archivo XML de perfil descargado y agregar las etiquetas **\<excluderoutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</excluderoutes>**
 
 ```
 <azvpnprofile>
