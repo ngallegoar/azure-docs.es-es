@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: eec92672801d33290df1690d8cb17e79d4626192
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2e337628542475c081a59bffd25368de313011f8
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042057"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206211"
 ---
 # <a name="regions-that-support-availability-zones-in-azure"></a>Regiones que admiten Availability Zones en Azure
 
@@ -24,9 +24,8 @@ En esta sección se enumeran los servicios y las regiones de Azure que admiten A
 
 Los servicios que están disponibles en cada región, junto con la próxima hoja de ruta de disponibilidad, se pueden encontrar en [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/).
 
-|                                 |América |              |           |           | Europa |              |          |              | Asia Pacífico |                 |                |
+| Servicio |América: Centro de EE. UU.|América: Este de EE. UU.|América: Este de EE. UU. 2|América: Oeste de EE. UU. 2|Europa: Centro de Francia|Europa: Norte de Europa|Europa: Sur de Reino Unido|Europa: Oeste de Europa|Asia Pacífico: Japón Oriental|Asia Pacífico: Sudeste de Asia|Asia Pacífico: Este de Australia|
 |----------------------------|----------|----------|---------|---------|--------------|------------|--------|----------|----------|-------------|-------------|
-|          |Centro de EE. UU.|Este de EE. UU.|Este de EE. UU. 2|Oeste de EE. UU. 2|Centro de Francia|Norte de Europa|Sur de Reino Unido|Oeste de Europa|Japón Oriental|Sudeste de Asia|Este de Australia|
 | **Proceso**                         |            |              |           |           |                |              |          |             |            |                |                |
 | Máquinas virtuales Linux          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | Máquinas virtuales Windows        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |

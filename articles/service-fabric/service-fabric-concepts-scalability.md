@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: masnider
-ms.openlocfilehash: 1780cb47696813b5d26035f54e0685969482dba6
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 5b311dd9b0cd2c2b007bc19994aee771b2c4360f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058119"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246387"
 ---
 # <a name="scaling-in-service-fabric"></a>Reducción horizontalmente de Service Fabric
 Azure Service Fabric facilita la creación de aplicaciones escalables, al administrar los servicios, particiones y réplicas en los nodos de un clúster. La ejecución de muchas cargas de trabajo en el mismo hardware permite el uso máximo de recursos, pero también proporciona flexibilidad en cuanto a cómo elegir escalar las cargas de trabajo. Este vídeo de Channel 9 describe cómo puede crear aplicaciones de microservicios escalables:
@@ -63,7 +63,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## <a name="scaling-by-creating-or-removing-new-named-services"></a>Escalado mediante la creación o eliminación de nuevos servicios con nombre
 Una instancia de servicio nombrada es una instancia específica de un tipo de servicio (consulte el [Ciclo de vida de aplicaciones de Service Fabric](service-fabric-application-lifecycle.md)) dentro de alguna instancia de aplicación nombrada en el clúster. 
 
-Las nuevas instancias de servicio con nombre se pueden crear (o quitar) a medida que los servicios estén más o menos ocupados. Esto permite que las solicitudes abarquen más instancias de servicio, lo que normalmente permite que la carga en los servicios existentes disminuya. Al crear servicios, Cluster Resource Manager de Service Fabric coloca los servicios en el clúster de manera distribuida. Las decisiones exactas se rigen por la [métricas](service-fabric-cluster-resource-manager-metrics.md) en el clúster y otras reglas de colocación. Los servicios se pueden crear de varias maneras diferentes, pero los más comunes son a través de acciones administrativas como alguien que llama a [`New-ServiceFabricService`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps) o mediante una llamada de código [`CreateServiceAsync`](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync` puede incluso llamar desde dentro de otros servicios que se ejecutan en el clúster.
+Las nuevas instancias de servicio con nombre se pueden crear (o quitar) a medida que los servicios estén más o menos ocupados. Esto permite que las solicitudes abarquen más instancias de servicio, lo que normalmente permite que la carga en los servicios existentes disminuya. Al crear servicios, Cluster Resource Manager de Service Fabric coloca los servicios en el clúster de manera distribuida. Las decisiones exactas se rigen por la [métricas](service-fabric-cluster-resource-manager-metrics.md) en el clúster y otras reglas de colocación. Los servicios se pueden crear de varias maneras diferentes, pero los más comunes son a través de acciones administrativas como alguien que llama a [`New-ServiceFabricService`](/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps) o mediante una llamada de código [`CreateServiceAsync`](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync` puede incluso llamar desde dentro de otros servicios que se ejecutan en el clúster.
 
 La creación de servicios dinámicamente puede usarse en todo tipo de escenarios y es un patrón común. Por ejemplo, considere la posibilidad de un servicio con estado que representa un flujo de trabajo determinado. Las llamadas que representan el trabajo van a ir mostrándose a este servicio y este servicio va a ejecutar los pasos necesarios para que el flujo de trabajo y el registro progresen. 
 

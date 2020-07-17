@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: d265726835620c5b468c8a81570e80c7167b2997
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: dbb1d73fc2b19ef701cb08ced24c634bbbadb235
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084348"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231597"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Preguntas más frecuentes sobre Hiperescala de Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -45,12 +45,12 @@ Los niveles de servicio basados en núcleos virtuales se diferencian en función
 | **Más adecuado para** |All|Ofrece opciones de proceso y almacenamiento equilibradas adecuadas para un presupuesto limitado.|La mayoría de las cargas de trabajo empresariales. Escalado automático del tamaño de almacenamiento hasta 100 TB, escalado de procesos vertical y horizontal rápido, restauración rápida de bases de datos.|Aplicaciones de OLTP con una alta tasa de transacciones y latencia de E/S baja. Ofrece mayor resistencia a los errores y rapidez en las conmutaciones por error mediante varias réplicas actualizadas sincrónicamente.|
 |  **Tipo de recurso** ||SQL Database / Instancia administrada de SQL | Base de datos única | SQL Database / Instancia administrada de SQL |
 | **Tamaño de proceso**|SQL Database* | 1 a 80 núcleos virtuales | 1 a 80 núcleos virtuales* | 1 a 80 núcleos virtuales |
-| |Instancia administrada de SQL | 8, 16, 24, 32, 40, 64, 80 núcleos virtuales | N/D | 8, 16, 24, 32, 40, 64, 80 núcleos virtuales |
+| **Tamaño de proceso**|Instancia administrada de SQL | 8, 16, 24, 32, 40, 64, 80 núcleos virtuales | N/D | 8, 16, 24, 32, 40, 64, 80 núcleos virtuales |
 | **Tipo de almacenamiento** | All |Almacenamiento remoto Premium (por instancia) | Almacenamiento desacoplado con caché de SSD local (por instancia) | Almacenamiento SSD local extremadamente rápido (por instancia) |
 | **Tamaño de almacenamiento** | SQL Database *| 5 GB – 4 TB | Hasta 100 TB | 5 GB – 4 TB |
-| | Instancia administrada de SQL  | 32 GB–8 TB | N/D | 32 GB – 4 TB |
+| **Tamaño de almacenamiento** | Instancia administrada de SQL  | 32 GB–8 TB | N/D | 32 GB – 4 TB |
 | **E/S** | Base de datos única | 500 IOPS por núcleo virtual con 7000 IOPS como máximo | Hiperescala es una arquitectura de varios niveles con almacenamiento en caché en varios niveles. Los IOPS efectivos dependen de la carga de trabajo. | 5000 IOPS hasta un máximo de 200 000 IOPS|
-| | Instancia administrada de SQL | Depende del tamaño de archivo | N/D | 1375 IOPS/núcleo virtual |
+| **E/S** | Instancia administrada de SQL | Depende del tamaño de archivo | N/D | 1375 IOPS/núcleo virtual |
 |**Disponibilidad**|All|1 réplica, sin escalado horizontal de lectura, sin caché local | Varias réplicas, hasta 4 escalados horizontales de lectura, caché local parcial | 3 replicas, 1 escalado horizontal de lectura, alta disponibilidad con redundancia de zona, caché local completa |
 |**Copias de seguridad**|All|RA-GRS, retención de 7 a 35 días (7 días de manera predeterminada)| RA-GRS, retención de 7 días, recuperación a un momento dado (PITR) en un tiempo constante | RA-GRS, retención de 7 a 35 días (7 días de manera predeterminada) |
 

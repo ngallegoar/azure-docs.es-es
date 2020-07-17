@@ -3,12 +3,12 @@ title: Actualización de nodos de clúster para usar discos administrados de Azu
 description: Aquí se muestra cómo actualizar un clúster de Service Fabric existente para usar Azure Managed Disks con poco o ningún tiempo de inactividad del clúster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 46dec6ae29fdd8f2a418f695c31900e6df4483e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cff0f99412f189f38f1b14d15c7285166a048c87
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611635"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255904"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Actualización de nodos de clúster para usar Azure Managed Disks
 
@@ -16,7 +16,7 @@ ms.locfileid: "85611635"
 
 La estrategia general para actualizar un nodo de clúster de Service Fabric para usar discos administrados es:
 
-1. Implemente otro conjunto de escalado de máquinas virtuales duplicado de ese tipo de nodo, pero con el objeto [managedDisk](https://docs.microsoft.com/azure/templates/microsoft.compute/2019-07-01/virtualmachinescalesets/virtualmachines#ManagedDiskParameters) agregado a la sección `osDisk` de la plantilla de implementación del conjunto de escalado de máquinas virtuales. El nuevo conjunto de escalado debe enlazarse con el mismo equilibrador de carga o dirección IP que el original, de modo que los clientes no experimenten una interrupción del servicio durante la migración.
+1. Implemente otro conjunto de escalado de máquinas virtuales duplicado de ese tipo de nodo, pero con el objeto [managedDisk](/azure/templates/microsoft.compute/2019-07-01/virtualmachinescalesets/virtualmachines#ManagedDiskParameters) agregado a la sección `osDisk` de la plantilla de implementación del conjunto de escalado de máquinas virtuales. El nuevo conjunto de escalado debe enlazarse con el mismo equilibrador de carga o dirección IP que el original, de modo que los clientes no experimenten una interrupción del servicio durante la migración.
 
 2. Una vez que los conjuntos de escalado original y actualizado se ejecuten en paralelo, deshabilite las instancias de nodo originales una a una para que los servicios del sistema (o las réplicas de servicios con estado) migren al nuevo conjunto de escalado.
 
@@ -25,7 +25,7 @@ La estrategia general para actualizar un nodo de clúster de Service Fabric para
 Este artículo le guiará a lo largo de los pasos necesarios para actualizar el tipo de nodo principal de un clúster de ejemplo para usar discos administrados, al tiempo que evita cualquier tiempo de inactividad del clúster (vea la nota siguiente). El estado inicial del clúster de prueba de ejemplo consta de un tipo de nodo de [durabilidad Silver](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), respaldado por un solo conjunto de escalado con cinco nodos.
 
 > [!CAUTION]
-> Experimentará una interrupción con este procedimiento solo si tiene dependencias en el DNS del clúster (por ejemplo, al acceder a [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). El [procedimiento recomendado para los servicios de front-end](https://docs.microsoft.com/azure/architecture/microservices/design/gateway) en el nivel de arquitectura es tener algún tipo de [equilibrador de carga](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) delante de los tipos de nodo para que el intercambio de nodos sea posible sin interrupción.
+> Experimentará una interrupción con este procedimiento solo si tiene dependencias en el DNS del clúster (por ejemplo, al acceder a [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). El [procedimiento recomendado para los servicios de front-end](/azure/architecture/microservices/design/gateway) en el nivel de arquitectura es tener algún tipo de [equilibrador de carga](/azure/architecture/guide/technology-choices/load-balancing-overview) delante de los tipos de nodo para que el intercambio de nodos sea posible sin interrupción.
 
 Estos son los [cmdlets y plantillas](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) para Azure Resource Manager que usaremos para completar el escenario de actualización. Los cambios en la plantilla se explicarán en [Implementación de un conjunto de escalado actualizado para el tipo de nodo principal](#deploy-an-upgraded-scale-set-for-the-primary-node-type) a continuación.
 

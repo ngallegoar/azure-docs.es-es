@@ -4,12 +4,12 @@ description: Introducción a la creación de una aplicación de Service Fabric d
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: sfrev
-ms.openlocfilehash: 0a8d5a05f922cd01067abbc3e98320a32cd9d256
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 201131f774632e1130c6be6a0dbcb950b96ec508
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86038028"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260481"
 ---
 # <a name="get-started-with-reliable-services"></a>Introducción a los servicios de confianza
 
@@ -169,11 +169,11 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
-[IReliableDictionary](https://msdn.microsoft.com/library/dn971511.aspx) es una implementación de diccionario que se puede usar para almacenar estados de manera confiable en el servicio. Con Service Fabric y Reliable Collections, ahora puede almacenar datos directamente en el servicio sin necesidad de un almacén persistente externo. Gracias a Reliable Collections, los datos tendrán una alta disponibilidad. Service Fabric realiza esta tarea creando y administrando automáticamente varias *réplicas* de su servicio. También proporciona una API que elimina las complejidades derivadas de la administración de las réplicas y sus transiciones de estado.
+[IReliableDictionary](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliabledictionary_2) es una implementación de diccionario que se puede usar para almacenar estados de manera confiable en el servicio. Con Service Fabric y Reliable Collections, ahora puede almacenar datos directamente en el servicio sin necesidad de un almacén persistente externo. Gracias a Reliable Collections, los datos tendrán una alta disponibilidad. Service Fabric realiza esta tarea creando y administrando automáticamente varias *réplicas* de su servicio. También proporciona una API que elimina las complejidades derivadas de la administración de las réplicas y sus transiciones de estado.
 
 Reliable Collections puede almacenar cualquier tipo de .NET, incluidos los tipos personalizados, con un par de advertencias:
 
-* Service Fabric logra que su estado presente una alta disponibilidad *replicándolo* entre nodos y almacenándolo en el disco local. Es decir, todo lo que se almacena en Reliable Collections debe ser *serializable*. De forma predeterminada, Reliable Collections utiliza [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) para la serialización, por lo que resulta importante asegurarse de que los tipos sean [compatibles con el serializador de contratos de datos](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) cuando se usa el serializador predeterminado.
+* Service Fabric logra que su estado presente una alta disponibilidad *replicándolo* entre nodos y almacenándolo en el disco local. Es decir, todo lo que se almacena en Reliable Collections debe ser *serializable*. De forma predeterminada, Reliable Collections utiliza [DataContract](/dotnet/api/system.runtime.serialization.datacontractattribute?view=netcore-3.1) para la serialización, por lo que resulta importante asegurarse de que los tipos sean [compatibles con el serializador de contratos de datos](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer) cuando se usa el serializador predeterminado.
 * Los objetos se replican para obtener una alta disponibilidad cuando se confirman transacciones en Reliable Collections. Los objetos almacenados en Reliable Collections se mantienen en la memoria local en el servicio. Esto significa que tiene una referencia local al objeto.
   
    Es importante no modificar las instancias locales de los objetos sin tener que realizar una operación de actualización en la colección fiable de una transacción. Esto se debe a que los cambios en las instancias de objetos locales no se replicarán automáticamente. Debe volver a insertar el objeto en el diccionario o utilizar uno de los métodos de *actualización* del diccionario.
@@ -212,7 +212,7 @@ Una vez que los servicios empiecen a ejecutarse, podrá ver los eventos del Segu
 ## <a name="next-steps"></a>Pasos siguientes
 [Depuración de la aplicación del Service Fabric en Visual Studio](service-fabric-debugging-your-application.md)
 
-[Primeros pasos: servicios de la API web de Service Fabric con autohospedaje OWIN](service-fabric-reliable-services-communication-webapi.md)
+[Primeros pasos: servicios de la API web de Service Fabric con autohospedaje OWIN](./service-fabric-reliable-services-communication-aspnetcore.md)
 
 [Obtenga más información acerca de las colecciones fiables](service-fabric-reliable-services-reliable-collections.md)
 
@@ -220,5 +220,4 @@ Una vez que los servicios empiecen a ejecutarse, podrá ver los eventos del Segu
 
 [Actualización de aplicaciones](service-fabric-application-upgrade.md)
 
-[Referencia para desarrolladores de servicios confiables](https://msdn.microsoft.com/library/azure/dn706529.aspx)
-
+[Referencia para desarrolladores de servicios confiables](/previous-versions/azure/dn706529(v=azure.100))

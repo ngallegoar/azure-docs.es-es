@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 774b114a47958b173f891ed13d423f9b051ee37c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2af8dcb2460e4e95d29bd81e6994d145ac61a48
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610547"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247786"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Consideraciones de planeación de capacidad del clúster de Service Fabric
 
@@ -26,7 +26,7 @@ Este artículo le guiará a través de los puntos de decisión significativos pa
 
 ## <a name="initial-number-and-properties-of-cluster-node-types"></a>Número inicial y propiedades de los tipos de nodo de clúster
 
-Un *tipo de nodo* define el tamaño, el número y las propiedades de un conjunto de nodos (máquinas virtuales) en el clúster. Cada tipo de nodo que se define en un clúster de Service Fabric se asigna a con un [conjunto de escalado de máquinas virtuales](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+Un *tipo de nodo* define el tamaño, el número y las propiedades de un conjunto de nodos (máquinas virtuales) en el clúster. Cada tipo de nodo que se define en un clúster de Service Fabric se asigna a con un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/overview.md).
 
 Dado que cada tipo de nodo es un conjunto de escalado distinto, se puede escalar o reducir verticalmente de forma independiente, tener diferentes conjuntos de puertos abiertos y tener distintas métricas de capacidad. Para más información sobre la relación entre los tipos de nodo y los conjuntos de escalado de máquinas virtuales, consulte los [tipos de nodo de clúster de Service Fabric](service-fabric-cluster-nodetypes.md).
 
@@ -34,7 +34,7 @@ Cada clúster requiere un **tipo de nodo principal**, que ejecuta servicios crí
 
 **Los tipos de nodo no principales** pueden usarse para definir roles de aplicación (como *front-end* y servicios de *back-end*) y aislar físicamente los servicios dentro de un clúster. Los clústeres de Service Fabric pueden tener cero o más tipos de nodo no principal.
 
-El tipo de nodo principal se configura con el atributo `isPrimary` de la definición de tipo de nodo en la plantilla de implementación de Azure Resource Manager. Vea el [objeto NodeTypeDescription](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) para obtener la lista completa de las propiedades de tipo de nodo. Por ejemplo, use cualquier archivo *AzureDeploy.json* en [ejemplos de clúster de Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) y *Buscar en la página* busque el objeto `nodetTypes`.
+El tipo de nodo principal se configura con el atributo `isPrimary` de la definición de tipo de nodo en la plantilla de implementación de Azure Resource Manager. Vea el [objeto NodeTypeDescription](/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) para obtener la lista completa de las propiedades de tipo de nodo. Por ejemplo, use cualquier archivo *AzureDeploy.json* en [ejemplos de clúster de Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) y *Buscar en la página* busque el objeto `nodetTypes`.
 
 ### <a name="node-type-planning-considerations"></a>Consideraciones de planeación de tipos de nodo
 
@@ -79,7 +79,7 @@ En la siguiente tabla se enumeran los niveles de durabilidad de Service Fabric, 
 > La actualización automática de la imagen del sistema operativo no está disponible con durabilidad Bronce. Si bien la [Aplicación de orquestación de parches](service-fabric-patch-orchestration-application.md) (pensada solo para clústeres alojados que no sean de Azure) *no se recomienda* para niveles de durabilidad Plata o mayores, es su única opción para automatizar las actualizaciones de Windows con respecto a la actualización de dominios de Service Fabric.
 
 > [!IMPORTANT]
-> Independientemente del nivel de durabilidad, la ejecución de una operación de [Desasignación](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) en un conjunto de escalado de máquinas virtuales destruirá el clúster.
+> Independientemente del nivel de durabilidad, la ejecución de una operación de [Desasignación](/rest/api/compute/virtualmachinescalesets/deallocate) en un conjunto de escalado de máquinas virtuales destruirá el clúster.
 
 ### <a name="bronze"></a>Bronce
 

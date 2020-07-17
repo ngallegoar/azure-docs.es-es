@@ -3,12 +3,12 @@ title: Creación de un clúster de Service Fabric en Azure Portal
 description: Obtenga información sobre cómo configurar un clúster de Service Fabric seguro en Azure mediante Azure Portal y Azure Key Vault.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: eeadfcf24ad2448c845f3d612247686347600001
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b47f3b756ef4d012b41fd15686ffc08ab54fc187
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611159"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259309"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creación de un clúster de Service Fabric en Azure mediante el Portal de Azure
 > [!div class="op_single_selector"]
@@ -121,7 +121,7 @@ Configure los nodos del clúster. Los tipos de nodos definen los tamaños de má
 ### <a name="3-security"></a>3. Seguridad
 ![Captura de pantalla de las configuraciones de seguridad de Azure Portal.][BasicSecurityConfigs]
 
-Para facilitar la configuración de un clúster de prueba seguro, hemos proporcionado la opción **Básico**. Si ya dispone de un certificado y lo ha cargado en su [almacén de claves](/azure/key-vault/) (y habilitó el almacén de claves para la implementación), use la opción **Personalizado**
+Para facilitar la configuración de un clúster de prueba seguro, hemos proporcionado la opción **Básico**. Si ya dispone de un certificado y lo ha cargado en su [almacén de claves](../key-vault/index.yml) (y habilitó el almacén de claves para la implementación), use la opción **Personalizado**
 
 #### <a name="basic-option"></a>Opción Básico
 Siga las instrucciones que se muestran en la pantalla para agregar o volver a usar un almacén de claves existente y agregar un certificado. La adición del certificado es un proceso sincrónico, por lo que tendrá que esperar a que se cree el certificado.
@@ -202,7 +202,7 @@ Cada uno de los tipos de nodos que especifica en el clúster da lugar a una conf
 En este punto, tiene un clúster seguro mediante certificados para la autenticación de administración. Después, [conéctese al clúster](service-fabric-connect-to-secure-cluster.md) y aprenda a [administrar secretos de aplicación](service-fabric-application-secret-management.md).  Más información sobre las [opciones de soporte técnico de Service Fabric](service-fabric-support.md)
 
 <!-- Links -->
-[azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[azure-powershell]: /powershell/azure/
 [azure-portal]: https://portal.azure.com/
 [key-vault-get-started]: ../key-vault/general/overview.md
 [create-cluster-arm]: service-fabric-cluster-creation-via-arm.md
