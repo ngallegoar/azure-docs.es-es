@@ -279,13 +279,13 @@ No puede mostrar los nodos de Azure Cosmos DB en el árbol de la izquierda al co
 
 No hay ninguna respuesta tras hacer clic en el nodo "Development" (Desarrollo) en el nodo "Local and Attached" (Locales y conectados) en el árbol de la izquierda.  Este comportamiento es normal. El emulador local de Azure Cosmos DB se admitirá en la próxima versión.
 
-:::image type="content" source="./media/storage-explorer/development.png" alt-text="Nodo "Development" (Desarrollo)":::
+:::image type="content" source="./media/storage-explorer/development.png" alt-text="Nodo Development (Desarrollo)":::
 
 ### <a name="attaching-azure-cosmos-db-account-in-local-and-attached-node-error"></a>Error al adjuntar la cuenta de Azure Cosmos DB al nodo "Local and Attached" (Locales y conectados)
 
 Si ve el error siguiente después de adjuntar la cuenta de Azure Cosmos DB en el nodo"Local and Attached" (Locales y conectados), compruebe si está usando la cadena de conexión correcta.
 
-:::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="Error al adjuntar Azure Cosmos DB en "Local and Attached" (Locales y conectados)":::
+:::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="Error al adjuntar Azure Cosmos DB en Local and Attached (Locales y conectados)":::
 
 ### <a name="expand-azure-cosmos-db-node-error"></a>Error al expandir el nodo de Azure Cosmos DB
 
